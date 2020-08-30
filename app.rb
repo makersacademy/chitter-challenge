@@ -6,6 +6,7 @@ require_relative './lib/peep.rb'
 class ChitterApp < Sinatra::Base
 
     get '/' do
+      @peeps = Peep.get_peeps
         erb(:index)
     end
 

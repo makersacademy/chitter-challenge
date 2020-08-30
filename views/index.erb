@@ -3,3 +3,7 @@
   <input placeholder='Enter a peep!' type='text' name='message'>
   <input type='submit' value='post'>
 </form>
+
+<% @peeps.each do |peep| %>
+    <p> <%=peep.peep%>
+    <%end%>
