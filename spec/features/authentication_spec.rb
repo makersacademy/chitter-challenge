@@ -23,4 +23,16 @@ feature 'authentication' do
     expect(page).not_to have_content 'Hello @tester'
     expect(page).to have_content 'Please check your email or password.'
   end
+
+  scenario 'a user sees an error if they enter the wrong password' do
+    User.create(handle: 'tester', email: 'test@email.com', password: 'password123', name: 'Mr Test')
+    visit '/sessions/new'
+    fill_in :email, with: 'test@email.com'
+    fill_in :password, with: 'wrongpassword'
+
+    click_button 'Sign in'
+
+    expect(page).not_to have_content 'Hello @tester'
+    expect(page).to have_content 'Please check your email or password.'
+  end
 end

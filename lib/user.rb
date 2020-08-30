@@ -38,8 +38,10 @@ class User
         FROM users 
        WHERE email = '#{email}'")
 
-    return unless search.any?  
+    return unless search.any?
+    
+    return unless BCrypt::Password.new(search[0]['password']) == password
 
-    User.new(id: search[0]['id'], email: search[0]['email'], password: search[0]['password'])
+    User.new(id: search[0]['id'], handle: search[0]['handle'], name: search[0]['name'])
   end
 end
