@@ -5,6 +5,7 @@ Welcome to Chitter!
 </form>
 <ul>
   <% @peeps.each do |peep| %>
-  <%= peep %><br>
+  <%= peep.message %><br>
+  Posted: <%= peep.timestamp %><br>
   <% end %>
 </ul>

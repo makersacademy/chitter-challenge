@@ -7,13 +7,12 @@ describe Peep do
       Peep.create('first peep test')
       Peep.create('second peep test')
       test_peep = Peep.create('third peep test')
-      time_created = Time.now
       peeps = Peep.all
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq test_peep.id
-      expect(peeps.first.message).to eq 'third peep test'
-      expect(peeps.first.timestamp).to eq time_created
+      expect(peeps.first.id).to eq(test_peep.id)
+      expect(peeps.first.message).to eq('third peep test')
+      expect(peeps.first.timestamp).to eq("#{Time.now.strftime('%d-%m-%Y %H:%M:%S')}")
     end
 
     it 'returns peeps in reverse order' do
@@ -29,8 +28,10 @@ describe Peep do
 
   describe '#.create' do
     it 'adds to peeps table the message' do
-      Peep.create('testing create method')
-      expect(described_class.all).to include('testing create method')
+      peep = Peep.create('testing create method')
+      expect(peep).to be_a Peep
+      expect(peep.message).to eq('testing create method')
+      expect(peep.timestamp).to eq(Time.now.strftime('%d-%m-%Y %H:%M:%S'))
     end
   end
 

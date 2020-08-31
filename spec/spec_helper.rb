@@ -3,6 +3,7 @@ ENV['ENVIROMENT'] = 'test'
 
 require_relative '../app.rb'
 require_relative './setup_test_database'
+require 'features/web_helpers'
 
 require 'capybara'
 require 'capybara/rspec'
