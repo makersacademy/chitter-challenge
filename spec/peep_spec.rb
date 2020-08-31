@@ -4,6 +4,9 @@ describe Peep do
 
   describe '#.all' do
     it 'returns all peeps stored' do
+      Peep.create('first peep test')
+      Peep.create('second peep test')
+      Peep.create('third peep test')
       peeps = Peep.all
       expect(peeps).to include('first peep test')
       expect(peeps).to include('second peep test')

@@ -62,6 +62,13 @@ CREATE DATABASE chitter_manager;
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
+Connect to `psql` and create the `chitter_manager_test` database:
+
+```
+CREATE DATABASE chitter_manager_test;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
 ## Approach
 -------
@@ -71,6 +78,7 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 4. Created model and database to pass unit test
 5. Wrote unit test for Peep class to create messages.
 6. Passed test and linked Database + Model with Controller + Views to complete first user story.  
+7. Created test database
 
 ## Further Improvements
 -------
