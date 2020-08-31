@@ -1,0 +1,12 @@
+<form action='/new' method='post'>
+  <input placeholder='Enter a peep!' type='text' name='message'>
+  <input type='submit' value='post'>
+</form>
+
+<% @peeps.each do |peep| %>
+    <div>
+      <%= peep.time %>
+      <p> <%=peep.peep%>
+      <p> <%= @user%>
+    </div>
+    <%end%>

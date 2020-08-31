@@ -1,8 +1,13 @@
 
-<form action='/new' method='post'>
-  <input placeholder='Enter a peep!' type='text' name='message'>
-  <input type='submit' value='post'>
+<form action='/sign_up' method='post'>
+  <input placeholder='Full-name' type='text' name='name'>
+  <input type='text' placeholder='Email' name='email'>
+  <input type='text' placeholder='username' name='username'>
+  <input type='text' placeholder='password' name='password'>
+  <input type='submit' value='sign-in'>
 </form>
+
+
 
 <% @peeps.each do |peep| %>
     <div>

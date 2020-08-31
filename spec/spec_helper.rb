@@ -8,6 +8,7 @@ require 'simplecov-console'
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
+require 'features/web_helper'
 
 RSpec.configure do |config| 
   config.before(:each) do 
