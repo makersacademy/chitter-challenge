@@ -20,12 +20,13 @@ h1 {
 }
 
 form {
-  margin-top: 100px;
+  margin-top: 10px;
   font-size: 30px;
+
 }
 
 .button {
-  margin-top: 40px;
+  margin-top: 10px;
   display: inline-block;
   background-color: #4AA0EB;
   border: none;
@@ -110,11 +111,18 @@ form {
 <form action="/signup" method="post">
   <input class="username" type="text" name="username" placeholder="username" />
   <br>
+  <br>
   <input class="email" type="text" name="email" placeholder="email" />
+  <br>
   <br>
   <input class="password" type="password" name="password" placeholder="password" />
   <br>
   <br>
-  <button class="button" value="Create account" style="vertical-align:middle">
+  <button class="button" value="Create account" style="vertical-align:middle; width: 500px;">
     <span>Create account </span></button>
+</form>
+
+<form action="/login" method="get">
+<button action="/login" method="get" class="button" value="login" style="vertical-align:middle; width: 500px; background-color: black;">
+  <span>Already have an account? Log in instead. </span></button>
 </form>

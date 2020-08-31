@@ -1,13 +1,21 @@
+<head>
+  <script src="https://kit.fontawesome.com/48e6684c73.js" crossorigin="anonymous"></script>
+</head>
+
 <style>
 
-
+  #bird {
+    text-align: center;
+  }
 
 h1 {
-  font-size: 30px;
+  font-size: 40px;
+  text-align: center;
 }
 
 img {
   height: 100px;
+  text-align: center;
 }
 
 body {
@@ -28,6 +36,7 @@ ul {
 h2 {
 
 }
+
 
 .button {
   margin-top: 40px;
@@ -72,6 +81,49 @@ h2 {
   right: 0;
 }
 
+.button3 {
+  margin-top: 10px;
+  display: inline-block;
+  background-color: black;
+  border: none;
+  font-family: 'Helvetica Neue';
+  border-radius: 30px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20x;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-bottom: 50px;
+}
+
+.button3 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button3 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button3:hover span {
+  padding-right: 25px;
+}
+
+.button3:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 p {
   font-size: 10px;
 }
@@ -83,15 +135,20 @@ p {
 
 
 </style>
-
+<section id="bird">
+ <h1>Chitter</h1>
   <img src='https://freesvg.org/img/frame-2v.png' alt="Bird img" />
-  <h1>Chitter</h1>
-
+</section>
 
 <section id="name_and_button">
-  <h2><%= @user %></h2>
+  <h2>Signed in as <%= @user %></h2>
+  <form action='/logout' method='post'>
+    <button class="button3" value='logout' name='logout' style="vertical-align:middle;">
+      <span>Logout </span>
+    </button>
+  </form>
     <form action='/peeps/new_peep'>
-      <button class="button" alue='new_peep' name='new_peep' style="vertical-align:middle">
+      <button class="button" value='new_peep' name='new_peep' style="vertical-align:middle">
         <span>New peep </span>
       </button>
     </form>
@@ -103,7 +160,7 @@ p {
   <% @peeps.reverse.each do |peep| %>
       <h3> <%= peep.text %> </h3>
         <p>Posted at: <%= peep.posted_at %></p>
-        <br>
+      <br>
   <% end %>
 </ul>
 </div>

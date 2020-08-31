@@ -21,4 +21,9 @@ class Peeps
     result = DatabaseConnection.query("INSERT INTO peeps (text) VALUES('#{text}') RETURNING id, text, posted_at;")
     Peeps.new(id: result[0]['id'], text: result[0]['text'], posted_at: result[0]['posted_at'])
   end
+
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id}")
+  end
+
 end
