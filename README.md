@@ -9,6 +9,7 @@ Tech Stack:
 * Ruby
 * Sinatra
 * PostgreSQL
+* Capybara
 * Rspec
 
 Features:
