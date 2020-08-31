@@ -3,7 +3,7 @@ require './lib/peep'
 require './lib/user'
 require './database_connection_setup'
 
-class  Chitter < Sinatra::Base
+class Chitter < Sinatra::Base
 
   enable :sessions
 
@@ -27,11 +27,11 @@ class  Chitter < Sinatra::Base
   end
 
   post '/new_user' do
-    user = User.create(name: params[:name], handle: params[:handle], email: params[:email], password: params[:password])
+    user = User.create(name: params[:name], handle: params[:handle],
+      email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect '/'
   end
-
 
   run if app_file == $0
 

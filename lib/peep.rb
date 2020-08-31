@@ -13,11 +13,14 @@ class Peep
 
   def self.all
     peeps = DatabaseConnection.query("SELECT * FROM peeps ORDER BY timestamp DESC")
-    peeps.map { |peep| Peep.new(id: peep['id'], message: peep['message'], timestamp: peep['timestamp']) }
+    peeps.map do |peep|
+      Peep.new(id: peep['id'], message: peep['message'], timestamp: peep['timestamp'])
+    end
   end
 
   def self.create(message)
-    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES ('#{message}') RETURNING id, message, timestamp;")
+    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES ('#{message}')
+    RETURNING id, message, timestamp;")
     Peep.new(id: result[0]['id'], message: result[0]['message'], timestamp: result[0]['timestamp'])
   end
 

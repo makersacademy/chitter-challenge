@@ -3,4 +3,3 @@ def create_peep(message)
   fill_in 'peep', with: message
   click_button 'Post'
 end
-  
