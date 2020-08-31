@@ -20,4 +20,13 @@ feature "Chitter page" do
     click_button "Ok"
     expect(page).to have_css('table', text: "Created At First post #{post_1[0]["created_at"][0..18]} Second post #{post_2[0]["created_at"][0..18]}")
   end
+
+  scenario "Each post has aouthor name visible" do 
+    User.create("Test", "test@test.com", "test123")
+    log_in
+    fill_in("text", with: "My first post with name")
+    click_button "Send"
+    expect(page).to have_content "Author: Test My first post name"
+  end
+
 end
