@@ -75,13 +75,18 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 1. Wrote feature test for first user story.
 2. Passed this test in simplest way using params.
 3. Wrote unit test for Peep class to return messages.
-4. Created model and database to pass unit test
+4. Created model and database to pass unit test.
 5. Wrote unit test for Peep class to create messages.
 6. Passed test and linked Database + Model with Controller + Views to complete first user story.  
-7. Created test database
-8. Adding timestamp column to peeps tables
-9. Feature and unit tests created and passed for reverse order viewing to complete second user story.
-10. Feature and unit tests created for timestamp to be shown - intention to pass by wrapping database date in Peep class. 
+7. Created test database.
+8. Adding timestamp column to peeps tables.
+9. Wrote and passed feature and unit tests for reverse order viewing to complete second user story.
+10. Wrote feature and unit tests for timestamp to be shown - intention to pass by wrapping database data in Peep class.
+11. Third user story completed by passing these tests.
+12. Created 'users' table within databases.
+13. Wrote feature test for sign up process.
+14. Completed views and controller parts to pass feature test.
+15. Wrote unit test for create method in User class.
 
 ## Further Improvements
 -------

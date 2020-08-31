@@ -1,4 +1,5 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
 
@@ -29,7 +30,9 @@ describe Peep do
   describe '#.create' do
     it 'adds to peeps table the message' do
       peep = Peep.create('testing create method')
+      persisted_data = persisted_data(table: :peeps, id: peep.id)
       expect(peep).to be_a Peep
+      expect(peep.id).to eq(persisted_data['id'])
       expect(peep.message).to eq('testing create method')
       expect(peep.timestamp).to eq(Time.now.strftime('%d-%m-%Y %H:%M:%S'))
     end

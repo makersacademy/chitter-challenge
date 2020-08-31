@@ -2,7 +2,7 @@ ENV['RACK_ENV'] = 'test'
 ENV['ENVIROMENT'] = 'test'
 
 require_relative '../app.rb'
-require_relative './setup_test_database'
+require_relative './database_helpers'
 require 'features/web_helpers'
 
 require 'capybara'

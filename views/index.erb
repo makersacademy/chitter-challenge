@@ -3,6 +3,9 @@ Welcome to Chitter!
 <form action='/create_peep' method="get">
   <input type='submit' value='New Peep'>
 </form>
+<form action='/sign_up' method="get">
+  <input type='submit' value='Sign Up'>
+</form>
 <ul>
   <% @peeps.each do |peep| %>
   <%= peep.message %><br>
