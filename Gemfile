@@ -4,6 +4,7 @@ gem 'activerecord'
 gem 'sinatra'
 gem 'shotgun'
 gem 'pg'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
