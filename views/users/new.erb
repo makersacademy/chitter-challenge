@@ -59,6 +59,7 @@
   <h1>Chitter</h1>
   <br>
   <h3>Create your account</h3>
+  <h3> <%= flash[:notice] %> </h3>
   <br>
   <form action="/users" method="post">
     <label for="handle">Enter a user handle:</label><br>

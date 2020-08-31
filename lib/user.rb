@@ -13,6 +13,12 @@ class User
   def self.create(handle:, email:, password:, name:)
     encrypted_password = BCrypt::Password.create(password)
     modified_handle = '@' + handle
+
+    search = DatabaseConnection.query("SELECT * FROM users 
+      WHERE email = '#{email}' OR handle = '#{modified_handle}';")
+
+    return unless search.none?
+
     entry = DatabaseConnection.query(
       "INSERT INTO users (handle, email, password, name) 
         VALUES('#{modified_handle}', '#{email}', '#{encrypted_password}', '#{name}') 

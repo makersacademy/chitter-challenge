@@ -18,6 +18,7 @@ $ psql
 CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
 ```
+Then run the SQL scripts in the `db/migrations` folder.
 ### To run the app
 ```
 $ rackup -p 3000
