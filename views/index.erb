@@ -1,4 +1,8 @@
-Welcome to Chitter!
+<h1> Welcome to Chitter! </h1>
+
+<% if @user %>
+Welcome <%= @user.name %> - <%= @user.handle %>
+<% end %>
 
 <form action='/create_peep' method="get">
   <input type='submit' value='New Peep'>

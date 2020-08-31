@@ -85,8 +85,9 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 11. Third user story completed by passing these tests.
 12. Created 'users' table within databases.
 13. Wrote feature test for sign up process.
-14. Completed views and controller parts to pass feature test.
-15. Wrote unit test for create method in User class.
+14. Completed views and controller parts to begin to pass feature test.
+15. Wrote unit test for create and find methods in User class.
+16. Passed feature and unit tests 
 
 ## Further Improvements
 -------
