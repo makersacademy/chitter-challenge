@@ -1,17 +1,25 @@
-Create PostgreSQL db
+# Set-up the APP
 
-## create test and development db
+## 1. To get all dependencies run
 
-rake db:create
+- bundle install
 
-## migrate development db
+## 2. create test and development db (use PostgreSQL)
 
-rake db:migrate
+- rake db:create
 
-## migrate the test db
+## 3. migrate development db
 
-rake db:migrate RACK_ENV=test
+- rake db:migrate
 
-## Run "rspec" in terminal to check if test are passed
+## 4. migrate the test db
 
-rspec
+- rake db:migrate RACK_ENV=test
+
+## 5. Run "rspec" in terminal (from the app dir) to check if all tests pass
+
+- rspec
+
+## 6. Run the app in the browser with rack
+
+- rackup -p 4567
