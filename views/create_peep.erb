@@ -1,4 +1,43 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+</head>
+
+<style>
+  body {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    background: #99e6ff;
+  }
+
+  .inline {
+   display: inline-block;
+  }
+
+  input[type=text] {
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: 300px;
+    height: 90px;
+  }
+
+  .button {
+    border: solid 2px;
+    border-radius: 15px;
+    color: #000000;
+    background-color: #FFFFFF;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 50;
+    width: 100px;
+    font-weight: bold;
+  }
+</style>
+
 <form action='/new_peep' method="post">
   <input type="text" name="peep">
-  <input type="submit" value="Post">
+  <input class="button" type="submit" value="Post">
 </form>

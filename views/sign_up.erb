@@ -1,3 +1,42 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+</head>
+
+<style>
+  body {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    background: #99e6ff;
+  }
+
+  .inline {
+   display: inline-block;
+  }
+
+  input[type=text] {
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: 300px;
+    height: 30px;
+  }
+
+  .button {
+    border: solid 2px;
+    border-radius: 15px;
+    color: #000000;
+    background-color: #FFFFFF;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 50;
+    width: 100px;
+    font-weight: bold;
+  }
+</style>
+
 <form action='/new_user' method="post">
   <label for="name">Name:</label>
   <input type="text" name="name"><br><br>
@@ -7,5 +46,5 @@
   <input type="text" name="email"><br><br>
   <label for="password">Password:</label>
   <input type="text" name="password"><br><br>
-  <input type="submit" value="Submit">
+  <input class="button" type="submit" value="Submit">
 </form>
