@@ -1,11 +1,16 @@
 require 'sinatra/base'
 require './lib/peep'
+require_relative './lib/user'
 require './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :session_secret, "My session secret"
 
   get '/' do
+    @user = User.find(
+      id: session[:user_id]
+    )
     @peeps = Peep.peeps
     erb :index
   end
@@ -23,8 +28,9 @@ class Chitter < Sinatra::Base
     erb :'/users/new'
   end
 
-  post '/users/new' do
-    # create new user
+  post '/users' do
+    @user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = @user.id
     redirect '/'
   end
 

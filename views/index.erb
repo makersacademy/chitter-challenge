@@ -1,4 +1,7 @@
 <h1>Chitter, home of the peeps</h1>
+<% if @user %>
+  <h2>Get Peeping, <%= @user.email %></h2>
+<% end %>
 
 <ul>
   <% @peeps.reverse_each do |peep| %>

@@ -14,7 +14,7 @@ class Peep
   def self.create_peep(peep:)
     time = Time.now
     current_time = time.strftime("%Y/%m/%d %k:%M")
-    result = DatabaseConnection.connection.query(
+    result = DatabaseConnection.query(
       "INSERT INTO peeps (peep, posted_time)
       VALUES('#{peep}', '#{current_time}')
       RETURNING id, peep, posted_time"
@@ -27,7 +27,7 @@ class Peep
   end
 
   def self.peeps
-    result = DatabaseConnection.connection.query("SELECT * FROM peeps;")
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
       Peep.new(id: peep['id'], peep: peep['peep'], posted_time: peep['posted_time'])
     end
