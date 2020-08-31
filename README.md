@@ -79,6 +79,9 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 5. Wrote unit test for Peep class to create messages.
 6. Passed test and linked Database + Model with Controller + Views to complete first user story.  
 7. Created test database
+8. Adding timestamp column to peeps tables
+9. Feature and unit tests created and passed for reverse order viewing to complete second user story.
+10. Feature and unit tests created for timestamp to be shown - intention to pass by wrapping database date in Peep class. 
 
 ## Further Improvements
 -------
