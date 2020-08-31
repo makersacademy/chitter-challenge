@@ -20,14 +20,16 @@ class User
 
   def self.login(username:, password:)
     return "Wrong username" if check(username)
+
     result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}';")
     return "Wrong password" unless BCrypt::Password.new(result[0]['password']) == password
+
     User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
 
   def self.check(username)
-   result = DatabaseConnection.query("SELECT email FROM users WHERE username='#{username}';")
-   result.first.nil?
+    result = DatabaseConnection.query("SELECT email FROM users WHERE username='#{username}';")
+    result.first.nil?
   end
 
 end

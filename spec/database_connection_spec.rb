@@ -7,11 +7,6 @@ describe DatabaseConnection do
       expect(PG).to receive(:connect).with(dbname: 'peeps_test')
       DatabaseConnection.setup('peeps_test')
     end
-
-    it 'stays connected' do
-      connection = DatabaseConnection.setup('peeps_test')
-      expect(DatabaseConnection.connection).to eq connection
-    end
   end
 
   describe '.query' do

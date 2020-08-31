@@ -4,17 +4,17 @@ require_relative 'database_connection'
 class Peeps
   attr_reader :id, :text, :posted_at
 
-  def initialize(id: id,text: text, posted_at: posted_at)
+  def initialize(id: id, text: text, posted_at: posted_at)
     @id = id
     @text = text
     @posted_at = posted_at
   end
 
   def self.all
-      result = DatabaseConnection.query("SELECT * FROM peeps;")
-      result.map do |peep|
-        Peeps.new(id: peep['id'], text: peep['text'], posted_at: peep['posted_at'])
-      end
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
+    result.map do |peep|
+      Peeps.new(id: peep['id'], text: peep['text'], posted_at: peep['posted_at'])
+    end
   end
 
   def self.new_peep(text:)

@@ -21,6 +21,6 @@ describe User do
       expect(User.login(username: "homer", password: "spiderpig")).to eq "Wrong username"
     end
 
-    end
-
   end
+
+end
