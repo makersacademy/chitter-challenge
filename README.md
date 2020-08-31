@@ -23,7 +23,22 @@ Then run the SQL scripts in the `db/migrations` folder.
 ```
 $ rackup -p 3000
 ```
-Then in your browser navigate to `localhost:3000/chitter`
+Then in your browser navigate to `localhost:3000/`
+
+Interface
+---
+**Home page:**
+![Home page screenshot](https://github.com/JR-G/chitter-challenge/blob/master/images/home-page.png)<br><br>
+**Sign up:**
+![Sign up screenshot](https://github.com/JR-G/chitter-challenge/blob/master/images/sign-up.png)<br><br>
+**Making a peep:**
+![Making a peep screenshot](https://github.com/JR-G/chitter-challenge/blob/master/images/making-a-peep.png)<br><br>
+**Viewing peeps**
+![Viewing peeps screenshot](https://github.com/JR-G/chitter-challenge/blob/master/images/viewing-peeps.png)<br><br>
+**Sign out:**
+![sign out screenshot](https://github.com/JR-G/chitter-challenge/blob/master/images/sign-out.png)<br><br>
+**Incorrect email/password message:**
+![Failed sign in screenshot](https://github.com/JR-G/chitter-challenge/blob/master/images/incorrect-sign-in.png)
 
 User Stories
 ---
