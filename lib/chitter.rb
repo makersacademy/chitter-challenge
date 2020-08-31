@@ -1,4 +1,5 @@
 require_relative 'database'
+require_relative 'user'
 
 class Chitter
 

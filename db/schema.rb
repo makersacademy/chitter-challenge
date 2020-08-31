@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_122149) do
+ActiveRecord::Schema.define(version: 2020_08_29_125357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_122149) do
   create_table "posts", id: :serial, force: :cascade do |t|
     t.string "post"
     t.datetime "created_at", default: -> { "now()" }
+    t.integer "user_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -26,4 +27,5 @@ ActiveRecord::Schema.define(version: 2020_08_29_122149) do
     t.string "name", limit: 40
   end
 
+  add_foreign_key "posts", "users", name: "posts_user_id_fkey"
 end

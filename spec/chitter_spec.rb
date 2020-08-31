@@ -24,4 +24,12 @@ describe Chitter do
     end
   end
 
+  describe "#user_name" do 
+    it "Display the user name" do 
+      user = User.create("Test User", "test@test.com", "pass123")
+      Chitter.create("Post with a name")
+      expect(Chitter.all.first['user_name']).to eq "Test User"
+    end
+  end
+
 end
