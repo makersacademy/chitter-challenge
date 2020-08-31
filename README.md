@@ -87,7 +87,8 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 13. Wrote feature test for sign up process.
 14. Completed views and controller parts to begin to pass feature test.
 15. Wrote unit test for create and find methods in User class.
-16. Passed feature and unit tests 
+16. Passed feature and unit tests
+17. Encrypt password in database using bcrypt
 
 ## Further Improvements
 -------
