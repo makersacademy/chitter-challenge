@@ -8,7 +8,7 @@ class Peep
     else
       connection = PG.connect :dbname => 'chitter_manager'
     end
-    peeps = connection.exec "SELECT * FROM peeps"
+    peeps = connection.exec "SELECT * FROM peeps ORDER BY timestamp DESC"
     peeps.map { |peep| peep['message'] }
   end
 
