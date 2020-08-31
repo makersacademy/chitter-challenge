@@ -16,7 +16,7 @@ class App < Sinatra::Base
   end
 
   post "/chitter/create" do
-    Chitter.create(params[:text])
+    Chitter.create(params[:text], session[:user].id, session[:user].name)
     redirect "/"
   end
 

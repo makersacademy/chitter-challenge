@@ -1,20 +1,17 @@
 require_relative 'database'
-require_relative 'user'
 
 class Chitter
 
   def self.all 
-    posts = DataBase.query("SELECT * FROM posts;")
-    posts.entries
+    DataBase.query("SELECT * FROM posts;")
   end
 
-  def self.create(text)
-    DataBase.query("INSERT INTO posts (post) VALUES ('#{text}') RETURNING id, post, created_at;")
+  def self.create(text, user_id, user_name)
+    DataBase.query("INSERT INTO posts (post, user_id, user_name) VALUES ('#{text}', '#{user_id}', '#{user_name}') RETURNING id, post, created_at, user_id, user_name;")
   end
 
   def self.reverse_all
-    result = DataBase.query("SELECT * FROM posts ORDER BY created_at DESC;")
-    result.entries
+    DataBase.query("SELECT * FROM posts ORDER BY created_at DESC;")
   end
 
 end

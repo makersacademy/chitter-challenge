@@ -3,11 +3,12 @@
 <%= flash[:notice] %>
 <form style="display: flex; flex-direction: column; justify-content: center; margin-top: 5em" action="/user/login" method="POST" >
   <div>
-  <input class="text_field" placeholder="email" tupe=email name="email">
-  <input class="text_field" placeholder="password" tupe=password name="password">
+  <input class="text_field" placeholder="email" type=email name="email">
+  <input class="text_field" placeholder="password" type=password name="password">
   </div>
   <div>
   <input class="a_btn" style="margin-top: 1em"  type=submit value="GO">
+  <a class="a_btn" href="/">Cancel</a>
   </div>
 </form>
 </div>

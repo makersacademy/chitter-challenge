@@ -29,16 +29,15 @@
 
   <table>
     <tr>
+      <th>Author</th>
       <th></th>
       <th>Created At</th>
     </tr>
     <% @posts.map do |each| %>
       <tr>
-          
+        <td><%= each["user_name"]%></td>
         <td class="td_post" ><%= each["post"]%></td>
-     
         <td><%= each["created_at"][0..18]%></td>
-       
       </tr>
     <% end %>
   </table>
