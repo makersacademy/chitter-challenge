@@ -55,8 +55,8 @@ How to run this app:
 
 * Install gems by running bundle in the command line
 * Connect to psql in the command line
-* Create the database: CREATE DATABASE peeps;
-* Connect to the database using the pqsl command: \c peeps;
+* Create the database: CREATE DATABASE chitter;
+* Connect to the database using the pqsl command: \c chitter;
 * Run all the commands in the db/migrations folder in psql
 * Run rackup -p 4567 in the command line and visit http://localhost:4567
 
@@ -64,7 +64,7 @@ Setting up the test database:
 ------
 
 * Connect to psql in the command line
-* Create the database: CREATE DATABASE peeps_test;
-* Connect to the database using the pqsl command: \c peeps_test;
+* Create the database: CREATE DATABASE chitter_test;
+* Connect to the database using the pqsl command: \c chitter_test;
 * Run all the commands in the db/migrations folder in psql
 
