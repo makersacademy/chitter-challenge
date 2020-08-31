@@ -7,5 +7,5 @@ before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
 
 script:
-  - bundle exec rake db:migrate VERSION=20200829122149 RACK_ENV=test
+  - bundle exec rake db:migrate RACK_ENV=test
   - bundle exec rspec
