@@ -20,6 +20,6 @@
 
 - rspec
 
-## 6. Run the app in the browser with rack
+## 6. Run the app in the terminal with rack
 
 - rackup -p 4567

@@ -25,6 +25,6 @@ The user can post new messages, see already posted messages, register, log in / 
 
 - rspec
 
-## 6. Run the app in the browser with rack
+## 6. Run the app in the terminal with rack to see it in the browser at http://localhost:4567/
 
 - rackup -p 4567
