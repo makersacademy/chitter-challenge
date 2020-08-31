@@ -12,7 +12,7 @@ class App < Sinatra::Base
   get "/" do 
     @user = session[:user]
     @posts = params[:Display] == "old" ? Chitter.all : Chitter.reverse_all
-    erb :chitter_home
+    erb :index
   end
 
   post "/chitter/create" do
