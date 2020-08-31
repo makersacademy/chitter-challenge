@@ -6,7 +6,7 @@ class  Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :index
   end
 
