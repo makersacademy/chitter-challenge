@@ -43,6 +43,12 @@ I want to log out of Chitter
 
 ```
 
+Demo:
+------
+
+![Chitter demo](https://user-images.githubusercontent.com/53195978/91759107-026eef80-ebc9-11ea-81d4-7ebc697f2267.gif)
+
+
 
 How to run this app:
 ------
