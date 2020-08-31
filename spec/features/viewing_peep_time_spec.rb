@@ -2,6 +2,7 @@
 
 feature 'Viewing peep' do
     scenario 'user can see time peep was created' do
+        
         sign_in
         fill_in 'message', with: 'hello, there'
         click_button 'post'
@@ -9,8 +10,7 @@ feature 'Viewing peep' do
     end
 
     scenario 'user can see what user created the peep' do
-       sign_in
-        
+        sign_in
         fill_in 'message', with: 'I am the Senate!!'
         click_button 'post'
         

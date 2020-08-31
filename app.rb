@@ -5,6 +5,7 @@ require_relative './lib/peep.rb'
 require_relative './lib/user.rb'
 
 class ChitterApp < Sinatra::Base
+    enable :sessions
 
     get '/' do
       @peeps = Peep.get_peeps
@@ -12,18 +13,25 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/new' do
-       Peep.add_peeps(params['message'], Time.now)
+       @user = User.find(session[:user_id])
+       Peep.add_peeps(params['message'], Time.now, @user.username)
+       
        redirect '/signed_in'
     end
 
+    get '/sign_in/new' do
+        erb(:sign_in)
+    end
+
     post '/sign_up' do
-       User.create(username: params['username'], name: params['name'], password: params['password'], email: params['email'])
+       user = User.create(username: params['username'], name: params['name'], password: params['password'], email: params['email'])
+       session[:user_id] = user.id
        redirect '/signed_in'
     end
 
     get '/signed_in' do
         @peeps = Peep.get_peeps
-        @user = User.current_user
+        @user = User.find(session[:user_id])
         erb(:signed_in)
     end
 
