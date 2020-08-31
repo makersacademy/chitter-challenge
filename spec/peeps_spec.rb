@@ -5,7 +5,7 @@ describe Peeps do
 
   describe '.all' do
     it 'displays list of peeps' do
-      PG.connect :dbname => 'peeps_test'
+      PG.connect :dbname => 'chitter_test'
       peep = Peeps.new_peep(text: "Test peep")
       Peeps.new_peep(text: "Second")
 
@@ -38,7 +38,7 @@ describe Peeps do
     end
 
     it 'displays the time each peep was posted at' do
-      PG.connect :dbname => 'peeps_test'
+      PG.connect :dbname => 'chitter_test'
       peep = Peeps.new_peep(text: "Test peep")
       peeps = Peeps.all
       expect(peeps.first.posted_at).to eq peep.posted_at
