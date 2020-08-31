@@ -89,6 +89,7 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 15. Wrote unit test for create and find methods in User class.
 16. Passed feature and unit tests
 17. Encrypt password in database using bcrypt
+18. Created DatabaseConnection class to keep code DRY
 
 ## Further Improvements
 -------

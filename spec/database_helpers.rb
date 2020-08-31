@@ -10,6 +10,5 @@ end
 def persisted_data(table:, id:)
   connection = PG.connect(dbname: 'chitter_manager_test')
   result = connection.query("SELECT * FROM #{table} WHERE id = #{id};")
-  p result
   result.first
 end
