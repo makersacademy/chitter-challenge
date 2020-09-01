@@ -1,8 +1,25 @@
 <h1>Chitter, home of the peeps</h1>
+<br>
+<h2> 
+  <%= flash[:notice] %>
+</h2>
 <% if @user %>
   <h2>Get Peeping, <%= @user.email %></h2>
+  <form action="/peep/new">
+    <input type="submit" value="Compose Peep">
+  </form>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Log out">
+  </form>
+<% else %>
+  <form action="/sessions/new">
+    <input type="submit" value="Log in">
+  </form>
+  <form action="/users/new">
+    <input type="submit" value="Sign up">
+  </form>
 <% end %>
-
+<br>
 <ul>
   <% @peeps.reverse_each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
@@ -11,8 +28,3 @@
     </li>
   <% end %>
 </ul>
-
-<form action="/peep/new">
-  <input type="submit" value="Compose Peep">
-</form>
-      
