@@ -1,12 +1,20 @@
-<form action='/new' method='post'>
-  <input placeholder='Enter a peep!' type='text' name='message'>
-  <input type='submit' value='post'>
-</form>
+<link href="<%= url('/global.css') %>" rel="stylesheet" type="text/css" />
+
+<body class='body'>
+   <h1 class='header'>Chitter</h1>
+    <div class='posting'>
+        <form action='/new' method='post'>
+          <input placeholder='Enter a peep!' type='text' name='message'>
+          <input type='submit' value='post'>
+        </form>
+    </div>
+</body>
 
 <% @peeps.each do |peep| %>
-    <div>
+    <div class='peeps'>
       <%= peep.time %>
-      <p> <%=peep.peep%>
-      <p> <%= peep.username%>
+      <p> <%=peep.peep%> </p>
+      <p> <%= peep.username%>  <%=peep.name%> </p>
     </div>
     <%end%>
+</body>

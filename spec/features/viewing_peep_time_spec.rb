@@ -2,7 +2,6 @@
 
 feature 'Viewing peep' do
     scenario 'user can see time peep was created' do
-        
         sign_in
         fill_in 'message', with: 'hello, there'
         click_button 'post'

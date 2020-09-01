@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 
 require_relative './database_setup.rb'
 require_relative './lib/peep.rb'
@@ -6,6 +7,7 @@ require_relative './lib/user.rb'
 
 class ChitterApp < Sinatra::Base
     enable :sessions
+   
 
     get '/' do
       @peeps = Peep.get_peeps
@@ -14,7 +16,7 @@ class ChitterApp < Sinatra::Base
 
     post '/new' do
        @user = User.find(session[:user_id])
-       Peep.add_peeps(params['message'], Time.now, @user.username)
+       Peep.add_peeps(params['message'], Time.now, @user.username, @user.name)
        
        redirect '/signed_in'
     end
@@ -24,14 +26,16 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/sign_up' do
+       
        user = User.create(username: params['username'], name: params['name'], password: params['password'], email: params['email'])
        session[:user_id] = user.id
        redirect '/signed_in'
+       
     end
 
     get '/signed_in' do
         @peeps = Peep.get_peeps
-        @user = User.find(session[:user_id])
+       # @user = User.find(session[:user_id])
         erb(:signed_in)
     end
 

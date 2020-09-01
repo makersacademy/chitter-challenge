@@ -1,14 +1,22 @@
+<link href="<%= url('/global.css') %>" rel="stylesheet" type="text/css" />
 
-<form action='/sign_in/new' method='get'>
-  <input type='submit' value='sign-in'>
-</form>
-
+<body class='body'>
+   <h1 class='head'>Chitter</h1>
+    <div class='button'>
+        <form action='/sign_in/new' method='get'>
+          <input type='submit' value='sign-in'>
+        </form>
+    </div>
 
 
 <% @peeps.each do |peep| %>
-    <div>
-      <%= peep.time %>
-      <p> <%=peep.peep%>
-      <p> <%=peep.username%>
+    <div class='peeps'>
+      <div class='time'>
+        <%= peep.time %>
+      </div>
+    
+      <p> <%=peep.peep%> </p>
+      <p class='username'> <%=peep.username%> <%= peep.name%> </p>
     </div>
     <%end%>
+</body>    

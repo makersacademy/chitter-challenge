@@ -1,7 +1,13 @@
-<form action='/sign_up' method='post'>
-  <input placeholder='Full-name' type='text' name='name'>
-  <input type='text' placeholder='Email' name='email'>
-  <input type='text' placeholder='username' name='username'>
-  <input type='text' placeholder='password' name='password'>
-  <input type='submit' value='sign-in'>
-</form>
+<link href="<%= url('/global.css') %>" rel="stylesheet" type="text/css" />
+
+<body class='body'>
+    <div class='sign_in_form'>
+        <form action='/sign_up' method='post'>
+        <input placeholder='Full-name' type='text' name='name'>
+        <input type='text' placeholder='Email' name='email'>
+        <input type='text' placeholder='username' name='username'>
+        <input type='text' placeholder='password' name='password'>
+        <input type='submit' value='sign-in'>
+        </form>
+    </div>
+</body>
