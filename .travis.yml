@@ -7,7 +7,7 @@ before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
 
 script:
-  - psql -U postgres --dbname=$chitter_test --file=db/migrations/01_create_peeps_table.sql
-  - psql -U postgres --dbname=$chitter_test --file=db/migrations/02_create_users_table.sql
-  - psql -U postgres --dbname=$chitter_test --file=db/migrations/03_add_posted_by_column_to_peeps_table.sql
+  - psql -U postgres -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(240), posted_time VARCHAR(16));'
+  - psql -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));'
+  - psql -U postgres -c 'ALTER TABLE peeps ADD COLUMN posted_by VARCHAR(60);'
   - bundle exec rspec
