@@ -40,20 +40,15 @@ This Sinatra web app allows users post to and read from a feed of posted message
 3. Run `psql \c chitter;` (to connect to new db)
 4. Create `peeps` table using the query saved in `01_create_peeps_table.sql`
 
-### Add timestamp column (to both dev and test dbs)
-1. Run `psql \c chitter;` (to connect to dev db)
-2. Add `created_at` column using the query saved in `03_add_timestamp_to_peeps.sql`
-3. Repeat for `chitter_test` db by first running `psql \c chitter_test;` to connect
-
 ### Create users table (in both dev and test dbs)
 1. Run `psql \c chitter;` (to connect to dev db)
-2. Create `users` table using the query saved in `04_create_users_table.sql`
+2. Create `users` table using the query saved in `02_create_users_table.sql`
 3. Repeat for `chitter_test` db
 
 ### Add user_id column to peeps table (both dev and test dbs)
 
 1. Run `psql \c chitter;` (to connect to dev db)
-2. Add `user_id` column to `peeps` table using the query saved in `05_add_user_id_to_peeps_table.sql`
+2. Add `user_id` column to `peeps` table using the query saved in `03_add_user_id_to_peeps_table.sql`
 3. Repeat for `chitter_test` db
 
 ## Steps to run
