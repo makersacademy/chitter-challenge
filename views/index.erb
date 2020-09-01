@@ -20,12 +20,10 @@
   </form>
 <% end %>
 <br>
-<ul>
+<ul><div>
   <% @peeps.reverse_each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
-      <b><%= peep.peep %></b>
+      <%= peep.peep %>
       <sub><%= peep.posted_time %></sub>
       <sub><%= peep.posted_by %></sub>
-    </li>
   <% end %>
 </ul>
