@@ -7,5 +7,5 @@ describe Peep do
 			expect(peeps).to include("Well its friday!")
 			expect(peeps).to include("Ready for the weekend?")
 		end 
-	end
+	end	
 end
