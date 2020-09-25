@@ -30,7 +30,7 @@ require  'pg'
 - self.setup(dbname)
 - self.connection (just returns @connection)
 - self.query(sql)
-
+ 
 ## Sinatra views
 #### Home page
 - Sign up link at top
