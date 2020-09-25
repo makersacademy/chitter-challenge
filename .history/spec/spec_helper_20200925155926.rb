@@ -1,13 +1,10 @@
-ENV["RACK_ENV"] = "test"
-
-# Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
+ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), "..", "app.rb")
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-
 Capybara.app = Chitter
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
