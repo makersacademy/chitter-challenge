@@ -6,9 +6,10 @@ class Chitter < Sinatra::Base
 		end 
 
 		get '/peeps' do
-			@peeps = ["Well its friday!", "Ready for the weekened?"]
-			erb :index
-		end 
+			peeps = [
+				"Well its friday!",
+				"Ready for the weekened?"
+			]
 
 		run if app_file == $0
 

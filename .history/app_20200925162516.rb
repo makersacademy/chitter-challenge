@@ -6,7 +6,10 @@ class Chitter < Sinatra::Base
 		end 
 
 		get '/peeps' do
-			@peeps = ["Well its friday!", "Ready for the weekened?"]
+			@peeps = [
+				"Well its friday!",
+				"Ready for the weekened?"
+			]
 			erb :index
 		end 
 
