@@ -5,7 +5,7 @@ feature 'viewing website' do
 		end
 end
 
-feature 'website shows peeps' do
+	feature 'website shows peeps' do
 		scenario 'you can see all of the peeps' do
 			connection = PG.connect(dbname: "chitter_test")
 			connection.exec("INSERT INTO chitters (content) VALUES ('Well its friday!');")
@@ -16,3 +16,11 @@ feature 'website shows peeps' do
 		end 
 	end 
 
+	feature 'adding a new peep' do
+		scenario "user can add a new peep" do
+			visit '/peeps/new' 
+			fill_in('content', with: 'Finally, I finished!')
+			click_button('Submit')
+			expect(page).to have_content 'Finally, I finished!'
+		end 
+	end 
