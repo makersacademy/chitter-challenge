@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/peeps" do
-    #@users = User.all
+    @users = User.all
     erb :peeps
   end
 
