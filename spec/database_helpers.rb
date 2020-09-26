@@ -13,7 +13,7 @@ def add_test_users
 
   Users.create(name: "a", email: 'a@email.com', password: 'a456', username: 'a_user')
 
-  Users.create(name: "b", email: 'b@gmail.com', password 'b282130972##', username: 'b-user')
+  Users.create(name: "b", email: 'b@gmail.com', password: 'b282130972##', username: 'b-user')
 
 end
 
