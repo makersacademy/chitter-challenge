@@ -26,6 +26,36 @@ class Peep
     @user_id = user_id
   end
 
+  def self.all
+    Peep.set_environment
+
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC")
+
+    result.map { |peep| 
+      Peep.new(
+        id: peep['id'],
+        text: peep['text'],
+        time: peep['time'],
+        date: peep['date'],
+        user_id: peep['user_id']
+      )
+    }
+  end
+
+  def self.where(user_id:)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{user_id};")
+
+    result.map { |peep| 
+      Peep.new(
+        id: peep['id'],
+        text: peep['text'],
+        time: peep['time'],
+        date: peep['date'],
+        user_id: peep['user_id']
+      )
+    }
+  end
+
 private 
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'

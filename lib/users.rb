@@ -28,6 +28,22 @@ class Users
     Users.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], username: result[0]['username'])
   end
 
+  def self.all
+    Users.set_environment
+
+    result = DatabaseConnection.query("SELECT * FROM users")
+
+    result.map { |user| 
+      Users.new(
+        id: user['id'],
+        email: user['email'],
+        name: user['name'],
+        password: user['password'],
+        username: user['name']
+      )
+    }
+  end
+
 private 
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'

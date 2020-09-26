@@ -15,7 +15,7 @@ describe Users do
     expect(user.username).to eq 'test_username'
   end
 
-  describe '.find' do
+  describe '#find' do
     it 'finds a user by ID' do
       user = test_user
       result = Users.find(user.id)
@@ -26,6 +26,16 @@ describe Users do
 
     it 'returns nil if there is no ID given' do
       expect(Users.find(nil)).to eq nil
+    end
+  end
+
+  describe '#all' do
+    it 'returns a list of users' do
+      add_test_users
+            
+      users = Users.all
+      
+      expect(users.first).to be_a Users
     end
   end
 
