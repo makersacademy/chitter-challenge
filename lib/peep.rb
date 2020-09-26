@@ -12,8 +12,8 @@ class Peep
     end
 
     def self.show
-    result = DatabaseConnection.query("SELECT id, content, to_char(datetime, 'DD Mon YYYY HH24:MI:SS') AS \"datetime\" FROM peep;")
-    result.map {|peep| Peep.new(peep['id'], peep['content'], peep['datetime'])}
+        result = DatabaseConnection.query("SELECT id, content, to_char(datetime, 'DD Mon YYYY HH24:MI:SS') AS \"datetime\" FROM peep;")
+        result.map {|peep| Peep.new(peep['id'], peep['content'], peep['datetime'])}
     end
 
     def self.add(content)
