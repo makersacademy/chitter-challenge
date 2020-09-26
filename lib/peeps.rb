@@ -2,15 +2,25 @@ require 'pg'
 
 class Peeps 
 
+  attr_reader :peep, :date
+
   def self.all
     set_environment
     result = @connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| peep['peep'] }
+    peeps = result.map { |peep| Peeps.new(peep: peep['peep'], date: peep['date']) }
+    peeps.reverse
   end
 
   def self.post(peep)
     set_environment
-    @connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}')")
+    now = Time.new 
+    formatted = now.strftime("%d/%m/%Y")
+    @connection.exec("INSERT INTO peeps (peep, date) VALUES ('#{peep}', '#{formatted}')")
+  end 
+
+  def initialize(peep:, date:)
+    @peep = peep
+    @date = date
   end 
 
 private 

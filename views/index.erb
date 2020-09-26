@@ -5,6 +5,6 @@
 <h2>Latest Peeps</h2>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.peep %>, <%= peep.date %></li>
   <% end %>
 </ul>
