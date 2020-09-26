@@ -10,7 +10,7 @@ color: white;
 </style>
 <body>
 <ul>
-<% @peeps.each do |peep| %>
+<% @peeps.reverse_each do |peep| %>
 <li><%= peep.content %> posted at: <%= peep.create_date%>  </li>
 <% end %>
 </ul>

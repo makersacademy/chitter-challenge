@@ -7,9 +7,8 @@ end
 
 feature 'website shows peeps' do
 		scenario 'you can see all of the peeps' do
-			 connection = PG.connect(dbname: "chitter_test")
-			 connection.exec("INSERT INTO chitters (content) VALUES ('Well its friday!');")
-			 connection.exec("INSERT INTO chitters (content) VALUES ('Ready for the weekend?');")
+			 Peep.create(content: "Well its friday!")
+			 Peep.create(content: "Ready for the weekend?")
 			 visit '/peeps' 
 			 expect(page).to have_content "Well its friday!"
 			 expect(page).to have_content "Ready for the weekend?"
