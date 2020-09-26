@@ -12,15 +12,19 @@ class Chitter < Sinatra::Base
   end
 
   post "/new_peep" do
-   
-    Peep.add(params[:peep])
+    @user = session[:user]
+    Peep.add(@user, params[:peep])
     redirect("/feed")
   end
 
   get "/feed" do
-    @current_user = session[:user]
-    puts session[:user]
-    erb(:home)
+    if session[:user].nil?
+      flash[:login_warning] = "You must be logged in to view peeps"
+      redirect("/")
+    else
+      @current_user = session[:user]
+      erb(:home)
+    end
   end
 
   get "/" do
@@ -29,6 +33,11 @@ class Chitter < Sinatra::Base
 
   get "/signup" do
     erb(:signup)
+  end
+
+  post "/logout" do
+    session[:user] = nil
+    redirect("/")
   end
 
   get '/login' do

@@ -30,4 +30,6 @@ class User
   def self.valid_user?(username, password)
     user_exists?(username) && password?(username, password)
   end
+
+  
 end

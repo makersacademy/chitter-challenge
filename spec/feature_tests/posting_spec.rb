@@ -17,6 +17,8 @@ feature "post" do
 end
 
 feature "homepage" do
+
+  
  scenario "I want to view peeps in reverse chronological order" do
   peep_twice
   expect("Apparently, somebody on this site thinks we should wear banana hats?!").to appear_before("Personally, i think we should all wear hats made of bananas.")
@@ -28,4 +30,33 @@ feature "homepage" do
   visit('/feed')
   expect(page).to have_content "25 Dec 2020 at 10:05am"
  end
+
+
+ scenario "i try to view feed without an account, it should error" do
+ end
+
+ scenario "I should not be able to create a peep more than 120 letters" do
+ end
+
+ scenario "it displays my name alongside my peep" do
+ end
+
+ scenario "it should welcome me to the site when i login" do
+
+ end
+end
+
+feature "account security" do
+
+  scenario "it should not let me login with out a registered username" do
+  end
+
+  scenario "should not let me log into a username if my password is incorrect" do
+  end
+
+  scenario "when i logout i want to return to the login/signup page" do
+
+  end
+  
+  scenario "when i've logged out, i can't access the feed" do
 end
