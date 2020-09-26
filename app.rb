@@ -2,6 +2,7 @@ require 'pg'
 require 'sinatra'
 require 'sinatra/flash'
 require_relative './lib/users.rb'
+require_relative './lib/peep.rb'
 
 
 class Chitter < Sinatra::Base
@@ -13,8 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-peep' do
-    #some ruby, adding a cheep to the db
-
+    Peep.create(text: params[:text], user_id: session[:user_id])
     redirect '/'
   end
 
@@ -23,7 +23,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    Users.create(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
+    user = Users.create(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
+    
+    session[:user_id] = user.id
+
     redirect '/sign-up-thanks'
   end
 

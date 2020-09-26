@@ -22,6 +22,12 @@ class Users
     @username = username
   end
 
+  def self.find(id)
+    return nil unless id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    Users.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], username: result[0]['username'])
+  end
+
 private 
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'

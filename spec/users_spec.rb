@@ -14,4 +14,19 @@ describe Users do
     expect(user).to be_a Users
     expect(user.username).to eq 'test_username'
   end
+
+  describe '.find' do
+    it 'finds a user by ID' do
+      user = test_user
+      result = Users.find(user.id)
+  
+      expect(result.id).to eq user.id
+      expect(result.email).to eq user.email
+    end
+
+    it 'returns nil if there is no ID given' do
+      expect(Users.find(nil)).to eq nil
+    end
+  end
+
 end

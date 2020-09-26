@@ -1,3 +1,5 @@
+require_relative '../database_helpers.rb'
+
 feature 'the site has a homepage' do
   scenario 'the user visits the homepage' do
     visit('/')
@@ -10,17 +12,21 @@ feature 'users can peep' do
     visit('/')
     expect(page).to have_content("new peep")
   end
+
+  scenario "the user writes a peep" do
+    visit('/')
+    sign_up
+    click_on('back to home')
+    fill_in('text', with: "This is a test peep")
+    click_on('peep it!')
+    expect(page).to have_content("This is a test peep")
+  end
 end
 
 feature 'users can sign up' do
   scenario 'a user signs up' do
     visit('/')
-    click_on('sign up')
-    fill_in('name', with: 'Bingo Boingo')
-    fill_in('email', with: 'test_email@email.com')
-    fill_in('password', with: 'testpassword123')
-    fill_in('username', with: 'bingo01')
-    click_on('sign up')
+    sign_up
     expect(page).to have_content('thanks for signing up to chitter')
   end
 end
