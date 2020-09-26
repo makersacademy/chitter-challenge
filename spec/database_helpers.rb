@@ -1,12 +1,13 @@
 require 'pg'
 
 def truncates
-  connection = PG.connect(dbname: 'chitter')
+  connection = PG.connect(dbname: 'chitter_test')
   connection.exec('TRUNCATE TABLE users')
   connection.exec('TRUNCATE TABLE peeps')
 end
 
-def add_user
+def add_test_users
+  connection = PG.connect(dbname: 'chitter_test')
   
 end
 
@@ -26,5 +27,4 @@ end
 def add_url
   Bookmark.create('Makers Academy', 'http://www.makersacademy.com')
 end
-
 =end
