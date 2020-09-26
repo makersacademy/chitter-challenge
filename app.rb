@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require './lib/peeps.rb'
 
 class Chitter < Sinatra::Base
 
   get '/' do 
-    "Hello, world!"
+    @peeps = Peeps.all
+    erb(:index)
   end 
 
 end 

@@ -1,6 +1,6 @@
 feature 'testing infrastructure' do 
-  scenario 'displays Hello, world!' do 
+  scenario 'displays Peeps' do 
     visit('/')
-    expect(page).to have_content('Hello, world!')
+    expect(page).to have_content('Peeps')
   end 
 end 
