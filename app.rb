@@ -8,4 +8,10 @@ class Chitter < Sinatra::Base
     erb(:index)
   end 
 
+  post '/' do 
+    peep = params[:add_peep]
+    Peeps.post(peep)
+    redirect '/'
+  end 
+
 end 
