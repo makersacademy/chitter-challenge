@@ -1,6 +1,6 @@
 require_relative './setup_test_database'
-#ENV["RACK_ENV"] = "chitter"
-#ENV['RSPEC_ENV'] = 'chitter_test'
+# ENV["RACK_ENV"] = "chitter"
+# ENV['RSPEC_ENV'] = 'chitter_test'
 
 ENV["ENVIRONMENT"] = "test"
 RSpec.configure do |config|
