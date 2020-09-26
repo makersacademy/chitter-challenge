@@ -8,7 +8,7 @@ require "capybara/rspec"
 require "rspec"
 require 'simplecov'
 require 'simplecov-console'
-# require_relative "./features/web_helpers.rb"
+require_relative "./web_helpers.rb"
 
 Capybara.app = Shore
 

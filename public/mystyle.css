@@ -1,0 +1,21 @@
+@font-face {
+  font-family: Bones;
+  src: url("Black Bones.ttf"); 
+}
+
+body {
+  background-image: url("beach.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-family: Bones;
+}
+
+h1 {
+  text-align: center;
+  font-size: 400%;
+}
+
+div {
+  font-family: Arial
+}
