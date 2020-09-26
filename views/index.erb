@@ -1,10 +1,36 @@
+<head>
+ <%#
+  <link href="/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
 <h1>Welcome to Chitter. Like twitter, only shitter</h1>
-<%= @tweets %>
+%>
 
-<form action="/tweets" method="post">
-
-  <input type="text" name="tweet"</input>
-  
-
-  <input type="submit" value="Tweet"></input>
+<% if @current_user != nil %>
+<form action="/tweets/add" method="get">
+<label for="Tweet">Tweet</label>
+  <input type="text" name="tweet">
+    <input type="submit" value="Tweet" />
+<%else%>
 </form>
+
+<form action="/user" method="get">
+  <label for="Sign up"></label>
+  <input type="submit" name= "Sign up" value="Sign up">
+  </form>
+
+<form action="/user/signin" method="post">
+<input type="text" name = "username">
+<input type="text" name="password">
+<input type="submit" value="Sign in">
+</form>
+<%end%>
+
+<% @tweets = Chitter.show %>
+<% @tweets.each do |tweet| %>
+<br>
+<%= tweet.tweet%><br>
+<%= tweet.created_at%>
+<%= %>
+<% end %>
+

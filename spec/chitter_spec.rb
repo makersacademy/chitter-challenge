@@ -1,7 +1,14 @@
 require 'chitter'
 
-describe '.show' do
+describe '#add' do
+  it 'adds a tweet' do
+    tweet = Chitter.add(tweet:"What!?", date:"2020-09-09")
+    expect(tweet.tweet).to eq("What!?")
+  end
+end
+describe '#show' do
   it 'returns a list of tweets' do
-    expect(Chitter.show).to include('There are owls in your gravy')
+    tweet = Chitter.add(tweet:"What!?", date:"2020-09-09")
+    expect(tweet.tweet).to include("What!?")
   end
 end
