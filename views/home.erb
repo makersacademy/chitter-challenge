@@ -3,7 +3,7 @@
 <h1>chitter</h1>
 
 <a href="/sign-up">sign up</a>
-
+<a href="/sign-in">sign in</a>
 
 <br>
 <br>
@@ -17,10 +17,10 @@
 <br>
 
 <% @peeps = Peep.all %>
-<% @users = Users.all %>
 
 <ul>
   <% @peeps.each do |peep| %>
+  <%= Users.where(peep.user_id) %>
     <p class="peep_time"> <%= peep.time %> </p>
     <p class="peep_text"> <%= peep.text %> </p>
   <% end %>

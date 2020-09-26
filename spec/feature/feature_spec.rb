@@ -30,3 +30,18 @@ feature 'users can sign up' do
     expect(page).to have_content('thanks for signing up to chitter')
   end
 end
+
+feature 'users can sign in' do
+  scenario 'a user signs in' do
+    truncates
+    test_user
+    visit('/')
+    click_on('sign in')
+    fill_in('username', with: 'test_username')
+    fill_in('password', with: 'pword123')
+    click_on('sign in')
+    expect(page).to have_content 'chitter'
+  end
+end
+
+

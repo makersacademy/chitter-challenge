@@ -42,21 +42,7 @@ class Peep
     }
   end
 
-  def self.where(user_id:)
-    result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{user_id};")
-
-    result.map { |peep| 
-      Peep.new(
-        id: peep['id'],
-        text: peep['text'],
-        time: peep['time'],
-        date: peep['date'],
-        user_id: peep['user_id']
-      )
-    }
-  end
-
-private 
+private
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'
       DatabaseConnection.setup('chitter_test')

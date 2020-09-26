@@ -34,6 +34,17 @@ class Chitter < Sinatra::Base
     erb :su_thanks
   end
 
+  get '/sign-in' do
+    erb :sign_in
+  end
+
+  post '/sign-in' do
+    user = Users.authenticate(username: params[:username], password: params[:password])
+    session[:user_id] = user.id
+    redirect('/')
+
+  end
+
   run! if app_file == $0
 
 end
