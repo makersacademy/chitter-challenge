@@ -1,9 +1,12 @@
 require 'peeps'
+require 'pg'
 
 RSpec.describe Peeps do 
 
   describe ".all" do 
-    it 'returns all peeps' do 
+    it 'returns all peeps' do
+      Peeps.post('first peep')
+      Peeps.post('second peep')
       peeps = Peeps.all
       expect(peeps).to include('first peep')
       expect(peeps).to include('second peep')
