@@ -1,0 +1,5 @@
+<a href="/peeps/add" >Add Peep</a><br>
+
+<%@peeps.reverse_each do |peep|%>
+<h3><%=peep.content%></h3> sent at <%=peep.date_time%>
+<%end%>
