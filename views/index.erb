@@ -1,0 +1,18 @@
+<% @peep_list = Peep.all %>
+
+<h1>Welcome to Chitter</h1>
+ 
+<form action='/add' method='post'> 
+  <input type='text' name='text' placeholder="What's on your mind?">
+  <input type="submit" value="Peep">
+</form>
+
+<section>
+---------------
+<ul>
+<% @peep_list.each do |peep| %>
+<li>
+ <%= peep.text %> 
+ </li>
+ <% end %> 
+</section>
