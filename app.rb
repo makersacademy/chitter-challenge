@@ -9,6 +9,11 @@ class Chitter < Sinatra::Base
     erb :home
   end
 
+  post '/' do
+    #some ruby, adding a post to the db
+    erb :home
+  end
+
   run! if app_file == $0
 
 end
