@@ -15,7 +15,7 @@ class Peep
 	 end
 	end 
 
-	 def self.create(content:, create_date: Time.new.strftime("%Y-%m-%d"))
+	 def self.create(content:, create_date: Time.new.strftime("%H:%M:%S"))
 			result = set_up.exec("INSERT INTO chitters (content, create_date) VALUES('#{content}', '#{create_date}') RETURNING id, content, create_date;")
 			Peep.new(id: result[0]["id"], content: result[0]["content"], create_date: result[0]["create_date"])
 	 end

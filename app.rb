@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
 		end 
 
 		post '/peeps' do
-			 Peep.create(content: params[:content], create_date: Time.new.strftime("%Y-%m-%d"))
+			 Peep.create(content: params[:content])
 			 redirect '/peeps'
 		end 
 
