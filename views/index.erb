@@ -1,0 +1,14 @@
+<h1>Shore</h1>
+
+<ul>
+  <% @bottles.each do |bottle| %>
+  <li class="bottle" id="bottle-<%=bottle.id%>"> 
+
+    <div>
+    <%= bottle.created %> => <%= bottle.userid %>:
+    <%= bottle.body %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+  

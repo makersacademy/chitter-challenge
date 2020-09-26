@@ -4,7 +4,7 @@ class Shore < Sinatra::Base
   enable :method_override
 
   get '/' do
-    'Shore'
+    erb :index
   end
 
 
