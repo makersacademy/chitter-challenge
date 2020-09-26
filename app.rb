@@ -1,8 +1,8 @@
 require 'sinatra/base'
-require_relative './lib/database_connection'
-
+require_relative 'database_env_setup'
 
 class Chitter < Sinatra::Base
+    database_setup
 
     get '/' do
         'Hello world'
