@@ -12,12 +12,13 @@ class Chitter < Sinatra::Base
   end
 
   post "/new_peep" do
-    p params[:peep]
+   
     Peep.add(params[:peep])
     redirect("/feed")
   end
 
   get "/feed" do
+    @current_user = session[:user]
     puts session[:user]
     erb(:home)
   end
@@ -31,7 +32,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/login' do
-    p session[:user] == !nil
     erb(:login)
   end
 

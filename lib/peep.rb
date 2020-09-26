@@ -38,5 +38,5 @@ class Peep
     @time.strftime('%k:%M%P')
   end
 
-  
+
 end
