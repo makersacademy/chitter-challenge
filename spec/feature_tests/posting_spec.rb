@@ -25,7 +25,7 @@ feature "homepage" do
  scenario "so that i can see when peeps are peeped, I want the formatted time displayed alongside the peep" do 
   Timecop.freeze(2020, 12, 25, 10, 5, 0)
   peep_once
-  visit('/')
+  visit('/feed')
   expect(page).to have_content "25 Dec 2020 at 10:05am"
  end
 end
