@@ -1,9 +1,11 @@
 require 'sinatra'
+require 'sinatra/flash'
 require_relative './lib/peep.rb'
 require_relative './lib/user.rb'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
+  register Sinatra::Flash
 
   get "/new_peep" do
     erb(:new_peep)
@@ -16,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/feed" do
-    
+    puts session[:user]
     erb(:home)
   end
 
@@ -29,15 +31,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/login' do
+    p session[:user] == !nil
     erb(:login)
   end
 
   post "/register" do
-  puts params
+  User.store(params[:username], params[:password])
+  redirect("/login")
   end
 
   post "/signed_in" do
-    puts params
+    if User.valid_user?(params[:username], params[:password])
+      session[:user] = params[:username]
+      redirect('/feed')
+    else 
+      flash[:password] = "Incorrect username or password"
+      redirect('/login')
+    end
   end 
 
 

@@ -37,4 +37,6 @@ class Peep
   def format_time_from_timestamp
     @time.strftime('%k:%M%P')
   end
+
+  
 end
