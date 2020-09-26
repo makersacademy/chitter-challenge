@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+</head>
+<body>
+
+<form action="/peeps" method="post">
+  <label for="peep_message">Post a Peep:</label><br>
+  <input type="text" name="peep_message" maxlength="30"><br>
+  <input type="submit" name="post" value="Post">
+</form>
+
+<h2>Peeps</h2>
+<%= @peep_message if !@peep_message.nil? %>
+</body>
+</html>
