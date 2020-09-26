@@ -27,3 +27,4 @@ INSERT INTO users (email, password, name, username) VALUES (
 Suggested further reading:
 https://x-team.com/blog/storing-secure-passwords-with-postgresql/
  - Instructions for accessing data are at the bottom. 
+ 

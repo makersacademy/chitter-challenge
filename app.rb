@@ -14,6 +14,15 @@ class Chitter < Sinatra::Base
     erb :home
   end
 
+  get '/sign-up' do
+    erb :sign_up
+  end
+
+  post '/sign-up' do
+    # create user
+    redirect '/'
+  end
+
   run! if app_file == $0
 
 end
