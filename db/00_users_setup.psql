@@ -1,3 +1,5 @@
+CREATE DATABASE chitter;
+
 CREATE EXTENSION pgcrypto;
 
 CREATE TABLE users (
@@ -7,6 +9,8 @@ CREATE TABLE users (
   name TEXT NOT NULL,
   username TEXT NOT NULL UNIQUE
 );
+
+
 
 ### EXAMPLE SQL FOR USING crypt EXTENSION: 
 INSERT INTO users (email, password, name, username) VALUES (

@@ -6,8 +6,9 @@ class Chitter < Sinatra::Base
   #register Sinatra::Flash
 
   get '/' do
-    "Hello, Chitter!"
+    erb :home
   end
 
+  run! if app_file == $0
 
 end
