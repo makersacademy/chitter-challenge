@@ -1,5 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
+require_relative 'db_helpers'
+require_relative 'web-helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -9,6 +11,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 ENV['ENVIRONMENT'] = "test"
 RSpec.configure do |config|
+  config.before(:each) do 
+    truncates
+  end
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

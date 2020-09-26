@@ -1,7 +1,20 @@
-<ul>
-  <%= @peeps.each do |peep| %>
-    <li>
-    peep.peep
-    </li>
+<% @peeps = Peep.all.reverse  %>
+
+<% @peeps.each do  |peep|   %>
+  <li>
+  <a>
+  
+  <%= peep.peep %>
+  <br>
+  <p style="font-size: 10px" >
+  <%= peep.format_date_from_timestamp %> at <%=peep.format_time_from_timestamp%>
+  </p>
+  </a>
+  </li>
   <%end%>
-</ul>
+
+  <form action="/new_peep" method="get">
+  <input type="submit" value="New Peep">
+  </form>
+
+
