@@ -11,4 +11,5 @@ group :test do
   gem 'rspec'
   gem 'sinatra-flash'
   gem 'uri'
+  gem 'bcrypt'
 end
