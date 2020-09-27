@@ -5,9 +5,8 @@
 <a href="/sign-up">sign up</a>
 <a href="/sign-in">sign in</a>
 
-<%= flash[:notice] %>
+<p><%= flash[:notice] %></p>
 
-<br>
 <br>
 
 <h4>new peep</h4>
@@ -20,10 +19,12 @@
 
 <% @peeps = Peep.all %>
 
-<ul>
-  <% @peeps.each do |peep| %>
-  <%= Users.where(peep.user_id) %>
-    <p class="peep_time"> <%= peep.time %> </p>
-    <p class="peep_text"> <%= peep.text %> </p>
-  <% end %>
-</ul>
+<div class="peep">
+  <ul>
+    <% @peeps.each do |peep| %>
+    <%= Users.where(peep.user_id) %>
+      <p class="peep_time"> <%= peep.time %> </p>
+      <p class="peep_text"> <%= peep.text %> </p>
+    <% end %>
+  </ul>
+</div>

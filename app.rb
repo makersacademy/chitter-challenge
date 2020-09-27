@@ -48,8 +48,6 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Invalid details'
       redirect('/')
     end
-
-    
   end
 
   run! if app_file == $0
