@@ -1,18 +1,30 @@
 <head>
-<link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
-<h1>SHORE</h1>
+  <h1> SHORE </h1>
+  <h1 class='signature'>
+    <% if @user %>
+    <%= "#{@user.username}" %>
+    <% end %>
+  </h1>
 
-<ul>
-  <% @bottles.each do |bottle| %>
-  <li class="bottle" id="bottle-<%=bottle.id%>"> 
-    <div>
-    <%= bottle.created %> => <%= bottle.userid %>:<br>
-    <%= bottle.body %>
-    </div>
-  </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @bottles.each do |bottle| %>
+    <li class="bottle" id="bottle-<%=bottle.id%>"> 
+      <div>
+        <p class="created">
+          <%= bottle.created %>
+        </p>
+        <p class='message'>
+          <%= bottle.body %>
+        </p>
+        <p class='signature'>
+          <%= bottle.userid %>
+        </p>
+      </div>
+    </li>
+    <% end %>
+  </ul>
 </body>
   

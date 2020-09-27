@@ -12,9 +12,9 @@ class Bottle
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM bottles;")
+    result = DatabaseConnection.query("SELECT * FROM bottles JOIN users ON users.id=userid ORDER BY created DESC;")
     result.map { |bottle|
-      Bottle.new(bottle["id"], bottle["userid"], bottle["body"], bottle["created"])
+      Bottle.new(bottle["id"], bottle["username"], bottle["body"], bottle["created"])
     }
   end
 
