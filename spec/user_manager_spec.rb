@@ -8,14 +8,14 @@ describe UserManager do
       clear_users_table()
       UserManager.sign_up(catzkorn)
       UserManager.log_in("Catzkorn", "donthackmeplease")
-      expect(UserManager.logged_in?("Catzkorn")).to be_truthy
+      expect(UserManager.logged_in).to eq "Catzkorn"
     end
 
     it "returns false if user is not logged in" do
       clear_users_table()
-      expect(UserManager.logged_in?("")).to be_falsy
+      expect(UserManager.logged_in).to eq ""
       UserManager.log_in("FakeUser", "HahaSuckers")
-      expect(UserManager.logged_in?("FakeUser")).to be_falsy
+      expect(UserManager.logged_in).to eq ""
     end
   end
 
@@ -23,7 +23,7 @@ describe UserManager do
     it "stores a new user" do
       clear_users_table()
       UserManager.sign_up(catzkorn)
-      expect(UserManager.logged_in?("Catzkorn")).to be_truthy
+      expect(UserManager.logged_in).to eq "Catzkorn"
     end
   end
 end

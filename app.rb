@@ -6,12 +6,15 @@ require "./lib/user_manager"
 
 class Chitter < Sinatra::Base
   get "/" do
+    @username = UserManager.logged_in
     @messages = MessageManager.all
     erb :index
   end
 
   post "/posts" do
-    MessageManager.store(Message.new(params[:content]))
+    username = UserManager.logged_in
+    redirect "/error" if username == ""
+    MessageManager.store(Message.new(params[:content], username))
     redirect "/"
   end
 
@@ -20,7 +23,9 @@ class Chitter < Sinatra::Base
   end
 
   post "/sign_up" do
-    UserManager.sign_up(User.new(params[:username], params[:email], params[:name], params[:password]))
+    UserManager.sign_up(
+      User.new(params[:username], params[:email], params[:name], params[:password]),
+    )
     redirect "/"
   end
 
@@ -31,6 +36,10 @@ class Chitter < Sinatra::Base
   post "/log_in" do
     UserManager.log_in(params[:username], params[:password])
     redirect "/"
+  end
+
+  get "/error" do
+    erb :error
   end
 
   run! if app_file == $0

@@ -1,6 +1,6 @@
 feature "user can sign up" do
   scenario "user signs up for chitter with a username, name, email and password" do
-    visit ("/")
+    visit "/"
     click_button "Sign Up"
     fill_in :username, with: "Catzkorn"
     fill_in :email, with: "ilikecats@ireallylikecats.cat"

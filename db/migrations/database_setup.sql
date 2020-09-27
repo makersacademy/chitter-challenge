@@ -1,0 +1,19 @@
+CREATE DATABASE chitter;
+CREATE EXTENSION pgcrypto;
+CREATE TABLE users(
+  id UUID PRIMARY KEY gen_random_uuid(), 
+  email VARCHAR(30) NOT NULL UNIQUE,
+  name VARCHAR(30) NOT NULL,
+  password TEXT NOT NULL,
+  logged_in BOOLEAN NOT NULL,
+  username VARCHAR(16) NOT NULL UNIQUE
+  );
+
+CREATE TABLE messages(
+  id SERIAL PRIMARY KEY, 
+  content VARCHAR(240) NOT NULL,
+  time TIMESTAMP WITH TIME ZONE NOT NULL,
+  username VARCHAR(16) NOT NULL REFERENCES users(username)
+  );
+
+
