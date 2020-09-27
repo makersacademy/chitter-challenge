@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign up for Chitter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h2>Sign up for Chitter</h2>
+  <form action="/users/new" method="post">
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" name="email" id="email" placeholder="example@email.com">
+
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username">
+
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" id="name">
+
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password">
+
+      <input class="btn btn-primary" type="submit" name="sign-up" value="Sign up">
+    </div>
+  </form>
+</div>
+</body>
+</html>
