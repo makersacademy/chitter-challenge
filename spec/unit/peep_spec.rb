@@ -8,10 +8,10 @@ describe Peep do
         end
     end
 
-    describe '#show' do
-        it 'Return list of peeps when called'do
-            Peep.add('This is a test peep')
-            expect(Peep.show[0].content).to eq('This is a test peep') 
-        end
-    end
+     describe '#show' do
+         it 'Return list of peeps when called'do
+             Peep.add('This is a test peep')
+             expect(Peep.show[0].content).to eq('This is a test peep') 
+         end
+     end
 end

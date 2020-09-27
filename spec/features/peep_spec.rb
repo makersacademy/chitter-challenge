@@ -1,4 +1,4 @@
-feature '#add' do
+feature 'Add peep to peep list' do
     scenario 'Add peeps from the peeps page' do
         visit('/peeps')
         click_link('Add Peep')
