@@ -5,11 +5,11 @@
 
 <div class="posts">
   <% @messages.each do |message| %>
-    <li class="post" id="message-<%=message.id%>"> 
+    <div class="post" id="message-<%=message.id%>"> 
       
         <%= message.content %>
             
-    </li>
+    </div>
   <% end %>
   </div>
 <br>
