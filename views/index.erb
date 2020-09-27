@@ -20,7 +20,9 @@ body {
 </h1>
 
 <nav>
-Welcome <%= session[:username] %> 
+<% if session[:username] %>
+<%= "Welcome " + session[:username]%>
+<% end %> 
  ---------------<br>
 <form action='/sign_up' method='get'>
 <button type="submit">Sign up</button> 

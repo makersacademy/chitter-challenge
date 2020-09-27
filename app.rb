@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   run! if app_file == $0
 
   get '/' do
+    # @user = User.find(session[:user_id])
     erb :index
   end
 
