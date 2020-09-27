@@ -2,17 +2,23 @@
  <%#
   <link href="/styles.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
-</head>
+</head>%>
 <h1>Welcome to Chitter. Like twitter, only shitter</h1>
-%>
+
 
 <% if @current_user != nil %>
 <form action="/tweets/add" method="get">
-<label for="Tweet">Tweet</label>
+<label for="Tweet">Tweet
   <input type="text" name="tweet">
     <input type="submit" value="Tweet" />
+</form></label>
+<form action="/logout" method="post">
+<label for="Log out">
+<input type="submit" value="Logout">
+</label>
+
 <%else%>
-</form>
+
 
 <form action="/user" method="get">
   <label for="Sign up"></label>
@@ -31,6 +37,6 @@
 <br>
 <%= tweet.tweet%><br>
 <%= tweet.created_at%>
-<%= %>
+<%= tweet.username %>
 <% end %>
 

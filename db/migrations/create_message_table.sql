@@ -4,7 +4,7 @@ CREATE TABLE message
 ,
   tweet VARCHAR(60)
 ,
-  created_at VARCHAR(20)
+  created_at VARCHAR(30)
 ,
   username VARCHAR(20) REFERENCES "user"(username)
 );

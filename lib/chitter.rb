@@ -24,8 +24,8 @@ class Chitter
   tweet_list.reverse
   end
 
-  def self.add(tweet:, created_at: Time.now)
-    result = DatabaseConnection.query("INSERT INTO message (tweet, created_at) VALUES('#{tweet}', '#{created_at}') RETURNING id, tweet, created_at, username;")
+  def self.add(tweet:, username:, created_at: Time.now)
+    result = DatabaseConnection.query("INSERT INTO message (tweet, username, created_at) VALUES('#{tweet}', '#{username}', '#{created_at}') RETURNING tweet, username, created_at;")
     Chitter.new(id: result[0]['id'], tweet: result[0]['tweet'], created_at: result[0]['created_at'], username: result[0]['username'])
   end
 

@@ -21,7 +21,12 @@ attr_reader :username, :name, :email, :password
   def self.find(username:, password:)
     result = DatabaseConnection.query("SELECT * FROM \"user\" WHERE username = '#{username}';")
     User.new(username: result[0]['username'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'])
-
-
   end
+
+  def self.authorize?(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM \"user\" WHERE username = '#{username}';")
+    return true if result.any? && password == result[0]['password']
+  end
+
+
 end

@@ -16,8 +16,10 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/tweets/add' do
-   p Chitter.add(tweet: params[:tweet]) 
+    p session[:current_user].username
+    p Chitter.add(tweet: params[:tweet], username: session[:current_user].username) 
    p params[:tweet] 
+  
    redirect '/tweets'
   end
 
@@ -36,6 +38,11 @@ class ChitterApp < Sinatra::Base
   post '/user/add' do
     User.add(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
     redirect '/tweets'
+  end
+
+  post '/logout' do
+    session.clear
+    redirect '/'
   end
 
   run! if app_file == $0
