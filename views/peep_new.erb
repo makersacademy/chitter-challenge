@@ -1,6 +1,35 @@
+<style> body {
+  background-image : url("https://pbs.twimg.com/media/DMDIKcyWsAEsKDj.jpg");
+  background-position : center;
+  background-repeat : no - repeat;
+  background-size : cover;
+  font-family : Helvetica;
+  color: white;
+  text-align : center;
+}
+form {
+  margin-top : 170 px;
+  font-size : 70;
+}
+.button {
+background-color : blue;
+border: none;
+color: white;
+padding: 10px 25px;
+text-align: center;
+font-size: 16px;
+}
 
+.peep {
+	padding: 10px 25px;
+	width: 35%;
+	text-align: center;
+	font-size: 20px;
+}
+</style>
+<body>
 <form action="/peeps" method="post">
-<input type="text" name="content">
-<input type="submit" value="Submit">
+<input class="peep" type="text" name="content" placeholder="your peep here"> 
+<input class ="button" type="submit" value="Submit">
 </form>
-
+</body>

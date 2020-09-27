@@ -1,1 +1,7 @@
 CREATE TABLE chitters(id SERIAL PRIMARY KEY, content  VARCHAR(120));
+CREATE TABLE users
+(
+	id SERIAL PRIMARY KEY,
+	email VARCHAR(60),
+	password VARCHAR(140)
+);

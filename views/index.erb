@@ -6,12 +6,23 @@ background-repeat: no-repeat;
 background-size: cover;
 font-family : Helvetica;
 color: white;
+text-align: center;
 }
+h3 {
+margin-top: 35px;
+margin-bottom: 25px;
+
+}
+hr {
+	width: 20%;
+}
+
+
 </style>
 <body>
-<ul>
+<h3>
 <% @peeps.reverse_each do |peep| %>
-<li><%= peep.content %> posted at: <%= peep.create_date%>  </li>
+<%= peep.content%><br> posted at: <%= peep.create_date%> <hr> 
 <% end %>
-</ul>
+</h3>
 </body>
