@@ -8,9 +8,9 @@ class MessageManager
       connection = PG.connect(dbname: "chitter")
     end
 
-    result = connection.exec("SELECT * FROM messages;")
+    result = connection.exec("SELECT * FROM messages ORDER BY time DESC;")
     result.map { |message|
-      Message.new(message["content"], message["id"])
+      Message.new(message["content"], message["time"], message["id"])
     }
   end
 
@@ -21,6 +21,6 @@ class MessageManager
       connection = PG.connect(dbname: "chitter")
     end
 
-    connection.exec("INSERT INTO messages (content) VALUES ('#{message.content}');")
+    connection.exec("INSERT INTO messages (content, time) VALUES ($1, $2);", [message.content, message.time.strftime("%FT%T.%L%z")])
   end
 end

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'selenium-webdriver'
 gem 'pg'
+gem 'timecop'
 
 group :test do
 gem 'capybara'
