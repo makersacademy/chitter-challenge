@@ -10,7 +10,7 @@ class Peep
 
     @connection = DatabaseConnection.connection
     clock = Time.new
-    time = "#{clock.hour}:#{clock.min}"
+    time = "#{clock.hour}:#{clock.min}:#{clock.sec}"
     date = "#{clock.year}-#{clock.month}-#{clock.day}"
 
     result = DatabaseConnection.query("INSERT INTO peeps (text, time, date, user_id) VALUES('#{text}', '#{time}', '#{date}', '#{user_id}')RETURNING id, text, time, date, user_id;")

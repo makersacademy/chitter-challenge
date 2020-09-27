@@ -10,7 +10,7 @@ end
 feature 'users can peep' do
   scenario "the site's homepage has a form that asks people to peep" do
     visit('/')
-    expect(page).to have_content("new peep")
+    expect(page).to have_field("what's up?")
   end
 
   scenario "the user writes a peep" do

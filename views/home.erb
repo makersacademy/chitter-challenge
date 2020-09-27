@@ -1,15 +1,19 @@
-<title>chitter - home</title>
+<head>
+  <title>chitter - home</title>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Peddana&display=swap" rel="stylesheet">
+</head>
 
 <h1>chitter</h1>
 
-<a href="/sign-up">sign up</a>
-<a href="/sign-in">sign in</a>
+<div class="nav_bar">
+<a class="nav_link" href="/sign-up">sign up</a>
+<p></p>
+<a class="nav_link" href="/sign-in">sign in</a>
+</div>
 
-<p><%= flash[:notice] %></p>
+<p id="flash"><%= flash[:notice] %></p>
 
-<br>
-
-<h4>new peep</h4>
 <form action="/new-peep" method="post">
   <input type="text" name="text" placeholder="what's up?"></input>
   <input type="submit" value="peep it!">
@@ -19,12 +23,13 @@
 
 <% @peeps = Peep.all %>
 
-<div class="peep">
+<div id="peep">
   <ul>
     <% @peeps.each do |peep| %>
     <%= Users.where(peep.user_id) %>
       <p class="peep_time"> <%= peep.time %> </p>
       <p class="peep_text"> <%= peep.text %> </p>
+      <hr>
     <% end %>
   </ul>
 </div>
