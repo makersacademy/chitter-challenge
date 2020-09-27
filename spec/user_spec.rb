@@ -11,6 +11,18 @@ describe User do
     end
   end
 
+  describe '#.all' do
+    it 'lists the table of users' do
+      clear_table
+      User.create('ollie@gmail.com', 'password123')
+      User.create('bryony@gmail.com', 'password1234')
+      expect(User.all[0].email).to eq 'ollie@gmail.com'
+      expect(User.all[1].email).to eq 'bryony@gmail.com'
+      expect(User.all[0].password).to eq 'password123'
+      expect(User.all[1].password).to eq 'password1234'
+    end
+  end
+
   describe '#.check_password' do
     it 'returns true if the password matches the database for that email' do
       clear_table

@@ -24,12 +24,15 @@ class User
     User.new(result[0]["id"], result[0]["email"], result[0]["password"])
   end
 
+
   def self.check_password(email, password)
+
     if ENV["ENVIRONMENT"] == "test"
       connection = PG.connect(dbname: "peep_manager_test")
     else
       connection = PG.connect(dbname: "peep_manager")
     end
+
 
     result = connection.exec("SELECT password FROM users WHERE email = '#{email}';")
     result[0]['password'] == password
@@ -58,4 +61,5 @@ class User
   #     User.new(user["id"], user["email"], user["password"])
   #   end
   # end
+
 end
