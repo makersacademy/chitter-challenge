@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative './lib/chitter'
 require_relative './lib/user'
+require './lib/database_connection_setup'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
