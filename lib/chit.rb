@@ -2,7 +2,6 @@ require 'pg'
 
 class Chit
 
-
   attr_reader :message, :id, :time
 
       def initialize(message:, id:, time:)

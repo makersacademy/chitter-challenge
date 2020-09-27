@@ -11,6 +11,24 @@ So that I can let people know what I am doing
 
 I want to post a message (peep) to chitter
 
+
+# US 2
+
+As a maker
+
+So that I can see what others are saying
+
+I want to see all peeps in reverse chronological order
+
+
+# US 3
+
+As a Maker
+
+So that I can better appreciate the context of a peep
+
+I want to see the time at which it was made
+
  * to be able to post, first user should be able to view all and then post
  * then user needs to fill_in a form and click_button 'Post Chit'
  * then user sees the posted chit
@@ -27,7 +45,7 @@ I want to post a message (peep) to chitter
 10. Change controller and require ./lib/chit so we can pass the method
 ----------------------------------
 --- Set up database ---
-1. Connect to psql postgres, CREATE DATABASE chit_manager
+1. Connect to psql postgres, CREATE DATABASE chit_manager - require to set up timezone
 2. CREATE TABLE chits (id SERIAL PRIMARY KEY, message VARCHAR(280), time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 3. Set up database and migrations
 4. Set up pg gem  
@@ -51,25 +69,6 @@ I want to post a message (peep) to chitter
 17. Implement method .add in Model (insert connection test database here)
 
   
-
-# US 2
-As a maker
-
-So that I can see what others are saying
-
-I want to see all peeps in reverse chronological order
-
-
-
-# US 3
-As a Maker
-
-So that I can better appreciate the context of a peep
-
-I want to see the time at which it was made
-
-
-
 # US 4
 As a Maker
 
@@ -79,3 +78,9 @@ I want to sign up for Chitter
 
 1. Feature test sign up method
 2. Update get / post paths in controller
+3. Create form for sign_up.erb
+4. No need for using unit tests as no new methods were added?
+5. Create JavaScript redirection from frontpage to sign_up
+6. Reorganise files and redirections after rackup
+
+
