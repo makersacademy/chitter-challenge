@@ -5,7 +5,7 @@
   <h1> SHORE </h1>
   <h1 class='signature'>
     <% if @user %>
-    <%= "#{@user.username}" %>
+    <%= "logged in as #{@user.username}" %>
     <% end %>
   </h1>
 
@@ -20,7 +20,8 @@
           <%= bottle.body %>
         </p>
         <p class='signature'>
-          <%= bottle.userid %>
+          <%= "#{bottle.username} - #{bottle.name}" %><br>
+          _______________
         </p>
       </div>
     </li>
