@@ -4,7 +4,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Peddana&display=swap" rel="stylesheet">
 </head>
 
-<h1>chitter</h1>
+<a class="site_header" href="/">chitter</a>
 
 <div class="nav_bar">
 <a class="nav_link" href="/sign-up">sign up</a>
@@ -14,12 +14,11 @@
 
 <p id="flash"><%= flash[:notice] %></p>
 
-<form action="/new-peep" method="post">
+<form class="new_peep" action="/new-peep" method="post">
   <input type="text" name="text" placeholder="what's up?"></input>
-  <input type="submit" value="peep it!">
+  <input class="button" type="submit" value="peep it!">
 </form>
 
-<br>
 
 <% @peeps = Peep.all %>
 

@@ -5,14 +5,6 @@ body {
   padding-right: 3em;
 }
 
-h1 {
-
-}
-
-#peep {
-
-}
-
 .peep_time {
   line-height: 1%;
 }
@@ -27,10 +19,36 @@ h1 {
   background-color: beige;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 3em;
+  padding-left: 0.3em;
+  text-decoration: none;
+}
+
+.site_header {
+  font-size: 3em;
+  padding-left: 0.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+a:visited { 
+  text-emphasis: none;
+  text-decoration: underline;
+  color: black;
 }
 
 .nav_link {
   padding-left: 0.5em;
+}
+
+.new_peep {
+  padding-left: 1.5em;
 }
 
 #flash {
