@@ -1,5 +1,5 @@
-feature "Post a peep" do
-  scenario "user can post a peep to chitter" do
+feature "Post a message" do
+  scenario "user can post a message to chitter" do
     clear_database_table()
     visit("/")
     fill_in :message, with: "If the aliens in Independence Day used Kubernetes; the movie would have turned out a lot differently."
