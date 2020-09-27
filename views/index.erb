@@ -1,7 +1,16 @@
-<form action="/posts" method="post">
-<input type="text" name="content" maxlength="240"><br>
-<input type="submit" value="Post">
+<form action="/sign_up" method="get">
+  <input type="submit" name="sign_up" value="Sign Up">
 </form>
+<form action="/log_in" method="get">
+  <input type="submit" name="log_in" value="Log In">
+</form>
+
+<div class="create_post">
+  <form action="/posts" method="post">
+  <input type="text" name="content" maxlength="240"><br>
+  <input type="submit" value="Post">
+  </form>
+</div>
 
 <div class="posts">
   <% @messages.each do |message| %>

@@ -10,7 +10,7 @@ describe MessageManager do
 
   describe "#store and #all" do
     it "returns all stored messages" do
-      clear_database_table()
+      clear_messages_table()
       MessageManager.store(message_double)
       MessageManager.store(message_double_two)
       MessageManager.store(message_double_three)
@@ -20,6 +20,11 @@ describe MessageManager do
       expect(MessageManager.all[1].time.to_i).to eq (1577836860)
       expect(MessageManager.all[2].content).to include("Can I list a world of warcraft rank 1 under achievements on a cv? Asking for a friend.")
       expect(MessageManager.all[2].time.to_i).to eq (1577836800)
+    end
+  end
+
+  describe "#all" do
+    it "checks that all returns contents of database" do
     end
   end
 end

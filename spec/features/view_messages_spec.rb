@@ -1,6 +1,6 @@
 feature "view posted messages" do
   scenario "user can view messages in reverse chronological order" do
-    clear_database_table()
+    clear_messages_table()
     visit("/")
     fill_in :content, with: "If the aliens in Independence Day used Kubernetes; the movie would have turned out a lot differently."
     click_button "Post"
