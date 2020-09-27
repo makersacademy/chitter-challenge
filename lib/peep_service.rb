@@ -11,7 +11,7 @@ class PeepService
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
-    result.map { |peep| Peep.new(peep['id'], peep['message'], peep['author_id'], peep['created_at'].to_i) }
+    result.map { |peep| Peep.new(peep['id'], peep['message'], peep['author_id'], peep['created_at']) }
   end
 
   private

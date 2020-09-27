@@ -5,6 +5,6 @@ class Peep
     @id = id
     @message = message
     @author_id = author_id
-    @created_at = Time.at(created_at).utc.to_datetime
+    @created_at = DateTime.parse(created_at)
   end
 end

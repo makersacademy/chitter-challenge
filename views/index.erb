@@ -2,24 +2,42 @@
 <html>
 <head>
   <title>Chitter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
 
-<form action="/peeps" method="post">
-  <label for="peep_message">Post a Peep:</label><br>
-  <input type="text" name="peep_message" maxlength="30"><br>
-  <input type="submit" name="post" value="Post">
-</form>
+<div class="container">
+  <form action="/peeps" method="post">
+    <div class="form-group">
+      <label for="peep_message">Post a peep:</label>
+      <input class="form-control" type="text" name="peep_message" maxlength="30">
+      <small class="form-text text-muted">Maximum 30 characters</small>
+      <input class="btn btn-primary" type="submit" name="post" value="Post">
+    </div>
+  </form>
+</div>
 
-<h2>Peeps</h2>
-<ul>
+<div class="container">
+  <h2>Peeps</h2>
+  <% @peeps.sort_by! { |peep| peep.created_at }.reverse! %>
   <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.message %><br>
-      Posted by <%= peep.author_id %> at <%= peep.created_at %>
-    </li>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p><%= peep.message %></p>
+              <footer class="blockquote-footer">
+                Posted by <%= peep.author_id %>
+                <%= peep.created_at.strftime("at %I:%M%p %d/%m/%Y") %>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 </body>
 
 </html>
