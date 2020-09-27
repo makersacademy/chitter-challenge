@@ -1,7 +1,8 @@
 class Message
-  attr_reader :content
+  attr_reader :content, :id
 
-  def initialize(content)
+  def initialize(content, id = nil)
     @content = content
+    @id = id
   end
 end

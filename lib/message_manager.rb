@@ -10,7 +10,7 @@ class MessageManager
 
     result = connection.exec("SELECT * FROM messages;")
     result.map { |message|
-      Message.new(message["content"])
+      Message.new(message["content"], message["id"])
     }
   end
 
@@ -21,6 +21,6 @@ class MessageManager
       connection = PG.connect(dbname: "chitter")
     end
 
-    result = connection.exec("INSERT INTO messages (content) VALUES ('#{message}');")
+    connection.exec("INSERT INTO messages (content) VALUES ('#{message.content}');")
   end
 end

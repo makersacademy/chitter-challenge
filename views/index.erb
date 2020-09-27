@@ -1,4 +1,15 @@
 <form action="/posts" method="post">
-<input type="text" name="message" maxlength="240"><br>
+<input type="text" name="content" maxlength="240"><br>
 <input type="submit" value="Post">
 </form>
+
+<div class="posts">
+  <% @messages.each do |message| %>
+    <li class="post" id="message-<%=message.id%>"> 
+      
+        <%= message.content %>
+            
+    </li>
+  <% end %>
+  </div>
+<br>
