@@ -2,6 +2,7 @@ require 'sinatra/base'
 require_relative 'database_env_setup'
 require './lib/peep'
 require './lib/user'
+require './lib/user_peep'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -16,7 +17,7 @@ class Chitter < Sinatra::Base
 
     get '/peeps' do
         @user = User.find(session[:user_id])
-        @peeps = Peep.show
+        @info = UserPeep.show
         erb :peep_list
     end
     
@@ -25,8 +26,8 @@ class Chitter < Sinatra::Base
     end
 
     post '/peeps/add' do
-        Peep.add(params[:peep_content])
-        UserPeep.add
+        peep = Peep.add(params[:peep_content])
+        UserPeep.add(session[:user_id], peep.id )
         redirect '/peeps'
     end
 

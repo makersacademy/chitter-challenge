@@ -2,6 +2,7 @@
 
 <a href="/peeps/<%= @user.id %>/add" >Add Peep</a><br>
 
-<%@peeps.reverse_each do |peep|%>
-<h3><%=peep.content%></h3> sent at <%=peep.date_time%>
+<%@info.reverse_each do |info|%>
+<h3><%=info.content%></h3> sent at <%=info.datetime%>
+<%=info.username%>
 <%end%>
