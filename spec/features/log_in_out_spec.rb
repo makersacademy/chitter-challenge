@@ -16,4 +16,17 @@ feature 'Log in/out' do
     expect(page).to have_current_path('/')
     expect(page).to have_content('Welcome Test User')
   end
+
+  scenario 'User cannot log in with invalid credentials' do
+    register_user
+    log_out
+
+    visit '/'
+    fill_in 'username', with: 'unique_user'
+    fill_in 'password', with: 'incorrectpassword'
+    click_button 'Log in'
+    expect(page).to have_current_path('/')
+    expect(page).to have_content('Invalid credentials')
+    expect(page).not_to have_content('Welcome Test User')
+  end
 end
