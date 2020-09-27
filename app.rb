@@ -8,7 +8,12 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get "/new_peep" do
-    erb(:new_peep)
+    if session[:user].nil?
+      flash[:login_warning] = "You must be logged in to create peeps"
+      redirect("/")
+    else
+     erb(:new_peep)
+    end 
   end
 
   post "/new_peep" do
