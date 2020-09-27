@@ -1,0 +1,14 @@
+
+
+
+<form action="/sessions/destroy" method="post">
+<input type="submit" value="Log out" style="margin-left: 50%; height: 50px; width: 300px;">
+<form>
+
+
+<h2><a href="/peeps/<%= @user.id %>/add" >Add Peep</a></h2><br>
+
+<%@info.reverse_each do |info|%>
+<h3><%=info.content%></h3> sent at <%=info.datetime%>
+by <h3><%=info.username%></h3>
+<%end%>
