@@ -4,9 +4,12 @@ feature 'View peeps' do
     message2 = 'This is the second'
     message3 = 'And a third in case'
 
-    PeepService.post(message1, '1')
-    PeepService.post(message2, '3')
-    PeepService.post(message3, '1')
+    register_user
+    user = UserService.current_user
+
+    PeepService.post(message1, user.username)
+    PeepService.post(message2, user.username)
+    PeepService.post(message3, user.username)
 
     visit '/'
     expect(message3).to appear_before(message2, only_text: true)

@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'orderly'
 require_relative './setup_test_database'
+require_relative './features/web_helpers'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
