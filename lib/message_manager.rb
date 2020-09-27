@@ -1,4 +1,5 @@
 require "pg"
+require "date"
 
 class MessageManager
   def self.all
@@ -8,9 +9,11 @@ class MessageManager
       connection = PG.connect(dbname: "chitter")
     end
 
+    connection.type_map_for_results = PG::BasicTypeMapForResults.new connection
+
     result = connection.exec("SELECT * FROM messages ORDER BY time DESC;")
     result.map { |message|
-      Message.new(message["content"], message["time"], message["id"])
+      Message.new(message.values[1], message.values[2], message.values[0])
     }
   end
 

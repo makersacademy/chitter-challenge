@@ -15,11 +15,11 @@ describe MessageManager do
       MessageManager.store(message_double_two)
       MessageManager.store(message_double_three)
       expect(MessageManager.all[0].content).to include("If the aliens in Independence Day used Kubernetes; the movie would have turned out a lot differently.")
-      expect(MessageManager.all[0].time).to eq ("2020-01-01 00:02:00+00")
+      expect(MessageManager.all[0].time.to_i).to eq (1577836920)
       expect(MessageManager.all[1].content).to include("If Kubernetes is based off of Borg. Is it called Kubernetes because the Borg ship is a Kube?")
-      expect(MessageManager.all[1].time).to eq ("2020-01-01 00:01:00+00")
+      expect(MessageManager.all[1].time.to_i).to eq (1577836860)
       expect(MessageManager.all[2].content).to include("Can I list a world of warcraft rank 1 under achievements on a cv? Asking for a friend.")
-      expect(MessageManager.all[2].time).to eq ("2020-01-01 00:00:00+00")
+      expect(MessageManager.all[2].time.to_i).to eq (1577836800)
     end
   end
 end
