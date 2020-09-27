@@ -8,7 +8,7 @@ Chitter Challenge
 ## Testing the files
 * run tests using rspec in the home folder. There are only feature tests.
 ## Functionality
-* A social media board with a newsfeed and posts
+* A social media board with a newsfeed and posts and very basic first attempt at account security layout.
 # Account Features
   * You can create an account and login, your username is unique to you
   * Please use a novel password, the database has no encryption as this was just playing with databases for the first time.
