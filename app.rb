@@ -28,8 +28,10 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/user/signin' do
+    if User.authorize?(username: params[:username], password: params[:password])
     temp_user = User.find(username: params[:username], password: params[:password]) 
     session[:current_user] = temp_user if params[:password] == temp_user.password
+    end
     
      
      redirect '/tweets'
