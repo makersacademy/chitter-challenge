@@ -1,0 +1,16 @@
+
+<h1>Welcome to Chitter!</h1>
+
+<html>
+<head>
+
+  <script type="text/javascript">
+      function delayedRedirect(){
+          window.location = "<%= '/chits' %>"
+      }
+  </script>
+</head>
+<body onLoad="setTimeout('delayedRedirect()', 3000)">
+<h2>You'll be redirected soon!</h2>
+</body>
+</html>
