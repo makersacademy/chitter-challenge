@@ -93,3 +93,4 @@ Message create times are stored with millisecond accuracy for message sorting. T
 - Post field and button show even if not logged in
 - Currently there is no CSS styling
 - Pages to handle errors (e.g already logged in, email already registered etc) are not active
+- Code needs to be refactored to automatically start connection to database
