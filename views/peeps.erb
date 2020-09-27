@@ -1,8 +1,19 @@
 <h1>hi peeps</h1>
-<h1>You are logged in as <%= @user.email %></h1>
-
-
+<h1>You are logged in as <%= @user.email %></h1><br>
 <form action="/log_out" method="post">
   <input type="submit" value="Log Out">
+</form><br>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li class="peep" id="peep-<%=peep.id%>"> 
+    <a><%= peep.author %> at <%= peep.timestamp %> wrote: <br>
+      <%= peep.content %> </a><br>
+  </li>
+  <% end %>
+</ul>
+<h1>Write a peep here:</h1>
+<form action="/peeps/new" method="post">
+  <input type="text" name="content" value="content">
+  <input type="submit" value="Post Peep">
 </form><br>
 
