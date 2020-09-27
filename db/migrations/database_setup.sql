@@ -1,7 +1,6 @@
-CREATE DATABASE chitter;
 CREATE EXTENSION pgcrypto;
 CREATE TABLE users(
-  id UUID PRIMARY KEY gen_random_uuid(), 
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(), 
   email VARCHAR(30) NOT NULL UNIQUE,
   name VARCHAR(30) NOT NULL,
   password TEXT NOT NULL,

@@ -29,11 +29,21 @@ Chitter Challenge
 
 # Instructions
 
-### To get started
+## To get started
 
 - Clone the repo 
 - run `bundle`
-- create databases as configured in `db/migrations`
+
+### Create database
+
+run:
+```
+psql -c 'CREATE DATABASE chitter;'
+psql -d chitter -f db/migrations/database_setup.sql
+```
+
+### Start local server
+
 - run `rackup`
 
 ```
