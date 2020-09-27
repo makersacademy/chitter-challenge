@@ -7,11 +7,12 @@
   <% @messages.each do |message| %>
     <div class="post" id="message-<%=message.id%>"> 
       
-        <%= message.content %>
-
-        <%= message.time.strftime("%H:%M") %>
+        <div class="content"> <%= message.content %> </div>
+        <div class="time"><%= message.time.strftime("%H:%M") %> </div>
+     
             
     </div>
+     
   <% end %>
   </div>
 <br>
