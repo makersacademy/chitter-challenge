@@ -1,3 +1,9 @@
+<section>
+<% if @user %>
+  <p>Hello, <%= @user.username %></p>
+<% end %>
+</section>
+
 <form action='/' method='post'>
   <input type='text' name='add_peep' placeholder="What's on your mind?" required>
   <input type='submit' name='Submit' value='post'>

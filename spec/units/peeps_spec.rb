@@ -8,15 +8,14 @@ RSpec.describe Peeps do
       Peeps.post('first peep')
       Peeps.post('second peep')
       peeps = Peeps.all
-      expect(peeps).to include('first peep')
-      expect(peeps).to include('second peep')
+      expect(peeps).to be_instance_of Array
     end 
   end
   
   describe ".post" do 
       it 'adds a new peep' do 
         Peeps.post("New peep")
-        expect(Peeps.all).to include("New peep")
+        expect(Peeps.all).not_to be_empty
       end 
     end
 
