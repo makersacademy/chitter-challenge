@@ -4,6 +4,8 @@ Chitter Challenge
 ## Running the files
 * complete the instrucitons in db/01_setting_up.sql to have the correct databases corresponding to the code
 * Files must be run using rack
+* bundle install
+
 
 ## Testing the files
 * run tests using rspec in the home folder. There are only feature tests.
