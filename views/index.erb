@@ -1,18 +1,43 @@
-<% @peep_list = Peep.all %>
 
-<h1>Welcome to Chitter</h1>
+<style>
+body {
+  background-color: black;
+  color: green;
+}
+</style>
+
+<body>
+
+<h1> 
+<pre>
+   _____ _     _ _   _            
+  / ____| |   (_) | | |           
+ | |    | |__  _| |_| |_ ___ _ __ 
+ | |    | '_ \| | __| __/ _ \ '__|
+ | |____| | | | | |_| ||  __/ |   
+  \_____|_| |_|_|\__|\__\___|_|   
+</pre>                                                          
+</h1>
+
+<nav>
+Welcome <%= session[:username] %> 
+ ---------------<br>
+<form action='/sign_up' method='get'>
+<button type="submit">Sign up</button> 
+</form>
  
 <form action='/add' method='post'> 
   <input type='text' name='text' placeholder="What's on your mind?">
   <input type="submit" value="Peep">
+  <br>---------------
 </form>
 
-<section>
----------------
+</nav>
+<% @peep_list = Peep.all %>
 <ul>
-<% @peep_list.each do |peep| %>
-<li>
- <%= peep.text %> 
- </li>
+<% @peep_list.each do |peep|  %>
+<div>
+ [<%= peep.date %>] < <%= @username %> >  <%= peep.text %> <br>
+ </div>
  <% end %> 
-</section>
+</body> 
