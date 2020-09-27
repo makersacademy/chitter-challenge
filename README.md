@@ -32,6 +32,10 @@ I want to log out of Chitter
 
 ```
 
+Database structure:
+
+![](database.png)
+
 ## SETUP
 
 Create a `chitter` and `chitter_test` db in psql.
