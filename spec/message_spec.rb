@@ -1,3 +1,5 @@
+require "message"
+
 describe Message do
   describe "#new" do
     it "creates a message" do
