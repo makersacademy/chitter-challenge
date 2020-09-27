@@ -8,6 +8,22 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+How To Set Up Databases:
+-------
+
+psql postgres
+CREATE DATABASE peep_manager WITH OWNER student ENCODING 'UTF8';
+\q
+psql peep_manager
+CREATE DATABASE peep_manager_test WITH OWNER student ENCODING 'UTF8';
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(60));
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(240), author VARCHAR(60), timestamp VARCHAR(60));
+\q
+psql peep_manager_test
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(60));
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(240), author VARCHAR(60), timestamp VARCHAR(60));
+
+
 Features:
 -------
 
