@@ -1,0 +1,39 @@
+<head>
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+  <h1> SHORE </h1>
+  <h1 class='signature'>
+    <% if @user %>
+    <%= "logged in as #{@user.username}" %>
+    <% else %>
+    <%= "not logged in" %>
+    <% end %>
+  </h1>
+
+  <ul>
+    <% @bottles.each do |bottle| %>
+    <li class="bottle" id="bottle-<%=bottle.id%>"> 
+      <div>
+        <p class="created">
+          <%= bottle.created %>
+        </p>
+        <p class='message'>
+          <%= bottle.body %>
+        </p>
+        <p class='signature'>
+          <%= "#{bottle.username} - #{bottle.name}" %><br>
+          _______________
+        </p>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</body>
+<footer>
+  <form method='get' action='/login'>
+    <input type='submit' value='register'>
+  </form>
+</footer>
+
+  

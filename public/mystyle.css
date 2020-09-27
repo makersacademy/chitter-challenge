@@ -1,0 +1,86 @@
+@font-face {
+  font-family: bones;
+  src: url("Black Bones.ttf"); 
+}
+/* @font-face {
+  font-family: dreamer;
+  src: url("thedreamer.otf");
+/* } */
+
+@font-face {
+  font-family: bestfriend;
+  src: url("bestfriend.ttf");
+}
+
+@font-face {
+  font-family: dancing;
+  src: url("Dancing.ttf");
+}
+
+
+body {
+  background-image: url("beach.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+h1 {
+  text-align: center;
+  font-size: 400%;
+  color: white;
+  font-family: bones;
+}
+
+ul {
+  background-image: url("paper.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  font-family: Arial;
+  padding-top: 50px;
+  margin: auto;
+  height: 100%
+}
+
+li {
+  padding-left: 50px;
+  list-style-type: none;
+  width: 80%
+}
+
+div {
+  width: 80%;
+  color: black;
+  opacity: 0.6
+
+}
+ .created {
+  font-family: dancing;
+  font-size: 100%
+ }
+
+ .message {
+  font-family: dancing;
+  font-size: 175%
+ }
+
+ .signature {
+  font-family: dancing;
+  font-size: 150%
+ }
+
+ form {
+   margin: auto;
+   width: 50%;
+   text-align: center;
+ }
+
+ .heighttext {
+  line-height: 400%;
+  width: 100%
+ }
+
+ input {
+   margin-bottom: 15px
+ }
