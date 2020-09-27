@@ -6,7 +6,41 @@
 </head>
 <body>
 
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 <div class="container">
+  <% unless @user %>
+
+    <form action="/login" method="post">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username">
+
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password">
+
+      <input class="btn btn-primary" type="submit" name="log-in" value="Log in">
+    </form>
+
+  <% end %>
+</div>
+
+<div class="container">
+  <% if @user %>
+    <p>Welcome <%= @user.name %>!</p>
+
+    <form action="/logout" method="post">
+      <input class="btn btn-primary" type="submit" name="log-out" value="Log out">
+    </form>
+  <% end %>
+</div>
+
+<div class="container">
+  <% if @user %>
   <form action="/peeps" method="post">
     <div class="form-group">
       <label for="peep_message">Post a peep:</label>
@@ -15,6 +49,7 @@
       <input class="btn btn-primary" type="submit" name="post" value="Post">
     </div>
   </form>
+  <% end %>
 </div>
 
 <div class="container">
@@ -28,7 +63,7 @@
             <blockquote class="blockquote mb-0">
               <p><%= peep.message %></p>
               <footer class="blockquote-footer">
-                Posted by <%= peep.author_id %>
+                Posted by <%= peep.username %>
                 <%= peep.created_at.strftime("at %I:%M%p %d/%m/%Y") %>
               </footer>
             </blockquote>
