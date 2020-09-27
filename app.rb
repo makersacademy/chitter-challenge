@@ -17,15 +17,24 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  post "log_in" do
+  get '/sign_in' do
+    erb :sign_in
+  end
+
+  post "/sign_in" do
     User.log_in(params[:email], params[:password])
 
     redirect "/peeps"
   end
 
   get "/peeps" do
-    @users = User.all
+    @user = User.show
     erb :peeps
+  end
+
+  post "/log_out" do
+    User.log_out
+    redirect '/'
   end
 
   run! if app_file == $0

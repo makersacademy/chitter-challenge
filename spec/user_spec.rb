@@ -11,18 +11,6 @@ describe User do
     end
   end
 
-  describe '#.all' do
-    it 'lists the table of users' do
-      clear_table
-      User.create('ollie@gmail.com', 'password123')
-      User.create('bryony@gmail.com', 'password1234')
-      expect(User.all[0].email).to eq 'ollie@gmail.com'
-      expect(User.all[1].email).to eq 'bryony@gmail.com'
-      expect(User.all[0].password).to eq 'password123'
-      expect(User.all[1].password).to eq 'password1234'
-    end
-  end
-
   describe '#.check_password' do
     it 'returns true if the password matches the database for that email' do
       clear_table
@@ -32,23 +20,32 @@ describe User do
   end
 
   describe '#.log_in' do
-  it 'logs a user in if the password matches the database for that email' do
-    clear_table
-    user = User.create('ollie@gmail.com', 'password123')
-    expect(User.check_password('ollie@gmail.com', 'password123')).to eq true
+    it 'logs a user in if the password matches the database for that email' do
+      clear_table
+      User.create('ollie@gmail.com', 'password123')
+      user = User.log_in('ollie@gmail.com', 'password123')
+      expect(user.logged_in).to eq true
+    end
   end
-end
 
+  describe '#.show' do
+    it 'shows the user that is surrently logged in' do
+      clear_table
+      User.create('ollie@gmail.com', 'password123')
+      User.log_in('ollie@gmail.com', 'password123')
+      expect(User.show).to be_a User
+      expect(User.show.email).to eq 'ollie@gmail.com'
+      expect(User.show.logged_in).to eq true
+    end
+  end
 
-  # describe '#.all' do
-  #   it 'lists the table of users' do
-  #     clear_table
-  #     User.create('ollie@gmail.com', 'password123')
-  #     User.create('bryony@gmail.com', 'password1234')
-  #     expect(User.all[0].email).to eq 'ollie@gmail.com'
-  #     expect(User.all[1].email).to eq 'bryony@gmail.com'
-  #     expect(User.all[0].password).to eq 'password123'
-  #     expect(User.all[1].password).to eq 'password1234'
-  #   end
-  # end
+  describe '#.log_out' do
+    it 'logs out the user' do
+      clear_table
+      User.create('ollie@gmail.com', 'password123')
+      User.log_in('ollie@gmail.com', 'password123')
+      User.log_out
+      expect(User.show).to eq nil
+    end
+  end
 end

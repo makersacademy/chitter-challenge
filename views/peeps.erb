@@ -1,3 +1,8 @@
 <h1>hi peeps</h1>
-<%= @users.email %>
+<h1>You are logged in as <%= @user.email %></h1>
+
+
+<form action="/log_out" method="post">
+  <input type="submit" value="Log Out">
+</form><br>
 

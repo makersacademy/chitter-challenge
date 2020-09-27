@@ -3,7 +3,7 @@ require_relative '../spec/web_helpers.rb'
 
 class User
 
-  attr_reader :id, :email, :password, :logged_in
+  attr_reader :id, :email, :password, :logged_in, :user
 
   def initialize(id, email, password, logged_in = false)
     @id = id
@@ -38,28 +38,26 @@ class User
     result[0]['password'] == password
   end
 
-  def self.check_password(email, password)
+  def self.log_in(email, password)
     if ENV["ENVIRONMENT"] == "test"
       connection = PG.connect(dbname: "peep_manager_test")
     else
       connection = PG.connect(dbname: "peep_manager")
     end
 
-    result = connection.exec("SELECT password FROM users WHERE email = '#{email}';")
-    result[0]['password'] == password
+    if User.check_password(email, password)
+      result = connection.exec("SELECT * FROM users WHERE email = '#{email}';")
+      @user = User.new(result[0]["id"], result[0]["email"], result[0]["password"], true)
+    else
+      return "The email or password is incorrect"
+    end
   end
 
-  # def self.all
-  #   if ENV["ENVIRONMENT"] == "test"
-  #     connection = PG.connect(dbname: "peep_manager_test")
-  #   else
-  #     connection = PG.connect(dbname: "peep_manager")
-  #   end
+  def self.show
+    @user
+  end
 
-  #   result = connection.exec("SELECT * FROM users;")
-  #   result.map do |user|
-  #     User.new(user["id"], user["email"], user["password"])
-  #   end
-  # end
-
+  def self.log_out
+    @user = nil
+  end
 end
