@@ -1,6 +1,27 @@
 Chitter Challenge
 =================
 
+## Running the files
+* complete the instrucitons in db/01_setting_up.sql to have the correct databases corresponding to the code
+* Files must be run using rack
+
+## Testing the files
+* run tests using rspec in the home folder. There are only feature tests.
+## Functionality
+* A social media board with a newsfeed and posts
+# Account Features
+  * You can create an account and login, your username is unique to you
+  * Please use a novel password, the database has no encryption as this was just playing with databases for the first time.
+  * You will need to login before you can do anything else.
+  * There is no password reset functionality, passwords must be 5 characters
+#limitations beyond the obvious
+  * peeps are only showed in reverse order of creation in the database, no timestamp on the peep object is used for this
+  * Peeps cannot currently contain speechmark punctuation (or any method used in ruby to define a string), they will cause an      error as it ends the string being used to add to the database via PG. 
+
+
+
+
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**

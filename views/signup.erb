@@ -1,5 +1,9 @@
+<%= flash[:invalid_username] %>
+<h1> please choose a username and password </h1>
+<li> username must be 15 characters or less </li>
+<li> username cannot contain punctuation </li>
 <form action="/register" method="post">
-<input type="text" name="username" placeholder="username upto 15 characters" maxlength="15">
+<input type="text" pattern="[a-z][A-Z]*" name="username" size="responsive" placeholder="username upto 15 characters, no punctuation" maxlength="15">
 <input type="Password" name="password" placeholder="password over 5 characters" minlength="5">
 <input type="submit" value="register">
 </form>

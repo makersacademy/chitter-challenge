@@ -50,8 +50,13 @@ class Chitter < Sinatra::Base
   end
 
   post "/register" do
-  User.store(params[:username], params[:password])
-  redirect("/login")
+    if User.user_exists?(params[:username])
+      flash[:invalid_username] = "Username already exists, please pick another one"
+      redirect("/signup")
+    else
+      User.store(params[:username], params[:password])
+      redirect("/login")
+    end
   end
 
   post "/signed_in" do
