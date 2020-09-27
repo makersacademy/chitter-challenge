@@ -1,6 +1,7 @@
 feature 'Register user' do
   scenario 'User registration with unique username and email is successful' do
-    visit '/users/new'
+    visit '/'
+    click_link 'Sign up'
     fill_in 'email', with: '123@email.com'
     fill_in 'username', with: 'my_username'
     fill_in 'name', with: 'Test User'
