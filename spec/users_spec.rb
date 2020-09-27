@@ -41,13 +41,18 @@ describe Users do
 
   describe '#authenticate' do
     it 'returns a user given a correct username and password, if one exists' do
-      truncates
       user = Users.create(name: 'test name', email: 'test@email.com', password: 'pword123', username: 'test_username')
 
-      authenticated_user = Users.authenticate(username: 'test_username', password: 'pword123')
+      auth = Users.authenticate(username: 'test_username', password: 'pword123')
 
-      expect(authenticated_user.id).to eq user.id
-
+      expect(auth.id).to eq user.id
     end
+
+    it "returns an error if the user doesn't exist" do
+      user = Users.create(name: 'test name', email: 'test@email.com', password: 'pword123', username: 'test_username')
+
+      expect(Users.authenticate(username: 'test_username', password: 'wrong-password')).to be_nil
+    end
+
   end
 end

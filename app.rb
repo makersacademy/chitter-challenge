@@ -40,9 +40,16 @@ class Chitter < Sinatra::Base
 
   post '/sign-in' do
     user = Users.authenticate(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/')
+    
+    if user 
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = 'Invalid details'
+      redirect('/')
+    end
 
+    
   end
 
   run! if app_file == $0

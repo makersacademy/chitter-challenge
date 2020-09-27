@@ -42,6 +42,20 @@ feature 'users can sign in' do
     click_on('sign in')
     expect(page).to have_content 'chitter'
   end
+
+  scenario 'a user tries to sign in with the wrong details' do
+    truncates
+    user = Users.create(name: 'test name', email: 'test@email.com', password: 'pword123', username: 'test_username')
+
+    visit('/')
+    click_on('sign in')
+    fill_in('username', with: 'test_username')
+    fill_in('password', with: 'wrong-password')
+    click_on('sign in')
+    expect(page).to have_content 'Invalid details'
+    
+  end
+
 end
 
 

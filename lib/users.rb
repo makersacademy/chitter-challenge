@@ -25,6 +25,7 @@ class Users
   def self.find(id)
     return nil unless id
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    
     Users.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], username: result[0]['username'])
   end
 
@@ -51,18 +52,21 @@ class Users
   end
 
   def self.authenticate(username:, password:)
-    user = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}' AND password = crypt('#{password}', password);")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}' AND password = crypt('#{password}', password);")
 
-    Users.new(
-      id: user['id'],
-      email: user['email'],
-      name: user['name'],
-      password: user['password'],
-      username: user['name']
-    )
+    user = result.map { |user| 
+      Users.new(
+        id: user['id'],
+        email: user['email'],
+        name: user['name'],
+        password: user['password'],
+        username: user['name']
+      )
+    }
+    user[0]
   end
 
-private 
+private
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'
       DatabaseConnection.setup('chitter_test')
