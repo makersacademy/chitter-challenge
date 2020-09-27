@@ -17,7 +17,15 @@ class User
     return nil unless id
      result = @connection.exec("SELECT * FROM users WHERE id = '#{id}'")
      User.new(id: result[0]['id'], username: result[0]['username'])
-  end 
+  end
+  
+  def self.authenticate(email:, password:)
+    set_environment
+    result = @connection.exec("SELECT * FROM users WHERE email = '#{email}'")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(id: result[0]['id'], username: result[0]['username'])
+  end
 
     def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'
