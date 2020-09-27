@@ -7,7 +7,7 @@ describe DatabaseConnection do
       DatabaseConnection.setup('chitter_test')
     end
 
-    it 'perists the database connection' do
+    it 'persists the database connection' do
       connection = DatabaseConnection.setup('chitter_test')
       expect(DatabaseConnection.connection).to eq connection
     end

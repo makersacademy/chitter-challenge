@@ -12,6 +12,14 @@
 </form>
 
 <h2>Peeps</h2>
-<%= @peep_message if !@peep_message.nil? %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.message %><br>
+      Posted by <%= peep.author_id %> at <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>
 </body>
+
 </html>

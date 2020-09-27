@@ -5,11 +5,10 @@ require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
-
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
 

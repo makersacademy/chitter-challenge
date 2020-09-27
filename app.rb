@@ -1,18 +1,21 @@
 require 'sinatra/base'
-require './lib/chitter'
+require './lib/peep_service'
+require './database_connection_setup'
+
 
 class Chitter < Sinatra::Base
 
   enable :sessions
 
   get '/' do
-    @peep_message = session[:peep]
+    @peeps = PeepService.all
 
     erb :index
   end
 
   post '/peeps' do
-    session[:peep] = params[:peep_message]
+    # TODO: pass in author_id
+    PeepService.post(params[:peep_message], '1')
 
     redirect '/'
   end
