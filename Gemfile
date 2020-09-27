@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'pg'
 gem 'capybara'
+gem 'bcrypt'
 
 
 group :test do
