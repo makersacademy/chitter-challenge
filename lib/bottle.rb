@@ -19,8 +19,18 @@ class Bottle
     }
   end
 
+<<<<<<< HEAD
   def self.post(user, message, time)
     result = DatabaseConnection.query("INSERT INTO bottles (userid, body, created) 
               VALUES ('#{user}', '#{message}', '#{time}');")
   end
 end
+=======
+  def self.post(user, message, time=Time.now)
+    user_id = DatabaseConnection.query("SELECT id FROM users WHERE username = '#{user}';") 
+    result = DatabaseConnection.query("INSERT INTO bottles (userid, body, created)
+              VALUES (#{user_id[0]['id']}, '#{message}', '#{time}');")
+  end
+end
+
+>>>>>>> assets

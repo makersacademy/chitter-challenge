@@ -19,8 +19,22 @@ class Shore < Sinatra::Base
     erb :login
   end
 
+<<<<<<< HEAD
   post '/' do
     User.create(params[:username], params[:email], params[:password])
+=======
+  get '/bottle' do
+    erb :bottle
+  end
+
+  post '/' do
+    User.create(params[:username], params[:name], params[:email], params[:password])
+    redirect '/'
+  end
+
+  post '/bottle' do
+    Bottle.post(@user.username, params[:message])
+>>>>>>> assets
     redirect '/'
   end
 

@@ -1,0 +1,17 @@
+<head>
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+  <h1> SHORE </h1>
+  <h1 class='signature'>
+    <% if @user %>
+    <%= "logged in as #{@user.username}" %>
+    <% else %>
+    <%= "not logged in" %>
+    <% end %>
+  </h1>
+  <form method='post' action='/bottle'>
+    <input class='heighttext' type='text' name='body' placeholder='post your message in a bottle' maxlength="130">
+    <input type='submit' value='Throw Bottle'>
+  </form>
+</body>

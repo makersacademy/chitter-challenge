@@ -69,3 +69,21 @@ div {
   font-family: dancing;
   font-size: 150%
  }
+<<<<<<< HEAD
+=======
+
+ form {
+   margin: auto;
+   width: 50%;
+   text-align: center;
+ }
+
+ .heighttext {
+  line-height: 400%;
+  width: 100%
+ }
+
+ input {
+   margin-bottom: 15px
+ }
+>>>>>>> assets
