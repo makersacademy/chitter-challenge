@@ -25,7 +25,8 @@
 <div id="peep">
   <ul>
     <% @peeps.each do |peep| %>
-    <%= Users.where(peep.user_id) %>
+      <% @username = Users.find(peep.user_id) %>
+      <p class="peep_name"><%= @username.username %></p>
       <p class="peep_time"> <%= peep.time %> </p>
       <p class="peep_text"> <%= peep.text %> </p>
       <hr>

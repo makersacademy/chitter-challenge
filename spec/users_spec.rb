@@ -22,6 +22,7 @@ describe Users do
   
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
+      expect(result.username).to eq user.username
     end
 
     it 'returns nil if there is no ID given' do

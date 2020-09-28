@@ -22,9 +22,9 @@ class Users
     Users.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], username: result[0]['username'])
   end
 
-  def self.find(id)
-    return nil unless id
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+  def self.find(user_id)
+    return nil unless user_id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{user_id}")
     
     Users.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], username: result[0]['username'])
   end
@@ -43,12 +43,6 @@ class Users
         username: user['name']
       )
     }
-  end
-
-  def self.where(user_id)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{user_id};")
-
-    #result.map { }
   end
 
   def self.authenticate(username:, password:)
