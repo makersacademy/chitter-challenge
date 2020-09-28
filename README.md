@@ -10,3 +10,20 @@ One thing is certain, the pure excitement of opening the message remains the sam
 Open shore and visit your personal beach to read messages or cast out your own bottle and see where 
 the currents take it.
 
+![post_message](post_message.png)
+
+![homepage](homepage.png)
+
+## Setup
+
+Clone the repo
+Bundle install
+
+## Create Database
+psql CREATE DATABASE shore;
+psql -f chitter-challenge/db/migrations/create_shore_database.sql shore;
+\q
+
+## Run
+rackup
+visit localhost:9292
