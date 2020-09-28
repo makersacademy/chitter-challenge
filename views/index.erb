@@ -1,0 +1,45 @@
+
+<style>
+body {
+  background-color: black;
+  color: green;
+}
+</style>
+
+<body>
+
+<h1> 
+<pre>
+   _____ _     _ _   _            
+  / ____| |   (_) | | |           
+ | |    | |__  _| |_| |_ ___ _ __ 
+ | |    | '_ \| | __| __/ _ \ '__|
+ | |____| | | | | |_| ||  __/ |   
+  \_____|_| |_|_|\__|\__\___|_|   
+</pre>                                                          
+</h1>
+
+<nav>
+<% if session[:username] %>
+<%= "Welcome " + session[:username]%>
+<% end %> 
+
+<form action='/sign_up' method='get'>
+<button type="submit">Sign up</button> 
+</form>
+  ---------------<br>
+<form action='/add' method='post'> 
+  <input type='text' name='text' placeholder="What's on your mind?">
+  <input type="submit" value="Peep">
+  <br>---------------
+</form>
+
+</nav>
+<% @peep_list = Peep.all %>
+<ul>
+<% @peep_list.each do |peep|  %>
+<div>
+ [<%= peep.date %>] < <%= session[:username] %> >  <%= peep.text %> <br>
+ </div>
+ <% end %> 
+</body> 
