@@ -16,6 +16,4 @@ describe User do
       expect(kermit[0]['name']).to eq 'Kermit The Frog'
     end
   end
-
-
 end

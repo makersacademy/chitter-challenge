@@ -23,6 +23,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   
+  
 }
 
 h1 {
@@ -40,6 +41,10 @@ ul {
   font-family: Arial;
   padding-top: 50px;
   margin: auto;
+  overflow-y: scroll;
+  list-style-type: none;
+  display:inline-block;
+  vertical-align:top;
   height: 100%
 }
 

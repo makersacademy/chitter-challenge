@@ -6,11 +6,8 @@
   <h1 class='signature'>
     <% if @user %>
     <%= "logged in as #{@user.username}" %>
-<<<<<<< HEAD
-=======
     <% else %>
     <%= "not logged in" %>
->>>>>>> assets
     <% end %>
   </h1>
 
@@ -33,13 +30,16 @@
     <% end %>
   </ul>
 </body>
-<<<<<<< HEAD
-=======
 <footer>
-  <form method='get' action='/login'>
-    <input type='submit' value='register'>
-  </form>
+  <% if @user %>
+    <form method='get' action='/bottle'>
+      <input type='submit' value='Throw New Bottle'>
+    </form>
+  <% else %>
+    <form method='get' action='/login'>
+      <input type='submit' value='register'>
+    </form>
+  <% end %>
 </footer>
 
->>>>>>> assets
   

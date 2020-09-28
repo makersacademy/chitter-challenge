@@ -15,4 +15,3 @@ describe Bottle do
     end
   end
 end
-

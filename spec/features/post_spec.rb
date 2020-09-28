@@ -9,4 +9,3 @@ feature 'post page' do
     expect(page).to have_content 'Hello World!' 
   end
 end
-

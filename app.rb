@@ -7,7 +7,7 @@ class Shore < Sinatra::Base
   enable :method_override, :sessions
 
   before do
-    @user= User.current_user
+    @user = User.current_user
   end
 
   get '/' do
@@ -29,10 +29,9 @@ class Shore < Sinatra::Base
   end
 
   post '/bottle' do
-    Bottle.post(@user.username, params[:message])
+    Bottle.post(@user.username, params[:body])
     redirect '/'
   end
-
 
   run! if app_file == $0
 end
