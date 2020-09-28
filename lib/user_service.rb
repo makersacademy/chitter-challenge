@@ -11,12 +11,9 @@ class UserService
   end
 
   def self.login(username, password)
-    result = DatabaseConnection.query("SELECT username, name, email, password FROM users WHERE username='#{username}'")
-    return false unless result.count == 1
-
-    user = result[0]
-    return false unless BCrypt::Password.new(user["password"]) == password
-
+    user = get_user(username)
+    return false if user == false
+    return false unless password_match?(user, password)
     @user = User.new(user['username'], user['name'], user['email'])
   end
 
@@ -26,5 +23,17 @@ class UserService
 
   def self.current_user
     @user
+  end
+
+  private
+
+  def self.get_user(username)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}'")
+    false unless result.count == 1
+    result[0]
+  end
+
+  def self.password_match?(user, password)
+    BCrypt::Password.new(user['password']) == password
   end
 end
