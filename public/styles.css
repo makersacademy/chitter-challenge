@@ -59,7 +59,7 @@ a:visited {
 
 .peep_button:hover {
   background-color: lightcoral;
-  transition-duration: 0.5s;
+  transition-duration: 0.7s;
 }
 
 #flash {
