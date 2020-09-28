@@ -16,14 +16,14 @@ the currents take it.
 
 ## Setup
 
-Clone the repo
+Clone the repo  
 Bundle install
 
 ## Create Database
-psql CREATE DATABASE shore;
-psql -f chitter-challenge/db/migrations/create_shore_database.sql shore;
+psql CREATE DATABASE shore;  
+psql -f chitter-challenge/db/migrations/create_shore_database.sql shore;  
 \q
 
 ## Run
-rackup
+rackup  
 visit localhost:9292
