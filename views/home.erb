@@ -7,7 +7,6 @@
 <a class="site_header" href="/">chitter</a>
 
 <div class="nav_bar">
-
 <% if session[:user_id] == nil %>
   <a class="nav_link" href="/sign-up">sign up</a>
   <br>
@@ -31,7 +30,7 @@
   <ul>
     <% @peeps.each do |peep| %>
       <% @username = Users.find(peep.user_id) %>
-      <p class="peep_name"><%= @username.username %></p>
+      <p class="peep_name"><%=@username.username%></p>
       <p class="peep_time"> <%= peep.time %> </p>
       <p class="peep_text"> <%= peep.text %> </p>
       <hr>

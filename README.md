@@ -10,18 +10,20 @@ Chitter Challenge
 
 ### Improvements needed
 - Tests
-  - DRY-er code (moving things to web_helpers)
+  - DRY-er code (moving things to web_helpers).
   - More unit tests for the peep class.
+  - Linted code.
 
 - Application
-  - Cleaner UI
-  - Alert/failure when sign up details are already in use
-  - Tagging in peeps (and an email notification about it)
-  - Embedded links in peeps
+  - Cleaner UI.
+  - Alert/failure when sign up details are already in use.
+  - Tagging in peeps (and an email notification about it).
+  - Embedded links in peeps.
+  - Linted code.
 
 ### Features working well
-- Conditional links based on session status
-- Encrypted passwords (not using Makers walkthrough)
+- Conditional links based on session status.
+- Encrypted passwords (not using Makers walkthrough).
 
 
 Features:

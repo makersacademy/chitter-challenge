@@ -4,7 +4,6 @@ require 'sinatra/flash'
 require_relative './lib/users.rb'
 require_relative './lib/peep.rb'
 
-
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
