@@ -22,7 +22,7 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before(:each) do
-    DBconnect.query("TRUNCATE TABLE peeps;")
+    DBconnect.query("TRUNCATE TABLE peeps, users;")
   end
   config.after(:suite) do
     puts
