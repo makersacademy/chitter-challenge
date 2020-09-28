@@ -1,6 +1,7 @@
 feature 'index page' do
 
   scenario 'a new user can register' do
+    clear_table("users")
     visit '/login'
     fill_in 'username', with: 'fluffybunny82'
     fill_in 'name', with: 'Jemima Rabbit'
