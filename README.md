@@ -10,8 +10,6 @@ One thing is certain, the pure excitement of opening the message remains the sam
 Open shore and visit your personal beach to read messages or cast out your own bottle and see where 
 the currents take it.
 
-<<<<<<< HEAD
-=======
 ![post_message](post_message.png)
 
 ![homepage](homepage.png)
@@ -29,4 +27,3 @@ psql -f chitter-challenge/db/migrations/create_shore_database.sql shore;
 ## Run
 rackup  
 visit localhost:9292
->>>>>>> assets

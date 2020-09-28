@@ -1,14 +1,4 @@
 feature 'index page' do
-<<<<<<< HEAD
-  scenario 'it has a login form' do
-    visit '/login'
-    expect(page).to have_field "username"
-    expect(page).to have_field "email"
-    expect(page).to have_field "password"
-    expect(page).to have_button "Register"
-  end
-=======
->>>>>>> assets
 
   scenario 'a new user can register' do
     visit '/login'

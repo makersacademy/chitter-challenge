@@ -17,8 +17,5 @@ class DatabaseConnection
   end
 
 end
-<<<<<<< HEAD
-=======
 
 
->>>>>>> assets
