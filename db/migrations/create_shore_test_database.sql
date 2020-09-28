@@ -1,4 +1,4 @@
-CREATE DATABASE shore_test;
+CREATE DATABASE shore;
 
 CREATE TABLE bottles(id SERIAL PRIMARY KEY, userid INT, body VARCHAR(130), created TIMESTAMP);
 
