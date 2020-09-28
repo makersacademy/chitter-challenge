@@ -29,14 +29,10 @@ class Chitter < Sinatra::Base
 
   post '/sign-up' do
     user = Users.create(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
-    
+    flash[:notice] = 'You are now signed up and in'  
     session[:user_id] = user.id
 
-    redirect '/sign-up-thanks'
-  end
-
-  get '/sign-up-thanks' do
-    erb :su_thanks
+    redirect('/')
   end
 
   get '/sign-in' do
@@ -53,6 +49,12 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Invalid details'
       redirect('/')
     end
+  end
+
+  get '/sign-out' do
+    session.clear
+    flash[:notice] = 'You have been signed out.'
+    redirect('/')
   end
 
   run! if app_file == $0
