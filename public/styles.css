@@ -51,6 +51,17 @@ a:visited {
   padding-left: 1.5em;
 }
 
+.peep_button {
+  background-color: beige;
+  color: black;
+  border-radius: 12px;
+}
+
+.peep_button:hover {
+  background-color: lightcoral;
+  transition-duration: 0.5s;
+}
+
 #flash {
   color: lightcoral;
   text-align: center;
