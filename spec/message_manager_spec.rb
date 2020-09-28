@@ -23,9 +23,4 @@ describe MessageManager do
       expect(MessageManager.all[2].time.to_i).to eq 1_577_836_800
     end
   end
-
-  describe "#all" do
-    it "checks that all returns contents of database" do
-    end
-  end
 end
