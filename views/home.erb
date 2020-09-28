@@ -7,11 +7,15 @@
 <a class="site_header" href="/">chitter</a>
 
 <div class="nav_bar">
-<a class="nav_link" href="/sign-up">sign up</a>
-<p></p>
-<a class="nav_link" href="/sign-in">sign in</a>
-<p></p>
-<a class="nav_link" href="/sign-out">sign out</a>
+
+<% if session[:user_id] == nil %>
+  <a class="nav_link" href="/sign-up">sign up</a>
+  <br>
+  <a class="nav_link" href="/sign-in">sign in</a>
+  <br>
+<% else %>
+  <a class="nav_link" href="/sign-out">sign out</a>
+<%end%>
 </div>
 
 <p id="flash"><%= flash[:notice] %></p>
@@ -20,7 +24,6 @@
   <input type="text" name="text" placeholder="what's up?"></input>
   <input class="button" type="submit" value="peep it!">
 </form>
-
 
 <% @peeps = Peep.all %>
 
