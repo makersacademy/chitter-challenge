@@ -5,4 +5,4 @@ def add_peeps_db
 
   connection.exec("INSERT INTO peeps (peep) VALUES ('first peep');")
   connection.exec("INSERT INTO peeps (peep) VALUES ('second peep');")
-end 
+end

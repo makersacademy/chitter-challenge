@@ -43,13 +43,13 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Invalid email/password. Please try again.'
       redirect('/sessions')
     end
-      redirect('/')
+    redirect('/')
   end
 
-   post '/sessions/destroy' do
+  post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'Signed out.'
     redirect('/sessions')
   end
 
-end 
+end

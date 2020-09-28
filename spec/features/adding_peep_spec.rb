@@ -7,4 +7,4 @@ feature 'posting a peep' do
     click_on('post')
     expect(page).to have_content('This is my first peep')
   end 
-end 
+end

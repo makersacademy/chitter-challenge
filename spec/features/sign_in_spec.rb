@@ -9,7 +9,7 @@ feature 'sign in' do
     expect(page).to have_content 'Hello, test'
   end 
 
-   scenario 'sign-in fails if email is incorrect' do
+  scenario 'sign-in fails if email is incorrect' do
     User.create(email: 'test@example.com', password: 'password123', username: 'test')
     visit '/sessions'
     fill_in(:email, with: 'test.com')
@@ -37,7 +37,4 @@ feature 'sign in' do
     expect(page).to have_content 'Signed out'
   end
 
-end 
-
-
- 
+end

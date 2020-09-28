@@ -3,7 +3,7 @@
   <p>Hello, <%= @user.username %></p>
 <% end %>
 </section>
-
+<br>
 <form action='/' method='post'>
   <input type='text' name='add_peep' placeholder="What's on your mind?" required>
   <input type='submit' name='Submit' value='post'>
@@ -12,12 +12,14 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep.peep %>, <%= peep.date %></li>
+    <br>
   <% end %>
 </ul>
-
+<br>
 <a href=/sign_up>Sign up!</a>
+<br>
 <a href=/sessions>Sign in!</a>
-
+<br>
 <form action="/sessions/destroy" method="post">
   <input type="submit" value="Sign out" />
 </form>

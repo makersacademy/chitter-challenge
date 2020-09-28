@@ -7,4 +7,4 @@ feature 'viewing a peep' do
     expect(page).to have_content('first peep')
     expect(page).to have_content('second peep')
   end 
-end 
+end

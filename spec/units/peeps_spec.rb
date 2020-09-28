@@ -13,10 +13,10 @@ RSpec.describe Peeps do
   end
   
   describe ".post" do 
-      it 'adds a new peep' do 
-        Peeps.post("New peep")
-        expect(Peeps.all).not_to be_empty
-      end 
-    end
+    it 'adds a new peep' do 
+      Peeps.post("New peep")
+      expect(Peeps.all).not_to be_empty
+    end 
+  end
 
-end 
+end

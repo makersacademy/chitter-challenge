@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
+gem 'capybara'
+gem 'pg'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'pg'
-gem 'capybara'
-gem 'bcrypt'
-
 
 group :test do
   gem 'rspec'

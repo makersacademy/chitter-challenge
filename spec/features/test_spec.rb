@@ -3,4 +3,4 @@ feature 'testing infrastructure' do
     visit('/')
     expect(page).to have_content('Peeps')
   end 
-end 
+end
