@@ -15,7 +15,7 @@ class User
   end
 
   def self.store(username, password)
-    set_environment.exec("INSERT INTO chitter_users (username, password) VALUES ('#{username}', '#{password}')")
+    set_environment.exec("INSERT INTO chitter_users (username, password) VALUES ('#{username}', crypt('#{password}', gen_salt('bf')))")
   end
 
   def self.user_exists?(username)
@@ -24,7 +24,7 @@ class User
   end
 
   def self.password?(username, password)
-    !set_environment.exec("SELECT username FROM chitter_users WHERE username = '#{username}' AND password = '#{password}'").num_tuples.zero?
+    !set_environment.exec("SELECT username FROM chitter_users WHERE username = '#{username}' AND password = crypt('#{password}', password)").num_tuples.zero?
   end
 
   def self.valid_user?(username, password)
