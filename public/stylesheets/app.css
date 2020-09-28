@@ -1,0 +1,18 @@
+* {
+  margin: 0px;
+  padding: 0px; 
+}
+
+html {
+  background-color: rgb(114, 228, 248);
+}
+
+.container {
+  margin: 0px;
+  padding: 50px;
+  width: 70%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(238, 232, 232);
+}
