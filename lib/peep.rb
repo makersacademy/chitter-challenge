@@ -29,7 +29,7 @@ class Peep
   def self.all
     Peep.set_environment
 
-    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time, date DESC")
 
     result.map { |peep| 
       Peep.new(
