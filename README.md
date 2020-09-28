@@ -20,8 +20,9 @@ Clone the repo
 Bundle install
 
 ## Create Database
-psql CREATE DATABASE shore;  
-psql -f chitter-challenge/db/migrations/create_shore_database.sql shore;  
+- psql -U postgres -c 'CREATE DATABASE shore;'
+- psql -U postgres -d 'shore' -f db/migrations/01_create_bottles_table.sql
+- psql -U postgres -d 'shore' -f db/migrations/02_create_users_table.sql
 \q
 
 ## Run
