@@ -84,6 +84,10 @@ Passwords are stored within the database as bcrypt hashes using the pgcrypto pos
 
 This was implemented using [this guide](https://x-team.com/blog/storing-secure-passwords-with-postgresql/).
 
+### SQL Injection Protection
+
+Variable interpolation was used to protect against SQL injection. This was achieved by using the pg gem.
+
 ## Data Integrity 
 
 ### Foreign Key References
