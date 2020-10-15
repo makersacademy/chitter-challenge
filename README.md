@@ -33,10 +33,10 @@ None
 
 **Table Schema: users**
 - id (PK) serial
-- name varchar(60)
-- username varchar(20)
-- email varchar(60)
-- password varchar(60)
+- name varchar(60) NOT NULL
+- username varchar(20) NOT NULL
+- email varchar(60) NOT NULL
+- password varchar(60) NOT NULL
 
 
 ### Peep
@@ -49,10 +49,28 @@ None
 
 **Table Schema: peeps**
 - id (PK) serial
-- body varchar(365)
+- body varchar(365) NOT NULL
 - time_created timestamp
 - user_id (FK) integer
 
 
 # Setup
 
+### Live DB
+
+Connect to psql
+```
+CREATE DATABASE chitter;
+\c chitter;
+```
+Execute table set-up query from db/migrations/01_create_users_table.sql
+Execute table set-up query from db/migrations/02_create_peeps_table.sql
+
+### Test DB
+Connect to psql
+```
+CREATE DATABASE chitter_test;
+\c chitter_test;
+```
+Execute table set-up query from db/migrations/01_create_users_table.sql
+Execute table set-up query from db/migrations/02_create_peeps_table.sql
