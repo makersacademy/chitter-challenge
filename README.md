@@ -34,8 +34,8 @@ None
 **Table Schema: users**
 - id (PK) serial
 - name varchar(60) NOT NULL
-- username varchar(20) NOT NULL
-- email varchar(60) NOT NULL
+- username varchar(20) NOT NULL UNIQUE
+- email varchar(60) NOT NULL UNIQUE
 - password varchar(60) NOT NULL
 
 
