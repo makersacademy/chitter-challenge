@@ -11,13 +11,17 @@ describe Peep do
   
   before do
     user = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES ('#{user}','#{username}','#{email}','#{password}') RETURNING id")
-    DatabaseConnection.query("INSERT INTO peeps (body, created_at, user_id) VALUES ('#{newest_peep}', '#{newest_peep_time}', '#{user[0]['id']}')")
-    # DatabaseConnection.query("INSERT INTO peeps (body, created_at, user_id) VALUES ('#{oldest_peep}', '#{oldest_peep_time}', '#{user[0]['id']}'), ('#{newest_peep}', '#{newest_peep_time}', '#{user[0]['id']}')")
+    # DatabaseConnection.query("INSERT INTO peeps (body, created_at, user_id) VALUES ('#{newest_peep}', '#{newest_peep_time}', '#{user[0]['id']}')")
+    DatabaseConnection.query("INSERT INTO peeps (body, created_at, user_id) VALUES ('#{oldest_peep}', '#{oldest_peep_time}', '#{user[0]['id']}'), ('#{newest_peep}', '#{newest_peep_time}', '#{user[0]['id']}')")
   end
   
   describe '#all' do
     it 'returns an array of peeps' do
       expect(Peep.all).to all(be_an_instance_of(Peep))
+    end
+
+    it 'returns an array that is sorted reverse chronologically' do
+      expect(Peep.all[0].created_at).to be > Peep.all[-1].created_at
     end
   end
 

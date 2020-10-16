@@ -9,7 +9,7 @@ class Peep
   end
   
   def self.all
-    response = DatabaseConnection.query("SELECT * FROM peeps")
+    response = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created_at DESC")
     response.map { |response| new(id: response['id'], body: response['body'], created_at: convert_time(response['created_at']), user_id: response['user_id']) }
   end
 
