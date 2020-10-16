@@ -1,4 +1,6 @@
 class Peep
+  attr_reader :body, :created_at
+  
   def initialize(id:, body:, created_at:, user_id:)
     @id = id
     @body = body
@@ -8,6 +10,10 @@ class Peep
   
   def self.all
     response = DatabaseConnection.query("SELECT * FROM peeps")
-    response.map { |response| new(id: response['id'], body: response['body'], created_at: response['created_at'], user_id: response['user_id']) }
+    response.map { |response| new(id: response['id'], body: response['body'], created_at: convert_time(response['created_at']), user_id: response['user_id']) }
+  end
+
+  def self.convert_time(string_time)
+    Time.strptime(string_time, '%Y-%m-%d %H:%M:%S%z')
   end
 end
