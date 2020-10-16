@@ -13,6 +13,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require 'pry'
+require 'timecop'
 
 require 'test_database_manager'
 require './app'
