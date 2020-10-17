@@ -3,9 +3,9 @@ feature 'viewing a list of peeps, with authors and timestamps' do
   let(:user) { 'Test Name' }
   let(:email) { 'email' }
   let(:password) { 'password' }
-  let(:oldest_peep_time) { '2020-08-24 21:05:0.000001+01' }
+  let(:oldest_peep_time) { '2020-08-24 21:05:0.000001' }
   let(:oldest_peep) { 'an older peep' }
-  let(:newest_peep_time) { '2020-08-24 21:10:0.000001+01' }
+  let(:newest_peep_time) { '2020-08-24 21:10:0.000001' }
   let(:newest_peep) { 'a newer peep' }
   let(:date_format) { '%d-%m-%Y %H:%M' }
   
