@@ -1,5 +1,5 @@
 class Peep
-  attr_reader :body, :created_at
+  attr_reader :body, :created_at, :user_id
   
   def initialize(id:, body:, created_at:, user_id:)
     @id = id
@@ -14,6 +14,11 @@ class Peep
   end
 
   def self.convert_time(string_time)
-    Time.strptime(string_time, '%Y-%m-%d %H:%M:%S%z')
+    Time.strptime(string_time, '%Y-%m-%d %H:%M:%S.%N%z')
+  end
+
+  def author
+    response = DatabaseConnection.query("SELECT username FROM users WHERE id=#{@user_id}")
+    response[0]['username']
   end
 end
