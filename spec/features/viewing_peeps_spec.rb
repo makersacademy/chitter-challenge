@@ -3,9 +3,9 @@ feature 'viewing a list of peeps, with authors and timestamps' do
   let(:user) { 'Test Name' }
   let(:email) { 'email' }
   let(:password) { 'password' }
-  let(:oldest_peep_time) { Time.new(2020, 8, 24, 21, 5) }
+  let(:oldest_peep_time) { '2020-08-24 21:05:0.000001+01' }
   let(:oldest_peep) { 'an older peep' }
-  let(:newest_peep_time) { Time.new(2020, 8, 24, 21, 10) }
+  let(:newest_peep_time) { '2020-08-24 21:10:0.000001+01' }
   let(:newest_peep) { 'a newer peep' }
   let(:date_format) { '%d-%m-%Y %H:%M' }
   
@@ -16,12 +16,12 @@ feature 'viewing a list of peeps, with authors and timestamps' do
   
   scenario 'with multiple peeps, displayed reverse chronologically' do
     visit '/chitter'
-    save_and_open_page
+    # save_and_open_page
     first_peep = find('.peep', match: :first)
     expect(first_peep).to have_content newest_peep
     expect(first_peep).to have_content username
-    expect(first_peep).to have_content newest_peep_time.strftime(date_format)
+    expect(first_peep).to have_content formatted_date(newest_peep_time)
     expect(page).to have_content oldest_peep
-    expect(page).to have_content oldest_peep_time.strftime(date_format)
+    expect(page).to have_content formatted_date(oldest_peep_time)
   end
 end

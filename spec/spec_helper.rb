@@ -15,6 +15,7 @@ require 'capybara/rspec'
 require 'pry'
 require 'timecop'
 
+require 'helpers'
 require 'test_database_manager'
 require './app'
 
