@@ -1,12 +1,14 @@
 require './lib/database_setup'
 require 'rack'
 require 'sinatra/base'
-require './lib/formats'
+require 'sinatra/flash'
+require './lib/constants'
 require './lib/peep'
 require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/chitter' do
     @user = session[:user]
@@ -25,6 +27,13 @@ class Chitter < Sinatra::Base
   
   post '/chitter/user' do
     session[:user] = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    redirect '/chitter'
+    
+    if ERROR_HANDLING[session[:user]]
+      flash[:error] = ERROR_HANDLING[session[:user]]
+      session[:user] = nil
+      redirect '/chitter/user/new'
+    else
+      redirect '/chitter'
+    end
   end
 end

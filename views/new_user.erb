@@ -5,6 +5,8 @@
     <title></title>
   </head>
   <body>
+    <h1>CHITTER</h1>
+    <h2><%= flash[:error] %></h2>
     <form action="/chitter/user" method="POST">
       <label for="username">Username: </label>
       <input type="text" name="username"><br>
