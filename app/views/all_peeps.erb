@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      <% @users.each do |user| %>
+      <li> <%= user.name %> wrote: </li>
+        <% user.peeps.each do |peep| %>
+        <%= peep.message %> on <%= peep.time %><br>
+          <% end %>
+      <% end %>
+    </ul>
+    <a href="/post_peep">Post a peep</a>
+  </body>
+</html>
