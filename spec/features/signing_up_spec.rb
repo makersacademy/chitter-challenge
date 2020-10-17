@@ -17,4 +17,13 @@ feature 'user sign up' do
     expect(page).to have_content "Hello #{username}"
     expect(page).not_to have_button "Sign Up"
   end
+
+  scenario 'a new user signs up with duplicate details' do
+    DatabaseConnection.query("INSERT INTO users(name, username, email, password) VALUES('#{user}','#{username}','#{email}','#{password}')")
+    visit '/chitter'
+    sign_up(name: user, username: username, email: email, password: password)
+    expect(current_path).to eq '/chitter'
+    expect(page).to have_content "Sorry, something went wrong with your sign-up."
+    expect(page).to have_button "Sign Up"
+  end
 end
