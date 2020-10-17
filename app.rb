@@ -1,8 +1,9 @@
 require './lib/database_setup'
 require 'rack'
 require 'sinatra/base'
-require './lib/peep'
 require './lib/formats'
+require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
