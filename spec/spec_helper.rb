@@ -19,6 +19,7 @@ SimpleCov.start
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+  config.include Capybara::DSL
   config.before(:each) do
     truncate_db
   end

@@ -1,4 +1,4 @@
-require 'db_connection'
+require './lib/db_connection'
 
 if ENV['ENVIRONMENT'] == 'test'
   DatabaseConnection.setup('chitter_test')

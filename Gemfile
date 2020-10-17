@@ -12,3 +12,5 @@ gem "capybara", "~> 3.33"
 gem "sinatra", "~> 2.1"
 
 gem "pg", "~> 1.2"
+
+gem "pry", "~> 0.13.1"
