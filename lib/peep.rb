@@ -13,6 +13,10 @@ class Peep
     response.map { |row| new(id: row['id'], body: row['body'], created_at: convert_time(row['created_at']), user_id: row['user_id']) }
   end
 
+  def self.create(body:, user_id:)
+    DatabaseConnection.query("INSERT INTO peeps (body, user_id) VALUES ('#{body}', #{user_id});")
+  end
+
   def self.convert_time(string_time)
     Time.strptime(string_time, '%Y-%m-%d %H:%M:%S.%N%z')
   end
