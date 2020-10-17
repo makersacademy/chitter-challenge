@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/chitter' do
-    @user = session[:username]
+    @user = session[:user]
     @peeps = Peep.all
     erb :chitter
   end
@@ -18,8 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/user' do
-    session[:username] = params[:username]
-    DatabaseConnection.query("INSERT INTO users(name, username, email, password) VALUES ('#{params[:name]}', '#{params[:username]}', '#{params[:email]}', '#{params[:password]}');")
+    session[:user] = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect '/chitter'
   end
 end
