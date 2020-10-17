@@ -1,13 +1,15 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    'This is Chitter'
+    'Chitter'
+    Peep.add(peep: params[:peep])
     erb :index
   end
 
-  post '/new' do
+  get '/new' do
     erb :new
   end
 
