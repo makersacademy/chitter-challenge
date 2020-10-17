@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/peep' do
-    DatabaseConnection.query("INSERT INTO peeps (body, user_id) VALUES ('#{params[:peep]}', '#{session[:user].id}');")
+    Peep.create(body: params[:peep], user_id: session[:user].id)
     redirect '/chitter'
   end
   
