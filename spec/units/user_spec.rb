@@ -6,6 +6,8 @@ describe User do
     let(:user) { 'Test Name' }
     let(:email) { 'email' }
     let(:password) { 'password' }
+    let(:username2) { 'tester2'}
+    let(:email2) { 'Test 2 Name'}
     
     before do
       @user = described_class.create(name: user, username: username, email: email, password: password)
@@ -27,6 +29,14 @@ describe User do
     it 'returns a User instance that matches the data inserted into the table' do
       expect(@user.id).to eq @persisted_data.first['id']
       expect(@user.username).to eq @persisted_data.first['username']
-    end   
+    end
+    
+    it 'returns a helpful error if the username is a duplicate' do
+      expect(User.create(name: user, username: username, email: email2, password: password)).to eq :duplicate_username
+    end
+
+    it 'returns a helpful error if the email is a duplicate' do
+      expect(User.create(name: user, username: username2, email: email, password: password)).to eq :duplicate_email
+    end
   end
 end
