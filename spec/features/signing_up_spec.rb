@@ -15,5 +15,6 @@ feature 'user sign up' do
     click_button 'Sign Up'
     expect(current_path).to eq '/chitter'
     expect(page).to have_content "Hello #{username}"
+    expect(page).not_to have_button "Sign Up"
   end
 end
