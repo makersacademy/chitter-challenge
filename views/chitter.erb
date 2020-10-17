@@ -6,6 +6,10 @@
   </head>
   <body>
     <h1>CHITTER</h1>
+    <form action="/chitter/user/new" method="GET">
+      <input type="submit" value="Sign Up">
+    </form>
+    <h2>Hello <%= @user %></h2>
     <% @peeps.each do |peep| %>
       <div class="peep">
         <p>
