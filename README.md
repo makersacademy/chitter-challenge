@@ -74,3 +74,15 @@ CREATE DATABASE chitter_test;
 ```
 Execute table set-up query from db/migrations/01_create_users_table.sql
 Execute table set-up query from db/migrations/02_create_peeps_table.sql
+
+# Use
+
+From repo root directory
+
+```sh
+% rackup
+```
+
+Open browser to localhost:9292/chitter (amend port 9292 if your set up is different)
+You will be able to see any peeps stored in the live DB straightaway, but you must use the Sign Up button before you can post your own peeps.
+At the moment you will have to create a new user for every session - duplicate sign ups are prevented, but there's no log-in, log-out functionality.
