@@ -31,12 +31,27 @@ describe User do
       expect(@user.username).to eq @persisted_data.first['username']
     end
     
-    it 'returns a helpful error if the username is a duplicate' do
-      expect(User.create(name: user, username: username, email: email2, password: password)).to eq :duplicate_username
-    end
+    context 'invalid signups' do
+      let(:users) { DatabaseConnection.query("SELECT * FROM users;") }  
+      
+      context 'duplicate username' do
+        it 'returns a helpful error' do      
+          expect(User.create(name: user, username: username, email: email2, password: password)).to eq :duplicate_username
+        end
 
-    it 'returns a helpful error if the email is a duplicate' do
-      expect(User.create(name: user, username: username2, email: email, password: password)).to eq :duplicate_email
+        it 'does not store a user in the db' do
+          expect { User.create(name: user, username: username, email: email2, password: password) }.not_to change(users, :ntuples)        end
+        end
+
+      context 'duplicate email' do
+        it 'returns a helpful error if the email is a duplicate' do
+          expect(User.create(name: user, username: username2, email: email, password: password)).to eq :duplicate_email
+        end
+
+        it 'does not store a user in the db' do
+          expect { User.create(name: user, username: username2, email: email, password: password) }.not_to change(users, :ntuples)
+        end
+      end
     end
   end
 end
