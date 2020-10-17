@@ -3,6 +3,7 @@ def formatted_date(string)
 end
 
 def sign_up(username:, name:, email:, password:)
+  click_button 'Sign Up'
   fill_in 'username', with: username
   fill_in 'name', with: user
   fill_in 'email', with: email
