@@ -25,7 +25,7 @@ I want to sign up for Chitter
 
 ## Client/Server Model
 
-![Client Server Diagram](Chitter Web App Diagram.jpg)
+![](/request-response-diagram.jpg)
 
 ## CRCs
 
