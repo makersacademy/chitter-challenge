@@ -8,6 +8,10 @@
     <h1>CHITTER</h1>
     <% if @user %>
       <h2>Hello <%= @user.username %></h2>
+      <form action="/chitter/peep" method="POST">
+        <input type="text" name="peep" value="Chitter your heart away!">
+        <input type="submit" value="PEEP!">
+      </form>
     <% else %>
       <form action="/chitter/user/new" method="GET">
         <input type="submit" value="Sign Up">

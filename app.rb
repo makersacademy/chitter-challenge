@@ -18,6 +18,11 @@ class Chitter < Sinatra::Base
     erb :new_user
   end
 
+  post '/chitter/peep' do
+    DatabaseConnection.query("INSERT INTO peeps (body, user_id) VALUES ('#{params[:peep]}', '#{session[:user].id}');")
+    redirect '/chitter'
+  end
+  
   post '/chitter/user' do
     session[:user] = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect '/chitter'
