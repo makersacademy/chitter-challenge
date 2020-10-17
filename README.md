@@ -23,6 +23,12 @@ I want to sign up for Chitter
 
 # Model
 
+## Client/Server Model
+
+![Client Server Diagram](/Chitter Web App Diagram.jpg)
+
+## CRCs
+
 ### User
 **Responsibilities:**
 - name
