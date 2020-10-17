@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>CHITTER</h1>
+    <% @peeps.each do |peep| %>
+      <div class="peep">
+        <p>
+          <%= peep.body %> <br>
+          <%= peep.author %> @ <%= peep.created_at.strftime(TIME_FORMAT) %>
+        </p>
+      </div>
+    <% end %>
+  </body>
+</html>
