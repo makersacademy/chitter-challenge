@@ -6,8 +6,8 @@ describe User do
     let(:user) { 'Test Name' }
     let(:email) { 'email' }
     let(:password) { 'password' }
-    let(:username2) { 'tester2'}
-    let(:email2) { 'Test 2 Name'}
+    let(:username2) { 'tester2' }
+    let(:email2) { 'Test 2 Name' }
     
     before do
       @user = described_class.create(name: user, username: username, email: email, password: password)
