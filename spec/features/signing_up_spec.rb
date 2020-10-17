@@ -21,7 +21,7 @@ feature 'user sign up' do
   end
 
   scenario 'a new user signs up with duplicate username' do
-    DatabaseConnection.query("INSERT INTO users(name, username, email, password) VALUES('#{user}','#{username}','#{email}','#{password}')")
+    User.create(name: user, username: username, email: email, password: password)
     visit '/chitter'
     sign_up(name: user, username: username, email: email2, password: password)
     expect(current_path).to eq '/chitter/user/new'
@@ -30,7 +30,7 @@ feature 'user sign up' do
   end
 
   scenario 'a new user signs up with duplicate email' do
-    DatabaseConnection.query("INSERT INTO users(name, username, email, password) VALUES('#{user}','#{username}','#{email}','#{password}')")
+    User.create(name: user, username: username, email: email, password: password)
     visit '/chitter'
     sign_up(name: user, username: username2, email: email, password: password)
     expect(current_path).to eq '/chitter/user/new'
