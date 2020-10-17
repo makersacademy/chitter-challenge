@@ -1,3 +1,5 @@
+require 'user'
+
 describe User do
   describe '#create' do
     let(:username) { 'tester1' }
@@ -7,7 +9,7 @@ describe User do
     
     before do
       @user = described_class.create(name: user, username: username, email: email, password: password)
-      @persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM user WHERE id = #{@user.id};")
+      @persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM users WHERE id=#{@user.id};")
     end
     
     it 'returns a User instance' do
@@ -23,8 +25,8 @@ describe User do
     end
 
     it 'returns a User instance that matches the data inserted into the table' do
-      expect(@user.id).to eq persisted_data.first['id']
-      expect(@user.username).to eq persisted_data.first['username']
+      expect(@user.id).to eq @persisted_data.first['id']
+      expect(@user.username).to eq @persisted_data.first['username']
     end   
   end
 end
