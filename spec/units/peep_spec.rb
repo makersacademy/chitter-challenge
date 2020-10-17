@@ -3,14 +3,13 @@ describe Peep do
   let(:user) { 'Test Name' }
   let(:email) { 'email' }
   let(:password) { 'password' }
-  let(:oldest_peep_time) { '2020-08-24 21:05:0.000001+01' }
   let(:oldest_peep) { 'an older peep' }
-  let(:newest_peep_time) { '2020-08-24 21:10:0.000001+01' }
   let(:newest_peep) { 'a newer peep' }
   
   before do
-    @usr = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES ('#{user}','#{username}','#{email}','#{password}') RETURNING id")
-    DatabaseConnection.query("INSERT INTO peeps (body, created_at, user_id) VALUES ('#{oldest_peep}', '#{oldest_peep_time}', '#{@usr[0]['id']}'), ('#{newest_peep}', '#{newest_peep_time}', '#{@usr[0]['id']}')")
+    @usr = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES ('#{user}','#{username}','#{email}','#{password}') RETURNING id").first
+    Peep.create(body: oldest_peep, user_id: @usr['id'])
+    Peep.create(body: newest_peep, user_id: @usr['id'])
   end
   
   describe '#all' do
@@ -19,7 +18,16 @@ describe Peep do
     end
 
     it 'returns an array that is sorted reverse chronologically' do
-      expect(Peep.all[0].created_at).to be > Peep.all[-1].created_at
+      expect(Peep.all.first.created_at).to be > Peep.all.last.created_at
+      expect(Peep.all.first.body).to eq newest_peep
+      expect(Peep.all.last.body).to eq oldest_peep
+    end
+  end
+
+  describe '#create' do
+    it 'inserts a row into the peeps table' do
+      persisted_data = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id=#{@usr['id']}")
+      expect(persisted_data.first['body']).to eq oldest_peep
     end
   end
 
@@ -31,11 +39,12 @@ describe Peep do
     end
 
     it 'returns the time_created' do
-      expect(peep.created_at).to eq Time.strptime(newest_peep_time, '%Y-%m-%d %H:%M:%S.%N%z')
+      expect(peep.created_at).to be_a Time
+      expect(peep.created_at)
     end
 
     it 'returns the user_id of the creator' do
-      expect(peep.user_id).to eq @usr[0]['id']
+      expect(peep.user_id).to eq @usr['id']
     end
 
     describe '#author' do
