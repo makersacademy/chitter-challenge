@@ -8,7 +8,7 @@ feature 'Posting a new peep' do
     click_button 'Submit'
     expect(page.current_path).to eq('/')
     expect(page).to have_content('This is my first ever peep.')
-    # expect(page).to have_content('This is my first ever peep.')
+    truncate_db
   end
 
   it 'shows the time of the peep' do
@@ -16,6 +16,9 @@ feature 'Posting a new peep' do
     click_button 'Add'
     fill_in(:peep, with: 'This is my first ever peep.')
     click_button 'Submit'
-    expect(page).to have_content('This is my first ever peep. -- posted at #{Time.now.strftime("%I:%M on %d %B, %Y")}')
+    expect(page).to have_content "This is my first ever peep. -- posted at #{Time.now.strftime("%I:%M on %d %B, %Y")}"
+    truncate_db
   end
+
+
 end

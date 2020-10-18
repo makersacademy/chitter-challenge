@@ -2,7 +2,8 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require './app'
-require './spec/test_db.rb'
+require 'test_db'
+require './lib/db_env_setup'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
@@ -19,7 +20,6 @@ SimpleCov.start
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-  config.include Capybara::DSL
   config.before(:each) do
     truncate_db
   end

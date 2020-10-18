@@ -14,3 +14,5 @@ gem "sinatra", "~> 2.1"
 gem "pg", "~> 1.2"
 
 gem "pry", "~> 0.13.1"
+
+gem "rake", "~> 13.0"
