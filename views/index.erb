@@ -19,8 +19,8 @@
     <form action="/signup" method="GET">
       <input type="submit" name="Sign up" value="Sign Up">
     </form>
-    <% @peeps.each do |peep| %>
-      <p><%= peep.peep %> | posted at <%= peep.time %></p>
+    <% @peeps.reverse.each do |peep| %>
+      <p><%= peep.peep %> -- posted at <%= peep.time %></p>
     <% end %>
     </div>
   </body>
