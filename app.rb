@@ -5,7 +5,7 @@ require './lib/db_env_setup'
 class Chitter < Sinatra::Base
 
   get '/' do
-    # Peep.add(peep: params[:peep])
+    @peeps = Peep.all
     erb :index
   end
 
@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
 
   post '/new' do
     Peep.add(peep: params[:peep])
+    redirect '/'
   end
 
 end

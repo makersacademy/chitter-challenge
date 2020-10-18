@@ -15,4 +15,9 @@ describe Peep do
     peep = Peep.add(peep: 'This is my first ever peep')
     expect(peep.time).to eq Time.now.strftime("%I:%M on %d %B, %Y").to_s
   end
+
+  it 'shows all the peeps' do
+    Peep.add(peep: 'This is my first ever peep')
+    expect(Peep.all).to include an_instance_of(Peep)
+  end
 end

@@ -16,4 +16,11 @@ class Peep
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: result[0]['time'])
   end
 
+  def self.all
+    result = DatabaseConnection.query( "SELECT * FROM chitter" )
+    result.map do |row| 
+      Peep.new(id: row['id'], peep: row['peep'], time: row['time'])
+    end
+  end
+
 end
