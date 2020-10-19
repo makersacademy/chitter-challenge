@@ -16,7 +16,7 @@ feature 'Posting a new peep' do
     click_button 'Add'
     fill_in(:peep, with: 'This is my first ever peep.')
     click_button 'Submit'
-    expect(page).to have_content "This is my first ever peep. -- posted at #{Time.now.strftime("%I:%M on %d %B, %Y")}"
+    expect(page).to have_content "This is my first ever peep. Posted at: #{Time.now.strftime("%I:%M on %d %B, %Y")} Posted by:"
     truncate_db
   end
 
