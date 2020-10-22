@@ -5,6 +5,7 @@ class ChitterManager < Sinatra::Base
   enable :sessions
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'/peeps_index'
   end
 
