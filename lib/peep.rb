@@ -20,7 +20,6 @@ class Peep
   
   end
 
-  private
   def self.connect_to_db
     if ENV['RACK_ENV'] == 'test'
       @@con = PG.connect(dbname: 'chitter_test')
