@@ -6,7 +6,7 @@ require 'orderly'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-# require 'features/web_helpers'
+require 'setup_test_database.rb'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -17,4 +17,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:each) do
+    truncate_and_populate_test_table
+  end
 end

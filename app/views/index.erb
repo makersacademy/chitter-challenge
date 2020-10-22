@@ -1,5 +1,5 @@
 <ul>
   <% @sorted_peeps.each do |peep| %>
-    <li><%= peep[:username] %>: <%= peep[:body] %> (<%= peep[:time] %>)</li>
+    <li><%= peep.username %>: <%= peep.body %> (<%= peep.posted_on %>)</li>
   <% end %>
 </ul>
