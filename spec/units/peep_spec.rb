@@ -1,12 +1,12 @@
 require 'peep'
 
 describe Peep do
-  subject(:peep) { described_class.new(id: "99", username: "@leo", body: "Woof!", posted_on: "2020-10-10 12:12:12") }
+  subject(:peep) { described_class.new(id: "99", username: "leo", body: "Woof!", posted_on: "2020-10-10 12:12:12") }
 
   describe "#initialize" do
     it "has username, body and time" do
       expect(peep.id).to eq "99"
-      expect(peep.username).to eq "@leo"
+      expect(peep.username).to eq "leo"
       expect(peep.body).to eq "Woof!"
       expect(peep.posted_on).to eq "2020-10-10 12:12:12"
     end

@@ -7,5 +7,9 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
+  get '/signup' do
+    erb(:signup)
+  end
+
   run! if app_file == $0
 end

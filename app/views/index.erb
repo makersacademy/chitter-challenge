@@ -1,5 +1,13 @@
-<ul>
-  <% @sorted_peeps.each do |peep| %>
-    <li><%= peep.username %>: <%= peep.body %> (<%= peep.posted_on %>)</li>
-  <% end %>
-</ul>
+<head>
+  <title>Chitter</title>
+</head>
+<body>
+  <form action="/signup">
+    <input type="submit" value="Sign Up">
+  </form>
+  <ul>
+    <% @sorted_peeps.each do |peep| %>
+      <li>@<%= peep.username %>: <%= peep.body %> (<%= peep.posted_on %>)</li>
+    <% end %>
+  </ul>
+</body>
