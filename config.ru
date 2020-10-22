@@ -1,2 +1,2 @@
-require_realtive '.app'
+require_relative "./app"
 run Chitter
