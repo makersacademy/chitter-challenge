@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 group :test do
   gem 'capybara'
+  gem 'orderly'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
