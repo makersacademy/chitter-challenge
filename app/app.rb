@@ -14,11 +14,11 @@ class Chitter < Sinatra::Base
     erb(:'user/new')
   end
 
-  get '/peep/new' do
-    erb(:'peep/new')
+  get '/peep' do
+    erb(:peep)
   end
 
-  post '/peep/add' do
+  post '/peep' do
     Peep.create(params[:username], params[:body])
     # peep = "@#{params[:username]}: #{params[:body]} (#{Time.now.strftime("%Y-%m-%d %H:%M:%S")})"
     redirect('/')
