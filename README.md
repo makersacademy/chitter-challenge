@@ -1,3 +1,18 @@
+Set up:
+
+- Clone this repository
+- Run
+``` 
+bundle
+```
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
