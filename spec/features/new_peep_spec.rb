@@ -1,9 +1,11 @@
 feature 'posting a peep' do
   scenario 'a user can post a peep to chitter' do
-    visit '/chitter'
-    fill_in 'post', with: 'Hey chitter!'
-    click_button 'Peep'
+    connection = PG.connect(dbname: 'chitter_test')
 
-    expect(page).to have_content('Hey chitter!')
+    connection.exec("INSERT INTO peeps (peep) VALUES ('Happy Friday!');")
+    
+    visit '/chitter'
+
+    expect(page).to have_content('Happy Friday!')
   end
 end
