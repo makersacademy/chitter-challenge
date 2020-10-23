@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
-    erb(:peep)
+    erb(:'peep/add')
   end
 
   post '/peep' do
@@ -26,27 +26,26 @@ class Chitter < Sinatra::Base
   end
 
   delete '/peep' do
-    p Peep.all
-    p params
     Peep.delete(id: params[:peep_id])
-    p Peep.all
+    redirect('/')
+  end
+
+  # post '/peep/edit' do
+  #   @peep_id = params[:peep_id]
+  #   @peep_username = params[:peep_username]
+  #   @peep_body = params[:peep_body]
+  #   erb(:'peep/edit')
+  # end
+
+  get '/peep/:id/edit' do
+    @peep = Peep.find_by(id: params[:peep_id])
+    erb(:'peep/edit')
+  end
+
+  put '/peep' do
+    Peep.update(id: params[:peep_id], body: params[:body])
     redirect('/')
   end
 
   run! if app_file == $0
 end
-
-# get '/bookmarks' do
-#   @bookmarks = Bookmark.all
-#   # print @bookmarks
-#   erb(:'bookmarks/index')
-# end
-
-# get '/add_bookmark' do
-#   erb(:'bookmarks/add')
-# end
-
-# post '/add_to_database' do
-#   Bookmark.create(params[:title], params[:url])
-#   redirect('/bookmarks')
-# end

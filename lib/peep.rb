@@ -11,6 +11,18 @@ class Peep
     @posted_on = posted_on
   end
 
+  def self.find_by(id:)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id=#{id.to_i};")
+    result.map do |peep|
+      Peep.new(
+        id: peep['id'], 
+        username: peep['username'], 
+        body: peep['body'], 
+        posted_on: peep['posted_on']
+      )
+    end.first
+  end
+
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
@@ -30,6 +42,10 @@ class Peep
 
   def self.delete(id:)
     DatabaseConnection.query("DELETE FROM peeps WHERE id=#{id.to_i};")
+  end
+
+  def self.update(id:, body:)
+    DatabaseConnection.query("UPDATE peeps SET body='#{body}' WHERE id=#{id.to_i};")
   end
 
 end

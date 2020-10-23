@@ -12,6 +12,16 @@ describe Peep do
     end
   end
 
+  describe "#find_by" do
+    it 'returns a peep instance by id' do
+      peeps = Peep.all
+      peep = peeps.first 
+      found_peep = Peep.find_by(id: peep.id)
+
+      expect(found_peep.id).to eq peep.id
+    end
+  end
+
   describe '#all' do
     it "returns an array of peeps" do
       peeps = Peep.all
@@ -37,6 +47,15 @@ describe Peep do
       peeps = Peep.all
       
       expect(peeps).not_to include(id: peep_id)
+    end
+  end
+
+  describe '#update' do
+    it "updates the body of a peep" do
+      Peep.create(username: "kiriarf", body: "test peep")
+      peep_id = Peep.all.last.id
+      Peep.update(id: peep_id, body: "updated!")
+      expect(Peep.all.last.body).to eq "updated!"
     end
   end
 
