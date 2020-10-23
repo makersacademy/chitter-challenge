@@ -1,7 +1,7 @@
 require 'pg'
 
 class Peep
-  attr_reader :peeps
+  attr_reader :peeps, :connection
 
   def self.all
     connect
@@ -10,11 +10,17 @@ class Peep
 
   def self.connect
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test') 
+      @connection = PG.connect(dbname: 'chitter_test') 
     else
-      connection = PG.connect(dbname: 'chitter')
+      @connection = PG.connect(dbname: 'chitter')
     end
-    @peeps = connection.exec("SELECT * FROM peeps;") 
+    @peeps = @connection.exec("SELECT * FROM peeps;") 
   end
 
+  def self.create(peep:)
+    connect
+    
+    @connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}');")
+  end
+  
 end

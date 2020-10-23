@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'pg'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base  
   
@@ -9,7 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/index' 
   end
 
   get '/peeps/new' do
@@ -17,9 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = params["Peep"]
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT into peeps (peep) VALUES('#{peep}');")
+    Peep.create(peep: params[:Peep])
     redirect '/peeps'
   end
 

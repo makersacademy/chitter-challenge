@@ -14,4 +14,12 @@ describe Peep do
       expect(peeps).to include "Congratulations to the Astronauts that left Earth today. Good choice"
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep from the user input' do
+      Peep.create(peep: "Me, in hell: I was told there would be a “special” place for me?")
+
+      expect(Peep.all).to include "Me, in hell: I was told there would be a “special” place for me?"
+    end
+  end
 end
