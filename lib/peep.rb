@@ -12,8 +12,6 @@ class Peep
   end
 
   def self.all
-    # connect_to_db
-
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
       Peep.new(
@@ -23,14 +21,7 @@ class Peep
         posted_on: peep['posted_on']
       )
     end
-  
   end
 
-  # def self.connect_to_db
-  #   if ENV['RACK_ENV'] == 'test'
-  #     @@con = PG.connect(dbname: 'chitter_test')
-  #   else
-  #     @@con = PG.connect(dbname: 'chitter')
-  #   end
-  # end
+  
 end

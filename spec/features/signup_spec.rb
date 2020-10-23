@@ -9,4 +9,8 @@ feature "signup" do
     click_button('Register')
     expect(page).to have_content("Hi, kiriarf")
   end  
+
+  # scenario "email must be valid" do
+  #   visit('/signup')
+  # end
 end
