@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require './lib/model'
 
 class Chitter < Sinatra::Base
 enable :sessions
 
- get '/chitter' do 
-  @new_peep = params[:peep]
+ get '/' do 
+  @peeps = Peep.all
+  # @new_peep = params[:peep]
   erb :index
  end 
 

@@ -9,11 +9,16 @@
   </head>
   <body>
     <h1> What is on your mind? </h1>
- <form action='/chitter'>
+ <form action='/'>
  <input type="text" name="peep">
   <input type="submit" value="Send it!">
  </form>
 
- <%= @new_peep %>
+<ul>
+ <% @peeps.each do |peep| %>
+ <li>
+  <%= peep %> 
+ <%end %>
   </body>
 </html>
+</ul>

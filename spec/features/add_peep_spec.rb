@@ -1,6 +1,6 @@
-feature 'new peep' do
-  scenario 'User adds a new peep' do
-    visit('/chitter')
+feature 'Welcome page' do
+  scenario 'User enters page and has button for adding tweet' do
+    visit('/')
     fill_in 'peep', with: 'What is on your mind?'
     click_button 'Send it!'
 
