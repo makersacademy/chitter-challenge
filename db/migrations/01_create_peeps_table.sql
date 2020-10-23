@@ -2,7 +2,8 @@ CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   username VARCHAR(20),
   body VARCHAR(200),
-  posted_on VARCHAR(20)
+  posted_on VARCHAR(20),
+  edited_on VARCHAR(20)
 );
 INSERT INTO peeps (username, body, posted_on) VALUES ('trump', 'BUILD THE WALL!', '2020-10-10 12:35:50');
 INSERT INTO peeps (username, body, posted_on) VALUES ('durov', 'Telegram v5.0 is out now!', '2020-08-10 11:54:55');

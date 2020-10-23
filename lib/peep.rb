@@ -2,13 +2,14 @@ require 'pg'
 require_relative 'database_connection'
 
 class Peep
-  attr_reader :id, :username, :body, :posted_on
+  attr_reader :id, :username, :body, :posted_on, :edited_on
 
-  def initialize(id:, username:, body:, posted_on:)
+  def initialize(id:, username:, body:, posted_on:, edited_on: nil)
     @id = id
     @username = username
     @body = body 
     @posted_on = posted_on
+    @edited_on = edited_on
   end
 
   def self.find_by(id:)
@@ -18,7 +19,8 @@ class Peep
         id: peep['id'], 
         username: peep['username'], 
         body: peep['body'], 
-        posted_on: peep['posted_on']
+        posted_on: peep['posted_on'],
+        edited_on: peep['edited_on']
       )
     end.first
   end
@@ -30,7 +32,8 @@ class Peep
         id: peep['id'], 
         username: peep['username'], 
         body: peep['body'], 
-        posted_on: peep['posted_on']
+        posted_on: peep['posted_on'],
+        edited_on: peep['edited_on']
       )
     end
   end
@@ -45,7 +48,8 @@ class Peep
   end
 
   def self.update(id:, body:)
-    DatabaseConnection.query("UPDATE peeps SET body='#{body}' WHERE id=#{id.to_i};")
+    DatabaseConnection.query("UPDATE peeps SET body='#{body}', 
+      edited_on='#{Time.now.strftime("%Y-%m-%d %H:%M:%S")}' WHERE id=#{id.to_i};")
   end
 
 end

@@ -12,6 +12,9 @@
     <% @sorted_peeps.each do |peep| %>
       <div id="<%= peep.id %>">
         <li>@<%= peep.username %>: <%= peep.body %> (<%= peep.posted_on %>)</li>
+        <% if peep.edited_on %>
+          <p>Edited on: <%= peep.edited_on %></p>
+        <% end %>
         <form action="/peep/<%= peep.id %>/edit">
           <input type="submit" value="Edit">
           <input type="hidden" name="peep_id" value="<%= peep.id %>">
