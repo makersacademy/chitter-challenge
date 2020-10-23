@@ -5,6 +5,9 @@
 </form>  
 
 <ul>
-  <%=  @peeps %>
+  <%  @peeps.each do |peep| %>
+     <li>
+        <a> <%= peep %> </a>
+    </li>
+    <% end %>
 </ul>
-
