@@ -1,16 +1,16 @@
-require 'simplecov'
-require 'simplecov-console'
+ENV['RACK_ENV'] = 'test'
+
+ENV['ENVIRONMENT'] = 'test'
+
+require_relative '../app.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'simplecov'
+require 'simplecov-console'
 
-require '../app.rb'
-
-ENV['RACk_ENV'] = 'test'
-ENV['ENVIRONMENT'] = 'test'
 
 Capybara.app = Chitter
-
 
 
 
