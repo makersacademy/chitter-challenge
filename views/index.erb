@@ -1,0 +1,11 @@
+<ul>
+  <% @messages.reverse_each do |message| %>
+    <li> <%= message.message %>
+      <br>
+    <%= message.timestamp %>
+    </li>
+  <% end %>
+</ul>
+<form action="/messages/new" method="get">
+  <input type="submit" value="Peep">
+</form>
