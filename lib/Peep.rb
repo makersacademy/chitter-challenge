@@ -6,7 +6,12 @@ class Peep
   end
 
   def self.all
-    @peeps = ["My first peep", "My second peep"]
+    if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: 'chitter_test')
+  else
+    connection = PG.connect(dbname: 'chitter')
   end
-
+  result = connection.exec("SELECT * FROM all_peeps ORDER BY time desc;")
+  result.map {|peep| peep['peep_text']}
+  end
 end
