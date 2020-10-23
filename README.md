@@ -77,6 +77,7 @@ bundle
 Connect to `psql` and create the `chitter` database
 ```
 CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
 ```
 To set up the database tables, connect to the chitter database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
