@@ -1,0 +1,40 @@
+<head>
+ 
+</head>
+<h1 style="background-color:DodgerBlue;">Welcome to Chitter. Like twitter, only shitter</h1>
+
+
+<% if @current_user != nil %>
+<form action="/tweets/add" method="get">
+<label for="Tweet">Tweet
+  <input type="text" name="tweet">
+    <input type="submit" value="Tweet" />
+</form></label>
+<form action="/logout" method="post">
+<label for="Log out">
+<input type="submit" value="Logout">
+</label>
+
+<%else%>
+
+
+<form action="/user" method="get">
+  <label for="Sign up">
+  <input type="submit" name= "Sign up" value="Sign up">
+  </form></label>
+
+<form action="/user/signin" method="post">
+<input type="text" name = "username">
+<input type="text" name="password">
+<input type="submit" value="Sign in">
+</form>
+<%end%>
+
+<% @tweets = Chitter.show %>
+<% @tweets.each do |tweet| %>
+<br>
+<%= tweet.tweet%><br>
+<%= tweet.created_at%>
+<%= tweet.username %>
+<% end %>
+
