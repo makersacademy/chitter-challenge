@@ -1,0 +1,30 @@
+CREATE DATABASE chitter;
+
+CREATE EXTENSION pgcrypto;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL,
+  name TEXT NOT NULL,
+  username TEXT NOT NULL UNIQUE
+);
+
+
+
+### EXAMPLE SQL FOR USING crypt EXTENSION: 
+INSERT INTO users (email, password, name, username) VALUES (
+  'johndoe@mail.com',
+  crypt('johnspassword', gen_salt('bf')),
+  'John Doe',
+  'johnnydoe'
+  );
+
+
+## here, the password is 'johnspassword'. it is being encrypted using blowfish (bf) by gen_salt.
+
+
+Suggested further reading:
+https://x-team.com/blog/storing-secure-passwords-with-postgresql/
+ - Instructions for accessing data are at the bottom. 
+ 

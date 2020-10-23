@@ -1,0 +1,94 @@
+body { 
+  font-family: 'Peddana', serif;
+  font-size: x-large;
+  padding-left: 6em;
+  padding-right: 3em;
+}
+
+.peep_time {
+  line-height: 1%;
+}
+
+.nav_bar {
+  height: 100%;
+  width: 4em; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: beige;
+  overflow-x: hidden; 
+  padding-top: 3em;
+  padding-left: 0.3em;
+  text-decoration: none;
+}
+
+.site_header {
+  font-size: 3em;
+  padding-left: 0em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+a:visited { 
+  text-emphasis: none;
+  text-decoration: underline;
+  color: black;
+}
+
+.nav_link {
+  padding-left: 0.5em;
+}
+
+.new_peep {
+  padding-left: 1.5em;
+}
+
+.peep_button {
+  background-color: beige;
+  color: black;
+  border-radius: 12px;
+}
+
+.peep_button:hover {
+  background-color: lightcoral;
+  transition-duration: 0.7s;
+}
+
+#flash {
+  color: lightcoral;
+  text-align: center;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}

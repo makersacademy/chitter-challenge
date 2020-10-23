@@ -1,0 +1,19 @@
+<head>
+  <title>sign up</title>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Peddana&display=swap" rel="stylesheet">
+</head>
+<a class="site_header" href="/">chitter</a>
+
+<h1>sign up to chitter</h1>
+
+<div class="nav_bar">
+</div>
+
+<form action="/sign-up" method="post">
+  <input type="text" name="name" placeholder="name"></input>
+  <input type="text" name="email" placeholder="email"></input>
+  <input type="password" name="password" placeholder="password"></input>
+  <input type="text" name="username" placeholder="username"></input>
+  <input type="submit" value="sign up">
+</form>

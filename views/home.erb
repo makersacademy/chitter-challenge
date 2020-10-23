@@ -1,0 +1,39 @@
+<head>
+  <title>chitter - home</title>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Peddana&display=swap" rel="stylesheet">
+</head>
+
+<a class="site_header" href="/">chitter</a>
+
+<div class="nav_bar">
+<% if session[:user_id] == nil %>
+  <a class="nav_link" href="/sign-up">sign up</a>
+  <br>
+  <a class="nav_link" href="/sign-in">sign in</a>
+  <br>
+<% else %>
+  <a class="nav_link" href="/sign-out">sign out</a>
+<%end%>
+</div>
+
+<p id="flash"><%= flash[:notice] %></p>
+
+<form class="new_peep" action="/new-peep" method="post">
+  <input type="text" name="text" placeholder="what's up?"></input>
+  <input class="peep_button" type="submit" value="peep it!">
+</form>
+
+<% @peeps = Peep.all %>
+
+<div id="peep">
+  <ul>
+    <% @peeps.each do |peep| %>
+      <% @username = Users.find(peep.user_id) %>
+      <p class="peep_name"><%=@username.username%></p>
+      <p class="peep_time"> <%= peep.time %> </p>
+      <p class="peep_text"> <%= peep.text %> </p>
+      <hr>
+    <% end %>
+  </ul>
+</div>
