@@ -12,7 +12,4 @@ end
 group :development do
   gem 'pg'
   gem 'sinatra'
-  gem 'sinatra-activerecord'
-  gem 'rake'
-  gem 'database_cleaner-active_record'
 end 
