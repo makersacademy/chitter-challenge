@@ -1,8 +1,13 @@
-class Peeps
+require 'pg'
+
+
+class Peep
+
   def self.all
-    [
-      "Me, in hell: I was told there would be a “special” place for me?",
-      "Congratulations to the Astronauts that left Earth today. Good choice"
-    ]
+    connection = PG.connect(dbname: 'chitter' ) 
+    peeps = connection.exec ("SELECT * FROM peeps;") 
+    peeps.map { |peep| 
+    p peep
+    peep["peep"] }
   end
 end

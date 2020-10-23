@@ -1,11 +1,12 @@
-require_relative '../../lib/peeps.rb'
+require_relative '../../lib/peep.rb'
 
-describe Peeps do
+describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      peeps = Peeps.all
+      peeps = Peep.all
 
-      expect(peeps).to eq(["Me, in hell: I was told there would be a “special” place for me?","Congratulations to the Astronauts that left Earth today. Good choice"])
+      expect(peeps).to include "Me, in hell: I was told there would be a “special” place for me?"
+      expect(peeps).to include "Congratulations to the Astronauts that left Earth today. Good choice"
     end
   end
 end
