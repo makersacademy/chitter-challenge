@@ -1,0 +1,78 @@
+<head>
+  <title>Sign up for Chitter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap" 
+        rel="stylesheet"/>
+  <style> 
+    h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 50px;
+      color: white;
+    }
+    h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: white;
+    }
+    label {
+      font-family: 'Roboto', sans-serif;
+      color: white;
+    }
+    li {
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      list-style-type: none;
+      outline-style: solid;
+      outline-width: thin;
+      margin-right: 500px;
+      padding: 25px 50px;
+    }
+    body {
+      background-color: #15202b;
+    }
+    footer {
+      color: white;
+      background-color: rgb(21, 32, 43);
+      text-align: center;
+      padding: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .button {
+      background-color: rgb(29, 161, 242);
+      border-radius: 4px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      border: 2px solid #1da1f2;
+      width: 15%;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .button:hover {
+      background-color: white;
+      color: #1da1f2;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chitter</h1>
+  <br>
+  <h3>Create your account</h3>
+  <h3> <%= flash[:notice] %> </h3>
+  <br>
+  <form action="/users" method="post">
+    <label for="handle">Enter a user handle:</label><br>
+      <input type="text" name="handle" maxlength="60" /><br><br>
+    <label for="name">Enter your name:</label><br>
+      <input type="text" name="name" maxlength="60" /><br><br>
+    <label for="email">Enter your email:</label><br>
+      <input type="email" name="email" maxlength="60" /><br><br>
+    <label for ="password">Enter a password:</label><br>
+      <input type="password" name="password" maxlength="140" /><br><br>
+    <input type="submit" class="button" value="Sign Up"/>
+  </form>
+  <footer>
+    Chitter Challenge | JR-G | Makers 2020
+  </footer>
+</body>

@@ -1,0 +1,60 @@
+<head>
+  <title>Make a Peep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap" 
+        rel="stylesheet"/>
+  <style> 
+    h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 50px;
+      color: white;
+    }
+    h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: white;
+    }
+    label {
+      font-family: 'Roboto', sans-serif;
+      color: white;
+    }
+    body {
+      background-color: #15202b;
+    }
+    footer {
+      color: white;
+      background-color: rgb(21, 32, 43);
+      text-align: center;
+      padding: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .button {
+      background-color: rgb(29, 161, 242);
+      border-radius: 4px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      border: 2px solid #1da1f2;
+      width: 15%;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .button:hover {
+      background-color: white;
+      color: #1da1f2;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chitter</h1>
+  <br>
+  <form action='/peeps' method='post'>
+    <label for="peep"> <h3>What's Happening?</h3> </label><br>
+      <input type="text" name="peep"/><br><br>
+    <input type="submit" class="button" value="Peep!">
+  </form>
+  <footer>
+    Chitter Challenge | JR-G | Makers 2020
+  </footer>
+</body>
