@@ -19,8 +19,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/add' do
-    peep = "@#{params[:username]}: #{params[:body]} (#{Time.now.strftime("%Y-%m-%d %H:%M:%S")})"
-    "#{peep}"
+    Peep.create(params[:username], params[:body])
+    # peep = "@#{params[:username]}: #{params[:body]} (#{Time.now.strftime("%Y-%m-%d %H:%M:%S")})"
+    redirect('/')
   end
 
   run! if app_file == $0

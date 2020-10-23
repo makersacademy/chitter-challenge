@@ -19,4 +19,13 @@ describe Peep do
       expect(peeps).to be_a Array
     end
   end
+
+  describe '#create' do 
+    it "adds new peep" do
+      Peep.create('kiriarf', 'yeet this tweet')
+      peeps = Peep.all
+
+      expect(peeps.last).to be_a Peep
+    end
+  end
 end

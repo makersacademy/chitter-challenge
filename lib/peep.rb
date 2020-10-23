@@ -23,5 +23,9 @@ class Peep
     end
   end
 
-  
+  def self.create(username, body)
+    DatabaseConnection.query("INSERT INTO peeps (username, body, posted_on) 
+    VALUES ('#{username}', '#{body}', '#{Time.now.strftime("%Y-%m-%d %H:%M:%S")}');")
+  end
+
 end
