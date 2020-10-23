@@ -1,5 +1,5 @@
-feature 'posting a peep' do
-  scenario 'a user can post a peep to chitter' do
+feature 'viewing a peep' do
+  scenario 'a user can view a peep on chitter' do
     connection = PG.connect(dbname: 'chitter_test')
 
     connection.exec("INSERT INTO peeps (peep) VALUES ('Happy Friday!');")
