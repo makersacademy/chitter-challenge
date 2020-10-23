@@ -1,0 +1,37 @@
+<style>
+.silver-background {
+  background-color: silver;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+ # position: fixed;
+ # top: 40%;
+  #left: 10%;
+  #margin-top: 100px;
+ # margin-left 100px;
+}
+</style>
+
+<% @peeps = Peep.all.reverse  %>
+<h1> Welcome <%= @current_user %> </h1>
+<form action="/logout" method="post" style="align:right;">
+<input type="submit" value="logout" > 
+</form>
+<% @peeps.each do  |peep|   %>
+  <div class="silver-background">
+    <a>
+    <h3 style="padding-right: 10px;"> <%=peep.username%>: </h3>
+      <%= peep.peep %>
+      
+      <p style="font-size: 12px; text-align: center;" >
+        <%= peep.format_date_from_timestamp %> at <%=peep.format_time_from_timestamp%>
+      </p>
+    </a>
+  </div>
+  <%end%>
+
+  <form action="/new_peep" method="get">
+  <input type="submit" value="New Peep">
+  </form>
+
+
