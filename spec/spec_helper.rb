@@ -1,5 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 
+ENV['ENVIRONMENT'] = 'test'
+
 require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
 
 require 'capybara'
