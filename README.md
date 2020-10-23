@@ -71,6 +71,15 @@ Clone this repository and run:
 ```
 bundle
 ```
+
+## Setting up the database:
+
+Connect to `psql` and create the `chitter` database
+```
+CREATE DATABASE chitter;
+```
+To set up the database tables, connect to the chitter database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
  ## To run Chitter:
  ```
  rackup -p 1234
