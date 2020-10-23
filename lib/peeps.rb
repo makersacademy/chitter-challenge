@@ -12,4 +12,8 @@ class Peeps
     result = connection.exec('SELECT * FROM peeps;')
     result.map { |peep| peep['peep'] }
   end
+
+  def self.new
+
+  end
 end
