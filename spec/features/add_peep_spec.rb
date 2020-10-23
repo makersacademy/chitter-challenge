@@ -6,5 +6,7 @@ feature 'new peep' do
 
     expect(page).to have_content 'What is on your mind?'
   end
-end
+end 
+
+
 

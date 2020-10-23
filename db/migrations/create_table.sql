@@ -1,1 +1,4 @@
-CREATE TABLE chitter_base(id SERIAL PRIMARY KEY, peeps VARCHAR(300), date DATE);
+  CREATE TABLE chitter_peeps (
+    id SERIAL PRIMARY KEY,
+    peeps VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
