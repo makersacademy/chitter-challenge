@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+<div class="container">
+  <% unless @user %>
+
+    <form action="/login" method="post">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username">
+
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password">
+
+      <input class="btn btn-primary" type="submit" name="log-in" value="Log in">
+    </form>
+    Not a user? <a href="/users/new" id="sign-up">Sign up</a>
+  <% end %>
+</div>
+
+<div class="container">
+  <% if @user %>
+    <p>Welcome <%= @user.name %>!</p>
+
+    <form action="/logout" method="post">
+      <input class="btn btn-primary" type="submit" name="log-out" value="Log out">
+    </form>
+  <% end %>
+</div>
+
+<div class="container">
+  <% if @user %>
+  <form action="/peeps" method="post">
+    <div class="form-group">
+      <label for="peep_message">Post a peep:</label>
+      <input class="form-control" type="text" name="peep_message" maxlength="30">
+      <small class="form-text text-muted">Maximum 30 characters</small>
+      <input class="btn btn-primary" type="submit" name="post" value="Post">
+    </div>
+  </form>
+  <% end %>
+</div>
+
+<div class="container">
+  <h2>Peeps</h2>
+  <% @peeps.sort_by! { |peep| peep.created_at }.reverse! %>
+  <% @peeps.each do |peep| %>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p><%= peep.message %></p>
+              <footer class="blockquote-footer">
+                Posted by <%= peep.username %>
+                <%= peep.created_at.strftime("at %I:%M%p %d/%m/%Y") %>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</body>
+
+</html>
