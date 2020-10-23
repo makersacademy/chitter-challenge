@@ -21,7 +21,6 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     Peep.create(username: params[:username], body: params[:body])
-    # peep = "@#{params[:username]}: #{params[:body]} (#{Time.now.strftime("%Y-%m-%d %H:%M:%S")})"
     redirect('/')
   end
 
@@ -29,13 +28,6 @@ class Chitter < Sinatra::Base
     Peep.delete(id: params[:peep_id])
     redirect('/')
   end
-
-  # post '/peep/edit' do
-  #   @peep_id = params[:peep_id]
-  #   @peep_username = params[:peep_username]
-  #   @peep_body = params[:peep_body]
-  #   erb(:'peep/edit')
-  # end
 
   get '/peep/:id/edit' do
     @peep = Peep.find_by(id: params[:peep_id])
