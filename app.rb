@@ -6,6 +6,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter_feed' do
-    'I ran 8 miles today, #winning'
+    erb :chitter_feed
   end
 end
