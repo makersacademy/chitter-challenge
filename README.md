@@ -59,8 +59,27 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+# Domain Model
+
+[image of diagram](.png)
+
+# How to use
+
+## Setting up:
+
+Clone this repository and run:
+```
+bundle
+```
+ ## To run Chitter:
+ ```
+ rackup -p 1234
+ ```
+ And navigate to localhost:1234/chitter
 
 
+
+<!-- 
 Technical Approach:
 -----
 
@@ -138,4 +157,4 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens! -->
