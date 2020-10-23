@@ -22,10 +22,22 @@ describe Peep do
 
   describe '#create' do 
     it "adds new peep" do
-      Peep.create('kiriarf', 'yeet this tweet')
+      Peep.create(username: 'kiriarf', body: 'yeet this tweet')
       peeps = Peep.all
 
       expect(peeps.last).to be_a Peep
     end
   end
+
+  describe '#delete' do
+    it "removes a record from the table" do
+      Peep.create(username: "kiriarf", body: "test peep")
+      peep_id = Peep.all.last.id
+      Peep.delete(id: peep_id)
+      peeps = Peep.all
+      
+      expect(peeps).not_to include(id: peep_id)
+    end
+  end
+
 end

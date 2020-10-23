@@ -23,9 +23,13 @@ class Peep
     end
   end
 
-  def self.create(username, body)
+  def self.create(username:, body:)
     DatabaseConnection.query("INSERT INTO peeps (username, body, posted_on) 
     VALUES ('#{username}', '#{body}', '#{Time.now.strftime("%Y-%m-%d %H:%M:%S")}');")
+  end
+
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM peeps WHERE id=#{id.to_i};")
   end
 
 end

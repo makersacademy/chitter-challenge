@@ -4,6 +4,7 @@ require_relative '../database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  enable :method_override
 
   get '/' do 
     @sorted_peeps = Peep.all.sort_by { |peep| peep.posted_on }.reverse
@@ -19,8 +20,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(params[:username], params[:body])
+    Peep.create(username: params[:username], body: params[:body])
     # peep = "@#{params[:username]}: #{params[:body]} (#{Time.now.strftime("%Y-%m-%d %H:%M:%S")})"
+    redirect('/')
+  end
+
+  delete '/peep' do
+    p Peep.all
+    p params
+    Peep.delete(id: params[:peep_id])
+    p Peep.all
     redirect('/')
   end
 

@@ -10,7 +10,14 @@
   </form>
   <ul>
     <% @sorted_peeps.each do |peep| %>
-      <li>@<%= peep.username %>: <%= peep.body %> (<%= peep.posted_on %>)</li>
+      <div id="<%= peep.id %>">
+        <li>@<%= peep.username %>: <%= peep.body %> (<%= peep.posted_on %>)</li>
+        <form action="/peep" method="POST">
+          <input type="submit" value="Delete">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="hidden" name="peep_id" value="<%= peep.id %>">
+        </form>
+      </div>
     <% end %>
   </ul>
 </body>
