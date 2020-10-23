@@ -1,6 +1,5 @@
 require 'pg'
 
-
 class Peep
   attr_reader :peeps
 
@@ -8,16 +7,14 @@ class Peep
     connect
     @peeps.map { |peep| peep["peep"] }
   end
-  
 
-  private
   def self.connect
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test' ) 
+      connection = PG.connect(dbname: 'chitter_test') 
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    @peeps = connection.exec ("SELECT * FROM peeps;") 
+    @peeps = connection.exec("SELECT * FROM peeps;") 
   end
 
 end

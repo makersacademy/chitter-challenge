@@ -1,6 +1,5 @@
 require 'pg'
 
-
 def setup_test_db
   p "setting up the test database..."
   connection = PG.connect(dbname: 'chitter_test')
