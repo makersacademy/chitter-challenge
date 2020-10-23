@@ -1,8 +1,3 @@
-# About the app:
-
-Sinatra web app with ActiveRecord and user based interface
-The user can post new messages, see already posted messages, register, log in / out.
-
 # Set-up the APP
 
 ## 1. To get all dependencies run
@@ -25,6 +20,6 @@ The user can post new messages, see already posted messages, register, log in / 
 
 - rspec
 
-## 6. Run the app in the terminal with rack to see it in the browser at http://localhost:4567/
+## 6. Run the app in the terminal with rack
 
 - rackup -p 4567

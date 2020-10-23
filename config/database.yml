@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter
+  pool: 2
+  #username: your_username
+  #password: your_password
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_test
+  pool: 2
+  #username: your_username
+  #password: your_password
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

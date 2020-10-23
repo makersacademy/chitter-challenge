@@ -1,0 +1,17 @@
+<link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+<div class="outer_div">
+  <%= flash[:notice] %>
+  <form style="display: flex; flex-direction: column; justify-content: center; margin-top: 5em" action="/user/sign_up" method="POST" >
+    <div>
+      <input class="text_field" name="name" minlength=3 type="text" placeholder="Name" >
+      <input class="text_field" type=email name="email" placeholder="email" >
+      <input class="text_field" minlength=6 type=password name="password" placeholder="Password">
+    </div>
+
+    <div>
+      <input class="a_btn" style="margin-top: 1em" type=submit value="Create Account">
+      <a class="a_btn" href="/">Cancel</a>
+    </div>
+    
+  </form>
+</div>

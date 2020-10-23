@@ -1,0 +1,46 @@
+<link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+
+<div class="outer_div">
+  <%= flash[:notice] %>
+  <h1>Welcome to Chitter <%= @user.name unless @user.nil? %> <h1>
+    <% if @user.nil? %>
+    <div>
+      <a class="a_btn" href="/user/sign_up">Sign Up</a>
+      <a class="a_btn" href="/user/login">Log In</a>
+    </div>
+  <% else %>
+    <a class="a_btn" id="out_btn" href="/user/destroy">Log Out</a>
+
+  <br>
+
+  <form action="/chitter/create" method="POST">
+    <input class="text_field" style="min-width: 350px" type=text name="text">
+    <input class="a_btn" type=submit value="Send">
+  </form>
+  <% end %>
+  <h2>Posts</h2>
+  <form action="/" method="GET" >
+    <label>Display:</label>
+    <select name="Display">
+      <option value="new">New First</option>
+      <option value="old">Old First</option>
+    </select>
+  <input type=submit value="Ok" >
+  </form>
+
+  <table>
+    <tr>
+      <th>Author</th>
+      <th></th>
+      <th>Created At</th>
+    </tr>
+    <% @posts.map do |each| %>
+      <tr>
+        <td><%= each["user_name"]%></td>
+        <td class="td_post" ><%= each["post"]%></td>
+        <td><%= each["created_at"][0..18]%></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
