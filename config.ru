@@ -1,3 +1,3 @@
-require relative './chitter'
+require_relative './chitter'
 
 run Chitter
