@@ -5,8 +5,8 @@ describe Peeps do
     it 'returns a list of peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO peeps (peep) VALUES ('Happy Friday!');")
-      connection.exec("INSERT INTO peeps (peep) VALUES ('Does chitter remind you of anything? Tweet Tweet');")
+      peep = Peeps.add(peep: 'Happy Friday!')
+      Peeps.add(peep: 'Does chitter remind you of anything? Tweet Tweet')
 
       peeps = Peeps.all
 
@@ -23,8 +23,6 @@ describe Peeps do
     end
   end
 end
-
-
 
 # write the unit test for the .add method.
 # pass the tests 
