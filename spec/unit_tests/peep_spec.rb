@@ -19,7 +19,7 @@ describe Peep do
 
   describe ".create" do
     it "creates a new peep" do
-      peep = Peep.create(peep: "I realize now that I should have named this field content", name: 'Barry')
+      peep = Peep.create(peep: "I realize now that I shouldn't have named this field peep", name: 'Barry')
       persisted_data = persisted_data(table: :peeps, id: peep.id)
 
       expect(peep).to be_a Peep

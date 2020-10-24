@@ -23,6 +23,7 @@ class Peep
   end
 
   def self.create(peep:, name:)
+    peep = peep.gsub("'", "''")
     result = DatabaseConnection.query("INSERT INTO peeps (peep, name) VALUES ('#{peep}', '#{name}') RETURNING id, peep, peeptime, name;")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], peeptime: result[0]['peeptime'], name: result[0]['name'])
   end
