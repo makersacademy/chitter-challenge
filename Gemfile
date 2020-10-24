@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'pg'
 gem 'sinatra'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
