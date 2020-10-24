@@ -1,10 +1,12 @@
 require_relative './database_connection'
+require 'bcrypt'
 
 class Maker
 
-
   def self.create(email:, password:, name:)
-    result = DatabaseConnection.query("INSERT INTO makers (email, password, name) VALUES('#{email}', '#{password}', '#{name}') RETURNING id, email, name;")
+    encrypted_password = BCrypt::Password.create(password)
+
+    result = DatabaseConnection.query("INSERT INTO makers (email, password, name) VALUES('#{email}', '#{encrypted_password}', '#{name}') RETURNING id, email, name;")
 
     Maker.new(
       id: result[0]['id'],

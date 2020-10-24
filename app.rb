@@ -29,7 +29,5 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-
-
   run! if app_file == $0
 end

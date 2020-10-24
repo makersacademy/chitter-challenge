@@ -1,6 +1,5 @@
 require 'pg'
 
-
 def setup_test_database
   p "Settinng up test database..."
 
