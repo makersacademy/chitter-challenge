@@ -51,4 +51,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'Goodbye!'
+    redirect('/')
+  end
+
 end
