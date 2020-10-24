@@ -2,10 +2,10 @@
   <title>Chitter</title>
 </head>
 <body>
-  <form action="/peep">
+  <form action="/peeps">
     <input type="submit" value="New Peep">
   </form>  
-  <form action="/user/new">
+  <form action="/registrations/new">
     <input type="submit" value="Sign Up">
   </form>
   <ul>
@@ -15,11 +15,11 @@
         <% if peep.edited_on %>
           <p>Edited on: <%= peep.edited_on %></p>
         <% end %>
-        <form action="/peep/<%= peep.id %>/edit">
+        <form action="/peeps/<%= peep.id %>/edit">
           <input type="submit" value="Edit">
           <input type="hidden" name="peep_id" value="<%= peep.id %>">
         </form>
-        <form action="/peep" method="POST">
+        <form action="/peeps" method="POST">
           <input type="submit" value="Delete">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="peep_id" value="<%= peep.id %>">

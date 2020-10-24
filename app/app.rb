@@ -11,30 +11,30 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/user/new' do
-    erb(:'user/new')
+  get '/registrations/new' do
+    erb(:'registrations/new')
   end
 
-  get '/peep' do
-    erb(:'peep/add')
+  get '/peeps' do
+    erb(:'peeps/add')
   end
 
-  post '/peep' do
+  post '/peeps' do
     Peep.create(username: params[:username], body: params[:body])
     redirect('/')
   end
 
-  delete '/peep' do
+  delete '/peeps' do
     Peep.delete(id: params[:peep_id])
     redirect('/')
   end
 
-  get '/peep/:id/edit' do
+  get '/peeps/:id/edit' do
     @peep = Peep.find_by(id: params[:peep_id])
-    erb(:'peep/edit')
+    erb(:'peeps/edit')
   end
 
-  put '/peep' do
+  put '/peeps' do
     Peep.update(id: params[:peep_id], body: params[:body])
     redirect('/')
   end

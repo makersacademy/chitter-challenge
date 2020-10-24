@@ -18,6 +18,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    truncate_and_populate_test_table
+    truncate_and_populate_user_table
+    truncate_and_populate_peep_table
   end
 end
