@@ -7,4 +7,15 @@ feature 'authentication' do
     click_button "Sign in"
     expect(page).to have_content "Mickey Smith"
   end
+
+  scenario 'user enters incorrect email' do
+    User.create(name: "Karen", username: "shopaholic", email: "karen@entitled.com", password: "theworst")
+    visit '/chitter/sessions/new'
+    fill_in :email, with: 'karen@incorrect.com' 
+    fill_in :password, with: 'the worst'
+    click_button('Sign in')
+    
+    expect(page).not_to have_content "Karen"
+    expect(page).to have_content "Check your email or password."
+  end
 end
