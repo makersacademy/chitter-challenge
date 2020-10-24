@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
+    Maker.create(email: params[:email], password: params[:password], name: params[:name])
     redirect '/'
   end
 
