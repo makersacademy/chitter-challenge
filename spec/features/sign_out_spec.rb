@@ -1,6 +1,6 @@
 feature 'Log out' do
   scenario 'a user can sign out of their account' do
-    User.create(email: 'test@testing.com', password: 'password123')
+    User.create(name: 'Barry', email: 'test@testing.com', password: 'password123')
 
     visit '/'
     click_on('Sign In')

@@ -1,6 +1,6 @@
 feature 'Log in' do
   scenario 'a user can sign into their account with the correct details' do
-    User.create(email: 'test@testing.com', password: 'password123')
+    User.create(name: 'Barry', email: 'test@testing.com', password: 'password123')
 
     visit '/'
     click_on('Sign In')
