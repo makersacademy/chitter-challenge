@@ -1,0 +1,15 @@
+<h1>
+  <%= flash[:notice] %>
+</h1>
+<br>
+<br>
+<h3>Log in or sign up below</h3>
+<br>
+<br>
+<form action='/users/new' method='get'>
+<input type='submit' name='Sign up' value='Sign up' />
+</form>
+<br>
+<form action='/sessions/new' method='get'>
+<input type='submit' name='Sign In' value='Sign In' />
+</form>

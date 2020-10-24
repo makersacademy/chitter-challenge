@@ -1,0 +1,24 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.peep %><br>
+      <b>Posted by: <%= peep.name %></b>
+      <i>Peeptime: <%= peep.peeptime %></i>
+    </li>
+  <% end %>
+</ul>
+<br>
+<br>
+<textarea name="newpeep" form="peepform">Write something in here...</textarea>
+<form action="/peep" method="post" id="peepform">
+  <input type="submit" name="Submit">
+  <input type="hidden" name="username" value="<%= @user.name %>">
+</form>
+<br>
+<br>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign Out" />
+</form>
