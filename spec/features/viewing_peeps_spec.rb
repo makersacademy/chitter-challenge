@@ -18,13 +18,14 @@ feature 'Viewing peeps' do
   end
 
   scenario 'A user can see peeps in reverse cronological order' do
-
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (peep,timestamp) VALUES('Congratulations to the Astronauts that left Earth today. Good choice', '2020-10-23 16:41');")
-    connection.exec("INSERT INTO peeps (peep,timestamp) VALUES('Me, in hell: I was told there would be a “special” place for me?', '2020-10-23 15:00');")
-
+    Peep.create(peep:'Congratulations to the Astronauts that left Earth today. Good choice')
+    Peep.create(peep: 'Me, in hell: I was told there would be a “special” place for me?')
+    
     visit('/peeps')
 
-    page.body.index("Me, in hell: I was told there would be a “special” place for me?").should < page.body.index("Congratulations to the Astronauts that left Earth today. Good choice")
+    first_peep = 'Congratulations to the Astronauts that left Earth today. Good choice'
+    second_peep = 'Me, in hell: I was told there would be a “special” place for me?'
+
+    expect(second_peep).to appear_before(first_peep, only_text: true)
   end
 end

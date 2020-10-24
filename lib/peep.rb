@@ -14,7 +14,7 @@ class Peep
     else
       @connection = PG.connect(dbname: 'chitter')
     end
-    @peeps = @connection.exec("SELECT * FROM peeps;") 
+    @peeps = @connection.exec("SELECT * FROM peeps ORDER BY timestamp DESC;") 
   end
 
   def self.create(peep:)
@@ -22,5 +22,5 @@ class Peep
     
     @connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}');")
   end
-  
+
 end
