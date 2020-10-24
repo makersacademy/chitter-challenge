@@ -21,4 +21,12 @@ describe Peep do
       expect(peep.content).to eq "I created a peep!"
     end
   end
+
+  describe '#time' do
+    it 'knows what time it was created' do
+      now = Time.now.strftime("%d/%m/%Y, %I:%M %p")
+      peep = Peep.create("Just woke up")
+      expect(peep.time).to eq now
+    end
+  end
 end

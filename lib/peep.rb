@@ -1,11 +1,12 @@
 require 'pg'
 
 class Peep
-  attr_reader :content, :id
+  attr_reader :content, :id, :time
   
-  def initialize(content, id)
+  def initialize(content, id, time)
     @content = content
     @id = id
+    @time = time
   end
 
   def self.create(content)
@@ -14,8 +15,9 @@ class Peep
     else
       connection = PG.connect :dbname => 'chitter_manager'
     end
-    result = connection.exec("INSERT INTO peeps (content) VALUES('#{content}') RETURNING id, content;")
-    @peep = Peep.new(result[0]['content'], result[0]['id'])
+    time = Time.now.strftime("%d/%m/%Y, %I:%M %p")
+    result = connection.exec("INSERT INTO peeps (content, time) VALUES('#{content}', '#{time}') RETURNING id, content, time;")
+    @peep = Peep.new(result[0]['content'], result[0]['id'], result[0]['time'])
   end
 
   def self.all
@@ -26,7 +28,9 @@ class Peep
     end
     result = connection.exec("SELECT * FROM peeps")
     result.map do |peep|
-      Peep.new(peep['content'], peep['id'])
+      Peep.new(peep['content'], peep['id'], peep['time'])
     end
   end
 end
+
+#Time.now.strftime("%d/%m/%Y, %I:%M %p")
