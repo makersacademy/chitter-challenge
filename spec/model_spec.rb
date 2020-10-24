@@ -17,7 +17,7 @@ end
 describe '.create' do
   it 'creates a new peep' do
     new_peep =  Peep.create(peeps: 'testing new peep')
-    persisted_data = persisted_data(id: new_peep.id)
+    persisted_data = persisted_data(table: 'chitter_peeps', id: new_peep.id)
     
     
     expect(new_peep).to be_a Peep

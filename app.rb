@@ -1,11 +1,14 @@
 require 'sinatra/base'
 require './lib/model'
+require './lib/user'
+require 'pg'
 
 class Chitter < Sinatra::Base
 enable :sessions
 
  get '/chitterapp' do 
   @peeps = Peep.all
+  @user = User.find(session[:id]) if session[:id]
   erb :index
  end 
 
@@ -15,14 +18,15 @@ enable :sessions
   redirect '/chitterapp'
  end
 
- get '/users' do
+ get '/users/new' do
   erb :new
  end
 
-get '/users' do
-  User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+ post '/users' do
+  user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+  session[:id] = user.id
   redirect to '/chitterapp'
-end
+ end
 
 
  run! if app_file == $0

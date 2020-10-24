@@ -1,6 +1,10 @@
 
     <h1> What is on your mind? </h1>
-    
+
+     <% if @user %>
+      <p> Hello, <%= @user.name %></p>
+    <% end %>
+
  <form action='/chitterapp' method="post">
  <input type="text" name="message">
   <input type="submit" value="Send it!">
@@ -11,7 +15,7 @@
   <%= peep.peeps %>  
   <%= peep.created_at %>
  <%end %>
-  </body>
+  </body> 
 </html>
 </ul> 
 
