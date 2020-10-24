@@ -34,13 +34,29 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
+Thoughts:
 - User class with a sign_up method
 - Sign_up method generates a new user 
 - User must have name, email, username and password
 
+```
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+```
+Thoughts:
+- Use stored user data within an authentication method on the User class to verify user email and password
+- Encrypt passwords
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+Thoughts:
+- Upon sign out user should no longer be reachable from /chitter route
+
 ## Modelling
 
-|Class: User|
+### Class: User|
 |Responsibilities|Collaborators|
 |----------|-----------|
 |Post messages (.peep)|Peep|
@@ -48,13 +64,18 @@ I want to sign up for Chitter
 |Knows username||
 |Knows email||
 |Knows password||
+|Can find specific user (.find)||
+|Knows whether there is a current user (.current_user)||
+|Can authenticate a user (.authenticate||
 
-|Class: Peep|
+### Class: Peep
 |Responsibilities|Collaborators|
 |----------|-----------|
-|Class knows all peeps|User|
 |Knows content||
 |Knows time posted||
+|Can return all peeps (.all)||
+|Can create peeps (.create)||
+|Knows whether user is logged on when peep is created|User|
 
 
 ## Database Set Up
