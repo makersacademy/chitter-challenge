@@ -12,8 +12,8 @@ class Peep
     @user_id = user_id
   end
 
-  def self.create(content)
-    account = Peep.user
+  def self.create(content, user_class = User)
+    account = Peep.user(user_class)
     if account == "Anonymous"
       time = Time.now.strftime("%d/%m/%Y, %I:%M %p")
       result = DatabaseConnection.query("INSERT INTO peeps (content, time) VALUES('#{content}', '#{time}') RETURNING id, content, time;")
