@@ -7,10 +7,55 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ``` 
-|Class: Maker/User|
+Thoughts: 
+- User class with ability to post a peep.
+- Peep class with a content instance variable.
+
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+Thoughts:
+- Peep class method .all which returns all peeps
+- Displayed in reverse order using reverse_each
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+Thoughts:
+- Peep objects must have a time instance variable in addition to content.
+- Peep table will require additional time column.
+
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+- User class with a sign_up method
+- Sign_up method generates a new user 
+- User must have name, email, username and password
+
+## Modelling
+
+|Class: User|
 |Responsibilities|Collaborators|
 |----------|-----------|
 |Post messages (.peep)|Peep|
+|Knows name||
+|Knows username||
+|Knows email||
+|Knows password||
+
+|Class: Peep|
+|Responsibilities|Collaborators|
+|----------|-----------|
+|Class knows all peeps|User|
+|Knows content||
+|Knows time posted||
+
 
 ## Database Set Up
 
