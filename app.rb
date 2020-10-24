@@ -35,6 +35,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/sessions/new' do
+    if !session['id'].nil?
+      flash[:notice] = "Already signed in"
+      redirect to '/chitter'
+    end
     erb :'chitter/sessions/new'
   end
 

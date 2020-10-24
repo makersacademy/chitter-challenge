@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>Chitter</h1>
+    <%= flash[:notice] %>
     <% if @user %>
       <p> Here's what your friends have been saying, <%= @user.name %></p>
     <% end %>
@@ -26,7 +27,5 @@
     </form>
     <form action="/chitter/sessions/destroy" method="post">
       <input type="submit" value="Sign out" />
-    </form>
-    <%= flash[:notice] %>
   </body>
 </html>

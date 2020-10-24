@@ -7,6 +7,15 @@ feature 'authentication' do
     expect(page).to have_content "Karen"
   end
 
+  scenario 'user cannot sign in if already signed in' do
+    create_karen
+    fill_in :email, with: "karen@entitled.com"
+    fill_in :password, with: "theworst"
+    click_button "Sign in"
+    click_button "Sign in"
+    expect(page).to have_content "Already signed in"
+  end
+
   scenario 'user enters incorrect email' do
     create_karen
     fill_in :email, with: 'karen@incorrect.com' 
