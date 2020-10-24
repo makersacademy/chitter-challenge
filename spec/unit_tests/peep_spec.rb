@@ -1,15 +1,37 @@
 require 'model/peep.rb'
 
 describe Peep do
-  it "can store and retrieve peeps from the database" do
-    Peep.create(peep: "I realize now that I should have named this field content")
-    expect(Peep.all).to include("I realize now that I should have named this field content")
+  describe ".all" do
+    it "returns a list of Peep objects" do
+      peep = Peep.create(peep: "I realize now that I should have named this field content")
+      Peep.create(peep: "Some other string")
+
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 2
+      expect(peeps.last).to be_a Peep
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.peep).to eq("I realize now that I should have named this field content")
+    end
   end
-  it "returns peeps in reverse chronological order" do
-    Peep.create(peep: 'last')
-    Peep.create(peep: 'third')
-    Peep.create(peep: 'second')
-    Peep.create(peep: 'first')
-    expect(Peep.all).to eq(['first', 'second', 'third', 'last'])
+
+  describe ".create" do
+    it "creates a new peep" do
+      peep = Peep.create(peep: "I realize now that I should have named this field content")
+      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
+
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.peep). to eq("I realize now that I should have named this field content")
+    end
+  end
+
+  describe ".peeptime" do
+    it "returns the peeptime of each peep" do
+      test_time = double'test time'
+      allow_any_instance_of(Peep).to receive(:peeptime).and_return(test_time)
+      test_peep = Peep.create(peep: '')
+      expect(test_peep.peeptime).to eq(test_time)
+    end
   end
 end

@@ -1,4 +1,13 @@
-<h1><%=@peeps%></h1>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.peep %><br>
+      <i>Peeptime: <%= peep.peeptime %></i>
+    </li>
+  <% end %>
+</ul>
+<br>
+<br>
 <textarea name="newpeep" form="peepform">Write something in here...</textarea>
 <form action="/chitter/peep" method="post" id="peepform">
   <input type="submit" name="Submit">
