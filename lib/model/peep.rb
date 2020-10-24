@@ -9,7 +9,7 @@ class Peep
   end
 
   def self.all
-    result = @connection.exec("SELECT * FROM peeps;")
+    result = @connection.exec("SELECT * FROM peeps ORDER BY peeptime DESC;")
     result.map do |peep|
       peep = peep['peep']
     end
