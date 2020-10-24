@@ -12,7 +12,7 @@ describe Peep do
       expect(peeps.length).to eq 2
       expect(peeps.last).to be_a Peep
       expect(peeps.last.id).to eq peep.id
-      expect(peeps.last.name).to eq 'Lizzy'
+      expect(peeps.last.name).to eq 'Barry'
       expect(peeps.last.peep).to eq("I realize now that I should have named this field content")
     end
   end
