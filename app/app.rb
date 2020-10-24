@@ -15,6 +15,17 @@ class Chitter < Sinatra::Base
     erb(:'registrations/new')
   end
 
+  post '/registrations' do
+    # user = User.create(username: params[:username], email: params[:email], name: params[:name])
+    # user.authenticate(user.email, params[:password])
+
+    # if user.valid_name_and_email?
+    #   session[:user_id] = user.id
+    #   redirect('/')
+    # else 
+    #   erb(:'registrations/try_again')
+  end
+ 
   get '/peeps' do
     erb(:'peeps/add')
   end
