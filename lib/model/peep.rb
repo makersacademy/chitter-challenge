@@ -18,7 +18,7 @@ class Peep
     # end
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY peeptime DESC;")
     result.map do |peep|
-      Peep.new(id: peep['id'], peep: peep['peep'], peeptime: peep['peeptime'], name: result[0]['name'])
+      Peep.new(id: peep['id'], peep: peep['peep'], peeptime: peep['peeptime'], name: peep['name'])
     end
   end
 
