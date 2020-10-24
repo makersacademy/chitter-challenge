@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'capybara'
+gem 'bcrypt'
+
 group :test do
   gem 'rspec'
   gem 'rubocop', '0.79.0'
