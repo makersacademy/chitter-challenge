@@ -1,3 +1,3 @@
-require_relative './app/app.rb'
+require_relative './lib/app.rb'
 
-run Peep
+run Chitter

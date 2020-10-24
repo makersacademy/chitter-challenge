@@ -1,17 +1,16 @@
 require 'sinatra/base'
+require './lib/model/peep'
 
 
-class Peep < Sinatra::Base
+class Chitter < Sinatra::Base
 
   get '/' do
     'Hello World!'
   end
 
   get '/peep' do
-    peeps = [
-      'My first peep',
-      'My second peep'
-    ]
+    @peeps = Peep.all
+    erb :index
   end
 
 
