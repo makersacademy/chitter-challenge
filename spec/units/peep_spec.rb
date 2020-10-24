@@ -1,4 +1,5 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
   describe '.all' do
@@ -19,6 +20,15 @@ describe Peep do
       peep = Peep.create("I created a peep!")
       expect(peep).to be_a Peep
       expect(peep.content).to eq "I created a peep!"
+    end
+
+    it 'creates a peep within the database' do
+      peep = Peep.create("Hello")
+      data = persisted_data(table: 'peeps', id: peep.id)
+
+      expect(peep.id).to eq data.first['id']
+      expect(peep.content).to eq data.first['content']
+      expect(peep.time).to eq data.first['time']
     end
   end
 
