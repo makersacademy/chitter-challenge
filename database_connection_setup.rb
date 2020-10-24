@@ -1,6 +1,6 @@
 require './lib/database_connection'
 
-if ENV['ENVIROMENT'] = 'test'
+if ENV['ENVIRONMENT'] == 'test'
   DatabaseConnection.setup('chitter_db_test')
 else
   DatabaseConnection.setup('chitter_db')

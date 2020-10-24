@@ -14,7 +14,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    maker = Maker.create(email: params[:email], password: params[:password], name: params[:name])
+    maker = Maker.create(
+      email: params[:email],
+      password: params[:password],
+      name: params[:name]
+    )
+
     session[:maker_id] = maker.id
     redirect('/peeps')
   end
