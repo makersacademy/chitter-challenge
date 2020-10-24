@@ -1,14 +1,8 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.peep %><br>
-      <i>Peeptime: <%= peep.peeptime %></i>
-    </li>
-  <% end %>
-</ul>
+<h1>Welcome to Chitter!</h1>
+<h3>Log in or sign up below</h3>
 <br>
 <br>
-<textarea name="newpeep" form="peepform">Write something in here...</textarea>
-<form action="/chitter/peep" method="post" id="peepform">
-  <input type="submit" name="Submit">
+<form action='/users/new' method='get'>
+<input type='submit' name='Sign up' value='Sign up' />
 </form>
+<br>

@@ -45,3 +45,4 @@ I want to receive an email if I am tagged in a Peep
 3. Connect to the database using <code>\c chitter;</code>
 4. Run the SQL query in the file <code>db/migrations/01_create_peeps_table</code>
 5. Using the above commands, create a separate database for testing purposes with the name <code>chitter_test</code>
+6. Create a users table in both the main and test databases according to the instructions in <code>db/migrations/02_create_users_table</code>

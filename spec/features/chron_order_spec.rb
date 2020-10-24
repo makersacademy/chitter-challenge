@@ -5,7 +5,7 @@ feature 'chronological order' do
     Peep.create(peep: 'last')
     Peep.create(peep: 'third')
     Peep.create(peep: 'second')
-    visit '/chitter/home'
+    visit '/home'
     fill_in('newpeep', with: "")
     fill_in('newpeep', with: "first")
     click_on('Submit')

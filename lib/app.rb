@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require_relative './model/peep'
+require_relative './model/user'
+
 
 class Chitter < Sinatra::Base
 
@@ -7,17 +9,28 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'Welcome to Chitter'
-  end
-
-  get '/chitter/home' do
-    @peeps = Peep.all
     erb(:index)
   end
 
-  post'/chitter/peep' do
+  get '/home' do
+    @user = User.find(session[:user_id])
+    @peeps = Peep.all
+    erb(:'/home')
+  end
+
+  post '/peep' do
     Peep.create(peep: params[:newpeep])
-    redirect '/chitter/home'
+    redirect '/home'
+  end
+
+  get '/users/new' do
+    erb(:'users/new')
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/home'
   end
 
 end
