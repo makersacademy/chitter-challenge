@@ -22,9 +22,9 @@ require 'orderly'
 Capybara.app = Chitter 
 
 RSpec.configure do |config|
-  config.before(:each) do
+  #config.before(:each) do
     reset_test_database
-  end
+  #end
 end
 
 RSpec.configure do |config|

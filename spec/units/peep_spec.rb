@@ -17,15 +17,18 @@ describe Peep do
     let(:peep_class) { described_class }
     let(:user_class) {double :user_class}
     it 'returns array of all peeps' do
+      reset_test_database
       allow(peep_class).to receive(:user).with(user_class).and_return("Anonymous")
       peep_class.create("One peep", user_class)
       peep_class.create("Two peep", user_class)
       peeps = Peep.all
       first_peep = peeps.first
+      second_peep = peeps[1]
       
       expect(peeps).to be_a Array
       expect(peeps.length).to eq 2
       expect(first_peep.content).to eq "One peep" 
+      expect(second_peep.content).to eq "Two peep"
     end
   end
 
