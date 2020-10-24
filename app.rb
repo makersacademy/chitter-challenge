@@ -7,15 +7,12 @@ class ChitterSite < Sinatra::Base
   end
 
   post '/chitters' do 
-    params[:peep]
+    Chitter.add(params[:peep])
+    redirect('/chitters/all')
   end
   
   get '/chitters/all' do
-    @display = ""
-   Chitter.all.each do |peep|
-    @display += peep + ", "
-   end
-   @display
+    Chitter.all
   end
 
   run if app_file == $0

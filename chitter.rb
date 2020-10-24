@@ -1,14 +1,28 @@
+require 'pg'
+
 class Chitter 
 
-  @peeps = ["this is the first message ever posted to chitter", "this is the second", "okay now i've posted three"]
-
   def self.all
-    @peeps
+    if ENV['ENVIRONMENT'] == 'test'
+      con = PG.connect :dbname => 'chitter_test'
+    else 
+      con = PG.connect :dbname => 'chitter'
+    end
+    retrieve_all = con.exec "SELECT * FROM peeps"
+    retrieve_all.map do |row|
+      row['message']
+    end
   end
 
   def self.add(peep)
-    @peeps = @peeps.push(peep)
-    peep
+    if ENV['ENVIRONMENT'] == 'test'
+      con = PG.connect :dbname => 'chitter_test'
+    else 
+      con = PG.connect :dbname => 'chitter'
+    end
+
+   @peep = con.exec("INSERT INTO peeps (message) VALUES('#{peep}')")
+   @peep
   end
 
 end
