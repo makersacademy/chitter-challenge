@@ -10,4 +10,6 @@ feature 'viewing a peep' do
     expect(page).to have_content('insert funny peep here')
     expect(page).to have_content('Happy Friday!')
   end
+
+  scenario 'a user can view the time that a peep was posted to chitter' do
 end
