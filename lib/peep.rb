@@ -32,5 +32,3 @@ class Peep
     end
   end
 end
-
-#Time.now.strftime("%d/%m/%Y, %I:%M %p")
