@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @peeps = Peep.all
-    @user = User.find(session[:id]) if session[:id]
+    @user = User.find(session[:id]) unless session[:id] == nil
     erb :'chitter/index'
   end
 
@@ -50,6 +50,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/sessions/destroy' do
+    User.sign_out
     session[:id] = nil
     flash[:notice] = "Logged out"
     redirect('/chitter')

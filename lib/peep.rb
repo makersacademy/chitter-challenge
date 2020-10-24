@@ -27,7 +27,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
       if peep['user_id'].nil?
         Peep.new(peep['content'], peep['id'], peep['time'])

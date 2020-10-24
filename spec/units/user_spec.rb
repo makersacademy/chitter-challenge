@@ -66,4 +66,13 @@ describe User do
     end
   end
 
+  describe '.sign_out' do
+    it 'sets current_user to anonymous' do
+      user = User.create(name: "Karen", username: "shopaholic", email: "karen@entitled.com", password: "theworst")
+      expect(User.current_user).to eq user
+      User.sign_out
+      expect(User.current_user).to eq "Anonymous"
+    end
+  end
+
 end
