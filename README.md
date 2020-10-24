@@ -1,7 +1,7 @@
 # Chitter Challenge
 -------
 
-This is my attempt to create a Twitter clone that satisfies the user stories below.
+This is my attempt to create a Twitter clone that satisfies the user stories below. I managed to satisfy all but the final one, although in a fairly rough form as it stands. If I had more time, I would like to ensure that new users' email addresses throw an error if they already exist within the database, as well as email confirmation when they successfully sign up. Obviously, the front end still needs considerable work too. However, the challenge has helped me to consolidate much of what I have learned about databases this week. 
 
 ```
 STRAIGHT UP
