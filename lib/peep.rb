@@ -46,4 +46,10 @@ class Peep
     user = User.find(@user_id)
     user.username
   end
+
+  def user_name
+    return "Anonymous" if @user_id.nil?
+    user = User.find(@user_id)
+    user.name
+  end
 end

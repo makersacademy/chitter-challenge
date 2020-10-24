@@ -14,7 +14,7 @@
     </form>
     <div class='peep'>
       <% @peeps.reverse_each do |peep| %>
-        <p class='user_data'><%= peep.user_handle%> <%= peep.time %>
+        <p class='user_data'><%= peep.user_name %>(<%= peep.user_handle%>) <%= peep.time %>
         <p class='content'><%= peep.content %><p>
       <% end %> 
     </div>

@@ -32,4 +32,14 @@ class Chitter < Sinatra::Base
     redirect to '/chitter'
   end
 
+  get '/chitter/sessions/new' do
+    erb :'chitter/sessions/new'
+  end
+
+  post '/chitter/sessions' do
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
+    user = User.new(result[0]['id'], result[0]['name'], result[0]['username'], result[0]['email'], result[0]['password'])
+    session[:id] = user.id
+    redirect to '/chitter'
+  end
 end
