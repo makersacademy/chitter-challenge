@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/peep'
 require 'pg'
 require './lib/user'
+require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions

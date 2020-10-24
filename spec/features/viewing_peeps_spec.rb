@@ -21,4 +21,19 @@ feature 'Viewing sting peeps' do
 
     expect(page).to have_content time
   end
+
+  scenario 'User handle appears on peeps' do
+    visit('/users/new')
+    fill_in :name, with: "John Smith"
+    fill_in :username, with: "JSmith"
+    fill_in :email, with: "testing@fakemail.com"
+    fill_in :password, with: "Rosebud"
+    click_button "Sign Up"
+    click_button('New Peep')
+    fill_in :peep, with: "I miss Rose..."
+    click_button "Post Peep"
+
+    expect(first('.peep')).to have_content "JSmith"
+    expect(first('.peep')).to have_content "I miss Rose..."
+  end
 end
