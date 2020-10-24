@@ -12,6 +12,25 @@ I want to post a message (peep) to chitter
 |----------|-----------|
 |Post messages (.peep)|Peep|
 
+## Database Set Up
+
+1. Connect to psql:
+```
+psql
+```
+2. Create a database:
+```
+CREATE DATABASE chitter_manager;
+```
+3. Create a peeps table using query from file 01_create_peeps_table.sql:
+```
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(200));
+```
+4. Add a time column to peeps table using query from file 02_add_time_column_to_peeps.sql:
+```
+ALTER TABLE peeps ADD COLUMN time VARCHAR(20);
+```
+5. Repeat above steps for test database, chitter_manager_test.
 
 ## Makers Instructions:
 
