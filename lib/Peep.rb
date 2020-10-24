@@ -24,5 +24,4 @@ class Peep
     connection.exec("INSERT INTO all_peeps (peep_text) VALUES('#{peep_text}')")
   end
 
-
 end
