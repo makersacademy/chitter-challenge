@@ -9,4 +9,11 @@ feature 'user registration' do
 
     expect(page).to have_content "John Smith"
   end
+
+  scenario 'user can log in' do
+    #to do
+  end
+  scenario 'user can log out' do
+    # to do
+  end
 end
