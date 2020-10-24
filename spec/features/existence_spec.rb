@@ -1,5 +1,3 @@
-require 'app'
-
 feature 'existence' do
   scenario 'homepage welcomes user to site' do
     visit '/'
