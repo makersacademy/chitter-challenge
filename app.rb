@@ -48,4 +48,10 @@ class Chitter < Sinatra::Base
       redirect to '/chitter/sessions/new'
     end
   end
+
+  post '/chitter/sessions/destroy' do
+    session[:id] = nil
+    flash[:notice] = "Logged out"
+    redirect('/chitter')
+  end
 end
