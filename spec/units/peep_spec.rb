@@ -1,4 +1,4 @@
-require 'peep'
+require_relative '../../app/models/peep'
 
 describe Peep do
   subject(:peep) { described_class.new(id: "99", username: "leo", body: "Woof!", posted_on: "2020-10-10 12:12:12") }

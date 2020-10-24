@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative '../../app/models/database_connection'
 
 describe DatabaseConnection do
   describe '#setup' do

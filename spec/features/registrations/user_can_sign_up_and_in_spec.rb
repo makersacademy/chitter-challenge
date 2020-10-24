@@ -8,6 +8,6 @@ feature 'registrations' do
     click_button("Register")
 
     expect(page.current_path).to eq('/')
-    expect(page).to have_content("Hi, testuser")
+    expect(page).to have_content("Hi, testusername")
   end
 end

@@ -1,4 +1,4 @@
-require_relative 'lib/database_connection.rb'
+require_relative 'app/models/database_connection.rb'
 
 if ENV['RACK_ENV'] == 'test'
   DatabaseConnection.setup('chitter_test')
