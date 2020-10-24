@@ -16,4 +16,4 @@ admin=# CREATE DATABASE chitter_test;
 
 
 # Setting up tables
-Follow instructions in db/migrations to set up the tables for both databases. 
+Follow instructions in db/migrations to set up all tables for both databases. 

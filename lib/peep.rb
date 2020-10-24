@@ -5,7 +5,7 @@ class Peep
 
   def self.all
     connect
-    @peeps.map { |peep| peep["peep"] }
+    @peeps.map { |peep| peep.values_at('peep','date','time')  }
   end
 
   def self.connect
@@ -14,7 +14,7 @@ class Peep
     else
       @connection = PG.connect(dbname: 'chitter')
     end
-    @peeps = @connection.exec("SELECT * FROM peeps ORDER BY timestamp DESC;") 
+    @peeps = @connection.exec("SELECT * FROM peeps ORDER BY time DESC;") 
   end
 
   def self.create(peep:)

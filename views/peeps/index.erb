@@ -1,7 +1,9 @@
-
+<!-- <% if @username %> %> -->
+<h1>Welcome <%= @username %></h1>
+<!-- <% end %> -->
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.join(" ") %></li>
   <% 
 end %>
 </ul>
