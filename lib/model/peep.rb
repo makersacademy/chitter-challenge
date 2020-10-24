@@ -1,12 +1,6 @@
-require 'pg'
+require_relative'./database_connection'
 
 class Peep
-
-  if ENV['RACK_ENV'] == 'test'
-    @connection = PG.connect(dbname: 'chitter_test')
-  else
-    @connection = PG.connect(dbname: 'chitter')
-  end
 
   attr_reader :id, :peep, :peeptime
 
@@ -17,14 +11,18 @@ class Peep
   end
 
   def self.all
-    result = @connection.exec("SELECT * FROM peeps ORDER BY peeptime DESC;")
+    # result = @connection.exec("SELECT * FROM peeps ORDER BY peeptime DESC;")
+    # result.map do |peep|
+    #   Peep.new(id: peep['id'], peep: peep['peep'], peeptime: peep['peeptime'])
+    # end
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY peeptime DESC;")
     result.map do |peep|
       Peep.new(id: peep['id'], peep: peep['peep'], peeptime: peep['peeptime'])
     end
   end
 
   def self.create(peep:)
-    result = @connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id, peep, peeptime;")
+    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id, peep, peeptime;")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], peeptime: result[0]['peeptime'])
   end
 
