@@ -1,5 +1,5 @@
 require './lib/peeps'
-
+require 'database_helper'
 
 describe Peeps do
   describe '#.all' do
@@ -22,15 +22,11 @@ describe Peeps do
   describe '#.add' do
     it 'adds a new peep to the peep feed' do
       new_peep = Peeps.add(body: 'new peep')
-      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{new_peep.id};")
+      persisted_data = persisted_data(id: new_peep.id)
 
       expect(new_peep).to be_a Peeps
-      expect(new_peep.id).to eq persisted_data.first['id']
+      expect(new_peep.id).to eq persisted_data['id']
       expect(new_peep.body).to eq 'new peep'
     end
   end
 end
-
-# write the unit test for the .add method.
-# pass the tests 
-# refactor code from the app into the model.
