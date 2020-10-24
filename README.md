@@ -96,7 +96,36 @@ CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(200));
 ```
 ALTER TABLE peeps ADD COLUMN time VARCHAR(20);
 ```
-5. Repeat above steps for test database, chitter_manager_test.
+5. Create a users table using query from file 03_create_users_table.sql:
+```
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(60), password VARCHAR(140)); 
+```
+6. Add a user_id column referencing user id in peeps table using query from file 04_add_user_id_column_to_peeps_table.sql:
+```
+ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id);
+```
+7. Repeat above steps for test database, chitter_manager_test.
+
+## How To Use
+
+## How to use
+
+1. Clone this repository:
+```
+git clone
+```
+2. Run bundle install:
+```
+bundle install
+```
+3. Run configuration file:
+```
+rackup config.ru
+```
+4. Visit localhost in browser:
+```
+http://localhost:9292/chitter
+```
 
 ## Makers Instructions:
 
