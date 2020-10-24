@@ -14,4 +14,18 @@ describe Peeps do
       expect(peeps).to include 'Does chitter remind you of anything? Tweet Tweet'
     end
   end
+
+  describe '#.add' do
+    it 'adds a new peep to the peep feed' do
+      Peeps.add(peep: 'new peep')
+
+      expect(Peeps.all).to include 'new peep'
+    end
+  end
 end
+
+
+
+# write the unit test for the .add method.
+# pass the tests 
+# refactor code from the app into the model.
