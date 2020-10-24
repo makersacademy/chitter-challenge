@@ -13,5 +13,5 @@ class Chitter < Sinatra::Base
     redirect '/chitter'
   end
 
-    run! if app_file == $0
+  run! if app_file == $0
 end

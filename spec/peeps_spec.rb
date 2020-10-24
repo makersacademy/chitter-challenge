@@ -3,19 +3,21 @@ require 'database_helper'
 
 describe Peeps do
   describe '#.all' do
+    
     it 'returns a list of peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      peep = Peeps.add(body: 'Happy Friday!')
+      Peeps.add(body: 'Happy Friday!')
       Peeps.add(body: 'Does chitter remind you of anything? Tweet Tweet')
+      newest_peep = Peeps.add(body: 'testing newest tweet')
 
-      peeps = Peeps.all
+      p peeps = Peeps.all
       
-      expect(peeps.length).to eq 2
+      expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peeps
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.body).to eq 'Happy Friday!'
-      expect(peeps.first.post_time).to eq peep.post_time
+      expect(peeps.first.id).to eq newest_peep.id
+      expect(peeps.first.body).to eq 'testing newest tweet'
+      expect(peeps.first.post_time).to eq newest_peep.post_time
     end
   end
 
