@@ -4,8 +4,8 @@
   <input type='submit' value='New Peep'>
 </form>
 
-<ul>
+<div>
 <% @peeps.reverse_each do |peep| %>
-  <li><%=peep.content%></li>
+  <p><%=peep.content%><p>
 <% end %>
-</ul>
+</div>
