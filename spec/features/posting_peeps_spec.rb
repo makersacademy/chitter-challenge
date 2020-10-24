@@ -1,6 +1,6 @@
 feature 'Posting peeps' do
   scenario 'User can post and view their peeps' do
-    visit('/chitter')
+    sign_up
     click_button('New Peep')
 
     expect(current_path).to eq '/chitter/peep/new'

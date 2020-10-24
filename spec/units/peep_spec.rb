@@ -17,7 +17,6 @@ describe Peep do
     let(:peep_class) { described_class }
     let(:user_class) {double :user_class}
     it 'returns array of all peeps' do
-      reset_test_database
       allow(peep_class).to receive(:user).with(user_class).and_return("Anonymous")
       peep_class.create("One peep", user_class)
       peep_class.create("Two peep", user_class)
@@ -36,6 +35,7 @@ describe Peep do
     it 'creates a peep' do
       allow(peep_class).to receive(:user).with(user_class).and_return("Anonymous")
       peep = peep_class.create("I created a peep!", user_class)
+
       expect(peep).to be_a Peep
       expect(peep.content).to eq "I created a peep!"
     end
@@ -64,6 +64,7 @@ describe Peep do
       allow(peep_class).to receive(:user).with(user_class).and_return("Anonymous")
       now = Time.now.strftime("%d/%m/%Y, %I:%M %p")
       peep = peep_class.create("Just woke up", user_class)
+      
       expect(peep.time).to eq now
     end
   end
