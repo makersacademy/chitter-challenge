@@ -5,7 +5,7 @@
 </form>
 
 <ul>
-<% @peeps.each do |peep| %>
+<% @peeps.reverse_each do |peep| %>
   <li><%=peep.content%></li>
 <% end %>
 </ul>
