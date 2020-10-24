@@ -1,4 +1,5 @@
 require 'model/peep.rb'
+require 'database_helpers'
 
 describe Peep do
   describe ".all" do
@@ -18,11 +19,11 @@ describe Peep do
   describe ".create" do
     it "creates a new peep" do
       peep = Peep.create(peep: "I realize now that I should have named this field content")
-      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
+      persisted_data = persisted_data(id: peep.id)
 
       expect(peep).to be_a Peep
-      expect(peep.id).to eq persisted_data.first['id']
-      expect(peep.peep). to eq("I realize now that I should have named this field content")
+      expect(peep.id).to eq persisted_data['id']
+      expect(peep.peep). to eq persisted_data['peep']
     end
   end
 
