@@ -1,7 +1,17 @@
 require 'peep'
 require 'database_helpers'
+require 'user'
 
 describe Peep do
+
+  describe '.user' do
+    let(:user_class) { double :user_class }
+    it 'asks the User class for current_session information' do
+      expect(user_class).to receive(:current_user)
+      Peep.user(user_class)
+    end
+  end
+
   describe '.all' do
     it 'returns array of all peeps' do
       Peep.create("One peep")
@@ -30,6 +40,14 @@ describe Peep do
       expect(peep.content).to eq data.first['content']
       expect(peep.time).to eq data.first['time']
     end
+
+    it 'adds a user_id if user is present' do
+      user = User.create(name: "Rose Tyler", username: "badwolf", email: "rtyler@tardis.com", password: "raxacoricofallapatorius")
+      peep = Peep.create("I miss the doctor")
+      data = persisted_data(table: 'peeps', id: peep.id)
+
+      expect(data.first['user_id']).to eq(user.id)
+    end
   end
 
   describe '#time' do
@@ -39,4 +57,5 @@ describe Peep do
       expect(peep.time).to eq now
     end
   end
+
 end

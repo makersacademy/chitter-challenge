@@ -1,6 +1,19 @@
 require 'user'
 
 describe User do
+
+  describe '.set_current_user' do
+    it 'sets the current user' do
+      user = User.create(name: "Rose Tyler", username: "badwolf", email: "rtyler@tardis.com", password: "raxacoricofallapatorius")
+      User.set_current_user(user)
+      rose = User.current_user
+      expect(rose.id).to eq user.id
+      expect(rose.name).to eq user.name
+      expect(rose.username).to eq user.username
+      expect(rose.email).to eq user.email
+    end
+  end
+
   describe '.create' do
     it 'creates a user' do
       user = User.create(name: "Rose Tyler", username: "badwolf", email: "rtyler@tardis.com", password: "raxacoricofallapatorius")
@@ -27,4 +40,5 @@ describe User do
       expect(result.password).to eq user.password
     end
   end
+
 end

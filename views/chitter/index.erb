@@ -9,7 +9,7 @@
 
 <div>
 <% @peeps.reverse_each do |peep| %>
-  <p><%= peep.time %>
+  <p><%= peep.user_handle%> <%= peep.time %>
   <p><%= peep.content %><p>
 <% end %>
 </div>
