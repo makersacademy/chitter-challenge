@@ -4,16 +4,17 @@ require './lib/Peep'
 class ChitterManager < Sinatra::Base
   enable :sessions
 
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'/peeps_index'
-  end
+   get '/peeps' do
+     @peeps = Peep.all
+     erb :'/peeps_index'
+   end
 
   get '/peeps/new' do
-    erb :'/peeps/new'
+    erb :'/create_peep'
   end
 
-  post '/peeps/all' do
+  post '/peeps' do
+    Peep.create(peep_text: params[:peep_text])
     redirect '/peeps'
   end
 

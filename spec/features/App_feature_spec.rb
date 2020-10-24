@@ -15,9 +15,13 @@ end
 
 feature 'Adding a new peep' do
   scenario 'A user can post a peep' do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("INSERT INTO all_peeps (peep_text) VALUES('This is a peep');")
+
     visit('/peeps/new')
+
     fill_in('new_peep', with: 'This is a peep')
     click_button('Submit')
-    expect(page).to have_content 'http://testbookmark.com'
+    expect(page).to have_content 'This is a peep'
   end
 end
