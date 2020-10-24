@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'pg'
 gem 'bcrypt'
+gem 'pg'
 gem 'sinatra-flash'
 
 group :test do

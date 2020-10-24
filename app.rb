@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @peeps = Peep.all
-    @user = User.find(session[:id]) unless session[:id] == nil
+    @user = User.find(session[:id]) unless session[:id].nil?
     erb :'chitter/index'
   end
 

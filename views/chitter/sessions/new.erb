@@ -1,6 +1,16 @@
-<%= flash[:notice] %>
-<form action="/chitter/sessions" method="post">
-  <input type="email" name="email" />
-  <input type="password" name="password" />
-  <input type="submit" value="Sign in" />
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/../styles.css">
+    <title>Chitter</title>
+  </head>
+  <body>  
+  <h1>Sign in</h1>
+    <%= flash[:notice] %>
+    <form action="/chitter/sessions" method="post">
+      <input type="email" name="email" placeholder="email"/>
+      <input type="password" name="password" placeholder="password"/>
+     <input type="submit" value="Sign in" />
+   </form>
+  </body>
+</html>

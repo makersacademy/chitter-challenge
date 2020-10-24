@@ -4,7 +4,7 @@ require 'user'
 
 describe Peep do
   let(:peep_class) { described_class }
-  let(:user_class) {double :user_class}
+  let(:user_class) { double :user_class }
 
   describe '.user' do
     it 'asks the User class for current_session information' do
@@ -15,7 +15,7 @@ describe Peep do
 
   describe '.all' do
     let(:peep_class) { described_class }
-    let(:user_class) {double :user_class}
+    let(:user_class) { double :user_class }
     it 'returns array of all peeps' do
       allow(peep_class).to receive(:user).with(user_class).and_return("Anonymous")
       peep_class.create("One peep", user_class)
@@ -64,9 +64,8 @@ describe Peep do
       allow(peep_class).to receive(:user).with(user_class).and_return("Anonymous")
       now = Time.now.strftime("%d/%m/%Y, %I:%M %p")
       peep = peep_class.create("Just woke up", user_class)
-      
+
       expect(peep.time).to eq now
     end
   end
-
 end
