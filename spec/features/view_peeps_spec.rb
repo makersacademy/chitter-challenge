@@ -1,11 +1,5 @@
 feature 'viewing a peep' do
   scenario 'a user can view a peep on chitter' do
-    # connection = PG.connect(dbname: 'chitter_test')
-
-    # connection.exec("INSERT INTO peeps (peep) VALUES ('Weekend vibes');")
-    # connection.exec("INSERT INTO peeps (peep) VALUES ('insert funny peep here');")
-    # connection.exec("INSERT INTO peeps (peep) VALUES ('Happy Friday!');")
-
     Peeps.add(peep: 'Weekend vibes')
     Peeps.add(peep: 'insert funny peep here')
     Peeps.add(peep: 'Happy Friday!')

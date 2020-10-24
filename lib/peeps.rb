@@ -2,6 +2,10 @@ require 'pg'
 
 class Peeps
 
+  def initialize
+
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -9,7 +13,8 @@ class Peeps
       connection = PG.connect(dbname: 'chitter')
     end
     
-    result = connection.exec('SELECT * FROM peeps;')
+    result = connection.exec('SELECT * FROM peeps
+      ORDER BY posted_at DESC;')
     result.map { |peep| peep['peep'] }
   end
 
@@ -20,6 +25,6 @@ class Peeps
       connection = PG.connect(dbname: 'chitter')
     end
 
-    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING peep, posted_at")
   end
 end
