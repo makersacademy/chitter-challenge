@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peeps'
 
 class ChitterManager < Sinatra::Base
 

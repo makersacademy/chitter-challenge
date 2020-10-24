@@ -1,10 +1,11 @@
+require 'pg'
+
 class Peeps 
 
   def self.all
-    [
-      "I had a great day",
-      "I feel sad"
-    ]
+    connection = PG.connect(dbname: 'chitter_manager')
+    result = connection.exec('SELECT * FROM peeps;')
+    result.map { | peep | peep['message_content'] }
   end
 
 
