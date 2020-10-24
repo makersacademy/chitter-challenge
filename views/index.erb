@@ -2,13 +2,14 @@
     <h1> What is on your mind? </h1>
     
  <form action='/chitterapp' method="post">
- <input type="text" name="peep">
+ <input type="text" name="message">
   <input type="submit" value="Send it!">
  </form>
 <ul>
- <% @peeps.each do |peep| %>
+ <% @peeps.reverse.each do |peep| %>
  <li>
-  <%= peep %> 
+  <%= peep.peeps %>  
+  <%= peep.created_at %>
  <%end %>
   </body>
 </html>

@@ -10,7 +10,7 @@ enable :sessions
  end 
 
 post '/chitterapp' do
-   Peep.create(peep: params[:peep])
+   Peep.create(peeps: params[:message])
   
   redirect '/chitterapp'
 end
