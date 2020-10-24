@@ -5,6 +5,7 @@
   <% @peeps.each do |peep| %>
     <li>
       <%= peep.peep %><br>
+      <b>Posted by: <%= peep.name %></b>
       <i>Peeptime: <%= peep.peeptime %></i>
     </li>
   <% end %>
@@ -14,6 +15,7 @@
 <textarea name="newpeep" form="peepform">Write something in here...</textarea>
 <form action="/peep" method="post" id="peepform">
   <input type="submit" name="Submit">
+  <input type="hidden" name="username" value="<%= @user.name %>">
 </form>
 <br>
 <br>

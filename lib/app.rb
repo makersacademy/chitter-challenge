@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(peep: params[:newpeep])
+    Peep.create(peep: params[:newpeep], name: params[:username])
     redirect '/home'
   end
 

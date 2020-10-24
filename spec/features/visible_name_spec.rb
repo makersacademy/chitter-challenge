@@ -1,5 +1,6 @@
 feature 'visible names' do
-  scenario 'if a user is signed in, their name appears on their posts' do
+  scenario 'each post displays the name of the user who posted it' do
+    allow_any_instance_of(Peep).to receive(:peeptime).and_return('Test string')
     visit '/'
     click_on('Sign up')
     fill_in('name', with: 'Barry')
@@ -9,7 +10,7 @@ feature 'visible names' do
     fill_in('newpeep', with: "")
     fill_in('newpeep', with: "This peep is for test purposes. Please do not take it seriously.")
     click_on('Submit')
-    expect(page).to have_content "This peep is for test purposes. Please do not take it seriously."
-    expect(page).to have_content "Posted by Barry"
+    expect(page).to have_content "Welcome, test@testing.com\nThis peep is for test purposes. Please do not take it seriously. Posted by: Barry Peeptime: Test string\nWrite something in here..."
+
   end
 end
