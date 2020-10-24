@@ -1,10 +1,12 @@
 require 'sinatra/base'
 require './lib/Peep'
+require './lib/User'
 
 class ChitterManager < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @users = User.all
     erb :'/peeps_index'
   end
 
@@ -13,6 +15,7 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peeps' do
+    User.create(username: params[:username], name: params[:name], password: params[:password], email: params[:email])
     Peep.create(peep_text: params[:peep_text], time: params[:time] )
     redirect '/peeps'
   end

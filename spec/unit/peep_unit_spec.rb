@@ -5,8 +5,8 @@ describe Peep do
       it 'returns all peeps' do
         connection = PG.connect(dbname: 'chitter_test')
 
-        peepone = Peep.create(peep_text: 'My first test peep', time: "NOW")
-        Peep.create(peep_text: 'My second peep', time: "NOW")
+        peepone = Peep.create(peep_text: 'My first test peep', time: 'NOW')
+        Peep.create(peep_text: 'My second peep', time: 'NOW()')
 
         peeps = Peep.all
 
@@ -20,7 +20,7 @@ describe Peep do
 
     describe '#create' do
       it 'creates a new peep' do
-        peep = Peep.create(peep_text: 'My second test peep', time: "NOW")
+        peep = Peep.create(peep_text: 'My second test peep', time: 'NOW()')
         data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM all_peeps WHERE id = #{peep.id};")
         timenow = Time.now.to_s
         expect(peep).to be_a Peep
