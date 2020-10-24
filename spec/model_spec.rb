@@ -10,3 +10,16 @@ describe '.all' do
     # expect(peeps).to include "My first second try peep"
   end
 end
+
+describe '.create' do
+  it 'creates a new peep' do
+    Peep.create(peep: 'testing new peep')
+    peeps = Peep.all
+
+    expect(peeps).to include 'testing new peep'
+  end 
+end 
+
+
+
+
