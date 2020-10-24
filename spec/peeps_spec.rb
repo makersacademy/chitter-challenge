@@ -1,25 +1,32 @@
 require './lib/peeps'
 
+
 describe Peeps do
   describe '#.all' do
     it 'returns a list of peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      peep = Peeps.add(peep: 'Happy Friday!')
-      Peeps.add(peep: 'Does chitter remind you of anything? Tweet Tweet')
+      peep = Peeps.add(body: 'Happy Friday!')
+      Peeps.add(body: 'Does chitter remind you of anything? Tweet Tweet')
 
       peeps = Peeps.all
-
-      expect(peeps).to include 'Happy Friday!'
-      expect(peeps).to include 'Does chitter remind you of anything? Tweet Tweet'
+      
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peeps
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.body).to eq 'Happy Friday!'
+      expect(peeps.first.post_time).to eq peep.post_time
     end
   end
 
   describe '#.add' do
     it 'adds a new peep to the peep feed' do
-      Peeps.add(peep: 'new peep')
+      new_peep = Peeps.add(body: 'new peep')
+      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{new_peep.id};")
 
-      expect(Peeps.all).to include 'new peep'
+      expect(new_peep).to be_a Peeps
+      expect(new_peep.id).to eq persisted_data.first['id']
+      expect(new_peep.body).to eq 'new peep'
     end
   end
 end
