@@ -1,6 +1,6 @@
 feature 'user registration' do
   scenario 'user can sign up' do
-    visit('/users/new')
+    visit('/users')
     fill_in :name, with: "Leo D"
     fill_in :username, with: "Leothelion"
     fill_in :email, with: "newuser@umail.com"

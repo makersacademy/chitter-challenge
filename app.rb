@@ -9,10 +9,19 @@ enable :sessions
   erb :index
  end 
 
-post '/chitterapp' do
+ post '/chitterapp' do
    Peep.create(peeps: params[:message])
   
   redirect '/chitterapp'
+ end
+
+ get '/users' do
+  erb :new
+ end
+
+get '/users' do
+  User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+  redirect to '/chitterapp'
 end
 
 
