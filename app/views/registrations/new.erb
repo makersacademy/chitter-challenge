@@ -2,6 +2,14 @@
   <title>Sign Up to Chitter</title>
 </head>
 <body>
+  <form action="/">
+    <input type="submit" value="Back to Home">
+  </form>
+
+  <% if session[:signup_fail] %>
+    <p>Email or username already exist(s), please try again!</p>
+  <% end %>
+
   <form action="/registrations" method="POST">
     <label for="name">Name:</label>
       <input id="name" type="text" name="name" required>

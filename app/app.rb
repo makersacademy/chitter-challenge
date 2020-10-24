@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'models/peep.rb'
+require_relative 'models/user.rb'
 require_relative '../database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
@@ -16,14 +17,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/registrations' do
-    # user = User.create(username: params[:username], email: params[:email], name: params[:name])
-    # user.authenticate(user.email, params[:password])
-
-    # if user.valid_name_and_email?
-    #   session[:user_id] = user.id
-    #   redirect('/')
-    # else 
-    #   erb(:'registrations/try_again')
+    user = User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      session[:signup_fail] = false
+      redirect('/')
+    else
+      session[:signup_fail] = true
+      redirect('/registrations/new')
+    end
   end
  
   get '/peeps' do
@@ -48,6 +50,10 @@ class Chitter < Sinatra::Base
   put '/peeps' do
     Peep.update(id: params[:peep_id], body: params[:body])
     redirect('/')
+  end
+
+  def current_user
+    User.find_by(id: session[:user_id])
   end
 
   run! if app_file == $0

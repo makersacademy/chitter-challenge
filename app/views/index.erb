@@ -2,6 +2,9 @@
   <title>Chitter</title>
 </head>
 <body>
+  <% if current_user %>
+    <p><b>Hi, <%= current_user.username %></b></p>
+  <% end %>
   <form action="/peeps">
     <input type="submit" value="New Peep">
   </form>  
