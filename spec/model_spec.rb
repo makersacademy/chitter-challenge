@@ -18,10 +18,12 @@ describe '.create' do
   it 'creates a new peep' do
     new_peep =  Peep.create(peeps: 'testing new peep')
     persisted_data = persisted_data(id: new_peep.id)
-    # persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM chitter_peeps WHERE id = #{new_peep.id};")
     
     
+    expect(new_peep).to be_a Peep
+    expect(new_peep.id).to eq persisted_data['id']
     expect(new_peep.peeps).to eq 'testing new peep'
+    expect(new_peep.created_at).to eq new_peep.created_at
 
   end 
 end 
