@@ -1,7 +1,9 @@
-feature 'user registration' do
-  scenario 'a user can sign up' do
+feature 'Log in' do
+  scenario 'a user can sign into their account with the correct details' do
+    User.create(email: 'test@testing.com', password: 'password123')
+
     visit '/'
-    click_on('Sign up')
+    click_on('Sign In')
     fill_in('email', with: 'test@testing.com')
     fill_in('password', with: 'password123')
     click_button('Submit')
