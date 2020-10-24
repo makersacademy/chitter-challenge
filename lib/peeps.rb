@@ -13,7 +13,13 @@ class Peeps
     result.map { |peep| peep['peep'] }
   end
 
-  def self.new
+  def self.add(peep:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
 
+    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
   end
 end
