@@ -3,7 +3,7 @@ require 'sinatra/base'
 class ChitterManager < Sinatra::Base
 
   get '/' do
-    'Hello World'
+    'Welcome to Chitter'
   end
 
   run! if app_file == $0
