@@ -1,17 +1,22 @@
 require 'pg'
+
 class Peep
 
+  if ENV['RACK_ENV'] == 'test'
+    @connection = PG.connect(dbname: 'chitter_test')
+  else
+    @connection = PG.connect(dbname: 'chitter')
+  end
+
   def self.all
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT * FROM peeps;")
+    result = @connection.exec("SELECT * FROM peeps;")
     result.map do |peep|
       peep = peep['peep']
     end
   end
 
   def self.create(peep:)
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}');")
+    result = @connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}');")
   end
 
 end
