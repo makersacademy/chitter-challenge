@@ -1,7 +1,9 @@
 require 'sinatra/base'
+require './lib/makers'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  # attr_reader :username
 
   get '/' do
     erb(:new_user)
@@ -15,9 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/welcome_to_chitter' do
-    @username = session[:Username]
-    @email_address = session[:Email_Address]
-    @password = session[:Password]
+    @makers = Makers.all
+    # @makers = [session[:Username], session[:Email_Address], session[:Password]]
     erb(:welcome_to_chitter)
   end
 
