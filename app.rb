@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require './lib/peeps'
+require './lib/users'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/chitter' do
     @peeps = Peeps.all
@@ -18,10 +20,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    @new_user = params['username']
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec('SELECT * FROM users;')
-    connection.exec("INSERT INTO users (username) VALUES('#{@new_user}')")
+    @new_user = Users.sign_up(username: params['username'], email: params['email'], password: params['password'])
+    sessions[:user_id] = user.id
     redirect '/chitter'
   end
 

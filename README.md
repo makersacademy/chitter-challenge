@@ -18,11 +18,6 @@ Features:
 
 # User Stories
 
-|Object  | Behaviour|
-|--------|----------|
-|peep    | post     |
-
-
 ```
 STRAIGHT UP
 
@@ -58,6 +53,14 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+|Object  | Behaviour                |
+|--------|--------------------------|
+|Peeps   | .all                     |
+|        | .add                     |
+|Users   | .create                  |
+|        | .login                   |
+|        | .logout                  |
 
 # Domain Model
 
