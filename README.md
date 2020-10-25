@@ -2,6 +2,9 @@
 
 ## Goal
 - Use Sinatra, Capybara and Ruby to create 'chitter', a website where users create accounts and post and view 'peeps'.
+- Test-drive each new feature, focusing on one user story at a time.
+
+[![Build Status](https://travis-ci.com/emilyalice2708/chitter-challenge.svg?branch=master)](https://travis-ci.com/emilyalice2708/chitter-challenge)
 
 ## User Story Analysis
 
