@@ -1,12 +1,12 @@
 body {
-  background-color: lightskyblue;
-  font-family: "Roboto", sans-serif;
+  background-color: linen;
+  font-family: 'Courier New', Courier, monospace;
   margin: auto;
   text-align: center;
   }
 
 h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 input {
@@ -14,20 +14,21 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   background-color: white;
-  border: 2px solid dodgerblue;
+  border: 2px black;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-a {
-  width: 50%
-  padding: 12px 20px;
-  margin: 8px 0;
-  background-color: skyblue;
-}
 
 .user_data {
   font-weight: bold;
 }
 
-.content {
-  font-style: oblique;
-}
+.peep {
+  background-color: white;
+  font-family: 'Courier New', Courier, monospace;
+  border: 2px solid black;
+  }
+
+  .post_peep {
+    padding:10px;
+  }

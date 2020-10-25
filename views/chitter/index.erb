@@ -8,7 +8,7 @@
     <h1>Chitter</h1>
     <%= flash[:notice] %>
     <% if @user %>
-      <p> Here's what your friends have been saying, <%= @user.name %></p>
+      <p> Here's what your friends have been saying, <%= @user.name %>.</p>
     <% end %>
     <form action='/chitter/peep/new' method='get'>
       <input type='submit' value='New Peep'>
