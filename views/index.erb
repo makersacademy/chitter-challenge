@@ -1,3 +1,5 @@
-<% @peeps.each do |peep| %>
-<h4><%= peep[:message]%></h4>
-<% end %>
+<ul>
+  <% @peeps.each do |peep| %>
+  <h3><%=peep%></h3>
+  <% end %>
+</ul>

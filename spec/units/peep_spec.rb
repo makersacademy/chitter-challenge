@@ -9,9 +9,9 @@ describe Peep do
 
       peeps = Peep.list
 
-      expect(peeps[0][:message]).to include('my first peep')
-      expect(peeps[1][:message]).to include('my second peep')
-      expect(peeps[2][:message]).to include('my third peep')
+      expect(peeps).to include('my first peep')
+      expect(peeps).to include('my second peep')
+      expect(peeps).to include('my third peep')
     end
   end
 end
