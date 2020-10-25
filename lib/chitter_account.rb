@@ -10,26 +10,17 @@ class ChitterAccount
   end
     
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_accounts_test')
-    else
-      connection = PG.connect(dbname: 'chitter_accounts')
-    end
-    rs = connection.exec("SELECT username, name, email FROM accounts;")
+    database_connection
+    rs = @connection.exec("SELECT username, name, email FROM accounts;")
     rs.map do |account|
       ChitterAccount.new(name: account['name'], username: account['username'], email: account['email'])
     end
   end
 
   def self.create(username:, name:, email:, password:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_accounts_test')
-    else
-      connection = PG.connect(dbname: 'chitter_accounts')
-    end    
-    
+    database_connection   
     if username_and_email_unique?(username, email)
-      result = connection.exec("INSERT INTO accounts (username, name, email, password) VALUES ('#{username}', '#{name}', '#{email}', '#{password}') RETURNING username, name, email;")
+      result = @connection.exec("INSERT INTO accounts (username, name, email, password) VALUES ('#{username}', '#{name}', '#{email}', '#{password}') RETURNING username, name, email;")
       ChitterAccount.new(username: result[0]['username'], name: result[0]['name'], email: result[0]['email'])
     else
       nil
@@ -37,33 +28,29 @@ class ChitterAccount
   end
 
   private
-  
-  def self.current_usernames
-    usernames = []
-    ChitterAccount.all.each do |account|
-      usernames << account.username
-    end
-    usernames
+
+  def self.username_in_use?(username)
+    database_connection
+    result = @connection.exec("SELECT username FROM accounts WHERE username='#{username}';")
+    result.map { |row| row['username'] }.first.nil?
   end
 
-  def self.current_email_addresses
-    email_addresses = []
-    ChitterAccount.all.each do |account|
-      email_addresses << account.email
-    end
-    email_addresses
-  end
-
-  def self.username_in_use(username)
-    current_usernames.include?(username)
-  end
-
-  def self.email_in_use(email)
-    current_email_addresses.include?(email)
+  def self.email_not_in_use?(email)
+    database_connection
+    result = @connection.exec("SELECT email FROM accounts WHERE email='#{email}';")
+    result.map { |row| row['email'] }.first.nil?  
   end
 
   def self.username_and_email_unique?(username, email)
-    !self.username_in_use(username) && !self.email_in_use(email)
+    username_in_use?(username) && email_not_in_use?(email)
   end
+
+  def self.database_connection
+    if ENV['ENVIRONMENT'] == 'test'
+      @connection = PG.connect(dbname: 'chitter_accounts_test')
+    else
+      @connection = PG.connect(dbname: 'chitter_accounts')
+    end
+  end    
 end
 
