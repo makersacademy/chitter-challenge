@@ -12,7 +12,7 @@ class ChitterSite < Sinatra::Base
   end
   
   get '/chitters/all' do
-    Chitter.all
+    erb :chitters
   end
 
   run if app_file == $0
