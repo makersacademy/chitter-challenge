@@ -4,7 +4,7 @@ require_relative 'database_connection'
 class Peep
 
   def self.list
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC")
     result.map do |peep|
       peep['message']
     end
