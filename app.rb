@@ -5,12 +5,17 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    erb :index
+  end
+
+  get '/signup' do
     erb :sign_up
   end
   
   post '/:parameters' do
     session[:name] = params[:name]
     redirect('/welcome')
+    # redirect /failure if username or email already exist
   end
 
   get '/welcome' do
