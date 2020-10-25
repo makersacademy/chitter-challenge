@@ -15,6 +15,7 @@ class Peep
   def self.create(content, user_class = User)
     account = Peep.user(user_class)
     time = current_time
+    content = content.gsub("'", "''")
     result = account == "Anonymous" ? create_anon_peep(content, time) : create_user_peep(content, time, account)
     @peep = Peep.new(result[0]['content'], result[0]['id'], result[0]['time'], result[0]['user_id'])
   end
