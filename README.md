@@ -63,7 +63,7 @@ Peep
 ----
 id | time | message | user
 -- | ---- | ------- | ----
-SERIAL | Time created | Message written | Created By
+SERIAL | Time created | Message written(MAX: 280 chars) | Created By
 
 ChitterAccounts
 ---------------
@@ -79,6 +79,22 @@ SERIAL | username | pwd1234 under 14 chars, but more than 8 | email
 ![sending_peeps](diagrams/sending_peep.png)
 
 ![signing_out](diagrams/logging_out.png)
+
+## Setting up your database
+
+**Create Peep Manager DB**
+
+1. Connect to ```psql``` in your terminal.
+2. Create the database using the psql command ```CREATE DATABASE peeps_manager;```
+3. Connect to the database using the pqsl command ```\c peeps_manager;```
+4. Run the query we have saved in the file ```01_create_peeps_table.sql```
+
+**Create Peeps Test Manager DB**
+
+Do the above again, with the following changes:
+
+- Step 2: ```CREATE DATABASE peeps_test_manager;```
+- Step 3: ``` \c peeps_test_manager;```
 
 Technical Approach:
 -----
