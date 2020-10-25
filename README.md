@@ -1,4 +1,4 @@
-# Chitter
+# Chitter
 
 ## Goal
 - Use Sinatra, Capybara and Ruby to create 'chitter', a website where users create accounts and post and view 'peeps'.
@@ -6,7 +6,89 @@
 
 [![Build Status](https://travis-ci.com/emilyalice2708/chitter-challenge.svg?branch=master)](https://travis-ci.com/emilyalice2708/chitter-challenge)
 
-## User Story Analysis
+### How to use
+
+1. Clone this repository:
+```
+git clone
+```
+2. Run bundle install:
+```
+bundle install
+```
+3. Run configuration file:
+```
+rackup config.ru
+```
+4. Visit localhost in browser:
+```
+http://localhost:9292/chitter
+```
+### The Website
+
+The homepage displays any peeps currently saved in the database (tables truncated for demonstration purposes!), and allows users to either sign up, sign in or out or post anonymously:
+
+[Imgur](https://imgur.com/EWeEftC)
+
+Users can sign up with a display name, a username/handle and an email and password:
+
+[Imgur](https://imgur.com/HtDuaRZ)
+
+Users are greeted by name upon signing up or signing in:
+
+[Imgur](https://imgur.com/Vx82POn)
+
+And are able to post as themselves with their names and usernames displayed next to the time they posted:
+
+[Imgur](https://imgur.com/Sukrppr)
+
+Users can sign out and new users can sign up and post to the same page, which is updated with peeps in reverse chronological order:
+
+[Imgur](https://imgur.com/SBmKUAg)
+
+If a user attempts to sign in without signing out, they will receive 'Already signed in' notice:
+
+[Imgur](https://imgur.com/WpdRybI)
+
+After logging out, a 'Logged out' notice is displayed:
+
+[Imgur](https://imgur.com/fxBitql)
+
+If a peep is posted without a user signing up or signing in, it is displayed anonymously:
+
+[Imgur](https://imgur.com/tXcIRFZ)
+
+### Database Set Up
+
+1. Connect to psql:
+```
+psql
+```
+2. Create a database:
+```
+CREATE DATABASE chitter_manager;
+```
+3. Create a peeps table using query from file 01_create_peeps_table.sql:
+```
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(200));
+```
+4. Add a time column to peeps table using query from file 02_add_time_column_to_peeps.sql:
+```
+ALTER TABLE peeps ADD COLUMN time VARCHAR(20);
+```
+5. Create a users table using query from file 03_create_users_table.sql:
+```
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(60), password VARCHAR(140)); 
+```
+6. Add a user_id column referencing user id in peeps table using query from file 04_add_user_id_column_to_peeps_table.sql:
+```
+ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id);
+```
+7. Repeat above steps for test database, chitter_manager_test.
+
+## Planning
+
+### User Story Analysis
 
 ```
 As a Maker
@@ -60,9 +142,9 @@ I want to log out of Chitter
 Thoughts:
 - Upon sign out user should no longer be reachable from /chitter route
 
-## Modelling
+### Modelling
 
-### Class: User|
+#### Class: User
 |Responsibilities|Collaborators|
 |----------|-----------|
 |Post messages (.peep)|Peep|
@@ -72,9 +154,9 @@ Thoughts:
 |Knows password||
 |Can find specific user (.find)||
 |Knows whether there is a current user (.current_user)||
-|Can authenticate a user (.authenticate||
+|Can authenticate a user (.authenticate)||
 
-### Class: Peep
+#### Class: Peep
 |Responsibilities|Collaborators|
 |----------|-----------|
 |Knows content||
@@ -83,55 +165,6 @@ Thoughts:
 |Can create peeps (.create)||
 |Knows whether user is logged on when peep is created|User|
 
-
-## Database Set Up
-
-1. Connect to psql:
-```
-psql
-```
-2. Create a database:
-```
-CREATE DATABASE chitter_manager;
-```
-3. Create a peeps table using query from file 01_create_peeps_table.sql:
-```
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(200));
-```
-4. Add a time column to peeps table using query from file 02_add_time_column_to_peeps.sql:
-```
-ALTER TABLE peeps ADD COLUMN time VARCHAR(20);
-```
-5. Create a users table using query from file 03_create_users_table.sql:
-```
-CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(60), password VARCHAR(140)); 
-```
-6. Add a user_id column referencing user id in peeps table using query from file 04_add_user_id_column_to_peeps_table.sql:
-```
-ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id);
-```
-7. Repeat above steps for test database, chitter_manager_test.
-
-## How To Use
-
-## How to use
-
-1. Clone this repository:
-```
-git clone
-```
-2. Run bundle install:
-```
-bundle install
-```
-3. Run configuration file:
-```
-rackup config.ru
-```
-4. Visit localhost in browser:
-```
-http://localhost:9292/chitter
-```
 
 ## Makers Instructions:
 
