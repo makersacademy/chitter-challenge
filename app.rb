@@ -36,6 +36,10 @@ class Chitter < Sinatra::Base
     erb :failed_signup
   end
 
+  get '/login' do
+    erb :login
+  end
+
   get '/chitter_feed' do
     @peeps = Peep.all
     erb :chitter_feed
