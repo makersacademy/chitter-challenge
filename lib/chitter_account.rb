@@ -31,5 +31,3 @@ class ChitterAccount
     ChitterAccount.new(username: result[0]['username'], name: result[0]['name'], email: result[0]['email'])
   end
 end
-
-# set up database helper truncating the accounts table each go 

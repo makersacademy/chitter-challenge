@@ -1,4 +1,4 @@
-require_relative '../../lib/chitter.rb'
+require_relative '../../lib/peep.rb'
 require 'pg'
 describe Peep do
   let(:time) { Time.now.strftime("%H:%M:%S") }
