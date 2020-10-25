@@ -1,8 +1,15 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-group :test do
-  gem 'rspec'
-  gem 'rubocop', '0.79.0'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+gem "activerecord"
+gem "bcrypt"
+gem "capybara"
+gem "pg"
+gem "rake"
+gem "rspec"
+gem "shotgun"
+gem "simplecov", require: false, group: :test
+gem "simplecov-console", require: false, group: :test
+gem "sinatra"
+gem "sinatra-activerecord"
+gem "sinatra-flash"
+gem "warning"

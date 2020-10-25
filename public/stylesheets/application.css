@@ -1,0 +1,75 @@
+body {
+  background-color: lightblue;
+  font-family: verdana;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: crimson;
+  text-decoration: underline overline;
+}
+
+
+
+#feed {
+  background-color: azure;
+  border: 5px solid #1C6EA4;
+  border-radius: 4px;
+  width: 750px;
+  margin: auto;
+}
+
+#session-info {
+  color:black;
+  width: 500px;
+  margin: auto;
+}
+
+form { 
+  margin: 0 auto; 
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width:500px;
+  }
+
+input[type=text] {
+  width: 390px;
+  height:30px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  width: 90px;
+  height:30px;
+}
+
+div.peep {
+  background-color: crimson;
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 5px 10px darkred;
+  color: white;
+}
+
+div.peep_content {
+  margin: 5px;
+}
+
+div.peep_username {
+  font-size: small;
+  float: left;
+}
+
+div.peep_created_at {
+  font-size: small;
+  float: right;
+}
