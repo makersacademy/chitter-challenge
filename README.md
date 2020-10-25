@@ -71,6 +71,15 @@ id | username | password | email
 -- | -------- | -------- | -----
 SERIAL | username | pwd1234 under 14 chars, but more than 8 | email
 
+## Diagrams
+![showing_peeps] ('/diagrams/showing_peeps.png')
+
+![signing_in] ('/diagrams/signing_in.png')
+
+![sending_peeps] ('/diagrams/sending_peep.png')
+
+![signing_out] ('/diagrams/signing_out.png')
+
 Technical Approach:
 -----
 
