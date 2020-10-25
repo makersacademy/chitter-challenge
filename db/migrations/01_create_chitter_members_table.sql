@@ -14,3 +14,6 @@ enter: \c chitter_members;
 
 5 - Create the table within the database
 enter: CREATE TABLE chitter_members_data(id SERIAL PRIMARY KEY, url VARCHAR(60));
+
+6 - See the contents of the table
+enter: SELECT * FROM chitter_members_data;

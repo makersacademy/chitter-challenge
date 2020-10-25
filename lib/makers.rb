@@ -1,11 +1,11 @@
+require 'pg'
+
 class Makers
 
   def self.all
-    [
-      "Oli Le Maire",
-      "olilemaire85@gmail.com",
-      "sdfafas"
-    ]
+    connection = PG.connect(dbname: 'chitter_members')
+    result = connection.exec('SELECT * FROM chitter_members_data;')
+    result.map { |chitter| chitter['username'] }
   end
 
   def initialize(username)

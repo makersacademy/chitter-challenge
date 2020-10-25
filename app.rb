@@ -15,7 +15,9 @@ class Chitter < Sinatra::Base
     session[:Password] = params[:Password]
     redirect '/welcome_to_chitter'
   end
+  #above form inputs are not going further than the above
 
+#below @makers variable is taking input from psql
   get '/welcome_to_chitter' do
     @makers = Makers.all
     # @makers = [session[:Username], session[:Email_Address], session[:Password]]
