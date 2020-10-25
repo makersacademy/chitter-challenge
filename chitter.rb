@@ -2,7 +2,7 @@ require 'pg'
 
 class Chitter 
 
-  attr_reader :message, :id
+  attr_reader :message, :id, :time
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
@@ -12,7 +12,7 @@ class Chitter
     end
     retrieve_all = con.exec "SELECT * FROM peeps"
     retrieve_all.map do |column|
-      Chitter.new(message: column['message'], id: column['id'])
+      Chitter.new(message: column['message'], id: column['id'], time: column['time'])
     end
 
   end
@@ -24,14 +24,15 @@ class Chitter
       con = PG.connect :dbname => 'chitter'
     end
 
-    result = con.exec("INSERT INTO peeps (message) VALUES('#{message}') RETURNING id, message;")
-    Chitter.new(id: result[0]['id'], message: result[0]['message'])
-    
+    result = con.exec("INSERT INTO peeps (message, time) VALUES('#{message}', '#{Time.new.hour}:#{Time.new.min}') RETURNING id, message, time;")
+    Chitter.new(id: result[0]['id'], message: result[0]['message'], time: result[0]['time'])
+
   end
 
-  def initialize(message:, id:)
+  def initialize(message:, id:, time:)
     @message = message
     @id = id
+    @time = time
   end
 
 end

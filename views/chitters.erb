@@ -1,3 +1,3 @@
 <% Chitter.all.each do |chitter| %>
-<%= chitter.message %>
+<%display = chitter.message + "   sent at: " + chitter.time%> <%=display%> <br>
 <%end%>
