@@ -12,8 +12,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/create-peep' do
-    connection = PG.connect :dbname => 'peeps_test_manager'
-    connection.exec "INSERT INTO peeps (message, creator) VALUES ('#{params[:message]}', '#{params[:username]}');"
+    Peep.create(message: params[:message], creator: params[:username])
     redirect to '/'
   end
 

@@ -2,10 +2,12 @@ require_relative '../../models/peep'
 
 describe Peep do
 
+  before :each do 
+    add_peeps
+  end
+
   describe '.all' do 
     it 'returns a list of peeps' do
-      add_peeps
-
       peep_1 = Peep.all.first
       peep_2 = Peep.all[1]
       peep_3 = Peep.all[-1]
@@ -21,8 +23,6 @@ describe Peep do
 
   describe '.list_ordered_peeps' do 
     it 'returns peeps in reverse chronological order' do
-      add_peeps
-
       peep_1 = Peep.list_ordered_peeps.first
       peep_2 = Peep.list_ordered_peeps[1]
       peep_3 = Peep.list_ordered_peeps[-1]
@@ -33,6 +33,18 @@ describe Peep do
       expect(peep_2.creator).to eq 'USER_2'
       expect(peep_3.message).to eq 'This is my first peep!'
       expect(peep_3.creator).to eq 'USER_1'
+    end
+  end
+
+  describe '.create' do 
+    it 'creates a new peep' do
+      peep = Peep.create(message: "A BRAND new peep!", creator: "PeepzDeluxe")
+      persisted_data = PG.connect(dbname: 'peeps_test_manager').query("SELECT * FROM peeps WHERE id = #{peep.id};")
+
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.message).to eq 'A BRAND new peep!'
+      expect(peep.creator).to eq 'PeepzDeluxe'
     end
   end
 end

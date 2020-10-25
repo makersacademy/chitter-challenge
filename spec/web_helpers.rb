@@ -1,9 +1,7 @@
 require_relative '../models/peep'
 
 def add_peeps
-  connection = PG.connect :dbname => 'peeps_test_manager'
-
-  connection.exec "INSERT INTO peeps (message, creator) VALUES ('This is my first peep!', 'USER_1');"
-  connection.exec "INSERT INTO peeps (message, creator) VALUES ('This is my second peep!', 'USER_2');"
-  connection.exec "INSERT INTO peeps (message, creator) VALUES ('This is my third peep!', 'USER_3');"
+  Peep.create(message: 'This is my first peep!', creator: 'USER_1')
+  Peep.create(message: 'This is my second peep!', creator: 'USER_2')
+  Peep.create(message: 'This is my third peep!', creator: 'USER_3')
 end
