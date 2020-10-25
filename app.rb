@@ -35,13 +35,11 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     Peep.create(message_content: params[:message_content], maker_id: session[:maker_id])
-
     redirect '/peeps/list'
   end
 
   get '/peeps/list' do
     @peeps = Peep.all
-    p @peeps
     erb :'peeps/list'
   end
 
