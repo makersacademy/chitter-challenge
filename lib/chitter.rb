@@ -14,13 +14,13 @@ class Peep
     end
   end
 
-  def self.create(peep:)
+  def self.create(peep:, time:)
     if  ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect( dbname: 'chitter_manager_test' )
     else
       connection = PG.connect( dbname: 'chitter_manager' )
     end
-    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING peep")
+    connection.exec("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}') RETURNING peep, time")
   end
 end
 

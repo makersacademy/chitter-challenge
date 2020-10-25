@@ -1,12 +1,12 @@
 Set up:
 
 - Clone this repository
-- Run
+- In your terminal run:
 ``` 
-bundle
+~ bundle
 ```
 
-Setting up your chitter manager database:
+**Setting up your chitter manager database:**
 
 - In your terminal run:
 ``` 
@@ -22,7 +22,7 @@ postgres=# \c chitter_manager;
 ```
 - Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
 
-Setting up your test chitter manager database:
+**Setting up your test chitter manager database:**
 
 - In your terminal run:
 ``` 

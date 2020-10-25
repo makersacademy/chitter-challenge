@@ -6,5 +6,4 @@ feature 'user can post to chitter' do
     visit('/chitter_feed')
     expect(page).to have_content('IT HAS BEEN 4 MONTHS SINCE MY LAST HAIR APPOINTMENT')
   end
-  #first to click button on chitter feed that redirects to new peep
 end
