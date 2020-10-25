@@ -40,20 +40,28 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
+  post '/:login_parameters' do
+    # are the user name and password correct?
+    session[:username] = params[:username]
+    session[:password] = params[:password]
+    redirect('/chitter_feed')
+  end
+
   get '/chitter_feed' do
+    # retrieve name from username params
     @peeps = Peep.all
     erb :chitter_feed
     # pass information from database to views - name, username, time, peep
   end
 
   get '/chitter_feed/new_peep' do
+    # if session[:username] == nil then 'Page unavailable please log in'
     erb :new_peep
   end
 
   post '/chitter_feed/posted_peep' do
     time = Time.now.strftime("%H:%M:%S")
-    Peep.create(peep: params[:peep_text], time: time)
+    Peep.create(peep: params[:peep_text], time: time, name: session[:name], username: session[:username])
     redirect('/chitter_feed')
-    # peep needs username, name, time posted
   end
 end

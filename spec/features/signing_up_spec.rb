@@ -31,13 +31,13 @@ end
 feature 'Button on welcome page redirects to log in page' do
  scenario 'user clicks check out chitter feed and is on chitter feed' do
     visit('/signup')
-    fill_in 'email', with: 'jackiechaplin929@gmail.com'
-    fill_in 'username', with: 'j-dog101'
+    fill_in 'email', with: 'jackiechoplin929@gmail.com'
+    fill_in 'username', with: 'j-cat101'
     fill_in 'name', with: 'Jackie Chaplin'
     fill_in 'password', with: 'chitter4L'
     click_on "Let's Go!"
     click_on 'Go to log in'
-    expect(page).to have_content('Username:')
+    expect(page).to have_content("Username")
   end
 end
 
