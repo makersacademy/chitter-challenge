@@ -44,7 +44,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions/destroy' do
   session.clear
-  redirect('/bookmarks')
+  redirect('/peeps')
 end
 
   run! if app_file == $0
