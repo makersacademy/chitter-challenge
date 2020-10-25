@@ -1,6 +1,9 @@
 <h1>Welcome to Chitter</h1>
 <% if @maker %>
   <h1>Welcome, <%= @maker.name %></h1>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="Add Peep" />
+  </form>
 <% end %>
 <form action="/users/new" method="get">
   <input type="submit" value="Sign up" />

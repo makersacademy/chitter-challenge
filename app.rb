@@ -29,9 +29,19 @@ class Chitter < Sinatra::Base
     @maker = Maker.find(id: session[:maker_id])
     erb :'peeps/index'
   end
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    Peep.create(message_content: params[:message_content], maker_id: session[:maker_id])
+
+    redirect '/peeps/list'
+  end
 
   get '/peeps/list' do
     @peeps = Peep.all
+    p @peeps
     erb :'peeps/list'
   end
 
@@ -49,9 +59,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/destroy' do
-  session.clear
-  redirect('/peeps')
-end
+    session.clear
+    redirect('/peeps')
+  end
 
   run! if app_file == $0
 end

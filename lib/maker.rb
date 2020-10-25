@@ -1,5 +1,6 @@
 require_relative './database_connection'
 require 'bcrypt'
+require_relative './peep.rb'
 
 class Maker
 
