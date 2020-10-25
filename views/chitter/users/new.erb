@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>Sign Up</h1> 
+    <%= flash[:notice] %>
     <form action='/users' method='post'>
       <input type='text', name='name', placeholder='Name'>
       <input type='text', name='username', placeholder='Handle'>

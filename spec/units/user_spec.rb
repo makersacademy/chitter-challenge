@@ -74,4 +74,16 @@ describe User do
       expect(User.current_user).to eq "Anonymous"
     end
   end
+
+  describe '.exists?' do
+    it 'returns true if email already in use' do
+      User.create(name: "Karen", username: "shopaholic", email: "karen@entitled.com", password: "theworst")
+      expect(User.exists?(email: "karen@entitled.com", username: "karen")).to eq true
+    end
+
+    it 'returns true if username already in use' do
+      User.create(name: "Karen", username: "shopaholic", email: "karen@entitled.com", password: "theworst")
+      expect(User.exists?(email: "karen@newmail.co.uk", username: "shopaholic")).to eq true
+    end
+  end
 end

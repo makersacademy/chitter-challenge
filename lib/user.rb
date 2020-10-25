@@ -42,4 +42,10 @@ class User
   def self.sign_out
     @current_user = nil
   end
+
+  def self.exists?(email:, username:)
+    email = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    username = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
+    !email.first.nil? || !username.first.nil?
+  end
 end
