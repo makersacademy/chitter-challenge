@@ -34,7 +34,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    maker = Maker.authenticate(email: params[:email], password: params[:password])
+    maker = Maker.authenticate(
+      email: params[:email],
+      password: params[:password]
+    )
     session[:maker_id] = maker.id
     redirect('/peeps')
   end
