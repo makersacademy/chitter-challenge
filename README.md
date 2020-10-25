@@ -6,23 +6,37 @@ Set up:
 bundle
 ```
 
-Setting up your chitter_manager database:
+Setting up your chitter manager database:
 
 - In your terminal run:
 ``` 
-psql postgres
+~ psql postgres
 ```
-- Create your database
+- Create your database:
 ```
-CREATE DATABASE chitter_manager;
+postgres=# CREATE DATABASE chitter_manager;
 ```
 - Connect to database:
 ```
-\c chitter_manager;
+postgres=# \c chitter_manager;
 ```
-- Create peeps table by running the query in file 01_creating_peep_table.sql in db/migrations directory
+- Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
 
+Setting up your test chitter manager database:
 
+- In your terminal run:
+``` 
+~ psql postgres
+```
+- Create your database:
+```
+postgres=# CREATE DATABASE chitter_manager_test;
+```
+- Connect to database:
+```
+postgres=# \c chitter_manager_test;
+```
+- Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
 
 
 
