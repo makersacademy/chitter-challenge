@@ -31,6 +31,11 @@ class ChitterAccount
     !incorrect_pwd_and_username?(username, password)
   end
 
+  def self.retrieve_name(username)
+    database_connection
+    result = @connection.exec("SELECT name FROM accounts WHERE username='#{username}';")
+  end
+
   private
 
   def self.username_in_use?(username)

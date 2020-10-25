@@ -62,7 +62,8 @@ class Chitter < Sinatra::Base
 
   post '/chitter_feed/posted_peep' do
     time = Time.now.strftime("%H:%M:%S")
-    Peep.create(peep: params[:peep_text], time: time, name: XXX, username: session[:username1])
+    name = ChitterAccount.retrieve_name(session[:username])
+    Peep.create(peep: params[:peep_text], time: time, name: name, username: session[:username1])
     redirect('/chitter_feed')
   end
 end
