@@ -56,7 +56,7 @@ After logging out, a 'Logged out' notice is displayed:
 
 If a peep is posted without a user signing up or signing in, it is displayed anonymously:
 
-[Imgur](https://imgur.com/tXcIRFZ)
+[Imgur](https://i.imgur.com/fxBitql.png)
 
 ### Database Set Up
 
