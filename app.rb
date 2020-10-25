@@ -29,5 +29,14 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions' do
+    maker = Maker.authenticate(email: params[:email], password: params[:password])
+    session[:maker_id] = maker.id
+    redirect('/peeps')
+  end
   run! if app_file == $0
 end

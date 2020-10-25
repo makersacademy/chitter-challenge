@@ -31,3 +31,12 @@ describe '.find' do
     expect(Maker.find(id: nil)).to eq nil
   end
 end
+
+describe '.authenticate' do
+  it 'returns a user given a correct username and password, if one exist' do
+    maker = Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
+    authenticated_maker = Maker.authenticate(email: 'test@example.com', password: 'password123')
+
+    expect(authenticated_maker.id).to eq maker.id
+  end
+end

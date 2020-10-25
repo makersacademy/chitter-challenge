@@ -27,6 +27,16 @@ class Maker
     )
   end
 
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM makers WHERE email = '#{email}'")
+
+    Maker.new(
+      id: result[0]['id'],
+      email: result[0]['email'],
+      name: result[0]['name']
+    )
+  end
+
   attr_reader :id, :email, :name
 
   def initialize(id:, email:, name:)
