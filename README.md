@@ -40,8 +40,37 @@ postgres=# \c chitter_manager_test;
 - Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
 - Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
 
+**Setting up your chitter account database:**
 
+- In your terminal run:
+``` 
+~ psql postgres
+```
+- Create your database:
+```
+postgres=# CREATE DATABASE chitter_accounts;
+```
+- Connect to database:
+```
+postgres=# \c chitter_accounts;
+```
+- Create an accounts table by running the query in file 03_creating_accounts_table.sql in the db/migrations directory
 
+**Setting up your test chitter account database:**
+
+- In your terminal run:
+``` 
+~ psql postgres
+```
+- Create your database:
+```
+postgres=# CREATE DATABASE chitter_accounts_test;
+```
+- Connect to database:
+```
+postgres=# \c chitter_accounts_test;
+```
+- Create an accounts table by running the query in file 03_creating_accounts_table.sql in the db/migrations directory
 
 Chitter Challenge
 =================
