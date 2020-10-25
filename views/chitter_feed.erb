@@ -1,1 +1,7 @@
-<%=@peeps%>
+<ul>
+  <% @peeps.each do |post| %>
+    <li>
+        <%= post.peep %>
+    </li>
+  <% end %>
+</ul>
