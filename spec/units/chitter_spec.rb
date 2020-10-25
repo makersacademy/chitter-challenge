@@ -1,4 +1,4 @@
-require_relative '../lib/chitter.rb'
+require_relative '../../lib/chitter.rb'
 require 'pg'
 describe ChitterManager do
   describe '.all' do

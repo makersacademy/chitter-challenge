@@ -16,14 +16,19 @@ RSpec.configure do |config|
   end
 end
 
-ENV['ENVIRONMENT'] = 'test'
-
 require 'capybara'
 require 'rspec'
 require 'capybara/rspec'
+require_relative './setup_test_database.rb'
+
+ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
 
-
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
