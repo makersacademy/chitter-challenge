@@ -3,7 +3,7 @@ require 'sinatra/base'
 class ChitterApp < Sinatra::Base 
 
   get '/' do
-    index :erb
+    erb :index
   end
 
   run! if app_file == $0
