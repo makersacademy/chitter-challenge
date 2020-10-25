@@ -52,6 +52,25 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+Object | Behaviour
+------ | ---------
+Peep | .add, .list (reverse order/newest-oldest), @time, @message
+ChitterAccount | .create_account, .sign_in, .sign_out
+
+Tables:
+
+Peep
+----
+id | time | message | user
+-- | ---- | ------- | ----
+SERIAL | Time created | Message written | Created By
+
+ChitterAccounts
+---------------
+id | username | password
+-- | -------- | --------
+SERIAL | username | pwd1234 under 14 chars, but more than 8
+
 Technical Approach:
 -----
 
