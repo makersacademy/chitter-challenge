@@ -15,7 +15,7 @@ class ChitterAccount
     else
       connection = PG.connect(dbname: 'chitter_accounts')
     end
-    rs = connection.exec("SELECT username FROM accounts;")
+    rs = connection.exec("SELECT username, name, email FROM accounts;")
     rs.map do |account|
       ChitterAccount.new(name: account['name'], username: account['username'], email: account['email'])
     end
