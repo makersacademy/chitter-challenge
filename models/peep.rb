@@ -24,4 +24,9 @@ class Peep
       Peep.new(message: peep['message'], creator: peep['creator'])
     end
   end
+
+  def self.list_ordered_peeps
+    peeps = all
+    peeps.reverse
+  end
 end
