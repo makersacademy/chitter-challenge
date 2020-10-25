@@ -1,13 +1,30 @@
-<h1>What's happening?</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<head>
+<div class=container>
+  <div class="row">
+    <div class="col-6">
+      <a href="/users/signup"><div class="btn btn-primary">Sign Up</div></a>
+    </div>
+        <div class="col-6">
+        <a href="/users/login"><div class="btn btn-primary">Login</div></a>
+    </div>
+  </div>
+</div>
+
+<h1>Welcome to chitter <%= @new_user %></h1>
+
 <form action='/chitter' method='post'>
-  <input type='text' name='post'>
+  <input type='text' name='post' placeholder="What's happening?" required>
   <input type='submit' value='Peep'>
 </form>  
 
 <ul>
-  <%  @peeps.each do |peep| %>
+  <% @peeps.each do |peep| %>
      <li>
-        <body> <%= peep.body %>      <%= peep.post_time %>
+        <body> <%= peep.body %>      
+        <%= peep.post_time %>
     </li>
     <% end %>
 </ul>
