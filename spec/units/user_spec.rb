@@ -42,4 +42,29 @@ describe User do
       expect(durov).to eq nil 
     end
   end
+
+  describe '#authenticate' do
+    it "creates a user if exists in db" do
+      # olya = User.create(username: 'olya1203', email: 'olyaolya@mail.com', name: 'OK', password: 'leofelix')
+      # result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{olya.username}';")
+      # user = result.map do |user|
+      #          User.new(
+      #            id: user['id'],
+      #            username: user['username'], 
+      #            email: user['email'], 
+      #            name: user['full_name'], 
+      #            password: user['pwd']
+      #          )
+      #        end.first
+
+      # found_user = User.find_by(id: user.id)
+
+      # expect(found_user.id).to eq user.id
+
+      kiril = User.authenticate(email: 'kiriarf@chitter.com', password: '123')
+      expect(kiril).to be_a User
+
+    end
+  end
+
 end

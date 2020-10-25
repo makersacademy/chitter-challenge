@@ -2,11 +2,10 @@
   <title>New Peep</title>
 </head>
 <body>
+  <p>@<%= current_user.username %>:</p>
   <form action="/peeps" method="post">
-    <label for="username">Username:</label>
-      <input id="username" type="text" name="username" required>
-    <label for="body">Peep:</label>
-      <textarea id="body" name="body" rows="3" cols="35" maxlength="140" required></textarea>
+    <input type="hidden" name="username" value="<%=current_user.username%>">
+    <textarea name="body" rows="3" cols="35" maxlength="140" required></textarea>
     <input type="submit" value="Post">
   </form>
 </body>

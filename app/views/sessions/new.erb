@@ -1,0 +1,11 @@
+<% if session[:login_fail] %>
+  <p>Incorrect credentials, please try again</p>
+<% end %>
+
+<form action="/sessions" method="POST">
+  <label for="email">E-mail:</label>
+    <input id="email" type="email" name="email" required>
+  <label for="password">Password:</label>
+    <input id="password" type="password" name="password" required>
+  <input type="submit" value="Log In">
+</form>

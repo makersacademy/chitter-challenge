@@ -27,6 +27,27 @@ class Chitter < Sinatra::Base
       redirect('/registrations/new')
     end
   end
+
+  get '/login' do
+    erb(:'sessions/new')
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      session[:login_fail] = false
+      redirect('/')
+    else
+      session[:login_fail] = true
+      redirect('/login')
+    end
+  end
+
+  delete '/sessions' do
+    session.delete(:user_id)
+    redirect('/')
+  end
  
   get '/peeps' do
     erb(:'peeps/add')

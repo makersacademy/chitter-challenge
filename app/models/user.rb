@@ -42,9 +42,17 @@ class User
     if credentials_check(username, email)
       DatabaseConnection.query("INSERT INTO users (username, email, full_name, pwd) 
       VALUES ('#{username}', '#{email}', '#{name}', '#{password}');")
-      instantiate_user(username)
+      instantiate_user(email)
     else
       nil
+    end
+  end
+
+  def self.authenticate(email:, password:)
+    if !check_email_password(email, password)
+      find_by(id: @@check)
+    else
+      nil 
     end
   end
 
@@ -54,7 +62,7 @@ class User
   end
 
   def self.check_email(email)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE email='#{email}'")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email='#{email}';")
     check = result.map do |row|
       row['id']
     end.first
@@ -62,15 +70,24 @@ class User
   end
 
   def self.check_username(username)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}'")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}';")
     check = result.map do |row|
       row['id']
     end.first
     check.nil?
   end
 
-  def self.instantiate_user(username)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}';")
+  def self.check_email_password(email, password)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email='#{email}'
+      AND pwd='#{password}';")
+    @@check = result.map do |row|
+      row['id']
+    end.first
+    @@check.nil?
+  end
+
+  def self.instantiate_user(email)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email='#{email}';")
     result.map do |user|
       User.new(
         id: user['id'],

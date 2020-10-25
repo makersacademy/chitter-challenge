@@ -6,7 +6,11 @@
     <p><b>Hi, <%= current_user.username %></b></p>
     <form action="/peeps">
       <input type="submit" value="New Peep">
-    </form> 
+    </form>
+    <form action="/sessions" method="POST">
+      <input type="submit" value="Log Out">
+      <input type="hidden" name="_method" value="DELETE">
+    </form>
   <% else %>
     <p>Please log in to post Peeps</p>
     <form action="/login">
