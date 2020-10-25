@@ -24,8 +24,12 @@ class Chitter < Sinatra::Base
 
   get '/welcome' do
     @name = session[:name]
-    ChitterAccount.create(name: session[:name], username: session[:username], email: session[:email], password: session[:password])
-    erb :welcome
+    account = ChitterAccount.create(name: session[:name], username: session[:username], email: session[:email], password: session[:password])
+    if account
+      erb :welcome
+    else
+      erb :failed_signup
+    end
     # currently sends you to /chitter_feed?
   end
 

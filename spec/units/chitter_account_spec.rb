@@ -8,9 +8,9 @@ describe ChitterAccount do
       expect(user.email).to eq('Jdoggydog@myspace.com')
     end
 
-    it 'raises an error if the username already exists in the database' do
+    it 'returns nil if the username or email already exists in the database' do
       user = ChitterAccount.create(username: 'Jane007', name: 'Jane Austen', email: 'Jdoggydog@myspace.com', password: 'xxx')
-      expect { ChitterAccount.create(username: 'Jane007', name: 'Jane Doe', email: 'jog-on@hotmail.com', password: 'YYY') }.to raise_error('username already in use')
+      expect(ChitterAccount.create(username: 'Jane007', name: 'Jane Doe', email: 'jog-on@hotmail.com', password: 'YYY')).to be_nil
     end
   end
   describe '.all' do
