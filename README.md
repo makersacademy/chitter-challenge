@@ -78,7 +78,7 @@ SERIAL | username | pwd1234 under 14 chars, but more than 8 | email
 
 ![sending_peeps](diagrams/sending_peep.png)
 
-![signing_out](diagrams/signing_out.png)
+![signing_out](diagrams/logging_out.png)
 
 Technical Approach:
 -----
