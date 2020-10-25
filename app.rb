@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   post '/:parameters' do
     session[:name] = params[:name]
     session[:username] = params[:username]
-    session[:email] = params[:email
+    session[:email] = params[:email]
     session[:password] = params[:password]
     redirect('/welcome')
     # redirect /failure if username or email already exist

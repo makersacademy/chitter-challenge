@@ -10,7 +10,7 @@ describe ChitterAccount do
     it 'returns all the usernames' do
       user = ChitterAccount.create(username: 'Jane007', name: 'Jane Austen', email: 'Jdoggydog@myspace.com', password: 'xxx')
       accounts = ChitterAccount.all
-      expect(accounts.first).to eq('Jane007')
+      expect(accounts.first.username).to eq('Jane007')
     end
   end
 end
