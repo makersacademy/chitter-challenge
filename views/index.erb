@@ -6,6 +6,7 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-  <h3><%=peep%></h3>
+  <h2><%=peep[:message]%></h2>
+  <h5>posted at <%=peep[:time]%></h5>
   <% end %>
 </ul>
