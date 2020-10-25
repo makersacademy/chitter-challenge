@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './database_connection_setup'
 require_relative './lib/maker'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -27,6 +28,11 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @maker = Maker.find(id: session[:maker_id])
     erb :'peeps/index'
+  end
+
+  get '/peeps/list' do
+    @peeps = Peep.all
+    erb :'peeps/list'
   end
 
   get '/sessions/new' do
