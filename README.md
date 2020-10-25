@@ -28,35 +28,35 @@ http://localhost:9292/chitter
 
 The homepage displays any peeps currently saved in the database (tables truncated for demonstration purposes!), and allows users to either sign up, sign in or out or post anonymously:
 
-[Imgur](https://imgur.com/EWeEftC)
+![Homepage](https://i.imgur.com/EWeEftC.png)
 
 Users can sign up with a display name, a username/handle and an email and password:
 
-[Imgur](https://imgur.com/HtDuaRZ)
+![Sign in](https://i.imgur.com/HtDuaRZ.png)
 
 Users are greeted by name upon signing up or signing in:
 
-[Imgur](https://imgur.com/Vx82POn)
+![User greetings](https://i.imgur.com/Vx82POn.png)
 
 And are able to post as themselves with their names and usernames displayed next to the time they posted:
 
-[Imgur](https://imgur.com/Sukrppr)
+![User peeps](https://i.imgur.com/Sukrppr.png)
 
 Users can sign out and new users can sign up and post to the same page, which is updated with peeps in reverse chronological order:
 
-[Imgur](https://imgur.com/SBmKUAg)
+![New user peep](https://i.imgur.com/SBmKUAg.png)
 
 If a user attempts to sign in without signing out, they will receive 'Already signed in' notice:
 
-[Imgur](https://imgur.com/WpdRybI)
+![Sign in warning](https://i.imgur.com/WpdRybI.png)
 
 After logging out, a 'Logged out' notice is displayed:
 
-[Imgur](https://imgur.com/fxBitql)
+![Logged out notice](https://i.imgur.com/fxBitql.png)
 
 If a peep is posted without a user signing up or signing in, it is displayed anonymously:
 
-[Imgur](https://i.imgur.com/fxBitql.png)
+![Anonymous peep](https://i.imgur.com/tXcIRFZ.png)
 
 ### Database Set Up
 
@@ -136,9 +136,11 @@ Thoughts:
 - Use stored user data within an authentication method on the User class to verify user email and password
 - Encrypt passwords
 
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+```
 Thoughts:
 - Upon sign out user should no longer be reachable from /chitter route
 
