@@ -19,18 +19,21 @@ class Chitter < Sinatra::Base
     session[:email] = params[:email]
     session[:password] = params[:password]
     redirect('/welcome')
-    # redirect /failure if username or email already exist
   end
 
   get '/welcome' do
     @name = session[:name]
     account = ChitterAccount.create(name: session[:name], username: session[:username], email: session[:email], password: session[:password])
-    if account
-      erb :welcome
+    if account == nil
+      redirect('/failed_signup')
     else
-      erb :failed_signup
+      erb :welcome
     end
     # currently sends you to /chitter_feed?
+  end
+
+  get '/failed_signup' do
+    erb :failed_signup
   end
 
   get '/chitter_feed' do
