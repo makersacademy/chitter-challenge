@@ -14,6 +14,11 @@ describe Peep do
       new_peep = Peep.create(peep: 'Hey, how are ya?').first
       expect(new_peep['peep']).to eq('Hey, how are ya?')
     end
+    it 'returns the time the peep was created' do
+      time = Time.now
+      new_peep = Peep.create(peep: 'Hey, how are ya?', time: time).first
+      expect(new_peep['time']).to eq(time)
+    end
   end
   #the .create method to return the values
 end

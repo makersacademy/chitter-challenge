@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   get '/chitter_feed' do
     @peeps = Peep.all
     erb :chitter_feed
-    #pass information from database to views 
+    #pass information from database to views - name, username, time, peep
   end
 
   get '/chitter_feed/new_peep' do
@@ -17,8 +17,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter_feed/posted_peep' do
-    #create new peep, pass it to database
-    Peep.create(peep: params[:peep_text])
+    time = Time.now
+    Peep.create(peep: params[:peep_text], time: time)
     redirect('/chitter_feed')
+    #peep needs username, name, time posted
   end
 end
