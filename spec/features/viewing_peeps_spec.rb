@@ -15,9 +15,9 @@ end
 feature 'peeps are listed with their username and name' do
   scenario 'user posts to chitter and it displays their username and name on the peep' do
     # either log in or sign up then save to session parameter - user name : CharCharSlide, name: Charlie Boot-off
-    visit('/chitter_feed/new_peep')
-    fill_in 'peep_text', with: 'At this point, what even is a peep?'
-    click_on 'Post'
+    connection = PG.connect(dbname: 'chitter_manager_test')
+    connection.exec("INSERT INTO peeps (peep, post_time, username, name) VALUES ('I saw twelve chickens in the park earlier', '#{Time.now.strftime("%H:%M:%S")}', 'Charlie Boot-off', 'CharCharSlide');")
+
     visit('/chitter_feed')
     expect(page).to have_content('CharCharSlide')
     expect(page).to have_content('Charlie Boot-off')
