@@ -20,7 +20,7 @@ class Peep
     else
       connection = PG.connect( dbname: 'chitter_manager' )
     end
-    connection.exec("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}') RETURNING peep, time")
+    connection.exec("INSERT INTO peeps (peep, post_time) VALUES('#{peep}', '#{time}') RETURNING peep, post_time")
   end
 end
 

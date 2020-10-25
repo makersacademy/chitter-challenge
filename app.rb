@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter_feed/posted_peep' do
-    time = Time.now
+    time = Time.now.strftime("%H:%M:%S")
     Peep.create(peep: params[:peep_text], time: time)
     redirect('/chitter_feed')
     #peep needs username, name, time posted
