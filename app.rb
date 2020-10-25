@@ -2,8 +2,19 @@ require 'sinatra/base'
 
 class  Chitter < Sinatra::Base
   get '/' do
-    'Welcome to Chitter'
+    erb :index
   end
+
+  post '/' do 
+    @peep = params[:peep]
+    erb :index
+  end
+
+
+
+
+
+
 
   run! if app_file == $0
 end
