@@ -5,7 +5,8 @@ feature 'user can sign up for chitter with name, username, password and email' d
     fill_in 'username', with: 'j-dog101'
     fill_in 'name', with: 'Jackie Chaplin'
     fill_in 'password', with: 'chitter4L'
-    expect(page).to have_content('Welcome to Chitter Jackie!')
+    visit('/welcome')
+    expect(page).to have_content('Welcome to Chitter, Jackie!')
   end
 end
 

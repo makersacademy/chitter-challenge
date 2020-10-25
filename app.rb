@@ -2,8 +2,20 @@ require 'sinatra/base'
 require_relative './lib/chitter.rb'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+
   get '/' do
     erb :sign_up
+  end
+  
+  post '/:name' do
+    session[:name] = params[:name]
+    redirect('/welcome')
+  end
+
+  get '/welcome' do
+    @name = session[:name]
+    erb :welcome
   end
 
   get '/chitter_feed' do
