@@ -4,13 +4,18 @@
 <body>
   <% if current_user %>
     <p><b>Hi, <%= current_user.username %></b></p>
+    <form action="/peeps">
+      <input type="submit" value="New Peep">
+    </form> 
+  <% else %>
+    <p>Please log in to post Peeps</p>
+    <form action="/login">
+      <input type="submit" value="Log In">
+    </form>
+    <form action="/registrations/new">
+      <input type="submit" value="Sign Up">
+    </form>
   <% end %>
-  <form action="/peeps">
-    <input type="submit" value="New Peep">
-  </form>  
-  <form action="/registrations/new">
-    <input type="submit" value="Sign Up">
-  </form>
   <ul>
     <% @sorted_peeps.each do |peep| %>
       <div id="<%= peep.id %>">
