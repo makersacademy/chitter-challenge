@@ -1,7 +1,7 @@
 <ul>
   <% @peeps.each do |post| %>
     <li>
-        <%= post.peep %>
+        <%= post.peep + " written at " + post.time %> 
     </li>
   <% end %>
 </ul>

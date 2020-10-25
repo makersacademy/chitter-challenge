@@ -17,9 +17,10 @@ class Peep
       connection = PG.connect( dbname: 'chitter_manager' )
     end
     rs = connection.exec("SELECT * FROM peeps;")
-    rs.map do |post|
+    feed = rs.map do |post| 
       Peep.new(id: post['id'], peep: post['peep'], time: post['post_time'])
     end
+    feed.sort_by{ |peep| peep.time }.reverse!
   end
 
   def self.create(peep:, time:)
@@ -33,5 +34,6 @@ class Peep
   end
 end
 
-#currently returning an array of strings from database
-#- need to return separately with time stamp, name and username
+
+# need to return name and username
+# organising posts by reverse chronological order 
