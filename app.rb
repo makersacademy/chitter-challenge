@@ -15,4 +15,10 @@ class Chitter < Sinatra::Base
   get '/chitter_feed/new_peep' do
     erb :new_peep
   end
+
+  post '/chitter_feed/posted_peep' do
+    #create new peep, pass it to database
+    Peep.create(peep: params[:peep_text])
+    redirect('/chitter_feed')
+  end
 end

@@ -9,5 +9,12 @@ describe Peep do
       expect(Peep.all).to include('I saw twelve chickens in the park earlier')    
     end
   end
+  describe '.create' do
+    it 'returns the inputted peep' do
+      new_peep = Peep.create(peep: 'Hey, how are ya?').first
+      expect(new_peep['peep']).to eq('Hey, how are ya?')
+    end
+  end
+  #the .create method to return the values
 end
 
