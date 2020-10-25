@@ -1,4 +1,5 @@
 require 'peeps'
+require 'database_helpers'
 
 describe Peeps do
 
@@ -6,15 +7,25 @@ describe Peeps do
 
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_manager_test')
-
-      connection.exec("INSERT INTO peeps (message_content) VALUES ('I had a great day');")
-      connection.exec("INSERT INTO peeps (message_content) VALUES ('I feel sad');")
+      peep = Peeps.create(message_content: "I do not feel so good today", name: 'Wilfred')
+      Peeps.create(message_content: "I love sunshine", name: 'Jenny')
 
       peeps = Peeps.all
 
-      expect(peeps).to include("I had a great day")
-      expect(peeps).to include("I feel sad")
+      expect(peeps.length).to eq 2
+      expect(peeps.id).to peep.id
+      expect(peeps.first.name).to eq 'Jenny'
+      expect(peeps.last.message_content).to eq('I love sunshine')
+    end
+  end
+
+  describe '.create' do
+    it 'creates a peep' do
+      peep = Peeps.create(message_content: 'test peep', name: 'test_name')
+      persisted_data = persisted_data(table: :peeps, id: peep.id )
+
+      expect(peep.id).to eq persisted_data['id']
+      expect(peep.message).to eq 'test peep'
     end
   end
 end
