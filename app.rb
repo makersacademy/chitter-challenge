@@ -41,7 +41,12 @@ class Chitter < Sinatra::Base
     # are the user name and password correct?
     session[:username1] = params[:username1]
     session[:password1] = params[:password1]
-    redirect('/chitter_feed')
+    if ChitterAccount.identity_check(session[:username1], session[:password1])
+      redirect('/chitter_feed')
+    else
+      session[:loginfail] = false
+      redirect('/login')
+    end
   end
 
   get '/chitter_feed' do

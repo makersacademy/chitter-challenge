@@ -27,6 +27,10 @@ class ChitterAccount
     end
   end
 
+  def self.identity_check(username, password)
+    !incorrect_pwd_and_username?(username, password)
+  end
+
   private
 
   def self.username_in_use?(username)
@@ -43,6 +47,12 @@ class ChitterAccount
 
   def self.username_and_email_unique?(username, email)
     username_in_use?(username) && email_not_in_use?(email)
+  end
+
+  def self.incorrect_pwd_and_username?(username, password)
+    database_connection
+    result = @connection.exec("SELECT * FROM accounts WHERE username='#{username}' AND password='#{password}';")
+    result.map { |row| row['username'] }.first.nil?  
   end
 
   def self.database_connection
