@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
-  post '/:login_parameters' do
+  post '/logingin' do
     # are the user name and password correct?
     session[:username1] = params[:username1]
     session[:password1] = params[:password1]
@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter_feed/new_peep' do
-    session[:username] == nil ? redirect('/login') : erb(:new_peep)
+    session[:username1] == nil ? redirect('/login') : erb(:new_peep)
   end
 
   post '/chitter_feed/posted_peep' do
