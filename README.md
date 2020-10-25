@@ -67,9 +67,9 @@ SERIAL | Time created | Message written | Created By
 
 ChitterAccounts
 ---------------
-id | username | password
--- | -------- | --------
-SERIAL | username | pwd1234 under 14 chars, but more than 8
+id | username | password | email
+-- | -------- | -------- | -----
+SERIAL | username | pwd1234 under 14 chars, but more than 8 | email
 
 Technical Approach:
 -----
