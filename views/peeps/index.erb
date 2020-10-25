@@ -2,3 +2,6 @@
 <% if @maker %>
   <h1>Welcome, <%= @maker.name %></h1>
 <% end %>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>

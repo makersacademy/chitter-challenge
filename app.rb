@@ -41,5 +41,11 @@ class Chitter < Sinatra::Base
     session[:maker_id] = maker.id
     redirect('/peeps')
   end
+
+  post '/sessions/destroy' do
+  session.clear
+  redirect('/bookmarks')
+end
+
   run! if app_file == $0
 end
