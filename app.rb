@@ -3,7 +3,7 @@ require_relative './lib/chitter.rb'
 
 class Chitter < Sinatra::Base
   get '/' do
-    erb :index
+    erb :sign_up
   end
 
   get '/chitter_feed' do

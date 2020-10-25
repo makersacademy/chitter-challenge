@@ -7,13 +7,12 @@ describe Peep do
       Peep.create(peep: 'I saw twelve chickens in the park earlier', time: time)
       Peep.create(peep: 'There are 9 million bicycles in Beijing', time: time)
       chitter_feed = Peep.all
-      # expect(chitter_feed.first.peep).to include('There are 9 million bicycles in Beijing')  
-      expect(chitter_feed.first.peep).to include('I saw twelve chickens in the park earlier')    
+      expect(chitter_feed.first.peep).to include('There are 9 million bicycles in Beijing')    
     end
 
     it 'can access the id and time of the peep' do
-      posted_peep = Peep.create(peep: 'I saw twelve chickens in the park earlier', time: time)
-      Peep.create(peep: 'There are 9 million bicycles in Beijing', time: time)
+      Peep.create(peep: 'I saw twelve chickens in the park earlier', time: time)
+      posted_peep = Peep.create(peep: 'There are 9 million bicycles in Beijing', time: time)
 
       peeps = Peep.all
 
@@ -21,7 +20,7 @@ describe Peep do
       expect(peeps.first).to be_a Peep
       expect(peeps.first.id).to eq posted_peep.id
       expect(peeps.first.time).to eq time # may need re thinking
-      expect(peeps.first.peep).to eq 'I saw twelve chickens in the park earlier'
+      expect(peeps.first.peep).to eq 'There are 9 million bicycles in Beijing'
     end
   end
 
