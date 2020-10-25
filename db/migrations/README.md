@@ -14,5 +14,8 @@ Setting up test databases:
 ```
 
 To post a peep
-- go to address /peeps/new
-- post a peep 
+- install bundle
+- ensure the above mentioned databases and tables above are created on your local machine
+- run rackup
+- go to the address /peeps/new
+- post a peep (functionality for user sign up not complete)
