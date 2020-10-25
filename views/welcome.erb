@@ -1,1 +1,4 @@
-Welcome to Chitter, <%= @name.split(' ').first %>
+<form action="/chitter_feed" method="get">
+  <label> Welcome to Chitter, <%= @name.split(' ').first %> </label><br>
+  <input type="submit" value="Check out the chitter feed">
+</form>

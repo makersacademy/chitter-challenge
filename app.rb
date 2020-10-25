@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
   
-  post '/:name' do
+  post '/:parameters' do
     session[:name] = params[:name]
     redirect('/welcome')
   end
@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   get '/welcome' do
     @name = session[:name]
     erb :welcome
+    # currently sends you to /chitter_feed?
   end
 
   get '/chitter_feed' do
