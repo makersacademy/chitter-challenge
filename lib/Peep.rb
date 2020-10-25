@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'database_connection'
 
 class Peep
 
@@ -9,4 +10,7 @@ class Peep
     end
   end
 
+  def self.create(message:)
+    DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}')")
+  end
 end

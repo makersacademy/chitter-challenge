@@ -1,3 +1,5 @@
+require 'database_connection'
+
 describe DatabaseConnection do
   describe '.setup' do
     it 'connects to the right database through PG' do
