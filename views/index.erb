@@ -1,9 +1,3 @@
 <h1> CHITTER </h1>
-
-<ul id="peeps">
-  <% @peeps.each do |peep| %>
-    <li class="peep">
-      <%= peep.message %> @<%= peep.creator %>
-    </li>
-  <% end %>
-</ul>
+<%= erb :create_peep_form %>
+<%= erb :peeps_list %>
