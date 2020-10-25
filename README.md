@@ -21,6 +21,7 @@ postgres=# CREATE DATABASE chitter_manager;
 postgres=# \c chitter_manager;
 ```
 - Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
+- Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
 
 **Setting up your test chitter manager database:**
 
@@ -37,6 +38,7 @@ postgres=# CREATE DATABASE chitter_manager_test;
 postgres=# \c chitter_manager_test;
 ```
 - Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
+- Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
 
 
 

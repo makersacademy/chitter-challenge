@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN post_time TIME;
