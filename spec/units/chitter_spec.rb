@@ -20,7 +20,7 @@ describe Peep do
       expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
       expect(peeps.first.id).to eq posted_peep.id
-      expect(peeps.first.time).to eq time #may need re thinking
+      expect(peeps.first.time).to eq time # may need re thinking
       expect(peeps.first.peep).to eq 'I saw twelve chickens in the park earlier'
     end
   end
@@ -37,4 +37,3 @@ describe Peep do
     end
   end
 end
-
