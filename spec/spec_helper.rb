@@ -7,6 +7,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'setup_test_database.rb'
+require 'features/web_helpers.rb'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

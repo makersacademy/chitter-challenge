@@ -1,24 +1,35 @@
-feature "edit" do
-  before do
-    Peep.create(username: "kiriarf", body: "BOTTOM TEXT")
-  end
-
-  scenario "user can edit the body of a peep" do
+feature "edit" do 
+  scenario "user can't edit other users' peeps" do
+    log_in
+    click_button('New Peep')
+    fill_in "body", with: "I am signed up"
+    click_button('Post')
+    
     peeps = Peep.all.sort_by { |peep| peep.posted_on }.reverse
-    first_peep, second_peep = peeps[0], peeps[1]
-
-    visit('/')
-    expect(page).to have_content("BOTTOM TEXT")
+    first_peep = peeps[0]
 
     within("div##{first_peep.id}") do
       click_button("Edit")
     end
 
     fill_in "body",	with: ""
-    fill_in "body",	with: "TOP TEXT"
-    click_button("Submit Changes")
+    fill_in "body",	with: "EDITED"
+    click_button('Submit Changes')
+    expect(page).to have_content('EDITED')
+    expect(page).not_to have_content("@kiriarf: I am signed up")
+  end
 
-    expect(page).not_to have_content("BOTTOM TEXT")
-    expect(page).to have_content("TOP TEXT")
+  scenario "user can't edit other users' peeps" do
+    log_in
+    click_button('New Peep')
+    fill_in "body", with: "I am signed up"
+    click_button('Post')
+    
+    peeps = Peep.all.sort_by { |peep| peep.posted_on }.reverse
+    last_peep = peeps[-1]
+
+    within("div##{last_peep.id}") do
+      expect(page).not_to have_button('Edit')
+    end
   end
 end

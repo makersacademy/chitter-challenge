@@ -1,23 +1,31 @@
 feature "delete" do
-  before do
-    Peep.create(username: "kiriarf", body: "test1")
-    Peep.create(username: "kiriarf", body: "test2")
-  end
-
-  scenario "user can click a delete button and delete a peep" do
+  scenario "user can't delete other users' peeps" do
+    log_in
+    click_button('New Peep')
+    fill_in "body", with: "I am signed up"
+    click_button('Post')
+    
     peeps = Peep.all.sort_by { |peep| peep.posted_on }.reverse
-    first_peep, second_peep = peeps[0], peeps[1]
-
-    visit('/')
-    expect(page).to have_content("@kiriarf: test1")
-    expect(page).to have_content("@kiriarf: test2")
+    first_peep = peeps[0]
 
     within("div##{first_peep.id}") do
       click_button("Delete")
     end
 
-    expect(current_path).to eq '/'
-    expect(page).not_to have_content("@kiriarf: test2")
-    expect(page).to have_content("@kiriarf: test1")
+    expect(page).not_to have_content('I am signed up')
+  end
+
+  scenario "user can't edit other users' peeps" do
+    log_in
+    click_button('New Peep')
+    fill_in "body", with: "I am signed up"
+    click_button('Post')
+    
+    peeps = Peep.all.sort_by { |peep| peep.posted_on }.reverse
+    last_peep = peeps[-1]
+
+    within("div##{last_peep.id}") do
+      expect(page).not_to have_button('Delete')
+    end
   end
 end

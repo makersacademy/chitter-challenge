@@ -5,11 +5,7 @@ feature "signout" do
   end
 
   scenario "can log out when logged in" do
-    visit('/')
-    click_button('Log In')
-    fill_in "email",	with: "kiriarf@chitter.com"
-    fill_in "password",	with: "123"
-    click_button('Log In')
+    log_in
     expect(page).to have_content('Hi, kiriarf')
     click_button('Log Out')
     expect(current_path).to eq ('/')

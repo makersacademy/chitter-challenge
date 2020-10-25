@@ -1,32 +1,39 @@
 <head>
   <title>Chitter</title>
+  <link type="text/css" rel="stylesheet" href="<%=url('/styles.css')%>" />
 </head>
+
 <body>
-  <% if current_user %>
-    <p><b>Hi, <%= current_user.username %></b></p>
-    <form action="/peeps">
-      <input type="submit" value="New Peep">
-    </form>
-    <form action="/sessions" method="POST">
-      <input type="submit" value="Log Out">
-      <input type="hidden" name="_method" value="DELETE">
-    </form>
-  <% else %>
-    <p>Please log in to post Peeps</p>
-    <form action="/login">
-      <input type="submit" value="Log In">
-    </form>
-    <form action="/registrations/new">
-      <input type="submit" value="Sign Up">
-    </form>
-  <% end %>
-  <ul>
-    <% @sorted_peeps.each do |peep| %>
-      <div id="<%= peep.id %>">
-        <li>@<%= peep.username %>: <%= peep.body %> (<%= peep.posted_on %>)</li>
-        <% if peep.edited_on %>
+  <div class="user_buttons">
+    <% if current_user %>
+      <p><b>Hi, <%= current_user.username %></b></p>
+      <form action="/peeps">
+        <input type="submit" value="New Peep">
+      </form>
+      <form action="/sessions" method="POST">
+        <input type="submit" value="Log Out">
+        <input type="hidden" name="_method" value="DELETE">
+      </form>
+    <% else %>
+      <p>Please log in to post Peeps</p>
+      <form action="/login">
+        <input type="submit" value="Log In">
+      </form>
+      <form action="/registrations/new">
+        <input type="submit" value="Sign Up">
+      </form>
+    <% end %>
+  </div>
+  
+  <% @sorted_peeps.each do |peep| %>
+    <div class="peep" id="<%= peep.id %>">
+      <p><b>@<%= peep.username %>:</b> <%= peep.body %> (<%= peep.posted_on %>)</p>
+      <% if peep.edited_on %>
+        <div class="edited_stamp">
           <p>Edited on: <%= peep.edited_on %></p>
-        <% end %>
+        </div>
+      <% end %>
+      <% if current_user && peep.username == current_user.username %>
         <form action="/peeps/<%= peep.id %>/edit">
           <input type="submit" value="Edit">
           <input type="hidden" name="peep_id" value="<%= peep.id %>">
@@ -36,7 +43,8 @@
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="peep_id" value="<%= peep.id %>">
         </form>
-      </div>
-    <% end %>
-  </ul>
+      <% end %>
+    </div>
+  <% end %>
+  
 </body>

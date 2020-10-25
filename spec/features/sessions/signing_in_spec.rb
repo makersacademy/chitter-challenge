@@ -1,10 +1,6 @@
 feature "signin" do
   scenario "user visits homepage and tries to sign in" do
-    visit('/')
-    click_button('Log In')
-    fill_in "email",	with: "kiriarf@chitter.com"
-    fill_in "password",	with: "123"
-    click_button('Log In')
+    log_in
     expect(current_path).to eq ('/')
     expect(page).to have_content('Hi, kiriarf')
   end
