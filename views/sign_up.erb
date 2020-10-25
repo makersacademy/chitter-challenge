@@ -1,4 +1,8 @@
-<form action="/:parameters" method="post">
+<% if session[:signupfail] == false %>
+     <p>Username or email currently in use, please try again:</p>
+<% end %>
+
+<form action="/signingup" method="post">
 <h1> Change your life and sign up for Chitter </h1>
   <label>Username:</label>
   <input type="text" name="username"><br>

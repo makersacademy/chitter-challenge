@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
   
-  post '/:parameters' do
+  post '/signingup' do
     session[:name] = params[:name]
     session[:username] = params[:username]
     session[:email] = params[:email]
@@ -25,15 +25,12 @@ class Chitter < Sinatra::Base
     @name = session[:name]
     account = ChitterAccount.create(name: session[:name], username: session[:username], email: session[:email], password: session[:password])
     if account == nil
-      redirect('/failed_signup')
+      session[:signupfail] = false
+      redirect('/signup')
     else
       erb :welcome
     end
     # currently sends you to /chitter_feed?
-  end
-
-  get '/failed_signup' do
-    erb :failed_signup
   end
 
   get '/login' do
@@ -42,8 +39,8 @@ class Chitter < Sinatra::Base
 
   post '/:login_parameters' do
     # are the user name and password correct?
-    session[:username] = params[:username]
-    session[:password] = params[:password]
+    session[:username1] = params[:username1]
+    session[:password1] = params[:password1]
     redirect('/chitter_feed')
   end
 
@@ -55,8 +52,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter_feed/new_peep' do
-    # if session[:username] == nil then 'Page unavailable please log in'
-    erb :new_peep
+    session[:username] == nil ? redirect('/login') : erb(:new_peep)
   end
 
   post '/chitter_feed/posted_peep' do
