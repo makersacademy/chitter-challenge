@@ -1,5 +1,8 @@
 # Chitter
 
+## Goal
+- Use Sinatra, Capybara and Ruby to create 'chitter', a website where users create accounts and post and view 'peeps'.
+
 ## User Story Analysis
 
 ```
