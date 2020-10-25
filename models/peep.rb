@@ -2,12 +2,13 @@ require 'pg'
 
 class Peep
 
-  attr_reader :message, :creator, :id
+  attr_reader :message, :creator, :id, :time
 
-  def initialize(message:, creator:, id:)
-    @message = message
+  def initialize(message:, creator:, id:, time:)
     @creator = creator
     @id = id
+    @message = message
+    @time = format(time)
   end
 
   def self.connect_to_db
@@ -22,7 +23,7 @@ class Peep
     connect_to_db
     table = @@connection.exec "SELECT * FROM peeps"
     table.map do |peep|
-      Peep.new(message: peep['message'], creator: peep['creator'], id: peep['id'])
+      Peep.new(message: peep['message'], creator: peep['creator'], id: peep['id'], time: peep['time_created'])
     end
   end
 
@@ -33,7 +34,14 @@ class Peep
 
   def self.create(message:, creator:)
     connect_to_db
-    result = @@connection.exec "INSERT INTO peeps (message, creator) VALUES ('#{message}', '#{creator}') RETURNING id, message, creator;"
-    Peep.new(message: result[0]['message'], creator: result[0]['creator'], id: result[0]['id'])
+    result = @@connection.exec "INSERT INTO peeps (message, creator) VALUES ('#{message}', '#{creator}') RETURNING id, message, creator, time_created;"
+    Peep.new(message: result[0]['message'], creator: result[0]['creator'], id: result[0]['id'], time: result[0]['time_created'])
+  end
+
+  private
+
+  def format(time)
+    parsed_time = DateTime.parse(time)
+    parsed_time.strftime('%d/%m/%Y %I:%M %p')
   end
 end

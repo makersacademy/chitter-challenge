@@ -6,6 +6,6 @@ feature 'Create Peep' do
     fill_in(:username, with: "Peepz4Dayz")
     click_button 'Peep It!'
 
-    expect(page).to have_content "THE BEST PEEP EVER! @Peepz4Dayz"
+    expect(page).to have_content "THE BEST PEEP EVER! -Peepz4Dayz"
   end
 end
