@@ -1,10 +1,8 @@
 require 'pg'
 
-class ChitterManager
+class Peep
 
   def self.all
-    #conditional statement for test database
-    #database called chitter_manager
     if  ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect( dbname: 'chitter_manager_test' )
     else
@@ -17,3 +15,6 @@ class ChitterManager
   end
 
 end
+
+#currently returning an array of strings from database
+#- need to return separately with time stamp,name and username
