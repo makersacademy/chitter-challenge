@@ -2,7 +2,7 @@ require 'sinatra/base'
 require './lib/makers'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  # enable :sessions
   # attr_reader :username
 
   get '/' do
@@ -10,17 +10,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/completed_reg_form' do
-    session[:Username] = params[:Username]
-    session[:Email_Address] = params[:Email_Address]
-    session[:Password] = params[:Password]
+    username = params[:Username]
+    email_address= params[:Email_Address]
+    password = params[:Password]
+    connection = PG.connect(dbname: 'chitter_members_test')
+    connection.exec("INSERT INTO chitter_members_data (username, email_address, password) VALUES('#{username}', '#{email_address}', '#{password}')")
     redirect '/welcome_to_chitter'
   end
-  #above form inputs are not going further than the above
 
-#below @makers variable is taking input from psql
   get '/welcome_to_chitter' do
-    @makers = Makers.all
-    # @makers = [session[:Username], session[:Email_Address], session[:Password]]
     erb(:welcome_to_chitter)
   end
 

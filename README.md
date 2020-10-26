@@ -149,3 +149,6 @@ enter: \c chitter_members;
 
 5 - Create the table within the database
 enter: CREATE TABLE chitter_members_data(id SERIAL PRIMARY KEY, url VARCHAR(60));
+
+6 - creating the test table
+repeat the steps as above, but calling the database 'chitter_members_test' instead of 'chitter_members'
