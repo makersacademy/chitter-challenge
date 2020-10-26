@@ -27,11 +27,11 @@ Do the above again, with the following changes:
 
 **HOW TO USE THIS APP**
 
-```$ git clone https://github.com/CamLogie/chitter-challenge.git ```
-```$ bundle```
-```Create Chitter and Chitter test databases and add time to them```
-```$ rspec```
-```$ rackup```
+- ```$ git clone https://github.com/CamLogie/chitter-challenge.git ```
+- ```$ bundle```
+- ```Create Chitter and Chitter test databases and add time to them```
+- ```$ rspec```
+- ```$ rackup```
 
 
 To interact with the application simply type in a message to the homescreen when prompted and the app will show you all the messages you've ever posted and when you posted them. 
