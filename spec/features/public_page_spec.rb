@@ -1,7 +1,7 @@
 feature 'Public Page' do 
-  let(:peep_1) { 'This is my first peep! -USER_1' } 
-  let(:peep_2) { 'This is my second peep! -USER_2' }
-  let(:peep_3) { 'This is my third peep! -USER_3' }
+  let(:peep_1) { "This is my first peep!\n-USER_1" } 
+  let(:peep_2) { "This is my second peep!\n-USER_2" }
+  let(:peep_3) { "This is my third peep!\n-USER_3" }
 
   scenario 'title is shown' do 
     visit '/'
