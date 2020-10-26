@@ -11,8 +11,8 @@ describe Peep do
       peeps = Peep.all
       
 
-      expect(peeps).to include ["Me, in hell: I was told there would be a “special” place for me?","2020-01-13", "10:30:00"]
-      expect(peeps).to include ["Congratulations to the Astronauts that left Earth today. Good choice", "2020-01-13", "10:30:00"]
+      expect(peeps[0]['peep']).to contain "Me, in hell: I was told there would be a “special” place for me?"
+      espect(peeps.count).to eq 2
 
     end
   end
@@ -25,3 +25,4 @@ describe Peep do
     end
   end
 end
+

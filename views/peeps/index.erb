@@ -3,7 +3,10 @@
 <!-- <% end %> -->
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.join(" ") %></li>
+    <li><%= peep.peep %>
+    <%= peep.date %>
+    <%= peep.time %>
+    </li>
   <% 
 end %>
 </ul>
