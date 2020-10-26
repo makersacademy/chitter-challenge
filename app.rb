@@ -30,7 +30,6 @@ class Chitter < Sinatra::Base
     else
       erb :welcome
     end
-    # currently sends you to /chitter_feed?
   end
 
   get '/login' do

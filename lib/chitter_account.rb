@@ -72,3 +72,4 @@ class ChitterAccount
   end    
 end
 
+# for future edits - create a db connector class

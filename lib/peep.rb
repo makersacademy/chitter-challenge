@@ -1,5 +1,4 @@
 require 'pg'
-# rename file
 class Peep
 
   attr_reader :id, :peep, :time, :name, :username
