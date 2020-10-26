@@ -14,7 +14,7 @@ describe Chitter do
 
   it 'responds to .add by adding a peep to the array of all peeps' do
     chitter = Chitter.add('message')
-    time = create_time = "#{Time.new.hour}:#{Time.new.min}"
+    time = create_time = "#{Time.new}"
     persisted_data = persisted_data(id: chitter.id)
 
     expect(chitter).to be_a Chitter

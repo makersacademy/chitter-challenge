@@ -24,7 +24,7 @@ class Chitter
       con = PG.connect :dbname => 'chitter'
     end
 
-    result = con.exec("INSERT INTO peeps (message, time) VALUES('#{message}', '#{Time.new.hour}:#{Time.new.min}') RETURNING id, message, time;")
+    result = con.exec("INSERT INTO peeps (message, time) VALUES('#{message}', '#{Time.new}') RETURNING id, message, time;")
     Chitter.new(id: result[0]['id'], message: result[0]['message'], time: result[0]['time'])
 
   end
