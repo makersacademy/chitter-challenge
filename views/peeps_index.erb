@@ -1,0 +1,10 @@
+<html>
+<h1> <p style="font-family:arial"> Peeps and Time posted</p> </h1>
+ <body style="background-color:aquamarine;"
+<ul>
+<% @peeps.each do |peep| %>
+<br>Peep: <%= peep.peep_text %>
+<br> Posted time: <%= peep.time[0...16]%><br>
+<% end %>
+</ul>
+<br>
