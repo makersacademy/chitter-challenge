@@ -5,6 +5,7 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE peeps_test_manager;'
+  - psql -U postgres -d peeps_test_manager -f db/migrations/01_create_peeps_table.sql
 
 script:
   - bundle exec rspec
