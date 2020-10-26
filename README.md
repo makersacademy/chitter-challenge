@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-##In this project, I have created a mock twitter called chitter where users can post messages and see them displayed. They are also able to see the messages posted by other users.
+In this project, I have created a mock twitter called chitter where users can post messages and see them displayed. They are also able to see the messages posted by other users.
 
 ## Setting up your database
 
