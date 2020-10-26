@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'database'
 
 class Peep
 
@@ -11,17 +12,9 @@ class Peep
     @time = format(time)
   end
 
-  def self.connect_to_db
-    if ENV['RACK_ENV'] == "test"
-      @@connection = PG.connect :dbname => 'peeps_test_manager'
-    else
-      @@connection = PG.connect :dbname => 'peeps_manager'
-    end
-  end
-
   def self.all
-    connect_to_db
-    table = @@connection.exec "SELECT * FROM peeps"
+    Database.connect
+    table = Database.select_all
     table.map do |peep|
       Peep.new(
         message: peep['message'], 
@@ -39,15 +32,12 @@ class Peep
 
   def self.create(message:, creator:)
     message = format_apostrophes(message)
-    connect_to_db
+    Database.connect
     add_to_db(message, creator)
   end
 
   def self.add_to_db(message, creator)
-    result = @@connection.exec("INSERT INTO peeps 
-      (message, creator) VALUES ('#{message}', '#{creator}') 
-      RETURNING id, message, creator, time_created;"
-    )
+    result = Database.add_with_return_values(message, creator)
     Peep.new(
       message: result[0]['message'], 
       creator: result[0]['creator'], 
