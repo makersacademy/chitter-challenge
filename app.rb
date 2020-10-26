@@ -50,10 +50,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter_feed' do
-    # retrieve name from username params
     @peeps = Peep.all
     erb :chitter_feed
-    # pass information from database to views - name, username, time, peep
   end
 
   get '/chitter_feed/new_peep' do

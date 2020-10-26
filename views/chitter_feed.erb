@@ -1,10 +1,56 @@
-<ul>
-  <% @peeps.each do |post| %>
-    <li>
-        <%= post.peep + " written at " + post.time %> 
-    </li>
-  <% end %>
-</ul>
-<form action="/chitter_feed/new_peep">
-    <input type="submit" value="New peep" />
-</form>
+<!DOCTYPE html>
+<style
+<html>
+  <head>
+    <title>Chitter</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <style type = "text/css">
+    h1 {color: rgb(31, 54, 129);
+      text-align: center;
+      padding: 100px}
+
+    h2 {color: rgb(31, 54, 129);
+    text-align: center;
+    padding: 20px}
+
+    body {color: rgb(8, 3, 31); 
+      background-color: rgb(54, 180, 230);
+      font-family: 'Impact';
+      color: rgb(8, 3, 31); 
+      text-align: center}
+
+    .peep {width: 300px;
+    border: 15px solid white;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;}
+
+    .username{font-size: small;
+      float: left;}
+
+    .time{font-size: small;
+    float: right;}
+    </style>
+  </head>
+  <body>
+    <h1>CHITTER</h1>
+    <h2>Peep your life away</h2>
+    <ul>
+      <% @peeps.each do |post| %>
+        <div class='peep'> 
+          <%= post.peep %> 
+            <div class='username'>
+              <%= post.username %> : <%=post.name%>
+            </div>
+            <div class='time'>
+              <%= post.time %>
+            </div>
+        </div>
+      <% end %>
+    </ul>
+  <form action="/chitter_feed/new_peep">
+      <input type="submit" value="New peep" />
+  </form>
+  </body>
+</html>
