@@ -1,0 +1,15 @@
+<h2> Register New Account </h2>
+
+<form action="/users" method="post" >
+  <label for="email"> Email:    </label>
+    <input type="email" name="email" /> <br>
+  <label for="password"> Password: </label>
+    <input type="password" name="password" /> <br>
+  <label for="name"> Name: </label> 
+    <input type="name" name="name"/> <br>
+  <label for="username"> Username: </label>  
+    <input type="username" name="username" /> <br>
+  <input type="submit" value="Submit" />
+</form>
+
+<%= flash[:notice] %>

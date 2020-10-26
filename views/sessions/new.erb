@@ -1,0 +1,10 @@
+<h3> Login Page </h3>
+<form action="/sessions" method="post">
+  <label for="email"> Email: </label>
+    <input type="email" name="email" />
+  <label for="password"> Password: </label>
+    <input type="password" name="password" />
+  <input type="submit" value="Sign in" />
+</form>
+
+<h2> <%= flash[:notice] %> </h2>
