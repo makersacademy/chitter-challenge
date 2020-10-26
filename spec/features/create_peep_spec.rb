@@ -23,15 +23,15 @@ feature 'User can make add a peep' do
     end
   end
   
-  # feature 'User can see the time a and date a peep was made' do
-  #   scenario 'adds new peep and can see time' do
-  #     visit('/')
-  #     fill_in('peep', with: 'A peep is now timed')
-  #     click_button('PEEP')
-  #     time = Time.now.strftime('%Y-%m-%d %k:%M:%S')
-  #     expect(page).to have_content("A peep is now timed - #{time}")
-  #   end
-  # end
+  feature 'User can see the time a and date a peep was made' do
+    scenario 'adds new peep and can see time' do
+      visit('/')
+      fill_in('peep', with: 'A peep is now timed')
+      click_button('PEEP')
+      time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
+      expect(page).to have_content("A peep is now timed - #{time}")
+    end
+  end
   
 
 
