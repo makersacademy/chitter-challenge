@@ -21,5 +21,11 @@ class ChitterApp < Sinatra::Base
     redirect to '/'
   end
 
+  post '/sign-out' do
+    session[:logged_in] = false
+    session[:username] = nil
+    redirect to '/'
+  end
+
   run! if app_file == $0
 end

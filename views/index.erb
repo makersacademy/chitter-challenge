@@ -4,6 +4,8 @@
   <h1> CHITTER </h1>
 </div>
 
+<%= erb :log_out_button if session[:logged_in] %>
+
 <div class='peep-feed'>
   <%= erb :create_peep_form if session[:logged_in] %>
   <%= erb :sign_in unless session[:logged_in] %>

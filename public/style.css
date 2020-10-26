@@ -73,18 +73,27 @@ input[type='text'] {
   color: #2A3D34;
 }
 
-input[type='submit'] {
+input[class='center-button'] {
   width: 18%;
   height: 4%;
   margin: 0 auto;
   margin-top: 1%;
   display: block;
+}
+
+input[type='submit'] {
   border-radius: 50px;
   border: 1px solid #547A69;
   box-shadow: 1px 1px 5px #70a38c;
   font-family: HelveticaNeue;
   color: azure;
   background-color: #547A69;
+}
+
+#log-out {
+  margin: 0;
+  float:right;
+  padding-right: 5%;
 }
 
 .message {

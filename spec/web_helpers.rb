@@ -11,10 +11,14 @@ def parsed_time_now
   time.strftime('%d/%m/%Y %I:%M %p')
 end
 
-def sign_in_and_peep
+def sign_in
   visit '/'
   fill_in(:username, with:"Peepz4Dayz")
   click_button 'Sign In'
+end
+
+def sign_in_and_peep
+  sign_in
 
   fill_in(:message, with: "THE BEST PEEP EVER!")
   click_button 'Peep It!'
