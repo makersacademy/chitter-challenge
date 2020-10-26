@@ -3,18 +3,15 @@ development:
   encoding: unicode
   database: chitter
   pool: 2
-  username: dan
 
 production:
   adapter: postgresql
   encoding: unicode
   database: chitter
   pool: 2
-  username: dan
 
 test:
   adapter: postgresql
   encoding: unicode
   database: chitter_test
   pool: 2
-  username: dan

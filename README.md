@@ -5,6 +5,8 @@ A twitter clone for the week 4 end of unit exercise at Makers.
 ## Installation
 
 ```shell
+git clone https://github.com/dan-holmes/chitter-challenge.git
+export username=[your username]
 bundle install
 psql -c 'CREATE DATABASE chitter'
 psql -c 'CREATE DATABASE chitter_test'
