@@ -1,13 +1,14 @@
-Set up:
+# Chitter #
+
+This social media app enables the user to sign up, log in and post peeps that are linked to their account. The site is still under production in terms of styling, however, it is functional. Users can view other users peeps along with the username and the time the peep was posted on the feedpage. The peeps are listed in reverse chronological order to keep the users feed fresh. Users can post a peep, by clicking on a button from the feed page, with up to 250 characters. There is currently a method that is still undergoing work which enables users to view the name associated wit the peep as well as the username.
+
+### Set up:
 
 - Clone this repository
 - In your terminal run:
 ``` 
 ~ bundle
 ```
-
-
-when you sign in you can see the name of the user but not when not logged in 
 
 **Setting up your chitter manager database:**
 
@@ -79,13 +80,6 @@ postgres=# \c chitter_accounts_test;
 ```
 - Create an accounts table by running the query in file 03_creating_accounts_table.sql in the db/migrations directory
 
-Chitter Challenge
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
 Challenge:
 -------
