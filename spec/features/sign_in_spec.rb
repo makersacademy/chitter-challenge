@@ -7,6 +7,4 @@ feature 'Sign In' do
     expect(page).to have_css('input[name="message"]')
     expect(page).to_not have_css('input[name="username"]')
   end
-
-
 end

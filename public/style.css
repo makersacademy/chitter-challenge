@@ -35,7 +35,7 @@ ul {
   list-style-type: none;
 }
 
-#peep-form {
+.form {
   padding-top: 2%;
   padding-bottom: 1%;
   text-align: center;
@@ -43,8 +43,8 @@ ul {
 }
 
 #peeps {
-  padding-left: 30%;
-  padding-right: 30%;
+  padding-left: 29%;
+  padding-right: 29%;
   padding-top: 3%;
 }
 
@@ -57,7 +57,7 @@ ul {
   overflow:auto;
 }
 
-input[name='message'] {
+input[type='text'] {
   width: 40%;
   height: 6%;
   padding: 2%;
