@@ -38,7 +38,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/logingin' do
-    # are the user name and password correct?
     session[:username1] = params[:username1]
     session[:password1] = params[:password1]
     if ChitterAccount.identity_check(session[:username1], session[:password1])
@@ -60,7 +59,7 @@ class Chitter < Sinatra::Base
 
   post '/chitter_feed/posted_peep' do
     time = Time.now.strftime("%H:%M:%S")
-    name = ChitterAccount.retrieve_name(session[:username])
+    name = ChitterAccount.retrieve_name(username: session[:username1])
     Peep.create(peep: params[:peep_text], time: time, name: name, username: session[:username1])
     redirect('/chitter_feed')
   end

@@ -1,9 +1,9 @@
 require 'pg'
 
 class ChitterAccount
-  attr_reader :name, :username, :email
+  attr_reader :username, :name, :email
 
-  def initialize (name:, username:, email:)
+  def initialize (username:, name:, email:)
     @name = name
     @username = username
     @email = email
@@ -13,7 +13,7 @@ class ChitterAccount
     database_connection
     rs = @connection.exec("SELECT username, name, email FROM accounts;")
     rs.map do |account|
-      ChitterAccount.new(name: account['name'], username: account['username'], email: account['email'])
+      ChitterAccount.new(username: account['username'], name: account['name'], email: account['email'])
     end
   end
 
@@ -31,9 +31,12 @@ class ChitterAccount
     !incorrect_pwd_and_username?(username, password)
   end
 
-  def self.retrieve_name(username)
+  def self.retrieve_name(username:)
     database_connection
     result = @connection.exec("SELECT name FROM accounts WHERE username='#{username}';")
+    result.map do |account| 
+      account['name']
+    end.first
   end
 
   private

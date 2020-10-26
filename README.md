@@ -6,6 +6,9 @@ Set up:
 ~ bundle
 ```
 
+
+when you sign in you can see the name of the user but not when not logged in 
+
 **Setting up your chitter manager database:**
 
 - In your terminal run:

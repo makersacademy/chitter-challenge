@@ -4,7 +4,7 @@ class Peep
 
   attr_reader :id, :peep, :time, :name, :username
 
-  def initialize(id:, peep:, time:, name:, username:)
+  def initialize(id:, peep:, time:, username:, name:)
     @time = time
     @peep = peep
     @id = id
@@ -16,15 +16,15 @@ class Peep
     database_connection
     rs = @connection.exec("SELECT * FROM peeps;")
     feed = rs.map do |post| 
-      Peep.new(id: post['id'], peep: post['peep'], time: post['post_time'], name: post['name'], username: post['name'])
+      Peep.new(id: post['id'], peep: post['peep'], time: post['post_time'], username: post['username'], name: post['name'])
     end
     feed.sort_by { |peep| peep.time }.reverse!
   end
 
   def self.create(peep:, time:, name:, username:)
     database_connection
-    result = @connection.exec("INSERT INTO peeps (peep, post_time, name, username) VALUES('#{peep}', '#{time}', '#{name}', '#{username}') RETURNING id, peep, post_time, name, username")
-    Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: result[0]['post_time'], name: result[0]['name'], username: result[0]['username'])
+    result = @connection.exec("INSERT INTO peeps (peep, post_time, username, name) VALUES ('#{peep}', '#{time}', '#{username}', '#{name}') RETURNING id, peep, post_time, username, name")
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: result[0]['post_time'], username: result[0]['username'], name: result[0]['name'])
   end
 
   private 
