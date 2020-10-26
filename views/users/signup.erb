@@ -1,9 +1,26 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 
+<head>
+  <div class="row">
+    <div>
+      <a href="/users/signup"><div class="btn btn-primary">Sign Up</div></a>
+    </div>
+        <div>
+        <a href="/users/login"><div class="btn btn-primary">Login</div></a>
+    </div>
+      </div>
+        <div>
+        <a href="/chitter"><div class="btn btn-primary">Logout</div></a>
+    </div>
+  </div>
+  </head>
 
-<h1> Sign up to Chitter! </h1>
-
+<% if @user = nil %>
+  <h1> Sign up to Chitter! </h1>
+<% else %>
+  <h2>You are already signed in. Sign out to create a new account.</h2>
+<% end %>
 <div class="container">
   <div class="row">
     <form action='/users/new' method='post'>

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 
+
 <head>
   <div class="row">
     <div>
@@ -11,30 +12,19 @@
     </div>
       </div>
         <div>
-        <a href="/users/destroy"><div class="btn btn-primary">Logout</div></a>
+        <a href="/chitter"><div class="btn btn-primary">Logout</div></a>
     </div>
   </div>
-</head>
+  </head>
 
-<% if @user %>
-<h1>Welcome to chitter <%= @user.username %></h1>
-<% else %>
-<h1>Welcome to chitter!
-<br> Log in or sign up to peep </h1>
-<% end %>
+<h1> Login to Chitter </h1>
+
+<h1> </h1>
 
 <form action='/chitter' method='post'>
-  <input type='text' name='post' placeholder="What's happening?" required>
-  <input type='submit' value='Peep'>
+  <input id='username' type='text' name='username' placeholder='Username' required>
+  <br>
+  <input type='text' name='password' placeholder='Password' required>
+ <br>
+  <input type='submit' value='Login'>
 </form>  
-
-<ul>
-  <% @peeps.each do |peep| %>
-     <li>
-        <body> <%= %> <%= peep.body %>      
-        <%= peep.post_time %>
-    </li>
-    <% end %>
-</ul>
-
- <%= flash[:notice] %>

@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peeps'
 require './lib/users'
+require 'pg'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
@@ -23,8 +24,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = Users.sign_up(username: params['username'], email: params['email'], password: params['password'])
-    session[:user_id] = user.id
+    new_user = Users.sign_up(username: params['username'], email: params['email'], password: params['password'])
+    session[:user_id] = new_user.id
     redirect '/chitter'
   end
 
@@ -42,6 +43,12 @@ class Chitter < Sinatra::Base
       redirect '/users/login'
     end
   end
-  
+
+  post '/users/destroy' do
+    session.clear
+    flash[:notice] = 'You have logged out.'
+    redirect('/chitter')
+  end
+
    run! if app_file == $0
 end

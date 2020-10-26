@@ -88,7 +88,7 @@ To set up the database tables, connect to the chitter database in `psql` and run
  ```
  rackup -p 1234
  ```
- And navigate to localhost:1234/chitter
+ And navigate to `localhost:1234/chitter`
 
 
 

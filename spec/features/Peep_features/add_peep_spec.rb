@@ -1,7 +1,7 @@
 feature 'Adding a new peep' do
   scenario 'a user can add a peep onto chitter' do
     PG.connect(dbname: 'chitter_test')
-    visit '/chitter'
+    login
     fill_in 'post', with: 'Breaking peep!!'
     click_button 'Peep'
 

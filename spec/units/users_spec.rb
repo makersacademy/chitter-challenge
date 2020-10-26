@@ -23,4 +23,26 @@ describe Users do
       expect(result.email).to eq user.email
     end
   end
+
+  describe '#.authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      user = Users.sign_up(username: 'Fred', email: 'fredw@wizardwonders.com', password: 'password123')
+      authenticated_user = Users.authenticate(email: 'fredw@wizardwonders.com', password: 'password123')
+      persisted_data = persisted_data(id: user.id, table: :users)
+
+      expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'returns nil given an incorrect email address' do
+      user = Users.sign_up(username: 'dasha123', email: 'test@example.com', password: 'password123')
+  
+      expect(Users.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
+    end
+
+    it 'returns nil given an incorrect password' do
+      user = Users.sign_up(username: 'dasha123', email: 'test@example.com', password: 'password123')
+  
+      expect(Users.authenticate(email: 'test@example.com', password: 'password12345')).to be_nil
+    end
+  end
 end
