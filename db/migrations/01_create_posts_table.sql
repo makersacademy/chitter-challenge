@@ -1,0 +1,1 @@
+CREATE TABLE posts (id SERIAL PRIMARY KEY, date_time TIMESTAMP, person_id INTEGER,  post VARCHAR(280)); 
