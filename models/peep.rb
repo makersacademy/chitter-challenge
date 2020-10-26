@@ -23,7 +23,12 @@ class Peep
     connect_to_db
     table = @@connection.exec "SELECT * FROM peeps"
     table.map do |peep|
-      Peep.new(message: peep['message'], creator: peep['creator'], id: peep['id'], time: peep['time_created'])
+      Peep.new(
+        message: peep['message'], 
+        creator: peep['creator'], 
+        id: peep['id'], 
+        time: peep['time_created']
+        )
     end
   end
 
@@ -35,11 +40,21 @@ class Peep
   def self.create(message:, creator:)
     message = format_apostrophes(message)
     connect_to_db
-    result = @@connection.exec "INSERT INTO peeps (message, creator) VALUES ('#{message}', '#{creator}') RETURNING id, message, creator, time_created;"
-    Peep.new(message: result[0]['message'], creator: result[0]['creator'], id: result[0]['id'], time: result[0]['time_created'])
+    add_to_db(message, creator)
   end
 
-  private
+  def self.add_to_db(message, creator)
+    result = @@connection.exec("INSERT INTO peeps 
+      (message, creator) VALUES ('#{message}', '#{creator}') 
+      RETURNING id, message, creator, time_created;"
+    )
+    Peep.new(
+      message: result[0]['message'], 
+      creator: result[0]['creator'], 
+      id: result[0]['id'], 
+      time: result[0]['time_created']
+      )
+  end
 
   def format(time)
     parsed_time = DateTime.parse(time)

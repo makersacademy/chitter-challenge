@@ -13,7 +13,7 @@ end
 
 def sign_in
   visit '/'
-  fill_in(:username, with:"Peepz4Dayz")
+  fill_in(:username, with: "Peepz4Dayz")
   click_button 'Sign In'
 end
 
