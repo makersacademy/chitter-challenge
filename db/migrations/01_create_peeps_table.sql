@@ -1,0 +1,1 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time_and_date TIMESTAMP);
