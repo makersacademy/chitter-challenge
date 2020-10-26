@@ -42,8 +42,9 @@ bundle
 Connect to `psql` and create the `chitter` database:
 
 ```
-CREATE DATABASE 
-CREATE DATABASE 
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time_and_date TIMESTAMP);
 
 ```
 
