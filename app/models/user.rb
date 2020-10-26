@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     user = self.where("username='#{username}'").first
     if user.nil?
       nil
-    elsif user.password == password
+    elsif Password.new(user.password) == password
       user
     else
       nil

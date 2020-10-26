@@ -2,12 +2,6 @@
 
 A twitter clone for the week 4 end of unit exercise at Makers.
 
-## Note
-
-This code currently has an issue with logins. All unit and feature tests pass, but when trying it yourself, it will not let you log in.
-
-To use the site currently, register and do not log out!
-
 ## Installation
 
 ```shell
@@ -24,7 +18,7 @@ psql -d chitter_test -f database_setup.sql
 - See all peeps in reverse chronological order
 - See the post time on a peep
 - Sign ups
-- Log in (with issue noted above)
+- Log in
 - Log out
 - Peeps have the username and time attached
 - Use of Sinatra ActiveRecord as an Object Relational Mapper
