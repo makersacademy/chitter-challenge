@@ -1,7 +1,13 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li class="peep">
-      <%= peep.message %> <b>-<%= peep.creator %></b> <i>@<%= peep.time %></i>
+      <div class="message">
+        <%= peep.message %> 
+      </div>
+
+      <div class='peep-info'>
+        <b>-<%= peep.creator %></b> <i>@<%= peep.time %></i>
+      </div>
     </li>
   <% end %>
 </ul>

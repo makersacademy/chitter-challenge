@@ -1,3 +1,10 @@
-<h1> CHITTER </h1>
-<%= erb :create_peep_form %>
-<%= erb :peeps_list %>
+<link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+
+<div class ='header' id='title'>
+  <h1> CHITTER </h1>
+</div>
+
+<div class='peep-feed'>
+  <%= erb :create_peep_form %>
+  <%= erb :peeps_list %>
+</div>
