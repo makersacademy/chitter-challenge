@@ -46,5 +46,11 @@ describe Peep do
       expect(peep.message).to eq 'A BRAND new peep!'
       expect(peep.creator).to eq 'PeepzDeluxe'
     end
+
+    it 'creates a peep when apostrophes are used' do
+      peep = Peep.create(message: "Ya know, just livin' the life!", creator: "PeepzDeluxe")
+      
+      expect(peep.message).to eq "Ya know, just livin' the life!"
+    end
   end
 end

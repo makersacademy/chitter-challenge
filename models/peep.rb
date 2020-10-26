@@ -33,6 +33,7 @@ class Peep
   end
 
   def self.create(message:, creator:)
+    message = format_apostrophes(message)
     connect_to_db
     result = @@connection.exec "INSERT INTO peeps (message, creator) VALUES ('#{message}', '#{creator}') RETURNING id, message, creator, time_created;"
     Peep.new(message: result[0]['message'], creator: result[0]['creator'], id: result[0]['id'], time: result[0]['time_created'])
@@ -43,5 +44,17 @@ class Peep
   def format(time)
     parsed_time = DateTime.parse(time)
     parsed_time.strftime('%d/%m/%Y %I:%M %p')
+  end
+
+  def self.format_apostrophes(message)
+    message = message.chars.map do |char|
+      if char == "'"
+        char + "'"
+      else
+        char
+      end
+    end
+
+    message.join
   end
 end
