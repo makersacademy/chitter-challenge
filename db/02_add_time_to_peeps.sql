@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD time VARCHAR(25);

@@ -5,4 +5,4 @@ feature 'has a form that allows the user to submit a message' do
     click_button('Submit')
     expect(page).to have_content('this is the first message ever posted to chitter')
   end
-end 
+end
