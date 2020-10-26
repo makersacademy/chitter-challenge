@@ -62,14 +62,6 @@ class Peep
   end
 
   def self.format_apostrophes(message)
-    message = message.chars.map do |char|
-      if char == "'"
-        char + "'"
-      else
-        char
-      end
-    end
-
-    message.join
+    message.gsub(/'/, "''")
   end
 end
