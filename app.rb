@@ -3,17 +3,14 @@ require './lib/peeps'
 
 class  Chitter < Sinatra::Base
 
-  Peeps.create
-
   get '/' do
-    @peeps = Peeps.instance
-    @messages = @peeps.messages
+    @messages = Peeps.all
     erb :index
   end
 
   post '/' do 
-    @peeps = Peeps.instance
-    @peeps.add(params[:peep])
+    peep = params[:peep]
+    Peeps.add(peep)
     redirect('/')
   end
 
