@@ -5,7 +5,7 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-   - psql -U postgres 'CREATE TABLE chitter_peeps (id SERIAL PRIMARY KEY, peeps VARCHAR(255) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);'
+  - psql -U postgres 'CREATE TABLE chitter_peeps (id SERIAL PRIMARY KEY, peeps VARCHAR(255) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);'
 
 script:
   - bundle exec rspec
