@@ -13,4 +13,14 @@ describe Users do
       expect(new_user.email).to eq 'harrypotter@gmail.com'
     end
   end
+
+  describe '#.logged_in' do
+    it 'can check that a user is logged in' do
+      user = Users.sign_up(username: 'Hermione_Granger', email: 'hgranger@wizardworld.com', password: 'iloveronron')
+      result = Users.logged_in(id: user.id)
+  
+      expect(result.id).to eq user.id
+      expect(result.email).to eq user.email
+    end
+  end
 end

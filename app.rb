@@ -1,12 +1,15 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peeps'
 require './lib/users'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
-
+  
   get '/chitter' do
     @peeps = Peeps.all
+    @user = Users.logged_in(id: session[:user_id])
     erb :chitter
   end
 
@@ -20,15 +23,25 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    @new_user = Users.sign_up(username: params['username'], email: params['email'], password: params['password'])
-    sessions[:user_id] = user.id
+    user = Users.sign_up(username: params['username'], email: params['email'], password: params['password'])
+    session[:user_id] = user.id
     redirect '/chitter'
   end
 
+  get '/users/login' do
+    erb :'/users/login'
+  end
 
-  #   get '/users/login' do
-  #   erb :'/users/login'
-  # end
-
-  run! if app_file == $0
+  post '/users/login' do
+    user = Users.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/chitter'
+    else
+      flash[:notice] = 'Please check your email or password and try again.'
+      redirect '/users/login'
+    end
+  end
+  
+   run! if app_file == $0
 end
