@@ -22,8 +22,8 @@ postgres=# \c chitter_manager;
 ```
 - Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
 - Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
-- ALTER TABLE peeps ADD COLUMN username VARCHAR(25);
-- ALTER TABLE peeps ADD COLUMN name VARCHAR(40);
+- Add a name column to peep table by running the query in file 04_adding_name_column.sql in the db/migrations directory
+- Add a username column to peep table by running the query in file 05_adding_username_column.sql in the db/migrations directory
 
 **Setting up your test chitter manager database:**
 
@@ -41,6 +41,8 @@ postgres=# \c chitter_manager_test;
 ```
 - Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
 - Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
+- Add a name column to peep table by running the query in file 04_adding_name_column.sql in the db/migrations directory
+- Add a username column to peep table by running the query in file 05_adding_username_column.sql in the db/migrations directory
 
 **Setting up your chitter account database:**
 
