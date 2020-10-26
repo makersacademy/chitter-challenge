@@ -1,0 +1,32 @@
+<div id="session-info">
+<%= flash[:notice] %><br><br>
+
+<% if @user.nil? %>
+  To peep, 
+  <a href="/sessions/new">login</a>
+   or 
+  <a href="/users/new">register</a>
+<% else %>
+Logged in as <%= @user.username %>. <a href="sessions/destroy">Log out?</a>
+<br><br>
+<form action="/peeps" method="POST">
+  <input type="text" id="content" name="content">
+  <input type="submit" value="Peep!">
+</form>
+<% end %>
+
+</div>
+  
+<% @peeps.each do |peep| %>
+  <div class='peep' id='<%= peep.id %>'>
+    <div class='peep_content'>
+      <%= peep.content %>
+    </div>
+    <div class='peep_username'>
+      <%= peep.username %>
+    </div>
+    <div class='peep_created_at'>
+      <%= peep.created_at.strftime("%Y-%m-%d %I:%M:%p") %>
+    </div>
+  </div>
+<% end %>
