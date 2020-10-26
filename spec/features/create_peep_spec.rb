@@ -17,9 +17,21 @@ feature 'User can make add a peep' do
       fill_in('peep', with: 'This is my third peep!')
       click_button('PEEP')
   
-      expect(page).to have_content('This is my third peep! This is my second peep! This is my first peep!')
+      expect(page).to have_content 'This is my third peep!'
+      expect(page).to have_content 'This is my second peep!'
+      expect(page).to have_content 'This is my first peep!'
     end
   end
+  
+  # feature 'User can see the time a and date a peep was made' do
+  #   scenario 'adds new peep and can see time' do
+  #     visit('/')
+  #     fill_in('peep', with: 'A peep is now timed')
+  #     click_button('PEEP')
+  #     time = Time.now.strftime('%Y-%m-%d %k:%M:%S')
+  #     expect(page).to have_content("A peep is now timed - #{time}")
+  #   end
+  # end
   
 
 

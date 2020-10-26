@@ -39,12 +39,17 @@ bundle
 
 ### To set up the database and tests
 
-Connect to `psql` and create the `chitter` database:
+Connect to `psql` and create the `chitter` databases:
 
 ```
 CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time_and_date TIMESTAMP);
+
+\c chitter;
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time TIMESTAMP);
+
+\c chitter_test
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time TIMESTAMP);
 
 ```
 

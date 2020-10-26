@@ -1,10 +1,19 @@
-<h1>Welcome to Chitter!</h1>
-<form action="/" method="post">
-  <input type="text" id="peep" name="peep">
-  <input type="submit" value ="PEEP">
-</form>
-<%if @messages != nil
-    @messages.reverse.each do |peep| %>
-    <li><%= peep %></li>
-    <% end 
-  end %>
+<body style="background-color:lightblue; margin:0px;">
+<div style="text-align:center;">
+  <h1>Welcome to Chitter!</h1>
+  <form action="/" method="post">
+    <label for="peep">Please peep you're heart out:</label>
+    <input type="text" id="peep" name="peep">
+    <input type="submit" value ="PEEP">
+  </form>
+  <div style="text-align:center">
+    <ul style="padding:0px; width:50%; display:inline-table">
+      <% @messages.reverse.each do |peep| %>
+        <li style="list-style-type:none; border:2px solid blue; margin:2px; text-align:center;">
+        <%= peep.peep %> - <%= peep.time %>
+        </li>
+      <%end%>
+    </ul>
+  <div>
+</div>
+</body>
