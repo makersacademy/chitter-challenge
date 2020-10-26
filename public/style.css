@@ -1,0 +1,25 @@
+.h1 {
+  color: #ff66cc;
+  font-size: 70px;
+  text-align: center;
+  font-family: Raleway;
+}
+.h2 {
+  color:  #ff66cc;
+  text-align: center;
+  font-family: Raleway;
+}
+
+body { 
+  background-color: black;
+  text-align: center; 
+}
+
+li {
+  color:  #ff66cc;
+
+}
+
+p {
+  color: #ffff99
+}
