@@ -5,14 +5,13 @@ require './lib/maker'
 class ChitterManager < Sinatra::Base
 
   get '/' do
-    @user = Maker.find(session[:maker_id])
     erb :index
   end
 
-  get '/peeps' do
+  get '/home' do
     @maker = Maker.find(session[:maker_id])
     @peeps = Peeps.all
-    erb :peeps
+    erb :home
   end
 
   get '/peeps/new' do
@@ -20,8 +19,8 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peeps' do
-    Peeps.create(message_content: params[:message_content])
-    redirect '/peeps'
+    Peeps.create(message_content: params[:message_content], name: params[:name])
+    redirect '/home'
   end
 
   get '/maker/new' do

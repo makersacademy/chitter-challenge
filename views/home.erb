@@ -1,0 +1,15 @@
+<h2>Here is what's going off on your feed right now</h2>
+
+<h4>Don't get addicted to Chitter, it will impact your life negatively and I am gathering juicy data on you..</h4>
+
+<ul>
+  <%@peeps.each do  | peep | %>
+    <li>
+      
+      <p>Peep: <%= peep.message %></p>
+      <p>Peeper: <%=peep.name%></p>
+      <p>Time: <%=peep.time%></p>
+    </li>
+  <% end %>
+</ul>
+

@@ -8,7 +8,7 @@ class Peeps
   def initialize(id:, message_content:, timestamp_utc:, name:)
     @id = id
     @message_content = message_content
-    @timestsamp_utc = timestamp_utc
+    @timestamp_utc = timestamp_utc
     @name = name
   end
 

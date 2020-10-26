@@ -5,6 +5,6 @@ feature 'registration' do
     fill_in('email', with: 'jack@gmail.com')
     click_button('Submit')
 
-    expect(page).to have_content 'Welcome to your feed Jack'
+    expect(page).to have_content 'Here is what is going off on your feed right now'
   end
 end

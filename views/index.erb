@@ -1,9 +1,7 @@
-<h1>Welcome to Chitter, your social media and battle talk platform</h1>
-
 <% if @maker %>
   <h1>Welcome to Chitter, <%= @maker.name %></h1>
 <% end %>
 
-
-<form action="/peeps">
-  <input type="submit" value="I'm ready">
+<form action='/home' method='GET'>
+  <input type='submit' value='Submit'>
+</form>
