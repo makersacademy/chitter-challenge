@@ -5,8 +5,8 @@ class DatabaseConnection
     @connection = PG.connect(dbname: dbname)
   end
 
-  class << self
-    attr_reader :connection
+  def self.connection
+    @connection
   end
 
   def self.query(sql)
