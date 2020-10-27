@@ -30,6 +30,7 @@ class Maker
 
   def self.authenticate(email:, password:)
     result = DatabaseConnection.query("SELECT * FROM makers WHERE email = '#{email}'")
+    return unless result.any?
 
     Maker.new(
       id: result[0]['id'],
