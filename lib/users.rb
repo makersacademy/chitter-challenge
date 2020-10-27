@@ -32,13 +32,13 @@ class Users
     Users.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
   end
 
-  def self.authenticate(email:, password:)
+  def self.authenticate(username:, password:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
+    result = connection.exec("SELECT * FROM users WHERE username = '#{username}'")
     return unless result.any?
     return unless BCrypt::Password.new(result[0]['password']) == password
 

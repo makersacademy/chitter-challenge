@@ -5,7 +5,7 @@ def sign_up(username: 'harrypotter', email: 'harrypotter@gmail.com', password: '
   fill_in :email, with: email
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation
-  click_button 'Sign up'
+  click_button 'Sign Up'
 end
 
 def login(username: 'lovegoodluna', password: 'longbottomforever')

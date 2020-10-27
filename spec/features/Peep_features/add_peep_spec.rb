@@ -1,3 +1,5 @@
+require 'pg'
+
 feature 'Adding a new peep' do
   scenario 'a user can add a peep onto chitter' do
     PG.connect(dbname: 'chitter_test')

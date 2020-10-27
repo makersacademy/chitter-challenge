@@ -1,26 +1,29 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <head>
-  <div class="row">
-    <div>
-      <a href="/users/signup"><div class="btn btn-primary">Sign Up</div></a>
-    </div>
-        <div>
-        <a href="/users/login"><div class="btn btn-primary">Login</div></a>
-    </div>
-      </div>
-        <div>
-        <a href="/users/destroy"><div class="btn btn-primary">Logout</div></a>
-    </div>
-  </div>
+  <form action="/users/signup">
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <form action="/users/login">
+    <input type="submit" value="Login">
+  </form>
 </head>
 
 <% if @user %>
-<h1>Welcome to chitter <%= @user.username %></h1>
+
+  <form action="/sessions/destroy" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Log Out">
+  </form>
+
+  <h1>Welcome to Chitter <%= user.username %></h1>
+
 <% else %>
-<h1>Welcome to chitter!
-<br> Log in or sign up to peep </h1>
+
+  <h1>Welcome to Chitter!
+  <br> Log in or sign up to peep </h1>
+
 <% end %>
 
 <form action='/chitter' method='post'>
@@ -36,5 +39,3 @@
     </li>
     <% end %>
 </ul>
-
- <%= flash[:notice] %>
