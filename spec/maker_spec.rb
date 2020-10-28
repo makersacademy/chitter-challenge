@@ -44,4 +44,10 @@ describe '.authenticate' do
 
     expect(Maker.authenticate(email: 'wrongemail@example.com', password: 'password123')).to be nil
   end
+
+  it 'return nil given incorrect password' do
+    maker = Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
+
+    expect(Maker.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be nil
+  end
 end
