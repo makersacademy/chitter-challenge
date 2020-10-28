@@ -30,7 +30,9 @@ class Maker
 
   def self.authenticate(email:, password:)
     result = DatabaseConnection.query("SELECT * FROM makers WHERE email = '#{email}'")
+
     return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
 
     Maker.new(
       id: result[0]['id'],
