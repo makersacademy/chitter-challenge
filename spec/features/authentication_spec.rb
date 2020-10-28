@@ -22,6 +22,7 @@ feature 'authentication' do
     click_button('Sign out')
 
     expect(page).not_to have_content 'Welcome, rubberduck'
+    expect(page).to have_content 'You have signed out.'
   end
 
   scenario 'a user sees an error if they get their email wrong' do
