@@ -12,4 +12,12 @@ describe DatabaseConnection do
       expect(DatabaseConnection.connection).to eq connection
     end
   end
+
+  describe '.query' do
+    it 'makes and SQL query on the database' do
+      connection = DatabaseConnection.setup('chitter_test')
+      expect(connection).to receive(:exec).with('SELECT * FROM PEEPS;')
+      DatabaseConnection.query('SELECT * FROM PEEPS;')
+    end
+  end
 end
