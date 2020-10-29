@@ -1,5 +1,10 @@
 class DatabaseConnection
+
   def self.setup(db)
-    PG.connect(dbname: "#{db}")
+    @connection = PG.connect(dbname: db)
+  end
+
+  def self.connection
+    @connection
   end
 end
