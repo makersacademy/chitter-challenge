@@ -1,41 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-body {
-  background-color: lightskyblue;
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter sign up</title>
+  </head>
+  <body>
 
-}
-</style>
-</head>
-<body>
+    <h2>Enter your details:</h2>
 
-<h2>Enter your details:</h2>
-<form action="/welcome" method="post">
-<label for="email">
-    Email
-  <input type="text" name="email" >
-  </label>
-  <br>
-  <br>
-  <label for="name">
-  Name
-  <input type="text" name="name" >
-  </label>
-  <br>
-  <br>
-  <label for="password">
-    Password
-  <input type="password" name="password" >
-  </label>
-  <br>
-    <br>
-  <label for="username">
-  Username
-  <input type="text" name="username" >
-  </label>
-  <br>
-  <br>
-  <input type="submit" value="Sign up">
-</body>
+      <form action="/welcome" method="post">
+        <label for="email">Email:</label><br>
+        <input type="text" name="email" ><br>
+        <label for="name">Name:</label ><br>
+        <input type="text" name="name" ><br>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" ><br>
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" ><br><br>
+        <input type="submit" value="Sign up">
+      </form>
+
+  </body>
 </html>

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-body {
-  background-color: lightskyblue;
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h2>Chitter</h2>
 
-}
-</style>
-</head>
-<h2>Chitter</h2>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li><%= peep.message %>  -  <%= peep.time[5..15] %></li>
+      <% end %>
+    </ul>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep.message %>  -  <%= peep.time[5..15] %></li>
-  <% end %>
-</ul>
+    <a href="/peeps/new">Create new peep!</a>
+    <br>
+    <br>
+    <a href="/signup">Sign up</a>
 
-<a href="/peeps/new">Create new peep!</a>
-<br>
-<br>
-<a href="/signup">Sign up</a>
+  </body>
+</html>
