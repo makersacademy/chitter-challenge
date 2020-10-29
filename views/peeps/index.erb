@@ -9,14 +9,12 @@
 
     <ul>
       <% @peeps.each do |peep| %>
-        <li><%= peep.message %>  -  <%= peep.time[5..15] %></li>
+        <li><%= peep.message %>  -  <%= DateTime.parse(peep.time).strftime('%e-%m-%y %H:%M') %></li>
       <% end %>
     </ul>
 
-    <a href="/peeps/new">Create new peep!</a>
-    <br>
-    <br>
-    <a href="/signup">Sign up</a>
+    <a href="/peeps/new">Create new peep!</a><br>
+    <br><a href="/signup">Sign up</a>
 
   </body>
 </html>
