@@ -4,7 +4,7 @@ require 'database_helper'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
+      PG.connect(dbname: 'chitter_test')
 
       Peep.create(message: 'Wow it was hot yesterday...')
       Peep.create(message: 'Busy doing some coding today')
@@ -24,7 +24,7 @@ describe Peep do
       peep = Peep.create(message: 'Great win for Liverpool this week')
       persisted_data = persisted_data(id: peep.id)
       expect(peep).to be_a Peep
-      expect(peep.id).to eq peep.id
+      expect(peep.id).to eq persisted_data['id']
       expect(peep.message).to eq 'Great win for Liverpool this week'
 
     end
