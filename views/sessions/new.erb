@@ -5,6 +5,11 @@
     <title></title>
   </head>
   <body>
+
+    <h3>
+      <%= flash[:notice] %>
+    </h3>
+
     <form action="/sessions" method="post">
       <label for="email">Email:</label><br>
       <input type="text" name="email"><br>

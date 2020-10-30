@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/test' do
     'Testing Chitter App'
