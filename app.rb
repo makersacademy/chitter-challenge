@@ -3,6 +3,7 @@ require './lib/peep'
 require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/test' do
     'Testing Chitter App'
@@ -13,13 +14,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
+    User.create(email: params[:email], name: params[:name],
+      username: params[:username], password: params[:password])
     redirect '/peeps'
   end
 
   get '/peeps' do
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
-
     erb :'peeps/index'
   end
 
