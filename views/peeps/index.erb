@@ -8,6 +8,7 @@
     <h2>Chitter</h2>
     <% if @user %>
       <h4>Welcome, <%= @user.username %></h4>
+      <a href="/peeps/new">Create new peep!</a><br>
     <% end %>
     <ul>
       <% @peeps.each do |peep| %>
@@ -15,7 +16,7 @@
       <% end %>
     </ul>
 
-    <a href="/peeps/new">Create new peep!</a><br>
+
     <br><a href="/users/new">Sign up</a>
 
   </body>
