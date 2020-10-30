@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Chitter</title>
+    <title>Home / Chitter</title>
   </head>
   <body>
     <h2>Chitter</h2>
-
+    <h4>Welcome, <%= @username %></h4>
     <ul>
       <% @peeps.each do |peep| %>
         <li><%= peep.message %>  -  <%= DateTime.parse(peep.time).strftime('%e-%m-%y %H:%M') %></li>
@@ -14,7 +14,7 @@
     </ul>
 
     <a href="/peeps/new">Create new peep!</a><br>
-    <br><a href="/signup">Sign up</a>
+    <br><a href="/users/new">Sign up</a>
 
   </body>
 </html>
