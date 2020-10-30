@@ -6,7 +6,9 @@
   </head>
   <body>
     <h2>Chitter</h2>
-    <h4>Welcome, <%= @username %></h4>
+    <% if @user %>
+      <h4>Welcome, <%= @user.username %></h4>
+    <% end %>
     <ul>
       <% @peeps.each do |peep| %>
         <li><%= peep.message %>  -  <%= DateTime.parse(peep.time).strftime('%e-%m-%y %H:%M') %></li>
