@@ -7,7 +7,7 @@ feature 'signing up to Chitter' do
     fill_in('name', with: 'John Doe')
     fill_in('username', with: 'jdoe1982')
     click_button('Sign up')
-    expect(current_path).to eq 'peeps'
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content('Welcome to Chitter, jdoe1982')
   end
 end
