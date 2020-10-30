@@ -6,6 +6,6 @@ feature 'user sign in' do
     fill_in('email', with: 'ralph.mallett@example.com')
     fill_in('password', with: 'passw0rd')
     click_button('Submit')
-    expect(page).to have_content 'Welcome, Ralph'
+    expect(page).to have_content 'Welcome, ralphm10'
   end
 end
