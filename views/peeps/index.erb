@@ -6,6 +6,11 @@
   </head>
   <body>
     <h2>Chitter</h2>
+
+    <h4>
+      <%= flash[:notice] %>
+    </h4>
+
     <% if @user %>
       <h4>Welcome, <%= @user.username %></h4>
       <a href="/peeps/new">Create new peep!</a><br>
@@ -17,7 +22,12 @@
     </ul>
 
 
-    <br><a href="/users/new">Sign up</a> | <a href="/sessions/new">Sign in</a>
-
+    <br>
+      <a href="/users/new">Sign up</a> |
+      <a href="/sessions/new">Sign in</a><br>
+    <br>
+      <form class="" action="sessions/destroy" method="post">
+        <input type="submit" value="Sign out">
+      </form>
   </body>
 </html>
