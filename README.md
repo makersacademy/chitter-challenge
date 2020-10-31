@@ -1,23 +1,13 @@
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Setting up Testing Environment Database:
 
-Features:
--------
+(1) run psql postgres.
+(2) run: # CREATE DATABASE my_peeps_test;
+(3) exit psql via: \q.
+(4) In the terminal, run: psql my_peeps_test -f ./db/migrations/02_create_test_table.sql 
 
-```
-STRAIGHT UP
+Setting up Development Environment Database:
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+(1) run psql postgres.
+(2) run: # CREATE DATABASE my_peeps;
+(3) exit psql via: \q.
+(4) In the terminal, run: psql my_peeps -f ./db/migrations/01_create_peeps_table.sql

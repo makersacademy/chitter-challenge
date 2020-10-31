@@ -1,8 +1,13 @@
+require 'pg'
+
 class Peep
   def self.all
-    [
-      'My first peep',
-      'My second peep'
-    ]
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'my_peeps_test')
+    else
+      connection = PG.connect(dbname: 'my_peeps')
+    end
+     result = connection.exec('SELECT * FROM peeps;')
+     result.map { |cp| cp['peep'] }
   end
 end
