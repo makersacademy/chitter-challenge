@@ -11,12 +11,14 @@ end
 
 feature 'My peeps page' do
   scenario 'Viewing the Peeps I posted' do
-    Peep.create(peep: 'My first peep')
-    Peep.create(peep: 'My second peep')
+    connection = PG.connect(dbname: 'my_peeps_test')
+    connection.exec("INSERT INTO peeps VALUES (1, 'My first peep')")
+    connection.exec("INSERT INTO peeps VALUES (2, 'My second peep')")
 
     visit('/peep')
 
     expect(page).to have_content "My first peep"
     expect(page).to have_content "My second peep"
+
   end
 end
