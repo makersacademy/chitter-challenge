@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-[![Build Status](https://travis-ci.com/ralphm10/chitter-challenge.svg?branch=master)](https://travis-ci.com/ralphm10/chitter-challenge)
+[![Build Status](https://travis-ci.com/ralphm10/chitter-challenge.svg?branch=master)](https://travis-ci.com/ralphm10/chitter-challenge)<br>
 Challenge:
 -------
 
