@@ -10,12 +10,14 @@
       <%= flash[:notice] %>
     </h3>
 
-    <form action="/sessions" method="post">
-      <label for="email">Email:</label><br>
-      <input type="text" name="email"><br>
-      <label for="title">Password:</label><br>
-      <input type="password" name="password"><br><br>
-      <input type="submit" value="Submit">
-    </form>
-  </body>
+    <div class="form">
+      <form action="/sessions" method="post">
+        <label for="email">Email:</label><br>
+        <input type="text" name="email"><br>
+        <label for="title">Password:</label><br>
+        <input type="password" name="password"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+      </div>
+    </body>
 </html>
