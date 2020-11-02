@@ -2,5 +2,5 @@ CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   message VARCHAR(280),
   time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  user_id INTEGER REFERENCES users;  
+  user_id INTEGER 
 );

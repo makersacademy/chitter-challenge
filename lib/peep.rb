@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'database_connection'
+require_relative 'user'
 
 class Peep
 
@@ -21,7 +22,11 @@ class Peep
 
   def self.create(message:, user_id:)
     result = DatabaseConnection.query("INSERT INTO peeps (message, user_id) VALUES('#{message}', #{user_id})
-    RETURNING id, message, time;")
+    RETURNING id, message, time, user_id;")
     Peep.new(id: result[0]['id'], message: result[0]['message'], time: result[0]['time'], user_id: result[0]['user_id'])
+  end
+
+  def find_author
+    User.find(id: @user_id)
   end
 end
