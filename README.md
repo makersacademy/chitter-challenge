@@ -46,8 +46,14 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+## Getting started
+```
+> git clone https://github.com/ralphm10/chitter-challenge
+> bundle
+```
+Run database migrations below;
 
-Instructions to setup test and production database:
+###Instructions to setup test and production database:
 -----
 
 1. Connect to ``` psql```
@@ -57,7 +63,16 @@ Instructions to setup test and production database:
 ```\c chitter_test;``` or ```\c chitter;```
 4. Run the SQL scripts in the 'db/migrations' folder in the given order
 
+### To run locally
+```
+> rackup
+```
+Go to <code>localhost:9292</code>
 
+## Running tests
+```
+> rspec
+```
 
 Progress and next steps
 ----------------------
