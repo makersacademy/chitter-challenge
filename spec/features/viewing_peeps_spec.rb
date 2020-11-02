@@ -6,9 +6,9 @@ feature 'viewing peeps' do
     fill_in('message', with: 'Heading to the pub later!')
     click_button('Peep')
     click_link 'Create new peep'
-    fill_in('message', with: "Can't belive its Novemeber!")
+    fill_in('message', with: "Better weather today")
     click_button('Peep')
     expect(page).to have_content 'Heading to the pub later!'
-    expect(page).to have_content "Can't belive its Novemeber!"
+    expect(page).to have_content "Better weather today"
   end
 end
