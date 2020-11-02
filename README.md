@@ -53,7 +53,7 @@ I want to receive an email if I am tagged in a Peep
 ```
 Run database migrations below;
 
-###Instructions to setup test and production database:
+### Instructions to setup test and production database:
 -----
 
 1. Connect to ``` psql```
@@ -69,7 +69,7 @@ Run database migrations below;
 ```
 Go to <code>localhost:9292</code>
 
-## Running tests
+### Running tests
 ```
 > rspec
 ```
