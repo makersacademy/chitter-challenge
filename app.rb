@@ -25,6 +25,20 @@ class ChitterApp < Sinatra::Base
         erb(:sign_in)
     end
 
+    get '/log_in/new' do
+        erb(:log_in)
+    end
+
+    post '/log_in' do
+        session[:user] = User.authenticate(username: params[:username], password: params[:password])
+        session[:user_id] = User.authenticate(username: params[:username], password: params[:password]).id
+        if session[:user] != nil
+          redirect '/signed_in'
+        else
+          redirect '/'
+        end
+    end
+
     post '/sign_up' do
        
        user = User.create(username: params['username'], name: params['name'], password: params['password'], email: params['email'])

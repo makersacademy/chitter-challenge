@@ -2,12 +2,18 @@
 
 <body class='body'>
    <h1 class='head'>Chitter</h1>
+   <div class='home_btn'>
     <div class='button'>
         <form action='/sign_in/new' method='get'>
           <input type='submit' value='sign-in'>
         </form>
     </div>
-
+    <div class='button'>
+    <form action='/log_in/new' method='get'>
+      <input type='submit' value='log-in'>
+    </form>
+    </div>
+   </div>
 
 <% @peeps.each do |peep| %>
     <div class='peeps'>
@@ -15,8 +21,10 @@
         <%= peep.time %>
       </div>
     
+      <div class= 'peep'
       <p> <%=peep.peep%> </p>
-      <p class='username'> <%=peep.username%> <%= peep.name%> </p>
+      </div>
+      <p class='username'> <%=peep.username%> </p>
     </div>
     <%end%>
 </body>    
