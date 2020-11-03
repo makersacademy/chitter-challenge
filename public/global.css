@@ -1,0 +1,84 @@
+.body { 
+    background-image: linear-gradient(to bottom right, purple, silver);
+    color: antiquewhite;
+}
+
+.posting {
+    
+    padding: 20px 40px;
+    width: 20%;
+    margin-left: 33em;
+}
+.text {
+        margin-top: 10px;
+        width: 100%;
+        height: 4em;
+        border-radius: 5px;
+        font-size: 20px;
+        resize: none;
+}
+
+.sign_in_form {
+  
+    margin-top: 15em;
+    margin-left: 40em;
+    
+  }
+
+  .sign_in_form input {
+    display: flex;
+    flex-direction: column; 
+    margin: 1em;
+    padding: 1em;
+  }
+
+.peeps {
+  
+    
+    height: 9em;
+    margin-top: 40px;
+    width: 45%;
+    margin-left: 25em;
+    background-color: white;
+    color: purple;
+    border-radius: 1;
+    position:relative;
+   
+}
+
+.time {
+    font-size: 14px;
+}
+
+.peep {
+    text-align: center;
+    margin-top: 0.3em;
+}
+
+.username {
+    font-size: 14px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    margin-right: 0.2em;
+}
+
+.button {
+    padding: 25px 42px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1em;
+    width: 15%;
+}
+
+.home_btn {
+   
+    text-align: center;
+    
+}
+
+.head {
+    text-align: center;
+    color:white;
+}
+

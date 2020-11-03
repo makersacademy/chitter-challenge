@@ -1,0 +1,25 @@
+<link href="<%= url('/global.css') %>" rel="stylesheet" type="text/css" />
+
+<body class='body'>
+   <h1 class='head'>Chitter</h1>
+    <div class='posting'>
+        <form action='/new' method='post'>
+          <textarea class= 'text' maxlength="140" placeholder="Enter a peep!" name='message'></textarea>
+          <input type='submit' value='post'>
+        </form>
+    </div>
+</body>
+
+<% @peeps.each do |peep| %>
+  <div class='peeps'>
+    <div class='time'>
+      <%= peep.time %>
+    </div>
+  
+    <div class= 'peep'
+    <p> <%=peep.peep%> </p>
+    </div>
+    <p class='username'> <%=peep.username%> </p>
+  </div>
+  <%end%>
+</body>
