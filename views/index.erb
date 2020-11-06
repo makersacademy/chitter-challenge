@@ -1,0 +1,68 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+</head>
+
+<style>
+  body {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    background: #99e6ff;
+  }
+
+  .inline {
+   display: inline-block;
+  }
+
+  .button {
+    border: solid 2px;
+    border-radius: 15px;
+    color: #000000;
+    background-color: #FFFFFF;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    width: 100px;
+  }
+
+  .peeps {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-right: 300px;
+    padding-bottom: 20px;
+    padding-left: 300px;
+  }
+
+  .timestamp {
+    text-align: center;
+    font-size: 12px;
+  }
+</style>
+
+<h1> Welcome to Chitter! </h1>
+<h3>
+<% if @user %>
+Welcome <%= @user.name %> - <%= @user.handle %>
+<% end %>
+</h3>
+
+<div class="inline">
+  <form action='/create_peep' method="get">
+    <input class="button" type='submit' value='New Peep'>
+  </form>
+  <form action='/sign_up' method="get">
+    <input class="button" type='submit' value='Sign Up'>
+  </form>
+</div>
+
+<ul><div class="peeps">
+  <% @peeps.each do |peep| %>
+  <%= peep.message %><br>
+  <div class="timestamp">Posted: <%= peep.timestamp %><br><br></div>
+  <% end %>
+</div>
+</ul>
