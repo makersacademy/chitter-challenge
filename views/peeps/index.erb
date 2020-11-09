@@ -17,9 +17,9 @@
     <% end %>
     <ul>
       <% @peeps.each do |peep| %>
-        <li><section>
+        <li><div class="peeps">
           <%= peep.find_author.name %>
-        </section>  @<%= peep.find_author.username %> . <%= DateTime.parse(peep.time).strftime('%H:%M %e-%m-%y ') %><br>
+        </div>  @<%= peep.find_author.username %> &bull; <%= DateTime.parse(peep.time).strftime('%H:%M %e-%m-%y ') %><br>
           <%= peep.message %>
           <% end %>
         </li>

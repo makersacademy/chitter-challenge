@@ -17,10 +17,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    new_user = User.create(email: params[:email], name: params[:name],
-      username: params[:username], password: params[:password])
-    session[:user_id] = new_user.id
-    redirect '/peeps'
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
+    if result.any?
+      flash[:notice] = 'This email is already registered'
+    else
+      new_user = User.create(email: params[:email], name: params[:name],
+        username: params[:username], password: params[:password])
+      session[:user_id] = new_user.id
+      redirect '/peeps'
+    end
   end
 
   get '/peeps' do
