@@ -5,7 +5,7 @@
     <title>Home / Chitter</title>
   </head>
   <body>
-    <h2>Chitter</h2>
+    <h2>Home</h2>
 
     <h4>
       <%= flash[:notice] %>
@@ -17,9 +17,12 @@
     <% end %>
     <ul>
       <% @peeps.each do |peep| %>
-        <p><%= peep.find_author.name %> | @<%= peep.find_author.username %> | <%= DateTime.parse(peep.time).strftime('%e-%m-%y %H:%M') %><br>
+        <li><section>
+          <%= peep.find_author.name %>
+        </section>  @<%= peep.find_author.username %> . <%= DateTime.parse(peep.time).strftime('%H:%M %e-%m-%y ') %><br>
           <%= peep.message %>
-      <% end %>
+          <% end %>
+        </li>
     </ul>
 
 
