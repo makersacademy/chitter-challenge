@@ -25,10 +25,20 @@ describe User do
   describe '.email_exists?' do
     let(:test_user) { User.create(email: 'test@example.com', password: 'password123', name: 'John User', username: 'john82') }
     it 'returns true if the email exists' do
-      expect(test_user.email_exists?(test_user.email)).to eq true
+      expect(User.email_exists?(test_user.email)).to eq true
     end
     it 'returns false if the email does not exist' do
-      expect(test_user.email_exists?('new_email@example.com')).to eq false
+      expect(User.email_exists?('new_email@example.com')).to eq false
+    end
+  end
+
+  describe '.username_exists?' do
+    let(:test_user) { User.create(email: 'test@example.com', password: 'password123', name: 'John User', username: 'john82') }
+    it 'returns true if the email exists' do
+      expect(User.username_exists?(test_user.username)).to eq true
+    end
+    it 'returns false if the email does not exist' do
+      expect(User.username_exists?('Dave')).to eq false
     end
   end
 

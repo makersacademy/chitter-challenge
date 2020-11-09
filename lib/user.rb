@@ -28,8 +28,13 @@ class User
       name: result[0]['name'], username: result[0]['username'])
   end
 
-  def email_exists?(email)
+  def self.email_exists?(email)
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    result.any?
+  end
+
+  def self.username_exists?(username)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
     result.any?
   end
 
