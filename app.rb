@@ -20,6 +20,7 @@ class Chitter < Sinatra::Base
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
     if result.any?
       flash[:notice] = 'This email is already registered'
+      redirect '/sessions/new'
     else
       new_user = User.create(email: params[:email], name: params[:name],
         username: params[:username], password: params[:password])
