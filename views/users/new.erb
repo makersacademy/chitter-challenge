@@ -12,14 +12,14 @@
 
       <form action="/users" method="post">
         <label for="email">Email:</label><br>
-        <input type="text" name="email" ><br>
+        <input type="email" name="email" required><br>
         <label for="name">Name:</label ><br>
-        <input type="text" name="name" ><br>
+        <input type="text" name="name" required><br>
         <label for="password">Password:</label><br>
-        <input type="password" name="password" ><br>
+        <input type="password" name="password" required><br>
         <label for="username">Username:</label><br>
-        <input type="text" name="username" ><br><br>
-        <input type="submit" value="Sign up">
+        <input type="text" name="username" required><br><br>
+        <input class="form-submit" type="submit" value="Sign up">
       </form>
     </div>
   </body>
