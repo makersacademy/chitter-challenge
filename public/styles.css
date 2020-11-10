@@ -62,6 +62,26 @@ input[type=submit]:hover {
   padding: 20px;
 }
 
-.peeps {
+.peep {
   display: inline-block;
+}
+
+.author {
+  font-size: 20px;
+}
+
+.details {
+  color: lightslategray;
+}
+
+li {
+  padding: 15px;
+  width: 100%;
+  border: 1px solid gainsboro;
+
+}
+
+ul {
+  max-width: 500px;
+  margin: auto;
 }

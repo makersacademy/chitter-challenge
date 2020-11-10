@@ -17,9 +17,12 @@
     <% end %>
     <ul>
       <% @peeps.each do |peep| %>
-        <li><div class="peeps">
+        <li><div class="peep author">
           <%= peep.find_author.name %>
-        </div>  @<%= peep.find_author.username %> &bull; <%= DateTime.parse(peep.time).strftime('%H:%M %e-%m-%y ') %><br>
+        </div>
+        <div class="peep details">
+          @<%= peep.find_author.username %> &bull; <%= DateTime.parse(peep.time).strftime('%H:%M  %b %e ') %><br>
+        </div><br>
           <%= peep.message %>
           <% end %>
         </li>
