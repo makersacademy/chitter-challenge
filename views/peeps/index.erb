@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home / Chitter</title>
+  </head>
+  <body>
+    <h2>Home</h2>
+
+    <h4>
+      <%= flash[:notice] %>
+    </h4>
+
+    <% if @user %>
+      <h4>Welcome, <%= @user.username %></h4>
+      <a href="/peeps/new">Create new peep!</a><br>
+    <% end %>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li><div class="peep author">
+          <%= peep.find_author.name %>
+        </div>
+        <div class="peep details">
+          @<%= peep.find_author.username %> &bull; <%= DateTime.parse(peep.time).strftime('%H:%M  %b %e ') %><br>
+        </div><br>
+          <%= peep.message %>
+          <% end %>
+        </li>
+    </ul>
+
+
+    <br>
+      <a href="/users/new">Sign up</a> |
+      <a href="/sessions/new">Sign in</a><br>
+    <br>
+      <form class="" action="sessions/destroy" method="post">
+        <input type="submit" value="Sign out">
+      </form>
+  </body>
+</html>
