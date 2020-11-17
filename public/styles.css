@@ -68,6 +68,7 @@ input[type=submit]:hover {
 
 .author {
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .details {
@@ -83,5 +84,7 @@ li {
 
 ul {
   max-width: 500px;
+  padding-right: 80px;
   margin: auto;
+  list-style-type: none;
 }

@@ -22,7 +22,7 @@ class Peep
   end
 
   def self.create(message:, user_id:)
-    result = DatabaseConnection.query("INSERT INTO peeps (message, user_id) VALUES('#{message}',
+    result = DatabaseConnection.query("INSERT INTO peeps (message, user_id) VALUES(#{DatabaseConnection.connection.escape_literal(message)},
     #{user_id}) RETURNING id, message, time, user_id;")
     Peep.new(id: result[0]['id'], message: result[0]['message'],
       time: result[0]['time'], user_id: result[0]['user_id'])
