@@ -61,8 +61,11 @@ If you'd like more technical challenge now, try using an [Object Relational Mapp
 
 Some useful resources:
 **DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
+- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
+
+**Ruby Object Mapper**
+- [ROM](https://rom-rb.org/)
 
 **ActiveRecord**
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
