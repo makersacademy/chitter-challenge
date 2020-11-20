@@ -1,0 +1,15 @@
+<h2>Chitters are saying...</h2>
+<br>
+<ul>
+  <% @chits.each do |chit| %>
+    <li><%= chit.message %> - <%= chit.time[5..15] %></li>
+    <br>
+
+  <% end %>
+</ul>
+
+
+<form action="/chits/add" method="post">
+  <input type="text" name="message" />
+  <input type="submit" value="Post Chit" />
+</form>
