@@ -6,5 +6,5 @@ def setup_test_database
   # connection = PG.connect(dbname: 'INSERT DATABASE NAME HERE')
   #
   # # Clear test table
-  # connection.exec("TRUNCATE bookmarks;")
+  # connection.exec("TRUNCATE PUT_TABLE_HERE;")
 end
