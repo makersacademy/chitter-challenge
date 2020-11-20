@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
   background: #ff00cc; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -15,8 +17,26 @@ body {
 .login-box {
   margin: auto;
   margin-top: 10em;
+  transform: rotate(3deg);
 }
 
 .window-body {
   display: inline;
+}
+
+.login-friend {
+    float: right;
+}
+
+.logo {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: greenyellow;
+}
+
+.info {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 6em;
 }
