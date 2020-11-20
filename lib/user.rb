@@ -24,4 +24,9 @@ class User
     User.new(id: result[0]['id'], peep: result[0]['peep'])
   end
 
+  def time
+    newtime = DatabaseConnection.query("SELECT * FROM peeps WHERE id=1;")
+    newtime[0]['peeped_at'].to_s
+  end
+
 end
