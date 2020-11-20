@@ -1,0 +1,28 @@
+<style>
+body{
+background-image: url("https://pbs.twimg.com/media/DMDIKcyWsAEsKDj.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+font-family : Helvetica;
+color: white;
+text-align: center;
+}
+h3 {
+margin-top: 35px;
+margin-bottom: 25px;
+
+}
+hr {
+	width: 20%;
+}
+
+
+</style>
+<body>
+<h3>
+<% @peeps.reverse_each do |peep| %>
+<%= peep.content%><br> posted at: <%= peep.create_date%> <hr> 
+<% end %>
+</h3>
+</body>
