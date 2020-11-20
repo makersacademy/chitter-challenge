@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <%= flash[:notice] %>
+    <% if @user %>
+      <p> Here's what your friends have been saying, <%= @user.name %>.</p>
+    <% end %>
+    <form action='/chitter/peep/new' method='get'>
+      <input type='submit' value='New Peep'>
+    </form>
+    <div class='peep'>
+      <% @peeps.reverse_each do |peep| %>
+        <p class='user_data'><%= peep.user_name %>(<%= peep.user_handle%>) <%= peep.time %>
+        <p class='content'><%= peep.content %><p>
+      <% end %> 
+    </div>
+    <form action="/users/new" method="get">
+      <input type="submit" value="Sign up" />
+    </form>
+    <form action="/chitter/sessions/new" method="get">
+      <input type="submit" value="Sign in" />
+    </form>
+    <form action="/chitter/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
+  </body>
+</html>

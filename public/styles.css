@@ -1,0 +1,34 @@
+body {
+  background-color: linen;
+  font-family: 'Courier New', Courier, monospace;
+  margin: auto;
+  text-align: center;
+  }
+
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+  width: 50%
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: white;
+  border: 2px black;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+.user_data {
+  font-weight: bold;
+}
+
+.peep {
+  background-color: white;
+  font-family: 'Courier New', Courier, monospace;
+  border: 2px solid black;
+  }
+
+  .post_peep {
+    padding:10px;
+  }
