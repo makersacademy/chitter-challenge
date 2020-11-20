@@ -18,6 +18,11 @@ body {
   margin: auto;
   margin-top: 10em;
   transform: rotate(3deg);
+  width: 400px;
+}
+
+.login-box input {
+    width: 200px;
 }
 
 .window-body {
