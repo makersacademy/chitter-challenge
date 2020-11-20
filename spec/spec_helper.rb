@@ -1,4 +1,3 @@
-require_relative '../app.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'
@@ -13,9 +12,9 @@ RSpec.configure do |config|
   end
 end
 
-Capybara.app = Chitter
-
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+Capybara.app = Chitter
 
 require 'capybara'
 require 'capybara/rspec'
@@ -29,12 +28,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 Capybara.app = Chitter
-
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
 
 
 RSpec.configure do |config|
