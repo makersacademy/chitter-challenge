@@ -1,5 +1,6 @@
 /**/.DS_Store
 /coverage
+.bundle/
 
 # Local cache of Rubocop remote config
 .rubocop-*

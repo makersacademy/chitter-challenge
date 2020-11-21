@@ -1,0 +1,12 @@
+<h1>Welcome to Chitter</h1>
+<h2>Post a peep 👇</h2>
+<form action="/" method="post">
+  <input type="text" name="peep" />
+  <input type="submit" value="Post" />
+</form>
+<h2>Past peeps 👇</h2>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
