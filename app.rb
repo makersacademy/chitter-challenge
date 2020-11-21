@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, 'public') }
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all.sort_by(&:time).reverse
     erb(:index)
   end
 
