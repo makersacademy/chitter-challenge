@@ -3,16 +3,25 @@ body {
     background-color: #f4f5f6;
 }
 
-.container {
-    width: 95%;
-    margin: auto;
-    margin-top: 2em;
-}
-
 h1 {
   text-align: center;
   color: #51a7e0;
 }
+
+ul {
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+    margin-top: 0.5em;
+}
+
+.container ul { list-style: none; }
+
+/* Main Page */
 
 .left { width: 47.5%; }
 
@@ -21,17 +30,44 @@ h1 {
   text-align: right;
 }
 
+.peep-list {
+  width: 70%;
+  padding: 5px;
+  margin: auto;
+  margin-top: 1em;
+  border: 1px solid #51a7e0;
+}
+
+.peep-display {
+  border: 1px solid #51a7e0;
+  padding: 5px;
+}
+
+.peep-display:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+/* Sign up page */
+
 .sign-up-box {
   width: 13%;
   margin-left: 43.5%;
   padding: 5px;
-  border-radius: 0px;
   border: 2px solid #51a7e0;
 }
 
 .sign-up-box form input:last-of-type {
   margin-top: 5px;
   margin-left: 33px;
+}
+
+/* New peep page */
+
+.peep-box {
+  width: 25%;
+  margin-left: 35%;
+  padding: 5px;
+  border: 2px solid #51a7e0;
 }
 
 /* Reusable row */

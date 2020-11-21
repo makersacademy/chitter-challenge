@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, 'public') }
 
   get '/' do
+    @peeps = Peep.all
     erb(:index)
   end
 
@@ -16,6 +17,15 @@ class Chitter < Sinatra::Base
 
   post '/user/new' do
     session[:user] = User.create(params[:username])
+    redirect '/'
+  end
+
+  get '/peep/new' do
+    erb(:new_peep)
+  end
+
+  post '/peep/new' do
+    Peep.create(@current_user.id, params[:content], Time.now.strftime("%Y/%m/%d"), Time.now.strftime("%H:%M:%S"))
     redirect '/'
   end
 
