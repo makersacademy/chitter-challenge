@@ -12,4 +12,11 @@ feature 'Posting peeps' do
     expect(page).to have_button('Post')
   end
 
+  scenario 'Adding a peep to Chitter' do
+    visit('/post_peep')
+    fill_in('peep', with: 'This is a test peep!')
+    click_button('Post')
+
+    expect(page).to have_link('Peep it!')
+  end
 end

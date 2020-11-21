@@ -4,7 +4,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative '../app.rb'
-# require_relative './setup_test_database.rb'
+require_relative './setup_test_database.rb'
 
 ENV['RACK_ENV'] = 'test'
 # ENV['ENVIRONMENT'] = 'test'
