@@ -19,3 +19,25 @@ body {
     text-align: center;
     color: greenyellow;
 }
+
+.registration-form {
+    background-color: lightgray;
+    border: thin dashed black;
+    width: 50%;
+    padding: 15px;
+    margin: auto;
+}
+
+.registration-form input {
+    margin: 5px;
+    width: 200px;
+}
+
+.registration-form button {
+    margin: 5px;
+}
+
+.registration-form h4 {
+    letter-spacing: 10px;
+    text-shadow: 2px 2px #ff00cc;
+}
