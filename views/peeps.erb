@@ -1,0 +1,8 @@
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+        <%= peep.username %> <br>
+        <%= peep.peep %> <br>
+        <%= peep.lastmodified %> <br>
+        <br>
+  <% end %>
+</ul>
