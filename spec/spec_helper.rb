@@ -5,7 +5,9 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
+require 'capybara/dsl'
 require 'rspec'
+require_relative './setup_test_database'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -16,9 +18,9 @@ SimpleCov.start
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-  # config.before(:each) do
-  #   setup_test_database
-  # end
+  config.before(:each) do
+    setup_test_database
+  end
 
   config.after(:suite) do
     puts

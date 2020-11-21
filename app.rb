@@ -29,7 +29,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    unless User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    unless User.create(name: params[:name], 
+                      username: params[:username], 
+                      email: params[:email], 
+                      password: params[:password]
+                      )
       flash[:notice] = 'You must submit a valid email address.' 
     else
       redirect '/signed_up'
