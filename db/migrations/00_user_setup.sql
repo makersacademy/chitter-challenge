@@ -17,3 +17,6 @@ INSERT INTO users (email, password, name, username) VALUES (
   'John Doe', 
   'johndoe1' 
 );
+
+## Details on Passwords Here:
+https://medium.com/@alexishevia/storing-passwords-securely-with-postgresql-and-pgcrypto-87151a318998
