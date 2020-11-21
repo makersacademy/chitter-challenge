@@ -2,9 +2,8 @@ require 'pg'
 
 class Peep
   def self.all
-    [
-      'This is my first peep',
-      'Why have you used my identity?'
-     ]
+    connection = PG.connect(dbname: 'chitter_challenge')
+    result = connection.exec('SELECT * FROM peeps;')
+    result.map { |peep| peep['script'] }
   end
 end
