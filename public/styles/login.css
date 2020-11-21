@@ -35,7 +35,6 @@ body {
 }
 
 .login-box .form-action-button {
-  margin-bottom: 5px;
   margin-left: 15px;
 }
 
@@ -60,4 +59,8 @@ body {
     margin-top: 6em;
     font-family: 'Tinos', serif;
     letter-spacing: 30px;
+}
+
+.window-buttons {
+  display: flex;
 }

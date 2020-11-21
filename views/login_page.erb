@@ -23,6 +23,7 @@
       </div>
       <div class="window-body">
         <img src="images/kawaii.png" class="login-friend">
+        <form action="/session/new" method="post">
         <div class="field-row">
           <label for="username">Username</label>
           <input id="username" type="text" />
@@ -32,10 +33,13 @@
           <input id="password" type="password" />
         </div>
         <br>
-        <form>
+        <div class="window-buttons">
         <button class="form-action-button" name="login"><u>G</u>o Online</button>
+        </form>
+        <form>
         <button class="form-action-button" name="register" formaction="/create-account"><u>R</u>egister</button>
         </form>
+        </div>
       </div>
     </div>
     <div class="tag-line">
