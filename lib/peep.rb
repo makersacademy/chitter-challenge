@@ -22,4 +22,12 @@ class Peep
 
     Peep.new(id: results[0]['id'], time: DateTime.parse(results[0]['datetimeposted']), body: results[0]['body'], author: author)
   end
+
+  def self.all
+    results = DatabaseConnection.query("SELECT * FROM peeps ORDER BY datetimeposted DESC;")
+    results.map do |peep|
+      author = DatabaseConnection.query("SELECT username FROM users WHERE id='#{peep['user_id']}';")[0]['username']
+      Peep.new(id: peep['id'], time: DateTime.parse(peep['datetimeposted']), body: peep['body'], author: author)
+    end
+  end
 end

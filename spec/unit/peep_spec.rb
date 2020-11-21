@@ -35,4 +35,23 @@ describe Peep do
       expect(find_result.body).to eq(example_peep.body)
     end
   end
+
+  describe ".all" do
+    it "returns a list of one peep when there is one entry" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      example_peep = Peep.create(body: "Hello World", user_id: user.id)
+      all_peeps = Peep.all
+      expect(all_peeps.first.id).to eq(example_peep.id)
+      expect(all_peeps.first.body).to eq(example_peep.body)
+    end
+
+    it "returns multiple peeps in list with newest first" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      old_peep = Peep.create(body: "Hello World", user_id: user.id)
+      new_peep = Peep.create(body: "Hello World", user_id: user.id)
+      all_peeps = Peep.all
+      expect(all_peeps.first.id).to eq(new_peep.id)
+      expect(all_peeps.last.id).to eq(old_peep.id)
+    end
+  end
 end
