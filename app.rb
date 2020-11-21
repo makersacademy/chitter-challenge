@@ -1,3 +1,4 @@
+require 'dotenv/load'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './database_connection_setup.rb'
@@ -5,6 +6,7 @@ require './lib/user'
 
 class ChitterController < Sinatra::Base
   enable :sessions
+  set :session_secret, ENV['SESSION_SECRET']
   register Sinatra::Flash
 
   get '/' do
