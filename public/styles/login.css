@@ -34,8 +34,8 @@ body {
     width: 200px;
 }
 
-.login-box .form-action-button {
-  margin-left: 15px;
+.login-box button {
+  margin-left: 20px;
 }
 
 .window-body {

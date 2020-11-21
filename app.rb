@@ -41,6 +41,12 @@ class ChitterController < Sinatra::Base
     end    
   end
 
+  get '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'you have logged off.'
+    redirect('/')
+  end
+
   get '/app' do
     erb(:app)
   end
