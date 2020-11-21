@@ -8,8 +8,22 @@
   </head>
 
   <body>
+    <div class="row">
+      <h1> Chitter </h1>
+    </div>
     <div class="container">
-      <p> Test </p>
+      <div class="row greeting">
+        <% if @current_user %>
+          <div class="col left">
+            <p>Welcome <%= @current_user.username %></p>
+          </div>
+          <div class="col right">
+            <p>Click here to make a new peep</p>
+          </div>
+        <% else %>
+          <p>Not signed in - click <a href='/user/new'>here</a> to sign up</p>
+        <% end %>
+      </div>
     </div>
   </body>
 

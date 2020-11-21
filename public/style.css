@@ -9,6 +9,31 @@ body {
     margin-top: 2em;
 }
 
+h1 {
+  text-align: center;
+  color: #51a7e0;
+}
+
+.left { width: 47.5%; }
+
+.right {
+  width: 47.5%;
+  text-align: right;
+}
+
+.sign-up-box {
+  width: 13%;
+  margin-left: 43.5%;
+  padding: 5px;
+  border-radius: 0px;
+  border: 2px solid #51a7e0;
+}
+
+.sign-up-box form input:last-of-type {
+  margin-top: 5px;
+  margin-left: 33px;
+}
+
 /* Reusable row */
 
 .row:before,
@@ -37,12 +62,12 @@ input[type=submit] {
     text-decoration: none;
     border-radius: 200px;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
-    color: #e3301e;
-    border: 1px solid #e3301e;
+    color: #51a7e0;
+    border: 1px solid #51a7e0;
 }
 
 input[type=submit]:hover,
 input[type=submit]:active {
-    background-color: #e3301e;
-    color: #fff;
+    background-color: #51a7e0;
+    color: #f4f5f6;
 }
