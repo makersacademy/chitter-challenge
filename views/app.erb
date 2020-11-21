@@ -18,5 +18,8 @@
         <button>Log Off</button>
     </span>
     </div>
+     <%Peep.all.each do |peep|%>
+    <p><%=peep.body %></p>
+    <%end%>
   </body>
 </html>
