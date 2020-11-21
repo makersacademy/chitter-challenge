@@ -19,5 +19,34 @@ describe User do
       expect(BCrypt::Password).to receive(:create).with('1234')
       User.create(username: "partario", email: "test@email.com", password: "1234")
     end
+
+    it "returns false if username exists" do
+      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      partario2 = User.create(username: "partario", email: "different@email.com", password: "1234")
+      expect(partario2).to eq(false)
+    end
+
+    it "returns false if email exists" do
+      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      not_partario = User.create(username: "vera", email: "test@email.com", password: "1234")
+      expect(not_partario).to eq(false)
+    end
+
+    it "doesn't make anything case sensitive (except password)" do
+      partario = User.create(username: "PARTARIO", email: "TEST@EMAIL.COM", password: "1234")
+      returned_user = User.find(partario.id)
+      expect(returned_user.username).to eq(partario.username.downcase)
+      expect(returned_user.email).to eq(partario.email.downcase)
+    end
+  end
+
+  describe ".find" do
+    it "returns a User matching the specified ID" do
+      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      returned_user = User.find(partario.id)
+      expect(returned_user.id).to eq(partario.id)
+      expect(returned_user.username).to eq(partario.username)
+      expect(returned_user.email).to eq(partario.email)
+    end
   end
 end
