@@ -42,8 +42,16 @@ class ChitterController < Sinatra::Base
   end
 
   get '/app' do
-    # "Welcome #{session[:user].username}!"
     erb(:app)
+  end
+
+  get '/app/new-peep' do
+    erb(:new_peep)
+  end
+
+  post '/app' do
+    Peep.create(body: params[:content], user_id: session[:user].id)
+    redirect('/app')
   end
 
   run! if app_file == $0

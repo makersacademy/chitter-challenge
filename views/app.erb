@@ -14,8 +14,10 @@
         <p>【 User: <%= session[:user].username%> 】</p>
     </span>
     <span class="user-bar-buttons">
-        <button>New Peep</button>
+        <form>
+        <button formaction="/app/new-peep">New Peep</button>
         <button>Log Off</button>
+        </form>
     </span>
     </div>
      <%Peep.all.each do |peep|%>

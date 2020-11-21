@@ -9,8 +9,8 @@ feature "New peep" do
     expect(current_path).to eq('/app')
     click_button('New Peep')
     expect(current_path).to eq('/app/new-peep')
-    fill_in('body', with: 'Hello World!')
-    click_button('Post Peep')
+    fill_in('content', with: 'Hello World!')
+    click_button('Submit')
     expect(current_path).to eq('/app')
     expect(page).to have_content(/Hello World!/)
   end
