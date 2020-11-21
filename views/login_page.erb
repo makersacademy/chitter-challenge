@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ｃｈｉｔｔｅｒ　（なゅ温）</title>
     <link rel="stylesheet" href="https://unpkg.com/98.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./styles/login.css">
   </head>
-  <style>
-    body {
-      background-color: lightgrey;
-    }
-  </style>
   <body>
     <header>
       <h1 class="logo">Chitter</h1>
@@ -36,8 +31,10 @@
           <input id="password" type="text" />
         </div>
         <br>
-        <button class="form-action-button"><u>G</u>o Online</button>
-        <button class="form-action-button"><u>R</u>egister</button>
+        <form>
+        <button class="form-action-button" name="login"><u>G</u>o Online</button>
+        <button class="form-action-button" name="register" formaction="/create-account"><u>R</u>egister</button>
+        </form>
       </div>
     </div>
     <div class="tag-line">
