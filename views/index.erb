@@ -1,0 +1,12 @@
+<ul>
+  <% @peep.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      "<%= peep.peep %>"
+      <form action="/peep/edit/<%= peep.id %>" method="get">
+        <input type="submit" value="Edit" />
+      </form>
+    </li>
+  <% end %>
+</ul>
+
+<a href= '/peeping' > Post peep! </a>
