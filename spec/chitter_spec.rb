@@ -22,4 +22,9 @@ describe Peep do
     expect(new_peep.id).to eq persisted_data['id']
     expect(new_peep.peep).to eq 'Testing... testing! 1, 2, 3!'
   end
+
+  it 'readable_time' do
+    new_peep = Peep.peep(peep: 'Testing... testing! 1, 2, 3!')
+    expect(new_peep.readable_time).to eq Time.new.strftime("%k:%M %d/%m/%Y")
+  end
 end
