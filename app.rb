@@ -44,5 +44,13 @@ class Chitter < Sinatra::Base
     erb :signed_up
   end
 
+  get '/sign-in' do
+    erb :sign_in
+  end
+
+  post '/sign-in' do
+    redirect '/timeline'
+  end
+
   run! if app_file == $0
 end
