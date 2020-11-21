@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ｃｈｉｔｔｅｒ　（なゅ温）</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="./styles/app.css">
+  </head>
+  <body>
+    <div class="notice"><%= flash[:notice] %></div>
+    <div class="user-bar">
+    <span class="username">
+        <p>【 User: <%= session[:user].username%> 】</p>
+    </span>
+    <span class="user-bar-buttons">
+        <button>New Peep</button>
+        <button>Log Off</button>
+    </span>
+    </div>
+  </body>
+</html>

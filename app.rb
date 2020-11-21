@@ -40,7 +40,8 @@ class ChitterController < Sinatra::Base
   end
 
   get '/app' do
-    "Welcome #{session[:user].username}!"
+    # "Welcome #{session[:user].username}!"
+    erb(:app)
   end
 
   run! if app_file == $0
