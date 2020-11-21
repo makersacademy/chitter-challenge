@@ -12,6 +12,14 @@ class Chitter < Sinatra::Base
     erb :'/view'
   end
 
+  get '/post' do
+    erb :'/post'
+  end
+
+  post '/view' do
+    Peep.create(message: params[:message])
+    redirect '/view'
+  end
 
 
 
