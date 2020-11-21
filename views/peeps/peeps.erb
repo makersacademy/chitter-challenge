@@ -1,4 +1,10 @@
 <ul>
+<a href ='/peeps/new'>Peep</a>
+</ul>
+
+
+
+<ul>
   <% @peeps.reverse_each do |peep| %>
         <%= peep.username %> <br>
         <%= peep.peep %> <br>
@@ -6,3 +12,5 @@
         <br>
   <% end %>
 </ul>
+
+

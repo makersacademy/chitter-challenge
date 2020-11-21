@@ -20,8 +20,16 @@ class Peeps
     result.map do |peep|
       Peeps.new(id: peep['id'], username: peep['username'],peep: peep['peep'], lastmodified: peep['lastmodified'])
     end
-
-  
   end
+
+  def self.create(username: , peep: )
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    connection.exec("INSERT INTO peeps (username, peep) VALUES('#{username}', '#{peep}')")
+  end
+
 
 end

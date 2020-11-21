@@ -42,5 +42,17 @@ describe Peeps do
     end
   end
 
+  describe '.create' do
+    it "Adds a new entry to the database" do
+     expect(Peeps.all).to be_empty
+     Peeps.create(username: "Test", peep: "Test peep")
+     peeps = Peeps.all
+     expect(peeps[0].id).not_to eq nil
+     expect(peeps[0].username).to eq "Test"
+     expect(peeps[0].peep).to eq "Test peep"
+    end
+    
+  end
+
 
 end
