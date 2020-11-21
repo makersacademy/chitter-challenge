@@ -34,7 +34,7 @@ body {
     width: 200px;
 }
 
-.login-box button {
+.login-box .window-buttons button {
   margin-left: 20px;
 }
 
