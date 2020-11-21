@@ -10,4 +10,13 @@ feature "Log In" do
     expect(current_path).to eq('/app')
     expect(page).to have_content(/partario/)
   end
+
+  scenario "returns to login page with invalid details" do
+    visit('/')
+    fill_in('username', with: 'partario')
+    fill_in('password', with: '1234')
+    click_button('Go online')
+    expect(current_path).to eq('/')
+    expect(page).to have_content(/invalid/)
+  end
 end

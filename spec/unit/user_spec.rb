@@ -62,5 +62,10 @@ describe User do
       returned_user = User.authenticate(username: "partario", password: "4321")
       expect(returned_user).to eq(false)
     end
+
+    it "returns false if username doesn't exist" do
+      returned_user = User.authenticate(username: "partario", password: "4321")
+      expect(returned_user).to eq(false)
+    end
   end
 end

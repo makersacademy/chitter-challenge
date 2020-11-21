@@ -27,8 +27,14 @@ class ChitterController < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:user] = User.authenticate(username: params[:username], password: params[:password])
-    redirect('/app')
+
+    if user
+      session[:user] = user
+      redirect('/app')
+    else
+      flash[:notice] = "Account name or password invalid, try again!"
+      redirect('/')
+    end    
   end
 
   get '/app' do
