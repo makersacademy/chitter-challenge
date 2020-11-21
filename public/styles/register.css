@@ -14,6 +14,15 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.notice {
+    font-family: 'Tinos', serif;
+    font-size: x-large;
+    color: red;
+    text-align: center;
+    margin: auto;
+    letter-spacing: 20px;
+  }
+
 .logo {
     font-family: 'Press Start 2P', cursive;
     text-align: center;
