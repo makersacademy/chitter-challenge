@@ -26,7 +26,13 @@ class ChitterController < Sinatra::Base
   end
 
   post '/sessions' do
-    p params
+    user = User.authenticate(username: params[:username], password: params[:password])
+    session[:user] = User.authenticate(username: params[:username], password: params[:password])
+    redirect('/app')
+  end
+
+  get '/app' do
+    "Welcome #{session[:user].username}!"
   end
 
   run! if app_file == $0
