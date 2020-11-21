@@ -49,4 +49,18 @@ describe User do
       expect(returned_user.email).to eq(partario.email)
     end
   end
+
+  describe ".authenticate" do
+    it "returns the user if given a correct username and password combo" do
+      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      returned_user = User.authenticate(username: "partario", password: "1234")
+      expect(returned_user.id).to eq(partario.id)
+    end
+
+    it "returns false if given an incorrect combo" do
+      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      returned_user = User.authenticate(username: "partario", password: "4321")
+      expect(returned_user).to eq(false)
+    end
+  end
 end
