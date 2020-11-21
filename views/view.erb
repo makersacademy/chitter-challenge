@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+h1 {
+  text-align: center;
+}
+form {
+  text-align: center;
+}
+</style>
+</head>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
