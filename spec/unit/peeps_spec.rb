@@ -29,29 +29,37 @@ describe Peeps do
     it 'Returns a ruby object containing information from the SQL database' do
     
       connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO peeps (username, peep) VALUES ('rorschach12', 'I am not sure if I am qualified to be doing this')")
-      connection.exec("INSERT INTO peeps (username, peep) VALUES ('SlowSally123', 'SQL is quite hard eh?!')")
-      connection.exec("INSERT INTO peeps (username, peep) VALUES ('AndyH21', 'Why. Just why.')")
+      Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
+      Peeps.create(username: 'SlowSally123', peep: 'SQL is quite hard eh?!')
+      Peeps.create(username: 'AndyH21', peep: 'Why. Just why.')
 
       peeps = Peeps.all
 
       expect(peeps[0].username).to eq "rorschach12"
       expect(peeps[0].peep).to eq "I am not sure if I am qualified to be doing this"
-      # expect(peeps[0].lastmodified).to eq Time.now
+      expect(peeps[0].lastmodified).to eq Time.now.strftime("%d/%m/%Y %k:%M")
       expect(peeps.length).to eq 3
     end
   end
 
   describe '.create' do
     it "Adds a new entry to the database" do
-     expect(Peeps.all).to be_empty
      Peeps.create(username: "Test", peep: "Test peep")
      peeps = Peeps.all
      expect(peeps[0].id).not_to eq nil
      expect(peeps[0].username).to eq "Test"
      expect(peeps[0].peep).to eq "Test peep"
     end
-    
+  end
+
+  describe '#time_formatter' do
+    it "Formats the time" do
+      connection = PG.connect(dbname: 'chitter_test')
+      Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
+      peeps = Peeps.all
+      peeps[0].lastmodified
+
+    end
   end
 
 

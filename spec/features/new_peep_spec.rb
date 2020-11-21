@@ -2,9 +2,9 @@ feature "Post new peep" do
   scenario "User can post a new peep" do
 
     connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (username, peep) VALUES ('rorschach12', 'I am not sure if I am qualified to be doing this')")
-    connection.exec("INSERT INTO peeps (username, peep) VALUES ('SlowSally123', 'SQL is quite hard eh?!')")
-    connection.exec("INSERT INTO peeps (username, peep) VALUES ('AndyH21', 'Why. Just why.')")
+    Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
+    Peeps.create(username: 'SlowSally123', peep: 'SQL is quite hard eh?!')
+    Peeps.create(username: 'AndyH21', peep: 'Why. Just why.')
     
     visit '/peeps'
     expect(page).not_to have_content 'testuser'
