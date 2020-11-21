@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tinos&display=swap');
 
 body {
   background: #ff00cc; /* fallback for old browsers */
@@ -25,6 +25,11 @@ body {
     width: 200px;
 }
 
+.login-box .form-action-button {
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+
 .window-body {
   display: inline;
 }
@@ -39,9 +44,11 @@ body {
     color: greenyellow;
 }
 
-.info {
+.tag-line {
     font-size: 15px;
     font-weight: bold;
     text-align: center;
     margin-top: 6em;
+    font-family: 'Tinos', serif;
+    letter-spacing: 30px;
 }
