@@ -10,7 +10,8 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li>
-        <p><%= peep.text %></p>
+        <p><%= peep.text %><br>
+        Chitted at: <%= peep.created_at %></p>
       </li>
     <% end %>
   </ul>
