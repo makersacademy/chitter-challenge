@@ -11,3 +11,4 @@ end
 gem 'rack'
 gem 'sinatra'
 gem 'pg'
+gem 'bcrypt'
