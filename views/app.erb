@@ -20,8 +20,23 @@
         </form>
     </span>
     </div>
+    <div class="all-peeps">
      <%Peep.all.each do |peep|%>
+     <div class="window" style="width: 300px">
+  <div class="title-bar">
+    <div class="title-bar-text"><%=peep.author %> - <%=peep.time %> なゅ温</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
     <p><%=peep.body %></p>
+  </div>
+</div>
+    <p></p>
     <%end%>
+    </div>
   </body>
 </html>
