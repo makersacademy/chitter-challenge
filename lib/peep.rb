@@ -15,4 +15,11 @@ class Peep
 
     Peep.new(id: results[0]['id'], time: DateTime.parse(results[0]['datetimeposted']), body: results[0]['body'], author: author)
   end
+
+  def self.find(id)
+    results = DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{id}'")
+    author = DatabaseConnection.query("SELECT username FROM users WHERE id='#{results[0]['user_id']}';")[0]['username']
+
+    Peep.new(id: results[0]['id'], time: DateTime.parse(results[0]['datetimeposted']), body: results[0]['body'], author: author)
+  end
 end

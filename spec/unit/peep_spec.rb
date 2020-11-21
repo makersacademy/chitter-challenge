@@ -25,4 +25,14 @@ describe Peep do
       expect(example_peep.author).to eq(user.username)
     end
   end
+
+  describe ".find" do
+    it "returns a peep object with the specified ID" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      example_peep = Peep.create(body: "Hello World", user_id: user.id)
+      find_result = Peep.find(example_peep.id)
+      expect(find_result.id).to eq(example_peep.id)
+      expect(find_result.body).to eq(example_peep.body)
+    end
+  end
 end
