@@ -1,5 +1,5 @@
 <% if @profile %>
-  <h1>Welcome, <%= @profile.email %></h1>
+  <h1>Welcome, <%= @profile.name %></h1>
 <% end %>
 <ul>
   <% @peeps.reverse_each do |peep| %>
