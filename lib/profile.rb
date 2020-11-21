@@ -1,9 +1,11 @@
+require 'bcrypt'
 require_relative 'database_connection'
 
 class Profile
 
   def self.create(email:, password:, name:, username:)
-    result = DatabaseConnection.query("INSERT INTO users (email, password, name, username) VALUES('#{email}', '#{password}', '#{name}', '#{username}') RETURNING id, email, name, username;")
+    encrypted_password = BCrypt::Password.create(password)
+    result = DatabaseConnection.query("INSERT INTO users (email, password, name, username) VALUES('#{email}', '#{encrypted_password}', '#{name}', '#{username}') RETURNING id, email, name, username;")
     Profile.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'], username: result[0]['username'])
   end
 
