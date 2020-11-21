@@ -11,6 +11,9 @@ end
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("INSERT INTO peeps VALUES(1, 'First test peep');")
+    connection.exec("INSERT INTO peeps VALUES(2, 'Another test peep');")
     visit('/')
     expect(page).to have_content "Welcome to Chitter"
     click_button('View Peeps')

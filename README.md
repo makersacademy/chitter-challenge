@@ -36,6 +36,7 @@ Connect to the database:
 2. Create the database using the `psql` command `CREATE DATABASE chitter;`
 3. Connect to the database using the `pqsl` command `\c chitter;`
 4. Run the query I have saved in the file `01_create_peeps_table.sql`
+5. Note test database set up as `chitter_test`  per [walkthrough](https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/09.md)
 
 Notes on functionality:
 ------
