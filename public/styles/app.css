@@ -37,7 +37,6 @@ body {
     font-weight: bold;
     text-align: left;
     font-family: 'Tinos', serif;
-    letter-spacing: 10px;
     color: white;
     background: black;
     top: 0;
@@ -45,16 +44,22 @@ body {
     position: absolute;
     width: 100%;
     margin-bottom: 15px;
+    border-bottom: thick solid white;
 }
 
 .username {
   float: left;
+  letter-spacing: 5px;
 }
 
 .user-bar-buttons {
   margin-top: 15px;
-  margin-right: 15px;
+  
   float: right;
+}
+
+.user-bar-buttons button {
+  margin-right: 15px;
 }
 
 .window-buttons {
