@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitter Timeline</title>
+</head>
+<body>
+  <h1>Chitter Timeline</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <p><%= peep.text %></p>
+      </li>
+    <% end %>
+  </ul>
+</form>
+</body>
+</html>
