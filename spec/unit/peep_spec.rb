@@ -50,8 +50,8 @@ describe Peep do
       old_peep = Peep.create(body: "Hello World", user_id: user.id)
       new_peep = Peep.create(body: "Hello World", user_id: user.id)
       all_peeps = Peep.all
-      expect(all_peeps.first.id).to eq(old_peep.id)
-      expect(all_peeps.last.id).to eq(new_peep.id)
+      expect(all_peeps.first.id).to eq(new_peep.id)
+      expect(all_peeps.last.id).to eq(old_peep.id)
     end
   end
 end

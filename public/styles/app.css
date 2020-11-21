@@ -65,3 +65,14 @@ body {
 .window-buttons {
   display: flex;
 }
+
+.all-peeps {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.all-peeps .window {
+  margin: 5px;
+}
