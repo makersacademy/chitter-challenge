@@ -41,7 +41,7 @@ body {
     background: black;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
     margin-bottom: 15px;
     border-bottom: thick solid white;
@@ -71,12 +71,17 @@ body {
 }
 
 .all-peeps {
+  display: block;
   margin-top: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+}
+
+.all-peeps .title-bar {
+  font-size: 15px;
 }
 
 .all-peeps .window {
-  margin: 5px;
+  margin: 30px auto;
+  width: 500px;
+  height: 150px;
+  font-size: larger;
 }
