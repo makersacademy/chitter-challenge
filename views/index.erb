@@ -5,10 +5,7 @@
 <ul>
   <% @peep.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
-      "<%= peep.peep %>" - This was peeped at: <%= peep.readable_time %>
-      <form action="/peep/edit/<%= peep.id %>" method="get">
-        <input type="submit" value="Edit" />
-      </form>
+      "<%= peep.peep %>" - This was peeped at: <%= peep.readable_time %>, by: <%= peep.username %>
     </li>
   <% end %>
 </ul>

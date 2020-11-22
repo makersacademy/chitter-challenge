@@ -20,7 +20,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeping' do
-    Peep.peep(peep: params[:peep])
+    user = User.find(id: session[:user_id])
+    if user
+      Peep.peep(peep: params[:peep], user: user.email)
+    else
+      Peep.peep(peep: params[:peep], user: 'Anon')
+    end
     redirect '/'
   end
 
