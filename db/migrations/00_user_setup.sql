@@ -1,4 +1,5 @@
 CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
 
 CREATE EXTENSION pgcrypto;
 
