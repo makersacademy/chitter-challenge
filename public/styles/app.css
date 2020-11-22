@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tinos&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tinos&display=swap");
 
 body {
   background: #ff00cc; /* fallback for old browsers */
@@ -15,7 +15,7 @@ body {
 }
 
 .notice {
-  font-family: 'Tinos', serif;
+  font-family: "Tinos", serif;
   font-size: x-large;
   color: white;
   text-align: center;
@@ -23,28 +23,27 @@ body {
   letter-spacing: 20px;
 }
 
-
 .logo {
-    font-family: 'Press Start 2P', cursive;
-    text-align: center;
-    color: greenyellow;
-    position: relative;
-    margin-top: 100px;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  color: greenyellow;
+  position: relative;
+  margin-top: 100px;
 }
 
 .user-bar {
-    font-size: 15px;
-    font-weight: bold;
-    text-align: left;
-    font-family: 'Tinos', serif;
-    color: white;
-    background: black;
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    margin-bottom: 15px;
-    border-bottom: thick solid white;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Tinos", serif;
+  color: white;
+  background: black;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  margin-bottom: 15px;
+  border-bottom: thick solid white;
 }
 
 .username {
@@ -54,7 +53,6 @@ body {
 
 .user-bar-buttons {
   margin-top: 15px;
-  
   float: right;
 }
 
@@ -63,7 +61,11 @@ body {
 }
 
 .title-bar-controls form {
-  display: flex;
+  margin-right: 10px;
+}
+
+.title-bar-controls button {
+  transform: scale(1.5, 1.5);
 }
 
 .window-buttons {

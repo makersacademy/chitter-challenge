@@ -24,12 +24,15 @@
      <%Peep.all.each do |peep|%>
      <div class="window peep">
   <div class="title-bar">
-    <div class="title-bar-text"><%=peep.author %> - <%=peep.time %> なゅ温</div>
+    <div class="title-bar-text">
+      author: <%=peep.author %> なゅ温<br>
+      posted: <%=peep.time.day %>/<%=peep.time.month %>/<%=peep.time.year %> at <%=peep.time.hour %>:<%=peep.time.minute.to_s.rjust(2, "0") %>
+    </div>
     <div class="title-bar-controls">
       <form>
-      <button disabled aria-label="Minimize"></button>
-      <button disabled aria-label="Maximize"></button>
-      <button <%='disabled' if peep.author != session[:user].username %> aria-label="Close" name="delete" formaction="/app/<%=peep.id %>/delete"></button>
+        <%if peep.author == session[:user].username %>
+        <button aria-label="Close" name="delete" formaction="/app/<%=peep.id %>/delete"></button>
+        <%end %>
       </form>
     </div>
   </div>
