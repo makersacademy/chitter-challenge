@@ -1,9 +1,9 @@
+ENV['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
 require_relative '../app.rb'
 require_relative './setup_test_database'
-
-ENV['ENVIRONMENT'] = 'test'
 
 require 'capybara'
 require 'capybara/rspec'

@@ -1,0 +1,10 @@
+<a href="/peeps/new" > Add peep </a>
+<% if @peeps.empty? %>
+  No peeps.
+<% else %>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><%= peep.peep %></li>
+    <% end %>
+  </ul>
+<% end %>
