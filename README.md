@@ -79,13 +79,13 @@ rackup -p 3000
 ```
 To view peeps navigate to 'localhost:3000/peeps'
 
-### To Run Tests:
+### To Run Tests:
 
 ```
 rspec
 ```
 
-### To Run Linting:
+### To Run Linting:
 
 ```
 rubocop
