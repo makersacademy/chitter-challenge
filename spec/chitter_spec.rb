@@ -17,7 +17,7 @@ describe Peep do
 
   it '.peep posts a peep to the database' do
     new_peep = Peep.peep(peep: 'Testing... testing! 1, 2, 3!')
-    persisted_data = persisted_data(id: new_peep.id)
+    persisted_data = persisted_data(table: 'chitter', id: new_peep.id)
     expect(new_peep).to be_a Peep
     expect(new_peep.id).to eq persisted_data['id']
     expect(new_peep.peep).to eq 'Testing... testing! 1, 2, 3!'
