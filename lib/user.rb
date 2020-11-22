@@ -12,9 +12,9 @@ class User
 
   def self.create(name: , username: , email: , password: )
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'user_database_test')
+      connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'user_database')
+      connection = PG.connect(dbname: 'chitter')
     end
     encrypted_password = BCrypt::Password.create(password)
     user = connection.exec("INSERT INTO users (user_name, username, email, user_password) VALUES('#{name}', '#{username}', '#{email}', '#{encrypted_password}') RETURNING id, user_name, username, email;")
@@ -23,9 +23,9 @@ class User
 
   def self.find(id)
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'user_database_test')
+      connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'user_database')
+      connection = PG.connect(dbname: 'chitter')
     end
     return nil unless id
     result = connection.exec("SELECT * FROM users WHERE id = '#{id}'")

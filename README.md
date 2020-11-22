@@ -13,7 +13,7 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+Features!
 -------
 
 ```
