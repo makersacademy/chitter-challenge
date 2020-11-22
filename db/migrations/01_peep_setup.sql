@@ -1,4 +1,1 @@
-CREATE TABLE peeps (
-id SERIAL PRIMARY KEY,
-text VARCHAR(255),
-user_id INTEGER REFERENCES users (id));
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(255), user_id INTEGER REFERENCES users (id));
