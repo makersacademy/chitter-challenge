@@ -11,13 +11,18 @@ feature 'Viewing the page' do
 
   feature 'Viewing peeps' do
     scenario 'A user can see peeps in descending order' do
-      user = User.create(email: "right@email.com", password: "Any123", name: "Bill Test", username: "Billtest")
-      Peep.create(text: 'This is a test', user_id: user.id)
-      Peep.create(text: 'So is this', user_id: user.id)
-      Peep.create(text: 'As is this', user_id: user.id)
+      User.create(email: "Craig@David.com", password: "rewind1", name: "Craig David", username: "BoSelecta")
 
-      visit '/timeline'
-
+      visit '/'
+      fill_in('username', with: 'BoSelecta')
+      fill_in('password', with: 'rewind1')
+      click_button('Sign In')
+      fill_in('text', with: 'This is a test')
+      click_button('Submit')
+      fill_in('text', with: 'So is this')
+      click_button('Submit')
+      fill_in('text', with: 'As is this')
+      click_button('Submit')
       expect(page).to have_content('This is a test')
       expect(page).to have_content('So is this')
       expect(page).to have_content('As is this')
