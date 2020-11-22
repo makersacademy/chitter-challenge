@@ -4,12 +4,10 @@ require './lib/peep'
 class Chitter < Sinatra::Base
   get '/' do
     @peeps = Peep.all
-    p @peeps
     erb(:'index')
   end
 
   post '/' do
-    p params
     Peep.create(post: params[:peep])
     redirect('/')
   end
