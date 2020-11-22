@@ -11,9 +11,14 @@
   <form method="post" action="/sign_up">
     <a href="/sign-up">Sign Up</a>
 </form>
-</form>
-  <form method="post" action="/sign_in">
-    <a href="/sign-in">Sign In</a>
+<h2>Sign in to Chitter</h2>
+
+<h2> <%= flash[:notice] %> </h2>
+
+<form action="/sign-in" method="post">
+  <input type="text" name="username" placeholder="username"></input>
+  <input type="password" name="password" placeholder="password"></input>
+  <input type="submit" value="Sign In">
 </form>
 </body>
 </html>

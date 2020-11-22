@@ -44,10 +44,6 @@ class Chitter < Sinatra::Base
     erb :signed_up
   end
 
-  get '/sign-in' do
-    erb :sign_in
-  end
-
   post '/sign-in' do
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
