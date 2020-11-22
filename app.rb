@@ -11,6 +11,7 @@ class ChitterController < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    redirect('/app') if session[:user]
     erb(:login_page)
   end
 
