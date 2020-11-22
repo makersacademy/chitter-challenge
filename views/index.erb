@@ -3,22 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
   <title>Welcome to Chitter!</title>
 </head>
 <body>
   <h1>Welcome to Chitter!</h1>
 
+<% if session[:user] != nil %>
+  <p>Welcome Back <%= session[:user].username %></p>
+  <form action="/timeline/new" method="post">
+    <input type="text" name="text" placeholder="Peep Here!" />
+    <input type="submit" value="Submit" />
+  </form> 
+  <form action="/sign-out" method="post">
+    <input type="submit" value="Sign Out" />
+  </form>
+<% else %>
   <form method="post" action="/sign_up">
     <a href="/sign-up">Sign Up</a>
-</form>
-<h2>Sign in to Chitter</h2>
+  </form>
+  <h2>Sign in to Chitter</h2>
+    <form action="/sign-in" method="post">
+      <input type="text" name="username" placeholder="username"></input>
+      <input type="password" name="password" placeholder="password"></input>
+      <input type="submit" value="Sign In">
+    </form>
+<% end %>
 
-<h2> <%= flash[:notice] %> </h2>
+<h1> <%= flash[:notice] %> </h1>
+<div id="peeps">
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><p class="normal"><%= peep.text %></p>
+        <% @user = User.find(peep.user_id) %>
+        <p class="thick"><%= @user.username %></p>
+        <p class="light">Chitted at: <%= peep.created_at %></p>
+      </li>
+    <% end %>
+  </ul>
+  </div>
 
-<form action="/sign-in" method="post">
-  <input type="text" name="username" placeholder="username"></input>
-  <input type="password" name="password" placeholder="password"></input>
-  <input type="submit" value="Sign In">
-</form>
-</body>
+  </body>
 </html>

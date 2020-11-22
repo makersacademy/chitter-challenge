@@ -11,17 +11,18 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
-  get '/timeline' do
-    @peeps = Peep.all
-    erb :timeline
-  end
+  # get '/timeline' do
+  #   @peeps = Peep.all
+  #   erb :timeline
+  # end
 
   post '/timeline/new' do
     Peep.create(text: params[:text], user_id: session[:user].id)
-    redirect '/timeline'
+    redirect '/'
   end
 
   get '/sign-up' do
@@ -48,7 +49,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
       session[:user] = user
-      redirect '/timeline'
+      redirect '/'
     else
       flash[:notice] = 'Invalid Details - Try Again'
       redirect '/sign-in'

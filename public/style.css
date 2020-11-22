@@ -1,0 +1,41 @@
+body {
+  margin: ;
+  background-color: rgb(161, 198, 233);
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+a { 
+
+}
+a:hover { 
+
+}
+a:visited { 
+
+}
+input[type=text] {
+
+}
+input[type=password] {
+
+}
+
+p.normal {
+  font-weight: normal;
+}
+
+p.light {
+  font-weight: lighter;
+}
+
+p.thick {
+  font-weight: bold;
+}
+
+#peeps {
+  text-align: left;
+  width: 500px;
+  border: 5px solid rgb(0, 87, 128);
+  padding: 5px;
+  margin: 2px;
+}
