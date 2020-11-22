@@ -6,7 +6,7 @@
 </form>
 <h2>Past peeps 👇</h2>
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li><%= peep.post %><br>
       Posted: <%= peep.time%></li><br>
   <% end %>
