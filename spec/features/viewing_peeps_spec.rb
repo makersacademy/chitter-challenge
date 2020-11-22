@@ -14,4 +14,13 @@ feature 'Viewing peeps' do
     expect(page).to have_content 'This is my first peep'
     expect(page).to have_content 'Why have you used my identity?'
   end
+
+  scenario 'A maker can see who has posted the peep' do
+    # Add the test data
+    Peep.create(script: 'This is my first peep', created_at: Time.now)
+
+    visit('/peeps')
+
+    expect(page).to have_content 'Guest'
+  end
 end

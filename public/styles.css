@@ -1,0 +1,22 @@
+body {
+  background-color: Azure;
+}
+h1 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: royalblue;
+}
+h2 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+p {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+label {
+  font-family: Arial, sans-serif;
+}
+form {
+  font-family: Arial, sans-serif;
+}

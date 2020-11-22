@@ -10,6 +10,8 @@ class ChitterChallenge < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+
+    # @peeps.account? to call instance method 'account' on instance of Peep?
     erb :'peeps/index'
   end
 
@@ -19,7 +21,7 @@ class ChitterChallenge < Sinatra::Base
 
   post '/peeps' do
     Peep.create(script: params[:script], created_at: Time.now)
-    
+
     redirect '/peeps'
   end
 

@@ -1,4 +1,5 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
   describe '.all' do
@@ -11,7 +12,7 @@ describe Peep do
 
       expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
-      expect(Time.parse(peeps.first.created_at)).to be_a Time
+      expect(peeps.first.created_at).to be_a Time
       expect(peeps.first.peep_id).to eq peep.peep_id
       expect(peeps.first.script).to eq 'This is my first peep'
       expect(peeps.last.script).to include 'Why have you used my identity?'
@@ -21,12 +22,12 @@ describe Peep do
   describe '.create' do
     it 'creates a new peep' do
       peep = Peep.create(script: 'I love Sundays!', created_at: Time.now)
-      persisted_data = PG.connect(dbname: 'chitter_challenge_test').query("SELECT * FROM peeps WHERE peep_id = #{peep.peep_id};")
+      persisted_data = persisted_data(peep_id: peep.peep_id)
 
       expect(peep).to be_a Peep
-      expect(peep.peep_id).to eq persisted_data.first['peep_id']
+      expect(peep.peep_id).to eq persisted_data['peep_id']
       expect(peep.script).to eq 'I love Sundays!'
-      expect(Time.parse(peep.created_at)).to be_a Time
+      expect(peep.created_at).to be_a Time
 
     end
   end
