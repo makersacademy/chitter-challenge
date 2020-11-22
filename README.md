@@ -22,7 +22,6 @@ $ bundle
 3. Connect to the database using the `psql` command `\c chitter_challenge;`
 4. Run the query we have saved in the file `01_create_account_table.sql`
 5. Run the query we have saved in the file `02_create_peeps_table.sql`
-6. *Run the query we have saved in the file `03_set_created_at_default_time.sql`*
 
 ### Setting up the test database
 1. Connect to `psql`
@@ -30,7 +29,6 @@ $ bundle
 3. Connect to the database using the `psql` command `\c chitter_challenge_test;`
 4. Run the query we have saved in the file `01_create_account_table.sql`
 5. Run the query we have saved in the file `02_create_peeps_table.sql`
-6. *Run the query we have saved in the file `03_set_created_at_default_time.sql`*
 
 ### To run the Chitter app:
 ```
