@@ -1,3 +1,5 @@
+CREATE DATABASE chitter;
+
 CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(60), peep VARCHAR(140));
 
 ALTER TABLE peeps ADD lastmodified TIMESTAMP 

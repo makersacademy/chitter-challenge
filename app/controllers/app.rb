@@ -1,12 +1,14 @@
 require 'sinatra/base'
 require './lib/peeps'
 require 'pg'
+require_relative 'user_controller'
 
 class Chitter < Sinatra::Base 
+  use UserController
   enable :sessions, :method_override
 
   get '/' do
-    erb :index
+    erb :"index"
   end
 
   get '/peeps' do
@@ -19,7 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peeps.create(username: params['username'], peep: params['peep'])
+    redirect '/users/new' if session['username'] == nil
+    Peeps.create(username: session['username'], peep: params['peep'])
     redirect '/peeps'
   end
 

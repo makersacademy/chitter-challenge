@@ -6,12 +6,12 @@ feature "Post new peep" do
     Peeps.create(username: 'SlowSally123', peep: 'SQL is quite hard eh?!')
     Peeps.create(username: 'AndyH21', peep: 'Why. Just why.')
     
-    visit '/peeps'
+    signup
+    click_link("Chitter Feed")
     expect(page).not_to have_content 'testuser'
     expect(page).not_to have_content "This is a new pepe! And shouldn't be here until created."
     click_link('Peep')
     expect(current_path).to eq '/peeps/new'
-    fill_in('username', with: 'testuser')
     fill_in('peep', with: 'This is a new pepe! And shouldn\'t be here until created.')
     click_button('Submit')
     expect(current_path).to eq '/peeps'
