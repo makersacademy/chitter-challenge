@@ -24,6 +24,12 @@ describe Peep do
       example_peep = Peep.create(body: "Hello World", user_id: user.id)
       expect(example_peep.author).to eq(user.username)
     end
+
+    it "encodes input" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      bad_faith_input = Peep.create(body: '<b><a href="http://foo.com/">foo</a></b><img src="bar.jpg">', user_id: user.id)
+      expect(bad_faith_input.body).to eq('&lt;b&gt;&lt;a href=&quot;http://foo.com/&quot;&gt;foo&lt;/a&gt;&lt;/b&gt;&lt;img src=&quot;bar.jpg&quot;&gt;')
+    end
   end
 
   describe ".find" do
