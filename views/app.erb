@@ -29,7 +29,7 @@
       <form>
       <button disabled aria-label="Minimize"></button>
       <button disabled aria-label="Maximize"></button>
-      <button <%=' disabled' if peep.author != session[:user].username %> aria-label="Close" name="delete" formaction="/app/<%=peep.id %>/delete"></button>
+      <button <%='disabled' if peep.author != session[:user].username %> aria-label="Close" name="delete" formaction="/app/<%=peep.id %>/delete"></button>
       </form>
     </div>
   </div>
