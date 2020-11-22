@@ -24,6 +24,8 @@ class User
   def self.authenticate(username:, password:)
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE username = '#{username}' and password = '#{password}';")
+    return false unless result.any?
+
     usermap(result)
   end
 

@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
       redirect '/'
     else
       flash[:notice] = 'Invalid Details - Try Again'
-      redirect '/sign-in'
+      redirect '/'
     end
   end
 
