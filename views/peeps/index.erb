@@ -1,5 +1,8 @@
 <% if @profile %>
   <h1>Welcome, <%= @profile.name %></h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
 <% end %>
 <ul>
   <% @peeps.reverse_each do |peep| %>

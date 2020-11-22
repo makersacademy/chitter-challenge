@@ -27,4 +27,15 @@ feature 'authentication' do
     expect(page).not_to have_content 'Welcome, Mario Mario'
     expect(page).to have_content 'Please check your email or password.'
   end
+
+  it 'a user can sign out' do
+    Profile.create(email: 'mario@mario.com', password: 'mario', name: 'Mario Mario', username: 'Mario123')
+    visit '/sessions/new'
+    fill_in(:email, with: 'mario@mario.com')
+    fill_in(:password, with: 'mario')
+    click_button('Sign in')
+    click_button('Sign out')
+    expect(page).not_to have_content 'Welcome, Mario Mario'
+  end
+
 end
