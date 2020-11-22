@@ -3,8 +3,9 @@ require 'pg'
 feature 'post a peep' do 
   scenario 'post a peep and I see it apear on my feed' do
     visit('/')
+    fill_in :username, with:'Rafa'
     click_button 'Log in!'
-    fill_in :peep, with:'It is Wednesday my dudes'
+    fill_in :peepbox, with:'It is Wednesday my dudes'
     click_button 'Peep!'
     expect(page).to have_content 'It is Wednesday my dudes'
   end

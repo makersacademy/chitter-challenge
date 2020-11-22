@@ -1,4 +1,7 @@
+require 'pg'
+
 class Peeps 
+
 
   def self.feed 
     if ENV['ENVIRONMENT'] == 'test'
@@ -10,6 +13,7 @@ class Peeps
     result = connection.exec("SELECT * FROM peeps")
     result.map { |peeps| peeps['peep'] } 
   end 
+
 
   def self.create(peep, username) 
     if ENV['ENVIRONMENT'] == 'test'

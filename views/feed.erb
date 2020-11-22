@@ -6,7 +6,8 @@
   .peep {
     background-color: WhiteSmoke  ;
     border-radius: 5px;
-    float: left;;
+    float: left;
+    text-align: left;
   }
 </style>
 
@@ -14,15 +15,22 @@
   <h2>Peep 🙉</h2>
 
 <div>
-<form action="/action_page.php">
-<textarea rows="4" cols="20 " placeholder="Type peeep (280 characters)" maxlength="280"> </textarea>
+<form action="/post_peep" method="post">
+<textarea name="peepbox" rows="4" cols="20 " placeholder="Type peeep (280 characters)" maxlength="280"> </textarea>
   <br><br>
   <input type="submit" value="Peep!">
 </form>
 </div>
 
 
-<div class="peep">
-  <p>Sweet! So, what do you wanna do today?</p>
-</div>
+
+<% @peeps.each do |peep| %>
+  <br>
+  <br>
+  <div class="peep">
+    <p>🙉 <%= peep %> </p>
+  </div>
+  <br>
+  <br>
+<% end %>
 
