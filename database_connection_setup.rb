@@ -1,7 +1,7 @@
 require './lib/database_connection.rb'
 
 if ENV['ENVIRONMENT'] == 'test'
-  DatabaseConnection.setup(ENV['TEST_SERVER'])
+  DatabaseConnection.setup('chitter_test')
 else
-  DatabaseConnection.setup(ENV['PRODUCTION_SERVER'])
+  DatabaseConnection.setup('chitter')
 end
