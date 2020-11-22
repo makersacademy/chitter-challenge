@@ -1,5 +1,6 @@
 <ul>
   <% @peeps.reverse.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.script %>
+      <%= peep.created_at %></li>
   <% end %>
 </ul>

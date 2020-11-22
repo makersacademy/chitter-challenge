@@ -6,8 +6,8 @@ feature 'Viewing peeps' do
 
   scenario 'A maker can see peeps' do
     # Add the test data
-    Peep.create(script: 'This is my first peep')
-    Peep.create(script: 'Why have you used my identity?')
+    Peep.create(script: 'This is my first peep', created_at: Time.now)
+    Peep.create(script: 'Why have you used my identity?', created_at: Time.now)
 
     visit('/peeps')
 

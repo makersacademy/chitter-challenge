@@ -3,22 +3,31 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      # Add the test data
-      Peep.create(script: 'This is my first peep')
-      Peep.create(script: 'Why have you used my identity?')
+      # Add the test data - how can we specify the time in here?
+      peep = Peep.create(script: 'This is my first peep', created_at: Time.now)
+      Peep.create(script: 'Why have you used my identity?', created_at: Time.now)
 
       peeps = Peep.all
 
-      expect(peeps).to include 'This is my first peep'
-      expect(peeps).to include 'Why have you used my identity?'
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peep
+      expect(Time.parse(peeps.first.created_at)).to be_a Time
+      expect(peeps.first.peep_id).to eq peep.peep_id
+      expect(peeps.first.script).to eq 'This is my first peep'
+      expect(peeps.last.script).to include 'Why have you used my identity?'
     end
   end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(script: 'I love Sundays!')
+      peep = Peep.create(script: 'I love Sundays!', created_at: Time.now)
+      persisted_data = PG.connect(dbname: 'chitter_challenge_test').query("SELECT * FROM peeps WHERE peep_id = #{peep.peep_id};")
 
-      expect(Peep.all).to include 'I love Sundays!'
+      expect(peep).to be_a Peep
+      expect(peep.peep_id).to eq persisted_data.first['peep_id']
+      expect(peep.script).to eq 'I love Sundays!'
+      expect(Time.parse(peep.created_at)).to be_a Time
+
     end
   end
 end
