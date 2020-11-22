@@ -1,7 +1,9 @@
 <div class="nav_bar">
 </div>
 
-<h1>sign in to chitter</h1>
+<h1>sign in to Chitter</h1>
+
+<h2> <%= flash[:notice] %> </h2>
 
 <form action="/sign-in" method="post">
   <input type="text" name="username" placeholder="username"></input>

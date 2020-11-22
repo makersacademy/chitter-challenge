@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/timeline/new' do
-    Peep.create(text: params[:text])
+    Peep.create(text: params[:text], user_id: session[:user].id)
     redirect '/timeline'
   end
 
@@ -49,7 +49,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-in' do
-    redirect '/timeline'
+    user = User.authenticate(username: params[:username], password: params[:password])
+    if user
+      session[:user] = user
+      redirect '/timeline'
+    else
+      flash[:notice] = 'Invalid Details - Try Again'
+      redirect '/sign-in'
+    end
   end
 
   run! if app_file == $0

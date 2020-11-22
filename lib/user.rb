@@ -25,6 +25,30 @@ class User
     )
   end
 
+  def self.authenticate(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}' and password = '#{password}';")
+    User.new(
+      id: result[0]['id'], 
+      email: result[0]['username'], 
+      password: result[0]['password'], 
+      name: result[0]['name'], 
+      username: result[0]['username']
+    )
+  end
+
+  def self.find(id)
+    return nil unless id
+
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    User.new(
+      id: result[0]['id'], 
+      email: result[0]['username'], 
+      password: result[0]['password'], 
+      name: result[0]['name'], 
+      username: result[0]['username']
+    )
+  end
+
   def self.email?(email)
     email =~ /\A#{URI::MailTo::EMAIL_REGEXP}\z/
   end

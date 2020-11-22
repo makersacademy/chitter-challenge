@@ -7,10 +7,12 @@
 </head>
 <body>
   <h1>Chitter Timeline</h1>
-  <p>Welcome Back</p>
+  <p>Welcome Back <%= session[:user].username %></p>
   <ul>
     <% @peeps.each do |peep| %>
       <li>
+         <p><% @user = User.find(peep.user_id) %>
+         <%= @user.username %><br>
         <p><%= peep.text %><br>
         Chitted at: <%= peep.created_at %></p>
       </li>
