@@ -1,7 +1,12 @@
-<h1>Chitter</h1>
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li> <%= peep %> </li>
-  <% end %>
-</ul>
+<body>
+  <h1>Chitter!</h1>
+  <br>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li class="peep" id="peep-<%= peep.id %>">
+        <%= peep.post %> | <%= peep.time %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+</body>
