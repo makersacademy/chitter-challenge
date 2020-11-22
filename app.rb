@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   get '/' do
     @peeps = Peep.all
-    @welcome_message = session[:name] ? "Welcome #{name}" : ""
+    @welcome_message = session[:name] ? "Welcome #{session[:name]}!" : ""
     erb :index
   end
 
