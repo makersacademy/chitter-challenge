@@ -5,8 +5,7 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c '\c chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE cheeps(id SERIAL PRIMARY KEY, cheep VARCHAR(240));'
+  - psql -U postgres -c '\c chitter_test; CREATE TABLE cheeps(id SERIAL PRIMARY KEY, cheep VARCHAR(240));'
 
 script:
   - bundle exec rspec
