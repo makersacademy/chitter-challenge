@@ -22,13 +22,15 @@
     </div>
     <div class="all-peeps">
      <%Peep.all.each do |peep|%>
-     <div class="window" style="width: 300px">
+     <div class="window peep" style="width: 300px">
   <div class="title-bar">
     <div class="title-bar-text"><%=peep.author %> - <%=peep.time %> なゅ温</div>
     <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close"></button>
+      <form>
+      <button disabled aria-label="Minimize"></button>
+      <button disabled aria-label="Maximize"></button>
+      <button <%=' disabled' if peep.author != session[:user].username %> aria-label="Close" name="delete" formaction="/app/<%=peep.id %>/delete"></button>
+      </form>
     </div>
   </div>
   <div class="window-body">

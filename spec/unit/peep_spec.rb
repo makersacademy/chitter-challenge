@@ -54,4 +54,13 @@ describe Peep do
       expect(all_peeps.last.id).to eq(old_peep.id)
     end
   end
+
+  describe ".delete" do
+    it "deletes a given peep from the database" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      peep = Peep.create(body: "Hello World", user_id: user.id)
+      Peep.delete(peep.id)
+      expect(Peep.all).to be_empty
+    end
+  end
 end

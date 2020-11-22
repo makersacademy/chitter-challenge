@@ -30,4 +30,9 @@ class Peep
       Peep.new(id: peep['id'], time: DateTime.parse(peep['datetimeposted']), body: peep['body'], author: author)
     end
   end
+
+  def self.delete(id)
+    DatabaseConnection.query("DELETE FROM peeps WHERE id='#{id}';")
+    nil
+  end
 end

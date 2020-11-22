@@ -62,6 +62,10 @@ body {
   margin-right: 15px;
 }
 
+.title-bar-controls form {
+  display: flex;
+}
+
 .window-buttons {
   display: flex;
 }

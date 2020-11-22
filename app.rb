@@ -60,5 +60,11 @@ class ChitterController < Sinatra::Base
     redirect('/app')
   end
 
+  get '/app/:id/delete' do
+    peep = Peep.find(params[:id])
+    Peep.delete(peep.id) if peep.author == session[:user].username
+    redirect('/app')
+  end
+
   run! if app_file == $0
 end
