@@ -1,0 +1,12 @@
+<a href="/peeps/new" > Add peep </a>
+<% if @peeps.empty? %>
+  No peeps.
+<% else %>
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+      <li>
+        <%= peep.peep %>:<%= peep.timestamp.strftime("at %I:%M%p") %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

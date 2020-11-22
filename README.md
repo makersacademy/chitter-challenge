@@ -133,3 +133,10 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+My Approach
+
+I started off by building the framework for the app, starting with the basic files that I thought I would need along with setting up the Databases and Tables.
+
+To set up the Database and tables, follow the steps in the integrations folder. To create the test databases, follow the same steps, but add '_test' to the end of the word chitter in step 00.
