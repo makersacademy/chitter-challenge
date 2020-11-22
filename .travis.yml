@@ -4,9 +4,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(15), email VARCHAR(60), password VARCHAR(140));'
-  - psql -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, body TEXT, datetimeposted timestamp default CURRENT_TIMESTAMP, user_id INTEGER REFERENCES users (id) ON DELETE CASCADE);'
+  - bundle exec rake setup
 
 script:
   - bundle exec rspec
