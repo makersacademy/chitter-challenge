@@ -5,6 +5,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @peeps_rand = Peeps.feed 
     erb :index
   end
 
