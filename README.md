@@ -28,7 +28,7 @@ Approach:
 
 I started with planning with using CRC cards to model a domain as we learned about in this week's workshop
 
-![](planning.png)
+![](planning2.png)
 
 Connect to the database:
 -----
