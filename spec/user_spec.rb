@@ -48,6 +48,11 @@ describe Profile do
       profile = Profile.create(email: 'mario@mario.com', password: 'password', name: 'Mario Mario', username: 'Mario123')
       expect(Profile.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
     end
+
+    it 'returns nil given an incorrect password' do
+      profile = Profile.create(email: 'mario@mario.com', password: 'password', name: 'Mario Mario', username: 'Mario123')
+      expect(Profile.authenticate(email: 'mario@mario.com', password: 'password123')).to be_nil
+    end
   end
-  
+
 end
