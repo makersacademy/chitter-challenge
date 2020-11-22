@@ -10,9 +10,9 @@ describe Peep do
       connection.exec("INSERT INTO peeps(post) VALUES('This is my third peep!');")
 
       peeps = Peep.all
-      expect(peeps).to include('This is my first peep!')
-      expect(peeps).to include('This is my second peep!')
-      expect(peeps).to include('This is my third peep!')
+      expect(peeps[2]['post']).to eq('This is my first peep!')
+      expect(peeps[1]['post']).to include('This is my second peep!')
+      expect(peeps[0]['post']).to include('This is my third peep!')
     end
   end
 end

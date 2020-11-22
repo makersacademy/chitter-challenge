@@ -19,7 +19,6 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
     results = connection.exec('SELECT * FROM peeps ORDER by id DESC;')
-    results.map { |peep| peep['post'] }
   end
 
 end
