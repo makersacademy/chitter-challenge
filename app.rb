@@ -18,9 +18,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/cheeps' do
-    Cheeps.create(text: params['text'])
+    Cheeps.create(cheep: params['cheep'], time: Time.now)
 
     redirect '/cheeps'
+  end
+
+  get '/cheeps/reverse' do
+    @cheeps = Cheeps.reverse
+    erb :'cheeps/reverse'
   end
   run! if app_file == $0
 end
