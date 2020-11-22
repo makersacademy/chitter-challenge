@@ -43,5 +43,11 @@ describe Profile do
       authenticated_user = Profile.authenticate(email: 'mario@mario.com', password: 'password')
       expect(authenticated_user.id).to eq profile.id
     end
+
+    it 'returns nil given an incorrect email address' do
+      profile = Profile.create(email: 'mario@mario.com', password: 'password', name: 'Mario Mario', username: 'Mario123')
+      expect(Profile.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
+    end
   end
+  
 end

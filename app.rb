@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'sinatra/flash'
+require 'uri'
 require './lib/user'
 require_relative './lib/profile'
 require_relative './database_connection_setup.rb'
@@ -6,6 +8,7 @@ require_relative './database_connection_setup.rb'
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -40,10 +43,17 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
-  post '/sessions' do    
+  post '/sessions' do
     session[:profile_id] = Profile.authenticate(email: params[:email], password: params[:password])
-    @profile = session[:profile_id]
-    redirect('/peeps')
+
+    if session[:profile_id]
+      @profile = session[:profile_id]
+      redirect('/peeps')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sessions/new')
+    end
+
   end
 
   run! if app_file == $0
