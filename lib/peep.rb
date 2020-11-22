@@ -2,13 +2,13 @@ require 'pg'
 
 class Peep
 
-  def self.add(peep)
+  def self.add(name:, handle:, post:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (post) VALUES('#{peep}')")
+    connection.exec("INSERT INTO peeps (name, handle, post) VALUES('#{name}','#{handle}','#{post}')")
   end
 
 
@@ -21,5 +21,5 @@ class Peep
     results = connection.exec('SELECT * FROM peeps ORDER by id DESC;')
     results.map { |peep| peep['post'] }
   end
-  
+
 end

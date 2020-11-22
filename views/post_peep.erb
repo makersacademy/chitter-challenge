@@ -1,5 +1,9 @@
 
 <form action="/post_peep" method="post">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name" value="<%= @name %>" readonly>
+  <label for="username">Username: </label>
+  <input type="text" id="username" name="username" value="<%= @username %>" readonly>
   <label for="peep">Please enter your text: </label>
   <input type="text" id="peep" name="peep" required>
   <input type="submit" value="Post">

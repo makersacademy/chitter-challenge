@@ -12,11 +12,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/post_peep' do
+    @name = session[:name] ? session[:name] : 'anonymous'
+    @username = session[:username] ? session[:username] : 'anonymous'
     erb :'post_peep'
   end
 
   post '/post_peep' do
-    Peep.add(params[:peep])
+    Peep.add(post: params[:peep], name: params[:name], handle: params[:username])
     redirect '/'
   end
 

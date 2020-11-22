@@ -18,4 +18,22 @@ feature 'Posting peeps' do
     expect(page).to have_link('Peep it!')
   end
 
+  scenario 'Should be anonymous if the user is not registered' do
+    visit('/')
+    click_link('Peep it!')
+    expect(page).to have_field('name', with: 'anonymous')
+    expect(page).to have_field('username', with: 'anonymous')
+  end
+
+  scenario 'Should have name and username if user is registered' do
+    visit('/')
+    click_link('Please, register!')
+    fill_in('name', with: 'name')
+    fill_in('username', with: 'username')
+    click_button('Submit')
+    click_link('Peep it!')
+    expect(page).to have_field('name', with: 'name')
+    expect(page).to have_field('username', with: 'username')
+  end
+
 end
