@@ -1,3 +1,5 @@
+require 'pg'
+
 feature 'post a peep' do 
   scenario 'post a peep and I see it apear on my feed' do
     visit('/')
