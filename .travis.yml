@@ -4,7 +4,9 @@ services:
   - postgresql
 
 before_script:
-  - bundle exec rake setup
+  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -d chitter_test -f ./db/migrations/02_create_users_table.sql
+  - psql -U postgres -d chitter_test -f ./db/migrations/03_create_peeps_table.sql
 
 script:
   - bundle exec rspec
