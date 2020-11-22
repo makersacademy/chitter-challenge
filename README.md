@@ -32,13 +32,14 @@ $ bundle
 5. Run the query we have saved in the file `02_create_peeps_table.sql`
 6. *Run the query we have saved in the file `03_set_created_at_default_time.sql`*
 
-### To run the Bookmark Manager app:
+### To run the Chitter app:
 ```
 rackup -p 3000
 ```
+Then navigate to localhost:3000 on your web browser to use the app.
 
 ## Challenge Progress
-Completed initial review of the user stories.  Created an entity relationship diagram to show the tables needed for the first set of user stories, with placeholders indicating expansion areas suggested by the harder, advanced and bonus user stories.
+Completed initial review of the user stories.  Created an entity relationship diagram to show the tables needed for the first set of user stories, with placeholders indicating expansion areas suggested by the harder, advanced and bonus user stories. Set up testing environment. Set up peeps page, displaying all peeps made.
 
 ![Entity relationship diagram for basic user stories](initial_chitter_erd.png)
 
