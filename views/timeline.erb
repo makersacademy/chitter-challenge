@@ -10,10 +10,9 @@
   <p>Welcome Back <%= session[:user].username %></p>
   <ul>
     <% @peeps.each do |peep| %>
-      <li>
+      <li><p><%= peep.text %><br>
          <p><% @user = User.find(peep.user_id) %>
          <%= @user.username %><br>
-        <p><%= peep.text %><br>
         Chitted at: <%= peep.created_at %></p>
       </li>
     <% end %>
