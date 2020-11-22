@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'bootstrap', '~> 4.5.3'
+gem 'pg'
+gem 'shotgun'
 
 group :development, :test do
   gem 'capybara'
