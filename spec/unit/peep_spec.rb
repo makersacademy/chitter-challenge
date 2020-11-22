@@ -1,4 +1,4 @@
-require 'Peep'
+require 'peep'
 require 'date'
 require 'user'
 
