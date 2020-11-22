@@ -9,7 +9,7 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| peep['content'] }
+    result.map { |peep| peep['content'] }.reverse
   end
 
   def self.create(content:)
