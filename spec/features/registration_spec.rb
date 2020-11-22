@@ -8,7 +8,7 @@ feature 'registration' do
     fill_in 'email', with: 'test@example.com'
     fill_in 'password', with: 'password123'
     click_button 'Leggo!'
-    expect(page.current_path).to eq '/welcome'
+    expect(page.current_path).to eq '/welcome/new'
     expect(page).to have_content 'Welcome to chitter, test@example.com!'
     click_link 'Now lemme see those peeps!'
     expect(page.current_path).to eq '/'
