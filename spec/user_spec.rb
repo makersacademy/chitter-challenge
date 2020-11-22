@@ -36,4 +36,12 @@ describe Profile do
     end
 
   end
+
+  describe '.authenticate' do
+    it 'returns a profile given a correct username and password if one exists' do
+      profile = Profile.create(email: 'mario@mario.com', password: 'password', name: 'Mario Mario', username: 'Mario123')
+      authenticated_user = Profile.authenticate(email: 'mario@mario.com', password: 'password')
+      expect(authenticated_user.id).to eq profile.id
+    end
+  end
 end

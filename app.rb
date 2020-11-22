@@ -12,7 +12,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    p "Can you see me here on line 15?"
     @profile = session[:profile_id]
     @peeps = User.all
     erb :'peeps/index'
@@ -32,10 +31,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    p "Can you see me?"
     session[:profile_id] = Profile.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
     @profile = session[:profile_id]
     redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do    
+    session[:profile_id] = Profile.authenticate(email: params[:email], password: params[:password])
+    @profile = session[:profile_id]
+    redirect('/peeps')
   end
 
   run! if app_file == $0
