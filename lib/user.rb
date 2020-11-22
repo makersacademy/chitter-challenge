@@ -15,54 +15,38 @@ class User
     return false unless email?(email)
 
     result = DatabaseConnection.query(
-      "INSERT INTO users(email, password, name, username) VALUES('#{email}', '#{password}', '#{name}', '#{username}') RETURNING id, email, password, name, username;")
-    User.new(
-      id: result[0]['id'], 
-      email: result[0]['username'], 
-      password: result[0]['password'], 
-      name: result[0]['name'], 
-      username: result[0]['username']
-    )
+      "INSERT INTO users(email, password, name, username) 
+      VALUES('#{email}', '#{password}', '#{name}', '#{username}') 
+      RETURNING id, email, password, name, username;")
+    usermap(result)
   end
 
   def self.authenticate(username:, password:)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}' and password = '#{password}';")
-    User.new(
-      id: result[0]['id'], 
-      email: result[0]['username'], 
-      password: result[0]['password'], 
-      name: result[0]['name'], 
-      username: result[0]['username']
-    )
+    result = DatabaseConnection.query(
+      "SELECT * FROM users WHERE username = '#{username}' and password = '#{password}';")
+    usermap(result)
   end
 
   def self.find(id)
     return nil unless id
 
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
-    User.new(
-      id: result[0]['id'], 
-      email: result[0]['username'], 
-      password: result[0]['password'], 
-      name: result[0]['name'], 
-      username: result[0]['username']
-    )
+    usermap(result)
   end
+
+  private_class_method
 
   def self.email?(email)
     email =~ /\A#{URI::MailTo::EMAIL_REGEXP}\z/
   end
 
-  def self.all
-    result = DatabaseConnection.query('SELECT * FROM users')
-    result.map do |user|
-      User.new(
-        id: user['id'],
-        name: user['name'],
-        username: user['username'],
-        email: user['email'],
-        password: user['password']
-      )
-    end
+  def self.usermap(result)
+    User.new(
+          id: result[0]['id'], 
+          email: result[0]['username'], 
+          password: result[0]['password'], 
+          name: result[0]['name'], 
+          username: result[0]['username']
+        )
   end
 end
