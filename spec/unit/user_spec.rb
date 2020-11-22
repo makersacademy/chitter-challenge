@@ -38,6 +38,11 @@ describe User do
       expect(returned_user.username).to eq(partario.username.downcase)
       expect(returned_user.email).to eq(partario.email.downcase)
     end
+
+    it "doesn't allow blank username/password/email" do
+      blank = User.create(username: "", email: "", password: "")
+      expect(blank).to eq(false)
+    end
   end
 
   describe ".find" do
