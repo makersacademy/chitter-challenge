@@ -12,7 +12,7 @@ describe DatabaseConnection do
   end
 
   it "sends a query" do
-    connection  = DatabaseConnection.setup('chitter_test')
+    connection = DatabaseConnection.setup('chitter_test')
     expect(connection).to receive(:exec).with("SELECT *;")
     DatabaseConnection.query('SELECT *;')
   end

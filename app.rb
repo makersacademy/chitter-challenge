@@ -5,7 +5,6 @@ require './database_connection_setup.rb'
 require './lib/user'
 require './lib/peep'
 
-
 class ChitterController < Sinatra::Base
   enable :sessions
   set :session_secret, ENV['SESSION_SECRET']
