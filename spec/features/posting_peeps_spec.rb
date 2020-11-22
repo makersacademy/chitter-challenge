@@ -1,7 +1,6 @@
 feature 'Posting peeps' do
   scenario 'Have a link to post a peep' do
     visit('/')
-
     expect(page).to have_link('Peep it!')
   end
 
@@ -16,7 +15,7 @@ feature 'Posting peeps' do
     visit('/post_peep')
     fill_in('peep', with: 'This is a test peep!')
     click_button('Post')
-
     expect(page).to have_link('Peep it!')
   end
+
 end

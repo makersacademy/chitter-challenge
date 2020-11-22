@@ -10,4 +10,7 @@ require 'pg'
 #     end
 #
 #
-#   
+#   def self.all
+#
+#   end
+# #

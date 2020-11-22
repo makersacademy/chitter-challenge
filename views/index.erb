@@ -1,2 +1,8 @@
 <h1>Chitter</h1>
 <a href="/post_peep">Peep it!</a>
+
+<ul>
+<% @results.each do |peep| %>
+<li><%= peep %></li>
+<% end %>
+</ul>
