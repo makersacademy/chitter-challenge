@@ -7,6 +7,6 @@ feature 'registration' do
     fill_in('username', with: 'sjmog')
     click_button('Submit')
 
-    expect(page).to have_content "Peep it!"
+    expect(page).to have_content "Welcome Sam Morgan!"
   end
 end

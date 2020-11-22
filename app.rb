@@ -4,8 +4,10 @@ require_relative './lib/peep'
 require_relative './lib/user'
 
 class Chitter < Sinatra::Base
+  enable :sessions
   get '/' do
     @peeps = Peep.all
+    @welcome_message = session[:name] ? "Welcome #{name}" : ""
     erb :index
   end
 
@@ -23,10 +25,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    User.create(name: params[:name],
+    user = User.create(name: params[:name],
       username: params[:username],
       email: params[:email],
       password: params[:password])
+    session[:name] = user.name
+    session[:username] = user.username
     redirect '/'
   end
 
