@@ -44,6 +44,7 @@ body {
   width: 100%;
   margin-bottom: 15px;
   border-bottom: thick solid white;
+  z-index: 9;
 }
 
 .username {
@@ -65,6 +66,7 @@ body {
 }
 
 .title-bar-controls button {
+  z-index: -1;
   transform: scale(1.5, 1.5);
 }
 
