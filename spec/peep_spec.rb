@@ -17,9 +17,9 @@ describe Peep do
     end
   end
 
-  describe '.post' do
+  describe '.create' do
     it 'posts a new peep to Chitter' do
-      Peep.post(peep: 'I had toast for breakfast')
+      Peep.create(post: 'I had toast for breakfast')
       expect(Peep.all).to include('I had toast for breakfast')
     end
   end

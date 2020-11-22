@@ -13,13 +13,13 @@ class Peep
     reverse.reverse
   end
 
-  def self.post(peep:)
+  def self.create(post:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
 
-    connection.exec("INSERT INTO peeps (post) VALUES('#{peep}')")
+    connection.exec("INSERT INTO peeps (post) VALUES('#{post}')")
   end
 end
