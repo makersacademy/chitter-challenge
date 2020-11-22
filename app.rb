@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'peep'
 
 class Chitter < Sinatra::Base
   enable :session
@@ -8,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peep = session[:peep]
+    @peeps = Peep.all
     erb :"peeps/index"
   end
 
@@ -17,8 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = params[:text]
-    session[:peep] = @peep
+    @peeps = params[:text]
+    session[:peep] = @peeps
     redirect '/peeps'
   end
 
