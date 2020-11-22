@@ -17,11 +17,12 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-## To Do
 
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+
+## To Do
 
 As a Maker
 So that I can avoid others posting messages on Chitter as me
@@ -35,8 +36,6 @@ I want to receive an email if I am tagged in a Peep
 
 ### Current Issues
 - Still a bit messy in relation to routes
-- No current way to link users to specific tweets
-- Sign in screen present but no sign in validation currently
 - No styling
 
 Working:

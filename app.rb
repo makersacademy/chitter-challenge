@@ -59,5 +59,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/sign-out' do
+    session.clear
+    flash[:notice] = 'You have successfully signed out'
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
