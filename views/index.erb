@@ -1,0 +1,55 @@
+<%# <!DOCTYPE html> %>
+<html>
+<head>
+ <title> Chitter App </title>
+ <link rel="stylesheet" href="<%=('/style.css')%>">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1"> 
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    </head>
+    
+    <h1 class="h1 w3-jumbo w3-animate-top">Welcome to Chitter!</h1>
+    <h2 class="h2">  What is on your mind?  </h2>
+
+<body>
+  <div class="w3-display-topright w3-padding-large w3-xlarge">
+    Log in
+  </div>
+
+
+
+<div align="center">
+  <form action='/chitterapp' method="post">
+   <input type="text" name="message">
+    <input class="button" type="submit" value="Send it!">
+   </form>
+   </div>
+
+
+<div align="center">
+<p> Last posted peeps:<p>
+</div>
+
+<div align="center">
+
+      <% @peeps.reverse.each do |peep| %>
+<li>
+     <%= peep.peeps %>   
+
+     <p> Peep posted at: <%= peep.created_at %></p>
+
+       
+        <%end %>
+</li>
+        </div>
+  <div class="w3-display-bottomright w3-padding-large">
+    Made by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">M. Rodrigues</a>
+  </div>
+</div>
+  </body> 
+</html>
+
+
+
+  
