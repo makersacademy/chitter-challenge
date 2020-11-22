@@ -58,6 +58,35 @@ I want to receive an email if I am tagged in a Peep
 ```
 
 Technical Approach:
------
+-------
 
 Integrating a database into Chitter using the `PG` gem and `SQL` queries.
+
+To Set Up and Run the App:
+-------
+
+### To Set Up the Database:
+
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE chitter;`
+3. Connect to the database using the `psql` command `\c chitter;`
+4. Run the SQL queries saved in the `db/migrations` folder in the given order
+
+### To Run the Chitter app:
+
+```
+rackup -p 3000
+```
+To view peeps navigate to 'localhost:3000/peeps'
+
+### To Run Tests:
+
+```
+rspec
+```
+
+### To Run Linting:
+
+```
+rubocop
+```
