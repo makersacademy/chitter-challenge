@@ -26,20 +26,20 @@
   </form>
   <h2>Sign in to Chitter</h2>
     <form action="/sign-in" method="post">
-      <input type="text" name="username" placeholder="username"></input>
-      <input type="password" name="password" placeholder="password"></input>
-      <input type="submit" value="Sign In">
+      <input id="rounded" type="text" name="username" placeholder="username"></input>
+      <input id="rounded" type="password" name="password" placeholder="password"></input>
+      <input id="rounded" type="submit" value="Sign In">
     </form>
 <% end %>
 
 <h1> <%= flash[:notice] %> </h1>
-<div id="peeps">
-  <ul>
+<div>
+  <ul style="list-style: none;">
     <% @peeps.each do |peep| %>
-      <li><p class="normal"><%= peep.text %></p>
+      <li id="peeps"><p class="normal"><%= peep.text %></p>
         <% @user = User.find(peep.user_id) %>
-        <p class="thick"><%= @user.username %></p>
-        <p class="light">Chitted at: <%= peep.created_at %></p>
+        <p class="thick"><%= @user.username %> (<%= @user.name %>)</p>
+        <p class="light">Peeped at: <%= peep.created_at %></p>
       </li>
     <% end %>
   </ul>
