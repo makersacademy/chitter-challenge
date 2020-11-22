@@ -8,6 +8,12 @@ feature 'Viewing peeps' do
   end
 
   feature 'Viewing peeps' do
+    before do
+      visit '/peeps/new'
+      fill_in :text, with: "This is a peep"
+      click_button "Peep"
+    end
+
     scenario 'As an user, I can see the peeps' do
       visit '/peeps'
 
