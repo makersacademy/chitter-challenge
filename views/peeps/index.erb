@@ -3,8 +3,10 @@
   No peeps.
 <% else %>
   <ul>
-    <% @peeps.each do |peep| %>
-      <li><%= peep.peep %></li>
+    <% @peeps.reverse.each do |peep| %>
+      <li>
+        <%= peep.peep %>:<%= peep.timestamp.strftime("at %I:%M%p") %>
+      </li>
     <% end %>
   </ul>
 <% end %>

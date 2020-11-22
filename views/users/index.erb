@@ -1,0 +1,10 @@
+<a href="/users/new" > Add user </a>
+<% if @users.empty? %>
+  No users.
+<% else %>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.username %></li>
+    <% end %>
+  </ul>
+<% end %>
