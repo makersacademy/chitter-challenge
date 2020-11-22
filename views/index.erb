@@ -1,0 +1,27 @@
+<h1>Chitter</h1>
+<% if @welcome_message == "" %>
+<a href="/users/new">Please, register!</a>
+<% else %>
+<h4><%= @welcome_message %></h4>
+<% end %>
+<a href="/post_peep">Peep it!</a>
+
+<div>
+  <% @peeps.each do |peep| %>
+  <div>
+    <b>Name: </b>
+    <%= peep['name'] %>
+    <br/>
+    <b>Username: </b>
+    <%= peep['handle'] %>
+    <br/>
+    <b>Date: </b>
+    <%= peep['time'] %>
+    <br/>
+    <b>Peep: </b>
+    <%= peep['post'] %>
+    <br/>
+    <br/>
+  </div>
+  <% end %>
+</div>
