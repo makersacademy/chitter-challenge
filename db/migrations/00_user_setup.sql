@@ -1,7 +1,7 @@
-CREATE DATABASE chitter;
-CREATE DATABASE chitter_test;
+-- CREATE DATABASE chitter;
+-- CREATE DATABASE chitter_test;
 
-CREATE EXTENSION pgcrypto;
+-- CREATE EXTENSION pgcrypto;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
