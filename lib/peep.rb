@@ -20,7 +20,7 @@ class Peep
   end
 
   def username
-    @username ? @username : "Anon"
+    @username ||= "Anon"
   end
 
   def self.peep(peep:, user: user = nil)
@@ -42,10 +42,8 @@ class Peep
     "#{hours}:#{minutes} #{days}/#{months}/#{years}"
   end
 
-  private
-
   def self.sort_by_reverse_time(peep_list)
-    peep_list.sort_by { |peep| [peep.time, peep.peep]}
+    peep_list.sort_by { |peep| [peep.time, peep.peep] }
     peep_list.reverse
   end
 end

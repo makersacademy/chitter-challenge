@@ -11,10 +11,10 @@ describe DatabaseConnection do
   end
 
   it 'this connection is persistent' do
-  connection = DatabaseConnection.setup('chitter_manager_test')
+    connection = DatabaseConnection.setup('chitter_manager_test')
 
-  expect(DatabaseConnection.connection).to eq connection
-end
+    expect(DatabaseConnection.connection).to eq connection
+  end
 end
 
 describe '.query' do

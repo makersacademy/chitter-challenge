@@ -11,6 +11,6 @@ class DatabaseConnection
   end
 
   def self.query(sql)
-   @connection.exec(sql)
- end
+    @connection.exec(sql)
+  end
 end
