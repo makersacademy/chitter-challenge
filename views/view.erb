@@ -17,7 +17,9 @@ form {
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.message %></li>
+    <br>
+    <li><%= peep.time %></li>
   <% end %>
 </ul>
   <form action="/post" method="get">

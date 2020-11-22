@@ -20,4 +20,6 @@ feature 'Viewing peeps' do
     expect(page).to have_content "First test peep"
     expect(page).to have_content "Another test peep"
   end
+
+
 end
