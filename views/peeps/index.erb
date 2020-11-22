@@ -8,7 +8,8 @@
 <ul>
   <% @peeps.reverse_each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
-      <%= peep.peep %> PEEPED BY:<%= @profile.username %>( <%= @profile.name %> ) AT: <%= peep.peeped_at %>
+      <%= peep.peep %>
+      PEEPED BY: <%= @profile.username %> ( <%= @profile.name %> ) AT: <%= peep.peeped_at %>
     </li>
   <% end %>
 </ul>
