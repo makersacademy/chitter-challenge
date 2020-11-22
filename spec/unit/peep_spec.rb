@@ -30,6 +30,18 @@ describe Peep do
       bad_faith_input = Peep.create(body: '<b><a href="http://foo.com/">foo</a></b><img src="bar.jpg">', user_id: user.id)
       expect(bad_faith_input.body).to eq('&lt;b&gt;&lt;a href=&quot;http://foo.com/&quot;&gt;foo&lt;/a&gt;&lt;/b&gt;&lt;img src=&quot;bar.jpg&quot;&gt;')
     end
+
+    it "returns false if there are more than 140 characters" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      too_long = Peep.create(
+        body: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+               AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+               AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+               AAAAAAAAA',
+        user_id: user.id
+      )
+      expect(too_long).to eq(false)
+    end
   end
 
   describe ".find" do

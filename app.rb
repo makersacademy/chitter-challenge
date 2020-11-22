@@ -55,8 +55,14 @@ class ChitterController < Sinatra::Base
   end
 
   post '/app' do
-    Peep.create(body: params[:content], user_id: session[:user].id)
-    redirect('/app')
+    peep = Peep.create(body: params[:content], user_id: session[:user].id)
+    if peep
+      redirect('/app')
+    else
+      flash[:notice] = "Peeps can't be over 140 characters"
+      redirect('/app/new-peep')
+    end
+
   end
 
   get '/app/:id/delete' do

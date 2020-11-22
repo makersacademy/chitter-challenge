@@ -11,6 +11,8 @@ class Peep
   end
 
   def self.create(body:, user_id:)
+    return false if body.length > 140
+
     results = DatabaseConnection.query("INSERT INTO peeps (body, user_id) VALUES ('#{CGI.escapeHTML(body)}', '#{user_id}') RETURNING id, body, datetimeposted, user_id;")
     author = DatabaseConnection.query("SELECT username FROM users WHERE id='#{results[0]['user_id']}';")[0]['username']
 
