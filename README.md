@@ -1,5 +1,8 @@
 Chitter Challenge
 =================
+
+[![Build Status](https://travis-ci.org/alexleesonmill/chitter-challenge.svg?branch=master)](https://travis-ci.org/alexleesonmill/chitter-challenge)
+
 ## Completed
 As a Maker
 So that I can let people know what I am doing  
