@@ -1,6 +1,6 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li`>
+    <li><%= peep.content %> - <%= peep.timestamptz %></li`>
   <% end %>
 </ul>
 
