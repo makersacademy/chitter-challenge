@@ -5,10 +5,6 @@ body {
     background-color: #2b2b2b;
 }
 
-.navbar {
-    color: darkgoldenrod;
-}
-
 .peep-form textarea {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     outline: 0;

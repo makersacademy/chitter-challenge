@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Chitter</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <script src="/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
@@ -16,10 +20,18 @@
         <img src="https://media3.giphy.com/media/YNzdIFyBmqvc0vhuVY/giphy.gif" height="250px" width="auto" alt="Chitter logo">
       </div>
       <section class="user-login">
-        <form action="/user/login" method="post">
-          <input type="text" id="login" name="login" placeholder="Username">
-          <input type="submit" value="Log In">
+        <form action="/signup" method="get">
+<!--          <input type="text" id="login" name="login" placeholder="Username">-->
+<!--          <input type="submit" value="Log In">-->
+<!--          <div class="input-group mb-3">-->
+<!--            <div class="input-group-prepend">-->
+<!--              <span class="input-group-text" id="basic-addon1">@</span>-->
+<!--            </div>-->
+<!--            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="login">-->
+<!--          </div>-->
+          <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
+
       </section>
     </main>
   </body>

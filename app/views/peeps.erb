@@ -2,7 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Chitter</title>
+    <title>Chitter - Dashboard</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <script src="/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
@@ -13,10 +17,34 @@
     </header>
     <main>
       <section class="navbar">
-        <nav>
-          <a href="/">Timeline</a> |
-          <a href="/peeps/new">New Peep</a>
+        <nav class="nav nav-pills nav-fill">
+          <a class="nav-item nav-link active" href="/peeps">Home</a>
+          <a class="nav-item nav-link" href="/timeline">Timeline</a>
+          <a class="nav-item nav-link" href="/new">New Peep</a>
         </nav>
+      </section><br>
+      <section class="peep-feed">
+        <p>
+          <h3>
+            Welcome <%= @username.capitalize %> to your feed! Here you can find all peeps posted by all Chitter users!
+          </h3>
+        </p><br>
+        <div class="chitter-logo">
+          <img src="https://media3.giphy.com/media/YNzdIFyBmqvc0vhuVY/giphy.gif" height="250px" width="auto" alt="Chitter logo">
+        </div>
+        <br>
+        <div class="list-group">
+          <% @peeps.each { |peep| %>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">@<%= @username %></h5>
+                <small class="text-muted"><%= peep['datetime'] %></small>
+              </div>
+              <p class="mb-1"><%= peep['peep_text'] %></p>
+              <small class="text-muted">Posted by: <%= @username %></small>
+            </a>
+          <%} %>
+        </div>
       </section>
     </main>
   </body>
