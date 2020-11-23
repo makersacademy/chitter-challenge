@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chitter</title>
+      <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <h1> Chitter </h1>
+    </div>
+    <div class="container">
+      <div class="row greeting">
+        <% if @current_user %>
+          <div class="col left">
+            <p>Welcome <%= @current_user.username %></p>
+          </div>
+          <div class="col right">
+            <p>Click <a id="top-new-peep" href='/peep/new'>here</a> to make a new peep</p>
+          </div>
+        <% else %>
+          <p>Not signed in - click <a href='/user/new'>here</a> to sign up</p>
+        <% end %>
+      </div>
+      <div class="row peep-list">
+        <% if @peeps.empty? %>
+          <p> No peeps to show! <% if @current_user %>Click <a href='/peep/new'>here</a> to make one<% end %></p>
+        <% else %>
+          <ul>
+            <% @peeps.each do |peep| %>
+              <div class="peep-display">
+                <li>
+                  <div class="row">
+                    <p>Posted by <%= User.username_by_id(peep.user_id) %> at <%= peep.time.strftime("%Y/%m/%d %H:%M:%S") %></p>
+                  </div>
+                  <div class="row">
+                    <p><%= peep.content %></p>
+                  </div>
+                </li>
+              </div>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </body>
+
+</html>
