@@ -25,8 +25,8 @@ To get running:
 
  1. Clone this repo
  2. `$ bundle install`
- 3. `$rake setup`
- 4. `$rackup`
+ 3. `$ rake setup`
+ 4. `$ rackup`
  5. Visit localhost:9292 (or the port specified by rack in the terminal) in your web browser.
  6. Enjoy some wholesome Chits and Peeps with your friends!
 

@@ -81,4 +81,37 @@ describe Peep do
       expect(Peep.all).to be_empty
     end
   end
+
+  describe "#total_favourites" do
+    it "returns the total number of favourites on a peep" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      user2 = User.create(username: "partario2", email: "test2@email.com", password: "1234")
+      peep = Peep.create(body: "Hello World", user_id: user.id)
+      user.favourite_a_peep(peep.id)
+      user2.favourite_a_peep(peep.id)
+      expect(peep.total_favourites).to eq(2)
+    end
+
+    it "only counts unique user favourites" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      peep = Peep.create(body: "Hello World", user_id: user.id)
+      10.times { user.favourite_a_peep(peep.id) }
+      expect(peep.total_favourites).to eq(1)
+    end
+  end
+
+  describe "#favourited?" do
+    it "returns true if a user has favourited a peep" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      peep = Peep.create(body: "Hello World", user_id: user.id)
+      user.favourite_a_peep(peep.id)
+      expect(peep.favourited?(user.id)).to eq(true)
+    end
+
+    it "returns false if they haven't favourited a tweet" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      peep = Peep.create(body: "Hello World", user_id: user.id)
+      expect(peep.favourited?(user.id)).to eq(false)
+    end
+  end
 end
