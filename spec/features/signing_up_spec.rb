@@ -8,7 +8,7 @@ feature 'Signing up' do
     fill_in :username, with: 'hykothehusky'
     fill_in :email, with: 'hyko@hyko.com'
     fill_in :password, with: 'squirrels'
-    click_button 'Sign Up'
-    expect(page).to have_content('Welcome to Chitter, hykothehusky')
+    click_button 'Sign up'
+    expect(page).to have_content('Welcome to Chitter!')
   end
 end

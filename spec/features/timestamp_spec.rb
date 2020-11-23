@@ -5,7 +5,7 @@ feature 'Seeing timestamp' do
     connection = PG.connect(dbname: 'chitter_test')
     Peep.create(post: 'Test peep')
 
-    visit('/')
+    visit('/peeps')
     expect(page).to have_content('Test peep')
     expect(page).to have_content Time.now.strftime("%Y/%m/%d %k:%M")
   end

@@ -10,12 +10,17 @@ Week 4 Makers Academy weekend project. To write a small Twitter clone that will 
 
 Functionality:
 -----
-* Integrated a database of posts ('peeps') into Chitter using the `PG` gem and `SQL` queries.
+* Integrated a database of posts ('peeps') and usernames into Chitter using the `PG` gem and `SQL` queries.
 * Built feature and unit tests with Capybara and RSpec.
+* Users can peep and see time of their post
+* Users can sign up
 
+-----
 
-What I did:
+Improvements needed:
 ------
 
-* Created a Chitter database in psql
-* Created a test database
+* Ensuring users with existing accounts cannot sign up
+* Peeps won't post if they have apostrophes in them – need to fix this
+* Allow users to log in and log out
+* CSS!

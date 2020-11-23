@@ -5,8 +5,6 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
-
   get '/' do
     erb(:index)
   end
@@ -17,6 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    p params
     Peep.create(post: params[:peep])
     redirect('/peeps')
   end
@@ -27,13 +26,7 @@ class Chitter < Sinatra::Base
 
   post '/user' do
     @user = User.create(params[:name], params[:username], params[:email], params[:password])
-    session[:current_user] = user.id
     redirect '/peeps'
-  end
-
-  get 'user/peeps' do
-    @peeps = Peep.all
-    erb(:'peeps')
   end
 
 
