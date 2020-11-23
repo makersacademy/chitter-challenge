@@ -1,0 +1,15 @@
+<% if @profile %>
+  <h1>Welcome, <%= @profile.name %></h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+<% end %>
+<a href="/peeps/create">New Peep</a>
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <%= peep.peep %>
+      PEEPED BY: <%= @profile.username %> ( <%= @profile.name %> ) AT: <%= peep.peeped_at %>
+    </li>
+  <% end %>
+</ul>

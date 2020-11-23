@@ -3,8 +3,14 @@ language: ruby
 services:
   - postgresql
 
+before_install:
+  - gem install bundler
+
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -d 'chitter_test' -f db/migrations/01_create_peeps_table.sql
+  - psql -U postgres -d 'chitter_test' -f db/migrations/02_create_users_table.sql
+  - psql -U postgres -d 'chitter_test' -f db/migrations/03_add_time_stamp_column.sql
 
 script:
   - bundle exec rspec
