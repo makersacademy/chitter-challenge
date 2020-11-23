@@ -4,7 +4,26 @@ This is my solution to [this](https://github.com/makersacademy/chitter-challenge
 
 ## Instructions for use
 
-put Instructions here
+To use the app, navigate to the directory you want to clone the repo to and enter
+
+```
+$ git clone https://github.com/AdamusBG/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle install
+$ psql
+```
+
+Now in the psql command line interface
+
+'''
+=# CREATE DATABASE chitter;
+=# \\c chitter
+'''
+
+Now enter the sql lines seen in the db/migrations directory to create the tables and enter '=# quit'
+
+Finally, enter '$ rackup' and go to http://localhost:9292/ in your browser to test the app
+
 
 ## User stories
 
