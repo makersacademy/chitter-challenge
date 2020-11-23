@@ -1,5 +1,6 @@
 require 'date'
 require_relative './database_connection'
+require_relative './user'
 
 class Peep
   def self.establish_connection

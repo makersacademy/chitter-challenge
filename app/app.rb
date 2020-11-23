@@ -14,10 +14,7 @@ class Chitter < Sinatra::Application
   end
 
   post '/user/new' do
-    session[:name] = params[:name]
-    session[:username] = params[:username]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
+    User.signup(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect '/peeps'
   end
 
@@ -29,7 +26,7 @@ class Chitter < Sinatra::Application
   get '/peeps' do
     Peep.establish_connection
     @peeps = Peep.display_peeps
-    @username = session[:username]
+    @username = User.export_user_data[0]['username']
     erb :peeps
   end
 
