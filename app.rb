@@ -76,5 +76,10 @@ class ChitterController < Sinatra::Base
     redirect('/app')
   end
 
+  get '/app/:id/unfavourite' do
+    session[:user].unfavourite_a_peep(params[:id])
+    redirect('/app')
+  end
+
   run! if app_file == $0
 end

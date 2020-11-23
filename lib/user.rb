@@ -16,7 +16,7 @@ class User
   end
 
   def unfavourite_a_peep(peep_id)
-    DatabaseConnection.query("DELETE FROM favourites WHERE user_id = '#{id}' AND peep_id = '#{peep_id}');")
+    DatabaseConnection.query("DELETE FROM favourites WHERE user_id = '#{id}' AND peep_id = '#{peep_id}';")
   end
 
   def self.create(username:, email:, password:)
