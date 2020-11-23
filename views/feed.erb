@@ -1,0 +1,36 @@
+<html>
+<body>
+<head><link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css"></head>
+<style>
+  div {text-align: center;}
+  .peep {
+    background-color: WhiteSmoke  ;
+    border-radius: 5px;
+    float: left;
+    text-align: left;
+  }
+</style>
+
+  <h5>Welcome <%=@user_name%></h5>
+  <h2>Peep 🙉</h2>
+
+<div>
+<form action="/post_peep" method="post">
+<textarea name="peepbox" rows="4" cols="20 " placeholder="Type peeep (280 characters)" maxlength="280"> </textarea>
+  <br><br>
+  <input type="submit" value="Peep!">
+</form>
+</div>
+
+
+
+<% @peeps.each do |peep| %>
+  <br>
+  <br>
+  <div class="peep">
+    <p>🙉 <%= peep %> </p>
+  </div>
+  <br>
+  <br>
+<% end %>
+
