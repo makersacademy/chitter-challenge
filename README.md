@@ -17,7 +17,7 @@ Now in the psql command line interface
 
 ```
 =# CREATE DATABASE chitter;
-=# \\c chitter
+=# \c chitter
 ```
 
 Now enter the sql lines seen in the db/migrations directory to create the tables and enter '=# quit'
