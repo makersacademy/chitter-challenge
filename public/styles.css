@@ -3,14 +3,27 @@
   font-family: 'Roboto', sans-serif;
 }
 
-h2, h4 {
-  padding-left: 680px;
+h2, h4, h3 {
+  text-align: center;
 }
 
 header {
   position: fixed;
+  padding-left: 92%
 }
 
+.peep-button {
+  max-width: 500px;
+  margin: auto;
+}
+
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px
+}
 
 input[type=text], select {
   padding: 12px;
@@ -75,6 +88,10 @@ input[type=submit]:hover {
   display: inline-block;
 }
 
+.new-peep {
+  text-align: center;
+}
+
 .author {
   font-size: 20px;
   margin-bottom: 10px;
@@ -96,8 +113,4 @@ ul {
   padding-right: 80px;
   margin: auto;
   list-style-type: none;
-}
-
-.sign-out {
-  display: inline;
 }

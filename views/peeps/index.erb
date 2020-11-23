@@ -23,7 +23,10 @@
 
     <% if @user %>
       <h4>Welcome, <%= @user.username %></h4>
-      <a href="/peeps/new">Create new peep!</a><br>
+      <div class="new-peep">
+        <a href="/peeps/new">Create new peep!</a><br><br>
+      </div>
+
     <% end %>
     <ul>
       <% @peeps.each do |peep| %>
