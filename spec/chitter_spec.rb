@@ -25,7 +25,7 @@ describe Peep do
 
   it 'readable_time' do
     new_peep = Peep.peep(peep: 'Testing... testing! 1, 2, 3!')
-    expect(new_peep.readable_time).to eq Time.new.strftime("%k:%M %d/%m/%Y")
+    expect(new_peep.readable_time).to eq Time.new.strftime("%H:%M %d/%m/%Y")
   end
 
   it 'username returns the username of the peeper' do
