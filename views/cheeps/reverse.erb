@@ -1,0 +1,16 @@
+<ul>
+  <% @cheeps.each do |cheep| %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= cheep.cheep %></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><%= cheep.time %></td>
+      </tr>
+    </tfoot>
+  </table>
+  <% end %>
+</ul>
