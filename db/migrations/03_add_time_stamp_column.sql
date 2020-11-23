@@ -1,1 +1,1 @@
-ALTER TABLE peeps ADD peeped_at TIMESTAMP;
+ALTER TABLE peeps ADD peeped_at;
