@@ -1,17 +1,26 @@
-Chitter Challenge
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Chitter Challenge:
 -------
 
-As usual please start by forking this repo.
+# Notes on functionality
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+As it stands, my web app allows you to view peeps in reverse-chronological order without signing up. Peeps have a time stamp attributed to them. I decided to add this functionality directly within the SQL table using a "last modified" column. This allows peeps to be time stamped whilst removing responsibility from the application model. That being said, I had to implement a method within the model to format the dates when being read from the SQL table so that they read in the format DD/MM/YYY HH:MM.
+
+This was the first time that I split my controllers according to their functionality. This way I had a controller dedicated to the user-facing side of the application. 
+
+To maintain restful URL practice, I created a dynamic URL welcome page for when a user signs up, whereby the address is unique depending on the user's ID number. 
+
+Creating a new peep takes the user to a signup page if the user hasn’t already signed up. This form takes the user's name, username, email and password. This is stored within a separate "users" table within the SQL database.
+
+I used the BCrypt gem to convert the passwords to a secure hash before they are written into the database. Once the user has signed in, a session is created storing the user's ID number and username. This unlocks functionality to post new peeps, which can have a maximum of 140 characters.
+
+If I were to continue working on this project, I would like to implement the following improvements:
+
+-   Log in / log out functionality. I almost got to this stage but unfortunately run out of time. I Would implement a new function that could check credentials against the database when logging in, similar to my .find method.
+-   Unique username. I would ensure that usernames were unique when entering them by cross referencing the input field with the database.
+-   I would add functionality to raise flash errors when users enter form fields in the incorrect format.
+-   I would create email alerts to notify users when they are tagged in peeps.
+-   Reply functionality.
+-   CSS styling and better HTML layouts.
 
 Features!
 -------
