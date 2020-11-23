@@ -5,6 +5,8 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   configure do
     # allows sinatra to find my CSS stylesheet
     set :public_folder, File.expand_path('../public', __FILE__)
@@ -30,8 +32,9 @@ class Chitter < Sinatra::Base
     erb(:signup)
   end
 
-  post '/user' do
-    @user = User.create(params[:name], params[:username], params[:email], params[:password])
+  post '/user/signup' do
+    p params
+    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect('/peeps')
   end
 
