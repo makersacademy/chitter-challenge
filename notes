@@ -1,0 +1,16 @@
+Peep class
+  - attributes: id, post, time
+  - belongs to user?
+
+User class
+  - attributes: username, password
+  - user signs up/logs in
+  - has many peeps
+
+User controller and views
+  - '/user/signup' => renders sign up form
+  - '/user/signup' => processes sign up form, creates user, post
+  - '/user/login' => renders login form
+  - '/user/login' => processes login form, post
+  - need to set sessions?
+  - '/user/peeps' => user can view their peeps
