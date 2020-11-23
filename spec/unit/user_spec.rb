@@ -21,13 +21,13 @@ describe User do
     end
 
     it "returns false if username exists" do
-      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      User.create(username: "partario", email: "test@email.com", password: "1234")
       partario2 = User.create(username: "partario", email: "different@email.com", password: "1234")
       expect(partario2).to eq(false)
     end
 
     it "returns false if email exists" do
-      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      User.create(username: "partario", email: "test@email.com", password: "1234")
       not_partario = User.create(username: "vera", email: "test@email.com", password: "1234")
       expect(not_partario).to eq(false)
     end
@@ -63,7 +63,7 @@ describe User do
     end
 
     it "returns false if given an incorrect combo" do
-      partario = User.create(username: "partario", email: "test@email.com", password: "1234")
+      User.create(username: "partario", email: "test@email.com", password: "1234")
       returned_user = User.authenticate(username: "partario", password: "4321")
       expect(returned_user).to eq(false)
     end
@@ -71,6 +71,12 @@ describe User do
     it "returns false if username doesn't exist" do
       returned_user = User.authenticate(username: "partario", password: "4321")
       expect(returned_user).to eq(false)
+    end
+
+    it "isn't case sensitive for username" do
+      User.create(username: "partario", email: "test@email.com", password: "1234")
+      returned_user = User.authenticate(username: "pArTaRiO", password: "1234")
+      expect(returned_user).to be_a_kind_of(User)
     end
   end
 end
