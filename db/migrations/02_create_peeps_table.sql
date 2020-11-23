@@ -1,4 +1,3 @@
-# created a table within the database:
 CREATE TABLE peeps(
     peep_id SERIAL PRIMARY KEY,
     created_at TIMESTAMPTZ DEFAULT Now(),

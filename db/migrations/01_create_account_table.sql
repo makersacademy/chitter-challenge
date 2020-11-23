@@ -1,4 +1,3 @@
-# created a table within the database:
 CREATE TABLE accounts(
     account_id SERIAL PRIMARY KEY,
     forename VARCHAR(20) NOT NULL,
