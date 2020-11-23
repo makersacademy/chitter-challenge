@@ -1,13 +1,6 @@
-<h1>Welcome to Chitter</h1>
-<h2>Post a peep 👇</h2>
-<form action="/" method="post">
-  <input type="text" name="peep" placeholder="peep" />
-  <input type="submit" value="Post" />
-</form>
-<h2>Past peeps 👇</h2>
-<ul>
-  <% @peeps.reverse_each do |peep| %>
-    <li><%= peep.post %><br>
-      Posted: <%= peep.time%></li><br>
-  <% end %>
-</ul>
+<h1>Sign up to start peeping</h1>
+<div id="sign_up">
+    <form action="/user/signup" method='get'>
+      <input type="submit" value="Sign Up">
+    </form>
+</div>
