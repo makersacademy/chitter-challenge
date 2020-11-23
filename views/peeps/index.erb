@@ -5,11 +5,21 @@
     <title>Home / Chitter</title>
   </head>
   <body>
+    <header>
+      <% if @user %>
+      <form class="sign-out" action="sessions/destroy" method="post">
+        <input type="submit" value="Sign out">
+      </form>
+      <% else %>
+        <a href="/users/new">Sign up</a> |
+        <a href="/sessions/new">Sign in</a>
+      <% end %>
+    </header>
     <h2>Home</h2>
 
-    <h4>
+    <h3>
       <%= flash[:notice] %>
-    </h4>
+    </h3>
 
     <% if @user %>
       <h4>Welcome, <%= @user.username %></h4>
@@ -28,13 +38,5 @@
         </li>
     </ul>
 
-
-    <br>
-      <a href="/users/new">Sign up</a> |
-      <a href="/sessions/new">Sign in</a><br>
-    <br>
-      <form class="" action="sessions/destroy" method="post">
-        <input type="submit" value="Sign out">
-      </form>
   </body>
 </html>

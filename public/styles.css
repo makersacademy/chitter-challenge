@@ -3,6 +3,15 @@
   font-family: 'Roboto', sans-serif;
 }
 
+h2, h4 {
+  padding-left: 680px;
+}
+
+header {
+  position: fixed;
+}
+
+
 input[type=text], select {
   padding: 12px;
   margin-top: 5px;
@@ -87,4 +96,8 @@ ul {
   padding-right: 80px;
   margin: auto;
   list-style-type: none;
+}
+
+.sign-out {
+  display: inline;
 }
