@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chitter - Timeline</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="css/bootstrap-reboot.css">
+  <script src="/js/bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1>
+    Chitter Timeline
+  </h1>
+</header>
+<main>
+  <section class="navbar">
+    <nav class="nav nav-pills nav-fill">
+      <a class="nav-item nav-link" href="/peeps">Home</a>
+      <a class="nav-item nav-link active" href="/timeline">Timeline</a>
+      <a class="nav-item nav-link" href="/new">New Peep</a>
+    </nav>
+  </section>
+  <div class="list-group">
+    <% @all_peeps.each { |peep| %>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">@<%= @username %></h5>
+          <small class="text-muted"><%= peep['datetime'] %></small>
+        </div>
+        <p class="mb-1"><%= peep['peep_text'] %></p>
+        <small class="text-muted">Posted by: <%= @username %></small>
+      </a>
+    <%} %>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="css/bootstrap-reboot.css">
+  <script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>
+    Post New Peep
+  </h1>
+</header>
+<main>
+  <section class="navbar">
+    <nav class="nav nav-pills nav-fill">
+      <a class="nav-item nav-link" href="/peeps">Home</a>
+      <a class="nav-item nav-link" href="/timeline">Timeline</a>
+      <a class="nav-item nav-link active" href="/new">New Peep</a>
+    </nav>
+  </section>
+  <section class="peep-form">
+    <form action="/peeps" method="post">
+      <div class="form-group shadow-textarea">
+        <label for="exampleFormControlTextarea6">Add a new peep: </label>
+        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Type in your peep..." name="peep"></textarea>
+      </div><br>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+  </section>
+</main>
+</body>
+</html>

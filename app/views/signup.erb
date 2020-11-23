@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chitter</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="css/bootstrap-reboot.css">
+  <script src="/js/bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1>
+    Sign Up
+  </h1>
+</header>
+<main>
+  <div class="chitter-logo">
+    <img src="https://media3.giphy.com/media/YNzdIFyBmqvc0vhuVY/giphy.gif" height="250px" width="auto" alt="Chitter logo">
+  </div>
+  <section class="user-login">
+    <form action="/user/new" method="post">
+      <div class="form-row align-items-center">
+        <div class="col-sm-3 my-1">
+          <label class="sr-only" for="inlineFormInputName">Name</label>
+          <input type="text" class="form-control" id="inlineFormInputName" placeholder="Type in your name" name="name">
+        </div>
+        <div class="col-sm-3 my-1">
+          <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username" name="username">
+          </div>
+        </div>
+      </div><br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </section>
+</main>
+</body>
+</html>
