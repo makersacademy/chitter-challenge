@@ -9,7 +9,8 @@ feature "Timestamp" do
     visit '/'
     click_link('Chitter Feed')
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content Time.now.strftime("%d/%m/%Y %k:%M")
+    expect(page).to have_content Time.now.strftime("%d/%m/%Y")
+    expect(page).to have_content Time.now.strftime("%k:%M")
   end
 end
 
