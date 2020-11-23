@@ -6,8 +6,6 @@ Build a small Twitter clone that will allow the users to post messages to a publ
 This was the week 4 weekend challenge for Makers Academy.
 
 ## How to use the program
-### Technologies used
-*INSERT HERE AS APPROPRIATE*
 
 ### Cloning the repo & installing the necessary gems
 ```sh
@@ -37,9 +35,19 @@ rackup -p 3000
 Then navigate to localhost:3000 on your web browser to use the app.
 
 ## Challenge Progress
-Completed initial review of the user stories. Created an entity relationship diagram to show the tables needed for the first set of user stories, with placeholders indicating expansion areas suggested by the harder, advanced and bonus user stories. Set up testing environment. Set up peeps page, displaying all peeps made. Added ability for user to add a peep as a guest. Sorted display so that most recent peeps display first. Added timestamp to peeps. Added name & username to peeps.
+Completed the 'straight up' user stories.  
 
-![Entity relationship diagram for basic user stories](initial_chitter_erd.png)
+Outstanding functionality:
+* username & email are unique  
+
+To improve the code I would:
+* tackle the 'harder', 'advanced' and 'bonus user stories'
+
+To improve the feel of the app I would:
+* add a logo!
+* improve the layout of existing peeps
+
+![Entity relationship diagram for basic user stories](updated_chitter_erd.png)
 
 ## Main focuses for this week
 

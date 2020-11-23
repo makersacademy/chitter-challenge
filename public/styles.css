@@ -1,5 +1,6 @@
 body {
   background-color: Azure;
+  font-family: Arial, sans-serif;
 }
 h1 {
   font-family: Arial, sans-serif;
@@ -8,7 +9,8 @@ h1 {
 }
 h2 {
   font-family: Arial, sans-serif;
-  text-align: center;
+  text-align: left;
+  color: royalblue;
 }
 p {
   font-family: Arial, sans-serif;

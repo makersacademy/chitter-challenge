@@ -1,26 +1,38 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/account'
 
 class ChitterChallenge < Sinatra::Base
-  enable :sessions # , :method_override
+  enable :sessions 
 
   get '/' do
     'Welcome to Chitter!'
   end
 
+  get '/signup' do
+    erb :'signup'
+  end
+
+  post '/peeps/signed_new' do
+    account = Account.create(forename: params[:forename], surname: params[:surname], username: params[:username], email: params[:email], password: params[:password])
+    session[:username] = account.username
+    redirect '/peeps/new'
+  end
+
   get '/peeps' do
     @peeps = Peep.all
 
-    # @peeps.account? to call instance method 'account' on instance of Peep?
     erb :'peeps/index'
   end
 
   get '/peeps/new' do
+
     erb :'peeps/new'
   end
 
   post '/peeps' do
-    Peep.create(script: params[:script], created_at: Time.now)
+    session[:username] != nil ? username = session[:username] : username = 'Guest'
+    Peep.create(script: params[:script], created_at: Time.now, username: username)
 
     redirect '/peeps'
   end
