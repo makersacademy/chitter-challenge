@@ -36,7 +36,7 @@ To get running:
 
  - [ ] Email notifications when people are tagged in Peeps
  - [ ] Reply/thread system
- - [ ] Favourites
+ - [X] Favourites
 
 ## Brief
   
