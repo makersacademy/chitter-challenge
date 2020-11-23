@@ -1,5 +1,5 @@
 <body>
-  <h1>Chitter!</h1>
+  <h1>Welcome to Chitter!</h1>
   <br>
   <ul>
     <% @peeps.each do |peep| %>
@@ -10,3 +10,8 @@
     <% end %>
   </ul>
 </body>
+
+<h2>Make a new peep!</h2>
+<form action="peeps/new" method="get">
+  <input type="submit" class="button" value="Make a Peep">
+</form>

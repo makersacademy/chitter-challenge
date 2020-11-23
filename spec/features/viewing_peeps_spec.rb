@@ -3,7 +3,7 @@ feature 'Viewing peeps' do
     scenario 'As an user, I can see the homepage' do
       visit '/'
 
-      expect(page).to have_content 'Welcome! Please, enjoy our Chitter app!'
+      expect(page).to have_content 'Welcome! Please, sign up to enjoy our Chitter app!'
     end
   end
 
