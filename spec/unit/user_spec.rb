@@ -1,4 +1,5 @@
 require 'user'
+require 'peep'
 
 describe User do
   it "creates an instance of user with an id, username, email, and password" do
@@ -77,6 +78,15 @@ describe User do
       User.create(username: "partario", email: "test@email.com", password: "1234")
       returned_user = User.authenticate(username: "pArTaRiO", password: "1234")
       expect(returned_user).to be_a_kind_of(User)
+    end
+  end
+
+  describe('#favourite_a_peep') do
+    it "allows a user to favourite a peep" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      example_peep = Peep.create(body: "Hello World", user_id: user.id)
+      expect(DatabaseConnection).to receive(:query).with("INSERT INTO favourites (peep_id, user_id) VALUES ('#{example_peep.id}', '#{user.id}');")
+      user.favourite_a_peep(example_peep.id)
     end
   end
 end

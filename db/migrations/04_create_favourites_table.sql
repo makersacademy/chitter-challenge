@@ -1,0 +1,1 @@
+CREATE TABLE favourites(id SERIAL PRIMARY KEY, peep_id INTEGER REFERENCES peeps (id), user_id INTEGER REFERENCES users (id));

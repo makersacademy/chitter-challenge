@@ -11,6 +11,10 @@ class User
     @email = email
   end
 
+  def favourite_a_peep(peep_id)
+    DatabaseConnection.query("INSERT INTO favourites (peep_id, user_id) VALUES ('#{peep_id}', '#{@id}');")
+  end
+
   def self.create(username:, email:, password:)
     return false unless DatabaseConnection.query("SELECT COUNT(id) FROM users WHERE username='#{username.downcase}' OR email='#{email.downcase}';")[0]['count'].to_i.zero?
 
