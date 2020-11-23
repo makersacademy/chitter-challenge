@@ -42,7 +42,6 @@ I want to log out of Chitter
 > git clone https://github.com/ralphm10/chitter-challenge
 > bundle
 ```
-Run database migrations below;
 
 ### Instructions to setup test and production database:
 -----
