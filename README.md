@@ -71,4 +71,7 @@ Go to <code>localhost:9292</code>
 
 ### Screen Shots of Deployed App
 
+<img src="public/chitter2.png" />
+<img src="public/chitter3.png" />
+<img src="public/chitter4.png" />
 
