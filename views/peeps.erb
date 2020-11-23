@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/style.css"/>
+
 <h1>Welcome to Chitter!</h1>
 <h2>Post a peep 👇</h2>
 <form action="/peeps" method="post">
@@ -7,7 +9,7 @@
 <h2>Past peeps 👇</h2>
 <ul>
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep.post %><br>
-      Posted: <%= peep.time%></li><br>
+    <li><%=peep.post %><br>
+      Posted: <%=peep.time%></li><br>
   <% end %>
 </ul>
