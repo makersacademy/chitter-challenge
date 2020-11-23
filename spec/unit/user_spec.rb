@@ -89,4 +89,14 @@ describe User do
       user.favourite_a_peep(example_peep.id)
     end
   end
+
+  describe('#unfavourite_a_peep') do
+    it "allows users to undo their favouriting" do
+      user = User.create(username: "partario", email: "test@email.com", password: "1234")
+      example_peep = Peep.create(body: "Hello World", user_id: user.id)
+      user.favourite_a_peep(example_peep.id)
+      expect(DatabaseConnection).to receive(:query).with("DELETE FROM favourites WHERE user_id = '#{user.id}' AND peep_id = '#{example_peep.id}');")
+      user.unfavourite_a_peep(example_peep.id)
+    end
+  end
 end
