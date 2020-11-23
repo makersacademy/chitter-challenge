@@ -63,12 +63,16 @@ class ChitterController < Sinatra::Base
       flash[:notice] = "Peeps can't be over 140 characters"
       redirect('/app/new-peep')
     end
-
   end
 
   get '/app/:id/delete' do
     peep = Peep.find(params[:id])
     Peep.delete(peep.id) if peep.author == session[:user].username
+    redirect('/app')
+  end
+
+  get '/app/:id/favourite' do
+    session[:user].favourite_a_peep(params[:id])
     redirect('/app')
   end
 

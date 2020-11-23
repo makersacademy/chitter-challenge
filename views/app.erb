@@ -40,8 +40,10 @@
   <div class="window-body">
     <p><%=peep.body %></p>
     <div class="favourite-count">
+    <form action="/app/<%=peep.id%>/favourite">
     <button>Favourite</button>
-    ❤ 0 ❤
+    ❤ <%= peep.total_favourites%> ❤
+    </form>
   </div>
   </div>
 </div>
