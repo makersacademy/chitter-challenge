@@ -1,0 +1,30 @@
+<%= erb :head %>
+
+<div id="chitter" style="width: 375px; margin: 0 auto;">
+
+  <h1 align="center">Chitter</h1>
+
+  <div id="peep">
+    <form action="/new" method="POST">
+    <input type="text" placeholder="Enter your name" name="author">
+    <input type="text" placeholder="Enter peep" maxlength="140" name="new_peep">
+    <input type="submit" value="Peep!">
+    </form>
+  </div>
+
+  <div id="peeps">
+
+  <% @peeps.each do |peep| %>
+  <ul style="list-style: none;">
+  <div id="a_peep" style="width: 370px;">
+    <li><b><%= peep.content[:author] %></b> <br>
+      <%= peep.content[:content] %></li>
+    </div><!-- // a_peep -->
+    <div id="peep_length" style="float: right;">
+      <%= peep.content[:content].length %>
+    </div>
+  </ul>
+  <% end %>
+  </div>
+
+</div>
