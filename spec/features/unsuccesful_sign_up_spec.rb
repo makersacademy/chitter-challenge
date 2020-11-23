@@ -2,6 +2,7 @@ feature 'sign up with credidentials that exist' do
   scenario 'error message displayed if duplicate email provided' do
     visit('/peeps')
     sign_up
+    click_button('Sign out')
     click_link('Sign up')
     fill_in('email', with: 'yourname@example.com')
     fill_in('password', with: 'password123')
@@ -13,6 +14,7 @@ feature 'sign up with credidentials that exist' do
   scenario 'error message displayed if duplicate username provided' do
     visit('/peeps')
     sign_up
+    click_button('Sign out')
     click_link('Sign up')
     fill_in('email', with: 'your_name@example.com')
     fill_in('password', with: 'password123')
