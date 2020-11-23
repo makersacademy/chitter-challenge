@@ -7,7 +7,7 @@ before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_manager_test;'
   - psql -U postgres -f chitter_manager_test -f ./db/migrations/02_creating_user_table.sql
   - psql -U postgres -f chitter_manager_test -f ./db/migrations/03_creating_peep_table.sql
-  - cp config/database.yml.travis config/database.yml
+
 
 script:
   - bundle exec rspec
