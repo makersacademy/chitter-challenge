@@ -85,7 +85,7 @@ describe User do
     it "allows a user to favourite a peep" do
       user = User.create(username: "partario", email: "test@email.com", password: "1234")
       example_peep = Peep.create(body: "Hello World", user_id: user.id)
-      expect(DatabaseConnection).to receive(:query).with("INSERT INTO favourites (peep_id, user_id) VALUES ('#{example_peep.id}', '#{user.id}');")
+      expect(DatabaseConnection).to receive(:query).with(/INSERT INTO favourites/)
       user.favourite_a_peep(example_peep.id)
     end
   end
@@ -95,7 +95,7 @@ describe User do
       user = User.create(username: "partario", email: "test@email.com", password: "1234")
       example_peep = Peep.create(body: "Hello World", user_id: user.id)
       user.favourite_a_peep(example_peep.id)
-      expect(DatabaseConnection).to receive(:query).with("DELETE FROM favourites WHERE user_id = '#{user.id}' AND peep_id = '#{example_peep.id}';")
+      expect(DatabaseConnection).to receive(:query).with(/DELETE FROM favourites/)
       user.unfavourite_a_peep(example_peep.id)
     end
   end

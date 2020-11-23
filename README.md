@@ -32,8 +32,6 @@ To get running:
 
 ## Todo
 
- 
-
  - [ ] Email notifications when people are tagged in Peeps
  - [ ] Reply/thread system
  - [X] Favourites

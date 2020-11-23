@@ -9,10 +9,10 @@ group :test do
 end
 
 gem 'bcrypt'
+gem 'cgi'
 gem 'dotenv'
 gem 'pg'
 gem 'rack'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'cgi'
