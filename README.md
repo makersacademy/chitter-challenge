@@ -4,16 +4,14 @@ Chitter Challenge
 Challenge:
 -------
 
-This challenge, part of the Makers course, involved building a write a small Twitter clone that will allow the users to post messages to a public stream. The user stores are listed below.
+This challenge, part of the Makers course, involved building a write a small Twitter clone that will allow the users to post messages to a public stream. The user stores are listed below. 
 
 The technologies used were ruby, sinatra, postgreSQL, html, CSS, and the application was tested with capybara and rspec.
 
-Features:
+User Stories:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -30,8 +28,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -40,11 +36,6 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 ## Getting started
 ```
@@ -73,8 +64,12 @@ Go to <code>localhost:9292</code>
 ```
 > rspec
 ```
+### Additional functionality
 
-Progress and next steps
-----------------------
-- The user stories in STRAIGHT UP and HARDER above have been completed
-- CSS is currently a work in progress
+* Emails are validated on the front-end, and passwords need to be a minimum of 8 characters 
+* The tests include an unsuccesful sign up attempt due to an email or username already being in use
+* User receives flash noticications if their password or email is incorrect, as well as for successful sign-in
+
+### Screen Shots of Deployed App
+
+
