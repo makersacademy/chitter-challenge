@@ -20,15 +20,15 @@ Features:
 STRAIGHT UP
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing  - SOLVED
 I want to post a message (peep) to chitter
 
 As a maker
 So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+I want to see all peeps in reverse chronological order - SOLVED
 
 As a Maker
-So that I can better appreciate the context of a peep
+So that I can better appreciate the context of a peep - SOLVED
 I want to see the time at which it was made
 
 As a Maker
@@ -52,84 +52,89 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
+### Set up:
 ```ruby
+#in spec_helper.rb
+ENV['ENVIRONMENT'] = 'test'
+require 'capybara/rspec'
+require 'capybara'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+Capybara.app = Chitter
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Our first two tables were set up with this structure. One in the 'chitter' database and the other in 'chitter_test'. This can be found in db/migrations directory
+```ruby
+#in db/migrations/01_create_cheeps_table.sql
+CREATE TABLE cheeps(id SERIAL PRIMARY KEY, cheep VARCHAR(240));
+```
+
+## User Story 1:
+First of all I'll be tackling the first user story.
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+To me, this means that the user needs to be able to post or create a peep and see it. 
+
+ 1. Create '/cheeps' route. This will display all cheeps using a Cheeps.all method in the model
+ 2. Create '/cheeps/new' route. This will allow the user to create a new cheep. This will use Cheeps.create(text) method
+
+## User Stories 2 & 3
+
+I'll be tackling these two stories together as for me they go hand in hand. I will tackle user story 3 first to make it easier to see if they are in chronological order or not.
+
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+### To view the time on a cheep:
+
+ 1. I'll have to add a column in the database for this, which in turn means I need to add it into the .create method
+ 2. add an initialize method & attr_readers
+ 3. return a ruby object from .all
+ 4. change .create to return a ruby object
+ 5. change views/index to display a table for each cheep, with each table footer showing the cheep's time stamp
+
+Below is the command used to alter the cheeps table to also accept time/
+```ruby
+ALTER TABLE cheeps ADD COLUMN time TIME;
+```
+
+### To view cheeps in reverse order
+
+ 1. create a button that takes you to cheeps/reverse (probably not very restful, I'll look into this later if time allows)
+ 2. create a .reverse method which simply calls .all.reverse
+ 3. create a views/cheeps/reverse.erb file which mirrors views/cheeps/index.erb
+
+To make it clearer and easier to organise I added my cheeps into tables with the time stamp being put into the table footer. This would have allowed me to add the user name into the header of the table but I ran out of time.
+
+```ruby
+#in views/cheeps/index.erb & /reverse.erb
+<ul>
+  <% @cheeps.each do |cheep| %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= cheep.cheep %></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><%= cheep.time %></td>
+      </tr>
+    </tfoot>
+  </table>
+  <% end %>
+</ul>
+```
