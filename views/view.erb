@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+h1 {
+  text-align: center;
+}
+form {
+  text-align: center;
+}
+</style>
+</head>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message %></li>
+    <br>
+    <li><%= peep.time %></li>
+  <% end %>
+</ul>
+  <form action="/post" method="get">
+  <label for="Post">
+  <input type="submit" name="Post" value="Post a Peep">
+  </label>
+</form>
