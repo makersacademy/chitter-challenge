@@ -1,1 +1,2 @@
-ALTER TABLE peeps ADD peeped_at;
+ALTER TABLE peeps ADD COLUMN peeped_at TIMESTAMP;
+ALTER TABLE peeps ALTER COLUMN peeped_at SET DEFAULT now();
