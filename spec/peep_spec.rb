@@ -12,7 +12,6 @@ describe Peep do
       expect(peeps.first).to be_a Peep
       expect(peeps.first.id).to eq test.id
       expect(peeps.first.message).to eq 'First test peep'
-      expect(peeps.first.time).to eq Time.now
     end
   end
 
