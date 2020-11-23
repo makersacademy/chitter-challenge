@@ -74,6 +74,21 @@ body {
   display: flex;
 }
 
+.favourite-count {
+  position: relative;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  margin-right: 30px;
+}
+
+.favourite-count button {
+  height: 20px;
+  margin-right: 15px;
+}
+
 .all-peeps {
   display: block;
   margin-top: 100px;
@@ -86,6 +101,6 @@ body {
 .all-peeps .window {
   margin: 30px auto;
   width: 500px;
-  height: 125px;
+  height: 150px;
   font-size: larger;
 }
