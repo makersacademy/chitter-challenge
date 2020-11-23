@@ -1,0 +1,22 @@
+<h2>
+<%= flash[:notice] %>
+</h2>
+
+<ul>
+  <% @peep.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      "<%= peep.peep %>" - This was peeped at: <%= peep.readable_time %>, by: <%= peep.username %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  <form action="/logout" method="post">
+    <input type="submit" value="Sign out!" />
+  </form>
+</div>
+
+<a href= '/peeping' > Post peep! </a>
+<div>
+  <a href= '/login' > log in </a>
+</div
