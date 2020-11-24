@@ -28,16 +28,16 @@ describe Peeps do
   describe '.all' do
     it 'Returns a ruby object containing information from the SQL database' do
     
-      connection = PG.connect(dbname: 'chitter_test')
+      connection = DatabaseConnection.setup('chitter_test')
       Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
       Peeps.create(username: 'SlowSally123', peep: 'SQL is quite hard eh?!')
       Peeps.create(username: 'AndyH21', peep: 'Why. Just why.')
 
       peeps = Peeps.all
 
-      expect(peeps[0].username).to eq "rorschach12"
-      expect(peeps[0].peep).to eq "I am not sure if I am qualified to be doing this"
-      expect(peeps[0].lastmodified).to eq Time.now.strftime("%d/%m/%Y %k:%M")
+      expect(peeps.first.username).to eq "rorschach12"
+      expect(peeps.first.peep).to eq "I am not sure if I am qualified to be doing this"
+      expect(peeps.first.lastmodified).to eq Time.now.strftime("%d/%m/%Y %k:%M")
       expect(peeps.length).to eq 3
     end
   end
@@ -46,21 +46,21 @@ describe Peeps do
     it "Adds a new entry to the database" do
      Peeps.create(username: "Test", peep: "Test peep")
      peeps = Peeps.all
-     expect(peeps[0].id).not_to eq nil
-     expect(peeps[0].username).to eq "Test"
-     expect(peeps[0].peep).to eq "Test peep"
+     expect(peeps.first.id).not_to eq nil
+     expect(peeps.first.username).to eq "Test"
+     expect(peeps.first.peep).to eq "Test peep"
     end
   end
 
-  describe '#time_formatter' do
-    it "Formats the time" do
-      connection = PG.connect(dbname: 'chitter_test')
-      Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
-      peeps = Peeps.all
-      peeps[0].lastmodified
+  # describe '#time_formatter' do
+  #   it "Formats the time" do
+  #     connection = DatabaseConnection.setup('chitter_test')
+  #     Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
+  #     peeps = Peeps.all
+  #     peeps.first.lastmodified
 
-    end
-  end
+  # #   end
+  # end
 
 
 end

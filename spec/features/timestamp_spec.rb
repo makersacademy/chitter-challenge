@@ -3,7 +3,6 @@ require 'pg'
 feature "Timestamp" do
   scenario "Peeps have a timestamp of when they were last modified" do
 
-    connection = PG.connect(dbname: 'chitter_test')
     Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
 
     visit '/'

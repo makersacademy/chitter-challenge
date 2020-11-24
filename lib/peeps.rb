@@ -1,4 +1,5 @@
 require 'pg'
+require_relative './databaseconnection'
 
 class Peeps
   attr_reader :id, :username, :peep, :lastmodified
@@ -11,24 +12,14 @@ class Peeps
   end
 
   def self.all 
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    result = connection.exec("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map do |peep|
       Peeps.new(id: peep['id'], username: peep['username'],peep: peep['peep'], lastmodified: Time.parse(peep['lastmodified']).strftime("%d/%m/%Y %k:%M"))
     end
   end
 
   def self.create(username: , peep: )
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    connection.exec("INSERT INTO peeps (username, peep) VALUES('#{username}', '#{peep}')")
+    DatabaseConnection.query("INSERT INTO peeps (username, peep) VALUES('#{username}', '#{peep}')")
   end
 
   # def time_formatter

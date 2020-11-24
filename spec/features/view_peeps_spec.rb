@@ -4,7 +4,7 @@ require_relative 'web_helpers'
 feature "View all peeps" do
   scenario "User can view a feed of peeps in reverse chronological order" do
 
-    connection = PG.connect(dbname: 'chitter_test')
+
     Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
     Peeps.create(username: 'SlowSally123', peep: 'SQL is quite hard eh?!')
     Peeps.create(username: 'AndyH21', peep: 'Why. Just why.')
