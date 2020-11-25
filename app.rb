@@ -3,7 +3,7 @@ require './lib/peep'
 
 class Chitter < Sinatra::Base
   get('/') do
-    'Chitter'
+    redirect('/peeps')
   end
 
   get('/peeps') do
@@ -20,5 +20,13 @@ class Chitter < Sinatra::Base
     redirect('/peeps')
   end
 
+  get('/signup/new') do
+    erb(:'signup/new')
+  end
+
+  post('/signup') do
+    redirect('/peeps')
+  end
+  
   run! if app_file == $0
 end
