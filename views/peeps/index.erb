@@ -1,0 +1,12 @@
+<!-- <% if @username %> %> -->
+<h1>Welcome <%= @username %></h1>
+<!-- <% end %> -->
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.peep %>
+    <%= peep.date %>
+    <%= peep.time %>
+    </li>
+  <% 
+end %>
+</ul>
