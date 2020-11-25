@@ -72,6 +72,13 @@ To Set Up and Run the App:
 3. Connect to the database using the `psql` command `\c chitter;`
 4. Run the SQL queries saved in the `db/migrations` folder in the given order
 
+### To Set Up the Test Database:
+
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE chitter_test;`
+3. Connect to the database using the `psql` command `\c chitter_test;`
+4. Run the SQL queries saved in the `db/migrations` folder in the given order
+
 ### To Run the Chitter app:
 
 ```
