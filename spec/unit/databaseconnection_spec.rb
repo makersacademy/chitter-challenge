@@ -1,4 +1,4 @@
-require 'databaseconnection'
+require './lib/databaseconnection'
 
 describe DatabaseConnection do
 
@@ -24,4 +24,3 @@ describe DatabaseConnection do
     end
   end
 end
-

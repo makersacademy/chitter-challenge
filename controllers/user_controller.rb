@@ -1,11 +1,17 @@
 require './lib/user'
+require './lib/databaseconnection'
 require_relative 'app'
 
+
 class UserController < Sinatra::Base 
-  enable :sessions
+
+  configure do
+    enable :sessions, :method_override
+    set :views, './views'
+  end
 
   get '/users/new' do
-    erb :"./users/new"
+    erb :"new_user"
   end
 
   post '/users' do
@@ -17,7 +23,7 @@ class UserController < Sinatra::Base
 
   get '/users/:id' do
     @user = User.find(session[:user_id])
-    erb :"./users/show"
+    erb :"show"
   end
 
 end

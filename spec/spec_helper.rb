@@ -1,5 +1,5 @@
 ENV['ENVIRONMENT'] = 'test'
-require File.join(File.dirname(__FILE__), '../app/controllers', 'app.rb')
+require File.join(File.dirname(__FILE__), '../controllers', 'app.rb') 
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'

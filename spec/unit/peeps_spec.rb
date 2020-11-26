@@ -1,7 +1,7 @@
-require 'peeps'
+require './lib/peeps'
 
 describe Peeps do
-  let(:peeps) {Peeps.new(id: "1", username: "usernametest", peep: "peeptest", lastmodified: "lastmodifiedtest")}
+  let(:peeps) { Peeps.new(id: "1", username: "usernametest", peep: "peeptest", lastmodified: "lastmodifiedtest") }
 
   describe '#initialize' do
     it 'Is an instance of Peep' do
@@ -27,8 +27,7 @@ describe Peeps do
 
   describe '.all' do
     it 'Returns a ruby object containing information from the SQL database' do
-    
-      connection = DatabaseConnection.setup('chitter_test')
+      
       Peeps.create(username: 'rorschach12', peep: 'I am not sure if I am qualified to be doing this')
       Peeps.create(username: 'SlowSally123', peep: 'SQL is quite hard eh?!')
       Peeps.create(username: 'AndyH21', peep: 'Why. Just why.')
@@ -44,11 +43,11 @@ describe Peeps do
 
   describe '.create' do
     it "Adds a new entry to the database" do
-     Peeps.create(username: "Test", peep: "Test peep")
-     peeps = Peeps.all
-     expect(peeps.first.id).not_to eq nil
-     expect(peeps.first.username).to eq "Test"
-     expect(peeps.first.peep).to eq "Test peep"
+      Peeps.create(username: "Test", peep: "Test peep")
+      peeps = Peeps.all
+      expect(peeps.first.id).not_to eq nil
+      expect(peeps.first.username).to eq "Test"
+      expect(peeps.first.peep).to eq "Test peep"
     end
   end
 
@@ -61,6 +60,5 @@ describe Peeps do
 
   # #   end
   # end
-
 
 end

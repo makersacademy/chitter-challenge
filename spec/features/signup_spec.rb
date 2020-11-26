@@ -13,5 +13,3 @@ feature "Signup" do
     expect(page).to have_content "Welcome Test"
   end
 end
-
-

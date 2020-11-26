@@ -1,7 +1,7 @@
-require 'user'
+require './lib/user'
 
 describe User do
-  let(:testuser) {User.new(id: 1, name: "Testy McTester", username: "Test", email: "test@gmail.com")}
+  let(:testuser) { User.new(id: 1, name: "Testy McTester", username: "Test", email: "test@gmail.com") }
 
   describe '#initialize' do
     it 'Is an instance of User' do

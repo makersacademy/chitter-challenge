@@ -7,4 +7,3 @@ def setup_test_database
   connection.exec("TRUNCATE users;")
 
 end
-

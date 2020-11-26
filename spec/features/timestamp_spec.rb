@@ -12,4 +12,3 @@ feature "Timestamp" do
     expect(page).to have_content Time.now.strftime("%k:%M")
   end
 end
-
