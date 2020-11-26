@@ -7,6 +7,8 @@
 <body>
   <h1> Welcome to the signup page </h1>
 
+  <%= flash[:notice] %>
+
 
   <form class = "box" action='/users' method='POST'>
     <input type=text name ='name' id='name' placeholder="Name">
