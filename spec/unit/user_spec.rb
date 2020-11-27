@@ -29,6 +29,9 @@ describe User do
       expect(user.username).to eq 'Test'
       expect(user.email).to eq 'test@gmail.com'
     end
+    it "Returns false if user enters an invalid email format" do
+      expect(User.create(name: "Lola Jones", username: "Pinkmistress12", email: "F**$!@@gmail.cimm", password: "Test123")).to eq false
+    end
   end
 
   describe '.find' do

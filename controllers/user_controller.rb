@@ -20,14 +20,14 @@ class UserController < Sinatra::Base
   end
 
   post '/users' do
-    if params['email'] =~ URI::MailTo::EMAIL_REGEXP
-      @user = User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    @user = User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    if @user != false
       session[:user_id] = @user.id
       session[:username] = @user.username
       redirect "users/#{@user.id}"
     else flash[:notice] = "Please give us a real email FFS!"
+      redirect '/users/new'
     end
-    redirect '/users/new'
   end
 
   get '/users/:id' do
