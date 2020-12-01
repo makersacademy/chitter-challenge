@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<h1>Chitter 🐔</h1>
+<br>
+<h2>What's been happening, peeps?</h2>
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep.script %><br>
+      from <%= peep.account[:forename] %> <%= peep.account[:surname] %>
+      aka '<%= peep.account[:username] %>'
+      at <%= peep.created_at %>
+      </li>
+  <% end %>
+</ul>
+
+</body>
+</html>
