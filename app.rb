@@ -3,14 +3,14 @@ require './lib/peep'
 require './lib/account'
 
 class ChitterChallenge < Sinatra::Base
-  enable :sessions 
+  enable :sessions
 
   get '/' do
     'Welcome to Chitter!'
   end
 
   get '/signup' do
-    erb :'signup'
+    erb :signup
   end
 
   post '/peeps/signed_new' do

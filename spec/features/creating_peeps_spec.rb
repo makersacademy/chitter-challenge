@@ -5,5 +5,6 @@ feature 'Adding a new peep' do
     click_button('Submit')
 
     expect(page).to have_content 'I love Sundays!'
+    expect(page).to have_content 'Guest'
   end
 end

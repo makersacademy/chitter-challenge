@@ -5,6 +5,10 @@ Build a small Twitter clone that will allow the users to post messages to a publ
 ## Motivation
 This was the week 4 weekend challenge for Makers Academy.
 
+## Peeps display
+
+![Peeps index page view](peeps_index_20201201.png)
+
 ## How to use the program
 
 ### Cloning the repo & installing the necessary gems
@@ -48,6 +52,10 @@ To improve the feel of the app I would:
 * improve the layout of existing peeps
 
 ![Entity relationship diagram for basic user stories](updated_chitter_erd.png)
+
+### Test coverage
+
+![Test coverage](Test_coverage_20201201.png)
 
 ## Main focuses for this week
 
