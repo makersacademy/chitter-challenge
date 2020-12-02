@@ -24,7 +24,6 @@ rackup
  - Active Record
  - BCrypt
  - Capybara
- - Rake
 
 ## Features
 
