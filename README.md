@@ -4,15 +4,6 @@ A twitter clone for the week 4 end of unit exercise at Makers.
 
 ![Chitter screenshot](https://i.imgur.com/Y5hsAcx.png)
 
-## Technology
-
- - Ruby
- - Sinatra
- - Active Record
- - BCrypt
- - Capybara
- - Rake
-
 ## Installation
 
 ```shell
@@ -25,6 +16,15 @@ psql -d chitter -f database_setup.sql
 psql -d chitter_test -f database_setup.sql
 rackup
 ```
+
+## Technology
+
+ - Ruby
+ - Sinatra
+ - Active Record
+ - BCrypt
+ - Capybara
+ - Rake
 
 ## Features
 
