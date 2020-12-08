@@ -1,0 +1,1 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, body TEXT, datetimeposted timestamp default CURRENT_TIMESTAMP, user_id INTEGER REFERENCES users (id) ON DELETE CASCADE);

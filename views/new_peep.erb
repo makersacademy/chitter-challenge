@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ｃｈｉｔｔｅｒ　（なゅ温）</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="../styles/new-peep.css">
+  </head>
+  <body>
+  <div class="notice"><%= flash[:notice] %></div>
+    <header>
+      <h1 class="logo">Chitter</h1>
+    </header>
+    <div class="registration-form">
+    <h4>(っ◔◡◔)っ ♥ Make a post! ♥</h4>
+    <form method='POST' action='/app'>
+    <div class="field-row">
+    <label for="body">Content</label>
+    <input id="content" name="content" type="text" />
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+    </div>
+  </body>
+</html>

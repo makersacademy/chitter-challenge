@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tinos&display=swap');
+
+body {
+  background: #ff00cc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.notice {
+  font-family: 'Tinos', serif;
+  font-size: x-large;
+  color: white;
+  text-align: center;
+  margin: auto;
+  letter-spacing: 20px;
+}
+
+.login-box {
+  margin: auto;
+  margin-top: 10em;
+  transform: rotate(3deg);
+  width: 400px;
+}
+
+.login-box input {
+    width: 200px;
+}
+
+.login-box .window-buttons button {
+  margin-left: 20px;
+}
+
+.window-body {
+  display: inline;
+}
+
+.login-friend {
+    float: right;
+}
+
+.logo {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: greenyellow;
+}
+
+.tag-line {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 6em;
+    font-family: 'Tinos', serif;
+    letter-spacing: 30px;
+}
+
+.window-buttons {
+  display: flex;
+}

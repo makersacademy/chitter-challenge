@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tinos&display=swap");
+
+body {
+  background: #ff00cc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.notice {
+  font-family: "Tinos", serif;
+  font-size: x-large;
+  color: white;
+  text-align: center;
+  margin: auto;
+  letter-spacing: 20px;
+}
+
+.logo {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  color: greenyellow;
+  position: relative;
+  margin-top: 100px;
+}
+
+.user-bar {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Tinos", serif;
+  color: white;
+  background: black;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  margin-bottom: 15px;
+  border-bottom: thick solid white;
+  z-index: 9;
+}
+
+.username {
+  float: left;
+  letter-spacing: 5px;
+}
+
+.user-bar-buttons {
+  margin-top: 15px;
+  float: right;
+}
+
+.user-bar-buttons button {
+  margin-right: 15px;
+}
+
+.title-bar-controls form {
+  margin-right: 10px;
+}
+
+.title-bar-controls button {
+  z-index: -1;
+  transform: scale(1.5, 1.5);
+}
+
+.window-buttons {
+  display: flex;
+}
+
+.favourite-count {
+  position: relative;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  margin-right: 30px;
+}
+
+.favourite-count button {
+  height: 20px;
+  margin-right: 15px;
+}
+
+.all-peeps {
+  display: block;
+  margin-top: 100px;
+}
+
+.all-peeps .title-bar {
+  font-size: 15px;
+}
+
+.all-peeps .window {
+  margin: 30px auto;
+  width: 500px;
+  height: 150px;
+  font-size: larger;
+}

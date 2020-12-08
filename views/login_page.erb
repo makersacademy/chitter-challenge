@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ｃｈｉｔｔｅｒ　（なゅ温）</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="./styles/login.css">
+  </head>
+  <body>
+    <div class="notice"><%= flash[:notice] %></div>
+    <header>
+      <h1 class="logo">Chitter</h1>
+    </header>
+    <div class="window login-box">
+      <div class="title-bar">
+        <div class="title-bar-text">Ｃｈｉｔｔｅｒ　なゅ温</div>
+        <div class="title-bar-controls">
+          <button disabled aria-label="Minimize"></button>
+          <button disabled aria-label="Maximize"></button>
+          <button disabled aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <img src="images/kawaii.png" class="login-friend">
+
+        <form method="POST" action="/sessions" name="login" id="login">
+        <div class="field-row">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" />
+        </div>
+        <div class="field-row">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" />
+        </div>
+        <br>
+        <div class="window-buttons">
+          <button type="submit">Go online</button>
+        </form>
+
+        <form>
+        <button class="form-action-button" name="register" formaction="/create-account"><u>R</u>egister</button>
+        </form>
+        </div>
+      </div>
+    </div>
+    <div class="tag-line">
+      <h2>(っ◔◡◔)っ ♥ lets chit ♥</h2>
+    </div>
+  </body>
+</html>
