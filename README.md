@@ -30,6 +30,11 @@ To get running:
  5. Visit localhost:9292 (or the port specified by rack in the terminal) in your web browser.
  6. Enjoy some wholesome Chits and Peeps with your friends!
 
+## Screenshots
+
+![Login page](./screenshots/screenshot1.png)
+![Peep feed](./screenshots/screenshot2.png)
+
 ## Todo
 
  - [ ] Email notifications when people are tagged in Peeps
