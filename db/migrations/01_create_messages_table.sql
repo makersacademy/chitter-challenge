@@ -1,0 +1,1 @@
+CREATE TABLE messages(id SERIAL PRIMARY KEY, peep VARCHAR(280));
