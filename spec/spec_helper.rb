@@ -1,8 +1,12 @@
 # datbase helper
 require_relative './setup_test_database'
+require_relative './database_helpers'
 
 # controller file
 require File.dirname(__FILE__) + '/../app.rb'
+
+# model file
+require File.dirname(__FILE__) + '/../lib/peep.rb'
 
 require 'capybara/rspec'
 require 'simplecov'
@@ -20,9 +24,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  # cinfiug.before(:each) do
-  #   setup_test_database
-  # end
+  config.before(:each) do
+    setup_test_database
+  end
   #
   config.after(:suite) do
 

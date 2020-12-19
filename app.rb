@@ -6,8 +6,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    $message = params[:message]
-    redirect '/peeps/1'
+    $peep = Peep.create(message: params[:message])
+    redirect "/peeps/#{$peep.id}"
   end
 
   get '/peeps/new' do
@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:id' do
-    $message
+    $peep
     erb :'peeps/show'
   end
 
