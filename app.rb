@@ -8,16 +8,11 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peep.create(message: params[:message])
-    redirect "/peeps/#{@peep.id}"
+    redirect "/peeps"
   end
 
   get '/peeps/new' do
     erb :'peeps/new'
-  end
-
-  get '/peeps/:id' do
-    @peep = Peep.find(id: params['id'])
-    erb :'peeps/show'
   end
 
   # establish server if file run directly
