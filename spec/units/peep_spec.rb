@@ -1,15 +1,18 @@
+require 'date'
+
 describe Peep do
   let(:id) { 1 }
   let(:message_1) { 'Test message 1' }
   let(:message_2) { 'Test message 2' }
   let(:message_3) { 'Test message 3' }
-  let(:peep) { Peep.new(id: id, message: message_1) }
+  let(:peep) { Peep.new(id: id, message: message_1, time: DateTime.now()) }
 
   describe '#new' do
     it 'should create a new instance of a Peep' do
       expect(peep).to be_instance_of Peep
       expect(peep.message).to eq message_1
       expect(peep.id).to eq id
+      expect(peep.time).to be_instance_of DateTime
     end
   end
 

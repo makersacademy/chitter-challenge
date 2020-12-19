@@ -1,27 +1,29 @@
 require 'pg'
+require 'date'
 
 class Peep
-  attr_reader :id, :message
+  attr_reader :id, :message, :time
 
-  def initialize(id:, message:)
+  def initialize(id:, message:, time:)
     @id = id
     @message = message
+    @time = time
   end
 
   def self.create(message:)
-    result = db_connection.exec "INSERT INTO peeps (message) VALUES ('#{message}') RETURNING id, message;"
-    Peep.new(id: result.first['id'], message: result.first['message'])
+    result = db_connection.exec "INSERT INTO peeps (message) VALUES ('#{message}') RETURNING id, message, date_time_stamp;"
+    Peep.new(id: result.first['id'], message: result.first['message'], time: result.first['date_time_stamp'])
   end
 
   def self.find(id:)
     result = db_connection.exec "SELECT * FROM peeps WHERE id = #{id};"
-    Peep.new(id: result.first['id'], message: result.first['message'])
+    Peep.new(id: result.first['id'], message: result.first['message'], time: result.first['date_time_stamp'])
   end
 
   def self.all
     result = db_connection.exec "SELECT * FROM peeps ORDER BY id desc;"
     @peeps = result.map do |row|
-      Peep.new(id: row['id'], message: row['message'])
+      Peep.new(id: row['id'], message: row['message'], time: row['date_time_stamp'])
     end
   end
 

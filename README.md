@@ -25,6 +25,7 @@ I want to post a message (peep) to chitter
 ![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/entity.svg)
 ![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/sequence.svg)
 
+### User Story 2
 ```
 As a maker
 So that I can see what others are saying  
@@ -35,6 +36,7 @@ I want to see all peeps in reverse chronological order
 ![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/entity.svg)
 ![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/sequence.svg)
 
+### User Story 3
 ```
 As a Maker
 So that I can better appreciate the context of a peep
