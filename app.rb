@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:id' do
-    @peep = Peep.find(id: id)
+    @peep = Peep.find(id: params['id'])
     erb :'peeps/show'
   end
 
