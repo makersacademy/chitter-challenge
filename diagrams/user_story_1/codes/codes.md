@@ -1,8 +1,10 @@
 #### Class Definitions
-CLASS "Peep" as Customer:
+CLASS "Peep" as peep:
 "message"
-".create()"
 "#new()"
+".create()"
+".find()"
+".db_connection()"
 
 
 #### Table Definitions
