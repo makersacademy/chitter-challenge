@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peep.create(message: params[:message])
-    redirect "/peeps/#{$peep.id}"
+    redirect "/peeps/#{@peep.id}"
   end
 
   get '/peeps/new' do
