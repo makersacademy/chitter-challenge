@@ -3,10 +3,10 @@
   style="position:fixed;top:48px;right:24px;"></input>
 </form>
 
-<ul class="peeps">
+<ul class="w3-ul w3-border-top">
   <% @peeps.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
-    <a> <%= peep.message %> </a>
+    <h3> <%= peep.message %> </h3>
   </li>
   <% end %>
 </ul>
