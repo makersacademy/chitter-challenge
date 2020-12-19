@@ -1,6 +1,8 @@
 #### Class Definitions
 CLASS "Peep" as peep:
+"id"
 "message"
+"date_time_stamp"
 "#new()"
 ".create()"
 ".find()"
@@ -11,6 +13,7 @@ CLASS "Peep" as peep:
 TABLE "peeps" as peeps:
 PK"id"
 "message"
+"date_time_stamp"
 
 ### Sequence Diagram
 

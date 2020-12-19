@@ -35,6 +35,16 @@ I want to see all peeps in reverse chronological order
 ![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/entity.svg)
 ![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/sequence.svg)
 
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/sequence.svg)
+
 ## Code Example
 
 
