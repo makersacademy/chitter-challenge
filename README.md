@@ -31,6 +31,10 @@ So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
 
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/sequence.svg)
+
 ## Code Example
 
 
