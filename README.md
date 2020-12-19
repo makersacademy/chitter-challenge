@@ -20,6 +20,11 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
+
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/sequence.svg)
+
 ## Code Example
 
 
