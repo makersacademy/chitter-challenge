@@ -2,3 +2,11 @@
   <input type="submit" value="+" class="w3-button w3-xlarge w3-circle w3-theme-action"
   style="position:fixed;top:48px;right:24px;"></input>
 </form>
+
+<ul class="peeps">
+  <% @peeps.each do |peep| %>
+  <li class="peep" id="peep-<%= peep.id %>">
+    <a> <%= peep.message %> </a>
+  </li>
+  <% end %>
+</ul>

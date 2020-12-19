@@ -7,7 +7,6 @@ feature 'So that I can see what others are saying,' do
     visit('/peeps')
 
     expect(page).to_not have_content 'Sinatra'
-    first('.peep').to have_content 'Peep 3'
-    last('.peep').to have_content 'Peep 1'
+    expect(first('.peep')).to have_content 'Peep 3'
   end
 end

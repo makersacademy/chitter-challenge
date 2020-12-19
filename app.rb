@@ -2,6 +2,11 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   get '/peeps' do
+    connection = PG.connect :dbname => 'chitter_test'
+    result = connection.exec "SELECT * FROM peeps ORDER BY id desc;"
+    @peeps = result.map do |row|
+      Peep.new(id: row['id'], message: row['message'])
+    end
     erb :'peeps/index'
   end
 
