@@ -5,8 +5,9 @@ require_relative './database_helpers'
 # controller file
 require File.dirname(__FILE__) + '/../app.rb'
 
-# model file
+# model files
 require File.dirname(__FILE__) + '/../lib/peep.rb'
+require File.dirname(__FILE__) + '/../lib/user.rb'
 
 require 'capybara/rspec'
 require 'simplecov'

@@ -1,36 +1,24 @@
-require 'date'
-
 describe Peep do
   let(:id) { 1 }
+  let(:datetime) { DateTime.now() }
   let(:message_1) { 'Test message 1' }
   let(:message_2) { 'Test message 2' }
   let(:message_3) { 'Test message 3' }
-  let(:peep) { Peep.new(id: id, message: message_1, time: DateTime.now()) }
+  let(:peep) { Peep.new(id: id, message: message_1, time: datetime) }
 
   describe '#new' do
     it 'should create a new instance of a Peep' do
       expect(peep).to be_instance_of Peep
       expect(peep.message).to eq message_1
       expect(peep.id).to eq id
-      expect(peep.time).to be_instance_of DateTime
+      expect(peep.time).to eq datetime
     end
   end
 
   describe '.create' do
     it 'should insert into peeps table and return an instance of a Peep' do
       result = Peep.create(message: message_1)
-      persisted_data = persisted_data_retrieve(id: result.id)
-
-      expect(result).to be_a Peep
-      expect(result.id).to eq persisted_data['id'].to_i
-      expect(result.message).to eq message_1
-    end
-  end
-
-  describe '.find' do
-    it 'should select a peep from peeps table based on id' do
-      persisted_data = persisted_data_insert(message: message_1)
-      result = Peep.find(id: persisted_data['id'])
+      persisted_data = peeps_persisted_data_retrieve(id: result.id)
 
       expect(result).to be_a Peep
       expect(result.id).to eq persisted_data['id'].to_i
@@ -40,9 +28,9 @@ describe Peep do
 
   describe '.all' do
     it 'should return all peeps in the peeps table' do
-      persisted_data_insert(message: message_1)
-      persisted_data_insert(message: message_2)
-      persisted_data_3 = persisted_data_insert(message: message_3)
+      peeps_persisted_data_insert(message: message_1)
+      peeps_persisted_data_insert(message: message_2)
+      persisted_data_3 = peeps_persisted_data_insert(message: message_3)
 
       peeps = Peep.all
 

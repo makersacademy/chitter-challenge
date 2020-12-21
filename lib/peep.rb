@@ -14,11 +14,6 @@ class Peep
     Peep.new(id: result.first['id'].to_i, message: result.first['message'], time: Time.parse(result.first['date_time_stamp']))
   end
 
-  def self.find(id:)
-    result = db_connection.exec "SELECT * FROM peeps WHERE id = #{id};"
-    Peep.new(id: result.first['id'].to_i, message: result.first['message'], time: Time.parse(result.first['date_time_stamp']))
-  end
-
   def self.all
     result = db_connection.exec "SELECT * FROM peeps ORDER BY id desc;"
     @peeps = result.map do |row|
