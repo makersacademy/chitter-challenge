@@ -6,12 +6,12 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/peeps' do
-    @peep = params[:peep_content]
-  end
-
   get '/peeps/new' do
     erb(:peeps_new)
+  end
+
+  get '/peeps' do
+    @peep = params[:peep_content]
   end
 
 end
