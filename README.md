@@ -1,5 +1,4 @@
 # Will's README
-=================
 
 ## 1st User Story
 
@@ -7,7 +6,7 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-![1st User Story DMD](1st User Story DMD.png)
+![1st User Story DMD](https://github.com/Will-Helliwell/chitter-challenge/blob/master/1st%20User%20Story%20DMD.png)
 
 Chitter Challenge (Makers Brief)
 ================================
