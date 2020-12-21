@@ -22,7 +22,7 @@ describe Peep do
       persisted_data = persisted_data_retrieve(id: result.id)
 
       expect(result).to be_a Peep
-      expect(result.id).to eq persisted_data['id']
+      expect(result.id).to eq persisted_data['id'].to_i
       expect(result.message).to eq message_1
     end
   end
@@ -33,7 +33,7 @@ describe Peep do
       result = Peep.find(id: persisted_data['id'])
 
       expect(result).to be_a Peep
-      expect(result.id).to eq persisted_data['id']
+      expect(result.id).to eq persisted_data['id'].to_i
       expect(result.message).to eq message_1
     end
   end
@@ -48,7 +48,7 @@ describe Peep do
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq persisted_data_3['id']
+      expect(peeps.first.id).to eq persisted_data_3['id'].to_i
       expect(peeps.first.message).to eq message_3
     end
   end
