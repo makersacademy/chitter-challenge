@@ -133,3 +133,25 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+
+Creating project databases
+
+1 - Log in to postgreSQL
+enter into Terminal: psql postgres
+
+2 - Create a database
+enter: CREATE DATABASE "chitter_members";
+
+3 - Ensure database has been created and therefore listed
+enter: \l
+
+4 - Connect to the new database
+enter: \c chitter_members;
+
+5 - Create the table within the database
+enter: CREATE TABLE chitter_members_data(id SERIAL PRIMARY KEY, url VARCHAR(60));
+
+6 - creating the test table
+repeat the steps as above, but calling the database 'chitter_members_test' instead of 'chitter_members'
