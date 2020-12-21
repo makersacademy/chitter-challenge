@@ -27,6 +27,7 @@ describe '.find' do
     expect(result.email).to eq maker.email
     expect(result.name).to eq maker.name
   end
+
   it 'returns nil id there is no ID given' do
     expect(Maker.find(id: nil)).to eq nil
   end
