@@ -54,6 +54,10 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/sequence.svg)
+
 ## Code Example
 
 
