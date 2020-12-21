@@ -1,13 +1,13 @@
 require 'pg'
 
-def peeps_persisted_data_retrieve(id:)
+def persisted_data_retrieve(table:, id:)
   connection = PG.connect :dbname => 'chitter_test'
-  result = connection.exec("SELECT * FROM peeps WHERE id = #{id};")
+  result = connection.exec("SELECT * FROM #{table} WHERE id = #{id};")
   result.first
 end
 
-def peeps_persisted_data_insert(message:)
+def persisted_data_insert(table:, message:)
   connection = PG.connect :dbname => 'chitter_test'
-  result = connection.exec("INSERT INTO peeps (message) VALUES ('#{message}') RETURNING id, message, date_time_stamp;")
+  result = connection.exec("INSERT INTO #{table} (message) VALUES ('#{message}') RETURNING id, message, date_time_stamp;")
   result.first
 end

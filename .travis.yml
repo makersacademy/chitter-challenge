@@ -7,6 +7,7 @@ before_script:
   - psql  -U postgres -c 'CREATE DATABASE chitter_test;'
   - psql  -U postgres chitter_test < db/migrations/01_create_peeps_table.sql
   - psql  -U postgres chitter_test < db/migrations/02_add_timestamp_column.sql
+  - psql  -U postgres chitter_test < db/migrations/03_create_users_table.sql
 
 script:
   - bundle exec rspec

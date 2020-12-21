@@ -1,6 +1,9 @@
 describe User do
+  let(:id) { 1 }
   let(:name) { 'User 1'}
-  let(:user) { User.new(name: name) }
+  let(:user) { User.new(id: id, name: name) }
+
+  let(:table) { 'users' }
 
   describe '#new' do
     it 'should initialize an instance of a User object' do
@@ -12,11 +15,11 @@ describe User do
   describe '.create' do
     it 'should insert a user into users table and return an instance of a User' do
       result = User.create(name: name)
-      persisted_data = user_persisted_data_retrieve(result['id'])
+      persisted_data = persisted_data_retrieve(table: table, id: result.id)
 
       expect(result).to be_a User
-      expect(result.id).to eq eq persisted_data['id']
-      expect(result.name).to name
+      expect(result.id).to eq persisted_data['id'].to_i
+      expect(result.name).to eq name
     end
   end
 

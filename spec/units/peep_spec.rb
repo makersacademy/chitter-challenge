@@ -6,6 +6,8 @@ describe Peep do
   let(:message_3) { 'Test message 3' }
   let(:peep) { Peep.new(id: id, message: message_1, time: datetime) }
 
+  let(:table) { 'peeps' }
+
   describe '#new' do
     it 'should create a new instance of a Peep' do
       expect(peep).to be_instance_of Peep
@@ -18,7 +20,7 @@ describe Peep do
   describe '.create' do
     it 'should insert into peeps table and return an instance of a Peep' do
       result = Peep.create(message: message_1)
-      persisted_data = peeps_persisted_data_retrieve(id: result.id)
+      persisted_data = persisted_data_retrieve(table: table, id: result.id)
 
       expect(result).to be_a Peep
       expect(result.id).to eq persisted_data['id'].to_i
@@ -28,9 +30,9 @@ describe Peep do
 
   describe '.all' do
     it 'should return all peeps in the peeps table' do
-      peeps_persisted_data_insert(message: message_1)
-      peeps_persisted_data_insert(message: message_2)
-      persisted_data_3 = peeps_persisted_data_insert(message: message_3)
+      persisted_data_insert(table: table, message: message_1)
+      persisted_data_insert(table: table, message: message_2)
+      persisted_data_3 = persisted_data_insert(table: table, message: message_3)
 
       peeps = Peep.all
 
