@@ -7,5 +7,8 @@ feature 'So that I can post messages on Chitter as me,' do
     expect(current_path).to have_content '/users/'
     expect(page).to have_content "Hi, User 1!"
     click_button('First Peep')
+    fill_in('message', with: 'Test message')
+    click_button('Peep')
+    expect(first('.peep')).to have_content 'User 1'
   end
 end
