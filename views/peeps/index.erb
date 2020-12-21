@@ -1,3 +1,4 @@
+<% require 'time' %>
 <form action='peeps/new'>
   <input type="submit" value="+" class="w3-button w3-xlarge w3-circle w3-theme-action"
   style="position:fixed;top:48px;right:24px;"></input>
@@ -6,7 +7,8 @@
 <ul class="w3-ul w3-border-top">
   <% @peeps.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
-    <h3> <%= peep.message %> : <%= peep.time %></h3>
+    <a><%= peep.time.strftime("%A at %H:%M") %></a>
+    <h3> <%= peep.message %></h3>
   </li>
   <% end %>
 </ul>

@@ -17,7 +17,7 @@ describe Peep do
   end
 
   describe '.create' do
-    it 'should should insert into peeps table and return an instance of a Peep' do
+    it 'should insert into peeps table and return an instance of a Peep' do
       result = Peep.create(message: message_1)
       persisted_data = persisted_data_retrieve(id: result.id)
 
@@ -28,7 +28,7 @@ describe Peep do
   end
 
   describe '.find' do
-    it 'should should select a peep from peeps table based on id' do
+    it 'should select a peep from peeps table based on id' do
       persisted_data = persisted_data_insert(message: message_1)
       result = Peep.find(id: persisted_data['id'])
 
@@ -39,7 +39,7 @@ describe Peep do
   end
 
   describe '.all' do
-    it 'should should insert into peeps table and return an instance of a Peep' do
+    it 'should return all peeps in the peeps table' do
       persisted_data_insert(message: message_1)
       persisted_data_insert(message: message_2)
       persisted_data_3 = persisted_data_insert(message: message_3)
@@ -54,7 +54,7 @@ describe Peep do
   end
 
   describe '.db_connection' do
-    it 'should establish an appropriate connection to the chitter database' do
+    it 'should establish an environment appropriate connection to the chitter database' do
       result = Peep.db_connection
 
       expect(result).to be_a PG::Connection
