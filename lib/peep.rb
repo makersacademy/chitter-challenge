@@ -9,7 +9,7 @@ class Peep
     @time = time
     @user_id = user_id
     @user_class = user_class
-    @user_name = user_class.find(id: user_id).name
+    @user_name = user_class.find_name(id: user_id)
   end
 
   def self.create(message:, user_id:)

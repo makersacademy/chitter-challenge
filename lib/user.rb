@@ -17,7 +17,12 @@ class User
 
   def self.find(id: id)
     result = db_connection.exec("SELECT * FROM users WHERE id = #{id};")
-    User.new(id: result.first['id'].to_i, name: result.first['name'])
+    @user = User.new(id: result.first['id'].to_i, name: result.first['name'])
+  end
+
+  def self.find_name(id: id)
+    result = db_connection.exec("SELECT name FROM users WHERE id = #{id};")
+    result.first['name']
   end
 
   def self.db_connection
