@@ -1,0 +1,18 @@
+<h1>Chitter</h1>
+
+<p> User:<%= @username %></p>
+
+<form action="/create_peep">
+  <input type="submit" value="New Peep">
+</form>
+
+<form action="/signup">
+  <input type="submit" value="Sign Up">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <h2><%=peep[:message]%></h2>
+  <h5>posted at <%=peep[:time]%></h5>
+  <% end %>
+</ul>
