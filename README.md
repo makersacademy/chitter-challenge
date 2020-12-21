@@ -47,6 +47,13 @@ I want to see the time at which it was made
 ![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/entity.svg)
 ![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/sequence.svg)
 
+### User Story 4
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
 ## Code Example
 
 
