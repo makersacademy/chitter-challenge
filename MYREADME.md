@@ -1,24 +1,13 @@
-Connect to psql
-Create the database using the psql command CREATE DATABASE chitter_db;
-Connect to the database using the pqsl command \c chitter_db;
-Run the query we have saved in the file 01_create_makers_table.sql
-Run the query we have saved in the file 02_create_peeps_table.sql
-
-Create test db
-Create the database using the psql command CREATE DATABASE chitter_db_test;
-Connect to the database using the pqsl command \c chitter_db_test;
-Run the query we have saved in the file 01_create_makers_table.sql
-Run the query we have saved in the file 02_create_peeps_table.sql
-
 
 To run Chitter:
 1. install bundle
-2. use rackup or shotgun
-3. go to http://localhost:9292/peeps
-4. sign up
-5. Add peeps
-6. Click 'All peeps' to se all peeps.
-7. Sign out
+2. rake setup
+3. use rackup or shotgun
+4. go to http://localhost:9292/peeps
+5. sign up
+6. Add peeps
+7. Click 'All peeps' to se all peeps.
+8. Sign out
 
 
 Project is based on https://github.com/makersacademy/course/blob/master/bookmark_manager/00_challenge_map.md#challenges
