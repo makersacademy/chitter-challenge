@@ -4,8 +4,8 @@ feature 'So that I can post messages on Chitter as me,' do
     fill_in('user_name', with: 'User 1')
     click_button('Submit')
     expect(page).not_to have_content 'Sinatra'
-    expect(current_path).to eq '/users/*'
-    expect(page).to have_content "Welcome to Chitter, User 1!"
-    click_button('Fist Peep')
+    expect(current_path).to have_content '/users/'
+    expect(page).to have_content "Hi, User 1!"
+    click_button('First Peep')
   end
 end

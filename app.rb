@@ -1,6 +1,19 @@
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
+  post '/users' do
+    $user = params[:user_name]
+    redirect '/users/1'
+  end
+
+  get '/users/1' do
+    erb :'/users/show'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
@@ -8,7 +21,6 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peep.create(message: params[:message])
-    p @peep.time.strftime("Posted on %A at %I:%M %p")
     redirect "/peeps"
   end
 
