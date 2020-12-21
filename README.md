@@ -1,5 +1,16 @@
-Chitter Challenge
+# Will's README
 =================
+
+## 1st User Story
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+![1st User Story DMD](1st User Story DMD.png)
+
+Chitter Challenge (Makers Brief)
+================================
 
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
