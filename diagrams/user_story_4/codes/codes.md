@@ -3,16 +3,24 @@ CLASS "Peep" as peep:
 "id"
 "message"
 "date_time_stamp"
+"user_id"
+"user_class"
 "user_name"
 "#new()"
 ".create()"
-".find()"
 ".all()"
 ".db_connection()"
 
 Class "User" as user:
 "id"
 "name"
+"#new()"
+".create()"
+".instance()"
+".find()"
+".find_name()"
+".db_connection()"
+
 
 #### Table definitions
 TABLE "peeps" as peeps:
@@ -52,3 +60,4 @@ controller->controller: "redirect 'get /users/:id"
 controller->views: "erb :'/users/show'"
 views->controller: "show.erb"
 controller->client: "show.html response"
+cleint->controller: "get '/peeps/new' request"
