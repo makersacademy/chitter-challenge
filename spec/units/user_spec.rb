@@ -23,6 +23,25 @@ describe User do
     end
   end
 
+  describe '.instance' do
+    it 'should return instance of a user' do
+      User.create(name: name)
+      result = User.instance
+      expect(result).to be_instance_of User
+    end
+  end
+
+  describe '.find' do
+    it 'should return a specific user, by id, from the users table in an instance of a User' do
+      result = User.create(name: name)
+      user = User.find(id: result.id)
+
+      expect(user).to be_a User
+      expect(user.id).to eq result.id
+      expect(user.name).to eq name
+    end
+  end
+
   describe '.db_connection' do
     it 'should establish an environment appropriate connection to the chitter database' do
       result = User.db_connection

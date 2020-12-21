@@ -6,7 +6,7 @@
 <ul class="w3-ul w3-border-top">
   <% @peeps.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
-    <a><%= "#{$user} at #{peep.time.strftime("%H:%M")}" %></a>
+    <a><%= "#{peep.user_name} at #{peep.time.strftime("%H:%M")}" %></a>
     <h3> <%= peep.message %></h3>
   </li>
   <% end %>

@@ -2,11 +2,12 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   post '/users' do
-    $user = params[:user_name]
-    redirect '/users/1'
+    @user = User.create(name: params[:user_name])
+    redirect "/users/new/#{@user.id}"
   end
 
-  get '/users/1' do
+  get '/users/new/:id' do
+    @user = User.find(id: params[:id].to_i)
     erb :'/users/show'
   end
 
@@ -20,7 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(message: params[:message])
+    @user = User.instance
+    @peep = Peep.create(message: params[:message], user_id: @user.id)
     redirect "/peeps"
   end
 

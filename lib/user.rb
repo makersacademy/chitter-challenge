@@ -8,6 +8,15 @@ class User
 
   def self.create(name: name)
     result = db_connection.exec("INSERT INTO users (name) VALUES ('#{name}') RETURNING id, name;")
+    @user = User.new(id: result.first['id'].to_i, name: result.first['name'])
+  end
+
+  def self.instance
+    @user
+  end
+
+  def self.find(id: id)
+    result = db_connection.exec("SELECT * FROM users WHERE id = #{id};")
     User.new(id: result.first['id'].to_i, name: result.first['name'])
   end
 

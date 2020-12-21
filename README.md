@@ -69,8 +69,9 @@ I want to sign up for Chitter
 4. Run the query we have saved in the file '01_create_peeps_table.sql'
 5. Run the query we have saved in the file '02_add_timestamp_column.sql'
 6. Run the query we have saved in the file '03_create_users_table.sql'
-7. Create a test database using the psql command `CREATE DATABASE chitter_test;`
-8. Repeat steps 3 and 6 for the test database.
+7. Run the query we have saved in the file '04_add_user_id_column_to_peeps.sql'
+8. Create a test database using the psql command `CREATE DATABASE chitter_test;`
+9. Repeat steps 3 and 6 for the test database.
 
 
 ## API Reference
