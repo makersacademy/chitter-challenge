@@ -8,6 +8,20 @@ I want to post a message (peep) to chitter
 
 ![1st User Story DMD](https://github.com/Will-Helliwell/chitter-challenge/blob/master/1st%20User%20Story%20DMD.png)
 
+## Database Instructions
+
+To create database in psql:
+```
+CREATE DATABASE chitter;
+```
+To create peeps table with id and content columns:
+```
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(60));
+```
+
+To create the test database, follow the above steps exactly but name the database "chitter_test".
+
+
 Chitter Challenge (Makers Brief)
 ================================
 
