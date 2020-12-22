@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -11,8 +12,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peep = params[:peep_content]
+    # @peep = params[:peep_content]
+
+    Peep.add(params[:peep_content])
+    @peep = Peep.all
+
     erb(:peeps)
+
   end
 
 end
