@@ -1,9 +1,9 @@
-feature 'post a peep' do
-  scenario 'user can post a message on chitter' do
+feature 'Posting peeps' do
+  scenario '.create' do
     visit '/chitter'
-    fill_in :peep, with: 'This is a tester peep'
+    fill_in :text, with: "New peep added"
     click_button 'Post Peep'
-    
-    expect(page).to have_content 'This is a tester peep'
+
+    expect(page).to have_content "New peep added"
   end
 end

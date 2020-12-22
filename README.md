@@ -3,6 +3,15 @@ Chitter Challenge
 
 We have been asked to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+Database Setup
+--------------
+1. connect to ```psql```
+2. create database using ```CREATE DATABASE chitter;```
+3. connect to database using ```\c chitter;```
+4. run query saved in db/migrations/01_create_peeps_table.sql
+5. create test database using ```CREATE DATABASE chitter_test;```
+6. create peeps table using steps above
+
 Planning
 --------
 Objects: peep, chitter, time, user

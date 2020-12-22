@@ -1,8 +1,18 @@
 <h1>Welcome to Chitter</h1>
 
 <form action='/chitter/add' method='post'>
-  <textarea name="peep" rows="8" cols="80"></textarea>
-  <input type="submit" value="Post Peep">
+  <textarea name="text" rows="8" cols="50"></textarea>
+  <input type='submit' value='Post Peep'>
 </form>
 
-<%= @peep %>
+<ul>
+  <% i = 1 %>
+  <% @peeps.reverse.each do |peep| %>
+    <div id='<%= i %>'>
+      <li name='text'><%= peep.text %></li>
+      <li name='time'><%= peep.timestamp %></li>
+      <br>
+    </div>
+    <% i += 1 %>
+  <% end %>
+</ul>
