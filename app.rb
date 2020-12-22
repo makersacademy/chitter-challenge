@@ -12,7 +12,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    # Peep.add(params[:peep_content])
     Peep.add(params[:peep_content], Time.now.strftime("%I:%M %p"))
     redirect('/peeps')
   end
