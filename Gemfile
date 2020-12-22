@@ -7,5 +7,6 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'capybara'
   gem 'sinatra'
+  gem 'pg'
 
 end

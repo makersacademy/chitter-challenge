@@ -9,7 +9,19 @@ I want to post a message (peep) to chitter
 
 ```
 
-![Domain Model](https://imgur.com/HSVC06a.png)
+![Domain Model](https://imgur.com/S5rELJo.png)
+
+# User Story 2 and Domain Model
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+```
+
+![Domain Model](https://imgur.com/B3WyPWx.png)
+
+
 
 
 # How to create your database
