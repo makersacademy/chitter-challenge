@@ -2,6 +2,13 @@ require 'pg'
 
 class Peep
 
+  attr_reader :content, :time
+
+  def initialize(content, time)
+    @content = content
+    @time = time
+  end
+
   def self.all
     begin
       if ENV["Environment"] == 'test'
@@ -10,10 +17,10 @@ class Peep
         con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
       end
 
-      rs = con.exec "SELECT content FROM peeps"
+      rs = con.exec "SELECT content, time FROM peeps"
 
       rs.map do |row|
-        "%s" % [ row['content'] ]
+        Peep.new(row['content'], row['time'])
       end
 
       rescue PG::Error => e

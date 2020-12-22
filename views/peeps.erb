@@ -7,7 +7,7 @@
     <h1>Latest Peeps:</h1>
     <ul>
       <% @peep.each do |peep| %>
-      <li><%=peep%></li>
+      <li><%=peep.content%></li>
       <%end%>
     </ul>
     <p>

@@ -19,7 +19,7 @@ RSpec.configure do |config|
 
   ENV["Environment"] = 'test'
 
-  config.before(:all) do
+  config.before(:each) do
     begin
       con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
       rs = con.exec "TRUNCATE TABLE peeps"
