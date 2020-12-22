@@ -33,7 +33,7 @@ class Peep
     end
   end
 
-  def self.add(content)
+  def self.add(content, time)
     begin
       if ENV["Environment"] == 'test'
         con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
@@ -41,7 +41,7 @@ class Peep
         con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
       end
 
-      rs = con.exec "INSERT INTO peeps (content) VALUES ('#{content}')"
+      rs = con.exec "INSERT INTO peeps (content, time) VALUES ('#{content}', '#{time}')"
 
       rescue PG::Error => e
 

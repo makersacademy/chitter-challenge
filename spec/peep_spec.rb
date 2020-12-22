@@ -22,9 +22,9 @@ let(:peep) {Peep.new("example peep", "12:00")}
     end
     context "multiple peeps added" do
       before(:each) do
-        described_class.add("peep1")
-        described_class.add("peep2")
-        described_class.add("peep3")
+        described_class.add("peep1", "time")
+        described_class.add("peep2", "time")
+        described_class.add("peep3", "time")
       end
       it "returns an array of peep instances" do
         expect(described_class.all).to be_an(Array)
@@ -37,18 +37,21 @@ let(:peep) {Peep.new("example peep", "12:00")}
   end
 
   describe 'self.add' do
-    it "takes a single argument" do
-      expect(described_class).to respond_to(:add).with(1).argument
+    it "takes a two arguments" do
+      expect(described_class).to respond_to(:add).with(2).arguments
     end
     it "adds a single peep" do
-      described_class.add("added peep")
+      described_class.add("added peep", "time")
       expect(described_class.all.first.content).to eq("added peep")
+      expect(described_class.all.first.time).to eq("time")
     end
     it "adds multiple peeps" do
-      described_class.add("added peep")
-      described_class.add("another added peep")
+      described_class.add("added peep", "time")
+      described_class.add("another added peep", "time")
       expect(described_class.all.first.content).to eq("added peep")
       expect(described_class.all.last.content).to eq("another added peep")
+      expect(described_class.all.last.time).to eq("time")
+
     end
   end
 
