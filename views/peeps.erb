@@ -4,13 +4,15 @@
   </head>
 
   <body>
-    <center>
-      <h1>Latest Peeps:</h1>
-      <p><%=@peep%></p>
-      <p>
-        <a href="/">Back to homepage</a>
-      </p>
-    </center>
+    <h1>Latest Peeps:</h1>
+    <ul>
+      <% @peep.each do |peep| %>
+      <li><%=peep%></li>
+      <%end%>
+    </ul>
+    <p>
+      <a href="/">Back to homepage</a>
+    </p>
   </body>
 
 </html>
