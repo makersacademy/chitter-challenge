@@ -5,4 +5,9 @@ feature 'Chitter homepage working' do
     visit '/'
     expect(page).to have_content "Welcome to Chitter!"
   end
+
+  scenario 'all peeps showing on homepage' do
+    visit '/'
+    expect(page).to have_content "first peep!"
+  end
 end 
