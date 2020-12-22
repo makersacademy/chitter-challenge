@@ -12,8 +12,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    # @peep = params[:peep_content]
-
     Peep.add(params[:peep_content])
     @peep = Peep.all
 

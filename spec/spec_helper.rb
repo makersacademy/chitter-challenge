@@ -20,7 +20,18 @@ RSpec.configure do |config|
   ENV["Environment"] = 'test'
 
   config.before(:all) do
-    Peep.empty_peeps
+    begin
+      con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
+      rs = con.exec "TRUNCATE TABLE peeps"
+
+      rescue PG::Error => e
+
+      puts e.message
+
+      ensure
+
+      con.close if con
+    end
   end
 
   config.after(:suite) do

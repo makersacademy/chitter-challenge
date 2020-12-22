@@ -1,18 +1,50 @@
+require 'pg'
+
 class Peep
 
-  @@all_peeps = []
-
-  # to reset array before each test run
-  def self.empty_peeps
-    @@all_peeps = []
-  end
-
   def self.all
-    @@all_peeps
+    begin
+      if ENV["Environment"] == 'test'
+        con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
+      else
+        con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
+      end
+
+      rs = con.exec "SELECT content FROM peeps"
+
+      rs.map do |row|
+        "%s" % [ row['content'] ]
+      end
+
+      rescue PG::Error => e
+
+      puts e.message
+
+      ensure
+
+      con.close if con
+    end
   end
 
   def self.add(content)
-    @@all_peeps << content
+    begin
+      if ENV["Environment"] == 'test'
+        con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
+      else
+        con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
+      end
+
+      rs = con.exec "INSERT INTO peeps (content) VALUES ('#{content}')"
+
+      rescue PG::Error => e
+
+      puts e.message
+
+      ensure
+
+      con.close if con
+    end
+
   end
 
 end
