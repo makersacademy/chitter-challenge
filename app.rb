@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peep = params[:peep_content]
+    erb(:peeps)
   end
 
 end
