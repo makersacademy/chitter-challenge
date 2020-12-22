@@ -1,6 +1,7 @@
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li><%= peep.message_content %></li>
+      <%= peep.created_at.slice(0,16) %>
   <% end %>
 </ul>
 <form action="/peeps" method="get">

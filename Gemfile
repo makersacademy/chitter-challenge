@@ -7,6 +7,7 @@ gem 'pg'
 gem 'rake'
 
 group :test do
+  gem 'orderly'
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop', '0.79.0'

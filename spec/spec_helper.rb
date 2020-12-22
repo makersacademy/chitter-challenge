@@ -13,6 +13,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'orderly'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
