@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<head>
+  <form action="/users/signup">
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <form action="/users/login">
+    <input type="submit" value="Login">
+  </form>
+</head>
+
+<% if @user %>
+
+  <form action="/sessions/destroy" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Log Out">
+  </form>
+
+  <h1>Welcome to Chitter <%= user.username %></h1>
+
+<% else %>
+
+  <h1>Welcome to Chitter!
+  <br> Log in or sign up to peep </h1>
+
+<% end %>
+
+<form action='/chitter' method='post'>
+  <input type='text' name='post' placeholder="What's happening?" required>
+  <input type='submit' value='Peep'>
+</form>  
+
+<ul>
+  <% @peeps.each do |peep| %>
+     <li>
+        <body> <%= %> <%= peep.body %>      
+        <%= peep.post_time %>
+    </li>
+    <% end %>
+</ul>

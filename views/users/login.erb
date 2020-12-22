@@ -1,0 +1,23 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<% if @user %>
+
+  <h2>  You are alreadty logged in, check the newest peeps <a href="chitter">here</a>.</h2>
+
+<% else %>
+  
+  <h1> Login to Chitter </h1>
+
+  <form action='/sessions' method='post'>
+    <input id='username' type='text' name='username' placeholder='Username' required>
+    <br>
+    <input type='password' name='password' placeholder='Password' required>
+  <br>
+    <input type='submit' value='Login'>
+  </form>  
+
+  <p> Not registered?  <a href="signup">Sign Up</a> here.</p>
+
+<% end %>
+
+<%= flash[:notice] %>

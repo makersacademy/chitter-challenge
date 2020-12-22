@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
+<!-- * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
@@ -14,7 +14,9 @@ As usual please start by forking this repo.
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
--------
+------- -->
+
+# User Stories
 
 ```
 STRAIGHT UP
@@ -52,6 +54,37 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+# Domain Model
+
+[image of diagram](.png)
+
+# How to use
+
+## Setting up:
+
+Clone this repository and run:
+```
+bundle
+```
+
+## Setting up the database:
+
+Connect to `psql` and create the `chitter` database
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+To set up the database tables, connect to the chitter database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+ ## To run Chitter:
+ ```
+ rackup -p 1234
+ ```
+ And navigate to `localhost:1234/chitter`
+
+
+
+<!-- 
 Technical Approach:
 -----
 
@@ -132,4 +165,4 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens! -->
