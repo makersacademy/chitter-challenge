@@ -40,4 +40,24 @@ feature 'adding and viewing peeps' do
 
       expect("Second Peep").to appear_before("First Peep")
   end
+
+  scenario 'A user can add and see author of the peep' do
+
+    maker = Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
+
+    visit '/sessions/new'
+    fill_in(:email, with: 'test@example.com')
+    fill_in(:password, with: 'password123')
+    click_button('Sign in')
+
+    visit('/peeps')
+    click_button('Add Peep')
+
+    fill_in 'message_content', with: "Test peep content"
+    click_button 'Submit'
+
+    expect(current_path).to eq '/peeps/list'
+    expect(page).to have_content "Test peep content"
+    expect(page).to have_content "by rubberduck"
+  end
 end

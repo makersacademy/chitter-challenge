@@ -4,6 +4,18 @@ require_relative './peep.rb'
 
 class Maker
 
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM makers")
+
+    result.map do |maker|
+      Maker.new(
+        id: maker['id'],
+        email: maker['email'],
+        name: maker['name']
+      )
+    end
+  end
+
   def self.create(email:, password:, name:)
     encrypted_password = BCrypt::Password.create(password)
 

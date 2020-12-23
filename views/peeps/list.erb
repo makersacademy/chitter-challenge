@@ -2,6 +2,7 @@
   <% @peeps.reverse.each do |peep| %>
     <li><%= peep.message_content %></li>
       <%= peep.created_at.slice(0,16) %>
+      by <%= @makers.select { |maker| maker.id == peep.maker_id }.first.name %>
   <% end %>
 </ul>
 <form action="/peeps" method="get">

@@ -42,6 +42,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps/list' do
     @peeps = Peep.all
+    @makers = Maker.all
     erb :'peeps/list'
   end
 
