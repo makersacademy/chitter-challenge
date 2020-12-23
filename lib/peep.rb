@@ -28,7 +28,6 @@ class Peep
     end
 
     result = connection.exec("INSERT INTO peeps (text, timestamp) VALUES('#{text}', '#{timestamp}') RETURNING id, text, timestamp")
-    # can I use .map for the line below?
     Peep.new(id: result[0]['id'], text: result[0]['text'], timestamp: result[0]['timestamp'])
   end
 end

@@ -1,7 +1,19 @@
+<%= flash[:successful] %>
+
 <h1>Welcome to Chitter</h1>
+
+<form action='/chitter/user'>
+  <input type="submit" value='CLICK HERE TO SIGN UP'>
+</form>
 
 <form action='/chitter/add' method='post'>
   <textarea name="text" rows="8" cols="50"></textarea>
+<!--- currently not seleceting user --->
+  <select name='current_user' id='select_user'>
+    <% @users.each do |user| %>
+      <option value='<%= user.id %>'><%= user.username %></option>
+    <% end %>
+  </select>
   <input type='submit' value='Post Peep'>
 </form>
 
