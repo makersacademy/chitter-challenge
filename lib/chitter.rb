@@ -11,7 +11,9 @@ class Chitter
 
       rs = con.exec("SELECT * FROM chitter_posts")
 
-      rs.map { |posts| posts['post'] }
+      post_order = rs.map { |posts| posts['post'] }
+      p post_order.reverse()
+
     end
   end
 

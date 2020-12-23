@@ -21,7 +21,7 @@ describe Chitter do
       Chitter.create(posts: 'Howdy Stranger!')
       # chitter = Chitter.all.last
       p Chitter
-      expect(Chitter.all.last).to eq('Howdy Stranger!')
+      expect(Chitter.all.first).to eq('Howdy Stranger!')
     end
   end
 end
