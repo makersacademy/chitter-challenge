@@ -1,3 +1,5 @@
+require 'pg'
+
 feature 'post to board' do
   before(:each) do
     empty
@@ -5,8 +7,8 @@ feature 'post to board' do
   end
   scenario 'A user can post to the board' do
     visit('/')
-    fill_in('user_1_post', with: "I'm learning to code!")
+    fill_in('posts', with: "I'm learning to code!")
     click_button('Submit')
-    expect(page).to have_text("I'm learning to code!")
+    expect(page).to have_content("I'm learning to code!")
   end
 end

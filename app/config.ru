@@ -1,4 +1,4 @@
 require './app/app'
 
 
-run Chitter
+run Chitter_Main

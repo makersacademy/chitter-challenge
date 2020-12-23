@@ -1,1 +1,7 @@
-<%= @user_1_post %>
+<ul>
+  <% @chitter.each do |posts| %>
+    <li>
+      <%= posts %>
+    </li>
+  <% end %>
+</ul>

@@ -1,6 +1,7 @@
 require 'sinatra/base'
+require './lib/chitter'
 
-class Chitter < Sinatra::Base
+class Chitter_Main < Sinatra::Base
 
   get '/' do
     'Howdy'
@@ -9,14 +10,15 @@ class Chitter < Sinatra::Base
 
 
   get '/postboard' do
-
-  erb :postboard
+    @chitter = Chitter.all
+    erb :postboard
   end
 
   post '/chitter_post' do
-    @user_1_post = params[:user_1_post]
-  erb :postboard
-end
+    # @user_1_post = params[:user_1_post]
+    Chitter.create(posts: params[:posts])
+    redirect '/postboard'
+  end
 
   run! if app_file == $0
 end
