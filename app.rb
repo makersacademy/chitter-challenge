@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep.rb'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
 
@@ -19,7 +20,15 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @peep = Peep.all.reverse
     erb(:peeps)
+  end
 
+  get '/sign-up' do
+    erb(:sign_up)
+  end
+
+  post '/sign-up' do
+    User.change(params[:username])
+    redirect('/')
   end
 
 end
