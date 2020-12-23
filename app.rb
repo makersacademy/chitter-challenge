@@ -6,4 +6,12 @@ class Chitter < Sinatra::Base
     "Hello world!"
   end
 
+  get '/post_peep' do
+    erb :post_peep
+  end
+
+  post '/new_peep' do
+    @new_peep = params[:new_peep]
+    redirect '/peeps'
+  end
 end
