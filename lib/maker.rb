@@ -53,6 +53,11 @@ class Maker
     )
   end
 
+  def self.user_uniq?(email:, name:)
+    result = DatabaseConnection.query("SELECT * FROM makers WHERE email = '#{email}' OR name = '#{name}'")
+    result.first.nil?
+  end
+
   attr_reader :id, :email, :name
 
   def initialize(id:, email:, name:)
