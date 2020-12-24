@@ -21,13 +21,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/add' do
-    Peep.create(text: params[:text])
-    p params[:current_user]
+    Peep.create(text: params[:text], user_id: params[:current_user])
 
     redirect '/chitter'
   end
 
-  get '/chitter/user'do
+  get '/chitter/user' do
     erb :'chitter/user'
   end
 

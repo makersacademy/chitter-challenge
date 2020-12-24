@@ -14,7 +14,8 @@ class User
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("INSERT INTO users (username, email) VALUES ('#{username}', '#{email}') RETURNING id, username, email")
+    result = connection.exec("INSERT INTO users (username, email) VALUES
+      ('#{username}', '#{email}') RETURNING id, username, email")
     User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
   end
 

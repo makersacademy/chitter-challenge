@@ -1,8 +1,9 @@
 feature 'viewing peeps' do
   scenario 'shows peeps in reverse chronological order' do
-    Peep.create(text: 'First tester')
-    Peep.create(text: 'Second tester')
-    Peep.create(text: 'Third tester')
+    user = User.sign_up(username: 'Kiki', email: 'kiki@chitter.com')
+    Peep.create(text: 'First tester', user_id: user.id)
+    Peep.create(text: 'Second tester', user_id: user.id)
+    Peep.create(text: 'Third tester', user_id: user.id)
 
     visit '/chitter'
 
@@ -12,7 +13,8 @@ feature 'viewing peeps' do
   end
 
   scenario 'shows timestamp of peep' do
-    Peep.create(text: 'Timestamp tester')
+    user = User.sign_up(username: 'Kiki', email: 'kiki@chitter.com')
+    Peep.create(text: 'Timestamp tester', user_id: user.id)
 
     visit '/chitter'
 

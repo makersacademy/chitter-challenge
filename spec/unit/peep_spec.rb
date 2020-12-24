@@ -4,9 +4,10 @@ require 'database_helpers'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      peep = Peep.create(text: 'First tester')
-      Peep.create(text: 'Second tester')
-      Peep.create(text: 'Third tester')
+      user = User.sign_up(username: 'Kiki', email: 'kiki@chitter.com')
+      peep = Peep.create(text: 'First tester', user_id: user.id)
+      Peep.create(text: 'Second tester', user_id: user.id)
+      Peep.create(text: 'Third tester', user_id: user.id)
 
       peeps = Peep.all
 
@@ -19,7 +20,8 @@ describe Peep do
 
   describe '.create' do
     it 'creates a peep' do
-      peep = Peep.create(text: 'New peep')
+      user = User.sign_up(username: 'Kiki', email: 'kiki@chitter.com')
+      peep = Peep.create(text: 'New peep', user_id: user.id)
       persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep).to be_kind_of Peep
@@ -30,7 +32,8 @@ describe Peep do
 
   describe '#time' do
     it 'stores timestamp' do
-      peep = Peep.create(text: 'Timestamp tester')
+      user = User.sign_up(username: 'Kiki', email: 'kiki@chitter.com')
+      peep = Peep.create(text: 'Timestamp tester', user_id: user.id)
       persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep.text).to eq 'Timestamp tester'
