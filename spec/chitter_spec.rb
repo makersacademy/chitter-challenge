@@ -10,18 +10,19 @@ describe Chitter do
     it 'returns all posts in reverse chronological order' do
       chitter = Chitter.all
 
-      expect(chitter).to include("tis almost Christmas!")
-      expect(chitter).to include("Bring on 2021!!!")
-      expect(chitter).to include("Goodbye cruel world")
+      expect(chitter).to include({:post => "tis almost Christmas!", :time => '24.12.20'})
+      expect(chitter).to include({:post => "Bring on 2021!!!", :time => '24.12.20'})
+      expect(chitter).to include({:post => "Goodbye cruel world", :time => '24.12.20'})
     end
   end
 
   describe('#create') do
     it 'adds a new post' do
-      Chitter.create(posts: 'Howdy Stranger!')
-      # chitter = Chitter.all.last
-      p Chitter
-      expect(Chitter.all.first).to eq('Howdy Stranger!')
+      Chitter.create(post: 'Howdy Stranger!', time: '24.12.20')
+      chitter = Chitter.all.last
+      p chitter
+      expect(chitter[:post]).to eq('Howdy Stranger!')
+      expect(chitter[:time]).to eq('24.12.20')
     end
   end
 end

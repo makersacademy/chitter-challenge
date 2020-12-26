@@ -1,7 +1,8 @@
 <ul>
   <% @chitter.each do |posts| %>
     <li>
-      <%= posts %>
+      <%= posts[:post] %>
+      <%= posts[:time] %>
     </li>
   <% end %>
 </ul>
