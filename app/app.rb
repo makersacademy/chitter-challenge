@@ -15,7 +15,6 @@ class Chitter_Main < Sinatra::Base
   end
 
   post '/chitter_post' do
-    # @user_1_post = params[:user_1_post]
     Chitter.create(post: params[:post], time: params[:time])
     redirect '/postboard'
   end

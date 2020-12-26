@@ -22,7 +22,7 @@ class Chitter
 
       # post_order = rs.map { |posts,| posts['post'] }
       # p post_order.reverse()
-      rs.map do |posts|
+      rs.reverse_each.map do |posts|
         chitter_posts = {:post => posts['post'], :time => posts['time']}
         p chitter_posts
       end
