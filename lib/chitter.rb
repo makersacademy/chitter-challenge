@@ -1,13 +1,8 @@
 require 'pg'
 
 class Chitter
-  # attr_reader :id, :posts, :time
-  #
-  # def initialize(id:, posts:, time:)
-  #   @id = id
-  #   @posts = posts
-  #   @time = time
-  # end
+
+
 
 
   def self.all
