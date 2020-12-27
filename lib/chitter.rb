@@ -4,7 +4,6 @@ class Chitter
 
 
 
-
   def self.all
     begin
       if ENV['RACK_ENV'] == 'test'
@@ -24,15 +23,16 @@ class Chitter
     end
   end
 
-  def self.create(post:, time:)
+  # def self.create(post:, time:)
+  def self.create(post:)  
     begin
       if ENV['RACK_ENV'] == 'test'
         con = PG.connect(:dbname => 'chitter_fake')
       else
         con = PG.connect(:dbname => 'chitter')
       end
-
-      rs = con.exec("INSERT INTO chitter_posts (post, time) VALUES('#{post}', '#{time}') RETURNING id, post, time")
+      # change back to time instead of Time.now in next line
+      rs = con.exec("INSERT INTO chitter_posts (post, time) VALUES('#{post}', '#{Time.now}') RETURNING id, post, time")
     end
   end
 end

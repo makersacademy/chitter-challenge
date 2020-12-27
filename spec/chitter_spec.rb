@@ -18,11 +18,12 @@ describe Chitter do
 
   describe('#create') do
     it 'adds a new post' do
-      Chitter.create(post: 'Howdy Stranger!', time: '24.12.20')
+      # Chitter.create(post: 'Howdy Stranger!', time: '24.12.20')
+      Chitter.create(post: 'Howdy Stranger!')
       chitter = Chitter.all.first
       p chitter
       expect(chitter[:post]).to eq('Howdy Stranger!')
-      expect(chitter[:time]).to eq('24.12.20')
+      # expect(chitter[:time]).to eq('24.12.20')
     end
   end
 end
