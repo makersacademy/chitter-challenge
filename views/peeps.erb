@@ -1,0 +1,11 @@
+<ul>
+    <% @peeps.each do |peep| %>
+        <li>
+          <%= peep.message %>
+        </li>
+    <% end %>
+</ul>
+
+<form action="/post_peep">
+  <input type="submit" value="New Peep">
+</form>
