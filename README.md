@@ -21,7 +21,25 @@ I want to see all peeps in reverse chronological order
 
 ![Domain Model](https://imgur.com/B3WyPWx.png)
 
+# User Story 3 and Domain Model
 
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+```
+
+![Domain Model](https://imgur.com/Fr3oTWD.png)
+
+# User Story 4
+
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+```
 
 
 # How to create your database
