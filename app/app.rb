@@ -9,6 +9,20 @@ class Chitter_Main < Sinatra::Base
   end
 
 
+  post '/create_user' do
+    @email_1 = params[:email]
+    @password_1 = params[:password]
+    @name_1 = params[:name]
+    @user_1 = params[:username]
+    # redirect '/logged_in'
+    erb :logged_in
+  end
+
+  get '/logged_in' do
+    erb :logged_in
+  end
+
+
   get '/postboard' do
     @chitter = Chitter.all
     erb :postboard
