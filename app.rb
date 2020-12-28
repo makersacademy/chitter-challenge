@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/cheep'
 
 class Chitter < Sinatra::Base
 
@@ -7,12 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/cheep_feed' do
-    @cheeps = [
-              "First cheep",
-              "Second cheep",
-              "Third cheep"
-             ]
-  
+    @cheeps = Cheep.all
     erb :cheep_feed
   end
 
