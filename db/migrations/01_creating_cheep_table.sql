@@ -1,0 +1,1 @@
+CREATE TABLE cheeps(id SERIAL PRIMARY KEY, author VARCHAR(60), message VARCHAR(240));
