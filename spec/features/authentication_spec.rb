@@ -1,4 +1,16 @@
+require_relative '../helpers.rb'
+
+include Helpers
+
 feature 'authentication' do
+
+  before(:each) do
+    @user = instance_double("Book",
+        :email => 'test@example.com',
+        :password => 'password123',
+        :name => 'rubberduck'
+      )
+  end
 
   it 'a user can sign up' do
     visit '/peeps'
@@ -15,10 +27,7 @@ feature 'authentication' do
 
     Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
 
-    visit '/sessions/new'
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    click_button('Sign in')
+    sign_in(@user)
 
     expect(page).to have_content 'Welcome, rubberduck'
   end
@@ -26,10 +35,7 @@ feature 'authentication' do
   scenario 'a user can sign out' do
     Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
 
-    visit '/sessions/new'
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    click_button('Sign in')
+    sign_in(@user)
 
     click_button('Sign out')
 
