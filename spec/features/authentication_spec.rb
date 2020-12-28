@@ -10,22 +10,10 @@ feature 'authentication' do
         :password => 'password123',
         :name => 'rubberduck'
       )
-  end
-
-  it 'a user can sign up' do
-    visit '/peeps'
-    click_button('Sign up')
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    fill_in(:name, with: 'rubberduck')
-    click_button('Submit')
-
-    expect(page).to have_content 'Welcome, rubberduck'
+    Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
   end
 
   it 'a user can sign in' do
-
-    Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
 
     sign_in(@user)
 
@@ -33,7 +21,6 @@ feature 'authentication' do
   end
 
   scenario 'a user can sign out' do
-    Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
 
     sign_in(@user)
 
@@ -44,7 +31,6 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
 
     visit '/sessions/new'
     fill_in(:email, with: 'wrongemail@example.com')
@@ -56,7 +42,7 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their password wrong' do
-    Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
+
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword')
