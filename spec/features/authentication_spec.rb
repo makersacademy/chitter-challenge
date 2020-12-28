@@ -1,4 +1,16 @@
 feature 'authentication' do
+
+  it 'a user can sign up' do
+    visit '/peeps'
+    click_button('Sign up')
+    fill_in(:email, with: 'test@example.com')
+    fill_in(:password, with: 'password123')
+    fill_in(:name, with: 'rubberduck')
+    click_button('Submit')
+
+    expect(page).to have_content 'Welcome, rubberduck'
+  end
+
   it 'a user can sign in' do
 
     Maker.create(email: 'test@example.com', password: 'password123', name: 'rubberduck')
