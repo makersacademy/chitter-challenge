@@ -4,7 +4,6 @@ feature 'view posts' do
   before(:each) do
     empty
     add_base_posts
-    user_details
   end
   scenario 'A user can see posts in reverse chronological order' do
     visit('/postboard')
