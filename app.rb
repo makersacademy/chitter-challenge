@@ -7,31 +7,8 @@ require_relative './lib/peep'
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
-
   get '/' do
     'Hello, World!'
-  end
-
-  get '/users/new' do
-    erb :"users/new"
-  end
-
-  post '/users' do
-
-
-    if Maker.user_uniq?(email: params[:email], name: params[:name])
-
-      maker = Maker.create(
-        email: params[:email],
-        password: params[:password],
-        name: params[:name]
-      )
-      session[:maker_id] = maker.id
-      redirect('/peeps')
-    else
-      flash[:notice] = 'Username or email currently in use, please try again'
-    end
-
   end
 
   get '/peeps' do
