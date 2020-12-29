@@ -4,6 +4,7 @@ group :development, :test do
   gem 'activerecord'
   gem 'pg'
   gem 'sinatra'
+  gem 'sinatra-flash'
 end
 
 group :test do

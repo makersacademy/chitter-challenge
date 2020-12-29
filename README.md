@@ -19,7 +19,14 @@ User Story 1:
 To make the most of the ActiveRecord syntax Peep.create(params[:peep]) I needed to name the "message" box peep[message]
 
 User Story 2:
-Fairly straight forward. Consolidated understanding of the <li class='peep'...> to allow spec to find first('.peep')
+Fairly straight forward. Consolidated understanding of the <li class='peep'> to allow spec to find first('.peep')
+
+User Story 3:
+Consolidated use of .strftime
+Need to consider how this is displayed when applying CSS.
+
+User Story 4:
+
 
 ## Makers Instructions
 

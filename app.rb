@@ -1,11 +1,15 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/user.rb'
 require_relative './database_connection.rb'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+  register Sinatra::Flash
+
   get '/' do
-    'Welcome to Chitter!'
+    erb :index
   end
 
   get '/peeps' do
@@ -22,4 +26,17 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/save_user' do
+    user = User.create(params[:user])
+    redirect "/users/#{user.id}/welcome"
+  end
+
+  get '/users/:id/welcome' do
+    @user = User.find_by(id: params[:id])
+    erb :'users/welcome'
+  end
 end
