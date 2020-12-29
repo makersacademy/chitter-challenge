@@ -1,0 +1,13 @@
+<h1>Peeps</h1>
+<p>
+  <a href='/peeps/new'>New Peep</a>
+</p>
+<p>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li class='peep' id="peep-<%= peep.id %>">
+        <%= peep.message %>
+      </li>
+    <% end %>
+  </ul>
+</p>

@@ -1,6 +1,23 @@
 Chitter Challenge
 =================
 
+# Setup
+Run
+```shell
+bundle install
+```
+to install gems
+
+Create databases and tables via psql using sql instructions in db/migrations. Remember to create the tables in both databases.
+
+## Database Connection
+I have setup the connection to the database with ActiveRecord.
+
+## My learning:
+
+User Story 1:
+To make the most of the ActiveRecord syntax Peep.create(params[:peep]) I needed to name the "message" box peep[message]
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
