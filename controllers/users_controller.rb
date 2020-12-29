@@ -1,5 +1,7 @@
+require 'sinatra/flash'
 class UsersController < Sinatra::Base
   set :views, './views'
+  register Sinatra::Flash
 
   get '/users/new' do
     erb :"users/new"
