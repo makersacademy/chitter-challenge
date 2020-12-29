@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './database_connection_setup'
 require_relative './controllers/users_controller'
+require_relative './controllers/peeps_controller'
 require_relative './lib/maker'
 require_relative './lib/peep'
 
@@ -9,28 +10,10 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
   use UsersController
+  use PeepsController
 
   get '/' do
     'Hello, World!'
-  end
-
-  get '/peeps' do
-    @maker = Maker.find(id: session[:maker_id])
-    erb :'peeps/index'
-  end
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
-
-  post '/peeps/new' do
-    Peep.create(message_content: params[:message_content], maker_id: session[:maker_id])
-    redirect '/peeps/list'
-  end
-
-  get '/peeps/list' do
-    @peeps = Peep.all
-    @makers = Maker.all
-    erb :'peeps/list'
   end
 
   get '/sessions/new' do
