@@ -12,5 +12,14 @@ class Chitter < Sinatra::Base
     erb :cheep_feed
   end
 
+  get '/create_cheep' do
+    erb :"create_cheep"
+  end
+
+  post '/cheep_feed' do
+    Cheep.create(message: params[:message])
+    redirect '/cheep_feed'
+  end
+
   run! if app_file == $0
 end
