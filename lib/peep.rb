@@ -16,7 +16,7 @@ class Peep
         end
     end
 
-    def self.add(id:, body:)
+    def self.add(body:)
         connection = PG.connect(dbname: 'chitter')
         peep = connection.exec("INSERT INTO peep (body) VALUES('#{body}') RETURNING id, body;")
         Peep.new(id: peep[0]['id'], body: peep[0]['body'])
