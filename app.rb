@@ -10,7 +10,8 @@ class ChitterApp < Sinatra::Base
     erb :chitter
   end
   post "/post" do
-    Chitter.create(post: params[:post])
+    # date = Time.new
+    Chitter.create(post: params[:post], date: Time.new.strftime("%A, %d/%b/%y at %I:%M %p"))
     redirect "/"
   end
 end

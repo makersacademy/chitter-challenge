@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <div class="bg-dark" id="navbarHeader">
+        <div class="bg-dark" id="navbarHeader"> 
             <div class="container">
                 <div class="row ">
                     <div class="col-sm-12 col-md-12 py-4 d-flex justify-content-between">
@@ -32,7 +32,7 @@
     <ul>
         <% @posts.each do |post| %>
             <li class="post" id="post-<%= post.id %>">
-                <%= post.post %>
+                <%= post.post  %>  Posted on <%= post.date %>
             </li>
         <% end %>
     </ul>

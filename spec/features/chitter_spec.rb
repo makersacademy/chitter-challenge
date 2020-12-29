@@ -3,10 +3,12 @@ feature "Chitter Home Page" do
     visit "/"
     expect(page).to have_content "Chitter"
   end
+
   scenario "user can publish a new post" do
     visit "/"
     fill_in("post", with: "This is a post")
     click_button("Post")
     expect(page).to have_content "This is a post"
+    expect(page).to have_content Time.new.strftime("%A, %d/%b/%y at %I:%M %p")
   end
 end
