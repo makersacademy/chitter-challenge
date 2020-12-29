@@ -5,6 +5,6 @@
 <h2>News Feed:</h2>
 <ul> 
   <% @peeps.each do |peep| %>
-      <li><%= peep.body %></li>
+      <li>"<%= peep.body %>" Time Posted: <%= peep.time%></li> 
   <% end %>
 </ul>
