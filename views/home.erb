@@ -1,0 +1,10 @@
+<h1>Welcome to Chitter!</h1>
+<form action='/new' method='get'>
+  <input type='submit' value='New Peep'>
+
+<h2>News Feed:</h2>
+<ul> 
+  <% @peeps.each do |peep| %>
+      <li><%= peep.body %></li>
+  <% end %>
+</ul>
