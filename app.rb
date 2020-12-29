@@ -31,8 +31,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/save_user' do
-    user = User.create(params[:user])
-    redirect "/users/#{user.id}/welcome"
+    if User.find_by(email: params[:user][:email])
+      flash[:notice] = 'That email address is already registered.'
+      redirect '/users/new'
+    elsif User.find_by(username: params[:user][:username])
+      flash[:notice] = 'That username is already taken!'
+      redirect '/users/new'
+    else
+      user = User.create(params[:user])
+      redirect "/users/#{user.id}/welcome"
+    end
   end
 
   get '/users/:id/welcome' do
