@@ -10,7 +10,7 @@ class Peep
 
     def self.all
         connection = PG.connect(dbname: 'chitter')
-        peep = connection.exec("SELECT * FROM peep")
+        peep = connection.exec("SELECT * FROM peep ORDER BY id DESC")
         peep.map do |peep| 
             Peep.new(id: peep['id'], body: peep['body'])
         end
