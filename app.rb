@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/cheep_feed' do
-    Cheep.create(message: params[:message])
+    Cheep.create(message: params[:message], author: params[:author])
     redirect '/cheep_feed'
   end
 

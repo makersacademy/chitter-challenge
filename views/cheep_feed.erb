@@ -10,8 +10,8 @@
   </head>
   <body>
     <ul>
-    <% @cheeps.each do |cheep| %>
-      <li><%= cheep %></li>
+    <% @cheeps.reverse.each do |cheep| %>
+      <li><%= cheep.author %>, <%= cheep.message %></li>
     <% end %>
     </ul>
     
