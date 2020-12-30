@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 group :development, :test do
   gem 'activerecord'
+  gem 'bcrypt'
   gem 'pg'
   gem 'sinatra'
   gem 'sinatra-flash'

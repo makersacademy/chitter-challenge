@@ -1,3 +1,9 @@
+
+# HARDER User Stories:
+# Log in to post peeps
+# Add name of maker and user handle to peeps.
+# Log out
+
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user.rb'
@@ -14,6 +20,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all.order(created_at: :desc)
+    @user = User.find(session[:user]) unless session[:user].nil?
     erb :'peeps/index'
   end
 

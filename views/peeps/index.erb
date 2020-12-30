@@ -1,4 +1,9 @@
 <h1>Peeps</h1>
+<% if !@user.nil? %>
+  <p>
+    <%= @user.name %>'s Chitter
+  </p>
+<% end %>
 <p>
   <a href='/peeps/new'>New Peep</a>
 </p>

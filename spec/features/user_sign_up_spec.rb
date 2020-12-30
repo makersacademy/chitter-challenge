@@ -57,7 +57,18 @@ feature 'user signs up for Chitter' do
   end
 
   scenario 'password is encrypted' do
-    pending
+    visit '/'
+    click_link 'Sign Up'
+
+    fill_in 'user[name]', with: 'Little Miss User'
+    fill_in 'user[email]', with: 'LMU@testuser.com'
+    fill_in 'user[username]', with: 'little_miss_user'
+    fill_in 'user[password]', with: 'LMU_password'
+    click_button 'Sign Up'
+
+    user = User.find_by(name: 'Little Miss User')
+
+    expect(user.password).not_to eq 'LMU_password'
   end
 
 end

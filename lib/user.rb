@@ -1,15 +1,17 @@
 require 'active_record'
+require 'bcrypt'
 require_relative './peep.rb'
 
 class User < ActiveRecord::Base
 
+  has_secure_password
+
   def self.check_duplicate(user)
     if User.find_by(email: user[:email])
-      notice = 'That email address is already registered.'
+      'That email address is already registered.'
     elsif User.find_by(username: user[:username])
-      notice = 'That username is already taken!'
+      'That username is already taken!'
     end
-    notice
   end
 
 end
