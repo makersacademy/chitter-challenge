@@ -4,9 +4,11 @@ DATABASE SETUP
 
 To setup the database you'll need to do the following:
 Connect to psql
-Create the database using the psql command CREATE DATABASE bookmark_manager;
-Connect to the database using the pqsl command \c bookmark_manager;
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
 Run the query saved in the file 01_create_peeps_table.sql
+
+To set up the test database you'll need to repeat the above, but using the database name chitter_test instead. 
 
 User stories:
 
