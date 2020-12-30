@@ -17,7 +17,10 @@ feature 'user signs up for Chitter' do
     expect(page).to have_content "Welcome, #{user.name}"
     expect(page).to have_content user.email
     expect(page).to have_content user.username
-    expect(page).to have_content user.password
+
+    click_link 'Return to Peeps'
+
+    expect(page).to have_content "Welcome, Little Miss User"
   end
 
   scenario 'email must be unique' do

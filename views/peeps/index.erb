@@ -1,12 +1,20 @@
+<%= flash[:notice] %>
 <h1>Peeps</h1>
-<% if !@user.nil? %>
+<form action='/' method='get'>
+  <input type='submit' value='Back to Homepage'>
+</form>
+<% if @user != nil %>
   <p>
-    <%= @user.name %>'s Chitter
+    Welcome, <%= @user.name %>
+    <form action='/sessions/destroy' method='post'>
+      <input type='submit' value='Sign Out'>
+    </form>
+  </p>
+  <p>
+    <a href='/peeps/new'>New Peep</a>
   </p>
 <% end %>
-<p>
-  <a href='/peeps/new'>New Peep</a>
-</p>
+
 <p>
   <ul>
     <% @peeps.each do |peep| %>
