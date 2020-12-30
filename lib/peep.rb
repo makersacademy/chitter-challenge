@@ -1,13 +1,21 @@
 require 'pg'
+require 'time'
 
 class Peep
 
-  attr_reader :id, :message, :maker_id
+  attr_reader :id, :message, :maker_id, :time
 
-  def initialize(id, message, maker_id)
+  def initialize(id, message, maker_id, timestamp)
+    p "Here's timestamp:"
+    p timestamp
+    p "^that's timestamp"
     @id = id
     @message = message
     @maker_id = maker_id
+    @time = Time.parse(timestamp)
+    p "Here's @time:"
+    p @time
+    p "^that's @time"
   end
 
   def self.all
@@ -18,7 +26,7 @@ class Peep
     end
 
     table = conn.exec("SELECT * FROM peeps")
-    table.map { |peep| Peep.new(peep['id'], peep['message'], peep['maker_id']) }
+    table.map { |peep| Peep.new(peep['id'], peep['message'], peep['maker_id'], peep['timestamp']) }
   end
 
   def self.create(message, maker_id)
@@ -27,8 +35,8 @@ class Peep
     else
       conn = PG.connect(dbname: 'chitter')
     end
-    result = conn.exec("INSERT INTO peeps (message, maker_id) VALUES('#{message}', '#{maker_id}') RETURNING id, message, maker_id")
-    Peep.new(result[0]['id'], result[0]['message'], result[0]['maker_id'])
+    result = conn.exec("INSERT INTO peeps (message, maker_id, timestamp) VALUES('#{message}', '#{maker_id}', '#{Time.now}') RETURNING id, message, maker_id, timestamp")
+    Peep.new(result[0]['id'], result[0]['message'], result[0]['maker_id'], result[0]['timestamp'])
   end
 
 end
