@@ -8,7 +8,7 @@ describe User do
   # end
 
   describe 'self.change' do
-    it "can overwrites current user with argument provided" do
+    it "overwrites current user with argument provided" do
       described_class.change("Kennethy")
       expect(described_class.current).to eq("Kennethy")
     end
