@@ -19,9 +19,9 @@ def add_peep3
   click_button("Peep")
 end
 
-def sign_up
+def sign_up(name)
   visit('/')
   click_link("Sign-up")
-  fill_in("username", with: "Kennethy")
+  fill_in("username", with: name)
   click_button("Sign-up")
 end
