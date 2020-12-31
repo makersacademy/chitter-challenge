@@ -1,11 +1,13 @@
 feature 'authentication' do
+  test_user = {
+    name: "User's Name",
+    email: 'user@user.com',
+    username: 'user1',
+    password: 'user123'
+  }
   scenario 'a user can sign in' do
-    user = User.create(
-      name: "User's Name",
-      email: 'user@user.com',
-      username: 'user1',
-      password: 'user123'
-    )
+    user = User.create(test_user)
+
     visit '/sessions/new'
     fill_in 'username', with: user.username
     fill_in 'password', with: 'user123'
@@ -15,12 +17,8 @@ feature 'authentication' do
   end
 
   scenario 'a user enters incorrect username' do
-    User.create(
-      name: "User's Name",
-      email: 'user@user.com',
-      username: 'user1',
-      password: 'user123'
-    )
+    user = User.create(test_user)
+
     visit '/sessions/new'
     fill_in 'username', with: 'incorrectusername'
     fill_in 'password', with: 'user123'
@@ -31,12 +29,8 @@ feature 'authentication' do
   end
 
   scenario 'a user enters incorrect password' do
-    user = User.create(
-      name: "User's Name",
-      email: 'user@user.com',
-      username: 'user1',
-      password: 'user123'
-    )
+    user = User.create(test_user)
+
     visit '/sessions/new'
     fill_in 'username', with: user.username
     fill_in 'password', with: 'wrong_password'
@@ -47,12 +41,8 @@ feature 'authentication' do
   end
 
   scenario 'a user can sign out' do
-    user = User.create(
-      name: "User's Name",
-      email: 'user@user.com',
-      username: 'user1',
-      password: 'user123'
-    )
+    user = User.create(test_user)
+
     visit '/sessions/new'
     fill_in 'username', with: user.username
     fill_in 'password', with: 'user123'

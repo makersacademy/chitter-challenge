@@ -1,7 +1,9 @@
+require_relative './web_helpers.rb'
+
 feature 'post a peep' do
   scenario 'user posts a peep and sees it on peep homepage' do
-    visit '/peeps'
-    # THIS WILL NEED TO CHANGE TO ENABLE USERS
+    sign_in_to_chitter
+
     click_link 'New Peep'
 
     expect(current_path).to eq '/peeps/new'

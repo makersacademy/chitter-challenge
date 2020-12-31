@@ -23,55 +23,49 @@ feature 'user signs up for Chitter' do
     expect(page).to have_content "Welcome, Little Miss User"
   end
 
+  registered_user = {
+    name: 'User 1',
+    email: 'user1@user.com',
+    username: 'user_1',
+    password: 'password'
+  }
+
   scenario 'email must be unique' do
-    User.create(
-      name: 'User 1',
-      email: 'user@repeat.com',
-      username: 'user_1',
-      password: 'user123'
-    )
+    User.create(registered_user)
+
     visit '/users/new'
 
-    fill_in 'user[name]', with: 'User 2'
-    fill_in 'user[email]', with: 'user@repeat.com'
-    fill_in 'user[username]', with: 'user_2'
-    fill_in 'user[password]', with: 'user123'
+    fill_in 'user[name]', with: 'New User'
+    fill_in 'user[email]', with: 'user1@user.com' # already used
+    fill_in 'user[username]', with: 'new_user'
+    fill_in 'user[password]', with: 'password'
     click_button 'Sign Up'
 
+    expect(current_path).to eq '/users/new'
     expect(page).to have_content 'That email address is already registered.'
   end
 
   scenario 'username must be unique' do
-    User.create(
-      name: 'User 1',
-      email: 'user1@user.com',
-      username: 'userrepeat',
-      password: 'user123'
-    )
+    User.create(registered_user)
+
     visit '/users/new'
 
-    fill_in 'user[name]', with: 'User 2'
-    fill_in 'user[email]', with: 'user2@user.com'
-    fill_in 'user[username]', with: 'userrepeat'
-    fill_in 'user[password]', with: 'user123'
+    fill_in 'user[name]', with: 'New User'
+    fill_in 'user[email]', with: 'new@user.com'
+    fill_in 'user[username]', with: 'user_1' # already used
+    fill_in 'user[password]', with: 'password'
     click_button 'Sign Up'
 
+    expect(current_path).to eq '/users/new'
     expect(page).to have_content 'That username is already taken!'
   end
 
   scenario 'password is encrypted' do
-    visit '/'
-    click_link 'Sign Up'
+    User.create(registered_user)
+    
+    user = User.all.first
 
-    fill_in 'user[name]', with: 'Little Miss User'
-    fill_in 'user[email]', with: 'LMU@testuser.com'
-    fill_in 'user[username]', with: 'little_miss_user'
-    fill_in 'user[password]', with: 'LMU_password'
-    click_button 'Sign Up'
-
-    user = User.find_by(name: 'Little Miss User')
-
-    expect(user.password).not_to eq 'LMU_password'
+    expect(user.password).not_to eq 'password'
   end
 
 end

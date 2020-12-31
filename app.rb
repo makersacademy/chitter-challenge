@@ -1,6 +1,4 @@
 # HARDER User Stories:
-# Edit tests to allow for change to New Peep button to only be available following sign in
-# Add name of maker and user handle to peeps
 # If signed in, don't give "Sign Up" or "Sign In" options
 # Make sure paths flow and edit CSS
 
@@ -29,7 +27,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/save_peep' do
-    Peep.create(params[:peep])
+    user = User.find(session[:user_id])
+    user.peeps.create(params[:peep])
     redirect '/peeps'
   end
 

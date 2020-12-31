@@ -1,12 +1,13 @@
 describe User do
   describe '.check_duplicate' do
+    test_user = {
+      name: "User",
+      email: "Email",
+      username: "Username",
+      password: "password"
+    }
     it 'identifies a duplication of username' do
-      User.create(
-        name: "User",
-        email: "Email",
-        username: "Username",
-        password: "password"
-      )
+      User.create(test_user)
 
       user2 = User.new(
         name: "User2",
@@ -19,12 +20,7 @@ describe User do
     end
 
     it 'identifies a duplication of email' do
-      User.create(
-        name: "User",
-        email: "Email",
-        username: "Username",
-        password: "password"
-      )
+      User.create(test_user)
 
       user2 = User.new(
         name: "User2",

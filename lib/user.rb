@@ -3,6 +3,7 @@ require 'bcrypt'
 require_relative './peep.rb'
 
 class User < ActiveRecord::Base
+  has_many :peeps
 
   has_secure_password
 

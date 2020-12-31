@@ -1,1 +1,0 @@
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(300), created_at TIMESTAMP);
