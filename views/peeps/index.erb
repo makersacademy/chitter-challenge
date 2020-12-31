@@ -3,7 +3,7 @@
 <form action='/' method='get'>
   <input type='submit' value='Back to Homepage'>
 </form>
-<% if @user != nil %>
+<% if @user %>
   <p>
     Welcome, <%= @user.name %>
     <form action='/sessions/destroy' method='post'>

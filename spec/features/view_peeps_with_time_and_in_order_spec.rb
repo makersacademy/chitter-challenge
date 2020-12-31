@@ -4,6 +4,8 @@ feature 'peeps on the /peeps page' do
   scenario 'are displayed in reverse chronological order' do
     sign_in_to_chitter
 
+    visit '/peeps'
+
     click_link 'New Peep'
 
     fill_in 'peep[message]', with: 'First Peep'
@@ -28,8 +30,9 @@ feature 'peeps on the /peeps page' do
 
   scenario "show user's name and username (chitter handle)" do
     sign_in_to_chitter
-
     user = User.all.first
+
+    visit '/peeps'
 
     click_link 'New Peep'
 

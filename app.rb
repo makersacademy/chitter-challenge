@@ -12,13 +12,16 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  before do
+    @user = User.find(session[:user_id]) unless session[:user_id].nil?
+  end
+
   get '/' do
     erb :index
   end
 
   get '/peeps' do
     @peeps = Peep.all.order(created_at: :desc)
-    @user = User.find(session[:user_id]) unless session[:user_id].nil?
     erb :'peeps/index'
   end
 
