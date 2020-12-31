@@ -25,7 +25,12 @@ User Story 3:
 Consolidated use of .strftime
 Need to consider how this is displayed when applying CSS.
 
-User Story 4:
+User Story 4:/
+Use 'user[name]' as names for inputs so that names are all associated as params of user. Not sure I've done flash[:notice] correctly in terms of where things are in MVC. Need to include bcrypt gem and has_secure_password in user.rb
+
+User Story 5 & 6:/
+Logging in and out of chitter needs sessions enabled. Need to store the user_id in the session variable and access that session variable for each route. Routes needed for this step are get '/sessions/new', post '/sessions' and get '/sessions/destroy'
+
 
 
 ## Makers Instructions

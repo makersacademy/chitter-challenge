@@ -1,14 +1,17 @@
-<% if @user %>
-  <h1>Welcome to Chitter, <%= @user.name %>!</h1>
-<% else %>
-  <h1>Welcome to Chitter!</h1>
-  <h2>
-    <a href='/sessions/new'>Sign In</a>
-  </h2>
-  <h2>
-    <a href='/users/new'>Sign Up</a>
-  </h2>
-<% end %>
-<h2>
-  <a href='/peeps'>View Peeps</a>
-</h2>
+<link rel="stylesheet" type="text/css" href="/stylesheets/chitter.css" />
+<body>
+  <% if @user %>
+    <h1>Welcome to Chitter, <%= @user.name %>!</h1>
+  <% else %>
+    <h1>Welcome to Chitter!</h1>
+    <li>
+      <a href='/sessions/new'>Sign In</a>
+    </li>
+    <li>
+      <a href='/users/new'>Sign Up</a>
+    </li>
+  <% end %>
+  <li>
+    <a href='/peeps'>View Peeps</a>
+  </li>
+</body>
