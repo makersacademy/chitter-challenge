@@ -1,3 +1,24 @@
 Welcome to Chitter!
 
-<%= @peeps %>
+<br>
+<br>
+
+<% @peeps.each do |peep| %>
+<li>
+    <%= p peep %>
+</li>
+<% end %>
+
+<br>
+
+<form action="/add-peep" method="post">
+  <label for="peep">
+    PEEP:
+    <input type="text" name="peep">
+  </label>
+  <label for="maker">
+    MAKER: 
+    <input type="text" name="maker"> 
+    </label>
+  <input type="submit" value="Peep">
+</form>

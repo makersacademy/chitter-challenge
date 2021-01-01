@@ -8,7 +8,7 @@ Create the database using the psql command CREATE DATABASE chitter;
 Connect to the database using the pqsl command \c chitter;
 Run the query saved in the file 01_create_peeps_table.sql
 
-To set up the test database you'll need to repeat the above, but using the database name chitter_test instead. 
+To set up the test database you'll need to repeat the above, but using the database name chitter_test instead.
 
 User stories:
 
