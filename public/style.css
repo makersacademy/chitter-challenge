@@ -1,0 +1,25 @@
+body{
+  background-color: deepskyblue;
+  color: rgb(1, 1, 15);
+  font-family: Verdana, Tahoma, sans-serif;
+  line-height: 1.6em;
+}
+
+.container{
+  width: 80%;
+  margin: 40px;
+}
+
+.button{
+  border-style: solid;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-right: 400px;
+  text-align: center;
+  background-color: green;}
+
+h2{
+  font-family: Tahoma;
+  color:rgb(9, 0, 128);
+}
