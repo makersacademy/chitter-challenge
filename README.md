@@ -71,7 +71,8 @@ Logging in and out of chitter needs sessions enabled. Need to store the user_id 
 User Story 7:\
 I have enabled tagging one user only in a post but have not got as far as initiating an email sent automatically to the tagged user.
 
-
+## References to Others' Code:
+I looked at previous pull requests to see what they had included in the .travis.yml file to get a green tick. Even after seeing this I couldn't find anything about it in the travis documentation or online so I've no idea how I would have found this.
 
 
 ## Makers Instructions
