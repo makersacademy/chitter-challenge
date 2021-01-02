@@ -5,7 +5,7 @@ feature 'signing in' do
     sign_up
     fill_in 'email', with: 'test@example.com'
     fill_in 'password', with: 'password123'
-    find('#login').click
+    find('#login-button').click
 
     expect(page).to have_content 'Welcome back, Panda!'
   end
