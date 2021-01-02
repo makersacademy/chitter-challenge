@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+    </head>
+ <div id= 'tweetbox' class="tweetbox">
+  <% @tweets.each do |tweet| %> 
+  <div id="tweet" class="tweet">     
+    <div id="username" class="username"> <%= tweet.username %> </div>
+    <div id="message" class="message"> <%= tweet.message %></div>
+    <div id="time" class="time"> <%= tweet.time %></div>
+  </div>
+  <% end %>
+</div>
+<div id='logout_list' class='logout_list'>
+    <form action="/logout" method="get">
+        <input type="submit" value="Logout">
+    </form>
+  </div>
+</html>

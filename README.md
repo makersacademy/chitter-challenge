@@ -133,3 +133,16 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+Twwet
+----
+id | username | message | user| time
+-- | ---- | ------- | ----
+SERIAL PRIMARY KEY | Created by | Message written(MAX: 140 chars) | Time was created
+
+Users
+---------------
+id | username | email | first_name | last_name |  password |
+-- | -------- | -------- | -----
+SERIAL PRIMARY KEY | username unique | email unique | first_name under 30 chars|last_name nder 30 chars | pwd1234 under 100 chars |
+
