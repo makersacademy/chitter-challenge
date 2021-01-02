@@ -8,9 +8,9 @@ class Peep
     else
       con = PG.connect(dbname: 'chitter')
     end
-    query = con.exec "SELECT * FROM peeps"
+    query = con.exec "SELECT * FROM peeps ORDER BY id DESC"
     query.map do |row|
-      "#{row['peep']} from: #{row['maker']}"
+      "#{row['peep']} from: #{row['maker']} at: #{row['created_at']}"
     end
   end
 
