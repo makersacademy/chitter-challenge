@@ -7,8 +7,8 @@ before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
   - psql -U postgres -d chitter_test -f ./db/migrate/01_create_user_table.sql
   - psql -U postgres -d chitter_test -f ./db/migrate/02_create_message_table.sql
-  - psql -U postgres -d chitter_test -f ./db/migrate/02_create_timestamp_function.sql
-  - psql -U postgres -d chitter_test -f ./db/migrate/02_create_tag_table.sql
+  - psql -U postgres -d chitter_test -f ./db/migrate/03_create_timestamp_function.sql
+  - psql -U postgres -d chitter_test -f ./db/migrate/04_create_tag_table.sql
 
 
 script:
