@@ -1,21 +1,21 @@
 # Will's README
 
 ## Completed
-* All straight-up user stories(1-4)
+* All 'straight-up' user stories(1-4)
 
 ## Part-way Through
-* Harder user stories (logging in and out) - can no longer sign-up with a username that is already taken.
+* 'Harder' user stories (logging in and out) - can no longer sign-up with a username that is already taken.
 
-## To do (main user stories)
-* Finish log-in/out user stories - current plan is to redirect all pages to a /welcome page (where they can log-in or sign-up) if @@current_user_id == 0 (i.e. nobody has logged in). Users are now in a separate databse to peeps so it should be possible to give each user a password.
-* Problem with current design - using a class variable to store current user means that there can only be one user at a time. Will need a redesign if we want multiple users on Chitter at the same time.
+## Still to do (main user stories)
+* Finish 'harder' user stories - current plan is to redirect all pages to a /welcome page (where they can log-in or sign-up) if @@current_user_id == 0 (i.e. nobody has logged in). Users are now in a separate databse to peeps so it should be possible to give each user a password.
+* Problem with current design - using a User class variable to store current user means that there can only be one user at a time. Will need a redesign if we want multiple users on Chitter at the same time.
 
-## To do (refactoring)
+## Still to do (refactoring)
 * Refactor Peep.add tests so that they do not rely on Peep.all (using 'RETURNING' command in SQL)
 * All User methods rely on User.add to set context - is there a way to isolate?
 * Extracting a time class?
-* Extracting database connection if statement and closing statements - currently repeated every time?
-No feature test for reverse chronological order yet
+* Extracting database connection if statement and closing statements - currently repeated every time.
+* No feature test for reverse chronological order yet
 
 ## 1st User Story Domain Model Diagram
 
