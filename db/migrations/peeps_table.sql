@@ -7,6 +7,7 @@ ALTER TABLE peeps ADD username VARCHAR(10);
 ALTER TABLE peeps DROP COLUMN username;
 ALTER TABLE peeps ADD username integer;
 ALTER TABLE peeps ADD FOREIGN KEY (username) REFERENCES users(id);
+ALTER TABLE peeps RENAME COLUMN username TO user_id;
 
 CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(10));
 -- To create the test database, follow the above steps exactly but name

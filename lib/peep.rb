@@ -18,10 +18,10 @@ class Peep
         con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
       end
 
-      rs = con.exec "SELECT content, time, username FROM peeps"
+      rs = con.exec "SELECT content, time, user_id FROM peeps"
 
       rs.map do |row|
-        Peep.new(row['content'], row['time'], row['username'].to_i)
+        Peep.new(row['content'], row['time'], row['user_id'].to_i)
       end
 
       rescue PG::Error => e
@@ -42,7 +42,7 @@ class Peep
         con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
       end
 
-      rs = con.exec "INSERT INTO peeps (content, time, username) VALUES ('#{content}', '#{time}', '#{user_id}')"
+      rs = con.exec "INSERT INTO peeps (content, time, user_id) VALUES ('#{content}', '#{time}', '#{user_id}')"
 
       rescue PG::Error => e
 
