@@ -1,7 +1,7 @@
-CREATE TABLE messages (
+CREATE TABLE "messages" (
     "id" SERIAL PRIMARY KEY,
     "content" varchar(240),
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "user_id" int4,
-    CONSTRAINT "messages_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES users(id),
+    CONSTRAINT "messages_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES users(id)
 );
