@@ -1,12 +1,7 @@
 require 'user'
 
 describe User do
-  # describe 'self.current' do
-  #   it "shows the current user" do
-  #     expect(described_class.current).to eq("admin")
-  #   end
-  # end
-
+  
   describe 'self.change_current_user_name' do
     it "overwrites current username with argument provided" do
       described_class.change_current_user_name("Kennethy")
@@ -51,6 +46,9 @@ describe User do
     it "returns true if a user already exists in the database" do
       described_class.add("test user")
       expect(described_class.exists?("test user")).to eq(true)
+    end
+    it "returns false if a user does not exist in the database" do
+      expect(described_class.exists?("make-believe user")).to eq(false)
     end
   end
 

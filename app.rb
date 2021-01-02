@@ -35,11 +35,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    # redirect('/sign-up') if User.exists?(params[:username])
-    User.add(params[:username])
-    User.change_current_user_name(params[:username])
-    User.change_current_user_id(User.get_user_id(params[:username]))
+    @suggested_username = params[:username]
+    redirect('/sign-up/failed') if User.exists?(@suggested_username)
+    User.add(@suggested_username)
+    User.change_current_user_name(@suggested_username)
+    User.change_current_user_id(User.get_user_id(@suggested_username))
     redirect('/')
+  end
+
+  get '/sign-up/failed' do
+    erb(:sign_up_failed)
   end
 
 end

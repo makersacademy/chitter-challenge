@@ -3,6 +3,7 @@ class User
   @@current_username = "admin"
   @@current_user_id = 0
 
+
   def self.current_username
     @@current_username
   end
