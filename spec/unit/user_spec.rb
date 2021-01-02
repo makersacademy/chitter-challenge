@@ -15,7 +15,7 @@ describe 'User' do
     end
 
     it 'creates a new user' do
-      user = User.create(username:'test', name:'test', email:'test99@example.com', password:'password123')
+      user = User.create(username:'test99', name:'test', email:'test99@example.com', password:'password123')
       expect(user).to be_an_instance_of(User)
     end
 
@@ -27,7 +27,7 @@ describe 'User' do
 
   describe '.find' do
     it 'finds the user with email' do
-      user = User.create(username:'test', name:'test', email:'test111@example.com', password:'password123')
+      user = User.create(username:'test111', name:'test', email:'test111@example.com', password:'password123')
       user = User.find('test111@example.com')
       expect(user.name).to eq 'test'
     end
