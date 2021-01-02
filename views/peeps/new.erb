@@ -3,6 +3,12 @@
   <form action='/save_peep' method='post'>
     Write new peep here:
     <input type='text' name='peep[message]'>
+    Tag someone!
+    <select id='tag' name='tag_user'>
+      <% User.all.each do |user| %>
+        <option value="<%= user.id %>">@<%= user.username %></option>
+      <% end %>
+    </select>
     <input type='submit' value='Post Peep'>
   </form>
 </div>

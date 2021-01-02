@@ -1,9 +1,11 @@
 require 'active_record'
 require 'bcrypt'
 require_relative './peep.rb'
+require_relative './tag.rb'
 
 class User < ActiveRecord::Base
   has_many :peeps
+  has_many :tags
 
   has_secure_password
 

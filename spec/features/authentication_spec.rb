@@ -13,11 +13,11 @@ feature 'authentication' do
     fill_in 'password', with: 'user123'
     click_button 'Sign In'
 
-    expect(page).to have_content "Welcome, #{user.name}"
+    expect(page).to have_content "Welcome back, #{user.name}"
   end
 
   scenario 'a user enters incorrect username' do
-    user = User.create(test_user)
+    User.create(test_user)
 
     visit '/sessions/new'
     fill_in 'username', with: 'incorrectusername'
@@ -50,7 +50,7 @@ feature 'authentication' do
 
     click_button 'Sign Out'
 
-    expect(page).not_to have_content "Welcome #{user.name}"
+    expect(page).not_to have_content "Welcome back, #{user.name}"
     expect(page).to have_content 'You have signed out'
   end
 end

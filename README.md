@@ -31,7 +31,7 @@ Use 'user[name]' as names for inputs so that names are all associated as params 
 User Story 5 & 6:/
 Logging in and out of chitter needs sessions enabled. Need to store the user_id in the session variable and access that session variable for each route. Routes needed for this step are get '/sessions/new', post '/sessions' and get '/sessions/destroy'
 
-
+CSS - I've managed to connect a separate .css file to the html! Hooray! Created a public/stylesheets
 
 ## Makers Instructions
 

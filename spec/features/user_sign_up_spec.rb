@@ -20,23 +20,16 @@ feature 'user signs up for Chitter' do
 
     click_link 'Return to Peeps'
 
-    expect(page).to have_content "Welcome, Little Miss User"
+    expect(page).to have_content "Welcome back, Little Miss User"
   end
 
-  registered_user = {
-    name: 'User 1',
-    email: 'user1@user.com',
-    username: 'user_1',
-    password: 'password'
-  }
-
   scenario 'email must be unique' do
-    User.create(registered_user)
+    create_users
 
     visit '/users/new'
 
     fill_in 'user[name]', with: 'New User'
-    fill_in 'user[email]', with: 'user1@user.com' # already used
+    fill_in 'user[email]', with: 'testuser2@email.com' # already used
     fill_in 'user[username]', with: 'new_user'
     fill_in 'user[password]', with: 'password'
     click_button 'Sign Up'
@@ -46,13 +39,13 @@ feature 'user signs up for Chitter' do
   end
 
   scenario 'username must be unique' do
-    User.create(registered_user)
+    create_users
 
     visit '/users/new'
 
     fill_in 'user[name]', with: 'New User'
     fill_in 'user[email]', with: 'new@user.com'
-    fill_in 'user[username]', with: 'user_1' # already used
+    fill_in 'user[username]', with: 'Test_username2' # already used
     fill_in 'user[password]', with: 'password'
     click_button 'Sign Up'
 
@@ -61,8 +54,8 @@ feature 'user signs up for Chitter' do
   end
 
   scenario 'password is encrypted' do
-    User.create(registered_user)
-    
+    create_users
+
     user = User.all.first
 
     expect(user.password).not_to eq 'password'

@@ -30,8 +30,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/save_peep' do
-    user = User.find(session[:user_id])
-    user.peeps.create(params[:peep])
+    peep = @user.peeps.create(params[:peep])
+    peep.tags.create(user_id: params[:tag_user])
     redirect '/peeps'
   end
 
@@ -52,7 +52,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/:id/welcome' do
-    @user = User.find_by(id: params[:id])
     erb :'users/welcome'
   end
 

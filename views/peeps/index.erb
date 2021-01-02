@@ -1,28 +1,26 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/chitter.css" />
 <h2><%= flash[:notice] %></h2>
-<h1>Peeps</h1>
-<form action='/' method='get'>
-  <input type='submit' value='Back to Homepage'>
-</form>
 <% if @user %>
   <h2>
-    Welcome, <%= @user.name %>
+    Welcome back, <%= @user.name %>!
     <form action='/sessions/destroy' method='post'>
       <input type='submit' value='Sign Out'>
     </form>
   </h2>
   <a href='/peeps/new'>New Peep</a>
 <% end %>
-
-<p>
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li class='peep'>
-        <%= peep.message %>
-        <%= peep.created_at.strftime("%k:%M %d/%m/%Y") %>
-        <%= peep.user.name %>
-        @<%= peep.user.username %>
-      </li>
+<form action='/' method='get'>
+  <input type='submit' value='Back to Homepage'>
+</form>
+<h1>Peeps</h1>
+<% @peeps.each do |peep| %>
+  <div class='peep'>
+    <h2 class='peep'><%= peep.user.name %>  </h2>
+    <ul>  @<%= peep.user.username %></ul>
+    <h3 class="peep"><%= peep.message %></h3>
+    <% peep.tagged_users.each do |user| %>
+      <h4 class="peep">@<%= user.username %></h4>
     <% end %>
-  </ul>
-</p>
+    <p class="peep"><%= peep.created_at.strftime("%k:%M %d/%m/%Y") %></p>
+  </div>
+<% end %>

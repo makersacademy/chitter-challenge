@@ -14,6 +14,17 @@ def sign_in_to_chitter
   click_button 'Sign In'
 end
 
-def sign_up
-
+def create_users
+  User.create(
+    name: "Test User 2",
+    email: 'testuser2@email.com',
+    username: 'Test_username2',
+    password: 'password'
+  )
+  User.create(
+    name: "Test User 3",
+    email: 'testuser3@email.com',
+    username: 'Test_username3',
+    password: 'password'
+  )
 end
