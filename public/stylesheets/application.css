@@ -1,0 +1,313 @@
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  min-height: 100%;
+  margin: auto;
+  overflow: auto;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  color: #7ACCB8;
+  font-size: 3em;
+}
+
+h1#login{
+  font-size: 100px;
+  margin-bottom: 0;
+  color: white;
+}
+
+h2 {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  color:#7ACCB8;
+  font-weight: bolder;
+}
+
+h3 {
+  font-size: 30px;
+  font-family: 'Dosis', sans-serif;
+}
+
+h4 {
+  margin: 0;
+  padding-left: 20px;
+  font-family: 'Dosis', sans-serif;
+  font-size: 30px;
+}
+
+h5 {
+  color: grey;
+  text-align: center;
+  font-style: italic;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  background: linear-gradient(to right,  #7ACCB8 0%,#7ACCB8 50%,white  50%, white 100%);
+}
+
+.left {
+  width: 50%;
+  float: left;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+}
+
+.right {
+  flex: 1;
+  padding: 3%;
+}
+
+.message-box {
+  text-align: center;
+}
+
+#name{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.username {
+  color: rgba(128, 128, 128, 0.856);
+}
+
+#content{
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+#timestamp{
+  color: grey;
+  font-size: 9px;
+  text-align: right;
+}
+
+input {
+  font-family: 'Dosis', sans-serif;
+  font-size: 15px;
+  border: #7ACCB8 1px solid;
+}
+
+.signup-page{
+  background-color: #D2F2EA;
+  height: 100%;
+}
+
+.sign-in {
+  padding-left: 10%;
+
+}
+
+#new_message_text {
+  width: 80%;
+  height: 30px;
+  background-color: #7ACCB8;
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+.button {
+  background-color: #7ACCB8;
+  border-radius: 8px;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.post-box {
+  padding: 20px 50px;
+  border-top: solid #7ACCB8 1px;
+  overflow: hidden;
+}
+
+
+.post-wrapper {
+  margin: 5% 0;
+}
+
+.blue-icon {
+  color: #7ACCB8;
+  font-size: 50px;
+  text-align: center;
+  margin: 0;
+}
+
+.white-icon{
+  color: white;
+  font-size: 100px;
+}
+
+.description {
+  margin: 12px 20%;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Dosis', sans-serif;
+}
+
+.login-main {
+  margin: 25% 10%;
+
+}
+
+.signup-page{
+  border-radius: 20px;
+  margin: 8% auto;
+  height: 90%;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #7ACCB8;
+  display: flex;
+}
+
+.signup {
+  display:block;
+  margin: 10px auto;
+  width: 70%;
+  height: 40px;
+  background-color: #E3F4F0;
+  border: none;
+  padding: 5px;
+  }
+
+  .signup-left {
+    width: 50%;
+    float: left;
+  }
+
+  .signup-left-content{
+    display: block;
+    margin: 25% auto;
+    text-align: center;
+    color: white;
+  }
+
+  .signup-right {
+    flex: 1;
+    float: left;
+    background-color: white;
+    padding-top: 50px;
+  }
+
+  #signup-button {
+    display: block;
+    margin: 30px auto;
+    width: 30%;
+  }
+
+  .flash {
+    background-color: #00ABC0;
+    color: white;
+    padding: 1%;
+  }
+
+
+
+  .home {
+    background-color: #7ACCB8;
+    overflow: auto;
+    min-height: 100vw;
+  }
+
+  .home-left {
+    margin-top: 50px;
+    margin-left: 100px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 700px;
+    padding: 0;
+    padding-top: 10px;
+    min-height: 500px;
+    /* overflow: hidden; */
+  }
+  .follow {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 400px;
+    position: fixed;
+    height: 40vh;
+    left: 850px;
+    top: 50px;
+    width: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .home-right {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 400px;
+    position: fixed;
+    height: 30vh;
+    left: 850px;
+    top: 400px;
+    width: 350px;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .fa-heart:hover{
+    color: #7ACCB8;
+  }
+
+  .followers {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+
+  #follower {
+    padding: 15px 30px;
+    border-top: solid #7ACCB8 1px;
+  }
+
+.inline {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.inline button {
+  color: white;
+  background-color: #7ACCB8;
+  border: none;
+  padding: 5px;
+  margin-top: 5px;
+}
+.inline button:hover {
+  background-color: #00ABC0;
+}
+
+body#edit {
+  background-color: #7ACCB8;
+
+}
+
+.edit {
+  background-color: white;
+  margin: 10% 20%;
+  height: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  padding: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.edit#message-box {
+  width: 100px;
+}
+
+.tagged_users{
+  color:grey;
+  font-size: 12px;
+}

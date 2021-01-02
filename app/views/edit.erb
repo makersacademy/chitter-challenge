@@ -1,0 +1,11 @@
+<body id="edit">
+<div class="edit">
+<h3>Edit your message</h3>
+<form action="/message/<%= @message.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH" />
+  <input type="text" name="content" value="<%= @message.content %>" / id="message-box">
+  <input type="submit" value="Submit" />
+</form>
+</div>
+</body>
+

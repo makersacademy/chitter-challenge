@@ -1,0 +1,35 @@
+<div class="wrapper">
+
+  <div class="left">
+    <h1 id="login"> Chitter </h1>
+    <ul>
+    <li class="description"><i class="fas fa-search"></i>  Follow your interests
+    <li class="description"><i class="fas fa-user-friends"></i>  Hear what other people are talking about</li>
+    <li class="description"><i class="far fa-comment-dots"></i>  Join the conversation</li>
+    </ul>
+  </div>
+
+<div class="right">
+  <div class="sign-in">
+  Sign In
+  <form action="/sessions" method="post" id="login">
+  <input type="text" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Log In" name="login" class="button">
+  </form>
+  </div>
+
+  <div class="login-main">
+  <i class="fas fa-crow blue-icon"></i>
+  <h3>See what's happening in the world right now</h3>
+
+  <form action="/signup" method="get" id="signup">
+  <input type="submit" value="Join Chitter today" class="button">
+  </form>
+
+  <form action="/home" method="get">
+  <input type="submit" value="Continue as a guest" class="button">
+  </form>
+  </div>
+  </div>
+</div>
