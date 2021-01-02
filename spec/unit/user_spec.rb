@@ -11,12 +11,12 @@ describe 'User' do
   describe '.create' do
     it 'hashes the password using bcrypt' do
       expect(BCrypt::Password).to receive(:create).with 'password123'
-      User.create(username:'test', name:'test', email:'test@example.com', password:'password123')
+      User.create(username:'test', name:'test', email:'test888@example.com', password:'password123')
     end
 
     it 'creates a new user' do
-      user = User.create(username:'test', name:'test', email:'test@example.com', password:'password123')
-      expect(user.id).not_to be_nil
+      user = User.create(username:'test', name:'test', email:'test99@example.com', password:'password123')
+      expect(user).to be_an_instance_of(User)
     end
 
     it 'rejects if an email exists' do
