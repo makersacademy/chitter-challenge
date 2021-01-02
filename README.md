@@ -1,10 +1,23 @@
 # Will's README
 
-## 1st User Story
+## Completed
+* All straight-up user stories(1-4)
 
-As a Maker,
-So that I can let people know what I am doing,  
-I want to post a message (peep) to chitter
+## Part-way Through
+* Harder user stories (logging in and out) - can no longer sign-up with a username that is already taken.
+
+## To do (main user stories)
+* Finish log-in/out user stories - current plan is to redirect all pages to a /welcome page (where they can log-in or sign-up) if @@current_user_id == 0 (i.e. nobody has logged in). Users are now in a separate databse to peeps so it should be possible to give each user a password.
+* Problem with current design - using a class variable to store current user means that there can only be one user at a time. Will need a redesign if we want multiple users on Chitter at the same time.
+
+## To do (refactoring)
+* Refactor Peep.add tests so that they do not rely on Peep.all (using 'RETURNING' command in SQL)
+* All User methods rely on User.add to set context - is there a way to isolate?
+* Extracting a time class?
+* Extracting database connection if statement and closing statements - currently repeated every time?
+No feature test for reverse chronological order yet
+
+## 1st User Story Domain Model Diagram
 
 ![1st User Story DMD](https://github.com/Will-Helliwell/chitter-challenge/blob/master/1st%20User%20Story%20DMD.png)
 
@@ -14,14 +27,22 @@ To create database in psql:
 ```
 CREATE DATABASE chitter;
 ```
-To create peeps table with id and content columns:
+To create users and peeps tables in this database:
 ```
 CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(60));
 ALTER TABLE peeps ADD time VARCHAR(60);
 ALTER TABLE peeps ADD username VARCHAR(10);
+ALTER TABLE peeps DROP COLUMN username;
+ALTER TABLE peeps ADD username integer;
+ALTER TABLE peeps ADD FOREIGN KEY (username) REFERENCES users(id);
+ALTER TABLE peeps RENAME COLUMN username TO user_id;
+
+CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(10));
 ```
 
 To create the test database, follow the above steps exactly but name the database "chitter_test".
+
+---
 
 
 Chitter Challenge (Makers Brief)
