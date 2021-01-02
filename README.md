@@ -69,7 +69,7 @@ User Stories 5 & 6:\
 Logging in and out of chitter needs sessions enabled. Need to store the user_id in the session variable and access that session variable for each route. Routes needed for this step are get '/sessions/new', post '/sessions' and get '/sessions/destroy'
 
 User Story 7:\
-I have enabled tagging in a post but have not got as far as initiating an email sent automatically to the tagged user.
+I have enabled tagging one user only in a post but have not got as far as initiating an email sent automatically to the tagged user.
 
 
 

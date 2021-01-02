@@ -13,7 +13,7 @@ describe Peep do
     username: "Username2",
     password: "password"
   }
-  
+
   test_user3 = {
     name: "User3",
     email: "Email3",
@@ -28,8 +28,8 @@ describe Peep do
       user3 = User.create(test_user3) # tagged in peep
 
       peep = user.peeps.create(message: "Peep tagging user2 and user3")
-      tag = peep.tags.create(user_id: user2.id)
-      tag2 = peep.tags.create(user_id: user3.id)
+      peep.tags.create(user_id: user2.id)
+      peep.tags.create(user_id: user3.id)
 
       expect(peep.tagged_users).to eq [user2, user3]
     end
