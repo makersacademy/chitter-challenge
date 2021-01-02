@@ -27,8 +27,8 @@ describe 'User' do
 
   describe '.find' do
     it 'finds the user with email' do
-      user = User.create(username:'test', name:'test', email:'test@example.com', password:'password123')
-      user = User.find('test@example.com')
+      user = User.create(username:'test', name:'test', email:'test111@example.com', password:'password123')
+      user = User.find('test111@example.com')
       expect(user.name).to eq 'test'
     end
 
