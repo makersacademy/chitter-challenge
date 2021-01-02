@@ -1,17 +1,17 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/chitter.css" />
 <body>
-  <% if @user %>
-    <h1>Welcome to Chitter, <%= @user.name %>!</h1>
-  <% else %>
-    <h1>Welcome to Chitter!</h1>
-    <li class="buttons">
+  <div class="header">
+    <% if @user %>
+      <h1>Welcome to Chitter, <%= @user.name %>!</h1>
+    <% else %>
+      <h1>Welcome to Chitter!</h1>
+    <% end %>
+  </div>
+  <div class="topnav">
+    <% if !@user %>
       <a href='/sessions/new'>Sign In</a>
-    </li>
-    <li class="buttons">
       <a href='/users/new'>Sign Up</a>
-    </li>
-  <% end %>
-  <li>
-    <a href='/peeps'>View Peeps</a>
-  </li>
+    <% end %>
+      <a href='/peeps'>View Peeps</a>
+  </div>
 </body>

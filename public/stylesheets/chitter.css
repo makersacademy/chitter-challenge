@@ -1,64 +1,99 @@
-body {
+/* The header */
+.header {
+  background-color: palegreen;
+  padding: 10px;
+  text-align: center;
+}
+
+.header h1 {
+  color: navy;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* The navbar container */
+.topnav {
   background-color: navy;
+  text-align: center;
+}
+
+/* Navbar links */
+.topnav a, .topnav form, .topnav input[type=submit] {
+  float: center;
+  display: inline-block;
+  width: 20%;
+  background-color: navy;
+  font-size: 25px;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+  margin: auto;
+}
+
+.topnav input[type=submit] {
+  width: 100%;
+}
+/* Links - change color on hover */
+.topnav a:hover, a:active, input[type=submit]:hover {
+  background-color: skyblue;
+  color: black;
+}
+
+/* The body */
+body {
+  background-color: lightgreen;
+}
+
+#container {
+  width: 95%;
+  margin: auto;
+  background-color: palegreen;
+  color: navy;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.peep {
+  width: 80%;
+  height: 120px;
+  align: center;
+  margin: 20px auto;
+  border-radius: 10px;
+  border-color: white;
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.peep h1, h2, p, li {
+  color: navy;
+  float: center;
+  display: inline-block;
+  font-size: 30px;
+  margin: auto;
+}
+
+span {
+  float: right;
 }
 
 .peep h2 {
-  color: black;
-  text-align: left;
-  font-size: 40px;
+  font-size: 25px;
 }
 
-.peep p {
-  color: black;
+.peep p, li {
   text-align: right;
   font-size: 20px;
 }
 
 .peep h3 {
-  color: black;
-  text-align: left;
-  font-size: 30px;
+  padding-left: 20px;
 }
 
 .peep h4 {
   color: black;
   text-align: left;
   font-size: 20px;
-}
-
-h1 {
-  color: white;
-  text-align: center;
-  font-size: 50px;
-}
-
-li.buttons {
-  display: inline;
-  color: ghostwhite;
-}
-
-ul {
-  text-align: right;
-  font-size: 30px;
-}
-
-a:link, a:visited {
-  background-color: lightgreen;
-  color: black;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover, a:active {
-  background-color: limegreen;
-}
-
-h2 {
-  color: hotpink;
-  text-align: left;
-  font-size: 30px;
 }
 
 input[type=text], select {
@@ -71,43 +106,8 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-input[type=submit] {
-  width: 50%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
 div.form {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px;
-}
-
-div.welcome {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-p {
-  color: ghostwhite;
-}
-
-div.peep {
-  width: 80%;
-  align: center;
-  margin: 20px auto;
-  border-radius: 10px;
-  border-color: white;
-  background-color: lightblue;
   padding: 20px;
 }

@@ -20,7 +20,7 @@ feature 'user signs up for Chitter' do
 
     click_link 'Return to Peeps'
 
-    expect(page).to have_content "Welcome back, Little Miss User"
+    expect(page).to have_content "Little Miss User's Chitter!"
   end
 
   scenario 'email must be unique' do

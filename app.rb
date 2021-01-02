@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
 
   post '/save_peep' do
     peep = @user.peeps.create(params[:peep])
-    peep.tags.create(user_id: params[:tag_user])
+    peep.tags.create(user_id: params[:tag_user]) unless params[:tag_user] == "nil"
     redirect '/peeps'
   end
 

@@ -13,7 +13,7 @@ feature 'authentication' do
     fill_in 'password', with: 'user123'
     click_button 'Sign In'
 
-    expect(page).to have_content "Welcome back, #{user.name}"
+    expect(page).to have_content "#{user.name}'s Chitter!"
   end
 
   scenario 'a user enters incorrect username' do
@@ -50,7 +50,7 @@ feature 'authentication' do
 
     click_button 'Sign Out'
 
-    expect(page).not_to have_content "Welcome back, #{user.name}"
+    expect(page).not_to have_content "#{user.name}'s Chitter!"
     expect(page).to have_content 'You have signed out'
   end
 end

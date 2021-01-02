@@ -5,6 +5,7 @@
     <input type='text' name='peep[message]'>
     Tag someone!
     <select id='tag' name='tag_user'>
+      <option value=nil></option>
       <% User.all.each do |user| %>
         <option value="<%= user.id %>">@<%= user.username %></option>
       <% end %>
