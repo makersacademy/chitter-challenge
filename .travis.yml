@@ -6,8 +6,8 @@ services:
 before_script:
   - psql -U postgres -c 'create database chitterverse_test;'
   - psql -U postgres -d 'chitterverse_test' -f ./db/migrations/03_create_table_users.sql
-  - psql -U postgres -d 'chitterverse_test' -f ./db/migrations/03_create_table_peeps.sql
-  - psql -U postgres -d 'chitterverse_test' -f ./db/migrations/03_create_table_tags.sql
+  - psql -U postgres -d 'chitterverse_test' -f ./db/migrations/04_create_table_peeps.sql
+  - psql -U postgres -d 'chitterverse_test' -f ./db/migrations/05_create_table_tags.sql
 
 script:
   - bundle exec rspec
