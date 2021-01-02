@@ -51,7 +51,7 @@ I want to receive an email if I am tagged in a Peep
 
 ## How to Run:
 
-After setting up your databases, run the app using rackup with ```ruby app.rb```.
+After setting up your databases, run the app with ```ruby app.rb```.
 From here, navigate to ```localhost:4567``` in your browser.
 
 ![Homepage](Homepage.png)
