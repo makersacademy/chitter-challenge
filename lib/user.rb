@@ -47,6 +47,28 @@ class User
   end
 
   def self.exists?(username)
+    begin
+      if ENV["Environment"] == 'test'
+        con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
+      else
+        con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
+      end
+
+      rs = con.exec "SELECT id FROM users WHERE username='#{username}'"
+      if rs.to_a.length > 0
+        return true
+      else
+        return false
+      end
+
+      rescue PG::Error => e
+
+      puts e.message
+
+      ensure
+
+      con.close if con
+    end
   end
 
 end

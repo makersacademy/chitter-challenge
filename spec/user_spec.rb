@@ -44,11 +44,15 @@ describe User do
     end
   end
 
-  # describe 'self.exists?' do
-  #   it "takes a single argument" do
-  #     expect(described_class).to respond_to(:exists?).with(1).argument
-  #   end
-  # end
+  describe 'self.exists?' do
+    it "takes a single argument" do
+      expect(described_class).to respond_to(:exists?).with(1).argument
+    end
+    it "returns true if a user already exists in the database" do
+      described_class.add("test user")
+      expect(described_class.exists?("test user")).to eq(true)
+    end
+  end
 
 
 end
