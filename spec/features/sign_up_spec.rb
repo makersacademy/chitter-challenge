@@ -7,6 +7,18 @@ feature 'Sign Up' do
     expect(page).to have_content("You are signed up as Kennethy")
   end
 
+  context "sign in with user name that already exists" do
+    before(:each) do
+      sign_up("Kennethy")
+    end
+    scenario 'it returns user to sign-up page' do
+      expect(page).to have_current_path('/sign_up')
+    end
+    scenario 'it dsiplays an error message' do
+      expect(page).to have_content('That username already exists!')
+    end
+  end
+
   context "original signed up user has added one peep" do
     before(:each) do
       add_peep1

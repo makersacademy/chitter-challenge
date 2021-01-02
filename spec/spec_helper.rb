@@ -22,7 +22,7 @@ RSpec.configure do |config|
   config.before(:each) do
     begin
       con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
-      rs = con.exec "TRUNCATE TABLE peeps"
+      rs = con.exec "TRUNCATE TABLE users, peeps restart IDENTITY"
 
       rescue PG::Error => e
 

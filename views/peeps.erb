@@ -8,7 +8,7 @@
     <ul>
       <% @peep.each do |peep| %>
       <li>
-        <%= peep.username %>:
+        <%= User.get_username(peep.user_id) %>:
         "<%=peep.content%>"
         <small><i>(<%=peep.time%>)</i></small>
       </li>
