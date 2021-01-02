@@ -1,0 +1,39 @@
+current directory: /Users/aracho/Makers/Projects/chitter-challenge/.bundle/ruby/2.6.0/gems/bcrypt-3.1.16/ext/mri
+/Users/aracho/.rvm/rubies/ruby-2.6.5/bin/ruby -I /Users/aracho/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210102-46754-b2syos.rb extconf.rb
+creating Makefile
+
+current directory: /Users/aracho/Makers/Projects/chitter-challenge/.bundle/ruby/2.6.0/gems/bcrypt-3.1.16/ext/mri
+make DESTDIR\= clean
+
+current directory: /Users/aracho/Makers/Projects/chitter-challenge/.bundle/ruby/2.6.0/gems/bcrypt-3.1.16/ext/mri
+make DESTDIR\=
+compiling bcrypt_ext.c
+bcrypt_ext.c:17:25: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+            NIL_P(input) ? 0 : RSTRING_LEN(input));
+                               ^~~~~~~~~~~~~~~~~~
+/Users/aracho/.rvm/rubies/ruby-2.6.5/include/ruby-2.6.0/ruby/ruby.h:1000:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/Users/aracho/.rvm/rubies/ruby-2.6.5/include/ruby-2.6.0/ruby/ruby.h:996:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bcrypt_ext.c:17:25: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+            NIL_P(input) ? 0 : RSTRING_LEN(input));
+                               ^~~~~~~~~~~~~~~~~~
+/Users/aracho/.rvm/rubies/ruby-2.6.5/include/ruby-2.6.0/ruby/ruby.h:1001:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+2 warnings generated.
+compiling crypt_blowfish.c
+gcc  -D__SKIP_GNU  -I/usr/local/opt/libyaml/include -I/usr/local/opt/libksba/include -I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+wrapper.c:182:60: warning: declaration of 'struct crypt_data' will not be visible outside of this function [-Wvisibility]
+char *crypt_r(const char *key, const char *setting, struct crypt_data *data)
+                                                           ^
+1 warning generated.
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/aracho/Makers/Projects/chitter-challenge/.bundle/ruby/2.6.0/gems/bcrypt-3.1.16/ext/mri
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20210102-46754-1p356iz
