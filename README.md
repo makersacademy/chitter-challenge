@@ -1,6 +1,6 @@
 # Chitter
 
-I have built a Twitter clone that allows the users to post messages to a public stream.
+I have built a Twitter clone that allows the users to post messages to a public stream. It can sign up new users, sign in existing users, post a message, edit/delete the messages, and tag users which send emails to users
 
 To use the app:
 -------
@@ -12,7 +12,7 @@ To use the app:
 6. Run ``bundle install`` to load the gems 
 7. Run ```shotgun``` in the terminal to access the app
 
-Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users
+Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users. I have therefore commented out this part of the app in ``app/app.rb`` but please feel free to set it up and try.
 
 Completed Features:
 -------
