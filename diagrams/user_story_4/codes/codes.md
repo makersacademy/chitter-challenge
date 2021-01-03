@@ -1,25 +1,26 @@
-#### Class Definitions
+#### Class Definitions\
+Class "User" as user:
+"id"
+"email"
+"password"
+"name"
+"user_name"
+"#new()"
+".create()"
+".find()"
+
 CLASS "Peep" as peep:
 "id"
 "message"
 "date_time_stamp"
 "user_id"
-"user_class"
-"user_name"
 "#new()"
 ".create()"
 ".all()"
-".db_connection()"
 
-Class "User" as user:
-"id"
-"name"
-"#new()"
-".create()"
-".instance()"
-".find()"
-".find_name()"
-".db_connection()"
+CLASS "DatabaseConneciton" as db:
+".setup()"
+".query()"
 
 
 #### Table definitions

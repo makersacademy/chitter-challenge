@@ -4,6 +4,10 @@ require "./database_connection_setup"
 class Chitter < Sinatra::Base
   enable :sessions
 
+  get "/" do
+    redirect "/peeps"
+  end
+
   get "/peeps" do
     @user = User.find(session[:user_id]) if session[:user_id]
     @peeps = Peep.all

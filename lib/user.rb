@@ -12,12 +12,7 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id};").first
     @user = User.new(id: result["id"], email: result["email"], password: result["password"], name: result["name"], user_name: result["user_name"])
   end
-
-  def self.find_name(id)
-    result = DatabaseConnection.query("SELECT name FROM users WHERE id = #{id};")
-    result.first["name"]
-  end
-
+  
   attr_reader :id, :email, :password, :name, :user_name
 
   def initialize(id:, email:, password:, name:, user_name:)

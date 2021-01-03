@@ -61,6 +61,13 @@ I want to sign up for Chitter
 ![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/entity.svg)
 ![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/sequence.svg)
 
+### User Story 5
+```
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+```
+
 ## Code Example
 
 

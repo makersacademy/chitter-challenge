@@ -1,6 +1,7 @@
 feature "So that I can post messages on Chitter as me," do
   scenario "I want to sign up for Chitter" do
-    visit("/users/new")
+    visit("/")
+    click_button("Sign in")
     fill_in("email", with: "test@example.com")
     fill_in("password", with: "password123")
     fill_in("name", with: "User 1")

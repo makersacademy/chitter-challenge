@@ -1,3 +1,10 @@
+<% if !@user %>
+<form action='users/new'>
+  <input type="submit" value="Sign in" class="w3-button w3-theme-action"
+  style="position:fixed;top:18px;left:140px;"></input>
+</form>
+<% end %>
+
 <form action='peeps/new'>
   <input type="submit" value="+" class="w3-button w3-xlarge w3-circle w3-theme-action"
   style="position:fixed;top:48px;right:24px;"></input>
