@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'orderly'
 gem 'pg'
 gem 'sinatra'
 

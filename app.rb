@@ -3,18 +3,17 @@ require './lib/peep'
 
 class Chitter < Sinatra::Base
 
-  # get '/new' do
-  #   erb :new
-  # end
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+  post '/peeps' do
+    Peep.create(content: params[:content])
+    redirect '/peeps'
+  end
 
   get '/peeps' do
     @peeps = Peep.all
-    # [
-    #   "test peep",
-    #   "another test peep",
-    #   "a third test peep"
-    # ]
-
     erb :'peeps/index'
   end
 
