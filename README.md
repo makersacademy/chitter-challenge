@@ -4,7 +4,7 @@ This is a new soccial network where user can post some messages.
 
 ## Screenshot
 
-<img src="img/home.png" alt-text="homepage"/>
+<img src="img/home.png" alt-text="homepage"/><img src="img/login.png" alt-text="login page"/><img src="img/error-login.png" alt-text="error login page"/>
 
 Features:
 -------
