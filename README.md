@@ -7,6 +7,9 @@ This project is an unguided, solo, understanding check of TDD, OOD, MVC, of a we
 ## Build status
 [![Build Status](https://travis-ci.com/chriswhitehouse/chitter-challenge.svg?branch=master)](https://travis-ci.com/chriswhitehouse/chitter-challenge)
 
+## Code style
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+
 ## Screenshots
 Include logo/demo screenshot etc.
 
