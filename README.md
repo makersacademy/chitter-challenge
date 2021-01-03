@@ -1,17 +1,27 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+##Database Setup
+Enter the following commands in your terminal inside your project directory
+- Connect to postgres
+```
+psql
+```
 
-Challenge:
--------
+- Create a new databse called 'chitter'
+```
+CREATE DATABASE chitter;
+```
 
-As usual please start by forking this repo.
+- Connect to the databases
+```
+\c chitter;
+```
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+- Create a table for peeps with an id and content column
+```
+follow file 01 in db/migrations directory
+```
 
 Features:
 -------
