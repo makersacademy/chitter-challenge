@@ -1,6 +1,12 @@
 # Chitter
 
-I have built a Twitter clone that allows the users to post messages to a public stream. It can sign up new users, sign in existing users, post a message, edit/delete the messages, and tag users which send emails to users
+I have built a Twitter clone that allows the users to post messages to a public stream. 
+Completed features:
+- Sign up new users
+- Sign in using email and password(BCrypt)
+- Post a message
+- Edit/delete the messages written by the user herself
+- Tag other users in the message which will send emails to them
 
 To use the app:
 -------
@@ -14,7 +20,7 @@ To use the app:
 
 Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users. I have therefore commented out this part of the app in ``app/app.rb`` but please feel free to set it up and try.
 
-Completed Features:
+Completed User Stories:
 -------
 
 ```
