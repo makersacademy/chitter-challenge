@@ -63,6 +63,14 @@ I want to receive an email if I am tagged in a Peep
 
 :white_check_mark: Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
+## Languages used
+
+1. Ruby
+2. RSpec
+3. HTML
+4. CSS
+5. Bootstrap
+
 ## Installation
 
 ### Database Setup
@@ -75,7 +83,7 @@ I want to receive an email if I am tagged in a Peep
 );`
 6. Create a new reference column by the username:  `ALTER TABLE posts ADD COLUMN username VARCHAR(50) NOT NULL REFERENCES users(username);`
 7. Create a test database using the `CREATE DATABASE chitter_test;`
-8. 3. Connect to the database: `\c chitter_test;`
+8. Connect to the database: `\c chitter_test;`
 9. Repeat steps 4,5 and 6.
 
 ## Database diagram
@@ -140,3 +148,36 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+## Credits
+
+This project is been provided by [Makers Academy](https://makers.tech/) and developed by the student [Javier Lopez](https://github.com/xavierloos)
+
+## Contribute
+
+As this is long project there is more stories to implement, feel free to add more usefull stories and/or add the features to the code
+
+### Stories to implement
+
+```
+As a Maker
+So that I can follow the conversation
+I want to comment in other users post or mine
+```
+```
+As a Maker
+So that I can see the favorites posts
+I want to like others posts or mine
+```
+```
+As a Maker
+So that I tell other friends
+I want to share other posts or mine
+```
+```
+As a Maker
+So that I can keep a clean post
+I want to be able delete my posts
+```
+
+## License
