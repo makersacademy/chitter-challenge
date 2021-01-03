@@ -1,17 +1,52 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+We have been asked to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Challenge:
--------
+Database Setup
+--------------
+1. connect to ```psql```
+2. create database using ```CREATE DATABASE chitter;```
+3. connect to database using ```\c chitter;```
+4. run query saved in db/migrations/01_create_peeps_table.sql
+5. create test database using ```CREATE DATABASE chitter_test;```
+6. create peeps table using steps above
 
-As usual please start by forking this repo.
+Planning
+--------
+Objects: peep, chitter, time, user
+Actions: post a message, see all peeps, see timestamp, sign up
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+| Nouns | Owner/Property |
+| ---------- | ---------- |
+| Chitter | Owner |
+| Peep | Owner |
+| timestamp | Property |
+| User | Owner |
+
+| Actions | Owned by? |
+| ---------- | ---------- |
+| post | Peep |
+| see all | Peep |
+| see timestamp | Peep |
+| sign up | User |
+
+| Actions | Property it reads or changes |
+| ---------- | ---------- |
+| post | peeps (list) |
+| see all | peeps (list) |
+| see timestamp | peep |
+| sign up | users (list) |
+
+| Class | Peep |
+| ---------- | ---------- |
+| Properties | post, timestamp |
+| Actions | see all, post peep, see timestamp |
+
+| Class | User |
+| ---------- | ---------- |
+| Properties | username |
+| Actions | sign up |
 
 Features:
 -------
@@ -113,23 +148,3 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
