@@ -8,7 +8,7 @@ Enter the following commands in your terminal inside your project directory
 psql
 ```
 
-- Create a new databse called 'chitter'
+- Create a new database called 'chitter'
 ```
 CREATE DATABASE chitter;
 ```
@@ -16,6 +16,28 @@ CREATE DATABASE chitter;
 - Connect to the databases
 ```
 \c chitter;
+```
+
+- Create a table for peeps with an id and content column
+```
+follow file 01 in db/migrations directory
+```
+
+##Test Database Setup
+Enter the following commands in your terminal inside your project directory
+- Connect to postgres
+```
+psql
+```
+
+- Create a new database called 'chitter_test'
+```
+CREATE DATABASE chitter_test;
+```
+
+- Connect to the databases
+```
+\c chitter_test;
 ```
 
 - Create a table for peeps with an id and content column
