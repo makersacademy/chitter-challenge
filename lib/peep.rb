@@ -6,16 +6,10 @@ class Peep
   attr_reader :id, :message, :maker_id, :time
 
   def initialize(id, message, maker_id, timestamp)
-    p "Here's timestamp:"
-    p timestamp
-    p "^that's timestamp"
     @id = id
     @message = message
     @maker_id = maker_id
     @time = Time.parse(timestamp)
-    p "Here's @time:"
-    p @time
-    p "^that's @time"
   end
 
   def self.all
