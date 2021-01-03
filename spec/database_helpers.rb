@@ -1,4 +1,3 @@
-
 def persisted_data_retrieve(table:, id:)
   result = DatabaseConnection.query("SELECT * FROM #{table} WHERE id = #{id};")
   result.first

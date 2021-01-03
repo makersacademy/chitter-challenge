@@ -1,4 +1,4 @@
-require './lib/database_connection'
+require "./lib/database_connection"
 
 if ENV["RACK_ENV"] == "test"
   DatabaseConnection.setup("chitter_test")

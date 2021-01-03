@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] = "test"
+
 # datbase helper
 require_relative "./setup_test_database"
 require_relative "./database_helpers"
@@ -15,8 +17,6 @@ require "simplecov"
 require "simplecov-console"
 
 Capybara.app = Chitter
-
-ENV["RACK_ENV"] = "test"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

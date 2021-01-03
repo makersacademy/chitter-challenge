@@ -2,33 +2,31 @@ require "sinatra/base"
 require "./database_connection_setup"
 
 class Chitter < Sinatra::Base
-  post "/users" do
-    @user = User.create(params[:user_name])
-    redirect "/users/new/#{@user.id}"
+  enable :sessions
+
+  get "/peeps" do
+    @user = User.find(session[:user_id]) if session[:user_id]
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
-  get "/users/new/:id" do
-    @user = User.find(params[:id].to_i)
-    erb :'/users/show'
+  post "/peeps" do
+    Peep.create(message: params[:message], user_id: session[:user_id])
+    redirect "/peeps"
+  end
+
+  get "/peeps/new" do
+    erb :'peeps/new'
   end
 
   get "/users/new" do
     erb :'users/new'
   end
 
-  get "/peeps" do
-    @peeps = Peep.all
-    erb :'peeps/index'
-  end
-
-  post "/peeps" do
-    @user = User.instance
-    @peep = Peep.create(message: params[:message], user_id: @user.id)
+  post "/users" do
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
+    session[:user_id] = user.id
     redirect "/peeps"
-  end
-
-  get "/peeps/new" do
-    erb :'peeps/new'
   end
 
   # establish server if file run directly
