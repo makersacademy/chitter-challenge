@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Pacifico&family=Ubuntu&family=Dosis:wght@400;800&family=Open+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+  <div id="flash">
+    <% flash.keys.each do |type| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+        <%= flash[type] %>
+      </div>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

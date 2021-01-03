@@ -1,24 +1,29 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+I have built a Twitter clone that allows the users to post messages to a public stream. 
+Completed features:
+- Sign up new users
+- Sign in using email and password(BCrypt)
+- Post a message
+- Edit/delete the messages written by the user herself
+- Tag other users in the message which will send emails to them
 
-Challenge:
+To use the app:
 -------
+1. Connect to ``psql``
+2. Create the production and test databases using the psql commands ``CREATE DATABASE chitter;`` and ``CREATE DATABASE chitter_test;``
+3. Connect to the production database using the pqsl command ``\c chitter;``
+4. Run the queries saved in the files in db/migrate folder: ``01_create_user_table.sql``, ``02_create_message_table.sql``, ``03_create_timestamp_function.sql``, ``04_create_tag_table_sql``.
+5. Repeat steps 3-4 for the test database
+6. Run ``bundle install`` to load the gems 
+7. Run ```shotgun``` in the terminal to access the app
 
-As usual please start by forking this repo.
+Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users. I have therefore commented out this part of the app in ``app/app.rb`` but please feel free to set it up and try.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+Completed User Stories:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -35,8 +40,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -45,91 +48,21 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+Screenshots:
+-------
+![main](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/main.png)
+![sign_up](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/sign_up.png)
+![message_board](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/message_board_tags.png)
+![edit_message](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/edit_message.png)
+![tag_users](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/tagging_users.png)
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Technical Challenges:
+-------
+- I tried hosting the app on Heroku but for some reason it fails 
+- I tried using Data Mapper but it also failed with Heroku and I learned that Data Mapper is deprecated now so reverted back to the old model
+- Then I re-wrote the code using Active Record but there were configuration issues with my database set-up so had to revert back as well

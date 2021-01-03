@@ -1,0 +1,87 @@
+<div class = "home">
+
+<div class="home-left">
+ 
+<h1>  Chitter </h1>
+<% if @user %>
+  <div class="message-box">
+  <i class="fas fa-crow blue-icon"></i>
+  <form action="/new" method="post" id="new_message">
+    <input type="text" name="new_message" id="new_message_text" placeholder="What's happening?" required>
+    <input type="submit" value="Chit" class="button" >
+  </form>
+  </div>
+<%else%>
+<h5>Log in to post peeps</h5>
+<% end %>
+
+<div class="post-wrapper">
+<% @messages.each do |message| %>
+  <div class="post-box">
+  <div id="name"><b><%= message.name(message.user_id) %></b> <span class="username">@<%= message.username(message.user_id) %> </span> </div>
+  <div id="content"><%= message.content %> </div>
+  <div class="tagged_users">
+  <% Tag.show_tagged_users(message.id).each do |tag| %>
+    @<%= User.find_username(tag)%>
+  <% end%>
+
+
+  </div>
+  <form action="/message/<%= message.id%>/tag" method="get" style="display: inline">
+  <button type="submit" class="button">Tag</button>
+  </form>
+  <% if @user && (message.user_id == @user.id) %>
+  <form action="/message/<%= message.id %>/edit" method="get" style="display: inline">
+    <button type="submit" class="button">Edit</button>
+  </form>
+  <form action="/message/<%= message.id %>" method="post" style="display: inline">
+    <input type="hidden" name="_method" value="Delete">
+    <button type="submit" class="button">Delete</button>
+  </form>
+  <%end%>
+  <div id="timestamp"><%= message.created_at %></div>
+
+  </div>
+
+<% end %>
+
+</div>
+</div>
+
+<div class="home-right">
+<div class="follow">
+<h4>Follow</h4>
+<% @users.sample(3).each do |user| %>
+<ul class="followers">
+<li id="follower">@<%= user.username %>
+<form action="/follow/<%= user.username %>" method="get" class="inline">
+<button type="submit">Follow</button>
+</form>
+</li>
+</ul>
+<%end%>
+</div>
+<% if !@user %>
+<i class="fas fa-crow blue-icon"></i>
+  <h3>Log in to Chitter<h3>
+  <form action="/" method="get">
+  <input type="submit" value="Sign In" class="button">
+  </form>
+<% end %>
+<% if @user %>
+<h4>My Profile</h4>
+<ul>
+<li><%= @user.name %></li>
+<li class="username">@<%= @user.username %></li>
+<li><%= @user.email %></li>
+</ul>
+<%end%>
+<% if @user %>
+  <form action="/sessions" method="post">
+  <input type="hidden" name="_method" value="Delete">
+  <input type="submit" value="Sign Out" id="sign_out" class="button">
+  </form>
+<% end %>
+</div>
+</div>
+
