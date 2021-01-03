@@ -1,0 +1,2 @@
+ALTER TABLE cheeps ADD COLUMN posted_at TIMESTAMP;
+ALTER TABLE cheeps ALTER COLUMN posted_at SET DEFAULT now();
