@@ -4,10 +4,14 @@ I have built a Twitter clone that allows the users to post messages to a public 
 
 To use the app:
 -------
-- Clone the repo
-- Run ```bundle install``` in the terminal
-- Run ```shotgun``` in the terminal
-- Open it on ```localhost:9393```
+1. Connect to ``psql``
+2. Create the production and test databases using the psql commands ``CREATE DATABASE chitter;`` and ``CREATE DATABASE chitter_test;``
+3. Connect to the production database using the pqsl command ``\c chitter;``
+4. Run the queries saved in the files in db/migrate folder: ``01_create_user_table.sql``, ``02_create_message_table.sql``, ``03_create_timestamp_function.sql``, ``04_create_tag_table_sql``.
+5. Repeat steps 3-4 for the test database
+6. Run ```shotgun``` in the terminal to access the app
+
+Note: Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users
 
 Completed Features:
 -------
