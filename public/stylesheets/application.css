@@ -311,3 +311,27 @@ body#edit {
   color:grey;
   font-size: 12px;
 }
+
+.tag-card
+{
+  width: 200px;
+  margin: auto;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #7ACCB8;
+  text-align: center;
+  /* border-radius: 20px; */
+  color: white;
+}
+
+#tag-button-wrapper {
+  text-align: center;
+}
+
+#tag-button{
+  width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: auto;
+  border-radius: 0;
+  background-color: #00ABC0;
+}

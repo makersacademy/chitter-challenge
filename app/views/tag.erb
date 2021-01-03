@@ -1,12 +1,16 @@
 <% @users.each do |user| %>
 <ul>
+<div class="tag-card">
 <li><%= user.name %></li>
 <li>@<%= user.username %></li>
 <li><%= user.email %></li>
 </ul>
 <form action="/message/<%= @message.id %>/tag/<%= user.id %>" method="post">
-    <button type="submit" class="button">Tag this user</button>
+<div id="tag-button">
+<button type="submit" class="button" id="tag-button">Tag this user</button>
+</div>
 </form>
 </li>
 </ul>
+</div>
 <%end%>
