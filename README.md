@@ -53,3 +53,4 @@ Screenshots:
 ![sign_up](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/sign_up.png)
 ![message_board](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/message_board_tags.png)
 ![edit_message](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/edit_message.png)
+![tag_users](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/tagging_users.png)
