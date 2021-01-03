@@ -1,16 +1,15 @@
 describe Peep do
-  let(:table) { "peeps" }
-
   describe ".create" do
     it "should insert into peeps table and return an instance of a Peep" do
       user = User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
       result = Peep.create(message: "Test message 1", user_id: user.id)
-      persisted_data = persisted_data_retrieve(table: "peeps", id: result["id"])
+      persisted_data = persisted_data_retrieve(table: "peeps", id: result.id)
 
-      # expect(result).to be_a Peep
-      expect(result["id"]).to eq persisted_data["id"]
-      expect(result["message"]).to eq "Test message 1"
-      expect(result["user_id"]).to eq user.id
+      expect(result).to be_instance_of Peep
+      expect(result.id).to eq persisted_data["id"]
+      expect(result.message).to eq "Test message 1"
+      expect(result.name).to eq user.name
+      expect(result.user_name).to eq user.user_name
     end
   end
 

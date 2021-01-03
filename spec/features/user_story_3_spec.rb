@@ -14,6 +14,6 @@ feature "So that I can better appreciate the context of a peep" do
     expect(page).to have_content "Peep 1"
     expect(page).to have_content "Peep 2"
     expect(first(".peep")).to have_content "Peep 3"
-    expect(first(".peep")).to have_content Time.parse(peep_3["date_time_stamp"]).strftime("at %H:%M")
+    expect(first(".peep")).to have_content peep_3.time.strftime("at %H:%M")
   end
 end
