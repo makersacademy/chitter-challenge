@@ -1,12 +1,12 @@
 require 'pg'
 require_relative './peep'
 require_relative './database_connection'
+require_relative '../database_connection_setup.rb'
 
 class ChitterDB
 
   def self.list
-    database_connection
-    query_to_database_to_select_all_peeps
+    result = DatabaseConnection.query('SELECT * FROM peeps')
   end
 
 end

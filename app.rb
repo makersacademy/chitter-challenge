@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeplist' do
-    Peep.new(params[:peep])
+    Peep.post(params[:peep])
     redirect '/peeplist'
   end
 

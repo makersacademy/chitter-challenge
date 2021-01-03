@@ -1,1 +1,5 @@
-<h1><%=@peep%></h1>
+<h1>Here are the latest Peeps</h1>
+
+<ul><%@peeplist.each do |peep|%>
+    <li><%=peep['peep']%> - <%=peep['time']%></li>
+    <%end%></ul>
