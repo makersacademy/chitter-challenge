@@ -1,0 +1,17 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
+<ul>
+    <% @peeps.reverse.each do |peep| %>
+        <li>
+          <%= peep.message %> <br>
+          <%= peep.time.strftime("posted at %I:%M %p on %d/%m/%Y") %>
+          by <%= peep.author %>
+        </li>
+    <% end %>
+</ul>
+
+<form action="/post_peep">
+  <input type="submit" value="New Peep">
+</form>
