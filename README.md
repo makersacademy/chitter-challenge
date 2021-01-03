@@ -196,40 +196,39 @@ end
 
 5. So that only I can post messages on Chitter as me,
   I want to log in to Chitter,
-    Happy path: user has correct credentials :white_check_mark:
-    Unhappy path 1: user has incorrect email :white_check_mark:
-    Unhappy path 2: user has incorrect password :white_check_mark:
+    - Happy path: user has correct credentials :white_check_mark:
+    - Unhappy path 1: user has incorrect email :white_check_mark:
+    - Unhappy path 2: user has incorrect password :white_check_mark:
 
 6. So that I can avoid others posting messages on Chitter as me
   I want to log out of Chitter :white_check_mark:
 
 ### Unit Tests
 
-**DatabaseConnection**
-  * .setup
-    - should respond with 1 argument :white_check_mark:
-    - should establish a connection with a given database :white_check_mark:
-  * .query
-    - should respond with 1 argument :white_check_mark:
-    - should execute the query string :white_check_mark:
+#### DatabaseConnection
+  * **.setup**
+    - should respond with 1 argument
+    - should establish a connection with a given database
+  * **.query**
+    - should respond with 1 argument
+    - should execute the query string
 
-**Peep**
-  * .create
-    - should insert into peeps table and return an instance of a Peep :white_check_mark:
-    - should return nil if no user_id is nil :white_check_mark:
-  * .all
-    - should return all peeps in the peeps table :white_check_mark:
+#### Peep
+  * **.create**
+    - should insert into peeps table and return an instance of a Peep
+    - should return nil if no user_id is nil
+  * **.all**
+    - should return all peeps in the peeps table
 
-**User**
-  * .create
-    - should insert a user into users table and return an instance of a User :white_check_mark:
-    - hashes the password using BCrypt :white_check_mark:
-  * .find
-    - should return a specific user, by id, from the users table in an instance of a User :white_check_mark:
-    - should return nil if user_id is nil :white_check_mark:
-
-  * .authenticate
-    - should return a user if the user details match an existing user :white_check_mark:
+#### User
+  * **.create**
+    - should insert a user into users table and return an instance of a User
+    - hashes the password using BCrypt
+  * **.find**
+    - should return a specific user, by id, from the users table in an instance of a User
+    - should return nil if user_id is nil
+  * **.authenticate**
+    - should return a user if the user details match an existing user
 
 ## How to use?
 
