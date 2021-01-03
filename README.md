@@ -68,11 +68,104 @@ So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
 
-## Code Example
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/sequence.svg)
 
+### User Story 6
+```
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+```
+
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/sequence.svg)
+
+## Code Example
+### Controller
+```Ruby
+require "sinatra/flash"
+require "sinatra/base"
+require "./database_connection_setup"
+
+class Chitter < Sinatra::Base
+  enable :sessions
+
+  register Sinatra::Flash
+
+  get "/" do
+    redirect "/peeps"
+  end
+
+  get "/peeps" do
+    @user = User.find(session[:user_id]) if session[:user_id]
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  post "/peeps" do
+    Peep.create(message: params[:message], user_id: session[:user_id])
+    redirect "/peeps"
+  end
+
+  get "/peeps/new" do
+    @user = User.find(session[:user_id])
+
+    if @user
+      erb :'peeps/new'
+    else
+      flash[:notice] = 'Please sign or log in to Peep'
+      redirect '/peeps'
+    end
+  end
+
+  get "/users/new" do
+    erb :'users/new'
+  end
+
+  post "/users" do
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
+    session[:user_id] = user.id
+    redirect "/peeps"
+  end
+
+  get "/sessions/new" do
+    erb :'sessions/new'
+  end
+
+  post "/sessions" do
+    user = User.authenticate(email: params[:email], password: params[:password])
+
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = "Incorrect email or password"
+      redirect '/sessions/new'
+    end
+  end
+
+  post "/sessions/destroy" do
+    session.clear
+    flash[:notice] = "You have logged out"
+    redirect '/peeps'
+  end
+
+  # establish server if file run directly
+  run! if app_file == $0
+end
+```
 
 ## Installation
+
+1. Fork and clone the project.
+2. Run `$ bundle install`.
+3. Create the chitter and chitter_test databases (as per below)
+
 ### Database Setup
+
 1. Connect to psql
 2. Create a development database using the psql command `CREATE DATABASE chitter;`
 3. Connect to the database using the psql command `\c chitter;`
@@ -83,27 +176,60 @@ I want to log in to Chitter
 8. Create a test database using the psql command `CREATE DATABASE chitter_test;`
 9. Repeat steps 3 and 6 for the test database.
 
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
 ## Tests
-Describe and show how to run the tests with code examples.
+20 examples, 0 failures, 100% Coverage
+
+1. So that I can let people know what I am doing,
+  I want to post a message (peep) to chitter :white_check_mark
+
+2. So that I can see what others are saying,
+  I want to see all peeps in reverse chronological order :white_check_mark
+
+3. So that I can better appreciate the context of a peep
+  I want to see the time at which it was made :white_check_mark
+
+4. So that I can post messages on Chitter as me,
+  I want to sign up for Chitter :white_check_mark
+
+5. So that only I can post messages on Chitter as me,
+  I want to log in to Chitter,
+    Happy path: user has correct credentials :white_check_mark
+    Unhappy path 1: user has incorrect email :white_check_mark
+    Unhappy path 2: user has incorrect password :white_check_mark
+
+6. So that I can avoid others posting messages on Chitter as me
+  I want to log out of Chitter :white_check_mark
+
+DatabaseConnection
+  .setup
+    should respond with 1 argument :white_check_mark
+    should establish a connection with a given database :white_check_mark
+  .query
+    should respond with 1 argument :white_check_mark
+    should execute the query string :white_check_mark
+
+Peep
+  .create
+    should insert into peeps table and return an instance of a Peep :white_check_mark
+    should return nil if no user_id is nil :white_check_mark
+  .all
+    should return all peeps in the peeps table :white_check_mark
+
+User
+  .create
+    should insert a user into users table and return an instance of a User :white_check_mark
+    hashes the password using BCrypt :white_check_mark
+  .find
+    should return a specific user, by id, from the users table in an instance :white_check_mark
+ of a User
+    should return nil if user_id is nil :white_check_mark
+
+  .authenticate
+    should return a user if the user details match an existing user :white_check_mark
 
 ## How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 
-## Contribute
-
-Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
-
-## Credits
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
-
-#### Anything else that seems useful
-
-## License
-A short snippet describing the license (MIT, Apache etc)
-
-MIT © [Yourname]()
+1. Run `$ rackup`.
+2. Navigate to 'localhost:9292/' in browser.
+3. Sign in
+4. Peep!

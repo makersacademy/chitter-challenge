@@ -23,7 +23,14 @@ class Chitter < Sinatra::Base
   end
 
   get "/peeps/new" do
-    erb :'peeps/new'
+    @user = User.find(session[:user_id])
+
+    if @user
+      erb :'peeps/new'
+    else
+      flash[:notice] = 'Please sign or log in to Peep'
+      redirect '/peeps'
+    end
   end
 
   get "/users/new" do
@@ -50,6 +57,12 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Incorrect email or password"
       redirect '/sessions/new'
     end
+  end
+
+  post "/sessions/destroy" do
+    session.clear
+    flash[:notice] = "You have logged out"
+    redirect '/peeps'
   end
 
   # establish server if file run directly

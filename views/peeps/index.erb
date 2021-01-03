@@ -4,8 +4,13 @@
   style="position:fixed;top:18px;left:140px;"></input>
 </form>
 <form action='sessions/new'>
-  <input type="submit" value="Log in" class="w3-button w3-theme-d3 w3-round"
-  style="position:fixed;top:18px;left:240px;"></input>
+  <input type="submit" value="Log in" class="w3-button w3-theme"
+  style="position:fixed;top:0px;right:0px;"></input>
+</form>
+<% else %>
+<form action='sessions/destroy' method='POST'>
+  <input type="submit" value="Log out" class="w3-button w3-theme"
+  style="position:fixed;top:0px;right:0px;"></input>
 </form>
 <% end %>
 

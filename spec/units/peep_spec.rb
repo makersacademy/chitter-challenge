@@ -11,6 +11,12 @@ describe Peep do
       expect(result.name).to eq user.name
       expect(result.user_name).to eq user.user_name
     end
+
+    it "should return nil if no user_id is nil" do
+      result = Peep.create(message: "Test message 1", user_id: nil)
+
+      expect(result).to be nil
+    end
   end
 
   describe ".all" do

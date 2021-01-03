@@ -35,6 +35,12 @@ describe User do
       expect(user.id).to eq result.id
       expect(user.name).to eq name
     end
+
+    it "should return nil if user_id is nil" do
+      user = User.find(nil)
+
+      expect(user).to be nil
+    end
   end
 
   describe ".authenticate" do
