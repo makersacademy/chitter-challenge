@@ -1,0 +1,16 @@
+<% if current_user %>
+  Logged in as <%= current_user.username %>
+<% end %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.peep %>
+      <%= peep.time.strftime('%H:%M, %d.%m.%Y') %>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/chitter/new" method="GET">
+  <input type="submit" value="Peep">
+</form>
