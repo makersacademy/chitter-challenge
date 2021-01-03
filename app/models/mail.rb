@@ -1,6 +1,5 @@
 require 'mail'
 
-
 options = { 
   :address              => "smtp.gmail.com",
   :port                 => 587,
