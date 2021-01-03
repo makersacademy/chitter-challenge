@@ -12,6 +12,17 @@ class Peep
     @time = Time.parse(timestamp)
   end
 
+  def author
+    if ENV['RACK_ENV'] == 'test'
+      conn = PG.connect(dbname: 'chitter_test')
+    else
+      conn = PG.connect(dbname: 'chitter')
+    end
+
+    result = conn.exec("SELECT * FROM peeps JOIN users ON (peeps.maker_id = users.id) WHERE peeps.message='#{@message}';")
+    result[0]['email']
+  end
+
   def self.all
     if ENV['RACK_ENV'] == 'test'
       conn = PG.connect(dbname: 'chitter_test')

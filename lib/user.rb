@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
 
@@ -16,7 +17,9 @@ class User
       conn = PG.connect(dbname: 'chitter')
     end
 
-    result = conn.exec("INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
+    encrypted_pw = BCrypt::Password.create(password)
+
+    result = conn.exec("INSERT INTO users (email, password) VALUES('#{email}', '#{encrypted_pw}') RETURNING id, email;")
     User.new(result[0]['id'], result[0]['email'])
   end
 

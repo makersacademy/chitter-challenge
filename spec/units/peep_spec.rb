@@ -25,4 +25,14 @@ describe Peep do
     end
   end
 
+  describe 'author' do
+    it 'returns the email of the peep author' do
+      conn = PG.connect(dbname: 'chitter_test')
+      conn.exec("INSERT INTO peeps (message, maker_id, timestamp) VALUES('new message', '1', '#{Time.now}');")
+      conn.exec("INSERT INTO users (id, email, password) VALUES('1', 'email', 'password');")
+      peeps = Peep.all
+      expect(peeps.first.author).to eq 'email'
+    end
+  end
+
 end
