@@ -179,6 +179,9 @@ end
 ## Tests
 20 examples, 0 failures, 100% Coverage
 
+
+### Feature Tests
+
 1. So that I can let people know what I am doing,
   I want to post a message (peep) to chitter :white_check_mark:
 
@@ -200,7 +203,9 @@ end
 6. So that I can avoid others posting messages on Chitter as me
   I want to log out of Chitter :white_check_mark:
 
-DatabaseConnection
+### Unit Tests
+
+**DatabaseConnection**
   * .setup
     - should respond with 1 argument :white_check_mark:
     - should establish a connection with a given database :white_check_mark:
@@ -208,14 +213,14 @@ DatabaseConnection
     - should respond with 1 argument :white_check_mark:
     - should execute the query string :white_check_mark:
 
-Peep
+**Peep**
   * .create
     - should insert into peeps table and return an instance of a Peep :white_check_mark:
     - should return nil if no user_id is nil :white_check_mark:
   * .all
     - should return all peeps in the peeps table :white_check_mark:
 
-User
+**User**
   * .create
     - should insert a user into users table and return an instance of a User :white_check_mark:
     - hashes the password using BCrypt :white_check_mark:
