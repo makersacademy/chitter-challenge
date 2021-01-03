@@ -1,6 +1,12 @@
 # Chitter
 
-I have built a Twitter clone that allows the users to post messages to a public stream.
+I have built a Twitter clone that allows the users to post messages to a public stream. 
+Completed features:
+- Sign up new users
+- Sign in using email and password(BCrypt)
+- Post a message
+- Edit/delete the messages written by the user herself
+- Tag other users in the message which will send emails to them
 
 To use the app:
 -------
@@ -12,9 +18,9 @@ To use the app:
 6. Run ``bundle install`` to load the gems 
 7. Run ```shotgun``` in the terminal to access the app
 
-Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users
+Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users. I have therefore commented out this part of the app in ``app/app.rb`` but please feel free to set it up and try.
 
-Completed Features:
+Completed User Stories:
 -------
 
 ```
@@ -54,3 +60,9 @@ Screenshots:
 ![message_board](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/message_board_tags.png)
 ![edit_message](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/edit_message.png)
 ![tag_users](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/tagging_users.png)
+
+Technical Challenges:
+-------
+- I tried hosting the app on Heroku but for some reason it fails 
+- I tried using Data Mapper but it also failed with Heroku and I learned that Data Mapper is deprecated now so reverted back to the old model
+- Then I re-wrote the code using Active Record but there were configuration issues with my database set-up so had to revert back as well
