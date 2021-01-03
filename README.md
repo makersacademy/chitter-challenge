@@ -54,3 +54,9 @@ Screenshots:
 ![message_board](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/message_board_tags.png)
 ![edit_message](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/edit_message.png)
 ![tag_users](https://github.com/Aracho1/chitter-challenge/blob/master/public/screenshots/tagging_users.png)
+
+Technical Challenges:
+-------
+- I tried hosting the app on Heroku but for some reason it fails 
+- I tried using Data Mapper but it also failed with Heroku and I learned that Data Mapper is deprecated now so reverted back to the old model
+- Then I re-wrote the code using Active Record but there were configuration issues with my database set-up so had to revert back as well
