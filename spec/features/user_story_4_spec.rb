@@ -1,4 +1,4 @@
-feature "So that I can post messages on Chitter as me," do
+feature "4. So that I can post messages on Chitter as me," do
   scenario "I want to sign up for Chitter" do
     visit("/")
     click_button("Sign in")

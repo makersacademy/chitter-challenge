@@ -1,8 +1,11 @@
+require "sinatra/flash"
 require "sinatra/base"
 require "./database_connection_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
+
+  register Sinatra::Flash
 
   get "/" do
     redirect "/peeps"
@@ -31,6 +34,22 @@ class Chitter < Sinatra::Base
     user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
     session[:user_id] = user.id
     redirect "/peeps"
+  end
+
+  get "/sessions/new" do
+    erb :'sessions/new'
+  end
+
+  post "/sessions" do
+    user = User.authenticate(email: params[:email], password: params[:password])
+
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = "Incorrect email or password"
+      redirect '/sessions/new'
+    end
   end
 
   # establish server if file run directly

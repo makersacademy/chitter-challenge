@@ -1,7 +1,11 @@
 <% if !@user %>
 <form action='users/new'>
-  <input type="submit" value="Sign in" class="w3-button w3-theme-action"
+  <input type="submit" value="Sign in" class="w3-button w3-theme-d3 w3-round"
   style="position:fixed;top:18px;left:140px;"></input>
+</form>
+<form action='sessions/new'>
+  <input type="submit" value="Log in" class="w3-button w3-theme-d3 w3-round"
+  style="position:fixed;top:18px;left:240px;"></input>
 </form>
 <% end %>
 

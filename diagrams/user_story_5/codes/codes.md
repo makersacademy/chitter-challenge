@@ -8,6 +8,7 @@ Class "User" as user:
 "#new()"
 ".create()"
 ".find()"
+".authenticate()"
 
 CLASS "Peep" as peep:
 "id"
@@ -32,9 +33,6 @@ FK"user_id"
 
 TABLE "users" as users:
 PK"id"
-"email"
-"password"
-"name"
 "user_name"
 
 
@@ -48,19 +46,23 @@ alias model="Model (user.rb)"
 alias views="Views"
 alias db="Database (chitter)"
 
-#### Render Sign up form
-client->controller: "get '/users/new' request"
-controller->views: "erb :'/users/new'"
-views->controller: "new.erb"
+#### Render Log In Form
+client->controller: "get '/sessions/new' request"
+controller->views: "erb :'/sessions/new'"
+views->controller: "sessions/new.erb"
 controller->client: "new.html response"
 
-#### Record User Sign Up Data
-client->controller: "post '/users' request"
-controller->model: ".create"
-model->db: "INSERT INTO users tables"
+#### Authenticate User Log In Data
+client->controller: "post '/sessions' request"
+controller->model: ".authenticate"
+model->db: "SELECT * FROM users WHERE email = params[:email]"
 db->model: "RETURN user"
+
+#### If user
 model->controller: "session[:user_id] = @user.id"
 controller->controller: "Redirect get '/peeps'"
-controller->views: "erb :'/peeps/index'"
-views->controller: "peeps/index.erb"
-controller->client: "show.html response"
+
+#### if not user
+controller->views: "erb :'/sessions/new', with flash[:notice]"
+views->controller: "sessions/new.erb"
+controller->client: "new.html response"

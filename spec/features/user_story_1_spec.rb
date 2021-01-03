@@ -1,4 +1,4 @@
-feature "So that I can let people know what I am doing," do
+feature "1. So that I can let people know what I am doing," do
   scenario "I want to post a message (peep) to chitter" do
     visit("/users/new")
     fill_in("email", with: "test@example.com")

@@ -1,4 +1,4 @@
-feature "So that I can see what others are saying," do
+feature "2. So that I can see what others are saying," do
   scenario "I want to see all peeps in reverse chronological order" do
     user = User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
 

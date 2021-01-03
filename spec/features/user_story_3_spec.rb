@@ -1,6 +1,6 @@
 require "time"
 
-feature "So that I can better appreciate the context of a peep" do
+feature "3. So that I can better appreciate the context of a peep" do
   scenario "I want to see the time at which it was made" do
     user = User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
 
