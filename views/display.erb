@@ -1,0 +1,10 @@
+<html>
+<h2>Here are your peeps</h2>
+
+<ul> <% @entry.reverse.each do |peep| %>   
+  <li><%= peep.text %>
+  <%= peep.posting_date %></li>
+  <% end %> 
+</ul>
+
+</html>
