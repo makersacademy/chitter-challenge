@@ -6,6 +6,7 @@ require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
 require_relative '../app'
+require 'pg'
 
 Capybara.app = Chitter
 

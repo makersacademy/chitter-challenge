@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require_relative './lib/peep.rb'
+require_relative './lib/chitter.rb'
 
 class Chitter < Sinatra::Base
 
@@ -9,12 +11,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeplist' do
-    session[:peep] = params[:peep]
+    Peep.new(params[:peep])
     redirect '/peeplist'
   end
 
   get '/peeplist' do
-    @peep = session[:peep]
+    @peeplist = ChitterDB.list
     erb :peeplist
   end
 
