@@ -7,40 +7,40 @@ This is a new soccial network where user can post some messages.
 <img width="45%" src="img/home.png" alt-text="homepage"/><img width="45%" src="img/user-profile.png" alt-text="user profile"/><img  width="45%" src="img/login.png" alt-text="login page"/><img  width="45%" src="img/error-login.png" alt-text="error login page"/><img  width="45%" src="img/signup.png" alt-text="signup page"/><img  width="45%" src="img/error-signup.png" alt-text="error signup page"/>
 
 
-Features:
--------
-
+## User Stories
+###Implemented
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
-
+```
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
-
+```
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
+```
+```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
-
+```
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+```
+### To implement
 
-ADVANCED
-
+```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
@@ -74,25 +74,23 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
------
+## Bonus:
 
-If you have time you can implement the following:
+### :warning: To implement
 
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
+### Implemented
 
 * Work on the CSS to make it look good.
 
 Good luck and let the chitter begin!
 
-Code Review
------------
+## Code Review
 
 In code review we'll be hoping to see:
 
-* All tests passing
+ All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
 * The code is elegant: every class has a clear responsibility, methods are short etc.
 
