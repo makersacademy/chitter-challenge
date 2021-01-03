@@ -63,6 +63,21 @@ I want to receive an email if I am tagged in a Peep
 
 :white_check_mark: Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
+## Installation
+
+### Database Setup
+
+1. Connect to psql
+2. Create a database: `CREATE DATABASE chitter;`
+3. Connect to the database: `\c chitter;`
+4. Run this line to create the posts table:  `CREATE TABLE Posts (id SERIAL PRIMARY KEY, post VARCHAR(260), date VARCHAR(100));`
+5. Run this line to create the users table: `CREATE TABLE users (username VARCHAR(50) PRIMARY KEY, name VARCHAR(100), lastname VARCHAR(100), email VARCHAR(100), password VARCHAR(200)
+);`
+6. Create a new reference column by the username:  `ALTER TABLE posts ADD COLUMN username VARCHAR(50) NOT NULL REFERENCES users(username);`
+7. Create a test database using the `CREATE DATABASE chitter_test;`
+8. 3. Connect to the database: `\c chitter_test;`
+9. Repeat steps 4,5 and 6.
+
 ## Database diagram
 
 <img width="100%" src="img/tables-diagram.png" alt-text="tables diagram"/>
@@ -89,7 +104,9 @@ Good luck and let the chitter begin!
 In code review we'll be hoping to see:
 
 ### All tests passing
+
 :white_check_mark: High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
+
 :white_check_mark: The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
