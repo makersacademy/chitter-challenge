@@ -5,7 +5,7 @@ I have built a Twitter clone that allows the users to post messages to a public 
 To use the app:
 -------
 - Clone the repo
-- Run ```bundle init``` in the terminal
+- Run ```bundle install``` in the terminal
 - Run ```shotgun``` in the terminal
 - Open it on ```localhost:9393```
 
