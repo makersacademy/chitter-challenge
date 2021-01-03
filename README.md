@@ -2,11 +2,6 @@
 
 This is a new soccial network where user can post some messages.
 
-## Screenshot
-
-<img width="45%" src="img/home.png" alt-text="homepage"/><img width="45%" src="img/user-profile.png" alt-text="user profile"/><img  width="45%" src="img/login.png" alt-text="login page"/><img  width="45%" src="img/error-login.png" alt-text="error login page"/><img  width="45%" src="img/signup.png" alt-text="signup page"/><img  width="45%" src="img/error-signup.png" alt-text="error signup page"/>
-
-
 ## User Stories
 
 ### :white_check_mark: Implemented
@@ -67,6 +62,14 @@ I want to receive an email if I am tagged in a Peep
 :white_check_mark: Peeps (posts to chitter) have the name of the username.
 
 :white_check_mark: Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+## Database diagram
+
+<img width="100%" src="img/tables-diagram.png" alt-text="tables diagram"/>
+
+## Screenshot
+
+<img width="45%" src="img/home.png" alt-text="homepage"/><img width="45%" src="img/user-profile.png" alt-text="user profile"/><img  width="45%" src="img/login.png" alt-text="login page"/><img  width="45%" src="img/error-login.png" alt-text="error login page"/><img  width="45%" src="img/signup.png" alt-text="signup page"/><img  width="45%" src="img/error-signup.png" alt-text="error signup page"/>
 
 ## Bonus:
 
