@@ -201,31 +201,30 @@ end
   I want to log out of Chitter :white_check_mark:
 
 DatabaseConnection
-  .setup
-    should respond with 1 argument :white_check_mark:
-    should establish a connection with a given database :white_check_mark:
-  .query
-    should respond with 1 argument :white_check_mark:
-    should execute the query string :white_check_mark:
+  * .setup
+    - should respond with 1 argument :white_check_mark:
+    - should establish a connection with a given database :white_check_mark:
+  * .query
+    - should respond with 1 argument :white_check_mark:
+    - should execute the query string :white_check_mark:
 
 Peep
-  .create
-    should insert into peeps table and return an instance of a Peep :white_check_mark:
-    should return nil if no user_id is nil :white_check_mark:
-  .all
-    should return all peeps in the peeps table :white_check_mark:
+  * .create
+    - should insert into peeps table and return an instance of a Peep :white_check_mark:
+    - should return nil if no user_id is nil :white_check_mark:
+  * .all
+    - should return all peeps in the peeps table :white_check_mark:
 
 User
-  .create
-    should insert a user into users table and return an instance of a User :white_check_mark:
-    hashes the password using BCrypt :white_check_mark:
-  .find
-    should return a specific user, by id, from the users table in an instance :white_check_mark:
- of a User
-    should return nil if user_id is nil :white_check_mark:
+  * .create
+    - should insert a user into users table and return an instance of a User :white_check_mark:
+    - hashes the password using BCrypt :white_check_mark:
+  * .find
+    - should return a specific user, by id, from the users table in an instance of a User :white_check_mark:
+    - should return nil if user_id is nil :white_check_mark:
 
-  .authenticate
-    should return a user if the user details match an existing user :white_check_mark:
+  * .authenticate
+    - should return a user if the user details match an existing user :white_check_mark:
 
 ## How to use?
 
