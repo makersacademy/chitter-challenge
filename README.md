@@ -7,7 +7,7 @@ This is a new soccial network where user can post some messages.
 
 :::image type="content" source="img/home.png" alt-text="":::
 
-
+:::image type="content" source="img/home.png" alt-text="homepage":::
 Features:
 -------
 
