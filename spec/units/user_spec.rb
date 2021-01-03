@@ -41,12 +41,4 @@ describe User do
       expect(user.name).to eq name
     end
   end
-
-  describe ".db_connection" do
-    it "should establish an environment appropriate connection to the chitter database" do
-      result = User.db_connection
-
-      expect(result).to be_a PG::Connection
-    end
-  end
 end

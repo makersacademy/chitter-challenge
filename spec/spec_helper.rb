@@ -8,6 +8,7 @@ require File.dirname(__FILE__) + "/../app.rb"
 # model files
 require File.dirname(__FILE__) + "/../lib/peep.rb"
 require File.dirname(__FILE__) + "/../lib/user.rb"
+require File.dirname(__FILE__) + "/../lib/database_connection.rb"
 
 require "capybara/rspec"
 require "simplecov"

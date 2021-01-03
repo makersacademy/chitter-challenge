@@ -48,12 +48,4 @@ describe Peep do
       expect(peeps.first.message).to eq message_3
     end
   end
-
-  describe ".db_connection" do
-    it "should establish an environment appropriate connection to the chitter database" do
-      result = Peep.db_connection
-
-      expect(result).to be_a PG::Connection
-    end
-  end
 end

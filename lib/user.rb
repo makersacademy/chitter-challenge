@@ -7,7 +7,7 @@ class User
   end
 
   def self.create(name)
-    result = db_connection.exec("INSERT INTO users (name) VALUES ('#{name}') RETURNING id, name;")
+    result = DatabaseConnection.query("INSERT INTO users (name) VALUES ('#{name}') RETURNING id, name;")
     @user = User.new(id: result.first["id"].to_i, name: result.first["name"])
   end
 
@@ -16,20 +16,12 @@ class User
   end
 
   def self.find(id)
-    result = db_connection.exec("SELECT * FROM users WHERE id = #{id};")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id};")
     @user = User.new(id: result.first["id"].to_i, name: result.first["name"])
   end
 
   def self.find_name(id)
-    result = db_connection.exec("SELECT name FROM users WHERE id = #{id};")
+    result = DatabaseConnection.query("SELECT name FROM users WHERE id = #{id};")
     result.first["name"]
-  end
-
-  def self.db_connection
-    if ENV["RACK_ENV"] == "test"
-      PG.connect dbname: "chitter_test"
-    else
-      PG.connect dbname: "chitter"
-    end
   end
 end
