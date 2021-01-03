@@ -53,13 +53,6 @@ textarea {
     border-bottom-right-radius: 0px;
     outline: none;
 }
-h1>a{
-        color: #f9AA33 !important;
-        border-bottom:none;
-        text-decoration: none !important;
-        padding-bottom: 5px;
-        font-weight: Bolder;
-}
 a{
     color: #f9AA33 !important;
     border-bottom: 3px solid #f9AA33;

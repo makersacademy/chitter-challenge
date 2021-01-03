@@ -1,5 +1,5 @@
 require_relative "./db_test_setup.rb"
-ENV["ENVIRONMENT"] == "test"
+ENV["ENVIRONMENT"] = "test"
 ENV["RACK_ENV"] = "test"
 require File.join(File.dirname(__FILE__), "..", "app.rb")
 require "capybara"
@@ -7,10 +7,11 @@ require "capybara/rspec"
 require "rspec"
 require "simplecov"
 require "simplecov-console"
+require "features/web_helpers.rb"
 Capybara.app = ChitterApp
 
-Capybara.default_driver = :selenium
-Capybara.server = :webrick
+# Capybara.default_driver = :selenium
+# Capybara.server = :webrick
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -22,6 +23,7 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     reset_table
+    add_data
   end
   config.after(:suite) do
     puts

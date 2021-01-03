@@ -1,6 +1,6 @@
 require "pg"
 require "./lib/db_connection"
 
-def persisted_data(table:, id:)
+def pd(table:, id:)
   DBConnection.query("SELECT * FROM #{table} WHERE id = '#{id}';")
 end

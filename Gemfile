@@ -3,6 +3,7 @@ gem "pg"
 gem "sinatra"
 gem "sinatra-flash"
 gem "shotgun"
+gem 'bcrypt'
 group :test do
   gem "capybara"
   gem "rack"
