@@ -10,7 +10,7 @@ class User
 
   def self.find(id)
     return nil unless id
-    
+
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id};").first
     User.new(id: result["id"], email: result["email"], password: result["password"], name: result["name"], user_name: result["user_name"])
   end
@@ -20,6 +20,7 @@ class User
 
     return nil unless result
     return nil unless BCrypt::Password.new(result["password"]) == password
+
     User.new(id: result["id"], email: result["email"], password: result["password"], name: result["name"], user_name: result["user_name"])
   end
 

@@ -1,9 +1,9 @@
 feature "5. So that only I can post messages on Chitter as me," do
   feature "I want to log in to Chitter," do
     scenario "Happy path: user has correct credentials" do
-      user = User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
+      User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
 
-      visit '/'
+      visit "/"
       click_button("Log in")
       fill_in("email", with: "test@example.com")
       fill_in("password", with: "password123")
@@ -12,9 +12,9 @@ feature "5. So that only I can post messages on Chitter as me," do
     end
 
     scenario "Unhappy path 1: user has incorrect email" do
-      user = User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
+      User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
 
-      visit '/'
+      visit "/"
       click_button("Log in")
       fill_in("email", with: "wrong@email.com")
       fill_in("password", with: "password123")
@@ -23,9 +23,9 @@ feature "5. So that only I can post messages on Chitter as me," do
     end
 
     scenario "Unhappy path 2: user has incorrect password" do
-      user = User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
+      User.create(email: "test@example.com", password: "password123", name: "User 1", user_name: "Usr1")
 
-      visit '/'
+      visit "/"
       click_button("Log in")
       fill_in("email", with: "test@example.com")
       fill_in("password", with: "wrongpassword")

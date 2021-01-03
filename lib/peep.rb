@@ -13,7 +13,7 @@ class Peep
 
   def self.create(message:, user_id:)
     return nil unless user_id
-    
+
     result = DatabaseConnection.query("INSERT INTO peeps (message, user_id) VALUES ('#{message}', '#{user_id}') RETURNING id, message, date_time_stamp, user_id;").first
     Peep.new(id: result["id"], message: result["message"], time: Time.parse(result["date_time_stamp"]), user_id: result["user_id"])
   end
