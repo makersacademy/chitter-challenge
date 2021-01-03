@@ -9,7 +9,7 @@ This is a new soccial network where user can post some messages.
 
 ## User Stories
 
-###Implemented
+### :white_check_mark: Implemented
 
 ```
 As a Maker
@@ -47,7 +47,7 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
 
-### To implement
+### :warning: To implement
 
 ```
 As a Maker
@@ -55,43 +55,29 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+## Notes on functionality:
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+:white_check_mark: You don't have to be logged in to see the peeps.
 
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
+:white_check_mark: Makers sign up to chitter with their username, name, lastname, email, password (e.g. sjmog, Sam, Morgan, samm@makersacademy.com, password123).
 
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+:white_check_mark: The username and email are unique.
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+:white_check_mark: Peeps (posts to chitter) have the name of the username.
 
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+:white_check_mark: Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 ## Bonus:
+
+### :white_check_mark: Implemented
+
+* Work on the CSS to make it look good.
 
 ### :warning: To implement
 
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-### Implemented
-
-* Work on the CSS to make it look good.
 
 Good luck and let the chitter begin!
 
@@ -99,9 +85,9 @@ Good luck and let the chitter begin!
 
 In code review we'll be hoping to see:
 
- All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+### All tests passing
+:white_check_mark: High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
+:white_check_mark: The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
 
