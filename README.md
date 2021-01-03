@@ -12,7 +12,7 @@ To use the app:
 6. Run ``bundle install`` to load the gems 
 7. Run ```shotgun``` in the terminal to access the app
 
-Note: Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users
+Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users
 
 Completed Features:
 -------
