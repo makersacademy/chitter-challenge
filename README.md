@@ -9,7 +9,8 @@ To use the app:
 3. Connect to the production database using the pqsl command ``\c chitter;``
 4. Run the queries saved in the files in db/migrate folder: ``01_create_user_table.sql``, ``02_create_message_table.sql``, ``03_create_timestamp_function.sql``, ``04_create_tag_table_sql``.
 5. Repeat steps 3-4 for the test database
-6. Run ```shotgun``` in the terminal to access the app
+6. Run ``bundle install`` to load the gems 
+7. Run ```shotgun``` in the terminal to access the app
 
 Note: Tagging/email: The environment variables for the email address / password have to be set in your local env in order to send emails to tagged users
 
