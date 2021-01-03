@@ -20,7 +20,12 @@ I want to sign up for Chitter
 
 ----
 
-Setup Peeps and Users tables using PSQL commands in ./SQL/01_create__tables.sql
+Instructions:
+
+* Setup Peeps and Users tables using PSQL commands in ./SQL/01_create__tables.sql
+* Run bundle
+* Run rackup
+* Navigate to /new_user
 
 ----
 
