@@ -47,6 +47,7 @@ I want to receive an email if I am tagged in a Peep
 # Installation:
 
 **Chitter Dabatase Setup**
+
 **Create Tweet and Users DBs**
 
 
@@ -57,6 +58,7 @@ I want to receive an email if I am tagged in a Peep
 5. Run the query saved in the file ```02_create_utweets_table.sql``` to create the table Tweets.
 
 **Chitter_test Dabatase Setup**
+
 **Test Enviroment**
 
 1. Create a test database using the `CREATE DATABASE chitter_test;`
