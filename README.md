@@ -45,7 +45,7 @@ To create the test database, follow the above steps exactly but name the databas
 ---
 
 
-Chitter Challenge (Makers Brief)
+Chitter Challenge (Original Makers Brief)
 ================================
 
 * Feel free to use Google, your notes, books, etc. but work on your own

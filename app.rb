@@ -4,14 +4,6 @@ require './lib/user.rb'
 
 class Chitter < Sinatra::Base
 
-# sign-up - if username exists, then return to sign-up page + display error
-# - draw databases, user and password
-# takes user back to sign up page if logged out and try to access any other page
-# sign page has 2 forms, one for login, one for sign-up.
-
-# users can only sign in with a password, set at sign up
-
-
   get '/' do
     erb(:index)
   end
