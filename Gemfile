@@ -6,6 +6,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+  gem "sinatra-flash"
   gem 'date'
   gem 'pg'
   gem 'sinatra'

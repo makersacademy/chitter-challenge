@@ -105,3 +105,14 @@ input[type=submit] {
   margin-left: auto;
   margin-right: 135px;
 }
+
+.alert{
+  background-color: #3d6587;
+  color: white;
+  padding: 10px 7px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  margin-left: 700px;
+}

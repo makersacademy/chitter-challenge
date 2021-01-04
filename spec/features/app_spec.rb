@@ -39,7 +39,7 @@ feature ChitterApp do
     expect(page).to have_current_path "/login"
     expect(page).to have_content('Welcome,')
   end
-  scenario "giving a error " do
+  scenario "giving an error " do
     username = 'test_user'
     password = 'loremipsum'
     connection = PG.connect(dbname: 'chitter_test')

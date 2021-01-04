@@ -3,9 +3,10 @@ require 'pg'
 require './lib/tweet'
 require './lib/user'
 require_relative './database_connection_setup'
+require "sinatra/flash"
 class ChitterApp < Sinatra::Base
   enable :sessions
-
+register Sinatra::Flash
   get "/" do
 
     @tweets = Tweet.display_tweets
@@ -19,7 +20,9 @@ class ChitterApp < Sinatra::Base
       session[:username] = params[:username]
       erb(:welcome)
     else 
-      erb(:error)
+      # erb(:error)
+      flash[:username] = "User or email already taken"
+      redirect("/")
     end
      
   end 
@@ -31,7 +34,10 @@ class ChitterApp < Sinatra::Base
       session[:username] = params[:username]
       erb(:welcome)
     else 
-      erb(:error)
+      
+      flash[:notice] = "Please check your username or password."
+      redirect("/")
+      # erb(:error)
     end 
 
   end

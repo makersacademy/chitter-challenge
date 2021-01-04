@@ -3,9 +3,22 @@
     <head>
         <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
     </head>
+
+
+    
 <body>
 <br>
-
+  <% if flash[:username]  %>
+        <div id='alert' class="alert">
+            <%= flash[:username] %>
+        </div>
+    <% end %>
+     <% if flash[:notice]  %>
+        <div id='alert' class="alert">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+   
 <div id='sign_in' class='sign_in'>
 <h1> Register or sign in to Chitter!</h1>
 <div id="register" class='register'>
@@ -43,6 +56,7 @@
 
       
 <div id="login" class="login">
+
   <p>Login:</p>
   <form action="/login" method="post">
     <label for="username">Username:</label>
