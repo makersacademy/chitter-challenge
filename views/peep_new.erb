@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="http://kit.fontawesome.com/a24b83e000.js"></script>
+</head>
+<body>
+      <h1> Chitter </h1>
+        <% if @user %>
+        <h3>Welcome, <%= @user.username %></h3>
+          <form action="/sessions/destroy" method="post">
+            <input class="sign-out" type="submit" value="Sign out" />
+            <i class="fas fa-user fa-2x"></i>
+          </form>
+          <form method="post" action="/peeps" id="peeptextarea">
+            <textarea name="content" form="peeptextarea" style="width: 300px; margin: 0 auto;"></textarea><br>
+            <input type="submit" value="Submit" style="margin-left: 40%" />
+          </form>
+        <% end %>
+
+    <div>
+      <ul class="indiv_peep">
+         <% @peeps.reverse_each do |peep| %>
+           <%= peep.content %><br>
+           posted by <%= peep.fullname %> @ <%= peep.username %> @ <%= peep.created_at %><br>
+           <br>
+         <% end %>
+      </ul>
+    </div>
+</body>
+</html>
