@@ -8,11 +8,6 @@ describe DatabaseConnection do
       DatabaseConnection.setup('chitter_test')
     end
 
-    # it 'this connection is persistent' do
-    #   # grabs the connection as a return value from the .setup method
-    #   connection = DatabaseConnection.setup('bookmark_manager_test')
-    #   expect(DatabaseConnection.connection).to eq connection
-    # end
   end
 
   describe '.query' do

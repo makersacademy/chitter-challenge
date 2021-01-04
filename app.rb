@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    # fetch the user from the db, using an ID stored in the session
     @user = current_user
     @peeps = Peep.all
     erb :peeps
@@ -29,7 +28,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    # @user = User.find(id: session[:user_id])
     Peep.create(
       fullname: current_user.fullname,
       username: current_user.username,
@@ -42,7 +40,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    # create user and then...
     user = User.create(email: params['email'],
       password: params['password'],
       fullname: params['fullname'],

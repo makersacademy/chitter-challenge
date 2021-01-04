@@ -28,8 +28,8 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id};")
     User.new(
       id: result[0]['id'],
-      fullname: result[0]['fullname'], # may need to remove
-      username: result[0]['username'], # may need to remove
+      fullname: result[0]['fullname'],
+      username: result[0]['username'],
       email: result[0]['email']
     )
   end
@@ -40,8 +40,8 @@ class User
     return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(
       id: result[0]['id'],
-      fullname: result[0]['fullname'], # may need to remove
-      username: result[0]['username'], # may need to remove 
+      fullname: result[0]['fullname'], 
+      username: result[0]['username'],
       email: result[0]['email'])
   end
 
