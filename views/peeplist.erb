@@ -1,0 +1,12 @@
+<h1>Here are the latest Peeps</h1>
+
+<ul><%@peeplist.each do |peep|%>
+    <li><%=peep['peep']%> - <%=peep['time']%></li>
+    <%end%></ul>
+<form action='/peeplist' method='post'>
+    <input type='text' name='peep' placeholder='Write your peep here'>
+    <input type='submit' value='Peep'>
+</form>
+<form action='/'>
+<input type='submit' value='Take me home'>
+</form>
