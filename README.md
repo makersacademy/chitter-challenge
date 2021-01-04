@@ -38,15 +38,32 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+# Languages used
+1. Ruby
+2. HTML
+3. CSS
 
 
+# Installation:
 
-# Setting up your databases:
-
+**Chitter Dabatase Setup**
 **Create Tweet and Users DBs**
 
-1. Connect to ```psql``` in your terminal.
-2. Create the database running the query saved in the file  ```01_create_tables.sql```
+
+1. Connect to psql
+2. Create a database: `CREATE DATABASE chitter;`
+3. Connect to the database: `\c chitter;`
+4. Run the query saved in the file ```01_create_users_table.sql``` to create the table Users.
+5. Run the query saved in the file ```02_create_utweets_table.sql``` to create the table Tweets.
+
+**Chitter_test Dabatase Setup**
+**Test Enviroment**
+
+1. Create a test database using the `CREATE DATABASE chitter_test;`
+2. Connect to the database: `\c chitter_test;`
+3. Run the query saved in the file ```01_create_users_table.sql``` to create the table Users.
+4. Run the query saved in the file ```02_create_utweets_table.sql``` to create the table Tweets.
+
 
 
 ## How to Run:
