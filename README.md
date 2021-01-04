@@ -55,7 +55,7 @@ I want to receive an email if I am tagged in a Peep
 2. Create a database: `CREATE DATABASE chitter;`
 3. Connect to the database: `\c chitter;`
 4. Run the query saved in the file ```01_create_users_table.sql``` to create the table Users.
-5. Run the query saved in the file ```02_create_utweets_table.sql``` to create the table Tweets.
+5. Run the query saved in the file ```02_create_tweets_table.sql``` to create the table Tweets.
 
 **Chitter_test Dabatase Setup**
 
@@ -64,7 +64,7 @@ I want to receive an email if I am tagged in a Peep
 1. Create a test database using the `CREATE DATABASE chitter_test;`
 2. Connect to the database: `\c chitter_test;`
 3. Run the query saved in the file ```01_create_users_table.sql``` to create the table Users.
-4. Run the query saved in the file ```02_create_utweets_table.sql``` to create the table Tweets.
+4. Run the query saved in the file ```02_create_tweets_table.sql``` to create the table Tweets.
 
 
 
