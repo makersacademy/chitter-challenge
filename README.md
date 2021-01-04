@@ -48,7 +48,7 @@ I want to receive an email if I am tagged in a Peep
 
 **Chitter Dabatase Setup**
 
-**Create Tweet and Users DBs**
+**Create Tweet and Users Tables**
 
 
 1. Connect to psql
