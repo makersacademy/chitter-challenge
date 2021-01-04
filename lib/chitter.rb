@@ -6,6 +6,7 @@ class Peep
     def initialize(id:, body:)
         @id = id
         @body = body
+        @time = time
     end
 
     def self.all
