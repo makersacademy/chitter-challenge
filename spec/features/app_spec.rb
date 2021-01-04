@@ -52,8 +52,7 @@ feature ChitterApp do
     expect(page).to have_selector("input[type=submit][value='Login']")
     expect(page).to have_current_path "/"
     click_button 'Login'
-    expect(page).to have_current_path "/login"
-    expect(page).to have_content('There must')
+    expect(page).to have_current_path "/"
   end
   scenario "adding a new tweet" do
     visit("/")
