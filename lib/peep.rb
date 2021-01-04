@@ -10,7 +10,7 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peeps ORDER BY timestamp DESC;")
-    result.map { |peep| peep['content'] }
+    result.map { |peep| "#{peep['content']}, #{peep['timestamp']}" }
   end
 
   def self.create(content:)
