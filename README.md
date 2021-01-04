@@ -92,7 +92,9 @@ I want to receive an email if I am tagged in a Peep
 
 ## Screenshot
 
-<img width="45%" src="img/home.png" alt-text="homepage"/><img width="45%" src="img/user-profile.png" alt-text="user profile"/><img  width="45%" src="img/login.png" alt-text="login page"/><img  width="45%" src="img/error-login.png" alt-text="error login page"/><img  width="45%" src="img/signup.png" alt-text="signup page"/><img  width="45%" src="img/error-signup.png" alt-text="error signup page"/>
+<img width="45%" src="img/home.png" alt-text="homepage"/>  <img width="45%" src="img/user-profile.png" alt-text="user profile"/>
+<img  width="45%" src="img/login.png" alt-text="login page"/>  <img  width="45%" src="img/error-login.png" alt-text="error login page"/>
+<img  width="45%" src="img/signup.png" alt-text="signup page"/>  <img  width="45%" src="img/error-signup.png" alt-text="error signup page"/>
 
 ## Bonus:
 
