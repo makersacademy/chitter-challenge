@@ -10,7 +10,7 @@ class Tweet
     @time = Time.parse(time).strftime("%Y/%m/%d %k:%M:%S")
     end
 
-  def self.display_tweets
+  def self.display
     results = []
     db_results = DatabaseConnection.exec_prepared('list_tweets', [])
     db_results.map do |tweet|
@@ -20,7 +20,7 @@ class Tweet
     return results
 end
 
-  def self.add_tweet(username:, message:)
+  def self.add(username:, message:)
     begin
       result = DatabaseConnection.exec_prepared('add_new_tweet', [username, message])
       return true

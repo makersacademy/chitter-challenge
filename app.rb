@@ -6,10 +6,10 @@ require_relative './database_connection_setup'
 require "sinatra/flash"
 class ChitterApp < Sinatra::Base
   enable :sessions
-register Sinatra::Flash
+  register Sinatra::Flash
   get "/" do
 
-    @tweets = Tweet.display_tweets
+    @tweets = Tweet.display
     erb(:index)
   end
 
@@ -20,7 +20,6 @@ register Sinatra::Flash
       session[:username] = params[:username]
       erb(:welcome)
     else 
-      # erb(:error)
       flash[:username] = "User or email already taken"
       redirect("/")
     end
@@ -37,15 +36,14 @@ register Sinatra::Flash
       
       flash[:notice] = "Please check your username or password."
       redirect("/")
-      # erb(:error)
     end 
 
   end
 
   post "/new" do 
-    is_inserted = Tweet.add_tweet(username: session[:username], message: params[:message])
+    is_inserted = Tweet.add(username: session[:username], message: params[:message])
     if is_inserted == true
-      @tweets = Tweet.display_tweets
+      @tweets = Tweet.display
       erb(:tweets_list)
     end
   end
