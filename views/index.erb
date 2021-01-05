@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+    </head>
+
+
+    
+<body>
+<br>
+  <% if flash[:username]  %>
+        <div id='alert' class="alert">
+            <%= flash[:username] %>
+        </div>
+    <% end %>
+     <% if flash[:notice]  %>
+        <div id='alert' class="alert">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+   
+<div id='sign_in' class='sign_in'>
+<h1> Register or sign in to Chitter!</h1>
+<div id="register" class='register'>
+    <form action="/register" method="post">
+    <p>Create an account:</p>
+      <div>
+        <label for="fname">First Name:</label>
+        <br>
+        <input type="text" id="fname" name="fname">
+      </div>
+      <div>
+        <label for="lname">Last Name:</label>
+        <br>
+        <input type="text" id="lname" name="lname">
+      </div>
+      <div>
+      <label for="username">Username:</label>
+      <br>
+      <input type="text" id="r_username" name="username">
+      </div>
+      <div>
+      <label for="email">Email:</label>
+      <br><br>
+      <input type="email" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div>
+      <label for="pwd">Password:</label>
+      <br>
+      <input type="password" id="r_pwd" placeholder="Enter password" name="pwd">
+        </div>
+          <input type="submit" value="Register">
+    </form>
+</div>
+
+
+      
+<div id="login" class="login">
+
+  <p>Login:</p>
+  <form action="/login" method="post">
+    <label for="username">Username:</label>
+    <br>
+    <input type="text" id="l_username" placeholder="Username" name="username">
+    <label for="pwd">Password:</label>
+    <br>
+    <input type="password" id="l_pwd" placeholder="Enter password" name="pwd">
+  <input type="submit" value="Login">
+  </form>
+</div>
+</div>
+
+ <div id= 'tweetbox' class="tweetbox">
+  <% @tweets.each do |tweet| %> 
+  <div id="tweet" class="tweet">     
+    <div id="username" class="username"> <%= tweet.username %> </div>
+    <div id="message" class="message"> <%= tweet.message %></div>
+    <div id="time" class="time"> <%= tweet.time %></div>
+  </div>
+  <% end %>
+</div>
+
+
+</body>
+</html>

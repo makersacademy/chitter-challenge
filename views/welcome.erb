@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+    </head>
+    <div id="welcome" class="welcome">
+<h4> Welcome, <%=session[:username]%>!</h4>
+    <form action="/new" method="post">
+        <p>Add your peep <%=session[:username]%>:</p>
+                     
+                <label for="message">Your text:</label><br>
+                <input type="text" id="message" placeholder="Enter your peep" name="message"><br>
+    
+                     <input type="submit" value="Add!">
+        </form>
+</div>
+    <div id="welcome_button" class="welcome_button">
+<form action="/logout" method="get">
+ <input type="submit" value="Logout">
+         
+        </form>
+
+</div>
+</html>

@@ -1,0 +1,118 @@
+body {
+
+    padding: 0 300px;
+    font-family: HelveticaNeue-Light, Helvetica, sans-serif;
+    color: #2A3D34;
+    background-color: #6090ae;
+  }
+  
+  h1 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .header {
+    margin: 50;
+    padding: 0 50px;
+    background-color: #6090ae;
+    position: absolute;
+  }
+  
+  .tweetbox {
+    background: rgb(158, 187, 223);
+    border-radius: 25px;
+    width: 40%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    padding: 20px;
+  }
+
+  .tweet {
+    border: 2px black;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 25px;
+    background: rgb(122, 165, 220);
+    padding: 20px;
+
+  }
+  
+
+  .username {
+    font-weight: bold;
+}
+
+.sign_in {
+  padding: 10px;
+  height: 450px;
+  width: 60%;
+  margin: auto;
+}
+
+.register {
+  width: 40%;
+  float: left;
+  padding: 20px;
+}
+.login {
+  width: 40%;
+  float: right;
+  padding: 20px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  width: 70%;
+  padding: 7px;
+  margin: 5px 0 5px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=submit] {
+  background-color: #3d6587;
+  color: white;
+  padding: 10px 7px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 75%;
+}
+.welcome {
+  padding: 10px;
+  width: 60%;
+  margin: auto;
+}
+
+.welcome_button{
+  padding: 10px;
+  height: 40px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: 225px;
+}
+
+.logout_list {
+  padding: 10px;
+  height: 40px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: 135px;
+}
+
+.alert{
+  background-color: #3d6587;
+  color: white;
+  padding: 10px 7px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  margin-left: 700px;
+}
