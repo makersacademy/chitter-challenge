@@ -10,15 +10,15 @@ class User
   def self.change_current_user_name(name)
     @@current_username = name
   end
-  def self.get_username(id)
-    if ENV["Environment"] == 'test'
-      con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
-    else
-      con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
-    end
-    rs = con.exec("SELECT username FROM users WHERE id='#{id}'")
-    rs[0]["username"]
-  end
+  # def self.get_username(id)
+  #   if ENV["Environment"] == 'test'
+  #     con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
+  #   else
+  #     con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
+  #   end
+  #   rs = con.exec("SELECT username FROM users WHERE id='#{id}'")
+  #   rs[0]["username"]
+  # end
 
   def self.current_user_id
     @@current_user_id

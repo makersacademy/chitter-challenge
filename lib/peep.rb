@@ -53,6 +53,16 @@ class Peep
       con.close if con
     end
 
+    def get_username(peep_user_id)
+      if ENV["Environment"] == 'test'
+        con = PG.connect :dbname => 'chitter_test', :user => 'whelliwell1'
+      else
+        con = PG.connect :dbname => 'chitter', :user => 'whelliwell1'
+      end
+      rs = con.exec("SELECT username FROM users WHERE id='#{peep_user_id}'")
+      rs[0]["username"]
+    end
+
   end
 
 end

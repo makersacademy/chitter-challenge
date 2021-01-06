@@ -1,7 +1,7 @@
 require 'user'
 
 describe User do
-  
+
   describe 'self.change_current_user_name' do
     it "overwrites current username with argument provided" do
       described_class.change_current_user_name("Kennethy")
@@ -21,13 +21,13 @@ describe User do
       expect(described_class.get_user_id("Bob")).to eq(new_id)
     end
   end
-  describe 'self.get_username' do
-    it "returns the name of the given id" do
-      pg_instance = described_class.add("Bob")
-      new_id = pg_instance[0]["id"]
-      expect(described_class.get_username(new_id)).to eq("Bob")
-    end
-  end
+  # describe 'self.get_username' do
+  #   it "returns the name of the given id" do
+  #     pg_instance = described_class.add("Bob")
+  #     new_id = pg_instance[0]["id"]
+  #     expect(described_class.get_username(new_id)).to eq("Bob")
+  #   end
+  # end
 
   describe 'self.add' do
     it "takes a single argument" do

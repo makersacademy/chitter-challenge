@@ -35,7 +35,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
-    puts
+    # puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
