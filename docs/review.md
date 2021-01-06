@@ -236,7 +236,7 @@ feature "User sign up" do
 
   scenario 'with correct credentials' do
     user = create(:user)
-    sign_in(user)
+    sign_up(user)
     expect(page).to have_content("Welcome, #{user.email}")
   end
 end
@@ -246,7 +246,7 @@ end
 # spec/helpers.rb
 module Helpers
 
-  def sign_in(user)
+  def sign_up(user)
     visit('/sessions/new')
     fill_in :email, with: user.email
     fill_in :password, with: user.password

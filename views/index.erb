@@ -1,0 +1,25 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <body>
+    <center>
+      <h1>Welcome to Chitter!</h1>
+      <p>
+        <a href="/peeps/new">Add Peep</a>
+      </p>
+      <p>
+        <a href="/peeps">See Latest Peeps</a>
+      </p>
+      <p>
+        <a href="/sign-up">Sign-up</a>
+      </p>
+      <p>
+        You are signed up as: <%= User.current_username %>
+      </p>
+    </center>
+  </body>
+
+</html>
