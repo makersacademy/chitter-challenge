@@ -39,18 +39,18 @@ I want to sign up for Chitter
 
 ### To set up the databases
 
-Connect to `psql` and create the `chitter_manager` database:
+Connect to `psql` and create the `chitter` database:
 
 ```
-CREATE DATABASE chitter_manager;
+CREATE DATABASE chitter;
 ```
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-Connect to `psql` and create the `chitter_manager_test` database:
+Connect to `psql` and create the `chitter_test` database:
 
 ```
-CREATE DATABASE chitter_manager_test;
+CREATE DATABASE chitter_test;
 ```
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
@@ -101,9 +101,4 @@ I want to receive an email if I am tagged in a Peep
 ## Tech Stack
 -------
 
-Ruby 2.6.5
-Sinatra
-HTML
-RSpec
-Capybara
-Postgres
+Ruby<br>Sinatra<br>HTML<br>RSpec<br>Capybara<br>Postgres

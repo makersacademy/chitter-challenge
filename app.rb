@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require './lib/peep'
 require './lib/user'
-require './database_connection_setup'
+require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
 
@@ -29,6 +29,22 @@ class Chitter < Sinatra::Base
   post '/new_user' do
     user = User.create(name: params[:name], handle: params[:handle],
       email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/'
+  end
+
+  get '/logout' do
+    session[:user_id] = nil
+    redirect '/'
+  end 
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/current_user' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    p user
     session[:user_id] = user.id
     redirect '/'
   end

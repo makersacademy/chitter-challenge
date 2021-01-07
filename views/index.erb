@@ -44,18 +44,24 @@
 </style>
 
 <h1> Welcome to Chitter! </h1>
-<h3>
+
 <% if @user %>
-Welcome <%= @user.name %> - <%= @user.handle %>
+  <h3>Welcome <%= @user.name %> - <%= @user.handle %></h3>
+  <form action='/logout' method="get">
+    <input class="button" type='submit' value='Log Out'>
+  </form>
+<% else %>
+  <form action='/sign_up' method="get">
+    <input class="button" type='submit' value='Sign Up'>
+  </form>
+  <form action='/login' method="get">
+    <input class="button" type='submit' value='Login'>
+  </form>
 <% end %>
-</h3>
 
 <div class="inline">
   <form action='/create_peep' method="get">
     <input class="button" type='submit' value='New Peep'>
-  </form>
-  <form action='/sign_up' method="get">
-    <input class="button" type='submit' value='Sign Up'>
   </form>
 </div>
 
