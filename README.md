@@ -1,135 +1,241 @@
-Chitter Challenge
-=================
+# Chitter Challenge
+A small Twitter clone that will allow users to post messages (peeps) to a public stream
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Motivation
+This project is an unguided, solo, understanding check of TDD, OOD, MVC, of a web application with a database.
 
-Challenge:
--------
+## Build status
+[![Build Status](https://travis-ci.com/chriswhitehouse/chitter-challenge.svg?branch=master)](https://travis-ci.com/chriswhitehouse/chitter-challenge)
 
-As usual please start by forking this repo.
+## Code style
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+## Screenshots
+[![Home Page](https://github.com/chriswhitehouse/chitter-challenge/blob/master/screenshots/Screenshot%202021-01-19%20at%2018.39.10.png)
+[![Sign In](https://github.com/chriswhitehouse/chitter-challenge/blob/master/screenshots/Screenshot%202021-01-19%20at%2018.39.26.png)
+[![Peep!](https://github.com/chriswhitehouse/chitter-challenge/blob/master/screenshots/Screenshot%202021-01-19%20at%2018.39.55.png)
 
-Features:
--------
 
+## Tech/framework used
+Ruby with Sinatra web framework, and PostgreSQL database. Tested using Rspec, and Capybara DSLs with Rubocop and Simplecov.
+
+## Features
+### User Story 1
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+```
 
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_1/sequence.svg)
+
+### User Story 2
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
+```
 
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_2/sequence.svg)
+
+### User Story 3
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+```
 
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_3/sequence.svg)
+
+### User Story 4
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
 
-HARDER
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_4/sequence.svg)
 
+### User Story 5
+```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+```
 
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/sequence.svg)
+
+### User Story 6
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+![Class Diagram](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/class.svg)
+![Entity](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/entity.svg)
+![Sequence](https://github.com/chriswhitehouse/chitter-challenge/blob/master/diagrams/user_story_5/sequence.svg)
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+## Code Example
+### Controller
+```Ruby
+require "sinatra/flash"
+require "sinatra/base"
+require "./database_connection_setup"
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+class Chitter < Sinatra::Base
+  enable :sessions
 
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
+  register Sinatra::Flash
 
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+  get "/" do
+    redirect "/peeps"
+  end
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+  get "/peeps" do
+    @user = User.find(session[:user_id]) if session[:user_id]
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
 
-Notes on functionality:
-------
+  post "/peeps" do
+    Peep.create(message: params[:message], user_id: session[:user_id])
+    redirect "/peeps"
+  end
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+  get "/peeps/new" do
+    @user = User.find(session[:user_id])
 
-Bonus:
------
+    if @user
+      erb :'peeps/new'
+    else
+      flash[:notice] = 'Please sign or log in to Peep'
+      redirect '/peeps'
+    end
+  end
 
-If you have time you can implement the following:
+  get "/users/new" do
+    erb :'users/new'
+  end
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+  post "/users" do
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
+    session[:user_id] = user.id
+    redirect "/peeps"
+  end
 
-And/Or:
+  get "/sessions/new" do
+    erb :'sessions/new'
+  end
 
-* Work on the CSS to make it look good.
+  post "/sessions" do
+    user = User.authenticate(email: params[:email], password: params[:password])
 
-Good luck and let the chitter begin!
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = "Incorrect email or password"
+      redirect '/sessions/new'
+    end
+  end
 
-Code Review
------------
+  post "/sessions/destroy" do
+    session.clear
+    flash[:notice] = "You have logged out"
+    redirect '/peeps'
+  end
 
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+  # establish server if file run directly
+  run! if app_file == $0
+end
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## Installation
+
+1. Fork and clone the project.
+2. Run `$ bundle install`.
+3. Create the chitter and chitter_test databases (as per below)
+
+### Database Setup
+
+1. Connect to psql
+2. Create a development database using the psql command `CREATE DATABASE chitter;`
+3. Connect to the database using the psql command `\c chitter;`
+4. Run the query we have saved in the file '01_create_peeps_table.sql'
+5. Run the query we have saved in the file '02_add_timestamp_column.sql'
+6. Run the query we have saved in the file '03_create_users_table.sql'
+7. Run the query we have saved in the file '04_add_user_id_column_to_peeps.sql'
+8. Create a test database using the psql command `CREATE DATABASE chitter_test;`
+9. Repeat steps 3 and 6 for the test database.
+
+## Tests
+20 examples, 0 failures, 100% Coverage
+
+
+### Feature Tests
+
+1. So that I can let people know what I am doing,
+  I want to post a message (peep) to chitter :white_check_mark:
+
+2. So that I can see what others are saying,
+  I want to see all peeps in reverse chronological order :white_check_mark:
+
+3. So that I can better appreciate the context of a peep
+  I want to see the time at which it was made :white_check_mark:
+
+4. So that I can post messages on Chitter as me,
+  I want to sign up for Chitter :white_check_mark:
+
+5. So that only I can post messages on Chitter as me,
+  I want to log in to Chitter,
+    - Happy path: user has correct credentials :white_check_mark:
+    - Unhappy path 1: user has incorrect email :white_check_mark:
+    - Unhappy path 2: user has incorrect password :white_check_mark:
+
+6. So that I can avoid others posting messages on Chitter as me
+  I want to log out of Chitter :white_check_mark:
+
+### Unit Tests
+
+#### DatabaseConnection
+  * **.setup**
+    - should respond with 1 argument
+    - should establish a connection with a given database
+  * **.query**
+    - should respond with 1 argument
+    - should execute the query string
+
+#### Peep
+  * **.create**
+    - should insert into peeps table and return an instance of a Peep
+    - should return nil if no user_id is nil
+  * **.all**
+    - should return all peeps in the peeps table
+
+#### User
+  * **.create**
+    - should insert a user into users table and return an instance of a User
+    - hashes the password using BCrypt
+  * **.find**
+    - should return a specific user, by id, from the users table in an instance of a User
+    - should return nil if user_id is nil
+  * **.authenticate**
+    - should return a user if the user details match an existing user
+
+## How to use?
+
+1. Run `$ rackup`.
+2. Navigate to 'localhost:9292/' in browser.
+3. Sign in
+4. Peep!

@@ -1,0 +1,29 @@
+<% if !@user %>
+<form action='users/new'>
+  <input type="submit" value="Sign in" class="w3-button w3-theme-d3 w3-round"
+  style="position:fixed;top:18px;left:140px;"></input>
+</form>
+<form action='sessions/new'>
+  <input type="submit" value="Log in" class="w3-button w3-theme"
+  style="position:fixed;top:0px;right:0px;"></input>
+</form>
+<% else %>
+<form action='sessions/destroy' method='POST'>
+  <input type="submit" value="Log out" class="w3-button w3-theme"
+  style="position:fixed;top:0px;right:0px;"></input>
+</form>
+<% end %>
+
+<form action='peeps/new'>
+  <input type="submit" value="+" class="w3-button w3-xlarge w3-circle w3-theme-action"
+  style="position:fixed;top:48px;right:24px;"></input>
+</form>
+
+<ul class="w3-ul w3-border-top">
+  <% @peeps.each do |peep| %>
+  <li class="peep" id="peep-<%= peep.id %>">
+    <a><%= "#{peep.name} @#{peep.user_name} at #{peep.time.strftime("%H:%M")}" %></a>
+    <h3> <%= peep.message %></h3>
+  </li>
+  <% end %>
+</ul>
