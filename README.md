@@ -11,7 +11,10 @@ This project is an unguided, solo, understanding check of TDD, OOD, MVC, of a we
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
 ## Screenshots
-Include logo/demo screenshot etc.
+[![Home Page](https://github.com/chriswhitehouse/chitter-challenge/blob/master/screenshots/Screenshot%202021-01-19%20at%2018.39.10.png)
+[![Sign In](https://github.com/chriswhitehouse/chitter-challenge/blob/master/screenshots/Screenshot%202021-01-19%20at%2018.39.26.png)
+[![Peep!](https://github.com/chriswhitehouse/chitter-challenge/blob/master/screenshots/Screenshot%202021-01-19%20at%2018.39.55.png)
+
 
 ## Tech/framework used
 Ruby with Sinatra web framework, and PostgreSQL database. Tested using Rspec, and Capybara DSLs with Rubocop and Simplecov.
