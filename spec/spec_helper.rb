@@ -3,7 +3,7 @@ require 'simplecov'
 require 'simplecov-console'
 
 # controller file
-require File.dirname(__FILE__) + '../app/app.rb'
+require File.dirname(__FILE__) + '/../app/app.rb'
 
 ENV['RACK_ENV'] = 'test'
 
