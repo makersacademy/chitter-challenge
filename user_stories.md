@@ -1,0 +1,38 @@
+## Features:
+
+```
+STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing
+I want to post a message (peep) to chitter
+
+| Nouns     | Verbs                  |
+| --------- | ---------------------- |
+| chitter | ----------------------- |
+| message (peep) | post (a message) |
+
+As a maker
+So that I can see what others are saying
+I want to see all peeps in reverse chronological order
+
+| Nouns     | Verbs                  |
+| --------- | ---------------------- |
+| peeps in reverse chronological order | see peeps
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+| Nouns     | Verbs                  |
+| --------- | ---------------------- |
+| time of peep | see the time of peep |
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+| Nouns     | Verbs                  |
+| --------- | ---------------------- |
+| chitter | sign up for an account with chitter |
+```
