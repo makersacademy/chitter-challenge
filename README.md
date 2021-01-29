@@ -18,6 +18,11 @@ CREATE DATABASE chitter_test;
 ```
 To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
+To test, run:
+```
+rspec
+```
+
 User Stories:
 ------
 

@@ -4,8 +4,8 @@ describe Peep do
   describe '.all' do
     it 'returns a list of peeps' do
       peep = Peep.create(message: 'This is peep 1')
-      Peep.create(message: 'This is peep 2')
-      Peep.create(message: 'This is peep 3')
+      Peep.create(message: 'MF peep 2')
+      Peep.create(message: 'This is the third and final peep')
 
       peeps = Peep.all
 
