@@ -3,3 +3,13 @@
   <input type='text' name='peep' />
   <input type="submit" value="Post" />
 </form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+    <a>
+      <%= peep.message %>
+    </a>
+  </li>
+  <% end %>
+</ul>
