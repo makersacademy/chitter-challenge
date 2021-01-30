@@ -1,3 +1,3 @@
 require './app'
 
-run Chitter
+run ChitterApp
