@@ -15,14 +15,18 @@
       <input type="text" name="text" placeholder="Peep Here!">
       <button type="submit" name="Peep">Peep</button>
     </form>
-    <ul>
+    <ul style="list-style: none;">
       <% @peeps.each do |peep| %>
-        <li><h3><%= peep.text %></h3>
+        <li id="peeps"><h3 class="normal"><%= peep.text %></h3>
           <% @user = User.find(peep.user_id) %>
-          <p><%= @user.username %> (<%= @user.name %>)</p>
-          <p>Peeped at: <%= peep.created_at %></p>
+          <p class="thick"><%= @user.username %> (<%= @user.name %>)</p>
+          <p class="light">Peeped at: <%= peep.created_at %></p>
         </li>
       <% end %>
     </ul>
+
+    <form action="/sign-out" method="post">
+      <input type="submit" value="Sign Out" />
+    </form>
   </body>
 </html>

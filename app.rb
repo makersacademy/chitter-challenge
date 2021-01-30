@@ -53,4 +53,10 @@ class Chitter < Sinatra::Base
     erb :'homepage/signed_up'
   end
 
+  post '/sign-out' do
+    session.clear
+    flash[:notice] = 'You have successfully signed out'
+    redirect '/homepage'
+  end
+
 end

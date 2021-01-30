@@ -13,7 +13,6 @@ describe Peep do
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      # expect(peeps.last.id).to eq test.id
       expect(peeps.first.text).to eq 'Test 3'
     end
   end
