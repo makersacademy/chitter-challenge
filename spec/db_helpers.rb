@@ -6,6 +6,6 @@ def persisted_data(id:, table:)
 end
 
 def truncate_table(table:)
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.query("delete from #{table}")
+  # connection = PG.connect(dbname: 'chitter_test')
+  # connection.query("delete from #{table}")
 end
