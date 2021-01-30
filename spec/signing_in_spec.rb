@@ -1,8 +1,6 @@
-feature 'Viewing sign in page' do 
-scenario 'So that a user can post a message they need to sign in' do
+feature 'peep message' do 
+scenario 'a user can post a message' do
     visit ('/')
-    # fill_in 'Username' with: 'MegG'
-    # fill_in 'Password' with: 'hello123'
-    expect(page).to have_content 'Welcome to Chitter. Please sign in'
+   expect(page).to have_content 'Welcome to Chitter'
 end 
 end 
