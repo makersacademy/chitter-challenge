@@ -6,4 +6,7 @@ class Chitter < Sinatra::Base
     "Hello world"
   end
 
+  get '/peeps' do
+    
+
   run! if app_file == $0
