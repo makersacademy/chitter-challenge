@@ -118,8 +118,7 @@ span.water {
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.peep_id %>">
         <h2><%= peep.peep_content %></h2> </br> 
-        written by <%= peep.user_name %> </br>
-        <%= peep.created_at %></br></br>
+        written by <strong><%= peep.user_name %></strong> at <%= peep.created_at %></br></br>
         <hr>
     </li>
   <% end %>
