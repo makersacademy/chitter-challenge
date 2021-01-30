@@ -8,6 +8,12 @@ RSpec.configure do |config|
   end
 end
 
+RSpec.configure do |config|
+  config.after(:each) do
+    setup_test_database
+  end
+end
+
 require 'capybara/rspec'
 
 # require our Sinatra app file

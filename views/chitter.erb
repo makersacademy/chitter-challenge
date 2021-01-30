@@ -1,1 +1,16 @@
 Welcome back <%= session[:user].username %>
+
+<form  action="/chitter/new_peep" method="post">
+  <input type="text" name="text" placeholder="Peep Here!">
+  <button type="submit" name="Peep">Peep</button>
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><p><%= peep.text %></p>
+      <% @user = User.find(peep.user_id) %>
+      <p><%= @user.username %> (<%= @user.name %>)</p>
+      <p>Peeped at: <%= peep.created_at %></p>
+    </li>
+  <% end %>
+</ul>

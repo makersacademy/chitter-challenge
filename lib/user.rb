@@ -29,4 +29,11 @@ class User
     username: result[0]['username'], password: result[0]['password'])
   end
 
+  def self.find(id)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    
+    User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'],
+    username: result[0]['username'], password: result[0]['password'])
+  end
+
 end

@@ -1,6 +1,6 @@
 feature 'User log in' do
   scenario 'User can log in with there details' do
-    User.create(email: 'sean@bean.com', name: 'Sean Bean', password: 'Yorkshire', username: 'Sean' )
+    User.create(email: 'sean@bean.com', name: 'Sean Bean', password: 'Yorkshire', username: 'Sean')
     visit '/homepage'
     expect(page).to have_content("Welcome to Chitter")
     expect(page).to have_selector(:link_or_button, 'Sign In')
