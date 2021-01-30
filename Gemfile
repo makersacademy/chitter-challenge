@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-group :test do
   gem 'capybara'
   gem 'pg'
   gem 'rspec'
@@ -8,4 +7,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'sinatra'
-end
