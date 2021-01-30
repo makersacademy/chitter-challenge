@@ -1,16 +1,28 @@
-Welcome back <%= session[:user].username %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title></title>
+  </head>
+  <body>
+    <h3> Welcome back <%= session[:user].username %> </h3>
 
-<form  action="/chitter/new_peep" method="post">
-  <input type="text" name="text" placeholder="Peep Here!">
-  <button type="submit" name="Peep">Peep</button>
-</form>
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><p><%= peep.text %></p>
-      <% @user = User.find(peep.user_id) %>
-      <p><%= @user.username %> (<%= @user.name %>)</p>
-      <p>Peeped at: <%= peep.created_at %></p>
-    </li>
-  <% end %>
-</ul>
+    <form  action="/chitter/new_peep" method="post">
+      <input type="text" name="text" placeholder="Peep Here!">
+      <button type="submit" name="Peep">Peep</button>
+    </form>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li><h3><%= peep.text %></h3>
+          <% @user = User.find(peep.user_id) %>
+          <p><%= @user.username %> (<%= @user.name %>)</p>
+          <p>Peeped at: <%= peep.created_at %></p>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

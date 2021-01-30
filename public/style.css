@@ -1,0 +1,48 @@
+body {
+  margin: ;
+  background-color: rgb(161, 198, 233);
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+a {
+
+}
+a:hover {
+  color: rgb(32, 32, 185);
+}
+a:visited {
+  color: rgb(32, 32, 185);
+}
+input[type=text] {
+
+}
+input[type=password] {
+
+}
+
+p.normal {
+  font-weight: normal;
+  font-size: 150%;
+}
+
+p.light {
+  font-weight: lighter;
+  line-height: 0%;
+}
+
+p.thick {
+  font-weight: bold;
+}
+
+#peeps {
+  text-align: left;
+  width: 500px;
+  border: 5px solid rgb(0, 87, 128);
+  padding: 5px;
+  margin: 2px;
+  border-radius: 25px;
+}
+
+#rounded {
+  border-radius: 15px;
+}
