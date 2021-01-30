@@ -1,3 +1,5 @@
+require 'pg'
+
 feature "Welcome to Chitter" do
 
   scenario "it has a welcome page" do

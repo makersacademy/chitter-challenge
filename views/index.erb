@@ -1,1 +1,11 @@
 <h1>C H I T T E R</h1>
+
+<form action="/peep" method="get">
+  <input type="submit" value="P e e p !" id="peep" />
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li> <%= peep.sender%> says "<%= peep.message %>" (<%= peep.time %>, <%= peep.date %> )
+  <% end %>
+</ul>

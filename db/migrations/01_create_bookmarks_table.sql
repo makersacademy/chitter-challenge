@@ -1,1 +1,1 @@
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, date DATE, time DECIMAL(4,2), message VARCHAR(120));
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, date DATE, time DECIMAL(4,2), message VARCHAR, sender VARCHAR);
