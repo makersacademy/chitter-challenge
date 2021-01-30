@@ -1,9 +1,15 @@
 require 'sinatra/base'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
 
     get '/' do
         erb :'peeps/index'
+    end
+
+    get '/peeps' do
+        @peeps = Peep.all
+        erb :'peeps/list'
     end
 
     post '/peeps' do
