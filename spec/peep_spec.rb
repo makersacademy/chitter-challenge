@@ -12,3 +12,11 @@ describe '.all' do
     expect(peeps).to include "Ca farte?"
   end
 end
+
+describe '.create' do
+  it 'creates a new peep' do
+    Peep.create(peep: 'Kikoo!')
+
+    expect(Peep.all).to include 'Kikoo!'
+  end
+end
