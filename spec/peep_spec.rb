@@ -18,12 +18,12 @@ describe Peep do
 
   describe '.create' do
     it 'adds a new bookmark to the database' do
-      peep = Peep.create(message: 'This is peep 1')
+      peep = Peep.create(message: 'This is my first peep')
       # persisted_data = persisted_data(id: bookmark.id)
 
       expect(peep).to be_a Peep
       expect(peep.id.to_i).to be_a Integer
-      expect(peep.message).to eq('This is peep 1')
+      expect(peep.message).to eq('This is my first peep')
     end
   end
 end
