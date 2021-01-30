@@ -3,6 +3,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
+
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = Chitter
 ENV['ENVIRONMENT'] = 'test'
