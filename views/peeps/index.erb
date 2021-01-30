@@ -16,7 +16,6 @@ h1 {
       }
  h2 {
         color: #e8ffff;
-        text-align: center;
         font-weight: normal;
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
           padding: 0px
@@ -118,7 +117,8 @@ span.water {
 <ul>
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.peep_id %>">
-        <%= peep.peep_content %> written by <%= peep.user_name %> </br>
+        <h2><%= peep.peep_content %></h2> </br> 
+        written by <%= peep.user_name %> </br>
         <%= peep.created_at %></br></br>
         <hr>
     </li>

@@ -12,7 +12,7 @@ class Peep
   end
 
   def self.all
-    peeps = DatabaseConnection.query("SELECT * FROM peeps;")
+    peeps = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created_at DESC;")
     peeps.map do |peep|
       Peep.new(
         peep_id: peep['peep_id'],
