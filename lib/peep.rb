@@ -16,8 +16,10 @@ class Peep
   end
 
   def self.all
-    connection = PG.connect
-    results = connection.exec 'select * from peeps'
+    database = ENV['Rack ENV'] == 'test' ? 'chitter_test' : 'chitter'
+    connection = PG.connect(dbname: database)
+    results = connection.exec 'select * from peep'
+    results.map { |row| Peep.new(row['id'].to_i, row['content'])}
   end
 
 end
