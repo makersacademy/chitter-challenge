@@ -1,5 +1,7 @@
 ENV['Environment'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+# require File.join(File.dirname(__FILE__), '..', 'users.rb')
+# require File.join(File.dirname(__FILE__), '..', 'peeps.rb')
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'

@@ -1,11 +1,9 @@
-<h2>$result['username']</h2>
 <h1>List of all the peeps:</h1>
 <ul>
   <% @peeps.each do |peep| %>
   <li class='peep' id='peep-<%= peep.id %>'>
-  <%= peep.peep%>
-  at
-  <%= peep.time.strftime("%H:%M")%>
+    <a><%= peep.time.strftime("%A at %H:%M") %></a>
+       <h3> <%= peep.peep %></h3>
   </li>
   <% end%>
 </ul>

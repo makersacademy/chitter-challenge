@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'pg'
 require './lib/peeps'
+# require './lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -13,13 +14,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    # connection = PG.connect(dbname: 'chitter_chatter')
-    # $result = connection.exec("INSERT INTO users (email, password, name, username) VALUES('#{email}', '#{password}','#{name}', '#{username}') RETURNING id, email, name, username;")
+    connection = PG.connect(dbname: 'chitter_chatter')
+    $result = connection.exec("INSERT INTO users (email, password, name, username) VALUES('#{params[:email]}', '#{params[:password]}','#{params[:name]}', '#{params[:username]}') RETURNING id, email, name, username;").first
     redirect ('/peeps')
   end
 
   get '/peeps' do
     @peeps = Peeps.all
+    p @peeps
     erb :show
   end
 
@@ -28,7 +30,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peeps.create(peep: params[:new_peep])
+    @peep = Peeps.create(peep: params[:new_peep], time: Time.now)
+    p @peep
     redirect ('/peeps')
   end
 
