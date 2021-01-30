@@ -6,10 +6,13 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-  <li>
-    <a>
-      <%= peep.message %>
-    </a>
+  <li class='peep' id='peep-<%=peep.id%>'>
+    <p><%= peep.message %> </p>
+    <i><%= peep.time_last_altered%></i>
+    <form action='/feed/<%= peep.id %>' method='post'>
+      <input type='hidden' name='_method' value="DELETE" />
+      <input type='submit' value='Delete'/>
+    </form>
   </li>
   <% end %>
 </ul>
