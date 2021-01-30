@@ -1,6 +1,6 @@
-feature 'peep message' do 
-scenario 'a user can post a message' do
+feature 'basic setup' do 
+scenario 'running app successfully' do
     visit ('/')
-   expect(page).to have_content 'Welcome to Chitter'
+   expect(page).to have_content 'Welcome to Chitter!'
 end 
 end 
