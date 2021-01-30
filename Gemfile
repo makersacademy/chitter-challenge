@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
+gem "bcrypt"
 gem 'pg'
 gem "sinatra"
 gem "sinatra-flash"
-gem "bcrypt"
 
 group :test do
   gem "capybara"
