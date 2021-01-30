@@ -12,10 +12,11 @@ I want to post a message (peep) to chitter
 | chitter | ----------------------- |
 | message (peep) | post (a message) |
 
-![Image of user story 1 diagram](https://github.com/day-katy/chitter-challenge/blob/master/images/user_story_1_diagram.png)
+```
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![image] (https://github.com/day-katy/chitter-challenge/blob/master/images/user_story_1_diagram.png?raw=true)
 
+```
 As a maker
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
