@@ -1,8 +1,11 @@
+<form action='/peeps/new' method='get'>
+  <input type='submit' value='Add peep'>
+</form>
 <ul>
   <% @peeps.each do |peep| %>
-  <li class="peep" id="peep"-<%= peep.id%>">
+  <li>
       <%= peep.message %>
-
+      <%= peep.time %>
   </li>
   <%end%>
 </ul>
