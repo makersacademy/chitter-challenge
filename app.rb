@@ -28,7 +28,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    p "we have assigned"
     session[:username] = params[:new_username]
     redirect '/chitter'
   end
@@ -39,7 +38,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_peep' do
-    Peep.create(message: params[:peep], sender: 'claude')
+    Peep.create(message: params[:peep], sender: session[:username])
     redirect('/chitter')
   end
 
