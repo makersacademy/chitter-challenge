@@ -19,4 +19,13 @@ Objects, Properties & Methods
 -------
 | Object          | Properties        | Methods         |
 |-----------------| ------------------|-----------------|
-| Message         |                   | Post            |
+| Message         | content                  | Post            |
+
+
+Database Structure
+--------
+Table: message 
+
+|id  | content|
+|----|-----|
+|serial| varchar(280) |
