@@ -1,6 +1,6 @@
-feature 'delete peep' do 
+feature 'Delete peep' do 
   scenario 'removes a peep from the feed' do 
-    Peep.create(message: "Hello this is a peep", time_last_altered: Time.now)
+    Peep.create(message: "Hello this is a peep")
     visit('/feed')
     expect(page).to have_content "Hello this is a peep"
 

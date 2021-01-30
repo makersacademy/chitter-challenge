@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do
-    Peep.create(message: params[:peep], time_last_altered: Time.now)
+    Peep.create(message: params[:peep])
     redirect('/feed')
   end
 

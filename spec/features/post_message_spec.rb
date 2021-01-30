@@ -1,4 +1,4 @@
-feature 'post' do 
+feature 'New peep' do 
   scenario 'create a new post and see it on the page' do 
     visit('/feed')
     fill_in('peep', with: "Hello this is my first peep")

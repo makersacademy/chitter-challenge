@@ -1,8 +1,8 @@
 feature 'Viewing peeps' do
   scenario 'shows all peeps' do
-    Peep.create(message: 'This is my first peep', time_last_altered: Time.now)
-    Peep.create(message: 'Second post', time_last_altered: Time.now)
-    Peep.create(message: "C`est ma troisieme poste", time_last_altered: Time.now)
+    Peep.create(message: 'This is my first peep')
+    Peep.create(message: 'Second post')
+    Peep.create(message: "C`est ma troisieme poste")
 
     visit '/feed'
 

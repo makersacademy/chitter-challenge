@@ -3,9 +3,9 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns a list of peeps' do
-      peep = Peep.create(message: 'This is peep 1', time_last_altered: Time.now)
-      Peep.create(message: 'MF peep 2', time_last_altered: Time.now)
-      Peep.create(message: 'This is the third and final peep', time_last_altered: Time.now)
+      peep = Peep.create(message: 'This is peep 1')
+      Peep.create(message: 'MF peep 2')
+      Peep.create(message: 'This is the third and final peep')
 
       peeps = Peep.all
 
@@ -18,7 +18,7 @@ describe Peep do
 
   describe '.create' do
     it 'adds a new bookmark to the database' do
-      peep = Peep.create(message: 'This is my first peep', time_last_altered: Time.now)
+      peep = Peep.create(message: 'This is my first peep')
       # persisted_data = persisted_data(id: bookmark.id)
 
       expect(peep).to be_a Peep
@@ -29,7 +29,7 @@ describe Peep do
 
   describe '.delete' do 
     it 'removes a peep from the feed' do 
-      peep = Peep.create(message: 'New peep', time_last_altered: Time.now)
+      peep = Peep.create(message: 'New peep')
 
       Peep.delete(id: peep.id)
       expect(Peep.all.length).to eq 0
