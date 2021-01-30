@@ -2,6 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
+require 'setup_test_database'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
