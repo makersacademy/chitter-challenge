@@ -43,11 +43,13 @@ class Peep
 
     result = connection.exec("INSERT INTO peeps (date, time, message, sender) VALUES('#{date}', '#{time}', '#{message}', '#{sender}') RETURNING id, date, time, message, sender;")
     peep = Peep.new(id: result[0]['id'], date: result[0]['date'], time: result[0]['time'], message: result[0]['message'], sender: result[0]['sender'])
-    p peep.id
-    p peep.date
-    p peep.time
-    p peep.message
-    p peep.sender
+
+    # TEST
+    # p peep.id
+    # p peep.date
+    # p peep.time
+    # p peep.message
+    # p peep.sender
 
     return peep
 
