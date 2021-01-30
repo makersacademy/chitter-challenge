@@ -2,8 +2,13 @@ require 'pg'
 
 class Peep
   def self.all
-    connection = PG.connect(dbname: 'peep_manager')
-    p result = connection.exec('SELECT * FROM peeps')
-    p x=result.map { |peep| peep['peep'] }
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'peep_manager_test')
+    else
+      connection = PG.connect(dbname: 'peep_manager')
+    end
+
+    result = connection.exec('SELECT * FROM peeps')
+    result.map { |peep| peep['peep'] }
   end
 end
