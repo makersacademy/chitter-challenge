@@ -1,24 +1,26 @@
 require 'sinatra'
 require 'pg'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
+
+  get '/peeps' do
+    erb :show
+  end
 
   get '/peeps/new' do
     erb :new
   end
 
   post '/peeps' do
-    connection = PG.connect(dbname: 'chitter_chatter')
-    connection.exec("INSERT INTO peeps (peep) VALUES('#{params[:new_peep]}') RETURNING id, peep;" )
-    redirect ('/peeps')
+    @peep = Peeps.create(peep: params[:new_peep])
+    erb :show
   end
 
-  get '/peeps' do
-    connection = PG.connect(dbname: 'chitter_chatter')
-    result = connection.exec("SELECT * FROM peeps;")
-    @peeps = result.first
-    erb :peeps
-  end
+  # get '/peep/:id' do
+  #   @peep = Peeps.find(id: params[:id])
+  #   redirect('/peeps')
+  # end
 
   run! if app_file == $0
 end
