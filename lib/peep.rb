@@ -24,4 +24,13 @@ class Peep
     DatabaseConnection.query("DELETE FROM peeps WHERE id = '#{id}'")
   end
 
+  def self.find(id:)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{id}'")
+    Peep.new(id: result[0]['id'], message: result[0]['message'], time_last_altered: result[0]['time_last_altered'])
+  end
+
+  def self.update(id:, message:,time_last_altered: Time.now)
+    result = DatabaseConnection.query("UPDATE peeps SET message = '#{message}', time_last_altered ='#{time_last_altered}' WHERE id = #{id} RETURNING id, message, time_last_altered;")
+    Peep.new(id: result[0]['id'], message: result[0]['message'], time_last_altered: result[0]['time_last_altered'])
+  end
 end

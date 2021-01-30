@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
 
   get '/feed' do 
     @peeps = Peep.all
-    erb :feed
+    erb :'feed/index'
   end
 
   post '/feed' do
@@ -19,6 +19,16 @@ class Chitter < Sinatra::Base
 
   delete '/feed/:id' do 
     Peep.delete(id: params[:id])
+    redirect('/feed')
+  end
+
+  get '/feed/:id/edit' do 
+    @peep = Peep.find(id: params[:id])
+    erb :'feed/edit'
+  end
+
+  patch '/feed/:id' do 
+    Peep.update(id: params[:id], message: params[:peep])
     redirect('/feed')
   end
 

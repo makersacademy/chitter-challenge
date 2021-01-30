@@ -5,10 +5,13 @@
 </form>
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
   <li class='peep' id='peep-<%=peep.id%>'>
     <p><%= peep.message %> </p>
     <i><%= peep.time_last_altered%></i>
+    <form action='/feed/<%= peep.id %>/edit' method='get'>
+      <input type='submit' value='Edit'/>
+    </form>
     <form action='/feed/<%= peep.id %>' method='post'>
       <input type='hidden' name='_method' value="DELETE" />
       <input type='submit' value='Delete'/>

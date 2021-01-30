@@ -35,4 +35,27 @@ describe Peep do
       expect(Peep.all.length).to eq 0
     end
   end
+
+  describe '.find' do
+    it 'returns the requested peep object' do
+      peep = Peep.create(message: 'A peep')
+
+      result = Peep.find(id: peep.id)
+
+      expect(result).to be_a Peep
+      expect(result.id).to eq(peep.id)
+      expect(result.message).to eq 'A peep'
+    end
+  end
+
+  describe '.update' do 
+    it 'allows the editting of a peep' do 
+      peep = Peep.create(message: 'Hello world')
+      updated_peep = Peep.update(id: peep.id, message: 'Goodbye world')
+
+      expect(updated_peep).to be_a Peep
+      expect(updated_peep.id).to eq peep.id
+      expect(updated_peep.message).to eq 'Goodbye world'
+    end
+  end
 end
