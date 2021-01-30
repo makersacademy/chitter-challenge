@@ -14,7 +14,7 @@ I want to post a message (peep) to chitter
 
 ```
 
-![image] (https://github.com/day-katy/chitter-challenge/blob/master/images/user_story_1_diagram.png?raw=true)
+![image](https://github.com/day-katy/chitter-challenge/blob/master/images/user_story_1_diagram.png?raw=true)
 
 ```
 As a maker
