@@ -1,1 +1,8 @@
-<%= @peeps %>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li class="peep" id="peep"-<%= peep.id%>">
+      <%= peep.message %>
+
+  </li>
+  <%end%>
+</ul>

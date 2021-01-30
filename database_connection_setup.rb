@@ -1,5 +1,7 @@
+require './lib/database_connection'
+
 if ENV['ENVIRONMENT'] == 'test'
-  connection = PG.connect(dbname: 'chitter_test')
+  DatabaseConnection.setup('chitter_test')
 else
-  connection = PG.connect(dbname: 'chitter')
+  DatabaseConnection.setup('chitter')
 end
