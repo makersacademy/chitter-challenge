@@ -1,0 +1,30 @@
+<head>
+<body style="background-color:#89BD9E; text-align:center">
+  <style>
+    .button {
+      background-color: #8B1E3F;
+      border: none;
+      color: #F0C987;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-weight:bold;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+</style>
+    <h2> Welcome to Chitter! </h2>
+  </head>
+<h3> Got something to say? Peep it below! </h3>
+  <form action="/" method="post">
+    <input type="text" name="content" placeholder="content"/>
+    <input type="submit" value="Post Peep" />
+  </form>
+<h4> LOOK AT WHAT EVERYONE IS UP TO. NOW. BELOW. LOOK. SEE?!</h4>
+
+<% @peeps.each do |peep| %>
+<li> <%= peep %> </li>
+<% end %>
+</body>
+</html>

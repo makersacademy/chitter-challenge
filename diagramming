@@ -22,11 +22,11 @@ content
 
 ### SEQUENCE DIAGRAM
 
-client->controller: "get '/peeps/new' request"
-controller->views: "erb :peeps/new"
+client->controller: "get '/new' request"
+controller->views: "erb :/new"
 views->controller: "new.erb"
 controller->client: "new.html response"
-client->controller: "post /peeps request"
+client->controller: "post /peeps_display request"
 controller->model: ".create(with params)"
 model->db: "INSERT INTO peeps table"
 db->model: "RETURN peep"

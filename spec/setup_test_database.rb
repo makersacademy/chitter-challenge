@@ -1,10 +1,11 @@
 require 'pg'
 
+  p "setting up test database..."
+
 def setup_test_database
-p "setting up test database..."
 
-connection = PG.connect(dbname: 'peeps_test')
+  connection = PG.connect(dbname: 'chitter_test')
 
-# Clear the bookmarks table
-connection.exec("TRUNCATE bookmarks;")
+  # Clear the peeps table
+  connection.exec('TRUNCATE peeps;')
 end

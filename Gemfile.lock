@@ -15,8 +15,6 @@ GEM
       xpath (~> 3.2)
     diff-lcs (1.3)
     docile (1.3.2)
-    extlib (0.9.16)
-    highline (2.0.3)
     jaro_winkler (1.5.4)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
@@ -50,8 +48,6 @@ GEM
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-sinatra (0.1.2)
-      templater (>= 1.0.0)
     rspec-support (3.9.2)
     rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
@@ -75,10 +71,6 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
-    templater (1.0.0)
-      diff-lcs (>= 1.1.2)
-      extlib (>= 0.9.5)
-      highline (>= 1.4.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.10)
@@ -93,7 +85,6 @@ DEPENDENCIES
   capybara
   pg
   rspec
-  rspec-sinatra
   rubocop (= 0.79.0)
   simplecov
   simplecov-console
