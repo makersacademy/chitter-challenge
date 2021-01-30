@@ -88,6 +88,9 @@ Relationship:
 1 user can make many peeps
 Chitter can have many users
 
+## To Set up databases
+In psql run the code in the db/migrations folder
+
 
 Notes on functionality:
 ------
