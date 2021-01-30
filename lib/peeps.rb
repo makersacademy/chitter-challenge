@@ -1,11 +1,14 @@
 require 'pg'
+require 'Time'
+
 class Peeps
 
-  attr_reader :id, :peep
+  attr_reader :id, :peep, :time
 
-  def initialize(id:, peep:)
+  def initialize(id:, peep:, time: Time.now)
     @id = id
     @peep = peep
+    @time = time
   end
 
   def self.create(peep:)
@@ -14,8 +17,8 @@ class Peeps
     else
       connection = PG.connect(dbname: 'chitter_chatter')
     end
-    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep;")
-    Peeps.new(id: result[0]['id'], peep: result[0]['peep'])
+    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, time;").first
+    Peeps.new(id: result['id'], peep: result['peep'], time: Time.parse(result['time']))
   end
 
   def self.find(id:)
@@ -24,21 +27,19 @@ class Peeps
     else
       connection = PG.connect(dbname: 'chitter_chatter')
     end
-    result = connection.exec("SELECT * FROM peeps WHERE id = #{id};")
-    Peeps.new(id: result[0]['id'], peep: result[0]['peep'])
+    result = connection.exec("SELECT * FROM peeps WHERE id = #{id};").first
+    Peeps.new(id: result['id'], peep: result['peep'])
   end
 
   def self.all
-    all_peeps = []
     if ENV['Environment'] == 'test'
       connection = PG.connect(dbname: 'chitter_chatter_test')
     else
       connection = PG.connect(dbname: 'chitter_chatter')
     end
-    result = connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY id desc;")
     result.map do |peep|
-      all_peeps << Peeps.new(id: peep['id'], peep: peep['peep'])
+      Peeps.new(id: peep['id'], peep: peep['peep'])
     end
-    p all_peeps.reverse
   end
 end

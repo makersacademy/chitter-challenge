@@ -18,10 +18,5 @@ class Chitter < Sinatra::Base
     redirect ('/peeps')
   end
 
-  # get '/peep/:id' do
-  #   @peep = Peeps.find(id: params[:id])
-  #   redirect('/peeps')
-  # end
-
   run! if app_file == $0
 end

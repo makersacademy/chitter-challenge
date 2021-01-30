@@ -2,7 +2,9 @@
 <ul>
   <% @peeps.each do |peep| %>
   <li class='peep' id='peep-<%= peep.id %>'>
-  <%= peep.peep %>
+  <%= peep.peep%>
+  at
+  <%= peep.time.strftime("%H:%M")%>
   </li>
   <% end%>
 </ul>
