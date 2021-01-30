@@ -4,9 +4,9 @@ describe Peep do
         it 'should show the users peep' do 
         peeps = Peep.all 
 
-        expect(peeps).to include('peeps')
-        expect(peeps).to include('peeps')
-        expect(peeps).to include('peeps')
+        expect(peeps).to include('1 peep')
+        expect(peeps).to include('2 peep')
+        expect(peeps).to include('3 peep')
     end 
 end 
 end 
