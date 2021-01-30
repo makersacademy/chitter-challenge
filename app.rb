@@ -1,4 +1,6 @@
 require 'sinatra'
+require_relative "lib/peep"
+require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -6,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all.reverse
+    @peeps = Peep.all
   end
 
   run! if app_file == $0
