@@ -4,6 +4,8 @@ require 'capybara'
 require 'capybara/rspec'
 require './app.rb'
 
+require_relative 'db_helpers'
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -15,5 +17,7 @@ ENV['Rack ENV'] = 'test'
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-
+  config.before(:each) do
+    truncate_table(table: 'peep')
+  end
 end
