@@ -6,13 +6,12 @@ STRAIGHT UP
 As a Maker
 So that I can let people know what I am doing
 I want to post a message (peep) to Chitter
-
-| Nouns     | Verbs                  |
-| --------- | ---------------------- |
-| Chitter | (no verb) |
-| message (peep) | post (a message) |
-
 ```
+
+| Nouns          | Verbs            |
+| -------------- | ---------------- |
+| Chitter        |                  |
+| message (peep) | post (a message) |
 
 ![image](https://github.com/day-katy/chitter-challenge/blob/master/images/user_story_1_diagram.png?raw=true)
 
