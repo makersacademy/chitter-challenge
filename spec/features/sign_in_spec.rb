@@ -12,4 +12,14 @@ feature "Sign in" do
     expect(page).to have_content "Hi claude"
   end
 
+  scenario "prevents log in with incorrect password" do
+    visit('/')
+    connection = PG.connect(dbname: 'chitter_test')
+    user = User.create_user(username: 'claude', password: 'meow', email: 'petar@simonovic.com')
+    fill_in('username', :with => "claude" )
+    fill_in('password', :with => "purr" )
+    click_on("submit_1")
+    # expect(page).to have_content("Invalid password")
+  end
+
 end

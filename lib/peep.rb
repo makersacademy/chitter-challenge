@@ -32,6 +32,8 @@ class Peep
 
   def self.create(message:, sender:)
 
+    p sender
+
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
       else
