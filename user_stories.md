@@ -9,7 +9,7 @@ I want to post a message (peep) to Chitter
 
 | Nouns     | Verbs                  |
 | --------- | ---------------------- |
-| Chitter | ----------------------- |
+| Chitter | |
 | message (peep) | post (a message) |
 
 ```
