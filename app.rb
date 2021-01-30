@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
     end 
 
     post '/peeps' do 
-        params[:peep]
+        params[:peeps]
     end 
 
     get '/peeps/new' do 

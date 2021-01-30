@@ -2,9 +2,11 @@ require 'peeps'
 describe Peep do 
     describe '.all' do 
         it 'should show the users peep' do 
-        peep = Peep.all 
+        peeps = Peep.all 
 
-        expect(peep).to include('My first peep')
+        expect(peeps).to include('peeps')
+        expect(peeps).to include('peeps')
+        expect(peeps).to include('peeps')
     end 
 end 
 end 
