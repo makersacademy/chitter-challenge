@@ -27,4 +27,18 @@ class Peeps
     result = connection.exec("SELECT * FROM peeps WHERE id = #{id};")
     Peeps.new(id: result[0]['id'], peep: result[0]['peep'])
   end
+
+  def self.all
+    all_peeps = []
+    if ENV['Environment'] == 'test'
+      connection = PG.connect(dbname: 'chitter_chatter_test')
+    else
+      connection = PG.connect(dbname: 'chitter_chatter')
+    end
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map do |peep|
+      all_peeps << Peeps.new(id: peep['id'], peep: peep['peep'])
+    end
+    p all_peeps.reverse
+  end
 end

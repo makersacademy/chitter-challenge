@@ -5,6 +5,7 @@ require './lib/peeps'
 class Chitter < Sinatra::Base
 
   get '/peeps' do
+    @peeps = Peeps.all
     erb :show
   end
 
@@ -14,7 +15,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peeps.create(peep: params[:new_peep])
-    erb :show
+    redirect ('/peeps')
   end
 
   # get '/peep/:id' do

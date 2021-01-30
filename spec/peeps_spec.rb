@@ -25,4 +25,19 @@ describe Peeps do
       expect(returned_peep.peep).to eq 'First peep'
     end
   end
+
+  describe '.all' do
+    it 'returns all the peeps from the database' do
+      Peeps.create(peep: "First peep")
+      Peeps.create(peep: "Second peep")
+      peep = Peeps.create(peep: "Third peep")
+
+      peeps = Peeps.all
+
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peeps
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.peep).to eq peep.peep
+    end
+  end
 end
