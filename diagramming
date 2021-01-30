@@ -1,0 +1,37 @@
+### Domain Modelling
+
+User Story 1
+-------------
+
+As a Maker
+So that I can let people know what I am doing
+I want to post a message (peep) to chitter
+
+--------------
+### CLASS DIAGRAM
+
+CLASS: Peep
+Actions
+.create(content)
+
+### TABLE DIAGRAM
+
+Database Table (Peeps):
+id
+content
+
+### SEQUENCE DIAGRAM
+
+client->controller: "get '/peeps/new' request"
+controller->views: "erb :peeps/new"
+views->controller: "new.erb"
+controller->client: "new.html response"
+client->controller: "post /peeps request"
+controller->model: ".create(with params)"
+model->db: "INSERT INTO peeps table"
+db->model: "RETURN peep"
+model->controller: "'post /peeps'"
+controller->controller: "redirect 'get /peeps/:id'"
+controller->views: "erb :show"
+views->controller: "display.erb"
+controller->client: "show.html response"
