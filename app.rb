@@ -5,5 +5,9 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/peep' do
+    @peep = params[:peep]
+  end
+
   run! if app_file == $0
 end
