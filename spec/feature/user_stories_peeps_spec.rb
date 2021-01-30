@@ -34,3 +34,21 @@ feature 'seeing all peeps' do
     expect(first('.peep')).to have_content peep4.time.strftime("%H:%M")
   end
 end
+
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to sign up for Chitter
+feature 'Signing up to Chitter' do
+  scenario 'you need to sign up to post as yourself' do
+    visit('/')
+    click_button('Sign up')
+    fill_in('email', with: 'whatever@gmail.com')
+    fill_in('password', with: 'secret')
+    fill_in('name', with: 'Glykeria')
+    fill_in('username', with: 'Glykify')
+    click_button('Submit')
+
+    expect(current_path).to have_content('/peeps')
+    expect(page).to have_content('Glykify')
+  end
+end
