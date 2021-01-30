@@ -8,15 +8,14 @@
       What have you got to say for yourself?</textarea>
 </section>
 
-<% if @peep_content %>
-<li> <%= @peep_content %>
-</li>
-<% end %>
-
-
-
-
-
+<section class="peep_feed">
+  <ul>
+  <% Peep.all.each do |peep| %>
+    <%= peep.content %>
+    <br>
+  <% end %>
+  </ul>
+  </section>
 
 
 

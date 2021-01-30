@@ -4,12 +4,12 @@ require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/' do
-    @peep_content = params[:content]
     erb :index
   end
 
   post '/peeps' do
-    redirect "/?content=#{params[:content]}"
+    Peep.new_peep(params[:content])
+    redirect "/"
   end
 
 end
