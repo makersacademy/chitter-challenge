@@ -8,11 +8,13 @@ end
 
 feature "User sign up" do
   scenario "it allows a user to sin up for chitter" do
-    visit ('/homepage/sign_up')
-    fill_in("email", with:"sean@gmail.com")
-    fill_in("username", with:"Sean")
-    click_button("Sign Up")
+    visit '/homepage/sign_up'
 
+    fill_in('name', with: 'Sean Bean')
+    fill_in('email', with: 'sean@bean.com')
+    fill_in('password', with: 'Yorkshire')
+    fill_in('username', with: 'Sean')
+    click_button('Sign Up')
     expect(page).to have_content("Hello Sean welcome to Chitter")
   end
 end
