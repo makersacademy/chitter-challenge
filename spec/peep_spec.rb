@@ -11,6 +11,19 @@ describe '.all' do
     expect(peeps).to include "Salut!"
     expect(peeps).to include "Ca farte?"
   end
+
+  it 'returns a list of reversed peeps' do
+    connection = PG.connect(dbname: 'peep_manager_test')
+
+    # Add the test data
+    connection.exec("INSERT INTO peeps (peep) VALUES ('Salut!');")
+    connection.exec("INSERT INTO peeps (peep) VALUES('Ca farte?');")
+
+    peeps = Peep.all
+
+    expect(peeps.first).to eq "Ca farte?"
+    expect(peeps.last).to eq "Salut!"
+  end
 end
 
 describe '.create' do
