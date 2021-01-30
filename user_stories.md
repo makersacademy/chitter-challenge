@@ -5,11 +5,11 @@ STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing
-I want to post a message (peep) to chitter
+I want to post a message (peep) to Chitter
 
 | Nouns     | Verbs                  |
 | --------- | ---------------------- |
-| chitter | ----------------------- |
+| Chitter | ----------------------- |
 | message (peep) | post (a message) |
 
 ```
@@ -17,7 +17,7 @@ I want to post a message (peep) to chitter
 ![image](https://github.com/day-katy/chitter-challenge/blob/master/images/user_story_1_diagram.png?raw=true)
 
 ```
-As a maker
+As a Maker
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
@@ -39,5 +39,5 @@ I want to sign up for Chitter
 
 | Nouns     | Verbs                  |
 | --------- | ---------------------- |
-| chitter | sign up for an account with chitter |
+| Chitter | sign up for an account with chitter |
 ```
