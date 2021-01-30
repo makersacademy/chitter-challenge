@@ -39,6 +39,18 @@ User Story 1 - Peeps (posts to chitter) have the name of the maker and their use
 
 ```
 
-Database Instructions
+Database Instructions:
 
-Table Instructions
+1. Set up a Chitter Database & table
+  -- psql
+  -- CREATE DATABASE "chitter";
+  -- \c Chitter;
+  -- copy the query in db/migrations/01_create_chitter_table.sql into the psql command line
+
+2. Set up test Chitter Database
+  -- psql
+  -- CREATE DATABASE "chitter_test";
+  -- \c chitter_test;
+  -- copy the query in db/migrations/01_create_chitter_table.sql into the psql command line
+
+```
