@@ -1,3 +1,15 @@
+Setting up Chitter test and development databses:
+
+1. Connect to psql
+2. Create the test and dev databases using the psql command CREATE DATABASE
+3. Connect to the respective databases using the psql command \c chitter_manager;
+4. Run the queries we have saved in the files inside the migrations directory
+
+
+
+
+
+
 Chitter Challenge
 =================
 

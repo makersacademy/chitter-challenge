@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -6,18 +7,35 @@ class Chitter < Sinatra::Base
     erb :testing_index
   end
 
-  get "/add_peep" do
-    erb :peep
+  get '/' do
+    'Welcome to Chitter!'
   end
 
-  post "/newpeep" do
-    @peeps = params[:peep]
+  get "/peeps" do
+    # p @peeps
+    @peeps = Peep.all
     erb :post_peep
   end
 
-  get "/peep" do
-
+  get '/peeps/new' do
+    erb :new_peep
   end
+
+  post '/peeps' do
+    peep = params['peep']
+    connection = PG.connect(dbname: 'chitter_manager')
+    connection.exec("INSERT INTO peeps (message) VALUES ('#{peep}')")
+    redirect '/peeps'
+  end
+
+  # get "/add_peep" do
+  #   erb :peep
+  # end
+  #
+  # post "/newpeep" do
+  #   @message = params[:peep]
+  #   erb :post_peep
+  # end
 
   run! if app_file == $0
 
