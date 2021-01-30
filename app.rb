@@ -1,4 +1,5 @@
 require './lib/peep.rb'
+require './lib/users.rb'
 require 'sinatra/base'
 require './database_connection_setup'
 

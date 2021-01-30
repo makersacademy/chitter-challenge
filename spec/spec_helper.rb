@@ -15,10 +15,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
 Capybara.app = Chitter
-
-
 
 ENV["RACK_ENV"] = "test"
 ENV['ENVIRONMENT'] = 'test'
