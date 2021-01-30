@@ -21,4 +21,12 @@ class User
     username: result[0]['username'], password: result[0]['password'])
   end
 
+  def self.log_in(username:, password:)
+    result = DatabaseConnection.query(
+      "SELECT * FROM users WHERE username = '#{username}' and password = '#{password}';")
+
+    User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'],
+    username: result[0]['username'], password: result[0]['password'])
+  end
+
 end
