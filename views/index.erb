@@ -1,1 +1,26 @@
 <h1>Welcome to Chitter!</h1>
+<section class="write_peep">
+  <form action="/peeps" method="post" id="new_peep">
+    <label for="peep_content">Share your thoughts with the world:</label>
+    <input type="submit" value="Share">
+    </form>
+    <textarea name="content" form="new_peep" maxlength="280" rows="6" columns="80">
+      What have you got to say for yourself?</textarea>
+</section>
+
+<% if @peep_content %>
+<li> <%= @peep_content %>
+</li>
+<% end %>
+
+
+
+
+
+
+
+
+
+<footer>Made by Hugh Cavanagh as part of the Makers Academy Course.
+  See <a href="https://github.com/hacaravan/chitter-challenge">my Github repo</a>.
+    </footer>

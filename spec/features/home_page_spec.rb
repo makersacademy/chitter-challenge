@@ -4,4 +4,5 @@ feature 'Home Page' do
     visit('/')
     expect(page).to have_content('Welcome to Chitter!')
   end
+  
 end
