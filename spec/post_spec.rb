@@ -2,10 +2,7 @@ require "post"
 
 describe Post do 
 
-  xit "has text" do
-    post = Post.new("some text")
-    expect(post.text).to eq "some text"
-  end
+# I haven't written any code in Post, it's all through ActiveRecord!
 
 
 

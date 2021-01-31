@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get "/" do
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     erb :index
   end
 
