@@ -12,7 +12,7 @@ class User
     @email = email
   end
 
-  def self.create(name:, username:, email:, password:)
+  def self.create(name, username, email, password)
     # encrypt the password
     encrypted_password = BCrypt::Password.create(password)
 
@@ -26,10 +26,11 @@ class User
     User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
 
-  def self.authenticate(email:, password:)
+  def self.authenticate(email, password)
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
     return unless result.any?
-    
+    return unless BCrypt::Password.new(result[0]['password']) == password
+
     User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
 end

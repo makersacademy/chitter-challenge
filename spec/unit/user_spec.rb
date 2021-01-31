@@ -3,7 +3,7 @@ require 'database_helpers'
 describe User do
   context '.create' do
     it 'creates a new user' do
-      user = User.create(name: 'John Doe', username: 'JohnDoe', email: 'test@example.com', password: 'password123')
+      user = User.create('John Doe', 'JohnDoe', 'test@example.com', 'password123')
 
       persisted_data = persisted_data(table: :users, id: user.id)
 
@@ -15,13 +15,13 @@ describe User do
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('password123')
 
-      User.create(name: 'John Doe', username: 'JohnDoe', email: 'test@example.com', password: 'password123')
+      User.create('John Doe', 'JohnDoe', 'test@example.com', 'password123')
     end
   end
 
   context '.find' do
     it 'finds a user by ID' do
-      user = User.create(name: 'Test', username: 'Testing123', email: 'test@example.com', password: 'password123')
+      user = User.create('John Doe', 'JohnDoe', 'test@example.com', 'password123')
       result = User.find(id: user)
 
       expect(result.id).to eq user.id
@@ -35,16 +35,22 @@ describe User do
 
   context '.authenticate' do
     it 'returns a user given a correct username and password, if one exists' do
-      user = User.create(name: 'Test', username: 'Testing123', email: 'test@example.com', password: 'password123')
-      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+      user = User.create('Test', 'Testing123', 'test@example.com', 'password123')
+      authenticated_user = User.authenticate('test@example.com', 'password123')
 
       expect(authenticated_user.id).to eq user.id
     end
 
     it 'returns nil given an incorrect email address' do
-      user = User.create(name: 'Test', username: 'Testing123', email: 'test@example.com', password: 'password123')
+      user = User.create('Test', 'Testing123', 'test@example.com', 'password123')
 
-      expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
+      expect(User.authenticate('nottherightemail@me.com', 'password123')).to be_nil
     end
+
+    it 'returns nil given an incorrect password' do
+      user = User.create('Test', 'Testing123', 'test@example.com', 'password123')
+
+     expect(User.authenticate('test@example.com', 'wrongpassword')).to be_nil
+   end
   end
 end
