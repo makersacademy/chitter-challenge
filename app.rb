@@ -9,7 +9,11 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    erb(:peeps)
+    erb :peeps
+  end
+
+  get '/peeps/new' do
+    erb :"peeps/new"
   end
 
   # establish server if file run directly
