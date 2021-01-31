@@ -6,6 +6,7 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
+gem 'bcrypt'
 gem 'capybara'
 gem 'pg'
 gem 'rack'
