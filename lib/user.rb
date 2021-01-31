@@ -18,4 +18,9 @@ class User
     User.new(id: results['id'].to_i, name: results['name'], username: results['username'], password: results['password'], email_address: results['email_address'])
   end
 
+  def self.find_name(id)
+    results = DBConnection.query("select * from chitterer where id = #{id}").first
+    results['name']
+  end
+
 end
