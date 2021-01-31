@@ -1,4 +1,5 @@
-
+<% if session[:session_user_id] %>
+  Welcome, <%= @user.username %>
 
   <form action="/new_post" method="post">
     <br/>
@@ -12,10 +13,9 @@
   <br/>
 
 
-<% if session[:session_user_id] %>
-  Welcome, <%= @user.username %>
 
-<% end %>
+
+<% else %>
 
   <form action="/new_user">
     <input type="submit" value="Join Chitter"/>
@@ -27,6 +27,8 @@
   </form>
   <br/>
 
+  <% end %>
+
 
 <% if @posts %>
   <% @posts.each do |post| %>
@@ -35,8 +37,8 @@
     <div class="post" style="width: 320px; word-wrap: break-word; border: 1px solid black; background-color: honeydew">
     <%= post.text %>
     </div>
-    <%= post.author_name %>
-    <%= post.created_at.strftime("%k:%M") %>
+    Peeped by <%= post.author_name %> at 
+    <%= post.created_at.strftime("%k:%M, %e %b %Y") %>
     <br/>
     <br/>
   <% end %>

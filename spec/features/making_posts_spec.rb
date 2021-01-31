@@ -1,12 +1,9 @@
 feature "posting" do 
 
   scenario "making a post" do
-    visit "/"
-
-    fill_in "post[author_name]", with: "Author name"
-    fill_in "post[text]", with: "writing a peep"
-
-    click_button "Peep!"
+    go_to_index_page_and_register_a_new_user
+    successful_sign_in
+    submit_a_post
     new_post = Post.last
 
     expect(new_post.author_name).to eq "Author name"
@@ -18,15 +15,10 @@ feature "posting" do
   end
 
   scenario "see posts in reverse chronological order" do
-    visit "/"
-
-    fill_in "post[author_name]", with: "Author name"
-    fill_in "post[text]", with: "writing a peep"
-    click_button "Peep!"
-
-    fill_in "post[author_name]", with: "someone else"
-    fill_in "post[text]", with: "second peep"
-    click_button "Peep!"
+    go_to_index_page_and_register_a_new_user
+    successful_sign_in
+    submit_a_post
+    submit_another_post
 
     expect(first(".post")).to have_content "second peep"
     expect(page).to have_content "writing a peep"
