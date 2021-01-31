@@ -16,7 +16,9 @@ class DBConnection
 
   def self.insert(table:, columns:, values:)
     @connection.prepare('insert_statement', prepare_sql_string(table, columns, values))
-    @connection.exec_prepared('insert_statement', values)
+    results = @connection.exec_prepared('insert_statement', values)
+    DBConnection.query('DEALLOCATE insert_statement')
+    results
   end
 
   def self.prepare_sql_string(table, columns, values)

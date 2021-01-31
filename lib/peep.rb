@@ -11,7 +11,6 @@ class Peep
 
   def self.new_peep(content)
     results = DBConnection.insert(table: 'peep', columns: ['content'], values: [content]).first
-    p results
     Peep.new(results['id'].to_i, results['content'])
   end
 
