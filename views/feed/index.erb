@@ -6,23 +6,28 @@
   <%= flash[:notice] %>
 </h2>
 
-<form action="/sessions/new" method="get">
-  <input type="submit" value="Sign in" />
-</form>
+<% if !@user %>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Sign in" />
+  </form>
 
-<form action="/users/new" method="get">
-  <input type="submit" value="New account" />
-</form>
+  <form action="/users/new" method="get">
+    <input type="submit" value="New account" />
+  </form>
+<% end %>
 
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out" />
-</form>
+<% if @user %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
 
-<form action='/feed' method='post'>
-  Your peep:
-  <input type='text' name='peep' />
-  <input type="submit" value="Post" />
-</form>
+  <form action='/feed' method='post'>
+    Your peep:
+    <input type='text' name='peep' />
+    <input type="submit" value="Post" />
+  </form>
+<% end %>
+
 
 <ul>
   <% @peeps.reverse_each do |peep| %>
