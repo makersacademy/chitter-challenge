@@ -1,13 +1,17 @@
 require "sinatra/base"
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
-  get "/" do 
+
+  get "/" do
+    @post = session[:post]
     erb :index
   end
 
   post "/new_post" do
-    "writing a peep"
+    session[:post] = params["text"]
+    redirect "/"
   end
 
 

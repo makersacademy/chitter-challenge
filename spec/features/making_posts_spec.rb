@@ -4,6 +4,7 @@ feature "posting" do
     visit "/"
     fill_in "text", with: "writing a peep"
     click_button "Peep!"
+    expect(current_path).to eq "/"
     expect(page).to have_content "writing a peep"
   end
 
