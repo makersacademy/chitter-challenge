@@ -13,9 +13,13 @@ describe DBConnection do
       expect(described_class.connection).to eq connection
     end
   end
-  #
-  # describe '.query' do
-  #
-  # end
+
+  describe '.query' do
+    it 'performs a query on the database we have set up' do
+      connection = DBConnection.setup('chitter_test')
+      expect(connection).to receive(:exec).with('select * from peep')
+      described_class.query('select * from peep')
+    end
+  end
 
 end
