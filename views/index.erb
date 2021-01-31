@@ -1,5 +1,7 @@
-<h1>Welcome to Chitter</h1>
-
+<div style = "display: flex; margin: 20px;">
+  <h1>Welcome to Chitter</h1>
+  <img src="https://lh3.googleusercontent.com/rfMFZ_EBNBCJm8y_mAcJ52aJpNfTXBDinNwvNrtOyz_79LNzOcsoMPzyHMsU2YzJaj0=s85" style="display:inline;">
+</div>
 <form action="/peeps" method = 'post'>
   <label for="peep">
     New Peep:
@@ -9,6 +11,13 @@
 </form>
 
 <br>
-<% @peep.each do |peep| %>
-  <li> <%= peep[:peep] %> [<%= peep[:time] %>] </li>
-<% end %>
+<div style="display: flex; justify-content: center;
+    align-items: center; height: 500px;">
+  <div style="">
+    <% @peep.each do |peep| %>
+      <div style="border: 1px solid red; padding: 20px;"> 
+        <%= peep[:peep] %> [<%= peep[:time] %>]
+      </div>
+    <% end %>
+  </div>
+</div>
