@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
     'Test page. Web infrastructure working'
   end
 
+  # current homepage for Chitter 
   get '/' do
     @peep = Peeps.peep_list
     erb :index

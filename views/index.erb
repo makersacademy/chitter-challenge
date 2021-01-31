@@ -1,21 +1,26 @@
+<!-- page header div -->
 <div style = "display: flex; margin: 20px;">
   <h1>Welcome to Chitter</h1>
-  <img src="https://lh3.googleusercontent.com/rfMFZ_EBNBCJm8y_mAcJ52aJpNfTXBDinNwvNrtOyz_79LNzOcsoMPzyHMsU2YzJaj0=s85" style="display:inline;">
+  <img src="https://lh3.googleusercontent.com/rfMFZ_EBNBCJm8y_mAcJ52aJpNfTXBDinNwvNrtOyz_79LNzOcsoMPzyHMsU2YzJaj0=s85">
 </div>
-<form action="/peeps" method = 'post'>
-  <label for="peep">
-    New Peep:
-  </label>
-  <input type="text" name='peep'>
-  <button type='submit' name='Peep'>Peep</button>
-</form>
-
-<br>
+<!-- submit peep div -->
+<div>
+  <form action="/peeps" method = 'post'>
+    <label for="peep">
+      New Peep:
+    </label>
+    <br>
+    <input type="text" name='peep'>
+    <button type='submit' name='Peep'>Peep</button>
+  </form>
+</div>
+<!-- posted peeps div  -->
+<!-- aligned for the center of the page -->
 <div style="display: flex; justify-content: center;
     align-items: center; height: 500px;">
-  <div style="">
+  <div>
     <% @peep.each do |peep| %>
-      <div style="border: 1px solid red; padding: 20px;"> 
+      <div style="border: 1px solid red; padding: 20px;">
         <%= peep[:peep] %> [<%= peep[:time] %>]
       </div>
     <% end %>

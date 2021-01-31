@@ -11,6 +11,7 @@ class Peeps
                 PG.connect(dbname: 'Chitter')
               end
 
+  # posting peep method
   def self.post_peep(peep)
     time = Time.now.strftime("%k:%M %d/%m/%Y")
     @database.exec("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}')")
