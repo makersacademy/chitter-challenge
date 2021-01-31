@@ -1,4 +1,3 @@
-
 require 'pg'
 
 class Peep
@@ -13,12 +12,22 @@ class Peep
 
   def self.all_peeps
     result = DatabaseConnection.query("SELECT id, username, peep, time
-    FROM peeps ORDER BY time DESC")
+      FROM peeps ORDER BY time DESC")
     result.map do |peep|
       Peep.new(id: peep['id'],
-                username: peep['username'],
-                peep: peep['peep'],
-                time: peep['time'])
+        username: peep['username'],
+        peep: peep['peep'],
+        time: peep['time'])
     end
+  end
+
+  def self.new_peep(username:, peep:)
+    result = DatabaseConnection.query("INSERT INTO peeps (username, peep, time)
+      VALUES('#{username}', '#{peep}', 'now()')
+      RETURNING id, username, peep, time;")
+    Peep.new(id: result[0]['id'],
+      username: result[0]['username'],
+      peep: result[0]['peep'],
+      time: result[0]['time'])
   end
 end
