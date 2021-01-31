@@ -8,12 +8,13 @@ class Chitter < Sinatra::Base
     end
 
     get '/peeps' do
-        @peeps = Peep.all
+        @peeps = Peep.all.reverse
         erb :'peeps/list'
     end
 
     post '/peeps' do
-        params['message']
+        Peep.post(message: params['message'])
+        redirect '/peeps'
     end
 
     get '/peeps/new' do
