@@ -7,7 +7,7 @@ feature 'adding a new_peep' do
   end
 
   scenario 'you can see the time of your peep' do
-    time_match = Peep.new_peep(user_id: 4, peep: 'dummy peep')
+    time_match = Peep.new_peep(username: 'charliecodes', peep: 'dummy peep')
     visit('/')
     fill_in('peep', with: 'Time checking peep')
     click_button('Tell The World')

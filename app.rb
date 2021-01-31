@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post('/new-peep') do
-    Peep.new_peep(user_id: params[:id], peep: params[:peep])
+    Peep.new_peep(username: session[:current_username], peep: params[:peep])
     redirect('/')
   end
 
@@ -27,6 +27,15 @@ class Chitter < Sinatra::Base
                   firstname: params[:firstname],
                   secondname: params[:secondname],
                   email: params[:email])
+    redirect('/')
+  end
+
+  get('/sign-in') do
+    erb(:sign_in)
+  end
+
+  post('/sign-in') do
+    Users.sign_in(username: params[:username])
     redirect('/')
   end
 end

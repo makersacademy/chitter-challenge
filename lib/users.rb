@@ -12,8 +12,11 @@ class Users
   def self.all_members
     result = DatabaseConnection.query("SELECT * FROM users")
     result.map do |user|
-      Users.new(id: user['id'], username: user['username'], firstname: user['firstname'],
-               secondname: user['secondname'], email: user['email'])
+      Users.new(id: user['id'],
+                username: user['username'],
+                firstname: user['firstname'],
+                secondname: user['secondname'],
+                email: user['email'])
     end
   end
 
@@ -22,9 +25,16 @@ class Users
                                        VALUES('#{username}', '#{firstname}', '#{secondname}', '#{email}')
                                        RETURNING id, username, firstname, secondname, email;")
     Users.new(id: result[0]['id'],
-             username: result[0]['username'],
-             firstname: result[0]['firstname'],
-             secondname: result[0]['secondname'],
-             email: result[0]['email'])
+              username: result[0]['username'],
+              firstname: result[0]['firstname'],
+              secondname: result[0]['secondname'],
+              email: result[0]['email'])
   end
+
+  def self.sign_in(username:)
+    result = DatabaseConnection.query("SELECT * FROM users
+                                       WHERE username = '#{username}'")
+    result.count > 0 ? false : @username = username
+  end 
+
 end
