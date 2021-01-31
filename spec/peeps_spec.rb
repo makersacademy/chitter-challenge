@@ -20,7 +20,6 @@ describe Peeps do
     it 'will print peeps in reverse chronological order' do
       Peeps.post_peep('First Peep')
       Peeps.post_peep('Second Peep')
-      p Peeps.peep_list
       expect(Peeps.peep_list[0][:peep]).not_to eq 'First Peep'
     end
   end

@@ -16,6 +16,6 @@ class Peeps
 
   def self.peep_list
     result = @database.exec('SELECT * FROM peeps')
-    result.map { |peep| { peep: peep['peep'] } }
+    (result.map { |peep| { peep: peep['peep'] } }).reverse
   end
 end
