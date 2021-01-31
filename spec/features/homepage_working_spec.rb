@@ -1,5 +1,5 @@
 feature "welcome message" do
-  scenario "when on the home" do
+  scenario "user visits homepage" do
   
     visit('/')
     expect(page).to have_content("Welcome to Chitter")
