@@ -1,7 +1,9 @@
 <form action="/new_post" method="post">
   What are you thinking?
-  <br>
+  <br/>
 <textarea name="text" cols="40" rows="5" maxlength="280" style="border: 2px solid black; resize: none"></textarea>
+<br/>
+My name: <input type="text" name="author">
 <br/>
 <input type="submit" value="Peep!"/>
 
@@ -10,3 +12,4 @@
 <div class="post" style="width: 320px; word-wrap: break-word; border: 1px solid black">
 <%= session[:post] %>
 </div>
+<%= session[:author] %>
