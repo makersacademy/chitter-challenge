@@ -10,12 +10,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peep = session[:peep]
     erb :index
   end
 
   post '/peeps' do
-    @peep = params[:peep]
-    erb :peeps
+    session[:peep] = params[:peep]
+    redirect '/'
   end
 
 end
