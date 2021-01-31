@@ -28,11 +28,13 @@ describe Peep do
     end
 
     it 'has the right content' do
-      expect(new_peep.content).to eq content
+      expect(added_data['content']).to eq content
     end
 
     it 'has a time stamp for when it was posted' do
-      expect(new_peep.posted_time_stamp).to eq time_stamp
+      p time_stamp
+      p Time.parse(added_data['posted'])
+      expect(Time.parse(added_data['posted'])).to eq time_stamp
     end
 
   end

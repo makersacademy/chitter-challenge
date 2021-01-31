@@ -11,14 +11,21 @@
 
 <section class="peep_feed">
   <ul>
-  <% Peep.all.reverse.each do |peep| %>
-    <%= peep.content %>
-    <br>
-  <% end %>
-  </ul>
+    <% Peep.all.reverse.each do |peep| %>
+      <div class="peep_<%= peep.id %>">
+        <div class="content">
+          <%= peep.content %>
+          </div>
+        <div class="posted_time_stamp">
+          <%= peep.posted_time_stamp.strftime("%d/%m/%Y %H:%M") %>
+          </div>
+        <br>
+        </div>
+    <% end %>
+    </ul>
   </section>
 
-  
+
 
 <footer>Made by Hugh Cavanagh as part of the Makers Academy Course.
   See <a href="https://github.com/hacaravan/chitter-challenge">my Github repo</a>.
