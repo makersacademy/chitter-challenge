@@ -12,32 +12,29 @@ Ruby w/ Sinatra and PostreSQL. Tested using RSpec and Capybara.
 
 ## How to use ##
 
-#### Clone repo
+#### Download repo and install packages
 
-```
-git clone https://github.com/Reeshul/chitter-challenge
-```
+1. Clone repo `https://github.com/Reeshul/chitter-challenge`
+2. Change directory `cd chitter-challenge`
+3. Install gems `bundle`
 
-#### Change directory
+#### Development Database Setup
 
-```
-cd chitter-challenge
-```
+1. Connect to psql `psql`
+2. Create a development database `CREATE DATABASE message_manager;`
+3. Connect to the database `\c message_manager;`
+4. Run the commands in the `db/migrations` directory
+5. Exit psql `\q`
 
-#### Install gems
+To run the tests a test database will also need to be set up. Similar steps but a "_test" is appended to the name of the database.
 
-```
-bundle
-```
+#### Test Database Setup
 
-#### Setup Database
-
-1. Connect to psql using the command `psql`
-2. Create a development database using the psql command `CREATE DATABASE chitter;`
-3. Connect to the database using the psql command `\c message_manager;`
-4. Run `CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(300));`
-5. Run `ALTER TABLE messages ADD COLUMN date_time_stamp TIMESTAMP;`
-6. Run `ALTER TABLE messages ALTER COLUMN date_time_stamp SET DEFAULT now();`
+1. Connect to psql `psql`
+2. Create a development database `CREATE DATABASE message_manager_test;`
+3. Connect to the database `\c message_manager_test;`
+4. Run the commands in the `db/migrations` directory
+5. Exit psql `\q`
 
 #### Run local server
 
