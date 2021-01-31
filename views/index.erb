@@ -1,6 +1,13 @@
 
 
 <h1>Welcome to Chitter<%= " #{User.find_name(@user_id)}" if @user_id %>!</h1>
+
+<section class="go_to_signup">
+  <form action="/users/new" method="get" id="signup">
+    <input type="submit" value="Sign up for Chitter">
+    </form>
+  </section>
+
 <section class="write_peep">
   <form action="/peeps" method="post" id="new_peep">
     <label for="peep_content">Share your thoughts with the world:</label>
