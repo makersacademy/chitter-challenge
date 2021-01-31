@@ -72,3 +72,23 @@ feature 'Logging in to Chitter' do
     expect(current_path).to have_content('/peeps')
   end
 end
+
+# As a Maker
+# So that I can avoid others posting messages on Chitter as me
+# I want to log out of Chitter
+feature 'Logging out of Chitter' do
+  scenario 'so that no one posts as me, I want to log out' do
+    user = User.create(email: 'think@yahoo.com', password: 'secret', name: 'Zelda', username: 'dog')
+    visit('/')
+    click_button('Log in')
+    fill_in('email', with: 'think@yahoo.com')
+    fill_in('password', with: 'secret')
+    click_button('Submit')
+
+    expect(current_path).to have_content('/peeps')
+
+    click_button('Log out')
+    expect(current_path).to have_content('/sessions/end')
+    expect(page).to have_content("You have logged out of Chitter.")
+  end
+end
