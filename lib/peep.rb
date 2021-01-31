@@ -40,7 +40,8 @@ class Peep
     end
 
     date = "#{Time.new.year}-#{Time.new.month}-#{Time.new.day}"
-    time = "#{Time.new.hour}:#{Time.new.min}"
+    time = "#{Time.new.hour}#{Time.new.min}"
+    message.gsub!("'","''")
 
     result = connection.exec("INSERT INTO peeps (date, time, message, sender) VALUES('#{date}', '#{time}', '#{message}', '#{sender}') RETURNING id, date, time, message, sender;")
     peep = Peep.new(id: result[0]['id'], date: result[0]['date'], time: result[0]['time'], message: result[0]['message'], sender: result[0]['sender'])

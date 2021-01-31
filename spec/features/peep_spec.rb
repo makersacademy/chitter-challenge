@@ -22,4 +22,12 @@ feature "It can add a new peep" do
     expect(page).to have_content("This is a test")
   end
 
+  scenario "it can hadndle apostrophes" do
+    visit('/chitter')
+    click_on("peep")
+    fill_in("peep", with: "This isn't funny anymore")
+    click_on("send")
+    expect(page).to have_content("This isn't funny anymore")
+  end
+
 end
