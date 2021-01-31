@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'capybara'
+gem 'pg'
 gem 'sinatra'
 gem 'thin'
 

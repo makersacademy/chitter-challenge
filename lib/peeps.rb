@@ -1,3 +1,5 @@
+require 'pg'
+
 # class for peep object
 class Peeps
 
