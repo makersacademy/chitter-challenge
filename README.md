@@ -26,7 +26,7 @@ Ruby w/ Sinatra and PostreSQL. Tested using RSpec and Capybara.
 7. Run the commands in the `db/migrations` directory
 8. Exit psql `\q`
 
-To run the tests a test database will also need to be set up. Similar steps but a "_test" is appended to the name of the database.
+To run the tests a test database will also need to be set up.
 
 #### Test Database Setup
 
