@@ -88,7 +88,6 @@ feature 'Logging out of Chitter' do
     expect(current_path).to have_content('/peeps')
 
     click_button('Log out')
-    expect(current_path).to have_content('/sessions/end')
     expect(page).to have_content("You have logged out of Chitter.")
   end
 end

@@ -50,8 +50,10 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
-  get '/sessions/end' do
-    erb :'sessions/end'
+  post '/logout' do
+    session.clear
+    flash[:notice] = "You have logged out of Chitter."
+    redirect('/')
   end
 
   post '/sessions' do
