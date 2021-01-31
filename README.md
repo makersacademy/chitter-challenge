@@ -45,6 +45,6 @@ bundle
 ruby app.rb
 ```
 
-#### Check out the app
+#### Open app
 
 Open browser and head to `http://localhost:4567`
