@@ -31,10 +31,11 @@ class Users
               email: result[0]['email'])
   end
 
-  def self.sign_in(username:)
-    result = DatabaseConnection.query("SELECT * FROM users
-                                       WHERE username = '#{username}'")
-    result.count > 0 ? false : @username = username
-  end 
+  # def self.sign_in(username:)
+  #   result = DatabaseConnection.query("SELECT * FROM users
+  #                                      WHERE username = '#{username}'")
+  #   p result
+  #   result.count > 0 ? false : @username = username
+  # end 
 
 end

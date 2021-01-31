@@ -35,7 +35,16 @@ class Chitter < Sinatra::Base
   end
 
   post('/sign-in') do
-    Users.sign_in(username: params[:username])
+    session[:current_username] = params[:username]
     redirect('/')
   end
+
+  get('/sign-out') do 
+    erb(:sign_out)
+  end 
+
+  post('/sign-out') do 
+    session[:current_username] = nil
+    redirect('/')
+  end 
 end
