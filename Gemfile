@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.0'
 
+gem 'bcrypt'
 gem 'sinatra'
 
 group :test do
