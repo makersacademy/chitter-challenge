@@ -22,5 +22,11 @@ describe Peeps do
       Peeps.post_peep('Second Peep')
       expect(Peeps.peep_list[0][:peep]).not_to eq 'First Peep'
     end
+
+    it 'shows the time of the posted peep' do
+      Peeps.post_peep('Posted at;')
+      time = Time.now
+      expect(Peeps.peep_list[0][:time]).to eq time.strftime("%k:%M %d/%m/%Y")
+    end
   end
 end
