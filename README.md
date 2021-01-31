@@ -97,15 +97,16 @@ Methods:
    - sorts peeps into reverse chronological order
 
 
-- create
+- create(message: sender:)
   - creates a new peep
   - generates date and time
+  - replaces single apostrophes with double apostrophes (otherwise SQL won't accept them)
 
 **Class - user**
 
 Methods:
 
-- create_user(username:, password:, email:)
+- create_user(username:, password:)
   - creates a new user
 
 - check_password(password:)
@@ -115,4 +116,3 @@ Methods:
 - find_user(username:)
   - searches peeps table for username:
   - returns true or false
-  
