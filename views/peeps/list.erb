@@ -1,1 +1,5 @@
-<%= @peeps.join('<br>') %>
+<% @peeps.each do |peep| %>
+    <%= peep.date %>
+    <%= peep.time %>
+    <%= peep.message %><br>
+<% end %>
