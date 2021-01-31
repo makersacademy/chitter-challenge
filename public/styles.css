@@ -1,0 +1,64 @@
+body {
+  background-color: #ffcf20;
+}
+
+form {
+  top: 50px;
+  position: relative;
+  max-height: 4em;
+  width: 100%;
+  height: 100%;
+  max-width: 25em;
+  left: 25px;
+  max-width: calc(50% - (-50% / 2));
+  margin: 5px;
+}
+
+#message_input_field {
+  border-radius: 10px;
+  height: 50px;
+  text-align: center;
+  width: 80%;
+  max-width: calc(50% - (-50% / 2));
+  margin: 5px;
+}
+
+#post_submission_button {
+  height: 25px;
+  border-radius: 50px;
+  margin: 5px;
+  max-width: calc(50% - (-50% / 2));
+  padding: 0 15px;
+  margin-left: 15px;
+}
+
+.post {
+  position: relative;
+  height: 66px;
+  top: 75px;
+  left: 25px;
+  border: 5px solid #c7a424;
+  width: 100%;
+  max-width: calc(50% - (-50% / 2));
+  margin: 5px;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+.page-title {
+  position: relative;
+  max-height: 4em;
+  width: 100%;
+  height: 100%;
+  left: 50px;
+  max-width: calc(50% - (-50% / 2));
+  margin: 5px;
+  font-size: 48px;
+  top: 24px;
+}
