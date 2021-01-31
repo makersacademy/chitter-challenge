@@ -108,12 +108,18 @@ span.water {
 <body>
 
 <div class="chitter-challenge">
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
 <h1> Chitter </h1>
 
-<form method="post" action="/users">
-  <input type="email" name="email" placeholder="Email">
-  <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="Submit">
+<form action="/sessions" method="post">
+  <input type="email" name="email" placeholder="Email"/>
+  <input type="password" name="password" placeholder="Password"/>
+  <input type="submit" value="Sign in"/>
 </form>
 
+
+</div>
 </body>

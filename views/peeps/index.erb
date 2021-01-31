@@ -109,9 +109,23 @@ span.water {
 
 <div class="chitter-challenge">
 
-<h1>Welcome to Chitter!</h1>
+<h1>Chitter!</h1>
 <hr>
 
+<% if @user %>
+  <h2>Greetings, <%= @user.email %></h2>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+  <% else %>
+  <form action="/users/new" method="get">
+  <input type="submit" value="Sign Up" >
+  </form>
+  <form action="/sessions/new" method="get">
+    <input class="sign_in" type="submit" value="Sign in" />
+    </form>
+
+<% end %>
 
 
 <ul>
@@ -131,6 +145,9 @@ span.water {
 
 
 
+<h2>
+  <%= flash[:notice] %>
+</h2>
 
 </div>
 </body>
