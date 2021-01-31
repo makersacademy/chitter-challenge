@@ -10,8 +10,5 @@ class DBConnection
     @connection
   end
 
-  # def self.query(sql_string)
-  #
-  # end
 
 end

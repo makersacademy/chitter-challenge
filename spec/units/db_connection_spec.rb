@@ -9,7 +9,7 @@ describe DBConnection do
 
   describe '.connection' do
     it 'is a persistent connection' do
-      connection = described_class.setup
+      connection = described_class.setup('chitter_test')
       expect(described_class.connection).to eq connection
     end
   end
