@@ -12,7 +12,8 @@ class Peeps
               end
 
   def self.post_peep(peep)
-    @database.exec("INSERT INTO peeps (peep, time) VALUES('#{ peep }', '#{Time.now.strftime("%k:%M %d/%m/%Y")}')")
+    time = Time.now.strftime("%k:%M %d/%m/%Y")
+    @database.exec("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}')")
   end
 
   def self.peep_list
