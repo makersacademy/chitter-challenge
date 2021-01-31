@@ -1,5 +1,17 @@
+# required gems
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara-rspec'
+
+# require controller file
+require 'app'
+
+# set rack environment
+ENV['RACK_ENV'] = 'test'
+
+# Tell capybara to talk to Chitter
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
