@@ -2,7 +2,13 @@
 <ul>
   <% @peeps.each do |peep| %>
   <li class='peep' id='peep-<%= peep.id %>'>
-    <a><%= peep.peep %>  <%= peep.time.strftime(" at %H:%M") %></a>
+    <a><%= peep.peep %> @<%= @username %> <%= peep.time.strftime(" at %H:%M") %></a>
   </li>
   <% end%>
 </ul>
+
+
+<form  action="/peeps" method="post">
+  <input type="text" name="new_peep" >
+  <input type="submit" value="Peep away">
+</form>

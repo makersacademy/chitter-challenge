@@ -29,4 +29,16 @@ describe User do
       expect(user.username).to eq 'dog'
     end
   end
+
+  describe '.authenticate' do
+    it 'authenticates the user that signs in' do
+      user = User.create(email: 'think@yahoo.com', password: 'secret', name: 'Zelda', username: 'dog')
+      id = user.id
+      check_user = User.authenticate(email: 'think@yahoo.com', password: 'secret')
+
+      expect(check_user).to be_a User
+      expect(check_user.id).to eq id
+      expect(check_user.name).to eq 'Zelda'
+    end
+  end
 end

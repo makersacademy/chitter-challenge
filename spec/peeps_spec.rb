@@ -1,10 +1,12 @@
 require 'peeps'
+require 'user'
 require 'persisted_data'
 
 describe Peeps do
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peeps.create(peep: "First peep")
+      user = User.create(email: 'think@yahoo.com', password: 'secret', name: 'Zelda', username: 'dog')
+      peep = Peeps.create(peep: "First peep", user_id: user.id)
       id = peep.id
       persisted_data = persisted_data(table: 'peeps', id: id)
 
@@ -16,9 +18,10 @@ describe Peeps do
 
   describe '.all' do
     it 'returns all the peeps from the database' do
-      Peeps.create(peep: "First peep")
-      Peeps.create(peep: "Second peep")
-      peep = Peeps.create(peep: "Third peep")
+      user = User.create(email: 'think@yahoo.com', password: 'secret', name: 'Zelda', username: 'dog')
+      Peeps.create(peep: "First peep", user_id: user.id)
+      Peeps.create(peep: "Second peep", user_id: user.id)
+      peep = Peeps.create(peep: "Third peep", user_id: user.id)
 
       peeps = Peeps.all
 
