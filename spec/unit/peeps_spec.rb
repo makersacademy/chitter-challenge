@@ -16,6 +16,7 @@ describe ".all" do
     expect(messages).to include("Hey there!")
     expect(messages).to include("Blueberries")
     expect(messages).to include("Blue")
+
   end
   
 end

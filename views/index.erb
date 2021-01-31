@@ -15,11 +15,13 @@
       <input type="submit" value="Post" id="post_submission_button" />
     </form>
     <% if @messages %>
-      <% @messages.each do |post| %>
-        <div class="post">
-          <%= post %>
-        </div>
-      <% end %>
+      <div id="peeps">
+        <% @messages.each do |post| %>   
+          <div class="post">
+            <%= post %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </body>
 </html>
