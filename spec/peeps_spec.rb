@@ -12,7 +12,7 @@ describe Peeps do
   describe '.add_peep' do
     it 'will add a peep to the list of peeps' do
       Peeps.post_peep('Hello world')
-      expect(Peeps.peep_list).to include('Hello world')
+      expect(Peeps.peep_list.first).to include('Hello world')
     end
   end
 

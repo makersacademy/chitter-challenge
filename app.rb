@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/peeps'
+
 # The main Chitter class for the app
 class Chitter < Sinatra::Base
   enable :sessions
