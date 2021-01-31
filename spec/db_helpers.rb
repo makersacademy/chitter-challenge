@@ -1,11 +1,11 @@
 require 'pg'
 
 def persisted_data(id:, table:)
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.query("Select * from #{table} where id = #{id}")
+  DBConnection.setup('chitter_test')
+  DBConnection.query("Select * from #{table} where id = #{id}")
 end
 
 def truncate_table(table:)
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.query("delete from #{table}")
+  DBConnection.setup('chitter_test')
+  DBConnection.query("delete from #{table}")
 end
