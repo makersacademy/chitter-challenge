@@ -5,4 +5,8 @@
 </form>
 
 <br>
-<h2> <%= @peeps.each { |peep| puts peep }%> </h2>
+<ul>
+  <% @peeps.each do |peep| %>
+<li> <%= peep %> </li>
+   <% end %>
+ </ul>
