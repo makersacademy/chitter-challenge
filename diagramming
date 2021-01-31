@@ -30,11 +30,58 @@ controller->views: "erb: /"
 views->controller: "index.erb (displays all peeps)"
 controller->client: "new.html response" (client displays all peeps to user)
 client->controller: "post / request" (user wants to create a new peep)
-controller->model: ".create(with params)"
-model->db: "INSERT INTO peeps table"
+controller->model: ".create(content)"
+model->db: "INSERT INTO peeps content VALUES (content)"
 db->model: "RETURN peep"
-model->controller: "'post /peeps'"
-controller->controller: "redirect 'get /peeps/:id'"
-controller->views: "erb :show"
-views->controller: "display.erb"
-controller->client: "show.html response"
+
+User Story 2
+-------------
+
+As a maker
+So that I can see what others are saying
+I want to see all peeps in reverse chronological order
+
+--------------
+### CLASS DIAGRAM
+
+CLASS: Peep
+Actions
+.all (reverse)
+.create(content)
+
+### TABLE DIAGRAM
+
+Database Table (Peeps):
+id
+content
+
+### SEQUENCE DIAGRAM
+
+client->controller: "get '/' request"
+controller->model: ".all (additional reverse method applied to peeps)"
+model->controller: "returns all peeps in current db assigned to variable @peeps"
+controller->views: "erb: /"
+views->controller: "index.erb (displays all peeps)"
+controller->client: "new.html response" (client displays all peeps to user in reverse chronological order)
+
+User Story 3
+-------------
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+--------------
+### CLASS DIAGRAM
+
+CLASS: Peep
+Actions
+.all (reverse)
+.create(content, time)
+
+### TABLE DIAGRAM
+
+Database Table (Peeps):
+id
+content
+time

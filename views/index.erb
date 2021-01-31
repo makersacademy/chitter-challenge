@@ -1,7 +1,7 @@
 <head>
 <body style="background-color:#89BD9E; text-align:center">
   <style>
-    .button {
+    .form {
       background-color: #8B1E3F;
       border: none;
       color: #F0C987;
@@ -23,8 +23,10 @@
   </form>
 <h4> LOOK AT WHAT EVERYONE IS UP TO. NOW. BELOW. LOOK. DO IT!</h4>
 
+<!-- <div id='peepbox' class='peepbox'> -->
 <% @peeps.each do |peep| %>
-<li> <%= peep %> </li>
+<li> <%= peep.content%> - <%= peep.time %> </li>
 <% end %>
+
+
 </body>
-</html>
