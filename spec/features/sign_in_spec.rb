@@ -9,6 +9,8 @@ feature "Sign in" do
   end
 
   scenario "allows users to sign up" do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("TRUNCATE users;")
     sign_up
     expect(page).to have_content "Hi claude"
   end
@@ -16,7 +18,7 @@ feature "Sign in" do
   scenario "prevents log in with incorrect password" do
     visit('/')
     connection = PG.connect(dbname: 'chitter_test')
-    User.create_user(username: 'claude', password: 'meow', email: 'petar@simonovic.com')
+    User.create_user(username: 'claude', password: 'meow')
     fill_in('username', :with => "claude" )
     fill_in('password', :with => "purr" )
     click_on("submit_1")
@@ -26,7 +28,7 @@ feature "Sign in" do
 
   it "logs a user in if the password is correct" do
     connection = PG.connect(dbname: 'chitter_test')
-    User.create_user(username: 'claude', password: 'meow', email: 'petar@simonovic.com')
+    User.create_user(username: 'claude', password: 'meow')
 
     log_in
     expect(page).to have_content "c h i t t e r"
