@@ -1,4 +1,5 @@
 require 'pg'
+require 'time'
 
 class Peep
 
@@ -13,14 +14,15 @@ class Peep
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
-      Peep.new(id: peep['id'], message: peep['message'], time: peep['time'])
+      Peep.new(id: peep['id'], message: peep['message'], time: Time.parse(peep['time']))
      end
   end
 
   def self.create(message)
     result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}')")
     result.map do |peep|
-      Peep.new(id: peep['id'], message: peep['message'], time: peep['time'])
-     end
+      Peep.new(id: peep['id'], message: peep['message'], time: Time.parse(peep['time']))
+    end
   end
+
 end
