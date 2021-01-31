@@ -4,10 +4,9 @@ require 'pg'
 class Peeps
 
   @database = if ENV['ENVIRONMENT'] == 'test'
-                p "Test environment"
+                p "Establishing Test environment"
                 PG.connect(dbname: 'Chitter_test')
               else
-                p "Standard environment"
                 PG.connect(dbname: 'Chitter')
               end
 
