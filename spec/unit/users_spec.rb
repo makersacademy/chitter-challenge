@@ -8,11 +8,11 @@ describe Users do
       connection = PG.connect(dbname: 'user_manager_test')
       
       #inject
-      connection.exec("INSERT INTO users (name) VALUES('Jon');")
+      connection.exec("INSERT INTO users (name) VALUES('Unit Test 1');")
 
       #confirm
       users = Users.all
-      expect(users).to include('Jon')
+      expect(users).to include('Unit Test 1')
     end
   end
 
