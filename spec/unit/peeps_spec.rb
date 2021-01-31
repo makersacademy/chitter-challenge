@@ -16,4 +16,10 @@ describe Peeps do
     end
   end
 
+  describe '.create' do
+    it 'creates a new message and adds to database' do
+      create = Peeps.create("Chitter!")
+      expect(create).to eq "Chitter! added to database"
+    end
+  end
 end

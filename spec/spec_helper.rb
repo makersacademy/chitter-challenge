@@ -26,9 +26,15 @@ RSpec.configure do |config|
     p "setting up test database"
     connection = PG.connect(dbname: 'user_manager_test')
     connection.exec('TRUNCATE users;')
+  end
+
+=begin
+  config.before(:each) do
+    p "setting up test database"
     connection = PG.connect(dbname: 'peep_manager_test')
     connection.exec('TRUNCATE peeps;')
   end
+=end
 
   config.after(:suite) do
     puts
