@@ -1,4 +1,5 @@
 require 'PG'
+require_relative 'db_connection'
 
 class Peep
   attr_reader :content, :id
