@@ -63,4 +63,22 @@ describe Peep do
       expect(updated_peep.message).to eq 'Goodbye world'
     end
   end
+
+  describe '.find_users_name' do 
+    it 'returns the name of user who wrote a peep' do 
+      user = create_new_user
+      peep = Peep.create(message: 'Hello world', user_id: user.id)
+
+      expect(peep.find_users_name).to eq 'Ollie'
+    end
+  end
+
+  describe '.find_users_username' do 
+    it 'returns the username of user who wrote a peep' do 
+      user = create_new_user
+      peep = Peep.create(message: 'Hello world', user_id: user.id)
+
+      expect(peep.find_users_username).to eq 'ob'
+    end
+  end
 end

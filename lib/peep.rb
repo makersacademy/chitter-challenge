@@ -19,7 +19,7 @@ class Peep
   end
 
   def self.create(message:, time_last_altered: Time.now, user_id:)
-    result = DatabaseConnection.query("INSERT INTO peeps (message, time_last_altered, user_id) VALUES('#{message}', '#{time_last_altered}', '#{user_id}') RETURNING id, message")
+    result = DatabaseConnection.query("INSERT INTO peeps (message, time_last_altered, user_id) VALUES('#{message}', '#{time_last_altered}', '#{user_id}') RETURNING id, message, user_id")
     Peep.new(id: result[0]['id'], message: result[0]['message'], time_last_altered: result[0]['time_last_altered'], user_id: result[0]['user_id'])
   end
 
@@ -33,15 +33,15 @@ class Peep
   end
 
   def self.update(id:, message:,time_last_altered: Time.now)
-    result = DatabaseConnection.query("UPDATE peeps SET message = '#{message}', time_last_altered ='#{time_last_altered}' WHERE id = #{id} RETURNING id, message, time_last_altered;")
+    result = DatabaseConnection.query("UPDATE peeps SET message = '#{message}', time_last_altered ='#{time_last_altered}' WHERE id = #{id} RETURNING id, message, time_last_altered, user_id;")
     Peep.new(id: result[0]['id'], message: result[0]['message'], time_last_altered: result[0]['time_last_altered'], user_id: result[0]['user_id'])
   end
 
-  def find_users_name(user_id)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{user_id}';")
-    p result[0]['name']
-    result[0]['name']
-    # user_class.find(id: user_id).name
-    # result = user.name
+  def find_users_name
+    DatabaseConnection.query("SELECT * FROM users WHERE id = '#{user_id}'")[0]['name']
+  end
+
+  def find_users_username
+    DatabaseConnection.query("SELECT * FROM users WHERE id = '#{user_id}'")[0]['username']
   end
 end
