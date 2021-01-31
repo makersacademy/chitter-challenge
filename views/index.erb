@@ -16,7 +16,7 @@
     </form>
     <% if @messages %>
       <div id="peeps">
-        <% @messages.each do |post| %>   
+        <% @messages.reverse.each do |post| %>   
           <div class="post">
             <%= post %>
           </div>
