@@ -17,11 +17,10 @@ class Peep
     end
 
     result = connection.exec('SELECT * FROM peeps')
-    x = result.map do |peep|
+    result.map do |peep|
       Peep.new(peep: peep['peep'], created_at: peep['created_at'])
     end
     .reverse
-    p x
   end
 
   def self.create(peep:, created_at: Time.now)

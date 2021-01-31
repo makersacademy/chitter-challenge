@@ -1,4 +1,5 @@
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60));
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));
 INSERT INTO peeps (peep, created_at) VALUES ('Kikoo', '14:00:00');
 INSERT INTO peeps (peep) VALUES ('Kikoo');
 DELETE FROM peeps WHERE peep = 'Kikoo';

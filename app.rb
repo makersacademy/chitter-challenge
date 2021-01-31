@@ -12,11 +12,21 @@ class PeepManager < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'new'
+    erb :'peeps_new'
   end
 
   post '/peeps' do
     Peep.create(peep: params[:peep])
+    redirect '/peeps'
+  end
+
+  get '/users/new' do
+
+    erb :'users_new'
+  end
+
+  post '/users' do
+    User.create(email: params[:email], password: params[:password])
     redirect '/peeps'
   end
 
