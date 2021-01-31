@@ -1,0 +1,35 @@
+h1 {
+  color: white;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 25px;
+
+}
+
+body {
+  background-color:rgb(29,161,242);
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+
+
+}
+label {
+  color: white;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+}
+form {
+  color: white;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+}
+
+ul {
+  color: white;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+}
