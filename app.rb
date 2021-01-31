@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -7,8 +8,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    peeps = { username: "timmy_toes", peep: "I love this new app Chitter" }
-    p peeps
+    @peeps = Peep.all
+    erb(:peeps)
   end
 
   # establish server if file run directly

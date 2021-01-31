@@ -1,3 +1,3 @@
-require './app/app'
+require './app'
 
 run Chitter
