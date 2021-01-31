@@ -10,6 +10,9 @@ require_relative '../app'
 # set rack environment
 ENV['RACK_ENV'] = 'test'
 
+# Set up test environment for datatbases
+ENV['Environment'] = 'test'
+
 # Tell capybara to talk to Chitter
 Capybara.app = Chitter
 
