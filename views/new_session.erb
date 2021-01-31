@@ -1,3 +1,8 @@
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <form action="/sessions" method="post">
   <label for = "email">
     <h4>Enter your email</h4>
@@ -5,7 +10,7 @@
   </label>
   <label for = "password">
     <h4>Enter your email</h4>
-    <input type = "password" name = "pssword">
+    <input type = "password" name = "password">
   </label>
   <input type="submit" value="Sign in" />
 </form>

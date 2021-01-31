@@ -7,8 +7,7 @@ feature 'See peeps' do
     DatabaseConnection.query("INSERT INTO peeps (message) VALUES ('Peep 2');")
     DatabaseConnection.query("INSERT INTO peeps (message) VALUES ('Peep 3');")
 
-    visit('/')
-    click_button 'See Peeps'
+    visit('/peeps')
 
     expect(page).to have_content 'Peep 1'
     expect(page).to have_content 'Peep 2'

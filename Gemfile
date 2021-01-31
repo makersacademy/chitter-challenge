@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 gem 'pg'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'bcrypt'
+
 
 group :test do
   gem 'rspec'
