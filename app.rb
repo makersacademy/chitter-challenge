@@ -35,5 +35,17 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/sessions/new' do
+    erb :new_session
+  end
+
+  post '/sessions' do
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
+    user = User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
+
+    session[:user_id] = user.id
+    redirect('/peeps')
+  end
+
   run! if app_file == $0
 end
