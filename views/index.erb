@@ -1,5 +1,8 @@
 <h1>Hi there! Welcome to chitter.</h1>
 
 <form action="/postmessage">
-    <input type="submit" value="post peep" />
+    <input type="submit" value="post message" />
 </form>
+
+<br>
+<h2> <%= @peeps.each { |peep| puts peep }%> </h2>
