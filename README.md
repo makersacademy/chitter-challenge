@@ -20,28 +20,23 @@ Ruby w/ Sinatra and PostreSQL. Tested using RSpec and Capybara.
 
 #### Development Database Setup
 
-1. Connect to psql `psql`
-2. Create a development database `CREATE DATABASE message_manager;`
-3. Connect to the database `\c message_manager;`
-4. Run the commands in the `db/migrations` directory
-5. Exit psql `\q`
+4. Connect to psql `psql`
+5. Create a development database `CREATE DATABASE message_manager;`
+6. Connect to the database `\c message_manager;`
+7. Run the commands in the `db/migrations` directory
+8. Exit psql `\q`
 
 To run the tests a test database will also need to be set up. Similar steps but a "_test" is appended to the name of the database.
 
 #### Test Database Setup
 
-1. Connect to psql `psql`
-2. Create a development database `CREATE DATABASE message_manager_test;`
-3. Connect to the database `\c message_manager_test;`
-4. Run the commands in the `db/migrations` directory
-5. Exit psql `\q`
+9. Connect to psql `psql`
+10. Create a development database `CREATE DATABASE message_manager_test;`
+11. Connect to the database `\c message_manager_test;`
+12. Run the commands in the `db/migrations` directory
+13. Exit psql `\q`
 
-#### Run local server
+#### Using the app
 
-```
-ruby app.rb
-```
-
-#### Open app
-
-Open browser and head to `http://localhost:4567`
+14. Run local server `ruby app.rb`
+15. Open browser and head to `http://localhost:4567`
