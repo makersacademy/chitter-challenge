@@ -32,7 +32,7 @@
 <ul>
   <% @peeps.reverse_each do |peep| %>
   <li class='peep' id='peep-<%=peep.id%>'>
-    <p><%= peep.message %> </p>
+    <p> <%= peep.user_id%> : <%= peep.message %> </p>
     <i><%= peep.time_last_altered%></i>
     <form action='/feed/<%= peep.id %>/edit' method='get'>
       <input type='submit' value='Edit'/>

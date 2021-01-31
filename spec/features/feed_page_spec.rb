@@ -1,13 +1,6 @@
 feature 'Viewing peeps' do
   scenario 'shows all peeps' do
-    Peep.create(message: 'This is my first peep')
-    Peep.create(message: 'Second post')
-    Peep.create(message: "C`est ma troisieme poste")
-
-    visit '/feed'
-
-    expect(page).to have_content('This is my first peep')
-    expect(page).to have_content('Second post')
-    expect(page).to have_content("C`est ma troisieme poste")
+    create_new_user_and_write_a_peep
+    expect(page).to have_content('Hello this is a peep')
   end
 end

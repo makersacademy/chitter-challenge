@@ -3,9 +3,10 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns a list of peeps' do
-      peep = Peep.create(message: 'This is peep 1')
-      Peep.create(message: 'MF peep 2')
-      Peep.create(message: 'This is the third and final peep')
+      user = create_new_user
+      peep = Peep.create(message: 'This is peep 1', user_id: user.id)
+      Peep.create(message: 'MF peep 2', user_id: user.id)
+      Peep.create(message: 'This is the third and final peep', user_id: user.id)
 
       peeps = Peep.all
 
@@ -18,7 +19,8 @@ describe Peep do
 
   describe '.create' do
     it 'adds a new bookmark to the database' do
-      peep = Peep.create(message: 'This is my first peep')
+      user = create_new_user
+      peep = Peep.create(message: 'This is my first peep', user_id: user.id)
       # persisted_data = persisted_data(id: bookmark.id)
 
       expect(peep).to be_a Peep
@@ -29,7 +31,8 @@ describe Peep do
 
   describe '.delete' do 
     it 'removes a peep from the feed' do 
-      peep = Peep.create(message: 'New peep')
+      user = create_new_user
+      peep = Peep.create(message: 'New peep', user_id: user.id)
 
       Peep.delete(id: peep.id)
       expect(Peep.all.length).to eq 0
@@ -38,7 +41,8 @@ describe Peep do
 
   describe '.find' do
     it 'returns the requested peep object' do
-      peep = Peep.create(message: 'A peep')
+      user = create_new_user
+      peep = Peep.create(message: 'A peep', user_id: user.id)
 
       result = Peep.find(id: peep.id)
 
@@ -50,7 +54,8 @@ describe Peep do
 
   describe '.update' do 
     it 'allows the editting of a peep' do 
-      peep = Peep.create(message: 'Hello world')
+      user = create_new_user
+      peep = Peep.create(message: 'Hello world', user_id: user.id)
       updated_peep = Peep.update(id: peep.id, message: 'Goodbye world')
 
       expect(updated_peep).to be_a Peep

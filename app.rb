@@ -21,7 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do
-    Peep.create(message: params[:peep])
+    @user = User.find(id: session[:user_id])
+    Peep.create(message: params[:peep], user_id: @user.id)
     redirect('/feed')
   end
 
