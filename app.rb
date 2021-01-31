@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.new_peep(params[:content])
+    Peep.new_peep(params[:content], Time.now)
     redirect "/"
   end
 
