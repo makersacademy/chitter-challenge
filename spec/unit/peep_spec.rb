@@ -20,10 +20,14 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peep.create(peep: 'Red bull gives you wings', username: 'timmy_toes').first
 
-      expect(peep['peep']).to eq 'Red bull gives you wings'
-      expect(peep['username']).to eq 'timmy_toes'
+      peep = Peep.create(peep: 'Red bull gives you wings', username: 'timmy_toes')
+      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
+
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.peep).to eq 'Red bull gives you wings'
+      expect(peep.username).to eq 'timmy_toes'
     end
   end
 end
