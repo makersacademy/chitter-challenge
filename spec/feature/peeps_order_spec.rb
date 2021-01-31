@@ -1,6 +1,4 @@
-require "pg"
-
-feature "When viewing peeps" do
+feature "when viewing peeps" do
   scenario "they should be shown in reverse chronological order" do
     Peep.create(message: "Test message one")
     Peep.create(message: "Test message two")

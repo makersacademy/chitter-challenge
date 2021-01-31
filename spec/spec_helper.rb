@@ -1,6 +1,10 @@
-# Get the 'test_database_setup.rb' file which will clear the messages tables when used
+# Get the 'test_database_setup.rb' file which clears the messages tables when called
 
 require "./spec/setup_test_database"
+
+# Get test helpers
+
+require "./spec/test_helpers"
 
 # Set the environment to 'test'
 
@@ -24,7 +28,7 @@ require "capybara"
 require "capybara/rspec"
 require "rspec"
 
-# Tell Capybara to talk to Chitter (in 'app.rb')
+# Tell Capybara to talk to Chitter
 
 Capybara.app = Chitter
 
