@@ -1,15 +1,25 @@
 <form action="/new_post" method="post">
-  What are you thinking?
   <br/>
-<textarea name="post[text]" cols="40" rows="5" maxlength="280" style="border: 2px solid black; resize: none"></textarea>
+<textarea placeholder="What are you  thinking?" name="post[text]" cols="40" rows="5" maxlength="280" style="border: 2px solid black; resize: none"></textarea>
 <br/>
 My name: <input type="text" name="post[author_name]">
 <br/>
 <input type="submit" value="Peep!"/>
 
 </form>
+<br/>
 
-<div class="post" style="width: 320px; word-wrap: break-word; border: 1px solid black">
-<%= session[:post] %>
-</div>
-<%= session[:author] %>
+<% if @posts %>
+  <% @posts.reverse.each do |post| %>
+
+
+    <div class="post" style="width: 320px; word-wrap: break-word; border: 1px solid black">
+    <%= post.text %>
+    </div>
+    <%= post.author_name %>
+    <%= post.created_at.strftime("%k:%M") %>
+    <br/>
+    <br/>
+  <% end %>
+
+<% end %>

@@ -8,14 +8,14 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get "/" do
+    @posts = Post.all
     erb :index
   end
 
   post "/new_post" do
-    p params
     post = Post.new(params["post"])
     if post.save
-      redirect "/#{post.id}"
+      redirect "/"
     else
       "failed!"
     end
@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
 
   get "/:id" do
     post = Post.find(params[:id])
-    "#{post.text}, #{post.author_name}"
+    "#{post.text}, #{post.author_name}, #{post.created_at}"
   end
 
 
