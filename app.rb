@@ -12,6 +12,9 @@ class Chitter < Sinatra::Base
 
   get "/" do
     @posts = Post.all.order(created_at: :desc)
+    if session[:session_user_id]
+      @user = User.find(session[:session_user_id])
+    end
     erb :index
   end
 
@@ -31,7 +34,7 @@ class Chitter < Sinatra::Base
   post "/new_user" do
     encrypted_password = BCrypt::Password.create(params["password"])
     user = User.new("email": params["email"],
-                    "password": encrypted_password,
+                    "password_digest": encrypted_password,
                     "real_name": params[:real_name],
                     "username": params["username"])
     if user.save
@@ -41,6 +44,19 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get "/sessions/new" do
+    erb :"sessions/new"
+  end
+
+  post "/sessions" do
+    user = User.where("email": params["email"]).first
+    if user.authenticate(params["password"])
+      session[:session_user_id] = user.id
+      redirect "/"
+    else
+      "no good!"
+    end
+  end
 
   run! if app_file == $0
 end
