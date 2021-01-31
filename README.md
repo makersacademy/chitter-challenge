@@ -5,7 +5,7 @@ Chitter will transmit your thoughts to the entire planet.
 
 We don't screen or filter your "peeps", no matter how inane, inaccurate or offensive.
 
-After you sign up or log in, you can browse the message history or press  "Peep!" to send a message.
+After you sign up or log in, you can browse Chitter's history or press "Peep!" to send a message.
 
 Our chronologically sorted log will save your peep for posterity so you can never take back or deny what you said.
 

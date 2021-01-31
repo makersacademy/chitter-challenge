@@ -22,11 +22,12 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    peeps = connection.exec("SELECT * FROM peeps")
+    peeps = connection.exec("SELECT * FROM peeps ORDER by date DESC, time DESC;")
 
     peeps.map do |peep|
       Peep.new(id: peep['id'], date: peep['date'], time: peep['time'], message: peep['message'], sender: peep['sender'])
     end
+
 
   end
 

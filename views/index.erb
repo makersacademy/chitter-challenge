@@ -2,12 +2,18 @@
 
 <h3>Hi <%= @username %></h3>
 
-<form action="/peep" method="get">
-  <input type="submit" value="P e e p !" id="peep" />
-</form>
-
 <ul>
   <% @peeps.each do |peep| %>
   <li> <%= peep.sender%> says "<%= peep.message %>" (<%= peep.time %>, <%= peep.date %> )
   <% end %>
 </ul>
+
+
+<form action="/peep" method="get">
+  <input type="submit" value="P e e p !" id="peep" />
+</form>
+
+
+<form action="/" method="get">
+  <input type="submit" value="S i g n  o u t" id="sign_out" />
+</form>
