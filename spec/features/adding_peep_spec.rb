@@ -1,7 +1,7 @@
 feature 'Adding a peep' do
 
   before do
-    visit('/')
+    sign_up_and_visit
     fill_in('content', with: "peep peep, I'm in me mum's car")
     click_button('Share')
   end

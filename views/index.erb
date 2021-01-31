@@ -2,21 +2,24 @@
 
 <h1>Welcome to Chitter<%= " #{User.find_name(@user_id)}" if @user_id %>!</h1>
 
-<section class="go_to_signup">
-  <form action="/users/new" method="get" id="signup">
-    <input type="submit" value="Sign up for Chitter">
-    </form>
+<% if @user_id %>
+  <section class="write_peep">
+    <form action="/peeps" method="post" id="new_peep">
+      <label for="peep_content">Share your thoughts with the world:</label>
+      <br>
+      <textarea name="content" maxlength="280" rows="6" columns="80">What have you got to say for yourself?</textarea>
+      <input type="submit" value="Share">
+      </form>
   </section>
+<% end %>
 
-<section class="write_peep">
-  <form action="/peeps" method="post" id="new_peep">
-    <label for="peep_content">Share your thoughts with the world:</label>
-    <br>
-    <textarea name="content" maxlength="280" rows="6" columns="80">What have you got to say for yourself?</textarea>
-    <input type="submit" value="Share">
-    </form>
+<section class="go_to_signup">
+    <form action="/users/new" method="get" id="signup">
+      <input type="submit" value="Sign up for Chitter">
+      </form>
+    </section>
 
-</section>
+
 
 <section class="peep_feed">
   <ul>

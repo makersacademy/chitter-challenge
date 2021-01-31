@@ -8,7 +8,6 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    p session[:user_id]
     @user_id = session[:user_id]
     erb :index
   end
