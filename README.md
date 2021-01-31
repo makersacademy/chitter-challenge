@@ -1,18 +1,87 @@
-C H I T T E R
+c h i t t e r
 =================
 
+Chitter will transmit your thoughts to the entire planet.
 
-<h3> Table set up </h3>
+We don't screen or filter your "peeps", no matter how inane, inaccurate or offensive.
 
-**Main table**
-- Connect to psql
-- Create the database using the psql command CREATE DATABASE chitter;
-- Connect to the database using the pqsl command \c chitter;
-- Run the queries that are saved in db/migrations/file 01_create_bookmarks_table.sql
+After you sign up or log in, you can browse the message history or press  "Peep!" to send a message.
 
-**Test table**
+Our chronologically sorted log will save your peep for posterity so you can never take back or deny what you said.
 
-- Connect to psql
-- Create the database using the psql command CREATE DATABASE chitter_test;
-- Connect to the database using the pqsl command \c chitter_test;
-- Run the queries that are saved in db/migrations/file 01_create_bookmarks_table.sql
+Sign out when you're done.
+
+<h3>Set up</h3>
+
+Open terminal and connect to psql
+
+Create a database:
+
+```
+CREATE DATABASE chitter
+
+```
+
+Connect to the DATABASE
+
+```
+\c chitter
+```
+
+Create two tables:
+
+```
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, date DATE, time DECIMAL(4,2), message VARCHAR, sender VARCHAR);
+
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR, password VARCHAR, email VARCHAR);
+
+```
+
+Open terminal and run:
+
+```
+bundle install
+```
+
+Launch the server using:
+
+```
+rackup -p 4567
+
+```
+
+Open a browser and go to:
+
+```
+http://localhost:4567
+
+```
+
+Follow the on-screen prompts.
+
+
+<h3> Testing set up </h3>
+
+Open terminal and connect to psql
+
+Create a database:
+
+```
+CREATE DATABASE chitter_test
+
+```
+
+Connect to the DATABASE
+
+```
+\c chitter_test
+```
+
+Create two tables:
+
+```
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, date DATE, time DECIMAL(4,2), message VARCHAR, sender VARCHAR);
+
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR, password VARCHAR, email VARCHAR);
+
+```

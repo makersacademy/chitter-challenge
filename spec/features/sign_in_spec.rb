@@ -15,11 +15,30 @@ feature "Sign in" do
   scenario "prevents log in with incorrect password" do
     visit('/')
     connection = PG.connect(dbname: 'chitter_test')
-    user = User.create_user(username: 'claude', password: 'meow', email: 'petar@simonovic.com')
+    User.create_user(username: 'claude', password: 'meow', email: 'petar@simonovic.com')
     fill_in('username', :with => "claude" )
     fill_in('password', :with => "purr" )
     click_on("submit_1")
-    # expect(page).to have_content("Invalid password")
+    expect(page).to have_content("Invalid password")
+
+  end
+
+  it "logs a user in if the password is correct" do
+    connection = PG.connect(dbname: 'chitter_test')
+    User.create_user(username: 'claude', password: 'meow', email: 'petar@simonovic.com')
+
+    log_in
+    expect(page).to have_content "c h i t t e r"
+
+  end
+
+  it "tells a user to sign up if user doesn't exist" do
+    connection = PG.connect(dbname: 'chitter_test')
+    visit('/')
+    fill_in("username", :with => "testname")
+    fill_in("password", :with => "testpassword")
+    click_on("submit_1")
+    expect(page).to have_content("No username registered: please sign up")
   end
 
 end
