@@ -13,7 +13,7 @@ describe Peep do
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.peep_id).to eq peeps.peep_id
+      expect(peeps.first.id).to eq peeps.id
       expect(peeps.first.peep_content).to eq "I am peeping for the first time!"
     end
   end
@@ -21,10 +21,10 @@ describe Peep do
   describe ".create" do
     it "creates a new peep" do
       peep = Peep.create(peep_content: "This is a test peep!")
-      persisted_data = persisted_data(peep_id: peep.peep_id)
+      persisted_data = persisted_data(id: peep.id)
 
       expect(peep).to be_a Peep
-      expect(peep.peep_id).to eq persisted_data['peep_id']
+      expect(peep.id).to eq persisted_data['id']
       expect(peep.peep_content)to include "This is a test peep!"
     end
   end

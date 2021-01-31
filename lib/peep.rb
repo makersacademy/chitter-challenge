@@ -2,10 +2,10 @@ require 'pg'
 require './lib/database_connection'
 
 class Peep
-  attr_reader :peep_id, :created_at, :peep_content, :user_name
+  attr_reader :id, :created_at, :peep_content, :user_name
 
-  def initialize(peep_id:, created_at:, peep_content:, user_name:)
-    @peep_id = peep_id
+  def initialize(id:, created_at:, peep_content:, user_name:)
+    @id = id
     @created_at = created_at
     @peep_content = peep_content
     @user_name = user_name
@@ -15,7 +15,7 @@ class Peep
     peeps = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created_at DESC;")
     peeps.map do |peep|
       Peep.new(
-        peep_id: peep['peep_id'],
+        id: peep['id'],
         created_at: peep['created_at'],
         peep_content: peep['peep_content'],
         user_name: peep['user_name']
@@ -24,9 +24,9 @@ class Peep
 end
 
   def self.create(peep_content:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep_content) VALUES ('#{peep_content}') RETURNING peep_id, created_at, peep_content, user_name;")
+    result = DatabaseConnection.query("INSERT INTO peeps (peep_content) VALUES ('#{peep_content}') RETURNING id, created_at, peep_content, user_name;")
     Peep.new(
-      peep_id: result[0]['peep_id'], 
+      id: result[0]['id'], 
       created_at: result[0]['created_at'], 
       peep_content: result[0]['peep_content'], 
       user_name: result[0]['user_name']

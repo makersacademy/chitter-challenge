@@ -109,28 +109,11 @@ span.water {
 
 <div class="chitter-challenge">
 
-<h1>Welcome to Chitter!</h1>
-<hr>
 
-
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
-        <h2><%= peep.peep_content %></h2> </br> 
-        written by <strong><%= peep.user_name %></strong> at <%= peep.created_at %></br></br>
-        <hr>
-    </li>
-  <% end %>
-</ul>
-
-<form action='/peeps' method='post'>
-<input type='text' name='peep_content' placeholder='peep_content' />
-<input type='submit' value='Peep!' />
+<form action="/users" method="post">
+    <input type="email" name="email" />
+    <input type="password" name="password" />
+    <input type="submit" value="Submit" />
 </form>
 
-
-
-
-</div>
 </body>

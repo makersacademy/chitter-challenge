@@ -1,7 +1,7 @@
 require 'pg'
 
-def persisted_data(peep_id:)
+def persisted_data(id:, table:)
   connection = PG.connect(dbname: 'peeps_manager_test')
-  result = connection.query("SELECT * FROM peeps WHERE peep_id = #{peep_id};")
+  result = connection.query("SELECT * FROM #{table} WHERE id = #{id};")
   result.first
 end
