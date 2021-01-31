@@ -1,10 +1,8 @@
 describe '.all' do
   it 'returns a list of peeps' do
-    connection = PG.connect(dbname: 'peep_manager_test')
-
-    # Add the test data
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Salut!');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Ca farte?');")
+  
+    Peep.create(peep: 'Salut!')
+    Peep.create(peep: 'Ca farte?!')
 
     peeps = Peep.all
 
@@ -13,11 +11,9 @@ describe '.all' do
   end
 
   it 'returns a list of reversed peeps' do
-    connection = PG.connect(dbname: 'peep_manager_test')
-
-    # Add the test data
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Salut!');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Ca farte?');")
+    
+    Peep.create(peep: 'Salut!')
+    Peep.create(peep: 'Ca farte?!')
 
     peeps = Peep.all
 
