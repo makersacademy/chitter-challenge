@@ -58,4 +58,4 @@ Table: peep
 
 |id  | name     | username | email_address | password    |
 |----|-----     |------------|-------------|------------|
-|serial| varchar(144) | varchar(30) | varchar(255) | varchar(60)
+|serial| varchar(144) | varchar(60) | varchar(255) | varchar(60)

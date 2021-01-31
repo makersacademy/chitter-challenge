@@ -19,5 +19,6 @@ Capybara.app = Chitter
 RSpec.configure do |config|
   config.before(:each) do
     truncate_table(table: 'peep')
+    truncate_table(table: 'chitterer')
   end
 end

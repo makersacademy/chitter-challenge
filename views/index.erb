@@ -1,4 +1,4 @@
-<h1>Welcome to Chitter!</h1>
+<h1>Welcome to Chitter<%= User.find_name(@user_id) %>!</h1>
 <section class="write_peep">
   <form action="/peeps" method="post" id="new_peep">
     <label for="peep_content">Share your thoughts with the world:</label>
