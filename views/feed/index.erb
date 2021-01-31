@@ -2,6 +2,14 @@
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
 
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+
 <form action='/feed' method='post'>
   Your peep:
   <input type='text' name='peep' />
