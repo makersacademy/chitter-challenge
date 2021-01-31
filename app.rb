@@ -20,10 +20,6 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/user' do
-    erb :user
-  end
-
   get '/peeps' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all.reverse
