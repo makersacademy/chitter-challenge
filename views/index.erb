@@ -1,5 +1,11 @@
-<h1>Welcome to Chitter!</h1>
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
 
 <form action="/peeps" method="get">
     <button> Enter </button>
 </form>
+
+# <% if @user %>
+#   <h1>Welcome, <%= @user.email %></h1>
+# <% end %>

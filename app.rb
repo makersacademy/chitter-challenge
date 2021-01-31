@@ -7,6 +7,7 @@ class PeepManager < Sinatra::Base
   end
 
   get '/peeps' do
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :'peeps'
   end
@@ -26,7 +27,8 @@ class PeepManager < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password])
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/peeps'
   end
 
