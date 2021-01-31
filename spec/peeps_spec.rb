@@ -6,7 +6,7 @@ describe Peeps do
     it 'creates a new peep' do
       peep = Peeps.create(peep: "First peep")
       id = peep.id
-      persisted_data = persisted_data(id: id)
+      persisted_data = persisted_data(table: 'peeps', id: id)
 
       expect(peep).to be_a Peeps
       expect(peep.peep).to eq 'First peep'

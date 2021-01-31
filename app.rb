@@ -15,13 +15,12 @@ class Chitter < Sinatra::Base
 
   post '/user' do
     connection = PG.connect(dbname: 'chitter_chatter')
-    $result = connection.exec("INSERT INTO users (email, password, name, username) VALUES('#{params[:email]}', '#{params[:password]}','#{params[:name]}', '#{params[:username]}') RETURNING id, email, name, username;").first
+    result = connection.exec("INSERT INTO users (email, password, name, username) VALUES('#{params[:email]}', '#{params[:password]}','#{params[:name]}', '#{params[:username]}') RETURNING id, email, name, username;").first
     redirect ('/peeps')
   end
 
   get '/peeps' do
     @peeps = Peeps.all
-    p @peeps
     erb :show
   end
 
@@ -31,7 +30,6 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peeps.create(peep: params[:new_peep], time: Time.now)
-    p @peep
     redirect ('/peeps')
   end
 
