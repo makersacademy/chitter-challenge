@@ -6,7 +6,7 @@ gem "pg"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
-# gem "dotenv"
+gem "bcrypt"
 
 
 group :test do

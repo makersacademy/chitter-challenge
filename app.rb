@@ -1,7 +1,10 @@
-
 require "sinatra/base"
 require "sinatra/activerecord"
+require "bcrypt"
+
 require_relative "lib/post"
+require_relative "lib/user"
+
 
 class Chitter < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -17,13 +20,25 @@ class Chitter < Sinatra::Base
     if post.save
       redirect "/"
     else
-      "failed!"
+      "failed to create a post!"
     end
   end
 
-  get "/:id" do
-    post = Post.find(params[:id])
-    "#{post.text}, #{post.author_name}, #{post.created_at}"
+  get "/new_user" do
+    erb :registration
+  end
+
+  post "/new_user" do
+    encrypted_password = BCrypt::Password.create(params["password"])
+    user = User.new("email": params["email"],
+                    "password": encrypted_password,
+                    "real_name": params[:real_name],
+                    "username": params["username"])
+    if user.save
+      redirect "/"
+    else
+      "failed to create a user!"
+    end
   end
 
 
