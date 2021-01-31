@@ -1,9 +1,10 @@
 require 'sinatra'
 require 'pg'
 require './lib/peeps'
-# require './lib/user'
+require './lib/user'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     erb :index
@@ -14,12 +15,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    connection = PG.connect(dbname: 'chitter_chatter')
-    result = connection.exec("INSERT INTO users (email, password, name, username) VALUES('#{params[:email]}', '#{params[:password]}','#{params[:name]}', '#{params[:username]}') RETURNING id, email, name, username;").first
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    session[:user_id] = user.id
     redirect ('/peeps')
   end
 
   get '/peeps' do
+    @user = User.find(id: session[:user_id])
     @peeps = Peeps.all
     erb :show
   end

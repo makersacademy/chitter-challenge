@@ -1,10 +1,8 @@
-<h2></h2>
 <h1>List of all the peeps:</h1>
 <ul>
   <% @peeps.each do |peep| %>
   <li class='peep' id='peep-<%= peep.id %>'>
-    <a><%= peep.time.strftime("%A at %H:%M") %></a>
-       <h3> <%= peep.peep %></h3>
+    <a><%= peep.peep %>  <%= peep.time.strftime(" at %H:%M") %></a>
   </li>
   <% end%>
 </ul>
