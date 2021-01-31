@@ -14,8 +14,10 @@ describe Peep do
 
     describe '.post' do
         it 'adds a peep to the database' do
-            Peep.post(message: 'Test peep - post')
-            expect(Peep.all).to include 'Test peep - post'
+            peep = Peep.post(message: 'Test peep - post').first
+            expect(peep['message']).to eq 'Test peep - post'
+            expect(peep['date']).to eq Time.now.strftime("%Y-%m-%d")
+            # expect(Peep.all).to include 'Test peep - post'
         end
     end
 end
