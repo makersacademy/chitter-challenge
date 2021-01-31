@@ -8,9 +8,16 @@ feature "posting" do
     expect(page).to have_content "writing a peep"
   end
 
-
-
-
+  scenario "see posts in reverse chronological order" do
+    visit "/"
+    fill_in "text", with: "writing a peep"
+    click_button "Peep!"
+    visit "/"
+    fill_in "text", with: "second peep"
+    click_button "Peep!"
+    expect(first(".post")).to have_content "second peep"
+    expect(page).to have_content "writing a peep"
+  end
 
 
 end

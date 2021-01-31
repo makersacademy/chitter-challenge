@@ -2,7 +2,12 @@ source 'https://rubygems.org'
 
 ruby "2.7.2"
 gem "sinatra"
-gem "webrick"
+gem "pg"
+gem "activerecord"
+gem "sinatra-activerecord"
+gem "rake"
+# gem "dotenv"
+
 
 group :test do
   gem 'rspec'

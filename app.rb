@@ -1,11 +1,11 @@
 require "sinatra/base"
+require "sinatra/activerecord"
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  register Sinatra::ActiveRecordExtension
 
 
   get "/" do
-    @post = session[:post]
     erb :index
   end
 
