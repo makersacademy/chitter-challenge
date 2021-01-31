@@ -1,5 +1,7 @@
+
 require "sinatra/base"
 require "sinatra/activerecord"
+require_relative "lib/post"
 
 class Chitter < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -10,9 +12,18 @@ class Chitter < Sinatra::Base
   end
 
   post "/new_post" do
-    session[:author] = params["author"]
-    session[:post] = params["text"]
-    redirect "/"
+    p params
+    post = Post.new(params["post"])
+    if post.save
+      redirect "/#{post.id}"
+    else
+      "failed!"
+    end
+  end
+
+  get "/:id" do
+    post = Post.find(params[:id])
+    "#{post.text}, #{post.author_name}"
   end
 
 

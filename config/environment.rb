@@ -15,7 +15,6 @@ require File.join(APP_ROOT, "config", "database")
 # configure Chitter settings
 class Chitter < Sinatra::Base
  set :method_override, true
- set :sessions, true
  set :root, APP_ROOT
  set :views, File.join(APP_ROOT, "views")
  set :public_folder, File.join(APP_ROOT, "public")

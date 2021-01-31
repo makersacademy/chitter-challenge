@@ -1,4 +1,4 @@
-ENV["ENVIRONMENT"] = "test"
+ENV["RACK_ENV"] = "test"
 require_relative "../app"
 
 require 'simplecov'
