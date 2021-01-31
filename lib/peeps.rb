@@ -20,8 +20,10 @@ class Peeps
       connection = PG.connect(dbname: 'peep_manager')
     end
 
-    connection.exec("INSERT INTO peeps (message) VALUES('#{message}');")
-    confirmation = "#{message} added to database"
+    time = Time.now.to_s[0..-7]
+    connection.exec("INSERT INTO peeps (message, time) 
+    VALUES ('#{message}', '#{time}');")
+    confirmation = "peep added to database"
   end
 
 end

@@ -4,7 +4,7 @@ require_relative './lib/peeps'
 class ChitterChallenge < Sinatra::Base 
 
   get '/' do
-    "Welcome to Chitter"
+    erb :peep_home
   end
 
   get '/peeps' do 

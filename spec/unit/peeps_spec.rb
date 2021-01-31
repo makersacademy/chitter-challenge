@@ -19,7 +19,7 @@ describe Peeps do
   describe '.create' do
     it 'creates a new message and adds to database' do
       create = Peeps.create("Unit Test 2")
-      expect(create).to eq "Unit Test 2 added to database"
+      expect(create).to eq "peep added to database"
     end
   end
 end
