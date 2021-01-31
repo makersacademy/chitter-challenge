@@ -3,7 +3,7 @@ require 'pg'
 describe Peep do
 
   describe '#all' do
-    it 'return all peeps' do
+    it 'returns all peeps in database' do
     connection = PG.connect(dbname:'chitter_test')
 
     connection.exec("INSERT INTO peeps (content) VALUES ('This is my first peep');")
@@ -15,6 +15,15 @@ describe Peep do
     expect(peeps).to include('This is my first peep')
     expect(peeps).to include('Here is some more info about me you do not care about!')
     expect(peeps).to include('oh look some more lol')
+    end
+  end
+
+  describe '#create' do
+    it 'inserts a new peep into the database' do
+    connection = PG.connect(dbname:'chitter_test')
+    peep = Peep.create("This is a new peep")
+    peeps = Peep.all
+    expect(peeps).to include("This is a new peep")
     end
   end
 

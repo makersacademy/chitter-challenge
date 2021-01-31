@@ -5,14 +5,13 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
-    p @peeps
     erb:index
   end
 
   post '/' do
-  redirect
+  Peep.create(params['content'])
+  redirect('/')
   end
-
 
   run! if app_file == $0
 

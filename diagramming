@@ -12,6 +12,7 @@ I want to post a message (peep) to chitter
 
 CLASS: Peep
 Actions
+.all
 .create(content)
 
 ### TABLE DIAGRAM
@@ -22,11 +23,13 @@ content
 
 ### SEQUENCE DIAGRAM
 
-client->controller: "get '/new' request"
-controller->views: "erb :/new"
-views->controller: "new.erb"
-controller->client: "new.html response"
-client->controller: "post /peeps_display request"
+client->controller: "get '/' request"
+controller->model: ".all"
+model->controller: "returns all peeps in current db assigned to variable @peeps"
+controller->views: "erb: /"
+views->controller: "index.erb (displays all peeps)"
+controller->client: "new.html response" (client displays all peeps to user)
+client->controller: "post / request" (user wants to create a new peep)
 controller->model: ".create(with params)"
 model->db: "INSERT INTO peeps table"
 db->model: "RETURN peep"
