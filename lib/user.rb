@@ -1,3 +1,4 @@
+require_relative 'db_connection'
 class User
 
   attr_reader :id
@@ -10,7 +11,7 @@ class User
     @email_address = email_address
   end
 
-  def self.create(name, username, password, email_address)
+  def self.create(name:, username:, password:, email_address:)
     password_hashed = BCrypt::Password.create(password)
     column_arr = ['name', 'username', 'email_address', 'password']
     values_arr = [name, username, email_address, password_hashed]
@@ -19,7 +20,9 @@ class User
   end
 
   def self.find_name(id)
+    return unless id
     results = DBConnection.query("select * from chitterer where id = #{id}").first
+    return unless results
     results['name']
   end
 

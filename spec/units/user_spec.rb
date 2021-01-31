@@ -3,7 +3,7 @@ describe User do
   let(:user_name) { 'hughy19' }
   let(:password) { 'password123' }
   let(:email_address) { 'test_email@server.com' }
-  let(:new_user) { described_class.create(name, user_name, password, email_address) }
+  let(:new_user) { described_class.create(name: name, username: user_name, password: password, email_address: email_address) }
   let(:id) { new_user.id }
   let(:added_data) { persisted_data(id: id, table: 'chitterer').first }
 
@@ -37,6 +37,16 @@ describe User do
     context 'when fed an id that exists' do
       it 'returns the name of the user with that id' do
         expect(described_class.find_name(id)).to eq name
+      end
+    end
+    context 'when fed a user id that does not exist' do
+      it 'returns nil' do
+        expect(described_class.find_name(0)).to be nil
+      end
+    end
+    context 'when fed nil' do
+      it 'returns nil' do
+        expect(described_class.find_name(nil)).to be nil
       end
     end
   end

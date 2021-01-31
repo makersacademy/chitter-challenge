@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    p session[:user_id]
     @user_id = session[:user_id]
     erb :index
   end
@@ -22,11 +23,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    password_hashed = BCrypt::Password.create(params[:password])
-    column_arr = ['name', 'username', 'email_address', 'password']
-    values_arr = [params[:name], params[:username], params[:email_address], password_hashed]
-    results = DBConnection.insert(table: 'chitterer', columns: column_arr, values: values_arr).first
-    session[:user_id] = results['id']
+    user = User.create(name: params[:name], username: params[:username],
+                    email_address: params[:email_address], password: params[:password])
+    session[:user_id] = user.id
     redirect '/'
   end
 

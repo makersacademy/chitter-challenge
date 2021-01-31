@@ -14,7 +14,7 @@ feature 'signing up as a user' do
       click_button('Create User')
     end
     scenario 'it shows a welcome message' do
-      expect(page).to have_content("Welcome #{username}")
+      expect(page).to have_content("Welcome to Chitter #{name}")
     end
   end
 
