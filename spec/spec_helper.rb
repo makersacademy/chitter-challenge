@@ -1,5 +1,14 @@
 require 'simplecov'
 require 'simplecov-console'
+require_relative './setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -16,7 +25,7 @@ RSpec.configure do |config|
   end
 end
 
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'testa'
 # require our Sinatra app file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
