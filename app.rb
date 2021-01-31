@@ -1,5 +1,5 @@
 require 'sinatra'
-
+require './lib/peeps'
 # The main Chitter class for the app
 class Chitter < Sinatra::Base
   enable :sessions
@@ -10,12 +10,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peep = session[:peep]
+    @peep = Peeps.peep_list
     erb :index
   end
 
   post '/peeps' do
-    session[:peep] = params[:peep]
+    Peeps.post_peep(params[:peep])
     redirect '/'
   end
 

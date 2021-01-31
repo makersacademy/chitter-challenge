@@ -1,12 +1,14 @@
 # class for peep object
 class Peeps
-  attr_reader :peeps
 
-  def initialize
-    @peeps = []
+  @peeps = []
+
+  def self.post_peep(peep)
+    @peeps << peep
   end
 
-  def post_peep(peep)
-
+  def self.peep_list
+    # printed in reverse chronological order
+    @peeps.reverse
   end
 end
