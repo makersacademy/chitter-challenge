@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -6,7 +7,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    @peep = params[:peep]
+    Peep.create(text: params['peep'])
+    redirect '/feed'
+  end
+
+  get '/feed' do
+    @peeps = Peep.all
+    erb :feed
   end
 
   run! if app_file == $0

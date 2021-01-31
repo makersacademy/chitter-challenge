@@ -16,4 +16,20 @@ feature 'add peep' do
     click_button('Peep!')
     expect(page).to have_content('Hi! First peep :)')
   end
+
+  scenario 'user can retrieve all tweets from database' do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    # Add the test data
+    connection.exec("INSERT INTO peeps (peep) VALUES('First peep');")
+    connection.exec("INSERT INTO peeps (peep) VALUES('Second peep');")
+    connection.exec("INSERT INTO peeps (peep) VALUES('Third peep');")
+
+    visit('/feed')
+
+    expect(page).to have_content 'First peep'
+    expect(page).to have_content 'Second peep'
+    expect(page).to have_content 'Third peep'
+  end
+
 end

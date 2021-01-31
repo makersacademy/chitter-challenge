@@ -1,0 +1,8 @@
+<% @peeps.reverse_each do |peep| %>
+  <class="peep" id="peep-<%=peep.id%>">
+    <div style="background-color: red; width: 10px; height: 10px; display: inline">
+      <%= peep.date.split(".")[0]%> </br>
+      <%= peep.text%> </br>
+      </br>
+    </div>
+<% end %>
