@@ -11,14 +11,14 @@
       <input type="submit" value="Share">
       </form>
   </section>
+<% else %>
+  <section class="go_to_signup">
+      <form action="/users/new" method="get" id="signup">
+        <input type="submit" value="Sign up for Chitter">
+        </form>
+      </section>
+
 <% end %>
-
-<section class="go_to_signup">
-    <form action="/users/new" method="get" id="signup">
-      <input type="submit" value="Sign up for Chitter">
-      </form>
-    </section>
-
 
 
 <section class="peep_feed">
