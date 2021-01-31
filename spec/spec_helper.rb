@@ -2,10 +2,10 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
-require 'capybara-rspec'
+require 'capybara/rspec'
 
 # require controller file
-require 'app'
+require_relative '../app'
 
 # set rack environment
 ENV['RACK_ENV'] = 'test'
