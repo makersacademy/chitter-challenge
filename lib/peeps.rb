@@ -13,6 +13,8 @@ class Peeps
   end
 
   def self.create(peep:, user_id:)
+    return nil unless peep
+
     if ENV['Environment'] == 'test'
       connection = PG.connect(dbname: 'chitter_chatter_test')
     else

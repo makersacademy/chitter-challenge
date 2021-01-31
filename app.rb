@@ -30,15 +30,19 @@ class Chitter < Sinatra::Base
     erb :show
   end
 
+  get '/new_peeps' do
+    erb :new_peep
+  end
+
   get '/peeps/new' do
-    # @user = User.find(id: session[:user_id]) if session[:user_id]
-    #
-    # if @user
+    @user = User.find(id: session[:user_id]) if session[:user_id]
+
+    if @user
       erb :show
-    # else
-    #   flash[:notice] = "You need to sign in/log in to post a peep!"
-    #   redirect('/peeps')
-    # end
+    else
+      flash[:notice] = "You need to sign in/log in to post a peep!"
+      redirect('/peeps')
+    end
   end
 
   post '/peeps' do

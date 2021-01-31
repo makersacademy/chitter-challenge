@@ -1,18 +1,24 @@
-<h1>List of all the peeps:</h1>
-<ul>
-  <% @peeps.each do |peep| %>
-  <li class='peep' id='peep-<%= peep.id %>'>
-    <a><%= peep.peep %> @<%= @username %> <%= peep.time.strftime(" at %H:%M") %></a>
-  </li>
-  <% end%>
-</ul>
+<head>
+  <title> Playing time </title>
+  <link href='style.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+  <h1>ALL THE PEEPS:</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li class='peep' id='peep-<%= peep.id %>'>
+      <a><%= peep.peep %> @<%= @username %> <%= peep.time.strftime(" at %H:%M") %></a>
+    </li>
+    <% end%>
+  </ul>
 
 
-<form  action="/peeps" method="post">
-  <input type="text" name="new_peep" >
-  <input type="submit" value="Peep away">
-</form>
+  <form  action="/new_peeps" method="get">
+    <br>
+    <input type="submit" value="New peep">
+  </form>
 
-<form  action="/logout" method="post">
-  <input type="submit" value="Log out">
-</form>
+  <form  action="/logout" method="post">
+    <input type="submit" value="Log out">
+  </form>
+</body>
