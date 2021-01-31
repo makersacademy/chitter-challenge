@@ -1,6 +1,6 @@
 # Chitter
 
-This is the development notes for the Makers Chitter application.
+This is the development notes for the Makers Chitter application. At it's current stage I have only accomplished the first three user stories for this application. I have yet to implement a login system for this app. 
 
 Below are the notes followed for setting up the web application:
 https://github.com/makersacademy/course/blob/master/pills/ruby_web_project_setup_list.md
@@ -40,5 +40,12 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+Currently I have completed the first three stories for this Chitter application:
+
+* By pressing 'Peep' you can post a new peep to the Chitter page.
+* Each peep is posted in reverse chronological order
+* Each peep will have a timestamp next to the message
+
 Here is the current webpage layout for Chitter:
 ![](Chitter_webpage.png)
