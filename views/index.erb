@@ -1,5 +1,10 @@
+<header>
 <h1> Chitter </h1>
-<h2> Something on your mind? </h2>
+<form action='/sign-up' method='get'>
+  <input type='submit' value='Sign Up'>
+</form>
+</header>
+<h2> Hello <%= @username %>, something on your mind? </h2>
 <form action='/new-peep' method='post'>
   <input type='text' name='peep' placeholder='you were always on my mind'>
   <input type='submit' value='Tell The World'>
@@ -8,7 +13,8 @@
 <ul>
   <% @peeps.each do |each_peep| %>
   <li>
-    <a><%= each_peep.peep %></a>
+    <h3><%= each_peep.peep %></h3>
+    <a><%= each_peep.time %></a>
   </li>
   <% end %>
 

@@ -11,14 +11,14 @@ class Peep
   end
 
   def self.all_peeps
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT id, user_id, peep, time FROM peeps ORDER BY time DESC")
     result.map do |peep|
       Peep.new(id: peep['id'], user_id: peep['user_id'], peep: peep['peep'], time: peep['time'])
     end
   end
 
   def self.new_peep(user_id:, peep:)
-    result = DatabaseConnection.query("INSERT INTO peeps (user_id, peep) VALUES(1, '#{peep}') RETURNING id, user_id, peep, time;")
+    result = DatabaseConnection.query("INSERT INTO peeps (user_id, peep, time) VALUES(1, '#{peep}', 'now()') RETURNING id, user_id, peep, time;")
     Peep.new(id: result[0]['id'], user_id: result[0]['user_id'], peep: result[0]['peep'], time: result[0]['time'])
   end
 end
