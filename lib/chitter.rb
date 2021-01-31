@@ -1,5 +1,6 @@
 require 'pg'
 require 'time'
+require_relative 'user'
 
 class Chitter 
 

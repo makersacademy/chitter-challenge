@@ -1,14 +1,23 @@
-Welcome to Chitter
-<br>
+<h1>Welcome to Chitter</h1>
+<label>
+<h3>PEEPS FROM THE PEEPS</h3>
+</label>
 <ul>
 <% @chitters.reverse.each do |chitter| %>
-<li><%= chitter.peep %> posted at <%= chitter.time %> </li>
+<li><%= chitter.peep %> </li>
+<ul><%=USERNAME%></ul>
+<UL><%=NAME%></UL>
+<ul><%= chitter.time %> </ul>
 <br>
 <% end %>
 </ul>
 
 <br>
-<form action="/post_peep" method='post'>
-<input type="text" name="peep" placeholder="Post your peep here">
-<input type="submit" value="Post Peep">
-</form>
+<% if @user == nil %>
+         <a href="/sign-up"><button>Sign up</button></a>
+<% else %>
+        User: <%= @user.username %>
+        <br>
+        <a href="/post"><button>Add Peep</button></a>
+<% end %>
+

@@ -1,3 +1,5 @@
+require './spec/test_helpers'
+
 feature 'homepage' do 
 
     scenario 'it should welcome users to Chitter' do 
@@ -5,11 +7,19 @@ feature 'homepage' do
         expect(page).to have_content "Welcome to Chitter"
     end
 
-    scenario 'you should be able to post a peep' do 
+    scenario 'it should have a working add peep button when signed up' do 
+        sign_up_and_continue
+        expect(page).to have_button "Add Peep"
+    end
+
+    scenario 'it should have a working sign up button' do 
         visit '/home'
-        fill_in("peep", with: "This is my first peep")
-        click_button 'Post Peep'
-        expect(page).to have_content "This is my first peep"
+        expect(page).to have_button "Sign up"
+    end
+
+    scenario 'if user is logged in, it should say who the user is' do 
+        sign_up_and_continue
+        expect(page).to have_content "User: ddottyler"
     end
 
 end
