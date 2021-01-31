@@ -6,18 +6,24 @@ describe Peep do
       connection = PG.connect(dbname: 'chitter_test')
 
       # Add the test data
-      connection.exec("INSERT INTO peeps (peep) VALUES ('I love this new app Chitter');")
+      Peep.create(peep: "I love this new app Chitter", username: "timmy_toes")
+      Peep.create(peep: "Red bull gives you wings", username: "timmy_toes")
 
       peeps = Peep.all
-      expect(peeps).to include("I love this new app Chitter")
+
+      expect(peeps.length).to eq 2
+      expect(peeps.first.peep).to eq 'I love this new app Chitter'
+      expect(peeps.first.username).to eq 'timmy_toes'
+      # expect(peeps).to include("I love this new app Chitter")
     end
   end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(peep: 'Red bull gives you wings')
+      peep = Peep.create(peep: 'Red bull gives you wings', username: 'timmy_toes').first
 
-      expect(Peep.all).to include 'Red bull gives you wings'
+      expect(peep['peep']).to eq 'Red bull gives you wings'
+      expect(peep['username']).to eq 'timmy_toes'
     end
   end
 end
