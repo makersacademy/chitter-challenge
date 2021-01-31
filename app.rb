@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative './lib/chitter'
 
 class ChitterApp < Sinatra::Base
 
@@ -7,7 +8,13 @@ class ChitterApp < Sinatra::Base
     end
 
     get '/home' do 
-    p ENV 
+        @chitters = Chitter.timeline
+        erb :homepage 
+    end
+
+    post '/post_peep' do
+        Chitter.post_peep(peep: params[:peep])
+        redirect '/home'
     end
 
     run! if app_file == $0 
