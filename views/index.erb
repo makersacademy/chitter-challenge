@@ -14,11 +14,11 @@
       <input type="text" name="posted_message" placeholder="What's on your mind?"  id="message_input_field" />
       <input type="submit" value="Post" id="post_submission_button" />
     </form>
-    <% if @messages %>
+    <% if @peeps %>
       <div id="peeps">
-        <% @messages.reverse.each do |post| %>   
+        <% @peeps.each do |post| %>   
           <div class="post">
-            <%= post %>
+            <%= post.message %>, posted at <%= post.time %>
           </div>
         <% end %>
       </div>
