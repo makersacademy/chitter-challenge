@@ -19,13 +19,11 @@ def successful_sign_in
 end
 
 def submit_a_post
-  fill_in "post[author_name]", with: "Author name"
   fill_in "post[text]", with: "writing a peep"
   click_button "Peep!"
 end
 
 def submit_another_post
-  fill_in "post[author_name]", with: "someone else"
   fill_in "post[text]", with: "second peep"
   click_button "Peep!"
 end

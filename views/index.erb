@@ -1,11 +1,9 @@
 <% if session[:session_user_id] %>
   Welcome, <%= @user.username %>
 
-  <form action="/new_post" method="post">
+  <form action="/new_post/<%= @user.id %>" method="post">
     <br/>
   <textarea placeholder="What are you thinking?" name="post[text]" cols="40" rows="5" maxlength="280" style="border: 2px solid black; resize: none"></textarea>
-  <br/>
-  <input placeholder="Name" type="text" name="post[author_name]">
   <br/>
   <input type="submit" value="Peep!"/>
 
@@ -36,8 +34,9 @@
 
     <div class="post" style="width: 320px; word-wrap: break-word; border: 1px solid black; background-color: honeydew">
     <%= post.text %>
-    </div>
-    Peeped by <%= post.author_name %> at 
+    </div> 
+
+    Peeped by <%= User.find(post.user_id).username %> at 
     <%= post.created_at.strftime("%k:%M, %e %b %Y") %>
     <br/>
     <br/>

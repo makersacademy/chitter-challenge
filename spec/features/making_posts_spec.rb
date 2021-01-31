@@ -5,12 +5,15 @@ feature "posting" do
     successful_sign_in
     submit_a_post
     new_post = Post.last
+    user = User.last
 
-    expect(new_post.author_name).to eq "Author name"
     expect(new_post.text).to eq "writing a peep"
+    expect(user.username).to eq "tester"
+
+    expect(new_post.user_id).to eq user.id
 
     expect(first(".post")).to have_content "writing a peep"
-    expect(page).to have_content "Author name"
+    expect(page).to have_content "Peeped by tester"
     expect(page).to have_content "writing a peep"
   end
 
@@ -22,7 +25,6 @@ feature "posting" do
 
     expect(first(".post")).to have_content "second peep"
     expect(page).to have_content "writing a peep"
-    expect(page).to have_content "Author name"
   end
 
 

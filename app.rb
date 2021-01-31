@@ -18,8 +18,8 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post "/new_post" do
-    post = Post.new(params["post"])
+  post "/new_post/:id" do
+    post = Post.new("text": params["post"]["text"], "user_id": params["id"])
     if post.save
       redirect "/"
     else
