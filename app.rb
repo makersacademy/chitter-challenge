@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   include SessionHelper
 
   get '/' do
-    redirect '/peeps'
+    erb :'homepage/sign_in'
   end
 
   get '/peeps' do
@@ -30,7 +30,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password])
+    user = User.create(email: params[:email], 
+    password: params[:password], 
+    user_name: params[:user_name])
     session[:user_id] = user.id
     redirect '/peeps'
   end

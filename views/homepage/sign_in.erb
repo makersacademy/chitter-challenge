@@ -113,24 +113,23 @@ span.water {
 <hr>
 
 <% if @user %>
-  <h2>Greetings, <%= @user.user_name %>!</h2>
+  <h2>Greetings, <%= @user.email %></h2>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+  <% else %>
+  <form action="/users/new" method="get">
+  <input type="submit" value="Sign Up" >
+  </form>
+  <form action="/sessions/new" method="get">
+    <input class="sign_in" type="submit" value="Sign in" />
+    </form>
 <% end %>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
-        <h2><%= peep.peep_content %></h2> </br> 
-        <% @user = User.find(peep.user_id) %>
-        peeped by <strong><%= @user.user_name %></strong> at <%= peep.created_at %></br></br>
-        <hr>
-    </li>
-  <% end %>
-</ul>
-
-<form action='/peeps' method='post'>
-<input type='text' name='peep_content' placeholder='peep_content' />
-<input type='submit' value='Peep!' />
+<form action="/peeps" method="get">
+<input type="submit" value="View Peeps">
 </form>
+
 
 
 <h2>
