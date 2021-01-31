@@ -116,3 +116,13 @@ Methods:
 - find_user(username:)
   - searches peeps table for username:
   - returns true or false
+
+<h3>Routes</h3>
+
+/ - asks user to sign_up or log_in
+  - /sign_up  
+    - /chitter (if username not taken)
+      /peep 
+    - /username_taken (if username already exists)
+      -/sign_up (loops back to sign up to check name)
+  -/log
