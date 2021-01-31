@@ -1,15 +1,15 @@
 require "sinatra/base"
-require "./lib/message"
+require "./lib/peep"
 
 class Chitter < Sinatra::Base
 
   get "/" do
-    @messages = Message.all
+    @messages = Peep.all
     erb(:index)
   end
 
   post "/posted" do
-    Message.create(:message => params["posted_message"])
+    Peep.create(:message => params["posted_message"])
 
     # posted_message = params["message"]
     # connection = PG.connect(dbname: 'message_manager_test')

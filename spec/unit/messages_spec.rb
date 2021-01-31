@@ -1,5 +1,3 @@
-require "./lib/message"
-
 describe ".all" do
   it "returns a list of messages" do
 
@@ -13,7 +11,7 @@ describe ".all" do
     connection.exec("INSERT INTO messages (message) VALUES ('Blueberries');")
     connection.exec("INSERT INTO messages (message) VALUES ('Blue');")
 
-    messages = Message.all
+    messages = Peep.all
 
     expect(messages).to include("Hey there!")
     expect(messages).to include("Blueberries")
@@ -24,7 +22,7 @@ end
 
 describe ".create" do
   it "creates a new message" do
-    Message.create(message: "Well howdy there!")
-    expect(Message.all).to include("Well howdy there!")
+    Peep.create(message: "Well howdy there!")
+    expect(Peep.all).to include("Well howdy there!")
   end
 end
