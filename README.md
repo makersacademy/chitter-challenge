@@ -1,6 +1,20 @@
 Chitter Challenge
 =================
 
+Set Up
+------
+### To set up the database
+
+Make sure that PostgreSQL is installed. Connect to `psql` and create `chitter` and `chitter_test` databases:
+```
+CREATE DATABASE chitter
+CREATE DATABASE chitter_test
+```
+Connect to each database and run the SQL scripts in `db/migrations` folder in the given order, to create the right tables.
+
+
+
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
