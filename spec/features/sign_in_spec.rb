@@ -2,12 +2,13 @@ require 'pg'
 
 feature "Sign in" do
 
-  scenario "it asks the user to enter username and password" do
+  scenario "asks the user to enter username and password" do
+    sign_up
     log_in
     expect(page).to have_content "Hi claude"
   end
 
-  scenario "it allows users to sign up" do
+  scenario "allows users to sign up" do
     sign_up
     expect(page).to have_content "Hi claude"
   end
@@ -39,6 +40,12 @@ feature "Sign in" do
     fill_in("password", :with => "testpassword")
     click_on("submit_1")
     expect(page).to have_content("No username registered: please sign up")
+  end
+
+  it "prevents a user from choosing an existing username" do
+    sign_up
+    sign_up
+    expect(page).to have_content("Username is unavailable - please choose another")
   end
 
 end

@@ -43,8 +43,12 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     session[:username] = params[:new_username]
-    User.create_user(username: session[:username], password: params[:new_password], email: params[:email])
-    redirect '/chitter'
+    if User.find_user(username: session[:username]) == false
+      User.create_user(username: session[:username], password: params[:new_password], email: params[:email])
+      redirect '/chitter'
+    else
+      erb(:username_taken)
+    end
   end
 
   get '/chitter' do

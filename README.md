@@ -85,3 +85,34 @@ CREATE TABLE peeps(id SERIAL PRIMARY KEY, date DATE, time DECIMAL(4,2), message 
 CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR, password VARCHAR, email VARCHAR);
 
 ```
+
+<h3>Functions</h3>
+
+**Class - peep**
+
+Methods:
+
+- all
+   - generates an array of all peeps from the table
+   - sorts peeps into reverse chronological order
+
+
+- create
+  - creates a new peep
+  - generates date and time
+
+**Class - user**
+
+Methods:
+
+- create_user(username:, password:, email:)
+  - creates a new user
+
+- check_password(password:)
+  - checks password associated with username
+    - returns true or false
+
+- find_user(username:)
+  - searches peeps table for username:
+  - returns true or false
+  
