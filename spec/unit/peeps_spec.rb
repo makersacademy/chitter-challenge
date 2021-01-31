@@ -26,7 +26,7 @@ describe Peep do
   end
   
   describe ".create" do
-    it "inserts an entry and returns an instance of peep" do
+    it "inserts an entry into the database and returns an instance of peep" do
       created_peep = Peep.create(message: message_1)
       expect(created_peep).to be_a Peep
       expect(created_peep.message).to eq("Strawberries")
