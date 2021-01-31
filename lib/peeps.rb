@@ -3,7 +3,7 @@ require 'pg'
 # class for peep object
 class Peeps
 
-  @database = if ENV['Environment'] == 'test'
+  @database = if ENV['ENVIRONMENT'] == 'test'
                 p "Test environment"
                 PG.connect(dbname: 'Chitter_test')
               else

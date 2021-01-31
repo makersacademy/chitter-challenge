@@ -1,3 +1,6 @@
+# Set up test environment for databases
+ENV['ENVIRONMENT'] = 'test'
+
 # required gems
 require 'simplecov'
 require 'simplecov-console'
@@ -7,11 +10,8 @@ require 'capybara/rspec'
 # require controller file
 require_relative '../app'
 
-# set rack environment
-ENV['RACK_ENV'] = 'test'
-
-# Set up test environment for datatbases
-ENV['Environment'] = 'test'
+# # set rack environment
+# ENV['RACK_ENV'] = 'test'
 
 # Tell capybara to talk to Chitter
 Capybara.app = Chitter
