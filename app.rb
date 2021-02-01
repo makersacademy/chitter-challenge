@@ -30,8 +30,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/homepage/sign_in' do
-    p "params in /homepage/sign_in:"
-    p params
     session[:user] = User.log_in(username: params[:username], password: params[:password])
     redirect '/chitter'
   end

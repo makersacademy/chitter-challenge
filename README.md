@@ -47,13 +47,19 @@ I want to receive an email if I am tagged in a Peep
 https://docs.google.com/document/d/15R7UgXIHnX9UjGrGrpDBOKLwASgSOK_c7NYLtxArv2M/edit
 
 ### Domain diagram
-![user story 1](/user_story.png)
+![user story](/user_story.png)
 
 ## How to use
 
+### Git clone
+
+git clone git@github.com:bear99a9/chitter-challenge.git
+
+cd chitter-challenge
+
 ### To set up the database
 
-Connect to `psql` and create the `bookmark_manager` database & the `bookmark_manager_test:` database;
+Connect to `psql` and create the `chitter` database & the `chitter_test:` database;
 
 ```
 CREATE DATABASE chitter;
@@ -62,7 +68,7 @@ CREATE DATABASE chitter_test;
 
 To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-### To run the Bookmark Manager app:
+### To run the Chitter app:
 
 ```
 bundle
@@ -72,7 +78,7 @@ bundle
 rackup -p 3000
 ```
 
-To view bookmarks, navigate to `localhost:3000/bookmarks`.
+To view chitter, navigate to `localhost:3000/hompage`.
 
 ### To run tests:
 
@@ -87,16 +93,17 @@ rubocop
 ```
 
 ### Current Issues
-- Still a bit messy in relation to routes
 - Very simple CSS
-- I wanted to get the timestamp to show without microseconds and couldn't find a way to do it
 - Characters like ' or , crash my table peeps this is probably to do with the fact it is set to VARCHAR
+- Didn't complete flash notice for logging out and giving duplicate email and user names
+- Still a bit messy in relation to routes
+- I wanted to get the timestamp to show without microseconds and couldn't find a way to do it
+
 
 Notes on functionality:
 ------
 
-* You don't have to be logged in to see the peeps. - WORKING
 * User sign up to chitter with their email, password, name and a username (e.g. sean@makersacademy.com, Password1234, Sean Edwards, sedwards). - WORKING
 * The username and email are unique. - WORKING
 * Peeps have the name of the user and their user handle. - WORKING
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* Your README should indicate the technologies used, and give instructions on how to install and run the tests. - Completed
