@@ -22,9 +22,9 @@ describe Peep do
   describe '.peep_username' do
     it 'returns the name of the peeper' do
       peeper = Users.sign_up(username: 'dude',
-                             firstname: 'Someone',
-                             secondname: 'Something',
-                             email: 'Karsten@makersacademy.com')
+        firstname: 'Someone',
+        secondname: 'Something',
+        email: 'Karsten@makersacademy.com')
       test_peep = Peep.new_peep(username: peeper.username, peep: "hi")
 
       expect(test_peep.username).to eq peeper.username
