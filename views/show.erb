@@ -1,0 +1,27 @@
+<head>
+  <title> Peeps </title>
+  <link href='style.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+  <h1>ALL THE PEEPS:</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li class='peep' id='peep-<%= peep.id %>'>
+      <br>
+      <a><%= peep.peep %> @<%= peep.find_username %>
+        <br>
+        <%= peep.time.strftime(" at %H:%M") %></a>
+    </li>
+    <% end%>
+  </ul>
+
+
+  <form  action="/new_peeps" method="get">
+    <br>
+    <input type="submit" value="New peep">
+  </form>
+
+  <form  action="/logout" method="post">
+    <input type="submit" value="Log out">
+  </form>
+</body>
