@@ -24,7 +24,6 @@ class Peep
     end
 
     def self.post(message:)
-        connection = PG.connect(dbname: 'chitter')
         if ENV['ENVIRONMENT'] == 'test'
             connection = PG.connect(dbname: 'chitter_test')
         else

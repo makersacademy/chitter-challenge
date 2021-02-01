@@ -4,6 +4,6 @@ feature 'Chitter registration' do
         fill_in('email', with: 'test@chitter.com')
         fill_in('password', with: 'password')
         click_button 'Submit'
-        expect(page).to have_content 'Welcome to Chitter, test@chitter.com!'
+        expect(page).to have_content 'Welcome, test@chitter.com!'
     end
 end

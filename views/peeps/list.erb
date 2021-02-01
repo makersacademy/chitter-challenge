@@ -1,3 +1,7 @@
+<% if @user %>
+    <h2>Welcome, <%= @user.email %>!</h2>
+<% end %>
+
 <% @peeps.each do |peep| %>
     <%= peep.date %>
     <%= peep.time %>

@@ -18,7 +18,7 @@ describe Peep do
     describe '.post' do
         it 'adds a peep to the database' do
             peep = Peep.post(message: 'Test peep - post')
-            persisted_data = persisted_data(id: peep.id)
+            persisted_data = persisted_data(id: peep.id, table: :peeps)
             
             expect(peep).to be_a Peep
             expect(peep.id).to eq persisted_data['id']
