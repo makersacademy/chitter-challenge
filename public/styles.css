@@ -22,6 +22,7 @@ form {
   width: 80%;
   max-width: calc(50% - (-50% / 2));
   margin: 5px;
+  font-size: 1.5rem
 }
 
 #post_submission_button {
@@ -60,6 +61,6 @@ h1 {
   left: 50px;
   max-width: calc(50% - (-50% / 2));
   margin: 5px;
-  font-size: 48px;
+  font-size: 4rem;
   top: 24px;
 }
