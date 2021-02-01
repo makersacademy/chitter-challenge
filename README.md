@@ -89,7 +89,22 @@ Relationship:
 Chitter can have many users
 
 ## To Set up databases
-In psql run the code in the db/migrations folder
+In psql run the code in the db/migrations folder also creating a test version
+
+## To Run the app
+run `bundle`
+run `rackup -p 9000`
+and then navigate to `localhost:9000`
+
+## To Run tests
+run `rspec`
+
+## Current Issues
+- no password feature implemented
+- usernames are linked to the session and not to the database
+- tables needs to link via user_id not username using INTEGER REFERENCES
+- users can sign in without a valid username and can sign up multiple times (needs UNIQUE to feature in the username and email columns)
+- signing out changes the session to nil whereas should be sessions.clear
 
 
 Notes on functionality:
