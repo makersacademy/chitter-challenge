@@ -18,7 +18,7 @@ Connect to `psql` and create the `chitter` database & the `chitter_test` databas
 CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
 ```
-To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+To set up the appropriate tables, connect to *EACH* database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
 To test, run:
 ```
@@ -66,32 +66,6 @@ I want to receive an email if I am tagged in a Peep
 
 =================
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
 Notes on functionality:
 ------
 
@@ -134,23 +108,3 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
