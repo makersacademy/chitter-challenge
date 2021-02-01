@@ -1,4 +1,5 @@
 require 'pg'
+require 'database_connection'
 
 class Peep
   attr_reader :id, :text, :date
@@ -10,12 +11,7 @@ class Peep
   end
 
   def self.all
-    connection = if ENV['ENVIRONMENT'] == 'test'
-                   PG.connect(dbname: 'chitter_test')
-                 else
-                   PG.connect(dbname: 'chitter')
-                 end
-    result = connection.exec('SELECT * FROM peeps;')
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
       Peep.new(id: peep['id'],
                text: peep['peep'],
