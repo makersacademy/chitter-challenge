@@ -1,0 +1,21 @@
+<h1> Welcome to Chitter </h1>
+
+<% if @user %>
+  <h2>Hello, <%= @user.name %></h2>
+<% end %>
+
+<form action='/peeps/new' method='get'>
+  <input type='submit' value='Add peep'>
+</form>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+      <%= peep.message %>
+      <%= peep.time %>
+  </li>
+  <%end%>
+</ul>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
