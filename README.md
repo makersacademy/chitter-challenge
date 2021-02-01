@@ -14,7 +14,7 @@ Ruby w/ Sinatra and PostreSQL. Tested using RSpec and Capybara.
 
 #### Download repo and install packages
 
-1. Clone repo `https://github.com/Reeshul/chitter-challenge`
+1. Clone repo `git clone https://github.com/Reeshul/chitter-challenge`
 2. Change directory `cd chitter-challenge`
 3. Install gems `bundle`
 
