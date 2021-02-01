@@ -1,5 +1,4 @@
-require 'peeps'
-require 'user'
+
 require 'persisted_data'
 
 describe Peeps do

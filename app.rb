@@ -20,19 +20,16 @@ class Chitter < Sinatra::Base
   post '/user' do
     user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
     session[:user_id] = user.id
-    session[:username] = user.username
     redirect ('/peeps')
   end
 
   get '/peeps' do
     @user = User.find(id: session[:user_id]) if session[:user_id]
-    @username = session[:username]
     @peeps = Peeps.all
     erb :show
   end
 
   get '/new_peeps' do
-    @username = session[:username]
     erb :new_peep
   end
 
@@ -49,7 +46,6 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peeps.create(peep: params[:new_peep], user_id: session[:user_id])
-    @username = session[:username]
     redirect ('/peeps')
   end
 

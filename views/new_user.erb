@@ -22,6 +22,12 @@
     margin: 8px 0;
     box-sizing: border-box;
   }
+  input[type=password] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
   input[type=submit] {
       padding:20px 20px;
       background:#2A7EDB;
@@ -40,7 +46,7 @@
   <div>
     <form action="/user" method="post">
       <input type="text" name="email" placeholder="Email">
-      <input id="hidden" type="text" name="password" placeholder="Password">
+      <input id="hidden" type="password" name="password" placeholder="Password">
       <input type="text" name="name" placeholder="Name">
       <input type="text" name="username" placeholder="Username">
       <br>
