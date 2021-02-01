@@ -22,7 +22,7 @@ describe User do
   context '.find' do
     it 'finds a user by ID' do
       user = User.create('John Doe', 'JohnDoe', 'test@example.com', 'password123')
-      result = User.find(id: user)
+      result = User.find(user.id)
 
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email

@@ -41,7 +41,7 @@ feature 'authentication' do
 
   visit '/sessions/new'
   fill_in(:email, with: 'test@example.com')
-  fill_in(:password, with: 'wrongpassword')
+  fill_in(:password, with: 'password123')
   click_button('Sign in')
 
   # Sign out
