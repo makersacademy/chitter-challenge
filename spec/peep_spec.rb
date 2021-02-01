@@ -18,7 +18,7 @@ describe Peep do
   end
 
   describe '.create' do
-    it 'adds a new bookmark to the database' do
+    it 'adds a new peep to the database' do
       user = create_new_user
       peep = Peep.create(message: 'This is my first peep', user_id: user.id)
       # persisted_data = persisted_data(id: bookmark.id)

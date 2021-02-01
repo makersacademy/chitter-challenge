@@ -5,6 +5,13 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres chitter_test < db/migrations/01_create_peeps_table.sql
+  - psql -U postgres chitter_test < db/migrations/02_add_time_posted_to_peeps.sql
+  - psql -U postgres chitter_test < db/migrations/03_add_users_table.sql
+  - psql -U postgres chitter_test < db/migrations/04_add_user_id_to_peeps.sql
+  - psql -U postgres chitter_test < db/migrations/05_make_email_column_unique.sql
+  - psql -U postgres chitter_test < db/migrations/06_make_username_column_unique.sql
+
 
 script:
   - bundle exec rspec
