@@ -1,6 +1,35 @@
 Chitter Challenge
 =================
 
+Set Up
+------
+
+1. Make sure you have rubygems installed
+2. Clone this repository
+3. `cd` into the repo you've just cloned and run `bundle` to install necessary gems
+4. Set up the databases as described below
+
+
+### To set up the database
+
+Make sure that PostgreSQL is installed. Connect to `psql` and create `chitter` and `chitter_test` databases:
+```
+CREATE DATABASE chitter
+CREATE DATABASE chitter_test
+```
+Connect to each database and run the SQL scripts in `db/migrations` folder in the given order, to create the right tables.
+
+### Running tests
+Tests are written in rspec using capybara framework. If you have run `bundle` in your repo, you should just be able to run `rspec` in the root directory and check all tests are passing.
+
+The Code
+-----
+See [Domain Model](docs/domain_modelling.md) to see how code interacts
+
+
+# The Task from Makers
+-----------
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**

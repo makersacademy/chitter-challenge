@@ -1,0 +1,44 @@
+
+
+<h1>Welcome to Chitter<%= " #{User.find_name(@user_id)}" if @user_id %>!</h1>
+
+<% if @user_id %>
+  <section class="write_peep">
+    <form action="/peeps" method="post" id="new_peep">
+      <label for="peep_content">Share your thoughts with the world:</label>
+      <br>
+      <textarea name="content" maxlength="280" rows="6" columns="80">What have you got to say for yourself?</textarea>
+      <input type="submit" value="Share">
+      </form>
+  </section>
+<% else %>
+  <section class="go_to_signup">
+      <form action="/users/new" method="get" id="signup">
+        <input type="submit" value="Sign up for Chitter">
+        </form>
+      </section>
+
+<% end %>
+
+
+<section class="peep_feed">
+  <ul>
+    <% Peep.all.reverse.each do |peep| %>
+      <div class="peep_<%= peep.id %>">
+        <div class="content">
+          <%= peep.content %>
+          </div>
+        <div class="posted_time_stamp">
+          Posted <%= peep.posted_time_stamp.strftime("%d/%m/%Y %H:%M") %>
+          </div>
+        <br>
+        </div>
+    <% end %>
+    </ul>
+  </section>
+
+
+
+<footer>Made by Hugh Cavanagh as part of the Makers Academy Course.
+  See <a href="https://github.com/hacaravan/chitter-challenge">my Github repo</a>.
+    </footer>
