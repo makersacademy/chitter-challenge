@@ -41,6 +41,12 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+My plan:
+![class diagram](/public/class_uml.png)
+
 I have so far implemented log in, but not log out.
 
 It uses the ActiveRecord ORM.
+
+Currently looks like this:
+![progress so far](/public/end_of_weekend.png)
