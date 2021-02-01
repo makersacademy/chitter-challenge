@@ -12,4 +12,13 @@
   <input type='submit' value='Sign in'>
 </form>
 
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+      <%= peep.message %>
+      <%= peep.time %>
+  </li>
+  <%end%>
+</ul>
+
 <p> Built by CodeRed30 </p>

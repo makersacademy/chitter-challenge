@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all.reverse
     erb :index
   end
 
