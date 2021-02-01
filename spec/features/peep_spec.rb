@@ -5,7 +5,7 @@ feature "It can add a new peep" do
   scenario "it allows the user to add a new peep" do
     visit('/chitter')
     click_on("peep")
-    expect(page).to have_content("Transmit your thoughts to the world")
+    expect(page).to have_content("p e e p !")
   end
 
   scenario "it has a form that accepts peeps" do

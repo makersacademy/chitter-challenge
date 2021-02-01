@@ -109,9 +109,11 @@ Methods:
 - create_user(username:, password:)
   - creates a new user
 
+
 - check_password(password:)
   - checks password associated with username
-    - returns true or false
+  - returns true or false
+
 
 - find_user(username:)
   - searches peeps table for username:
@@ -119,10 +121,19 @@ Methods:
 
 <h3>Routes</h3>
 
-/ - asks user to sign_up or log_in
+**log in and sign up**
+
+- / (asks user to sign_up or log_in)
   - /sign_up  
-    - /chitter (if username not taken)
-      /peep 
-    - /username_taken (if username already exists)
-      -/sign_up (loops back to sign up to check name)
-  -/log
+    - /chitter (if username not taken, sends user to main app)
+    - /username_taken (if username already exists; loops back to sign_up to check name)
+  - /log_in
+    - /no_user (if user doesn't exist)
+    - /check_password (checks if password correct)
+      - /chitter (if password is correct)
+      - /password_error (enter password again if password is incorrect)
+
+**chitter**
+  - /chitter (welcomes user by name; displays peeps)
+    - /new_peep (allows user to send a new message; loops back to /chitter)
+    - /sign_out (lets user sign out)
