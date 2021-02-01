@@ -1,8 +1,10 @@
 <ul>
+  Welcome to Chitter!!!<br><br>
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
+      <%= peep.username + " peeped" %><br><br>
       <%= peep.peep %>
-      <%= peep.username %>
+      <br>
       <form action="/peeps/<%= peep.id %>" method="post">
         <input type='hidden' name='_method' value='DELETE'/>
         <input type="submit" value="Delete" />

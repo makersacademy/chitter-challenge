@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   get '/chitter' do
-    "Chitter!!"
+    redirect '/peeps'
   end
 
   get '/peeps' do
