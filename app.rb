@@ -18,14 +18,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @duplicate_email = params[:duplicate_email]
+    @duplicate_user = params[:duplicate_user]
+    p 'user', @duplicate_user, 'email', @duplicate_email
     erb :new_user
   end
 
   post '/users' do
     user = User.create(name: params[:name], username: params[:username],
                     email_address: params[:email_address], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/'
+    if user.is_a?(User)
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      redirect "/users/new?duplicate_user=#{user[:duplicate_user]}&duplicate_email=#{user[:duplicate_email]}"
+    end
   end
 
 end

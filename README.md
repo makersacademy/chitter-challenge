@@ -22,6 +22,10 @@ Connect to each database and run the SQL scripts in `db/migrations` folder in th
 ### Running tests
 Tests are written in rspec using capybara framework. If you have run `bundle` in your repo, you should just be able to run `rspec` in the root directory and check all tests are passing.
 
+The Code
+-----
+See [Domain Model](docs/domain_modelling.md) to see how code interacts
+
 
 # The Task from Makers
 -----------

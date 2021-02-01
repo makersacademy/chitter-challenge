@@ -31,6 +31,41 @@ describe User do
     it 'has the right password' do
       expect(BCrypt::Password.new(added_data['password'])).to eq password
     end
+
+    context 'when trying to create a user with same username' do
+
+      let(:different_email_address) { 'different_email@google.com'}
+      let(:second_user) { described_class.create(name: name, username: user_name,
+        password: password, email_address: different_email_address) }
+      before do
+        id = new_user.id
+      end
+      it 'returns duplicate user warning' do
+        expect(second_user[:duplicate_user]).to be true
+      end
+      it 'does not add a user to the table' do
+        user_count = DBConnection.query("Select count(*) as count from chitterer where username = '#{user_name}'")
+        expect(user_count.first['count']).to eq '1'
+      end
+
+      context 'when trying to create a user with same email address' do
+
+        let(:different_username) { 'hughy25' }
+        let(:second_user) { described_class.create(name: name, username: different_username,
+          password: password, email_address: email_address) }
+        before do
+          id = new_user.id
+        end
+        it 'returns duplicate email warning' do
+          expect(second_user[:duplicate_email]).to be true
+        end
+        it 'does not add a user to the table' do
+          user_count = DBConnection.query("Select count(*) as count from chitterer where email_address = '#{email_address}'")
+          expect(user_count.first['count']).to eq '1'
+        end
+      end
+    end
+
   end
 
   describe '.find_name' do

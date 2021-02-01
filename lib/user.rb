@@ -12,6 +12,7 @@ class User
   end
 
   def self.create(name:, username:, password:, email_address:)
+    return { duplicate_user: duplicate_user?(username), duplicate_email: duplicate_email?(email_address) } if duplicate_user?(username) || duplicate_email?(email_address)
     password_hashed = BCrypt::Password.create(password)
     column_arr = ['name', 'username', 'email_address', 'password']
     values_arr = [name, username, email_address, password_hashed]
@@ -24,6 +25,14 @@ class User
     results = DBConnection.query("select * from chitterer where id = #{id}").first
     return unless results
     results['name']
+  end
+
+  def self.duplicate_user?(user_name)
+    DBConnection.select_safe(table: 'chitterer', column: 'username', value: user_name).any?
+  end
+
+  def self.duplicate_email?(email)
+    DBConnection.select_safe(table: 'chitterer', column: 'email_address', value: email).any?
   end
 
 end

@@ -1,4 +1,14 @@
 <h1>New User</h1>
+<% if @duplicate_user == 'true' %>
+  <section class="duplicate_user">
+    Username already taken!
+    </section>
+<% end %>
+<% if @duplicate_email == 'true' %>
+  <section class="duplicate_email">
+    Email address already taken!
+    </section>
+<% end %>
 <form action="/users" method="post" id="new_user">
   <label for="name">Name:</label>
   <input type="text" name="name" placeholder="Your Name">
