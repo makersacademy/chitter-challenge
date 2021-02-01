@@ -1,6 +1,25 @@
 Chitter Challenge
 =================
 
+## Setting up the main database
+1. connect to psql
+
+2. Create the database using the psql command CREATE DATABASE chitter_manager;
+
+3. Connect to the database using the pqsl command \c chitter_manager;
+
+4. Run the query we have saved in the file 01_create_posts_table.sql
+
+## Setting up the test database
+1. connect to psql
+
+2. Create the database using the psql command CREATE DATABASE chitter_manager_test;
+
+3. Connect to the database using the pqsl command \c chitter_manager;
+
+4. Run the query we have saved in the file 01_create_posts_table.sql
+
+## Challenge
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
