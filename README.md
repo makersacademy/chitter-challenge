@@ -137,3 +137,9 @@ Methods:
   - /chitter (welcomes user by name; displays peeps)
     - /new_peep (allows user to send a new message; loops back to /chitter)
     - /sign_out (lets user sign out)
+
+<h3>Technologies used</h3>
+
+ - chitter uses PostgreSQL to store peeps and user data.
+ - web framework is sinatra
+ - coded in ruby 2.6.5
