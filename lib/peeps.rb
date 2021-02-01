@@ -3,13 +3,14 @@ require 'pg'
 
 class Peeps
 
-  attr_reader :id, :peep, :time, :user_id
+  attr_reader :id, :peep, :time, :user_id, :user_name
 
-  def initialize(id:, peep:, time:, user_id:)
+  def initialize(id:, peep:, time:, user_id:, user_name: User)
     @id = id
     @peep = peep
     @time = time
     @user_id = user_id
+    # @user_name = user_name.find(id: user_id).username
   end
 
   def self.create(peep:, user_id:)

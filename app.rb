@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(id: session[:user_id]) if session[:user_id]
-    @username = session[:username]
+    # @username = User.find(id: session[:user_id]).username
     @peeps = Peeps.all
     erb :show
   end
