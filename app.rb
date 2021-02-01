@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'pg'
 require './lib/peeps'
 require './lib/user'
+require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -25,12 +26,13 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(id: session[:user_id]) if session[:user_id]
-    # @username = User.find(id: session[:user_id]).username
+    @username = session[:username]
     @peeps = Peeps.all
     erb :show
   end
 
   get '/new_peeps' do
+    @username = session[:username]
     erb :new_peep
   end
 
@@ -47,6 +49,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peeps.create(peep: params[:new_peep], user_id: session[:user_id])
+    @username = session[:username]
     redirect ('/peeps')
   end
 

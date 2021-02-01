@@ -1,7 +1,5 @@
 ENV['Environment'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-# require File.join(File.dirname(__FILE__), '..', 'users.rb')
-# require File.join(File.dirname(__FILE__), '..', 'peeps.rb')
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
@@ -21,13 +19,13 @@ RSpec.configure do |config|
   end
 end
 
-RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
-  end
-end
+# RSpec.configure do |config|
+#   config.after(:suite) do
+#     puts
+#     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
+#     puts "\e[33mTry it now! Just run: rubocop\e[0m"
+#   end
+# end
 
 ENV['RACK ENV'] = 'test'
 Capybara.app = Chitter

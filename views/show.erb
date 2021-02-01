@@ -7,7 +7,7 @@
   <ul>
     <% @peeps.each do |peep| %>
     <li class='peep' id='peep-<%= peep.id %>'>
-      <a><%= peep.peep %> <%= @username %> <%= peep.time.strftime(" at %H:%M") %></a>
+      <a><%= peep.peep %> @<%= peep.find_username %> <%= peep.time.strftime(" at %H:%M") %></a>
     </li>
     <% end%>
   </ul>
