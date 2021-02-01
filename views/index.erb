@@ -36,7 +36,7 @@
     <%= post.text %>
     </div> 
 
-    Peeped by <%= User.find(post.user_id).username %> at 
+    Peeped by <%= User.find(post.user_id).username %> (<%= User.find(post.user_id).real_name %>) at 
     <%= post.created_at.strftime("%k:%M, %e %b %Y") %>
     <br/>
     <br/>
