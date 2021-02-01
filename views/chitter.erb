@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title></title>
+  </head>
+  <body>
+    <h3> Welcome back <%= session[:user].username %> </h3>
+
+    <form  action="/chitter/new_peep" method="post">
+      <input type="text" name="text" placeholder="Peep Here!">
+      <button type="submit" name="Peep">Peep</button>
+    </form>
+    <ul style="list-style: none;">
+      <% @peeps.each do |peep| %>
+        <li id="peeps"><h3 class="normal"><%= peep.text %></h3>
+          <% @user = User.find(peep.user_id) %>
+          <p class="thick"><%= @user.username %> (<%= @user.name %>)</p>
+          <p class="light">Peeped at: <%= peep.created_at %></p>
+        </li>
+      <% end %>
+    </ul>
+
+    <form action="/sign-out" method="post">
+      <input type="submit" value="Sign Out" />
+    </form>
+  </body>
+</html>
