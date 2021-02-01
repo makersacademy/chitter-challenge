@@ -63,13 +63,13 @@ I want to log out of Chitter
 ## How to use
 
 1. Open psql.
-2. Create databases chitter and chitter_test
-3. Connect to your chitter database using the command `\c chitter`
+2. Create databases chitter_chatter and chitter_chatter_test
+3. Connect to your chitter database using the command `\c chitter_chatter`
 4. Run the query we have saved in the file '02_create_peeps_table.sql'
 5. Run the query we have saved in the file '03_add_time_column_on_peeps_table.sql'
 6. Run the query we have saved in the file '04_create_users_table.sql'
 7. Run the query we have saved in the file '05_add_column_user_id_to_peeps_table.sql'
-8. Create a test database using the psql command `CREATE DATABASE chitter_test;`
+8. Create a test database using the psql command `CREATE DATABASE chitter_chatter_test;`
 9. Repeat steps 3 and 6 for the test database.
 
 ## How to run
