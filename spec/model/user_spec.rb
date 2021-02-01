@@ -6,10 +6,10 @@ describe User do
         it 'should create a user' do 
         user = User.create(email: 'my_email@email.com', password: 'password123', name: 'Dan T', username: 'ddottyler')
         connection = PG.connect(dbname: 'chitter_test')
-        result = connection.query("SELECT * FROM users WHERE id = #{user.id};")
+        result = connection.query("SELECT * FROM users WHERE userid = #{user.userid};")
 
         expect(user).to be_a User
-        expect(user.id).to eq result.first['id']
+        expect(user.userid).to eq result.first['userid']
         expect(user.email).to eq 'my_email@email.com'
      end
     end 
@@ -21,9 +21,9 @@ describe User do
 
         it 'finds a user by ID' do
             user = User.create(email: 'my_email@email.com', password: 'password123', name: 'Dan T', username: 'ddottyler')
-            result = User.find(user.id)
-
-            expect(result.id).to eq user.id
+            result = User.find(user.userid)
+       
+            expect(result.userid).to eq user.userid
             expect(result.email).to eq user.email
         end
     end

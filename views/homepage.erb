@@ -5,8 +5,8 @@
 <ul>
 <% @chitters.reverse.each do |chitter| %>
 <li><%= chitter.peep %> </li>
-<ul><%=USERNAME%></ul>
-<UL><%=NAME%></UL>
+<ul>Username: <%=User.find(chitter.userid).username%></ul>
+<UL>User: <%=User.find(chitter.userid).name%></UL>
 <ul><%= chitter.time %> </ul>
 <br>
 <% end %>
