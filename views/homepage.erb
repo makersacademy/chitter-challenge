@@ -1,0 +1,23 @@
+<h1>Welcome to Chitter</h1>
+<label>
+<h3>PEEPS FROM THE PEEPS</h3>
+</label>
+<ul>
+<% @chitters.reverse.each do |chitter| %>
+<li><%= chitter.peep %> </li>
+<ul>Username: <%=User.find(chitter.userid).username%></ul>
+<UL>User: <%=User.find(chitter.userid).name%></UL>
+<ul><%= chitter.time %> </ul>
+<br>
+<% end %>
+</ul>
+
+<br>
+<% if @user == nil %>
+         <a href="/sign-up"><button>Sign up</button></a>
+<% else %>
+        User: <%= @user.username %>
+        <br>
+        <a href="/post"><button>Add Peep</button></a>
+<% end %>
+
