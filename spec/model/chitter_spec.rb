@@ -5,7 +5,9 @@ describe Chitter do
 
     describe '.post_peep' do     
          it 'should create' do 
-            peep = Chitter.post_peep(peep: 'This is my first peep', userid: 1)
+            user = User.create(email: "ddot@ddot.com", password: "password123", name: "ddot", username: "ddott")
+            integer = user.userid
+            peep = Chitter.post_peep(peep: 'This is my first peep', userid: integer)
             persisted_data = persisted_data(peep.id)
             expect(peep).to be_a Chitter
             expect(peep.id).to eq persisted_data['id']
@@ -15,8 +17,12 @@ describe Chitter do
 
     describe '.timeline' do 
         it 'should show all peeps' do 
-            Chitter.post_peep(peep: 'This is my first peep', userid: 1)
-            Chitter.post_peep(peep: 'This is my second peep', userid: 2)
+            user1 = User.create(email: "ddot@ddot.com", password: "password123", name: "ddot", username: "ddott")
+            user2 = User.create(email: "dd@dd.com", password: "password123", name: "dant", username: "dant")
+            integer1 = user1.userid
+            integer2 = user2.userid
+            Chitter.post_peep(peep: 'This is my first peep', userid: integer1)
+            Chitter.post_peep(peep: 'This is my second peep', userid: integer2)
 
             chitters = Chitter.timeline 
 
