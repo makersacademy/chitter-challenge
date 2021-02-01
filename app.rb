@@ -1,19 +1,50 @@
+require './lib/peep.rb'
+require './lib/users.rb'
 require 'sinatra/base'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
-  get '/peeps' do
-    "Hello world"
+  enable :sessions
+  get('/') do
+    @peeps = Peep.all_peeps
+    @username = session[:current_username]
+    erb(:index)
   end
 
-  get '/peeps/new' do
-    erb :"peeps/new"
+  post('/new-peep') do
+    Peep.new_peep(username: session[:current_username], peep: params[:peep])
+    redirect('/')
   end
 
-  post '/peeps' do
-    Peep.create(peep: params[:peep])
-    redirect '/peeps'
+  get('/sign-up') do
+    erb(:sign_up)
   end
 
-  run! if app_file == $0
+  post('/sign-up') do
+    session[:current_username] = params[:username]
+    Users.sign_up(username: params[:username],
+      firstname: params[:firstname],
+      secondname: params[:secondname],
+      email: params[:email])
+    redirect('/')
+  end
+
+  get('/sign-in') do
+    erb(:sign_in)
+  end
+
+  post('/sign-in') do
+    session[:current_username] = params[:username]
+    redirect('/')
+  end
+
+  get('/sign-out') do 
+    erb(:sign_out)
+  end 
+
+  post('/sign-out') do 
+    session[:current_username] = nil
+    redirect('/')
+  end 
 end

@@ -1,9 +1,16 @@
-feature 'Adding a new peep' do
-  scenario 'A user can add a peep to Peep Manager' do
-    visit('/peep/new')
-    fill_in('peep', with: 'Damn this is a long challenge')
-    click_button('Submit')
+feature 'adding a new_peep' do
+  scenario 'you can see your new_peep' do
+    visit('/')
+    fill_in('peep', with: 'Hi')
+    click_button('Tell The World')
+    expect(page).to have_content 'Hi'
+  end
 
-    expect(page).to have_content 'Damn this is a long challenge'
+  scenario 'time of peep visible to user' do
+    time_match = Peep.new_peep(username: 'dude', peep: 'peep')
+    visit('/')
+    fill_in('peep', with: 'time')
+    click_button('Tell The World')
+    expect(page).to have_content time_match.time
   end
 end
