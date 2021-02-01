@@ -14,8 +14,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    p "session in /chitter:"
-    p session[:user]
     @peeps = Peep.all
     erb :chitter
   end
