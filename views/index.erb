@@ -1,0 +1,39 @@
+<header>
+<% if !@username %>
+<form class='buttons' action='/sign-up' method='get'>
+  <input type='submit' value='Sign Up'>
+</form>
+
+
+<form class='buttons' action='/sign-in' method='get'>
+  <input type='submit' value='Sign In'>
+</form>
+<% end %>
+
+<% if @username %>
+<form class='buttons' action='/sign-out' method='get'>
+  <input type='submit' value='Sign Out'>
+</form>
+<% end %>
+
+<h1> Chitter </h1>
+
+</header>
+<section>
+
+<h2> Hello <%= @username %>, what's up? </h2>
+<form action='/new-peep' method='post'>
+  <input type='text' name='peep' placeholder='Great news everybody!'>
+  <input type='submit' value='Peep!'>
+</form>
+<h2> Peeps </h2>
+<ul>
+  <% @peeps.each do |each_peep| %>
+  <li>
+    <h3><%= each_peep.peep %></h3>
+    <a><%= each_peep.time %></a>
+    <a><%= each_peep.username %></a>
+  </li>
+  <% end %>
+</ul>
+</section>
