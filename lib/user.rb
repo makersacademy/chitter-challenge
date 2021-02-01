@@ -11,8 +11,8 @@ class User
 
   def self.login(username: username, password: password)
     if password.encrypt == fetch_password(username)
-      'login'
-    else 'incorrect password'
+      User.new(user_id: fetch_user_id(username), username: username)
+    else raise 'inccorect password'
     end
   end
 
@@ -24,6 +24,11 @@ class User
   def self.fetch_password(username)
     result = DatabaseConnection.query("SELECT password FROM users WHERE username = '#{username}';")
     result[0]['password']
+  end
+
+  def self.fetch_user_id(username)
+    result = DatabaseConnection.query("SELECT user_id FROM users WHERE username = '#{username}';")
+    result[0]['users']
   end
 
 end
