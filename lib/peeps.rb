@@ -1,29 +1,17 @@
 require 'pg'
+require_relative 'database_connection'
+
 
 class Peeps
-
-  def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peep_manager_test')
-    else
-      connection = PG.connect(dbname: 'peep_manager')
-    end
-      
-    result = connection.exec("SELECT * FROM peeps")
-    result.map { |peep| peep['message'] }
+  def self.create(content)
+    DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING content;")
   end
-
-  def self.create(message)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peep_manager_test')
-    else
-      connection = PG.connect(dbname: 'peep_manager')
-    end
-
-    time = Time.now.to_s[0..-7]
-    connection.exec("INSERT INTO peeps (message, time) 
-    VALUES ('#{message}', '#{time}');")
-    confirmation = "peep added to database"
-  end
-
 end
+
+=begin
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
+    result.map { |peep| peep['content'] }
+  end
+=end
+

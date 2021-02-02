@@ -21,24 +21,18 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-
-  config.before(:suite) do
-    p "setting up test database"
-    connection = PG.connect(dbname: 'peep_manager_test')
-    connection.exec('TRUNCATE peeps;')
+  config.before(:each) do
+    connection = PG.connect(dbname: 'chitter')
+    connection.exec("TRUNCATE peeps_test;")
   end
+end
 
-    config.before(:suite) do
-      p "setting up test database"
-      connection = PG.connect(dbname: 'user_manager_test')
-      connection.exec('TRUNCATE users;')
-  end
-
+=begin
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
-end
+=end
 
 

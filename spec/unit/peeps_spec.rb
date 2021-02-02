@@ -2,24 +2,23 @@ require './lib/peeps'
 
 describe Peeps do
 
-  describe '.all' do
-    it 'returns all messages from database' do
-      #connect
-      connection = PG.connect(dbname: 'peep_manager_test')
-      
-      #inject
-      connection.exec("INSERT INTO peeps (message) VALUES('Unit Test 1');")
-
-      #confirm
-      peeps = Peeps.all
-      expect(peeps).to include('Unit Test 1')
-    end
-  end
-
-  describe '.create' do
-    it 'creates a new message and adds to database' do
-      create = Peeps.create("Unit Test 2")
-      expect(create).to eq "peep added to database"
+  describe 'self.create' do
+    it 'creates a new Peep entry in peep DB' do
+      peep = Peeps.create(content: 'Big day at Makers')
+      expect(peep).to be_a Peep
+      expect(peep.content).to eq 'Big day at Makers'
     end
   end
 end
+
+=begin
+  describe 'self.all' do
+    it 'returns a PG::Result with all the peeps from table' do
+      connection = PG.connect(dbname: 'chiiter')
+      peeps = Peeps.all
+      expect(peeps.last.content).to eq('Big day at Makers')
+    end
+  end
+end
+=end
+
