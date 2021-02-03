@@ -23,7 +23,8 @@ describe Peep do
       peeper = Users.sign_up(username: 'charliecodes',
                              firstname: 'Charlie',
                              secondname: 'fischer',
-                             email: 'charlie@makersacademy.com')
+                             email: 'charlie@makersacademy.com',
+                             password: 'password')
       test_peep = Peep.new_peep(username: peeper.username, peep: "hello world")
 
       expect(test_peep.username).to eq peeper.username

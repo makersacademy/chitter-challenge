@@ -1,58 +1,17 @@
-<style>
-body {
-  font-family: Helvetica Neue;
-  background-color: #003459;
-  overflow-x:hidden ;
-}
-
-header {
-  width: 100%;
-
-  padding: 8px 20px 8px 20px;
-  background-color: #007EA7;
-}
-
-header h1 {
-  padding-left: 20px;
-  font-weight: 800px;
-  font-size: 68px;
-  color: #fff;
-}
-
-.buttons { 
-  float: right;
-}
-
-section { 
-  width: 80%;
-
-  color: #fff;
-  padding: 40px;
-}
-
-input[type=text] {
-  padding: 8px;
-  width:  360px;
-}
-
-input[type=submit] {
-  padding: 8px;
-}
-
-a {
-  display: block;
-}
-
-</style>
-
 
 <header>
 <h1> Chitter </h1>
 </header>
 
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <h2> Sign In </h2>
 <form action='/sign-in' method='post'>
   <label for='username'>Username</label>
   <input name='username' type='text' placeholder='enter your username'>
+  <label for='password'>Password</label>
+  <input name='password' type='text' placeholder='enter your password'>
   <input type='submit' value='Sign In'>
 </form>

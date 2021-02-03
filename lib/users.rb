@@ -1,12 +1,13 @@
 class Users
-  attr_reader :id, :username, :first_ame, :secondname, :email
+  attr_reader :id, :username, :first_name, :secondname, :email, :password
 
-  def initialize(id:, username:, firstname:, secondname:, email:)
+  def initialize(id:, username:, firstname:, secondname:, email:, password:)
     @id = id
     @username = username
     @firstname = firstname
     @secondname = secondname
     @email = email
+    @password = password
   end
 
   def self.all_members
@@ -16,26 +17,43 @@ class Users
                 username: user['username'],
                 firstname: user['firstname'],
                 secondname: user['secondname'],
-                email: user['email'])
+                email: user['email'],
+                password: user['password'])
     end
   end
 
-  def self.sign_up(username:, firstname:, secondname:, email:)
-    result = DatabaseConnection.query("INSERT INTO users (username, firstname, secondname, email)
-                                       VALUES('#{username}', '#{firstname}', '#{secondname}', '#{email}')
-                                       RETURNING id, username, firstname, secondname, email;")
+  def self.sign_up(username:, firstname:, secondname:, email:, password:)
+    result = DatabaseConnection.query("INSERT INTO users (username, firstname, secondname, email, password)
+                                       VALUES('#{username}', '#{firstname}', '#{secondname}', '#{email}', '#{password}')
+                                       RETURNING id, username, firstname, secondname, email, password;")
     Users.new(id: result[0]['id'],
               username: result[0]['username'],
               firstname: result[0]['firstname'],
               secondname: result[0]['secondname'],
-              email: result[0]['email'])
+              email: result[0]['email'],
+              password: result[0]['password'])
   end
 
-  # def self.sign_in(username:)
-  #   result = DatabaseConnection.query("SELECT * FROM users
-  #                                      WHERE username = '#{username}'")
-  #   p result
-  #   result.count > 0 ? false : @username = username
-  # end 
+  def self.authenticate(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}' ")
+    return unless result.any?
 
+    Users.new(id: result[0]['id'],
+              username: result[0]['username'],
+              firstname: result[0]['firstname'],
+              secondname: result[0]['secondname'],
+              email: result[0]['email'],
+              password: result[0]['password'])
+  end
+
+  def self.find(id:)
+    return nil unless id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    Users.new(id: result[0]['id'],
+              username: result[0]['username'],
+              firstname: result[0]['firstname'],
+              secondname: result[0]['secondname'],
+              email: result[0]['email'],
+              password: result[0]['password'])
+  end
 end

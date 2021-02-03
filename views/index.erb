@@ -1,53 +1,5 @@
-<style>
-body {
-  font-family: Helvetica Neue;
-  background-color: #003459;
-  overflow-x:hidden ;
-}
-
-header {
-  width: 100%;
-
-  padding: 8px 20px 8px 20px;
-  background-color: #007EA7;
-}
-
-header h1 {
-  padding-left: 20px;
-  font-weight: 800px;
-  font-size: 68px;
-  color: #fff;
-}
-
-.buttons { 
-  float: right;
-}
-
-section { 
-  width: 80%;
-
-  color: #fff;
-  padding: 40px;
-}
-
-input[type=text] {
-  padding: 8px;
-  width:  360px;
-}
-
-input[type=submit] {
-  padding: 8px;
-}
-
-a {
-  display: block;
-}
-
-</style>
-
-
 <header>
-<% if !@username %>
+<% if !@user %>
 <form class='buttons' action='/sign-up' method='get'>
   <input type='submit' value='Sign Up'>
 </form>
@@ -58,7 +10,7 @@ a {
 </form>
 <% end %>
 
-<% if @username %>
+<% if @user %>
 <form class='buttons' action='/sign-out' method='get'>
   <input type='submit' value='Sign Out'>
 </form>
@@ -69,7 +21,10 @@ a {
 </header>
 <section>
 
-<h2> Hello <%= @username %>, something on your mind? </h2>
+<% if @user %>
+<h2> Hello <%= @user.username %>, something on your mind? </h2>
+<% end %>
+
 <form action='/new-peep' method='post'>
   <input type='text' name='peep' placeholder='you were always on my mind'>
   <input type='submit' value='Tell The World'>

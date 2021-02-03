@@ -84,7 +84,7 @@ I want to receive an email if I am tagged in a Peep
 | 2 | franky365 | franky@makers.com |
 
 
-Relationship:
+### Relationship:
 1 user can make many peeps
 Chitter can have many users
 
