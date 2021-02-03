@@ -1,0 +1,60 @@
+<style>
+body {
+  font-family: Helvetica Neue;
+  background-color: #003459;
+  overflow-x:hidden ;
+}
+
+header {
+  width: 100%;
+
+  padding: 8px 20px 8px 20px;
+  background-color: #007EA7;
+}
+
+header h1 {
+  padding-left: 20px;
+  font-weight: 800px;
+  font-size: 68px;
+  color: #fff;
+}
+
+.buttons { 
+  float: right;
+}
+
+section { 
+  width: 80%;
+
+  color: #fff;
+  padding: 40px;
+}
+
+input[type=text] {
+  padding: 8px;
+  width:  360px;
+}
+
+input[type=submit] {
+  padding: 8px;
+}
+
+a {
+  display: block;
+}
+
+</style>
+
+
+
+<header>
+  <h1>Chitter</h1>
+</header>
+
+<h2> Are you sure you want to sign out? </h2>
+<form action='/sign-out' method='post'>
+  <input type='submit' value='Confirm'>
+</form>
+<form action='/'>
+  <input type='submit' value='No stay signed in'>
+</form>
