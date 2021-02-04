@@ -1,11 +1,11 @@
 require 'sinatra/base'
-require_relative './lib/peeps'
 require_relative './lib/users'
+require_relative './lib/peeps'
 
 class ChitterChallenge < Sinatra::Base 
 
   get '/registrations/new' do
-    erb :'registrations/index'
+    erb(:'registrations/index')
   end
 
   get '/registrations/confirmation' do 
@@ -13,11 +13,12 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/registrations/confirmation' do 
+    Users.create(params['name'])
     redirect '/registrations/confirmation'
   end
  
   get '/peeps' do 
-    erb :peep_create
+    erb(:peep_create)
   end
   
   post '/display' do 
