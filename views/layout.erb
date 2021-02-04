@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- prepared a layout file if I get time to beautify this webpage -->
-<html style = "background-color: white">
+<html>
   <head>
     <title> Chitter </title>
   </head>
@@ -14,10 +14,15 @@
       img {
         display: inline;
       }
+
+      body{
+        background-image: linear-gradient(orange, yellow);
+        height: 1000px;
+      }
     </style>
     <!-- yields to index.erb -->
     <div>
-       <%= yield %>
+        <%= yield %>
     </div>
   </body>
 </html>

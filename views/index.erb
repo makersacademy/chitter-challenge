@@ -1,5 +1,5 @@
 <!-- page header div -->
-<div style = "display: flex; margin: 20px;">
+<div style="display: flex;">
   <h1>Welcome to Chitter</h1>
   <img src="https://lh3.googleusercontent.com/rfMFZ_EBNBCJm8y_mAcJ52aJpNfTXBDinNwvNrtOyz_79LNzOcsoMPzyHMsU2YzJaj0=s85">
 </div>
@@ -20,7 +20,7 @@
     align-items: center; height: 500px;">
   <div>
     <% @peep.each do |peep| %>
-      <div style="border: 1px solid red; padding: 20px;">
+      <div style="border: 1px solid red; padding: 20px; border-radius:15px; background:white; margin: 3px;">
         <%= peep[:peep] %> [<%= peep[:time] %>]
       </div>
     <% end %>
