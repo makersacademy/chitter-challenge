@@ -19,7 +19,6 @@ class Users
   def self.create(name)
     #result = DatabaseConnection.query("INSERT INTO users (name) VALUES('#{name}') RETURNING id;")
     object = Users.new(name)
-    puts object.name 
   end
 
 end
