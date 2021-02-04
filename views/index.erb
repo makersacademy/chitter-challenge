@@ -1,0 +1,28 @@
+<!-- page header div -->
+<div style="display: flex;">
+  <h1>Welcome to Chitter</h1>
+  <img src="https://lh3.googleusercontent.com/rfMFZ_EBNBCJm8y_mAcJ52aJpNfTXBDinNwvNrtOyz_79LNzOcsoMPzyHMsU2YzJaj0=s85">
+</div>
+<!-- submit peep div -->
+<div>
+  <form action="/peeps" method = 'post'>
+    <label for="peep">
+      New Peep:
+    </label>
+    <br>
+    <input type="text" name='peep'>
+    <button type='submit' name='Peep'>Peep</button>
+  </form>
+</div>
+<!-- posted peeps div  -->
+<!-- aligned for the center of the page -->
+<div style="display: flex; justify-content: center;
+    align-items: center; height: 500px;">
+  <div>
+    <% @peep.each do |peep| %>
+      <div style="border: 1px solid red; padding: 20px; border-radius:15px; background:white; margin: 3px;">
+        <%= peep[:peep] %> [<%= peep[:time] %>]
+      </div>
+    <% end %>
+  </div>
+</div>

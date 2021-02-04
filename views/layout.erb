@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- prepared a layout file if I get time to beautify this webpage -->
+<html>
+  <head>
+    <title> Chitter </title>
+  </head>
+  <!-- style for web page body  -->
+  <body>
+    <style>
+      h1 {
+        color: red;
+        display: inline;
+      }
+      img {
+        display: inline;
+      }
+
+      body{
+        background-image: linear-gradient(to bottom right, white, mistyrose, lightsalmon, coral, tomato, orangered, red);
+        height: 1000px;
+      }
+    </style>
+    <!-- yields to index.erb -->
+    <div>
+        <%= yield %>
+    </div>
+  </body>
+</html>
