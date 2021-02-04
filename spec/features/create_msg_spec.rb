@@ -8,4 +8,5 @@ feature "creating a message" do
     visit('/display')
     expect(page).to have_content('Feature Test 1')
   end
+  
 end
