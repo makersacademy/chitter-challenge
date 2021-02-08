@@ -1,0 +1,140 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+    <style>
+div {display: block;}
+h1 {
+        color: #white;
+        font-size: 48px;
+        font-weight: 100;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        padding: 20px;
+        border: 1px solid #214252;
+        border-radius: 4px;
+      }
+ h2 {
+        color: #e8ffff;
+        font-weight: normal;
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          padding: 0px
+      }
+      p {
+
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+      body {
+          background-color: #214252;
+      }
+
+            button {
+        color: #ebebeb;
+        font-size: 18px;
+        background: transparent;
+        display: block;
+        margin: 0 auto 30px auto;
+        padding: 15px 30px;
+        border-radius: 40px;
+        box-shadow: 5px 5px 5px  #41aea9;
+        border-color: #41aea9;
+        transition: all 200ms ease-in-out;
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+      button:hover {
+        cursor: pointer;
+        color: white;
+        background:#41aea9;
+      }
+      a {
+          color: #214252;
+      }
+   
+      h4 {
+          text-align: center;
+          color: #41aea9;
+    }
+
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  #text-align: center;
+  color: white;
+  border-radius: 40px;
+        box-shadow: 5px 5px 5px  #gray;
+        border-color: #black;
+}
+
+    hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.chitter-challenge {
+    box-shadow: rgba(37,39,89,0.08) 0px 8px 8px 0;
+    background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+    border-radius: 10px;
+    color: #fff;
+    width: 50%;
+    padding: 30px;
+    margin: 30px auto;
+    font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
+   }
+
+.chitter-challenge img {
+display: block;
+margin: 0 auto;
+border-radius: 4px;
+max-width: 80%;
+}
+
+span.water {
+    color: #214252;
+}
+</style>
+</head>
+<body>
+
+<div class="chitter-challenge">
+
+<h1>Chitter</h1>
+<hr>
+
+<% if @user %>
+  <h2>Greetings, <%= @user.user_name %></h2>
+<% end %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.peep_id %>">
+        <h2><%= peep.peep_content %></h2> </br> 
+        <%= peep.peep_user_id %>
+        Peeped at <%= peep.created_at %></br></br>
+        <hr>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/peeps' method='post'>
+<input type='text' name='peep_content' placeholder='peep_content' />
+<input type='submit' value='Peep!' />
+</form>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+</div>
+</body>
