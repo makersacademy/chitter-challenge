@@ -113,15 +113,15 @@ span.water {
 <hr>
 
 <% if @user %>
-  <h2>Greetings, <%= @user.user_name %>!</h2>
+  <h2>Greetings, <%= @user.user_name %></h2>
 <% end %>
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
+    <li class="peep" id="peep-<%= peep.peep_id %>">
         <h2><%= peep.peep_content %></h2> </br> 
-        <% @user = User.find(peep.user_id) %>
-        peeped by <strong><%= @user.user_name %></strong> at <%= peep.created_at %></br></br>
+        <%= peep.peep_user_id %>
+        Peeped at <%= peep.created_at %></br></br>
         <hr>
     </li>
   <% end %>
@@ -131,7 +131,6 @@ span.water {
 <input type='text' name='peep_content' placeholder='peep_content' />
 <input type='submit' value='Peep!' />
 </form>
-
 
 <h2>
   <%= flash[:notice] %>

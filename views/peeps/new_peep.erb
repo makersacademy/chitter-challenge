@@ -112,29 +112,11 @@ span.water {
 <h1>Chitter</h1>
 <hr>
 
-<% if @user %>
-  <h2>Greetings, <%= @user.user_name %></h2>
-  <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Sign out" />
-  </form>
-  <% else %>
-  <form action="/users/new" method="get">
-  <input type="submit" value="Sign Up" >
-  </form>
-  <form action="/sessions/new" method="get">
-    <input class="sign_in" type="submit" value="Sign in" />
-    </form>
-<% end %>
-
-<form action="/peeps" method="get">
-<input type="submit" value="View Peeps">
-</form>
 
 
 
-<h2>
-  <%= flash[:notice] %>
-</h2>
+
+
 
 </div>
 </body>

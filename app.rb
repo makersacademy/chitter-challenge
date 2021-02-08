@@ -15,13 +15,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = current_user
+    @user = User.find(user_id: session[:user_id])
     @peeps = Peep.all
+     session[:peep_user_id] = session[:user_id]
     erb :'peeps/index'
   end
 
   post '/peeps' do
-    Peep.create(peep_content: params[:peep_content])
+    new_peep = Peep.create(peep_content: params[:peep_content], peep_user_id: session[:user_id])
+    session[:new_peep] = new_peep.id
+    session[:peep_user_id] = session[:user_id]
     redirect '/peeps'
   end
 
@@ -30,10 +33,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], 
-    password: params[:password], 
-    user_name: params[:user_name])
-    session[:user_id] = user.id
+    user = User.create(email: params[:email], password: params[:password], user_name: params[:user_name])
+    session[:user_id] = user.user_id
     redirect '/peeps'
   end
 
@@ -44,7 +45,7 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
-      session[:user_id] = user.id
+      session[:user_id] = user.user_id
       redirect '/peeps'
     else
       flash[:notice] = "Please check your email or password."
