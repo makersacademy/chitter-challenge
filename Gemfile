@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
-ruby "2.7.2"
+# ruby "3.0.0"
 gem "sinatra"
 gem "pg"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
-gem "bcrypt"
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem "webrick"
+gem "puma"
 
 
 group :test do
