@@ -1,20 +1,9 @@
-Chitter Challenge
-=================
+## Chitter Challenge
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is a small Twitter clone that will allow the users to post messages to a public stream. It is a Ruby app using the Sinatra framework (Modular style), with PostgreSQL database and ActiveRecord ORM.
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+### Premise
+The fourth weekend challenge of [Makers Academy](https://makers.tech/) bootcamp, the goal was to satisfy these user stories:
 
 ```
 STRAIGHT UP
@@ -41,6 +30,8 @@ As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
+
+#--------------------------------- haven't done these ones yet
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
@@ -52,84 +43,28 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+I wrote this app in the MVC pattern.
+My plan:
+![class diagram](/public/class_uml.png)
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+The model part of the MVC is taken care of by the ORM ActiveRecord. This meant I didn't need to write any code to access the database or wrap data from there.  The controller is in `app.rb`, it holds all the Sinatra routes.  I used a `layout.erb` file to set CSS styling for all the view pages.
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+Testing is done using Rspec with Capybara for feature tests. I wrote it using TDD/BDD so it's fully tested.
 
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
+The app currently looks like this:  
+![progress so far](/public/end_of_weekend.png)
 
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+### How to install the app, set up databases and run tests
+* Make sure bundler is installed
+* Run `bundle` to install all the gems from the Gemfile
+* Run `rake db:create` to create the test and development databases
+* Run `rake db:migrate` to create the correct tables in the development database
+* Run `rake db:migrate RACK_ENV="test"` to do the same for the test database
+* Run `rspec` to run the tests and make sure it's working
+* Run `rackup` or `ruby app.rb` to run the app on localhost. Optionally specify which port to use like `rackup -p 3000`
+* In a client (browser) go to `localhost:3000` or whatever the port used is, to play with the app
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+I didn't write any seed files, so there is no data to populate the database with to start. The test database is cleaned out before each test anyway.
 
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Known problems
+Aside from the inability to log out, I have not implemented any validation or edge cases! eg checking if a password is valid, an email address is already being used, can't log in twice etc.
