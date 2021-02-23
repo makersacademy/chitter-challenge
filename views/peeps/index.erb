@@ -1,0 +1,15 @@
+Peeps:
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %> - <%= peep.timestamptz %></li`>
+  <% end %>
+</ul>
+
+<form action='/peeps/new' method='get'>
+  <button name='add'>Add peep</button>
+</form>
+
+<form action='signup/new' method='get'>
+  <button name='signup'>Sign up</button>
+</form>
