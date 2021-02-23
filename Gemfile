@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "3.0.0"
 gem "sinatra"
 gem "pg"
-gem "activerecord"
+gem "activerecord", "~> 5.0.0"
 gem "sinatra-activerecord"
 gem "rake"
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
