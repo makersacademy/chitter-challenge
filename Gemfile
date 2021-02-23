@@ -8,7 +8,7 @@ gem "sinatra-activerecord"
 gem "rake"
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem "webrick"
-gem "puma"
+gem "puma", '~> 3.7'
 
 
 group :test do
