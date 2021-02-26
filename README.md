@@ -1,11 +1,15 @@
 # Chitter
 
+[![Build Status](https://travis-ci.com/AJ8GH/chitter-challenge.svg?branch=master)](https://travis-ci.com/AJ8GH/chitter-challenge) [![Maintainability](https://api.codeclimate.com/v1/badges/4713133e3a625ac7b613/maintainability)](https://codeclimate.com/github/AJ8GH/chitter-challenge/maintainability)
+
 ## Dependencies
 
-Ruby version
+### Ruby version
+
 - `2.7.2`
 
-Gems
+### Gems
+
 - `bcrypt`
 - `capybara`
 - `coveralls`
@@ -21,11 +25,30 @@ Gems
 
 ## Database Setup
 
--
+Automated setup with rake tasks:
+```shell
+% rake setup
+% rake migrate
+```
+
+Full database setup documented in `db/migrations`
 
 ## Getting Started
 
--
+```shell
+% git clone git@github:AJ8GH/chitter-challenge.git
+% cd chitter-challenge
+% Bundle
+% rake setup
+% rake migrate
+% rackup
+```
+
+## Running Tests
+
+```shell
+rspec
+```
 
 ## Reflections
 
