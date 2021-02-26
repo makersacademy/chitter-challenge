@@ -6,5 +6,13 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
+  get '/new-peep' do
+    erb(:peep_form)
+  end
+
+  post '/' do
+    "I'm flyyyyingg!!"
+  end
+
   run! if app_file == Chitter
 end
