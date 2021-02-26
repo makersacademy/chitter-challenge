@@ -6,15 +6,36 @@ My answer to the almighty Chitter Challenge! I have created a Twitter clone that
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+```
+get '/'
+click_button 'post peep'
+post 'add_peep'
+model layer: add_peep to database
+redirect '/'
+show peeps
 
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
+```
 
+get '/'
+click_button 'order by newest peeps'
+get '/newest-peeps'
+iterate in reverse, over array from database
+puts
+
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+```
+add Time to database
+add feature test for time
+convert views to incorporate time
 
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
