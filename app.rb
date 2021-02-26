@@ -7,7 +7,7 @@ class ChitterApp < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    @list = Peep.all
+    @feed = Peep.all
     erb :feed
   end
 

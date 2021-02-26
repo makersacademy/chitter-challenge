@@ -1,5 +1,9 @@
 
-
+<ul>
+  <% @feed.each do |message| %>
+  <li> <%= message.content %> </li>
+  <% end %>
+</ul>
 
 <form action="/feed/new" method="get">
  <input type="submit" name="add">

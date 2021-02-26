@@ -6,7 +6,7 @@ feature 'Adding a peep to the feed' do
 
     fill_in('content', with: 'Peep!')
     click_button('submit')
-
+    
     expect(page).to have_content 'Peep!'
   end
 end
