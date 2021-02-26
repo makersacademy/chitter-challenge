@@ -3,8 +3,8 @@ require 'pg'
 def setup_test_database
  "Setting up test database..."
 
-  connection = PG.connect(dbname: 'bookmark_manager_test')
+  connection = PG.connect(dbname: 'chitter_test')
 
 # Clear the bookmarks table
-  connection.exec("TRUNCATE bookmarks;")
+  connection.exec("TRUNCATE messages;")
 end

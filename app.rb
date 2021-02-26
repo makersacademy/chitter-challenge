@@ -1,11 +1,13 @@
 require 'sinatra/base'
-
+require 'pg'
+require './lib/peep'
 
 class ChitterApp < Sinatra::Base
 
   enable :sessions, :method_override
 
   get '/' do
+    @list = Peep.all
     erb :feed
   end
 
@@ -16,6 +18,7 @@ class ChitterApp < Sinatra::Base
 
 
   post '/new' do
+    Peep.add(content: params[:content])
     redirect '/'
   end
 
