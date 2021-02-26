@@ -1,7 +1,7 @@
 
 <ul>
   <% @feed.each do |message| %>
-  <li> <%= message.content %> </li>
+  <li> <%= message.content %> <%= message.created_at %> </li>
   <% end %>
 </ul>
 
