@@ -8,4 +8,5 @@ group :test do
   gem 'shotgun'
   gem 'sinatra'
   gem 'capybara'
+  gem 'pg'
 end

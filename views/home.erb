@@ -1,0 +1,17 @@
+<head>
+  <title> | Chitter | Feed | </title>
+</head>
+
+<body>
+  <h1> What's on your mind? </h1>
+  <form action ="/post_chitter" method="post">
+    Your Name: <input type="text" name="username"></br>
+    <input type="text" name="post">
+    <input type="submit" value="Post">
+  </form>
+  <h2> What's been Chittered? </h2>
+    <% @chitters.each do |chitter| %>
+    <li><%= chitter %></li>
+    <% end %>
+
+</body
