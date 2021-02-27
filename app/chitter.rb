@@ -28,9 +28,11 @@ class Chitter < Sinatra::Base
       password: params[:password])
 
     session[:user_id] = user.id
+    redirect '/peeps'
   end
 
   get '/peeps' do
+    @user = User.find(id: session[:user_id]) if session[:user_id]
     erb :'/peeps/index'
   end
 

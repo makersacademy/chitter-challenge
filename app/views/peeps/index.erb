@@ -1,4 +1,7 @@
 <h1>Chitter</h1>
+<% if @user %>
+  <h2>Hello <%= @user.username %>!</h2>
+<% end %>
 
 <form action="/peeps/new">
   <input type="submit" value="Peep">

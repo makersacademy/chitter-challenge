@@ -9,6 +9,6 @@ feature 'user registration' do
     click_button 'Get Peeping'
 
     expect(page).to have_content('Hello test_name!')
-    expect(current_path).to be '/peeps'
+    expect(current_path).to eq '/peeps'
   end
 end
