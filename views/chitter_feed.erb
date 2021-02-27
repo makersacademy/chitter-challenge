@@ -1,0 +1,11 @@
+<h2> Your Feed </h2>
+
+<ul>
+  <% @chitter_feed.each do |feed| %>
+    <div
+      style="width:200px;background:#D3D3D3;border:5px black;text-align:center">
+      <%= feed.comment %>
+    </div>
+    <br>
+  <% end %>
+</ul>
