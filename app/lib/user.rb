@@ -5,27 +5,19 @@ class User
     def create(name:, username:, email:, password:)
       row = DatabaseConnection.query(
         "INSERT INTO users (name, username, email, password)
-        VALUES ('#{name}', '#{username}', '#{email}', '#{password}') RETURNING *;"
+        VALUES ('#{name}', '#{username}', '#{email}', '#{password}')
+        RETURNING *;"
       ).first
 
-      new(
-        id:       row['id'],
-        name:     row['name'],
-        email:    row['email'],
-        username: row['username'],
-        password: row['password']
-      )
+      new(id: row['id'], name: row['name'], email: row['email'],
+        username: row['username'], password: row['password'])
     end
 
     def find(id:)
-      row = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}").first
-      new(
-        id:       row['id'],
-        name:     row['name'],
-        email:    row['email'],
-        username: row['username'],
-        password: row['password']
-      )
+      row = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")[0]
+
+      new(id: row['id'], name: row['name'], email: row['email'],
+        username: row['username'], password: row['password'])
     end
   end
 

@@ -1,13 +1,15 @@
 require 'rake'
+require 'pg'
 
 desc 'Setup database connection'
 task :setup_database_connection do
-  if ENV['ENVIRONMENT'] = 'test'
+  if ENV['ENVIRONMENT'] == 'test'
     DatabaseConnection.setup('chitter_test')
+    puts '=== Connected to test database ==='
   else
     DatabaseConnection.setup('chitter')
+    puts '=== Connected to development database ==='
   end
-  puts '* Connected to test database *'
 end
 
 desc 'Clean test database'

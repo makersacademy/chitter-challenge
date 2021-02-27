@@ -25,7 +25,7 @@ class Peep
           content: row['content'],
           user_id: row['user_id']
         )
-        end
+      end
     end
   end
 
