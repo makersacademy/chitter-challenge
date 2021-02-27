@@ -1,0 +1,6 @@
+<ul>
+<% @result.each do |row| %>
+<li><%= row['content'] %>, peeped at <%= row['time'] %> on <%= row['date'] %></li>
+<% end %>
+<a href= "/peeps/new">New Peep</a>
+<a href= "/users/new">Sign up for Chitter!</a>
