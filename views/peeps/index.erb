@@ -1,0 +1,9 @@
+<h1 style="text-align: center;">"Today at Chitter!"</h1>
+<% @peeps.each do |peep| %>
+  <article class="peep">
+    <div class="username"><%= peep.username %></div>
+    <div class="name"><%= peep.name %></div>
+    <div class="date"><%= peep.created_at %></div>
+    <div class="message"><%= peep.peep %></div>
+  </article>
+<% end %>
