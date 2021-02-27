@@ -14,6 +14,7 @@ ENV['RACK_ENV']    = 'test'
 
 require 'capybara'
 require 'capybara/rspec'
+require 'pg'
 require 'rake'
 require 'rspec'
 

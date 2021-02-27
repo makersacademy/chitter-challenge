@@ -1,9 +1,10 @@
 describe Peep do
   before do
-    DatabaseConnection.query(
-      "INSERT INTO users (name, username, email, password)
-      VALUES ('test', 'test', 'test@test.com', 'test123');"
-    )
+    User.create(
+      name:     'test1',
+      email:    'test1@test.com',
+      username: 'testname1',
+      password: 'Test111')
   end
 
   describe '.create' do
@@ -22,6 +23,20 @@ describe Peep do
 
       expect(peep.user_id).to eq '1'
       expect(peep.content).to eq 'Building Chitter'
+    end
+  end
+
+  describe '.all' do
+    it 'returns all the peeps' do
+      described_class.create(content: 'Building Chitter', user_id: 1)
+      described_class.create(content: 'Taking a break', user_id: 1)
+      described_class.create(content: 'Writing tests', user_id: 1)
+
+      peeps = described_class.all
+
+      expect(peeps.length).to be 3
+      expect(peeps.map(&:content)).to include 'Building Chitter'
+      expect(peeps.map(&:content)).to include 'Writing tests'
     end
   end
 end
