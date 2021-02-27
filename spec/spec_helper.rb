@@ -1,5 +1,14 @@
+ENV['RACK_ENV'] = 'test'
+
+require './app'
+require 'pg'
+require 'rspec'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+
+
+Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -10,8 +19,12 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+end
+
+RSpec.configure do |config|
+  config.before(:each) do
+    connection = PG.connect :dbname => 'chitter_test'
+    connection.exec("TRUNCATE TABLE users")
   end
 end
