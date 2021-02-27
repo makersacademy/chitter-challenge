@@ -10,6 +10,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'pg'
 require 'db_helper'
+require 'features/web_helpers'
 
 Capybara.app = Chitter
 

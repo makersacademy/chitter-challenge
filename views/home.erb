@@ -1,3 +1,5 @@
+<html>
+<body style="background-color:powderblue;">
 <head>
   <title>HTML Elements Reference</title>
 </head>
@@ -15,8 +17,8 @@ Logged in as: <% @details.each do |detail| %>
 </form>
 </div>
 <div>
-<% @posts.each do |post| %>
-      <%= post.content %>
+<% @posts.reverse.each do |post| %>
+      <li><%= post.content %></li>
 <% end %>
 </div>
 
