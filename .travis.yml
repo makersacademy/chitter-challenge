@@ -9,6 +9,6 @@ before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
 
 script:
-  - rake setup
-  - rake migrate
+  - bundle exec rake setup
+  - bundle exec rake migrate
   - bundle exec rspec

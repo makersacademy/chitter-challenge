@@ -6,3 +6,12 @@
 <form action="/peeps/new">
   <input type="submit" value="Peep">
 </form>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li class="peep">
+      <%= peep.content %><br>
+      <%= peep.time %>
+    </li>
+  <% end %>
+</ul>

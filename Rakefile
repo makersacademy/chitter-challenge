@@ -1,7 +1,7 @@
 require 'rake'
 require 'pg'
 
-desc 'Setup database connection'
+desc 'Connect to database'
 task :setup_database_connection do
   if ENV['ENVIRONMENT'] == 'test'
     DatabaseConnection.setup('chitter_test')
@@ -14,12 +14,11 @@ end
 
 desc 'Clean test database'
 task :clean_test_database do
-  puts 'cleaning test database...'
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec('TRUNCATE users, peeps RESTART IDENTITY;')
 end
 
-desc 'Create chitter and chitter_test databases'
+desc 'Setup databases'
 task :setup do
   %w[chitter chitter_test].each do |database|
     connection = PG.connect
@@ -27,7 +26,7 @@ task :setup do
   end
 end
 
-desc 'Create database tables for users and peeps'
+desc 'Migrate database tables'
 task :migrate do
   %w[chitter chitter_test].each do |database|
     connection = PG.connect(dbname: database)

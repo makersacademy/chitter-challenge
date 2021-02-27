@@ -1,10 +1,7 @@
 describe Peep do
   before do
-    User.create(
-      name:     'test1',
-      email:    'test1@test.com',
-      username: 'testname1',
-      password: 'Test111')
+    User.create(name: 'test1', email: 'test1@test.com',
+      username: 'testname1', password: 'Test111')
   end
 
   describe '.create' do

@@ -33,6 +33,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(id: session[:user_id]) if session[:user_id]
+    @peeps = Peep.all
     erb :'/peeps/index'
   end
 
