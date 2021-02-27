@@ -4,7 +4,8 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE DATABASE peep_manager_test;'
 
 script:
+  - bundle exec rake create_tables
   - bundle exec rspec
