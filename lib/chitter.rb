@@ -5,8 +5,9 @@ class Chitter
     # find user_id from username
     result = connection.exec("SELECT * FROM users WHERE username = '#{username}'")
     # p result.first
-    insertion = connection.exec("INSERT INTO peeps (user_id, posted_time, content) VALUES('#{result.first['id']}', current_timestamp, '#{content}') RETURNING id, user_id, posted_time, content")
-    #Peep.new
+    insertion = connection.exec("INSERT INTO peeps (user_id, posted_time, content) VALUES('#{result.first['id']}', current_timestamp, '#{content}') RETURNING id, user_id, posted_time, content").first
+    # p insertion
+    Peep.new(insertion['id'], username, insertion['posted_time'], insertion['content'])
   end
 
 end
