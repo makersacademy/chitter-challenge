@@ -2,12 +2,15 @@ require 'sinatra/base'
 require './get_connection.rb'
 require 'sinatra/flash'
 require 'date'
+require './lib/user.rb'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
 
   before do
+    @user = User.find(id: session[:user])
     @result = DBConnection.query("SELECT * FROM peeps ORDER BY date DESC, time DESC;")
   end
 
@@ -24,12 +27,9 @@ class Chitter < Sinatra::Base
     end
 
     post '/users/new' do
-      @email = params[:email]
-      @password = params[:password]
-      @name = params[:name]
-      @username = params[:username]
-      user = DBConnection.query("INSERT INTO users (email, password, name, username) VALUES('#{@email}', '#{@password}', '#{@name}', '#{@username}') RETURNING id, email, password, name, username;")
-      flash[:signup_success] = "Welcome to Chitter, #{user[0]['name']}!"
+      @user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+      flash[:signup_success] = "Welcome to Chitter, #{@user.name}!"
+      session[:user] = @user.id
       redirect('/')
     end
 

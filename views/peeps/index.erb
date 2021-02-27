@@ -1,3 +1,7 @@
+<% unless @user.nil? %>
+You are currently logged in as <%= @user.username %>
+<% end %>
+
 <ul>
 <% @result.each do |row| %>
 <li><%= row['content'] %>, peeped at <%= row['time'] %> on <%= row['date'] %></li>
