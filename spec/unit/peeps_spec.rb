@@ -14,4 +14,13 @@ describe Peeps do
       expect(peeps).to include("Getting a haircut")
     end
   end
+
+  describe '#.create' do
+    it 'creates a new peep' do
+      Peeps.create("I love databases!")
+
+      expect(Peeps.all).to include 'I love databases!'
+    end
+  end
+
 end

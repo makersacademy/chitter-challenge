@@ -8,12 +8,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/add' do
-    @peep = params[:peep]
-    @peeps = Peeps.all
-    erb :peeps
+    Peeps.create(params[:peep])
+    redirect '/peeps'
   end
 
   get '/peeps' do
+    @peeps = Peeps.all.reverse
     erb :peeps
   end
 
