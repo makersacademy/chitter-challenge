@@ -18,7 +18,6 @@ require 'rake'
 require 'rspec'
 
 require_relative '../app/chitter'
-require_relative '../app/lib/database_connection'
 
 Capybara.app = Chitter
 

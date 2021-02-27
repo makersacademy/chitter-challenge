@@ -1,5 +1,4 @@
 require 'rake'
-require 'pg'
 
 desc 'Setup database connection'
 task :setup_database_connection do

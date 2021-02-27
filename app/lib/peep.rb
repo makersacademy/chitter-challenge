@@ -4,8 +4,7 @@ class Peep
   def self.create(content:, user_id:)
     row = DatabaseConnection.query(
       "INSERT INTO peeps (content, user_id)
-      VALUES ('#{content}', #{user_id})
-      RETURNING id, content, time, user_id;"
+      VALUES ('#{content}', #{user_id}) RETURNING *;"
     ).first
 
     new(

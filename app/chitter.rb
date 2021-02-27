@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/flash'
 
+require_relative 'lib/database_connection'
+require_relative 'lib/user'
 require_relative 'lib/peep'
 
 class Chitter < Sinatra::Base
@@ -11,7 +13,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Sign in page coming soon...'
+    erb :index
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(
+      name:     params[:name],
+      email:    params[:email],
+      username: params[:username],
+      password: params[:password])
+
+    session[:user_id] = user.id
   end
 
   get '/peeps' do
