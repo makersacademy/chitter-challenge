@@ -1,7 +1,16 @@
-<h1><center>"Welcome to Chitter! The whole world's at your fingerchits!"</center></h1>
-
 <center>
+
+  <h1>"Welcome to Chitter! The whole world's at your fingerchits!"</h1>
+
   <form action="/new-peep" method="get">
     <input type="submit" value="Post a new Peep!">
   </form>
+
+
+  <% @peeps.each do |post| %>
+  <li>
+    <%= post.peep %>
+  </li>
+  <% end %>
+
 </center>

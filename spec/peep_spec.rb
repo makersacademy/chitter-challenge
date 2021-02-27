@@ -1,5 +1,4 @@
 require 'peep'
-require 'database_helpers'
 
 describe Peep do
   describe '.create' do
@@ -13,4 +12,18 @@ describe Peep do
     end
   end
 
+  describe '.all' do
+    it 'returns a list of peeps' do
+      peep = Peep.create(peep: 'hi there!')
+      Peep.create(peep: 'Wooaahhh')
+      Peep.create(peep: 'Tests should always be green!')
+
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.peep).to eq 'hi there!'
+    end
+  end
 end

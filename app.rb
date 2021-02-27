@@ -1,8 +1,11 @@
 require 'sinatra/base'
 require 'pg'
+require './lib/peep'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   get '/' do
+    @peeps = Peep.all
     erb(:index)
   end
 
@@ -10,8 +13,9 @@ class Chitter < Sinatra::Base
     erb(:peep_form)
   end
 
-  post '/' do
-    "I'm flyyyyingg!!"
+  post '/new-peep' do
+    p Peep.create(peep: params[:peep])
+    redirect '/'
   end
 
   run! if app_file == Chitter
