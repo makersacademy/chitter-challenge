@@ -14,6 +14,18 @@ describe Peeps do
         end
     end
 
+    describe '.view_peeps' do
+       it 'shows a list of all peeps' do
+        connection = PG.connect(dbname: 'chitter_test')
+        Peeps.new_peep(name: "joanna", username: "jojobrigs", message: "this is my first peep")
+
+        peeps = Peeps.view_peeps
+        expect(peeps).to include "joanna"
+        expect(peeps).to include "jojobrigs"
+        expect(peeps).to include "this is my first peep"
+       end
+    end
+
 
 end
 

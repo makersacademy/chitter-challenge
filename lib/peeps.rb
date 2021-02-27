@@ -8,7 +8,7 @@ class Peeps
       else
         connection = PG.connect(dbname: 'chitter')
       end
-      connection.exec("INSERT INTO peeps (name, username, message) VALUES('#{name}', '#{username}', '#{message}') RETURNING id, name, username, message, time;")
+        p connection.exec("INSERT INTO peeps (name, username, message) VALUES('#{name}', '#{username}', '#{message}') RETURNING id, name, username, message, time;")
     end
 
     def self.view_peeps
