@@ -1,3 +1,6 @@
+In order to clone and use this repo initially, I had to use Ruby 2.7.2, as version 3.0.0 on my mac would not install all of the gems.
+
+
 Chitter Challenge
 =================
 
