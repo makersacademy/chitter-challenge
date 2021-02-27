@@ -10,16 +10,18 @@ describe Peeps do
 
       peeps = Peeps.all
 
-      expect(peeps).to include("Watching TV")
-      expect(peeps).to include("Getting a haircut")
+      expect(peeps).to include("Watching TV ")
+      expect(peeps).to include("Getting a haircut ")
     end
   end
 
   describe '#.create' do
-    it 'creates a new peep' do
-      Peeps.create("I love databases!")
-
-      expect(Peeps.all).to include 'I love databases!'
+    it 'returns a new peep' do
+      time = Time.now
+      Peeps.create("I love databases!", time)
+      peeps = Peeps.all
+      expect(peeps).to include(["I love databases!"])
+      # expect(Peeps.all).to include(time)
     end
   end
 
