@@ -1,0 +1,6 @@
+CREATE TABLE peeps(
+  id SERIAL PRIMARY KEY,
+  content VARCHAR (280) NOT NULL,
+  time TIMESTAMP NOT NULL,
+  user_id INTEGER REFERENCES users (id)
+);
