@@ -4,7 +4,7 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    'Chitter'
+    erb :index
   end
 
   run! if app_file == $PROGRAM_NAME
