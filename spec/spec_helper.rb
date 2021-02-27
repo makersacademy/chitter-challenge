@@ -11,6 +11,14 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
+require_relative './set_up_test_database'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
 
