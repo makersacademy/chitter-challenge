@@ -1,3 +1,5 @@
+
+
 ENV['ENVIRONMENT'] = 'test'
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
@@ -11,7 +13,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-require_relative './set_up_test_database'
+require_relative './setup_test_database'
 
 RSpec.configure do |config|
   config.before(:each) do
