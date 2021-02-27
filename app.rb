@@ -1,10 +1,19 @@
 require 'sinatra/base'
-# require './lib/Cheet'
+# require './lib/Peep'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Hello world"
+    erb :index
+  end
+
+  post '/add' do
+    @peep = params[:peep]
+    erb :peeps
+  end
+
+  get '/peeps' do
+    erb :peeps
   end
 
 run! if app_file == $0
