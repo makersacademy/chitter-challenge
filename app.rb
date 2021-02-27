@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peeps.all.reverse
+    @time = Time.now
     erb :peeps
   end
 
