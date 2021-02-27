@@ -20,13 +20,12 @@ class Chitter < Sinatra::Base
   # end
 
   get "/home" do
-    @chitters = Posts.all
+     @chitters = Posts.all
     erb :home
   end
 
   post "/post_chitter" do
-    username = params[:username]
-    post = params[:post]
+    Posts.create(username: params[:username], post: params[:post])
     redirect 'home'
   end
 
