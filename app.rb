@@ -7,7 +7,11 @@ class Chitter < Sinatra::Base
   # set :session_secret, ENV['SESSION_SECRET']
 
   get '/' do
-      'Hello Chitter!'
+    erb :index
+  end
+
+  get '/home' do
+    erb :home
   end
 
   run! if app_file == $0
