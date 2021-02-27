@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Chitter</title>
+  <style>
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  text-align: right;
+}
+</style>
+</head>
+
+<body>
+  <div class="topright">
+    <form action='/sessions' method='post'>
+      <input type='text' name='username'>
+      <input type='text' name='password'>
+      <input type='submit' value='Sign in'>
+    </form>
+
+   <form action='/users/new' method='get'>
+    <input type='submit' value='New User'>
+    </form>
+  </div>
+  <h1>Chitter</h1>
+  <p>
+  <% if @user %>
+    Welcome <%= @user.name %>, start peeping now!
+  <% end %>
+  </p>
+  <form action='/peeps' method='post'>
+    <input type='text' name='peep'>
+    <input type='submit' value='Add a peep'>
+  </form>
+  <ul style="list-style-type:none;">
+    <% @peeps.reverse.each do |peep| %>
+    <li class="peep" id="peep-<%=peep.id %>">
+      <%= peep.content %>
+      <br>posted by at [<%= peep.time %>]
+    </li>
+    <br>
+    <% end %>
+  </ul>
+</body>
+
+</html>
