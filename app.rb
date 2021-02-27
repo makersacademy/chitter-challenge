@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
       @password = params[:password]
       @name = params[:name]
       @username = params[:username]
-      user = DBConnection.query("INSERT INTO users (email, password, name, username) VALUES('#{@email}', '#{@password}', '#{@name}', '#{@username}') RETURNING email, password, name, username;")
+      user = DBConnection.query("INSERT INTO users (email, password, name, username) VALUES('#{@email}', '#{@password}', '#{@name}', '#{@username}') RETURNING id, email, password, name, username;")
       flash[:signup_success] = "Welcome to Chitter, #{user[0]['name']}!"
       redirect('/')
     end
