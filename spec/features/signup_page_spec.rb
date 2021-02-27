@@ -8,3 +8,5 @@ feature 'i can sign up to chitter' do
         fill_in :username, with: 'rafswid'
         click_link('Sign Up')
         expect(page).to have_content 'Logged in as: rafswid'
+    end
+end
