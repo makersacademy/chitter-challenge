@@ -36,7 +36,6 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    p params
     session[:user_id] = user.id
     redirect '/peeps'
   end
