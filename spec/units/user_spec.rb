@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'user'
 
-describe 'User' do
+describe User do
 
   describe '.new' do
     it 'creates a new user and store it in database' do

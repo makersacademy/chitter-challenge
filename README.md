@@ -59,8 +59,9 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 ## Setting up the Databases
 1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE chitter_test;
-3. Connect to the database using the pqsl command \c chitter_test;
+2. Create the database using the psql command CREATE DATABASE `chitter_test`;
+3. Connect to the database using the pqsl command \c `chitter_test`;
 4. Run the query we have saved in the file 01_setting_up_users_database.sql
-5. Create the database using the psql command CREATE DATABASE chitter_development;
-6. Repeat steps 3 and 4 
+5. Run the query we have saved in the file 02_setting_up_peeps_database.sql
+6. Create the database using the psql command CREATE DATABASE `chitter_development`;
+7. Repeat steps 3, 4 and 5

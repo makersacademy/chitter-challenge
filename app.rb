@@ -21,7 +21,9 @@ p ENV['RACK_ENV']
     end
 
     get '/feed' do
-      "lists all the peeps""
+      "lists all the peeps"
+      # @chitter = Chitter.list => need to be an array
+      # erb :feed
     end
 
   run! if app_file == $0
