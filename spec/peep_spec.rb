@@ -26,4 +26,20 @@ describe Peep do
       expect(peeps.first.peep).to eq 'hi there!'
     end
   end
+
+  describe '.reverse' do
+    it 'returns a reversed list of peeps' do
+      Peep.create(peep: 'hi there!')
+      Peep.create(peep: 'Wooaahhh')
+      Peep.create(peep: 'Tests should always be green!')
+
+      peeps = Peep.all
+      reversed_peeps = Peep.reverse
+
+      expect(reversed_peeps.length).to eq 3
+      expect(reversed_peeps.last).to be_a Peep
+      expect(reversed_peeps.last.id).to eq peeps.first.id
+      expect(reversed_peeps.last.peep).to eq 'hi there!'
+    end
+  end
 end

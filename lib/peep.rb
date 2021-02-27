@@ -14,11 +14,15 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query('SELECT * FROM peeps')
-    result.map do |peep|
+    @peep_list = result.map do |peep|
       Peep.new(
         peep: peep['peep'],
         id: peep['id']
       )
     end
+  end
+
+  def self.reverse
+    @peep_list.reverse
   end
 end

@@ -1,0 +1,16 @@
+<center>
+
+  <% @newest_peeps.each do |post| %>
+  <li>
+    <%= post.peep %>
+  </li>
+  <% end %>
+
+  <br>
+  
+  <form action="/" method="get">
+    <input type="submit" value="Oh, now you wanna accept the messages in their proportional order huh?">
+  </form>
+
+
+</center>

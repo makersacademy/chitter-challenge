@@ -18,5 +18,10 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/sorted-by-newest' do
+    @newest_peeps = Peep.reverse
+    erb(:newest_peeps)
+  end
+
   run! if app_file == Chitter
 end
