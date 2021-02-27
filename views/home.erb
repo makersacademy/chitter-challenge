@@ -5,7 +5,19 @@
 <h1>Home Page</h1>
 <div>
 Logged in as: <% @details.each do |detail| %>
-                    <%= detail.email %>
+                    <%= detail.username %>
               <% end %>
 </div>
+<div>
+<form action="/new_peep" method="post">
+  <input type="text" name="peep_post" placeholder="What's on your mind?">
+  <input type="submit" value="Post Peep">
+</form>
+</div>
+<div>
+<% @posts.each do |post| %>
+      <%= post.content %>
+<% end %>
+</div>
+
 

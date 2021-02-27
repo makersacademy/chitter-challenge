@@ -1,3 +1,5 @@
+require 'post'
+
 describe Post do
     describe '#self.create' do
         it 'stores the post details on the chitter database' do

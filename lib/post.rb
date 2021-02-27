@@ -31,5 +31,5 @@ class Post
         end
         result = connection.exec("INSERT INTO posts (name, username, content) VALUES('#{name}', '#{username}', '#{content}') RETURNING id, name, username, content;")
         Post.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], content: result[0]['content'])
-    end    
+    end
 end
