@@ -9,4 +9,8 @@ class Peeps
     ]
   end
 
+  def self.create
+
+  end
+
 end
