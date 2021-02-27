@@ -13,3 +13,12 @@
 <input type="submit" value="Peep!">
 </form>
 
+<h2 style="text-align:right"> What everyone's saying </h2>
+<ul style="text-align:right">
+<ul>
+  <% @peeps.each do |peep| %>
+    <li style="text-align:right">
+   <%= peep.name %> (<%=peep.username %>) : "<%=peep.message %>", at time <%= peep.time %>
+    </li>
+  <% end %>
+</ul>
