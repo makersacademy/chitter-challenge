@@ -9,11 +9,11 @@ class Chitter < Sinatra::Base
 
   post '/add' do
     @peep = params[:peep]
+    @peeps = Peeps.all
     erb :peeps
   end
 
   get '/peeps' do
-    @peeps = Peeps.all
     erb :peeps
   end
 
