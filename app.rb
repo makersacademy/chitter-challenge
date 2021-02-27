@@ -1,10 +1,15 @@
 require 'sinatra/base'
-# require './lib/bookmark.rb'
+require './lib/details.rb'
 require 'pg'
+
 
 class Chitter < Sinatra::Base
   # enable :sessions
   # set :session_secret, ENV['SESSION_SECRET']
+
+  before do
+    @details = Details.all
+  end
 
   get '/' do
       erb :index
@@ -18,7 +23,7 @@ class Chitter < Sinatra::Base
     Details.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username] )
     redirect '/home'
   end
-  
+
   get '/signup' do
       erb :signup
   end

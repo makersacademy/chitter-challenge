@@ -3,4 +3,9 @@
 </head>
 <body>
 <h1>Home Page</h1>
+<div>
+Logged in as: <% @details.each do |detail| %>
+                    <%= detail.email %>
+              <% end %>
+</div>
 
