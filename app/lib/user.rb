@@ -13,11 +13,30 @@ class User
         username: row['username'], password: row['password'])
     end
 
-    def find(id:)
-      row = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")[0]
+    def find_id(id)
+      row = DatabaseConnection.query(
+        "SELECT * FROM users WHERE id = #{id}"
+      ).first
 
       new(id: row['id'], name: row['name'], email: row['email'],
         username: row['username'], password: row['password'])
+    end
+
+    def find_username(username)
+      row = DatabaseConnection.query(
+        "SELECT * FROM users WHERE username = '#{username}';"
+      ).first
+      new(id: row['id'], name: row['name'], email: row['email'],
+        username: row['username'], password: row['password'])
+    end
+
+    def authenticate(username:, password:)
+      result = DatabaseConnection.query("
+        SELECT * FROM users WHERE username = '#{username}'"
+      ).first
+      return !!result unless result
+
+      password == result['password']
     end
   end
 

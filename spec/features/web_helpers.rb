@@ -1,5 +1,5 @@
 def sign_up_and_get_peeping
-  visit '/'
+  visit '/peeps'
   click_button 'Sign Up'
   fill_in('name', with: 'test')
   fill_in('email', with: 'test@test.com')
