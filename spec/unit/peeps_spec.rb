@@ -18,7 +18,7 @@ describe Peeps do
   describe '#.create' do
     it 'returns a new peep' do
       time = Time.now
-      Peeps.create("I love databases!", time)
+      Peeps.create("I love databases!")
       peeps = Peeps.all
       expect(peeps).to include(["I love databases!"])
       # expect(Peeps.all).to include(time)
