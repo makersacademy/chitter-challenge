@@ -18,7 +18,13 @@ require 'rake'
 require 'rspec'
 
 require_relative '../app/chitter'
+require_relative '../app/lib/database_connection'
 
 Capybara.app = Chitter
 
 Rake.application.load_rakefile
+
+RSpec.configure do |config|
+  config.before(:each) { Rake::Task['clean_test_database'].execute }
+  config.before(:suite) { Rake::Task['setup_database_connection'].execute }
+end

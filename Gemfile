@@ -3,14 +3,12 @@ source 'https://rubygems.org'
 ruby '2.7.2'
 
 group :development, :production do
-  gem 'puma'
-  gem 'sinatra'
-end
-
-group :test, :development, :production do
   gem 'bcrypt'
-  gem 'rack'
   gem 'pg'
+  gem 'puma'
+  gem 'rack'
+  gem 'sinatra'
+  gem 'sinatra-flash'
 end
 
 group :test, :development do
