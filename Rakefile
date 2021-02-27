@@ -26,10 +26,40 @@ task :setup do
   end
 end
 
-desc 'Migrate database tables'
-task :migrate do
-  %w[chitter chitter_test].each do |database|
-    connection = PG.connect(dbname: database)
+group :migrate do
+  desc 'Migrate database tables'
+  task :migrate do
+    Rake::Task['migrate_test'].execute
+    Rake::Task['migrate_development'].execute
+  end
+
+  desc 'Migrate test database tables'
+  task :migrate_test do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    connection.exec(
+      "CREATE TABLE users(
+        id SERIAL PRIMARY KEY,
+        name VARCHAR (60) NOT NULL,
+        username VARCHAR (60) UNIQUE NOT NULL,
+        email VARCHAR (255) UNIQUE NOT NULL,
+        password VARCHAR (80) NOT NULL
+      );"
+    )
+
+    connection.exec(
+      "CREATE TABLE peeps(
+        id SERIAL PRIMARY KEY,
+        content VARCHAR (280) NOT NULL,
+        user_id INTEGER REFERENCES users (id),
+        time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
+      );"
+    )
+  end
+
+  desc 'Migrate development database tables'
+  task :migrate_development do
+    connection = PG.connect(dbname: 'chitter')
 
     connection.exec(
       "CREATE TABLE users(
