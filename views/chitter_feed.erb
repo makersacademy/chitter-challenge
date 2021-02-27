@@ -1,10 +1,16 @@
 <h2> Your Feed </h2>
-
+<style>
+  div.generic {width:200px;background:#f2f3f1;border:1px solid black;padding:8px;}
+</style>
 <ul>
   <% @chitter_feed.each do |feed| %>
-    <div
-      style="width:200px;background:#D3D3D3;border:5px black;text-align:center">
-      <%= feed.comment %>
+    <div class="generic">
+      <%= feed.id %> ~ said:
+      <br>
+      <div
+        style="width:70%;background:#ccd1c7;border:5px black;text-align:center">
+        <%= feed.comment %>
+      </div>
     </div>
     <br>
   <% end %>
