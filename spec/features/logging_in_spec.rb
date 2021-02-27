@@ -13,13 +13,13 @@ feature 'logging in' do
     expect(page).not_to have_content 'Incorrect login details'
   end
 
-  xscenario 'user receives flash message on unsucessful login' do
+  scenario 'user receives flash message with wrong username' do
     User.create(name: 'Test Name', username: 'TestUser1', email: 'a@b.com', password: 'Pw123')
 
     visit '/peeps'
     click_button 'Sign In'
     fill_in('username', with: 'wrongUsername')
-    fill_in('password', with: 'wrongPassword')
+    fill_in('password', with: 'Pw123')
     click_button 'Get Peeping'
 
     expect(page).to have_content 'Incorrect login details'

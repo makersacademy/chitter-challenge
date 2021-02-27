@@ -25,44 +25,28 @@ describe User do
     end
   end
 
-  describe '.find_username' do
-    it 'finds user by their username' do
-      user = described_class.create(name: 'test', username: 'testname', email: 'test@test.com', password: 'Test123')
-      found_user = described_class.find_username('testname')
-
-      expect(found_user.username).to eq user.username
-      expect(found_user.name).to eq user.name
-      expect(found_user.id).to eq user.id
-      expect(found_user.email).to eq user.email
-    end
-  end
-
   describe '.authenticate' do
-    it 'returns true for valid username and password' do
-      user = described_class.create(name: 'test', username: 'testname',
-        email: 'test@test.com', password: 'Test123')
-
+    it 'returns user for valid username and password' do
+      user = described_class.create(name: 'test', username: 'testname', email: 'test@test.com', password: 'Test123')
       result = described_class.authenticate(username: 'testname', password: 'Test123')
 
-      expect(result).to be true
+      expect(result.id).to eq user.id
+      expect(result.name).to eq user.name
+      expect(result.email).to eq user.email
     end
 
-    it 'returns false for invalid username' do
-      user = described_class.create(name: 'test', username: 'testname',
-        email: 'test@test.com', password: 'Test123')
-
+    it 'returns nil for invalid username' do
+      described_class.create(name: 'test', username: 'testname', email: 'test@test.com', password: 'Test123')
       result = described_class.authenticate(username: 'wrong_name', password: 'Test123')
 
-      expect(result).to be false
+      expect(result).to be_nil
     end
 
-    it 'returns false for incorrect password' do
-      user = described_class.create(name: 'test', username: 'testname',
-        email: 'test@test.com', password: 'Test123')
-
+    it 'returns nil for incorrect password' do
+      described_class.create(name: 'test', username: 'testname', email: 'test@test.com', password: 'Test123')
       result = described_class.authenticate(username: 'testname', password: 'wrong_password')
 
-      expect(result).to be false
+      expect(result).to be_nil
     end
   end
 end

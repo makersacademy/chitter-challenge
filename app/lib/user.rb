@@ -22,21 +22,15 @@ class User
         username: row['username'], password: row['password'])
     end
 
-    def find_username(username)
-      row = DatabaseConnection.query(
-        "SELECT * FROM users WHERE username = '#{username}';"
-      ).first
-      new(id: row['id'], name: row['name'], email: row['email'],
-        username: row['username'], password: row['password'])
-    end
-
     def authenticate(username:, password:)
-      result = DatabaseConnection.query("
+      row = DatabaseConnection.query("
         SELECT * FROM users WHERE username = '#{username}'"
       ).first
-      return !!result unless result
+      return unless row
+      return unless password == row['password']
 
-      password == result['password']
+      new(id: row['id'], name: row['name'], email: row['email'],
+        username: row['username'], password: row['password'])
     end
   end
 

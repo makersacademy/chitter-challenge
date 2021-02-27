@@ -36,9 +36,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.find_username(params[:username])
-    session[:id] = user.id
-    redirect '/peeps'
+    user = User.authenticate(username: params[:username], password: params[:password])
+    if user
+      session[:id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = 'Incorrect login details, please try again.'
+      redirect '/sessions/new'
+    end
   end
 
   get '/peeps/new' do
