@@ -9,6 +9,7 @@ Welcome to Chitter
   <ul>
     <% @peeps.each do |item| %>
       <li>
+      <%= item.created_at[0..16] %>
       <%= item.peep %>
       </li>
     <% end %>
