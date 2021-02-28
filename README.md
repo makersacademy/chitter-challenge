@@ -1,17 +1,10 @@
+[![Build Status](https://travis-ci.com/kerisic/chitter-challenge.svg?branch=master)](https://travis-ci.com/kerisic/chitter-challenge)
+
 Chitter Challenge
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
 -------
 
-As usual please start by forking this repo.
+This is a twitter clone that implements the below user stories and features.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -51,6 +44,14 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+Install
+-------
+- Fork this repo
+- `bundle install`
+- Connect to `psql`
+- Create databases and tables according to queries stored in db/migrations/01_create_peep_database_and_tables.sql
+- Run `rackup` to see app on local server - http://localhost:9292/peeps
 
 Technical Approach:
 -----
