@@ -6,7 +6,7 @@ feature 'allows sign in' do
     visit '/sessions/new'
     fill_in('email', with: 'email@gmail.com')
     fill_in('password', with: 'password')
-    click_button 'log_in'
+    click_button 'sign_in'
     expect(page).to have_content 'Welcome, email@gmail.com'
   end
 end

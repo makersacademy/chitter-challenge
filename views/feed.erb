@@ -2,6 +2,11 @@
   <h1>Welcome, <%= @user.email %></h1>
 <% end %>
 
+<% if @signed_notice %>
+  <h1>"You have signed out."%></h1>
+<% end %>
+
+
 <ul>
   <% @feed.each do |message| %>
   <li> <%= message.content %> <%= message.created_at %>  </li>
@@ -14,4 +19,12 @@
 
 <form action="/users/new" method="get">
  <input type="submit" name="sing_up" value="sign_up">
+</form>
+
+<form action="/session/new" method="get">
+ <input type="submit" name="sing_in" value="sign_in">
+</form>
+
+<form action="/sessions/destroy" method="post">
+ <input type="submit" name="sign_out" value="sign_out">
 </form>
