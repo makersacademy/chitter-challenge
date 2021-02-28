@@ -8,7 +8,7 @@ group :development do
   gem 'puma'
   gem 'sinatra'
   gem 'pg'
-  gem 'time'
+  # gem 'time'
 end
 
 group :test do

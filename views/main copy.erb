@@ -111,28 +111,23 @@ textarea {
       </li>
 
       <%# show the peeps %>
-      <% @peeps.each do |peep|%>
-        <li>
-          <div class="peepContainer" name="pc-<%= peep.id %>">
-            <div id='p-<%= peep.id %>' class='peep'>
-              <div class='peepInfo' id='pi-<%= peep.id %>'>
-                <span class='nameBlock'>
-                  <span class='username'><%= peep.username%></span>
-                </span>
-                <span class="dateTime fRight" data-utc='0'>
-                  <%= peep.time %> <%# I might want to change how the time is displayed later, so it's easier to format it here than somewhere else %>
-                </span>
-              </div>
-              <div class="empty"><br></div>
-              <div blockquote class='peepMessage' id="m-<%= peep.id %>">
-                <%= peep.peep() %>
-              </div>
+      <li>
+        <div class="peepContainer" name='pc-1'>
+          <div id='p1' class='peep'>
+            <div class='peepInfo' id='pi1'>
+              <span class='nameBlock'>
+                <span class='name'>Sargon of Akkad</span>
+              </span>
+              <span class="dateTime fRight" data-utc='0'>1/1/77(Sun)01:01</span>
+            </div>
+            <div class="empty"><br></div>
+            <div blockquote class='peepMessage' id=m1>
+              First
             </div>
           </div>
-        </li>
-      <% end %>
-
-      <%# <li>
+        </div>
+      </li>
+      <li>
         <div class="peepContainer" name='pc-2'>
           <div id='p2' class='peep'>
             <div class='peepInfo' id='pi2'>
@@ -163,7 +158,7 @@ textarea {
             </div>
           </div>
         </div>
-      </li> %>
+      </li>
     </ul>
   </div>
 
