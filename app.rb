@@ -6,6 +6,7 @@ require_relative './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
   set :public_folder, proc { File.join(root, 'static') }
 
   get '/' do
@@ -19,7 +20,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:peep])
+    @user = User.find(session[:user_id])
+    Peep.create(content: params[:peep], user_id: @user.id)
     redirect '/peeps'
   end
 
@@ -36,9 +38,24 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/peeps'
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect '/sessions'
+    end
   end
+
+   get '/sessions' do
+     erb :'sessions/index'
+   end
+
+   post '/sessions/destroy' do
+     session.clear
+     flash[:notice] = 'You have signed out.'
+     redirect('/peeps')
+   end
 
   run! if app_file == $0
 end

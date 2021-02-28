@@ -17,10 +17,16 @@
 
 <body>
   <div class="topright">
-    <form action='/sessions' method='post'>
-      <input type='text' name='username'>
-      <input type='text' name='password'>
+    <p>
+      <%= flash[:notice] %>
+    </p>
+
+    <form action='/sessions' method='get'>
       <input type='submit' value='Sign in'>
+    </form>
+
+    <form action='/sessions/destroy' method="post">
+      <input type="submit" value="Sign out">
     </form>
 
    <form action='/users/new' method='get'>
@@ -31,17 +37,17 @@
   <p>
   <% if @user %>
     Welcome <%= @user.name %>, start peeping now!
-  <% end %>
   </p>
   <form action='/peeps' method='post'>
     <input type='text' name='peep'>
     <input type='submit' value='Add a peep'>
   </form>
+  <% end %>
   <ul style="list-style-type:none;">
     <% @peeps.reverse.each do |peep| %>
     <li class="peep" id="peep-<%=peep.id %>">
       <%= peep.content %>
-      <br>posted by at [<%= peep.time %>]
+      <br>posted by <%= peep.name %> (@<%= peep.username %>) at [<%= peep.time %>]
     </li>
     <br>
     <% end %>
