@@ -1,0 +1,13 @@
+<h1>Chitter</h1>
+
+<h2>Edit your peep</h2>
+
+<form action="/peeps/<%= @peep.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="text" name="peep" value="<%= @peep.content %>">
+  <input type="submit" value="Post">
+</form>
+
+<p>
+  Peeped by you on <%= @peep.time %>
+</p>

@@ -37,6 +37,52 @@ describe Peep do
     end
   end
 
+  describe '.delete' do
+    it 'deletes the peep from the database' do
+      peep = described_class.create(content: 'Building Chitter', user_id: 1)
+      expect(Peep.all).not_to be_empty
+
+      described_class.delete(id: peep.id)
+      expect(Peep.all).to be_empty
+    end
+
+    it 'only deletes the correct peep' do
+      described_class.create(content: 'Building Chitter', user_id: 1)
+      described_class.create(content: 'Taking a break', user_id: 1)
+      described_class.create(content: 'Writing tests', user_id: 1)
+
+      expect(Peep.all.length).to be 3
+
+      described_class.delete(id: 2)
+
+      expect(Peep.all.length).to be 2
+      expect(Peep.all.map(&:content)).to include 'Building Chitter'
+      expect(Peep.all.map(&:content)).to include 'Writing tests'
+    end
+  end
+
+  describe '.find' do
+    it 'returns the peep by its id' do
+      peep = described_class.create(content: 'Building Chitter', user_id: 1)
+      found_peep = described_class.find(id: peep.id)
+
+      expect(peep.id).to eq found_peep.id
+      expect(peep.content).to eq found_peep.content
+      expect(peep.user_id).to eq found_peep.user_id
+    end
+  end
+
+  describe '.update' do
+    it 'updates the content of the peep' do
+      peep = described_class.create(content: 'Building Chitter', user_id: 1)
+      content = 'This many to many relationship stuff is hard work'
+      expect(described_class.find(id: peep.id).content).not_to eq content
+
+      described_class.update(id: peep.id, content: content)
+      expect(described_class.find(id: peep.id).content).to eq content
+    end
+  end
+
   describe '#username' do
     it 'returns username of the peeper' do
       peep = described_class.create(content: 'Building Chitter', user_id: 1)

@@ -32,6 +32,14 @@
       <%= peep.time %><br>
       <%= peep.username %><br>
       <%= peep.name %>
+      <form action="peeps/<%= peep.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+      </form>
+
+      <form action="peeps/<%= peep.id %>">
+        <input type="submit" value="Edit">
+      </form>
     </li>
   <% end %>
 </ul>

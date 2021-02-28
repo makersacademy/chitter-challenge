@@ -1,8 +1,6 @@
 require 'bcrypt'
 
 class User
-  include BCrypt
-
   attr_reader :id, :name, :email, :username, :password
 
   class << self

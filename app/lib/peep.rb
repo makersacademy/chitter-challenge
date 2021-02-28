@@ -19,6 +19,23 @@ class Peep
           content: row['content'], user_id: row['user_id'])
       end
     end
+
+    def delete(id:)
+      DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id};")
+    end
+
+    def find(id:)
+      row = DatabaseConnection.query("SELECT * FROM peeps
+        WHERE id = #{id};").first
+
+      new(id: row['id'], time: row['time'],
+        content: row['content'], user_id: row['user_id'])
+    end
+
+    def update(id:, content:)
+      DatabaseConnection.query("UPDATE peeps SET content = '#{content}'
+        WHERE id = #{id};")
+    end
   end
 
   def initialize(id:, time:, content:, user_id:)
