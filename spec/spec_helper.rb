@@ -5,9 +5,11 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'rake'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
+Rake.application.load_rakefile
 
 Capybara.app = ChitterManager
 
@@ -20,7 +22,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    Rake::Task['setup_test_database'].execute
   end
 
   config.after(:suite) do
