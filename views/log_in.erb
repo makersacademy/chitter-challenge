@@ -1,0 +1,9 @@
+<% if @alert %>
+  <p>Check your email or password.</p>
+<% end %>
+
+<form action="/authenticate" method="post">
+ <input type="submit" name="log_in" value="log_in">
+ <input type="text" name="email">
+ <input type="text" name="password">
+</form>

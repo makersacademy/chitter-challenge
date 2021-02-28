@@ -4,10 +4,14 @@
 
 <ul>
   <% @feed.each do |message| %>
-  <li> <%= message.content %> <%= message.created_at %> </li>
+  <li> <%= message.content %> <%= message.created_at %>  </li>
   <% end %>
 </ul>
 
 <form action="/feed/new" method="get">
  <input type="submit" name="add">
+</form>
+
+<form action="/users/new" method="get">
+ <input type="submit" name="sing_up" value="sign_up">
 </form>

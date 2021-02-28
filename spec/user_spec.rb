@@ -28,4 +28,21 @@ describe User do
     expect(User.find(nil)).to eq nil
     end
   end
+
+  describe '.authenticate' do
+    it'verifies given creditentials and logs in if theyre valid' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+
+      expect(authenticated_user.id).to eq user.id
+
+    end
+    it'verifies given creditentials and does not log in if creditentials are not valid' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+
+
+      expect(User.authenticate(email: 'wrong@example.com', password: 'password123')).to be_nil
+
+    end
+  end
 end
