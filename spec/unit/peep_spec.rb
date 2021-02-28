@@ -5,8 +5,8 @@ describe Peep do
     it 'lists peeps in descending time order' do
       user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
       user2 = User.create(email: 'jeaninvestigates@jeangenie.com', password: 'masterofdisguise', name: 'Jean Parmigian', username: 'Jeeeeeean')
-      peep = Peep.create(content: 'Check out my law blog!', date: '2021-02-28', time: '02:25', user_id: user.id)
-      peep = Peep.create(content: 'Who needs something investigated?', date: '2021-01-14', time: '18:20', user_id: user2.id)
+      Peep.create(content: 'Check out my law blog!', date: '2021-02-28', time: '02:25', user_id: user.id)
+      Peep.create(content: 'Who needs something investigated?', date: '2021-01-14', time: '18:20', user_id: user2.id)
       peeps = Peep.all
       expect(peeps.first.content).to eq('Check out my law blog!')
       expect(peeps.last.content).to eq('Who needs something investigated?')

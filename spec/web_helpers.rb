@@ -9,7 +9,7 @@ def sign_up_for_chitter
 end
 
 def sign_in_to_chitter
-  user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+  User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
   visit('/')
   click_link('Log in')
   fill_in 'username', with: 'bloblaw'

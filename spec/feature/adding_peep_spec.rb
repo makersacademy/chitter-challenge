@@ -13,6 +13,6 @@ feature 'user can add peep after signing in' do
     fill_in 'content', with: 'Check out my law blog!'
     click_button('Submit')
     expect(page).to have_content('Check out my law blog!')
-    expect(page).to have_content('by bloblaw')
+    expect(page).to have_content('by Bob Loblaw')
   end
 end

@@ -33,18 +33,18 @@ describe User do
   end
   describe '.authenticate' do
     it 'returns a user if a user exists with those password and email credentials' do
-      user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+      User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
       auth_user = User.authenticate(username: 'bloblaw', password: 'bobloblawslawblog')
       expect(auth_user).to be_a User
       expect(auth_user.email).to eq('bobloblaw@lawblog.com')
       expect(auth_user.name).to eq('Bob Loblaw')
     end
     it 'returns nil if no user exists with that username' do
-      user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+      User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
       expect(User.authenticate(username: 'carlweathers', password: 'bobloblawslawblog')).to be_nil
     end
     it 'returns nil if that password does not match user record' do
-      user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+      User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
       expect(User.authenticate(username: 'goblaw', password: 'carlweathers')).to be_nil
     end
   end

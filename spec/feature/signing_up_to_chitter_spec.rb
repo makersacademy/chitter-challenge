@@ -9,7 +9,7 @@ feature 'people can sign up for Chitter' do
     expect(page).to have_content('You are currently logged in as bloblaw')
   end
   scenario 'with a unique email only' do
-    user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+    User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
     visit('/')
     click_link('sign up for Chitter')
     fill_in 'email', with: 'bobloblaw@lawblog.com'
@@ -21,7 +21,7 @@ feature 'people can sign up for Chitter' do
     expect(page).not_to have_content("You are currently logged in as jeaaaaaan")
   end
   scenario 'with a unique username only' do
-    user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+    User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
     visit('/')
     click_link('sign up for Chitter')
     fill_in 'email', with: 'masterofdisguise@sneaky.com'
