@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'coveralls'
 gem 'pg'
 gem 'sinatra'
+gem 'timecop'
 
 group :test do
   gem 'capybara'
