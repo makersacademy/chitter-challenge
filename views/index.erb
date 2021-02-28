@@ -1,0 +1,16 @@
+Welcome to Chitter
+
+<form action="/postpeep" method="post">
+  <label for='peep'>Type your peep here</label>
+  <input type="text" name="peep">
+  <input type="submit" value="Post Peep">
+  </form>
+
+  <ul>
+    <% @peeps.each do |item| %>
+      <li>
+      <%= item.created_at[0..16] %>
+      <%= item.peep %>
+      </li>
+    <% end %>
+  </ul>
