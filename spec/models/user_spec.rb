@@ -20,7 +20,7 @@ describe User do
   describe '.find' do
     it 'finds user by their id' do
       user = described_class.create(name: 'test', username: 'testname', email: 'test@test.com', password: 'Test123')
-      found_user = described_class.find_id(user.id)
+      found_user = described_class.find(id: user.id)
 
       expect(user.id).to eq found_user.id
       expect(user.name).to eq found_user.name
@@ -52,6 +52,17 @@ describe User do
       result = described_class.authenticate(username: 'testname', password: 'wrong_password')
 
       expect(result).to be_nil
+    end
+
+    describe '.update' do
+      it 'udpates user details' do
+        user = described_class.create(name: 'test', username: 'testname', email: 'test@test.com', password: 'Test123')
+        described_class.update(id: user.id, name: 'new_name', username: 'new_username', email: 'new_email')
+        updated_user = described_class.find(id: user.id)
+        expect(updated_user.name).to eq 'new_name'
+        expect(updated_user.email).to eq 'new_email'
+        expect(updated_user.username).to eq 'new_username'
+      end
     end
   end
 end

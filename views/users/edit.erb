@@ -1,0 +1,15 @@
+<h1>Chitter</h1>
+
+<h2>Edit and click save to change your details</h2>
+
+<form action="/users/<%= @user.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <input required type="text" name="name" placeholder="Name" value="<%= @user.name %>" maxlength="50">
+  <input required type="text" name="username" placeholder="Name" value="<%= @user.username %>" maxlength="50">
+  <input required type="email" name="email" placeholder="Name" value="<%= @user.email %>" maxlength="50">
+  <input type="submit" value="Save">
+</form>
+
+<form action="/users/<%= @user.id %>/show">
+  <input type="submit" value="Cancel">
+</form>

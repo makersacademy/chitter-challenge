@@ -1,4 +1,4 @@
-<h1>Chitter</h1>
+<h1>Chitter Feed</h1>
 <p><%= flash[:notice] %></p>
 
 <% if @user %>
@@ -17,6 +17,10 @@
     <input type="submit" value="My Peeps">
   </form>
 
+  <form action="/users/<%= @user.id %>/show">
+    <input type="submit" value="My Account">
+  </form>
+
 <% else %>
   <h2>Sign In</h2>
   <form action="/sessions/new">
@@ -29,6 +33,7 @@
   </form>
 <% end %>
 
+<h3>Here are the latest Peeps</h3>
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li class="peep">

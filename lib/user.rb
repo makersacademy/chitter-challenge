@@ -16,7 +16,7 @@ class User
         username: row['username'], password: row['password'])
     end
 
-    def find_id(id)
+    def find(id:)
       row = DatabaseConnection.query(
         "SELECT * FROM users WHERE id = #{id}"
       ).first
@@ -34,6 +34,12 @@ class User
 
       new(id: row['id'], name: row['name'], email: row['email'],
         username: row['username'], password: row['password'])
+    end
+
+    def update(id:, name:, username:, email:)
+      DatabaseConnection.query("UPDATE users
+        SET name = '#{name}', username = '#{username}', email = '#{email}'
+        WHERE id = #{id};")
     end
   end
 

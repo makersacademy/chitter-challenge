@@ -6,7 +6,7 @@ require_relative 'lib/user'
 require_relative 'lib/peep'
 
 class Chitter < Sinatra::Base
-  before { @user = User.find_id(session[:id]) if session[:id] }
+  before { @user = User.find(id: session[:id]) if session[:id] }
 
   configure do
     register Sinatra::Flash
@@ -14,9 +14,13 @@ class Chitter < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET']
   end
 
+  get '/' do
+    redirect '/peeps'
+  end
+
   get '/peeps' do
     @peeps = Peep.all
-    erb :'/peeps/index'
+    erb :'peeps/index'
   end
 
   get '/peeps/new' do
@@ -30,7 +34,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps/:id/edit' do
     @peep = Peep.find(id: params[:id])
-    erb :'/peeps/edit'
+    erb :'peeps/edit'
   end
 
   patch '/peeps/:id' do
@@ -41,6 +45,20 @@ class Chitter < Sinatra::Base
   delete '/peeps/:id' do
     Peep.delete(id: params[:id])
     redirect '/peeps'
+  end
+
+  get '/users/:id/show' do
+    erb :'users/index'
+  end
+
+  get '/users/:id/edit' do
+    erb :'users/edit'
+  end
+
+  patch '/users/:id' do
+    User.update(id: params[:id], name: params[:name],
+      username: params[:username], email: params[:email])
+    redirect '/users/:id/show'
   end
 
   get '/users/new' do
