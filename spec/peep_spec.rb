@@ -12,7 +12,6 @@ describe Peep do
       peeps = Peep.all
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.content).to eq 'Hello Cheese!'
     end
   end
 
