@@ -1,7 +1,7 @@
 language: ruby
 
 before_install:
-   - rvm install 3.0.0
+   - rvm reinstall ruby-3.0.0
 
 services:
   - postgresql
