@@ -6,5 +6,7 @@ You are currently logged in as <%= @user.username %>
 <% @result.each do |row| %>
 <li><%= row['content'] %>, peeped at <%= row['time'] %> on <%= row['date'] %></li>
 <% end %>
+<% unless @user.nil? %>
 <a href= "/peeps/new">New Peep</a>
-<a href= "/users/new">Sign up for Chitter!</a>
+<% end %>
+<a href= "/users/new">Sign up for Chitter</a> to start adding peeps!

@@ -1,7 +1,7 @@
 feature 'people can sign up for Chitter' do
   scenario 'when signing up from the homepage' do
     visit('/')
-    click_link('Sign up for Chitter!')
+    click_link('Sign up for Chitter')
     fill_in 'email', with: 'bobloblaw@lawblog.com'
     fill_in 'password', with: 'bobloblawslawblog'
     fill_in 'name', with: 'Bob Loblaw'
@@ -11,7 +11,7 @@ feature 'people can sign up for Chitter' do
   end
   scenario 'and are signed in after signing up' do
     visit('/')
-    click_link('Sign up for Chitter!')
+    click_link('Sign up for Chitter')
     fill_in 'email', with: 'bobloblaw@lawblog.com'
     fill_in 'password', with: 'bobloblawslawblog'
     fill_in 'name', with: 'Bob Loblaw'
