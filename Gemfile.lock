@@ -21,6 +21,7 @@ GEM
     mini_portile2 (2.5.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.5)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -29,6 +30,8 @@ GEM
       ast (~> 2.4.0)
     pg (1.2.3)
     public_suffix (4.0.6)
+    puma (5.2.1)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-protection (2.1.0)
@@ -95,6 +98,7 @@ DEPENDENCIES
   bcrypt
   capybara
   pg
+  puma
   rack
   rake
   rspec

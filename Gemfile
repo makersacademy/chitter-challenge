@@ -12,6 +12,7 @@ group :test, :development, :production do
   gem 'rack'
   gem 'rake'
   gem 'sinatra'
+  gem 'puma'
 end
 
 group :test, :development do
