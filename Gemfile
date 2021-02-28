@@ -11,7 +11,7 @@ group :development, :production do
   gem 'sinatra-flash'
 end
 
-group :test, :development do
+group :test, :development, :production do
   gem 'rake'
 end
 
