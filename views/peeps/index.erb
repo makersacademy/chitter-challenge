@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Chitter</title>
   <style>
-.topright {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  font-size: 18px;
-  text-align: right;
-}
-</style>
+    .topright {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      font-size: 18px;
+      text-align: right;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,13 +29,13 @@
       <input type="submit" value="Sign out">
     </form>
 
-   <form action='/users/new' method='get'>
-    <input type='submit' value='New User'>
+    <form action='/users/new' method='get'>
+      <input type='submit' value='New User'>
     </form>
   </div>
   <h1>Chitter</h1>
   <p>
-  <% if @user %>
+    <% if @user %>
     Welcome <%= @user.name %>, start peeping now!
   </p>
   <form action='/peeps' method='post'>

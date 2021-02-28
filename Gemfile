@@ -9,10 +9,10 @@ end
 group :test, :development, :production do
   gem 'bcrypt'
   gem 'pg'
+  gem 'puma'
   gem 'rack'
   gem 'rake'
   gem 'sinatra'
-  gem 'puma'
 end
 
 group :test, :development do

@@ -1,4 +1,22 @@
+require 'simplecov'
+require 'simplecov-console'
 require_relative './setup_database'
+require 'features/helpers'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  # Want a nice code coverage website? Uncomment this next line!
+  SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.add_filter do |src_file|
+  File.basename(src_file.filename) == 'Rakefile'
+end
+
+SimpleCov.add_filter do |src_file|
+  File.basename(src_file.filename) == 'database_connection_setup.rb'
+end
+
+SimpleCov.start
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'

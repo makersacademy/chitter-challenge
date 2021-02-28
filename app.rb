@@ -9,10 +9,6 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   set :public_folder, proc { File.join(root, 'static') }
 
-  get '/' do
-    redirect '/peeps'
-  end
-
   get '/peeps' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all
@@ -47,15 +43,15 @@ class Chitter < Sinatra::Base
     end
   end
 
-   get '/sessions' do
-     erb :'sessions/index'
-   end
+  get '/sessions' do
+    erb :'sessions/index'
+  end
 
-   post '/sessions/destroy' do
-     session.clear
-     flash[:notice] = 'You have signed out.'
-     redirect('/peeps')
-   end
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/peeps')
+  end
 
   run! if app_file == $0
 end

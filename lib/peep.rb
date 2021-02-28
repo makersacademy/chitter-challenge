@@ -3,7 +3,7 @@ require 'time'
 
 class Peep
   def self.create(content:, user:)
-    time = (Time.now).strftime('%T')
+    time = Time.now.strftime('%T')
     result = DatabaseConnection.query("INSERT INTO peeps (content, user_id, time_created) VALUES ($$#{content}$$, #{user.id}, '#{time}') RETURNING id, content, time_created;")
     Peep.new(
       id: result[0]['id'],
