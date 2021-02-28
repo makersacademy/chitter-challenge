@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'pg'
 require './lib/peeps'
 
-
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
@@ -25,5 +24,5 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  run! if app_file == $PROGRAM_NAME
+  run! if app_file == $0
 end
