@@ -1,0 +1,3 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(200), username VARCHAR(25), time time, date date);
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(30), password VARCHAR(30));
+CREATE TABLE logins(id SERIAL PRIMARY KEY), name VARCHAR(30), time TIME; 
