@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<%# shamelessly plagiarized from https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles %>
+<%# shamelessly copied 4chan's post container template %>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {width: 20%}
+.col-2 {width: 60%}
+.col-3 {width: 20%}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.peeps ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.peeps li {
+  /* affects each item of the list */
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+textarea {
+  width: 100%;
+  height: 100%; 
+  box-sizing: border-box;
+}
+
+.fRight {
+  float:right
+}
+
+.headerSpan {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  
+  <span class='headerSpan'>
+    Sign in or create a new account to post
+  </span>
+  <span class='CreateAccountSpan fRight'>
+    <form action='/create_account' method=post>
+      <label for='create_account'>Create new account:</label>
+      <input type='submit' name='create_account' value='Create Account'>
+    </form>
+  </span>
+  <span class='loginSpan'>
+    <form action='/login' method=post>
+      <label for='loginID'>Username/email:</label>
+      <input type='text' name='loginID'>
+      <label for='password'>Password:</label>
+      <input type='password' name=password>
+      <input type='submit' value='Sign In'>
+    </form>
+  </span>
+</div>
+
+<div class="row">
+  <div class="col-1 blank"></div>
+  <div class="col-2 peeps">
+    <ul>
+      <%# post a peep %>
+      <li>
+        <div class="postContainer" name='post'>
+          <form action='/postPeep' method='peep'>
+            <div class="postPeep">
+                <textarea name='peepMessage' maxlength="420"></textarea>
+            </div>
+            <div class="submitPeep">
+              <span class="submitSpan fRight">
+                <input type='submit' value='Peep'></form>
+              </span>
+            </div>
+            <div class="empty"><br></div>
+          </form>
+      </li>
+
+      <%# show the peeps %>
+      <li>
+        <div class="peepContainer" name='pc-1'>
+          <div id='p1' class='peep'>
+            <div class='peepInfo' id='pi1'>
+              <span class='nameBlock'>
+                <span class='name'>Sargon of Akkad</span>
+              </span>
+              <span class="dateTime fRight" data-utc='0'>1/1/77(Sun)01:01</span>
+            </div>
+            <div class="empty"><br></div>
+            <div blockquote class='peepMessage' id=m1>
+              First
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="peepContainer" name='pc-2'>
+          <div id='p2' class='peep'>
+            <div class='peepInfo' id='pi2'>
+              <span class='nameBlock'>
+                <span class='name'>Nabonidus</span>
+              </span>
+              <span class="dateTime fRight" data-utc='02'>1/1/77(Sun)12:23</span>
+            </div>
+            <div class="empty"><br></div>
+            <div blockquote class='peepMessage' id=m2>
+              Guys i just found this totally sick temple come check it out
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="peepContainer" name='pc-3'>
+          <div id='p3' class='peep'>
+            <div class='peepInfo' id='pi3'>
+              <span class='nameBlock'>
+                <span class='name'>Cyrus II the Great</span>
+              </span>
+              <span class="dateTime fRight" data-utc='05'>1/1/77(Sun)12:23</span>
+            </div>
+            <div class="empty"><br></div>
+            <div blockquote class='peepMessage' id=m3>
+              @Nabonidus Mine
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-3 blank"></div>
+</div>
+
+</body>
+</html>
