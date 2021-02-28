@@ -1,3 +1,17 @@
+# Chitter Challenge
+
+| [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop) | [![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide) | [![Coverage Status](https://coveralls.io/repos/github/iainaitken/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/iainaitken/chitter-challenge?branch=master) | [![Maintainability](https://api.codeclimate.com/v1/badges/7c1636113990be21d42c/maintainability)](https://codeclimate.com/github/iainaitken/chitter-challenge/maintainability) |
+
+## Design notes
+
+See the [planning](https://github.com/iainaitken/chitter-challenge/blob/master/planning.md) document.
+
+## Using the app
+
+## Reflection
+
+---
+
 Chitter Challenge
 =================
 
