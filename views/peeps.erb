@@ -1,0 +1,27 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  
+  <body>
+    <p>List of peeps</p>
+    <br>
+      <table>
+        <tr>
+          <th>Peep</th>
+          <th>Time</th>
+        </tr>
+        <% @list.each do |peep| %>
+          <tr>
+            <td><%= peep.content %></td>
+            <td><%= peep.created_at %></td>
+          </tr>
+        <% end %>
+      </table>
+    <br>
+    <a href='peeps/new'><button>Post a Peep</button></a>
+  </body>
+</html>
