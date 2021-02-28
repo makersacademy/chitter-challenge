@@ -1,5 +1,5 @@
 require_relative './app'
 
-use Rack::MethodOverride
+$stdout.sync = true
 
 run Chitter
