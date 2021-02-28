@@ -27,9 +27,8 @@ class Chitter < Sinatra::Base
       erb(:'users/new')
     end
 
-    post '/users/new' do
-      @password_hash = BCrypt::Password.create(params[:password])
-      @user = User.create(email: params[:email], password: @password_hash, name: params[:name], username: params[:username])
+    post '/users' do
+      @user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
       flash[:signup_success] = "Welcome to Chitter, #{@user.name}!"
       session[:user] = @user.id
       redirect('/')
