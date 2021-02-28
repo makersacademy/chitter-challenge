@@ -1,7 +1,7 @@
 <% unless @user.nil? %>
 You are currently logged in as <%= @user.username %>
 <h1>Add a peep</h1>
-<form action="/peeps/new" method="post">
+<form action='/peeps/<%= @user.id %>' method='post'>
   <label for "content">Peep:</label>
   <input type="text" id="content" name="content" maxlength="140"/>
   <input type="submit" value="Submit"/>
@@ -9,6 +9,6 @@ You are currently logged in as <%= @user.username %>
 <% end %>
 <% if @user.nil? %>
 <p>You must be signed in to add peeps to chitter!</p>
-<a href= "/users/new">Sign up for Chitter</a> to start adding peeps!
+<a href= "/users/new">sign up for Chitter</a> to start adding peeps!
 <a href="/peeps">Back to peeps</a>
 <% end %>
