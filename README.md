@@ -8,13 +8,13 @@ I want to post a message (peep) to chitter
 ```
 <img width="971" alt="user_story_1" src="https://user-images.githubusercontent.com/75075773/109416887-cf12ef00-79b8-11eb-9c9c-90203990d5a3.png">
 
-
-
-
-
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
+```
+<img width="735" alt="user_story_2" src="https://user-images.githubusercontent.com/75075773/109425508-76efe300-79e0-11eb-9f1a-9fe1c9c289fd.png">
+
 
 As a Maker
 So that I can better appreciate the context of a peep
