@@ -7,7 +7,7 @@ describe Peep do
     it 'adds peep to the feed'do
 
     message = Peep.add(content: 'Peep' )
-    persisted_data = persisted_data(id: message.id)
+    persisted_data = persisted_data(table: :messages, id: message.id)
 
     expect(message).to be_a Peep
     expect(message.id).to eq persisted_data['id']
