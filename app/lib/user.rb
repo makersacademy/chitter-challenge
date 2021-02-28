@@ -23,8 +23,8 @@ class User
     end
 
     def authenticate(username:, password:)
-      row = DatabaseConnection.query("
-        SELECT * FROM users WHERE username = '#{username}'"
+      row = DatabaseConnection.query(
+        "SELECT * FROM users WHERE username = '#{username}'"
       ).first
       return unless row
       return unless password == row['password']

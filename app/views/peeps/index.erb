@@ -1,7 +1,13 @@
 <h1>Chitter</h1>
+<p><%= flash[:notice] %></p>
 
 <% if @user %>
   <h2>Hello <%= @user.username %>!</h2>
+
+  <form action="/sessions/<%= @user.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Sign Out">
+  </form>
 
   <form action="/peeps/new">
     <input type="submit" value="Peep">
@@ -23,7 +29,8 @@
   <% @peeps.reverse.each do |peep| %>
     <li class="peep">
       <%= peep.content %><br>
-      <%= peep.time %>
+      <%= peep.time %><br>
+      <%= peep.username %><br>
     </li>
   <% end %>
 </ul>

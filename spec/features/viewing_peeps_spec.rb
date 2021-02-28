@@ -9,29 +9,22 @@ feature 'viewing peeps' do
 
     visit '/peeps'
 
+    expect(page).not_to have_content 'Hello test1!'
+    expect(page).to have_button 'Sign In'
     expect(page).to have_content 'Building Chitter'
     expect(page).to have_content 'Taking a break'
     expect(page).to have_content 'Writing tests'
   end
 
-  scenario 'peeps appear in reverse chronological order' do
+  scenario 'username of poster is displayed' do
     sign_up_and_get_peeping
 
     click_button 'Peep'
     fill_in('peep', with: 'Building Chitter')
     click_button 'Post'
 
-    click_button 'Peep'
-    fill_in('peep', with: 'Taking a break')
-    click_button 'Post'
-
-    click_button 'Peep'
-    fill_in('peep', with: 'Writing tests')
-    click_button 'Post'
-
-    expect(first('.peep')).to have_content 'Writing tests'
-    expect(all(:css, '.peep').last).to have_content 'Building Chitter'
-    expect(page).to have_content 'Building Chitter'
-    expect(all(:css, '.peep').count).to be 3
+    expect(first('.peep')).to have_content 'test_name'
+    expect(first('.peep')).to have_content 'Building Chitter'
+    expect(current_path).to eq '/peeps'
   end
 end

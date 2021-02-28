@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   configure do
     register Sinatra::Flash
-    enable :sessions
+    enable :sessions, :method_override
     set :session_secret, ENV['SESSION_SECRET']
   end
 
@@ -44,6 +44,12 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Incorrect login details, please try again.'
       redirect '/sessions/new'
     end
+  end
+
+  delete '/sessions/:id' do
+    session.clear
+    flash[:notice] = 'You have signed out'
+    redirect '/peeps'
   end
 
   get '/peeps/new' do
