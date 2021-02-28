@@ -12,7 +12,6 @@ feature 'deleting peeps' do
 
     click_button 'Delete'
 
-    expect(current_path).to eq '/peeps'
     expect(page).not_to have_content 'Building Chitter'
   end
 end
