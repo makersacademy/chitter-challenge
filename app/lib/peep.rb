@@ -1,5 +1,5 @@
 class Peep
-  attr_reader :id, :time, :content, :user_id, :username
+  attr_reader :id, :time, :content, :user_id, :username, :name
 
   class << self
     def create(content:, user_id:)
@@ -8,15 +8,15 @@ class Peep
         VALUES ('#{content}', #{user_id}) RETURNING *;"
       ).first
 
-      new(id: row['id'], time: row['time'], content: row['content'],
-        user_id: row['user_id'])
+      new(id: row['id'], time: row['time'],
+        content: row['content'], user_id: row['user_id'])
     end
 
     def all
       result = DatabaseConnection.query("SELECT * FROM peeps;")
       result.map do |row|
-        new(id: row['id'], time: row['time'], content: row['content'],
-          user_id: row['user_id'])
+        new(id: row['id'], time: row['time'],
+          content: row['content'], user_id: row['user_id'])
       end
     end
   end
@@ -26,16 +26,17 @@ class Peep
     @time     = time
     @content  = content
     @user_id  = user_id
-    @username = find_username
+    @username = find_names['username']
+    @name     = find_names['name']
   end
 
   private
 
-  def find_username
+  def find_names
     DatabaseConnection.query(
-      "SELECT username FROM users
+      "SELECT name, username FROM users
       INNER JOIN peeps ON users.id = peeps.user_id
       WHERE user_id = #{user_id};"
-    ).first['username']
+    ).first
   end
 end

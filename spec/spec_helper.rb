@@ -23,6 +23,8 @@ require_relative '../app/chitter'
 
 Capybara.app = Chitter
 
+BCrypt::Engine.cost = 1
+
 Rake.application.load_rakefile
 
 RSpec.configure do |config|

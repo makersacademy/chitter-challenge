@@ -11,7 +11,7 @@ feature 'logging in' do
     click_button 'Get Peeping'
 
     expect(page).to have_content 'Hello TestUser1!'
-    expect(current_path).to  eq '/peeps'
+    expect(current_path).to eq '/peeps'
     expect(page).not_to have_content 'Incorrect login details'
   end
 
@@ -50,7 +50,7 @@ feature 'logging in' do
     fill_in('peep', with: 'Building Chitter')
     click_button 'Post'
 
-    expect(current_path).to  eq '/peeps'
+    expect(current_path).to eq '/peeps'
     expect(first('.peep')).to have_content 'Building Chitter'
     expect(first('.peep')).to have_content 'TestUser1'
     expect(page).not_to have_button 'Sign In'

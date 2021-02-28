@@ -54,6 +54,15 @@ task :migrate_test do
       time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
     );"
   )
+
+  connection.exec(
+    "ALTER TABLE peeps
+      DROP CONSTRAINT peeps_user_id_fkey,
+      ADD CONSTRAINT peeps_user_id_fkey
+        FOREIGN KEY (user_id)
+        REFERENCES users (id)
+        ON DELETE CASCADE;"
+  )
 end
 
 desc 'Migrate development database tables'
@@ -77,5 +86,14 @@ task :migrate_development do
       user_id INTEGER REFERENCES users (id),
       time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
     );"
+  )
+
+  connection.exec(
+    "ALTER TABLE peeps
+      DROP CONSTRAINT peeps_user_id_fkey,
+      ADD CONSTRAINT peeps_user_id_fkey
+        FOREIGN KEY (user_id)
+        REFERENCES users (id)
+        ON DELETE CASCADE;"
   )
 end

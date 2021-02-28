@@ -16,7 +16,7 @@ feature 'viewing peeps' do
     expect(page).to have_content 'Writing tests'
   end
 
-  scenario 'username of poster is displayed' do
+  scenario 'username and name of poster is displayed' do
     sign_up_and_get_peeping
 
     click_button 'Peep'
@@ -24,6 +24,7 @@ feature 'viewing peeps' do
     click_button 'Post'
 
     expect(first('.peep')).to have_content 'test_name'
+    expect(first('.peep')).to have_content 'test'
     expect(first('.peep')).to have_content 'Building Chitter'
     expect(current_path).to eq '/peeps'
   end

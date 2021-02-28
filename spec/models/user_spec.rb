@@ -10,6 +10,11 @@ describe User do
       expect(user.email).to eq query_user['email']
       expect(user.password).to eq query_user['password']
     end
+
+    it 'encrypts the password' do
+      expect(BCrypt::Password).to receive(:create).with('Test123')
+      described_class.create(name: 'test', username: 'testname', email: 'test@test.com', password: 'Test123')
+    end
   end
 
   describe '.find' do
