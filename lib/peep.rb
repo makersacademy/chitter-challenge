@@ -6,12 +6,12 @@ class Peep
     connection = PG.connect(dbname: 'Chitter')
 
     result = connection.exec("SELECT * FROM peep_feed;")
-    result.map { |peep| "#{peep['peeps']}"}
+    result.map { |peep| "#{peep['peeps']} posted at #{peep['time']}"}
   end
 
   def self.create(body)
     connection = PG.connect(dbname: 'Chitter')
 
-    connection.exec("INSERT INTO peep_feed (peeps) VALUES ('#{body}');")
+    connection.exec("INSERT INTO peep_feed (peeps, time) VALUES ('#{body}', DATE_TRUNC('second', CURRENT_TIMESTAMP::timestamp));")
   end
 end
