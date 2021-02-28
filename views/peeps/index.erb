@@ -1,0 +1,22 @@
+<h1 style="text-align: center;">"Today at Chitter!"</h1>
+<% if @user %>
+  <h2>Welcome, <%= @user.name %></h2>
+  <form class="peep-form" action="/peeps" method="post">
+    <label for="peep">What's on your mind?</label>
+    <input type="text" id="peep" name="peep">
+    <input type="submit" value="Peep!">
+  </form>
+<% else%>
+  <div>
+    Already have an account? <a href="/login">login here</a><br />
+    Don't have Chitter account? <a href="/users/new">Join now!</a>  
+  </div>
+<% end %>
+<% @peeps.each do |peep| %>
+  <article class="peep">
+    <div class="username"><%= peep.username %></div>
+    <div class="name"><%= peep.name %></div>
+    <div class="date"><%= peep.created_at %></div>
+    <div class="message"><%= peep.peep %></div>
+  </article>
+<% end %>
