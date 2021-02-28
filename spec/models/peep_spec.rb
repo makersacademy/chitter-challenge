@@ -83,6 +83,28 @@ describe Peep do
     end
   end
 
+  describe '.my_peeps' do
+    it 'returns all peeps by that user' do
+      user2 = User.create(name: 'test2', email: 'test2@test.com', username: 'testname2', password: 'Test222')
+      described_class.create(content: 'Other peep', user_id: user2.id)
+      described_class.create(content: 'Another peep', user_id: user2.id)
+
+      described_class.create(content: 'Building Chitter', user_id: 1)
+      described_class.create(content: 'Taking a break', user_id: 1)
+      described_class.create(content: 'Writing tests', user_id: 1)
+
+      peeps = described_class.my_peeps(user_id: 1)
+
+      expect(described_class.all.length).to be 5
+      expect(peeps.length).to be 3
+      expect(peeps.map(&:content)).to include 'Building Chitter'
+      expect(peeps.map(&:content)).to include 'Writing tests'
+      expect(peeps.map(&:content)).to include 'Taking a break'
+      expect(peeps.map(&:content)).not_to include 'Other peep'
+      expect(peeps.map(&:content)).not_to include 'Another peep'
+    end
+  end
+
   describe '#username' do
     it 'returns username of the peeper' do
       peep = described_class.create(content: 'Building Chitter', user_id: 1)

@@ -3,6 +3,7 @@ class Peep
 
   class << self
     def create(content:, user_id:)
+      content.gsub!(/'/, "''")
       row = DatabaseConnection.query(
         "INSERT INTO peeps (content, user_id)
         VALUES ('#{content}', #{user_id}) RETURNING *;"
@@ -33,8 +34,19 @@ class Peep
     end
 
     def update(id:, content:)
+      content.gsub!(/'/, "''")
       DatabaseConnection.query("UPDATE peeps SET content = '#{content}'
         WHERE id = #{id};")
+    end
+
+    def my_peeps(user_id:)
+      result = DatabaseConnection.query("SELECT * FROM peeps
+        WHERE user_id = #{user_id};")
+
+      result.map do |row|
+        new(id: row['id'], time: row['time'],
+          content: row['content'], user_id: row['user_id'])
+      end
     end
   end
 

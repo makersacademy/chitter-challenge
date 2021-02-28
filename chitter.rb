@@ -19,6 +19,30 @@ class Chitter < Sinatra::Base
     erb :'/peeps/index'
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(content: params[:peep], user_id: session[:id])
+    redirect '/peeps'
+  end
+
+  get '/peeps/:id/edit' do
+    @peep = Peep.find(id: params[:id])
+    erb :'/peeps/edit'
+  end
+
+  patch '/peeps/:id' do
+    Peep.update(id: params[:id], content: params[:peep])
+    redirect "/users/:id/peeps"
+  end
+
+  delete '/peeps/:id' do
+    Peep.delete(id: params[:id])
+    redirect '/peeps'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
@@ -29,6 +53,11 @@ class Chitter < Sinatra::Base
 
     session[:id] = user.id
     redirect '/peeps'
+  end
+
+  get '/users/:id/peeps' do
+    @peeps = Peep.my_peeps(user_id: @user.id)
+    erb :'users/peeps'
   end
 
   get '/sessions/new' do
@@ -51,30 +80,6 @@ class Chitter < Sinatra::Base
   delete '/sessions/:id' do
     session.clear
     flash[:notice] = 'You have signed out'
-    redirect '/peeps'
-  end
-
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
-
-  post '/peeps' do
-    Peep.create(content: params[:peep], user_id: session[:id])
-    redirect '/peeps'
-  end
-
-  get '/peeps/:id' do
-    @peep = Peep.find(id: params[:id])
-    erb :'/peeps/edit'
-  end
-
-  patch '/peeps/:id' do
-    Peep.update(id: params[:id], content: params[:content])
-    redirect '/peeps'
-  end
-
-  delete '/peeps/:id' do
-    Peep.delete(id: params[:id])
     redirect '/peeps'
   end
 

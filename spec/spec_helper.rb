@@ -19,7 +19,7 @@ require 'rake'
 require 'rspec'
 
 require_relative 'features/web_helpers'
-require_relative '../app/chitter'
+require_relative '../chitter'
 
 Capybara.app = Chitter
 

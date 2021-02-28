@@ -1,5 +1,6 @@
 require 'rake'
-require './app/chitter'
+
+require_relative 'chitter'
 
 use Rack::MethodOverride
 
