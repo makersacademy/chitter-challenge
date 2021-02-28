@@ -4,6 +4,7 @@ services:
   - postgresql
 
 before_script:
+  - bundle
   - rake setup
 
 after_script:
