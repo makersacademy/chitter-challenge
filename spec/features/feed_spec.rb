@@ -10,7 +10,3 @@ feature 'Feed' do
     expect(page).to have_content("#{user.username}")
   end
 end
-
-
-
-# SELECT * FROM peeps INNER JOIN users ON peeps.user_id =  users.id;

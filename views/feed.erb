@@ -1,7 +1,66 @@
-<h1>Home</h1>
+<!DOCTYPE html>
 
-<div class="">
+  <head>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+        background-color: white;
+        background-image: url("https://wallpaperaccess.com/full/1459046.png")
+      }
+      #h1 {
+        margin: 10px;
+      }
+      .bg {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .feed {
+        /* background-color: white; */
+        border-radius: 15px;
+        max-width: 600px;
 
+      }
+      .peep {
+        border: 1px solid #55acee;
+        margin-top: 10px;
+        border-radius: 15px;
+        padding: 5px;
+        display: flex;
+        flex-direction:column;
+        position: relative;
+        background-color: white;
+      }
+      .username {
+        color: #5B7083;
+        position: absolute;
+        margin: 3px;
+      }
+      .time {
+        display: flex;
+        justify-content: flex-end;
+        margin: 3px;
 
+      }
+      .content {
+        margin: 3px;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title>Home/Chitter</title>
+  </head>
 
-</div>
+  <body>
+    <div class="feed">
+    <h1>Home</h1>
+      <% @chitter.reverse.each do |peep| %>
+
+        <div class="peep">
+          <div class="username">@<%= peep.username %></div>
+          <div class="time"><%= peep.posted_time[0..18] %></div>
+          <div class="content"><%= peep.content %></div>
+        </div>
+        <%end%>
+    </div>
+  </body>
+</html>

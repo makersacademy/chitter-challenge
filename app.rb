@@ -1,10 +1,11 @@
 ENV['RACK_ENV'] ||= 'development'
+
 require 'pg'
 require 'sinatra/base'
 require_relative './lib/user'
+require_relative './lib/chitter'
 
 class ChitterApp < Sinatra::Base
-  p ENV['RACK_ENV']
 
   get '/' do
     erb :index
@@ -21,9 +22,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/feed' do
-    "lists all the peeps"
-    # @chitter = Chitter.list => need to be an array
-    # erb :feed
+    @chitter = Chitter.list
+    erb :feed
   end
 
   run! if app_file == $0

@@ -1,3 +1,5 @@
+require_relative 'peep'
+
 class Chitter
 
   def self.create(username, content)
@@ -12,7 +14,11 @@ class Chitter
 
   def self.list
     connection = PG.connect :dbname => "chitter_#{ENV['RACK_ENV']}"
-    result = connection.exec("SELECT * FROM users LEFT JOIN peeps ON users.id = peeps.user_id") # RETURNING users.username, peeps.id, peeps.posted_time, peeps.content") # ("SELECT * FROM peeps")
+    result = connection.exec("SELECT * FROM peeps LEFT JOIN users ON peeps.user_id = users.id ") # RETURNING users.username, peeps.id, peeps.posted_time, peeps.content") # ("SELECT * FROM peeps")
+
+    # my_hash = result.first
+    # my_hash_ordered =  my_hash.sort_by { |posted_time| my_hash['posted_time'] }
+    # my_hash_ordered
     result.map { |row| Peep.new(row['id'], row['username'], row['posted_time'], row['content']) }
   end
 
