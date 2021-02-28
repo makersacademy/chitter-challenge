@@ -1,6 +1,6 @@
 .peep {
   background-color: #ffe9a6;
-  margin-top: 10px;
+  margin: 10px 200px 0px 200px;
   border: solid 1px;
   padding: 10px;
 }
@@ -16,4 +16,8 @@
 
 .message {
   padding: 10px;
+}
+
+.peep-form {
+  margin: 40px 200px 30px 200px;
 }
