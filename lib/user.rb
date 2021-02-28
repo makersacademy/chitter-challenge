@@ -41,6 +41,10 @@ class User
         SET name = '#{name}', username = '#{username}', email = '#{email}'
         WHERE id = #{id};")
     end
+
+    def delete(id:)
+      DatabaseConnection.query("DELETE FROM users WHERE id = #{id};")
+    end
   end
 
   def initialize(id:, name:, email:, username:, password:)

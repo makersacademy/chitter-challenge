@@ -61,6 +61,17 @@ class Chitter < Sinatra::Base
     redirect '/users/:id/show'
   end
 
+  get '/users/delete' do
+    erb :'users/delete'
+  end
+
+  delete '/users/:id/delete' do
+    User.delete(id: params[:id])
+    session.clear
+    flash[:notice] = 'Your account has been deleted.'
+    redirect '/peeps'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
