@@ -1,6 +1,7 @@
 require 'pg'
 
 class Account
+  loginAuth = false
 
 def initialize(username:, user_email:, password:)
   @username
@@ -10,19 +11,16 @@ end
 
 def self.create(username:, user_email:, password:)
   connection = PG.connect(dbname: 'Chitter')
-  # if connection.exec("SELECT * FROM users WHERE user_email = '#{user_email}';")
-  #   return
-  # else
   connection.exec("INSERT INTO users(user_email, username, password) VALUES('#{user_email}', '#{username}', '#{password}');")
-  # end
 end
- # def self.login(user_email: password:)
+ # def self.login(username:, password:)
  #   connection = PG.connect(dbname: 'Chitter')
- #   connection.exec("SELECT * FROM users;")
- #   if connection.exec("SELECT * FROM users WHERE user_email = '#{user_email}';") && connection.exec("SELECT * FROM users WHERE password = '#{password}';")
- #       LOGINSUCCESS = true;
+ #   connection.exec("IF EXISTS (SELECT * FROM users WHERE username = '#{username}')")
+ #
+ #   if connection.exec("SELECT * FROM users WHERE username = '#{username}';") && connection.exec("SELECT * FROM users WHERE password = '#{password}';")
+ #       loginAuth = true;
  #     else
- #       LOGINSUCCESS = false;
+ #       loginAuth = false;
  #     end
  # end
 end

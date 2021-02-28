@@ -13,9 +13,18 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
+  post "/loginsuccess" do
+    Account.login(username: params[:username], password: params[:password])
+    redirect '/home'
+  end
+
   post "/createaccountsuccess" do
     Account.create(username: params[:username], user_email: params[:user_email], password: params[:password])
-    redirect '/home'
+    if loginAuth == true
+      redirect '/home'
+    else
+      redirect 'login'
+    end
   end
 
   get "/home" do
