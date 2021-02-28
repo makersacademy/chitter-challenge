@@ -17,7 +17,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY created_at DESC;")
     result.map do |peep|
       Peep.new(id: peep['id'], content: peep['content'], created_at: peep['created_at'])
     end

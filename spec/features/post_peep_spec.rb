@@ -7,5 +7,6 @@ feature "posting peeps" do
 
     expect(current_path).to eq "/peeps"
     expect(page).to have_content "List of peeps"
+    expect(page).to have_content "This is my first peep"
   end
 end

@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/peep'
+require 'pg'
 
 class Chitter < Sinatra::Base
   enable :method_override
@@ -8,6 +10,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    p Peep.all
+    @list = Peep.all
+    p@list
     erb :peeps
   end
       
@@ -16,6 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    Peep.create(content: params['content'], created_at: Time.now.strftime("%Y-%m-%d %H:%M:%S"))
     redirect '/peeps'
   end
 

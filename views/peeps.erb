@@ -8,6 +8,20 @@
   
   <body>
     <p>List of peeps</p>
+    <br>
+      <table>
+        <tr>
+          <th>Peep</th>
+          <th>Time</th>
+        </tr>
+        <% @list.each do |peep| %>
+          <tr>
+            <td><%= peep.content %></td>
+            <td><%= peep.created_at %></td>
+          </tr>
+        <% end %>
+      </table>
+    <br>
     <a href='peeps/new'><button>Post a Peep</button></a>
   </body>
 </html>
