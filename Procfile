@@ -1,1 +1,1 @@
-web: bundle exec rake create_tables
+web: bundle exec rackup config.ru -p $PORT
