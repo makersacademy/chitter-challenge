@@ -1,0 +1,44 @@
+<head>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+      background-color: white;
+      padding: 50px;
+      background-image: url("https://wallpaperaccess.com/full/1459046.png");
+    }
+    .container {
+      border: 1px solid #55acee;
+      background-color: white;
+      border-radius: 15px;
+    }
+    .bg {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .input {
+      text-align: center;
+      padding: 50px;
+    }
+    #input {
+      display: inline-block;
+    }
+  </style>
+  <meta charset="utf-8">
+  <title>Welcome to Chitter</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 style="text-align:center">Welcome to Chitter</h1>
+
+    <div class="input">
+      <form class="button" action="/signup">
+        <input type="submit" name="sign_up" value="Sign up">
+      </form>
+      <form class="button" action="/login">
+        <input type="submit" name="log_in" value="Log in">
+      </form>
+    </div>
+  </div>
+</body>
