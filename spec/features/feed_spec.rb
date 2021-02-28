@@ -6,6 +6,9 @@ feature 'Feed' do
     connection.exec("INSERT INTO peeps (user_id, posted_time, content) VALUES('#{user.id}', current_timestamp, '#{peep}')")
 
     visit('/feed')
+    fill_in('content', with:"#{peep}")
+    click_button('Cheet')
+
     expect(page).to have_content("#{peep}")
     expect(page).to have_content("#{user.username}")
   end

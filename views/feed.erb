@@ -40,7 +40,6 @@
         display: flex;
         justify-content: flex-end;
         margin: 3px;
-
       }
       .content {
         margin: 3px;
@@ -53,7 +52,15 @@
   <body>
     <div class="feed">
     <h1>Home</h1>
-      <% @chitter.reverse.each do |peep| %>
+
+    <div class="post_container">
+      <form class="" action="/feed/<%= @username %>" method="post">
+        <input type="text" name="content" placeholder="What's happening?">
+        <input type="submit" value="Cheet">
+      </form>
+    </div>
+
+        <% @chitter.reverse.each do |peep| %>
 
         <div class="peep">
           <div class="username">@<%= peep.username %></div>
