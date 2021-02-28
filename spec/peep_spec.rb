@@ -5,7 +5,7 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps' do
       user = User.create(email: 'test@test.com', name: 'test', password: 'password123', username: 'testing' )
-      peep = Peep.create(content: 'Hello world!', user: user)
+      Peep.create(content: 'Hello world!', user: user)
       Peep.create(content: 'Hello Makers!', user: user)
       Peep.create(content: 'Hello Cheese!', user: user)
 
