@@ -4,19 +4,16 @@
   <input type="submit" value="Back to Feed">
 </form>
 
-<h2>Your details</h2>
+<h2 class="details">Your details</h2>
 
-<p>Name:</p>
-  <p><%= @user.name %></p>
-<p>Username:</p>
-  <p><%= @user.username %></p>
-<p>Email:</p>
-  <p><%= @user.email %></p>
+<p>Name: <%= @user.name %></p>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
 
 <form action="/users/<%= @user.id %>/edit">
-  <input type="submit" value="Edit">
+  <input class="submit" type="submit" value="Edit">
 </form>
 
 <form action="/users/delete">
-  <input type="submit" value="Delete">
+  <input class="submit" type="submit" value="Delete">
 </form>

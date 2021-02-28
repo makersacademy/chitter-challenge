@@ -4,10 +4,6 @@
 
 <form action="/peeps/<%= @peep.id %>" method="POST">
   <input type="hidden" name="_method" value="PATCH">
-  <input type="text" name="peep" value="<%= @peep.content %>" maxlength="280">
-  <input type="submit" value="Post">
+  <textarea rows="10" cols="25" type="text" name="peep" value="<%= @peep.content %>" maxlength="280"></textarea><br>
+  <input class="submit" type="submit" value="Save">
 </form>
-
-<p>
-  Peeped by you on <%= @peep.time %>
-</p>

@@ -10,7 +10,7 @@ feature 'logging in' do
     fill_in('password', with: 'Pw123')
     click_button 'Get Peeping'
 
-    expect(page).to have_content 'Hello TestUser1!'
+    expect(page).to have_content 'Hello @TestUser1!'
     expect(current_path).to eq '/peeps'
     expect(page).not_to have_content 'Incorrect login details'
   end

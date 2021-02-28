@@ -1,46 +1,47 @@
-<h1>Chitter Feed</h1>
+<h1>Chitter</h1>
+<img src="/images/favicon.png">
+
 <p><%= flash[:notice] %></p>
 
-<% if @user %>
-  <h2>Hello <%= @user.username %>!</h2>
+<div class="user">
+  <% if @user %>
+    <h2 class="greeting">Hello @<%= @user.username %>!</h2>
 
-  <form action="/sessions/<%= @user.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Sign Out">
-  </form>
+    <form action="/peeps/new">
+      <input type="submit" value="Peep">
+    </form>
 
-  <form action="/peeps/new">
-    <input type="submit" value="Peep">
-  </form>
+    <form action="/users/<%= @user.id %>/peeps">
+      <input type="submit" value="My Peeps">
+    </form>
 
-  <form action="/users/<%= @user.id %>/peeps">
-    <input type="submit" value="My Peeps">
-  </form>
+    <form action="/users/<%= @user.id %>/show">
+      <input type="submit" value="My Account">
+    </form>
 
-  <form action="/users/<%= @user.id %>/show">
-    <input type="submit" value="My Account">
-  </form>
+    <form action="/sessions/<%= @user.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Sign Out">
+    </form>
 
-<% else %>
-  <h2>Sign In</h2>
-  <form action="/sessions/new">
-    <input type="submit" value="Sign In">
-  </form>
+  <% else %>
+    <form class="sign-in" action="/sessions/new">
+      <input type="submit" value="Sign In">
+    </form>
 
-  <h2>New to Chitter?</h2>
-  <form action="/users/new">
-    <input type="submit" value="Sign Up">
-  </form>
-<% end %>
-
-<h3>Here are the latest Peeps</h3>
-<ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li class="peep">
-      <p><%= peep.content %></p><br>
-      <p><%= peep.time %></p><br>
-      <p><%= peep.username %></p><br>
-      <p><%= peep.name %></p>
-    </li>
+    <form action="/users/new">
+      <input type="submit" value="Sign Up">
+    </form>
   <% end %>
-</ul>
+<div>
+
+<h2 class="feed">Feed</h2>
+<h3>Here are the latest Peeps</h3>
+
+<% @peeps.reverse.each do |peep| %>
+  <article class="peep">
+    <p class="name">@<%= peep.username %> (<%= peep.name %>) peeped:</p>
+    <textarea class="content" cols="25" rows="4"><%= peep.content %></textarea>
+    <p class="time"><%= peep.time %></p>
+  </arcticle>
+<% end %>

@@ -4,8 +4,8 @@
 
 <form action="/sessions" method="POST">
   <input required type="text" name="username" placeholder="Username" maxlength="50">
-  <input required type="text" name="password" placeholder="Password" maxlength="50">
-  <input type="submit" value="Get Peeping">
-</form>
+  <input required type="password" name="password" placeholder="Password" maxlength="50"><br>
+  <input class="get-peeping" type="submit" value="Get Peeping">
+</form><br>
 
-<%= flash[:notice] %>
+<p class="flash"><%= flash[:notice] %></p>

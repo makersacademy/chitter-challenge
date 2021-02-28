@@ -1,5 +1,101 @@
 * {
   box-sizing: border-box;
   background-color: rgb(203, 228, 250);
-  font-family: Helvetica;
+  font-family: monospace;
+  text-align: center;
+  font-size: 20px;
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 25px;
+  margin-top: 40px;
+}
+
+.peep {
+  margin-top: 50px;
+}
+
+.content {
+  font-size: 22px;
+  max-width: 100%;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.name, .time {
+  color:rgb(88, 88, 88);
+  font-size: 17px;
+}
+
+input, textarea {
+  box-shadow: 2px 5px rgb(88, 88, 88);
+  padding: 18px;
+  background-color: antiquewhite;
+}
+
+form, input, textarea {
+  border-radius: 50px;
+  border: 0px;
+  font-weight: 600;
+  display: inline;
+  color: rgb(88, 88, 88);
+}
+
+.sign-up {
+  font-weight: 600;
+  margin-top: 50px;
+}
+
+.get-peeping {
+  margin-top: 30px;
+}
+
+img {
+  width: 60px;
+}
+
+.flash {
+  margin-top: 40px;
+}
+
+.peep-box {
+  padding-bottom: 200px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.submit {
+  margin-top: 40px;
+}
+
+.back-to-feed {
+  margin-top: 40px;
+}
+
+.edit, .delete {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.update-details, .sign-up-form {
+  margin-top: 20px;
+}
+
+.edit-header {
+  font-size: 20px;
+}
+
+.details {
+  margin-top: 60px;
+}
+
+.feed {
+  margin-top: 60px;
 }

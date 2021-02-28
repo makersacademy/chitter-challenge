@@ -1,6 +1,10 @@
 <h2>What's on your mind?</h2>
 
-<form action="/peeps" method="POST">
-  <input type="text" name="peep" maxlength="280">
-  <input type="submit" value="Post">
+<form action="/peeps" method="POST" id="usrform">
+  <textarea required class="peep-box" type="text" name="peep" maxlength="280"></textarea><br>
+  <input class="submit" type="submit" value="Post">
+</form><br>
+
+<form action="/peeps">
+  <input class="back-to-feed" type="submit" value="Back to Feed">
 </form>

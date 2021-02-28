@@ -44,7 +44,7 @@ class Chitter < Sinatra::Base
 
   delete '/peeps/:id' do
     Peep.delete(id: params[:id])
-    redirect '/peeps'
+    redirect '/users/:id/peeps'
   end
 
   get '/users/:id/show' do

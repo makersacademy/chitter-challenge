@@ -18,14 +18,14 @@ feature 'editing peeps' do
     first('.peep').click_button 'Edit'
 
     fill_in('peep', with: 'Making lunch!')
-    click_button 'Post'
+    click_button 'Save'
 
-    expect(page).not_to have_content 'Building Chitter'
+    expect(page).not_to have_content 'Writing tests'
     expect(page).to have_content 'Making lunch!'
 
     click_button 'Back to Feed'
 
-    expect(page).not_to have_content 'Building Chitter'
+    expect(page).not_to have_content 'Writing tests'
     expect(page).to have_content 'Making lunch!'
     expect(current_path).to eq '/peeps'
   end
