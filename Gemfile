@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :security do
+  gem 'bcrypt'
+end
+
 group :development do
   gem 'sinatra'
   gem 'sinatra-flash'
