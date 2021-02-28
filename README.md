@@ -1,27 +1,16 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+```
+<img width="971" alt="user_story_1" src="https://user-images.githubusercontent.com/75075773/109416887-cf12ef00-79b8-11eb-9c9c-90203990d5a3.png">
+
+
+
+
 
 As a maker
 So that I can see what others are saying  
