@@ -6,6 +6,6 @@ p "setting up the test database..."
 
 connection = PG.connect(dbname: 'peep_manager_test')
 
-connection.exec("TRUNCATE peeps_test;")
+connection.exec("TRUNCATE peeps;")
 
 end

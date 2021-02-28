@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
 
@@ -9,6 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peeps.all
     erb :"peeps/index"
   end
 
@@ -17,7 +19,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = params[:newpeep]
     redirect '/peeps'
   end
 
