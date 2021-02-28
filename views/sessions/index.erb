@@ -1,0 +1,13 @@
+<h2><%= flash[:notice] %></h2>
+
+<form action='/sessions' method='post' autocomplete="off">
+  Username: <input type='text' name='username'>
+  Password: <input type='password' name='password'>
+  <input type='submit' value='Sign in'>
+</form>
+
+<br>
+
+<form action='/peeps' method='get'>
+  <input type='submit' value='Go back'>
+</form>
