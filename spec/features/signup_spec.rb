@@ -4,6 +4,6 @@ feature 'Sign up' do
     expect(page).to have_content('Create your account')
     signup
 
-    expect(current_path).to eq '/feed'
+    expect(current_path).to eq '/feed/sandy974'
   end
 end

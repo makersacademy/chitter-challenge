@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-
   <head>
+    <title>Home/Chitter</title>
     <style>
       body {
         font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
         background-color: white;
         background-image: url("https://wallpaperaccess.com/full/1459046.png")
+      }
+      img {
+        max-width: 10%;
+        max-height: auto;
+      }
+      .header {
+        display: flex;
+        justify-content: flex-start;
       }
       #h1 {
         margin: 10px;
@@ -16,7 +24,6 @@
         background-size: cover;
       }
       .feed {
-        /* background-color: white; */
         border-radius: 15px;
         max-width: 600px;
 
@@ -44,30 +51,31 @@
       .content {
         margin: 3px;
       }
-    </style>
-    <meta charset="utf-8">
-    <title>Home/Chitter</title>
+  </style>
   </head>
 
   <body>
-    <div class="feed">
-    <h1>Home</h1>
-
-    <div class="post_container">
-      <form class="" action="/feed/<%= @username %>" method="post">
-        <input type="text" name="content" placeholder="What's happening?">
-        <input type="submit" value="Cheet">
-      </form>
+    <div class="header">
+      <img src="https://png2.cleanpng.com/sh/7a7c41f4b45d27275b5bb2264256a082/L0KzQYi4UsE3N2c3fJGAYUO4RbWBgcdnbGk8T5C9NEa0RoaBWcE2OWQ5TKgCOUS4QoSATwBvbz==/5a355d8a7fd877.4461658915134467945237.png" alt="twitter">
+      <h1>Home</h1>
     </div>
 
-        <% @chitter.reverse.each do |peep| %>
+      <div class="">
+        <form class="" action="/feed/<%= @username %>" method="post">
+          <input style="margin: 5px; width: 475px; height: 50px; border-color: #1b95e0; border-radius: 15px; type="text" name="content" placeholder="What's happening?">
+          <input style="height: 50px; width: 100px; border-color: #1b95e0; color:#1b95e0; font-weight:300; border-radius: 15px" type="submit" value="Post">
+        </form>
+      </div>
+  <div class="feed">
+      <% @chitter.reverse.each do |peep| %>
 
-        <div class="peep">
-          <div class="username">@<%= peep.username %></div>
-          <div class="time"><%= peep.posted_time[0..18] %></div>
-          <div class="content"><%= peep.content %></div>
-        </div>
-        <%end%>
+      <div class="peep">
+        <div class="username">@<%= peep.username %></div>
+        <div class="time"><%= peep.posted_time[0..18] %></div>
+        <div class="content"><%= peep.content %></div>
+      </div>
+      <%end%>
     </div>
   </body>
+
 </html>

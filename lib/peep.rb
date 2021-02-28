@@ -3,7 +3,7 @@ class Peep
 
   def initialize(id, username, posted_time, content)
     @id = id
-    @posted_time = posted_time # can I change the format of time here?
+    @posted_time = posted_time
     @content = content
     @username = username
   end

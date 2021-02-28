@@ -7,7 +7,6 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative './features/signup_helper'
-require_relative './features/user_creation_helper'
 
 Capybara.app = ChitterApp
 

@@ -1,12 +1,62 @@
-<h2>Create your account</h2>
+<!DOCTYPE html>
+<head>
+  <title>Sign up/Chitter</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+      background-color: white;
+      background-image: url("https://wallpaperaccess.com/full/1459046.png");
+    }
+    img {
+      max-width: 10%;
+      max-height: auto;
+    }
+    input {
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 30px;
+      border-radius: 10px;
+    }
+    .header {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .bg {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .container {
+      border: 1px solid #55acee;
+      margin-top: 10px;
+      border-radius: 15px;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background-color: white;
+      max-width: 600px;
+    }
+  </style>
+</head>
 
-<div class="">
-  <form class="" action="/signup" method="post">
-    <input type="text" name="name" placeholder="Name">
-    <input type="text" name="last_name" placeholder=" Last Name">
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="email" placeholder="Email">
-    <input type="text" name="password" placeholder="Choose password">
-    <input type="submit" value="Submit">
-  </form>
-</div>
+<body>
+  <div class="header">
+    <img src="https://png2.cleanpng.com/sh/7a7c41f4b45d27275b5bb2264256a082/L0KzQYi4UsE3N2c3fJGAYUO4RbWBgcdnbGk8T5C9NEa0RoaBWcE2OWQ5TKgCOUS4QoSATwBvbz==/5a355d8a7fd877.4461658915134467945237.png" alt="twitter">
+    <h2>Create your account</h2>
+  </div>
+
+  <div class="">
+    <form class="container" action="/signup" method="post">
+      <input type="text" name="name" placeholder="Name">
+      <input type="text" name="last_name" placeholder=" Last Name">
+      <input type="text" name="username" placeholder="Username">
+      <input type="text" name="email" placeholder="Email">
+      <input type="text" name="password" placeholder="Choose password">
+      <input style="width:100px; rgba(255,255,255,1.00); border-color: rgb(29, 161, 242);" type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

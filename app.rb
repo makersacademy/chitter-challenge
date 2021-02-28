@@ -17,8 +17,13 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/signup' do
-    # session[:username] = params[:username]
-    @user = User.new(params[:name], params[:last_name], params[:username], params[:email], params[:password])
+    nm = params[:name]
+    ln = params[:last_name]
+    usnm = params[:username]
+    mail = params[:email]
+    pw = params[:password]
+
+    @user = User.new(nm, ln, usnm, mail, pw)
     redirect "/feed/#{@user.username}"
   end
 
@@ -29,7 +34,6 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/feed/:username' do
-    # p params
     @username = params[:username]
     Chitter.create(@username, params[:content])
     redirect "/feed/#{@username}"

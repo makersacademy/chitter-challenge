@@ -12,10 +12,8 @@ describe Chitter do
 
       Chitter.create('hanalo13', peep_one)
       Chitter.create('sandy974', peep_two)
-
       feed = Chitter.list
-      # p feed
-      # p demo_user_one
+
       expect(feed[0].username).to eq demo_user_one['username']
       expect(feed[0].content).to eq peep_one
       expect(feed[1].username).to eq demo_user_two['username']
@@ -27,11 +25,10 @@ describe Chitter do
     it 'creates a new peep' do
       connection = PG.connect :dbname => "chitter_#{ENV['RACK_ENV']}"
       insertion = connection.exec("INSERT INTO users (name, lastname, username, email, password) VALUES('Sandy', 'Lowe', 'sandy974', 'xyz@gmail.com', '1234') RETURNING id, username")
-      # p insertion.first
-      peep = "Who wants to know what I had for lunch?!"
 
-      demo_peep = Chitter.create(insertion.first['username'], peep) # demo_peep = {id =xx, posted_time=timestamp, content= peep}
-      # p demo_peep
+      peep = "Who wants to know what I had for lunch?!"
+      demo_peep = Chitter.create(insertion.first['username'], peep) 
+
       expect(demo_peep.content).to eq peep
       expect(demo_peep.username).to eq 'sandy974'
       expect(demo_peep.posted_time).to_not be nil

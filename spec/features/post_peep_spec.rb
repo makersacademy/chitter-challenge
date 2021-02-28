@@ -4,7 +4,7 @@ feature 'Posting' do
     signup
 
     fill_in('content', with: "This is an automated peep")
-    click_button('Cheet')
+    click_button('Post')
 
     expect(page).to have_content("This is an automated peep")
   end
