@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
 gem 'coveralls'
 gem 'pg'
+gem 'sinatra'
 
 group :test do
   gem 'capybara'

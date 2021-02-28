@@ -19,6 +19,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+require_relative './setup_test_database'
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|
