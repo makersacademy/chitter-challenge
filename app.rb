@@ -1,5 +1,7 @@
 require 'sinatra/base'
+require 'pg'
 require './lib/peeps'
+
 
 class Chitter < Sinatra::Base
 
@@ -19,6 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    Peeps.create(newpeep: params[:newpeep])
     redirect '/peeps'
   end
 

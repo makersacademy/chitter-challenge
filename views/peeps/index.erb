@@ -7,4 +7,8 @@ Chitter
 <input type='submit' value='Add peep' />
 </form>
 
-<%= @peeps %>
+<ul>
+<% @peeps.each do |peep| %>
+  <li><%= peep %></li>
+<% end %>
+</ul>
