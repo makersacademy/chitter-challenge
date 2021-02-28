@@ -10,7 +10,7 @@ describe Peep do
   subject(:peep_3) { Peep.create(content: "This too is a peep", created_at: time_3) }
 
   describe '.all' do
-    it 'stores a list of peeps' do
+    it 'stores a list of peeps in reverse chronological order' do
       peep = peep_1
       peep_2
       peep_3
@@ -35,8 +35,5 @@ describe Peep do
       expect(peep_1.created_at).to eq time_1
     end
 
-    # it 'will not add a peep if more than 144 characters' do
-      
-    # end
   end
 end

@@ -2,6 +2,25 @@
 
 | [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop) | [![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide) | [![Coverage Status](https://coveralls.io/repos/github/iainaitken/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/iainaitken/chitter-challenge?branch=master) | [![Maintainability](https://api.codeclimate.com/v1/badges/7c1636113990be21d42c/maintainability)](https://codeclimate.com/github/iainaitken/chitter-challenge/maintainability) |
 
+## Ruby version
+
+2.6.5
+
+## Gems
+
+* capybara
+* coveralls _Note - not fully working_
+* pg
+* rubocop
+* simplecov
+* simplecov-console
+* sinatra
+* timecop _Note - taken out of test suite in refactoring_
+
+## Test coverage
+
+97.78% (still trying to get coveralls to work).
+
 ## Database
 
 To set up the database, follow the steps below:
@@ -18,13 +37,27 @@ To set up the test database, follow the steps below:
 3. Connect to the database using the pqsl command \c chitter_test;
 4. Run the query we have saved in the file 01_set-up-database.sql
 
+## Challenge completion
+
+The first three user stories are completed.
+
 ## Design notes
 
 See the [planning](https://github.com/iainaitken/chitter-challenge/blob/master/planning.md) document.
 
-## Using the app
-
 ## Reflection
+
+Things that went well:
+
+* Started using badges in the README to quickly show code quality.
+* Getting the hang of class methods, and wrapping PG data in a Ruby object.
+* Used a private class method to DRY out my code (where checking the environment in app.rb).
+
+Things that could be improved:
+
+* HTML and CSS styling - didn't get a chance to look at those this weekend.
+* Testing for time-dependent factors. I looked into using Timecop to freeze time ahead of each test, but found that as I was using PG's timestamp feature to log the time a tweet was made, my tests would not always pass as the timestamp was applied independently of the test suite. I'm not sure whether my solution (moving away from using PG's timestamp, to specifying the time of creation using Ruby methods in the controller) and how I'm testing for it is best.
+* Didn't implement a user database, or logging in and out - I hadn't got to that in the afternoon challenge and did not have time to learn and implement it for this.
 
 ---
 
