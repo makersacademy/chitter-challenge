@@ -5,6 +5,11 @@ Welcome to Chitter
   <input type="text" name="peep">
   <input type="submit" value="Post Peep">
   </form>
-  <% if $peep %>
-  <%= $peep %>
-  <% end %>
+
+  <ul>
+    <% @peeps.each do |item| %>
+      <li>
+      <%= item.peep %>
+      </li>
+    <% end %>
+  </ul>
