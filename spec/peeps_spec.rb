@@ -6,7 +6,7 @@ describe Peeps do
     it 'has initial values' do
       peep = Peeps.new(id: '42',message: 'newpeep')
 
-      expect(peep.id).to eq('id')
+      expect(peep.id).to eq('42')
       expect(peep.message).to eq('newpeep')
     end
   end
