@@ -2,16 +2,14 @@ require_relative 'database_connection'
 require 'time'
 
 class Peep
-  def self.create(content:, user_id:)
+  def self.create(content:, user:)
     time = (Time.now).strftime('%T')
-    result = DatabaseConnection.query("INSERT INTO peeps (content, user_id, time_created) VALUES ($$#{content}$$, #{user_id}, '#{time}') RETURNING id, content, time_created;")
-    names = DatabaseConnection.query("SELECT * FROM users WHERE id = #{user_id}")
+    result = DatabaseConnection.query("INSERT INTO peeps (content, user_id, time_created) VALUES ($$#{content}$$, #{user.id}, '#{time}') RETURNING id, content, time_created;")
     Peep.new(
       id: result[0]['id'],
       content: result[0]['content'],
       time: result[0]['time_created'],
-      username: names[0]['username'],
-      name: names[0]['name']
+      user: user
      )
   end
 
@@ -23,19 +21,17 @@ class Peep
         id: peep['id'],
         content: peep['content'],
         time: peep['time_created'],
-        username: peep['username'],
-        name: peep['name']
+        user: User.find(peep['user_id'])
       )
     end
   end
 
-  attr_reader :id, :content, :time, :username, :name
+  attr_reader :id, :content, :time, :user
 
-  def initialize(id:, content:, time:, username:, name:)
+  def initialize(id:, content:, time:, user:)
     @id = id
     @content = content
     @time = time
-    @username = username
-    @name = name
+    @user = user
   end
 end

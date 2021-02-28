@@ -47,7 +47,7 @@
     <% @peeps.reverse.each do |peep| %>
     <li class="peep" id="peep-<%=peep.id %>">
       <%= peep.content %>
-      <br>posted by <%= peep.name %> (@<%= peep.username %>) at [<%= peep.time %>]
+      <br>posted by <%= peep.user.name %> (@<%= peep.user.username %>) at [<%= peep.time %>]
     </li>
     <br>
     <% end %>

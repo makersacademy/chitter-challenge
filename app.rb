@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @user = User.find(session[:user_id])
-    Peep.create(content: params[:peep], user_id: @user.id)
+    Peep.create(content: params[:peep], user: @user)
     redirect '/peeps'
   end
 
