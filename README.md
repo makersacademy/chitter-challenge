@@ -28,7 +28,7 @@ I want to sign up for Chitter
 **Development**
 - Sinatra
 - Ruby
-- PG
+- PostgreSQL
 
 **Test**
 - Capybara
