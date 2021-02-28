@@ -2,6 +2,15 @@ require 'peeps'
 
 describe Peeps do
 
+  describe '#initialize' do
+    it 'has initial values' do
+      peep = Peeps.new(id: '42',message: 'newpeep')
+
+      expect(peep.id).to eq('id')
+      expect(peep.message).to eq('newpeep')
+    end
+  end
+
   describe '.all' do
     it 'returns all of the peeps' do
       connection = PG.connect(dbname: 'peep_manager_test')

@@ -2,6 +2,13 @@ require 'pg'
 
 class Peeps
 
+  attr_reader :id, :message
+
+  def initialize(id:, message:)
+    @id = id
+    @message = message
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] = 'test'
       connection = PG.connect(dbname: 'peep_manager_test')
