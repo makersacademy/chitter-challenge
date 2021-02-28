@@ -37,10 +37,10 @@
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li class="peep">
-      <%= peep.content %><br>
-      <%= peep.time %><br>
-      <%= peep.username %><br>
-      <%= peep.name %>
+      <p><%= peep.content %></p><br>
+      <p><%= peep.time %></p><br>
+      <p><%= peep.username %></p><br>
+      <p><%= peep.name %></p>
     </li>
   <% end %>
 </ul>
