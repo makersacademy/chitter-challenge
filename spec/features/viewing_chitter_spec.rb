@@ -1,7 +1,6 @@
 # in spec/features/viewing_bookmarks_spec.rb
 require 'pg'
 
-
 feature 'Viewing Chitter' do
   scenario 'visiting the index page' do
     visit('/')
