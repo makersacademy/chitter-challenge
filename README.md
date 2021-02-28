@@ -2,6 +2,22 @@
 
 | [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop) | [![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide) | [![Coverage Status](https://coveralls.io/repos/github/iainaitken/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/iainaitken/chitter-challenge?branch=master) | [![Maintainability](https://api.codeclimate.com/v1/badges/7c1636113990be21d42c/maintainability)](https://codeclimate.com/github/iainaitken/chitter-challenge/maintainability) |
 
+## Database
+
+To set up the database, follow the steps below:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter;
+3. Connect to the database using the pqsl command \c chitter;
+4. Run the query in db/migrations/01_set-up-database.sql
+
+To set up the test database, follow the steps below:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter_test;
+3. Connect to the database using the pqsl command \c chitter_test;
+4. Run the query we have saved in the file 01_set-up-database.sql
+
 ## Design notes
 
 See the [planning](https://github.com/iainaitken/chitter-challenge/blob/master/planning.md) document.
