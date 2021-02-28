@@ -3,6 +3,7 @@ require 'pg'
 require './lib/peep'
 require './lib/user'
 require 'sinatra/flash'
+require 'bcrypt'
 
 class ChitterApp < Sinatra::Base
 
