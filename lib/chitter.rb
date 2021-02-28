@@ -7,12 +7,10 @@ class Chitter
     query("SELECT * FROM peeps, users WHERE users.id = peeps.user_id ORDER BY date DESC").map { |result| Peep.new(result) }
   end
 
-  def self.add(text:, user: 'anon', id: 1)
+  def self.add(text:, id:)
     date = Time.now.strftime("%Y/%m/%d %k:%M")
     query("INSERT INTO peeps (user_id, text, date) VALUES('#{id}','#{text}','#{date}');")
   end
-
-  private
 
   def self.query(query_string)
     results = PG.connect(dbname: "chitter#{ENV['ENVIRONMENT']}").exec(query_string)
