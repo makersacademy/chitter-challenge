@@ -37,11 +37,18 @@ describe User do
       expect(authenticated_user.id).to eq user.id
 
     end
-    it'verifies given creditentials and does not log in if creditentials are not valid' do
+    it'doesnt allow sign in if email is not in database' do
       user = User.create(email: 'test@example.com', password: 'password123')
 
 
       expect(User.authenticate(email: 'wrong@example.com', password: 'password123')).to be_nil
+
+    end
+    it'doesnt allow sign in if password is not in valid' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+
+
+      expect(User.authenticate(email: 'test@example.com', password: 'wrong_password')).to be_nil
 
     end
   end
