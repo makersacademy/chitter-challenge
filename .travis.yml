@@ -6,6 +6,6 @@ services:
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
   - psql -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(60), lastname VARCHAR(60), username VARCHAR(60), email VARCHAR(60),password VARCHAR(60));'
-  - psql -U postgres -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, user_id INT, posted_time TIMESTAMP(DEFAULT), content VARCHAR(280));'
+  - psql -U postgres -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, user_id INT, posted_time TIMESTAMP, content VARCHAR(280));'
 script:
   - bundle exec rspec
