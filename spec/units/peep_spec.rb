@@ -1,21 +1,13 @@
 require 'peep'
 
 describe Peep do
-    # class methods
-  # stores a list of peeps - see bookmark.all
-  let(:frozen_time) { Time.now.strftime("%Y-%m-%d %H:%M:%S") }
+  let(:time_1) { (Time.local(2020, 2, 28, 18, 45, 0)).strftime("%Y-%m-%d %H:%M:%S") }
+  let(:time_2) { (Time.local(2020, 2, 28, 18, 46, 0)).strftime("%Y-%m-%d %H:%M:%S") }
+  let(:time_3) { (Time.local(2020, 2, 28, 18, 47, 0)).strftime("%Y-%m-%d %H:%M:%S") }
 
-  subject(:peep_1) { Peep.create(content: "This is a peep", created_at: frozen_time) }
-  subject(:peep_2) { Peep.create(content: "This is also a peep", created_at: frozen_time) }
-  subject(:peep_3) { Peep.create(content: "This too is a peep", created_at: frozen_time) }
-
-  before(:each) do
-    Timecop.travel(frozen_time)
-  end
-
-  after(:each) do
-    Timecop.return
-  end
+  subject(:peep_1) { Peep.create(content: "This is a peep", created_at: time_1) }
+  subject(:peep_2) { Peep.create(content: "This is also a peep", created_at: time_2) }
+  subject(:peep_3) { Peep.create(content: "This too is a peep", created_at: time_3) }
 
   describe '.all' do
     it 'stores a list of peeps' do
@@ -27,10 +19,10 @@ describe Peep do
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.content).to eq "This is a peep"
-      expect(peeps.first.created_at).to eq frozen_time
-      expect(peeps.last.content).to eq "This too is a peep"
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.content).to eq "This is a peep"
+      expect(peeps.last.created_at).to eq time_1
+      expect(peeps.first.content).to eq "This too is a peep"
     end
   end
 
@@ -40,7 +32,7 @@ describe Peep do
     end
 
     it 'records the time a peep was created' do
-      expect(peep_1.created_at).to eq frozen_time
+      expect(peep_1.created_at).to eq time_1
     end
 
     # it 'will not add a peep if more than 144 characters' do
