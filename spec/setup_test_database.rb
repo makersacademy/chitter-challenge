@@ -5,5 +5,5 @@ def setup_test_database
 
   connection = PG.connect(dbname: 'Chitter_test')
 
-  connection.exec("TRUNCATE chitter_feed;")
+  connection.exec("TRUNCATE chitter_feed, users;")
 end

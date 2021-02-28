@@ -1,1 +1,2 @@
 CREATE TABLE chitter_feed (id SERIAL PRIMARY KEY, comment VARCHAR(60));
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));

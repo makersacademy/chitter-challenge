@@ -22,14 +22,14 @@ class Chitter_Page
     end
   end
 
-  def self.create(comment:, day_time:)
+  def self.create(comment:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'Chitter_test')
     else
       connection = PG.connect(dbname: 'Chitter')
     end
-    result = connection.exec("INSERT INTO chitter_feed (comment, day_time) VALUES('#{comment}', '#{day_time}') RETURNING id, comment, day_time;")
-    Chitter_Page.new(id: result[0]['id'], comment: result[0]['comment'], day_time: result[0]['day_time'])
+    feed = connection.exec("INSERT INTO chitter_feed (comment) VALUES('#{comment}') RETURNING id, comment, day_time;")
+    Chitter_Page.new(id: feed[0]['id'], comment: feed[0]['comment'], day_time: feed[0]['day_time'])
   end
 
 end

@@ -5,13 +5,17 @@
 <ul>
   <% @chitter_feed.each do |feed| %>
     <div class="generic">
-      <%= feed.id %> ~ said:
-      <br>
+       ~ Peep said:
       <div
         style="width:70%;background:#ccd1c7;border:5px black;text-align:center">
         <%= feed.comment %>
       </div>
+      <p style="font-size:8px"><%= feed.day_time %></p>
     </div>
     <br>
   <% end %>
 </ul>
+<form action='/chitter_feed_new' method="post">
+  <input type="text" name="comment" placeholder="Your Comment here" />
+  <input type="submit" value="Submit Comment" />
+</form>
