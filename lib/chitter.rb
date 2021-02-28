@@ -10,4 +10,10 @@ class Chitter
     Peep.new(insertion['id'], username, insertion['posted_time'], insertion['content'])
   end
 
+  def self.list
+    connection = PG.connect :dbname => "chitter_#{ENV['RACK_ENV']}"
+    result = connection.exec("SELECT * FROM users LEFT JOIN peeps ON users.id = peeps.user_id") # RETURNING users.username, peeps.id, peeps.posted_time, peeps.content") # ("SELECT * FROM peeps")
+    result.map { |row| Peep.new(row['id'], row['username'], row['posted_time'], row['content']) }
+  end
+
 end

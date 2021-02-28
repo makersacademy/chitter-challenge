@@ -25,5 +25,6 @@ RSpec.configure do |config|
   config.before(:each) do
     connection = PG.connect :dbname => "chitter_#{ENV['RACK_ENV']}"
     connection.exec("TRUNCATE TABLE users")
+    connection.exec("TRUNCATE TABLE peeps")
   end
 end

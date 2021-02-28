@@ -4,16 +4,22 @@ describe Chitter do
 
   describe '.list' do
     it 'display all the peeps' do
-      user = instance_double('User', :id => 45, :username => 'sandy974')
-      peep = "Who wants to know what I had for lunch?!"
+      connection = PG.connect :dbname => "chitter_#{ENV['RACK_ENV']}"
+      demo_user_one = connection.exec("INSERT INTO users (name, lastname, username, email, password) VALUES('Hannah', 'Lowe', 'hanalo13', 'test@gmail.com', '1234') RETURNING id, name, lastname, username, email, password").first
+      demo_user_two = connection.exec("INSERT INTO users (name, lastname, username, email, password) VALUES('Sandy', 'Pounoussamy', 'sandy974', 'mytest@gmail.com', '1234') RETURNING id, name, lastname, username, email, password").first
+      peep_one = "Who wants to know what I had for lunch?!"
+      peep_two = "My cat is so cute"
 
-      # connection = PG.connect :dbname => "chitter_#{ENV['RACK_ENV']}"
-      # insertion = connection.exec("INSERT INTO peeps (user_id, posted_time, content) VALUES('#{user.id}', current_timestamp, '#{peep}') RETURNING RETURNING id, ")
-      Chitter.create()
+      Chitter.create('hanalo13', peep_one)
+      Chitter.create('sandy974', peep_two)
 
       feed = Chitter.list
-      expect(feed.first.username).to eq 'sandy974'
-      expect(feed.first.content).to eq peep
+      # p feed
+      # p demo_user_one
+      expect(feed[0].username).to eq demo_user_one['username']
+      expect(feed[0].content).to eq peep_one
+      expect(feed[1].username).to eq demo_user_two['username']
+      expect(feed[1].content).to eq peep_two
     end
   end
 

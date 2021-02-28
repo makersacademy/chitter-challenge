@@ -49,13 +49,13 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 ## Planning
 
-| Peep    | User   | Time |
-| :-----: | :----: | :---: |
-| @content | @name | log_current() |
-| @creation_date | @username (unique) |
+| Peep         | User   |         Time |    Chitter |
+| :-----:      | :----: |         :---: |       :---:|
+| @content     | @name     | log_current() | post/create() |
+| @creation_date | @username (unique) |  | list() |
 | @created_by | @email (unique)|
-| post()      | @password |
-| list() |
+|              | @password |
+
 
 ## Setting up the Databases
 1. Connect to psql
