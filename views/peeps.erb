@@ -1,5 +1,15 @@
-<ul>
-  <% @feed.each do |peep| %>
-    <li><%= peep %>
-  <% end %>
-</ul>
+<div>
+  <ul>
+    <% @feed.each do |peep| %>
+      <li><%= peep %>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <form action="/peeps/new" method="post">
+    <input type="text" name="make_peep">
+    <br>
+    <input type="submit" name="Submit">
+  </form>
+</div>
