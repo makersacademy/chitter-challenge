@@ -1,57 +1,50 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Chitter</title>
-  <style>
-    .topright {
-      position: absolute;
-      top: 8px;
-      right: 16px;
-      font-size: 18px;
-      text-align: right;
-    }
-  </style>
+  <link rel='stylesheet' href='/css/stylesheet.css' />
 </head>
 
 <body>
-  <div class="topright">
-    <p>
-      <%= flash[:notice] %>
+  <div class='page'>
+    <div class="topright">
+      <p><%= flash[:notice] %></p>
+
+      <form action='/sessions' method='get'>
+        <button type='submit'>Sign in</button>
+      </form>
+
+      <form action='/sessions/destroy' method="post">
+        <button type="submit">Sign out</button>
+      </form>
+
+      <form action='/users/new' method='get'>
+        <button type='submit'>New User</button>
+      </form>
+    </div>
+    <h1>Chitter</h1>
+    <p class='welcome'>
+      <% if @user %>
+      Welcome <%= @user.name %>, start peeping now!
     </p>
-
-    <form action='/sessions' method='get'>
-      <input type='submit' value='Sign in'>
+    <form class='peep' action='/peeps' autocomplete="off" method='post'>
+      <input type='text' name='peep'>
+      <input type='submit' value='Add a peep'>
     </form>
-
-    <form action='/sessions/destroy' method="post">
-      <input type="submit" value="Sign out">
-    </form>
-
-    <form action='/users/new' method='get'>
-      <input type='submit' value='New User'>
-    </form>
-  </div>
-  <h1>Chitter</h1>
-  <p>
-    <% if @user %>
-    Welcome <%= @user.name %>, start peeping now!
-  </p>
-  <form action='/peeps' method='post'>
-    <input type='text' name='peep'>
-    <input type='submit' value='Add a peep'>
-  </form>
-  <% end %>
-  <ul style="list-style-type:none;">
-    <% @peeps.reverse.each do |peep| %>
-    <li class="peep" id="peep-<%=peep.id %>">
-      <%= peep.content %>
-      <br>posted by <%= peep.user.name %> (@<%= peep.user.username %>) at [<%= peep.time %>]
-    </li>
-    <br>
     <% end %>
-  </ul>
+    <ul style="list-style-type:none;">
+      <% @peeps.reverse.each do |peep| %>
+      <li class="peep" id="peep-<%=peep.id %>">
+        <%= peep.content %>
+        <div class="details"><br>posted by <%= peep.user.name %> (@<%= peep.user.username %>) at [<%= peep.time %>]</div>
+      </li>
+      <br>
+      <% end %>
+    </ul>
+  </div>
 </body>
 
 </html>

@@ -1,0 +1,40 @@
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  text-align: right;
+}
+.page {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid #5D6063;
+}
+h1 {
+  color: #ffffff;
+  background-color: #DDE0E3;
+  padding: 20px 0 0 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  font-family: Helvetica,Arial,sans-serif;
+}
+.details {
+  font-size: 10px;
+}
+.welcome {
+  margin-left: 10px;
+}
+.peep {
+  margin-left: 10px;
+}
+button {
+display: inline-block;
+padding: 0 2px;
+background: lightgray;
+border: 2px outset lightgray;
+cursor: default;
+}
+button:active {
+border-style: inset;
+}

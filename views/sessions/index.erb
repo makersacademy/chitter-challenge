@@ -1,5 +1,15 @@
-<h2><%= flash[:notice] %></h2>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in!</title>
+  <link rel='stylesheet' href='/css/stylesheet.css' />
+</head>
+<body>
+<div class='page'>
+<h2><%= flash[:notice] %></h2>
+<h1>Welcome back! Sign in here</h1>
 <form action='/sessions' method='post' autocomplete="off">
   Username: <input type='text' name='username'>
   Password: <input type='password' name='password'>
@@ -11,3 +21,5 @@
 <form action='/peeps' method='get'>
   <input type='submit' value='Go back'>
 </form>
+</div>
+</body>
