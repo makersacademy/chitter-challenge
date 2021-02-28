@@ -4,12 +4,18 @@
 </head>
 <body>
   <div>
-    <p>Click button to login!</p>
-    <form action ="/loginsuccess" method="post">
-      Your Name: <input type="text" name "username"></br>
+    <p>Sign up Below!</p>
+    <form action ="/createaccountsuccess" method="post">
+      Your Name: <input type="text" name="username"></br>
       Your Email: <input type="email" name="user_email"></br>
-      Your Password: <input type="password" name="user_password">
+      Your Password: <input type="password" name="password">
       <input type="submit" value="Create Account">
+    </form>
+    <p> Existing user? Log in here!</p>
+    <form action ="/loginsuccess" method="post">
+      Your Name: <input type="text" name="username"></br>
+      Your Password: <input type="password" name="password">
+      <input type="submit" value="Log in">
     </form>
   </div>
 </body>

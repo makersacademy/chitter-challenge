@@ -11,7 +11,7 @@
   </form>
   <h2> What's been Chittered? </h2>
     <% @chitters.each do |chitter| %>
-    <li><%= chitter.username %> said: <%= chitter.post %></li>
+    <li><%= chitter.username %> said: <%= chitter.post %> <%= chitter.time %> </li>
     <% end %>
 
 </body

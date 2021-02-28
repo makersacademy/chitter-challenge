@@ -1,23 +1,22 @@
 require 'sinatra'
 require './lib/posting.rb'
+require './lib/account.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
 
   get "/" do
-    redirect "/home"
+    redirect "/login"
   end
 
-  # get "/login" do
-  #   erb :login
-  # end
-  #
-  # post "/loginsuccess" do
-  #   session[:username] = params[:username]
-  #   session[:user_email] = params[:user_email]
-  #   session[:user_password] = params[:user_password]
-  #   redirect '/home'
-  # end
+  get "/login" do
+    erb :login
+  end
+
+  post "/createaccountsuccess" do
+    Account.create(username: params[:username], user_email: params[:user_email], password: params[:password])
+    redirect '/home'
+  end
 
   get "/home" do
      @chitters = Posts.all
