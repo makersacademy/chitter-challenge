@@ -97,9 +97,9 @@ textarea {
       <%# post a peep %>
       <li>
         <div class="postContainer" name='post'>
-          <form action='/postPeep' method='peep'>
+          <form action='/postPeep' method=post>
             <div class="postPeep">
-                <textarea name='peepMessage' maxlength="420"></textarea>
+                <textarea name='peepMessage' maxlength="420" placeholder="What's the gossip?"></textarea>
             </div>
             <div class="submitPeep">
               <span class="submitSpan fRight">
@@ -131,39 +131,6 @@ textarea {
           </div>
         </li>
       <% end %>
-
-      <%# <li>
-        <div class="peepContainer" name='pc-2'>
-          <div id='p2' class='peep'>
-            <div class='peepInfo' id='pi2'>
-              <span class='nameBlock'>
-                <span class='name'>Nabonidus</span>
-              </span>
-              <span class="dateTime fRight" data-utc='02'>1/1/77(Sun)12:23</span>
-            </div>
-            <div class="empty"><br></div>
-            <div blockquote class='peepMessage' id=m2>
-              Guys i just found this totally sick temple come check it out
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="peepContainer" name='pc-3'>
-          <div id='p3' class='peep'>
-            <div class='peepInfo' id='pi3'>
-              <span class='nameBlock'>
-                <span class='name'>Cyrus II the Great</span>
-              </span>
-              <span class="dateTime fRight" data-utc='05'>1/1/77(Sun)12:23</span>
-            </div>
-            <div class="empty"><br></div>
-            <div blockquote class='peepMessage' id=m3>
-              @Nabonidus Mine
-            </div>
-          </div>
-        </div>
-      </li> %>
     </ul>
   </div>
 
