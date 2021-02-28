@@ -16,7 +16,26 @@ As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 ```
-<img width="735" alt="user_story_2" src="https://user-images.githubusercontent.com/75075773/109425508-76efe300-79e0-11eb-9f1a-9fe1c9c289fd.png">
+<img width="735" alt="user_story_2" src="https://user-images.githubusercontent.com/75075773/109425508-76efe300-79e0-11eb-9f1a-9fe1c9c289fd.png">  
+
+```
+This project is a WIP and I'll return to it.
+```
+
+<img width="581" alt="Screenshot 2021-02-28 at 17 34 49" src="https://user-images.githubusercontent.com/75075773/109431184-1cb14b00-79fd-11eb-932c-9ff3bf4b8f50.png">
+
+<br/>
+<br/>
+<br/>
+
+
+<img width="409" alt="Screenshot 2021-02-28 at 17 35 16" src="https://user-images.githubusercontent.com/75075773/109431172-0905e480-79fd-11eb-9a1c-ea62370f8b57.png">
+
+## How to install
+
+- Fork and clone this repo
+- Run ```bundle install```
+
 
 ```
 As a Maker
@@ -36,6 +55,7 @@ As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
+
 ```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
