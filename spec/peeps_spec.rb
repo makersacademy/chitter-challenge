@@ -29,7 +29,7 @@ describe Peeps do
     it 'creates a new peep' do
       Peeps.create(newpeep: 'here is my new peep!')
 
-      expect(Peeps.all).to include('here is my new peep!')
+      expect(Peeps.all.join(" ")).to include('here is my new peep!')
     end
   end
 
