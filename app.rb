@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
  class Chitter < Sinatra::Base
    enable :method_override
@@ -7,8 +8,9 @@ require 'sinatra/base'
      erb :index
    end
 
-   post '/timeline' do
-    @peep = params[:peep]
+   get '/timeline' do
+    # @peep = params[:peep]
+    @peeps = Peep.all
     erb(:timeline)
   end
 
