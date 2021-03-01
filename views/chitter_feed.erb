@@ -1,0 +1,21 @@
+<h2 style="color:blue;font-size:30px;font-family:Brush Script MT">Chitter Feed</h2>
+<style>
+  div.generic {width:200px;background:#f2f3f1;border:1px solid black;padding:8px;}
+</style>
+<ul>
+  <% @chitter_feed.each do |feed| %>
+    <div class="generic">
+       <p style="font-family:Courier New;font-size:10px">~ Peep said:</p>
+      <div
+        style="width:80%;background:#ccd1c7;border:5px black;text-align:center">
+        <p style="font-family:Courier New;font-size:15px"><%= feed.comment %></p>
+      </div>
+      <p style="font-size:8px"><%= feed.day_time %></p>
+    </div>
+    <br>
+  <% end %>
+</ul>
+<form action='/chitter_feed_new' method="post">
+  <input type="text" name="comment" placeholder="Your Comment here" />
+  <input type="submit" value="Submit Comment" />
+</form>
