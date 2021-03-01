@@ -1,0 +1,4 @@
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60),password VARCHAR(60)  );
+CREATE TABLE messages (id SERIAL PRIMARY KEY, email VARCHAR(60),password VARCHAR(60)  );
+ALTER TABLE messages ADD COLUMN created_at TIMESTAMP;
+ALTER TABLE messages ALTER COLUMN created_at SET DEFAULT now();
