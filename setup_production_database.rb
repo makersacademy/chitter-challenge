@@ -22,16 +22,18 @@ end
 def add_users_to_database()
   user_list = 
     [{email: "sargon_akkad@compuserve.com", password: 'Akkadia4Evar', username: 'king_of_universe', screenname: 'Sargon of Akkad'},
-    {email: "nabonidus_56@aol.com", password: 'SinMoonsMarduk', username: 'sargons_bff', screenname: 'Nabonidus'}
-    {email: "cyrus_2_persia@aol.com", password: 'OpulenceIOwnEverything', username: 'the_golden_C', screenname: 'Cyrus II of Persia'}
+    {email: "nabonidus_56@aol.com", password: 'SinMoonsMarduk', username: 'sargons_bff', screenname: 'Nabonidus'},
+    {email: "cyrus_2_persia@aol.com", password: 'OpulenceIOwnEverything', username: 'the_golden_C', screenname: 'Cyrus II of Persia'},
     {email: "alexander_56@yahoo.com", password: 'Akkadia4Evar', username: 'Bucephala_gonna_getcha', screenname: 'Alexander III of Macedon'}]
-  i = user_list.length if i > user_list.length or i == 0
 
   connection = PG.connect(dbname: 'chitter')
   
   user_list.each do |user|
-    encrypted_password = BCrypt::Password.create(password)
-    connection.exec("INSERT INTO users (email, encrypted_password, username, screenname) VALUES ('#{user['email']}', '#{user['password']}', '#{user['username']}', '#{user['screenname']}') RETURNING email, password, username, screenname;")
+    encrypted_password = BCrypt::Password.create(user[:password])
+    email = user[:email]
+    username = user[:username]
+    screenname = user[:screenname]
+    connection.exec("INSERT INTO users (email, password, username, screenname) VALUES ('#{email}', '#{encrypted_password}', '#{username}', '#{screenname}') RETURNING email, password, username, screenname;")
   end
 end
 

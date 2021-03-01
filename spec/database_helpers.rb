@@ -1,4 +1,5 @@
 require_relative '../lib/users.rb'
+require_relative '../lib/peeps.rb'
 require 'pg'
 
 ENV['ENVIRONMENT'] = 'test'
@@ -31,4 +32,9 @@ def add_users_to_database( i=0 )
   # connection = PG.connect(dbname: 'chitter')
 
   (0...i).each { |i| User.create(email: user_list[i][:email], password: user_list[i][:password], username: user_list[i][:username], screenname: user_list[i][:screenname])}
+end
+
+def quick_set()
+  add_peeps_to_database
+  add_users_to_database
 end

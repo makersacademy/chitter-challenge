@@ -59,4 +59,17 @@ describe '.create' do
     end
   end
 
+  context ".check_login" do
+    it "returns true if email exists and password is correct"
+
+    it "returns true if username exists and password is correct"
+
+    it "returns false if username exists but password is wrong"
+
+    it "returns false if email exists but password is wrong"
+
+    it "returns false if username doesnt exist"
+
+    it "returns false if username doesnt exist"
+  end
 end

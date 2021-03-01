@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%# shamelessly plagiarized from https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles %>
 <%# shamelessly copied 4chan's post container template %>
+<%# shamelessly copied the password check from https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page/21727518 %>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,28 +70,31 @@ textarea {
 <body>
 
 <div class="header">
-  <% if @params['logged_in'] = true %>
+  <% if @session['logged_in'] != true %>
   <span class='headerSpan'>
     Sign in or create a new account to post
-  </span>
+  </span><br>
   <span class='CreateAccountSpan fRight'>
     <form action='/create_account' method=get>
       <label for='create_account'>Create new account:</label>
       <input type='submit' name='create_account' value='Create Account'>
     </form>
-  </span>
+  </span><br>
   <span class='loginSpan'>
     <form action='/login' method=post>
+      <% if @loginSuccess == false %>
+        <span class='error'>Details Incorrect</span>
+      <% end %>
       <label for='loginID'>Username/email:</label>
       <input type='text' name='loginID'>
       <label for='password'>Password:</label>
       <input type='password' name=password>
       <input type='submit' value='Sign In'>
     </form>
-  </span>
+  </span><br>
   <% else %>
   <span class='headerSpan'>
-    Signed in as <%= @params["screenname"] %> (@<%= @params["username"] %>)
+    Signed in as <%= @session["screenname"] %> (@<%= @session["username"] %>)
   </span>
   <span class='CreateAccountSpan fRight'>
     <form action='/signout' method=post>

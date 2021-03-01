@@ -4,7 +4,7 @@ feature "create account" do
     click_button 'Create Account'
     Capybara.match = :prefer_exact
     fill_in('email', with: "berkley_huntsworth@HMRberks.co.uk")
-    fill_in('password', with: "password")
+    page.find_by_id('password').fill_in(with: "password")
     fill_in('confirm_password', with: "password")
     fill_in('username', with: "the_Berkmeister")
     fill_in('screenname', with: "Berkly Huntsworth")
