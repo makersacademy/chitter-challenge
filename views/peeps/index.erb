@@ -29,6 +29,12 @@
   <div>
   <h1>Chitter</h1>
 
+  <% if @user %>
+  <h3>Welcome, <%= @user.email %></h3>
+<% end %>
+
+  <br><br>
+
   <form method='get' action='/peeps/new'>
   <input type='submit' value='Add peep' />
   </form>
