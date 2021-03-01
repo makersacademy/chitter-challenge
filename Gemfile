@@ -9,6 +9,7 @@ group :development do
   gem 'sinatra'
   gem 'pg'
   # gem 'time'
+  gem 'bcrypt'
 end
 
 group :test do

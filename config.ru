@@ -1,4 +1,4 @@
 require './app.rb'
 
-ENV['ENVIRONMENT'] = 'test'
+# ENV['ENVIRONMENT'] = 'test'
 run Chitter

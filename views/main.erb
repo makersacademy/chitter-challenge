@@ -69,12 +69,12 @@ textarea {
 <body>
 
 <div class="header">
-  
+  <% if @params['logged_in'] = true %>
   <span class='headerSpan'>
     Sign in or create a new account to post
   </span>
   <span class='CreateAccountSpan fRight'>
-    <form action='/create_account' method=post>
+    <form action='/create_account' method=get>
       <label for='create_account'>Create new account:</label>
       <input type='submit' name='create_account' value='Create Account'>
     </form>
@@ -88,6 +88,17 @@ textarea {
       <input type='submit' value='Sign In'>
     </form>
   </span>
+  <% else %>
+  <span class='headerSpan'>
+    Signed in as <%= @params["screenname"] %> (@<%= @params["username"] %>)
+  </span>
+  <span class='CreateAccountSpan fRight'>
+    <form action='/signout' method=post>
+      <%# <label for='sign_out'>Create new account:</label> %>
+      <input type='submit' name='sign_out' value='Sign Out of Account'>
+    </form>
+  </span>
+  <% end %>
 </div>
 
 <div class="row">

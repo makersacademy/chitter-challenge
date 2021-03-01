@@ -2,7 +2,7 @@ require_relative '../database_helpers.rb'
 
 feature "peeps" do
   scenario "view peeps" do
-    add_to_database()
+    add_peeps_to_database()
     visit('/')
 
     expect(page).to have_content 'first'

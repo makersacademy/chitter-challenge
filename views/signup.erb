@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%# shamelessly plagiarized from https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles %>
 <%# shamelessly copied 4chan's post container template %>
+<%# shamelessly copied the password check from https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page/21727518 %>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,6 +65,14 @@ textarea {
   padding-bottom: 20px;
 }
 
+.details {
+  padding-bottom: 20px;
+}
+
+.error {
+  color: red;
+}
+
 </style>
 </head>
 <body>
@@ -72,13 +81,13 @@ textarea {
   
   <span class='headerSpan'>
     Sign in or create a new account to post
-  </span>
+  </span><br>
   <span class='CreateAccountSpan fRight'>
-    <form action='/create_account' method=post>
+    <%# <form action='/create_account' method=post>
       <label for='create_account'>Create new account:</label>
       <input type='submit' name='create_account' value='Create Account'>
-    </form>
-  </span>
+    </form> %>
+  </span><br>
   <span class='loginSpan'>
     <form action='/login' method=post>
       <label for='loginID'>Username/email:</label>
@@ -87,50 +96,58 @@ textarea {
       <input type='password' name=password>
       <input type='submit' value='Sign In'>
     </form>
-  </span>
+  </span><br>
 </div>
 
 <div class="row">
   <div class="col-1 blank"></div>
   <div class="col-2 peeps">
     <ul>
-      <%# post a peep %>
-      <li>
-        <div class="postContainer" name='post'>
-          <form action='/postPeep' method=post>
-            <div class="postPeep">
-                <textarea name='peepMessage' maxlength="420" placeholder="What's the gossip?"></textarea>
-            </div>
-            <div class="submitPeep">
-              <span class="submitSpan fRight">
-                <input type='submit' value='Peep'></form>
-              </span>
-            </div>
-            <div class="empty"><br></div>
-          </form>
-      </li>
+    <li>
 
-      <%# show the peeps %>
-      <% @peeps.each do |peep|%>
-        <li>
-          <div class="peepContainer" name="pc-<%= peep.id %>">
-            <div id='p-<%= peep.id %>' class='peep'>
-              <div class='peepInfo' id='pi-<%= peep.id %>'>
-                <span class='nameBlock'>
-                  <span class='username'><%= peep.username%></span>
-                </span>
-                <span class="dateTime fRight" data-utc='0'>
-                  <%= peep.time %> <%# I might want to change how the time is displayed later, so it's easier to format it here than somewhere else %>
-                </span>
-              </div>
-              <div class="empty"><br></div>
-              <div blockquote class='peepMessage' id="m-<%= peep.id %>">
-                <%= peep.peep() %>
-              </div>
-            </div>
-          </div>
-        </li>
-      <% end %>
+    <%# make a new account %>
+    <form action='/make_new_account' method='post'>
+      <div class='enterEmail details'>
+        <% if @session["error_field"] == 'email'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='email'>Enter Email:</label>
+        <input type='text' name='email' maxlength=60 required value="<%= @session['email'] %>">
+      </div>
+      <div class='enterPassword details'>
+        <% if @session["error_field"] == 'password'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='password'>Enter Password:</label>
+        <input type='password' name="password" id="password" onkeyup='check();' maxlength=140 required value="<%= @session['password'] %>">
+        <br>
+        <label for='confirm_password'>Confirm Password:</label>
+        <input type='password' name="confirm_password" id="confirm_password" onkeyup='check();' maxlength=140 required value="<%= @session['password'] %>">
+        <span id='message'></span><br>
+      </div>
+      <div class='enterUsername details'>
+        <% if @session["error_field"] == 'username'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='username'>Enter Username:</label>
+        <input type='text' name='username' maxlength=30 required placeholder='the_golden_C' value="<%= @session['username'] %>">
+        <span>This will identify you on this site, and cannot be changed</span><br>
+      </div>
+      <div class='enterScreenname details'>
+        <% if @session["error_field"] == 'screenname'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='screenname'>Enter Screenname:</label>
+        <input type='text' name='screenname' maxlength=30 placeholder='i.e. Cyrus II of Persia' required value="<%= @session['screenname'] %>">
+        <span>This is what you will be known as on the site, and can be changed after creating an account</span><br> 
+      </div>
+      <div class='submit details fRight'>
+        <input type='submit' value='Create Account' method='post'>
+      </div>
+      <span><br></span>
+    </form>
+
+    </li>
     </ul>
   </div>
 
@@ -138,4 +155,17 @@ textarea {
 </div>
 
 </body>
+
+<script>
+  var check = function() {
+    if (document.getElementById('password').value ==
+      document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'matching';
+    } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'not matching';
+    }
+  }
+</script>
 </html>
