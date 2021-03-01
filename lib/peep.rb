@@ -8,7 +8,7 @@ class Peep
   end
 
   def self.create(peep:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep;")
+    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'])
   end
 
@@ -17,7 +17,7 @@ class Peep
     @peep_list = result.map do |peep|
       Peep.new(
         peep: peep['peep'],
-        id: peep['id']
+        id: peep['id'],
       )
     end
   end

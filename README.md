@@ -26,40 +26,9 @@ get '/newest-peeps'
 iterate in reverse, over array from database
 puts
 
-```
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
-add Time to database
-add feature test for time
-convert views to incorporate time
-
-```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
 ## How to use Chitter to grace the Social Skies ##
 
-You can use the app here on Heroku:
-
-???
-
-Alternatively, you're also welcome to clone this repo and play around with it. Make sure to follow these steps first:
+You're welcome to clone this repo and play around with it. Make sure to follow these steps after cloning:
 
 1. Connect to ```psql```
 2. Create two databases with these ```psql``` commmands:
@@ -68,7 +37,7 @@ Alternatively, you're also welcome to clone this repo and play around with it. M
 3. Connect to the databases, one by one, using the ```psql``` commands:
   ```\c chitter;```
   ```\c chitter_test;```
-4. Run the query listed in the ```01_create_chitter_table.sql``` file within the db/migrations directory.
+4. Run the query listed in the ```01_create_chitter_table.sql``` file within the db/migrations directory for each db.
 
 You can then run the web app on your local machine with this command:
 ```rackup -p 4567```
