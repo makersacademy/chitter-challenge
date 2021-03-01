@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'pg'
 gem 'sinatra'
-gem 'rake'
-gem 'shotgun'
 group :test do
   gem 'capybara'
   gem 'rspec'

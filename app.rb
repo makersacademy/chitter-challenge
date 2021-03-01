@@ -7,5 +7,10 @@ require 'sinatra/base'
      erb :index
    end
 
+   post '/timeline' do
+    @peep = params[:peep]
+    erb(:timeline)
+  end
+
    run! if app_file == $0
  end
