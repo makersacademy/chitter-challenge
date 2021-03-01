@@ -1,0 +1,15 @@
+<html>
+<!-- <body style="background-color: #7E7E7E;"> -->
+
+<h1 style="color: #234F1E;">CHITTER</h1>
+
+<% @list.reverse.each do |tweet| %>
+<h3>  <%= tweet.peep %> </h3>
+<h4> posted:<%= tweet.time[0..15] %> </h4>
+  <br>
+<% end %>
+
+<form action='/posting_message' method='post'>
+  <input type='text' placeholder='whats on your mind' name="add_cheet">
+  <input type='submit' value='submit'>
+</form>
