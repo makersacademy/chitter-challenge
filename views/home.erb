@@ -1,0 +1,40 @@
+<html>
+<body style="background-color:powderblue;">
+<head>
+  <title>Chitter</title>
+  <style>
+div {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 20px;
+  margin: 20px;
+}
+</style>
+</head>
+<body>
+<h1>Chitter Home Page</h1>
+<div>
+Logged in as: <%= @username %>
+</div>
+
+<a href="/logout">
+<button type="button">Log Out</button>
+</a>
+
+<div>
+<form action="/new_peep" method="post">
+  <input type="text" name="peep_post" placeholder="What's on your mind?">
+  <input type="submit" value="Post Peep">
+</form>
+</div>
+<% @posts.reverse.each do |post| %>
+  <div>
+      <%= post.content %>
+      @<%= @username %>
+      <%= @name %>
+  </div>
+<% end %>
+
+
+
