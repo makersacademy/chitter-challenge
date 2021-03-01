@@ -24,9 +24,6 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-```
-This project is a WIP and I'll return to it.
-```
 
 <img width="593" alt="Screenshot 2021-03-01 at 22 01 07" src="https://user-images.githubusercontent.com/75075773/109564968-b77f5780-7ad9-11eb-9cd0-d2b75b2facac.png">
 
@@ -42,6 +39,10 @@ This project is a WIP and I'll return to it.
 
 - Fork and clone this repo
 - Run ```bundle install```
+
+```
+This project is a WIP and I'll return to it.
+```
 
 
 
