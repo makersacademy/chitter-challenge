@@ -1,10 +1,19 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## my approach
+
+* I definitely should have planned more before starting this, rather than diving straight in. I ended up making the peep class first, which given the ultimately necessary database relations, didn't make a lot of sense, and in retrospect I would have started with users.
+* Quite flummoxed on how to do double testing when relational databases are involved! I keep getting key constraint violations etc.
+* I would definitely want to test more to cover the full range of functionality, logging in and out, several different users peeping etc. again, this was a time thing. I have done a pretty expansive feature run though in the browser.
+* Also didn't have time to test for date and time functions.
+* lots of scope for further functionality, deleting and editing tweets etc.
+* this has made me want to learn how to use activerecord!
+
+## how to use
+
+* You will need to install postgres, use psql to make a chitter database (and a chitter_test database to use the tests) with a user table and a peep table. Instructions on how to create these tables are in migrations.
+
 
 Challenge:
 -------

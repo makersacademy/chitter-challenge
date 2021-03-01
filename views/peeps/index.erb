@@ -1,0 +1,17 @@
+<% unless @user.nil? %>
+<p>You are currently logged in as <%= @user.username %></p>
+<form action="/session" method="post">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <input type="submit" value="Log out" />
+</form>
+<p><a href= "/peeps/new/<%= @user.id %>">New Peep</a></p>
+<% end %>
+
+<ul>
+<% @peeps.each do |peep| %>
+<li><%= peep.content %>, peeped at <%= peep.time %> on <%= peep.date %> by  <%= peep.peeped_by %>, <%= peep.username %></li>
+<% end %>
+<% if @user.nil? %>
+<a href = "/session/new">Log in</a> to Chitter or
+<a href= "/users/new">sign up for Chitter</a> to start adding peeps!
+<% end %>
