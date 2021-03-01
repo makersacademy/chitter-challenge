@@ -1,0 +1,11 @@
+<ul>
+  <% @peeps.each do |peep| %>
+   <li><%= peep %></li>
+   <% end %>
+</ul>
+
+<%= @time %>
+
+<form action="/">
+  <input type="submit" value="Back">
+</form>

@@ -1,3 +1,13 @@
+How to connect to the database:
+
+ * Connect to psql
+ * Connect to the database using the pqsl command \c peeps;
+ * Run the query we have saved in the file 01_create_bookmarks_table.sql
+
+
+
+
+
 Chitter Challenge
 =================
 
