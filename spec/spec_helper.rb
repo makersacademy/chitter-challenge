@@ -2,12 +2,12 @@ require 'coveralls'
 require 'simplecov'
 require 'simplecov-console'
 
+Coveralls.wear!
+SimpleCov.start
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
   SimpleCov::Formatter::Console
 )
-
-SimpleCov.start
-Coveralls.wear!
 
 ENV['ENVIRONMENT'] = 'test'
 ENV['RACK_ENV']    = 'test'
@@ -28,6 +28,6 @@ BCrypt::Engine.cost = 1
 Rake.application.load_rakefile
 
 RSpec.configure do |config|
-  config.before(:each) { Rake::Task['clean_test_database'].execute }
   config.before(:suite) { Rake::Task['setup_database_connection'].execute }
+  config.before(:each) { Rake::Task['clean_test_database'].execute }
 end

@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter
+  pool: 2
+  username: adamjonas
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>

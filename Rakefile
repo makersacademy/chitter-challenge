@@ -1,5 +1,9 @@
-require 'rake'
 require 'pg'
+require 'rake'
+# require 'sinatra/activerecord'
+# require 'sinatra/activerecord/rake'
+
+require_relative 'chitter'
 
 desc 'Connect to database'
 task :setup_database_connection do
