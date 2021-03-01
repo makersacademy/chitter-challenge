@@ -28,7 +28,8 @@ I want to see the time at which it was made
 This project is a WIP and I'll return to it.
 ```
 
-<img width="581" alt="Screenshot 2021-02-28 at 17 34 49" src="https://user-images.githubusercontent.com/75075773/109431184-1cb14b00-79fd-11eb-932c-9ff3bf4b8f50.png">
+<img width="593" alt="Screenshot 2021-03-01 at 22 01 07" src="https://user-images.githubusercontent.com/75075773/109564968-b77f5780-7ad9-11eb-9cd0-d2b75b2facac.png">
+
 
 <br/>
 <br/>
