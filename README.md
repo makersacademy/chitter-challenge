@@ -19,6 +19,12 @@ I want to see all peeps in reverse chronological order
 <img width="735" alt="user_story_2" src="https://user-images.githubusercontent.com/75075773/109425508-76efe300-79e0-11eb-9f1a-9fe1c9c289fd.png">  
 
 ```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+```
 This project is a WIP and I'll return to it.
 ```
 
@@ -37,11 +43,7 @@ This project is a WIP and I'll return to it.
 - Run ```bundle install```
 
 
-```
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
+
 ```
 As a Maker
 So that I can post messages on Chitter as me
