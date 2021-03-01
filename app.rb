@@ -18,6 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
+      @username = session[:username]
+      @name = session[:name]
       erb :home
   end
 
@@ -29,13 +31,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_peep' do
-    Post.create(name: session[:name], username: session[:username], content: params[:peep_post])
-    p params
+    @name = session[:name]
+    @username = session[:username]
+    session[:content] = params[:peep_post]
+    Post.create(name: @name, username: @username, content: session[:content])
     redirect '/home'
   end
 
   get '/signup' do
       erb :signup
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 
   run! if app_file == $0
