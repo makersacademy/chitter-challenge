@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<%# shamelessly plagiarized from https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles %>
+<%# shamelessly copied 4chan's post container template %>
+<%# shamelessly copied the password check from https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page/21727518 %>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {width: 20%}
+.col-2 {width: 60%}
+.col-3 {width: 20%}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.peeps ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.peeps li {
+  /* affects each item of the list */
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+textarea {
+  width: 100%;
+  height: 100%; 
+  box-sizing: border-box;
+}
+
+.fRight {
+  float:right
+}
+
+.headerSpan {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.details {
+  padding-bottom: 20px;
+}
+
+.error {
+  color: red;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  
+  <span class='headerSpan'>
+    Sign in or create a new account to post
+  </span><br>
+  <span class='CreateAccountSpan fRight'>
+    <%# <form action='/create_account' method=post>
+      <label for='create_account'>Create new account:</label>
+      <input type='submit' name='create_account' value='Create Account'>
+    </form> %>
+  </span><br>
+  <span class='loginSpan'>
+    <form action='/login' method=post>
+      <label for='loginID'>Username/email:</label>
+      <input type='text' name='loginID'>
+      <label for='password'>Password:</label>
+      <input type='password' name=password>
+      <input type='submit' value='Sign In'>
+    </form>
+  </span><br>
+</div>
+
+<div class="row">
+  <div class="col-1 blank"></div>
+  <div class="col-2 peeps">
+    <ul>
+    <li>
+
+    <%# make a new account %>
+    <form action='/make_new_account' method='post'>
+      <div class='enterEmail details'>
+        <% if @session["error_field"] == 'email'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='email'>Enter Email:</label>
+        <input type='text' name='email' maxlength=60 required value="<%= @session['email'] %>">
+      </div>
+      <div class='enterPassword details'>
+        <% if @session["error_field"] == 'password'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='password'>Enter Password:</label>
+        <input type='password' name="password" id="password" onkeyup='check();' maxlength=140 required value="<%= @session['password'] %>">
+        <br>
+        <label for='confirm_password'>Confirm Password:</label>
+        <input type='password' name="confirm_password" id="confirm_password" onkeyup='check();' maxlength=140 required value="<%= @session['password'] %>">
+        <span id='message'></span><br>
+      </div>
+      <div class='enterUsername details'>
+        <% if @session["error_field"] == 'username'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='username'>Enter Username:</label>
+        <input type='text' name='username' maxlength=30 required placeholder='the_golden_C' value="<%= @session['username'] %>">
+        <span>This will identify you on this site, and cannot be changed</span><br>
+      </div>
+      <div class='enterScreenname details'>
+        <% if @session["error_field"] == 'screenname'%>
+          <span class='error'><b><%= @session["error_message"] %></b></span><br>
+        <% end %>
+        <label for='screenname'>Enter Screenname:</label>
+        <input type='text' name='screenname' maxlength=30 placeholder='i.e. Cyrus II of Persia' required value="<%= @session['screenname'] %>">
+        <span>This is what you will be known as on the site, and can be changed after creating an account</span><br> 
+      </div>
+      <div class='submit details fRight'>
+        <input type='submit' value='Create Account' method='post'>
+      </div>
+      <span><br></span>
+    </form>
+
+    </li>
+    </ul>
+  </div>
+
+  <div class="col-3 blank"></div>
+</div>
+
+</body>
+
+<script>
+  var check = function() {
+    if (document.getElementById('password').value ==
+      document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'matching';
+    } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'not matching';
+    }
+  }
+</script>
+</html>

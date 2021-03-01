@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<%# shamelessly plagiarized from https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles %>
+<%# shamelessly copied 4chan's post container template %>
+<%# shamelessly copied the password check from https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page/21727518 %>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {width: 20%}
+.col-2 {width: 60%}
+.col-3 {width: 20%}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.peeps ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.peeps li {
+  /* affects each item of the list */
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+textarea {
+  width: 100%;
+  height: 100%; 
+  box-sizing: border-box;
+}
+
+.fRight {
+  float:right
+}
+
+.headerSpan {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <% if @session['logged_in'] != true %>
+  <span class='headerSpan'>
+    Sign in or create a new account to post
+  </span><br>
+  <span class='CreateAccountSpan fRight'>
+    <form action='/create_account' method=get>
+      <label for='create_account'>Create new account:</label>
+      <input type='submit' name='create_account' value='Create Account'>
+    </form>
+  </span><br>
+  <span class='loginSpan'>
+    <form action='/login' method=post>
+      <% if @loginSuccess == false %>
+        <span class='error'>Details Incorrect</span>
+      <% end %>
+      <label for='loginID'>Username/email:</label>
+      <input type='text' name='loginID'>
+      <label for='password'>Password:</label>
+      <input type='password' name=password>
+      <input type='submit' value='Sign In'>
+    </form>
+  </span><br>
+  <% else %>
+  <span class='headerSpan'>
+    Signed in as <%= @session["screenname"] %> (@<%= @session["username"] %>)
+  </span>
+  <span class='CreateAccountSpan fRight'>
+    <form action='/signout' method=post>
+      <%# <label for='sign_out'>Create new account:</label> %>
+      <input type='submit' name='sign_out' value='Sign Out of Account'>
+    </form>
+  </span>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-1 blank"></div>
+  <div class="col-2 peeps">
+    <ul>
+      <%# post a peep %>
+      <li>
+        <div class="postContainer" name='post'>
+          <form action='/postPeep' method=post>
+            <div class="postPeep">
+                <textarea name='peepMessage' maxlength="420" placeholder="What's the gossip?"></textarea>
+            </div>
+            <div class="submitPeep">
+              <span class="submitSpan fRight">
+                <input type='submit' value='Peep'></form>
+              </span>
+            </div>
+            <div class="empty"><br></div>
+          </form>
+      </li>
+
+      <%# show the peeps %>
+      <% @peeps.each do |peep|%>
+        <li>
+          <div class="peepContainer" name="pc-<%= peep.id %>">
+            <div id='p-<%= peep.id %>' class='peep'>
+              <div class='peepInfo' id='pi-<%= peep.id %>'>
+                <span class='nameBlock'>
+                  <span class='username'><%= peep.username%></span>
+                </span>
+                <span class="dateTime fRight" data-utc='0'>
+                  <%= peep.time %> <%# I might want to change how the time is displayed later, so it's easier to format it here than somewhere else %>
+                </span>
+              </div>
+              <div class="empty"><br></div>
+              <div blockquote class='peepMessage' id="m-<%= peep.id %>">
+                <%= peep.peep() %>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-3 blank"></div>
+</div>
+
+</body>
+</html>

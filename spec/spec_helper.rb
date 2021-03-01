@@ -1,5 +1,21 @@
 require 'simplecov'
 require 'simplecov-console'
+require_relative "../app.rb"
+require_relative "setup_test_database"
+
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+Capybara.app = Chitter
+
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
