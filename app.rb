@@ -1,8 +1,8 @@
-ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'pg'
 require './lib/peeps'
 require './lib/user'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
