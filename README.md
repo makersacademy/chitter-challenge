@@ -1,3 +1,5 @@
+This is my final submission for the Makers Academy Week 4 Challenge
+
 Chitter Challenge
 =================
 
@@ -52,25 +54,6 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
 Notes on functionality:
 ------
 
@@ -93,43 +76,35 @@ And/Or:
 
 Good luck and let the chitter begin!
 
-Code Review
------------
 
-In code review we'll be hoping to see:
+User Guide
+----
+### Start
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+To start the program run rackup in the terminal in the root folder:
 ```
+rackup
+```
+Then open your broswer and enter the url:
+```
+localhost:9292
+```
+You are now on the Chitter homepage
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Add a peep
+To send a peep to the timeline add your message in the box below, then hit enter or click on submit. The peep will appear on the timeline as an anonymous user with the date and time of submission. The timeline shows all peeps that have been submitted from newest to oldest. You can enter hashtags on your messages which can then be searched for later on.
+
+### Sign up
+To sign up fro an account click on the 'Sign In' button in the top right hand corner, then click on the 'Sign Up' button, you will then be asked to enter your name, email, username and password. One you have doen this you will b automatically logged in and returned to the homepage. Note: An error will be raised if you try to sign up with a username and email combination that is already registered.
+
+### Sign In
+If you already have an account then click on the 'Sign In' button in the top right hand corner. Enter your username and password and click 'Sign In'. You will then be logged in and returned to the homepage. If you enter the incorrect username and password an error will be raised. Once you have signed in any peeps you send will be tagged with your name and username.
+
+### Sign out
+To sign out, click on the 'Sign Out' button in the top right hand corner. You will be signed out and returned to the homepage.
+
+### Usernames
+If you would like to see all peeps by one user then click on a username in the timeline. You will then be re-directed to a page showing peeps by only that user. The peeps are displayed as per the homepage on a timeline from newest to oldest.
+
+### Hastags
+If you would like to see all the peeps that mention a specific hashtag then click on a hashtag in the timeline. You will then be re-directed to a page showing all peeps that contain that hashtag. The peeps are displayed as per the homepage on a timeline from newest to oldest.

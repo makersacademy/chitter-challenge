@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'sinatra'
 require 'setup_test_database'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'exceptions'
 
 Capybara.app = ChitterWebApp
 

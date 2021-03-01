@@ -95,7 +95,7 @@ img {
   <div></div>
 
   <div class="header">
-    <b>Welcome to Chitter</b>
+    <b><%=@header%></b>
   </div>
 
   <div class="header-buttons">
@@ -114,26 +114,12 @@ img {
 
 <div class="column">
 
-  <div class="new-item">
-    <% if @user.id != 1 %>
-      <p></p><p>Hi <%= @user.name %>! Send a peep below</p>
-    <% end %>
-    <p>New Peep:</p>
-    <form action="/peep/new" method="post">
-      <div class="form-grid">
-        <input type="text" name="new_peep" class="text_input"/>
-        <button name="submit_new_peep" type="submit" class="header-button2">Submit</button>
-      </div>
-    </form>
-
-  </div>
-
   <% @peeps.each do |peep| %>
 
   <div class="item">
     <div class="item-grid">
       <img src="<%= peep.picture %>" alt="Avatar">
-      <p><%= peep.name %> - <a href='users/<%= peep.username %>'>@<%= peep.username %></a></p>
+      <p>@<%= peep.username %></p>
       <p><%= peep.text.split().map { |word| word[0]=='#' ? "<a href='/tags/#{word[1..]}'>#{word}</a>" : word}.join(" ")%></p>
       <p><%= peep.date %></p>
     </div>

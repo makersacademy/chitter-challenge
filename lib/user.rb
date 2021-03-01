@@ -1,4 +1,5 @@
 require 'pg'
+require_relative './exceptions.rb'
 
 class User
 
@@ -17,9 +18,7 @@ class User
   end
 
   def self.sign_in(username, password)
-    name, id = correct_password(username, password).values
-    raise "Incorrect username or password" if name == []
-    
+    name, id = correct_password(username, password).values    
     set_current(name, username, id)
   end
 
@@ -32,7 +31,7 @@ class User
   end
 
   def self.add(name:, username:, email:, password:, picture: 'https://www.iconbolt.com/iconsets/streamline-emoji/speaking-head.svg')
-    raise "User already registered" if registered?(username, email)
+    raise AlreadyRegisteredError if registered?(username, email)
     
     id = query("INSERT INTO users (name, username, email, password, picture) VALUES('#{name}','#{username}','#{email}','#{password}','#{picture}') RETURNING id;").first[:id]
     set_current(name, username, id)
@@ -43,7 +42,9 @@ class User
   end
 
   def self.correct_password(username, password)
-    query("SELECT name, id FROM users WHERE username = '#{username}' AND password = '#{password}';").first
+    results = query("SELECT name, id FROM users WHERE username = '#{username}' AND password = '#{password}';").first
+    raise LogInError if results == nil
+    results
   end
 
   def self.query(query_string)
