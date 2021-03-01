@@ -17,7 +17,7 @@ class Peeps
     end
 
     result = connection.exec("SELECT * FROM peeps;")
-    result.reverse_each.map { |peep| "*****#{peep['message']}***** Time posted: #{peep['time'].to_s[0..-6]}" }
+    result.reverse_each.map { |peep| "#{peep['message']} Time posted: #{peep['time'].to_s[0..-6]}" }
   end
 
   def self.create(newpeep:)
