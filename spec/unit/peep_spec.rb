@@ -23,4 +23,18 @@ describe Peep do
       expect(peep.content).to eq "Check out my law blog!"
     end
   end
+  describe 'peeped_by' do
+    it 'returns the name of the user who peeped it' do
+      user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+      peep = Peep.create(content: 'Check out my law blog!', date: '2021-02-28', time: '02:25', user_id: user.id)
+      expect(peep.peeped_by).to eq(user.name)
+    end
+  end
+  describe 'username' do
+    it 'returns the username of the user who peeped it' do
+      user = User.create(email: 'bobloblaw@lawblog.com', password: 'bobloblawslawblog', name: 'Bob Loblaw', username: 'bloblaw')
+      peep = Peep.create(content: 'Check out my law blog!', date: '2021-02-28', time: '02:25', user_id: user.id)
+      expect(peep.username).to eq(user.username)
+    end    
+  end
 end

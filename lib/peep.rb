@@ -20,4 +20,13 @@ class Peep
     @time = time
     @user_id = user_id
   end
+
+  def peeped_by(user_class = User)
+    user_class.find(id: @user_id).name
+  end
+
+  def username(user_class = User)
+    user_class.find(id: @user_id).username
+  end
+
 end

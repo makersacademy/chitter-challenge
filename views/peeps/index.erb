@@ -9,7 +9,7 @@
 
 <ul>
 <% @peeps.each do |peep| %>
-<li><%= peep.content %>, peeped at <%= peep.time %> on <%= peep.date %> by  <%= User.find(id: peep.user_id).name %>, <%= User.find(id: peep.user_id).username %></li>
+<li><%= peep.content %>, peeped at <%= peep.time %> on <%= peep.date %> by  <%= peep.peeped_by %>, <%= peep.username %></li>
 <% end %>
 <% if @user.nil? %>
 <a href = "/session/new">Log in</a> to Chitter or
