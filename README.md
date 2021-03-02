@@ -64,7 +64,7 @@ Sign in to access more features such as peeping and editing your peeps / details
 
 ![signing-in](public/images/signing-in.gif)
 
-If you're new to Chitter, you'll need to sign up to start peeping. You're password will be stored safely.
+If you're new to Chitter, you'll need to sign up to start peeping. Your password will be stored safely.
 
 ![sign-up-and-peep](public/images/sign-up-and-peep.gif)
 
@@ -89,7 +89,7 @@ As well as your user data / account.
   - Encryption of passwords and authentication of users using sessions
   - Adhering to MVC standards and separation of concerns / SRP.
 
-- User Stories have all been hit, bar email notifications. Instead I wanted to implement all the CRUD features for the user info and peeps, which felt more important.
+- User Stories have all been hit, bar email notifications. Instead I prioritised implementing all of the CRUD features for the user info and peeps.
 - I went for an approach of using ORM and wrapping my database connection in a class. - I applied rake tasks to handle everything to do with environment and db setup. I setup tasks for connecting to the correct database depending on the environmnent, cleaning the database and creating and migrating the database.
 
 ### Skills Applied
@@ -120,7 +120,7 @@ BCrypt::Engine.cost = 1
 With more time it would be great to:
 - Add the email notification functionality
 - Add replies and likes
-- Add more robust security to the routes
+- Use an ORM such as Active Record
 - Deploy to Heroku
 
 ## User Stories
@@ -160,14 +160,5 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 ![homepage](public/images/homepage.png)
