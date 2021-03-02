@@ -3,8 +3,9 @@
 Chitter Challenge
 -------
 
-This is a twitter clone that implements the below user stories and features.
+This is a twitter clone that implements the below user stories and features. Written in Ruby, the app is run by Sinatra and while its database is managed by postgresql. Users can sign up - posting a 'peep' is only possible while logged in. Each peep consists of a message, the name and username of the poster, and the time it was posted.
 
+<img src="https://user-images.githubusercontent.com/71288920/109436561-fcdb5080-7a17-11eb-9692-3cfadee05019.gif" width='600'>
 
 Features:
 -------
