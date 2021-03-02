@@ -26,6 +26,16 @@ class Peep
     end
   end
 
+  def self.find(id:)
+     result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{id};")
+     Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time_created'], user: User.find(result[0]['user_id']))
+  end
+
+  def self.update(id:, content:)
+    result = DatabaseConnection.query("UPDATE peeps SET content = '#{content}' WHERE id = #{id} RETURNING id, content, time_created, user_id;")
+    Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time_created'],user: User.find(result[0]['user_id']))
+  end
+
   attr_reader :id, :content, :time, :user
 
   def initialize(id:, content:, time:, user:)
