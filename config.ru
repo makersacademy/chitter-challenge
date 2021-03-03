@@ -1,9 +1,8 @@
 require 'rake'
-
 require_relative 'chitter'
 
 use Rack::MethodOverride
 
-DatabaseConnection.setup('DATABASE_URL')
+DatabaseConnection.setup('d2fudekod14k43')
 
 run Chitter

@@ -111,6 +111,4 @@ class Chitter < Sinatra::Base
     flash[:notice] = 'You have signed out.'
     redirect '/peeps'
   end
-
-  run! if app_file == $PROGRAM_NAME
 end
