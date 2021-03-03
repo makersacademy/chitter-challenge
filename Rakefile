@@ -30,6 +30,13 @@ task :setup do
   end
 end
 
+desc 'Setup development database'
+  task :setup_development_db do
+    connection = PG.connect
+    connection.query("CREATE DATABASE chitter;")
+  end
+end
+
 desc 'Migrate database tables'
 task :migrate do
   Rake::Task['migrate_test'].execute
