@@ -99,7 +99,7 @@ As well as your user data / account.
 - Password encryption using BCrypt
 - Object relational mapping
 - RESTful routing
-- CRUD capable app, all create read update and delete actions possible on both peep and user data.
+- CRUD capable app, all create read update and delete actions possible on both peep and user data
 - Applying a favicon icon:
 
 ![favicon](public/images/favicon-example.png)
