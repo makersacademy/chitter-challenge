@@ -72,7 +72,7 @@ Edit and delete your peeps any time.
 
 ![edit-peep](public/images/editing-peep.gif)
 
-As well as your user data / account.
+As well as your user account data.
 
 ![edit-delete-account](public/images/edit-delete-account.gif)
 
