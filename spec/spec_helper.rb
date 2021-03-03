@@ -1,9 +1,10 @@
 require 'coveralls'
-require 'simplecov'
-require 'simplecov-console'
 
 Coveralls.wear!
 SimpleCov.start
+
+require 'simplecov'
+require 'simplecov-console'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
   SimpleCov::Formatter::Console
@@ -19,7 +20,7 @@ require 'rake'
 require 'rspec'
 
 require_relative 'features/web_helpers'
-require_relative '../chitter'
+require_relative '../app/controllers/chitter_controller'
 
 Capybara.app = Chitter
 
