@@ -1,7 +1,7 @@
 require 'pg'
 require 'rake'
 
-require_relative 'chitter'
+require_relative 'app/lib/database_connection'
 
 desc 'Connect to database'
 task :setup_database_connection do
@@ -34,74 +34,76 @@ task :setup_development_db do
   connection.query("CREATE DATABASE chitter;")
 end
 
-desc 'Migrate database tables'
-task :migrate do
-  Rake::Task['migrate_test'].execute
-  Rake::Task['migrate_development'].execute
-end
+namespace :migrate do
+  desc 'Migrate database tables'
+  task :migrate do
+    Rake::Task['migrate_test'].execute
+    Rake::Task['migrate_development'].execute
+  end
 
-desc 'Migrate test database tables'
-task :migrate_test do
-  connection = PG.connect(dbname: 'chitter_test')
+  desc 'Migrate test database tables'
+  task :test_db do
+    connection = PG.connect(dbname: 'chitter_test')
 
-  connection.exec(
-    "CREATE TABLE users(
-      id SERIAL PRIMARY KEY,
-      name VARCHAR (60) NOT NULL,
-      username VARCHAR (60) UNIQUE NOT NULL,
-      email VARCHAR (255) UNIQUE NOT NULL,
-      password VARCHAR (80) NOT NULL
-    );"
-  )
+    connection.exec(
+      "CREATE TABLE users(
+        id SERIAL PRIMARY KEY,
+        name VARCHAR (60) NOT NULL,
+        username VARCHAR (60) UNIQUE NOT NULL,
+        email VARCHAR (255) UNIQUE NOT NULL,
+        password VARCHAR (80) NOT NULL
+      );"
+    )
 
-  connection.exec(
-    "CREATE TABLE peeps(
-      id SERIAL PRIMARY KEY,
-      content VARCHAR (280) NOT NULL,
-      user_id INTEGER REFERENCES users (id),
-      time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
-    );"
-  )
+    connection.exec(
+      "CREATE TABLE peeps(
+        id SERIAL PRIMARY KEY,
+        content VARCHAR (280) NOT NULL,
+        user_id INTEGER REFERENCES users (id),
+        time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
+      );"
+    )
 
-  connection.exec(
-    "ALTER TABLE peeps
-      DROP CONSTRAINT peeps_user_id_fkey,
-      ADD CONSTRAINT peeps_user_id_fkey
-        FOREIGN KEY (user_id)
-        REFERENCES users (id)
-        ON DELETE CASCADE;"
-  )
-end
+    connection.exec(
+      "ALTER TABLE peeps
+        DROP CONSTRAINT peeps_user_id_fkey,
+        ADD CONSTRAINT peeps_user_id_fkey
+          FOREIGN KEY (user_id)
+          REFERENCES users (id)
+          ON DELETE CASCADE;"
+    )
+  end
 
-desc 'Migrate development database tables'
-task :migrate_development do
-  connection = PG.connect(dbname: 'chitter')
+  desc 'Migrate development database tables'
+  task :development_db do
+    connection = PG.connect(dbname: 'chitter')
 
-  connection.exec(
-    "CREATE TABLE users(
-      id SERIAL PRIMARY KEY,
-      name VARCHAR (60) NOT NULL,
-      username VARCHAR (60) UNIQUE NOT NULL,
-      email VARCHAR (255) UNIQUE NOT NULL,
-      password VARCHAR (80) NOT NULL
-    );"
-  )
+    connection.exec(
+      "CREATE TABLE users(
+        id SERIAL PRIMARY KEY,
+        name VARCHAR (60) NOT NULL,
+        username VARCHAR (60) UNIQUE NOT NULL,
+        email VARCHAR (255) UNIQUE NOT NULL,
+        password VARCHAR (80) NOT NULL
+      );"
+    )
 
-  connection.exec(
-    "CREATE TABLE peeps(
-      id SERIAL PRIMARY KEY,
-      content VARCHAR (280) NOT NULL,
-      user_id INTEGER REFERENCES users (id),
-      time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
-    );"
-  )
+    connection.exec(
+      "CREATE TABLE peeps(
+        id SERIAL PRIMARY KEY,
+        content VARCHAR (280) NOT NULL,
+        user_id INTEGER REFERENCES users (id),
+        time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
+      );"
+    )
 
-  connection.exec(
-    "ALTER TABLE peeps
-      DROP CONSTRAINT peeps_user_id_fkey,
-      ADD CONSTRAINT peeps_user_id_fkey
-        FOREIGN KEY (user_id)
-        REFERENCES users (id)
-        ON DELETE CASCADE;"
-  )
+    connection.exec(
+      "ALTER TABLE peeps
+        DROP CONSTRAINT peeps_user_id_fkey,
+        ADD CONSTRAINT peeps_user_id_fkey
+          FOREIGN KEY (user_id)
+          REFERENCES users (id)
+          ON DELETE CASCADE;"
+    )
+  end
 end
