@@ -1,7 +1,9 @@
 development:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: chitter
+  username: adamjonas
   pool: 2
 
 production:
