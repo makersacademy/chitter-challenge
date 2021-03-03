@@ -31,10 +31,9 @@ task :setup do
 end
 
 desc 'Setup development database'
-  task :setup_development_db do
-    connection = PG.connect
-    connection.query("CREATE DATABASE chitter;")
-  end
+task :setup_development_db do
+  connection = PG.connect
+  connection.query("CREATE DATABASE chitter;")
 end
 
 desc 'Migrate database tables'
