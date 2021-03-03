@@ -5,7 +5,6 @@ feature 'deleting peeps' do
     click_button 'Peep'
     fill_in('peep', with: 'Building Chitter')
     click_button 'Post'
-
     click_button 'My Peeps'
 
     expect(page).to have_content 'Building Chitter'
