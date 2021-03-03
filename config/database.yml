@@ -3,7 +3,6 @@ development:
   encoding: unicode
   database: chitter
   pool: 2
-  username: adamjonas
 
 production:
   adapter: postgresql
@@ -12,3 +11,4 @@ production:
   host: <%= ENV['DATABASE_HOST'] %>
   database: <%= ENV['DATABASE_NAME'] %>
   username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
