@@ -1,0 +1,9 @@
+<h1>Chitter</h1>
+
+<h2>Edit your peep</h2>
+
+<form action="/peeps/<%= @peep.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <textarea rows="10" cols="25" type="text" name="peep" maxlength="280"><%= @peep.content %></textarea><br>
+  <input class="submit" type="submit" value="Save">
+</form>

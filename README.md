@@ -1,30 +1,139 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+[![Build Status](https://travis-ci.com/AJ8GH/chitter-challenge.svg?branch=master)](https://travis-ci.com/AJ8GH/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/AJ8GH/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/AJ8GH/chitter-challenge?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/4713133e3a625ac7b613/maintainability)](https://codeclimate.com/github/AJ8GH/chitter-challenge/maintainability)
 
-Challenge:
--------
+![feed-scroll](public/images/feed-scroll.gif)
 
-As usual please start by forking this repo.
+## Dependencies
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+### Ruby version
 
-Features:
--------
+- `2.7.2`
+
+### Gems
+
+- `bcrypt`
+- `capybara`
+- `coveralls_reborn (~> 0.20.0)`
+- `pg`
+- `puma`
+- `rack`
+- `rake`
+- `rspec`
+- `rubocop (= 0.79.0)`
+- `simplecov`
+- `simplecov-console`
+- `sinatra-flash`
+- `sinatra`
+
+## Database Setup
+
+Automated setup with rake tasks:
+```shell
+rake setup
+rake migrate
+```
+
+Full database setup documented in `db/migrations`
+
+## Getting Started
+
+```shell
+git clone git@github:AJ8GH/chitter-challenge.git
+cd chitter-challenge
+Bundle
+rake setup
+rake migrate
+rackup
+```
+
+Go to [http://localhost:9292](http://localhost:9292) in your browser
+
+## Running Tests
+
+Run all tests in documentation format with rspec command from root directory
+```shell
+rspec
+```
+
+## Usage
+
+Check your peeps in reverse chronological order - no need to be signed in for this feature.
+
+Sign in to access more features such as peeping and editing your peeps / details.
+
+![signing-in](public/images/signing-in.gif)
+
+If you're new to Chitter, you'll need to sign up to start peeping. Your password will be stored safely.
+
+![sign-up-and-peep](public/images/sign-up-and-peep.gif)
+
+Edit and delete your peeps any time.
+
+![edit-peep](public/images/editing-peep.gif)
+
+As well as your user account data.
+
+![edit-delete-account](public/images/edit-delete-account.gif)
+
+
+## Reflections
+
+### Design and approach
+
+- I set out to build a an app which ticks boxes for:
+  - CRUD features
+  - Use of ORM with postgres database
+  - Polished look using CSS
+  - Well designed RESTful routing
+  - Encryption of passwords and authentication of users using sessions
+  - Adhering to MVC standards and separation of concerns / SRP.
+
+- User Stories have all been hit, bar email notifications. Instead I prioritised implementing all of the CRUD features for the user info and peeps.
+- I went for an approach of using ORM and wrapping my database connection in a class. - I applied rake tasks to handle everything to do with environment and db setup. I setup tasks for connecting to the correct database depending on the environmnent, cleaning the database and creating and migrating the database.
+
+### Skills Applied
+
+- Rake tasks for automated building of db
+- Rake tasks for connecting to and cleaning the database
+- Password encryption using BCrypt
+- Object relational mapping
+- RESTful routing
+- CRUD capable app, all create read update and delete actions possible on both peep and user data
+- Applying a favicon icon:
+
+![favicon](public/images/favicon-example.png)
+
+- Using test and development environments
+
+In my test environment:
+- my db connection rake task automatically connects to the test database, and outputs a confirmation to the terminal
+![connection-to-test](public/images/connection-to-test.png)
+- Bcrypt is set up with minimum cost factor, so as not to slow down the tests
+```ruby
+BCrypt::Engine.cost = 1
+```
+- db cleaning raketask truncates the database before each test
+
+### What to do differently
+
+With more time it would be great to:
+- Add the email notification functionality
+- Add replies and likes
+- Use an ORM such as Active Record
+- Deploy to Heroku
+
+## User Stories
 
 ```
 STRAIGHT UP
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a Maker
@@ -52,84 +161,4 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+![homepage](public/images/homepage.png)

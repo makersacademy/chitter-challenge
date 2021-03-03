@@ -1,0 +1,19 @@
+<h1>Chitter</h1>
+
+<form action="/peeps">
+  <input type="submit" value="Back to Feed">
+</form>
+
+<h2 class="details">Your details</h2>
+
+<p>Name: <%= @user.name %></p>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+
+<form action="/users/<%= @user.id %>/edit">
+  <input class="submit" type="submit" value="Edit">
+</form>
+
+<form action="/users/delete">
+  <input class="submit" type="submit" value="Delete">
+</form>

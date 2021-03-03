@@ -1,0 +1,11 @@
+<h2>Are you sure you want to delete your account?<br>
+This can't be undone.</h2>
+
+<form action="/users/<%= @user.id %>/delete" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
+
+<form action="/users/<%= @user.id %>/show">
+  <input type="submit" value="Cancel">
+</form>
