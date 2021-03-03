@@ -1,3 +1,4 @@
+require 'pg'
 require 'rake'
 require_relative 'chitter'
 
