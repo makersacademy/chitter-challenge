@@ -10,13 +10,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:peep], user_id: session[:user_id])
+    Peep.create(content: params[:peep], user_id: @user.id)
     redirect '/peeps'
   end
 
   get '/peeps/:id/edit' do
     @peep = Peep.find(id: params[:id])
-    redirect '/peeps' unless @user.id == @peep.id
+    redirect '/peeps' unless @user.id == @peep.user_id
     erb :'peeps/edit'
   end
 

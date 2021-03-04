@@ -1,6 +1,5 @@
 class Chitter < Sinatra::Base
   get '/users/:id/show' do
-    redirect '/peeps' unless @user.id == params[:id]
     erb :'users/index'
   end
 
