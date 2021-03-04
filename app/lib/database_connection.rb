@@ -10,11 +10,11 @@ class DatabaseConnection
 
            # if ENV['DATABASE_HOST']
       self.connection = PG.connect(
-        host: ENV['DATABASE_HOST'],
-        port: 5432,
-        dbname: ENV['DATABASE_NAME'],
-        user: ENV['DATABASE_USER'],
-        password: ENV['DATABASE_PASSWORD']
+        host: 'ec2-54-242-43-231.compute-1.amazonaws.com',
+        port: '5432',
+        dbname: 'd2fudekod14k43',
+        user: 'gxhgqxcjdyefqi',
+        password: '35c1be836d9ea060b87e618f0a05d1bef3d7de2daa775ba39f8963ee3e0d6590'
       )
         # else
         #   self.connection = PG.connect(dbname: database)
