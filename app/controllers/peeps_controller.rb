@@ -5,6 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    redirect '/peeps' unless session[:user_id]
     erb :'peeps/new'
   end
 
@@ -15,6 +16,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps/:id/edit' do
     @peep = Peep.find(id: params[:id])
+    redirect '/peeps' unless @user.id == @peep.id
     erb :'peeps/edit'
   end
 
