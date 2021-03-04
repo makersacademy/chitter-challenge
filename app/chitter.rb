@@ -1,0 +1,10 @@
+require 'sinatra/base'
+require 'sinatra/flash'
+
+require_relative 'controllers/user_controller'
+require_relative 'controllers/peeps_controller'
+require_relative 'controllers/session_controller'
+require_relative 'controllers/chitter_controller'
+require_relative 'lib/database_connection'
+require_relative 'lib/user'
+require_relative 'lib/peep'
