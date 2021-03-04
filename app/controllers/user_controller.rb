@@ -1,9 +1,11 @@
 class Chitter < Sinatra::Base
   get '/users/:id/show' do
+    redirect '/peeps' unless @user.id == params[:id]
     erb :'users/index'
   end
 
   get '/users/:id/edit' do
+    redirect '/peeps' unless @user.id == params[:id]
     erb :'users/edit'
   end
 
@@ -14,10 +16,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/delete' do
+    redirect '/peeps' unless @user.id
     erb :'users/delete'
   end
 
   delete '/users/:id/delete' do
+    redirect '/peeps' unless @user.id == params[:id]
     User.delete(id: params[:id])
     session.clear
     flash[:notice] = 'Your account has been deleted.'

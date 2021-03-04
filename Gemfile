@@ -4,6 +4,7 @@ ruby '2.7.2'
 
 group :development, :production do
   gem 'bcrypt'
+  gem 'dotenv'
   gem 'pg'
   gem 'puma'
   gem 'rack'
