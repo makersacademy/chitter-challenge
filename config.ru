@@ -1,2 +1,2 @@
 require './app'
-run Chitter::Application
+run Sinatra::Application
