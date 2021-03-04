@@ -6,6 +6,7 @@ class DatabaseConnection
       # if ENV['DATABASE_HOST']
         self.connection = PG.connect(
         host: ENV['DATABASE_HOST'],
+        port: 5432,
         dbname: ENV['DATABASE_NAME'],
         user: ENV['DATABASE_USER'],
         password: ENV['DATABASE_PASSWORD']
