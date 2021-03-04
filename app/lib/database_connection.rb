@@ -3,16 +3,16 @@ require 'pg'
 class DatabaseConnection
   class << self
     def setup(database)
-      if ENV['DATABASE_HOST']
+      # if ENV['DATABASE_HOST']
         self.connection = PG.connect(
         host: ENV['DATABASE_HOST'],
         dbname: ENV['DATABASE_NAME'],
         user: ENV['DATABASE_USER'],
         password: ENV['DATABASE_PASSWORD']
       )
-      else
-        self.connection = PG.connect(dbname: database)
-      end
+      # else
+      #   self.connection = PG.connect(dbname: database)
+      # end
     end
 
     def query(sql_query)
