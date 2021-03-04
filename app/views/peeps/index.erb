@@ -41,7 +41,7 @@
 <% @peeps.reverse.each do |peep| %>
   <article class="peep">
     <p class="name">@<%= peep.username %> (<%= peep.name %>) peeped:</p>
-    <textarea class="content" cols="25" rows="4"><%= peep.content %></textarea>
+    <textarea class="content" cols="25" rows="4" readonly><%= peep.content %></textarea>
     <p class="time"><%= peep.time %></p>
   </arcticle>
 <% end %>
