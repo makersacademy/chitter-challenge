@@ -1,0 +1,19 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css"
+</head>
+<body>
+      <h1> Chitter </h1><br>
+
+<h3>
+  <%= flash[:notice] %>
+</h3>
+
+<form action="/sessions" method="post" >
+  <input type="email" name="email" placeholder="Email" />
+  <input type="password" name="password" placeholder="Password"/>
+  <input type="submit" value="Sign in"/>
+</form>
+
+</body>

@@ -1,0 +1,57 @@
+body {
+  background-color: rgba(30,139,195,1);
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 10px;
+  font-family: fantasy;
+}
+
+.main {
+  font-family: fantasy;
+  align-items: center;
+  align-content: center;
+  font-size: x-large;
+}
+
+.far fa-comments {
+  position: relative;
+  right: 175px;
+  top: 50px;
+  size: 9x;
+}
+
+p {
+  color: black;
+  font-size: xx-large;
+  justify-content: center;
+  align-self: center;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  padding: 30px 30px 65px 50px;
+}
+
+h3 {
+  color: black;
+  padding: 30px 30px 65px 50px;
+  font-size: large;
+}
+
+.sign-out {
+  position: absolute;
+  right: 175px;
+  top: 50px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: lighter;
+  margin: auto;
+}
