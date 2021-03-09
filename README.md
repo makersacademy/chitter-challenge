@@ -1,5 +1,81 @@
 Chitter Challenge
 =================
+A small web app mimicking Twitter that allows users to post to a public stream. Completed for the purpose of practising databases & web apps.
+
+## Setup
+Run
+```shell
+bundle install
+```
+to install gems
+
+Create databases and tables via psql using sql instructions in db/migrations. Remember to create the tables in both databases.
+
+## Database Connection
+I have setup the connection to the database with ActiveRecord. This should work once you have bundle installed.
+
+## Usage
+Run
+```shell
+rackup
+```
+and visit localhost:9292 to view online website. Feel free to sign up to post peeps and explore! You will need to sign 2 people up if you would like to tag them in your peep.
+
+Run
+```shell
+rspec
+```
+for testing.
+
+## Diagrams
+User Table
+|id|name|email|username|password|
+|--|--|--|--|-|
+
+Peep Table
+|id|message|created_at|user_id|
+|-|-|-|-|
+
+Tag Table
+|id|peep_id|user_id|
+|-|-|-|
+
+I wanted to call the user_id column in the tag table "tagged_user_id", and call "peep.tagged_users" to retrieve them, but couldn't quite figure out how to change the names via activerecord.
+
+## My learning
+
+#### Advice needed:
+Project Setup - I tried but haven't yet worked out how to run the database migrations using rake. Help needed here!
+
+MVC - I think some of my controller is too 'fat' but I'm not sure how to make them thinner. Not sure I've got the MVC balance correct as the views also seem to be doing quite a lot. Is flash[:notice] done correctly? I haven't used next or now. Also, should I have more views? For example, one view for viewing the peeps before logging in and another view for viewing the peeps once logged in? This would minimise some of the <% if %> statements in the views, but just not sure if it's considered to be a better approach or not. Any advice would be really appreciated.
+
+CSS - I've managed to connect a separate .css file to the html! Hooray! Created a public/stylesheets directory which I link at top of html file. My design skills are terrible though! I should probably have multiple css files for each page but have done it all in one here.
+
+#### Reflection:
+
+User Story 1:\
+To make the most of the ActiveRecord syntax Peep.create(params[:peep]) I needed to name the "message" box peep[message]
+
+User Story 2:\
+Fairly straight forward. Consolidated understanding of the <class='peep'> to allow spec to find first('.peep')
+
+User Story 3:\
+Consolidated use of .strftime
+
+User Story 4:\
+Use 'user[name]' as names for inputs so that names are all associated as params of user. Not sure I've done flash[:notice] correctly in terms of where things are in MVC. Need to include bcrypt gem and has_secure_password in user.rb
+
+User Stories 5 & 6:\
+Logging in and out of chitter needs sessions enabled. Need to store the user_id in the session variable and access that session variable for each route. Routes needed for this step are get '/sessions/new', post '/sessions' and get '/sessions/destroy'
+
+User Story 7:\
+I have enabled tagging one user only in a post but have not got as far as initiating an email sent automatically to the tagged user.
+
+## References to Others' Code:
+I looked at previous pull requests to see what they had included in the .travis.yml file to get a green tick. Even after seeing this I couldn't find anything about it in the travis documentation or online so I've no idea how I would have found this.
+
+
+## Makers Instructions
 
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README

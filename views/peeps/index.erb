@@ -1,0 +1,40 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/chitter.css" />
+<body>
+  <h2><%= flash[:notice] %></h2>
+  <div class="header">
+    <% if @user %>
+      <h1><%= @user.name %>'s Chitter!</h1>
+    <% else %>
+      <h1>Chitter!</h1>
+    <% end %>
+  </div>
+  <div class="topnav">
+    <% if @user %>
+      <a href='/peeps/new'>New Peep</a>
+      <form action='/sessions/destroy' method='post'>
+        <input type='submit' value='Sign Out'>
+      </form>
+    <% end %>
+    <form action='/' method='get'>
+      <input type='submit' value='Back to Homepage'>
+    </form>
+  </div>
+  <div id="container">
+  <h1>Peeps</h1>
+  <% @peeps.each do |peep| %>
+    <div class='peep'>
+      <h1><%= peep.user.name %>  </h1>
+      <span>
+      <h2>@<%= peep.user.username %></h2>
+      </span>
+      <h3><%= peep.message %></h3>
+      <% peep.tagged_users.each do |user| %>
+        <li>@<%= user.username %></li>
+      <% end %>
+      <span>
+      <p><%= peep.created_at.strftime("%k:%M %d/%m/%Y") %></p>
+      </span>
+    </div>
+  <% end %>
+  </div>
+</body>

@@ -1,0 +1,113 @@
+/* The header */
+.header {
+  background-color: palegreen;
+  padding: 10px;
+  text-align: center;
+}
+
+.header h1 {
+  color: navy;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* The navbar container */
+.topnav {
+  background-color: navy;
+  text-align: center;
+}
+
+/* Navbar links */
+.topnav a, .topnav form, .topnav input[type=submit] {
+  float: center;
+  display: inline-block;
+  width: 20%;
+  background-color: navy;
+  font-size: 25px;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+  margin: auto;
+}
+
+.topnav input[type=submit] {
+  width: 100%;
+}
+/* Links - change color on hover */
+.topnav a:hover, a:active, input[type=submit]:hover {
+  background-color: skyblue;
+  color: black;
+}
+
+/* The body */
+body {
+  background-color: lightgreen;
+}
+
+#container {
+  width: 95%;
+  margin: auto;
+  background-color: palegreen;
+  color: navy;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.peep {
+  width: 80%;
+  height: 120px;
+  align: center;
+  margin: 20px auto;
+  border-radius: 10px;
+  border-color: white;
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.peep h1, h2, p, li {
+  color: navy;
+  float: center;
+  display: inline-block;
+  font-size: 30px;
+  margin: auto;
+}
+
+span {
+  float: right;
+}
+
+.peep h2 {
+  font-size: 25px;
+}
+
+.peep p, li {
+  text-align: right;
+  font-size: 20px;
+}
+
+.peep h3 {
+  padding-left: 20px;
+}
+
+.peep h4 {
+  color: black;
+  text-align: left;
+  font-size: 20px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+div.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
