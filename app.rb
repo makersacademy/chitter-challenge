@@ -28,6 +28,13 @@ class Chitter < Sinatra::Base
         redirect '/'
     end
 
-
-
+    post '/login_details' do
+        if User.check_password(login_email: params[:login_email], login_password: params[:login_password])
+            print "IN HERE"
+            session[:user] = User.find(email: params[:login_email])
+            redirect '/'
+        else
+            print params
+        end
+    end
 end

@@ -1,4 +1,7 @@
 <h1>Welcome to Chitter!</h1>
+<% if @session != nil %>
+    <p> Logged In <p>
+<% end %>
 <h1>Log In Below</h1>
 
 <form action='/login_details' method='post'>
