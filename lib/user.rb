@@ -1,5 +1,6 @@
 require 'pg'
-
+require './lib/database_connection'
+require_relative '../database_connection_setup.rb'
 class User
 attr_reader :id, :name, :email, :username, :password
 
@@ -11,10 +12,12 @@ attr_reader :id, :name, :email, :username, :password
         @password = password
     end
 
-    def self.newuser(id:, name:, email:, username:, password:)
-      connection = PG.connect(dbname: 'chitter')
-      user = connection.exec("INSERT INTO users (name, email, username, password) VALUES('#{name}', '#{email}', '#{username}','#{password}') RETURNING id, name, email, username, password;")
+    def self.newuser(id:, username:, password:, name:, email:)
+      user = DatabaseConnection.query("INSERT INTO users (username, password, name, email) VALUES('#{username}', '#{password}', '#{name}','#{email}') RETURNING id, name, email, username, password;")
       User.new(id: user[0]['id'], name: user[0]['name'], email: user[0]['email'], username: user[0]['username'], password: user[0]['password'])
     end
 
+    def self.check_email(email)
+      email_check = DatabaseConnection.query("SELECT * FROM users")
+    end
 end
