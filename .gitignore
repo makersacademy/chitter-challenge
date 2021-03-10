@@ -4,3 +4,4 @@ docs/plan.md
 # Local cache of Rubocop remote config
 .rubocop-*
 docs/challenge_instructions.md
+.env
