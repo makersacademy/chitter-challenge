@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+  <body>
+  <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+    <style>
+      body {font-family: 'Finger Paint', cursive; ;font-size: 40px; ;color: #FFFF}
+      body {background-image: url("/image/birdies.png");
+        height: 20%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        }
+    </style>
+    <div align="center">
+    <h1>Chitter</h1>
+    <form action="/new" method="GET">
+      <input type="submit" name="Add" value="Add">
+    </form>
+    <form action="/sign_up" method="GET">
+      <input type="submit" name="Sign up" value="Sign Up">
+    </form>
+
+      <ul>
+        <% @peeps.reverse.each do |peep| %>
+          <li><%= peep.peep %>
+          Posted at: <%= peep.time %>
+          Posted by: <%=  %>
+          </li>
+        <% end %>
+      </ul>
+
+    
+    </div>
+  </body>
+</html>
