@@ -14,7 +14,7 @@ SimpleCov.start
 
 ENV['ENVIRONMENT'] = 'test'
 
-Capybara.app = Chitter
+Capybara.app = ChitterApp
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

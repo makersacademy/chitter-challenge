@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class Chitter < Sinatra::Base
+class ChitterApp < Sinatra::Base
 
   get '/' do
     erb :index
