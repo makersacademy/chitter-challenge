@@ -1,0 +1,22 @@
+Chitter
+
+<form action='/login' method='post'>
+  <label for='username'>Username:</label>
+  <input type='text' name='username'>
+  <label for='password'>Password:</label>
+  <input type='text' name='password'>
+  <input type='submit' value='Go' name='go'>
+</form>
+<p>
+<form action='/peep' method='post'>
+  <label for='peep_text'>Peep:</label>
+  <input type='text' name='peep_text'>
+  <input type='submit' value='Post' name='post'>
+</form>
+<ul>
+<% Peeps.all.each do |peep| %>
+<li class = "peep" >
+  <%=peep.time %><br>
+  <%=peep.text %><br>
+<% end %>
+</ul>
