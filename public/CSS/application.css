@@ -1,0 +1,22 @@
+.center {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: linear-gradient(135deg, #89548c, #8e558c, #9a598d, #ab5f8d, #be698c, #d0758a, #e18488, #ed9388, #f6a388, #fbb089, #feb98b, #ffbc8c);
+}
+
+@supports (-webkit-text-stroke: 2px black) {
+  a {
+    -webkit-text-stroke: 2px black;
+    -webkit-text-fill-color: white;
+  }
+}
+
+main input[type="submit"] {
+  justify-content: center;
+  align-items: center;
+  display: inline;
+}

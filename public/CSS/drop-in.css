@@ -1,0 +1,176 @@
+/* drop-in.css */
+
+
+/* RESETS */
+
+html { box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 600px;
+  max-width: 800px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 0.5rem;
+}
+
+
+/* DESIGN STYLES  */
+
+/* Fonts */
+
+html { font-family: 'Ubuntu', sans-serif; }
+
+h1, h2, h3, h4 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Colors */
+
+html {
+  background-color: #888;   /* medium gray */
+  color: #ddd;              /* dark gray */
+}
+
+body,
+header nav input[type="submit"] {
+  background-color: #222;    /* dark gray */
+}
+
+main {
+  background-color: #ddd;   /* light gray */
+  color: #222;              /* dark gray */
+}
+
+a:link,
+a:visited,
+header nav input[type="submit"] {
+  color: rgb(255, 255, 255);           /* darker contrasting color; inactive links */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+header nav input[type="submit"]:hover,
+header nav input[type="submit"]:active {
+  color: rgb(255, 255, 255);          /* brighter contrasting color; active links */
+}
+
+header nav li {
+  border-left: 3px solid #888;    /* match html background-color */
+}
+
+main table,
+main th,
+main td {
+  border: 1px solid #222;         /* match body background-color */
+  background-color: #eee;         /* lighter than main background-color */
+}
+
+
+/* HEADER STYLES */
+
+header { padding: 1rem; }
+
+header h1 {
+  margin: 0 0 1rem;
+  font-size: 3rem;
+}
+
+header nav { float: right; }
+
+header nav ul { list-style: none; }
+
+header nav li {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+header nav li:last-child { padding-right: 0;}
+
+header nav li:first-child { border-left: 0;}
+
+header nav input[type="submit"] {
+  overflow: visible;
+  text-align: center;
+  width: auto;
+  border: none;
+}
+
+
+/* MAIN STYLES - Yield Block */
+
+main {
+  padding: 1rem;
+  clear: both;
+}
+
+/* Lists */
+
+main ul { margin: 0 auto 1.5rem; }
+
+main ul li {
+  list-style: none;
+  margin: 0.5rem 0 1rem;
+  font-size: 1.25rem;
+}
+
+/* Forms */
+
+main input {
+  display: block;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+main input[type="text"],
+main input[type="password"],
+main input[type="email"] {
+  padding: 0 0.5rem;
+}
+
+main textarea {
+  width: 100%;
+  height: 5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+main input[type="radio"],
+main input[type="checkbox"] {
+  display: inline;
+  width: 1.5rem;
+}
+
+main input[type="submit"] { width: 12rem; }
+
+/* Tables */
+
+main table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+main th,
+main td {
+  padding: 0.25rem 0;
+  width: 25%;
+  text-align: center;
+}
+
+
+/* FOOTER STYLES */
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 1rem;
+}
