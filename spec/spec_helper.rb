@@ -20,6 +20,7 @@ require 'simplecov-console'
 require 'setup_test_database.rb'
 # require 'setup_test_database_security.rb'
 # require 'web_helpers.rb'
+require 'orderly'
 
 Capybara.app = Chitter
 

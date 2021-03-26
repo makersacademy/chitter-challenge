@@ -1,1 +1,9 @@
-<%= @peep %>
+
+<% @peep.each do |peep| %>
+
+<%=peep[:content]%>
+<br>
+<%=peep[:time]%>
+
+
+<% end %>

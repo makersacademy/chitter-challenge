@@ -21,6 +21,9 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.11.2-x86_64-darwin)
       racc (~> 1.4)
+    orderly (0.1.1)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parallel (1.19.1)
     parser (2.7.0.4)
       ast (~> 2.4.0)
@@ -82,6 +85,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  orderly
   pg
   rack
   rspec
