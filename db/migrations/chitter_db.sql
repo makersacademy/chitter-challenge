@@ -1,6 +1,6 @@
-CREATE DATABASE "chitter_test";
+CREATE DATABASE "chitter";
 
-\c chitter_test;
+\c chitter;
 
 CREATE TABLE users
 (
