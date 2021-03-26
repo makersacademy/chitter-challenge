@@ -15,7 +15,7 @@ CREATE TABLE peeps
     peep_id SERIAL PRIMARY KEY,
     message VARCHAR(512),
     user_id integer,
-    create_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT peeps_one_author FOREIGN KEY (user_id)
         REFERENCES users (user_id) MATCH SIMPLE
 );
