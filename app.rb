@@ -1,13 +1,19 @@
 require 'sinatra/base'
+require './lib/db_connection'
+require './lib/chitter'
 
 class ChitterApp < Sinatra::Base
+
+  before do
+    DbConnection.check_env
+  end
 
   get '/' do
     erb :index
   end
 
   post '/peep' do
-    p params[:message]
+    Chitter.send_peep(params[:message], params[:id])
     redirect '/'
   end
 

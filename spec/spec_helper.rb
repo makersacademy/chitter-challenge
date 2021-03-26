@@ -1,3 +1,4 @@
+require './spec/test_helper'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
@@ -17,6 +18,14 @@ ENV['ENVIRONMENT'] = 'test'
 Capybara.app = ChitterApp
 
 RSpec.configure do |config|
+  
+  config.before(:each) do
+    setup_users_table
+    setup_tags_table
+    setup_peeps_table
+    setup_peep_tag_relation_table
+  end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

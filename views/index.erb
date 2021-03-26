@@ -1,7 +1,17 @@
 <h1>Chitter!</h1>
 
 <form action='/peep' method='post'>
-  <textarea name='message' Placeholder='What&#39;s on your mind?'
-  maxlength="512" rows="9" cols="60" required></textarea><br><br>
+  <input type='text' name='message' placeholder='What&#39;s on your mind?'
+  maxlength="512" rows="9" cols="60" required><br>
+  <input type='text' name='id' placeholder='User_id' required><br>
   <input type='submit' value='Peep'>
 </form>
+<br>
+<h3>
+<%Chitter.all_peeps.each do |peep|%>
+<%=peep.message%><br>
+<%=peep.user_id%><br>
+<%=peep.created_at%><br>
+<%end%>
+
+</h3>
