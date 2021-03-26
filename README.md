@@ -25,6 +25,7 @@ I want to sign up for Chitter
 
 ![Chitter Domain Model (1)](https://user-images.githubusercontent.com/74908625/112628934-891c4000-8e2b-11eb-97a0-3a284fa2790a.jpg)
 
+![Chitter Domain Model](https://user-images.githubusercontent.com/74908625/112629115-c7b1fa80-8e2b-11eb-9821-58bd0b6b86a7.jpg)
 
 
 
