@@ -1,8 +1,8 @@
 require 'pg'
 
 class DbConnection
-  def self.connected
-    @connected
+  class << self
+    attr_reader :connected
   end
   
   def self.setup(dbname)
@@ -15,10 +15,10 @@ class DbConnection
 
   def self.check_env
     if ENV['ENVIRONMENT'] == 'test'
-      self.setup('chitter_test') # , 
+      setup('chitter_test') # , 
                       #  :user => 'makers', :password => 'makers'
     else
-      self.setup('chitter') # , 
+      setup('chitter') # , 
                       #  :user => 'makers', :password => 'makers'
     end
   end

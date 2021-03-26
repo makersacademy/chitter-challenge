@@ -1,4 +1,4 @@
-require './lib/db_connection.rb'
+require './lib/db_connection'
 
 def setup_users_table
   DbConnection.check_env
