@@ -9,12 +9,19 @@ class Chitter
 
   def self.all_peeps
     @peeps = []
-    DbConnection.query("SELECT * FROM peeps ORDER BY created_at ASC;").each do |peep|
+    DbConnection.query("SELECT * FROM peeps ORDER BY created_at DESC;").each do |peep|
       @peeps << Peep.new(id: peep['id'], message: peep['message'], user_id: peep['user_id'], 
-created_at: peep['created_at'])
+                created_at: peep['created_at'])
     end
     return @peeps
   end
 
-  
+  def self.all_users
+    @users
+    DbConnection.query("SELECT * FROM users ORDER BY created_at ASC;").each do |peep|
+      @users << User.new(id: peep['id'], message: peep['message'], user_id: peep['user_id'], 
+                created_at: peep['created_at'])
+    end
+    return @users
+  end
 end
