@@ -1,20 +1,22 @@
-Chitter Challenge
+Weekend 4: Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
 Features:
--------
+-----------------
+
+Aim: to achieve the first 4 user stories
+Plan: to use my bookmark challenge and notes for help and to record where I hit blockers with as much context as possible
+
+create databases - test and real called chitter and table called peeps done. 
+
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
 
 ```
 STRAIGHT UP
@@ -27,9 +29,7 @@ As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+
 
 As a Maker
 So that I can post messages on Chitter as me
