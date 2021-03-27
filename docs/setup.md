@@ -9,7 +9,7 @@
 
 #### Database
 
-Prerequisite: Install and setup postgresql locally if you don't have ([Instructions](https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/04_mac.md)).
+Prerequisite: Install and setup postgresql locally ([Instructions](https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/04_mac.md)).
 
 Run following sql in order:
 
@@ -56,4 +56,4 @@ CREATE OR REPLACE VIEW view_messages AS
   ON m.user_id = u.id;
 ```
 
-*Test database will automatically setup when run rspec
+*Test database, tables and views will automatically setup when run rspec
