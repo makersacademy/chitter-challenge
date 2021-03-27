@@ -8,9 +8,10 @@
 <a href="/add_peep">Add Peep</a>
 
 <ul>
-<% @peeps.each do |peep| %>
+<% @peeps.reverse.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
     <p><%=peep.body%></p>
+    <p><%=peep.time%></p>
   </li>
 <% end %>
 </ul>

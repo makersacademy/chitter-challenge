@@ -80,4 +80,12 @@ feature 'add a peep' do
     click_button 'Add Peep'
     expect(page).to have_content 'I hope it snows tomorrow. I want to build a snowman named Greg'
   end
+
+  feature 'view peeps as a guest' do
+    scenario 'guests can view peeps without sign up or login' do
+      visit '/'
+      click_link 'View peeps as a guest'
+      expect(page).to have_content 'Peeps'
+    end
+  end
 end

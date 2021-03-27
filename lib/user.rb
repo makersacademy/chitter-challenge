@@ -1,7 +1,7 @@
 require 'pg'
 
 class User
-  attr_reader :id, :name, :username, :email, :password
+  attr_reader :id, :name, :username
 
   def initialize(id, name, username, email, password)
     @id = id

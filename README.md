@@ -102,8 +102,8 @@ I want to receive an email if I am tagged in a Peep
 ### Notes on functionality:
 ------
 
-[ ] You don't have to be logged in to see the peeps.
-[ ] Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+[X] You don't have to be logged in to see the peeps.
+[X] Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 [ ] The username and email are unique.
 [ ] Peeps (posts to chitter) have the name of the maker and their user handle.
 [ ] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
@@ -114,6 +114,11 @@ Bonus:
 [ ] Work on the CSS to make it look good.
 
 ----
+
+###TO DO:
+[ ] remove global variable on username shown when logged in
+[ ] use class method to view logged in username
+
 ### Chitter database setup
 Connect to psql
 Create the database using the psql command CREATE DATABASE chitter;

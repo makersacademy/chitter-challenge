@@ -21,9 +21,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.add(params[:new_peep])
     User.add(params[:name], params[:username], params[:email], params[:password])
     $username = params[:username]
+    redirect '/peeps'
+  end
+
+  post '/add_peep' do
+    Peep.add(params[:new_peep])
     redirect '/peeps'
   end
 
