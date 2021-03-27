@@ -27,7 +27,7 @@ class Peeps
 
   def self.all
     @peeps = []
-    DBConnection.connection.exec("SELECT * FROM peeps").map do |peep|
+    DBConnection.connection.exec("SELECT * FROM peeps ORDER BY date DESC, time DESC").map do |peep|
       @peeps << Peeps.new(peep['text'], peep['user_ID'], peep['date'], peep['time'], peep['id'])
     end
     return @peeps
