@@ -1,7 +1,13 @@
 <h1> Add a peep to Chitter </h1>
 
-<form action='/add_peep' method= 'post'>
+<!-- <form action='/add_peep' method= 'post'>
   <input type='text' name='new_peep' placeholder='Say something here...'>
+  <br>
+  <input type='submit' name='add_peep' value='Add Peep'>
+</form> -->
+
+<form action='/add_peep' method= 'post' id="addpeep">
+  <textarea name="new_peep" form="addpeep" placeholder="add a peep..."></textarea>
   <br>
   <input type='submit' name='add_peep' value='Add Peep'>
 </form>

@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    session[:current_user] = "a Guest"
     erb :chitter
   end
 

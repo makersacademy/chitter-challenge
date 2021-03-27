@@ -80,14 +80,16 @@ chitter accounts:
 |   1   |         |             |         |             |
 
 peeps:
-|  id   |  peep_body   |     |    |     |
-|-------|---------|-------------|---------|-------------|
-|    1  |         |             |         |             |
+|  id   |  body   |  time   |   username   |  
+|-------|---------|---------|--------------|
+|    1  |         |         |              |
 
+
+#### table not yet implemented:
 account_peeps:
-|  account_id   |  peep_id   |     |    |     |
-|-------|---------|-------------|---------|-------------|
-|    1  |         |             |         |             |
+|  account_id   |  peep_id   |
+|---------------|------------|
+|    1          |            |
 
 
 ADVANCED
@@ -107,7 +109,9 @@ I want to receive an email if I am tagged in a Peep
 [X] peeps are viewed in reverse chronological order
 
 [ ] The username and email are unique.
-[ ] Peeps (posts to chitter) have the name of the maker and their user handle.
+[ ] Peeps (posts to chitter) have:
+    [ ]the name of the maker
+    [X]the username of the maker
 [ ] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 Bonus:
@@ -118,8 +122,7 @@ Bonus:
 ----
 
 ###TO DO:
-[ ] remove global variable on username shown when logged in
-[ ] use class method to view logged in username
+
 
 ### Chitter database setup
 Connect to psql
