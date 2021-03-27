@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 group :test do
+  gem 'bcrypt'
   gem 'capybara'
   gem 'pg'
   gem 'rake'
