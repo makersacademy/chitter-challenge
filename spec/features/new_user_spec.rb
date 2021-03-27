@@ -6,9 +6,9 @@ describe ChitterApp do
       fill_in 'username', with: 'littletoast'
       fill_in 'email', with: 'littletoast@notadomain.com'
       fill_in 'password', with: 'password1'
-      fill_in 'confirmpw', with: 'password1'
       click_button 'Submit'
-      expect(page).to have_content('Hi, littletoast!')
+      expect(Chitter.all_users.last.username).to eq('littletoast')
+      expect(Chitter.all_users.last.email).to eq('littletoast@notadomain.com')
     end
   end
 end
