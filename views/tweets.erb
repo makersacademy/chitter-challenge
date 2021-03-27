@@ -1,11 +1,17 @@
 <html>
   <body>
     <ul>
-      <li>
-        <% $goliath.map do |tweet| %>
-          <%= tweet %> 
-        <% end %>
-      </li>
+          <% @goliath.map do |input| %>
+            <li class='tweet' >
+              <a> 
+                <%= input.tweet %> 
+              </a>
+                <form action="/tweet/<%= input.id %>/delete" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type='submit' value='delete'>
+                </form>
+            </li>
+          <% end %>
     </ul>
     
     <form action='/new_tweet' method='post'>

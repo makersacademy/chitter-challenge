@@ -9,7 +9,8 @@ class Twitter < Sinatra::Base
   end 
 
   get '/home' do 
-    $goliath = Tweets.all.reverse
+    @goliath = Tweets.all.reverse
+    p @goliath
     erb :tweets
   end 
 
@@ -17,6 +18,11 @@ class Twitter < Sinatra::Base
     Tweets.create(tweet: params[:new_tweet])
     redirect '/home'
   end
+
+  post '/tweet/:id/delete' do 
+    Tweets.delete(params[:id])
+    redirect '/home'
+  end 
 
   run! if app_file == $0
 end 

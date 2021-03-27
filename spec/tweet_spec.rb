@@ -6,14 +6,23 @@ describe Tweets do
   describe '.all' do 
     it 'should return a list of all tweets' do 
       Tweets.create(tweet: 'my first tweet')
-      expect(david.first).to include 'my first tweet'
+
+
+      expect(david.first.tweet).to include 'my first tweet'
     end
   end 
 
   describe '.create' do 
     it 'should be able to add new tweets in the database' do 
-      will = Tweets.create(tweet: 'my second tweet')
-      expect(david.last).to include 'my second tweet'
+      Tweets.create(tweet: 'my second tweet')
+      expect(david.last.tweet).to include 'my second tweet'
     end
   end
+
+  describe '.delete' do 
+    it 'can delete tweets as well' do 
+      Tweets.delete(1)
+      expect(david).to be_empty
+    end 
+  end 
 end 

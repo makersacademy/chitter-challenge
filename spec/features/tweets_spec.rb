@@ -15,4 +15,11 @@ feature '/home' do
     click_on 'Tweet'
     expect(page).to have_content 'test tweet'
   end 
+
+  scenario 'you can also delete the super awkward tweets that you posted years back and now make you want to barf' do 
+    visit '/home'
+    first('.tweet').click_on 'delete'
+    visit '/home'
+    expect(page).not_to have_content 'my first tweet'
+  end 
 end 
