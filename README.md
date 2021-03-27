@@ -11,7 +11,7 @@
 
 3. View messages without the need to sign in. Messages are listed from latest to oldest.
 
-4. Post message after sign in. 
+4. Can post message after sign in. 
 
 ---------
 ### How to use
