@@ -1,16 +1,19 @@
 <h1>Chitter!</h1>
-
+<br>
+<%if @user%>
+<h2>Hey, <%=@user.username%>!</h2>
+<%end%>
+<br>
 <form action='/user_id/peep' method='post'>
   <input type='text' name='message' placeholder='What&#39;s on your mind?'
-  maxlength="512" rows="9" cols="60" required><br>
-  <input type='text' name='id' placeholder='User_id' required><br>
+  maxlength="512" required><br>
   <input type='submit' value='Peep'>
 </form>
 <br>
 <h3>
-<%Chitter.all_peeps.each do |peep|%>
+<%@peeps.each do |peep|%>
 <%=peep.message%><br>
-<%Chitter.all_users.each do |user|%>
+<%@users.each do |user|%>
 <%if user.user_id == peep.user_id %>
 <%=user.username%><br>
 <%end%>
