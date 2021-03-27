@@ -4,6 +4,7 @@
           <% @goliath.map do |input| %>
             <li class='tweet' >
               <a> 
+                <%= input.created_at %>
                 <%= input.tweet %> 
               </a>
                 <form action="/tweet/<%= input.id %>/delete" method="post">
