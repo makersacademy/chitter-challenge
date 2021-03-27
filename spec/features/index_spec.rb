@@ -1,6 +1,6 @@
 feature 'homepage' do
-  scenario 'has a homepage' do 
+  scenario 'homepage' do 
     visit '/'
-    expect(page).to have_content '["my first tweet"]'
+    expect(page).to have_content 'Hello World'
   end
 end 

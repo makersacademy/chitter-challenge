@@ -1,9 +1,13 @@
 require 'sinatra/base'
 
-class Chitter < Sinatra::Base 
+class Twitter < Sinatra::Base 
 
   get '/' do 
     "Hello World"
+  end 
+
+  get '/home' do 
+    $goliath = Tweets.all
   end 
 
   run! if app_file == $0

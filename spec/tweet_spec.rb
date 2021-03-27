@@ -5,13 +5,15 @@ describe Tweets do
 
   describe '.all' do 
     it 'should return a list of all tweets' do 
-      expect(david).to include 'my first tweet'
+      Tweets.create(tweet: 'my first tweet')
+      expect(david.last).to include 'my first tweet'
     end
   end 
 
   describe '.create' do 
     it 'should be able to add new tweets in the database' do 
-      will = Tweets.create(tweet: 'my first tweet')
+      will = Tweets.create(tweet: 'my second tweet')
+      expect(david.first).to include 'my second tweet'
     end
   end
 end 
