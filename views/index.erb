@@ -2,11 +2,34 @@
 Successfuly created account <%=session.delete(:new_user?)%>, log in to post peeps!
 <% end %>
 
+<%# Change so it displays NAME's Chitter feed when logged in %>
+<% if session[:logged_in?] %>
+<h1>Welcome back to Chitter <%=session.delete(:logged_in?)%>! </h1>
+<% else %>
 <h1>Welcome to Chitter!</h1>
+<% end %>
+
+<%# If user is not logged in %>
+<% if session[:user_id].nil? %>
+
+<form action='/login' method='post'>
+  <label for='username'>Enter your username:</label>
+  <input type='text' id='username' value='username' name='username'>
+
+  <label for='password'>Enter your password:</label>
+  <input type='text' id='password' value='password' name='password'>
+
+  <input type='submit' id='sign_in' value='Sign in'>
+</form>
 
 <form action='/register' method='get'>
   <label for='sign_up'>Click to sign up to Chitter!</label>
   <input type='submit' id='sign_up' value='Register'>
 </form>
+
+<%# If user is logged in %>
+<% else %>
+
+<% end %>
 
 <h3> <%= Message.display_messages %> </h3>

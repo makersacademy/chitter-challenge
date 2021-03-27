@@ -80,6 +80,4 @@ Display all peeps on homepage in reverse order with name, username and time crea
 Add peeps - rename messages table?
 sign up - creates a new user --- email and username must be unique!
 
-EXTRA:
-Login at homepage
-Sign out button
+Can sign in with username or email with their password - detects if there's an @ in field when checking in DB.

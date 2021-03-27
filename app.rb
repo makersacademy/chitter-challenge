@@ -27,4 +27,10 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  post '/login' do
+    session[:logged_in?] = params[:username]
+    session[:user_id] = params[:username]
+    redirect '/'
+  end
+
 end
