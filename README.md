@@ -5,9 +5,9 @@
 ---------
 ### Functions
 
-1. Sign up. Error handling: prevent register the same email or username twice, with error message in red.
+1. Sign up. Prevent register the same email or username twice, with error message in red.
 
-2. Sign in. Error handling: reject wrong email or password, with error message in red.
+2. Sign in. Reject wrong email or password, with error message in red.
 
 3. View messages without the need to sign in. Messages are listed from latest to oldest.
 
