@@ -3,10 +3,14 @@
     <ul>
       <li>
         <% $goliath.map do |tweet| %>
-          <%= tweet[tweet:] %> 
+          <%= "#{tweet}" %> 
         <% end %>
       </li>
     </ul>
+
+    <form action='/home' method='get'>
+      <input type='submit' value='Add tweet'>
+    </form>
   </body>
 </html>
     

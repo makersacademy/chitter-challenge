@@ -8,6 +8,7 @@ class Twitter < Sinatra::Base
 
   get '/home' do 
     $goliath = Tweets.all
+    erb :tweets
   end 
 
   run! if app_file == $0
