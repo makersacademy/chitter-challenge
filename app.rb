@@ -12,8 +12,21 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
-  post '/peep' do
-    Chitter.send_peep(params[:message], params[:id])
+  post '/:user_id/peep' do
+    Peep.new_peep(params[:message], params[:user_id])
+    redirect '/:user_id'
+  end
+
+  get '/:user_id' do
+    erb :chitter
+  end
+
+  get '/signup/new' do
+    erb :signup
+  end
+
+  post '/new_user' do
+    User.new_user(params[:username], params[:password], params[:email])
     redirect '/'
   end
 

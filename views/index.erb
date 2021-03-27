@@ -1,17 +1,14 @@
-<h1>Chitter!</h1>
+<b><h1>Welcome to Chitter!</h1>
+<h2><em>-THE place to be</em></h2>
+<br>
+<h3>Login with an existing account <em>or</em> signup below!</h3></b>
 
-<form action='/peep' method='post'>
-  <input type='text' name='message' placeholder='What&#39;s on your mind?'
-  maxlength="512" rows="9" cols="60" required><br>
-  <input type='text' name='id' placeholder='User_id' required><br>
-  <input type='submit' value='Peep'>
+<form action="/:user_id" method='get'>
+  <input type='text' name='username' maxlength="20" placeholder='Username' required>
+  <input type='text' name='password' maxlength="20" placeholder='Password' required>
+  <input type='submit' value='Submit'>
 </form>
 <br>
-<h3>
-<%Chitter.all_peeps.each do |peep|%>
-<%=peep.message%><br>
-<%=peep.user_id%><br>
-<%=peep.created_at%><br>
-<%end%>
-<br>
-</h3>
+<form action='/signup/new' method='get'>
+  <input type='submit' value='Create account'>
+</form>
