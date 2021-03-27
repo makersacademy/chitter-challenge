@@ -1,15 +1,18 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/db_connection'
 require './lib/chitter'
 
 class ChitterApp < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   before do
     DbConnection.check_env
     @peeps = Chitter.all_peeps
     @users = Chitter.all_users
+    @user = User.find(session[:user_id])
   end
 
   get '/' do
@@ -17,6 +20,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/chitter/index' do
+    # @user = User.find(session[:user_id])
     erb :'chitter/index'
   end
 
@@ -36,7 +40,6 @@ class ChitterApp < Sinatra::Base
 
   post '/sessions' do
     user = User.sign_in(username: params[:username], password: params[:password])
-
     if user
       session[:user_id] = user.user_id
       redirect '/chitter/index'
@@ -47,7 +50,7 @@ class ChitterApp < Sinatra::Base
   end
   
   post '/chitter/peep' do
-    Peep.new_peep(params[:message], session[:user_id])
+    Peep.new_peep(params[:message], @user.user_id)
     redirect '/chitter/index'
   end
 

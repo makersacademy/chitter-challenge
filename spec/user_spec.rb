@@ -44,7 +44,7 @@ describe User do
     end
 
     it "returns nil if the user has failed to authenticate" do
-      user = User.new_user('lettucebomb', 'password1', 'lettucebomb@notadomain.com')
+      User.new_user('lettucebomb', 'password1', 'lettucebomb@notadomain.com')
 
       expect(User.sign_in(username: 'lettucebomn', password: 'password1')).to be_nil
     end
