@@ -9,9 +9,14 @@ class Twitter < Sinatra::Base
   end 
 
   get '/home' do 
-    $goliath = Tweets.all
+    $goliath = Tweets.all.reverse
     erb :tweets
   end 
+
+  post '/new_tweet' do 
+    Tweets.create(tweet: params[:new_tweet])
+    redirect '/home'
+  end
 
   run! if app_file == $0
 end 
