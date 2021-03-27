@@ -7,6 +7,7 @@ require 'capybara'
 require 'capybara/rspec'
 require './app'
 require 'pg'
+require 'bcrypt'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
