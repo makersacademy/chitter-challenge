@@ -1,4 +1,6 @@
 require './spec/test_helper'
+require './lib/db_connection'
+require './spec/database_helper'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
@@ -18,8 +20,9 @@ ENV['ENVIRONMENT'] = 'test'
 Capybara.app = ChitterApp
 
 RSpec.configure do |config|
-  
+
   config.before(:each) do
+    truncate
     setup_users_table
     setup_tags_table
     setup_peeps_table

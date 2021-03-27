@@ -1,19 +1,22 @@
 require './lib/db_connection'
 
-def setup_users_table
+def truncate 
   DbConnection.check_env
+  DbConnection.query("TRUNCATE TABLE peep_tag_relation, users, peeps,
+                      tags RESTART IDENTITY CASCADE;")
+  
+end
 
+def setup_users_table
   DbConnection.query("INSERT INTO users(username, password, email)
-                      VALUES ('captainfrog', 'password1', 'captainfrog@gmail.com');")
+                      VALUES ('captainfrog', 'password1', 'captainfrog@notadomain.com');")
   DbConnection.query("INSERT INTO users(username, password, email)
-                      VALUES ('littlebird', 'password1', 'littlebird@gmail.com');")
+                      VALUES ('littlebird', 'password1', 'littlebird@notadomain.com');")
   DbConnection.query("INSERT INTO users(username, password, email)
-                      VALUES ('bigsquirrel', 'password1', 'bigsquirrel@gmail.com');")
+                      VALUES ('bigsquirrel', 'password1', 'bigsquirrel@notadomain.com');")
 end
 
 def setup_peeps_table
-  DbConnection.check_env
-
   DbConnection.query("INSERT INTO peeps(message, user_id)
                       VALUES ('Hey this is fun right?', '1');")
   DbConnection.query("INSERT INTO peeps(message, user_id)
@@ -23,8 +26,6 @@ def setup_peeps_table
 end
 
 def setup_tags_table
-  DbConnection.check_env
-
   DbConnection.query("INSERT INTO tags(tag) VALUES ('#cats');")
   DbConnection.query("INSERT INTO tags(tag) VALUES ('#frogs');")
   DbConnection.query("INSERT INTO tags(tag) VALUES ('#hello');")
@@ -36,8 +37,6 @@ def setup_tags_table
 end
 
 def setup_peep_tag_relation_table
-  DbConnection.check_env
-
   DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('1', '2');")
   DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('1', '3');")
   DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('1', '4');")
