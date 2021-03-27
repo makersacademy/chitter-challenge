@@ -12,6 +12,27 @@ describe User do
       expect(user.username).to eq(stored_data.first['username'])
       expect(user.email).to eq(stored_data.first['email'])
     end
+
+    it 'encrpyts the password with bcrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password1')
+
+      User.new_user('littletrout', 'password1', 'littletrout@notadomain.com')
+    end
+  end
+
+  describe 'self.find' do
+    it 'finds a users details by user_id' do
+      user = User.new_user('lettucebomb', 'password1', 'lettucebomb@notadomain.com')
+      found = User.find(user.user_id)
+
+      expect(found.user_id).to eq user.user_id
+      expect(found.username).to eq user.username
+      expect(found.email).to eq user.email
+    end
+
+    it 'returns nil if there is no user_id provided' do
+      expect(User.find(nil)).to eq(nil)
+    end
   end
 
   describe 'Contains the data for a user' do
