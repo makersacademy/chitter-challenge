@@ -1,7 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app', 'shouter_web_app.rb')
+require File.join(File.dirname(__FILE__), '..','shouter_web_app.rb')
 
 require 'capybara'
 require 'capybara/rspec'

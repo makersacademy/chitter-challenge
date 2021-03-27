@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>SHOUTER</title>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/main_other.css">
+
+    <!-- <link rel="stylesheet" href="css/application.css"> -->
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/application.js"></script> -->
+
+  </head>
+
+  <body class="container">
+
+    <header>
+      <h1>SHOUTER</h1>
+      <h3>For when your tweets aren't loud enough</h3>
+    </header>
+
+    <main>
+      <div id='shout_box_div'>
+        <form action="/shout/new" method="post">
+          <textarea name="shout_box" rows="3" cols="50" maxlength="100" placeholder="SHOUT HERE (Max 100 characters)"></textarea>
+          <br>
+          <input type="submit" value="SHOUT">
+        </form>
+      </div>
+      <h2>SHOUTS</h2>
+      <div id="shouts_div">
+        <div id='individual_shout'>
+          <%= @shout %>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+body {
+  background: #EDF5E1;
+  color: #05386B;
+  font-family: helvetica;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+#shouts_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+#individual_shout {
+  background-color: white;
+  width: 400px;
+  border: 1px dashed black;
+  border-radius: 5px;
+}
