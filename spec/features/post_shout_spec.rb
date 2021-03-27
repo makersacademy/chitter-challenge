@@ -1,4 +1,4 @@
-feature 'post shout' do
+feature 'Feature: Post a Shout' do
   scenario 'User creates a message and posts it to shouter' do
     visit '/'
     fill_in 'shout_box', with: 'THIS IS MY FIRST SHOUT'

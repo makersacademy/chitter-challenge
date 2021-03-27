@@ -1,4 +1,4 @@
-feature 'see shouts in reverse chronological order' do
+feature 'Feature: See shouts in reverse chronological order' do
   scenario 'User sees all shouts on the front page, newest first' do
     visit '/'
     fill_in 'shout_box', with: 'THIS IS MY FIRST SHOUT'

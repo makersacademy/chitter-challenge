@@ -8,7 +8,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-# require_relative './setup_test_database'
+require_relative './setup_test_database'
 
 Capybara.app = ShouterWebApp
 
@@ -21,7 +21,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    # test database
+    setup_test_database
   end
 
   config.after(:suite) do

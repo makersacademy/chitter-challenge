@@ -1,6 +1,28 @@
 Chitter Challenge
 =================
 
+## To use
+1. Set up both of the below databases following the command below
+2. run rspec and get clean tests to ensure setup correctly
+3. run `rackup -p 5001` to start app
+4. Connect in browser via localhost:5001
+
+#### To set up the database for actual use
+1. Connect to psql
+2. Create the database using the psql command 'CREATE DATABASE  shouter_database;'
+3. Connect to the database using the pqsl command '\c shouter_database;'
+4. Run the querys we have saved in the file `01_create_shouter_tables.sql`
+
+
+#### Set up database for testing
+1. Connect to psql
+2. Create the database using the psql command 'CREATE DATABASE shouter_database_test;'
+3. Tables will create and reset automatically when you run rspec
+
+
+
+--------
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
