@@ -13,29 +13,38 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    redirect '/chitter/index'
   end
 
-  get '/create_account' do
-    erb :create_account
+  get '/chitter/index' do
+    erb :'chitter/index'
   end
 
-  post '/new_user' do
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+ 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
     user = User.new_user(params[:username], params[:password], params[:email])
     session[:user_id] = user.user_id
-    redirect '/:user_id'
+    redirect '/chitter/index'
   end
 
-  get '/:user_id' do
+  post '/sessions' do
+    user = User.sign_in(username: params[:username], password: params[:password])
     @user = User.find(session[:user_id])
     @peeps = Chitter.all_peeps
     @users = Chitter.all_users
-    erb :chitter
+    redirect '/chitter/index'
   end
   
-  post '/:user_id/peep' do
+  post '/chitter/peep' do
     Peep.new_peep(params[:message], session[:user_id])
-    redirect '/:user_id'
+    redirect '/chitter/index'
   end
 
   run! if app_file == $0

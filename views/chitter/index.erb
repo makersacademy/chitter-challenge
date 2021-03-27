@@ -1,0 +1,18 @@
+<%if @user%>
+<h2>Hey, <%=@user.username%>!</h2>
+<br>
+<form action='/user_id/peep' method='post'>
+  <input type='text' name='message' placeholder='What&#39;s on your mind?'
+    maxlength="512" required><br>
+  <input type='submit' value='Peep'>  
+</form>
+<%else%>
+<h3>Login with an existing account <em>or</em> signup below!</h3>
+<form action="/sessions/new" method='get'>  
+  <input type='submit' value='Sign in'>
+</form>
+<br>
+<form action='/users/new' method='get'>
+  <input type='submit' value='Create account'>
+</form>
+<%end%>

@@ -20,7 +20,12 @@
   </header>
 
   <main>
-    <%= yield %>
+    <div class='leftcolumn'>
+      <h1>Welcome to Chitter!</h1>
+      <h2><em>- THE place to be</em></h2>
+      <br>
+      <%= yield %>
+    </div>
     <div class='rightcolumn'>
       <div class='peep'>
         <%@peeps.each do |peep|%>
