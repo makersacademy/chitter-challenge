@@ -43,3 +43,11 @@ feature 'login' do
     expect(page).to have_content 'you are signed in'
   end
 end
+
+feature 'peeps page' do
+  scenario 'user can view all peeps' do
+    visit '/peeps'
+    expect(page).to have_content 'Peeps'
+    expect(page).to have_content 'I have eaten way too many brownies! Help!'
+  end
+end
