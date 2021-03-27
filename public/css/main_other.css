@@ -9,9 +9,9 @@ body {
 
 #shouts_div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-
+  align-items: center;
 }
 
 #individual_shout {

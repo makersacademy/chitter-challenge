@@ -32,9 +32,14 @@
       </div>
       <h2>SHOUTS</h2>
       <div id="shouts_div">
-        <div id='individual_shout'>
-          <%= @shout %>
-        </div>
+        <% @shouter.each do |shout| %>
+          <div id='individual_shout'>
+            <%= shout[0]+" : "+shout[1].strftime("%dth %B %Y | %k:%M") %>
+            <br>
+            <%= shout[2].upcase %>
+          </div>
+          <br>
+        <% end %>
       </div>
     </main>
 

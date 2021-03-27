@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require './lib/shouter.rb'
+Shouter.setup
 
 class ShouterWebApp < Sinatra::Base
   enable :sessions, :method_override
@@ -13,12 +14,12 @@ class ShouterWebApp < Sinatra::Base
   end
 
   get '/' do
-    @shout = session[:shout]
+    @shouter = Shouter.all
     erb :index
   end
 
   post '/shout/new' do
-    session[:shout] = params[:shout_box]
+    Shouter.shout(params[:shout_box])
     redirect '/'
   end
 
