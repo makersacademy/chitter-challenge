@@ -4,6 +4,8 @@ require './lib/chitter'
 
 class ChitterApp < Sinatra::Base
 
+  enable :sessions
+
   before do
     DbConnection.check_env
   end
@@ -12,22 +14,26 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
-  post '/:user_id/peep' do
-    Peep.new_peep(params[:message], params[:user_id])
+  get '/create_account' do
+    erb :create_account
+  end
+
+  post '/new_user' do
+    user = User.new_user(params[:username], params[:password], params[:email])
+    session[:user_id] = user.user_id
     redirect '/:user_id'
   end
 
   get '/:user_id' do
+    @user = User.find(session[:user_id])
+    @peeps = Chitter.all_peeps
+    @users = Chitter.all_users
     erb :chitter
   end
-
-  get '/signup/new' do
-    erb :signup
-  end
-
-  post '/new_user' do
-    User.new_user(params[:username], params[:password], params[:email])
-    redirect '/'
+  
+  post '/:user_id/peep' do
+    Peep.new_peep(params[:message], session[:user_id])
+    redirect '/:user_id'
   end
 
   run! if app_file == $0
