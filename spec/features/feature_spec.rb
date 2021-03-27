@@ -46,6 +46,7 @@ end
 
 feature 'peeps page' do
   scenario 'user can view all peeps' do
+    fill_test_database
     visit '/peeps'
     expect(page).to have_content 'Peeps'
     expect(page).to have_content 'I have eaten way too many brownies! Help!'

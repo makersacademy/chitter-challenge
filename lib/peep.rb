@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
   attr_reader :id, :body
 
@@ -7,7 +9,18 @@ class Peep
   end
 
   def self.all
-    'I have eaten way too many brownies! Help!'
+
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+			connection = PG.connect(dbname: 'chitter')
+		end
+
+		result = connection.exec("SELECT * FROM peeps;")
+
+    result.map do |peep|
+  	   Peep.new(peep['id'], peep['body'])
+    end
   end
 
 end
