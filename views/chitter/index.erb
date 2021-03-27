@@ -1,7 +1,7 @@
 <%if @user%>
 <h2>Hey, <%=@user.username%>!</h2>
 <br>
-<form action='/user_id/peep' method='post'>
+<form action='/chitter/peep' method='post'>
   <input type='text' name='message' placeholder='What&#39;s on your mind?'
     maxlength="512" required><br>
   <input type='submit' value='Peep'>  
