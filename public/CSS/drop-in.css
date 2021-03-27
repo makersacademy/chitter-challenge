@@ -3,18 +3,16 @@
 
 /* RESETS */
 
-html { box-sizing: border-box; }
+html { 
+  box-sizing: border-box; 
+}
 
-*, *:before, *:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0 auto;
-  min-width: 600px;
-  max-width: 800px;
 }
 
 h1, h2, h3, h4, h5, h6, p {

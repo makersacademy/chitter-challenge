@@ -8,6 +8,8 @@ class ChitterApp < Sinatra::Base
 
   before do
     DbConnection.check_env
+    @peeps = Chitter.all_peeps
+    @users = Chitter.all_users
   end
 
   get '/' do

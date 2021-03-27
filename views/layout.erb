@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/drop-in.css">
   <link rel="stylesheet" href="/css/application.css">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Chitter!</title>
 </head>
 
@@ -19,6 +21,19 @@
 
   <main>
     <%= yield %>
+    <div class='rightcolumn'>
+      <div class='peep'>
+        <%@peeps.each do |peep|%>
+          <div class='peep'><%=peep.message%></div>
+          <%@users.each do |user|%>
+            <%if user.user_id == peep.user_id %>
+              <div class='wrap'><%=user.username%><br>
+            <%end%>
+          <%end%>
+        <%=peep.created_at.slice(0, 19)%></div><br><br>
+        <%end%>
+      </div>
+    </div>
   </main>
 
   <footer>

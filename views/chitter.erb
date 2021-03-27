@@ -1,24 +1,14 @@
-<h1>Chitter!</h1>
-<br>
-<%if @user%>
-<h2>Hey, <%=@user.username%>!</h2>
-<%end%>
-<br>
-<form action='/user_id/peep' method='post'>
-  <input type='text' name='message' placeholder='What&#39;s on your mind?'
-  maxlength="512" required><br>
-  <input type='submit' value='Peep'>
-</form>
-<br>
-<h3>
-<%@peeps.each do |peep|%>
-<%=peep.message%><br>
-<%@users.each do |user|%>
-<%if user.user_id == peep.user_id %>
-<%=user.username%><br>
-<%end%>
-<%end%>
-<%=peep.created_at.slice(0, 19)%><br>
-<%end%>
-<br>
-</h3>
+<div class='rightcolumn'>
+  <h1>Chitter!</h1>
+  <br>
+  <%if @user%>
+  <h2>Hey, <%=@user.username%>!</h2>
+  <%end%>
+  <br>
+  <form action='/user_id/peep' method='post'>
+    <input type='text' name='message' placeholder='What&#39;s on your mind?'
+      maxlength="512" required><br>
+    <input type='submit' value='Peep'>  
+  </form>
+  <br>
+</div>
