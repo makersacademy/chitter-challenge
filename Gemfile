@@ -11,4 +11,5 @@ ruby '2.6.5'
     gem 'pg'
     gem 'simplecov-console', require: false
     gem 'sinatra-flash'
+    gem 'bcrypt'
   end

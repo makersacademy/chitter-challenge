@@ -1,12 +1,15 @@
 Chitter
-
+<% if @user %>
+  <h1>Welcome, <%=@user.first['name'] %></h1>
+<% end %>
 <form action='/login' method='post'>
-  <label for='username'>Username:</label>
-  <input type='text' name='username'>
+  <label for='email'>Email:</label>
+  <input type='text' name='email'>
   <label for='password'>Password:</label>
   <input type='text' name='password'>
   <input type='submit' value='Go' name='go'>
 </form>
+<a href='/users/new' class='clickable-text'>Create Account</a>
 <p>
 <form action='/peep' method='post'>
   <label for='peep_text'>Peep:</label>
