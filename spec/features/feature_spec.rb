@@ -25,5 +25,21 @@ feature 'sign up to chitter' do
     click_button 'sign_up'
     expect(page).to have_content 'you are signed in'
   end
+end
 
+feature 'login' do
+  scenario ' a user can click a link to login' do
+    visit '/'
+    click_link 'Login'
+    expect(page).to have_content 'Login to Chitter'
+  end
+
+  scenario 'user can fill in user information to log in' do
+    visit '/'
+    click_link 'Login'
+    fill_in 'username', with: 'loushark'
+    fill_in 'email', with: 'loushark@gmail.com'
+    click_button 'login'
+    expect(page).to have_content 'you are signed in'
+  end
 end

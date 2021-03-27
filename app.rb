@@ -10,6 +10,10 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+  get '/login' do
+    erb :login
+  end
+
   post '/peeps' do
     redirect '/peeps'
   end
