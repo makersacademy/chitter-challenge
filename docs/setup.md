@@ -9,7 +9,7 @@
 
 #### Database
 
-Prerequisite: Install and setup postgresql locally ([Instructions](https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/04_mac.md)).
+Prerequisite: Install and setup PostgreSQL locally ([Instructions](https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/04_mac.md)).
 
 Run following sql in order:
 

@@ -25,7 +25,7 @@
 
 - Web Framework: Sinatra
 - Test Framework: Capybara, rspec
-- Database: postgresql
+- Database: PostgreSQL
 
 ---------
 ### Extras
