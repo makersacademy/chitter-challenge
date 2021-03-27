@@ -5,7 +5,7 @@ require './lib/tweets'
 class Twitter < Sinatra::Base 
 
   get '/' do 
-    "Hello World"
+    erb :sign_up
   end 
 
   get '/home' do 
