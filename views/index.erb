@@ -1,3 +1,12 @@
+<% if session[:new_user?] %>
+Successfuly created account <%=session.delete(:new_user?)%>, log in to post peeps!
+<% end %>
+
 <h1>Welcome to Chitter!</h1>
+
+<form action='/register' method='get'>
+  <label for='sign_up'>Click to sign up to Chitter!</label>
+  <input type='submit' id='sign_up' value='Register'>
+</form>
 
 <h3> <%= Message.display_messages %> </h3>
