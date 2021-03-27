@@ -117,16 +117,18 @@ Bonus:
 ### Chitter database setup
 Connect to psql
 Create the database using the psql command CREATE DATABASE chitter;
-####creating peeps table
-Connect to the database using the pqsl command \c chitter
-Run the query saved in db/migrations/01_create_peeps_table.sql
 
 ### Chitter TEST database setup
 Connect to psql
 Create the database using the psql command CREATE DATABASE chitter_test;
+
 ####creating peeps table
 Connect to the database using the pqsl command \c chitter_test
-Run the query saved in db/test/01_create_peeps_test_table.sql
+Run the query saved in db/test/01_create_peeps_table.sql
+####creating users table
+Connect to the database using the pqsl command \c chitter_test
+Run the query saved in db/test/01_create_users_table.sql
+
 
 
 ---
