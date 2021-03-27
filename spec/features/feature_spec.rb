@@ -17,12 +17,13 @@ feature 'sign up to chitter' do
 
   scenario 'user can fill in user information to sign up' do
     sign_up_fill_and_submit
-    expect(page).to have_content 'you are signed in'
+    expect(page).to have_content 'You are signed in as'
   end
 
-  scenario 'when signed in username is shown on peeps page' do
+  scenario 'when signed in username and logout link is shown on peeps page' do
     sign_up_fill_and_submit
     expect(page).to have_content 'signed in as loushark'
+    expect(page).to have_link 'Logout'
   end
 end
 
@@ -34,27 +35,25 @@ feature 'login' do
   end
 
   scenario 'user can fill in user information to log in' do
-    visit '/'
-    click_link 'Login'
-    fill_in 'username', with: 'loushark'
-    fill_in 'email', with: 'loushark@gmail.com'
-    click_button 'login'
-    expect(page).to have_content 'you are signed in'
+    login
+    expect(page).to have_content 'You are signed in as loushark'
   end
+
 end
 
 feature 'logout' do
   scenario 'user can click a link to logout' do
+    login
     visit '/peeps'
     expect(page).to have_link 'Logout'
   end
 
   scenario 'user is logged out' do
-    visit '/peeps'
+    login
     click_link 'Logout'
     expect(page).to have_link 'Sign Up'
     expect(page).to have_link 'Login'
-    expect(page).to have_content 'Chitter'
+    expect(page).to have_content 'You are a Guest'
   end
 end
 
@@ -64,28 +63,31 @@ feature 'peeps page' do
     visit '/peeps'
     expect(page).to have_content 'Peeps'
     expect(page).to have_content 'I have eaten way too many brownies! Help!'
+    expect(page).to have_content 'loushark'
   end
 end
 
 feature 'add a peep' do
   scenario 'user can click a link to add a peep' do
-    visit '/peeps'
+    login
     expect(page).to have_link 'Add Peep'
   end
 
-  scenario 'user can write a new peep and submit it to the peeps page' do
-    visit '/peeps'
+  scenario 'logged in user can write a new peep and submit it to the peeps page' do
+    login
     click_link 'Add Peep'
-    fill_in 'new_peep', with: 'I hope it snows tomorrow. I want to build a snowman named Greg'
+    fill_in 'new_peep', with: 'Brownies are awesome!'
     click_button 'Add Peep'
-    expect(page).to have_content 'I hope it snows tomorrow. I want to build a snowman named Greg'
+    expect(page).to have_content 'Brownies are awesome!'
   end
+end
 
   feature 'view peeps as a guest' do
     scenario 'guests can view peeps without sign up or login' do
-      visit '/'
-      click_link 'View peeps as a guest'
-      expect(page).to have_content 'Peeps'
+      login
+      click_link 'Logout'
+      expect(page).to have_link 'Sign Up'
+      expect(page).to have_link 'Login'
+      expect(page).to have_content 'You are a Guest'
     end
   end
-end

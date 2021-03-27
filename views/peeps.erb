@@ -1,17 +1,28 @@
-<h3> you are signed in</h3>
-<a href="/logout">Logout</a>
-
 <h1>Peeps</h1>
 <br>
-<h3>You are signed in as <%= @username %></h3>
-
-<a href="/add_peep">Add Peep</a>
+<% if @current_user == "a Guest"%>
+  <a href="/sign_up">Sign Up</a>
+  <br>
+  <a href="/login">Login</a>
+  <br>
+  <h3>You are a Guest</h3>
+<% else %>
+  <a href="/logout">Logout</a>
+  <br>
+  <h3>You are signed in as <%= @current_user %>
+  <br>
+  <a href="/add_peep">Add Peep</a>
+  </h3>
+<% end %>
+<br>
 
 <ul>
 <% @peeps.reverse.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
     <p><%=peep.body%></p>
     <p><%=peep.time%></p>
+    <p><%=peep.username%></p>
+
   </li>
 <% end %>
 </ul>

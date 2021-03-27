@@ -4,11 +4,12 @@ describe '.persisted_data' do
 
   it 'returns id of peeps' do
     connection = PG.connect(dbname: 'chitter_test')
-    result = connection.exec("INSERT INTO peeps (id, body, time) VALUES(1, 'I have eaten way too many brownies! Help!', '#{Time.now.strftime('%a, %d %b %Y %H:%M:%S')}' ) RETURNING id, body, time;")
-    peep = Peep.new(result[0]['id'],result[0]['body'], result[0]['time'])
+    # result = connection.exec("INSERT INTO peeps (id, body, user, time) VALUES(1, 'I have eaten way too many brownies! Help!', 'loushark', '#{Time.now.strftime('%a, %d %b %Y %H:%M:%S')}' ) RETURNING id, body, time;")
+    # peep = Peep.new(result[0]['id'],result[0]['body'], result[0]['user'], result[0]['time'])
+    peep = Peep.add('I have eaten way too many brownies! Help!', 'loushark')
     persisted_data = persisted_data_peeps(id: peep.id)
 
-    expect(peep.id).to eq '1'
+    expect(peep.id).to eq peep.id
   end
 
   it 'returns id of users' do

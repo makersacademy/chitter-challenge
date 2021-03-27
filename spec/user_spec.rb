@@ -24,9 +24,9 @@ describe User do
     end
   end
 
-  # describe 'loggedin_username' do
+  # describe 'current_user' do
   #   it 'returns a username' do
-  #     expect(User.loggedin_username(new_user.username)).to eq 'loushark'
+  #     expect(User.login(new_user.username)).to eq 'loushark'
   #   end
   # end
 end
