@@ -22,7 +22,7 @@ email: new_user[0]['email'])
     return unless sign_in.any?
 
     User.new(user_id: sign_in[0]['user_id'], username: sign_in[0]['username'], 
-email: sign_in[0]['email'])
+             email: sign_in[0]['email'])
   end
 
   attr_reader :user_id, :username, :email

@@ -4,11 +4,9 @@
   <input type='text' name='password' maxlength="20" placeholder='Password' required>
   <input type='submit' value='Sign in'>
 </form>
+<h3><%= flash[:notice] %></h3>
 <br>
 <h3>If you don't have an account, create one below!</h3>
 <form action='/users/new' method='get'>
   <input type='submit' value='Create account'>
 </form>
-<h2>
-  <%= flash[:notice] %>
-</h2>
