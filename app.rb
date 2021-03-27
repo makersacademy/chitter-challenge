@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/database_connection_setup'
+require './lib/tweets'
 
 class Twitter < Sinatra::Base 
 
