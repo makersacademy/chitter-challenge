@@ -12,6 +12,10 @@ class User
   end
 
   def self.create(email, password, name, username)
+    email = email.gsub("'", "''")
+    password = password.gsub("'", "''")
+    name = name.gsub("'", "''")
+    username = username.gsub("'", "''")
     encrypted_pwd = BCrypt::Password.create(password)
     sql = "INSERT INTO users (email, password, name, username) VALUES ('#{email}', '#{encrypted_pwd}', '#{name}', '#{username}') RETURNING id, email, name, username;"
     begin
@@ -33,9 +37,12 @@ class User
   end
 
   def self.sign_in(email, password)
+    email = email.gsub("'", "''")
+    password = password.gsub("'", "''")
     sql = "SELECT * FROM users WHERE email='#{email}'"
     result = DB.query(sql)
     return unless result.any?
+    p BCrypt::Password.new(result[0]['password'])
     return unless BCrypt::Password.new(result[0]['password']) == password
 
     User.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'], username: result[0]['username'])

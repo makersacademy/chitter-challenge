@@ -11,6 +11,9 @@
   <form action="/sessions" method="post">
     <div class="user-form">
       <h2>Sign in</h2>
+      <div class="error-msg">
+        <h5><%= flash[:error] %></h5>
+      </div>
       <label for="email">Email</label>
       <input type="email" name="email" maxlength="60">
       <label for="password">Password</label>

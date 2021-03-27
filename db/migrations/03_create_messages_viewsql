@@ -1,0 +1,5 @@
+CREATE OR REPLACE VIEW view_messages AS 
+  SELECT m.*, u.name, u.username
+  FROM messages m
+  LEFT JOIN users u
+  ON m.user_id = u.id;

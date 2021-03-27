@@ -13,6 +13,7 @@ class Message
   end
   
   def self.add(content, user_id)
+    content = content.gsub("'", "''")
     sql = "INSERT INTO messages (content, user_id) VALUES ('#{content}', #{user_id}) RETURNING id;"
     id = DB.query(sql)[0]['id']
     sql = "SELECT * FROM view_messages WHERE id='#{id}';"

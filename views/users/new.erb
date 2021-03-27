@@ -11,6 +11,9 @@
   <form action="/users" method="post">
     <div class="user-form">
       <h2>Sign up</h2>
+      <div class="error-msg">
+        <h5><%= flash[:error] %></h5>
+      </div>
       <label for="email">Email</label>
       <input type="email" name="email" maxlength="60">
       <label for="password">Password</label>
@@ -22,8 +25,6 @@
       <input type="submit" value="Submit">
     </div>
   </form>
-  <h2>
-    <%= flash[:error] %>
-  </h2>
+  
 </body>
 </html>

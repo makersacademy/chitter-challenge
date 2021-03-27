@@ -1,5 +1,0 @@
-CREATE TABLE message_user_tag (
-  id SERIAL PRIMARY KEY,
-  message_id INTEGER REFERENCES messages(id) ON DELETE CASCADE,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-);

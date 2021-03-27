@@ -43,6 +43,10 @@ a {
   padding: 20%;
 }
 
+.error-msg {
+  color: red;
+}
+
 .user-form input {
   width: 100%;
   padding: 12px 20px;
@@ -74,7 +78,7 @@ a {
   border: 1px lightgrey;
   border-radius: 2px;
   box-shadow: 1px 1px 1px 1px #888888;
-  padding: 8px;
+  padding: 8px 15px 8px 15px;
   font-size: small;
   color: grey;
 }
