@@ -24,7 +24,7 @@
 ### Infrastructure
 
 - Web Framework: Sinatra
-- Test: Capybara, rspec
+- Test Framework: Capybara, rspec
 - Database: postgresql
 
 ---------
@@ -38,5 +38,6 @@
 ### Future Scope
 
 - Tag user and send notification email
+- Reply messages
 - Use database on the cloud
 - Host site on the cloud
