@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/chitter.png" />
+  <title>Chitter</title>
+</head>
+<body>
+  <header>
+    <div id="logo">
+    <img class="icon" src="/img/chitter.png" alt="Chitter Icon">
+    </div>
+    <div>
+    <% if @user %>
+      <h5>Welcome, <%= @user.name %></h5>
+    <% end %>
+    </div>
+    <div id="topbar">
+      <% if @user %>
+        <a href="/sessions/destroy">Sign out</a>
+      <% else %>
+        <a href="/users/new">Sign up</a>
+        <a href="/sessions/new">Sign in</a>
+      <% end %>
+    </div>
+  </header>
+  <div class="messages">
+  <% if @user %>
+    <div class="new-message">
+      <div class="message-head">
+        <img class="icon" src="/img/chitter.png" alt="Chitter Icon">
+        <%= @user.name %>  @<%= @user.username %>
+      </div>
+      <form action="/messages" method="post">
+        <div id="message-input"> <input type="text" name="content" maxlength="2000"> </div>
+        <input type="hidden" name="user_id" value=<%= @user.id %> >
+        <div> <input type="submit" value="Chit"> </div>
+      </form>
+    </div>
+  <% end %>
+  <% @messages.each do |message| %>
+    <div class="list-message">
+      <div class="message-head">
+        <img class="icon" src="/img/chitter.png" alt="Chitter Icon">
+        <%= message.name %>  @<%= message.username %>
+        &nbsp;<%= message.created_at %>
+      </div>
+      <div class="message-body"><%= message.content %></div>
+    </div>
+  <% end %>
+  </div>
+</body>

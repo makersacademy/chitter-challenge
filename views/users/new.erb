@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/chitter.png" />
+  <title>Chitter</title>
+</head>
+<body>
+  <header>
+    <a href="/">Home</a>
+  </header>
+  <form action="/users" method="post">
+    <div class="user-form">
+      <h2>Sign up</h2>
+      <label for="email">Email</label>
+      <input type="email" name="email" maxlength="60">
+      <label for="password">Password</label>
+      <input type="password" name="password" maxlength="140">
+      <label for="name">Name</label>
+      <input type="text" name="name" maxlength="200">
+      <label for="username">Username</label>
+      <input type="text" name="username" maxlength="100">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+  <h2>
+    <%= flash[:error] %>
+  </h2>
+</body>
+</html>
