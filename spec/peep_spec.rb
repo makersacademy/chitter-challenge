@@ -27,7 +27,7 @@ describe Peep do
   describe '.add' do
     it 'adds a new peep' do
 	    peep = Peep.add('testing123')
-	    persisted_data = persisted_data(id: peep.id)
+	    persisted_data = persisted_data_peeps(id: peep.id)
 
 	    expect(peep).to be_a Peep
 	    expect(peep.id).to eq persisted_data['id']

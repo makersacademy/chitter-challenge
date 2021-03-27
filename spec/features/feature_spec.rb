@@ -16,14 +16,13 @@ feature 'sign up to chitter' do
   end
 
   scenario 'user can fill in user information to sign up' do
-    visit '/'
-    click_link 'Sign Up'
-    fill_in 'name', with: 'Lou Reade'
-    fill_in 'username', with: 'loushark'
-    fill_in 'email', with: 'loushark@gmail.com'
-    fill_in 'password', with: 'Sharks@reC00l'
-    click_button 'sign_up'
+    sign_up_fill_and_submit
     expect(page).to have_content 'you are signed in'
+  end
+
+  scenario 'when signed in username is shown on peeps page' do
+    sign_up_fill_and_submit
+    expect(page).to have_content 'signed in as loushark'
   end
 end
 
