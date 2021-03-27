@@ -36,10 +36,14 @@ class ChitterApp < Sinatra::Base
 
   post '/sessions' do
     user = User.sign_in(username: params[:username], password: params[:password])
-    @user = User.find(session[:user_id])
-    @peeps = Chitter.all_peeps
-    @users = Chitter.all_users
-    redirect '/chitter/index'
+
+    if user
+      session[:user_id] = user.user_id
+      redirect '/chitter/index'
+    else
+      flash[:notice] = 'Ensure you have correctly entered your username and password.'
+      redirect 'sessions/new'
+    end
   end
   
   post '/chitter/peep' do

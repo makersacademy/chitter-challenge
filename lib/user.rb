@@ -14,6 +14,13 @@ class User
     User.new(user_id: found[0]['user_id'], username: found[0]['username'], email: found[0]['email'])
   end
 
+  def self.sign_in(username:, password:)
+    sign_in = DbConnection.query("SELECT * FROM users WHERE username = '#{username}';")
+    return unless sign_in.any?
+
+    User.new(user_id: sign_in[0]['user_id'], username: sign_in[0]['username'], email: sign_in[0]['email'])
+  end
+
   attr_reader :user_id, :username, :email
 
   def initialize(user_id:, username:, email:)

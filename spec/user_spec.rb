@@ -35,6 +35,21 @@ describe User do
     end
   end
 
+  describe 'self.sign_in' do
+    it "allows the user to authenticate and enter the session" do
+      user = User.new_user('lettucebomb', 'password1', 'lettucebomb@notadomain.com')
+      signed_in_user = User.sign_in(username: 'lettucebomb', password: 'password1')
+
+      expect(signed_in_user.user_id).to eq(user.user_id)
+    end
+
+    it "returns nil if the user has failed to authenticate" do
+      user = User.new_user('lettucebomb', 'password1', 'lettucebomb@notadomain.com')
+
+      expect(User.sign_in(username: 'lettucebomn', password: 'password1')).to be_nil
+    end
+  end
+
   describe 'Contains the data for a user' do
     it "has an id, username, and email address" do
       user = User.new(user_id: '1', username: 'snowy', email: 'snowy@gmail.com')
