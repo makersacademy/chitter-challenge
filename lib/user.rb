@@ -17,12 +17,9 @@ class User
     begin
       result = DB.query(sql)
     rescue StandardError => e
-      p "---------------------"
-      p "create user:"
-      p "---------------------"
       p e
+      return
     end
-    return unless result.any?
 
     User.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'], username: result[0]['username'])
   end

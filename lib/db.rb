@@ -7,18 +7,10 @@ class DB
   end
 
   def self.connection
-    p '-----------------'
-    p 'connection:'
-    p @conn
-    p '-----------------'
     @conn
   end
 
   def self.query(sql)
-    p '-----------------'
-    p 'query connection:'
-    p @conn
-    p '-----------------'
     @conn.exec(sql)
   end
 end

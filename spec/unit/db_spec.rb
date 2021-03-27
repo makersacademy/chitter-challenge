@@ -1,5 +1,4 @@
 require 'db'
-require 'pg'
 
 describe DB do
   describe '.setup' do
@@ -18,7 +17,6 @@ describe DB do
     it 'execute query passed in' do
       conn = DB.setup('chitter_test')
       p "DB.connection: #{conn}"
-      # expect(DB.connection).to receive(:exec).with('test;')
       expect(DB.query('SELECT * FROM users;').class).to eq PG::Result
     end
   end

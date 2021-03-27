@@ -1,6 +1,8 @@
 require_relative '../lib/db'
+require_relative '../db_connection_setup'
 
 def setup_test_db
+  DB.query("DROP VIEW IF EXISTS view_messages;")
   DB.query("DROP TABLE IF EXISTS message_user_tag;")
   DB.query("DROP TABLE IF EXISTS messages;")
   DB.query("DROP TABLE IF EXISTS users;")

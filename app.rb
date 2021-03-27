@@ -19,14 +19,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    p params
     user = User.create(params[:email], params[:password], params[:name], params[:username])
     if user
       session[:user_id] = user.id
       redirect '/'
     else
       flash[:error] = 'Email or Username exists.'
-      redirect('/user/new')
+      redirect('/users/new')
     end
   end
 
@@ -47,7 +46,6 @@ class Chitter < Sinatra::Base
 
   get '/sessions/destroy' do
     session.clear
-    flash[:msg] = "You have signed out."
     redirect('/')
   end
 
