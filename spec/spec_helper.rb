@@ -19,7 +19,7 @@ SimpleCov.start
 ENV['ENVIRONMENT'] = 'test'
 
 Capybara.app = ChitterApp
-
+  
 RSpec.configure do |config|
 
   config.before(:each) do
