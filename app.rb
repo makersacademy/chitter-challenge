@@ -15,12 +15,21 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
+  get '/logout' do
+    redirect '/'
+  end
+
   post '/peeps' do
+    Peep.add(params[:new_peep])
     redirect '/peeps'
   end
 
   get '/peeps' do
     @peeps = Peep.all
     erb :peeps
+  end
+
+  get '/add_peep' do
+    erb :add_peep
   end
  end

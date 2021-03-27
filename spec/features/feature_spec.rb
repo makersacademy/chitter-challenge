@@ -44,11 +44,41 @@ feature 'login' do
   end
 end
 
+feature 'logout' do
+  scenario 'user can click a link to logout' do
+    visit '/peeps'
+    expect(page).to have_link 'Logout'
+  end
+
+  scenario 'user is logged out' do
+    visit '/peeps'
+    click_link 'Logout'
+    expect(page).to have_link 'Sign Up'
+    expect(page).to have_link 'Login'
+    expect(page).to have_content 'Chitter'
+  end
+end
+
 feature 'peeps page' do
   scenario 'user can view all peeps' do
     fill_test_database
     visit '/peeps'
     expect(page).to have_content 'Peeps'
     expect(page).to have_content 'I have eaten way too many brownies! Help!'
+  end
+end
+
+feature 'add a peep' do
+  scenario 'user can click a link to add a peep' do
+    visit '/peeps'
+    expect(page).to have_link 'Add Peep'
+  end
+
+  scenario 'user can write a new peep and submit it to the peeps page' do
+    visit '/peeps'
+    click_link 'Add Peep'
+    fill_in 'new_peep', with: 'I hope it snows tomorrow. I want to build a snowman named Greg'
+    click_button 'Add Peep'
+    expect(page).to have_content 'I hope it snows tomorrow. I want to build a snowman named Greg'
   end
 end
