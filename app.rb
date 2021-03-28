@@ -18,23 +18,23 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
-  get '/login' do
-    erb :login
-  end
-
-  get '/logout' do
-    session[:current_user] = "a Guest"
-    redirect '/peeps'
-  end
-
-  post '/peeps' do
+  post '/sign_up' do
     User.add(params[:name], params[:username], params[:email], params[:password])
     session[:current_user] = params[:username]
     redirect '/peeps'
   end
 
-  post '/add_peep' do
-    Peep.add(params[:new_peep], session[:current_user])
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    session[:current_user] = params[:username]
+    redirect '/peeps'
+  end
+
+  get '/logout' do
+    session[:current_user] = "a Guest"
     redirect '/peeps'
   end
 
@@ -47,4 +47,10 @@ class Chitter < Sinatra::Base
   get '/add_peep' do
     erb :add_peep
   end
+
+  post '/add_peep' do
+    Peep.add(params[:new_peep], session[:current_user])
+    redirect '/peeps'
+  end
+
  end

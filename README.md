@@ -67,7 +67,7 @@ I want to log out of Chitter
 | POST    | /login      | create | session      | logs in, /redirects to peeps                          |
 | GET     | /peeps      | index  | peep         | displays all peeps(login button or username,logout)   |
 | POST    | /logout     | delete | session      | logs out, /redirects to peeps or homepage?            |
-| GET     | /peeps/new  |  new   | peep         | displays form to add a peep                           |
+| GET     | /add_peep  |  new   | peep         | displays form to add a peep                           |
 | POST    | /peeps      | create | peep         | creates a peep, /redirects to peeps                   |
 
 
@@ -85,13 +85,6 @@ peeps:
 |    1  |         |         |              |
 
 
-#### table not yet implemented:
-account_peeps:
-|  account_id   |  peep_id   |
-|---------------|------------|
-|    1          |            |
-
-
 ADVANCED
 
 As a Maker
@@ -105,29 +98,17 @@ I want to receive an email if I am tagged in a Peep
 ------
 
 [X] You don't have to be logged in to see the peeps.
-[X] Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 [X] peeps are viewed in reverse chronological order
+[X] Peeps (posts to chitter) have the username of the maker
 
-[ ] The username and email are unique.
-[ ] Peeps (posts to chitter) have:
-    [ ]the name of the maker
-    [X]the username of the maker
+[X] Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog). - this currently saves to a database with no further implementation
 [X] form username and name fields are required for sign up and login
+[X] !!! form email and password fields are NOT required or recommended for sign up and login while not protected !!!
 
-[ ] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
------
-[ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
 [X] Work on the CSS to make it look good.
 
 ----
-
-###TO DO:
-[ ] login does not currently map to existing sign ups
-[ ] there is no password match
-[ ] form passwords are not required fields
-
 
 ### Chitter database setup
 Connect to psql
@@ -144,35 +125,27 @@ Run the query saved in db/test/01_create_peeps_table.sql
 Connect to the database using the pqsl command \c chitter_test
 Run the query saved in db/test/01_create_users_table.sql
 
-
+- integrated databases using the `PG` gem and `SQL`
 
 ---
+
 ### Things to implement:
-Automated Tests:
+
+[ ] login does not currently map to existing sign ups
+[ ] there is no password match
+[ ] protect email and passwords
+[ ] The username and email are unique
+[ ] In order to start a conversation as a maker I want to reply to a peep from another
+[ ] Peeps (posts to chitter) have the name of the maker
+
+[ ] connect create a table to travis??
+
+#### table not yet implemented:
+account_peeps:
+|  account_id   |  peep_id   |
+|---------------|------------|
+|    1          |            |
+
+
+
 -----
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
