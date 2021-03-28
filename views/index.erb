@@ -35,7 +35,7 @@
         <% @shouter.each do |shout| %>
           <div id='individual_shout'>
             <div id='author_time_div'>
-              <p id='author_text'><%= "@#{shout['author']}" %></p>
+              <p id='author_text'><%= "@#{shout['username']}" %></p>
               <p id='time_text'><%= "#{shout['time_shouted']}" %></p>
             </div>
             <div id='shout_content_div'>
@@ -45,18 +45,27 @@
           <br>
         <% end %>
       </div>
-      <div id="sign_up_div">
-        <h2 id="sign_up_header">Bored of being an anonymous shouter?</h2>
-        <h4 id="sign_up_subheader">Sign up and let people know who you are and why you are shouting.</h4>
-        <div id="sign_up_buttons">
-          <form action="/shout/login" method="get">
-            <input type="submit" value="LOG IN" id="login_button">
-          </form>
-          <form action="/shout/sign_up" method="get">
-            <input type="submit" value="SIGN UP" id="signup_button">
+      <% if @login[0] == false %>
+        <div id="sign_up_div">
+          <h2 id="sign_up_header">Bored of being an anonymous shouter?</h2>
+          <h4 id="sign_up_subheader">Sign up and let people know who you are and why you are shouting.</h4>
+          <div id="sign_up_buttons">
+            <form action="/shout/login" method="get">
+              <input type="submit" value="LOG IN" id="login_button">
+            </form>
+            <form action="/sign_up" method="get">
+              <input type="submit" value="SIGN UP" id="signup_button">
+            </form>
+          </div>
+        </div>
+      <% elsif @login[0] == true %>
+        <div id="logged_in_div">
+          <h2 id="logged_in_header">Welcome <%= @login[1] %>....START SHOUTING!</h2>
+          <form action="/sign_out" method="post">
+            <input type="submit" value="SIGN OUT" id="signup_button">
           </form>
         </div>
-      </div>
+      <% end %>
     </main>
 
     <footer>

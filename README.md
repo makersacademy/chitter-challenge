@@ -9,14 +9,14 @@ Chitter Challenge
 
 #### To set up the database for actual use
 1. Connect to psql
-2. Create the database using the psql command 'CREATE DATABASE  shouter_database;'
-3. Connect to the database using the pqsl command '\c shouter_database;'
+2. Create the database using the psql command `CREATE DATABASE  shouter_database;`
+3. Connect to the database using the pqsl command `\c shouter_database;`
 4. Run the querys we have saved in the file `01_create_shouter_tables.sql`
 
 
 #### Set up database for testing
 1. Connect to psql
-2. Create the database using the psql command 'CREATE DATABASE shouter_database_test;'
+2. Create the database using the psql command `CREATE DATABASE shouter_database_test;`
 3. Tables will create and reset automatically when you run rspec
 
 

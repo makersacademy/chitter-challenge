@@ -87,3 +87,15 @@ body {
 #signup_button {
   margin: 0 0 0 5px;
 }
+
+#signup_form_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0 0 0;
+}
+
+.signup_form {
+  margin: 5px 0 0 0;
+}

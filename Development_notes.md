@@ -35,11 +35,23 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-> going to add a sign up to chitter button
-> display a sign up screen
-> if signed in show on main page
-> create a user class and user database
-> update shouts database to user the author id
+> going to add a sign up to chitter button - DONE
+> display a sign up screen - DONE
+> if signed in show on main page - DONE (with signout button)
+> create a user class and user database - DONE
+> update shouts database to user the author id - DONE
+> Create login sheet
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+> set up sign out button to close out session - DONE
+
 
 
 
@@ -51,9 +63,7 @@ I want to sign up for Chitter
 >> add a random anonymous shouter
 >> add pictures of people shouting
 >> extract a shout class
-
-
-Program is vulnerable to SQL injection - need to write a substitute method (and de substitute with gsub) - ', ", \, NUL or implement an ORM
+>> Program is vulnerable to SQL injection - need to write a substitute method (and de substitute with gsub) - ', ", \, NUL or implement an ORM
 
 ---
 

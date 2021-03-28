@@ -14,12 +14,38 @@ class ShouterWebApp < Sinatra::Base
   end
 
   get '/' do
+    session[:login] ||= [false, nil]
+    @login = session[:login]
     @shouter = Shouter.all
     erb :index
   end
 
   post '/shout/new' do
-    Shouter.shout(params[:shout_box])
+    author = session[:login][1] unless session[:login][1] == nil
+    Shouter.shout(params[:shout_box], author)
+    redirect '/'
+  end
+
+  get '/sign_up' do
+    erb :signup
+  end
+
+  post '/sign_up/new' do
+    if Users.duplicate_email?(params[:email])
+      flash[:unique_email] = "This email is already taken please login with your existing credentials or use a different email."
+      redirect back
+    end
+    if Users.duplicate_username?(params[:username])
+      flash[:unique_username] = "This username is already taken, please choose another username."
+      redirect back
+    end
+    Users.signup(params[:name], params[:username], params[:email], params[:password])
+    session[:login] = [true, params[:username]]
+    redirect  '/'
+  end
+
+  post '/sign_out' do
+    session[:login] = [false, nil]
     redirect '/'
   end
 

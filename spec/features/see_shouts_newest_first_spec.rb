@@ -5,6 +5,7 @@ feature 'Feature: See shouts in reverse chronological order' do
     click_button 'SHOUT'
     fill_in 'shout_box', with: 'THIS IS MY SECOND SHOUT'
     click_button 'SHOUT'
+    expect(page).to have_content("@Solo")
     expect(page).to have_content("THIS IS MY SECOND SHOUT")
     expect(page).to have_content("THIS IS MY FIRST SHOUT")
   end

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>SHOUTER</title>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/main_other.css">
+
+    <!-- <link rel="stylesheet" href="css/application.css"> -->
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/application.js"></script> -->
+
+  </head>
+
+  <body class="container">
+    <header>
+      <h1>SHOUTER</h1>
+      <h3>For when your tweets just aren't loud enough</h3>
+    </header>
+
+    <main>
+      <h2>SIGN UP</h2>
+
+      <% if flash[:unique_email] != nil %>
+        <div data-alert class="flash[:unique_email] alert-box radius">
+          <%= flash[:unique_email] %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+
+      <% if flash[:unique_username] != nil %>
+        <div data-alert class="flash[:unique_username] alert-box radius">
+          <%= flash[:unique_username] %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+
+      <form method="post" action="/sign_up/new" >
+        <div id='signup_form_div'>
+          <input type="text" name="name" placeholder="name" class='signup_form' />
+          <input type="text" name="username" placeholder="username" class='signup_form'/>
+          <input type="text" name="email" placeholder="email" class='signup_form'/>
+          <input type="text" name="password" placeholder="Password" class='signup_form'/>
+          <input type="submit" value="SIGN UP" class='signup_form' />
+        </div>
+      </form>
+
+    </main>
+
+    <footer>
+    </footer>
+  </body>
+</html>

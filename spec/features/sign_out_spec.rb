@@ -1,5 +1,5 @@
-feature 'Feature: Sign up to Shouter and see for yourself' do
-  scenario 'User can sign up' do
+feature 'signs out of SHOUTER and revert back to main page as anonymous shouter' do
+  scenario '' do
     visit '/'
     click_button 'SIGN UP'
     fill_in 'name', with: 'Chewbacca'
@@ -7,6 +7,7 @@ feature 'Feature: Sign up to Shouter and see for yourself' do
     fill_in 'email', with: 'chewie@mfalcon.com'
     fill_in 'password', with: 'Gra44rgh'
     click_button 'SIGN UP'
-    expect(page).to have_content("Welcome Chewie9999")
+    click_button 'SIGN OUT'
+    expect(page).to have_content('Bored of being an anonymous shouter?')
   end
 end
