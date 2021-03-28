@@ -20,6 +20,7 @@ email: new_user[0]['email'])
   def self.sign_in(username:, password:)
     sign_in = DbConnection.query("SELECT * FROM users WHERE username = '#{username}';")
     return unless sign_in.any?
+    return unless BCrypt::Password.new(sign_in[0]['password']) == password
 
     User.new(user_id: sign_in[0]['user_id'], username: sign_in[0]['username'], 
              email: sign_in[0]['email'])
