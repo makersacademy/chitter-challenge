@@ -20,4 +20,8 @@ feature "Posting peeps" do
     click_on('Post')
     expect(page).to have_content 'I love Makers'
   end
+  scenario "User can't add a peep if they're signed out" do
+    visit '/'
+    expect(page).not_to have_content 'post'
+  end
 end
