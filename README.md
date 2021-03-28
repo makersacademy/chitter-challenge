@@ -1,21 +1,9 @@
-Chitter Challenge
-=================
+Welcome to my Chitter challenge!
+================================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Here's how to get going -- look further below for development methodology!
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+![Simple model extracted from user stories](/user_story_modelling.png)
 ```
 STRAIGHT UP
 
