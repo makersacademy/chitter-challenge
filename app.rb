@@ -12,6 +12,7 @@ class ChitterApp < Sinatra::Base
     DbConnection.check_env
     @peeps = Chitter.all_peeps
     @users = Chitter.all_users
+    @tags = Chitter.all_tags
     @user = User.find(session[:user_id])
   end
 

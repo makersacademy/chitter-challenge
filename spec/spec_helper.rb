@@ -25,9 +25,8 @@ RSpec.configure do |config|
   config.before(:each) do
     truncate
     setup_users_table
-    setup_tags_table
     setup_peeps_table
-    setup_peep_tag_relation_table
+    setup_tags_table
   end
 
   config.expect_with :rspec do |expectations|

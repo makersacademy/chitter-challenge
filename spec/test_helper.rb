@@ -2,9 +2,7 @@ require './lib/db_connection'
 
 def truncate 
   DbConnection.check_env
-  DbConnection.query("TRUNCATE TABLE peep_tag_relation, users, peeps,
-                      tags RESTART IDENTITY CASCADE;")
-  
+  DbConnection.query("TRUNCATE TABLE users, peeps, tags RESTART IDENTITY CASCADE;")
 end
 
 def setup_users_table
@@ -26,24 +24,7 @@ def setup_peeps_table
 end
 
 def setup_tags_table
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#cats');")
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#frogs');")
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#hello');")
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#whodis');")
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#bears');")
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#hashwhats');")
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#first');")
-  DbConnection.query("INSERT INTO tags(tag) VALUES ('#nuts');")
-end
-
-def setup_peep_tag_relation_table
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('1', '2');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('1', '3');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('1', '4');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('2', '2');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('2', '4');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('2', '6');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('3', '5');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('3', '7');")
-  DbConnection.query("INSERT INTO peep_tag_relation(peep_id, tag_id) VALUES ('3', '8');")
+  DbConnection.query("INSERT INTO tags(user_id, peep_id) VALUES ('2', '1');")
+  DbConnection.query("INSERT INTO tags(user_id, peep_id) VALUES ('3', '2');")
+  DbConnection.query("INSERT INTO tags(user_id, peep_id) VALUES ('1', '3');")
 end

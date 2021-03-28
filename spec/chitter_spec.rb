@@ -20,4 +20,14 @@ describe Chitter do
       expect(users.first.email).to eq('captainfrog@notadomain.com')
     end
   end  
+
+  describe 'self.all_tags' do
+    it 'returns all tags as an array of tags' do
+      tags = Chitter.all_tags
+      
+      expect(tags.last).to be_a(Tag)
+      expect(tags.last.user_id).to eq('1')
+      expect(tags.first.peep_id).to eq('1')
+    end
+  end
 end

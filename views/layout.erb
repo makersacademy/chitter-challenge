@@ -22,9 +22,9 @@
   <main>
     <div class="topnav">
       <a href="<%='/chitter/index'%>">Home</a>
-      <%# <a href="#">Link</a>
-      <a href="#">Link</a> %>
       <%if @user%>
+      <a href="#">Tagged Peeps</a>
+      <%# <a href="#">Link</a> %>
       <form action="/sessions/destroy" method="post" style="float:right;">
         <input type="submit" value="Sign out" style="margin:7px;">
       </form><%end%>
@@ -40,7 +40,13 @@
       <div class='peep'>
         <%@peeps.each do |peep|%>
           <div class='peep'><%=peep.message%></div>
-          <div class='tag'>peeped @ littlefrog</div>
+          <%@tags.each do |tag|%>
+            <%@users.each do |user|%>
+              <%if tag.user_id == user.user_id%>
+          <div class='tag'>peeped @ <%user.username%></div>
+              <%end%>
+            <%end%>
+          <%end%>
           <%@users.each do |user|%>
             <%if user.user_id == peep.user_id %>
               <div class='wrap'>

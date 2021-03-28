@@ -1,6 +1,7 @@
 require './lib/db_connection'
 require './lib/peep'
 require './lib/user'
+require './lib/tag'
 
 class Chitter
   
@@ -20,5 +21,14 @@ class Chitter
                          email: user['email'])
     end
     return @users
+  end
+
+  def self.all_tags
+    @tags = []
+    DbConnection.query("SELECT * FROM tags;").each do |tag|
+      @tags << Tag.new(tag_id: tag['tag_id'], user_id: tag['user_id'], 
+                         peep_id: tag['peep_id'])
+    end
+    return @tags
   end
 end
