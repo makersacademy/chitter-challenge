@@ -21,9 +21,11 @@ class Peep
   end
 
   def self.post(content:, name:)    
-    data = DatabaseConnection.query("INSERT INTO peeps (content, name) VALUES('#{content}', '#{name}') 
+    data = DatabaseConnection.query("INSERT INTO peeps (content, name) 
+      VALUES('#{content}', '#{name}') 
     RETURNING id, content, name, posted_at;")
-    Peep.new(id: data[0]['id'], content: data[0]['content'], name: data[0]['name'], time: data[0]['posted_at'])
+    Peep.new(id: data[0]['id'], content: data[0]['content'], 
+            name: data[0]['name'], time: data[0]['posted_at'])
   end
 
 end 

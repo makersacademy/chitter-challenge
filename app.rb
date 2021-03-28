@@ -34,7 +34,8 @@ class Chitter < Sinatra::Base
   end 
 
   post '/users' do 
-    @user = User.add(email: params[:email], password: params[:password], username: params[:username])
+    @user = User.add(email: params[:email], password: params[:password], 
+                    username: params[:username], name: params[:name])
     session[:user_id] = @user.id
     p @user.username
     redirect '/peeps'
@@ -45,8 +46,8 @@ class Chitter < Sinatra::Base
   end 
 
   post '/sessions' do 
+    @user = User.authenticate(email: params[:email], password: params[:password])
     session[:user_id] = @user.id
-    # authenticate
     redirect '/peeps'
   end 
 

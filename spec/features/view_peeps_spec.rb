@@ -3,7 +3,7 @@ require 'pg'
 
 feature 'view peeps' do
   scenario 'view peeps' do 
-    Peep.post(content: "Test Peep", name:"Tester")
+    Peep.post(content: "Test Peep", name: "Tester")
     visit '/peeps'
     expect(page).to have_content("Test Peep")
     expect(page).to have_content("Tester")

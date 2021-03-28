@@ -1,7 +1,12 @@
 <html>
-  <body>  
+  <body> 
+    <% if @user != nil %>
     <h1> Welcome, <%= @user.username %> </h1>
-    <h2> Your chitter feed: </h2>
+    <h3> Email: <%= @user.email%> </h3>
+    <h2> Your Chitter Feed: </h2><br>
+    <% else %>
+    <h2> The Chitter Feed: </h2>
+    <% end %>
     <ul>
       <% @peeps.each do |peep| %>
         <li class="peep" id="peep-<%= peep.id %>">

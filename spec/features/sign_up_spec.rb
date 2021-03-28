@@ -6,6 +6,7 @@ feature 'signing up' do
     fill_in('email', with: 'test@test.com')
     fill_in('password', with: 'testpwd123')
     fill_in('username', with: 'tester')
+    fill_in('name', with: 'Test Tester')
     click_button('Sign up now')
 
     expect(page).to have_content "Welcome, tester"

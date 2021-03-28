@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'capybara', '~> 2.7', '>= 2.7.1'
 gem 'pg', '~> 1.2', '>= 1.2.2'
 gem 'sinatra', '~>2.1.0'
 gem 'webrick', '~>1.7.0'
-gem 'bcrypt'
 
 group :test do
   gem 'rspec'
