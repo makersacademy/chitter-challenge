@@ -7,7 +7,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Welcome to Chitter!'
+    erb(:index)
+  end
+
+  get '/new' do
+    erb(:new)
+  end
+
+  post '/' do
+    redirect '/'
   end
 
   run if app_file == $0
