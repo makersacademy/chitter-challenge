@@ -23,15 +23,10 @@ CREATE TABLE peeps
 CREATE TABLE tags
 (
     tag_id SERIAL PRIMARY KEY,
-    tag VARCHAR(15)
-);
-
-CREATE TABLE peep_tag_relation
-(
+    user_id integer,
     peep_id integer,
-    tag_id integer,
     CONSTRAINT peep_id FOREIGN KEY (peep_id)
         REFERENCES peeps (peep_id) MATCH SIMPLE,
-    CONSTRAINT tag_id FOREIGN KEY (peep_id)
-        REFERENCES tags (tag_id) MATCH SIMPLE
+    CONSTRAINT tagged_user FOREIGN KEY (user_id)
+        REFERENCES users (user_id) MATCH SIMPLE
 );
