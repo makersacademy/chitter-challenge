@@ -339,8 +339,6 @@ Style/MethodCalledOnDoEndBlock:
   Enabled: false
 Style/MethodDefParentheses:
   Enabled: false
-Lint/MissingSuper:
-  Enabled: false
 Style/MissingRespondToMissing:
   Enabled: false
 Style/MissingElse:
@@ -450,8 +448,6 @@ Style/StructInheritance:
 Style/SymbolArray:
   Enabled: false
 Style/SymbolProc:
-  Enabled: false
-Layout/IndentationStyle:
   Enabled: false
 Style/TernaryParentheses:
   Enabled: false
