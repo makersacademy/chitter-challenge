@@ -16,7 +16,7 @@ feature 'homepage' do
     click_on 'Log in'
     fill_in 'username', with: 'Test User'
     fill_in 'email', with: 'example@email.com'
-    fill_in 'password', with: 'password'
+    fill_in 'password', with: 'password123'
     click_on 'Log in'
     expect(page).to have_content 'What is on your mind Test User?'
   end 

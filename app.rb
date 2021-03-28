@@ -17,7 +17,6 @@ class Twitter < Sinatra::Base
   post '/users' do 
     user = User.create(name: params[:username], email: params[:email], password: params[:password])
     session[:user_id] = user.id
-    p user
     redirect '/home'
   end 
 
@@ -25,16 +24,13 @@ class Twitter < Sinatra::Base
     erb :log_in
   end 
 
-  post '/log_in' do 
-    result = DatabaseConnection.query("SELECT * FROM users WHERE name = '#{params[:username]}'")
-    user = User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'])
-  
+  post '/user_log_in' do 
+    user = User.authenticate(name: params[:username], password: params[:password])
     session[:user_id] = user.id
     redirect '/home'
   end 
 
   get '/home' do 
-    p " -- home #{session[:user_id]} "
     @user = User.find(session[:user_id])
     @goliath = Tweets.all.reverse
     erb :tweets

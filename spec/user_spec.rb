@@ -30,4 +30,11 @@ describe User do
       expect(User.find(nil)).to eq nil
     end
   end 
+
+  describe '.authenticate' do 
+    it 'can recognise a user and log in' do 
+      user = User.create(name: 'David Attenborough', email: 'davidattenboroughk@gmail.com', password: 'SaveThePlanet123')
+      authenticated = User.authenticate(name: 'David Attenborough', password: 'SaveThePlanet123')
+    end 
+  end 
 end
