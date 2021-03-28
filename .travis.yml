@@ -1,10 +1,16 @@
-language: ruby
-
-services:
-  - postgresql
-
-before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-
-script:
-  - bundle exec rspec
+{
+  "language": "ruby",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "services": [
+    "postgresql"
+  ],
+  "before_script": [
+    "psql -U postgres -c 'CREATE DATABASE chitter_test;'"
+  ],
+  "script": [
+    "bundle exec rspec"
+  ]
+}
