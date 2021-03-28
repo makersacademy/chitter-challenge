@@ -14,6 +14,7 @@ class ChitterApp < Sinatra::Base
     @users = Chitter.all_users
     @tags = Chitter.all_tags
     @user = User.find(session[:user_id])
+    @reply = session[:reply]
   end
 
   get '/' do
@@ -58,7 +59,19 @@ class ChitterApp < Sinatra::Base
   end
   
   post '/chitter/peep' do
-    Peep.new_peep(params[:message], @user.user_id)
+    peep = Peep.new_peep(params[:message], @user.user_id)
+    if params[:tag] == ""
+      session[:reply] = nil
+      redirect '/chitter/index'
+    else
+      Tag.new_tag(User.find_by_username(params[:tag]).user_id, peep.peep_id)
+      session[:reply] = nil
+    redirect '/chitter/index'
+    end
+  end
+
+  post '/chitter/reply' do
+    session[:reply] = params[:reply]
     redirect '/chitter/index'
   end
 

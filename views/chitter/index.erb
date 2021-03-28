@@ -4,7 +4,9 @@
 <form action='/chitter/peep' method='post'>
   <input type='text' name='message' placeholder='What&#39;s on your mind?'
     maxlength="512" required><br>
-  <input type='submit' value='Peep'>  
+  <input type='text' name='tag' placeholder='Tag a friend with their username!'
+    <%if @reply%>value='<%=@reply%>'<%end%> style='width:45%;'>
+  <input type='submit' value='Peep'>
 </form>
 <%else%>
 <%if flash[:notice]%>

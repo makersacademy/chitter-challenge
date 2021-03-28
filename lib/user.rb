@@ -23,6 +23,13 @@ class User
     User.new(user_id: found[0]['user_id'], username: found[0]['username'], email: found[0]['email'])
   end
 
+  def self.find_by_username(username)
+    return nil unless username
+
+    found = DbConnection.query("SELECT * FROM users WHERE username = '#{username}';")
+    User.new(user_id: found[0]['user_id'], username: found[0]['username'], email: found[0]['email'])
+  end
+
   def self.sign_in(username:, password:)
     sign_in = DbConnection.query("SELECT * FROM users WHERE username = '#{username}';")
     return unless sign_in.any?

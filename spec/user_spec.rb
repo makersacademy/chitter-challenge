@@ -47,6 +47,19 @@ describe User do
     end
   end
 
+  describe 'self.find_by_username' do
+    it "finds a users id by their username" do
+      user = User.new_user('lettucebomb', 'password1', 'lettucebomb@notadomain.com')
+      found = User.find_by_username(user.username)
+
+      expect(found.user_id).to eq('4')
+    end
+
+    it 'returns nil if there is no user_id provided' do
+      expect(User.find_by_username(nil)).to eq(nil)
+    end
+  end
+
   describe 'self.sign_in' do
     it "allows the user to authenticate and enter the session" do
       user = User.new_user('lettucebomb', 'password1', 'lettucebomb@notadomain.com')
