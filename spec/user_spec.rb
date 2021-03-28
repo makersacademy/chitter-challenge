@@ -39,9 +39,14 @@ describe User do
       expect(authenticated.id).to eq user.id
     end 
 
-    it 'throws and error then given the wrong username' do 
+    it 'returns nil when given the wrong username' do 
       user = User.create(name: 'David Attenborough', email: 'davidattenboroughk@gmail.com', password: 'SaveThePlanet123')
       expect(User.authenticate(name: 'Danny Attenborough', password: 'SaveThePlanet123')).to be_nil
+    end 
+
+    it 'returns nil when given the wrong password' do 
+      user = User.create(name: 'David Attenborough', email: 'davidattenboroughk@gmail.com', password: 'SaveThePlanet123')
+      expect(User.authenticate(name: 'David Attenborough', password: 'DestroyThePlanet123')).to be_nil
     end 
   end 
 end

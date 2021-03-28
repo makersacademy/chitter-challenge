@@ -31,6 +31,18 @@ feature 'homepage' do
     expect(page).not_to have_content 'What is on your mind Test User?'
     expect(page).to have_content 'Please check your username or password.'
   end
+
+  scenario 'a user sees an error if they get their password wrong' do
+    User.create(name: 'Test User', email: 'test@example.com', password: 'password123')
+
+    visit '/log_in'
+    fill_in 'username', with: 'Test User'
+    fill_in 'password', with: 'password125'
+    click_button('Log in')
+
+    expect(page).not_to have_content 'What is on your mind Test User?'
+    expect(page).to have_content 'Please check your username or password.'
+  end
 end 
 
 feature '/home' do 
