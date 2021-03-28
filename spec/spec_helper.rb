@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './spec/test_helper'
+require 'features/web_helpers'
 
 Capybara.app = Twitter
 
