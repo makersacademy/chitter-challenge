@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'pg'
 gem 'shotgun', '~> 0.9.2'
 gem 'sinatra', '~> 2.1'

@@ -23,8 +23,4 @@ feature '/home' do
     expect(page).not_to have_content 'my first tweet'
   end 
 
-  scenario 'people should know that awkward tweet was from a while back, through a time stamp' do 
-    visit '/home'
-    expect(page).to have_content '2021-03-27'
-  end 
 end 

@@ -1,6 +1,14 @@
 <html>
   <body>
     <ul>
+      <% if @user %>
+      <h2> What is on your mind <%= @user.name %>?</h2>
+      <% end %>
+      <form action='/new_tweet' method='post'>
+        <input type='text' name='new_tweet'>
+        <input type='submit' value='Tweet'>
+      </form>
+      
           <% @goliath.map do |input| %>
             <li class='tweet' >
               <a> 
@@ -14,11 +22,7 @@
             </li>
           <% end %>
     </ul>
-    
-    <form action='/new_tweet' method='post'>
-      <input type='text' name='new_tweet'>
-      <input type='submit' value='Tweet'>
-    </form>
+
   </body>
 </html>
     
