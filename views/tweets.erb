@@ -34,8 +34,8 @@
                 </form>
 
                 <a> Comments: 
-                <p> @<%= User.find(input.created_by).name %> commented </p>
                     <% input.comment.each do |input|  %> 
+                    <p>  @<%= User.find(input['user_id']).name %> commented </p>
                     <%= input['comment'] %>
                     <% end %>
                 </a>
