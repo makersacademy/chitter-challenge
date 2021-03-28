@@ -3,6 +3,10 @@ require 'bcrypt'
 class User
 
   def self.new_user(username, password, email)
+    return 1 unless password.length >= 8
+    return 2 if duplicate_username?(username) == true 
+    return 3 if duplicate_email?(email) == true
+
     encrpyted_pw = BCrypt::Password.create(password)
 
     new_user = DbConnection.query("INSERT INTO users(username, password, email) 
@@ -26,6 +30,16 @@ class User
 
     User.new(user_id: sign_in[0]['user_id'], username: sign_in[0]['username'], 
              email: sign_in[0]['email'])
+  end
+
+  def self.duplicate_username?(username)
+    dbsearch = DbConnection.query("SELECT * FROM users WHERE username = '#{username}';")
+    dbsearch.any?
+  end
+
+  def self.duplicate_email?(email)
+    dbsearch = DbConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    dbsearch.any?
   end
 
   attr_reader :user_id, :username, :email

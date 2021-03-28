@@ -18,6 +18,18 @@ describe User do
 
       User.new_user('littletrout', 'password1', 'littletrout@notadomain.com')
     end
+
+    it 'returns 1 if the password entered is less than 8 characters long' do
+      expect(User.new_user('littletrout', '123456', 'littletrout@notadomain.com')).to eq(1)
+    end
+
+    it 'returns 2 if the username has already been used and is in the database' do
+      expect(User.new_user('captainfrog', 'password1', 'captainfrog@notadomain.com')).to eq(2)
+    end
+    
+    it 'returns 3 if the email has already been used and is in the database' do
+      expect(User.new_user('littlebear', 'password1', 'captainfrog@notadomain.com')).to eq(3)
+    end
   end
 
   describe 'self.find' do
