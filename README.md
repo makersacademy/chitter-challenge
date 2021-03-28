@@ -3,7 +3,28 @@ Welcome to my Chitter challenge!
 
 Here's how to get going -- look further below for development methodology!
 
-![Simple model extracted from user stories](/user_story_modelling.png)
+This project uses Sinatra, PostgreSQL, and Ruby Object Mapper, follow the steps below to install.
+
+1. clone the repo, and bundle up
+2. setup ENV data inside .env (it's in .gitignore), change your_user_name_here to your system username
+  ```
+  $ cat .env POSTGRESQL_HOST=localhost POSTGRESQL_DB=chitter POSTGRESQL_TEST_DB=chitter_test POSTGRESQL_USER=your_user_name_here POSTGRESQL_PASSWORD=
+  ```
+3. Install PostgreSQL (instructions for linux vary, this is for mac)
+  ```
+  brew install postgresql
+  ```
+ - enter interactive terminal
+ ```
+ $ psql postgres # postgres is automatically provided as a database to connect to
+ $ CREATE DATABASE your_user_name_here; # now you can just type 'psql' to get into the interactive terminal
+ $ CREATE DATABASE chitter;
+ $ CREATE DATABASE chitter_test;
+ $ \c chitter # confirm database setup with connection
+ $ \l # list databases
+ ```
+User stories
+============
 ```
 STRAIGHT UP
 
@@ -39,6 +60,10 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+![Simple model extracted from user stories](/user_story_modelling.png)
+
+
 
 Technical Approach:
 -----
