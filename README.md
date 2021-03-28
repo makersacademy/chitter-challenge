@@ -65,7 +65,7 @@ I want to sign up for Chitter
 
 • I used a timestamp keyword within the postgres database which automatically timestamps data.
 
-# User story 4
+### Step 3: User story 4
 
 
 
@@ -79,7 +79,7 @@ I want to sign up for Chitter
 
 
 
-
+------------------------------------------------------------------------------
 ## Course Instructions
 
 * Feel free to use Google, your notes, books, etc. but work on your own
