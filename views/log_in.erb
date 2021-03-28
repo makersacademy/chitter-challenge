@@ -1,8 +1,12 @@
 <html>
   <body>
+
+    <h2> 
+      <%= flash[:notice] %> 
+    </h2>
+    
     <form action='/user_log_in' method='post'>
       <label for='username'>User name:<input type='text' name='username' />
-      <label for='email'>email adress:<input type='text' name='email' />
       <label for='password'>Password:<input type='password' name='password' />
       <input type='submit' value='Log in'>
     </form>

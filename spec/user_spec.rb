@@ -35,6 +35,13 @@ describe User do
     it 'can recognise a user and log in' do 
       user = User.create(name: 'David Attenborough', email: 'davidattenboroughk@gmail.com', password: 'SaveThePlanet123')
       authenticated = User.authenticate(name: 'David Attenborough', password: 'SaveThePlanet123')
+
+      expect(authenticated.id).to eq user.id
+    end 
+
+    it 'throws and error then given the wrong username' do 
+      user = User.create(name: 'David Attenborough', email: 'davidattenboroughk@gmail.com', password: 'SaveThePlanet123')
+      expect(User.authenticate(name: 'Danny Attenborough', password: 'SaveThePlanet123')).to be_nil
     end 
   end 
 end

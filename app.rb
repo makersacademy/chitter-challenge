@@ -1,10 +1,14 @@
 require 'sinatra/base'
+require 'sinatra'
+require 'sinatra/flash'
 require './lib/database_connection_setup'
 require './lib/tweets'
 require './lib/user'
+require 'uri'
 
 class Twitter < Sinatra::Base 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do 
     erb :index
@@ -26,8 +30,14 @@ class Twitter < Sinatra::Base
 
   post '/user_log_in' do 
     user = User.authenticate(name: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/home'
+    
+    if user 
+      session[:user_id] = user.id
+      redirect '/home'
+    else 
+      flash[:notice] = 'Please check your username or password.'
+      redirect '/log_in'
+    end 
   end 
 
   get '/home' do 
