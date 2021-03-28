@@ -26,6 +26,11 @@ class Twitter < Sinatra::Base
   end 
 
   post '/log_in' do 
+    result = DatabaseConnection.query("SELECT * FROM users WHERE name = '#{params[:username]}'")
+    user = User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'])
+  
+    session[:user_id] = user.id
+    redirect '/home'
   end 
 
   get '/home' do 

@@ -10,7 +10,7 @@ feature 'homepage' do
   end
 
   scenario 'A user can log in' do 
-    User.create(email: 'test@example.com', password: 'password123')
+    User.create(name: 'Test User', email: 'test@example.com', password: 'password123')
 
     visit '/'
     click_on 'Log in'
