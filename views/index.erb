@@ -2,16 +2,18 @@
 
 
 <form action="/peep" method="post"> 
-<label for="statusbox">
-Peep something!</label>
-<input type="text" name="statusbox" required>
-<input type="submit" value="Peep!">
+<label for="user_id">
+Who is peeping?!</label>
+<input type="text" name="user_id" required>
+<input type="submit" value="Log in">
 </form>
 
-<ul>
-<% Peep.all_peep.each do |element| %>
+
+<ul style="list-style-type:none;">
+<% Peep.all_peep.map do |element| %>
     <li class="peep">
-        '<%= element.status %>'
+       <%= element.user_id %> :
+       <%= element.status %>
     </li>
 <% end %>
 </ul>

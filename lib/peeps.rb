@@ -20,8 +20,12 @@ class Peep
       
       @peeps << Peep.new(row['user_id'], row['peep'], row['id'])
     end
-    return @peeps
+        return @peeps
+    end
 
+    def self.post_peep(user_login, status)
+
+        self.check_env.exec "INSERT INTO chitter_table (user_id, peep) VALUES ('#{user_login}', '#{status}');"
     end
 
     private

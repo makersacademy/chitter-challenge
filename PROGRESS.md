@@ -81,4 +81,33 @@ New error!
        +[#<Peep:0x00007fa20c300b28 @user_id="test_user", @status="Peep peep!", @id="110">,
        + #<Peep:0x00007fa20c300a88 @user_id=nil, @status="Peep peep!", @id="111">]
 
-Its not returning "Peep peep!". Why.
+Its not returning "Peep peep!". Why. Went from each to map, no difference.
+
+Perhaps there is something wrong with the test? It is failing at line 11:
+
+    10: peeps = Peep.all_peep
+    11: expect(peeps).to include ('Peep peep!')
+
+--- I've decided to temporarily move onto the adding peeps functionality ---
+
+Peep status is returning as [:status] and yet again I am unsure. Changing everwhere I put [:status] until something happens.
+
+...
+
+That didn't take long, it was in app.rb:
+
+        post '/peep' do
+             p params
+        
+             Peep.post_peep(params[:user_id], [:status])
+       
+            erb(:add_peep)
+        end
+
+BECAUSE IS SHOULD BE params [:status]
+
+Now it is coming up blank.
+
+---Realised that one of my failing tests (expecting 2 arguments given 0) was a result of me not giving the test an argument---
+
+I'm absolutely stuck and exhausted, I feel like I was following a similar process to the afternoon challenge but it appears like I wasn't.

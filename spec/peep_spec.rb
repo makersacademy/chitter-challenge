@@ -6,12 +6,20 @@ describe Peep do
 
         connection.exec("INSERT INTO chitter_table (peep) VALUES ('Peep peep!');")
 
-        peep_status = Peep.all_peep
+        peeps = Peep.all_peep
 
-        expect(peep_status).to eq ('Peep peep!')
+        expect(peeps).to include ('Peep peep!')
     end
 
     it 'displays posted peeps' do
         expect(Peep).to respond_to :all_peep
+    end
+
+    describe '#post_peep' do
+        it 'allows user to post a peep' do
+            adding_peep = Peep.post_peep("test_user", "Hello world!")
+            
+            expect(adding_peep).to include ('Hello world!')
+        end
     end
 end

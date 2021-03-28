@@ -11,7 +11,15 @@ class ChitterWebApp < Sinatra::Base
     end
 
     post '/peep' do
-        redirect '/homepage'
+        p params
+        
+        Peep.post_peep(params[:user_id], params[:status])
+       
+        erb(:add_peep)
+    end
+
+    post '/peep/new' do
+         redirect '/homepage'
     end
 
     run! if app_file == $0
