@@ -1,4 +1,5 @@
 require_relative 'db'
+require_relative 'user'
 
 class Message
   attr_reader :id, :content, :created_at, :name, :username
@@ -28,8 +29,11 @@ class Message
     end
   end
 
-  def tag(user_id)
-    # sql = "INSERT INTO comments (text, bookmark_id) VALUES('#{text}', '#{@id}');"
-    DB.query(sql)
+  def tagged_user_emails
+    emails = []
+    User.all.each do |user|
+      emails << user.email if @content.include? "@#{user.username}"
+    end
+    emails
   end
 end

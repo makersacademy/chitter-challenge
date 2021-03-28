@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require_relative 'db_connection_setup'
 require_relative './lib/user'
 require_relative './lib/message'
+require 'pony'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -52,6 +53,17 @@ class Chitter < Sinatra::Base
   post '/messages' do
     p params
     message = Message.add(params[:content], params[:user_id])
+    begin
+      if message.tagged_user_emails.any?
+        message.tagged_user_emails.each do |recipient|
+          Pony.mail :to => recipient,
+            :from => "noreply@chitter.com",
+            :subject => "Chitter: you are tagged by #{message.name}"
+        end
+      end
+    rescue StandardError => e
+      p e
+    end
     redirect('/')
   end
 

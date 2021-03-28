@@ -6,6 +6,7 @@ group :test, :development do
   gem 'bcrypt'
   gem 'capybara'
   gem 'pg'
+  gem 'pony'
   gem 'rspec'
   gem 'rubocop', '0.79.0'  
   gem 'simplecov', require: false

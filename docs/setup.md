@@ -57,3 +57,7 @@ CREATE OR REPLACE VIEW view_messages AS
 ```
 
 *Test database, tables and views will automatically setup when run rspec
+
+#### Mail
+
+Not sure if it requires setting up mail server in Mac for localhost to use Pony ([link](https://github.com/benprew/pony)), mine seems just worked
