@@ -1,135 +1,54 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+![chitter](docs/chitter.png)
 
-Challenge:
--------
+---------
+### Functions
 
-As usual please start by forking this repo.
+1. Sign up. Prevent register the same email or username twice, with error message in red.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+2. Sign in. Reject wrong email or password, with error message in red.
 
-Features:
--------
+3. View messages without the need to sign in. Messages are listed from latest to oldest.
 
-```
-STRAIGHT UP
+4. Can post message after sign in. 
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+5. Can send email to tagged user
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+---------
+### How to use / test
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+1. [Setup](docs/setup.md)
+2. Run command `rackup`
+3. In web browser, enter i.e. "localhost:9292" (or the port provided from previous step)
+4. Sign up a few users (some with your real email addresses, best with gmail), play around to register same email and username twice to see the error messages
+5. Sign out
+6. Sign in with registered users, play around with wrong email or password
+7. Chit a few messages, latest will appear at the top
+8. Chit messages with @username (replace username with real usernames registered), choose the ones with real email addresses. You should receive email notifications (check junk if not)
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+*Tried with hotmail, seems not getting the notification. With gmail, getting it straightaway in junk folder.*
 
-HARDER
+---------
+### Infrastructure
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
+- Web Framework: Sinatra
+- Test Framework: Capybara, rspec
+- Database: PostgreSQL
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+---------
+### Overview
 
-ADVANCED
+- Covered all functions, test coverage 100%
+- Responsive web pages (scale up/down when resize browser window)
+- Styling
+- Deal with apostrophes in text fields before passing to database
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+---------
+### Issues and Future Scope
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+- Improve the function of finding tagged user(s). Currently, the code search if message contains @username in the string. However, it will cause problem i.e. having 2 users: bob, bobby, if tag @bobby, @bob also part of the string, and both will be considered tagged.
+- Found out how to test emails sending successfully or not
+- Add more functions: i.e. reply messages
+- Use database on the cloud
+- Host site on the cloud

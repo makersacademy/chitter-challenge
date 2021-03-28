@@ -1,0 +1,119 @@
+body {
+  background-color: #e4d1d1;
+  color: grey;
+}
+
+header {
+  background-color: #e4d1d1;
+  width: 100%;
+  position: fixed;
+  margin-top: -100px;
+  display: grid;
+  grid-template-columns: 10% 40% 50%;
+}
+
+header a {
+  padding-top: 120px;
+}
+
+#logo {
+  text-align: right;
+  padding: 10px;
+}
+
+.messages {
+  margin-top: 100px;
+}
+
+.icon {
+  background-color: white;
+  border-radius: 100%;
+  padding: 2px;
+}
+
+#topbar {
+  text-align: right;
+  width: 80%;
+  padding: 20px;
+}
+
+a {
+  padding: 0px 10px 0px 10px;
+  color: white;
+  font-size: small;
+}
+
+.user-form {
+  padding: 20%;
+}
+
+.error-msg {
+  color: red;
+}
+
+.user-form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.new-message {
+  margin: 5% 10%;
+  border: 1px lightgrey;
+  box-shadow: 5px 5px 5px 5px #888888;
+  border-radius: 10px;
+  text-align: right;
+}
+
+.new-message input[type=text] {
+  border: none;
+  height: 100px;
+  width: 96%;
+  margin: 10px 2% 5px 2%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: top;
+}
+
+.new-message input[type=submit] {
+  margin: 5px 2% 5px 0;
+  background-color: #e4d1d1;
+  border: 1px lightgrey;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px 1px #888888;
+  padding: 8px 15px 8px 15px;
+  font-size: small;
+  color: grey;
+}
+
+.list-message {
+  margin: 5% 10%;
+  border: 1px lightgrey;
+  box-shadow: 5px 5px 5px 5px #888888;
+  border-radius: 10px;
+  text-align: right;
+  padding: 0 5px 5px 5px;
+}
+
+.message-body {
+  width: 96%;
+  min-height: 50px;
+  margin: 20px 0 10px 2%;
+  padding: 10px 0 0 10px;
+  text-align: left;
+  color: grey;
+}
+
+.message-head {
+  width: 96%;
+  margin: 20px 2% 5px 2%;
+  padding: 10px 0 0 10px;
+  text-align: left;
+  color: white;
+}
+
+
+
+
+
