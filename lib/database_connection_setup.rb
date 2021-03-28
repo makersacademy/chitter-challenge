@@ -5,4 +5,3 @@ if ENV['RACK_ENV'] == 'test'
 else
   DatabaseConnection.setup('twitter')
 end
-

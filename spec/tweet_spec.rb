@@ -7,7 +7,6 @@ describe Tweets do
     it 'should return a list of all tweets' do 
       Tweets.create(tweet: 'my first tweet')
 
-
       expect(david.first.tweet).to include 'my first tweet'
     end
   end 

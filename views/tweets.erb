@@ -2,9 +2,10 @@
   <body>
     <ul>
 
-      <form action='/' method='get' >
+      <form action='/log_out' method='post' >
         <input type='submit' value='Log out'>  
       </form>
+
       <% if @user %>
       <h2> What is on your mind <%= @user.name %>?</h2>
       <% end %>

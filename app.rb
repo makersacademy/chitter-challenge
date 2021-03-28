@@ -56,5 +56,12 @@ class Twitter < Sinatra::Base
     redirect '/home'
   end 
 
+  post '/log_out' do 
+    session.clear
+    flash[:notice] = "You are logged out!"
+
+    redirect '/'
+  end 
+
   run! if app_file == $0
 end 
