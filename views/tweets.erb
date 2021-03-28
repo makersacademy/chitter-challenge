@@ -20,13 +20,26 @@
               <a> 
                 <%= input.created_at %>
                 <p> @<%= User.find(input.created_by).name %> tweeted </p>
-                
                 <%= input.tweet %> 
               </a>
                 <form action="/tweet/<%= input.id %>/delete" method="post">
                   <input type="hidden" name="_method" value="DELETE">
                   <input type='submit' value='delete'>
                 </form>
+
+                <form action="/tweet/<%= input.id %>/comment" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type='text' name='comment'>
+                  <input type='submit' value='comment'>
+                </form>
+
+                <a> Comments: 
+                <p> @<%= User.find(input.created_by).name %> commented </p>
+                    <% input.comment.each do |input|  %> 
+                    <%= input['comment'] %>
+                    <% end %>
+                </a>
+
             </li>
           <% end %>
     </ul>

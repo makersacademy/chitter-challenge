@@ -2,6 +2,7 @@ require 'tweets'
 
 describe Tweets do 
   let(:david) { Tweets.all }
+  let(:comment_class) { double :comment_class }
 
   describe '.all' do 
     it 'should return a list of all tweets' do 
@@ -26,4 +27,13 @@ describe Tweets do
       expect(david).to be_empty
     end 
   end 
+
+  describe '#comment' do 
+    it 'should allow users to comment' do 
+      tweet = Tweets.create(tweet: 'my first tweet', created_by: '1')
+
+      expect(comment_class).to receive(:where).with(tweet_id: tweet.id)
+      tweet.comment(comment_class)
+    end 
+  end   
 end 

@@ -12,6 +12,13 @@ class Comment
     @user_id = user_id
   end 
 
+  def self.where(tweet_id:)
+    result = DatabaseConnection.query("SELECT * FROM comment WHERE tweet_id = '#{tweet_id}';")
+    result.each { |comment|
+      Comment.new(id: comment['id'], comment: comment['comment'], tweet_id: comment['tweet_id'], user_id: comment['user_id'] )
+    }
+  end 
+
   def self.create(comment:, tweet_id:, user_id:)
     comment = DatabaseConnection.query("INSERT INTO comment (comment, tweet_id, user_id) VALUES('#{comment}', '#{tweet_id}', '#{user_id}') 
         RETURNING id, comment, tweet_id, user_id;")

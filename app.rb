@@ -4,10 +4,11 @@ require 'sinatra/flash'
 require './lib/database_connection_setup'
 require './lib/tweets'
 require './lib/user'
+require './lib/comment'
 require 'uri'
 
 class Twitter < Sinatra::Base 
-  enable :sessions
+  enable :sessions, :method_overwrite
   register Sinatra::Flash
 
   get '/' do 
@@ -61,6 +62,11 @@ class Twitter < Sinatra::Base
     flash[:notice] = "You are logged out!"
 
     redirect '/'
+  end 
+
+  post '/tweet/:id/comment' do 
+    Comment.create(comment: params[:comment], tweet_id: params[:id], user_id: $user.id)
+    redirect '/home'
   end 
 
   run! if app_file == $0

@@ -14,7 +14,11 @@ feature '/log_in' do
   scenario 'A user can log in' do 
     User.create(name: 'Test User', email: 'test@example.com', password: 'password123')
 
-    login
+    visit '/'
+    click_on 'Log in'
+    fill_in 'username', with: 'Test User'
+    fill_in 'password', with: 'password123'
+    click_on 'Log in'
     expect(page).to have_content 'What is on your mind Test User?'
   end 
 
@@ -47,7 +51,10 @@ feature '/log_out' do
   scenario 'a user can log out at the end of their session' do 
     User.create(name: 'Test User', email: 'test@example.com', password: 'password123')
 
-    login
+    visit '/log_in'
+    fill_in 'username', with: 'Test User'
+    fill_in 'password', with: 'password123'
+    click_on 'Log in'
     click_on 'Log out'
 
     expect(page).to have_content 'You are logged out!'

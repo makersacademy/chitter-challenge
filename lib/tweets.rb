@@ -20,11 +20,17 @@ class Tweets
   end
 
   def self.create(tweet:, created_by:)
-    DatabaseConnection.query("INSERT INTO tweets (tweet, created_by) VALUES('#{tweet}', '#{created_by}') 
+    input = DatabaseConnection.query("INSERT INTO tweets (tweet, created_by) VALUES('#{tweet}', '#{created_by}') 
       RETURNING id, tweet, created_at, created_by;")
+      Tweets.new(id: input[0]['id'], tweet: input[0]['tweet'], created_at: input[0]['created_at'], created_by: input[0]['created_by']) 
   end 
 
   def self.delete(id)
     DatabaseConnection.query("DELETE FROM tweets WHERE id = '#{id}';")
   end 
+
+  def comment(comment_class = Comment)
+    comment_class.where(tweet_id: id)
+  end
+
 end
