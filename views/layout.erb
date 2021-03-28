@@ -20,6 +20,16 @@
   </header>
 
   <main>
+    <div class="topnav">
+      <a href="<%='/chitter/index'%>">Home</a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+      <%if @user%>
+      <form action="/sessions/destroy" method="post" style="float:right;">
+        <input type="submit" value="Sign out" style="margin:7px;">
+      </form><%end%>
+    </div>
+
     <div class='leftcolumn'>
       <h1>Welcome to Chitter!</h1>
       <h2><em>- THE place to be</em></h2>
@@ -33,7 +43,12 @@
           <div class='tag'>peeped @ littlefrog</div>
           <%@users.each do |user|%>
             <%if user.user_id == peep.user_id %>
-              <div class='wrap'><%=user.username%><br>
+              <div class='wrap'>
+              <%if @user%>
+              <form action="/chitter/index" method="get" style="float:right;">
+                <input type="submit" value="Reply" style="width:70px;">
+              </form><%end%>
+              <%=user.username%><br>
             <%end%>
           <%end%>
         <%=peep.created_at.slice(0, 19)%></div><br><br>

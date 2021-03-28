@@ -3,6 +3,30 @@
   box-sizing: border-box;
 }
 
+/* style for navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #0000006e;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+/* style for topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* change link colour for hover */
+.topnav a:hover {
+  background-color: #94fddb;
+  color: black;
+}
+
 /* left column */
 
 .leftcolumn {   
@@ -17,14 +41,13 @@
 
 /* right column */
 .rightcolumn {
-  float: left;
+  float: right;
   width: 37%;
   padding-left: 20px;
   background-color: #0000006e;
   color: #fff;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-  margin-left: 20px;
   border-radius: 3px;
 }
 
@@ -87,6 +110,7 @@ main input[type="submit"] {
   border: 1px;
   height: 32px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor:pointer;
 }
 
 main input[type="text"], main input[type="password"], main input[type="email"] {
@@ -144,4 +168,15 @@ h1, h2, h3, h4 {
     padding: 10px;
     margin: 0px;
   }
+}
+
+/* error message for sinatra/flash */
+
+.error-flash {
+width: auto;
+border: 1px solid #D8D8D8;
+padding: 5px;
+border-radius: 5px;
+background-color: rgb(255, 249, 242);
+text-align: center;
 }
