@@ -15,14 +15,16 @@ class Tweets
   def self.all 
     result = DatabaseConnection.query("SELECT * FROM tweets;")
     result.map do |input|
-      Tweets.new(id: input['id'], tweet: input['tweet'], created_at: input['created_at'], created_by: input['created_by']) 
+      Tweets.new(id: input['id'], tweet: input['tweet'], created_at: input['created_at'], 
+        created_by: input['created_by']) 
     end
   end
 
   def self.create(tweet:, created_by:)
-    input = DatabaseConnection.query("INSERT INTO tweets (tweet, created_by) VALUES('#{tweet}', '#{created_by}') 
-      RETURNING id, tweet, created_at, created_by;")
-      Tweets.new(id: input[0]['id'], tweet: input[0]['tweet'], created_at: input[0]['created_at'], created_by: input[0]['created_by']) 
+    input = DatabaseConnection.query("INSERT INTO tweets (tweet, created_by) 
+      VALUES('#{tweet}', '#{created_by}') RETURNING id, tweet, created_at, created_by;")
+    Tweets.new(id: input[0]['id'], tweet: input[0]['tweet'], created_at: input[0]['created_at'], 
+        created_by: input[0]['created_by']) 
   end 
 
   def self.delete(id)

@@ -1,11 +1,11 @@
 <html>
   <body>
     <ul>
-
+      <div class='head'>
       <form action='/log_out' method='post' >
-        <input type='submit' value='Log out'>  
+        <button type='submit' value='Log out'> Log out </button> 
       </form>
-
+      </div>
       <% if $user %>
       <h2> What is on your mind <%= $user.name %>?</h2>
       

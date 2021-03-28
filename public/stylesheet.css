@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  text-decoration-color: darkslategray;
+  background-color: lightcyan;
+  justify-content: center;
+}
+
+.welcome_page {
+  text-align: center;
+  padding-top: 20%;
+}
+
+input[type='submit' i] {
+  min-width: 300;
+  max-width: 300;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  font-size: 0.8em;
+  border: 1px solid black;
+  padding-left: 0;
+  margin-top: 5px;
+  padding-bottom: 25px;
+  justify-content: center;
+}
+
+.log_in {
+  justify-content: center;
+  text-align: center;
+  padding-top: 25%;
+}
+
+input[type='text' i] {
+  border: black;
+  text-align: center;
+  min-width: 500px;
+  max-width: 500px;
+  font-size: 0.8em;
+  background-color: white;
+  justify-content: center;
+}
+
+

@@ -1,14 +1,22 @@
 <html>
   <body>
-
+    <div class='log_in'>
     <h2> 
       <%= flash[:notice] %> 
     </h2>
-    
+    <br/>
     <form action='/user_log_in' method='post'>
-      <label for='username'>User name:<input type='text' name='username' />
-      <label for='password'>Password:<input type='password' name='password' />
+    <br/>
+      <label for='username'>User name:
+      <br/>
+      <input type='text' name='username' />
+      <br/>
+      <label for='password'>Password:   
+      <br/> 
+      <input type='text' name='password' />
+      <br/>
       <input type='submit' value='Log in'>
     </form>
+    </div>
   </body>
 </html>

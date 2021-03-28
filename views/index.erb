@@ -1,16 +1,24 @@
 <html>
   <body>
+  <div class='welcome_page'
+      <h2>
+        <%= flash[:notice] %>
+      </h2>
 
-    <h2>
-      <%= flash[:notice] %>
-    </h2>
-    
-    <form action='/new_user' method='get'>
-      <input type='submit' value='Sign up'>
-    </form>
+      <h1> Welcome to Chitter! <h1>
 
-    <form action='/log_in' method='get'>
-      <input type='submit' value='Log in'>
-    </form>
+      <h3> Already a member? </h3>
+
+      <form action='/log_in' method='get'>
+        <input type='submit' value='Log in'>
+      </form>
+
+      <h3> New to our platform? </h3>
+      
+      <form action='/new_user' method='get'>
+        <input type='submit' value='Sign up'>
+      </form>
+
+    </div>
   </body>
 </html>
