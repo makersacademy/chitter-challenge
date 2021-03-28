@@ -9,6 +9,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'pg'
+require 'setup_test_database.rb'
 
 Capybara.app = ChitterWebApp
 
@@ -21,7 +22,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-
+    set_up_test_database!
 
   end
 

@@ -1,1 +1,17 @@
-Hello world
+<h1>Hi! Welcome to Chitter!</h1>
+
+
+<form action="/peep" method="post"> 
+<label for="statusbox">
+Peep something!</label>
+<input type="text" name="statusbox" required>
+<input type="submit" value="Peep!">
+</form>
+
+<ul>
+<% Peep.all_peep.each do |element| %>
+    <li class="peep">
+        '<%= element.status %>'
+    </li>
+<% end %>
+</ul>
