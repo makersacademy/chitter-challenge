@@ -7,21 +7,21 @@ Chitter Challenge
 
 - I created the domain, database and req/res models below from the first 4 user stories
 
-As a Maker
-So that I can let people know what I am doing  
+As a Maker  
+So that I can let people know what I am doing    
 I want to post a message (peep) to chitter
 
-As a maker
-So that I can see what others are saying  
+As a maker  
+So that I can see what others are saying    
 I want to see all peeps in reverse chronological order
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+As a Maker  
+So that I can better appreciate the context of a peep  
+I want to see the time at which it was made  
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+As a Maker  
+So that I can post messages on Chitter as me  
+I want to sign up for Chitter  
 
 ![Chitter Domain Model (1)](https://user-images.githubusercontent.com/74908625/112628934-891c4000-8e2b-11eb-97a0-3a284fa2790a.jpg)
 
@@ -60,6 +60,10 @@ I want to sign up for Chitter
 • The unit tests passed meaning the logic was working in the code.
 
 • Finally to pass the 2 feature tests I created a variable of @messages within the GET /peeps page and then iterated over the hash in the peep.erb folder pulling out the content and time information allowing messages to be displayed in reverse chronological order, showing the time and date the message was created.
+
+**timestamp**
+
+• I used a timestamp keyword within the postgres database which automatically timestamps data.
 
 # User story 4
 
