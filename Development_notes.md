@@ -46,6 +46,9 @@ As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
+> Set up a login sheet
+> create a login method in Users class
+
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
@@ -64,7 +67,8 @@ I want to log out of Chitter
 >> add pictures of people shouting
 >> extract a shout class
 >> Program is vulnerable to SQL injection - need to write a substitute method (and de substitute with gsub) - ', ", \, NUL or implement an ORM
-
+>> create anonymous shouter class
+>> encrypt passwords and email
 ---
 
 HARDER

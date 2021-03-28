@@ -4,7 +4,6 @@ require_relative 'users'
 
 class Shouter
   def self.setup
-    Users.setup
     @@database = database_connect
   end
 

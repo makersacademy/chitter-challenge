@@ -31,4 +31,16 @@ describe Users do
       expect(Users.get_username('1')).to eq 'Solo'
     end
   end
+
+  describe '.incorrect_login?' do
+    context 'correct username and password' do
+      it { expect(Users.incorrect_login?('Solo', 'C4rb0n1te')).to be false }
+    end
+    context 'incorrect password' do
+      it { expect(Users.incorrect_login?('Solo', 'C4rb0n')).to be true }
+    end
+    context 'incorrect username' do
+      it { expect(Users.incorrect_login?('Leia', 'C4rb0n1te')).to be true }
+    end
+  end
 end

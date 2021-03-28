@@ -25,6 +25,14 @@ class Users
     @@database.query("SELECT username FROM users WHERE user_id='#{user_id}'").first['username']
   end
 
+  def self.incorrect_login?(username, password)
+    output = @@database.query("SELECT username, password FROM users WHERE username='#{username}';")
+    return true if output.first == nil
+    return true if output.first['password'] != password
+
+    false
+  end
+
 private
 	def self.database_connect
 		if ENV['ENVIRONMENT'] == 'test'

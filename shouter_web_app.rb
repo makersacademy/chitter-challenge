@@ -2,7 +2,9 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require './lib/shouter.rb'
+require './lib/users.rb'
 Shouter.setup
+Users.setup
 
 class ShouterWebApp < Sinatra::Base
   enable :sessions, :method_override
@@ -46,6 +48,19 @@ class ShouterWebApp < Sinatra::Base
 
   post '/sign_out' do
     session[:login] = [false, nil]
+    redirect '/'
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    if Users.incorrect_login?(params[:username], params[:password])
+      flash[:wrong_credentials] = "Your username or password is incorrect, please try again."
+      redirect back
+    end
+    session[:login] = [true, params[:username]]
     redirect '/'
   end
 
