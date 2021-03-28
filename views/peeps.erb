@@ -1,6 +1,6 @@
 <html>
   <body>  
-    <h1> Welcome, test@example.com </h1>
+    <h1> Welcome, <%= @user.username %> </h1>
     <h2> Your chitter feed: </h2>
     <ul>
       <% @peeps.each do |peep| %>

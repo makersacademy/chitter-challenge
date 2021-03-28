@@ -3,11 +3,12 @@ require 'pg'
 
 require_relative './spec/setup_test_database.rb'
 require_relative './lib/peep.rb'
+require_relative './lib/user.rb'
 
 # require_relative
 
 class Chitter < Sinatra::Base
-  enable :method_override
+  enable :method_override, :sessions
 
   get '/' do
     erb :index
@@ -15,6 +16,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @user = User.find(id: session[:user_id])
     erb :peeps
   end
 
@@ -23,7 +25,6 @@ class Chitter < Sinatra::Base
   end 
 
   post '/peeps' do
-    p params
     Peep.post(content: params['content'], name: params['name'])
     redirect '/peeps'
   end 
@@ -33,8 +34,17 @@ class Chitter < Sinatra::Base
   end 
 
   post '/users' do 
-    p params
-    # create the user here
+    @user = User.add(email: params[:email], password: params[:password], username: params[:username])
+    session[:user_id] = @user.id
+    redirect '/peeps'
+  end 
+
+  get '/sessions/new' do 
+    erb :'sessions/new'
+  end 
+
+  post '/sessions' do 
+    # authenticate
     redirect '/peeps'
   end 
 

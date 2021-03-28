@@ -5,8 +5,9 @@ feature 'signing up' do
     visit '/users/new'
     fill_in('email', with: 'test@test.com')
     fill_in('password', with: 'testpwd123')
+    fill_in('username', with: 'tester')
     click_button('Sign up now')
 
-    expect(page).to have_content "Welcome, test@example.com"
+    expect(page).to have_content "Welcome, tester"
   end
 end
