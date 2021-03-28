@@ -1,7 +1,11 @@
 require './app.rb'
 require 'spec_helper'
 
+
 feature 'Chitter homepage' do
+  before do
+    ensure_logout
+  end
   scenario 'homepage has a chitter header' do
     visit '/'
     expect(page).to have_content 'Chitter'
@@ -9,8 +13,10 @@ feature 'Chitter homepage' do
 end
 
 feature 'sign up to chitter' do
+  before do
+    ensure_logout
+  end
   scenario 'a user can click a link to sign up' do
-    visit '/'
     click_link 'Sign Up'
     expect(page).to have_content 'Sign up to Chitter'
   end
@@ -28,8 +34,11 @@ feature 'sign up to chitter' do
 end
 
 feature 'login' do
+  before do
+    ensure_logout
+  end
   scenario ' a user can click a link to login' do
-    visit '/'
+    visit '/peeps'
     click_link 'Login'
     expect(page).to have_content 'Login to Chitter'
   end
@@ -42,6 +51,9 @@ feature 'login' do
 end
 
 feature 'logout' do
+  before do
+    ensure_logout
+  end
   scenario 'user can click a link to logout' do
     login
     visit '/peeps'
@@ -58,6 +70,9 @@ feature 'logout' do
 end
 
 feature 'peeps page' do
+  before do
+    ensure_logout
+  end
   scenario 'user can view all peeps' do
     fill_test_database
     visit '/peeps'
@@ -68,6 +83,9 @@ feature 'peeps page' do
 end
 
 feature 'add a peep' do
+  before do
+    ensure_logout
+  end
   scenario 'user can click a link to add a peep' do
     login
     expect(page).to have_link 'Add Peep'

@@ -1,13 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/style-sheet.css">
+</head>
+<body>
+
 <h1> Sign up to Chitter </h1>
 
 <form action='/peeps' method= 'post'>
-  <input type='text' name='name' placeholder='Name'>
+  <input type='text' name='name' placeholder='Name' required>
   <br>
-  <input type='text' name='username' placeholder='Username'>
+  <input type='text' name='username' placeholder='Username' required>
   <br>
   <input type='text' name='email' placeholder='Email'>
   <br>
   <input type='text' name='password' placeholder='Password'>
   <br>
-  <input type='submit' name='sign_up' value='Sign Up'>
+  <input class='submit' type='submit' name='sign_up' value='Sign Up'>
 </form>
+
+</body>
+</html>

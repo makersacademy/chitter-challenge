@@ -112,16 +112,21 @@ I want to receive an email if I am tagged in a Peep
 [ ] Peeps (posts to chitter) have:
     [ ]the name of the maker
     [X]the username of the maker
+[X] form username and name fields are required for sign up and login
+
 [ ] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 Bonus:
 -----
 [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
-[ ] Work on the CSS to make it look good.
+[X] Work on the CSS to make it look good.
 
 ----
 
 ###TO DO:
+[ ] login does not currently map to existing sign ups
+[ ] there is no password match
+[ ] form passwords are not required fields
 
 
 ### Chitter database setup

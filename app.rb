@@ -3,6 +3,9 @@ require './lib/peep'
 require './lib/user'
 
 class Chitter < Sinatra::Base
+  configure do
+     set :public_folder, File.expand_path('../public', __FILE__)
+   end
 
   enable :sessions
 

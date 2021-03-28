@@ -1,0 +1,46 @@
+* {
+  font-family: 'verdana';
+
+}
+
+body {
+  background-color: #ffdbe1;
+   text-align: center;
+}
+
+h1 {
+  color: #56a5b3;
+  margin-left: 20px;
+  font-size: 60px;
+}
+
+a:link, a:visited, .submit {
+  background-color: #2c3f70;
+  color: white;
+  padding: 10px 15px;
+  margin: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #ed9e77;
+}
+
+.peeps_list {
+  background-color: white;
+  padding: 100px;
+  text-align: left;
+}
+
+.peeps_div {
+  justify-content: center;
+  padding: 100px;
+}
+
+.username, .timestamp {
+  color: #56a5b3;
+  font-size: 12px;
+
+}
