@@ -1,11 +1,20 @@
 Chitter Challenge
 =================
 
+## Welcome to SHOUTER - my answer to the Chitter Challenge
+Created by jackmcc08 for week 4 weekend challenge - Makers
+
+On submission:
+- RSPEC tests all passed
+- Rubocop - no violations detected
+
 ## To use
-1. Set up both of the below databases following the command below
-2. run rspec and get clean tests to ensure setup correctly
-3. run `rackup -p 5001` to start app
-4. Connect in browser via localhost:5001
+1. git clone to your local machine
+2. run bundle install
+3. Set up both of the below databases following the command below - you will need PostgreSQL
+4. run rspec and get clean tests to ensure setup correctly
+5. run `rackup -p 5001` to start app
+6. Connect in browser via `localhost:5001`
 
 #### To set up the database for actual use
 1. Connect to psql
@@ -19,8 +28,32 @@ Chitter Challenge
 2. Create the database using the psql command `CREATE DATABASE shouter_database_test;`
 3. Tables will create and reset automatically when you run rspec
 
+## Development History
+
+See my Development_notes.md file for breakdown of how I developed the app, and to see Domain Modelling and CRC cards.
+
+The Shouter Web app uses the following technologies:
+- Sinatara, Sinatra-Flash, Sinatra-Contrib to build the web app
+- PostgreSQL database to store data
+- PG Gem to interface between the app and the database
+- BCrypt gem for password encryption
+- Capybara, simpleCov, rubocop, timecop and RSPEC for testing
+
+The app meets all of the user stories except for sending an email when a reply is made to a shout.
+
+The app includes an attempt at password encryption using bcrypt, but not sure if implemented in the correct way to ensure best possible security.
+
+Areas to improve:
+- Input does not protect against SQL Injection
+- Password & email has no validation on what is allowed (but no duplicate usernames or emails are allowed)
+- Would like to include email notification
+- Did not get a chance to investigate ORM
+- Did not refactor significantly enough
+- need to review code rubric
+- Is there a way to automate the SQL commands? (Rake setup, rake migrate?)
 
 
+Original Instructions
 --------
 
 * Feel free to use Google, your notes, books, etc. but work on your own

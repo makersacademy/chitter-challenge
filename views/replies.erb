@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>SHOUTER</title>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/main_other.css">
+
+    <!-- <link rel="stylesheet" href="css/application.css"> -->
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/application.js"></script> -->
+
+  </head>
+
+  <body class="container">
+
+    <header>
+      <h1>SHOUTER</h1>
+      <h3>For when your tweets just aren't loud enough</h3>
+    </header>
+
+    <main>
+      <h2>SHOUT BACK</h2>
+      <div id='shout_box_div'>
+        <form action="/<%= @shout['shout_id']%>/replies/new" method="post">
+          <textarea name="reply_box" rows="3" cols="50" maxlength="100" placeholder="SHOUT BACK HERE (Max 100 characters)"></textarea>
+          <br>
+          <input type="submit" value="SHOUT BACK">
+        </form>
+      </div>
+      <br>
+      <div id="shouts_div">
+          <div id='the_shout'>
+            <div id='author_time_div'>
+              <p id='author_text'><%= "@#{@shout['username']}" %></p>
+              <p id='time_text'><%= "#{@shout['time_shouted']}" %></p>
+            </div>
+            <div id='shout_content_div'>
+              <p id='shout_content'><%= @shout['shout_content'].upcase %></p>
+            </div>
+          </div>
+          <br>
+      </div>
+      <h2>OTHER SHOUT BACKS</h2>
+      <div id="shouts_div">
+        <% @replies.each do |reply| %>
+          <div id='individual_shout'>
+            <div id='author_time_div'>
+              <p id='author_text'><%= "@#{reply['username']}" %></p>
+              <p id='time_text'><%= "#{reply['time_replied']}" %></p>
+            </div>
+            <div id='shout_content_div'>
+              <p id='shout_content'><%= reply['reply_content'].upcase %></p>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      </div>
+
+      <h2><a href="/">RETURN TO THE ECHO CHAMBER?</a></h2>
+
+    </main>
+
+    <footer>
+    </footer>
+  </body>
+</html>

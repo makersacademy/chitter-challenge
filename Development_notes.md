@@ -70,13 +70,24 @@ I want to receive an email if I am tagged in a Peep
 * The username and email are unique. - DONE
 * Peeps (posts to chitter) have the name of the maker and their user handle. - DONE - only their usual handle (name is not necessary)
 
->> add a random anonymous shouter
->> add pictures of people shouting
->> extract a shout class
->> Program is vulnerable to SQL injection - need to write a substitute method (and de substitute with gsub) - ', ", \, NUL or implement an ORM
->> create anonymous shouter class
 >> encrypt passwords and email - encryted passwords - haven't done on email (not needed) - DONE
->>In order to start a conversation as a maker I want to reply to a peep from another maker.
+>> add a random anonymous shouter - DONE - if not logged in you will shout as one of 4 anonymous people
+>> create anonymous shouter class - DONE
+>>In order to start a conversation as a maker I want to reply to a peep from another maker. - DONE
+  > Feature test for reply - DONE
+  > Replies box with number on index erb - DONE
+  > click on the replies box to see replies and add your reply - DONE
+  > Replies page has reply box with original shout and exisiting replies below it. - DONE
+  > replies database has link to number of replies - DONE
+>> add pictures of people shouting - decided not to add
+>> Program is vulnerable to SQL injection - need to write a substitute method (and de substitute with gsub) - ', ", \, NUL or implement an ORM
+>> don't allow certain letters in name, username or password, also need to validate email.
+>> extract a shout class
+>> code review rubric
+>> Ensure Travis working
+>> ORM?
+>> how to get rid of the notice on rspec it drops cascades
+
 
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 ---

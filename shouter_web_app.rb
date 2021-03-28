@@ -23,7 +23,7 @@ class ShouterWebApp < Sinatra::Base
   end
 
   post '/shout/new' do
-    author = session[:login][1] unless session[:login][1] == nil
+    author = session[:login][1] unless session[:login][1].nil?
     Shouter.shout(params[:shout_box], author)
     redirect '/'
   end
@@ -34,7 +34,7 @@ class ShouterWebApp < Sinatra::Base
 
   post '/sign_up/new' do
     if Users.duplicate_email?(params[:email])
-      flash[:unique_email] = "This email is already taken please login with your existing credentials or use a different email."
+      flash[:unique_email] = UNIQUE_EMAIL_FLASH
       redirect back
     end
     if Users.duplicate_username?(params[:username])
@@ -43,7 +43,7 @@ class ShouterWebApp < Sinatra::Base
     end
     Users.signup(params[:name], params[:username], params[:email], params[:password])
     session[:login] = [true, params[:username]]
-    redirect  '/'
+    redirect '/'
   end
 
   post '/sign_out' do
@@ -63,6 +63,22 @@ class ShouterWebApp < Sinatra::Base
     session[:login] = [true, params[:username]]
     redirect '/'
   end
+
+  get '/:shout_id/replies' do
+    @shout = Shouter.find(params[:shout_id]).first
+    @replies = Shouter.replies(params[:shout_id])
+    erb :replies
+  end
+
+  post '/:shout_id/replies/new' do
+    session[:login] ||= [false, nil]
+    author = session[:login][1] unless session[:login][1].nil?
+    Shouter.reply(params[:reply_box], params[:shout_id], author)
+    redirect "/#{params[:shout_id]}/replies"
+  end
+
+  UNIQUE_EMAIL_FLASH = "This email is already taken please login with
+ your existing credentials or use a different email."
 
   run! if app_file == $0
 end
