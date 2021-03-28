@@ -6,11 +6,10 @@
     maxlength="512" required><br>
   <input type='submit' value='Peep'>  
 </form>
-<%# <form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out">
-</form> %>
 <%else%>
-<h3><%= flash[:notice] %></h3>
+<%if flash[:notice]%>
+<h3><div class='congrats-flash'><%= flash[:notice] %></div></h3>
+<%end%>
 <h3>Login with an existing account <em>or</em> signup below!</h3>
 <form action="/sessions/new" method='get'>  
   <input type='submit' value='Sign in'>

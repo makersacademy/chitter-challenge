@@ -22,8 +22,8 @@
   <main>
     <div class="topnav">
       <a href="<%='/chitter/index'%>">Home</a>
-      <a href="#">Link</a>
-      <a href="#">Link</a>
+      <%# <a href="#">Link</a>
+      <a href="#">Link</a> %>
       <%if @user%>
       <form action="/sessions/destroy" method="post" style="float:right;">
         <input type="submit" value="Sign out" style="margin:7px;">

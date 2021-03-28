@@ -126,6 +126,8 @@ main input[type="text"], main input[type="password"], main input[type="email"] {
 html {
   height: 100%;
   background: linear-gradient(180deg, #152d85, #004fa4, #006fbb, #008dc9, #00abd1, #00c8d4, #56e4d7, #99ffdb);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body {
@@ -174,9 +176,16 @@ h1, h2, h3, h4 {
 
 .error-flash {
 width: auto;
-border: 1px solid #D8D8D8;
 padding: 5px;
 border-radius: 5px;
-background-color: rgb(255, 249, 242);
+background-color: #ff000099;
 text-align: center;
 }
+
+.congrats-flash {
+  width: auto;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #00ff5599;
+  text-align: center;
+  }
