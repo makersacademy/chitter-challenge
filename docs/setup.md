@@ -62,7 +62,7 @@ CREATE OR REPLACE VIEW view_messages AS
 CREATE DATABASE chitter_test;
 ```
 
-*Tables and views will automatically setup when run rspec
+*Test tables and views will automatically setup when run rspec
 
 #### Mail
 
