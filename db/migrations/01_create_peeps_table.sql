@@ -1,1 +1,1 @@
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, body VARCHAR(140), date NOW(), username VARCHAR);
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, body VARCHAR(140), date VARCHAR, username VARCHAR);
