@@ -47,7 +47,7 @@
 ---------
 ### Issues and Future Scope
 
-- Found out the best practice to find tagged user(s). Currently, the code search if message contains @username in the string. However, it will cause problem i.e. having 2 users: bob, bobby, if tag @bobby, @bob also part of the string, and both will be considered tagged.
+- Improve the function of finding tagged user(s). Currently, the code search if message contains @username in the string. However, it will cause problem i.e. having 2 users: bob, bobby, if tag @bobby, @bob also part of the string, and both will be considered tagged.
 - Found out how to test emails sending successfully or not
 - Add more functions: i.e. reply messages
 - Use database on the cloud
