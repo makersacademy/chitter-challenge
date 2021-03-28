@@ -7,7 +7,7 @@ class User
                                    VALUES ('#{username}', '#{encrpyted_pw}', 
                                    '#{email}') RETURNING user_id, username, email;")
     User.new(user_id: new_user[0]['user_id'], username: new_user[0]['username'], 
-email: new_user[0]['email'])
+             email: new_user[0]['email'])
   end
 
   def self.find(user_id)
