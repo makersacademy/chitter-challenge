@@ -4,8 +4,8 @@ require './lib/user'
 
 class Chitter < Sinatra::Base
   configure do
-     set :public_folder, File.expand_path('../public', __FILE__)
-   end
+    set :public_folder, File.expand_path('public', __dir__)
+  end
 
   enable :sessions
 
@@ -52,5 +52,4 @@ class Chitter < Sinatra::Base
     Peep.add(params[:new_peep], session[:current_user])
     redirect '/peeps'
   end
-
- end
+end

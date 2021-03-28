@@ -1,6 +1,6 @@
 def fill_test_database
   connection = PG.connect(dbname: 'chitter_test')
-  result = connection.exec("INSERT INTO peeps (id, body, username) VALUES(1, 'I have eaten way too many brownies! Help!', 'loushark');")
+  connection.exec("INSERT INTO peeps (id, body, username) VALUES(1, 'I have eaten way too many brownies! Help!', 'loushark');")
 end
 
 def sign_up_fill_and_submit

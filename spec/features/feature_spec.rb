@@ -1,7 +1,6 @@
 require './app.rb'
 require 'spec_helper'
 
-
 feature 'Chitter homepage' do
   before do
     ensure_logout
@@ -100,12 +99,12 @@ feature 'add a peep' do
   end
 end
 
-  feature 'view peeps as a guest' do
-    scenario 'guests can view peeps without sign up or login' do
-      login
-      click_link 'Logout'
-      expect(page).to have_link 'Sign Up'
-      expect(page).to have_link 'Login'
-      expect(page).to have_content 'You are a Guest'
-    end
+feature 'view peeps as a guest' do
+  scenario 'guests can view peeps without sign up or login' do
+    login
+    click_link 'Logout'
+    expect(page).to have_link 'Sign Up'
+    expect(page).to have_link 'Login'
+    expect(page).to have_content 'You are a Guest'
   end
+end

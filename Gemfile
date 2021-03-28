@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-
-  gem 'capybara'
-  gem 'pg'
-  gem 'rack'
-  gem 'sinatra'
+gem 'capybara'
+gem 'pg'
+gem 'rack'
+gem 'sinatra'
 
 group :test do
   gem 'rspec'
