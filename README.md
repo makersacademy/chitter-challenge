@@ -16,7 +16,7 @@
 5. Can send email to tagged user
 
 ---------
-### How to use/test
+### How to use / test
 
 1. [Setup](docs/setup.md)
 2. Run command `rackup`
