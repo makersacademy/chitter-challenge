@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 p "Setting up test shouter database table with no entries..."
 
@@ -17,12 +18,12 @@ def create_bookmarks_table_in_test(connection)
 end
 
 def populate_tables(connection)
-	 connection.exec("INSERT INTO users (name, username, email, password) VALUES('Han Solo', 'Solo', 'han@mfalcon.com', 'C4rb0n1te');")
+  connection.exec("INSERT INTO users (name, username, email, password) VALUES('Han Solo', 'Solo', 'han@mfalcon.com', '$2a$12$DXl8ehH9k2brLxQJruQ0.uUThLIWtKUZoOg1YgYCa9enzNkr3fa8W');")
 end
 
 def setup_test_database
-	 connection = connect_to_test_database
-	 clean_test_database(connection)
-	 create_bookmarks_table_in_test(connection)
-	 populate_tables(connection)
+  connection = connect_to_test_database
+  clean_test_database(connection)
+  create_bookmarks_table_in_test(connection)
+ 	populate_tables(connection)
 end

@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 require_relative 'database_connection'
 
 class Users
@@ -7,7 +8,8 @@ class Users
   end
 
   def self.signup(name, username, email, password)
-    @@database.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}');")
+    password = BCrypt::Password.create(password)
+    @@database.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}') RETURNING password;")
     "#{username} registered"
   end
 
@@ -28,7 +30,8 @@ class Users
   def self.incorrect_login?(username, password)
     output = @@database.query("SELECT username, password FROM users WHERE username='#{username}';")
     return true if output.first == nil
-    return true if output.first['password'] != password
+    encrypted_password = BCrypt::Password.new("#{output.first['password']}")
+    return true if encrypted_password != password
 
     false
   end
@@ -42,3 +45,17 @@ private
 		end
 	end
 end
+
+
+# pass = BCrypt::Password.create("Test")
+# puts pass
+# puts pass == "Test"
+# puts pass == "Test  2"
+#
+# pass = BCrypt::Password.new("$2a$12$nUXhP5jpAZCVWXrkzn.xn.4yojJV6IiczpW7ZfQQohroseE/EzVT6")
+# puts pass == "Test"
+#
+# pass = BCrypt::Password.create("jack@google.com")
+# puts pass
+# puts pass == "jack@google.com"
+# puts pass == "Test  2"
