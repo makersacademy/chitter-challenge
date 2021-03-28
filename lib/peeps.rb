@@ -30,10 +30,10 @@ class Peeps
   def self.all
     @peeps = []
     DBConnection.connection.exec("SELECT peeps.text, peeps.user_id, peeps.date, peeps.time, peeps.id, users.name FROM peeps LEFT JOIN users ON peeps.user_id = users.id ORDER BY date DESC, time DESC").map do |peep|
+      next if peep['text'] == ""
+      
       @peeps << Peeps.new(peep['text'], peep['user_ID'], peep['date'], peep['time'], peep['id'], peep['name'])
     end
     return @peeps
   end
 end
-
-#

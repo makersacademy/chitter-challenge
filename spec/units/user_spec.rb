@@ -4,7 +4,7 @@ require 'pg'
 describe User do
   describe '.create' do
     it 'creates a new user' do
-      user = User.new('Bart', 'bart@conures.com','2', 'parrots1')
+      user = User.new('Bart', 'bart@conures.com', '2', 'parrots1')
       User.create('Bart', 'bart@conures.com', 'parrots1')
       expect(user).to be_an_instance_of User
       expect(User.all[1].name).to eq 'Bart'
@@ -13,6 +13,12 @@ describe User do
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('parrots1')
       User.create('Bart', 'bart@conures.com', 'parrots1')
+    end
+  end
+
+  describe '.all' do
+    it 'retrieves users from the database' do
+      expect(User.all[1]).to be_an_instance_of User
     end
   end
 

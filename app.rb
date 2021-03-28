@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    user_id = User.authenticate(params[:email],params[:password])
+    user_id = User.authenticate(params[:email], params[:password])
     if user_id
       session[:user_id] = user_id
     else
@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peeps.post_peep(params[:peep_text],session[:user_id])
+    Peeps.post_peep(params[:peep_text], session[:user_id])
     redirect '/'
   end
 
@@ -40,7 +40,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(params[:name],params[:email],params[:password])
+    User.create(params[:name], params[:email], params[:password])
     session[:name] = params[:name]
     session[:user_id] = User.find_id_by_email(params[:email])[0]['id']
     redirect '/'

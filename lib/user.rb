@@ -26,11 +26,13 @@ class User
 
   def self.find_id_by_email(email)
     return nil unless email
+
     DBConnection.connection.exec("SELECT id FROM users WHERE email = '#{email}'")
   end
 
   def self.find_name_by_id(id)
     return nil unless id
+    
     DBConnection.connection.exec("SELECT name FROM users WHERE id = '#{id}'")
   end
 
