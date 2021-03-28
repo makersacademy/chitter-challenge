@@ -56,7 +56,13 @@ CREATE OR REPLACE VIEW view_messages AS
   ON m.user_id = u.id;
 ```
 
-*Test database, tables and views will automatically setup when run rspec
+5. Create test database
+
+```sql
+CREATE DATABASE chitter_test;
+```
+
+*Tables and views will automatically setup when run rspec
 
 #### Mail
 
