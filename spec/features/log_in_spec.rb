@@ -13,7 +13,7 @@ feature 'log in' do
     fill_in 'password', with: 'test123'
     click_button('Log in')
 
-    expect(page).to have_content('Welcome, test@gmail.com')
+    expect(page).to have_content('Welcome, Tester 123')
   end 
 
 end 
