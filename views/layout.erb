@@ -30,6 +30,7 @@
       <div class='peep'>
         <%@peeps.each do |peep|%>
           <div class='peep'><%=peep.message%></div>
+          <div class='tag'>peeped @ littlefrog</div>
           <%@users.each do |user|%>
             <%if user.user_id == peep.user_id %>
               <div class='wrap'><%=user.username%><br>

@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
 
   def self.new_user(username, password, email)
