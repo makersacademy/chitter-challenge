@@ -41,13 +41,13 @@ class Twitter < Sinatra::Base
   end 
 
   get '/home' do 
-    @user = User.find(session[:user_id])
+    $user = User.find(session[:user_id])
     @goliath = Tweets.all.reverse
     erb :tweets
   end 
 
   post '/new_tweet' do 
-    Tweets.create(tweet: params[:new_tweet])
+    Tweets.create(tweet: params[:new_tweet], created_by: $user.id)
     redirect '/home'
   end
 

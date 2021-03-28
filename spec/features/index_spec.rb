@@ -51,18 +51,21 @@ feature '/log_out' do
   scenario 'a user can log out at the end of their session' do 
     User.create(name: 'Test User', email: 'test@example.com', password: 'password123')
 
-    
     visit '/log_in'
     fill_in 'username', with: 'Test User'
     fill_in 'password', with: 'password123'
     click_on 'Log in'
     click_on 'Log out'
+
+    expect(page).to have_content 'You are logged out!'
   end
 end 
 
-feature '/home' do 
-  scenario 'you get greeted by a list of tweets' do 
-    visit '/home' 
-    expect(page).to have_content "my first tweet"
-  end 
-end 
+# feature '/home' do 
+#   scenario 'you get greeted by a list of tweets' do 
+#     User.create(name: 'Test User', email: 'test@example.com', password: 'password123')
+
+#     visit '/home' 
+#     expect(page).to have_content "my first tweet"
+#   end 
+# end 

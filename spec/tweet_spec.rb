@@ -5,7 +5,8 @@ describe Tweets do
 
   describe '.all' do 
     it 'should return a list of all tweets' do 
-      Tweets.create(tweet: 'my first tweet')
+      User.create(name: 'David Attenborough', email: 'davidattenboroughk@gmail.com', password: 'SaveThePlanet123')
+      Tweets.create(tweet: 'my first tweet', created_by: '1')
 
       expect(david.first.tweet).to include 'my first tweet'
     end
@@ -13,7 +14,8 @@ describe Tweets do
 
   describe '.create' do 
     it 'should be able to add new tweets in the database' do 
-      Tweets.create(tweet: 'my second tweet')
+      User.create(name: 'David Attenborough', email: 'davidattenboroughk@gmail.com', password: 'SaveThePlanet123')
+      Tweets.create(tweet: 'my second tweet', created_by: '1')
       expect(david.last.tweet).to include 'my second tweet'
     end
   end

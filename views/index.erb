@@ -1,5 +1,10 @@
 <html>
   <body>
+
+    <h2>
+      <%= flash[:notice] %>
+    </h2>
+    
     <form action='/new_user' method='get'>
       <input type='submit' value='Sign up'>
     </form>
