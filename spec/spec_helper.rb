@@ -17,6 +17,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_db.rb'
+require_relative './web_helpers.rb'
 # require web and database helpers from spec
 
 Capybara.app = Chitter

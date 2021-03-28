@@ -25,12 +25,21 @@ class User
   end
 
   def self.username_in_use?(username)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
+    result = DatabaseConnection.query("SELECT * FROM users 
+      WHERE username = '#{username}';")
     result.ntuples > 0
   end
 
   def self.email_in_use?(email)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    result = DatabaseConnection.query("SELECT * FROM users 
+      WHERE email = '#{email}';")
+    result.ntuples > 0
+  end
+
+  def self.valid_login?(username, password)
+    result = DatabaseConnection.query("SELECT * FROM users 
+      WHERE username = '#{username}' 
+      AND password = '#{password}';")
     result.ntuples > 0
   end
 end

@@ -7,7 +7,10 @@ feature 'App can register users' do
     fill_in "email", with: "test@hotmail.co.uk"
     fill_in "password", with: "test123"
     click_button("Submit")
-    expect(page).to have_content "Successfuly created account Test, log in to post peeps!"
+    expect(page).to have_content "Successfuly created account Test, log in to post peeps!"   
+  end
+  scenario 'After registration, a user gets a confirmation message - once' do
+    register_user
     visit('/')
     expect(page).not_to have_content "Successfuly created account, log in to post peeps!"
   end

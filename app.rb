@@ -28,8 +28,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    session[:logged_in?] = params[:username]
-    session[:user_id] = params[:username]
+    session[:login_invalid] = true unless User.valid_login?(params[:username], params[:password])
+    session[:logged_in?] = params[:username] unless session[:login_invalid]
+    session[:user_id] = params[:username] unless session[:login_invalid]
+    redirect '/'
+  end
+
+  post '/logout' do
+    session.delete(:user_id)
+    redirect '/'
+  end
+
+  post '/peep' do
+    Message.create_peep(session[:user_id], params[:peep_text])
     redirect '/'
   end
 

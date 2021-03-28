@@ -14,7 +14,7 @@ describe User do
       expect(user.password).to eq('taranisthebest')
     end
     it "returns false if no user found with given username" do
-      expect { User.find("nothing") }.to raise_error
+      expect { User.find("nothing") }.to raise_error("No user found")
     end
   end
   describe '.create_user' do
@@ -23,6 +23,18 @@ describe User do
       expect(new_user).to be_kind_of(User)
       stored_user = User.find("test_user")
       expect(new_user.email).to eq(stored_user.email)
+    end
+  end
+  describe '.valid_login?' do
+    it "returns true if a matching username and password found in database" do
+      username = 'taran314'
+      password = 'taranisthebest'
+      expect(User.valid_login?(username, password)).to eq(true)
+    end
+    it "returns false if no matching username and password found in database" do
+      username = 'wrong'
+      password = 'login'
+      expect(User.valid_login?(username, password)).to eq(false)
     end
   end
 end

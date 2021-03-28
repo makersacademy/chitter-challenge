@@ -1,17 +1,31 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+How to setup:
+-----
 
-Challenge:
--------
+* Clone the repo
+* Run bundle install
+* Run the following SQL commands to setup the databases:
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+* The following databases are sufficicent for testing, if you would like to create entries on the website, register a user, login and add peeps!
+* `rspec` to view tests
+* `rackup` to run ruby server when in root directory
+* `http://127.0.0.1:9292/` in browser to view app
 
-As usual please start by forking this repo.
+TODO:
+-----
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+- [x] Plan out web layout with different pages and actions.
+- [x] Display all peeps on homepage in reverse order with name, username and time created.
+- [x] Sign up - creates a new user --- email and username must be unique!
+- [x] User can create peeps.
+- [] Enter password in twice to check if entered correctly.
+- [] Can sign in with username or email with their password.
+- [] Make fields required - also standardise inputs (length of username).
 
 Features:
 -------
@@ -67,17 +81,3 @@ If you have time you can implement the following:
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 And/Or:
 * Work on the CSS to make it look good.
-
-How to install:
-
-bundle install
-only need to create chitter and chitter_test databases - everything else is done in setup_test_db for rspec tests
-run by using `rackup`.
-
-TODO:
-Plan out web layout with different pages and actions
-Display all peeps on homepage in reverse order with name, username and time created.
-Add peeps - rename messages table?
-sign up - creates a new user --- email and username must be unique!
-
-Can sign in with username or email with their password - detects if there's an @ in field when checking in DB.

@@ -1,7 +1,7 @@
 require 'database_connection'
 
 def setup_test_db
-  connection = DatabaseConnection.setup('chitter_test')
+  DatabaseConnection.setup('chitter_test')
   DatabaseConnection.query("DROP TABLE IF EXISTS messages;")
   DatabaseConnection.query("DROP TABLE IF EXISTS users;")
   DatabaseConnection.query("CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(60));")
