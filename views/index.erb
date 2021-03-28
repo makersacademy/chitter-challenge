@@ -19,7 +19,7 @@
 
     <header>
       <h1>SHOUTER</h1>
-      <h3>For when your tweets aren't loud enough</h3>
+      <h3>For when your tweets just aren't loud enough</h3>
     </header>
 
     <main>
@@ -34,12 +34,28 @@
       <div id="shouts_div">
         <% @shouter.each do |shout| %>
           <div id='individual_shout'>
-            <%= "#{shout['author']} : #{shout['time_shouted']}" %>
-            <br>
-            <%= shout['shout_content'].upcase %>
+            <div id='author_time_div'>
+              <p id='author_text'><%= "@#{shout['author']}" %></p>
+              <p id='time_text'><%= "#{shout['time_shouted']}" %></p>
+            </div>
+            <div id='shout_content_div'>
+              <p id='shout_content'><%= shout['shout_content'].upcase %></p>
+            </div>
           </div>
           <br>
         <% end %>
+      </div>
+      <div id="sign_up_div">
+        <h2 id="sign_up_header">Bored of being an anonymous shouter?</h2>
+        <h4 id="sign_up_subheader">Sign up and let people know who you are and why you are shouting.</h4>
+        <div id="sign_up_buttons">
+          <form action="/shout/login" method="get">
+            <input type="submit" value="LOG IN" id="login_button">
+          </form>
+          <form action="/shout/sign_up" method="get">
+            <input type="submit" value="SIGN UP" id="signup_button">
+          </form>
+        </div>
       </div>
     </main>
 

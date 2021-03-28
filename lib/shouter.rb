@@ -14,7 +14,7 @@ class Shouter
   end
 
   def self.shout(shout_content, author = 'Solo')
-    time_shouted = Time.now.strftime("%d %B %Y | %k:%M")
+    time_shouted = Time.now.strftime("%e %b, %y | %k:%M")
     @@database.query("INSERT INTO shouts (author, time_shouted, shout_content) VALUES('#{author}', '#{time_shouted}','#{shout_content}') RETURNING shout_content;")
   end
 

@@ -31,9 +31,44 @@ I want to see the time at which it was made
 >already implemented time
 > will now implement a database model
 
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
 
+> going to add a sign up to chitter button
+> display a sign up screen
+> if signed in show on main page
+> create a user class and user database
+> update shouts database to user the author id
+
+
+
+* You don't have to be logged in to see the peeps.
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+>> add a random anonymous shouter
+>> add pictures of people shouting
+>> extract a shout class
+
+
+Program is vulnerable to SQL injection - need to write a substitute method (and de substitute with gsub) - ', ", \, NUL or implement an ORM
 
 ---
 
-SHOUTER
-for when your tweets aren't loud enough
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
