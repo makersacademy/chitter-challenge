@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
   get '/peep' do
     # @peep = session[:peep]
     @peep = Users.all
+    @username = Security.username.first
     erb(:peep)
   end
 
@@ -23,6 +24,15 @@ class Chitter < Sinatra::Base
     redirect '/peep'
   end
 
+  get '/sign_up' do
+    erb(:sign_up)
+  end
 
+  post '/sign_up/new' do
+    # session[:username] = params[:username]
+    # session[:password] = params[:password]
+    Security.sign_up(params[:username], params[:password])
+    redirect '/peep'
+  end
 
 end

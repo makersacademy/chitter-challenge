@@ -5,7 +5,7 @@ RSpec.configure do |config|
   config.before(:each) do
     # setup_test_database_user
     setup_test_database_message
-    # setup_test_database_security
+    setup_test_database_security
   end
 end
 

@@ -1,6 +1,19 @@
 Chitter Challenge
 =================
 
+# Using the program
+
+* Fork the repo
+* Run bundler
+
+## RSpec
+
+* run rspec to see coverage and tests
+
+## Rackup
+
+* run rackup to host the app on local ip address
+
 ## My approach:
 
 ### Step 1: Fully read user stories and create domain models
@@ -31,7 +44,7 @@ I want to sign up for Chitter
 
 • I wrote the first feature test which is to post a message. In order to test   whether we added something to a database I would need to be able to   return what is in the database. So this step requires us to build and return   the database as well as a method to add data to the database.  
 
-**.all method**
+#### **.all method**
 
 • The first step as per the feature test is to create a POST/peep/new channel   where a user can enter text into a field and press a button. This   required use of erb and an app.rb file. Using the simplest possible solution   I was able to use sessions to save this input and return it to a   GET /peep page.
 
@@ -47,7 +60,7 @@ I want to sign up for Chitter
 
 • I then wrote a feature test to determine that the order that information was displayed on the page was newest peeps at the top using a gem called 'orderly' and the appears_before keyword which allows you to test the order of content on a page.
 
-**.add method**
+#### **.add method**
 
 • In order to add data to the database tables I designed a second class Messages, which would be responsible for holding code to post information to a table.
 
@@ -61,11 +74,36 @@ I want to sign up for Chitter
 
 • Finally to pass the 2 feature tests I created a variable of @messages within the GET /peeps page and then iterated over the hash in the peep.erb folder pulling out the content and time information allowing messages to be displayed in reverse chronological order, showing the time and date the message was created.
 
-**timestamp**
+#### **timestamp**
 
 • I used a timestamp keyword within the postgres database which automatically timestamps data.
 
 ### Step 3: User story 4
+
+• I implemented this by writing a feature test that had a sign_up option and allowed the user to enter a username and password. Once they had done this it took them to the /peep page and showed the username above the peeps.
+
+• The feature test required me to implement the sign_up button on the index page as well as fields for username and password on the /sign_up page.
+
+• I then set sessions equal to the username and password and used the value of the username session to set a variable in the /peep page and interpolate the username in.
+
+• I wrote a feature test that would test the ability to enter the user and then wrote a .username method to pass that test.
+
+• I did the same with the password
+
+• Finally I created a sign_up method within security that took as the arguement the input from the username and password fields and input them to the database.
+
+• Finally I used these class methods in the app.rb to set the variable to the stored username and call that to the peep.erb page.
+
+### Summary
+
+I completed the first 4 steps but didn't manage to implement:
+* Having a unique email and password for signing up
+* I would have also liked to implement password encryption for added security.
+
+* I also didn't implement having the username appear under the peep. I would have done this by joining the user and security table so the username appeared as an extra column. I could have then extracted that in the user class.
+
+* I would have also liked to have improved the formatting using a layout with css.
+
 
 
 
