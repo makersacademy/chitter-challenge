@@ -35,7 +35,9 @@ class User
   end
 
   def self.authenticate(email, password)
-    encrypted_password = BCrypt::Password.create(password)
-    DBConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    user = DBConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    return unless user.any?
+    return unless BCrypt::Password.new(user[0]['password']) == password
+    return user.first['id'] if BCrypt::Password.new(user.first['password']) == password
   end
 end

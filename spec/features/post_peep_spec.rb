@@ -13,7 +13,9 @@ end
 
 feature "Posting peeps" do
   scenario "User adds a peep saying they love Makers" do
+    create_account
     login
+    visit '/'
     fill_in('peep_text', :with => 'I love Makers')
     click_on('Post')
     expect(page).to have_content 'I love Makers'

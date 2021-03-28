@@ -32,11 +32,8 @@ I want to receive an email if I am tagged in a Peep
 
 
 
+SANITISE INPUT
 
-Peeps - include date
-Peeps - include time
-Sign up for chitter
-Log in to chitter
-Log out of chitter
+
 tag users in peeps
 email notification to user if tagged in peep

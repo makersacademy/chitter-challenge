@@ -1,7 +1,7 @@
 require 'pg'
 
 def login
-  visit '/'
+  visit '/sessions/new'
   fill_in('email', :with => 'caesar@conures.com')
   fill_in('password', :with => 'parrots1')
   click_on 'go'

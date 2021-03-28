@@ -1,25 +1,27 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
 Chitter
 <% if @user %>
   <h1>Welcome, <%=@user.first['name'] %></h1>
+  <form action="/signout" method="post">
+    <input type="submit" value="Sign out" name="signout">
+  </form>
+  <p>
+  <form action='/peep' method='post'>
+    <label for='peep_text'>Peep:</label>
+    <input type='text' name='peep_text'>
+    <input type='submit' value='Post' name='post'>
+  </form>
+<% else %>
+  <a href='/sessions/new' class='clickable-text'>Sign in</a>
+  <a href='/users/new' class='clickable-text'>Create Account</a>
 <% end %>
-<form action='/login' method='post'>
-  <label for='email'>Email:</label>
-  <input type='text' name='email'>
-  <label for='password'>Password:</label>
-  <input type='text' name='password'>
-  <input type='submit' value='Go' name='go'>
-</form>
-<a href='/users/new' class='clickable-text'>Create Account</a>
-<p>
-<form action='/peep' method='post'>
-  <label for='peep_text'>Peep:</label>
-  <input type='text' name='peep_text'>
-  <input type='submit' value='Post' name='post'>
-</form>
+
 <ul>
 <% Peeps.all.each do |peep| %>
 <li class = "peep" >
   <%=peep.date %> <%=peep.time %><br>
-  <%=peep.text %><br>
+  <%=peep.name%> peeped: <%=peep.text %><br>
 <% end %>
 </ul>

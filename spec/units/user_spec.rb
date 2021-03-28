@@ -32,9 +32,22 @@ describe User do
 
   describe '.authenticate' do
     it 'returns a user given a correct username and password, if one exists' do
-      DBConnection.connection.exec("INSERT INTO users (name, email, password, id) VALUES ('Bart', 'bart@conures.com', 'parrots1', '234');")
+      encrypted_password = BCrypt::Password.create("parrots1")
+      DBConnection.connection.exec("INSERT INTO users (name, email, password, id) VALUES ('Bart', 'bart@conures.com', '#{encrypted_password}', '234');")
       authenticated_user = User.authenticate('bart@conures.com', 'parrots1')
-      expect(authenticated_user.first['id']).to eq '234'
+      expect(authenticated_user).to eq '234'
+    end
+    it 'returns an error if the email address is incorrect' do
+      clear_table
+      encrypted_password = BCrypt::Password.create("parrots1")
+      DBConnection.connection.exec("INSERT INTO users (name, email, password, id) VALUES ('Bart', 'bart@conures.com', '#{encrypted_password}', '234');")
+      expect(User.authenticate('nottherightemail@me.com', 'password123')).to be_nil
+    end
+    it 'returns nil given an incorrect password' do
+      clear_table
+      encrypted_password = BCrypt::Password.create("parrots1")
+      DBConnection.connection.exec("INSERT INTO users (name, email, password, id) VALUES ('Bart', 'bart@conures.com', '#{encrypted_password}', '234');")
+      expect(User.authenticate('bart@conures.com', 'wrongpassword')).to be_nil
     end
   end
 end
