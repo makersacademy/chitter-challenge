@@ -20,7 +20,6 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/chitter/index' do
-    # @user = User.find(session[:user_id])
     erb :'chitter/index'
   end
 
@@ -34,8 +33,16 @@ class ChitterApp < Sinatra::Base
 
   post '/users' do
     user = User.new_user(params[:username], params[:password], params[:email])
-    session[:user_id] = user.user_id
-    redirect '/chitter/index'
+    case user
+    when 1
+      flash[:notice] = 'Ensure your password is at least 8 characters long'; redirect '/users/new'
+    when 2
+      flash[:notice] = 'That username is already in use, please try another.'; redirect '/users/new'
+    when 3
+      flash[:notice] = 'That email address is already in use.'; redirect '/users/new'
+    else
+      session[:user_id] = user.user_id; redirect '/chitter/index'
+    end
   end
 
   post '/sessions' do
