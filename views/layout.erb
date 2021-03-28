@@ -52,7 +52,7 @@
               <%if @user%>
                 <form action="/chitter/reply" method="post" style="float:right;">
                   <input type='hidden' name='reply' value='<%=user.username%>'> 
-                  <input type="submit" value="Reply<%=peep_count%>" style="width:70px;">
+                  <input type="submit" name='reply<%=peep_count%>' value="Reply" style="width:70px;">
                 </form>
               <%end%>
               <%=user.username%><br>

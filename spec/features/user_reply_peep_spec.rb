@@ -18,7 +18,7 @@ describe ChitterApp do
       fill_in 'username', with: 'littletrout'
       fill_in 'password', with: 'password1'
       click_button 'Sign in'
-      click_button 'Reply1'
+      click_button 'reply1'
       fill_in 'message', with: 'My first reply peep!'
       click_button 'Peep'
       expect(page).to have_content('My first reply peep!')
