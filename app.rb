@@ -60,14 +60,11 @@ class ChitterApp < Sinatra::Base
   
   post '/chitter/peep' do
     peep = Peep.new_peep(params[:message], @user.user_id)
-    if params[:tag] == ""
-      session[:reply] = nil
-      redirect '/chitter/index'
-    else
+    if params[:tag] != ""
       Tag.new_tag(User.find_by_username(params[:tag]).user_id, peep.peep_id)
-      session[:reply] = nil
-    redirect '/chitter/index'
     end
+    session[:reply] = nil
+    redirect '/chitter/index'
   end
 
   post '/chitter/reply' do

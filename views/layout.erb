@@ -38,6 +38,7 @@
     </div>
     <div class='rightcolumn'>
       <div class='peep'>
+      <%peep_count = 1%>
         <%@peeps.each do |peep|%>
           <div class='peep'><%=peep.message%></div>
           <%@tags.each do |tag|%>
@@ -51,13 +52,14 @@
               <%if @user%>
                 <form action="/chitter/reply" method="post" style="float:right;">
                   <input type='hidden' name='reply' value='<%=user.username%>'> 
-                  <input type="submit" value="Reply" style="width:70px;">
+                  <input type="submit" value="Reply<%=peep_count%>" style="width:70px;">
                 </form>
               <%end%>
               <%=user.username%><br>
             <%end%>
           <%end%>
           <%=peep.created_at.slice(0, 19)%></div><br><br>
+          <%peep_count += 1%>
         <%end%>
       </div>
     </div>
