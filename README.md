@@ -1,24 +1,19 @@
-Chitter Challenge
+Weekend 4: Chitter Challenge
 =================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
 Features:
--------
+-----------------
+
+Aim: To achieve the first 4 user stories
+Plan: to use my bookmark challenge and notes for help and to record where I hit blockers with as much context as possible.
+
+Learning objectives from Week 4, I feel I worked on in this challenge: 
+The basics of how databases work ( interacting with SQL )
+CRUD and RESTful Routes
+
+
+Attempted User Stories:
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -34,102 +29,54 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+I think that I have completed these four user stories.
+Running RSpec has no failures and 100% test coverage. Rubocop has 2 offenses:
+`lib/database_connection.rb:9:3: C: Style/TrivialAccessors: Use attr_reader to define trivial reader methods.
+  def self.connection
+  ^^^
+lib/user.rb:30:33: W: Lint/UnusedMethodArgument: Unused method argument - password.
+  def self.authenticate(email:, password:)`
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+The first offence I am not sure how to change. The second is something I need to fix but ran out of time. 
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+My log in feature tests was passing when I don't think it should have been and that's recorded in an earlier commit. 
 
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
+I have not been able to create the unhappy paths for authentication. You can only log in if you enter the right email and password. You get an IndexError page.
 
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+I'm unsure if all my feature tests are testing the right things also.
+
 
 Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
 ----------------------
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+* You don't have to be logged in to see the peeps.
+  - This is completed - you can choose to go to a chitter feed on the homepage and you don't get a personalised welcome message
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+  - All fields available for setting up but no testing for valid emails etc.
+* The username and email are unique.
+  - This is not true. There is not checking if that username already exists in the database and no error if it does.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+  - This is not true either, you have to enter your name to post a peep (which then does appear in the feed).
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+To run the code:
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+- run `bundle install`
+- use the comman `rackup -p 4567` to start serve
+- visit `http://localhost:4567/`
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## Setting up the database
+
+- Install Postgresql with Homebrew `brew install postgresql
+- Connect to `psql` (set up admin database to start)
+- Create the `chitter` database using `psql` command `\c chitter;` 
+- For Peeps and Users table set up refer to db/migrations/01_create_peeps_table.sql and 02_create_users_table.sql
+- Revisions to columns are found in `db/migrations`
+
+## Setting up the testing database
+
+- Connect to `psql` 
+- Create `chitter_test` database using `psql` command `\c chitter_test;`
+- Create table in `psql` using the command in db/migrations
