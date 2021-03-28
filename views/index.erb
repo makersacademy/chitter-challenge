@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/style.css">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CHITTER :: Home</title>
+</head>
+<body>
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
+  <div id = "heading">
+    <h1>Chitter <img src = "logo.png"></h1>
+  </div>
+  <% if @user %>
+    <div id = "welcome">
+      <h1>Welcome, <%=@user.first['name'] %></h1>
+      <form action="/signout" method="post">
+        <input type="submit" value="Sign out" name="signout">
+      </form>
+      <p>
+      <form action='/peep' method='post'>
+        <label for='peep_text'>Peep:</label>
+        <input type='text' name='peep_text'>
+        <input type='submit' value='Post' name='post'>
+      </form>
+    </div>
+  <% else %>
+    <div id = "sign_in">
+      <a href='/sessions/new' class='clickable-text'>Sign in</a><br>
+      <a href='/users/new' class='clickable-text'>Create Account</a>
+      <p>
+    </div>
+  <% end %>
+  <div id = "peeps">
+    <ul>
+      <% Peeps.all.each do |peep| %>
+      <li class = "peep" >
+        <%=peep.date %> <%=peep.time %><br>
+        <%=peep.name%> peeped: <%=peep.text %><p>
+      <% end %>
+      </ul>
+  </div>
+</body>
