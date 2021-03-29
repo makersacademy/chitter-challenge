@@ -8,6 +8,16 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+ENV['ENVIRONMENT'] = 'test'
+
+require_relative "../app"
+
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+Capybara.app = Chitter
+
 RSpec.configure do |config|
   config.after(:suite) do
     puts
