@@ -1,0 +1,20 @@
+
+<link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="./style/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+<h1>Hi there! Welcome to chitter.</h1>
+<body>
+<form action="/postmessage">
+    <input type="submit" value="post message" />
+</form>
+
+<br>
+<p>
+<ul style="list-style-type:none" >
+  <% @peeps.reverse.each do |peep| %>
+<li> <%= peep %> </li>
+   <% end %>
+ </ul>
+ </p>
+</body>

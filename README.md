@@ -1,6 +1,34 @@
 Chitter Challenge
 =================
 
+User stories
+-As a Maker. 
+So that I can let people know what I am doing    
+I want to post a message (peep) to chitter
+
+PLAN 
+
+Set up MVC environment with correct GEM files needed, sinatra, rackup, shotgun, rspec,
+capybara. config.ru file, spec helper additions, set up database and test database.
+
+Map out domain model as per link image. https://betterexplained.com/wp-content/uploads/rails/mvc-rails.png
+
+To solve first user story, create a feature test and pass with simplest code.
+- create a Chitter class with message method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
