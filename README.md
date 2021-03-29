@@ -3,7 +3,7 @@
 
 ~~Content comming soooon!~~
 
-## Instructions: <img align="right" width="500" src="./docs/chitter!.gif">
+## Instructions: <img align="right" width="500" src="./docs/chitter.gif">
 
 1. clone to your system
 2. run `bundle install`
