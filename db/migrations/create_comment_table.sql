@@ -1,1 +1,0 @@
-CREATE TABLE comment(id SERIAL PRIMARY KEY, comment VARCHAR(240), tweet_id INTEGER REFERENCES tweets (id), user_id INTEGER REFERENCES users (id));
