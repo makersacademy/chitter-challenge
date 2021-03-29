@@ -1,0 +1,48 @@
+<html>
+  <body>
+    <ul>
+      
+      <form action='/log_out' method='post' >
+        <input type='submit' value='Log out'>  
+      </form>
+
+      <% if $user %>
+      <h2> What is on your mind <%= $user.name %>?</h2>
+      
+      <form action='/new_tweet' method='post'>
+        <input type='text' name='new_tweet'>
+        <input type='submit' value='Tweet'>
+      </form>
+      <% end %>
+      
+          <% @goliath.map do |input| %>
+            <li class='tweet' >
+              <a> 
+                <%= input.created_at %>
+                <p> @<%= User.find(input.created_by).name %> tweeted </p>
+                <%= input.tweet %> 
+              </a>
+                <form action="/tweet/<%= input.id %>/delete" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type='submit' value='delete'>
+                </form>
+
+                <form action="/tweet/<%= input.id %>/comment" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type='text' name='comment'>
+                  <input type='submit' value='comment'>
+                </form>
+
+                <a> Comments: 
+                    <% input.comment.each do |input|  %> 
+                    <p>  @<%= User.find(input['user_id']).name %> commented </p>
+                    <%= input['comment'] %>
+                    <% end %>
+                </a>
+
+            </li>
+          <% end %>
+    </ul>
+  </body>
+</html>
+    
