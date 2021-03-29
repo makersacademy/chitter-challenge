@@ -6,10 +6,11 @@ How to setup:
 
 * Clone the repo
 * Run bundle install
-* Run the following SQL commands to setup the databases:
+* Run the following SQL commands in PSQL, or otherwise, to setup the databases:
 ```
 CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
+\c chitter;
 CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(60));
 CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(240), time TIMESTAMP, users_id INTEGER REFERENCES users (id));
 ```
