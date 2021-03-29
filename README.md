@@ -40,6 +40,8 @@ I want to sign up for Chitter
 
 ![Chitter Domain Model](https://user-images.githubusercontent.com/74908625/112629115-c7b1fa80-8e2b-11eb-9821-58bd0b6b86a7.jpg)
 
+<img width="382" alt="Screenshot 2021-03-29 at 09 10 19" src="https://user-images.githubusercontent.com/74908625/112806398-a3922b80-906e-11eb-8872-3780fa043738.png">
+
 ### Step 2: Implement User story 1, 2 & 3
 
 • I wrote the first feature test which is to post a message. In order to test   whether we added something to a database I would need to be able to   return what is in the database. So this step requires us to build and return   the database as well as a method to add data to the database.  
