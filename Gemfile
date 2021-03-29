@@ -13,7 +13,6 @@ group :test, :development do
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
   gem 'rom', '~> 5.2', '>= 5.2.6'
   gem 'rom-sql', '~> 3.5'
+  gem 'dotenv', '~> 2.7', '>= 2.7.6'
 
 end
-
-ruby "2.6.5"
