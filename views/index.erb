@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="peep.css">
+
+<body>
+
+<div class="content">
+
+<img src="chitter.png" style="width:175px;height:175px;display:inline;" >
+
+
+<h1> Chitter </h1>
+<h2> Chatter with Chitter! </h2>
+
+<h3> <%= flash[:notice] %> </h3>
+<!-- Welcome user if signed in -->
+<% if @user %>
+  <h3>Welcome <%= @user%> </h3>
+<% end %>
+
+<% if @user == nil %>
+<form action="/users/new_user" method="get">
+  <input class="button_user" type="submit" value="Sign up for Chitter here" />
+</form>
+<% else %>
+<form action="/sessions/destroy" method="post">
+  <input class="button_user" type="submit" value="Sign out" />
+</form>
+<% end %>
+
+<% if @user == nil %>
+<form action="/sessions/new_session" method="get">
+  <input class="button_user" type="submit" value="Sign in" />
+</form>
+<% end %>
+
+<form action="/new_peep" method="post">
+  <input class="peep_box" type="text" name="peep" placeholder="What's on your mind?" />
+  <input class="button_new_peep" type="submit" name="New Peep" value="New Peep" />
+</form>
+
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <h4> <%= peep.peep %> </h4>
+      <h5> Posted by: <%= peep.account %>
+      <p style="font-size:12;"> Peep posted at: <%= peep.time %> </p>
+      <form action="/<%= peep.id %>" method="post" style="margin:0;">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input class="button_peep" type="submit" value="Delete" />
+      </form>
+      <form action="/<%= peep.id %>/edit" method="get" style="margin:0;">
+        <input class="button_peep" type="submit" value="Edit" />
+      </form>
+      <form action="/<%= peep.id %>/replies/new_reply" method="get">
+        <input class="button_peep_reply" type="submit" value="Reply" />
+      </form>
+      <ul>
+      <% peep.replies.each do |peep| %>
+        <li class="peep_reply" > <%= peep['reply'] %>
+          <h5> Posted by: <%= peep['account'] %>
+          <p style="font-size:12;"> Peep posted at: <%= peep['time'] %> </p>
+        </li>
+      <% end %>
+    </ul>
+    </li>
+  <% end %>
+</ul>
+
+</div>
+</body>
