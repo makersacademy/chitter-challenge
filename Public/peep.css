@@ -1,0 +1,145 @@
+body {
+margin:0;
+padding:0;
+background-color: #03cafc;
+}
+.content {
+max-width: 800px;
+margin: auto;
+font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.peep_box {
+width: 645px;
+height: 65px;
+font-size: 25;
+padding: 0px 5px 0px 5px;
+border: 0;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}
+.button_new_peep {
+width: 150px;
+height: 65px;
+font-size: 25;
+background-color: coral;
+color: white;
+padding: 0;
+border: 0;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 20%);
+-webkit-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 20%);
+-moz-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 20%);
+}
+.button_new_peep:hover {
+background-color: #4432a8;
+font-size: 27;
+}
+h1 {
+text-align: center;
+margin: 0 auto;
+display: inline;
+color: white;
+font-size: 65;
+}
+h2 {
+text-align: center;
+margin: 0px auto;
+display: inline-block;
+color: gray;
+font-weight: normal;
+}
+h3 {
+text-align: center;
+margin: 0px auto;
+color: white;
+font-weight: normal;
+font-size: 45;
+}
+.button_user {
+padding: 15px 20px;
+display: inline;
+font-size: 18;
+background-color: #2A88AD;
+color: white;
+border: 0;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+-webkit-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+-moz-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+}
+.button_user:hover {
+background-color: white;
+color: #2A88AD;
+}
+.button_peep {
+padding: 8px 15px;
+margin: 0px 10px 0px 0px;
+display: inline;
+float: left;
+font-size: 14;
+background-color: #2A88AD;
+color: white;
+border: 0;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+-webkit-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+-moz-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+}
+.button_peep:hover {
+background-color: white;
+color: #2A88AD;
+}
+.button_peep_reply {
+padding: 8px 15px;
+margin: 0px 525px 15px 0px;
+display: inline;
+float: left;
+font-size: 14;
+background-color: #2A88AD;
+color: white;
+border: 0;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+-webkit-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+-moz-box-shadow: inset 0px 2px 2px 0px rgb(255 255 255 / 15%);
+}
+.button_peep_reply:hover {
+background-color: white;
+color: #2A88AD;
+}
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+.peep {
+padding: 20px;
+margin: 0px 0px 10px 0px;
+border: 2px solid silver;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%);
+overflow: auto;
+}
+.peep_reply {
+background-color: #7dcef0;
+padding: 20px;
+margin: 0px 0px 10px 0px;
+display: block;
+border: 2px solid silver;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%);
+overflow: auto;
+}
