@@ -3,20 +3,26 @@
 
 ~~Content comming soooon!~~
 
-## Instructions: <img align="right" width="500" src="./docs/chitter.gif">
+## Instructions: <img align="left" width="500" src="./docs/chitter.gif">
 
 1. clone to your system
+   
 2. run `bundle install`
+   
 3. download and install [postgresql](https://www.postgresql.org/) for your system
+   
 4. do `psql postgres`, then `\i ./db/migrations/chitter_db.sql` to load the schema
+   
 5. you can then run the app `ruby app.rb`
+   
 6. head to `127.0.0.1:4567` to take a look around
+   
 7. you can preseed the db tables by using `irb` and the file `./spec/test_helper.rb`
 
 
 ## Ok here it is:
 
-### STRAIGHT UP <img align="left" width="250" src="./docs/chitter-db-tables.png">
+### STRAIGHT UP <img align="right" width="250" src="./docs/chitter-db-tables.png">
 
 - [X] I want to post a message (peep) to chitter
 
