@@ -1,5 +1,7 @@
 Welcome to my Chitter challenge!
 ================================
+I went and spent a lot of time learning by doing with Ruby Object Mapper.  So many questions now!  So little of this challenge completed user story wise!
+
 
 Here's how to get going -- look further below for development methodology!
 
@@ -23,6 +25,11 @@ This project uses Sinatra, PostgreSQL, and Ruby Object Mapper, follow the steps 
  $ \c chitter # confirm database setup with connection
  $ \l # list databases
  ```
+4. Rather than migrate the database I decided to try and learn a bit more about configuring using the rom-sql gateway and relations for configuring the database initially.
+
+```
+$ ruby setup.rb # relations work here but not in the model -- I am still missing something in configuring then
+```
 User stories
 ============
 ```
