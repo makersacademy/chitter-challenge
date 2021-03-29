@@ -5,7 +5,10 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE twitter_test;'
-  - psql -U postgres -c '\i ./db/migrations/twitter_test_db.sql;'
+  - psql -U postgres -c '\i ./db/migrations/create_comment_table.sql;'
+  - psql -U postgres -c '\i ./db/migrations/create_twitter_table.sql;'
+  - psql -U postgres -c '\i ./db/migrations/create_users_table.sql;'
+
 
 script:
   - bundle exec rspec
