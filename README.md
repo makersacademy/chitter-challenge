@@ -51,7 +51,7 @@ There are a few tests that are on the long side which could do with tidying up t
 
 
 
-## Responsive web design with CSS <img align="right" width="250" src="./docs/chitter-mobile.png">
+## Responsive web design with CSS <img align="left" width="250" src="./docs/chitter-mobile.png">
 
 I tried to make the web app responsive, so that it would look good on either a large screen or a small mobile device. When the view is less than 800px the columns have their width increased to 100% forcing the right most one below and it looks quite good to me.
 
