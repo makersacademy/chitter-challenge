@@ -1,6 +1,127 @@
 Chitter Challenge
 =================
 
+# Using the program
+
+* Fork the repo
+* Run bundler
+
+## RSpec
+
+* run rspec to see coverage and tests
+
+## Rackup
+
+* run rackup to host the app on local ip address
+
+## My approach:
+
+### Step 1: Fully read user stories and create domain models
+
+- I created the domain, database and req/res models below from the first 4 user stories
+
+As a Maker  
+So that I can let people know what I am doing    
+I want to post a message (peep) to chitter
+
+As a maker  
+So that I can see what others are saying    
+I want to see all peeps in reverse chronological order
+
+As a Maker  
+So that I can better appreciate the context of a peep  
+I want to see the time at which it was made  
+
+As a Maker  
+So that I can post messages on Chitter as me  
+I want to sign up for Chitter  
+
+![Chitter Domain Model (1)](https://user-images.githubusercontent.com/74908625/112628934-891c4000-8e2b-11eb-97a0-3a284fa2790a.jpg)
+
+![Chitter Domain Model](https://user-images.githubusercontent.com/74908625/112629115-c7b1fa80-8e2b-11eb-9821-58bd0b6b86a7.jpg)
+
+<img width="382" alt="Screenshot 2021-03-29 at 09 10 19" src="https://user-images.githubusercontent.com/74908625/112806398-a3922b80-906e-11eb-8872-3780fa043738.png">
+
+### Step 2: Implement User story 1, 2 & 3
+
+• I wrote the first feature test which is to post a message. In order to test   whether we added something to a database I would need to be able to   return what is in the database. So this step requires us to build and return   the database as well as a method to add data to the database.  
+
+#### **.all method**
+
+• The first step as per the feature test is to create a POST/peep/new channel   where a user can enter text into a field and press a button. This   required use of erb and an app.rb file. Using the simplest possible solution   I was able to use sessions to save this input and return it to a   GET /peep page.
+
+• I then built a chitter and chitter_test database to hold 3 tables. One for message information, one for user information and one for security information.
+
+• I set up the testing environment in which I could run a test database and then built the .all method within a User class. The User class is designed to return information such as all peeps from a User, their User ID and the time of their posts.
+
+• I wrote 2 tests expecting an input to be returned when .all was called and then pulled the message table into the method and iterated over it pulling the information out.
+
+• I wrote code to pass the tests and now my User method could successfully return a Users peeps to the model.
+
+• Finally I wrote a peep.erb file which returned the message and time of posting. In covering the next user story returned that information to an array and used the SORT BY DESC keywords to display the information in reverse chronological order.
+
+• I then wrote a feature test to determine that the order that information was displayed on the page was newest peeps at the top using a gem called 'orderly' and the appears_before keyword which allows you to test the order of content on a page.
+
+#### **.add method**
+
+• In order to add data to the database tables I designed a second class Messages, which would be responsible for holding code to post information to a table.
+
+• I wrote a feature test which testing the use of a new all method adding data to the database
+
+• I also wrote a unit test which would return information from a database but would depend on a new .add method to add that data.
+
+• Once this was failing I was able to write the method using "INSERT INTO" to add the message content, id and timestamp to the table.
+
+• The unit tests passed meaning the logic was working in the code.
+
+• Finally to pass the 2 feature tests I created a variable of @messages within the GET /peeps page and then iterated over the hash in the peep.erb folder pulling out the content and time information allowing messages to be displayed in reverse chronological order, showing the time and date the message was created.
+
+#### **timestamp**
+
+• I used a timestamp keyword within the postgres database which automatically timestamps data.
+
+### Step 3: User story 4
+
+• I implemented this by writing a feature test that had a sign_up option and allowed the user to enter a username and password. Once they had done this it took them to the /peep page and showed the username above the peeps.
+
+• The feature test required me to implement the sign_up button on the index page as well as fields for username and password on the /sign_up page.
+
+• I then set sessions equal to the username and password and used the value of the username session to set a variable in the /peep page and interpolate the username in.
+
+• I wrote a feature test that would test the ability to enter the user and then wrote a .username method to pass that test.
+
+• I did the same with the password
+
+• Finally I created a sign_up method within security that took as the arguement the input from the username and password fields and input them to the database.
+
+• Finally I used these class methods in the app.rb to set the variable to the stored username and call that to the peep.erb page.
+
+### Summary
+
+I completed the first 4 steps but didn't manage to implement:
+* Having a unique email and password for signing up
+* I would have also liked to implement password encryption for added security.
+
+* I also didn't implement having the username appear under the peep. I would have done this by joining the user and security table so the username appeared as an extra column. I could have then extracted that in the user class.
+
+* I would have also liked to have improved the formatting using a layout with css.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+## Course Instructions
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
