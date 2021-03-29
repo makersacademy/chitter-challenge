@@ -3,7 +3,7 @@
 
 ~~Content comming soooon!~~
 
-## Instructions:
+## Instructions: <img align="right" width="500" src="./docs/chitter!.gif">
 
 1. clone to your system
 2. run `bundle install`
@@ -16,7 +16,7 @@
 
 ## Ok here it is:
 
-### STRAIGHT UP <img align="right" width="250" src="./docs/chitter-db-tables.png">
+### STRAIGHT UP <img align="left" width="250" src="./docs/chitter-db-tables.png">
 
 - [X] I want to post a message (peep) to chitter
 
@@ -37,3 +37,25 @@
 - [ ] I want to receive an email if I am tagged in a Peep
 
 So I nearly got there, but I spent so much time on the CSS and making the reply feature work that I ran out of time to finish the email part of it. I kinda got halfway there with it though, as I made the 'tagged in a Peep' bit work!
+
+There are a few things I would go back and do if I could but I'm happy with how it is at the momment and I learned a lot refactoring and integrating the Tag feature. 
+
+There are a few tests that are on the long side which could do with tidying up too.
+
+
+
+
+## Responsive web design with CSS <img align="right" width="250" src="./docs/chitter-mobile.png">
+
+I tried to make the web app responsive, so that it would look good on either a large screen or a small mobile device. When the view is less than 800px the columns have their width increased to 100% forcing the right most one below and it looks quite good to me.
+
+```
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+  }
+}
+```
+I spent a lot of time on the CSS, perhaps at the detriment of the other areas, but it was really fun and it was the weekend!
