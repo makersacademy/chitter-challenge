@@ -10,6 +10,8 @@ How to setup:
 ```
 CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(60));
+CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(240), time TIMESTAMP, users_id INTEGER REFERENCES users (id));
 ```
 * The following databases are sufficicent for testing, if you would like to create entries on the website, register a user, login and add peeps!
 * `rspec` to view tests
