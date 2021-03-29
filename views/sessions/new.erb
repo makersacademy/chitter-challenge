@@ -1,0 +1,14 @@
+<h3>Enter your details to login with an existing account.</h3>
+<form action="/sessions" method='post'>  
+  <input type='text' name='username' maxlength="20" placeholder='Username' required>
+  <input type='password' name='password' maxlength="20" placeholder='Password' required>
+  <input type='submit' value='Sign in'>
+</form>
+<%if flash[:notice]%>
+<h3><div class='error-flash'><%= flash[:notice] %></div></h3>
+<%end%>
+<br>
+<h3>If you don't have an account, create one below!</h3>
+<form action='/users/new' method='get'>
+  <input type='submit' value='Create account'>
+</form>

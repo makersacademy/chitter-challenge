@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/drop-in.css">
+  <link rel="stylesheet" href="/css/application.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chitter!</title>
+</head>
+
+<body>
+  <header class="center">
+    <h1><a href="/">Chitter!</a></h1>
+  </header>
+
+  <main>
+    <div class="topnav">
+      <a href="<%='/chitter/index'%>">Home</a>
+      <%if @user%>
+      <a href="#">Tagged Peeps</a>
+      <%# <a href="#">Link</a> %>
+      <form action="/sessions/destroy" method="post" style="float:right;">
+        <input type="submit" value="Sign out" style="margin:7px;">
+      </form><%end%>
+    </div>
+
+    <div class='leftcolumn'>
+      <h1>Welcome to Chitter!</h1>
+      <h2><em>- THE place to be</em></h2>
+      <br>
+      <%= yield %>
+    </div>
+    <div class='rightcolumn'>
+      <div class='peep'>
+      <%peep_count = 1%>
+        <%@peeps.each do |peep|%>
+          <div class='peep'><%=peep.message%></div>
+          <%@tags.each do |tag|%>
+            <%if tag.peep_id == peep.peep_id%>
+              <div class='tag'>peeped @ <%=User.find(tag.user_id).username%></div>
+            <%end%>
+          <%end%>
+          <%@users.each do |user|%>
+            <%if user.user_id == peep.user_id %>
+              <div class='wrap'>
+              <%if @user%>
+                <form action="/chitter/reply" method="post" style="float:right;">
+                  <input type='hidden' name='reply' value='<%=user.username%>'> 
+                  <input type="submit" name='reply<%=peep_count%>' value="Reply" style="width:70px;">
+                </form>
+              <%end%>
+              <%=user.username%><br>
+            <%end%>
+          <%end%>
+          <%=peep.created_at.slice(0, 19)%></div><br><br>
+          <%peep_count += 1%>
+        <%end%>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+
+* {
+  box-sizing: border-box;
+}
+
+/* style for navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #0000006e;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+/* style for topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* change link colour for hover */
+.topnav a:hover {
+  background-color: #94fddb;
+  color: black;
+}
+
+/* left column */
+
+.leftcolumn {   
+  float: left;
+  width: 60%;
+  background-color: #0000006e;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+}
+
+/* right column */
+.rightcolumn {
+  float: right;
+  width: 37%;
+  padding-left: 20px;
+  background-color: #0000006e;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  border-radius: 3px;
+}
+
+/* clear floats after columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* put peeps on an individual area */
+
+/* ul {
+  background: #373d423a;
+  padding: 20px;
+}
+
+ul li {
+  background-color: #00c9d473;
+  padding: 5px;
+  margin-top: 20px;
+} */
+
+.peep {
+  background-color: #00c9d448;
+  padding: 5px;
+}
+
+.tag {
+  background-color: #00c9d448;
+  padding: 5px;
+  border-top: 1px solid black;
+}
+
+.wrap {
+  background-color: #00c9d448;
+  border-top: 1px solid black;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* alignment */
+
+.center {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+main input[type="submit"] {
+  justify-content: center;
+  align-items: center;
+  display: inline;
+  background-color: #94fddb;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px;
+  height: 32px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor:pointer;
+}
+
+main input[type="text"], main input[type="password"], main input[type="email"] {
+  padding: 0 0.5rem;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* colours */
+
+html {
+  height: 100%;
+  background: linear-gradient(180deg, #152d85, #004fa4, #006fbb, #008dc9, #00abd1, #00c8d4, #56e4d7, #99ffdb);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body {
+  background-color: #ffffff00;
+  padding: 10px;
+}
+
+main {
+  background-color: #ffffff00;
+  color: #fff;
+}
+
+/* @supports (-webkit-text-stroke: 1px black) {
+  b {
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+  }
+}
+
+@supports (-webkit-text-stroke: 2px black) {
+  a {
+    -webkit-text-stroke: 2px black;
+    -webkit-text-fill-color: white;
+  }
+} */
+
+/* fonts */ 
+
+html { font-family: 'Titillium Web', sans-serif; }
+
+h1, h2, h3, h4 {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+/* screen reduction for viewports under 800px */
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+  }
+}
+
+/* error message for sinatra/flash */
+
+.error-flash {
+width: auto;
+padding: 5px;
+border-radius: 5px;
+background-color: #ff000099;
+text-align: center;
+}
+
+.congrats-flash {
+  width: auto;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #00ff5599;
+  text-align: center;
+  }
