@@ -1,12 +1,27 @@
 require 'simplecov'
 require 'simplecov-console'
 
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+# Bring in the contents of the `app.rb` file.
+require_relative '../app/app'
+
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'pg'
+require 'rspec'
+
+#require_relative 'web_helper.rb'
+require_relative './support/database_cleaner.rb'
+
+# Tell Capybara to talk to Chitter
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.after(:suite) do
