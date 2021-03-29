@@ -40,10 +40,10 @@
 
       <form method="post" action="/sign_up/new" >
         <div id='signup_form_div'>
-          <input type="text" name="name" placeholder="name" class='signup_form' />
-          <input type="text" name="username" placeholder="username" class='signup_form'/>
-          <input type="text" name="email" placeholder="email" class='signup_form'/>
-          <input type="text" name="password" placeholder="Password" class='signup_form'/>
+          <input type="text" name="name" placeholder="name" class='signup_form' required/>
+          <input type="text" name="username" placeholder="username" class='signup_form'required/>
+          <input type="email" name="email" placeholder="email" class='signup_form'required/>
+          <input type="text" name="password" placeholder="Password" class='signup_form'required />
           <input type="submit" value="SIGN UP" class='signup_form' />
         </div>
       </form>

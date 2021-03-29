@@ -26,7 +26,7 @@
       <h2>SHOUT BACK</h2>
       <div id='shout_box_div'>
         <form action="/<%= @shout['shout_id']%>/replies/new" method="post">
-          <textarea name="reply_box" rows="3" cols="50" maxlength="100" placeholder="SHOUT BACK HERE (Max 100 characters)"></textarea>
+          <textarea name="reply_box" rows="3" cols="50" maxlength="100" placeholder="SHOUT BACK HERE (Max 100 characters)" required></textarea>
           <br>
           <input type="submit" value="SHOUT BACK">
         </form>

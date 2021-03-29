@@ -25,7 +25,7 @@
     <main>
       <div id='shout_box_div'>
         <form action="/shout/new" method="post">
-          <textarea name="shout_box" rows="3" cols="50" maxlength="100" placeholder="SHOUT HERE (Max 100 characters)"></textarea>
+          <textarea name="shout_box" rows="3" cols="50" maxlength="100" placeholder="SHOUT HERE (Max 100 characters)" required></textarea>
           <br>
           <input type="submit" value="SHOUT">
         </form>
@@ -52,7 +52,7 @@
           </form>
         </div>
       <% end %>
-      
+
       <h2>SHOUTS</h2>
       <div id="shouts_div">
         <% @shouter.each do |shout| %>
