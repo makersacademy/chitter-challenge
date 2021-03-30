@@ -11,6 +11,9 @@
   </head>
   <body>
     <h1 class="page-title">Chitter</h1>
+    <% if @user %>
+      <h2>Welcome, <%= @user.email %></h2>
+    <% end %>
     <form action="/posted" method="post">
       <input type="text" name="posted_message" placeholder="What's on your mind?"  id="message_input_field" />
       <input type="submit" value="Post" id="post_submission_button" />
