@@ -22,6 +22,11 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
 
+  def self.authenticate(email:, password:)
+    result = connect_to_db.exec("SELECT * FROM users WHERE email = '#{email}'")
+    User.new(id: result[0]['id'], email: result[0]['email'])
+  end
+
   def self.connect_to_db
     if ENV["ENVIRONMENT"] == "test"
       connection = PG.connect(dbname: "message_manager_test")
