@@ -4,7 +4,8 @@ describe Peep do
 
   let(:id) { 1 }
   let(:message_1) { "Strawberries" }
-  let(:peep) { Peep.new(id: id, message: message_1, time: DateTime.now()) }
+  let(:email) { "test@example.com" }
+  let(:peep) { Peep.new(id: id, message: message_1, time: DateTime.now(), user_email: "test@example.com" ) }
 
   describe "#new" do
     it "makes a new instance of a peep" do
@@ -12,14 +13,15 @@ describe Peep do
       expect(peep.message).to eq message_1
       expect(peep.id).to eq id
       expect(peep.time).to be_instance_of DateTime
+      expect(peep.user_email).to eq email
     end
   end
   
   describe ".all" do
     it "returns an array of instances of peeps" do
-      Peep.create(message: message_1)
-      Peep.create(message: "Blueberries")
-      Peep.create(message: "Blackberries")
+      Peep.create(message: message_1, user_email: 'test@example.com')
+      Peep.create(message: "Blueberries", user_email: 'test@example.com')
+      Peep.create(message: "Blackberries", user_email: 'test@example.com')
       expect(Peep.all.length).to eq 3
       expect(Peep.all.first.message).to eq("Blackberries")
     end
@@ -27,7 +29,7 @@ describe Peep do
   
   describe ".create" do
     it "inserts an entry into the database and returns an instance of peep" do
-      created_peep = Peep.create(message: message_1)
+      created_peep = Peep.create(message: message_1, user_email: 'test@example.com')
       expect(created_peep).to be_a Peep
       expect(created_peep.message).to eq("Strawberries")
     end

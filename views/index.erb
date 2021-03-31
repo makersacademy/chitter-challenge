@@ -35,7 +35,7 @@
       <div id="peeps">
         <% @peeps.each do |post| %>   
           <div class="post">
-            <%= post.message %>, posted on <%= post.time.strftime("%A at %H:%M") %>
+            <%= post.message %>, posted on <%= post.time.strftime("%A at %H:%M") %> by <%= post.user_email %>
           </div>
         <% end %>
       </div>

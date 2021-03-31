@@ -18,7 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   post "/posted" do
-    Peep.create(message: params["posted_message"])
+    user = User.find(id: session[:user_id])
+    Peep.create(message: params["posted_message"], user_email: user.email)
     redirect("/")
   end
 
