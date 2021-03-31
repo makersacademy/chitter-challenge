@@ -9,6 +9,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  # peep routes
+
   get "/" do
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all
@@ -20,6 +22,8 @@ class Chitter < Sinatra::Base
     redirect("/")
   end
 
+  # user registration routes
+
   get '/users/new' do
     erb(:"users/new")
   end
@@ -30,8 +34,10 @@ class Chitter < Sinatra::Base
     redirect("/")
   end
 
+  # user authentication routes
+
   get '/sessions/new' do
-    erb :"sessions/new"
+    erb(:"sessions/new")
   end
 
   post '/sessions' do
@@ -46,8 +52,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/destroy' do
-    flash[:notice] = 'You have signed out.'
     session.clear
+    flash[:notice] = 'You have signed out.'
     redirect('/')
   end
 

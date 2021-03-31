@@ -1,58 +1,31 @@
+require_relative "../test_helpers"
+
 feature 'authentication' do
-  it 'a user can log in' do
-    # Create a test user
-    User.create(email: 'test@example.com', password: 'password123')
 
-    # Then sign in as them
-    visit '/sessions/new'
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    click_button('Log in')
+  before(:each) do
+    create_test_user
+  end
 
+  scenario 'a user can log in' do
+    sign_in_as_test_user
     expect(page).to have_content 'Welcome, test@example.com'
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    # Create a test user
-    User.create(email: 'test@example.com', password: 'password123')
-
-    # Then try to sign in using a different email
-    visit '/sessions/new'
-    fill_in(:email, with: 'nottherightemail@me.com')
-    fill_in(:password, with: 'password123')
-    click_button('Log in')
-
+    sign_in_with_different_email
     expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content 'Please check your email or password.'
   end
 
   scenario 'a user sees an error if they get their password wrong' do
-    # Create a test user
-    User.create(email: 'test@example.com', password: 'password123')
-
-    # Then try to sign in using a different password
-    visit '/sessions/new'
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'wrongpassword')
-    click_button('Log in')
-
+    sign_in_with_different_password
     expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content 'Please check your email or password.'
   end
 
-  scenario 'a user can sign out' do
-    # Create a test user
-    User.create(email: 'test@example.com', password: 'password123')
-
-    # Then sign in as them
-    visit '/sessions/new'
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    click_button('Log in')
-
-    # Sign out
-    click_button('Log out')
-
+  scenario 'a user can log out' do
+    sign_in_as_test_user
+    log_out
     expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content 'You have signed out.'
   end

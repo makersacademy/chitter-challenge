@@ -1,4 +1,4 @@
-feature "when adding a peep" do
+feature "when creating a peep" do
   scenario "it should appear on the page" do
     visit("/")
     fill_in("posted_message", with: "Posting a test message. Lorem ipsum.")

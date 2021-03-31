@@ -1,9 +1,8 @@
+require_relative "../test_helpers"
+
 feature 'registration' do
   scenario 'a user can register' do
-    visit '/users/new'
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    click_button('Register')
+    register_test_user
     expect(page).to have_content "Welcome, test@example.com"
   end
 end
