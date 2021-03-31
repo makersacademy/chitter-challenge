@@ -20,9 +20,14 @@ CREATE DATABASE chitter_test;
 ```
 To set up the appropriate tables, connect to *EACH* database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-To test, run:
+To test:
 ```
 rspec
+```
+
+To run:
+```
+rackup
 ```
 
 User Stories:
@@ -110,8 +115,8 @@ If you want a green tick against your pull request you'll need to configure Trav
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 #### To Complete: 
-- Date format
-- CSS/Styling 
+- Date format - done (show_date is untested but coverage is still 100%)
+- CSS/Styling - started
 - Comments 
 - Update README
 ###### Bonus:

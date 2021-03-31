@@ -1,4 +1,5 @@
 require_relative 'user'
+# require 'strftime'
 
 class Peep
 
@@ -43,5 +44,10 @@ class Peep
 
   def find_users_username
     DatabaseConnection.query("SELECT * FROM users WHERE id = '#{user_id}'")[0]['username']
+  end 
+
+  def show_date 
+    date = time_last_altered
+    "#{date[8..9]}/#{date[5..6]}/#{date[2..3]} at #{date[11..15]}"
   end
 end
