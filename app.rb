@@ -1,4 +1,5 @@
 require "sinatra/base"
+require "sinatra/flash"
 require "./lib/peep"
 require "./lib/user"
 require "pg"
@@ -6,6 +7,7 @@ require "pg"
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get "/" do
     @user = User.find(id: session[:user_id])
@@ -24,9 +26,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(email: params[:email], password: params[:password])
-    p user.id
     session[:user_id] = user.id
-    p session[:user_id]
     redirect("/")
   end
 
@@ -36,8 +36,13 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/')
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sessions/new')
+    end
   end
 
   run! if app_file == $0
