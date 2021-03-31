@@ -6,7 +6,7 @@ require "pg"
 
 class Chitter < Sinatra::Base
 
-  enable :sessions, :method_override
+  enable :sessions
   register Sinatra::Flash
 
   get "/" do
@@ -43,6 +43,12 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
     end
+  end
+
+  post '/sessions/destroy' do
+    flash[:notice] = 'You have signed out.'
+    session.clear
+    redirect('/')
   end
 
   run! if app_file == $0

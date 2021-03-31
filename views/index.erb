@@ -10,9 +10,22 @@
     <title>Chitter</title>
   </head>
   <body>
+    <h2>
+      <%= flash[:notice] %>
+    </h2>
     <h1 class="page-title">Chitter</h1>
     <% if @user %>
       <h2>Welcome, <%= @user.email %></h2>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Log out" />
+    </form>
+    <% else %>
+    <form action="/users/new" method="get">
+      <input type="submit" value="Register" />
+    </form>
+    <form action="/sessions/new" method="get">
+      <input type="submit" value="Log in" />
+    </form>
     <% end %>
     <form action="/posted" method="post">
       <input type="text" name="posted_message" placeholder="What's on your mind?"  id="message_input_field" />

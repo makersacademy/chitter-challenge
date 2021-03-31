@@ -13,8 +13,10 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
+    # Create a test user
     User.create(email: 'test@example.com', password: 'password123')
 
+    # Then try to sign in using a different email
     visit '/sessions/new'
     fill_in(:email, with: 'nottherightemail@me.com')
     fill_in(:password, with: 'password123')
@@ -25,8 +27,10 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their password wrong' do
+    # Create a test user
     User.create(email: 'test@example.com', password: 'password123')
 
+    # Then try to sign in using a different password
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword')
@@ -34,5 +38,22 @@ feature 'authentication' do
 
     expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content 'Please check your email or password.'
+  end
+
+  scenario 'a user can sign out' do
+    # Create a test user
+    User.create(email: 'test@example.com', password: 'password123')
+
+    # Then sign in as them
+    visit '/sessions/new'
+    fill_in(:email, with: 'test@example.com')
+    fill_in(:password, with: 'password123')
+    click_button('Log in')
+
+    # Sign out
+    click_button('Log out')
+
+    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).to have_content 'You have signed out.'
   end
 end
