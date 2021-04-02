@@ -13,7 +13,7 @@
     <h2>
       <%= flash[:notice] %>
     </h2>
-    <h1 class="page-title">Chitter</h1>
+    <h1 class="page-heading">Chitter</h1>
     <% if @user %>
       <h2>Welcome, <%= @user.email %></h2>
     <form action="/sessions/destroy" method="post">

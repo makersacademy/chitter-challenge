@@ -1,18 +1,12 @@
 body {
   background-color: #ffcf20;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 form {
-  top: 50px;
   position: relative;
-  max-height: 4em;
-  width: 100%;
-  height: 100%;
-  max-width: 25em;
-  left: 25px;
-  max-width: calc(50% - (-50% / 2));
-  margin: 5px;
+  max-width: 24rem;
+  margin: 2rem;
 }
 
 #message_input_field {
@@ -22,7 +16,7 @@ form {
   width: 80%;
   max-width: calc(50% - (-50% / 2));
   margin: 5px;
-  font-size: 1.5rem
+  font-size: 1.5rem;
 }
 
 #post_submission_button {
@@ -50,17 +44,16 @@ form {
 }
 
 h1 {
-  font-family: 'Hachi Maru Pop', cursive;
+  font-family: "Hachi Maru Pop", cursive;
 }
 
-.page-title {
+.page-heading {
   position: relative;
-  max-height: 4em;
-  width: 100%;
-  height: 100%;
-  left: 50px;
-  max-width: calc(50% - (-50% / 2));
-  margin: 5px;
+  margin: 1rem 2rem;
   font-size: 4rem;
-  top: 24px;
+}
+
+.sub-heading {
+  font-family: "Shadows Into Light Two", cursive;
+  margin: 2rem;
 }
