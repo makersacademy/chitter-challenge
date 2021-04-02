@@ -1,0 +1,59 @@
+body {
+  background-color: #ffcf20;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+form {
+  position: relative;
+  max-width: 24rem;
+  margin: 2rem;
+}
+
+#message_input_field {
+  border-radius: 10px;
+  height: 50px;
+  text-align: center;
+  width: 80%;
+  max-width: calc(50% - (-50% / 2));
+  margin: 5px;
+  font-size: 1.5rem;
+}
+
+#post_submission_button {
+  height: 25px;
+  border-radius: 50px;
+  margin: 5px;
+  max-width: calc(50% - (-50% / 2));
+  padding: 0 15px;
+  margin-left: 15px;
+}
+
+.post {
+  position: relative;
+  height: 66px;
+  top: 75px;
+  left: 25px;
+  border: 5px solid #c7a424;
+  width: 100%;
+  max-width: calc(50% - (-50% / 2));
+  margin: 5px;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Hachi Maru Pop", cursive;
+}
+
+.page-heading {
+  position: relative;
+  margin: 1rem 2rem;
+  font-size: 4rem;
+}
+
+.sub-heading {
+  font-family: "Shadows Into Light Two", cursive;
+  margin: 2rem;
+}

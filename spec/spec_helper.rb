@@ -1,3 +1,39 @@
+# Get the 'test_database_setup.rb' file which clears the messages tables when called
+
+require "./spec/setup_test_database"
+
+# Get test helpers
+
+require "./spec/test_helpers"
+
+# Set the environment to 'test'
+
+ENV['ENVIRONMENT'] = 'test'
+
+# Run 'test_database_setup.rb' before each test
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
+# Bring in everything from 'app.rb'
+
+require File.join(File.dirname(__FILE__), "..", "app.rb")
+
+# Require testing gems
+
+require "capybara"
+require "capybara/rspec"
+require "rspec"
+
+# Tell Capybara to talk to Chitter
+
+Capybara.app = Chitter
+
+# Default setup below
+
 require 'simplecov'
 require 'simplecov-console'
 
@@ -15,3 +51,4 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
