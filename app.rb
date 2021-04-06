@@ -46,7 +46,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do 
-    user = User.create(email: params['email'], password: params['password'], name: params['name'], username: params['username'])
+    user = User.create(email: params['email'], password: params['password'], name: params['name'], 
+username: params['username'])
     session[:user_id] = user.id
     redirect '/feed'
   end
@@ -67,7 +68,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  post '/sessions/destroy'do
+  post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect('/feed')

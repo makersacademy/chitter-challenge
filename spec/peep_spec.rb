@@ -77,8 +77,15 @@ describe Peep do
     it 'returns the username of user who wrote a peep' do 
       user = create_new_user
       peep = Peep.create(message: 'Hello world', user_id: user.id)
-
       expect(peep.find_users_username).to eq 'ob'
+    end
+  end
+
+  describe '.show_date' do 
+    it 'returns the date in a readable string format' do 
+      user = create_new_user
+      peep = Peep.create(message: 'Hello world', user_id: user.id, time_last_altered: "2021-04-06 17:29:48")
+      expect(peep.show_date).to eq '06/04/21 at 17:29'
     end
   end
 end

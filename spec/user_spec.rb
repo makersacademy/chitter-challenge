@@ -5,9 +5,7 @@ describe User do
   describe '.create' do
     it 'creates a new user' do
       user = User.create(email: 'test@example.com', password: 'password123', name: 'Ollie', username: 'ob')
-
-      persisted_data = persisted_data(id: user.id, table: 'users')
-
+      # persisted_data = persisted_data(id: user.id, table: 'users')
       expect(user).to be_a User
       # expect(user.id).to eq persisted_data.first['id']
       expect(user.email).to eq 'test@example.com'
@@ -42,13 +40,13 @@ describe User do
     end
 
     it 'returns nil given an incorrect email address' do
-      user = User.create(email: 'test@example.com', password: 'password123', name: 'Ollie', username: 'ob')
+      User.create(email: 'test@example.com', password: 'password123', name: 'Ollie', username: 'ob')
   
       expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
     end
 
     it 'returns nil given an incorrect password' do
-      user = User.create(email: 'test@example.com', password: 'password123', name: 'Ollie', username: 'ob')
+      User.create(email: 'test@example.com', password: 'password123', name: 'Ollie', username: 'ob')
   
       expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
     end
