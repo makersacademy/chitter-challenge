@@ -115,7 +115,7 @@ If you want a green tick against your pull request you'll need to configure Trav
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 #### To Complete: 
-- Date format - done (show_date is untested but coverage is still 100%)
+- Date format - done
 - CSS/Styling - started
 - Comments 
 - Update README
