@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feed</title>
+</head>
+
+
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<% if !@user %>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Sign in" />
+  </form>
+
+  <form action="/users/new" method="get">
+    <input type="submit" value="New account" />
+  </form>
+<% end %>
+
+<% if @user %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+
+  <form action='/feed' method='post'>
+    Your peep:
+    <input type='text' name='peep' />
+    <input type="submit" value="Post" />
+  </form>
+<% end %>
+
+
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+  <li class='peep' id='peep-<%=peep.id%>'>
+    <p> <%= peep.find_users_name %>: <%= peep.message %> </p>
+    <i><%= peep.find_users_username %>: <%= peep.show_date%></i>
+    <!-- <i><%= peep.time_last_altered%></i> -->
+    <form action='/feed/<%= peep.id %>/edit' method='get'>
+      <input type='submit' value='Edit'/>
+    </form>
+    <form action='/feed/<%= peep.id %>' method='post'>
+      <input type='hidden' name='_method' value="DELETE" />
+      <input type='submit' value='Delete'/>
+    </form>
+  </li>
+  <% end %>
+</ul>

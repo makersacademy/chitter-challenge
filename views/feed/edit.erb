@@ -1,0 +1,7 @@
+<h1>Edit Peep</h1>
+
+<form action='/feed/<%= @peep.id %>' method='post'>
+  <input type ="hidden" name="_method" value="PATCH"/>
+  <input type='text' name='peep' value='<%=@peep.message%>'/>
+  <input type="submit" value="Update" />
+</form>

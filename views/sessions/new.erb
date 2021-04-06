@@ -1,0 +1,20 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<form action="/sessions" method="post">
+  <input type="email" name="email" />
+  <input type="password" name="password" />
+  <input type="submit" value="Sign in" />
+</form>
+
+<h6>Not yet registered?</h6>
+
+<form action="/users/new" method="get">
+  <input type="submit" value="New account" />
+</form>
+
+<form action="/feed" method="get">
+  <input type="submit" value="Home" />
+</form>
+
