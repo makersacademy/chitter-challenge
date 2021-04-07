@@ -2,6 +2,9 @@ require 'sinatra/base'
 require './lib/peep'
 
 class PeepManager < Sinatra::Base
+
+  enable :sessions, :method_override
+
   get '/' do
     erb :index
   end
@@ -18,6 +21,11 @@ class PeepManager < Sinatra::Base
 
   post '/peeps' do
     Peep.create(peep: params[:peep])
+    redirect '/peeps'
+  end
+
+  delete '/peeps/:id' do
+    Peep.delete(id: params[:id])
     redirect '/peeps'
   end
 

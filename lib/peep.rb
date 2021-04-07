@@ -33,7 +33,16 @@ class Peep
     end
 
     result = connection.exec("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_at}') RETURNING id, peep, created_at")
-    Peep.new(id: result[0]['id'], title: result[0]['peep'], created_at: result[0]['created_at'])
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
+  end
+
+  def self.delete(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'peep_manager_test')
+    else
+      connection = PG.connect(dbname: 'peep_manager')
+    end
+    connection.exec("DELETE FROM peeps WHERE id = #{id}")
   end
 
 end
