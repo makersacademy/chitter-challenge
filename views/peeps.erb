@@ -1,9 +1,8 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peep %> - <%= peep.created_at %></li>
+    <li class="peep" id="peep-<%=peep.id %>">
+      <%= peep.peep %> - <%= peep.created_at %></li>
+      <input type="submit" value="Delete" />
+    </li>
   <% end %>
 </ul>
-
-<form action="/peeps/new" method="get">
-    <button> Enter a peep </button>
-</form>

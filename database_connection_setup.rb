@@ -1,4 +1,3 @@
-
 # require './lib/data_base_connection'
 
 # if ENV['ENVIRONMENT'] == 'test'

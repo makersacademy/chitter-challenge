@@ -14,7 +14,8 @@ class User
       connection = PG.connect(dbname: 'peep_manager')
     end
 
-    result = connection.exec("INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
+    result = connection.exec(
+      "INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
 

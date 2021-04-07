@@ -2,9 +2,10 @@ require 'pg'
 
 class Peep
 
-  attr_reader :peep, :created_at
+  attr_reader :id,  :peep, :created_at
 
-  def initialize(peep:, created_at:)
+  def initialize(id:, peep:, created_at:)
+    @id = id
     @peep = peep
     @created_at = created_at
   end
@@ -18,7 +19,8 @@ class Peep
 
     result = connection.exec('SELECT * FROM peeps')
     result.map do |peep|
-      Peep.new(peep: peep['peep'], created_at: peep['created_at'])
+      # p peep - {"id"=>"575", "peep"=>"Salut!", "created_at"=>"2021-04-07 09:31:51+01"}
+      Peep.new(id: peep['id'], peep: peep['peep'], created_at: peep['created_at'])
     end
     .reverse
   end
@@ -30,7 +32,8 @@ class Peep
       connection = PG.connect(dbname: 'peep_manager')
     end
 
-    connection.exec("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_at}')")
+    result = connection.exec("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_at}') RETURNING id, peep, created_at")
+    Peep.new(id: result[0]['id'], title: result[0]['peep'], created_at: result[0]['created_at'])
   end
 
 end
