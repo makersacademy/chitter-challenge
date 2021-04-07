@@ -19,6 +19,16 @@ class PeepManager < Sinatra::Base
     erb :peeps_new
   end
 
+  # get '/peeps/:id/edit' do
+  #   @peep_id = params[:id]
+  #   erb :'peeps_edit'
+  # end
+
+  get '/peeps/:id/edit' do
+    @peep = Peep.find(id: params[:id])
+    erb :'peeps_edit'
+  end
+
   post '/peeps' do
     Peep.create(peep: params[:peep])
     redirect '/peeps'
@@ -26,6 +36,11 @@ class PeepManager < Sinatra::Base
 
   delete '/peeps/:id' do
     Peep.delete(id: params[:id])
+    redirect '/peeps'
+  end
+
+  patch '/peeps/:id' do
+    Peep.update(id: params[:id], peep: params[:peep])
     redirect '/peeps'
   end
 

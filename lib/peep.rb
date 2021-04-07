@@ -44,5 +44,25 @@ class Peep
     end
     connection.exec("DELETE FROM peeps WHERE id = #{id}")
   end
+  
+  def self.update(id:, peep:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'peep_manager_test')
+    else
+      connection = PG.connect(dbname: 'peep_manager')
+    end
+    result = connection.exec("UPDATE peeps SET peep = '#{peep}' WHERE id = #{id} RETURNING id, peep")
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
+  end
+
+  def self.find(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'peep_manager_test')
+    else
+      connection = PG.connect(dbname: 'peep_manager')
+    end
+    result = connection.exec("SELECT * FROM peeps WHERE id = #{id};")
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
+  end
 
 end

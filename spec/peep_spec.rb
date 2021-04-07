@@ -27,12 +27,12 @@ describe '.all' do
     expect(peeps.last.created_at).to eq '2021-01-31 10:42:42+00'
 
   end
+end
 
-  describe '.create' do
-    it 'creates a new peep' do
-      Peep.create(peep: 'Kikoo!')
+describe '.create' do
+  it 'creates a new peep' do
+    Peep.create(peep: 'Kikoo!')
 
-      expect(Peep.all.first).to eq 'Kikoo!'
-    end
+    expect(Peep.all.first).to eq 'Kikoo!'
   end
 end
