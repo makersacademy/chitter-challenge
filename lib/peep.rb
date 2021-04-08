@@ -1,4 +1,4 @@
-require 'pg'
+require_relative 'database_connection'
 
 class Peep
 
@@ -11,57 +11,30 @@ class Peep
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peep_manager_test')
-    else
-      connection = PG.connect(dbname: 'peep_manager')
-    end
-
-    result = connection.exec('SELECT * FROM peeps')
+    result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map do |peep|
       # p peep - {"id"=>"575", "peep"=>"Salut!", "created_at"=>"2021-04-07 09:31:51+01"}
-      Peep.new(id: peep['id'], peep: peep['peep'], created_at: peep['created_at'])
+      Peep.new(id: peep['id'], peep: peep['peep'], created_at: peep['created_at']) # creates peep objects
     end
     .reverse
   end
 
   def self.create(peep:, created_at: Time.now)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peep_manager_test')
-    else
-      connection = PG.connect(dbname: 'peep_manager')
-    end
-
-    result = connection.exec("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_at}') RETURNING id, peep, created_at")
+    result = DatabaseConnection.query("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_at}') RETURNING id, peep, created_at")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
   end
 
   def self.delete(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peep_manager_test')
-    else
-      connection = PG.connect(dbname: 'peep_manager')
-    end
-    connection.exec("DELETE FROM peeps WHERE id = #{id}")
+    DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id}")
   end
   
   def self.update(id:, peep:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peep_manager_test')
-    else
-      connection = PG.connect(dbname: 'peep_manager')
-    end
-    result = connection.exec("UPDATE peeps SET peep = '#{peep}' WHERE id = #{id} RETURNING id, peep")
+    result = DatabaseConnection.query("UPDATE peeps SET peep = '#{peep}' WHERE id = #{id} RETURNING id, peep")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
   end
 
   def self.find(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peep_manager_test')
-    else
-      connection = PG.connect(dbname: 'peep_manager')
-    end
-    result = connection.exec("SELECT * FROM peeps WHERE id = #{id};")
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{id};")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
   end
 

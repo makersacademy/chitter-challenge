@@ -1,7 +1,7 @@
-# require './lib/data_base_connection'
+require './lib/database_connection'
 
-# if ENV['ENVIRONMENT'] == 'test'
-#   DatabaseConnection.set_up('peep_manager_test')
-# else
-#   DatabaseConnection.set_up('peep_manager')
-# end
+if ENV['ENVIRONMENT'] == 'test'
+  DatabaseConnection.setup('peep_manager_test')
+else
+  DatabaseConnection.setup('peep_manager')
+end
