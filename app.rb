@@ -1,6 +1,7 @@
 require 'sinatra/base'
-require './lib/peep'
-require './database_connection_setup'
+require_relative './lib/peep'
+require_relative './lib/comment'
+require_relative './database_connection_setup'
 
 class PeepManager < Sinatra::Base
 
@@ -42,6 +43,16 @@ class PeepManager < Sinatra::Base
 
   patch '/peeps/:id' do
     Peep.update(id: params[:id], peep: params[:peep])
+    redirect '/peeps'
+  end
+
+  get '/peeps/:id/comments/new' do
+    @peep_id = params[:id]
+    erb :'comments'
+  end
+
+  post '/peeps/:id/comments' do
+    Comment.create(peep_id: params[:id], text: params[:comment])
     redirect '/peeps'
   end
 

@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require_relative './comment.rb'
 
 class Peep
 
@@ -38,4 +39,7 @@ class Peep
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
   end
 
+  def comments(comment_class = Comment)
+    comment_class.where(peep_id: id)
+  end
 end

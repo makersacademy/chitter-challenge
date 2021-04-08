@@ -6,3 +6,4 @@ DELETE FROM peeps WHERE peep = 'Kikoo';
 ALTER TABLE peeps ADD COLUMN created_at TIMESTAMPTZ;
 ALTER TABLE peeps ALTER COLUMN created_at SET DEFAULT current_timestamp;
 ALTER TABLE peeps DROP COLUMN created_at;
+CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), peep_id INTEGER REFERENCES peeps (id));
