@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative './lib/peep'
 require_relative './lib/comment'
+require_relative './lib/user'
 require_relative './database_connection_setup'
 
 class PeepManager < Sinatra::Base
@@ -12,7 +13,7 @@ class PeepManager < Sinatra::Base
   end
 
   get '/peeps' do
-    # @user = User.find(session[:user_id])
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :peeps
   end
@@ -20,11 +21,6 @@ class PeepManager < Sinatra::Base
   get '/peeps/new' do
     erb :peeps_new
   end
-
-  # get '/peeps/:id/edit' do
-  #   @peep_id = params[:id]
-  #   erb :'peeps_edit'
-  # end
 
   get '/peeps/:id/edit' do
     @peep = Peep.find(id: params[:id])
@@ -56,15 +52,15 @@ class PeepManager < Sinatra::Base
     redirect '/peeps'
   end
 
-  # get '/users/new' do
-  #   erb :users_new
-  # end
+  get '/users/new' do
+    erb :users_new
+  end
 
-  # post '/users' do
-  #   user = User.create(email: params[:email], password: params[:password])
-  #   session[:user_id] = user.id
-  #   redirect '/peeps'
-  # end
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/peeps'
+  end
 
   run! if app_file == $0
 
