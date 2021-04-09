@@ -1,0 +1,22 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <%= peep.peep %> - <%= peep.created_at %></li>
+      <form action="/peeps/<%= peep.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
+      <form action="/peeps/<%= peep.id %>/edit" method="get">
+        <input type="submit" value="Edit" />
+      </form>
+      <form action="/peeps/<%= peep.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment" />
+      </form>
+      <ul>
+        <% peep.comments.each do |comment| %>
+          <li><%= comment.text %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
