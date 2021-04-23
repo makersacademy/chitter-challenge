@@ -133,3 +133,22 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+Setup 
+
+tables created with 
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+	email VARCHAR (50) UNIQUE,
+	password VARCHAR (50),
+	name VARCHAR (50),
+	username VARCHAR (50) UNIQUE
+);
+
+CREATE TABLE posts (
+	id SERIAL PRIMARY KEY,
+	username VARCHAR (50),
+	name VARCHAR (50),
+	message VARCHAR (240)
+);

@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: chitter_test
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: ENV['DATABASE_URL']
+  pool: 5
+  timeout: 5000

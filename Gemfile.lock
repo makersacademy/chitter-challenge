@@ -1,15 +1,59 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (5.2.5)
+      activesupport (= 5.2.5)
+    activerecord (5.2.5)
+      activemodel (= 5.2.5)
+      activesupport (= 5.2.5)
+      arel (>= 9.0)
+    activesupport (5.2.5)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
+    arel (9.0.0)
     ast (2.4.0)
+    capybara (3.32.2)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
+    concurrent-ruby (1.1.8)
     diff-lcs (1.3)
     docile (1.3.2)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    mini_mime (1.1.0)
+    mini_portile2 (2.4.0)
+    minitest (5.14.4)
+    multi_json (1.15.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
     parallel (1.19.1)
     parser (2.7.0.4)
       ast (~> 2.4.0)
+    pg (1.2.3)
+    public_suffix (4.0.6)
+    rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rainbow (3.0.0)
+    rake (13.0.3)
+    regexp_parser (1.8.2)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -31,26 +75,57 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
+    ruby2_keywords (0.0.4)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
-    simplecov-console (0.7.2)
+    simplecov-console (0.9.1)
       ansi
       simplecov
       terminal-table
     simplecov-html (0.12.2)
-    terminal-table (1.8.0)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+    sinatra-activerecord (2.0.22)
+      activerecord (>= 4.1)
+      sinatra (>= 1.0)
+    sinatra-contrib (2.1.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.1.0)
+      sinatra (= 2.1.0)
+      tilt (~> 2.0)
+    terminal-table (3.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    thread_safe (0.3.6)
+    tilt (2.0.10)
+    tzinfo (1.2.9)
+      thread_safe (~> 0.1)
     unicode-display_width (1.6.1)
+    webrick (1.7.0)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
+  capybara
+  launchy
+  pg
+  rake
   rspec
-  rubocop (= 0.79.0)
+  rubocop
   simplecov
   simplecov-console
+  sinatra
+  sinatra-activerecord
+  sinatra-contrib
+  webrick
 
 BUNDLED WITH
-   2.1.4
+   2.2.16
