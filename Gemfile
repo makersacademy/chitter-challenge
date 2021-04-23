@@ -1,8 +1,16 @@
 source 'https://rubygems.org'
 
-group :test do
+group :development, :test do
+  gem 'datamapper'
+  gem 'dm-postgres-adapter'
+  gem 'sinatra'
+  gem 'sinatra-contrib'
   gem 'rspec'
-  gem 'rubocop', '0.79.0'
+  gem 'capybara'
+  gem 'rubocop', '~> 1.13'
+  gem 'rack'
+  gem 'pg'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+
