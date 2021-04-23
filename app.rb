@@ -1,22 +1,21 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/tweet'
-require 'pg'
-# require 'datamapper'
+require './lib/tweets'
 
 class Chitter < Sinatra::Base
 	configure :development do 
 		register Sinatra::Reloader
-    # DataMapper.setup(:default, 'postgres://phil@127.0.0.1:5432/chitter')
-	end
-  
-  configure :production do
-    # DataMapper.setup(:default, 'postgres://phil@127.0.0.1:5432/chitter')
-  end
+  	end
 
 	get '/' do 
+    @tweets = Tweets.all
 		erb :'index'
 	end
+
+  get '/tweets' do 
+    @tweets = Tweets.all
+    erb :'tweets'
+  end
 
   # post '/new' do
   #   Bookmark.create(params[:add_bookmarks_title],  params[:add_bookmarks_url])
