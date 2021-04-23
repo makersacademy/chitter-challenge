@@ -17,6 +17,11 @@ class Chitter < Sinatra::Base
     redirect ('/')
   end
 
+  get '/reverse' do 
+    @tweets = Tweets.reverse
+    erb :'tweets'
+  end
+
   get '/tweets' do 
     @tweets = Tweets.all
     erb :'tweets'

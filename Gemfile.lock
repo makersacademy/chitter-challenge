@@ -77,6 +77,9 @@ GEM
     nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    orderly (0.1.1)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parallel (1.20.1)
     parser (3.0.1.0)
       ast (~> 2.4.1)
@@ -152,6 +155,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-postgres-adapter
+  orderly
   pg
   rack
   rspec

@@ -12,6 +12,7 @@ gem 'rack'
 gem 'pg'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
+gem 'orderly'
 
 group :development, :test do
   gem 'rspec'

@@ -26,6 +26,16 @@ class Tweets
       else
         connection = PG.connect(dbname: 'chitter')
       end
-      connection.exec("INSERT INTO tweets (tweet) VALUES('#{entry}')")
+      connection.exec("INSERT INTO tweets (tweet, time) VALUES('#{entry}', '#{Time.now}')")
+  end
+
+  def self.reverse
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
     end
+    result = connection.exec("SELECT * FROM tweets ORDER BY id DESC;")
+    result.map { |entry| Tweets.new(entry["tweet"])}
+  end
 end

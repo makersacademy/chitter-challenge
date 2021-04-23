@@ -20,4 +20,14 @@ feature 'Viewing tweets' do
     visit('/tweets')
     expect(page).to have_content "Hello from the void"
   end
+
+  scenario 'user can view in reverse chronological order' do 
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("INSERT INTO tweets VALUES(1, 'Hello World');")
+    connection.exec("INSERT INTO tweets VALUES(2, 'Yes it is a tweet');")
+    connection.exec("INSERT INTO tweets VALUES(3, 'Yes it is another tweet');")
+    visit('/tweets')
+    click_on 'Sort By Oldest'
+   "Yes it is another tweet".should appear_before("Hello World")
+  end
 end
