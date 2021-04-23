@@ -1,3 +1,17 @@
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the `application_controller.rb` file
+require_relative '../app/onlyphans'
+
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'pg'
+require 'rake'
+require 'rspec'
+
+Capybara.app = ApplicationController
+
 require 'simplecov'
 require 'simplecov-console'
 
