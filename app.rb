@@ -12,10 +12,17 @@ class Chitter < Sinatra::Base
 		erb :'index'
 	end
 
+  post '/newtweet' do 
+    Tweets.create(params[:newtweet])
+    redirect ('/')
+  end
+
   get '/tweets' do 
     @tweets = Tweets.all
     erb :'tweets'
   end
+
+
 
   # post '/new' do
   #   Bookmark.create(params[:add_bookmarks_title],  params[:add_bookmarks_url])

@@ -1,7 +1,11 @@
-<h2>Your Tweets</h2>
-
-<ul>
-    <% @tweets.each do |entry| %>
-        <li> <%= entry.tweet%></li>
-    <% end %>
-</ul>
+<div style='padding: 2em'>
+  <h2>Your Tweets</h2>
+  <ul>
+      <% @tweets.each do |entry| %>
+          <li> <%= entry.tweet%></li>
+      <% end %>
+  </ul>
+  <a href="/">
+    <input type="button" value="Go back"></input>
+  </a>
+</div>

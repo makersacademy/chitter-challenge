@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'pg'
 
 class Tweets
+
   attr_reader :tweet
 
   def initialize(tweet)
