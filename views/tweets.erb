@@ -9,7 +9,7 @@
   <div class=tweet-collection>
   <ul>
     <% @tweets.each do |entry| %>
-        <li class="tweet-content"> <%= entry.tweet%></li>
+        <li class="tweet-content"> <%= entry.tweet%>-------------Created at:<%= entry.time%> </li>
     <% end %>
   </ul>
   </div>
