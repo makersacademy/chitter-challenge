@@ -102,4 +102,34 @@ rspec
 ```
 rubocop
 ```
+## To set up the database
+------
+ Connect to `psql` and create the `chitter` database:
 
+ ```
+ CREATE DATABASE chitter;
+ ```
+ ### To connect to database
+ ```
+ psql \c chitter;
+ ```
+
+ To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To Insert into table
+
+```
+INSERT INTO chitter VALUES(1, 'Test Peep');
+```
+### To view table
+```
+SELECT * FROM chitter;
+```
+### To delete a row from the table
+```
+DELETE FROM chitter WHERE message = 'Test Peep';
+```
+### To update a value from a row in the table
+```
+UPDATE chitter SET message = 'New Peep Testing!' WHERE url = 'Test Peep';
+```
