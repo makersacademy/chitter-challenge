@@ -15,3 +15,22 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# For accurate test coverage measurements, require your code AFTER 'SimpleCov.start'
+ENV['RACK_ENV'] = 'test'
+
+RSpec.configure do |config|
+  config.after(:suite) do
+    puts
+    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
+    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+end
+
+Capybara.app = Chitter
