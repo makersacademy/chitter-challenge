@@ -1,1 +1,1 @@
-CREATE TABLE chitter(peep_id SERIAL PRIMARY KEY, message VARCHAR(100));
+CREATE TABLE peeps(peep_id SERIAL PRIMARY KEY, message VARCHAR(100));

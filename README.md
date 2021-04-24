@@ -119,17 +119,17 @@ rubocop
 ### To Insert into table
 
 ```
-INSERT INTO chitter VALUES(1, 'Test Peep');
+INSERT INTO peeps VALUES(1, 'Test Peep');
 ```
 ### To view table
 ```
-SELECT * FROM chitter;
+SELECT * FROM peeps;
 ```
 ### To delete a row from the table
 ```
-DELETE FROM chitter WHERE message = 'Test Peep';
+DELETE FROM peeps WHERE message = 'Test Peep';
 ```
 ### To update a value from a row in the table
 ```
-UPDATE chitter SET message = 'New Peep Testing!' WHERE url = 'Test Peep';
+UPDATE peeps SET message = 'New Peep Testing!' WHERE url = 'Test Peep';
 ```
