@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'pg'
+gem 'puma'
+gem 'rake'
 
 group :test do
   gem 'capybara'
-  gem 'rake'
   gem 'rspec'
   gem 'rubocop', '0.79.0'
   gem 'simplecov', require: false
@@ -12,7 +16,6 @@ group :test do
 end
 
 group :development do
-  gem 'pg'
   gem "pry"
   gem "shotgun"
   gem "tux"
