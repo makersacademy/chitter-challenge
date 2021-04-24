@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN scanned_in timestamp with time zone;
