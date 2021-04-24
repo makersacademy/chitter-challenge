@@ -19,3 +19,5 @@
 - https://stackoverflow.com/questions/963420/undo-scaffolding-in-rails
 
 - https://github.com/rspec/rspec-rails
+
+- https://stackoverflow.com/questions/31039998/rails-address-already-in-use-bind2-errnoeaddrinuse
