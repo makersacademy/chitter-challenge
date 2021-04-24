@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'database_connection'
 
 class Message
   attr_reader :text
@@ -8,15 +9,24 @@ class Message
   end
 
   def self.create(text:)
-    connection = PG.connect(dbname: "chitter_test")
-    result = connection.exec("INSERT INTO messages (text) VALUES('#{text}') RETURNING text;")
+    # if ENV['ENVIRONMENT'] == 'test'
+    #   connection = PG.connect(dbname: 'chitter_test')
+    # else
+    #   connection = PG.connect(dbname: 'chitter')
+    # end
+    result = DatabaseConnection.query("INSERT INTO messages (text) VALUES('#{text}') RETURNING text;")
+    # result = connection.exec("INSERT INTO messages (text) VALUES('#{text}') RETURNING text;")
     Message.new(text: result[0]['text'])
 
   end
 
   def self.all
-    connection = PG.connect(dbname: "chitter_test")
-    result = connection.exec("SELECT * FROM messages;")
+    # if ENV['ENVIRONMENT'] == 'test'
+    #   connection = PG.connect(dbname: 'chitter_test')
+    # else
+    #   connection = PG.connect(dbname: 'chitter')
+    # end
+    result = DatabaseConnection.query("SELECT * FROM messages;")
     result.map { |message| Message.new(text: message['text']) }
   end
   
