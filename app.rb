@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/chitter'
 
-class Chitter < Sinatra::Base
+class ChitterChallenge < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
 
   get '/view' do
     @peeps = Chitter.all
-    erb :'view'
+    erb :view
   end
 
   run! if app_file == $0

@@ -90,9 +90,9 @@ bundle
 ```
 ### To run the Chitter app:
  ```
- rackup -p 9292
+ ruby app.rb
  ```
- To view Chitter, navigate to `localhost:9292/`
+ To view Chitter, navigate to `localhost:4567/`
 
 ### To run tests:
 ```
