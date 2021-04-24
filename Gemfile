@@ -8,4 +8,6 @@ group :test do
   gem 'sinatra-contrib'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'pg'
+  gem 'launchy'
 end
