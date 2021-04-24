@@ -1,4 +1,5 @@
 require 'peep'
+require './lib/databaseconnection'
 describe Peep do
   let(:subject) {Peep.new("1", "Hello world")}
   describe 'peep' do
@@ -13,8 +14,7 @@ describe Peep do
   
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO peeps (id, texts) VALUES ('1', 'Hello world');")
+      DatabaseConnection.query("INSERT INTO peeps (id, texts) VALUES ('1', 'Hello world');")
       peeps = Peep.all
       expect(peeps.first.texts).to eq("Hello world")
     end
@@ -22,9 +22,9 @@ describe Peep do
 
   describe '.create' do
     it 'creates a peep' do
-      connection = PG.connect(dbname: 'chitter_test')
-      peeps = Peep.create("Hello Chitter world")
-      expect(Peep.all).to include("Hello Chitter world")
+      Peep.create("Hello Chitter world")
+      peeps = Peep.all
+      expect(peeps.first.texts).to include("Hello Chitter world")
     end
   end
 

@@ -1,3 +1,7 @@
-<% @peeps.each do |peep| %>
-  <li> <%= peep.texts %> </li>
-<% end %>
+
+  <ol style="display: flex; flex-direction: column-reverse; text-align: center; list-style: none;">
+    <% @peeps.each do |peep| %>
+      <li> <%=  peep.texts %> </li> 
+      <li> </li>
+    <% end %>
+  </ol>
