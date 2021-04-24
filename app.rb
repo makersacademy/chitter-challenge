@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/chitter'
+require_relative './lib/chitter'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -14,6 +14,15 @@ class ChitterChallenge < Sinatra::Base
   get '/view' do
     @peeps = Chitter.all
     erb :view
+  end
+
+  get '/new' do
+    erb :new
+  end
+
+  post '/view' do
+    Chitter.create(message: params[:message])
+    redirect '/view'
   end
 
   run! if app_file == $0

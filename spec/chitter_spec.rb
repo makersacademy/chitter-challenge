@@ -13,4 +13,11 @@ describe Chitter do
     end
   end
 
+  describe '#create method' do
+    it 'can create a new peep' do
+      Chitter.create(message: 'New peep added!')
+      expect(Chitter.all).to include 'New peep added!'
+    end
+  end
+
 end
