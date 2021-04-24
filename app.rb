@@ -23,7 +23,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_post' do
-    Post.create(username: 'Test', name: 'Test', message: params[:new_post])
+    Post.create(username: 'Test',
+                name: 'Test', 
+                message: params[:new_post], 
+                time_posted: DateTime.now.strftime("%H:%M %b %e")
+              )
     redirect '/'
   end
 end

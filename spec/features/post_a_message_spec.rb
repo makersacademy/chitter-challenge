@@ -17,4 +17,14 @@ feature 'posting a message' do
     click_button 'Submit'
     expect(page.body.index('Test1')).to be > page.body.index('Test2')
   end
+
+  scenario 'expect messages to contain time they were created' do
+    visit '/'
+    click_button 'New post'
+    fill_in('new_post', with: 'Test1')
+    click_button 'Submit'
+    time = DateTime.now.strftime("%H:%M %b %e")
+    expect(page).to have_content("at #{time}")
+  end
+
 end

@@ -137,7 +137,7 @@ You can see your test coverage when you run your tests. If you want this in a gr
 
 Setup 
 
-tables created with 
+tables created with:
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
 	email VARCHAR (50) UNIQUE,
@@ -150,5 +150,10 @@ CREATE TABLE posts (
 	id SERIAL PRIMARY KEY,
 	username VARCHAR (50),
 	name VARCHAR (50),
-	message VARCHAR (240)
+	message VARCHAR (240),
+	created_at timestamp DEFAULT now()
 );
+
+databases defined in config/database.yml and imported in to app.rb by `set :database_file, 'config/database.yml'`
+
+ActiveRecord imported into `Post` by `class Post < ActiveRecord::Base`
