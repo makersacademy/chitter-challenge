@@ -10,5 +10,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/view' do
+    peeps = [
+      "Test Peep",
+      "Peep Testing!"
+    ]
+    peeps.join
+  end
+
   run! if app_file == $0
 end
