@@ -5,6 +5,6 @@ feature 'Home page' do
     fill_in 'peep', with: 'my first peep'
     click_button('Submit')
 
-    expect(current_path).to eq('/peep')
+    expect(current_path).to eq('/chitter')
   end
 end  
