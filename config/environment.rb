@@ -2,5 +2,5 @@ require 'bundler'
 Bundler.require
 
 configure :development do
-  set :database, 'postgresql:db/databse.db'
+  set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'onlyphans', pool: 5, username: 'jasonrowsell'}
 end
