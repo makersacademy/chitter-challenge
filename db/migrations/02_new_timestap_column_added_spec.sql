@@ -1,1 +1,1 @@
-ALTER TABLE peeps ADD COLUMN time timestamp with time zone;
+ALTER TABLE peeps ADD COLUMN time TIMESTAMP DEFAULT NOW();
