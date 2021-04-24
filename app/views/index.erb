@@ -7,9 +7,14 @@
     <title>OnlyPhans</title>
   </head>
   <body>
+    <form action="/peep" method="post">
+      <input type="text" name="username" placeholder="Enter a username" />
+      <input type="text" name="peep" placeholder="Make a peep" />
+      <input type="submit" value="Peep" />
+    </form>
     <ul>
-      <% @peeps.each do |peep| %> <%= peep.username %> posted: <%=
-      peep.status %> <% end %>
+      <% @peeps.each do |peep| %> <%= peep.username %> posted: <%= peep.status
+      %> <% end %>
     </ul>
   </body>
 </html>

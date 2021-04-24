@@ -8,8 +8,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    Peep.new('user', 'test')
     @peeps = Peep.all
     erb :index
+  end
+
+  post '/peep' do
+    p params
+    Peep.new(params[:username], params[:peep])
+    redirect '/'
   end
 end
