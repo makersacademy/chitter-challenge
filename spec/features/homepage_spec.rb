@@ -8,4 +8,4 @@ feature 'Home page' do
 
     expect(current_path).to eq('/chitter')
   end
-end  
+end

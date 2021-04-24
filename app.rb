@@ -18,4 +18,4 @@ class Chitter < Sinatra::Base
     erb(:'/chitter/post_peep')
   end
 
-end  
+end
