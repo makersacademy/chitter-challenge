@@ -1,6 +1,6 @@
 # Chitter Challenge
 
-![Process1](public/process1.gif)
+![domain](domainmodel.png)
 
 ## Features:
 

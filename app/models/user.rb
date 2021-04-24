@@ -1,3 +1,2 @@
-class User < ActiveRecord::Base
-  has_many :peeps
+class User < ApplicationRecord
 end

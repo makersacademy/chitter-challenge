@@ -1,12 +1,5 @@
-require 'bundler'
-Bundler.require
+# Load the Rails application.
+require_relative "application"
 
-if ENV['RACK_ENV'] == 'test'
-  configure :development do
-    set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'onlyphans_test', pool: 5, username: 'jasonrowsell'}
-  end
-else
-  configure :development do
-    set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'onlyphans', pool: 5, username: 'jasonrowsell'}
-  end
-end
+# Initialize the Rails application.
+Rails.application.initialize!

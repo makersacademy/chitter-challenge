@@ -1,3 +1,6 @@
-require './app/controllers/application_controller'
+# This file is used by Rack-based servers to start the application.
 
-run ApplicationController
+require_relative "config/environment"
+
+run Rails.application
+Rails.application.load_server
