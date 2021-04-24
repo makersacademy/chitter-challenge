@@ -1,15 +1,14 @@
 feature 'Viewing chitter' do
-  scenario 'visiting the homepage' do
+  scenario 'A user can visit the homepage' do
     visit('/')
     expect(page).to have_content 'Welcome to Chitter'
     expect(page).to have_selector(:link_or_button, 'Send a peep')
   end
 
-  scenario 'sending a peep' do
-    visit('/')
-    expect(page).to have_content 'Welcome to Chitter'
-    click_button 'Send a peep'
-    expect(current_path).to eq '/peep'
+  scenario 'A user can send a peep' do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    visit('/peep')
     fill_in('enter_peep', with: 'Hello, Chitter world!')
     click_button 'peep'
     expect(current_path).to eq '/home'

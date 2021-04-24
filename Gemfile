@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-group :test do
+group :development, :test do
   gem 'rspec'
   gem 'rubocop', '0.79.0'
   gem 'simplecov', require: false
@@ -9,5 +9,6 @@ group :test do
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'rack'
-  # gem 'pg'
+  gem 'pg'
+  gem 'launchy'
 end

@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pg'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 	configure :development do 
@@ -8,6 +10,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
+  set :port, 4566
   get '/' do
     erb :index
   end
@@ -17,9 +20,12 @@ class Chitter < Sinatra::Base
   end
   
   post '/home' do
-    sessions = params[:enter_peep]
+    session[:enter_peep] = params[:enter_peep]
+    connection = PG.connect(dbname: "chitter")
+    connection.exec("INSERT INTO peeps (texts) VALUES ('#{session[:enter_peep]}');")
+    @peeps = Peep.all
+    erb :home
   end
-
 
   run! if app_file == $0
 end
