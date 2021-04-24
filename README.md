@@ -1,5 +1,11 @@
 Chitter Challenge
 =================
+Challenge:
+ -------
+ We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+
+ Features:
+ -------
 ### User Stories
 ```
 As a Maker
@@ -22,7 +28,7 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
-#### Domain Model
+### Domain Model
 
 
 | Nouns   | Verbs     |
@@ -72,10 +78,9 @@ I want to sign up for Chitter
 |time_created|    |
 
 
-#### Diagram 
-  
-  ![chitter_user_story_1.png](./public/images/chitter_user_story_1.png)
-  User Story 1 diagram
+### Diagram  
+![chitter_user_story_1.png](./public/images/chitter_user_story_1.png)
+User Story 1 diagram
 
 ## How to use
 ### To set up the project
@@ -83,16 +88,13 @@ Clone this repository and then run:
 ```
 bundle
 ```
- ### To run the Chitter app:
-
+### To run the Chitter app:
  ```
  rackup -p 9292
  ```
-
  To view Chitter, navigate to `localhost:9292/`
 
- ### To run tests:
-
+### To run tests:
 ```
 rspec
 ```
