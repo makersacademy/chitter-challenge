@@ -11,3 +11,5 @@
 - https://ruby.github.io/rake/doc/rakefile_rdoc.html
 
 - https://stackoverflow.com/questions/17936340/unresolved-specs-during-gemspecification-reset
+
+- https://stackoverflow.com/questions/2618887/rails-id-field-is-nil-when-calling-model-new

@@ -1,5 +1,6 @@
 require './config/environment'
 require './app/models/peep'
+require './app/models/user'
 
 class ApplicationController < Sinatra::Base
   configure do
