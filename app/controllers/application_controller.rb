@@ -16,8 +16,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/peep' do
-    p params
-    Peep.create(:username => params[:username], :status => params[:status])
+    user = User.find_by(:username => params[:username])
+    peep = Peep.new({:user => user, :status => params[:status]}) 
+    peep.save 
     redirect '/'
   end
 end
