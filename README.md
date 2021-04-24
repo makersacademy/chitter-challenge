@@ -133,3 +133,15 @@ DELETE FROM peeps WHERE message = 'Test Peep';
 ```
 UPDATE peeps SET message = 'New Peep Testing!' WHERE url = 'Test Peep';
 ```
+### Creating a test database
+```
+CREATE DATABASE "chitter_test";
+```
+To call the database
+```
+psql chitter_test
+```
+Create a replicate of the peeps table using the code in db/migrations
+```
+CREATE TABLE peeps(peep_id SERIAL PRIMARY KEY, message VARCHAR(100));
+```
