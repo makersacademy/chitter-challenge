@@ -20,6 +20,32 @@
 - Inheriting from ActiveRecord::Base let model objects gain the ability to communicate with the database
 - Treat the database columns as Ruby attributes
 
+## Getting Started
+
+To get started with the app, clone the repo then install the required gems:
+
+```sh
+bundle install --without production
+```
+
+Next, migrate the database:
+
+```sh
+rails db:migrate
+```
+
+Run the test suite to verify that everything is working correctly.
+
+```sh
+rails test
+```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```sh
+rails server
+```
+
 ## Features:
 
 ```

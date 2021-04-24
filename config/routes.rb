@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :peeps
-  resources :users
-  root 'users#index'
+  get 'static_pages/home'
+  get 'static_pages/contact'
+  get 'static_pages/about'
+  root 'application#hello'
 end
