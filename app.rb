@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -7,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :index
   end
   
   run! if app_file == $0
