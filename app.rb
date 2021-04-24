@@ -11,10 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/view' do
-    @peeps = [
-      "Test Peep",
-      "Peep Testing!"
-    ]
+    @peeps = Chitter.all
     erb :'view'
   end
 
