@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'peep'
+require './lib/peep'
+require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -20,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/post_peep' do
-    Peep.create(text: params[:text], user: params[:user])
+    Peep.create(text: params[:peep], user: params[:user])
     redirect('/chitter')
   end
 
