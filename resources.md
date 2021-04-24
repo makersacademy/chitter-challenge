@@ -17,3 +17,5 @@
 - https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres
 
 - https://stackoverflow.com/questions/963420/undo-scaffolding-in-rails
+
+- https://github.com/rspec/rspec-rails

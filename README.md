@@ -1,6 +1,7 @@
 # Chitter Challenge
 
 ![domain](domainmodel.png)
+![domain](domainmodel2.png)
 
 ## Features:
 
