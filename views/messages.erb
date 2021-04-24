@@ -1,10 +1,15 @@
 <h1>Messages</h1>
 
+
 <form action="/messages" method ="post"> 
   <input type="text" name="message" placeholder="Enter message here" />
   <input type="submit" value="Create message" />
 </form>
 
-<% @messages.each do |message| %>
-  <%= message.text %>
-<% end %>
+<ul>
+  <% @messages.reverse.each do |message| %>
+    <li>
+      <%= message.text %>
+    </li>
+  <% end %>
+<ul>
