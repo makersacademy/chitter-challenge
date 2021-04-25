@@ -23,7 +23,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/new_post' do
-    erb :new_post
+    if session[:user] == nil 
+      flash[:error] = 'You must be signed in to post.'
+      redirect '/'
+    else
+      erb :new_post
+    end
   end
 
   post '/new_post' do

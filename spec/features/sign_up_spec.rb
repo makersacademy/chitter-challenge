@@ -3,7 +3,6 @@ require_relative './web_helper.rb'
 feature 'signing up' do
   scenario 'signing up creates a user in the users database' do
     visit '/'
-    click_button 'Sign up'
     sign_up_and_submit
     expect(User.first.email).to eq 'test_email'
     expect(User.first.password).to eq 'password'
@@ -13,7 +12,6 @@ feature 'signing up' do
 
   scenario 'signing up returns confirmation' do
     visit '/'
-    click_button 'Sign up'
     sign_up_and_submit
     expect(User.first.email).to eq 'test_email'
     expect(User.first.password).to eq 'password'
@@ -24,7 +22,6 @@ feature 'signing up' do
 
   scenario 'if the email/username is not unique show error' do
     visit '/'
-    click_button 'Sign up'
     sign_up_and_submit
     click_button 'Sign up'
     fill_in 'email', with: 'test_email' 

@@ -130,5 +130,8 @@ DEPENDENCIES
   sinatra-flash
   webrick
 
+RUBY VERSION
+   ruby 2.4.10p364
+
 BUNDLED WITH
    2.2.16

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.4.10'
+
 gem 'activerecord'
 gem 'capybara'
 gem 'launchy'

@@ -1,4 +1,5 @@
 def sign_up_and_submit 
+  click_button 'Sign up'
   fill_in 'email', with: 'test_email' 
   fill_in 'password', with: 'password'
   fill_in 'name', with: 'Kane'
