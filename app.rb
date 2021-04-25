@@ -25,5 +25,10 @@ class ChitterChallenge < Sinatra::Base
     redirect '/view'
   end
 
+  get '/reverse' do
+    @peeps = Chitter.flip
+    erb :reverse
+  end
+
   run! if app_file == $0
 end

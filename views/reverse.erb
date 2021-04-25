@@ -1,13 +1,12 @@
 <h1>&#128037; WELCOME TO CHITTER!!! &#128037;</h1>
-<br>
-<h2> Peeps posted: </h2>
+<h2>And the newest ones appear first: </h2>
 <ul>
 <% @peeps.each do |peep| %>
-<li><%= peep.message %>
+<li><%= peep.message%>
   <ul>
   <li>Created at <%=peep.timestamp%></li>
   </ul>
- </li> 
+</li>
 <%end%>
 </ul>
 <form action="/">
@@ -16,6 +15,6 @@
 <form action="/new">
   <input type="submit" value="Post a Peep" id="Post a Peep">
 </form>
-<form action="/reverse">
-  <input type="submit" value="New Peeps First" id="New Peeps First">
+<form action="/view">
+  <input type="submit" value="View Peeps" id="View Peeps">
 </form>

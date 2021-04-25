@@ -27,4 +27,17 @@ describe Chitter do
     end
   end
 
+  describe '#reverse method' do
+    it 'can show peeps in reverse chronological order' do
+      Chitter.create(message: "Test peep added 1st")
+      Chitter.create(message: "Test peep added 2nd!")
+      Chitter.create(message: "Test peep added 3rd!")
+
+      peeps = Chitter.flip
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Chitter
+      expect(peeps.first.message).to eq "Test peep added 3rd!"
+    end
+  end
+
 end

@@ -145,3 +145,4 @@ Create a replicate of the peeps table using the code in db/migrations
 ```
 CREATE TABLE peeps(peep_id SERIAL PRIMARY KEY, message VARCHAR(100));
 ```
+SELECT * FROM peeps ORDER BY timestamp DESC;
