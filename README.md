@@ -17,7 +17,7 @@ $ rackup
 Process
 -------
 * The app was created using [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html)
-* Begun by creating a home page which included the live feed of 10 most recent posts in reverse chronological order and a new post button to create a post to add to the feed
+* Created a home page which included the live feed of 10 most recent posts in reverse chronological order and a new post button to create a post to add to the feed
 * Introduced a time posted aspect of the feed for each post - tried to use timestamps within the database however I could not work out how to change the time zone from UTC so converted to a string before adding to database
 * Created a sign up option which allows a user to create an account and it is stored in the database
 * Created a sign in option which allows the user to sign in once an account has been created
