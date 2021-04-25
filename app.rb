@@ -32,7 +32,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/new_peep_submitted' do
-    # insert new peep into chitter_peeps table
+    Peep.create(content: params[:content], time_stamp: "2021-04-25 22:44:55", user_id: "2")
     redirect('/view_all')
   end
 end

@@ -7,7 +7,6 @@ class Peep
     @content = content
     @time_stamp = time_stamp
     @handle = handle
-
   end
 
   def self.all
