@@ -20,10 +20,10 @@ describe Peeps do
   context '.create' do
     it 'create a new peep' do
       peep = Peeps.create(content: 'My first peep')
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       expect(peep).to be_a Peeps
-      expect(peep.id).to eq persisted_data['id']
+      expect(peep.id).to eq persisted_data.first['id']
       expect(peep.content).to eq 'My first peep'
     end
   end

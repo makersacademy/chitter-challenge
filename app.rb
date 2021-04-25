@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peeps'
 require './database_connection_setup'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -20,6 +21,14 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     Peeps.create(content: params[:peep])
+    redirect '/peeps'
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
     redirect '/peeps'
   end
 

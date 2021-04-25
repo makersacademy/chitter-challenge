@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-  gem 'rake'
   gem 'capybara'
   gem 'pg'
+  gem 'rake'
   gem 'rspec'
   gem 'rubocop', '0.79.0'
   gem 'simplecov', require: false

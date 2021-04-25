@@ -1,4 +1,3 @@
-require 'pg'
 require_relative 'database_connection'
 require 'time'
 

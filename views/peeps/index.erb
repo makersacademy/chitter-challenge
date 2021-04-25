@@ -1,14 +1,36 @@
-<body>
-  <form action="/peeps" method="post">
-    <input type="text" name="peep" placeholder="Your peep here"/>
-    <input type="submit" value="Peep That" />
-  </form>
-  <ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li>
-    <%= peep.content %>
-    <p>Posted at <%= peep.time %></p>
-    </li>
-  <% end %>
-</ul>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <body>
+    <form action="users/new" method="get">
+      <button type="submit">New Chitter</button>
+    </form>
+    <form>
+      <button>Sign in</button>
+    </form>
+    <form>
+      <button>Sign out</button>
+    </form>
+    <h1 class="title">Chitter</h1>
+      <form action="/peeps" method="post">
+        <input type="text" name="peep" placeholder="Your peep here"/>
+        <input type="submit" value="Peep That" />
+      </form>
+      <ul class="list">
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+        <%= peep.content %>
+        <p>Posted at <%= peep.time %></p>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

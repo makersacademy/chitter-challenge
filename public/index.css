@@ -1,0 +1,12 @@
+body {
+  background-color: lightblue;
+}
+
+.title {
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.list {
+  font-family: fantasy;
+}
