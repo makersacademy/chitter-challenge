@@ -20,7 +20,8 @@ To make a basic clone of twitter satisfying the following user stories.
 (So far, I'm only aiming to meet these 4 out of a possible 7).
 
 ```
-USER STORIES
+USER STORIES - currently meeting first 3.
+
 
 As a Maker
 So that I can let people know what I am doing  

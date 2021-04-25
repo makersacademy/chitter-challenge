@@ -12,7 +12,6 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/signup' do
-    # 'welcome to signup'
     erb :sign_up
   end
 
@@ -27,12 +26,11 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/new_peep' do
-    # 'welcome to the new peep page'
     erb :new_peep
   end
 
   post '/new_peep_submitted' do
-    Peep.create(content: params[:content], time_stamp: "2021-04-25 22:44:55", user_id: "2")
+    Peep.create(content: params[:content], time_stamp: "#{Time.now.to_s[0..-7]}", user_id: "2")
     redirect('/view_all')
   end
 end
