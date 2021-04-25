@@ -7,7 +7,7 @@ This program was built  using **TDD** as part of [**Makers Academy Coding Bootca
 
 ## Installation
 
-This program requires **Ruby version 2.6.5**. If you are unsure if you have Ruby installed, or need help seeing the version you are using [codecademy](https://www.codecademy.com) provide this useful guide to [**setup Ruby**](https://www.codecademy.com/articles/ruby-setup).
+This program requires **Ruby version 3.0.0**. If you are unsure if you have Ruby installed, or need help seeing the version you are using [codecademy](https://www.codecademy.com) provide this useful guide to [**setup Ruby**](https://www.codecademy.com/articles/ruby-setup).
 
 User Stories
 -----
