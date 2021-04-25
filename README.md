@@ -16,11 +16,14 @@ I want to see all peeps in reverse chronological order
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
 ```
+How to peep:
+-------
+1. Clone this repository
+2. `cd` into the cloned directory
+3. Run `bundle` to install dependencies
+4. Run `rackup`
+5. Navigate to http://localhost:9292/ in your browser
 
 Database setup:
 -------
@@ -28,6 +31,7 @@ Database setup:
 2. Create the database using the `psql` command `CREATE DATABASE chitter;`
 3. Connect to the database using the `pqsl` command `\c chitter;`
 4. Run the query I have saved in the file `01_create_peeps_table.sql`
+5. Run the query saved in `02_add_time_created.sql` to add the timestamp column to database
 
 Testing database setup:
 -------
@@ -35,3 +39,12 @@ Testing database setup:
 2. Create the database using the `psql` command `CREATE DATABASE chitter_test;`
 3. Connect to the database using the `pqsl` command `\c chitter_test;`
 4. Run the query I have saved in the file `01_create_peeps_table.sql`
+5. Run the query saved in `02_add_time_created.sql` to add the timestamp column to database
+
+Technologies used and notes on functionality:
+-------
+* The peep data is stored on a PostgreSQL database
+* Using a Sinatra web framework 
+* RSpec/Capybara feature testing
+
+* Did not manage to finish off fourth user story allowing a user to sign in - hit some tricky blockers which I hope to resolve
