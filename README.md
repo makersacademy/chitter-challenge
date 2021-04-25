@@ -1,20 +1,10 @@
-Chitter Challenge
-=================
+Chitter Challenge - Solution
+============================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Requirements
+============
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+The aim of this excercise was to a built a twitter clone with basic functionality. The user stories provided were as follows:
 
 ```
 STRAIGHT UP
@@ -52,84 +42,57 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+How to Use
+==========
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+1. Clone this repository
+2. Connect to psql
+3. run two commands: CREATE DATABASE chitter; CREATE DATABASE chitter_test;
+4. Connect to the databases using the psql commands: \c chitter; \c chitter_test;
+5. Run the query listed in the 01_create_users_table.sql file within the db/migrations directory for each db.
+6. Run the query listed in the 02_create_peeps_table.sql file within the db/migrations directory for each db.
+7. Run rackup
+8. open browser to local host 9292 to interact with the app
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
 
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
+Tech stack and gems used
+========================
 
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+The front end of the app has been built using basic html. This is powered by sinatra web framework. Psql has been used as database. Backend has been built in ruby.
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+The following gems have been used to create this app:
 
-Notes on functionality:
-------
+* gem 'capybara'
+* gem 'rspec'
+* gem 'rubocop'
+* gem 'simplecov'
+* gem 'simplecov-console'
+* gem 'sinatra'
+* gem 'sinatra-contrib'
+* gem 'sinatra-flash'
+* gem 'webrick'
+* gem 'rack'
+* gem 'pg'
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+What went well
+==============
 
-Bonus:
------
+* Basic functionality was built
+* Successful implementation of sign up functionality
+* Great insight achieved into building full stack apps
 
-If you have time you can implement the following:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+What needs to improve
+=====================
 
-And/Or:
+* Need to learn html and css in much more detail, current styling is not that great
+* Only achieved basic functionality but need to advance it further
+* Need to understand the sepeartion of controllers in more detail
+* Need to understand authentication process in more detail
 
-* Work on the CSS to make it look good.
 
-Good luck and let the chitter begin!
+Final thoughts
+==============
 
-Code Review
------------
+Overall, a very fun challenge to work on and complete.
 
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
