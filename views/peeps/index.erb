@@ -1,0 +1,11 @@
+<body>
+  <form action="/peeps" method="post">
+    <input type="text" name="peep" placeholder="Your peep here"/>
+    <input type="submit" value="Peep That" />
+  </form>
+  <ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %></li>
+  <% end %>
+</ul>
+</body>
