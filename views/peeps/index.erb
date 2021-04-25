@@ -1,20 +1,28 @@
 <h2>Chitter</h2>
-<p1>
+<br>
+<% if @user_name %>
+  <h3>
+    Welcome, <%= "#{@user_name}" %>
+  </h3>
+<% end %>
+
+
+<p2>
   Click below to post a new peep
   <br>
   <br>
   <form action="/peeps/new">
     <button>Post a peep</button>
   </form>
-</p1>
+</p2>
 <br>
 
 
-<p2>
+<p3>
   Peeps are listed below
   <ul>
     <% @peeps.each do |peep| %>
       <li>  <%= "#{peep.text} at #{peep.time}" %>
     <% end %>
   </ul>
-</p2>
+</p3>
