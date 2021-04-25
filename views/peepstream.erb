@@ -1,7 +1,8 @@
-<h2>Here's what our peeps are saying</h2>
-
-<% @peeps.each do |peep| %>
-  
-  @anonymous_user says: <%= peep.peep %>
-    
-<% end %>
+<h3>Here's what peeps are saying</h3>
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      @anonymous_user says: <%= peep.peep %>
+    </li>
+  <% end %>
+</ul>
