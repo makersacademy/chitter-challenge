@@ -4,7 +4,7 @@
 
 feature 'Post a Peep' do 
   scenario '. User posts Peep to Chitter' do
-    visit ('/')
+    visit ('/peeps')
     click_button('Peep')
     
     fill_in('message', with: 'Testing the Post a Peep feature')

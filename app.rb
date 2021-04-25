@@ -8,19 +8,19 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
+  get '/peeps' do
     @peeps = Peeps.all
     erb :index
   end
 
-  get '/compose/peep' do
+  get '/peeps/new' do
     erb :compose_peep
   end
 
-  post '/' do
+  post '/peeps' do
     peep = params['message']
     Peeps.new(peep)
-    redirect('/')
+    redirect('/peeps')
   end
 
   run! if app_file == $0
