@@ -1,7 +1,6 @@
 feature 'Navigating' do
-  scenario "User can navigate to messages" do
-    visit '/'
-    click_button('Messages')
+  scenario "Only logged in users can navigate to messages" do
+    sign_in
 
     expect(current_path).to eq '/messages'
 

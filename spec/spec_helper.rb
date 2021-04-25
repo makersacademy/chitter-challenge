@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'features/web_helpers'
 
 ENV['ENVIRONMENT'] = 'test'
 require_relative './clear_test_database'
