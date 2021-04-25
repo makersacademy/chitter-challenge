@@ -1,18 +1,20 @@
-<div class="login">
-  <h2 style="font-family: Calibri">Welcome to Chitter</h2>
-  <form> 
-    <p>Username</p>
-    <input type="text" id="username" placeholder="Enter Username" />
-    <p>Password</p>
-    <input type="password" id="password" placeholder="Enter Password" />
-    <input type="submit" value="Log in" />
-  </form>
-  <form action="/users/new" method ='post'>
-    <input type='submit' value="Create new account">
-  </form>
-  <form action="/messages" method ='get'>
-    <input type='submit' value="Messages">
-  </form>
+<div class="container" style="padding-top: 100px">
+  <div style="padding-left: 550px">
+    <h2 style="color: teal;">Welcome to Chitter</h2>
+    <form> 
+      <p>Username</p>
+      <input type="text" id="username" placeholder="Enter Username" />
+      <p>Password</p>
+      <input type="password" id="password" placeholder="Enter Password" />
+      <input type="submit" value="Log in" />
+    </form>
+    <form action="/users/new" method ='post'>
+      <input type='submit' value="Create new account">
+    </form>
+    <form action="/messages" method ='get'>
+      <input type='submit' value="Messages">
+    </form>
+  </div>
 </div>
 
 

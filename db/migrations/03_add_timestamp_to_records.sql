@@ -1,0 +1,1 @@
+ALTER TABLE messages  ADD COLUMN posted_at TIMESTAMP DEFAULT NOW();

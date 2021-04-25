@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require './lib/message'
-require './lib/database_setup_script'
+require './database_setup_script'
 
 class Chitter < Sinatra::Base
   configure :development do

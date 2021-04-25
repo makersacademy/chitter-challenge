@@ -1,4 +1,9 @@
 describe Message do
+
+  context '#initialize' do
+    
+  end
+
   context '.create' do
     it 'can create a message'do
       message = Message.create(text: "Test message")
@@ -17,6 +22,13 @@ describe Message do
       expect(messages.size).to be 2
       expect(messages.first.text).to eq message_1.text
       expect(messages.last.text).to eq message_2.text
+    end
+
+    it 'can extract the timestamp' do
+      connection = PG.connect(dbname: "chitter_test")
+      message_1 = Message.create(text: "Test message")
+
+      expect(message_1.time).to be_instance_of(Time)
     end
   end
 end 
