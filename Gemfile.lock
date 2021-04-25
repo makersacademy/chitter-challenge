@@ -5,6 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
     ast (2.4.0)
+    bcrypt (3.1.16)
     capybara (3.35.3)
       addressable
       mini_mime (>= 0.1.3)
@@ -16,6 +17,8 @@ GEM
     diff-lcs (1.3)
     docile (1.3.2)
     jaro_winkler (1.5.4)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     mini_mime (1.1.0)
     mini_portile2 (2.5.0)
     multi_json (1.15.0)
@@ -81,6 +84,8 @@ GEM
       rack-protection (= 2.1.0)
       sinatra (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.10)
@@ -92,7 +97,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
+  launchy
   orderly
   pg
   rspec
@@ -101,6 +108,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-contrib
+  sinatra-flash
 
 BUNDLED WITH
    2.2.15

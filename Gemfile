@@ -11,3 +11,6 @@ gem 'simplecov-console', require: false
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'pg'
+gem 'bcrypt'
+gem 'launchy'
+gem 'sinatra-flash'

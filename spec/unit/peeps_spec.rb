@@ -11,10 +11,10 @@ describe Peeps do
 
       
       peeps = Peeps.all
-
-      expect(peeps).to include 'Hello'
-      expect(peeps).to include 'You'
-      expect(peeps).to include 'Peep'
+      peeps
+      expect(peeps.to_s).to include 'Hello'
+      expect(peeps.to_s).to include 'You'
+      expect(peeps.to_s).to include 'Peep'
     end
   end
 
@@ -22,7 +22,11 @@ describe Peeps do
     it 'creates a new peep' do
       Peeps.create('Hello')
 
-      expect(Peeps.all).to include 'Hello'
+      expect(Peeps.all.to_s).to include 'Hello'
+    end
+    it ' contains the time stamp'do
+     Peeps.create('Hello')
+     expect(Peeps.all).to include(Time.now.to_s[11..-7])
     end
   end
 end
