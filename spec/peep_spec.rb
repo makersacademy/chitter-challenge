@@ -9,6 +9,7 @@ describe Peep do
       expect(post).to be_a Peep
       expect(post.id).to eq persisted_data.first['id']
       expect(post.peep).to eq 'Hello world'
+      expect(post.time_date).to include "#{Time.now.strftime("%Y-%m-%d")} #{Time.now.strftime("%k:%M")}" 
     end
   end 
 
@@ -24,6 +25,7 @@ describe Peep do
       expect(feed.length).to eq 2
       expect(feed.first.id).to eq post.id
       expect(feed.first.peep).to eq 'Hello world'
+      expect(feed.first.time_date).to include "#{Time.now.strftime("%Y-%m-%d")} #{Time.now.strftime("%k:%M")}" 
     end 
   end
 end
