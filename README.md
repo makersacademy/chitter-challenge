@@ -29,19 +29,22 @@ I want to sign up for Chitter
 ```
 
 ### Domain Model
-
+----------
+<br />
 
 | Nouns   | Verbs     |
 |---------|-----------|
 |Chitter| post a message, sign up |
 |Peep | see in reverse order, see time it was made |
-
+<br />
+<br />
 
 | Nouns   | Property/ Owner|
 |---------|-----------     |
 |Chitter | Owner          |
 |Peep |Owner|
-
+<br />
+<br />
 
 | Actions  | Owned by?  |
 |--------- |----------- |
@@ -50,7 +53,8 @@ I want to sign up for Chitter
 |see_in_reverse| Chitter|
 |see_time| Peep |
 |create_peep| Peep |
-
+<br />
+<br />
 
 | Actions  |Property it reads or changes |
 |--------- |-----------                  |
@@ -59,8 +63,8 @@ I want to sign up for Chitter
 |see_in_reverse| @peep_list|
 |see_time| @message, Time|
 |create_peep| @message |
-
-
+<br />
+<br />
 
 |Class     | Chitter    |
 |--------- | ----------- |
@@ -68,21 +72,35 @@ I want to sign up for Chitter
 |post_message  | Peep|
 |sign_up|    |
 |reverse_list|   |
-
-
+<br />
+<br />
 
 |Class     | Peep    |
 |--------- | ----------- |
 |Responsibilities| Collaborators|
 |create | |
 |time_created|    |
-
+<br />
+<br />
 
 ### Diagram  
+-----------
+<br />
+
 ![chitter_user_story_1.png](./public/images/chitter_user_story_1.png)
-User Story 1 diagram
+#### User Story 1 diagram - "I want to post a message (peep) to chitter"
+<br />
+
+![chitter_user_story_2.png](./public/images/chitter_user_story_2.png)
+#### User Story 2 diagram - "I want to see all peeps in reverse chronologial order"
+<br />
+
+![chitter_user_story_3.png](./public/images/chitter_user_story_3.png)
+#### User Story 3 diagram - "I want to see the time at which it was made"
+<br />
 
 ## How to use
+--------------
 ### To set up the project
 Clone this repository and then run:
 ```
@@ -145,4 +163,8 @@ Create a replicate of the peeps table using the code in db/migrations
 ```
 CREATE TABLE peeps(peep_id SERIAL PRIMARY KEY, message VARCHAR(100));
 ```
-SELECT * FROM peeps ORDER BY timestamp DESC;
+
+## Test Coverage
+The following is the results from rspec including test coverage:
+
+The following is the results from rubocop:
