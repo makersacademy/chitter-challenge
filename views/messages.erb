@@ -1,26 +1,27 @@
 <h2>
   <%= flash[:notice] %>
 </h2>
-
+<head><link rel="stylesheet" href="index.css"></head>
 <div class="container" style="padding-top: 100px">
-  <div style="padding-left: 550px">
+  <div class="icon">
     <h2 style="color: teal;"><%= "Welcome #{ @user.username }" %></h2>
-    <h2 style="color: teal;">Your Messages</h2>
-    <ul>
+    <h2>Your Messages</h2>
+    <ol>
     <form action="/sessions/destroy" method="post">
       <input type="submit" value="Log out" />
     </form>
     <form action="/messages" method ="post"> 
-      <input type="text" name="message" placeholder="Enter message here" />
+      <input type="text area" name="message" placeholder="Enter message here" />
       <input type="submit" value="Create message" />
     </form>
+    <div class="message">>
       <% @messages.reverse.each do |message| %>
-        <li>
-          <%= message.text %> 
-          <%= message.format_time %> 
-        </li>
+      <%= message.text %> 
+      <h1>
+      <h6 style="color: light-grey;"> <%= message.format_time %> </h6>
       <% end %>
-    <ul>
+    </div>
+    <ol>
   </div>
 </div>
 

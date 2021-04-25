@@ -15,6 +15,6 @@ feature "Messaging" do
     fill_in('message', with: 'Test message')
     click_button('Create message')
 
-    expect(page).to have_content "#{Time.now.strftime(":Posted at %H:PM %A")}"
+    expect(page).to have_content "#{Time.now.strftime("Posted at %H:PM %A")}"
   end
 end

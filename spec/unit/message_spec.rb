@@ -1,11 +1,7 @@
 describe Message do
 
-  context '#initialize' do
-    
-  end
-
   context '.create' do
-    it 'can create a message'do
+    it 'can create a message' do
       message = Message.create(text: "Test message")
    
       expect(message.text).to eq "Test message"

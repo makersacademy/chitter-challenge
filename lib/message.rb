@@ -23,7 +23,7 @@ class Message
 
   def format_time
     time = Time.parse(@time.to_s)
-    time.strftime(":Posted at %H:PM %A")  
+    time.strftime("Posted at %H:PM %A")  
   end
 
 end

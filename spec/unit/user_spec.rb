@@ -2,12 +2,12 @@ require 'user'
 
 describe User do
   context '#initialize' do
-    it 'has a username'do
+    it 'has a username' do
       user = User.create(username: "testname", password: "password")
       expect(user.username).to eq "testname"
     end
 
-    it 'has an id'do
+    it 'has an id' do
       user = User.create(username: "testname", password: "password")
       expect(user.id).to eq user.id
     end
@@ -21,7 +21,7 @@ describe User do
     end
   end
 
-  context'.authentication' do
+  context '.authentication' do
     it 'authenticates a user' do
       user = User.create(username: 'testname', password: 'password123')
       authenticated_user = User.authentication(username: 'testname', password: 'password123')
