@@ -1,22 +1,21 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
+source 'https://rubygems.org'
 
 ruby '2.7.3'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'rubocop', '~> 1.13'
-gem 'rack'
+gem 'orderly'
 gem 'pg'
+gem 'rack'
+gem 'rubocop', '~> 1.13'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
-gem 'orderly'
+gem 'sinatra'
+gem 'sinatra-contrib'
 
 group :development, :test do
-  gem 'rspec'
   gem 'capybara'
+  gem 'rspec'
 end
-
-

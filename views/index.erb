@@ -1,6 +1,10 @@
 <div style='padding: 2em'>
   <h2>Hello and welcome to Chitty Chitty Bang Bang</h2>
 
+  <% if @user %>
+    <h1>Welcome, <%= @user.email %></h1>
+  <% end %>
+
   <form action='/newtweet' method='post'>
     <input type='text' placeholder='What is on your mind' name="newtweet" required>
     <input type='submit' value ='Post Tweet'>
@@ -8,5 +12,12 @@
 
   <form action='/tweets' method='get'>
     <input type='submit' value="View Tweets">
+  </form>
+
+  <h2>Sign Up To Chitter</h2>
+    <form action='/newuser' method='post'>
+    <input type='email' placeholder='Email' name="email" required>
+    <input type='password' placeholder='Password' name="password" required>
+    <input type='submit' value="Sign Up">
   </form>
 </div>

@@ -1,44 +1,39 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/tweets'
+require './lib/user'
 
 class Chitter < Sinatra::Base
-	configure :development do 
-		register Sinatra::Reloader
-  	end
+  configure :development do
+    register Sinatra::Reloader
+  end
 
-	get '/' do 
+  get '/' do
     @tweets = Tweets.all
-		erb :'index'
-	end
+    erb :index
+  end
 
-  post '/newtweet' do 
+  post '/newtweet' do
     Tweets.create(params[:newtweet])
-    redirect ('/')
+    redirect('/')
   end
 
-  get '/reverse' do 
+  post '/newuser' do
+    User.create(params[:email], params[:password])
+    redirect('/')
+  end
+
+  get '/reverse' do
     @tweets = Tweets.reverse
-    erb :'tweets'
+    erb :tweets
   end
 
-  get '/tweets' do 
+  get '/tweets' do
     @tweets = Tweets.all
-    erb :'tweets'
+    erb :tweets
   end
 
-
-
-  # post '/new' do
-  #   Bookmark.create(params[:add_bookmarks_title],  params[:add_bookmarks_url])
-  #   redirect '/bookmarks'
-  # end
-
-	# get '/bookmarks' do
-	# 	@bookmarks = Bookmark.all
-	# 	erb :'bookmarks/index'
-	# end
-
-
-	run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
