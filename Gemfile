@@ -18,9 +18,10 @@ gem 'webpacker',                  '5.2.1'
 gem 'turbolinks',                 '5.2.1'
 gem 'jbuilder',                   '2.10.0'
 gem 'bootsnap',                   '1.7.2', require: false
+gem 'pg',                         '1.2.3'
+gem 'travis' 
 
 group :development, :test do
-  gem 'pg',         '1.2.3'
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
 end
 
