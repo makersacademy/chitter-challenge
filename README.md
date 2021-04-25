@@ -6,6 +6,8 @@ Installation Instructions
 
 ```
 $ git clone https://github.com/KaneG9/chitter-challenge.git
+$ cd chitter-challenge
+$ rvm use 2.4.10
 $ bundle
 $ rake setup
 $ rspec
