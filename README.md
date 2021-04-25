@@ -133,3 +133,52 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+----------
+
+WIP README:
+
+## User Stories
+```
+
+```
+## Domain Model
+'image'
+
+## How to use
+### To set up the project
+```
+git clone git@github.com:fwill22/chitter-challenge.git
+
+bundle
+```
+
+### To set up the database
+
+Connect to `psql` and create the `chitter` and `test_chitter` databases:
+
+```
+CREATE DATABASE chitter;
+CREATE DATABASE test_chitter;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the Bookmark Manager app:
+
+```
+rackup
+```
+
+To view peeps, navigate to `localhost:9292/peeps/timeline`
+
+### To run tests:
+
+```
+rspec
+```
+### To run linting:
+```
+rubocop
+```
