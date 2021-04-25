@@ -26,13 +26,13 @@ class ChitterChallenge < Sinatra::Base
     erb :view_all
   end
 
-  get '/new_cheep' do
-    # 'welcome to the new cheep page'
-    erb :new_cheep
+  get '/new_peep' do
+    # 'welcome to the new peep page'
+    erb :new_peep
   end
 
-  post '/new_cheep_submitted' do
-    # insert new cheep into chitter_peeps table
+  post '/new_peep_submitted' do
+    # insert new peep into chitter_peeps table
     redirect('/view_all')
   end
 end

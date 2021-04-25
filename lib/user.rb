@@ -6,7 +6,7 @@ class User
     # insert new user to DB
   end
 
-  def new_cheep
+  def new_peep
     # triggers Peep.create
   end
 end
