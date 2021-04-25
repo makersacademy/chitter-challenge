@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+![alt text](https://github.com/MattDawson2020/chitter-challenge/blob/master/public/Screenshot%202021-04-25%20at%2021.02.28.png)
+
 ```
 STRAIGHT UP
 
