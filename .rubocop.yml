@@ -1,12 +1,39 @@
-#    _____               ____ ____        __     _         __
-#   / ___/ _____ ____ _ / __// __/____   / /    (_)____   / /_
-#   \__ \ / ___// __ `// /_ / /_ / __ \ / /    / // __ \ / __/
-#  ___/ // /__ / /_/ // __// __// /_/ // /___ / // / / // /_
-# /____/ \___/ \__,_//_/  /_/ 1 \____//_____//_//_/ /_/ \__/
-#
-# The linter file that doesn't lead junior developers to bad habits.
-# https://github.com/makersacademy/scaffolint
-#
-# Configure Rubocop to use the config file in the Scaffolint GitHub repo
-inherit_from:
-  - https://raw.githubusercontent.com/makersacademy/scaffolint/v1.1.0/.rubocop.yml
+require: rubocop-rspec
+
+# opt in to new cops
+AllCops:
+  NewCops: enable
+
+# Increase maximum method length
+Metrics/MethodLength: 
+  Max: 20
+
+# Disable frozen string literal comment check
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Disable top-level class documentation comment check
+Style/Documentation:
+  Enabled: false
+
+# Allow use of numerical digits in variable names
+Naming/VariableNumber:
+  Enabled: false
+
+# Allow use of Capybara-specific method names
+RSpec/Capybara/FeatureMethods:
+  Enabled: false
+
+# Increase maximum rspec example length
+RSpec/ExampleLength:
+  Max: 15
+
+# Allow tests to have multiple expectations (needed for scenario tests)
+RSpec/MultipleExpectations:
+  Max: 3
+  
+# Don't restrict length of rspec blocks
+Metrics/BlockLength:
+  IgnoredMethods:
+    - describe
+    - feature

@@ -1,0 +1,13 @@
+<h1>chitter</h1>
+<p><form action='/peep' method='post'>
+  <fieldset>
+    <input type='text' name='message' placeholder='type your peep...'> 
+    <input type='submit' value='peep'>
+  </fieldset>
+</form></p>
+<% @peeps.reverse.each do |peep| %>
+  <fieldset>
+    <legend><%= peep.time %></legend>
+    <%= peep.message %>
+  </fieldset>
+<% end %>  
