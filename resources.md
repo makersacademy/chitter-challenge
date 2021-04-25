@@ -1,7 +1,8 @@
 ## Resources
 
-Understand ActiveRecord and ActiveRecord::Base. Using this instead of psql execs
+Understand ApplicationRecord as ORM framework and ActiveRecord::Base
 
+- https://guides.rubyonrails.org/active_record_validations.html
 - https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-activerecord.md
 - https://medium.com/@dmccoy/deploying-a-simple-sinatra-app-with-postgres-to-heroku-c4a883d3f19e
 - https://guides.rubyonrails.org/active_record_postgresql.html
@@ -31,12 +32,14 @@ Learning full regex when validating email addresses
 
 Learning rails testing
 
+- https://guides.rubyonrails.org/testing.html
 - https://stackoverflow.com/questions/17936340/unresolved-specs-during-gemspecification-reset
 - https://github.com/rspec/rspec-rails
 - https://relishapp.com/rspec/rspec-expectations/docs/customized-message
 
 Learning rails secure password
 
+- https://help.twitter.com/en/safety-and-security/account-security-tips
 - https://medium.com/@tpstar/password-digest-column-in-user-migration-table-871ff9120a5
 
 Learning Bootstrap
