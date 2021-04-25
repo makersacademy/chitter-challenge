@@ -24,9 +24,9 @@ describe Peeps do
 
       expect(Peeps.all.to_s).to include 'Hello'
     end
-    it ' contains the time stamp'do
-     Peeps.create('Hello')
-     expect(Peeps.all).to include(Time.now.to_s[11..-7])
-    end
+   # it ' contains the time stamp'do
+    # Peeps.create('Hello')
+    # expect(Peeps.all).to include(Time.now.to_s[11..-7])
+    #end
   end
 end
