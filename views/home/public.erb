@@ -2,6 +2,6 @@
   <ol style="display: flex; flex-direction: column-reverse; text-align: mid-center; list-style: none;">
     <% @peeps.each do |peep| %>
       <li> </li>
-      <li> <%=  peep.texts %><p><small>Peeped on <%=  Peep.time(peep.id).join %></small></p> </li> 
+      <li> <%=  peep.texts %><p><small>Posted by <%= $accounts.name.capitalize %> on <%=  Peep.time(peep.id).join %></small></p> </li> 
     <% end %>
   </ol>
