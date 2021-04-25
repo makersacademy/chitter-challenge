@@ -3,7 +3,7 @@ require "test_helper"
 class PeepTest < ActiveSupport::TestCase
   def setup
     @user = users(:test)
-    @peep = Peep.new(content: "I love Bob", user_id: @user.id)
+    @peep = @user.peeps.build(content: "I love Bob", user_id: @user.id)
   end
 
   test "should be valid" do
