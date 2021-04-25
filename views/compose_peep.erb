@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chitter</title>
+    <link rel="stylesheet" href="<%= url("/style.css") %>" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">    <title>Chitter</title>
   </head>
 
   <body>
-    <h2>Whats happening?</h2>
-    <form action="/peeps" method="post">
-      <input type="text" name="message" placeholder="Type here" />
-      <input type="submit" value="Post" />
-    </form>
+    <div id="container">
+      <h1>Chitter</h1>
+      <h2>Whats happening?</h2>
+      <form  action="/peeps" method="post">
+        <input id="enter_peep" type="text" name="message" placeholder="Type here" />
+        <input id="submit_peep"type="submit" value="Post" />
+      </form>
+      <br>
+    </div>
   </body>
 </html>
