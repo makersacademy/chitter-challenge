@@ -25,5 +25,5 @@ describe Peep do
       expect(feed.first.id).to eq post.id
       expect(feed.first.peep).to eq 'Hello world'
     end 
-  end 
+  end
 end
