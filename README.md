@@ -29,3 +29,9 @@ I want to sign up for Chitter
 - Connect to the database using the `pqsl` command `\c chitter;`
 - Run the query I have saved in the file `01_create_peeps_table.sql`
 
+## Instructions for test database set up:
+
+- Connect to `psql`
+- Create the database using the `psql` command `CREATE DATABASE chitter_test;`
+- Connect to the database using the `pqsl` command `\c chitter_test;`
+- Run the query I have saved in the file `01_create_peeps_table.sql`
