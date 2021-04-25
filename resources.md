@@ -39,6 +39,7 @@ Learning rails testing
 - https://guides.rubyonrails.org/testing.html
 - https://stackoverflow.com/questions/17936340/unresolved-specs-during-gemspecification-reset
 - https://github.com/rspec/rspec-rails
+- https://api.rubyonrails.org/v3.1/classes/ActiveRecord/Fixtures.html
 - https://relishapp.com/rspec/rspec-expectations/docs/customized-message
 - https://stackoverflow.com/questions/33851867/what-is-the-pathvariable-in-rails-integration-test
 - https://api.rubyonrails.org/v6.0.2.1/classes/ActionDispatch/IntegrationTest.html
