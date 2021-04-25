@@ -19,8 +19,7 @@ class Chitter < Sinatra::Base
 
   post '/' do
     peep = params['message']
-    connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO peeps (message) VALUES('#{peep}')")
+    Peeps.new(peep)
     redirect('/')
   end
 

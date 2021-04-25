@@ -7,11 +7,11 @@ feature 'Post a Peep' do
     visit ('/')
     click_button('Peep')
     
-    fill_in('message', with: 'Really long text...')
+    fill_in('message', with: 'Testing the Post a Peep feature')
     
     click_button('Post')
     save_and_open_page
-    expect(page).to have_content('Really long text...')
+    expect(page).to have_content('Testing the Post a Peep feature')
   end
 end
 
