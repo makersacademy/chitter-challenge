@@ -3,7 +3,7 @@ require 'pg'
 task :setup do
   p "Creating databases..."
 
-  ['chitter', 'chitter_test'].each do |database|
+  ['chitter1', 'chitter_test1'].each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{ database };")
     connection = PG.connect(dbname: database)
@@ -19,4 +19,5 @@ task :setup do
       message VARCHAR (240),
       time_posted VARCHAR (50)
     );")
+    end
   end
