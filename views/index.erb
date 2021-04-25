@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitter</title>
+  <style>
+  .flash {
+    color: red
+  }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Chitter</h1>
+  <% flash.keys.each do |type| %>
+        <div data-alert class="flash <%= type %> alert-box radius">
+            <%= flash[type] %>
+            <a href="/" class="close">&times;</a>
+        </div>
+  <% end %>
+  <h3>Live Chitter Feed</h3>
+  <ul>
+  <% @recent_posts.each do |post| %>
+    <li>
+      <p>
+        <%= post.message %> <br>
+        from @<%= post.username %> at <%= post.time_posted %>
+      </p>
+    </li>
+  <% end %>
+  </ul>
+  <form action="/new_post">
+    <input type="submit" value="New post">
+  </form>
+  
+
+  <% if @user != nil %>
+    Signed in as <%= @user.name %>
+    <form action="/sign_out" method='post'>
+      <input type="submit" value="Sign out">
+    </form>
+  <% else %>
+    <form action="/sign_in">
+      <input type="submit" value="Sign in">
+    </form>
+    <br>
+    <form action="/sign_up">
+      <input type="submit" value="Sign up">
+    </form>
+  <% end %>
+</body>
+</html>

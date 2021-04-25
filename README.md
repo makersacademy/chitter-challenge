@@ -1,10 +1,39 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Installation Instructions
+---------------------
+
+```
+$ git clone https://github.com/KaneG9/chitter-challenge.git
+$ cd chitter-challenge
+$ rvm use 2.4.10
+$ bundle
+$ rake setup
+$ rspec
+$ rackup
+```
+
+Process
+-------
+* The app was created using [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html)
+* Created a home page which included the live feed of 10 most recent posts in reverse chronological order and a new post button to create a post to add to the feed
+* Introduced a time posted aspect of the feed for each post - tried to use timestamps within the database however I could not work out how to change the time zone from UTC so converted to a string before adding to database
+* Created a sign up option which allows a user to create an account and it is stored in the database
+* Created a sign in option which allows the user to sign in once an account has been created
+* Created a sign out option
+* Replaced the sign in/up buttons with a sign out button once the user was signed in
+* Introduced flash messages to confirm signing in/out/up and posting
+* Prevented a user from posting if they were not signed in 
+
+Improvements
+----------
+* Integrate bcrypt into active record to encrypt passwords
+* Validation of emails and password criteria
+* Style the pages
+* Allow commenting and tagging in posts
+* Use timestamp in database
+
 
 Challenge:
 -------
@@ -114,22 +143,3 @@ If you want a green tick against your pull request you'll need to configure Trav
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
