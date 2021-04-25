@@ -7,6 +7,7 @@
 </form></p>
 <% @peeps.reverse.each do |peep| %>
   <fieldset>
+    <legend><%= peep.time %></legend>
     <%= peep.message %>
   </fieldset>
 <% end %>  
