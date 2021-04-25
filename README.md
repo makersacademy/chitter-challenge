@@ -40,7 +40,7 @@ Run the test suite to verify that everything is working correctly.
 rails test
 ```
 
-If the test suite passes, you'll be ready to run the app in a local server:
+If the test suite passes, run the app in a local server:
 
 ```sh
 rails server

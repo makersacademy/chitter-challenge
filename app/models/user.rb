@@ -38,7 +38,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Peep.where("user_id = ?", id)
+    Peep
   end
 
   def forget
