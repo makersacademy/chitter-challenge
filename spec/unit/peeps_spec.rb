@@ -4,7 +4,7 @@ require 'database_helpers'
 describe Peeps do
   context '.all' do
     it 'retuns the peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
+      PG.connect(dbname: 'chitter_test')
 
       peep = Peeps.create(content: 'My first peep')
       Peeps.create(content: 'My second peep')
