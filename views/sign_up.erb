@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an account</title>
+  <style>
+  .flash {
+    color: red
+  }
+  </style>
+</head>
+<body>
+  <h1>Create an account</h1>
+  <p>
+    <% flash.keys.each do |type| %>
+          <div data-alert class="flash <%= type %> alert-box radius">
+              <%= flash[type] %>
+              <a href="/sign_up" class="close">&times;</a>
+          </div>
+    <% end %>
+  </p>
+  <form action="/sign_up" method='post'>
+    <input type="text" name="email" id="email" placeholder='Enter email' onsubmit="required()">
+    <input type="text" name="password" id="password" placeholder='Enter password' onsubmit="required()">
+    <input type="text" name="name" id="name" placeholder='Enter name' onsubmit="required()">
+    <input type="text" name="username" id="username" placeholder='Enter username' onsubmit="required()">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

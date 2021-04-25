@@ -12,4 +12,5 @@ gem 'simplecov-console'
 gem 'sinatra', group: :test
 gem 'sinatra-activerecord'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 gem 'webrick'

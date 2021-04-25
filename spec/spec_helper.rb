@@ -23,6 +23,7 @@ RSpec.configure do |config|
   config.before(:each) do
     conn = PG.connect(dbname: 'chitter_test')
     conn.exec('TRUNCATE TABLE posts')
+    conn.exec('TRUNCATE TABLE users')
   end
 
   config.after(:suite) do

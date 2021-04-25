@@ -6,11 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chitter</title>
   <style>
-  
+  .flash {
+    color: red
+  }
   </style>
 </head>
 <body>
   <h1>Welcome to Chitter</h1>
+  <% flash.keys.each do |type| %>
+        <div data-alert class="flash <%= type %> alert-box radius">
+            <%= flash[type] %>
+            <a href="/" class="close">&times;</a>
+        </div>
+    <% end %>
   <h3>Live Chitter Feed</h3>
   <ul>
   <% @recent_posts.each do |post| %>
@@ -25,6 +33,10 @@
   </ul>
   <form action="/new_post">
     <input type="submit" value="New post">
+  </form>
+  <br>
+   <form action="/sign_up">
+    <input type="submit" value="Sign up">
   </form>
 </body>
 </html>
