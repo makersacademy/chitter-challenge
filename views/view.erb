@@ -3,6 +3,7 @@
 <h2> Peeps posted: </h2>
 <ul>
 <% @peeps.each do |peep| %>
-<li><%= peep %></li>
+<li><%= peep.message %></li>
+<li> Created at <%=peep.timestamp%></li>
 <%end%>
 </ul>
