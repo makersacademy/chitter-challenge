@@ -1,0 +1,8 @@
+<li id="peep-<%= peep.id %>">
+  <%= link_to pfp_for(peep.user), peep.user %>
+  <span class="user"><%= link_to peep.user.name, peep.user %></span>
+  <span class="content"><%= peep.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(peep.created_at) %> ago.
+  </span>
+</li>
