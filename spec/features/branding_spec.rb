@@ -1,6 +1,6 @@
 feature 'Branding' do
-  scenario 'Shows Chitter name' do
+  scenario 'Shows chitter name' do
     visit('/')
-    expect(page).to have_content 'Chitter'
+    expect(page).to have_content 'chitter'
   end
 end
