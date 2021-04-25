@@ -11,4 +11,5 @@ group :development, :test do
   gem 'rack'
   gem 'pg'
   gem 'launchy'
+  gem 'timecop'
 end

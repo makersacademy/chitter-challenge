@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  set :port, 9293
+  set :port, 9298
   get '/' do
     erb :index
   end
@@ -21,8 +21,7 @@ class Chitter < Sinatra::Base
   end
   
   post '/home' do
-    session[:enter_peep] = params[:enter_peep]
-    Peep.create(session[:enter_peep])
+    Peep.create(params[:enter_peep])
     @peeps = Peep.all
     erb :home
   end

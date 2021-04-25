@@ -6,7 +6,7 @@ services:
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
   - psql -U postgres -c 'CREATE TABLE "peeps" (id SERIAL PRIMARY KEY, texts VARCHAR(280));'
-  # - psql -U postgres -c 
+  - psql -U postgres -c 'ALTER TABLE peeps ADD time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP;'
   # - psql -U postgres -c 
   # - psql -U postgres -c 
   # - psql -U postgres -c 
