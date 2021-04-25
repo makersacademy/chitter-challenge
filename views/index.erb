@@ -22,7 +22,15 @@
       <ul>
         <% @peeps.each do |peep| %> 
           <li>
-            <%= peep %>
+          <article>
+            <h4></h4>
+            <p> <%= peep[0] %> </p>
+            <p id="time_posted"> posted at: 
+              <br>
+              <% date_time = peep[1].slice(0..15)%>
+              <%=date_time %>
+            </p>
+            </article>
           </li>
         <% end %>
       </ul>

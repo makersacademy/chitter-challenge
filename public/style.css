@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #E9EBEE;
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
 }
@@ -7,7 +7,7 @@ body {
 h1 {
   font-family: 'Press Start 2P', cursive;
   font-size: 100px;
-  color: #ffffff;
+  color: #66a2e2;
   margin: 20px 0;
 }
 
@@ -24,13 +24,13 @@ ul {
 
 li {
   color: black;
-  background-color: #ffffffc5;
+  background-color: #ffffff;
   font-family: 'Courier New', Courier, monospace;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   padding-top: 20px;
   padding-left: 30px;
   margin: 20px 70px;
-  border: solid 1px #ffffff9f;
+  border: solid 5px #ffffff9f;
   border-radius: 10px;
 }
 
@@ -38,7 +38,7 @@ li {
   margin: 0 auto;
   width: 60%;
   height: 100%;
-  background-color: #98bce2;
+  background-color: #ffffff9f;
   border: 2px;
   border-color:  #ffffff9f;
   border-style: solid;
@@ -47,8 +47,8 @@ li {
 #peep_btn {
   background-color: #649bd4;
   color: #ffffff;
-  padding: 20px 70px;
-  border-radius: 40px;
+  padding: 10px 70px;
+  border-radius: 50px;
   border-color: #ffffff9f;
   font-size: 20px; 
 }
@@ -64,5 +64,9 @@ li {
   width: 10%;
   height: 100px;
   border: none;
-  background-color: #9ACD32;
+  background-color: #649bd4;
+}
+
+#time_posted {
+  text-align: right;
 }
