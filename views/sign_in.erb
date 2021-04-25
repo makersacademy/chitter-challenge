@@ -5,9 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign in</title>
+  <style>
+    .flash {
+      color: red
+    }
+  </style>
 </head>
 <body>
   <h1> Sign in</h1>
+  <% flash.keys.each do |type| %>
+        <div data-alert class="flash <%= type %> alert-box radius">
+            <%= flash[type] %>
+            <a href="/sign_in" class="close">&times;</a>
+        </div>
+  <% end %>
   <h3>Please enter your username and password</h3>
   <form action="/sign_in" method='post'>
     <input type="text" name="username" id="username" placeholder='Enter username' onsubmit="required()">
