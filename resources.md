@@ -59,6 +59,11 @@ Learning Bootstrap and styling
 - https://www.digitalocean.com/community/tutorials/how-to-add-bootstrap-to-a-ruby-on-rails-application
 - https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webpacker/
 
+Rails sessions
+
+- https://binarysolo.chapter24.blog/avoiding-session-replay-attacks-in-rails/
+- https://stackoverflow.com/questions/30804660/nameerror-undefined-local-variable-or-method-remember-digest-and-nomethoderror
+
 Rails debugging
 
 - https://stackoverflow.com/questions/4837859/rails-how-do-i-print-the-request-parameters
