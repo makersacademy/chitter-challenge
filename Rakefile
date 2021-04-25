@@ -17,7 +17,7 @@ task :create_tables do
   connection.exec(
     "CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(240), user_id INTEGER REFERENCES users (id), time_created TIME);"
   )
-  connection.exec(
-    "CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(30), email VARCHAR(60), password VARCHAR(100));"
-    )
+  # connection.exec(
+  #   "CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(30), email VARCHAR(60), password VARCHAR(100));"
+  #   )
 end
