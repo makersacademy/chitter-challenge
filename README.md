@@ -53,11 +53,11 @@ with all peeps ever made in the peeps table
 
 
 | peep_id |  content          | time_stamp            | user_id |  
-|---------|-------------------|-----------------------|--------------------|
-| 1       | 'hi @billy123'    |  2021-04-25 20:26:10  | 2                  |
-| 2       |	'hi @knock_knock' |  2021-04-25 20:27:00  | 1                  |
-| 3       | 'who's there?'    |  2021-04-25 20:32:24  | 2                  |
-| 4       |	'uh..'            |  2021-04-25 20:42:44  | 1                  |
+|---------|-------------------|-----------------------|---------|
+| 1       | 'hi @billy123'    |  2021-04-25 20:26:10  | 2       |
+| 2       |	'hi @knock_knock' |  2021-04-25 20:27:00  | 1       |
+| 3       | 'who's there?'    |  2021-04-25 20:32:24  | 2       |
+| 4       |	'uh..'            |  2021-04-25 20:42:44  | 1       |
 
 in the above example, user 1 (bill) made peeps 1 and 3, and user 2(jess) made peeps 2 and 4.
 
