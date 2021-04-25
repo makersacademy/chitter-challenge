@@ -3,7 +3,8 @@ require 'pg'
 class User
 
   def self.create(email:,name:,handle:,password:)
-    # insert new user to DB
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("INSERT INTO chitter_users (email, name, handle, password) VALUES ('#{email}', '#{name}', '#{handle}', '#{password}') RETURNING email, name, handle, password;")
   end
 
   def new_peep
