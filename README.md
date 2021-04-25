@@ -59,7 +59,7 @@ with all peeps ever made in the peeps table
 | 3       | 'who's there?'    |  2021-04-25 20:32:24  | 2                  |
 | 4       |	'uh..'            |  2021-04-25 20:42:44  | 1                  |
 
-in the above example, user 1 (bill) made peeps 1 and 3.
+in the above example, user 1 (bill) made peeps 1 and 3, and user 2(jess) made peeps 2 and 4.
 
 ### CLASSES ###
 
@@ -71,3 +71,12 @@ Class PEEP should have attributes of id, content, time stamp, associated user.
 Class PEEP should have Class Methods including self.all and self.create.
 
 USER.MAKE_PEEP should prompt PEEP.SELF.CREATE
+
+
+### VIEWS/USER JOURNEY ###
+
+One view each for post_cheep, view_all_cheeps and signup. View_all_cheeps and post_cheer should be mutually accessible, but the user should begin on signup which (when successful) will reroute to view_all_cheeps.
+
+(Signup) --> (view_all) <---> (post)
+
+Post/View could share the same page, but that can come later.
