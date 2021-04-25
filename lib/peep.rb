@@ -11,11 +11,17 @@ class Peep
     
     result = connection.exec("SELECT * FROM peeps;")
     result.map { |peep| peep['text'] }
-    # [
-    # 'Test Peep', 
-    # 'I am a test peep',
-    # 'Me too'
-    # ]
+  
+  end
+
+  def self.create(name:, text:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'test_chitter')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    
+    connection.exec("INSERT INTO peeps (name, text) VALUES('#{name}', '#{text}')") 
   end
 
 end

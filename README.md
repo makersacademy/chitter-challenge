@@ -182,3 +182,13 @@ rspec
 ```
 rubocop
 ```
+
+### Routes
+`localhost:9292/peeps/timeline`
+
+`localhost:9292/peeps/new`
+
+<!-- `localhost:9292/peeps/sign-up`
+
+`localhost:9292/peeps/login` -->
+

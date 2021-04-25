@@ -9,5 +9,15 @@ class Chitter < Sinatra::Base
     erb :'peeps/timeline'
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/timeline' do
+    Peep.create(name: params[:url], text: params[:text])
+  
+    redirect '/peeps/timeline'
+  end
+
   run! if app_file == $0
 end
