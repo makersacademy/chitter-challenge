@@ -9,8 +9,7 @@ describe User do
   end
   it 'Creates a new user' do 
     user = User.create('hello@gmail.com', '1234', 'hi there', 'hello')
-    persisted_data = persisted_data(user.id, "users")
-
+    # persisted_data = persisted_data(user.id, "users")
     expect(user).to be_a User
     expect(user.email).to eq 'hello@gmail.com'
   end
