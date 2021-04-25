@@ -70,6 +70,7 @@ class Chitter < Sinatra::Base
 
   post '/sign_out' do
     session[:user] = nil
+    flash[:alert] = 'You have successfully signed out'
     redirect '/'
   end
 end

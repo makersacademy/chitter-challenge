@@ -19,4 +19,12 @@ feature 'sign out' do
     expect(page).to have_button 'Sign in'
     expect(page).to have_button 'Sign up'
   end
+
+  scenario 'Receive sign out confirmation' do
+    visit '/'
+    sign_up_and_submit
+    sign_in
+    click_button 'Sign out'
+    expect(page).to have_content 'You have successfully signed out'
+  end
 end
