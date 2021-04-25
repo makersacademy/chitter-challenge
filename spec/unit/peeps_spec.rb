@@ -16,6 +16,9 @@ describe Peeps do
   end
 
   describe '#all' do 
+    # As a maker
+    # So that I can see what others are saying
+    # I want to see all peeps in reverse chronological order
     it 'shows all peeps' do
       5.times {Peeps.new('Really long text...')}
 

@@ -3,7 +3,7 @@
 # I want to post a message (peep) to chitter
 
 feature 'Post a Peep' do 
-  scenario '. User posts Peep to Chitter' do
+  scenario '-User posts Peep to Chitter' do
     visit ('/peeps')
     click_button('Peep')
     
