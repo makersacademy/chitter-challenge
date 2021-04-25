@@ -1,0 +1,15 @@
+<% if @user_name %>
+  <h3>
+    Welcome, <%= "#{@user_name}" %>
+  </h3>
+<% end %>
+
+<form action='chitter/post_peep' method='get'>
+  <input type='submit' value='New Peep'>
+</form> <br>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>  <%= "#{peep.text} at #{peep.time}" %>
+  <% end %>
+</ul>    

@@ -1,11 +1,10 @@
 <h1> Welcome to Chitter </h1>
 
-<form action='chitter/post_peep' method='get'>
-  <input type='submit' value='New Peep'>
-</form> <br>
+<form action='/user/new' method='get'>
+  <button>Sign up</button>
+</form>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>  <%= "#{peep.text} at #{peep.time}" %>
-  <% end %>
-</ul>    
+
+<form action='/chitter' method='get'>
+  <button>go incognito</button>
+</form>
