@@ -4,8 +4,11 @@
     <input type="submit" value="Peep That" />
   </form>
   <ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep.content %></li>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+    <%= peep.content %>
+    <p>Posted at <%= peep.time %></p>
+    </li>
   <% end %>
 </ul>
 </body>
