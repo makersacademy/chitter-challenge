@@ -66,6 +66,10 @@ Rails debugging
 - https://dev.to/wrightdotclick/save-time-debugging-rails-by-automatically-displaying-params-directly-inside-your-views-5055
 - https://github.com/deivid-rodriguez/byebug
 
+Sorting peeps reverse chronologically
+
+- https://apidock.com/rails/ActiveRecord/Base/default_scope/class
+
 Creating rails sessions
 
 - https://www.justinweiss.com/articles/how-rails-sessions-work/

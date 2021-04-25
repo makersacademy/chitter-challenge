@@ -24,4 +24,8 @@ class PeepTest < ActiveSupport::TestCase
     @peep.content = "x" * 181
     assert_not @peep.valid?
   end
+
+  test "order should be most recent first" do
+    assert_equal peeps(:most_recent), Peep.first
+  end
 end
