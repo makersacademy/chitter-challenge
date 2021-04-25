@@ -8,4 +8,8 @@ class DatabaseConnection
   class << self
     attr_reader :connection
   end
+
+  def self.query(sql)
+    @connection.exec(sql)
+  end
 end
