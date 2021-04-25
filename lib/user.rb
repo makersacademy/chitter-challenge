@@ -11,7 +11,7 @@ class User
   class << self
     def create(args = {})
       result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{args[:name]}', '#{args[:email]}', '#{args[:password]}') RETURNING name, id")
-      User.new(id: result.first['id'], name: result.first['name'] )
+      User.new(id: result.first['id'], name: result.first['name'])
     end
   end 
 end

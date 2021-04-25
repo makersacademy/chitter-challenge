@@ -13,8 +13,4 @@ feature 'Home page' do
 
     expect(page).to have_content("my second peep at #{time}")
   end
-
-  scenario 'shows time of peep' do
-    
-  end
 end
