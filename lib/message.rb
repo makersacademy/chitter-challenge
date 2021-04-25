@@ -20,5 +20,10 @@ class Message
     result = DatabaseConnection.query("SELECT * FROM messages;")
     result.map { |message| Message.new(text: message['text'], time: message['time'], date: message['date']) }
   end
-  
+
+  def format_time
+    time = Time.parse(@time.to_s)
+    time.strftime(":Posted at %H:PM %A")  
+  end
+
 end

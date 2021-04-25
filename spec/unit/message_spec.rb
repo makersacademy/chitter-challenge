@@ -14,11 +14,9 @@ describe Message do
   end
   context '.all' do
     it 'can list all bookmarks' do
-      connection = PG.connect(dbname: "chitter_test")
       message_1 = Message.create(text: "Test message")
       message_2 = Message.create(text: "Test message 2")
       messages = Message.all
-      p messages
 
       expect(messages.size).to be 2
       expect(messages.first.text).to eq message_1.text
@@ -26,14 +24,12 @@ describe Message do
     end
 
     it 'can extract the time' do
-      connection = PG.connect(dbname: "chitter_test")
       message_1 = Message.create(text: "Test message")
 
       expect(message_1.time).to include(Time.now.to_s[11..-7])
     end
 
     it 'can extract the date' do
-      connection = PG.connect(dbname: "chitter_test")
       message_1 = Message.create(text: "Test message")
 
       expect(message_1.date).to include(Time.now.to_s[0..9])
