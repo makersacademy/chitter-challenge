@@ -166,5 +166,12 @@ CREATE TABLE peeps(peep_id SERIAL PRIMARY KEY, message VARCHAR(100));
 
 ## Test Coverage
 The following is the results from rspec including test coverage:
+<br />
+![chitter_rspec.png](./public/images/chitter_rspec.png)
 
+<br />
 The following is the results from rubocop:
+<br />
+![chitter_rubocop.png](./public/images/chitter_rubocop.png)
+
+<br />
