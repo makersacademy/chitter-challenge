@@ -5,9 +5,9 @@ describe Peeps do
     it 'returns all the peeps' do
       con = PG.connect(dbname: 'chitter_test')
 
-      con.exec("INSERT INTO peeps VALUES(1,'You');" )
-      con.exec("INSERT INTO peeps VALUES(2,'Hello');" )
-      con.exec("INSERT INTO peeps VALUES (3,'Peep');" )
+      con.exec("INSERT INTO peeps VALUES(1,'You');")
+      con.exec("INSERT INTO peeps VALUES(2,'Hello');")
+      con.exec("INSERT INTO peeps VALUES (3,'Peep');")
 
       
       peeps = Peeps.all
@@ -15,6 +15,14 @@ describe Peeps do
       expect(peeps).to include 'Hello'
       expect(peeps).to include 'You'
       expect(peeps).to include 'Peep'
+    end
+  end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peeps.create('Hello')
+
+      expect(Peeps.all).to include 'Hello'
     end
   end
 end

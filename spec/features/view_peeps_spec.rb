@@ -9,13 +9,14 @@ end
 
 feature 'Viewing peeps' do
   scenario 'a user can see peeps' do
+
     con = PG.connect(dbname: 'chitter_test')
 
     con.exec("INSERT INTO peeps VALUES(1, 'Peep');")
     con.exec("INSERT INTO peeps VALUES(2, 'You');")
     con.exec("INSERT INTO peeps VALUES(3, 'Hello');")
     
-    visit('/chitter')
+    visit('/peeps')
     
     expect(page).to have_content "Peep"
     expect(page).to have_content "Hello"
