@@ -4,6 +4,7 @@ group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop'
+  gem 'orderly'
 end
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false

@@ -1,4 +1,5 @@
 require 'pg'
+require 'orderly'
 
 feature 'Visit the homepage' do
   scenario ' the page title is visible' do
@@ -21,6 +22,19 @@ feature 'Viewing peeps' do
     expect(page).to have_content "Peep"
     expect(page).to have_content "Hello"
     expect(page).to have_content "You"
+  end
+end
+
+feature 'view in reverse' do 
+  scenario ' user see most recent peeps first' do
+    con = PG.connect(dbname: 'chitter_test')
+
+    con.exec("INSERT INTO peeps VALUES(1, 'Peep');")
+    con.exec("INSERT INTO peeps VALUES(2, 'You');")
+    con.exec("INSERT INTO peeps VALUES(3, 'Hello');")
+
+    visit('/peeps')
+    expect('Hello').to appear_before('Peep')
   end
 end
 
