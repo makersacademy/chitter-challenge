@@ -9,10 +9,11 @@
 <ul>
   <% @messages.reverse.each do |message| %>
     <li>
-      <%= message.text %>
+      <%= message.text %> 
+      <%= Time.parse(message.time.to_s).strftime(":Posted at %H:PM %A") %> 
     </li>
   <% end %>
 <ul>
 
- #time.strftime(" Posted at %H:PM %A")
+
 
