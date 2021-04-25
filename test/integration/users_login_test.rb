@@ -10,6 +10,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
         password: "" 
       } 
     }
+    assert_not is_logged_in?
     assert_template 'sessions/new'
     assert_not flash.empty?
     get root_path
@@ -25,9 +26,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
         password: "" 
       } 
     }
+    assert_not is_logged_in?
     assert_template 'sessions/new'
     assert_not flash.empty?
     get root_path
     assert flash.empty?
   end
+
 end
