@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do 
     @peeps = Peep.all
-    erb :new
+    erb :peeps
   end
 
   post '/chitter' do
