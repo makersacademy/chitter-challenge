@@ -1,4 +1,4 @@
-require_relative './webhelper.rb'
+require_relative './web_helper.rb'
 
 feature 'signing up' do
   scenario 'signing up creates a user in the users database' do
@@ -22,7 +22,7 @@ feature 'signing up' do
     expect(page).to have_content('Account successfully created')
   end
 
-  scenario 'if the email is not unique show error' do
+  scenario 'if the email/username is not unique show error' do
     visit '/'
     click_button 'Sign up'
     sign_up_and_submit
@@ -32,6 +32,6 @@ feature 'signing up' do
     fill_in 'name', with: 'Kane'
     fill_in 'username', with: 'username_test2'
     click_button 'Submit'
-    expect(page).to have_content('The email is already in use please try another')
+    expect(page).to have_content('The email or username is already in use please try another')
   end
 end

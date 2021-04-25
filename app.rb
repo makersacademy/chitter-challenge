@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @recent_posts = Post.last(10).reverse
+    @user = session[:user]
     erb :index
   end
 
@@ -29,8 +30,7 @@ class Chitter < Sinatra::Base
     Post.create(username: 'Test',
                 name: 'Test', 
                 message: params[:new_post], 
-                time_posted: DateTime.now.strftime("%H:%M %b %e")
-              )
+                time_posted: DateTime.now.strftime("%H:%M %b %e"))
     redirect '/'
   end
 
@@ -43,11 +43,23 @@ class Chitter < Sinatra::Base
       flash[:alert] = 'Account successfully created'
       redirect '/'
     else
-      flash[:alert] = 'The email or username is already in use please try another'
+      flash[:error] = 'The email or username is already in use please try another'
       redirect '/sign_up'
     end
-    
-    
   end
 
+  get '/sign_in' do
+    erb :sign_in
+  end
+
+  post '/sign_in' do
+    user = User.find_by(username: params[:username])
+    if user && user.password == params[:password]
+      session[:user] = User.find_by(username: params[:username])
+      redirect '/'
+    else
+      flash[:error] = 'Your username or password is invalid. Please try again.'
+      redirect '/sign_in'
+    end
+  end
 end

@@ -26,7 +26,6 @@
       <p>
         <%= post.message %> <br>
         from @<%= post.username %> at <%= post.time_posted %>
-        
       </p>
     </li>
   <% end %>
@@ -34,9 +33,16 @@
   <form action="/new_post">
     <input type="submit" value="New post">
   </form>
+  <form action="/sign_in">
+    <input type="submit" value="Sign in">
+  </form>
   <br>
-   <form action="/sign_up">
+  <form action="/sign_up">
     <input type="submit" value="Sign up">
   </form>
+
+  <% if @user != nil %>
+    Signed in as <%= @user.name %>
+  <% end %>
 </body>
 </html>
