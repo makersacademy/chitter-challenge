@@ -18,7 +18,7 @@ class Tweets
                    PG.connect(dbname: 'chitter')
                  end
     result = connection.exec('SELECT * FROM tweets;')
-    result.map { |entry| Tweets.new(entry['tweet'], entry['time']) }
+    result.map {|entry| Tweets.new(entry['tweet'], entry['time']) }
   end
 
   def self.create(entry)

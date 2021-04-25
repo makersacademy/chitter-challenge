@@ -1,23 +1,29 @@
-<div style='padding: 2em'>
-  <h2>Hello and welcome to Chitty Chitty Bang Bang</h2>
+<html>
+  <link href="<%= url("/styles.css") %>" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">   
 
-  <% if @user %>
-    <h1>Welcome, <%= @user.email %></h1>
-  <% end %>
+  <body>
 
-  <form action='/newtweet' method='post'>
-    <input type='text' placeholder='What is on your mind' name="newtweet" required>
-    <input type='submit' value ='Post Tweet'>
-  </form>
+    <div style='padding: 2em'>
+      <h2>Welcome to Chitter</h2>
 
-  <form action='/tweets' method='get'>
-    <input type='submit' value="View Tweets">
-  </form>
+      <% if @user %>
+        <h3>Hello, <%= @user.email %></h3>
+      <% end %>
 
-  <h2>Sign Up To Chitter</h2>
-    <form action='/newuser' method='post'>
-    <input type='email' placeholder='Email' name="email" required>
-    <input type='password' placeholder='Password' name="password" required>
-    <input type='submit' value="Sign Up">
-  </form>
-</div>
+      <form action='/newtweet' method='post'>
+        <input type='text' placeholder='What is on your mind' name="newtweet" class="text-field" required>
+        <input type='submit' value ='Post Tweet' class="btn">
+      </form>
+
+      <form action='/tweets' method='get'>
+        <input type='submit' value="View Tweets" class="btn">
+      </form>
+
+      <form action='/users/new' method='get'>
+        <input type='submit' value="Sign Up" class="btn">
+      </form>
+
+    </div>
+  </body>
+</html>

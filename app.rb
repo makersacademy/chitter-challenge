@@ -10,7 +10,10 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/' do
+    @user = session[:email]
     @tweets = Tweets.all
     erb :index
   end
@@ -20,8 +23,12 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
-  post '/newuser' do
-    User.create(params[:email], params[:password])
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do 
+    session[:email] = User.create(params[:email], params[:password], params[:persons_name], params[:username])
     redirect('/')
   end
 

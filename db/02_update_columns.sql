@@ -1,1 +1,1 @@
-ALTER TABLE tweets ADD COLUMN time VARCHAR(60);
+ALTER TABLE tweets ADD COLUMN time time;

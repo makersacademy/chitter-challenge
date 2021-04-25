@@ -1,19 +1,25 @@
-<div style='padding: 2em'>
-  <h2>Your Tweets</h2>
-    <form action="/reverse" action="get">
-      <input type="submit" value="Sort By Oldest"></input>
-    </form>
-    <form action="/tweets" action="get">
-      <input type="submit" value="Sort By Newest"></input>
-    </form>
-  <div class=tweet-collection>
-  <ul>
-    <% @tweets.each do |entry| %>
-        <li class="tweet-content"> <%= entry.tweet%>-------------Created at:<%= entry.time%> </li>
-    <% end %>
-  </ul>
-  </div>
-  <a href="/">
-    <input type="button" value="Go back"></input>
-  </a>
-</div>
+<html>
+  <link href="<%= url("/styles.css") %>" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">   
+
+  <body>
+    <h2>Your Peeps</h2>
+      <form action="/reverse" action="get" class="sort-by">
+        <input type="submit" value="Sort By Oldest" class="btn"></input>
+      </form>
+      <form action="/tweets" action="get" class="sort-by">
+        <input type="submit" value="Sort By Newest" class="btn "></input>
+      </form>
+    <div class=tweet-collection>
+      <ul>
+        <% @tweets.each do |entry| %>
+            <li class="tweet-content peep"> <%= entry.tweet%><br><span class="spacer">Created at:<%= entry.time%> </span></li>
+        <% end %>
+      </ul>
+
+      <a href="/">
+        <input type="button" value="Go back" class="btn"></input>
+      </a>
+    </div>
+  </body>
+  </html>
