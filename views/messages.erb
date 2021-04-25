@@ -1,8 +1,15 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <div class="container" style="padding-top: 100px">
   <div style="padding-left: 550px">
     <h2 style="color: teal;"><%= "Welcome #{ @user.username }" %></h2>
     <h2 style="color: teal;">Your Messages</h2>
     <ul>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Log out" />
+    </form>
     <form action="/messages" method ="post"> 
       <input type="text" name="message" placeholder="Enter message here" />
       <input type="submit" value="Create message" />

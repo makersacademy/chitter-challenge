@@ -1,8 +1,10 @@
+require 'bcrypt'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require './lib/message'
 require './lib/user'
+require'./lib/database_connection'
 require './database_setup_script'
 
 class Chitter < Sinatra::Base
@@ -14,8 +16,7 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   before do 
-    # @user = User.find(id: session[:user])
-    @user = session[:user]
+    @user = User.find(session[:user_id])
   end
 
   get '/' do
@@ -37,9 +38,26 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(username: params[:username], password: params[:password])
-    session[:user] = @user
+    user = User.create(username: params[:username], password: params[:password])
+    session[:user_id] = user.id
     redirect '/messages'
+  end
+
+  post '/sessions' do
+    user = User.authentication(username: params[:username], password: params[:password])
+
+    if user 
+      session[:user_id] = user.id
+      redirect('/messages')
+    else
+      flash[:notice] = 'Please check your details.'
+      redirect '/'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session[:user_id] = nil
+    flash[:notice] = 'You have logged out.'
   end
 
   run! if app_file == $0

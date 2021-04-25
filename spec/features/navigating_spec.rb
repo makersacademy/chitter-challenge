@@ -1,6 +1,6 @@
 feature 'Navigating' do
   scenario "Only logged in users can navigate to messages" do
-    sign_in
+    sign_up
 
     expect(current_path).to eq '/messages'
 

@@ -1,6 +1,6 @@
 feature "Messaging" do
   scenario "A user can create a message" do
-    sign_in
+    sign_up
 
     fill_in('message', with: 'Test message')
     click_button('Create message')
@@ -10,7 +10,7 @@ feature "Messaging" do
   end
 
   scenario "A mesage can have a time posted" do
-    sign_in
+    sign_up
 
     fill_in('message', with: 'Test message')
     click_button('Create message')

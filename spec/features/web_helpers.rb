@@ -1,4 +1,4 @@
-def sign_in
+def sign_up
   visit '/'
   click_button 'Create new account'
 
