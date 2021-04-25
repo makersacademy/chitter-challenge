@@ -7,9 +7,17 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
+  get '/chitter' do
+    @peeps = Peep.all
     erb :index
   end
+
+  # post '/chitter' do
+  #   peep = params['peep']
+  #   connection = PG.connect(dbname: 'chitter_test')
+  #   connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+  #   redirect '/'
+  # end
   
   run! if app_file == $0
 end
