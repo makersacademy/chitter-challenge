@@ -1,14 +1,31 @@
-<h1>&#128037; WELCOME TO CHITTER!!! &#128037;</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+   <div class="row">
+      <div class="neons col-12">
+         <h1><em>&#128037; WELCOME TO CHITTER!!! &#128037;</em></h1>
+      </div>
+   </div>
+</div>
+
+<br>
 <h2>And the newest ones appear first: </h2>
-<ul>
+<br>
+
 <% @peeps.each do |peep| %>
-<li><%= peep.message%>
-  <ul>
-  <li>Created at <%=peep.timestamp%></li>
-  </ul>
-</li>
+<p>
+<%= peep.message %>
+    <br>
+  Posted on <%=peep.timestamp%>
 <%end%>
-</ul>
+</p>
+<br>
+
 <form action="/">
   <input type="submit" value="Homepage" id="Homepage">
 </form>
@@ -18,3 +35,6 @@
 <form action="/view">
   <input type="submit" value="View Peeps" id="View Peeps">
 </form>
+
+</body>
+</html>

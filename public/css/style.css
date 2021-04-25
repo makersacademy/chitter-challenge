@@ -1,0 +1,76 @@
+body {
+  background-color: rgb(37, 37, 48);
+}
+@import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
+
+
+.neons {
+   margin-top: 4rem;
+   text-align: center;
+}
+
+.neons h1 {
+  font-size: 2rem;
+  text-align: center;
+   font-weight: bold;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+     from {
+      color: #fff;
+    text-shadow: 0 0 10px #f3b8e4, 0 0 20px #f3b8e4, 0 0 30px #f3b8e4, 0 0 40px #f3b8e4, 0 0 50px #f3b8e4, 0 0 60px #f3b8e4, 0 0 70px #f3b8e4, 0 0 90px #f3b8e4;
+  }
+  
+  to {
+     color: gray;
+    text-shadow: 0 0 20px #f3b8e4, 0 0 30px #f3b8e4, 0 0 40px #f3b8e4, 0 0 50px #f3b8e4, 0 0 60px #f3b8e4, 0 0 70px #f3b8e4, 0 0 80px #f3b8e4, 0 1 90px #f3b8e4;
+  }
+}
+
+textarea {
+  width: 600px;
+  height: 150px;
+  padding: 5px;
+  border: 3px solid rgb(245, 237, 250);
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #250831;
+  color: rgb(219, 203, 223);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+input[type=submit] {
+  background-color: #772966;
+  border: darkred;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin: 100px 70px;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  width: 20%;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+}
+
+input[type=submit]:hover {
+  background-color: palevioletred;
+  color: rgb(255, 216, 131);
+}
+
+h2 {
+  color: rgb(237, 222, 241);
+  font: small-caps;
+}
+
+body {
+  color: rgb(237, 222, 241);
+  font: small-caps;
+  text-align: center;
+  font-size: 16px;
+}
