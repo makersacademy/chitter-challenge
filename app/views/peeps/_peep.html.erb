@@ -5,4 +5,8 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(peep.created_at) %> ago.
   </span>
+  <% if current_user %>
+      <%= link_to "delete", peep, method: :delete,
+                                       data: { confirm: "Are you sure?" } %>
+    <% end %>
 </li>

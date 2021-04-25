@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @peeps = @user.peeps.paginate(page: params[:page])
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       reset_session
+      remember @user
       log_in @user
       redirect_to @user
       flash[:success] = "Welcome to Chitter!"

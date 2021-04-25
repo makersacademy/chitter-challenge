@@ -7,3 +7,10 @@ most_recent:
   content: "Test text here"
   created_at: <%= Time.zone.now %>
   user: test
+
+<% 30.times do |n| %>
+peep_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: test
+<% end %>

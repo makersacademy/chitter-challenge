@@ -69,6 +69,7 @@ Rails debugging
 Sorting peeps reverse chronologically
 
 - https://apidock.com/rails/ActiveRecord/Base/default_scope/class
+- https://medium.com/alturasoluciones/pagination-in-rails-and-how-to-implement-go-to-page-functionality-3218cef6db43
 
 Creating rails sessions
 
