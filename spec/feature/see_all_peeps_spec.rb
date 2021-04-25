@@ -5,7 +5,6 @@
 feature 'See all Peeps' do 
   scenario '-User sees all Peeps in reverse chronological order' do
     Peeps.new('Oldest Message')
-    Peeps.new('Message')
     Peeps.new('Newest Message')
 
     visit ('/peeps')
@@ -14,6 +13,6 @@ feature 'See all Peeps' do
     
     #The :nth-child(n) selector matches every element that is the nth child of its parent
     expect(page.find('li:nth-child(1)')).to have_content('Newest Message')
-
+    expect(page).to have_content('Oldest Message')
   end
 end

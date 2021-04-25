@@ -10,7 +10,7 @@ class Peeps
 		end
 
     result = connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| peep['message'] }
+    p (result.map { |peep| peep['message'] }).reverse
   end
 
   def self.new(peep)

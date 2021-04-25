@@ -24,7 +24,14 @@ describe Peeps do
 
       expect(Peeps.all.size).to eq(5)
     end
-  end
 
+    it 'shows newest peeps first' do
+      Peeps.new('Oldest Message')
+      Peeps.new('Newest Message')
+
+      expect(Peeps.all[0]).to eq('Newest Message')
+    end
+
+  end
 
 end
