@@ -10,4 +10,16 @@ describe Peep do
       expect(text).to eq peep
     end
   end
+
+  describe '.list' do
+    it 'retrieves peeps from the database in reverse order' do
+      peep1 = 'This is the first peep'
+      peep2 = 'This is the second peep'
+      Peep.create(peep1)
+      Peep.create(peep2)
+
+      result = Peep.list[0].text
+      expect(result).to eq peep2
+    end
+  end
 end
