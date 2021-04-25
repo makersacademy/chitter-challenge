@@ -1,23 +1,26 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
-  get '/chitter' do
-    @peeps = Peep.all
+  get '/' do
     erb :index
   end
 
-  # post '/chitter' do
-  #   peep = params['peep']
-  #   connection = PG.connect(dbname: 'chitter_test')
-  #   connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
-  #   redirect '/'
-  # end
+  get '/chitter' do 
+    @peeps = Peep.all
+    erb :new
+  end
+
+  post '/chitter' do
+    Peep.create(peep: params[:peep])
+    redirect '/chitter'
+  end
   
   run! if app_file == $0
 end

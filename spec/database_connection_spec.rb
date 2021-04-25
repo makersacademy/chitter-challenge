@@ -19,4 +19,4 @@ describe DatabaseConnection do
       DatabaseConnection.query("SELECT * FROM peeps;")
     end
   end
-end 
+end
