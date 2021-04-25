@@ -60,4 +60,3 @@ To improve
 -----
 * Styling is weak and took far too much effort, would use a front end framework next time
 * More detailed planning, needed to remake a table because I couldnt work out how to add a relationship to an existing table
-* Forgot to implement functionality to have a users name taken into a message and rendered on page
