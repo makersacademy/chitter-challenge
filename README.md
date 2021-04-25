@@ -8,6 +8,14 @@ $ rspec
 $ rackup
 
 
+## To set up the database: ##
+
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
+Run the queries saved in ./db/migrations/chitter_setup.sql
+
+
 ```
 USER STORIES (4/7)
 
@@ -35,20 +43,20 @@ I want to sign up for Chitter
 - Unique keys (user_id) from the user table will be associated
 with all peeps ever made in the peeps table
 
-| user_id |     user_email    | user_name | user_handle | password |
+| user_id |     email         | name      | handle      | password |
 |---------|-------------------|-----------|-------------|----------|
-| 1A      | william@gmail.com	| bill      | billy123    | bad_pw   |
-| 2A      |	jessica@gmail.com | jess      | knock_knock | vbad_pw  |
+| 1       | william@gmail.com	| bill      | billy123    | bad_pw   |
+| 2       |	jessica@gmail.com | jess      | knock_knock | vbad_pw  |
 
 
 | peep_id |  content          | time_stamp | associated_user_id |  
 |---------|-------------------|------------|--------------------|
-| 1       | 'hi @billy123'    |  1.00      | 2A                 |
-| 2       |	'hi @knock_knock' |  1.05      | 1A                 |
-| 3       | 'who's there?'    |  1.32      | 2A                 |
-| 4       |	'uh..'            |  2.10      | 1A                 |
+| 1       | 'hi @billy123'    |  1.00      | 2                  |
+| 2       |	'hi @knock_knock' |  1.05      | 1                  |
+| 3       | 'who's there?'    |  1.32      | 2                  |
+| 4       |	'uh..'            |  2.10      | 1                  |
 
-in the above example, user 1a (bill) made peeps 1 and 3.
+in the above example, user 1 (bill) made peeps 1 and 3.
 
 ### CLASSES ###
 
