@@ -11,6 +11,7 @@ group :web_framework do
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'sinatra-reloader'
+  gem 'pg'
   gem 'webrick'
 end
 

@@ -42,7 +42,7 @@ I want to sign up for Chitter
 ### Database Schema ###
 
 - I need 2 tables: one for users, one for peeps.
-- Importantly, the column associated_user_id will link them.
+- Importantly, the column user_id will link them.
 - Unique keys (user_id) from the user table will be associated
 with all peeps ever made in the peeps table
 
@@ -52,7 +52,7 @@ with all peeps ever made in the peeps table
 | 2       |	jessica@gmail.com | jess      | knock_knock | vbad_pw  |
 
 
-| peep_id |  content          | time_stamp            | associated_user_id |  
+| peep_id |  content          | time_stamp            | user_id |  
 |---------|-------------------|-----------------------|--------------------|
 | 1       | 'hi @billy123'    |  2021-04-25 20:26:10  | 2                  |
 | 2       |	'hi @knock_knock' |  2021-04-25 20:27:00  | 1                  |

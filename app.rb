@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -21,7 +22,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/view_all' do
-    # 'welcome to the view all page'
+    @all_peeps = Peep.all
     erb :view_all
   end
 
