@@ -16,6 +16,13 @@ describe Peep do
         expect(peeps[0].text).to eq('my second peep')
       end
     end
+
+    it 'have time stamps' do
+      post_time = Time.new.strftime("%k:%M on %d/%m/%Y") 
+      DatabaseConnection.query("INSERT INTO peeps(text,time_stamp) VALUES('my first peep','#{post_time}')")
+      time = Peep.all[0].time
+      expect(time).to eq(post_time)
+    end
   end
 
   describe '.create' do

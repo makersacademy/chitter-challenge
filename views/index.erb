@@ -6,6 +6,6 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li>  <%= peep.text %>
+    <li>  <%= "#{peep.text} at #{peep.time}" %>
   <% end %>
 </ul>    
