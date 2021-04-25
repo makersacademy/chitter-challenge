@@ -2,7 +2,8 @@ describe Message do
 
   context '.create' do
     it 'can create a message' do
-      message = Message.create(text: "Test message")
+      user = create_test_user
+      message = Message.create(text: "Test message", user_id: user.id)
    
       expect(message.text).to eq "Test message"
       expect(message).to be_instance_of Message
@@ -10,8 +11,9 @@ describe Message do
   end
   context '.all' do
     it 'can list all bookmarks' do
-      message_1 = Message.create(text: "Test message")
-      message_2 = Message.create(text: "Test message 2")
+      user = create_test_user
+      message_1 = Message.create(text: "Test message", user_id: user.id)
+      message_2 = Message.create(text: "Test message 2", user_id: user.id)
       messages = Message.all
 
       expect(messages.size).to be 2
@@ -20,13 +22,15 @@ describe Message do
     end
 
     it 'can extract the time' do
-      message_1 = Message.create(text: "Test message")
+      user = create_test_user
+      message_1 = Message.create(text: "Test message", user_id: user.id)
 
       expect(message_1.time).to include(Time.now.to_s[11..-7])
     end
 
     it 'can extract the date' do
-      message_1 = Message.create(text: "Test message")
+      user = create_test_user
+      message_1 = Message.create(text: "Test message", user_id: user.id)
 
       expect(message_1.date).to include(Time.now.to_s[0..9])
     end

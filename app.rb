@@ -28,8 +28,8 @@ class Chitter < Sinatra::Base
     erb(:messages)
   end
 
-  post '/messages' do
-    Message.create(text: params[:message])
+  post '/messages/:id' do
+    Message.create(text: params[:message], user_id: params[:id])
     redirect '/messages'
   end
 

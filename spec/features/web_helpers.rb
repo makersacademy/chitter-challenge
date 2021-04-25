@@ -7,3 +7,7 @@ def sign_up
   fill_in('password', with: "password")
   click_button('Create account')
 end
+
+def create_test_user
+  User.create(username: 'testname', password: 'password123')
+end
