@@ -24,4 +24,19 @@ describe User do
     u = User.create(email: 'test_email1', password: 'test_password', name: 'test_name', username: 'test_username')
     expect(u.valid?).to be false
   end
+
+  it 'valid_login? returns true if username and password match' do
+    User.create(email: 'test_email', password: 'test_password', name: 'test_name', username: 'test_username')
+    expect(User.valid_login?('test_username', 'test_password')).to be true
+  end
+
+  it 'valid_login? returns false if username does not match' do
+    User.create(email: 'test_email', password: 'test_password', name: 'test_name', username: 'test_username')
+    expect(User.valid_login?('aaaa', 'test_password')).to be false
+  end
+
+  it 'valid_login? returns false if password does not match' do
+    User.create(email: 'test_email', password: 'test_password', name: 'test_name', username: 'test_username')
+    expect(User.valid_login?('test_username', 'aaaa')).to be false
+  end
 end

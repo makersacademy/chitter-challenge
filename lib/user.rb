@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   validates :username, presence: true, uniqueness: true
+
+  def self.valid_login?(username, password)
+    user = User.find_by(username: username)
+    user.present? && (user.password == password)
+  end
+
 end
