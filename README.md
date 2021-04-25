@@ -1,6 +1,36 @@
 Chitter Challenge
 =================
 
+Installation Instructions
+---------------------
+
+```
+$ git clone https://github.com/KaneG9/chitter-challenge.git
+$ bundle
+$ rake setup
+$ rspec
+$ rackup
+```
+
+Process
+-------
+* The app was created using [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html)
+* Begun by creating a home page which included the live feed of 10 most recent posts in reverse chronological order and a new post button to create a post to add to the feed
+* Introduced a time posted aspect of the feed for each post - tried to use timestamps within the database however I could not work out how to change the time zone from UTC so converted to a string before adding to database
+* Created a sign up option which allows a user to create an account and it is stored in the database
+* Created a sign in option which allows the user to sign in once an account has been created
+* Created a sign out option
+* Replaced the sign in/up buttons with a sign out button once the user was signed in
+* Introduced flash messages to confirm signing in/out/up and posting
+* Prevented a user from posting if they were not signed in 
+
+Improvements
+----------
+* Integrate bcrypt into active record to encrypt passwords
+* Validation of emails and password criteria
+* Style the pages
+* Allow commenting and tagging in posts
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
@@ -114,32 +144,3 @@ If you want a green tick against your pull request you'll need to configure Trav
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
-Installation Instructions
----------------------
-
-```
-$ git clone https://github.com/tansaku/chitter_challenge
-$ bundle
-$ rake setup
-$ rspec
-$ rackup
-```
-
-Process
--------
-* The app was created using [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html)
-* Begun by creating a home page which included the live feed of 10 most recent posts in reverse chronological order and a new post button to create a post to add to the feed
-* Introduced a time posted aspect of the feed for each post - tried to use timestamps within the database however I could not work out how to change the time zone from UTC so converted to a string before adding to database
-* Created a sign up option which allows a user to create an account and it is stored in the database
-* Created a sign in option which allows the user to sign in once an account has been created
-* Created a sign out option
-* Replaced the sign in/up buttons with a sign out button once the user was signed in
-* Introduced flash messages to confirm signing in/out/up and posting
-* Prevented a user from posting if they were not signed in 
-
-Improvements
-----------
-* Integrate bcrypt into active record to encrypt passwords
-* Validation of emails and password criteria
-* Style the pages
-* Allow commenting and tagging in posts
