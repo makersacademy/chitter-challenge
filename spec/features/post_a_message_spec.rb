@@ -38,4 +38,14 @@ feature 'posting a message' do
     click_button 'New post'
     expect(page).to have_content('You must be signed in to post.')
   end
+
+  scenario 'Posted messages contain the name of creator' do
+    visit '/'
+    sign_up_and_submit
+    sign_in
+    click_button 'New post'
+    fill_in('new_post', with: 'Test1')
+    click_button 'Submit'
+    expect(page).to have_content('from @username_test')
+  end
 end
