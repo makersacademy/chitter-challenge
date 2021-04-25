@@ -4,5 +4,5 @@
   
   <h2> Timeline </h2>
   <% @peeps.each do |peep| %>
-    <%= peep %> <br>
+    <%= peep.name %> peeped: <%= peep.text %> at <%= peep.created_at%><br>
   <% end %>

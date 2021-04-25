@@ -1,27 +1,34 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
   describe '.all' do
     it 'returns all Peeps' do
       connection = PG.connect(dbname: 'test_chitter')
 
-      connection.exec("INSERT INTO peeps VALUES(1, 'Finn', 'Test Peep');")
-      connection.exec("INSERT INTO peeps VALUES(2, 'Finn', 'I am a test peep');")
-      connection.exec("INSERT INTO peeps VALUES(3, 'Finn', 'Me too');")
+      peep = Peep.create(name: "Finn", text: "Test Peep")
+      Peep.create(name: "Finn", text: "I am a test peep")
+      Peep.create(name: "Finn", text: "Me too")
 
       peeps = Peep.all
 
-      expect(peeps).to include('Test Peep')
-      expect(peeps).to include('I am a test peep')
-      expect(peeps).to include('Me too')
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.name).to eq "Finn"
+      expect(peeps.first.text).to eq "Test Peep"
     end
   end
 
   describe '.create' do
     it 'creates a new Peep' do
-      Peep.create(name: 'Finn', text: 'dummy peep text')
+      peep = Peep.create(name: 'Finn', text: 'dummy peep text')
+      persisted_data = persisted_data(id: peep.id)
 
-      expect(Peep.all).to include 'dummy peep text'
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.name).to eq 'Finn'
+      expect(peep.text).to eq 'dummy peep text'
     end
   end
 

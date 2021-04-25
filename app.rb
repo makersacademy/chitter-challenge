@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/timeline' do
-    Peep.create(name: params[:url], text: params[:text])
+    Peep.create(name: params[:name], text: params[:text])
   
     redirect '/peeps/timeline'
   end
