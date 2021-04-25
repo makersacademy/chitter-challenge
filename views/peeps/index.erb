@@ -20,6 +20,9 @@
       <button>Sign out</button>
     </form>
     <h1 class="title">Chitter</h1>
+      <% if @user %>
+        <h1>Welcome, <%= @user.username %></h1>
+      <% end %>
       <form action="/peeps" method="post">
         <input type="text" name="peep" placeholder="Your peep here"/>
         <input type="submit" value="Peep That" />
