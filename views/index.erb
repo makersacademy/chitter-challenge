@@ -2,4 +2,10 @@
 
 <form action='chitter/post_peep' method='get'>
   <input type='submit' value='New Peep'>
-</form>  
+</form> <br>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>  <%= peep.text %>
+  <% end %>
+</ul>    

@@ -7,6 +7,16 @@ describe Peep do
       peep = Peep.all[0].text
       expect(peep).to eq('my first peep')
     end
+
+    context 'shows the peeps in reverse order' do
+      it '.reverse' do
+        DatabaseConnection.query("INSERT INTO peeps(text) VALUES('my first peep')")
+        DatabaseConnection.query("INSERT INTO peeps(text) VALUES('my second peep')")
+        peeps = Peep.all
+        expect(peeps[0].text).to eq('my second peep')
+      end
+      
+    end
   end
 
   describe '.create' do
@@ -16,5 +26,4 @@ describe Peep do
       expect(text).to eq('my first peep')
     end
   end
-
 end
