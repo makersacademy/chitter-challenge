@@ -11,7 +11,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/signup' do
-    'welcome to signup'
+    # 'welcome to signup'
+    erb :sign_up
   end
 
   post '/signed_up' do
@@ -20,13 +21,13 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/view_all' do
-    'welcome to the view all page'
-    # erb :view_all
+    # 'welcome to the view all page'
+    erb :view_all
   end
 
   get '/new_cheep' do
-    'welcome to the new cheep page'
-    # erb :new_cheep
+    # 'welcome to the new cheep page'
+    erb :new_cheep
   end
 
   post '/new_cheep_submitted' do
