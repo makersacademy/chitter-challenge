@@ -1,0 +1,17 @@
+# As a Maker
+# So that I can let people know what I am doing  
+# I want to post a message (peep) to chitter
+
+feature 'Post a Peep' do 
+  scenario '. User posts Peep to Chitter' do
+    visit ('/')
+    click_button('Peep')
+    
+    fill_in('message', with: 'Really long text...')
+    
+    click_button('Post')
+    save_and_open_page
+    expect(page).to have_content('Really long text...')
+  end
+end
+
