@@ -9,6 +9,13 @@ This program was built  using **TDD** as part of [**Makers Academy Coding Bootca
 
 This program requires **Ruby version 3.0.0**. If you are unsure if you have Ruby installed, or need help seeing the version you are using [codecademy](https://www.codecademy.com) provide this useful guide to [**setup Ruby**](https://www.codecademy.com/articles/ruby-setup).
 
+## Set up Database and tables
+
+1. Connect to psql
+1. Create the database using the psql command CREATE DATABASE chitter;
+1. Connect to the database using the pqsl command \c chitter;
+1. Create required peep table using queries in ./db/migrations .sql files
+
 User Stories
 -----
 
