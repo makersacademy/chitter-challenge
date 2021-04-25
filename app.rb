@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/chitter'
+require_relative './lib/user'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -8,6 +9,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/' do
+    @user = User.new
     erb :index
   end
 
@@ -28,6 +30,16 @@ class ChitterChallenge < Sinatra::Base
   get '/reverse' do
     @peeps = Chitter.flip
     erb :reverse
+  end
+
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post '/sign_up' do
+    User.create(name: params[:name], username: params[:username], 
+      email: params[:email], password: params[:password])
+    redirect '/'
   end
 
   run! if app_file == $0

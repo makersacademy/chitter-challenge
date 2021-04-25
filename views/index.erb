@@ -13,6 +13,14 @@
    </div>
 </div>
 
+<% if @user %>
+  <h2> Hi <%= @user %> select an option </h2>
+<% end %>
+<% if !@user %>
+  <h2> Hi peeper select an option </h2>
+<% end %>
+
+
 <form action="/view">
   <input type="submit" value="View Peeps" id="View Peeps">
 </form>
@@ -21,6 +29,9 @@
 </form>
 <form action="/reverse">
   <input type="submit" value="New Peeps First" id="New Peeps First">
+</form>
+<form action="/sign_up">
+  <input type="submit" value="Sign Up" id="Sign Up">
 </form>
 
 </body>
