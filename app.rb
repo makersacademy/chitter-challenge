@@ -62,4 +62,9 @@ class Chitter < Sinatra::Base
       redirect '/sign_in'
     end
   end
+
+  post '/sign_out' do
+    session[:user] = nil
+    redirect '/'
+  end
 end
