@@ -15,7 +15,6 @@ describe Peep do
         peeps = Peep.all
         expect(peeps[0].text).to eq('my second peep')
       end
-      
     end
   end
 
