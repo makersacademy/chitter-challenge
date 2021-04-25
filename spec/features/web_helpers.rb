@@ -11,16 +11,9 @@ def open_new_peep_page
   expect(current_path).to eq '/peeps/new'
 end
 
-def post_first_peep
+def post_peep(peep)
   open_new_peep_page
 
-  fill_in :peep, with: 'this is the first peep'
-  click_button 'Peep!'
-end
-
-def post_second_peep
-  open_new_peep_page
-
-  fill_in :peep, with: 'this is the second peep'
+  fill_in :peep, with: peep
   click_button 'Peep!'
 end
