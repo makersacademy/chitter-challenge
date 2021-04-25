@@ -15,9 +15,12 @@ Create the database using the psql command CREATE DATABASE chitter;
 Connect to the database using the pqsl command \c chitter;
 Run the queries saved in ./db/migrations/chitter_setup.sql
 
+## The challenge: ##
+To make a basic clone of twitter satisfying the following user stories.
+(So far, I'm only aiming to meet these 4 out of a possible 7).
 
 ```
-USER STORIES (4/7)
+USER STORIES
 
 As a Maker
 So that I can let people know what I am doing  
@@ -49,12 +52,12 @@ with all peeps ever made in the peeps table
 | 2       |	jessica@gmail.com | jess      | knock_knock | vbad_pw  |
 
 
-| peep_id |  content          | time_stamp | associated_user_id |  
-|---------|-------------------|------------|--------------------|
-| 1       | 'hi @billy123'    |  1.00      | 2                  |
-| 2       |	'hi @knock_knock' |  1.05      | 1                  |
-| 3       | 'who's there?'    |  1.32      | 2                  |
-| 4       |	'uh..'            |  2.10      | 1                  |
+| peep_id |  content          | time_stamp            | associated_user_id |  
+|---------|-------------------|-----------------------|--------------------|
+| 1       | 'hi @billy123'    |  2021-04-25 20:26:10  | 2                  |
+| 2       |	'hi @knock_knock' |  2021-04-25 20:27:00  | 1                  |
+| 3       | 'who's there?'    |  2021-04-25 20:32:24  | 2                  |
+| 4       |	'uh..'            |  2021-04-25 20:42:44  | 1                  |
 
 in the above example, user 1 (bill) made peeps 1 and 3.
 
