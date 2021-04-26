@@ -58,6 +58,7 @@ class Chitter < Sinatra::Base
   post '/sessions/destroy' do
     session[:user_id] = nil
     flash[:notice] = 'You have logged out.'
+    redirect '/'
   end
 
   run! if app_file == $0
