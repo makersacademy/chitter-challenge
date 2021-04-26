@@ -72,6 +72,7 @@ rails server
 
 - Email verification
 - View all users
+- Edit and delete peeps
 - Followers
 - Likes
 - Reposts
