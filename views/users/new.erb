@@ -1,0 +1,15 @@
+
+  <html>
+   <link href="<%= url("/styles.css") %>" rel="stylesheet" type="text/css"/>
+   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">   
+    <body>
+      <h2>Sign Up To Chitter</h2>
+        <form action='/users' method='post'>
+        <input type='text' placeholder='Email' name="email" class="text-field" required><br>
+        <input type='password' placeholder='Password' name="password" class="text-field" ><br>
+        <input type='text' placeholder='Name' name="persons_name" class="text-field" ><br>
+        <input type='text' placeholder='Username' name="username"  class="text-field"><br>    
+        <input type='submit' value="Sign Up" class="btn">
+      </form>
+    </body>
+  </html>

@@ -1,0 +1,1 @@
+ALTER TABLE tweets ADD COLUMN time time;

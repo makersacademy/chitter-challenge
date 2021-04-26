@@ -1,0 +1,33 @@
+<html>
+  <link href="<%= url("/styles.css") %>" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">   
+
+  <body>
+
+    <div style='padding: 2em'>
+      <h2>Welcome to Chitter</h2>
+
+      <% if @user %>
+        <h3>Hello, <%= @user.email %></h3>
+      <% end %>
+
+      <form action='/newtweet' method='post'>
+        <input type='text' placeholder='What is on your mind' name="newtweet" class="text-field" required>
+        <input type='submit' value ='Post Peep' class="btn">
+      </form>
+
+      <form action='/tweets' method='get'>
+        <input type='submit' value="View Peeps" class="btn">
+      </form>
+
+      <form action='/users/new' method='get'>
+        <input type='submit' value="Sign Up" class="btn">
+      </form>
+
+      <%# <form action='/new' method='get'>
+        <input type='submit' value="Sign In" class="btn">
+      </form> %>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+/* ---------------- Default Styling ----------------*/
+
+body {
+  background: rgb(248,164,136);
+  background: linear-gradient(0deg, #090979 0%, #2bd1f2 86%) fixed;
+  text-align: center;
+  font-family: 'Helvetica';
+  height: 100%;
+  max-width: 70vw;
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  margin-top: 1em;
+}
+
+h1 {
+  font-size: 3.125rem;
+  margin-top: 2em;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h2, h3 {
+  color: #f8f5f1;
+  margin-top: 2em;
+}
+
+/*---------------- Wrappers ----------------*/
+
+/* .wrapper{
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+} */
+
+
+.spacer{
+  font-size: 0.8rem;
+  margin-top: 0.5em;
+  color: #ffffff;
+  opacity: 80%;
+}
+
+.tweet-collection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tweet-collection ul{
+  margin: 0 auto;
+}
+
+
+/*---------------- Buttons ----------------*/
+
+
+.btn{
+  background-color: rgb(243, 104, 57);
+  text-transform: uppercase;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  padding: 5px 15px;
+}
+
+.btn:hover {
+  background-color: #f8f5f1;
+  cursor: pointer;
+  color: black;
+  transition: background-color 125ms linear;
+}
+
+/*---------------- Forms ----------------*/
+.text-field{
+  margin-bottom: 1em;
+}
+
+.text-field{
+  border-radius: 25px;
+  border: none;
+  padding: 5px 15px;
+}
+
+.sort-by{
+  display: inline;
+}
+
+/*---------------- Peeps ----------------*/
+.peep {
+  color: white;
+  background-color: rgba(243, 104, 57, 1);
+  border-radius: 25px;
+  margin: 2em 0;
+  padding: 5px 20;
+  max-width: 400px;
+}
