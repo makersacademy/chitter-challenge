@@ -80,3 +80,4 @@ rails server
 - Forgotten password reset
 - Edit user (pfp, name)
 - Two-factor authentication
+- Image posts
