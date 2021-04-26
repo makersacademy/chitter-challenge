@@ -20,4 +20,8 @@ class Peep
       Peep.new(id: peep['id'], peep: peep['peep'])
     end
   end
+
+  def time
+    Time.now.strftime("%I:%M")
+  end
 end
