@@ -1,12 +1,11 @@
 ## A Twitter Clone
 
-![chitter_img.png]
+![Chitter Image](chitter_img.png)
 
 Features:
 -------
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
@@ -24,7 +23,7 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+---------
 
 As a Maker
 So that only I can post messages on Chitter as me
@@ -33,8 +32,6 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
@@ -45,7 +42,7 @@ I want to receive an email if I am tagged in a Peep
 ## To Set up the project 
 
 ```
-git clone git@github.com:fwill22/chitter-challenge.git
+git clone git@github.com:phileeep/chitter-challenge.git
 bundle
 ```
 Connect to psql:
