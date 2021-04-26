@@ -18,7 +18,7 @@ Design, layout, functionality, and features were inspired by Facebook and Twitte
 
 ![Feed](resources/feed.png)
 
-![Login](resources/login.png)
+![Sign-in](resources/signin.png)
 
 ## Getting Started
 
