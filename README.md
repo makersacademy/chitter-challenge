@@ -49,3 +49,6 @@ Technologies used and notes on functionality:
 -------
 * Did not manage to finish off fourth user story allowing a user to sign in - hit some tricky blockers which I hope to resolve
 * Time is now displaying how I want it to look, extracted from the database
+
+![webapp 1](https://github.com/kerrimcm/chitter-challenge/blob/master/images/Screenshot%202021-04-26%20at%2009.27.32.png)
+![webapp 2]()
