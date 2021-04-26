@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <body>
+    <p><%= flash[:notice] %></p>
+    <form action="/users" method="get">
+      <button type="submit">New Chitter</button>
+    </form>
+
+    <form action="/sessions" method="get">
+      <button type="submit">Sign in</button>
+    </form>
+
+    <form action="/sessions/destroy" method="post">
+      <button type="submit">Sign out</button>
+    </form>
+
+    <h1 class="title">Chitter</h1>
+      <% if @user %>
+        <h1 class="title">Welcome, <%= @user.username %></h1>
+      <% end %>
+      <form action="/peeps" method="post">
+        <input type="text" name="peep" placeholder="Your peep here"/>
+        <input type="submit" value="Peep That" />
+      </form>
+      <ul class="list">
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+        <%= peep.content %>
+        <p>Posted at <%= peep.time %></p>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
