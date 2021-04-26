@@ -22,3 +22,12 @@ class Peep
     result = connection.exec("INSERT INTO chitter_peeps (content, time_stamp, user_id) VALUES('#{content}', '#{time_stamp}', '#{user_id}') RETURNING content, time_stamp, user_id;")
   end
 end
+
+#  the schema for this class is:
+
+# | peep_id |  content          | time_stamp            | user_id |
+# |---------|-------------------|-----------------------|---------|
+# | 1       | 'hi @billy123'    |  2021-04-25 20:26:10  | 2       |
+# | 2       |	'hi @knock_knock' |  2021-04-25 20:27:00  | 1       |
+# | 3       | 'who's there?'    |  2021-04-25 20:32:24  | 2       |
+# | 4       |	'uh..'            |  2021-04-25 20:42:44  | 1       |

@@ -12,6 +12,7 @@ class User
   end
 end
 
+# the table for this class is:
 
 # | user_id |     email         | name      | handle      | password |
 # |---------|-------------------|-----------|-------------|----------|
