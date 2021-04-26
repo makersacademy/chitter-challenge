@@ -51,4 +51,4 @@ Technologies used and notes on functionality:
 * Time is now displaying how I want it to look, extracted from the database
 
 ![webapp 1](https://github.com/kerrimcm/chitter-challenge/blob/master/images/Screenshot%202021-04-26%20at%2009.27.32.png)
-![webapp 2]()
+![webapp 2](https://github.com/kerrimcm/chitter-challenge/blob/master/images/Screenshot%202021-04-26%20at%2009.27.45.png)
