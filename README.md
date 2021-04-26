@@ -70,6 +70,8 @@ rubocop
 ```
 
 ### Routes
+If running from `rackup`:
+
 `localhost:9292/peeps/timeline`
 
 `localhost:9292/peeps/new`
@@ -77,6 +79,14 @@ rubocop
 <!-- `localhost:9292/peeps/sign-up`
 
 `localhost:9292/peeps/login` -->
+
+
+If running from ruby app.rb
+
+`localhost:4567/peeps/timeline`
+
+`localhost:4567/peeps/new`
+(note that links between domains won't work on this host)
 
 ## Technologies Used:
 * PostgreSQL database
