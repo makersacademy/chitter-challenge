@@ -4,7 +4,7 @@ feature 'Viewing tweets' do
   scenario 'visiting the home page' do
     visit('/')
     expect(page).to have_content 'Welcome to Chitter'
-    expect(page).to have_selector(:link_or_button, 'View Tweets')
+    expect(page).to have_selector(:link_or_button, 'View Peeps')
   end
 
   scenario 'Viewing all tweets' do
