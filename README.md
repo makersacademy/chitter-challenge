@@ -18,8 +18,6 @@ Design, layout, functionality, and features were inspired by Facebook and Twitte
 
 ![Feed](resources/feed.png)
 
-![Login](resources/login.png)
-
 ## Getting Started
 
 To get started with the app, clone the repo then install the required gems:
