@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+require_relative './lib/database_connection_setup'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/tweets'
 require './lib/user'
-require_relative './lib/database_connection_setup'
+require 'uri'
 
 class Chitter < Sinatra::Base
   configure :development do

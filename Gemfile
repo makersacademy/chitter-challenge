@@ -15,6 +15,7 @@ gem 'simplecov', require: false
 gem 'simplecov-console', require: false
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 
 group :development, :test do
   gem 'capybara'
