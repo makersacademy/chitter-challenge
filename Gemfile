@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.7.3'
+ruby '2.6.5'
 
 gem 'bcrypt'
 gem 'data_mapper'

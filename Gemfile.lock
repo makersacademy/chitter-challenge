@@ -170,7 +170,7 @@ DEPENDENCIES
   sinatra-flash
 
 RUBY VERSION
-   ruby 2.7.3p183
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.1.4
