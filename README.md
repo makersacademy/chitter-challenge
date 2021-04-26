@@ -1,6 +1,6 @@
 ## A Twitter Clone
 
-![Chitter Image](chitter_img.png)
+![Chitter Image](chitter_img-web.png)
 
 Features:
 -------
