@@ -1,0 +1,8 @@
+<h3>Here's what peeps are saying</h3>
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+    <p>@anonymous_user said at <%= peep.time %>: <%= peep.peep %></p> 
+    </li>
+  <% end %>
+</ul>
