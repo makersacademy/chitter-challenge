@@ -38,8 +38,10 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-# How to use 
+# How to Use 
 ## To Set up the project 
+Ruby Version: 
+`2.6.5`
 
 ```
 git clone git@github.com:phileeep/chitter-challenge.git
