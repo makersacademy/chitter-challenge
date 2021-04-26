@@ -90,3 +90,4 @@
 
 - https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
 - https://guides.rubyonrails.org/configuring.html#database-pooling
+- https://stevepolito.design/blog/configure-travis-ci-for-ruby-on-rails/
