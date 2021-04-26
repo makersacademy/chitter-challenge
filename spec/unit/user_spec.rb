@@ -12,6 +12,12 @@ describe User do
       expect(user.username).to eq 'johndoe'
       expect(user.email).to eq 'test@test.com'
     end
+
+    it 'hashes the password with BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+      User.create(username: 'johndoe', email: 'test@test.com', password: 'password123')
+
+    end
   end
 
   context '.find' do
@@ -26,5 +32,28 @@ describe User do
     it 'returns nil if there is no ID given' do
       expect(User.find(nil)).to eq nil
     end
+  end
+
+  # context '.authenticate' do
+  #   it 'allows a user to connect if the username and password matches' do
+  #     user = User.create(username: 'johndoe', email: 'test@test.com', password: 'password123')
+  #     authenticated_user = User.authenticate(username: 'johndoe', password: 'password123')
+
+  #     expect(authenticated_user.id).to eq user.id
+  #   end
+  # end
+
+  describe '.authenticate' do
+    it 'logs an user in with an username and password' do
+      user = User.create(username: 'johndoe', email: 'test@test.com', password: 'password123')
+      authenticated_user = User.authenticate(username: 'johndoe', email: 'test@test.com', password: 'password123')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+
+    # it 'returns nil if the username is incorrect' do
+    #   user = User.create(username: 'johndoe', email: 'test@test.com', password: 'password123')
+    #   expect(User.authenticate(username: 'janedoe', password: 'password123')).to be_nil
+    # end
   end
 end

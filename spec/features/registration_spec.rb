@@ -1,6 +1,6 @@
 feature 'registration' do
   scenario 'a user can sign up' do
-    visit('users/new')
+    visit('/users')
     fill_in('username', with: 'johndoe')
     fill_in('email', with: 'test@test.com')
     fill_in('password', with: 'password123')
