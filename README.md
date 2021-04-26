@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.com/AJ8GH/chitter-challenge.svg?branch=master)](https://travis-ci.com/AJ8GH/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/AJ8GH/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/AJ8GH/chitter-challenge?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/4713133e3a625ac7b613/maintainability)](https://codeclimate.com/github/AJ8GH/chitter-challenge/maintainability)
 
-[Checkout the app here!](https://gentle-mountain-55342.herokuapp.com/)
+Version 1.0.0 deployed through Heroku: [Chitter](https://gentle-mountain-55342.herokuapp.com/)
+----------------------------------------------------------------------------------------------
 
 ![feed-scroll](public/images/feed-scroll.gif)
 
