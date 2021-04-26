@@ -1,5 +1,7 @@
 # Chitter Challenge 🦜
 
+[![Build Status](https://travis-ci.org/jasonrowsell/chitter-challenge.svg?branch=master)](https://travis-ci.org/jasonrowsell/chitter-challenge)
+
 A full-stack web app inspired by the functionality of Twitter. The web app allows the user to create an account, sign-in, and post a peep.
 
 **Visit the website here: https://jasonrowsell-chitter.herokuapp.com/**

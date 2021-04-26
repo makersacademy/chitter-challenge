@@ -1,7 +1,7 @@
 # Plan
 
-![domain](./resources/domainmodel.png)
-![domain](./resources/domainmodel2.png)
+![domain](./domainmodel.png)
+![domain](./domainmodel2.png)
 
 - The client issues a request for the /users URL.
 - Rails routes /users to the index action in the Users controller.
@@ -12,7 +12,7 @@
 - The view uses embedded Ruby to render the page as HTML.
 - The controller passes the HTML back to the browser.
 
-![arb](./resources/arb.png)
+![arb](./arb.png)
 
 - Both User model and the Peep model inherit '<' from ApplicationRecord
 - ApplicationRecord inherits from ActiveRecord::Base
