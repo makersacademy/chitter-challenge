@@ -2,7 +2,7 @@
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
-    <p>@anonymous_user said at <%= peep.time_date %>: <%= peep.peep %></p> 
+    <p>@anonymous_user said at <%= peep.time %>: <%= peep.peep %></p> 
     </li>
   <% end %>
 </ul>

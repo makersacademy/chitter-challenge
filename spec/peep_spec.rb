@@ -9,7 +9,6 @@ describe Peep do
       expect(post).to be_a Peep
       expect(post.id).to eq persisted_data.first['id']
       expect(post.peep).to eq 'Hello world'
-      expect(post.time_date).to include "#{Time.now.strftime("%Y-%m-%d")} #{Time.now.strftime("%k:%M")}" 
     end
   end 
 
@@ -25,7 +24,14 @@ describe Peep do
       expect(feed.length).to eq 2
       expect(feed.first.id).to eq post.id
       expect(feed.first.peep).to eq 'Hello world'
-      expect(feed.first.time_date).to include "#{Time.now.strftime("%Y-%m-%d")} #{Time.now.strftime("%k:%M")}" 
     end 
+  end
+
+  context '#time' do
+    it 'formats the time the peep was made' do
+      post = Peep.create(peep: 'Hello world')
+
+      expect(post.time).to eq Time.now.strftime("%Y-%m-%d %I:%M %p")
+    end
   end
 end

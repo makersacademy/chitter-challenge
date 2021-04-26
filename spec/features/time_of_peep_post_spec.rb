@@ -3,6 +3,6 @@ feature 'the time and date is shown' do
     visit '/'
     fill_in('peep', with: 'Hello world')
     click_button('Post your peep')
-    expect(page).to have_content "#{Time.now.strftime("%Y-%m-%d")} #{Time.now.strftime("%k:%M")}" 
-  end
+    expect(page).to have_content "#{Time.now.strftime("%Y-%m-%d %I:%M %p")}"
+  end 
 end

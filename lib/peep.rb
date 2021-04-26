@@ -20,4 +20,9 @@ class Peep
       Peep.new(id: post['id'], peep: post['peep'], time_date: post['created_at'])
     end 
   end
+
+  def time
+    time = Time.parse(@time_date.to_s)
+    time.strftime("%Y-%m-%d %I:%M %p")
+  end
 end

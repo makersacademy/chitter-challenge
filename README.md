@@ -46,5 +46,6 @@ Technologies used and notes on functionality:
 * The peep data is stored on a PostgreSQL database
 * Using a Sinatra web framework 
 * RSpec/Capybara feature testing
-
+-------
 * Did not manage to finish off fourth user story allowing a user to sign in - hit some tricky blockers which I hope to resolve
+* Time is now displaying how I want it to look, extracted from the database
