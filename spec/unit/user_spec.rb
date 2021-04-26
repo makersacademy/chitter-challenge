@@ -34,26 +34,12 @@ describe User do
     end
   end
 
-  # context '.authenticate' do
-  #   it 'allows a user to connect if the username and password matches' do
-  #     user = User.create(username: 'johndoe', email: 'test@test.com', password: 'password123')
-  #     authenticated_user = User.authenticate(username: 'johndoe', password: 'password123')
-
-  #     expect(authenticated_user.id).to eq user.id
-  #   end
-  # end
-
-  describe '.authenticate' do
+  context '.authenticate' do
     it 'logs an user in with an username and password' do
       user = User.create(username: 'johndoe', email: 'test@test.com', password: 'password123')
       authenticated_user = User.authenticate(username: 'johndoe', email: 'test@test.com', password: 'password123')
 
       expect(authenticated_user.id).to eq user.id
     end
-
-    # it 'returns nil if the username is incorrect' do
-    #   user = User.create(username: 'johndoe', email: 'test@test.com', password: 'password123')
-    #   expect(User.authenticate(username: 'janedoe', password: 'password123')).to be_nil
-    # end
   end
 end
