@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+   <div class="row">
+      <div class="neons col-12">
+         <h1><em>&#128037; WELCOME TO CHITTER!!! &#128037;</em></h1>
+      </div>
+   </div>
+</div>
+
+<br>
+<h2>And the newest ones appear first: </h2>
+<br>
+
+<% @peeps.each do |peep| %>
+<p>
+<%= peep.message %>
+    <br>
+  Posted on <%=peep.timestamp%>
+<%end%>
+</p>
+<br>
+
+<form action="/">
+  <input type="submit" value="Homepage" id="Homepage">
+</form>
+<form action="/new">
+  <input type="submit" value="Post a Peep" id="Post a Peep">
+</form>
+<form action="/view">
+  <input type="submit" value="View Peeps" id="View Peeps">
+</form>
+<form action="/sign_up">
+  <input type="submit" value="Sign Up" id="Sign Up">
+</form>
+
+</body>
+</html>
