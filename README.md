@@ -7,13 +7,11 @@ Version 1.0.0 deployed through Heroku: [Chitter](https://gentle-mountain-55342.h
 
 ![feed-scroll](public/images/feed-scroll.gif)
 
-## Dependencies
-
-### Ruby version
+## Ruby version
 
 - `2.7.2`
 
-### Gems
+## Dependencies
 
 - `bcrypt`
 - `capybara`
@@ -31,7 +29,6 @@ Version 1.0.0 deployed through Heroku: [Chitter](https://gentle-mountain-55342.h
 
 ## Database Setup
 
-Automated setup with rake tasks:
 ```shell
 rake setup
 rake migrate
@@ -41,12 +38,22 @@ Full database setup documented in `db/migrations`
 
 ## Getting Started
 
+### Initial Setup
+Clone this repository, set up the database and run the migrations
+
 ```shell
 git clone git@github:AJ8GH/chitter-challenge.git
 cd chitter-challenge
 Bundle
 rake setup
 rake migrate
+```
+
+### Using the app
+
+Run the Server:
+
+```
 rackup
 ```
 
