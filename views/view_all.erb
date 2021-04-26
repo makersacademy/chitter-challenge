@@ -1,0 +1,11 @@
+<h2> view all peeps so far...</h2>
+
+<ul>
+  <% @all_peeps.each do |peep| %>
+    <li><%= peep.content %></li>
+    <li> - said by <%= peep.handle %> at <%= peep.time_stamp %></li>
+    <br>
+  <% end%>
+</ul>
+
+<a href="http://localhost:9292/new_peep"><input type=button value='make a new peep?'></a>
