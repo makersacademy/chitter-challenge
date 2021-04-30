@@ -89,6 +89,8 @@ If running from ruby app.rb
 (note that links between domains won't work on this host)
 
 ## Technologies Used:
+* Ruby
+* HTML
 * PostgreSQL database
 * Sinatra web framework
 * RSpec/Capybara
