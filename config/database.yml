@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: peep_manager
+
+production:
+  <<: *default
+  database: peepmanager
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
