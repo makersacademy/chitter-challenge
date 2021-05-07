@@ -4,38 +4,33 @@ class Peep
   class << self
     def create(content:, user_id:)
       content.gsub!(/'/, "''")
-      row = DatabaseConnection.query(
-        "INSERT INTO peeps (content, user_id)
-        VALUES ('#{content}', #{user_id}) RETURNING *;"
-      )
-      build(row[0])
+      create_query = [
+        "INSERT INTO peeps (content, user_id) ",
+        "VALUES ('#{content}', #{user_id}) RETURNING *;"
+      ].join
+      build(query(create_query)[0])
     end
 
     def all
-      result = DatabaseConnection.query("SELECT * FROM peeps;")
+      result = query("SELECT * FROM peeps;")
       result.map { |row| build(row) }
     end
 
     def delete(id:)
-      DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id};")
+      query("DELETE FROM peeps WHERE id = #{id};")
     end
 
     def find(id:)
-      row = DatabaseConnection.query(
-        "SELECT * FROM peeps WHERE id = #{id};"
-      )
-      build(row[0])
+      build(query("SELECT * FROM peeps WHERE id = #{id};")[0])
     end
 
     def update(id:, content:)
       content.gsub!(/'/, "''")
-      DatabaseConnection.query("UPDATE peeps SET content = '#{content}'
-        WHERE id = #{id};")
+      query("UPDATE peeps SET content = '#{content}' WHERE id = #{id};")
     end
 
     def my_peeps(user_id:)
-      result = DatabaseConnection.query("SELECT * FROM peeps
-        WHERE user_id = #{user_id};")
+      result = query("SELECT * FROM peeps WHERE user_id = #{user_id};")
       result.map { |row| build(row) }
     end
 
@@ -44,6 +39,10 @@ class Peep
     def build(row)
       new(id: row['id'], time: row['time'],
         content: row['content'], user_id: row['user_id'])
+    end
+
+    def query(sql_string)
+      DatabaseConnection.query(sql_string)
     end
   end
 
