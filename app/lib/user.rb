@@ -6,27 +6,20 @@ class User
   class << self
     def create(name:, username:, email:, password:)
       password_hash = BCrypt::Password.create(password)
-      data = DatabaseConnection.query(
-        "INSERT INTO users (name, username, email, password)
-        VALUES ('#{name}', '#{username}', '#{email}', '#{password_hash}')
-        RETURNING *;"
-      ).first
+      create_query = [
+        "INSERT INTO users (name, username, email, password) VALUES ('#{name}'",
+        ", '#{username}', '#{email}', '#{password_hash}') RETURNING *;"
+      ].join
 
-      build(data)
+      build(query(create_query)[0])
     end
 
     def find(id:)
-      data = DatabaseConnection.query(
-        "SELECT * FROM users WHERE id = #{id}"
-      ).first
-
-      build(data)
+      build(query("SELECT * FROM users WHERE id = #{id}")[0])
     end
 
     def authenticate(username:, password:)
-      data = DatabaseConnection.query("SELECT * FROM users
-        WHERE username = '#{username}'").first
-
+      data = query("SELECT * FROM users WHERE username = '#{username}'").first
       return unless data
       return unless BCrypt::Password.new(data['password']) == password
 
@@ -34,13 +27,16 @@ class User
     end
 
     def update(id:, name:, username:, email:)
-      DatabaseConnection.query("UPDATE users
-        SET name = '#{name}', username = '#{username}', email = '#{email}'
-        WHERE id = #{id};")
+      update_query = [
+        "UPDATE users SET name = '#{name}', ",
+        "username = '#{username}', email = '#{email}' WHERE id = #{id};"
+      ].join
+
+      query(update_query)
     end
 
     def delete(id:)
-      DatabaseConnection.query("DELETE FROM users WHERE id = #{id};")
+      query("DELETE FROM users WHERE id = #{id};")
     end
 
     private
@@ -48,6 +44,10 @@ class User
     def build(data)
       new(id: data['id'], name: data['name'], email: data['email'],
         username: data['username'], password: data['password'])
+    end
+
+    def query(sql_string)
+      DatabaseConnection.query(sql_string)
     end
   end
 
