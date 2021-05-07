@@ -43,67 +43,43 @@ namespace :migrate do
 
   desc 'Migrate test database tables'
   task :test_db do
-    connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec(
-      "CREATE TABLE users(
-        id SERIAL PRIMARY KEY,
-        name VARCHAR (60) NOT NULL,
-        username VARCHAR (60) UNIQUE NOT NULL,
-        email VARCHAR (255) UNIQUE NOT NULL,
-        password VARCHAR (80) NOT NULL
-      );"
-    )
-
-    connection.exec(
-      "CREATE TABLE peeps(
-        id SERIAL PRIMARY KEY,
-        content VARCHAR (280) NOT NULL,
-        user_id INTEGER REFERENCES users (id),
-        time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
-      );"
-    )
-
-    connection.exec(
-      "ALTER TABLE peeps
-        DROP CONSTRAINT peeps_user_id_fkey,
-        ADD CONSTRAINT peeps_user_id_fkey
-          FOREIGN KEY (user_id)
-          REFERENCES users (id)
-          ON DELETE CASCADE;"
-    )
+    migrate('chitter_test')
   end
 
   desc 'Migrate development database tables'
   task :development_db do
-    connection = PG.connect(dbname: 'chitter')
-
-    connection.exec(
-      "CREATE TABLE users(
-        id SERIAL PRIMARY KEY,
-        name VARCHAR (60) NOT NULL,
-        username VARCHAR (60) UNIQUE NOT NULL,
-        email VARCHAR (255) UNIQUE NOT NULL,
-        password VARCHAR (80) NOT NULL
-      );"
-    )
-
-    connection.exec(
-      "CREATE TABLE peeps(
-        id SERIAL PRIMARY KEY,
-        content VARCHAR (280) NOT NULL,
-        user_id INTEGER REFERENCES users (id),
-        time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
-      );"
-    )
-
-    connection.exec(
-      "ALTER TABLE peeps
-        DROP CONSTRAINT peeps_user_id_fkey,
-        ADD CONSTRAINT peeps_user_id_fkey
-          FOREIGN KEY (user_id)
-          REFERENCES users (id)
-          ON DELETE CASCADE;"
-    )
+    migrate('chitter')
   end
+end
+
+def migrate(db_name)
+  connection = PG.connect(dbname: db_name)
+
+  connection.exec(
+    "CREATE TABLE users(
+      id SERIAL PRIMARY KEY,
+      name VARCHAR (60) NOT NULL,
+      username VARCHAR (60) UNIQUE NOT NULL,
+      email VARCHAR (255) UNIQUE NOT NULL,
+      password VARCHAR (80) NOT NULL
+    );"
+  )
+
+  connection.exec(
+    "CREATE TABLE peeps(
+      id SERIAL PRIMARY KEY,
+      content VARCHAR (280) NOT NULL,
+      user_id INTEGER REFERENCES users (id),
+      time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
+    );"
+  )
+
+  connection.exec(
+    "ALTER TABLE peeps
+      DROP CONSTRAINT peeps_user_id_fkey,
+      ADD CONSTRAINT peeps_user_id_fkey
+        FOREIGN KEY (user_id)
+        REFERENCES users (id)
+        ON DELETE CASCADE;"
+  )
 end
