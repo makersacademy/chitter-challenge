@@ -125,13 +125,12 @@ BCrypt::Engine.cost = 1
 ```
 - db cleaning raketask truncates the database before each test
 
-### What to do differently
+### Extending the application
 
-With more time it would be great to:
-- Add the email notification functionality
-- Add replies and likes
-- Use an ORM such as Active Record
-- Deploy to Heroku
+Future features include:
+- Email notifications
+- Replies and favourites
+- Building a frontend interface with React or vanilla JS
 
 ## User Stories
 
