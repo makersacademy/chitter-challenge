@@ -36,9 +36,9 @@ class Peep
 
     private
 
-    def build(row)
-      new(id: row['id'], time: row['time'],
-        content: row['content'], user_id: row['user_id'])
+    def build(data)
+      new(id: data['id'], time: data['time'],
+        content: data['content'], user_id: data['user_id'])
     end
 
     def query(sql_string)

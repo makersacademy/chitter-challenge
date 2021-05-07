@@ -6,34 +6,31 @@ class User
   class << self
     def create(name:, username:, email:, password:)
       password_hash = BCrypt::Password.create(password)
-      row = DatabaseConnection.query(
+      data = DatabaseConnection.query(
         "INSERT INTO users (name, username, email, password)
         VALUES ('#{name}', '#{username}', '#{email}', '#{password_hash}')
         RETURNING *;"
       ).first
 
-      new(id: row['id'], name: row['name'], email: row['email'],
-        username: row['username'], password: row['password'])
+      build(data)
     end
 
     def find(id:)
-      row = DatabaseConnection.query(
+      data = DatabaseConnection.query(
         "SELECT * FROM users WHERE id = #{id}"
       ).first
 
-      new(id: row['id'], name: row['name'], email: row['email'],
-        username: row['username'], password: row['password'])
+      build(data)
     end
 
     def authenticate(username:, password:)
-      row = DatabaseConnection.query("SELECT * FROM users
+      data = DatabaseConnection.query("SELECT * FROM users
         WHERE username = '#{username}'").first
 
-      return unless row
-      return unless BCrypt::Password.new(row['password']) == password
+      return unless data
+      return unless BCrypt::Password.new(data['password']) == password
 
-      new(id: row['id'], name: row['name'], email: row['email'],
-        username: row['username'], password: row['password'])
+      build(data)
     end
 
     def update(id:, name:, username:, email:)
@@ -44,6 +41,13 @@ class User
 
     def delete(id:)
       DatabaseConnection.query("DELETE FROM users WHERE id = #{id};")
+    end
+
+    private
+
+    def build(data)
+      new(id: data['id'], name: data['name'], email: data['email'],
+        username: data['username'], password: data['password'])
     end
   end
 
