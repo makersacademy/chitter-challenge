@@ -83,7 +83,7 @@ describe Post do
     end
   end
 
-  describe '.my_posts' do
+  describe '.user_posts' do
     it 'returns all posts by that user' do
       user2 = User.create(name: 'test2', email: 'test2@test.com', username: 'testname2', password: 'Test222')
       described_class.create(content: 'Other post', user_id: user2.id)
@@ -93,7 +93,7 @@ describe Post do
       described_class.create(content: 'Taking a break', user_id: 1)
       described_class.create(content: 'Writing tests', user_id: 1)
 
-      posts = described_class.my_posts(user_id: 1)
+      posts = described_class.user_posts(user_id: 1)
 
       expect(described_class.all.length).to be 5
       expect(posts.length).to be 3

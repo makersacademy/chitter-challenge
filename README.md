@@ -96,7 +96,8 @@ Public class methods:
 
 ##### .create
 
-Creates a new instance and saves data in database, takes content and
+Creates a new instance and saves data in database.
+Takes 2 keyword arguments - content: (string) and user_id: (integer).
 
 ```ruby
 post.create(content:, user_id:)
@@ -111,14 +112,30 @@ post.user_id
 # => 7
 ```
 
+##### .all
 
+Returns arrray of all instances of the class. Takes no arguments.
 
-takes
-* post.create(content:, user_id:)`
-* `post.all` : returns all instances
-* `post.delete(:id)` : deletes specified instance from database
-  * Takes instance id as argument, e.g. `post.delete(id: 7)` will delete the instance where id == 7
-* `post.find(id:)` : takes id as argument and returns specified instance, e.g. `post.find(id: 7)`
+```ruby
+Post.all
+# => [post1, post2, ...]
+```
+
+##### .delete
+
+Deletes the instance from database, takes id: (integer) as keyword argument
+
+```ruby
+Post.delete(id: 7)
+```
+
+##### .find
+
+Finds the post by its id, takes id: (integer) as keyword argument
+
+```ruby
+post.find(id: 7)
+```
 
 ## Example usage
 

@@ -40,7 +40,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/:id/posts' do
-    @posts = Post.my_posts(user_id: @user.id)
+    @posts = Post.user_posts(user_id: @user.id)
     erb :'users/posts'
   end
 end

@@ -29,7 +29,7 @@ class Post
       query("UPDATE posts SET content = '#{content}' WHERE id = #{id};")
     end
 
-    def my_posts(user_id:)
+    def user_posts(user_id:)
       result = query("SELECT * FROM posts WHERE user_id = #{user_id};")
       result.map { |row| build(row) }
     end
