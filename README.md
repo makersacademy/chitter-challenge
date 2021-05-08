@@ -96,25 +96,20 @@ Public class methods:
 
 ##### .create
 
-Creates a new instance and saves data in database.
-Takes 2 keyword arguments - content: (string) and user_id: (integer).
+Creates a new instance and saves data in database, takes 2 keyword arguments - content: (string) and user_id: (integer)
 
 ```ruby
-post.create(content:, user_id:)
-
-# e.g. usage:
-
-post = post.create(content: 'Hello World!', user_id: 1)
+post = Post.create(content: 'Hello World!', user_id: 1)
 post.content
  # => Hello World!
 
 post.user_id
-# => 7
+# => 1
 ```
 
 ##### .all
 
-Returns arrray of all instances of the class. Takes no arguments.
+Returns arrray of all instances of the class. Takes no arguments
 
 ```ruby
 Post.all
@@ -134,14 +129,39 @@ Post.delete(id: 7)
 Finds the post by its id, takes id: (integer) as keyword argument
 
 ```ruby
-post.find(id: 7)
+Post.find(id: 7)
+```
+
+##### .update
+
+Updates post content, takes id: (integer) and content: (string) as keyword arguments
+
+```ruby
+post.content
+# => '!dlroW olleH'
+post.id
+# => 1
+
+Post.update(id: 1, content: 'Hello World!')
+
+post.content
+# => 'Hello World!'
+```
+
+##### .user_posts
+
+Returns all posts of that user, takes user_id: (integer) as keyword argument
+
+```ruby
+Post.user_posts(user_id: 1)
+# => '[user_post1, user_post2, ...]'
 ```
 
 ## Example usage
 
 Check your posts in reverse chronological order - no need to be signed in for this feature.
 
-Sign in to access more features such as posting and editing your posts / details.
+Sign in to access more features such as posting and editing posts and account details.
 
 ![signing-in](public/images/signing-in.gif)
 
@@ -156,7 +176,6 @@ Edit and delete your posts any time.
 As well as your user account data.
 
 ![edit-delete-account](public/images/edit-delete-account.gif)
-
 
 ## Reflections
 
@@ -173,28 +192,17 @@ As well as your user account data.
 - User Stories have all been hit, bar email notifications. Instead I prioritised implementing all of the CRUD features for the user info and posts.
 - I went for an approach of using ORM and wrapping my database connection in a class. - I applied rake tasks to handle everything to do with environment and db setup. I setup tasks for connecting to the correct database depending on the environmnent, cleaning the database and creating and migrating the database.
 
-### Skills Applied
+## Test and development environments
 
-- Rake tasks for automated building of db
-- Rake tasks for connecting to and cleaning the database
-- Password encryption using BCrypt
-- Object relational mapping
-- RESTful routing
-- CRUD capable app, all create read update and delete actions possible on both post and user data
-- Applying a favicon icon:
-
-![favicon](public/images/favicon-example.png)
-
-- Using test and development environments
-
-In my test environment:
-- my db connection rake task automatically connects to the test database, and outputs a confirmation to the terminal
+- Raketask `db:connect` automatically connects to the correct database depending on which environment the app is running in, and outputs a confirmation to the terminal.
 ![connection-to-test](public/images/connection-to-test.png)
-- Bcrypt is set up with minimum cost factor, so as not to slow down the tests
+- Bcrypt is set up with minimum cost factor in the test environment, so as not to slow down the tests. In development and Production this is higher for additional security.
+
 ```ruby
 BCrypt::Engine.cost = 1
 ```
-- db cleaning raketask truncates the database before each test
+
+- Test database is cleaned automatically after each test to eliminate test data pollution
 
 ### Extending the application
 
