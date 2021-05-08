@@ -88,22 +88,53 @@ To use the deployed version of the app, [click here](https://gentle-mountain-553
 
 ## Public interface
 
+### Models:
+
+#### post
+
+Public class methods:
+
+##### .create
+
+Creates a new instance and saves data in database, takes content and
+
+```ruby
+post.create(content:, user_id:)
+
+# e.g. usage:
+
+post = post.create(content: 'Hello World!', user_id: 1)
+post.content
+ # => Hello World!
+
+post.user_id
+# => 7
+```
+
+
+
+takes
+* post.create(content:, user_id:)`
+* `post.all` : returns all instances
+* `post.delete(:id)` : deletes specified instance from database
+  * Takes instance id as argument, e.g. `post.delete(id: 7)` will delete the instance where id == 7
+* `post.find(id:)` : takes id as argument and returns specified instance, e.g. `post.find(id: 7)`
 
 ## Example usage
 
-Check your peeps in reverse chronological order - no need to be signed in for this feature.
+Check your posts in reverse chronological order - no need to be signed in for this feature.
 
-Sign in to access more features such as peeping and editing your peeps / details.
+Sign in to access more features such as posting and editing your posts / details.
 
 ![signing-in](public/images/signing-in.gif)
 
-If you're new to Chitter, you'll need to sign up to start peeping. Your password will be stored safely.
+If you're new to Chitter, you'll need to sign up to start posting. Your password will be stored safely.
 
-![sign-up-and-peep](public/images/sign-up-and-peep.gif)
+![sign-up-and-post](public/images/sign-up-and-post.gif)
 
-Edit and delete your peeps any time.
+Edit and delete your posts any time.
 
-![edit-peep](public/images/editing-peep.gif)
+![edit-post](public/images/editing-post.gif)
 
 As well as your user account data.
 
@@ -122,7 +153,7 @@ As well as your user account data.
   - Encryption of passwords and authentication of users using sessions
   - Adhering to MVC standards and separation of concerns / SRP.
 
-- User Stories have all been hit, bar email notifications. Instead I prioritised implementing all of the CRUD features for the user info and peeps.
+- User Stories have all been hit, bar email notifications. Instead I prioritised implementing all of the CRUD features for the user info and posts.
 - I went for an approach of using ORM and wrapping my database connection in a class. - I applied rake tasks to handle everything to do with environment and db setup. I setup tasks for connecting to the correct database depending on the environmnent, cleaning the database and creating and migrating the database.
 
 ### Skills Applied
@@ -132,7 +163,7 @@ As well as your user account data.
 - Password encryption using BCrypt
 - Object relational mapping
 - RESTful routing
-- CRUD capable app, all create read update and delete actions possible on both peep and user data
+- CRUD capable app, all create read update and delete actions possible on both post and user data
 - Applying a favicon icon:
 
 ![favicon](public/images/favicon-example.png)
@@ -160,14 +191,14 @@ Future features include:
 ```
 As a Maker
 So that I can let people know what I am doing
-I want to post a message (peep) to chitter
+I want to post a message (post) to chitter
 
 As a maker
 So that I can see what others are saying
-I want to see all peeps in reverse chronological order
+I want to see all posts in reverse chronological order
 
 As a Maker
-So that I can better appreciate the context of a peep
+So that I can better appreciate the context of a post
 I want to see the time at which it was made
 
 As a Maker
@@ -184,7 +215,7 @@ I want to log out of Chitter
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+I want to receive an email if I am tagged in a post
 ```
 
 ![homepage](public/images/homepage.png)

@@ -17,7 +17,7 @@ h2 {
   margin-top: 40px;
 }
 
-.peep {
+.post {
   margin-top: 50px;
 }
 
@@ -54,7 +54,7 @@ form, input, textarea {
   margin-top: 50px;
 }
 
-.get-peeping {
+.get-posting {
   margin-top: 30px;
 }
 
@@ -66,7 +66,7 @@ img {
   margin-top: 40px;
 }
 
-.peep-box {
+.post-box {
   padding-bottom: 200px;
   padding-right: 50px;
   padding-left: 50px;

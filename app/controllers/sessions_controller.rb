@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
       password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/peeps'
+      redirect '/posts'
     else
       flash[:notice] = 'Incorrect login details, please try again.'
       redirect '/sessions/new'
@@ -18,6 +18,6 @@ class Chitter < Sinatra::Base
   delete '/sessions/:id' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    redirect '/peeps'
+    redirect '/posts'
   end
 end

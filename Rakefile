@@ -18,7 +18,7 @@ namespace :db do
   desc 'Clean test database'
   task :clean do
     connection = PG.connect(dbname: 'chitter_test')
-    connection.exec('TRUNCATE users, peeps RESTART IDENTITY;')
+    connection.exec('TRUNCATE users, posts RESTART IDENTITY;')
   end
 
   namespace :create do
@@ -72,7 +72,7 @@ def migrate(db_name)
     )
 
   connection.exec(
-    "CREATE TABLE peeps(
+    "CREATE TABLE posts(
       id SERIAL PRIMARY KEY,
       content VARCHAR (280) NOT NULL,
       user_id INTEGER REFERENCES users (id) ON DELETE CASCADE,

@@ -1,0 +1,9 @@
+<h1>Chitter</h1>
+
+<h2>Edit your post</h2>
+
+<form action="/posts/<%= @post.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <textarea rows="10" cols="25" type="text" name="post" maxlength="280"><%= @post.content %></textarea><br>
+  <input class="submit" type="submit" value="Save">
+</form>

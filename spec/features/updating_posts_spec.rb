@@ -1,23 +1,23 @@
-feature 'editing peeps' do
-  scenario 'peep has changed after editing' do
-    sign_up_and_get_peeping
+feature 'editing posts' do
+  scenario 'post has changed after editing' do
+    sign_up_and_get_posting
 
-    click_button 'Peep'
-    fill_in('peep', with: 'Building Chitter')
+    click_button 'post'
+    fill_in('post', with: 'Building Chitter')
     click_button 'Post'
 
-    click_button 'Peep'
-    fill_in('peep', with: 'Writing tests')
+    click_button 'post'
+    fill_in('post', with: 'Writing tests')
     click_button 'Post'
 
     expect(page).to have_content 'Building Chitter'
     expect(page).to have_content 'Writing tests'
 
-    click_button 'My Peeps'
+    click_button 'My posts'
 
-    first('.peep').click_button 'Edit'
+    first('.post').click_button 'Edit'
 
-    fill_in('peep', with: 'Making lunch!')
+    fill_in('post', with: 'Making lunch!')
     click_button 'Save'
 
     expect(page).not_to have_content 'Writing tests'
@@ -27,6 +27,6 @@ feature 'editing peeps' do
 
     expect(page).not_to have_content 'Writing tests'
     expect(page).to have_content 'Making lunch!'
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/posts'
   end
 end

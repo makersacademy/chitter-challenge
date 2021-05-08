@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the code review for the Chitter Challenge!  Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to.  These are common issues to look out for in this challenge - but you may decide to take your own route.  
+Welcome to the code review for the Chitter Challenge!  Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to.  These are common issues to look out for in this challenge - but you may decide to take your own route.
 
 <!-- Either way we'd very much appreciate you submitting the form, even if it's just to say that you didn't use it :-)
 
@@ -16,12 +16,12 @@ Please checkout your reviewee's code and run their tests. Read the code and try 
   * [ ] Sign up
   * [ ] Log in
   * [ ] Log out
-  * [ ] Peeping
-  * [ ] Listing Peeps
-  * [ ] Display time of peep
+  * [ ] posting
+  * [ ] Listing posts
+  * [ ] Display time of post
 
 * Bonus Features
-  * [ ] Replying to peeps
+  * [ ] Replying to posts
   * [ ] CSS styling
 
 The relevance of the subsequent steps may depend on how far the reviewee got with their challenge.
@@ -129,7 +129,7 @@ end
 
 ## Clean the Database between tests
 
-Each test (feature or unit) should: 
+Each test (feature or unit) should:
 
 - Start on an empty database.
 - Create whatever data is needed for that test.
@@ -165,7 +165,7 @@ set :public_folder, Proc.new { File.join(root, 'static') }
 
 > You can vary where the public folder lives, and what it's called, using this method. Try it!
 
-# Step 3: Tests and \*\_spec.rb files  
+# Step 3: Tests and \*\_spec.rb files
 
 ## Avoid RSpec Feature Scenarios organized like Unit Tests
 
@@ -173,21 +173,21 @@ Ensure your feature tests look like feature tests, not unit tests. They're proba
 
 * Longer
 * More procedural (do this, then do this, then do this, then expect this, and this too)
-* Named more like 'doing something' (e.g. `adding_peep_spec.rb` rather than `user_spec.rb`)
+* Named more like 'doing something' (e.g. `adding_post_spec.rb` rather than `user_spec.rb`)
 
 > It's common for feature tests to expect more than one thing.
 
 ### Good
 
 ```ruby
-scenario 'Can create peeps after sign up'  do
+scenario 'Can create posts after sign up'  do
   # Use a sign up helper we created earlier
-  sign_up_and_create_peep('Test text')
+  sign_up_and_create_post('Test text')
 
-  expect(current_path).to eq '/peeps'
+  expect(current_path).to eq '/posts'
   expect(page.status_code).to eq 200
 
-  within 'ul#peeps' do
+  within 'ul#posts' do
     expect(page).to have_content('Test text')
   end
 end
@@ -196,19 +196,19 @@ end
 ### Not so good
 
 ```ruby
-scenario 'Current path is correct after signing up and peeping'  do
-  sign_up_and_create_peep('Test text')
-  expect(current_path).to eq '/peeps'
+scenario 'Current path is correct after signing up and posting'  do
+  sign_up_and_create_post('Test text')
+  expect(current_path).to eq '/posts'
 end
 
-scenario 'Status code is correct after signing up and peeping'  do
-  sign_up_and_create_peep('Test text')
+scenario 'Status code is correct after signing up and posting'  do
+  sign_up_and_create_post('Test text')
   expect(page.status_code).to eq 200
 end
 
-scenario 'Peep is shown after signing up and peeping'  do
-  sign_up_and_create_peep('Test text')
-  within 'ul#peeps' do
+scenario 'post is shown after signing up and posting'  do
+  sign_up_and_create_post('Test text')
+  within 'ul#posts' do
     expect(page).to have_content('Test text')
   end
 end
@@ -340,13 +340,13 @@ Rather than:
 class Chitter < Sinatra::Application
   set :public_folder, Proc.new { File.join(root, 'static') }
 
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/index'
+  get '/posts' do
+    @posts = post.all
+    erb :'posts/index'
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
+  get '/posts/new' do
+    erb :'posts/new'
   end
 end
 ```
@@ -356,22 +356,22 @@ prefer
 ```ruby
 # app.rb
 require 'controllers/application_controller'
-require 'controllers/peep_controller'
+require 'controllers/post_controller'
 
 # controllers/application_controller.rb
 class Chitter < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, 'static') }
 end
 
-# controllers/peep_controller.rb
-class PeepController < Sinatra::Base
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/index'
+# controllers/post_controller.rb
+class postController < Sinatra::Base
+  get '/posts' do
+    @posts = post.all
+    erb :'posts/index'
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
+  get '/posts/new' do
+    erb :'posts/new'
   end
 end
 
@@ -383,13 +383,13 @@ end
 Your routes should be RESTful:
 
 ```
-GET /peeps
-GET /peeps/:id
-GET /peeps/new
-GET /peeps/update
-POST /peeps
-POST /peeps/:id/update
-POST /peeps/:id/delete
+GET /posts
+GET /posts/:id
+GET /posts/new
+GET /posts/update
+POST /posts
+POST /posts/:id/update
+POST /posts/:id/delete
 ```
 
 ## Views
@@ -399,12 +399,12 @@ POST /peeps/:id/delete
 Specifically use a for attribute in labels as per [mozilla's guide](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form):
 
 ```html
-<form action='/peeps' method='post'>
+<form action='/posts' method='post'>
 Message
   <label for='message'>
     <input type='text' name='message' required>
   </label>
-  <button type='submit'>Create Peep</button>
+  <button type='submit'>Create post</button>
 </form>
 ```
 
@@ -421,22 +421,22 @@ It's tempting to wrap everything HTML5 in a div.  However we should try to make 
 * 1. Pure Div
 
 ```html
-<div class='peep'>
+<div class='post'>
 </div>
 ```
 
 * 2. Article (HTML5 recommended)
 
 ```html
-<article class='peep'>
+<article class='post'>
 </article>
 ```
 
 * 3. Creating your own HTML5 element (avoid unless really required)
 
 ```html
-<peep>
-</peep>
+<post>
+</post>
 ```
 
 Related links:
@@ -474,12 +474,12 @@ Let's take a look at a mixed bag example that does partials but also breaks some
 
 ```html
 <!-- '/partials/flash_messages.erb -->
-<% if flash[:peep_confirmation] %>
-  <%= flash[:peep_confirmation] %>
+<% if flash[:post_confirmation] %>
+  <%= flash[:post_confirmation] %>
 <% end %>
 
-<% if flash[:no_peepy] %>
-  <%= flash[:no_peepy] %>
+<% if flash[:no_posty] %>
+  <%= flash[:no_posty] %>
 <% end %>
 
 <% if flash[:password_reset_sent] %>

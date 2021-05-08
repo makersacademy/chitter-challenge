@@ -1,6 +1,6 @@
 feature 'editing user details' do
   scenario 'details change after editing' do
-    sign_up_and_get_peeping
+    sign_up_and_get_posting
 
     click_button 'My Account'
 

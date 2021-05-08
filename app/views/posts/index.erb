@@ -7,12 +7,12 @@
   <% if @user %>
     <h2 class="greeting">Hello @<%= @user.username %>!</h2>
 
-    <form action="/peeps/new">
-      <input type="submit" value="Peep">
+    <form action="/posts/new">
+      <input type="submit" value="post">
     </form>
 
-    <form action="/users/<%= @user.id %>/peeps">
-      <input type="submit" value="My Peeps">
+    <form action="/users/<%= @user.id %>/posts">
+      <input type="submit" value="My posts">
     </form>
 
     <form action="/users/<%= @user.id %>/show">
@@ -36,12 +36,12 @@
 <div>
 
 <h2 class="feed">Feed</h2>
-<h3>Here are the latest Peeps</h3>
+<h3>Here are the latest posts</h3>
 
-<% @peeps.reverse.each do |peep| %>
-  <article class="peep">
-    <p class="name">@<%= peep.username %> (<%= peep.name %>) peeped:</p>
-    <textarea class="content" cols="25" rows="4" readonly><%= peep.content %></textarea>
-    <p class="time"><%= peep.time %></p>
+<% @posts.reverse.each do |post| %>
+  <article class="post">
+    <p class="name">@<%= post.username %> (<%= post.name %>) posted:</p>
+    <textarea class="content" cols="25" rows="4" readonly><%= post.content %></textarea>
+    <p class="time"><%= post.time %></p>
   </article>
 <% end %>
