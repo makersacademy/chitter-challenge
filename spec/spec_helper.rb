@@ -29,6 +29,6 @@ BCrypt::Engine.cost = 1
 Rake.application.load_rakefile
 
 RSpec.configure do |config|
-  config.before(:suite) { Rake::Task['setup_database_connection'].execute }
-  config.before(:each) { Rake::Task['clean_test_database'].execute }
+  config.before(:suite) { Rake::Task['db:connect'].execute }
+  config.before(:each) { Rake::Task['db:clean'].execute }
 end

@@ -1,18 +1,18 @@
 require 'pg'
 
 class DatabaseConnection
-  PRODUCTION = {
-    host: ENV['DATABASE_HOST_NAME'],
-    port: ENV['DATABASE_PORT'],
-    dbname: ENV['DATABASE_NAME'],
-    user: ENV['DATABASE_USER'],
-    password: ENV['DATABASE_PASSWORD']
-  }
-
   class << self
+    PRODUCTION_DB = {
+      host: ENV['DATABASE_HOST_NAME'],
+      port: ENV['DATABASE_PORT'],
+      dbname: ENV['DATABASE_NAME'],
+      user: ENV['DATABASE_USER'],
+      password: ENV['DATABASE_PASSWORD']
+    }
+
     def setup(database)
       if ENV['RACK_ENV'] == 'production'
-        self.connection = PG.connect(PRODUCTION)
+        self.connection = PG.connect(PRODUCTION_DB)
       else
         self.connection = PG.connect(dbname: database)
       end

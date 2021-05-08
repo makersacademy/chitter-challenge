@@ -3,52 +3,58 @@ require 'rake'
 
 require_relative 'app/lib/database_connection'
 
-desc 'Connect to database'
-task :setup_database_connection do
-  if ENV['ENVIRONMENT'] == 'test'
-    DatabaseConnection.setup('chitter_test')
-    puts '=== Connected to test database ==='
-  else
-    DatabaseConnection.setup('chitter')
-    puts '=== Connected to development database ==='
-  end
-end
-
-desc 'Clean test database'
-task :clean_test_database do
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.exec('TRUNCATE users, peeps RESTART IDENTITY;')
-end
-
-desc 'Setup databases'
-task :setup do
-  %w[chitter chitter_test].each do |database|
-    connection = PG.connect
-    connection.query("CREATE DATABASE #{database};")
-  end
-end
-
-desc 'Setup development database'
-task :setup_development_db do
-  connection = PG.connect
-  connection.query("CREATE DATABASE chitter;")
-end
-
-namespace :migrate do
-  desc 'Migrate database tables'
-  task :migrate do
-    Rake::Task['migrate_test'].execute
-    Rake::Task['migrate_development'].execute
+namespace :db do
+  desc 'Connect to database'
+  task :connect do
+    if ENV['ENVIRONMENT'] == 'test'
+      DatabaseConnection.setup('chitter_test')
+      puts '=== Connected to test database ==='
+    else
+      DatabaseConnection.setup('chitter')
+      puts '=== Connected to development database ==='
+    end
   end
 
-  desc 'Migrate test database tables'
-  task :test_db do
-    migrate('chitter_test')
+  desc 'Clean test database'
+  task :clean do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec('TRUNCATE users, peeps RESTART IDENTITY;')
   end
 
-  desc 'Migrate development database tables'
-  task :development_db do
-    migrate('chitter')
+  namespace :create do
+    desc 'Create development and test databases'
+    task :all do
+      Rake::Task['create:test'].execute
+      Rake::Task['create:development'].execute
+    end
+
+    desc 'Create development database'
+    task :development do
+      PG.connect.query("CREATE DATABASE chitter;")
+    end
+
+    desc 'Create test database'
+    task :test do
+      PG.connect.query("CREATE DATABASE chitter_test;")
+    end
+  end
+
+  namespace :migrate do
+    desc 'Migrate development and test database schema'
+    task :all do
+      Rake::Task['migrate:test'].execute
+      Rake::Task['migrate:development'].execute
+    end
+
+    desc 'Migrate test database schema'
+    task :test do
+      migrate('chitter_test')
+    end
+
+    desc 'Migrate development database schema'
+    task :development do
+      migrate('chitter')
+    end
   end
 end
 
@@ -62,24 +68,15 @@ def migrate(db_name)
       username VARCHAR (60) UNIQUE NOT NULL,
       email VARCHAR (255) UNIQUE NOT NULL,
       password VARCHAR (80) NOT NULL
-    );"
-  )
+      );"
+    )
 
   connection.exec(
     "CREATE TABLE peeps(
       id SERIAL PRIMARY KEY,
       content VARCHAR (280) NOT NULL,
-      user_id INTEGER REFERENCES users (id),
+      user_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
       time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (0)
-    );"
-  )
-
-  connection.exec(
-    "ALTER TABLE peeps
-      DROP CONSTRAINT peeps_user_id_fkey,
-      ADD CONSTRAINT peeps_user_id_fkey
-        FOREIGN KEY (user_id)
-        REFERENCES users (id)
-        ON DELETE CASCADE;"
-  )
+      );"
+    )
 end

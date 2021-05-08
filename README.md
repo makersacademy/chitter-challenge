@@ -27,26 +27,52 @@ Version 1.0.0 deployed through Heroku: [Chitter](https://gentle-mountain-55342.h
 - `sinatra-flash`
 - `sinatra`
 
-## Database Setup
-
-```shell
-rake setup
-rake migrate
-```
-
-Full database setup documented in `db/migrations`
-
 ## Getting Started
 
 ### Initial Setup
-Clone this repository, set up the database and run the migrations
+
+* You will need Ruby installed, this project uses version 2.7.2
+  * Use of a version manager tool such as RVM is recommended
+  * You can find documentation for installing RVM [here](https://rvm.io/rvm/install)
+
+* Clone this repository and navigate to the root of the project
 
 ```shell
 git clone git@github:AJ8GH/chitter-challenge.git
 cd chitter-challenge
-Bundle
-rake setup
-rake migrate
+```
+
+* Install `bundler` if you do not already have it
+
+```shell
+gem install bundler
+```
+
+* Install the dependencies
+
+```shell
+bundle install
+```
+
+* This app uses a PostgreSQL database, so you will need to install and set up Postgres
+  * Using a package manager such as Homebrew is recommended
+  * You can install Homebrew [here](https://brew.sh/)
+  * Then install PostgreSQL with: `brew install postgresql`
+  * After Homebrew has downloaded PostgreSQL it will show you some installation instructions: follow them!
+  * Next run: `brew services start postgresql` to keep PostgreSQL running in the background
+
+* Create the test and development databases and migrate the table schema
+
+```shell
+rake db:create:all
+rake db:migrate:all
+```
+
+## Running Tests
+
+To run all tests with documentation format
+```shell
+rspec
 ```
 
 ### Using the app
@@ -59,12 +85,7 @@ rackup
 
 Go to [http://localhost:9292](http://localhost:9292) in your browser
 
-## Running Tests
 
-Run all tests in documentation format with rspec command from root directory
-```shell
-rspec
-```
 
 ## Usage
 
