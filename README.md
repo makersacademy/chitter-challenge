@@ -80,19 +80,16 @@ Notes on the test suite:
 * Suite is configured to automatically connect to the test database before running
 * Test database is 'cleaned' after each test
 
-### Using the app
-
-Run the Server:
-
-```
-rackup
-```
-
-Go to [http://localhost:9292](http://localhost:9292) in your browser
-
-
-
 ## Usage
+
+To use the app in the local development environment, start the server with `rackup`. Then head to [localhost, port 9292](http://localhost:9292)
+
+To use the deployed version of the app, [click here](https://gentle-mountain-55342.herokuapp.com/)
+
+## Public interface
+
+
+## Example usage
 
 Check your peeps in reverse chronological order - no need to be signed in for this feature.
 
@@ -121,7 +118,7 @@ As well as your user account data.
   - CRUD features
   - Use of ORM with postgres database
   - Polished look using CSS
-  - Well designed RESTful routing
+  - RESTful routing
   - Encryption of passwords and authentication of users using sessions
   - Adhering to MVC standards and separation of concerns / SRP.
 
