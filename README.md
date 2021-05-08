@@ -157,6 +157,8 @@ Post.user_posts(user_id: 1)
 # => '[user_post1, user_post2, ...]'
 ```
 
+#### User
+
 ## Example usage
 
 Check your posts in reverse chronological order - no need to be signed in for this feature.
