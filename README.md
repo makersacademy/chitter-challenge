@@ -42,15 +42,10 @@ git clone git@github:AJ8GH/chitter-challenge.git
 cd chitter-challenge
 ```
 
-* Install `bundler` if you do not already have it
+* Install `bundler` if you do not already have it and install project dependenices
 
 ```shell
 gem install bundler
-```
-
-* Install the dependencies
-
-```shell
 bundle install
 ```
 
@@ -68,12 +63,22 @@ rake db:create:all
 rake db:migrate:all
 ```
 
+These rake tasks will create 2 databases, `chitter` and `chitter_test`, and migrate the db schema for each. Full details on the database schema can be found in `db/migrations` folder.
+
 ## Running Tests
 
-To run all tests with documentation format
-```shell
-rspec
-```
+* Ensure you are in the root directory
+  * To run entire test suite, run: `rspec`
+  * To run only feature tests, run: `rspec spec/features`
+  * To run only unit tests, run: `rspec spec/models`
+  * To run individual spec files: `rspec spec/<directory_name>/<file_name>`
+
+Notes on the test suite:
+* App has been development using outside in TDD, writing a feature test based on a user story, then implementing the feature to make the test pass.
+* `Capybara` is used for feature testing and `rspec` is used for unit testing
+* Tests are configured to output documentation format
+* Suite is configured to automatically connect to the test database before running
+* Test database is 'cleaned' after each test
 
 ### Using the app
 
@@ -156,8 +161,6 @@ Future features include:
 ## User Stories
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing
 I want to post a message (peep) to chitter
@@ -174,8 +177,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -183,8 +184,6 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
