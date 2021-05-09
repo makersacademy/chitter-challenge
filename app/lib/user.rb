@@ -51,7 +51,7 @@ class User
     end
   end
 
-  def initialize(id:, name:, email:, username:, password:)
+  def initialize(id:, name:, email:, username:)
     @id       = id
     @name     = name
     @email    = email
