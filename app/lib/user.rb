@@ -7,8 +7,8 @@ class User
     def create(name:, username:, email:, password:)
       password_hash = BCrypt::Password.create(password)
       sql_string = [
-        "INSERT INTO users (name, username, email, password) VALUES ('#{name}'",
-        ", '#{username}', '#{email}', '#{password_hash}') RETURNING *;"
+        "INSERT INTO users (name, username, email, password) VALUES ($$#{name}$$",
+        ", $$#{username}$$, $$#{email}$$, '#{password_hash}') RETURNING *;"
       ].join
 
       build(query(sql_string)[0])
@@ -42,8 +42,12 @@ class User
     private
 
     def build(data)
-      new(id: data['id'], name: data['name'], email: data['email'],
-        username: data['username'], password: data['password'])
+      new(
+        id: data['id'],
+        name: data['name'],
+        email: data['email'],
+        username: data['username']
+      )
     end
 
     def query(sql_string)
