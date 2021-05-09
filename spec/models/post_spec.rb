@@ -105,14 +105,8 @@ describe Post do
     end
   end
 
-  describe '#username' do
+  describe '#names' do
     it 'returns username of the poster' do
-      post = described_class.create(content: 'Building Chitter', user_id: 1)
-      expect(post.username).to eq 'testname1'
-      expect(post.user_id).to eq '1'
-    end
-
-    it 'works with multiple users in the database' do
       User.create(name: 'test2', email: 'test2@test.com', username: 'testname2', password: 'Test222')
       User.create(name: 'test3', email: 'test3@test.com', username: 'testname3', password: 'Test333')
 
@@ -120,20 +114,12 @@ describe Post do
       post2 = described_class.create(content: 'Taking a break', user_id: 2)
       post3 = described_class.create(content: 'Writing tests', user_id: 3)
 
-      expect(post1.username).to eq 'testname1'
-      expect(post2.username).to eq 'testname2'
-      expect(post3.username).to eq 'testname3'
+      expect(post1.names['username']).to eq 'testname1'
+      expect(post2.names['username']).to eq 'testname2'
+      expect(post3.names['username']).to eq 'testname3'
     end
-  end
 
-  describe '#name' do
     it 'returns name of the poster' do
-      post = described_class.create(content: 'Building Chitter', user_id: 1)
-      expect(post.name).to eq 'test1'
-      expect(post.user_id).to eq '1'
-    end
-
-    it 'works with multiple users in the database' do
       User.create(name: 'test2', email: 'test2@test.com', username: 'testname2', password: 'Test222')
       User.create(name: 'test3', email: 'test3@test.com', username: 'testname3', password: 'Test333')
 
@@ -141,9 +127,9 @@ describe Post do
       post2 = described_class.create(content: 'Taking a break', user_id: 2)
       post3 = described_class.create(content: 'Writing tests', user_id: 3)
 
-      expect(post1.name).to eq 'test1'
-      expect(post2.name).to eq 'test2'
-      expect(post3.name).to eq 'test3'
+      expect(post1.names['name']).to eq 'test1'
+      expect(post2.names['name']).to eq 'test2'
+      expect(post3.names['name']).to eq 'test3'
     end
   end
 end

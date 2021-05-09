@@ -40,7 +40,7 @@
 
 <% @posts.reverse.each do |post| %>
   <article class="post">
-    <p class="name">@<%= post.username %> (<%= post.name %>) posted:</p>
+    <p class="name">@<%= post.names['username'] %> (<%= post.names['name'] %>) posted:</p>
     <textarea class="content" cols="25" rows="4" readonly><%= post.content %></textarea>
     <p class="time"><%= post.time %></p>
   </article>

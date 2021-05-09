@@ -1,5 +1,5 @@
 class Post
-  attr_reader :id, :time, :content, :user_id, :username, :name
+  attr_reader :id, :time, :content, :user_id
 
   class << self
     def create(content:, user_id:)
@@ -51,13 +51,9 @@ class Post
     @time     = time
     @content  = content
     @user_id  = user_id
-    @username = find_names['username']
-    @name     = find_names['name']
   end
 
-  private
-
-  def find_names
+  def names
     DatabaseConnection.query(
       "SELECT name, username FROM users
       INNER JOIN posts ON users.id = posts.user_id
