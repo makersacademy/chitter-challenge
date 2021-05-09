@@ -1,0 +1,47 @@
+<h1>Chitter</h1>
+<img src="/images/favicon.png">
+
+<p><%= flash[:notice] %></p>
+
+<div class="user">
+  <% if @user %>
+    <h2 class="greeting">Hello @<%= @user.username %>!</h2>
+
+    <form action="/posts/new">
+      <input type="submit" value="post">
+    </form>
+
+    <form action="/users/<%= @user.id %>/posts">
+      <input type="submit" value="My posts">
+    </form>
+
+    <form action="/users/<%= @user.id %>/show">
+      <input type="submit" value="My Account">
+    </form>
+
+    <form action="/sessions/<%= @user.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Sign Out">
+    </form>
+
+  <% else %>
+    <form class="sign-in" action="/sessions/new">
+      <input type="submit" value="Sign In">
+    </form>
+
+    <form action="/users/new">
+      <input type="submit" value="Sign Up">
+    </form>
+  <% end %>
+<div>
+
+<h2 class="feed">Feed</h2>
+<h3>Here are the latest posts</h3>
+
+<% @posts.reverse.each do |post| %>
+  <article class="post">
+    <p class="name">@<%= post.names['username'] %> (<%= post.names['name'] %>) posted:</p>
+    <textarea class="content" cols="25" rows="4" readonly><%= post.content %></textarea>
+    <p class="time"><%= post.time %></p>
+  </article>
+<% end %>

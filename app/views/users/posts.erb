@@ -1,0 +1,22 @@
+<h1>Chitter</h1>
+
+<form action="/posts">
+  <input type="submit" value="Back to Feed">
+</form>
+
+<h2>Your posts</h2>
+<% @posts.reverse.each do |post| %>
+  <article class="post">
+    <textarea cols="25" rows="3" class="content"><%= post.content %></textarea>
+    <p class="time"><%= post.time %></p>
+
+    <form action="/posts/<%= post.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input class="delete" type="submit" value="Delete">
+    </form>
+
+    <form action="/posts/<%= post.id %>/edit">
+      <input class="edit" type="submit" value="Edit">
+    </form><br>
+  </article>
+<% end %>
