@@ -6,12 +6,12 @@ class User
   class << self
     def create(name:, username:, email:, password:)
       password_hash = BCrypt::Password.create(password)
-      create_query = [
+      sql_string = [
         "INSERT INTO users (name, username, email, password) VALUES ('#{name}'",
         ", '#{username}', '#{email}', '#{password_hash}') RETURNING *;"
       ].join
 
-      build(query(create_query)[0])
+      build(query(sql_string)[0])
     end
 
     def find(id:)
@@ -19,7 +19,7 @@ class User
     end
 
     def authenticate(username:, password:)
-      data = query("SELECT * FROM users WHERE username = '#{username}'").first
+      data = query("SELECT * FROM users WHERE username = $$#{username}$$").first
       return unless data
       return unless BCrypt::Password.new(data['password']) == password
 
@@ -27,12 +27,12 @@ class User
     end
 
     def update(id:, name:, username:, email:)
-      update_query = [
-        "UPDATE users SET name = '#{name}', ",
-        "username = '#{username}', email = '#{email}' WHERE id = #{id};"
+      sql_string = [
+        "UPDATE users SET name = $$#{name}$$, ",
+        "username = $$#{username}$$, email = $$#{email}$$ WHERE id = #{id};"
       ].join
 
-      query(update_query)
+      query(sql_string)
     end
 
     def delete(id:)
