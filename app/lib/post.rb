@@ -7,6 +7,7 @@ class Post
         "INSERT INTO posts (content, user_id) ",
         "VALUES ($$#{content}$$, #{user_id}) RETURNING *;"
       ].join
+
       build(query(sql_string)[0])
     end
 

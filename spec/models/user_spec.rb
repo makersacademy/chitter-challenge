@@ -8,7 +8,6 @@ describe User do
       expect(user.name).to eq query_user['name']
       expect(user.username).to eq query_user['username']
       expect(user.email).to eq query_user['email']
-      expect(user.password).to eq query_user['password']
     end
 
     it 'encrypts the password' do
@@ -26,7 +25,6 @@ describe User do
       expect(user.name).to eq found_user.name
       expect(user.email).to eq found_user.email
       expect(user.username).to eq found_user.username
-      expect(user.password).to eq found_user.password
     end
   end
 

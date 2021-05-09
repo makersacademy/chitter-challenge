@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User
-  attr_reader :id, :name, :email, :username, :password
+  attr_reader :id, :name, :email, :username
 
   class << self
     def create(name:, username:, email:, password:)
@@ -56,6 +56,5 @@ class User
     @name     = name
     @email    = email
     @username = username
-    @password = password
   end
 end
