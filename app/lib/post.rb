@@ -3,12 +3,11 @@ class Post
 
   class << self
     def create(content:, user_id:)
-      content.gsub!(/'/, "''")
-      create_query = [
+      sql_string = [
         "INSERT INTO posts (content, user_id) ",
-        "VALUES ('#{content}', #{user_id}) RETURNING *;"
+        "VALUES ($$#{content}$$, #{user_id}) RETURNING *;"
       ].join
-      build(query(create_query)[0])
+      build(query(sql_string)[0])
     end
 
     def all
@@ -25,8 +24,7 @@ class Post
     end
 
     def update(id:, content:)
-      content.gsub!(/'/, "''")
-      query("UPDATE posts SET content = '#{content}' WHERE id = #{id};")
+      query("UPDATE posts SET content = $$#{content}$$ WHERE id = #{id};")
     end
 
     def user_posts(user_id:)
@@ -54,10 +52,11 @@ class Post
   end
 
   def names
-    DatabaseConnection.query(
-      "SELECT name, username FROM users
-      INNER JOIN posts ON users.id = posts.user_id
-      WHERE user_id = #{user_id};"
-    ).first
+    sql_string = [
+      "SELECT name, username FROM users INNER JOIN posts ON users.id = ",
+      "posts.user_id WHERE user_id = #{user_id};"
+    ].join
+
+    DatabaseConnection.query(sql_string)[0]
   end
 end
