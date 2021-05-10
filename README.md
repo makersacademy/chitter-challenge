@@ -1,135 +1,84 @@
-Chitter Challenge
-=================
+# Chitter Challenge 🦜
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+[![Build Status](https://travis-ci.org/jasonrowsell/chitter-challenge.svg?branch=master)](https://travis-ci.org/jasonrowsell/chitter-challenge) [![BCH compliance](https://bettercodehub.com/edge/badge/jasonrowsell/chitter-challenge?branch=master)](https://bettercodehub.com/)
 
-Challenge:
--------
+A full-stack web app inspired by the functionality of Twitter. The web app allows the user to create an account, sign-in, and post a peep.
 
-As usual please start by forking this repo.
+**Visit the website here: https://jasonrowsell-chitter.herokuapp.com/**
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+The features built in this project are based on [user stories.](./resources/user_stories.md)
+The features built in this project are structured on a [CRC and process models.](./resources/plan.md)
+The features built in this project were researched with a variety of [resources.](./resources/resources.md)
 
-Features:
--------
+Design, layout, functionality, and features were inspired by Facebook and Twitter.
 
-```
-STRAIGHT UP
+## Screenshots
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+![Sign-up](resources/signup.png)
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+![Feed](resources/feed.png)
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+![Sign-in](resources/signin.png)
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+## Getting Started
 
-HARDER
+To get started with the app, clone the repo then install the required gems:
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+```sh
+bundle install --without production
 ```
 
-Technical Approach:
------
+Next, migrate the database:
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+```sh
+rails db:migrate
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Run the test suite to verify that everything is working correctly.
+
+```sh
+rails test
+```
+
+If the test suite passes, run the app in a local server:
+
+```sh
+rails server
+```
+
+## Features
+
+- Create an account
+- Sign in with created account
+- Post a (message) peep to the feed
+- View all (messages) peeps on the main feed
+- View own (messages) peeps on the profile feed
+- View (messages) peeps of the chosen user's feed
+- View other user profiles
+- Remain logged in (remember token)
+- Log out
+
+## Built Using
+
+- HTML
+- CSS (Bootstrap)
+- JavaScript
+- jQuery
+- Ruby
+- Ruby on Rails
+- PostgreSQL
+
+### To-do
+
+- Email verification
+- View all users
+- Edit and delete peeps
+- Followers
+- Likes
+- Reposts
+- Edit credentials
+- User bio
+- Forgotten password reset
+- Edit user (pfp, name)
+- Two-factor authentication
+- Image posts

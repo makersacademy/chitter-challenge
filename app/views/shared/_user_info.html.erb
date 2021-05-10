@@ -1,0 +1,4 @@
+<%= link_to pfp_for(current_user), current_user %>
+<h1><%= current_user.name %></h1>
+<span><%= link_to "view my profile", current_user %></span>
+<span><%= pluralize(current_user.peeps.count, "peep") %></span>
