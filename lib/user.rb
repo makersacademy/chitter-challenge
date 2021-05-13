@@ -1,7 +1,6 @@
 require 'pg'
 require_relative './exceptions.rb'
-require 'dotenv'
-Dotenv.load
+require_relative 'query'
 
 class User
 
@@ -28,30 +27,26 @@ class User
     @current = User.new('Anonymous', 'anon', 0)
   end
 
-  def self.current
-    @current
+  class << self
+    attr_reader :current
   end
 
   def self.add(name:, username:, email:, password:, picture: 'https://www.iconbolt.com/iconsets/streamline-emoji/speaking-head.svg')
     raise AlreadyRegisteredError if registered?(username, email)
     
-    id = query("INSERT INTO users (name, username, email, password, picture) VALUES('#{name}','#{username}','#{email}','#{password}','#{picture}') RETURNING id;").first[:id]
+    id = Query.run("INSERT INTO users (name, username, email, password, picture) VALUES('#{name}','#{username}','#{email}','#{password}','#{picture}') RETURNING id;").first[:id]
     set_current(name, username, id)
   end
 
   def self.registered?(username, email)
-    query("SELECT * FROM  users WHERE username = '#{username}' AND email = '#{email}';") != []
+    Query.run("SELECT * FROM  users WHERE username = '#{username}' AND email = '#{email}';") != []
   end
 
   def self.correct_password(username, password)
-    results = query("SELECT name, id FROM users WHERE username = '#{username}' AND password = '#{password}';").first
-    raise LogInError if results == nil
-    results
-  end
+    results = Query.run("SELECT name, id FROM users WHERE username = '#{username}' AND password = '#{password}';").first
+    raise LogInError if results.nil?
 
-  def self.query(query_string)
-    results = PG.connect(dbname: "chitter#{ENV['ENVIRONMENT']}", user: "#{ENV['PG_USERNAME']}", password: "#{ENV['PG_PASSWORD']}").exec(query_string)
-    results.map { |result| result.transform_keys(&:to_sym) }
+    results
   end
 
 end

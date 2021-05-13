@@ -8,6 +8,6 @@ group :test do
 end
 
 gem 'capybara'
+gem 'dotenv'
 gem 'pg'
 gem 'sinatra'
-gem 'dotenv'
