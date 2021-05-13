@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-Picture
+![Picture](./screenshots/home.png)
 
 About
 -------
