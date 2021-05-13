@@ -99,7 +99,7 @@ img {
   </div>
 
   <div class="header-buttons">
-    <% if @user.id == 1 %>
+    <% if @user.id == 0 %>
       <form action="/login" method="get">
         <button name="Submit" type="submit" class="header-button">Sign In</button>
       </form>
@@ -115,7 +115,7 @@ img {
 <div class="column">
 
   <div class="new-item">
-    <% if @user.id != 1 %>
+    <% if @user.id != 0 %>
       <p></p><p>Hi <%= @user.name %>! Send a peep below</p>
     <% end %>
     <p>New Peep:</p>

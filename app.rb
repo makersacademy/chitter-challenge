@@ -40,7 +40,6 @@ class ChitterWebApp < Sinatra::Base
 
   post '/users' do
     User.add(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    # User.set_current(name: params[:name], username: params[:username])
     redirect '/'
   end
 
@@ -58,7 +57,6 @@ class ChitterWebApp < Sinatra::Base
 
   error AlreadyRegisteredError do
     session[:error] = 'register'
-    # redirect '/login'
   end
 
   error LogInError do
