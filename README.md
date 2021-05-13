@@ -43,17 +43,47 @@ I want to log out of Chitter
 
 ```
 
+Set Up
+----
+### Requirements
+You need to have ruby and postgreSQL installed
+```
+https://www.ruby-lang.org/en/downloads/
+https://www.postgresql.org/download/
+```
+
+### Getting Started
+
+To get started clone this repo locally
+```
+git clone https://github.com/peter-james-allen/chitter-challenge.git
+```
+
+In the root folder run bundle to fetch dependancies
+```
+bundle install
+```
+
+Create a .env file in the root folder with your postgreSQL username and password
+```
+PG_USERNAME=your_username
+PG_PASSWORD=your_password
+```
+
+Run the postgreSQL db migrations
+```
+psql -f db\migrations\01_create_chitter_db.sql
+```
+
+You are now ready to go!
+
 User Guide
 ----
-### Start
-
-To get started clone this repo locally and then ................
-
-To start the program run rackup in the terminal in the root folder:
+To start the program run rackup in the terminal in the root folder
 ```
 rackup
 ```
-Then open your broswer and enter the url:
+Then open your broswer and enter the url
 ```
 localhost:9292
 ```
