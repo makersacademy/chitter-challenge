@@ -1,5 +1,5 @@
-CREATE DATABASE chitter;
-\c chitter;
+CREATE DATABASE chitter_test;
+\c chitter_test;
 CREATE TABLE tags (id SERIAL PRIMARY KEY, name VARCHAR);
 CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR, username VARCHAR, picture VARCHAR, email VARCHAR, password VARCHAR);
 CREATE TABLE peeps (id SERIAL PRIMARY KEY, FOREIGN KEY (user_id) REFERENCES users(id), user_id INT, "text" VARCHAR, date VARCHAR); 
