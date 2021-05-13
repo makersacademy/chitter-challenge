@@ -1,21 +1,15 @@
-This is my final submission for the Makers Academy Week 4 Challenge
-
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Picture
 
-Challenge:
+About
 -------
+This is a challenge to create a simple twitter clone that allows users to post messages to a public stream. This was my first attempt at creating a full-stack web app.
 
-As usual please start by forking this repo.
+Users can see all messages when they visit the page and have the option of posting anonymously. They can also sign up and then post to the message stream. All messages show the name, username, message content and time the message was posted. To view all messages posted by a user you can click on their username. Hastags can be used in the messages and when posted to the message stream they can be clicked; this will return a page will all messages that have hte same hashtags.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+User Stories
 -------
 
 ```
@@ -47,39 +41,13 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
 
 User Guide
 ----
 ### Start
+
+To get started clone this repo locally and then ................
 
 To start the program run rackup in the terminal in the root folder:
 ```
@@ -95,7 +63,7 @@ You are now on the Chitter homepage
 To send a peep to the timeline add your message in the box below, then hit enter or click on submit. The peep will appear on the timeline as an anonymous user with the date and time of submission. The timeline shows all peeps that have been submitted from newest to oldest. You can enter hashtags on your messages which can then be searched for later on.
 
 ### Sign up
-To sign up fro an account click on the 'Sign In' button in the top right hand corner, then click on the 'Sign Up' button, you will then be asked to enter your name, email, username and password. One you have doen this you will b automatically logged in and returned to the homepage. Note: An error will be raised if you try to sign up with a username and email combination that is already registered.
+To sign up for an account click on the 'Sign In' button in the top right hand corner, then click on the 'Sign Up' button, you will then be asked to enter your name, email, username and password. One you have doen this you will be automatically logged in and returned to the homepage. Note: An error will be raised if you try to sign up with a username and email combination that is already registered.
 
 ### Sign In
 If you already have an account then click on the 'Sign In' button in the top right hand corner. Enter your username and password and click 'Sign In'. You will then be logged in and returned to the homepage. If you enter the incorrect username and password an error will be raised. Once you have signed in any peeps you send will be tagged with your name and username.
@@ -108,3 +76,6 @@ If you would like to see all peeps by one user then click on a username in the t
 
 ### Hastags
 If you would like to see all the peeps that mention a specific hashtag then click on a hashtag in the timeline. You will then be re-directed to a page showing all peeps that contain that hashtag. The peeps are displayed as per the homepage on a timeline from newest to oldest.
+
+Testing
+----
