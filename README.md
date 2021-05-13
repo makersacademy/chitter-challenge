@@ -109,3 +109,13 @@ If you would like to see all the peeps that mention a specific hashtag then clic
 
 Testing
 ----
+
+Testing was done with Rspec. To run the test suite first you have to create a test database
+```
+psql -f db\migrations\00_create_chitter_test_db.sql
+```
+
+You can now run the tests
+```
+rspec
+```
