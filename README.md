@@ -43,7 +43,7 @@ I want to log out of Chitter
 
 ```
 
-Set Up
+Installation
 ----
 ### Requirements
 You need to have ruby and postgreSQL installed
@@ -52,7 +52,7 @@ https://www.ruby-lang.org/en/downloads/
 https://www.postgresql.org/download/
 ```
 
-### Getting Started
+### Set Up
 
 To get started clone this repo locally
 ```
@@ -75,19 +75,19 @@ Run the postgreSQL db migrations
 psql -f db\migrations\01_create_chitter_db.sql
 ```
 
-You are now ready to go!
+You are now ready to go. Check out the user guide to get started
 
 User Guide
 ----
-To start the program run rackup in the terminal in the root folder
+To start the program run rackup in the root folder
 ```
 rackup
 ```
-Then open your broswer and enter the url
+Then open your broswer navigate to
 ```
 localhost:9292
 ```
-You are now on the Chitter homepage
+You are now on the Chitter homepage!
 
 ### Add a peep
 To send a peep to the timeline add your message in the box below, then hit enter or click on submit. The peep will appear on the timeline as an anonymous user with the date and time of submission. The timeline shows all peeps that have been submitted from newest to oldest. You can enter hashtags on your messages which can then be searched for later on.
