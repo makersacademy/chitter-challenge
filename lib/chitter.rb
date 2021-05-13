@@ -1,7 +1,8 @@
 require 'pg'
 require_relative './peep'
 require_relative './tag'
-
+require 'dotenv'
+Dotenv.load
 
 class Chitter
 
@@ -24,7 +25,7 @@ class Chitter
   end
 
   def self.query(query_string)
-    results = PG.connect(dbname: "chitter#{ENV['ENVIRONMENT']}").exec(query_string)
+    results = PG.connect(dbname: "chitter#{ENV['ENVIRONMENT']}", user: "#{ENV['PG_USERNAME']}", password: "#{ENV['PG_PASSWORD']}").exec(query_string)
     results.map { |result| result.transform_keys(&:to_sym) }
   end
 

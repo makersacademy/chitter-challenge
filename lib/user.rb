@@ -11,7 +11,7 @@ class User
     @id = id
   end
 
-  @current = User.new('Anonymous', 'anon', 1)
+  @current = User.new('Anonymous', 'anon', 0)
 
   def self.set_current(name, username, id)
     @current = User.new(name, username, id)
