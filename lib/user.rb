@@ -25,7 +25,7 @@ class User
   end
 
   def self.log_out
-    @current = User.new('Anonymous', 'anon', 1)
+    @current = User.new('Anonymous', 'anon', 0)
   end
 
   def self.current
