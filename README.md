@@ -5,7 +5,7 @@ Chitter Challenge
 
 About
 -------
-This is a challenge to create a simple twitter clone that allows users to post messages to a public stream. This was my first attempt at creating a full-stack web app.
+This is a challenge to create a twitter clone that allows users to post messages to a public stream. This was my first attempt at creating a full-stack web app.
 
 Users can see all messages when they visit the page and have the option of posting anonymously. They can also sign up and then post to the message stream. All messages show the name, username, message content and time the message was posted. To view all messages posted by a user you can click on their username. Hastags can be used in the messages and when posted to the message stream they can be clicked; this will return a page will all messages that have hte same hashtags.
 
