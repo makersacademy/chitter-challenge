@@ -1,0 +1,52 @@
+<style>
+.header {
+  text-align:center;
+  padding:40px;
+  color:#1DA1F2;
+  text-size:5px;
+  font-size: 40px;
+  font-family:arial;
+}
+input {
+  padding: 5px;
+  width: 200px;
+  margin-left:25%;
+  margin-top:10px;
+}
+
+.header-button {
+  border-radius: 25px;
+  color: white;  
+  background-color:#1DA1F2;
+  font-family:arial;
+  padding:5px;
+  border: none;
+  margin: 0 auto;
+  width:100px;
+  margin-top:10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+</style>
+
+<h1 class="header">Sign in to Chitter</h1>
+
+<div class="container">
+<form method="post" action="/login">
+  <input type="text" name="username" placeholder="Username" />
+  <input type="password" name="password" placeholder="Password" />
+  <div class="container">
+    <input type="submit" class="header-button" value="Sign In" />
+  </div>
+</form>
+</div>
+
+<h1 class="header">Don't have an account?</h1>
+<div class="container">
+<form action="/users/new" method="get">
+    <input type="submit" class="header-button" value="Sign Up" />
+</form>
+</div>

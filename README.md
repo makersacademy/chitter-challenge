@@ -1,19 +1,15 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+![Picture](./screenshots/home.png)
 
-Challenge:
+About
 -------
+This is a challenge to create a twitter clone that allows users to post messages to a public stream. This was my first attempt at creating a full-stack web app.
 
-As usual please start by forking this repo.
+Users can see all messages when they visit the page and have the option of posting anonymously. They can also sign up and then post to the message stream. All messages show the name, username, message content and time the message was posted. To view all messages posted by a user you can click on their username. Hastags can be used in the messages and when posted to the message stream they can be clicked; this will return a page will all messages that have hte same hashtags.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+User Stories
 -------
 
 ```
@@ -45,91 +41,81 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+Installation
+----
+### Requirements
+You need to have ruby and postgreSQL installed
+```
+https://www.ruby-lang.org/en/downloads/
+https://www.postgresql.org/download/
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Set Up
+
+To get started clone this repo locally
+```
+git clone https://github.com/peter-james-allen/chitter-challenge.git
+```
+
+In the root folder run bundle to fetch dependancies
+```
+bundle install
+```
+
+Create a .env file in the root folder with your postgreSQL username and password
+```
+PG_USERNAME=your_username
+PG_PASSWORD=your_password
+```
+
+Run the postgreSQL db migrations
+```
+psql -f db\migrations\01_create_chitter_db.sql
+```
+
+You are now ready to go. Check out the user guide to get started
+
+User Guide
+----
+To start the program run rackup in the root folder
+```
+rackup
+```
+Then open your broswer navigate to
+```
+localhost:9292
+```
+You are now on the Chitter homepage!
+
+### Add a peep
+To send a peep to the timeline add your message in the box below, then hit enter or click on submit. The peep will appear on the timeline as an anonymous user with the date and time of submission. The timeline shows all peeps that have been submitted from newest to oldest. You can enter hashtags on your messages which can then be searched for later on.
+
+### Sign up
+To sign up for an account click on the 'Sign In' button in the top right hand corner, then click on the 'Sign Up' button, you will then be asked to enter your name, email, username and password. One you have doen this you will be automatically logged in and returned to the homepage. Note: An error will be raised if you try to sign up with a username and email combination that is already registered.
+
+### Sign In
+If you already have an account then click on the 'Sign In' button in the top right hand corner. Enter your username and password and click 'Sign In'. You will then be logged in and returned to the homepage. If you enter the incorrect username and password an error will be raised. Once you have signed in any peeps you send will be tagged with your name and username.
+
+### Sign out
+To sign out, click on the 'Sign Out' button in the top right hand corner. You will be signed out and returned to the homepage.
+
+### Usernames
+If you would like to see all peeps by one user then click on a username in the timeline. You will then be re-directed to a page showing peeps by only that user. The peeps are displayed as per the homepage on a timeline from newest to oldest.
+
+### Hastags
+If you would like to see all the peeps that mention a specific hashtag then click on a hashtag in the timeline. You will then be re-directed to a page showing all peeps that contain that hashtag. The peeps are displayed as per the homepage on a timeline from newest to oldest.
+
+Testing
+----
+
+Testing was done with Rspec. To run the test suite first you have to create a test database
+```
+psql -f db\migrations\00_create_chitter_test_db.sql
+```
+
+You can now run the tests
+```
+rspec
+```

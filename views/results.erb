@@ -1,0 +1,131 @@
+<style>
+
+.header {
+  text-align:center;
+  padding:40px;
+  color:#1DA1F2;
+  text-size:5px;
+  font-size: 40px;
+  font-family:arial;
+}
+.column {
+  width: 60%;
+  padding-left:20%;
+}
+.item {
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 5px;
+}
+img {
+  border-radius: 50%;
+  height: 50px;
+  grid-row: 1 / 4;
+}
+.item-grid {
+  display: grid;
+  grid-template-columns: 75px auto;
+  grid-template-rows: 50px auto 25%;
+  white-space: normal;
+  overflow: hidden;
+  font-family:arial;
+  padding:25px;
+}
+.header-grid {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+.header-buttons {
+  text-align:center;
+  padding:20px;
+}
+.header-button {
+  border-radius: 25px;
+  color: white;  
+  background-color:#1DA1F2;
+  font-family:arial;
+  margin:5px;
+  padding:5px;
+  border: none;
+  margin-top:30px;
+}
+.header-button2 {
+  text-align:center;
+  border-radius: 25px;
+  color: white;  
+  background-color:#1DA1F2;
+  font-family:arial;
+  margin-top:5px;
+  margin-left:20px;
+  border: none
+}
+.new-item {
+  display: grid;
+  grid-template-columns: 75px auto;
+  grid-template-rows: auto auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 5px;
+  font-family:arial;
+  padding:25px;
+  margin-bottom:20px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: auto 75px;
+  padding-top:15px;
+}
+
+.text_input
+{
+  width:100%;
+  height:40px;
+  resize: none;
+  border-color: lightgrey;
+}
+
+</style>
+
+<body>
+
+<div class="header-grid">
+
+  <div></div>
+
+  <div class="header">
+    <b><%=@header%></b>
+  </div>
+
+  <div class="header-buttons">
+    <% if @user.id == 1 %>
+      <form action="/login" method="get">
+        <button name="Submit" type="submit" class="header-button">Sign In</button>
+      </form>
+    <% else %>
+      <form action="/logout" method="get">
+        <button name="Submit" type="submit" class="header-button">Sign Out</button>
+      </form>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="column">
+
+  <% @peeps.each do |peep| %>
+
+  <div class="item">
+    <div class="item-grid">
+      <img src="<%= peep.picture %>" alt="Avatar">
+      <p>@<%= peep.username %></p>
+      <p><%= peep.text.split().map { |word| word[0]=='#' ? "<a href='/tags/#{word[1..]}'>#{word}</a>" : word}.join(" ")%></p>
+      <p><%= peep.date %></p>
+    </div>
+  </div>
+  <% end %>
+
+</div>
+
+</body>
