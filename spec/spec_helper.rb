@@ -1,3 +1,5 @@
+require_relative './setup_test_database'
+
 ENV['ENVIRONMENT'] = 'test'
 ENV['RACK_ENV'] = 'test'
 
@@ -16,7 +18,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-Capybara.app = App
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.after(:suite) do
