@@ -1,5 +1,9 @@
-<ul>
+<html>
+<body style="background-color: #1DA1F2; text-align:center font-color: white;">
+<link rel="stylesheet" href="./stylesheets/application.css">
+<div class="layout">
+      <img id="main-image" src="/img/chitter2.png" alt="Chitter logo" width="500px"><ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <h2><li><%= peep %></li></h2>
   <% end %>
 </ul>

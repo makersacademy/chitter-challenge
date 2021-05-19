@@ -9,15 +9,11 @@ class Chitter < Sinatra::Base
   end
   
   get '/' do
-    'Chitter'
+    erb :'index'
   end
 
   get '/peeps' do
-    @peeps = [
-              "peeps",
-              "hello world"
-             ]
-  
+    @peeps = Peep.all
     erb :'peeps/feed'
   end
 
@@ -28,6 +24,10 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     Peep.create(message: params[:message])
     redirect '/peeps'
+  end
+
+  get '/signup' do
+    'hello'
   end
 
   run! if app_file == $0
