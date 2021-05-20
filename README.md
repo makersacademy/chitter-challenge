@@ -17,6 +17,22 @@ How to install and run the tests
 --------------------------------
 || PLACEHOLDER ||
 
+$ git clone https://github.com/BecaLParker/chitter-challenge
+
+$ bundle
+
+$ rake setup
+
+$ rake migrate
+
+$ rspec
+
+$ rackup
+
+
+screenshots of how the app works, or perhaps even a link to the deployed version on heroku?
+
+
 
 Features
 -------
