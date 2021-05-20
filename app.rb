@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/message'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -8,15 +9,14 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-get '/' do
-  @peeps = ['Message 1', 'Message 2']
-  @peeps << session[:peep]
-  erb(:index)  
-end
+  get '/' do
+    @peeps = Message.all
+    erb(:index)  
+  end
 
-post '/' do
-  session[:peep] = params['peep']
-  redirect('/')
-end
+  post '/' do
+    Message.post(params['peep'])
+    redirect('/')
+  end
 
 end
