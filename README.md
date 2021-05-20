@@ -1,5 +1,5 @@
-BecaLParker's Solution to Chitter Challenge
-===========================================
+:hatched_chick: BecaLParker's Solution to Chitter Challenge :hatched_chick:
+============================================================================
 
 What does this code do?
 -----------------------
