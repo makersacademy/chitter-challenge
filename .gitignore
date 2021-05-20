@@ -5,4 +5,4 @@
 .rubocop-*
 
 # html debugging files
-capybara*.html
+capybara-*.html
