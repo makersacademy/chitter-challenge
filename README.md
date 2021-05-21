@@ -1,7 +1,8 @@
-BecaLParker's Solution to Chitter Challenge: 
+BecaLParker's Solution to Chitter Challenge: ![Quackie](https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Femoji.slack-edge.com%2FT03ALA7H4%2Frubberducking%2F1e5dc51b1afe3651.png)
 
-:hatching_chick::speech_balloon: QUACKIE'S DUCKBOARD :hatching_chick::speech_balloon:
+:speech_balloon: QUACKIE'S DUCKBOARD :speech_balloon: 
 ============================================================================
+
 
 What does this code do?
 -----------------------
