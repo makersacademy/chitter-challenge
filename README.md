@@ -1,9 +1,9 @@
-:hatched_chick: BecaLParker's Solution to Chitter Challenge :hatched_chick:
+:hatching_chick::speech_balloon:BecaLParker's Solution to Chitter Challenge: QUACKIE'S DUCKBOARD :hatching_chick::speech_balloon:
 ============================================================================
 
 What does this code do?
 -----------------------
-It is a small Twitter clone that will allow users to post messages to a public stream.
+In honour of Quackie (the Makers' Academy rubberducky debugger), I've made a small Twitter clone that will allow users (**Quackers**) to post messages (**Quacks**) to a public stream (**the Duckboard**).
 
 Credits
 -------
