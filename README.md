@@ -31,7 +31,11 @@ $ git clone https://github.com/BecaLParker/chitter-challenge
 
 $ bundle
 
-> #Something about creating the test and live databases
+> Setup the databases on your local machine:
+> Connect to psql
+> Create the database using the psql command `CREATE DATABASE bookmark_manager;`
+> connect to the database using the pqsl command `\c bookmark_manager;`
+> Run the query I have saved in the file [01_create_quacks_table.sql]()
 
 $ rspec
 
