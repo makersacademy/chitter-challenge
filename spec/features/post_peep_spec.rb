@@ -5,7 +5,7 @@
 feature 'posting a message' do
   scenario 'user can post a message to chitter' do
     visit('/chitter/new')
-    fill_in('message', with: 'This is my first peep!')
+    fill_in('text', with: 'This is my first peep!')
     click_button('Submit')
     expect(page).to have_content('This is my first peep!')
   end
