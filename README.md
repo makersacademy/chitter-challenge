@@ -10,7 +10,8 @@ In honour of Quackie (the Makers' Academy rubberducky debugger), I've made a sma
 
 Here are the [Class Responsibility Cards](https://docs.google.com/spreadsheets/d/11LzZXDbAgK_YshhwBttdjJfsn3WNQv_rbeffG_7G9rg/edit?usp=sharing) I made to plan this build.
 
->Next steps: Currently, users can post **quacks** as a **guest quacker** (i.e. entering a display name and message content).  
+>Next steps:  
+>Currently, users can post **quacks** as a **guest quacker** (i.e. entering a display name and message content).  
 >I plan to implement more detailed login/logout functionality (requiring username/password etc.) in a later phase of the build.
 
 Credits
