@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/message.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -12,8 +13,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    p session
-    session[:message]
+    @messages = Message.all
+    erb(:'chitter/index')
   end
 
   get '/chitter/new' do
@@ -21,9 +22,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    session[:message] = params[:message] 
+
     redirect ('/chitter')
   end
-
-  run! if app_file == $0
+  
 end
