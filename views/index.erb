@@ -8,7 +8,7 @@
     <li>
     <i>"<%= quack.message %>"</i>
     quacked by <%= quack.display_name %>,
-    at <%= quack.time_stamp %>
+    at <%= quack.time_stamp[0...-10] %>
     </li>
   <% end %>
 </ul>

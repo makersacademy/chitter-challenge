@@ -1,4 +1,8 @@
 # frozen_string_literal: true
+require_relative './setup_test_database'
+
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require 'rspec'
 require 'capybara'
@@ -14,6 +18,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 Capybara.app = DuckBoard
+
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     setup_test_database
+#   end
+# end
 
 RSpec.configure do |config|
   config.after(:suite) do
