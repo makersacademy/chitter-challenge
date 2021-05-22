@@ -44,6 +44,7 @@ Able to create and add a chirp.
 Added a title column to both database tables.
 Refactored spec tests and code.
 User is now able to delete a chirp
+User is now able to comment on chirps.
 
 ## Code style
 

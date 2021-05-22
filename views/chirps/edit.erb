@@ -1,0 +1,6 @@
+<form action="/chirps/<%= @chirp.id %>" method="post">
+    <input type="hidden" name="_method" value="PATCH" />
+    <input type="text" name="title" value="<%= @chirp.title %>"/>
+    <input type="text" name="chirp" value="<%= @chirp.chirp %>"/>
+    <input type="submit" value="Submit" />
+</form>

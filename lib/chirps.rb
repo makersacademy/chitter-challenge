@@ -1,4 +1,6 @@
 require 'pg'
+require_relative 'database_connection'
+require_relative './comment.rb'
 
 class Chirps
 
@@ -11,35 +13,40 @@ class Chirps
     end
 
     def self.all
-        if ENV['RACK_ENV'] = 'test'
-            connection = PG.connect(dbname: 'chitter_test')
-        else
-            connection = PG.connect(dbname: 'chitter')
-        end
-        result = connection.exec("SELECT * FROM chirps")
+        result = DatabaseConnection.query("SELECT * FROM chirps")
         result.map do |chirp|
-            Chirps.new(id: chirp['id'], title: chirp['title'], chirp: chirp['chirp'])
-          end
+        Chirps.new(
+            chirp: chirp['chirp'],
+            title: chirp['title'],
+            id: chirp['id']
+        )
+    end
     end
 
     def self.create(chirp:, title:)
-        if ENV['RACK_ENV'] == 'test'
-            connection = PG.connect(dbname: 'chitter_test')
-        else
-            connection = PG.connect(dbname: 'chitter')
-        end
-        result = connection.exec("INSERT INTO chirps (title, chirp) VALUES('#{title}', '#{chirp}') RETURNING id, chirp, title")
+        result = DatabaseConnection.query("INSERT INTO chirps (title, chirp) VALUES('#{title}', '#{chirp}') RETURNING id, chirp, title")
         Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'])
     end
 
     def self.delete(id:)
-        if ENV['RACK_ENV'] == 'test'
-            connection = PG.connect(dbname: 'chitter_test')
-        else
-            connection = PG.connect(dbname: 'chitter')
-        end
-        connection.exec("DELETE FROM chirps WHERE id = #{id}")
+        DatabaseConnection.query("DELETE FROM chirps WHERE id = #{id}")
     end
     
+    def self.update(id:, chirp:, title:)
+        result = DatabaseConnection.query("UPDATE chirps SET chirp = '#{chirp}', title = '#{title}' WHERE id = #{id} RETURNING id, chirp, title;")
+        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'])
+    end
+
+    def self.find(id:)
+        result = DatabaseConnection.query("SELECT * FROM chirps WHERE id = #{id};")
+        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'])
+    end
+
+    # def comments
+    #     DatabaseConnection.query("SELECT * FROM comments WHERE chirp_id = #{id};")
+    # end
+    def comments(comment_class = Comment)
+        comment_class.where(chirp_id: id)
+    end
 
 end

@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/chirps'
+require_relative './lib/comment'
+require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
     configure :development do
@@ -24,6 +26,26 @@ class Chitter < Sinatra::Base
 
     delete '/chirps/:id' do
         Chirps.delete(id: params[:id])
+        redirect '/chirps'
+    end
+
+    get '/chirps/:id/edit' do
+        @chirp = Chirps.find(id: params[:id])
+        erb(:'chirps/edit')
+    end
+
+    patch '/chirps/:id' do
+        Chirps.update(id: params[:id], title: params[:title], chirp: params[:chirp])
+        redirect('/chirps')
+    end
+
+    get '/chirps/:id/comments/new' do
+        @chirp_id = params[:id]
+        erb :'comments/new'
+    end
+
+    post '/chirps/:id/comments' do
+        Comment.create(text: params[:comment], chirp_id: params[:id])
         redirect '/chirps'
     end
 

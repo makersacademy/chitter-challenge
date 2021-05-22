@@ -19,6 +19,17 @@
                     <input type='hidden' name='_method' value='DELETE'/>
                     <input type="submit" value="Delete" />
                 </form>
+                <form action="/chirps/<%= chirp.id %>/edit" method="get">
+                    <input type="submit" value="Edit" />
+                </form>
+                <form action="/chirps/<%= chirp.id %>/comments/new" method="get">
+                    <input type="submit" value="Comment" />
+                </form>
+                <ul>
+                    <% chirp.comments.each do |comment| %>
+                    <li><%= comment.text %></li>
+                    <% end %>
+                </ul>
             </li>
         <% end %>
     </ul>
