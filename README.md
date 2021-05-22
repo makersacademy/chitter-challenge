@@ -20,7 +20,7 @@ Here are the [Class Responsibility Cards](https://docs.google.com/spreadsheets/d
 Credits
 -------
 I referred to the [code review rubric](https://github.com/makersacademy/chitter-challenge/blob/master/docs/review.md) for this challenge during my build.   
-I discussed Spearation of Concerns with a non-Rubyist Dev [@allymparker](https://github.com/allymparker) to decide if it was OK for the SQL query to handle the 'reverse chronological order' part of the [user stories](https://github.com/BecaLParker/chitter-challenge#features), or if that should be a responsibility of the view layer.
+I discussed Spearation of Concerns with a non-Rubyist Dev [@allymparker](https://github.com/allymparker) in realtion to the [user stories](https://github.com/BecaLParker/chitter-challenge#features).
 
 Technologies used
 -----------------
@@ -35,8 +35,7 @@ Use these commands in your terminal:
 
 > Setup the databases on your local machine:  
 > Connect to `psql`
-> Create the live database and test database using the psql command `CREATE DATABASE duckboard;`  
-> `CREATE DATABASE duckboard_test;`  
+> Create the live database and test database using the psql command `CREATE DATABASE duckboard;`    
 > Connect to the database using the pqsl command `\c duckboard;`  
 > Run the querys I have saved in the [migrations files](https://github.com/BecaLParker/chitter-challenge/tree/main/db/migrations) 
 > exit psql `\q`
