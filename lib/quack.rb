@@ -20,9 +20,10 @@ class Quack
                  end
 
     result = connection.exec('SELECT * FROM quacks;')
-    result.map do |quack|
+    arr = result.map do |quack|
       Quack.new(id: quack['id'], message: quack['message'], display_name: quack['display_name'],
                 time_stamp: quack['time_stamp'])
     end
+    arr.reverse
   end
 end

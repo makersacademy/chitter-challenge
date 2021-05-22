@@ -15,9 +15,9 @@ describe '.all' do
 
     # expect(quacks.length).to eq 3
     expect(quacks.first).to be_a Quack
-    # expect(quacks.first.id).to eq "1"
-    expect(quacks.first.display_name).to eq 'Quackie'
-    expect(quacks.first.message).to eq 'Love is strength'
+    expect(quacks.first.id.to_i).to be > quacks.last.id.to_i
+    expect(quacks.first.display_name).to eq 'Duck_Tape'
+    expect(quacks.first.message).to eq 'The last word'
     expect(quacks.first.time_stamp).to include loadhour
   end
 end
