@@ -12,9 +12,13 @@ Building a replica of the twitter app that will allow user to
 
 ### User Stories
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+As a maker<br>
+So that I can see what others are saying<br>  
+I want to see all peeps in reverse chronological order<br>
+
+As a user<br>
+So I can store bookmark data for later retrieval<br>
+I want to add a bookmark to Bookmark Manager<br>
 
 ### Bonus
 
