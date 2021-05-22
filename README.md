@@ -1,3 +1,71 @@
+# Project Title
+## Chitter
+
+### Motivation
+
+Building a replica of the twitter app that will allow user to
+* Sign up and register
+* Login or logout
+* Post a chit
+* Delete a chit
+* Comment on shits
+
+### User Stories
+
+
+### Bonus
+
+
+## Build status
+Initial commit included
+* A README file
+* Forked the repo 
+* Created a gemfile with dependencies
+* Edited spec_helper 
+* Created app.rb
+* Crated config.ru
+* Pass the first test to display a home page.
+
+## Code style
+
+
+## Tech/Framework used
+* VS Code
+
+## Built with
+* Ruby
+* Sinatra (http://sinatrarb.com/documentation.html)
+* PostgreSQL (https://www.postgresql.org/docs/current/)
+* Rspec (https://relishapp.com/rspec)
+* Capybara (https://rubydoc.info/github/teamcapybara/capybara/master)
+* Shotgun (https://github.com/rtomayko/shotgun)
+* Flash (https://gist.github.com/cmkoller/0d3b048b3c4b48ee4955)
+* HTML 
+* CSS
+
+## Installation
+
+### Setting Up a PostgreSQL Database
+
+## Tests
+
+## Screenshots
+
+<img src="./public/images/" width="50%">
+<img src="./public/images/" width="50%">
+
+## How to use?
+
+## Credits
+* JP Ferreira
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
