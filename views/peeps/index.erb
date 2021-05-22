@@ -1,8 +1,8 @@
 <h2>Peeps<h2>
-
+<div>
 <ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep.content %></li>
+  <% @peeps.reverse.each do |peep| %>
+    <li class="peep"><%= peep.content %></li>
   <% end %>
 </ul>
-
+</div>
