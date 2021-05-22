@@ -12,7 +12,10 @@
 
     <ul>
         <% @chirps.each do |chirp| %>
-            <li><%= chirp %></li>
+            <li>
+                <h3><%= chirp.title %></h3>
+                <p><%= chirp.chirp %></p>
+            </li>
         <% end %>
     </ul>
 

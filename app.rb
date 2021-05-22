@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/chirps'
 
 class Chitter < Sinatra::Base
     configure :development do
@@ -16,10 +17,7 @@ class Chitter < Sinatra::Base
     end
 
     post '/chirps' do
-        # chirp = params['chirp']
-        # connection = PG.connect(dbname: 'chitter_test')
-        # connection.exec("INSERT INTO chirps (chirp) VALUES('#{chirp}')")
-        Chirps.create(chirp: params[:chirp])
+        Chirps.create(chirp: params[:chirp], title: params[:title])
         redirect('/chirps')
     end
 

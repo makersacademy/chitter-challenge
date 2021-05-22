@@ -41,6 +41,8 @@ Created the databases for chitter.
 * Added the both databases anad tables to TablePlus.
 Setup RSpec and Capybara to use test databases.
 Able to create and add a chirp.
+Added a title column to both database tables.
+Refactored spec tests and code
 
 ## Code style
 
