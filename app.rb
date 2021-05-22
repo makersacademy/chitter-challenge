@@ -2,6 +2,8 @@ require 'byebug'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
+require_relative './lib/peep'
+
 
 class ChitterApp < Sinatra::Base
   configure :development do
@@ -26,6 +28,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
+    p @peeps
     erb :'peeps/index'
   end 
 
