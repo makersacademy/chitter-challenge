@@ -9,9 +9,9 @@ describe '.all' do
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Love is strength', 'Quackie');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Dream it, be it', 'T0ilet_duck');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('The last word', 'Duck_Tape');")
-    
+
     quacks = Quack.all
-    loadhour = Time.now.strftime("%F %H:")
+    loadhour = Time.now.strftime('%F %H:')
 
     # expect(quacks.length).to eq 3
     expect(quacks.first).to be_a Quack

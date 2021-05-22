@@ -9,7 +9,7 @@ feature 'viewing quacks' do
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Love is strength', 'Quackie');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Dream it, be it', 'T0ilet_duck');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('The last word', 'Duck_Tape');")
-    
+
     visit('/')
     expect(page).to have_content('Love is strength')
     expect(page).to have_content('Dream it, be it')
@@ -22,7 +22,7 @@ feature 'viewing quacks' do
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Love is strength', 'Quackie');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Dream it, be it', 'T0ilet_duck');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('The last word', 'Duck_Tape');")
-    
+
     visit('/')
     expect(page).to have_content('quacked by Quackie')
     expect(page).to have_content('quacked by T0ilet_duck')
@@ -35,10 +35,10 @@ feature 'viewing quacks' do
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Love is strength', 'Quackie');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Dream it, be it', 'T0ilet_duck');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('The last word', 'Duck_Tape');")
-    
+
     visit('/')
-    loadhour = Time.now.strftime("%F %H:")
-    expect(page).to have_content("at #{ loadhour }")
+    loadhour = Time.now.strftime('%F %H:')
+    expect(page).to have_content("at #{loadhour}")
   end
 
   scenario 'displays in reverse chronological order' do
@@ -47,7 +47,7 @@ feature 'viewing quacks' do
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Love is strength', 'Quackie');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('Dream it, be it', 'T0ilet_duck');")
     connection.exec("INSERT INTO quacks (message, display_name) VALUES ('The last word', 'Duck_Tape');")
-    
+
     visit('/')
     expect(page).to have_content("Latest quacks:\n\"The last word\" quacked by Duck_Tape, at")
   end

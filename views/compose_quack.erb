@@ -1,14 +1,14 @@
+
 <h1> <p align="center">Quackie's Duckboard</p>
 <p align="center"><img src="https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Femoji.slack-edge.com%2FT03ALA7H4%2Frubberducking%2F1e5dc51b1afe3651.png" alt="Picture of Quackie, the Makers Academy Duck" width="10%"/></p>
-<h2> Welcome unknown Quacker!
+<h2> Welcome <%= @display_name %>
 <br>
-<h3> Want to post a quack to the duckboard? First, tell us your duck name...<br>
+<h3> Want to post a quack to the duckboard? Now compose your message (140 character max)...<br>
 <br>
-<form action = /name method = post>
-<label for="display_name">
-    <input type="text" name='display_name' placeholder="Enter your duck name">
+<form action = "/compose_quack" method = "post">
+    <input type="text" name='message' placeholder="Message (140 character max)">
     </label>
-<input type="submit" value="Submit">
+<input type="submit" value="Post my quack">
 </form>
 <br>
 <h3> Latest quacks:</h3>
