@@ -40,6 +40,7 @@ Created the databases for chitter.
 * 0 Chirps in chitter_test
 * Added the both databases anad tables to TablePlus.
 Setup RSpec and Capybara to use test databases.
+Able to create and add a chirp.
 
 ## Code style
 
