@@ -11,8 +11,11 @@ In honour of Quackie (the Makers' Academy rubberducky debugger), I've made a sma
 Here are the [Class Responsibility Cards](https://docs.google.com/spreadsheets/d/11LzZXDbAgK_YshhwBttdjJfsn3WNQv_rbeffG_7G9rg/edit?usp=sharing) I made to plan this build.
 
 >Next steps:  
->Currently, users can post **quacks** as a **guest quacker** (i.e. entering a display name and message content).  
->I plan to implement more detailed login/logout functionality (requiring username/password etc.) in a later phase of the build.
+>There are some edgecases I still want to solve (eg. throwing friendly errors if user's message is too long).   
+>At present there is a known bug, where quacks won't post it they have apostrophes. I plant to fix that soon.   
+>Currently, users can post **quacks** as a **guest quacker** (i.e. entering a display name and message content).    
+>I plan to implement more detailed login/logout functionality (requiring username/password etc.) in a later phase of the build.  
+>Please add other suggested next steps in issues or PR comments.  
 
 Credits
 -------
@@ -34,11 +37,11 @@ Use these commands in your terminal:
 > Connect to `psql`
 > Create the live database and test database using the psql command `CREATE DATABASE duckboard;`  
 > `CREATE DATABASE duckboard_test;`  
-> connect to the database using the pqsl command `\c duckboard;`  
+> Connect to the database using the pqsl command `\c duckboard;`  
 > Run the querys I have saved in the [migrations files](https://github.com/BecaLParker/chitter-challenge/tree/main/db/migrations) 
 > exit psql `\q`
 
-You can now run the feature and unti tests I built: `rspec`
+You can now run the feature and unit tests I built: `rspec`
 
 To interact as a user:
 `rackup`, then visit localhost:9292 in your browser and follow any onscreen instructions.  
@@ -47,9 +50,9 @@ Features
 -------
 User story | MVC model | Screenshot
 --- | ---------------------------------------------------- | --- | 
-As a Maker, so that I can see what others are saying, I want to see all quacks in reverse chronological order | ![see all messages MVC](./see_all_quacks_MVC.svg) |![screenshot '/'](./see_all_quacks_screenshot.png)
-As a Maker, so that I can post messages on Duckboard as me, I want to submit my display name| ![user has a display name MVC](./has_display_name_MVC.svg)|![screenshot '/']()
-As a Maker, so that I can let people know what I am doing, I want to post a quack on Duckboard | ![post a message MVC](./post_a_quack_MVC.svg)|![screenshot '/compose_quack']()
+As a Maker, so that I can see what others are saying, I want to see all quacks in reverse chronological order | ![see all messages MVC](./see_all_quacks_MVC.svg) |![screenshot](./see_all_quacks_screenshot.png)
+As a Maker, so that I can post messages on Duckboard as me, I want to submit my display name| ![user has a display name MVC](./has_display_name_MVC.svg)|![screenshot](./compose_quack%20screenshot.png)
+As a Maker, so that I can let people know what I am doing, I want to post a quack on Duckboard | ![post a message MVC](./post_a_quack_MVC.svg)|![screenshot](./new_quack_posted_screenshot.png)
 As a Maker, so that I can better appreciate the context of a quack, I want to see the time at which it was made |See above| See above
 
 
