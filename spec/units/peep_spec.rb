@@ -1,4 +1,5 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
 
@@ -21,10 +22,10 @@ end
     it 'creates a new peep' do 
       peep = Peep.create(content: 'This is my first peep!')
 
-      persisted_data = PG.connect(dbname: 'chitter_app_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
+      persisted_data = persisted_data(id: peep.id)
 
       expect(peep).to be_a Peep
-      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.id).to eq persisted_data['id']
       expect(peep.content).to eq('This is my first peep!')
     end
 
