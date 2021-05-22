@@ -1,6 +1,14 @@
 Chitter Challenge
 =================
 
+Setup:
+To use this programme, please setup a database:
+1. Connect to psql
+2. create the database in psql: CREATE DATABASE chitter;
+3. Connect to the database: \c chitter;
+4. Run the query 01_create_chitter_table.sql
+5. For testing purposes, CREATE DATABASE chitter_test, run query 02_create_chitter_test_table.sql
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
