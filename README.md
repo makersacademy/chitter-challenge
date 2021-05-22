@@ -31,6 +31,10 @@ Initial commit included
 Removed the homepage display test and added
 * Chirps class to return all chirps
 * Route and erb files to display all chirps
+Created the databases for chitter.
+* 3 Chirps are currently stored in chitter.
+* 0 Chirps in chitter_test
+* Added the both databases anad tables to TablePlus.
 
 ## Code style
 
@@ -52,6 +56,8 @@ Removed the homepage display test and added
 ## Installation
 
 ### Setting Up a PostgreSQL Database
+
+Please refer to the files in db/migrations for the database setup.
 
 ## Tests
 
