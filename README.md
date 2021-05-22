@@ -6,12 +6,15 @@
 Building a replica of the twitter app that will allow user to
 * Sign up and register
 * Login or logout
-* Post a chit
-* Delete a chit
-* Comment on shits
+* Post a chirp
+* Delete a chirp
+* Comment on chirp
 
 ### User Stories
 
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
 
 ### Bonus
 
@@ -25,6 +28,9 @@ Initial commit included
 * Created app.rb
 * Crated config.ru
 * Pass the first test to display a home page.
+Removed the homepage display test and added
+* Chirps class to return all chirps
+* Route and erb files to display all chirps
 
 ## Code style
 

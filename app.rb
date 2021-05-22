@@ -6,8 +6,9 @@ class Chitter < Sinatra::Base
         register Sinatra::Reloader
     end
 
-    get '/' do
-        'Chitter Challenge'
+    get '/chirps' do
+        @chirps = Chirps.all
+        erb(:'chirps/index')
     end
 
     run! if app_file == $0
