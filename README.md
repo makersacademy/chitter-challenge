@@ -42,7 +42,8 @@ Created the databases for chitter.
 Setup RSpec and Capybara to use test databases.
 Able to create and add a chirp.
 Added a title column to both database tables.
-Refactored spec tests and code
+Refactored spec tests and code.
+User is now able to delete a chirp
 
 ## Code style
 
