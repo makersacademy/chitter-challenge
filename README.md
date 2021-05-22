@@ -25,33 +25,29 @@ Integrated database using the `PG` gem and `SQL` queries.
 
 How to install and run the tests
 --------------------------------
-|| PLACEHOLDER ||
+Use these commands in your terminal:  
+`git clone https://github.com/BecaLParker/chitter-challenge`  
+`cd chitter-challenge`  
+`bundle`  
 
-$ git clone https://github.com/BecaLParker/chitter-challenge
+> Setup the databases on your local machine:  
+> Connect to `psql`
+> Create the live database and test database using the psql command `CREATE DATABASE duckboard;`  
+> `CREATE DATABASE duckboard_test;`  
+> connect to the database using the pqsl command `\c duckboard;`  
+> Run the querys I have saved in the [migrations files](https://github.com/BecaLParker/chitter-challenge/tree/main/db/migrations) 
+> exit psql `\q`
 
-$ bundle
-
-> Setup the databases on your local machine:
-> Connect to psql
-> Create the database using the psql command `CREATE DATABASE bookmark_manager;`
-> connect to the database using the pqsl command `\c bookmark_manager;`
-> Run the query I have saved in the file [01_create_quacks_table.sql]()
-
-$ rspec
+You can now run the feature and unti tests I built: `rspec`
 
 To interact as a user:
-$ rackup, visit localhost:9292 and follow any onscreen instructions.
-
-
-screenshots of how the app works, or perhaps even a link to the deployed version on heroku?
-
-
+`rackup`, then visit localhost:9292 in your browser and follow any onscreen instructions.  
 
 Features
 -------
 User story | MVC model | Screenshot
 --- | ---------------------------------------------------- | --- | 
-As a Maker, so that I can see what others are saying, I want to see all quacks in reverse chronological order | ![see all messages MVC](./see_all_quacks_MVC.svg) |![screenshot '/']()
+As a Maker, so that I can see what others are saying, I want to see all quacks in reverse chronological order | ![see all messages MVC](./see_all_quacks_MVC.svg) |![screenshot '/'](./see_all_quacks_screenshot.png)
 As a Maker, so that I can post messages on Duckboard as me, I want to submit my display name| ![user has a display name MVC](./has_display_name_MVC.svg)|![screenshot '/']()
 As a Maker, so that I can let people know what I am doing, I want to post a quack on Duckboard | ![post a message MVC](./post_a_quack_MVC.svg)|![screenshot '/compose_quack']()
 As a Maker, so that I can better appreciate the context of a quack, I want to see the time at which it was made |See above| See above
