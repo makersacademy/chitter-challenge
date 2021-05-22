@@ -1,6 +1,6 @@
 <ul>
-  <% @peeps.each do |peep| %>
-    <li>
+  <% @peeps.sort_by{|peep| Time.parse(peep.posted)}.reverse.each do |peep| %>
+    <li class='peep'>
       <%= peep.text %> - <%= peep.posted %>
     </li>
   <% end %>
