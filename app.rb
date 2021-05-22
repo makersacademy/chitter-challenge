@@ -3,11 +3,20 @@ require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
-    redirect('/peeps')
+    redirect '/peeps' 
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb(:'peeps/index')
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(text: params[:text])
+    redirect '/peeps'
   end
 end
