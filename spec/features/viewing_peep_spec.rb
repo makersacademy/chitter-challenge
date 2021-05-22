@@ -5,14 +5,15 @@ feature 'Viewing peeps' do
   end
 
   scenario 'A user can view peeps' do
-    Peep.create(text: 'test peep 1')
-    Peep.create(text: 'test peep 2')
-    Peep.create(text: 'test peep 3')
+    now = Time.now.strftime("%F %T")
+    Peep.create(text: 'test peep 1', posted: now)
+    Peep.create(text: 'test peep 2', posted: now)
+    Peep.create(text: 'test peep 3', posted: now)
 
     visit '/peeps'
 
-    expect(page).to have_content('test peep 1')
-    expect(page).to have_content('test peep 2')
-    expect(page).to have_content('test peep 3')
+    expect(page).to have_content("test peep 1 - #{now}")
+    expect(page).to have_content("test peep 2 - #{now}")
+    expect(page).to have_content("test peep 3 - #{now}")
   end
 end

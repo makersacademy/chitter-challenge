@@ -1,1 +1,1 @@
-ALTER TABLE peeps ADD posted TIMESTAMP WITH TIME ZONE DEFAULT current_timestamp;
+ALTER TABLE peeps ADD posted TIMESTAMP;

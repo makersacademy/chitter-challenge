@@ -3,22 +3,31 @@ require 'peep'
 describe Peep do
   describe '::all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO peeps (text) VALUES ('test peep 1'), ('test peep 2'), ('test peep 3');")
+      now = Time.now.strftime("%F %T")
+      peep = Peep.create(text: 'test peep 1', posted: now)
+      Peep.create(text: 'test peep 2', posted: now)
+      Peep.create(text: 'test peep 3', posted: now)
 
       peeps = Peep.all
 
-      expect(peeps).to include('test peep 1')
-      expect(peeps).to include('test peep 2')
-      expect(peeps).to include('test peep 3')
+      expect(peeps.length).to eq(3)
+      expect(peeps.first).to be_a(Peep)
+      expect(peeps.first.id).to eq(peep.id)
+      expect(peeps.first.text).to eq('test peep 1')
+      expect(peeps.first.posted).to eq(now.to_s)
     end
   end
 
   describe '::create' do
     it 'adds a new peep' do
-      Peep.create(text: 'this is a new test peep')
+      now = Time.now.strftime("%F %T")
+      peep = Peep.create(text: 'this is a new test peep', posted: now)
+      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
 
-      expect(Peep.all).to include('this is a new test peep')
+      expect(peep).to be_a(Peep)
+      expect(peep.id).to eq(persisted_data[0]['id'])
+      expect(peep.text).to eq('this is a new test peep')
+      expect(peep.posted).to eq(now.to_s)
     end
   end
 end
