@@ -12,7 +12,6 @@ describe Chirps do
             Chirps.create(chirp: 'This is a totally different chirp', title: 'Title three')
 
             chirps = Chirps.all
-            p chirps
 
             expect(chirps.length).to eq 3
             expect(chirps.first).to be_a Chirps
@@ -31,6 +30,16 @@ describe Chirps do
             expect(chirp.id).to eq persisted_data['id']
             expect(chirp.title).to eq 'First title'
             expect(chirp.chirp).to eq 'First created chirp'
+        end
+    end
+
+    describe '.delete' do
+        it 'deletes the given chirp' do
+            chirp = Chirps.create(title: 'Makers Academy', chirp: 'Deleting a Marks chirp')
+        
+            Chirps.delete(id: chirp.id)
+        
+            expect(Chirps.all.length).to eq 0
         end
     end
 end

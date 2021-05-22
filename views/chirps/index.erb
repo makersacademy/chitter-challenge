@@ -12,9 +12,13 @@
 
     <ul>
         <% @chirps.each do |chirp| %>
-            <li>
+            <li class="chirp" id="chirp-<%= chirp.id %>">
                 <h3><%= chirp.title %></h3>
                 <p><%= chirp.chirp %></p>
+                <form action="/chirps/<%= chirp.id %>" method="post">
+                    <input type='hidden' name='_method' value='DELETE'/>
+                    <input type="submit" value="Delete" />
+                </form>
             </li>
         <% end %>
     </ul>

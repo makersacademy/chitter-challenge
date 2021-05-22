@@ -32,4 +32,14 @@ class Chirps
         Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'])
     end
 
+    def self.delete(id:)
+        if ENV['RACK_ENV'] == 'test'
+            connection = PG.connect(dbname: 'chitter_test')
+        else
+            connection = PG.connect(dbname: 'chitter')
+        end
+        connection.exec("DELETE FROM chirps WHERE id = #{id}")
+    end
+    
+
 end

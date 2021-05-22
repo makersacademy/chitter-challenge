@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
     configure :development do
         register Sinatra::Reloader
     end
+    enable :sessions, :method_override
 
     get '/chirps' do
         @chirps = Chirps.all
@@ -19,6 +20,11 @@ class Chitter < Sinatra::Base
     post '/chirps' do
         Chirps.create(chirp: params[:chirp], title: params[:title])
         redirect('/chirps')
+    end
+
+    delete '/chirps/:id' do
+        Chirps.delete(id: params[:id])
+        redirect '/chirps'
     end
 
     run! if app_file == $0
