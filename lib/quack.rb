@@ -26,4 +26,16 @@ class Quack
     end
     arr.reverse
   end
+
+  def self.create(message:, display_name:)
+    connection = if ENV['ENVIRONMENT'] == 'test'
+                   PG.connect(dbname: 'duckboard_test')
+                 else
+                   PG.connect(dbname: 'duckboard')
+                 end
+
+    result = connection.exec("INSERT INTO quacks (message, display_name) VALUES('#{message}', '#{display_name}') RETURNING id, message, display_name, time_stamp;")
+    Quack.new(id: result[0]['id'], message: result[0]['message'], display_name: result[0]['display_name'],
+              time_stamp: result[0]['time_stamp'])
+  end
 end

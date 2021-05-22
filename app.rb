@@ -30,8 +30,7 @@ class DuckBoard < Sinatra::Base
   end
 
   post '/message' do
-    session[:message] = params[:message]
-    # code to pass session message and display_name to model to insert to db
+    Quack.create(message: params[:message], display_name: session[:display_name])
     redirect '/'
   end
 
