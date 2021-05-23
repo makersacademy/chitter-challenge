@@ -11,7 +11,7 @@
 <h1>Chitter Challenge</h1>
 
     <ul>
-        <% @chirps.each do |chirp| %>
+        <% @chirps.reverse.each do |chirp| %>
             <li class="chirp" id="chirp-<%= chirp.id %>">
                 <h3><%= chirp.title %></h3>
                 <p><%= chirp.chirp %></p>

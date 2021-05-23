@@ -25,6 +25,7 @@ class Chitter < Sinatra::Base
     end
 
     delete '/chirps/:id' do
+        Comment.delete(chirp_id: params[:id])
         Chirps.delete(id: params[:id])
         redirect '/chirps'
     end

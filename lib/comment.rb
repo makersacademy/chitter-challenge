@@ -17,6 +17,10 @@ class Comment
         )
     end
 
+    def self.delete(chirp_id:)
+        DatabaseConnection.query("DELETE FROM comments WHERE chirp_id = #{chirp_id}")
+    end
+
     def self.where(chirp_id:)
         result = DatabaseConnection.query("SELECT * FROM comments WHERE chirp_id = #{chirp_id};")
         result.map do |comment|
