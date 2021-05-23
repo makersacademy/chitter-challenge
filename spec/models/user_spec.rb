@@ -38,4 +38,13 @@ describe 'User' do
       end
     end
   end
+
+  describe '::authenticate' do
+    it 'returns a user if email and password correct' do
+      created_user = User.create(email: 'test@test.com', password: 'Password123', display_name: 'Test User', username: 'test')
+      auth_user = User.authenticate('test@test.com', 'Password123')
+
+      expect(auth_user.id).to eq(created_user.id)
+    end
+  end
 end
