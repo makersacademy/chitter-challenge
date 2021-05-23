@@ -8,6 +8,10 @@ class User
     @current = current_user.first
   end
 
+  def self.logout
+    @current = nil
+  end
+
   attr_accessor :current
 
   def self.current

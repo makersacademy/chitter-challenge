@@ -8,4 +8,12 @@ describe User do
       expect(result.first['username']).to eq('itsbob')
     end
   end
+  
+  describe '.logout' do
+    it 'sets the current user to nil' do
+      User.create('bob', 'michel', 'itsbob', 'bob@bob.com', 'password')
+      User.logout
+      expect(User.current).to eq(nil)
+    end
+  end
 end

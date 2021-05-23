@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'pg'
 require 'rspec'
 require_relative '../app'
+require 'signing_up_helper'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'

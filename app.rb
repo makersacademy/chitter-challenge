@@ -27,6 +27,11 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
+  post '/logout' do
+    User.logout
+    redirect('/')
+  end
+
   post '/register' do
     User.create(
       params['first_name'], 
@@ -35,8 +40,6 @@ class Chitter < Sinatra::Base
       params['email'], 
       params['password']
     ) 
-    # User.login()
-    # User.logout()
     redirect('/')
   end
 end
