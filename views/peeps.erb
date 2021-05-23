@@ -1,6 +1,11 @@
-<h1> Welcome to the PEEP Page! </h1>
+<h1 style="background-color:DodgerBlue;"> Welcome to the PEEP Page! </h1>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%=  peep %></li>
+    <p style="border:2px solid Violet;">
+    <%=  peep['peep'] %>
+    <br>
+    <br>
+    Username: <%= peep['username'] %> Sent on: <%= peep['date']%>
+    </p>
     <% end %>
 </ul>
