@@ -2,7 +2,7 @@ CREATE TABLE messages
 (
   id SERIAL PRIMARY KEY,
   content VARCHAR(150),
-  date_posted date
+  date_posted timestamp
 );
 
 INSERT INTO messages

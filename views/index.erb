@@ -5,6 +5,6 @@
 </form>
 <ul>
 <% @peeps.each do |peep| %>
-<li><%= peep %></li>
+  <li><p><%= peep.content %> posted at: <%= peep.date_posted%></p></li>
 <% end %>
 </ul>
