@@ -1,3 +1,13 @@
+<% if !@user %>
+<a href='/register'>
+   <button>Register</button>
+</a>
+<% end %>
+<% if @user %>
+<p>
+Signed in as: <%= @user['first_name'] %>
+</p>
+<% end %>
 <form action="/" method='post'>
   <label for="message">Add Message:</label>
   <input type="text" name='peep'>
