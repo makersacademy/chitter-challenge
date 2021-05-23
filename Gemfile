@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt'
+gem 'flash'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-flash'

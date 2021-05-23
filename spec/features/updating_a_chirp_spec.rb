@@ -5,10 +5,8 @@ feature 'Updating a chirp' do
         expect(page).to have_content('Editing chirp')
         expect(page).to have_content('Editing this chirp')
         
-        p "before"
         first('.chirp').click_button 'Edit'
         expect(current_path).to eq "/chirps/#{chirp.id}/edit"
-        p "after"
     
         fill_in('title', with: "Edited Chirp")
         fill_in('chirp', with: "Edited this chirp")

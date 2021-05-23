@@ -9,6 +9,11 @@
 <body>
 
 <h1>Chitter Challenge</h1>
+<% if @user %>
+<h1>Welcome, <%= @user.name %></h1>
+<% else %>
+<%= flash[:notice] %>
+<% end %>
 
     <ul>
         <% @chirps.reverse.each do |chirp| %>
@@ -33,6 +38,10 @@
             </li>
         <% end %>
     </ul>
+
+    <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+    </form>
 
 </body>
 </html>

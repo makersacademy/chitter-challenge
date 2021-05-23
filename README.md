@@ -43,8 +43,11 @@ Setup RSpec and Capybara to use test databases.
 Able to create and add a chirp.
 Added a title column to both database tables.
 Refactored spec tests and code.
-User is now able to delete a chirp
+User is now able to delete a chirp.
 User is now able to comment on chirps.
+After commenting on a chirp, there was an issue with deleting a chirp. Now, whether a chirp is commented on or not, it can be deleted.
+Created a users table
+Users are now registered and authenticated
 
 ## Code style
 

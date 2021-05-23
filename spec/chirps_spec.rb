@@ -27,7 +27,7 @@ describe Chirps do
             persisted_data = persisted_data(id: chirp.id, table: 'chirps')
         
             expect(chirp).to be_a Chirps
-            expect(chirp.id).to eq persisted_data['id']
+            expect(chirp.id).to eq persisted_data.first['id']
             expect(chirp.title).to eq 'First title'
             expect(chirp.chirp).to eq 'First created chirp'
         end
