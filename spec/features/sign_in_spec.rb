@@ -26,8 +26,8 @@ feature 'Sign in' do
     User.create(email: 'test@test.com', password: 'Password123', display_name: 'Test User', username: 'test')
 
     visit '/sessions/new'
-    fill_in('email', with: 'tes@test.com')
-    fill_in('password', with: 'Password123')
+    fill_in('email', with: 'test@test.com')
+    fill_in('password', with: 'password123')
     click_button('sign_in')
 
     expect(page).not_to have_content('Welcome, Test User')
