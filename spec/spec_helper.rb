@@ -4,8 +4,9 @@ require 'capybara'
 require 'capybara/rspec'
 require 'pg'
 require 'rspec'
-require_relative '../app'
 require 'signing_up_helper'
+require_relative '../app'
+require_relative '../lib/user'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
@@ -21,9 +22,10 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
+    User.logout
     connection = PG.connect(dbname: 'chitter_test')
-    connection.exec('TRUNCATE messages;')
-    connection.exec('TRUNCATE users;')
+    connection.exec('TRUNCATE users CASCADE;')
+    connection.exec('TRUNCATE messages CASCADE;')
   end
   config.after(:suite) do
     puts

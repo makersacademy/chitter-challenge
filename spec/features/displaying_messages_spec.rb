@@ -11,4 +11,10 @@ feature 'displaying the messages' do
     visit('/')
     expect(page).to have_content('2021')
   end
+feature 'displaying the messages' do
+  scenario 'it displays the user who posted it' do
+    register_new_user
+    Message.post('This is content')
+  end
+end
 end

@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @user = User.current
+    @user = session[:user]
     @peeps = Message.all
     erb(:index)  
   end
@@ -22,24 +22,33 @@ class Chitter < Sinatra::Base
     erb(:register)
   end
 
+  get '/login' do
+    erb(:login)
+  end
+
   post '/' do
     Message.post(params['peep'])
     redirect('/')
   end
 
+  post '/login' do
+    session[:user] = User.login(params['email'], params['password'])
+    redirect('/')
+  end
+
   post '/logout' do
-    User.logout
+    session[:user] = User.logout
     redirect('/')
   end
 
   post '/register' do
-    User.create(
+    session[:user] = User.create(
       params['first_name'], 
       params['last_name'], 
       params['username'], 
       params['email'], 
       params['password']
-    ) 
+    )
     redirect('/')
   end
 end
