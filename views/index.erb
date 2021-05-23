@@ -1,0 +1,29 @@
+<% if !@user %>
+<a href='/register'>
+  <button>Register</button>
+</a>
+<a href='/login'>
+  <button>Login</button>
+</a>
+<p>Sign in to post a message</p>
+<% end %>
+
+<% if @user %>
+<form action="/logout" method='post'>
+  <input type="submit" value='Logout'>
+</form>
+<p>Signed in as: <%= @user.first_name %></p>
+<form action="/" method='post'>
+  <label for="message">Add Message:</label>
+  <input type="text" name='peep'>
+  <input type="submit" value='Post'>
+</form>
+<% end %>
+
+<ul>
+<% @peeps.each do |peep| %>
+  <li><p><%= peep.content %> posted at: <%= peep.date_posted%></p>
+  <p>Posted by: <%= peep.user_id%></p>
+  </li>
+<% end %>
+</ul>
