@@ -22,7 +22,7 @@ describe Peep do
     it 'adds a new peep' do
       now = Time.now.strftime("%F %T")
       peep = Peep.create(text: 'this is a new test peep', posted: now)
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       expect(peep).to be_a(Peep)
       expect(peep.id).to eq(persisted_data[0]['id'])
@@ -33,7 +33,7 @@ describe Peep do
     it 'should work with strings with apostrophes in them' do
       now = Time.now.strftime("%F %T")
       peep = Peep.create(text: "i'm a test peep with apostrophe", posted: now)
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       expect(peep).to be_a(Peep)
       expect(peep.id).to eq(persisted_data[0]['id'])
