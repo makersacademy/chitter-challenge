@@ -22,9 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    text = params[:text]
-    con = PG.connect(dbname: 'chitter_test')
-    con.exec("INSERT INTO messages (text) VALUES ('#{text}')")
+    Message.create(params[:text])
     redirect ('/chitter')
   end
   
