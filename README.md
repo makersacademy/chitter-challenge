@@ -4,6 +4,14 @@ Chitter is a barebones Twitter clone. A user can sign up, sign in and post peeps
 
 Chitter uses Ruby, Sinatra, PostgreSQL and BCrypt.
 
+## Features I didn't have time to add
+
+- Peeps show name and username of author
+- Username and email address of users are unique
+- Email notification if tagged in a peep
+- Reply to peeps
+- Nice CSS
+
 ## User stories
 
 > As a Maker, so that I can let people know what I am doing, I want to post a message (peep) to chitter
@@ -38,4 +46,10 @@ bundle
 
 ```bash
 rackup
+```
+
+## Testing
+
+```
+rspec
 ```
