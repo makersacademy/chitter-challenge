@@ -1,0 +1,2 @@
+ALTER TABLE peeps
+  ADD COLUMN time_created TIMESTAMP; 

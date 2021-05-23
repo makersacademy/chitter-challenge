@@ -1,0 +1,19 @@
+<title>Log in</title>
+<link rel="stylesheet" href="../../stylesheets/application.css">
+
+<div class="form-container">
+    <h2><%= flash[:notice] %></h2>
+    <h1>Welcome back! Log in here</h1>
+    <form action='/sessions' method='post' autocomplete="off">
+      <label for="username">Username:</label>
+      <input type='text' name='username'>
+      <label for="password">Password:</label>
+      <input type='password' name='password'>
+      <input class="button" type='submit' value='Log in'>
+    </form>
+
+  <form action='/peeps' method='get'>
+    <input class="button previous" type='submit' value='Previous'>
+  </form>
+
+</div>

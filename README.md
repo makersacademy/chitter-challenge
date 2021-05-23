@@ -1,4 +1,7 @@
-## Domain Model
+# Chitter Application
+
+![index](docs/img/home_page.png) ![index](docs/img/sign_up_page.png) ![index](docs/img/log_in_page.png)
+![index](docs/img/peeps_feed.png)
 
 ## How to use
 

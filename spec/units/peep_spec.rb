@@ -5,7 +5,7 @@ describe Peep do
 
 let(:id) { 1 }
 let(:content) { double :'Test message' }
-let(:user_id) { double :user_id }
+let(:user_id) { 12345 }
 let(:time_created) { double :time_created}
 let(:peep) { Peep.new(id: id, content: content, user_id: user_id, time_created: time_created) }
 
@@ -20,20 +20,21 @@ end
   
   describe '.create' do
     it 'creates a new peep' do 
-      peep = Peep.create(content: 'This is my first peep!')
+      peep = Peep.create(content: 'This is my first peep!', user_id: user_id)
 
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']
       expect(peep.content).to eq('This is my first peep!')
     end
+  end
 
   describe '.all' do
     it 'returns all peeps' do
-      peep_1 = Peep.create(content: "This is my first peep!")
-      peep_2 = Peep.create(content: "This is my second peep!")
-      peep_3 = Peep.create(content: "This is my third peep!")
+      peep_1 = Peep.create(content: "This is my first peep!", user_id: user_id)
+      peep_2 = Peep.create(content: "This is my second peep!", user_id: user_id)
+      peep_3 = Peep.create(content: "This is my third peep!", user_id: user_id)
 
       peeps = Peep.all
 
@@ -43,5 +44,5 @@ end
       expect(peeps.first.content).to eq('This is my first peep!')
     end
   end
+  
 end 
-  end 

@@ -4,11 +4,13 @@
 
 feature 'post peep' do
   scenario 'a user can post a new peep' do
-    visit ('/peeps/new')
-    fill_in('peep', with: 'This is my first peep!')
-    click_button('Post peep')
+    visit ('/peeps')
 
+    user = User.create(name: "Jo Shmo", username: "Shmo89", email: "test@example.com", password: "password123")
+
+    click_button('Post peep')
+    peep = Peep.create(content: "This is my third peep!", user_id: user.id)
+    expect(page).to have_content(peep.content)
     expect(current_path).to eq('/peeps')
-    expect(page).to have_content('This is my first peep!')
   end
 end 

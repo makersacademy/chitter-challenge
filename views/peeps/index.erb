@@ -1,8 +1,21 @@
-<h2>Peeps<h2>
+<div>
+ <h1>Welcome, <%=@user_email%></h1>
+
+<h2>Peeps</h2>
 <div>
 <ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li class="peep"><%= peep.content %></li>
+  <%@peeps.reverse.each do |peep| %>
+  <p>
+    <li class="peep"><%= peep.content %> posted by <%= peep.name%>, <%= peep.user_name%> <%= peep.time_created.strftime("on %A at %H:%M %p")%>
+  </p>
+    </li>
   <% end %>
 </ul>
+</div>
+
+<form action='/peeps/<%=@user.id%>' method='POST'>
+  <label for='peep'> Peep!</label>
+    <input type="text" name="peep" />
+    <input class="button" type="submit" value="Post peep" />
+</form>
 </div>
