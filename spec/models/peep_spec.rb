@@ -14,7 +14,7 @@ describe Peep do
       expect(peeps.first).to be_a(Peep)
       expect(peeps.first.id).to eq(peep.id)
       expect(peeps.first.text).to eq('test peep 1')
-      expect(peeps.first.posted).to eq(now.to_s)
+      expect(peeps.first.posted).to eq(now)
     end
   end
 
@@ -27,7 +27,7 @@ describe Peep do
       expect(peep).to be_a(Peep)
       expect(peep.id).to eq(persisted_data[0]['id'])
       expect(peep.text).to eq('this is a new test peep')
-      expect(peep.posted).to eq(now.to_s)
+      expect(peep.posted).to eq(now)
     end
   end
 end
