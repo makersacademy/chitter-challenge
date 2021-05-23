@@ -12,9 +12,9 @@ feature 'Viewing peeps' do
 
     visit '/peeps'
 
-    expect(page).to have_content("test peep 1 - #{now}")
-    expect(page).to have_content("test peep 2 - #{now}")
-    expect(page).to have_content("test peep 3 - #{now}")
+    expect(page).to have_content("test peep 1\n#{now}")
+    expect(page).to have_content("test peep 2\n#{now}")
+    expect(page).to have_content("test peep 3\n#{now}")
   end
 
   scenario 'Peeps should be shown in reverse chronological order' do
