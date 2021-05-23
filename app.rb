@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'capybara'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -8,6 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all_peeps
     erb(:index)
   end
 
@@ -16,6 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/post' do
-    
+    Peep.create(message: params[:message])
+    redirect '/'
   end
 end

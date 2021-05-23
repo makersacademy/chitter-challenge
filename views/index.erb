@@ -1,3 +1,9 @@
 <form action="/new-peep">
   <input type='submit' value='Post'>
 </form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message %></li>
+  <% end %>
+</ul>
