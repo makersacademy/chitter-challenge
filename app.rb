@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message.rb'
+require 'time'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -22,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    Message.create(params[:text])
+    Message.create(params[:text], params[:user_name])
     redirect ('/chitter')
   end
   

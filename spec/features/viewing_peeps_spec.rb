@@ -4,9 +4,9 @@
 
 feature 'viewing messages' do
   scenario 'a user can see messages' do
-    Message.create("This is my first peep!")
-    Message.create("Second peep!")
-    Message.create("Third peep peeps!")
+    Message.create("This is my first peep!", "Bob")
+    Message.create("Second peep!", "Bob")
+    Message.create("Third peep peeps!", "Bob")
 
     visit('/chitter')
 
