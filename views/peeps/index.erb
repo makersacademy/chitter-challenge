@@ -1,6 +1,11 @@
 <% if @user %>
   <h1>Welcome, <%= @user.display_name %></h1>
+  <form action='/sessions' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' name='sign_out'>
+  </form>
 <% end %>
+<h2><%= flash[:notice] %></h2>
 <ul>
   <% @peeps.sort_by{|peep| Time.parse(peep.posted)}.reverse.each do |peep| %>
     <li class='peep'>

@@ -5,7 +5,7 @@ require_relative './lib/user'
 require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
   register Sinatra::Flash
 
   get '/' do
@@ -55,5 +55,11 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Please check your email or password'
       redirect '/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = 'You have signed out'
+    redirect '/peeps'
   end
 end
