@@ -3,11 +3,15 @@ language: ruby
 services:
   - postgresql
 
+env:
+  global:
+    - DB_NAME=chitter_test
+
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR(240));'
-  - psql -U postgres -c 'ALTER TABLE peeps ADD posted TIMESTAMP;'
-  - psql -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY,
+  - psql -U postgres -c 'CREATE DATABASE $DB_NAME;'
+  - psql --dbname=$DB_NAME -U postgres -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR(240));'
+  - psql --dbname=$DB_NAME -U postgres -c 'ALTER TABLE peeps ADD posted TIMESTAMP;'
+  - psql --dbname=$DB_NAME -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY,
                                       email VARCHAR(60),
                                             password VARCHAR(140),
                                                      display VARCHAR(40),
