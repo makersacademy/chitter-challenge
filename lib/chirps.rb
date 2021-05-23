@@ -4,47 +4,46 @@ require_relative './comment.rb'
 
 class Chirps
 
-    attr_reader :id, :title, :chirp
+    attr_reader :id, :title, :chirp, :image
 
-    def initialize(id:, title:, chirp:)
+    def initialize(id:, title:, chirp:, image: nil)
         @id = id
         @title = title
         @chirp = chirp
+        @image = image
     end
 
     def self.all
         result = DatabaseConnection.query("SELECT * FROM chirps")
         result.map do |chirp|
-        Chirps.new(
-            chirp: chirp['chirp'],
-            title: chirp['title'],
-            id: chirp['id']
-        )
-    end
+            Chirps.new(
+                chirp: chirp['chirp'],
+                title: chirp['title'],
+                id: chirp['id'],
+                image: chirp['image']
+            )
+        end
     end
 
-    def self.create(chirp:, title:)
-        result = DatabaseConnection.query("INSERT INTO chirps (title, chirp) VALUES('#{title}', '#{chirp}') RETURNING id, chirp, title")
-        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'])
+    def self.create(chirp:, title:, image: nil)
+        result = DatabaseConnection.query("INSERT INTO chirps (title, chirp, image) VALUES('#{title}', '#{chirp}', '#{image}') RETURNING id, chirp, title, image")
+        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'], image: result[0]['image'])
     end
 
     def self.delete(id:)
         DatabaseConnection.query("DELETE FROM chirps WHERE id = #{id}")
     end
     
-    def self.update(id:, chirp:, title:)
-        result = DatabaseConnection.query("UPDATE chirps SET chirp = '#{chirp}', title = '#{title}' WHERE id = #{id} RETURNING id, chirp, title;")
-        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'])
+    def self.update(id:, chirp:, title:, image: nil)
+        result = DatabaseConnection.query("UPDATE chirps SET chirp = '#{chirp}', title = '#{title}', image = '#{image}' WHERE id = #{id} RETURNING id, chirp, title, image;")
+        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'], image: result[0]['image'])
     end
 
     def self.find(id:)
         result = DatabaseConnection.query("SELECT * FROM chirps WHERE id = #{id};")
-        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'])
+        Chirps.new(id: result[0]['id'], title: result[0]['title'], chirp: result[0]['chirp'], image: result[0]['image'])
     end
 
-    # def comments
-    #     DatabaseConnection.query("SELECT * FROM comments WHERE chirp_id = #{id};")
-    # end
     def comments(comment_class = Comment)
         comment_class.where(chirp_id: id)
     end

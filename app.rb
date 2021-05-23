@@ -14,6 +14,10 @@ class Chitter < Sinatra::Base
     register Sinatra::Flash
     enable :sessions, :method_override
 
+    get '/' do
+        erb(:'home')
+    end
+
     get '/chirps' do
         @user = User.find(id: session[:user_id])
         @chirps = Chirps.all
@@ -25,7 +29,7 @@ class Chitter < Sinatra::Base
     end
 
     post '/chirps' do
-        Chirps.create(chirp: params[:chirp], title: params[:title])
+        Chirps.create(chirp: params[:chirp], title: params[:title], image: params[:image])
         redirect('/chirps')
     end
 

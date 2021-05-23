@@ -20,8 +20,27 @@ As a user<br>
 So I can store bookmark data for later retrieval<br>
 I want to add a bookmark to Bookmark Manager<br>
 
+As a Maker<br>
+So that I can let people know what I am doing<br>  
+I want to post a message (peep) to chitter
+
+As a Maker<br>
+So that I can better appreciate the context of a peep<br>
+I want to see the time at which it was made
+
+As a Maker<br>
+So that I can post messages on Chitter as me<br>
+I want to sign up for Chitter
+
 ### Bonus
 
+As a Maker<br>
+So that only I can post messages on Chitter as me<br>
+I want to log in to Chitter
+
+As a Maker<br>
+So that I can avoid others posting messages on Chitter as me<br>
+I want to log out of Chitter
 
 ## Build status
 Initial commit included
@@ -48,6 +67,8 @@ User is now able to comment on chirps.
 After commenting on a chirp, there was an issue with deleting a chirp. Now, whether a chirp is commented on or not, it can be deleted.
 Created a users table
 Users are now registered and authenticated
+Attempted saving and displaying an image. Image saves as binary 25 bytes, but returns the binary code into the source. Does not yet display image.
+Project complete according to the minimum requirements.
 
 ## Code style
 
