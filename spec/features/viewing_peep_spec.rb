@@ -20,7 +20,7 @@ feature 'Viewing peeps' do
   scenario 'Peeps should be shown in reverse chronological order' do
     now = Time.now
     before = Time.now - 3600
-    yesterday = Time.now - 86400
+    yesterday = Time.now - 86_400
     Peep.create(text: 'test peep 1', posted: now.strftime("%F %T"))
     Peep.create(text: 'test peep 3', posted: yesterday.strftime("%F %T"))
     Peep.create(text: 'test peep 2', posted: before.strftime("%F %T"))

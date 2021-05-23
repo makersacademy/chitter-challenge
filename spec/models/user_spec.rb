@@ -48,7 +48,7 @@ describe 'User' do
     end
 
     it 'returns nil given an incorrect email address' do
-      created_user = User.create(email: 'test@test.com', password: 'Password123', display_name: 'Test User', username: 'test')
+      User.create(email: 'test@test.com', password: 'Password123', display_name: 'Test User', username: 'test')
       auth_user = User.authenticate('tes@test.com', 'Password123')
 
       expect(auth_user).to be_nil

@@ -32,7 +32,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password], display_name: params[:display_name], username: params[:username])
+    user = User.create(email: params[:email],
+      password: params[:password],
+      display_name: params[:display_name],
+      username: params[:username]
+    )
     session[:user_id] = user.id
     redirect '/peeps'
   end
