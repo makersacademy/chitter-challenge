@@ -1,0 +1,1 @@
+CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(142), chirp_id INTEGER REFERENCES chirps (id));

@@ -1,0 +1,30 @@
+<div> <% @chirp.reverse.each do |chirp| %>
+  <li class="chirp" id="chirps-<%= chirp.id %>">
+   <%= chirp.chirp %> 
+    <form action="/chitter/<%= chirp.id %>" method="post">
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type="submit" value="Delete" />
+    </form>
+    <form action="/chitter/<%= chirp.id %>/edit" method="post">
+      <input type='hidden' name='_method' value='PATCH'/>
+      <input type="submit" value="Edit" />
+    </form>
+    <form action="/chitter/<%= chirp.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment" />
+    </form>
+    <ul>
+    <% chirp.comments.each do |comment| %>
+      <li><%= comment.text %></li>
+      <form action="/chitter/<%= comment.id %>" method="post">
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type="submit" value="Delete" />
+    </form>
+    <% end %>
+  </ul>
+  </li>
+    <% end %>
+  
+</div>
+<form action='/chitter/new' method='GET'>
+<input type='submit' name='Chirp' value='Chirp'> 
+</form>
