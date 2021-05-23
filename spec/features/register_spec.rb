@@ -7,7 +7,6 @@ feature 'Register' do
     fill_in('display_name', with: 'Test User')
     fill_in('username', with: 'test')
     click_button('submit')
-    save_and_open_page
     expect(page).to have_content('Welcome, Test User')
   end
 end
