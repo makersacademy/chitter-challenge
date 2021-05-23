@@ -29,5 +29,16 @@ describe Peep do
       expect(peep.text).to eq('this is a new test peep')
       expect(peep.posted).to eq(now)
     end
+
+    it 'should work with strings with apostrophes in them' do
+      now = Time.now.strftime("%F %T")
+      peep = Peep.create(text: "i'm a test peep with apostrophe", posted: now)
+      persisted_data = persisted_data(id: peep.id)
+
+      expect(peep).to be_a(Peep)
+      expect(peep.id).to eq(persisted_data[0]['id'])
+      expect(peep.text).to eq("i'm a test peep with apostrophe")
+      expect(peep.posted).to eq(now)
+    end
   end
 end

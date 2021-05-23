@@ -14,7 +14,7 @@ class Peep
   end
 
   def self.create(text:, posted:)
-    response = DatabaseConnection.query("INSERT INTO peeps (text, posted) VALUES ('#{text}', '#{posted}') RETURNING id, text, posted;")
+    response = DatabaseConnection.query("INSERT INTO peeps (text, posted) VALUES ($1, $2) RETURNING id, text, posted;", [text, posted])
     Peep.new(id: response[0]['id'], text: response[0]['text'], posted: response[0]['posted'])
   end
 end

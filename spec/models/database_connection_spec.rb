@@ -19,9 +19,9 @@ describe DatabaseConnection do
   describe '::query' do
     it 'queries the database via PG' do
       connection = DatabaseConnection.setup(dbname)
-      expect(connection).to receive(:exec).with('SELECT * FROM bookmarks LIMIT 10')
+      expect(connection).to receive(:exec_params).with('SELECT * FROM peeps LIMIT 10', [])
 
-      DatabaseConnection.query('SELECT * FROM bookmarks LIMIT 10')
+      DatabaseConnection.query('SELECT * FROM peeps LIMIT 10')
     end
   end
 end
