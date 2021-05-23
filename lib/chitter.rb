@@ -7,6 +7,7 @@ class Chitt
   def initialize(id:, chirp:)
     @id = id
     @chirp = chirp
+    
   end
 
   def self.create(chirp:)
@@ -39,4 +40,34 @@ class Chitt
             end
     conn.exec("DELETE FROM chirps WHERE id = #{id};")
   end
+
+  def self.edit(id:, chirp:)
+    conn =  if ENV['ENVIRONMENT'] == 'test'
+              PG.connect(dbname: 'chitter_test')
+            else
+              PG.connect(dbname: 'chitter')
+            end
+    result = conn.exec("UPDATE chirps SET chirp = '#{chirp}' WHERE id = #{id} RETURNING id, chirp;")
+    Chitt.new(id: result[0]['id'], chirp: result[0]['chirp'])
+  end
+
+  def self.find(id:)
+    conn =  if ENV['ENVIRONMENT'] == 'test'
+              PG.connect(dbname: 'chitter_test')
+            else
+              PG.connect(dbname: 'chitter')
+            end
+    result = conn.exec("SELECT * FROM chirps WHERE id = #{id};")
+    Chitt.new(id: result[0]['id'], chirp: result[0]['chirp'])
+  end
+  # def self.time(chirp:)
+  #   result = chirp.id
+  #   conn =  if ENV['ENVIRONMENT'] == 'test'
+  #             PG.connect(dbname: 'chitter_test')
+  #           else
+  #             PG.connect(dbname: 'chitter')
+  #           end
+  #   conn.exec("SHOW * FROM chirps WHERE id = #{result};")
+  # end
+  
 end

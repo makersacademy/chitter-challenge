@@ -18,12 +18,23 @@ describe Chitt do
       chirp = Chitt.create(chirp: 'Test 1')
       Chitt.create(chirp: 'Test 2')
       Chitt.create(chirp: 'Test 3')
-
+      p chirp
       chirps = Chitt.all
       expect(chirps.length).to eq(3)
       expect(chirps.first).to be_a(Chitt)
       expect(chirps.first.id).to eq(chirp.id)
       expect(chirps.first.chirp).to eq('Test 1')
+    end
+  end
+
+  describe '.find' do
+    it 'returns the requested bookmark object' do
+      chirp = Chitt.create(chirp: 'peep')
+
+      result = Chitt.find(id: chirp.id)
+
+      expect(result).to be_a(Chitt)
+      expect(result.id).to eq(chirp.id)
     end
   end
 

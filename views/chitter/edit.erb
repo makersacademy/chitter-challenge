@@ -1,0 +1,5 @@
+<form action="/chitter/<%= @chirp.id %>" method="post">
+    <input type="hidden" name="_method" value="PATCH" />
+    <input type="text" name="chirp" value="<%= @chirp.chirp %>"/>
+    <input type="submit" value="Re-chirp" />
+</form>
