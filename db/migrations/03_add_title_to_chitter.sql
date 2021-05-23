@@ -1,0 +1,1 @@
+ALTER TABLE chirps ADD COLUMN title VARCHAR(60);
