@@ -9,16 +9,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Welcome to chitter'
+    erb(:'/chitter/home')
   end
 
   get '/chitter' do
     @messages = Message.all
-    erb(:'chitter/index')
+    erb(:'/chitter/index')
   end
 
   get '/chitter/new' do
-    erb(:'chitter/new')
+    erb(:'/chitter/new')
   end
 
   post '/chitter' do
