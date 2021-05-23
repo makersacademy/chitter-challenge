@@ -1,7 +1,7 @@
 require 'pg'
+require './lib/database_connection'
 
-def persisted_data(id:)
+def persisted_data(table:, id:)
   conn = PG.connect(dbname: 'chitter_test')
-  result = conn.query("SELECT * FROM chirps WHERE id = #{id};")
-  result.first
+  conn.query("SELECT * FROM #{table} WHERE id = '#{id}';")
 end

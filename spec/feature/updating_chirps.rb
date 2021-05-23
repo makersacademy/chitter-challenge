@@ -16,4 +16,3 @@ feature 'Updating a chirp' do
     expect(page).to have_content('twoot')
   end
 end
-

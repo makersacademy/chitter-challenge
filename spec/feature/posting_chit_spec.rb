@@ -1,4 +1,4 @@
-feature 'Viewing bookmarks' do
+feature 'Viewing chirps' do
   scenario 'visit the index page' do
     visit('/')
     expect(page).to have_content("Chitter challenge")
@@ -35,4 +35,3 @@ feature 'deletes a chirp' do
     expect(page).not_to have_content('peep')
   end
 end
-

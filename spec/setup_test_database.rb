@@ -1,8 +1,11 @@
 require 'pg'
+require './lib/database_connection'
 
 def setup_test_database
   p 'Setting up test database...'
-  conn = PG.connect(dbname: 'chitter_test')
 
-  conn.exec('TRUNCATE chirps;')
+  connection = PG.connect(dbname: 'chitter_test')
+
+  connection.exec("TRUNCATE chirps, comments;")
 end
+

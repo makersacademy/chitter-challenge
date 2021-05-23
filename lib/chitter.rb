@@ -1,4 +1,6 @@
 require 'pg'
+require_relative 'database_connection'
+require_relative './comment.rb'
 
 class Chitt
 
@@ -11,53 +13,35 @@ class Chitt
   end
 
   def self.create(chirp:)
-    conn = if ENV['ENVIRONMENT'] == 'test'
-             PG.connect(dbname: 'chitter_test')
-           else
-             PG.connect(dbname: 'chitter')
-           end 
-    result = conn.exec("INSERT INTO chirps (chirp) VALUES('#{chirp}')RETURNING id, chirp;")
+    result = DatabaseConnection.query("INSERT INTO chirps (chirp) VALUES('#{chirp}')RETURNING id, chirp;")
     Chitt.new(id: result[0]['id'], chirp: result[0]['chirp'])       
   end
 
   def self.all
-    conn = if ENV['ENVIRONMENT'] == 'test'
-             PG.connect(dbname: 'chitter_test')
-           else
-             PG.connect(dbname: 'chitter')
-           end 
-    result = conn.exec("SELECT * FROM chirps;")
+    result = DatabaseConnection.query("SELECT * FROM chirps;")
     result.map do |chirp|
-      Chitt.new(id: chirp['id'], chirp: chirp['chirp']) 
+      Chitt.new(
+        id: chirp['id'],
+        chirp: chirp['chirp']
+         )
     end
   end
 
+  def comments
+    DatabaseConnection.query("SELECT * FROM comments WHERE bookmark_id = #{id};")
+  end
+
   def self.delete(id:)
-    conn =  if ENV['ENVIRONMENT'] == 'test'
-              PG.connect(dbname: 'chitter_test')
-            else
-              PG.connect(dbname: 'chitter')
-            end
-    conn.exec("DELETE FROM chirps WHERE id = #{id};")
+    DatabaseConnection.query("DELETE FROM chirps WHERE id = #{id};")
   end
 
   def self.edit(id:, chirp:)
-    conn =  if ENV['ENVIRONMENT'] == 'test'
-              PG.connect(dbname: 'chitter_test')
-            else
-              PG.connect(dbname: 'chitter')
-            end
-    result = conn.exec("UPDATE chirps SET chirp = '#{chirp}' WHERE id = #{id} RETURNING id, chirp;")
+    result = DatabaseConnection.query("UPDATE chirps SET chirp = '#{chirp}' WHERE id = #{id} RETURNING id, chirp;")
     Chitt.new(id: result[0]['id'], chirp: result[0]['chirp'])
   end
 
   def self.find(id:)
-    conn =  if ENV['ENVIRONMENT'] == 'test'
-              PG.connect(dbname: 'chitter_test')
-            else
-              PG.connect(dbname: 'chitter')
-            end
-    result = conn.exec("SELECT * FROM chirps WHERE id = #{id};")
+    result = DatabaseConnection.query("SELECT * FROM chirps WHERE id = #{id};")
     Chitt.new(id: result[0]['id'], chirp: result[0]['chirp'])
   end
   # def self.time(chirp:)
@@ -69,5 +53,7 @@ class Chitt
   #           end
   #   conn.exec("SHOW * FROM chirps WHERE id = #{result};")
   # end
-  
+  def comments(comment_class = Comment)
+    comment_class.where(chirp_id: id)
+  end
 end
