@@ -1,5 +1,7 @@
 /**/.DS_Store
 /coverage
+capybara-*
 
 # Local cache of Rubocop remote config
 .rubocop-*
+.vscode/settings.json
