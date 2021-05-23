@@ -9,10 +9,26 @@ To use this programme, please setup a database:
 4. Run the query 01_create_chitter_table.sql
 5. For testing purposes, CREATE DATABASE chitter_test, run query 02_create_chitter_test_table.sql
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+
+To use the web app:
+1. Use 'rackup' in your terminal
+2. Navigate to your local host
+3. Navigate to /peeps to see the list of peeps
+
+To Add & Improve:
+1. I failed to link the test database, spending significant time on something that failed. 
+2. I removed my Peep class test as I could not figure out how to test for a piece of text in the database. This should not be a problem as this is a BDD not TDD, however for my own learning I will discuss this with my peer reviewer.
+3. Submit peep page and button required. I would need a get and a post, then design a system to add the peep to the database and retrieve it.
+
+What I did well:
+The exercise has made me feel confident creating and using databases.
+Great practice for setting up a web app
+Became more proficient in displaying database data e.g. sorting by descending order
+Began the use of CSS. 
+
+
+
+
 
 Challenge:
 -------
