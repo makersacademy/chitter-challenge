@@ -1,6 +1,8 @@
+require_relative './helpers/sign_in'
+
 feature "see all peeps in reverse chronological order" do
   scenario "see peeps ordered by time posted" do
-    visit('/')
+    sign_in_short_cut
     click_button('Post')
     fill_in('message', with: 'Going to the beach today')
     click_button('Submit')
@@ -14,7 +16,7 @@ feature "see all peeps in reverse chronological order" do
   end
 
   scenario "see time posted" do
-    visit('/')
+    sign_in_short_cut
     click_button('Post')
     fill_in('message', with: 'Going to the beach today')
     time = Time.now.strftime("%F %T")

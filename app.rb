@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'capybara'
 require './lib/peep'
 require './lib/user'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -11,9 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    p session[:user_id]
     @user = User.find(id: session[:user_id])
-    # p @user
     @peeps = Peep.all_peeps
     erb(:index)
   end
@@ -38,6 +37,16 @@ class Chitter < Sinatra::Base
       username: params['username'], 
       password: params['password'])
     session[:user_id] = user.first['id']
+    redirect '/'
+  end
+
+  get '/sign-in' do
+    erb(:sign_in)
+  end
+
+  post '/log-in' do
+    user = User.authenticate(email: params[:email], password: params[:params])
+    session[:user_id] = user.id
     redirect '/'
   end
 end

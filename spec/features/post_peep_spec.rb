@@ -1,6 +1,7 @@
+require_relative './helpers/sign_in'
 feature "posting a message" do
   scenario "I can post a peep on chitter" do
-    visit '/'
+    sign_in_short_cut
     click_button('Post')
     fill_in('message', with: 'Going to the beach today!')
     click_button('Submit')
