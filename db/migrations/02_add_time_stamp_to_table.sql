@@ -1,0 +1,1 @@
+ALTER TABLE messages ADD COLUMN time_stamp VARCHAR(60);
