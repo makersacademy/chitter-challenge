@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/chitter_feed.rb'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   configure :development do 
@@ -10,11 +12,17 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/sign_up' do 
+  post '/homepage' do 
     @name = params[:name]
-    @email = params[:email]
-    @user_name = params[:user_name]
-    @password = params[:password]
+    @peep = params[:peep]
+    connection= PG.connect(dbname: 'chitter')
+    connection.exec("INSERT INTO chitter_feed (peep) VALUES('#{@peep}')")
+    @chitter_feed = ChitterFeed.all
+    erb :homepage
+  end
+
+  get '/chitter_feed' do 
+    @chitter_feed = ChitterFeed.all
     erb :homepage
   end
 
