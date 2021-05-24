@@ -1,4 +1,5 @@
 require 'pg'
+require './lib/database_connection.rb'
 
 class Message
 
@@ -11,15 +12,8 @@ class Message
     @time_stamp = time_stamp
   end
 
-
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      con = PG.connect(dbname: 'chitter_test')
-    else
-      con = PG.connect(dbname: 'chitter')
-    end
-
-    result = con.exec("SELECT * FROM messages")
+    result = DatabaseConnection.query("SELECT * FROM messages")
     display = result.map do |message| 
       Message.new(message['text'], message['user_name'], message['id'], message['time_stamp'])
     end
@@ -27,13 +21,7 @@ class Message
   end
 
   def self.create(text, user_name, time_stamp)
-    if ENV['ENVIRONMENT'] == 'test'
-      con = PG.connect(dbname: 'chitter_test')
-    else
-      con = PG.connect(dbname: 'chitter')
-    end
-
-    result = con.exec("INSERT INTO messages (text, user_name, time_stamp) VALUES ('#{text}', '#{user_name}', '#{time_stamp}') RETURNING *")
+    result = DatabaseConnection.query("INSERT INTO messages (text, user_name, time_stamp) VALUES ('#{text}', '#{user_name}', '#{time_stamp}') RETURNING *")
     Message.new(result[0]['text'], result[0]['user_name'], result[0]['id'], result[0]['time_stamp'])
   end 
 

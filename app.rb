@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message.rb'
 require 'time'
+require './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
