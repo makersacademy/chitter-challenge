@@ -1,9 +1,17 @@
 <form action="/new-peep">
   <input type='submit' value='Post'>
 </form>
-
+<form action="/sign-up">
+  <input type="submit" value="Sign up">
+</form>
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
 <ul>
   <% @peeps.each do |peep| %>
-    <li class="peep"><%= peep.message %></li>
+    <li class="peep">
+      <%= peep.message %>
+      Posted: <%= peep.time%>
+    </li>
   <% end %>
 </ul>

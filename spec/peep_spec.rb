@@ -15,7 +15,6 @@ describe Peep do
       
       expect(Peep.all_peeps.length).to eq 2
       expect(Peep.all_peeps.first.message).to eq('The Lions will beat the Springboks')
-      # expect(Peep.all_peeps.message).to include('The Lions will beat the Springboks')
     end
   end
 end
