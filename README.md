@@ -65,6 +65,8 @@ To create a peep, navigate to `localhost:9292/chitter/new`.
 rspec
 ```
 
+This code has 100% test coverage.
+
 Original read me below:
 
 Chitter Challenge
