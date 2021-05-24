@@ -2,6 +2,8 @@
 
 ## The object of this is to create a simple twitter close, using PostGreSQL, Sinatra and an ORM. It is written in Ruby and tested with Rspec.
 
+#UPDATE - This is extremely unfinished - I spent a lot of time trying and failing to get data mapper working and then wsn't able to come back to do the challenge using PG
+
 ## User stories
 
 As a Maker
