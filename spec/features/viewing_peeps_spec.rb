@@ -10,6 +10,9 @@ feature 'viewing messages' do
 
     visit('/chitter')
 
+    # first_message = first('.message')
+    # expect(first_message).to eq("Third peep peeps!")
+
     expect(page).to have_content "This is my first peep!"
     expect(page).to have_content "Second peep!"
     expect(page).to have_content "Third peep peeps!"
