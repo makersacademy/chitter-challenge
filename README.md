@@ -67,6 +67,10 @@ rspec
 
 This code has 100% test coverage.
 
+#### Improvements
+- I did not get as far as fully implementing the user sign in, currently there is a placeholder user_name that the user can manually enter. Time permitting, I would have fully implemented this.
+- The UI of the Chitter app (all the views) are very basic HTML with no styling. This would be another area of improvement.
+
 Original read me below:
 
 Chitter Challenge
