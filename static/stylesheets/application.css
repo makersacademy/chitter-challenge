@@ -1,0 +1,107 @@
+body {
+  text-align: center;
+  background-image: url("https://t4.ftcdn.net/jpg/02/88/22/21/240_F_288222154_cKptkuFiB0jjSLlfGrKqHU7qve113JKW.jpg");
+  background-size: cover;
+  font-size: 18px;
+  color: white;
+}
+
+.layout {
+  display: grid;
+  padding-top: 0;
+  grid-row-gap: 2em;
+}
+
+#main-image {
+  margin-top: 0.5em;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#main-page-headers {
+  padding: 0;
+  margin: 0;
+}
+
+.button {
+  background-color: darkslateblue;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  transition-duration: 0.4s;
+  margin-top: 0.5em;
+  cursor: pointer;
+  width: 200px;
+  height: 34px;
+}
+
+.button:hover {
+  background-color: rgba(9, 5, 46, 0.701);
+  color: white;
+}
+
+#name-field {
+  margin-bottom: 1em;
+  margin-top: -4em;
+}
+
+.input {
+  margin: 10px;
+  color: #555;
+  padding: 6px 12px;
+  font-size: 14px;
+  width: 200px;
+  height: 34px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgb(100 100 100 / 10%);
+}
+
+.form-container {
+  margin-top: 300px;
+}
+
+.header {
+  background-color: rgba(9, 5, 46, 0.701);
+  top: -5px;
+  height: 50px;
+  position: sticky;
+  width: 100%;
+  float: left;
+  text-align: left;
+  color: white;
+  padding: 10px 10px;
+  font-size: 28px;
+}
+.footer {
+  color: white;
+  background-color: rgba(9, 5, 46, 0.801);
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  padding: 20px;
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+}
+
+.button.previous {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
