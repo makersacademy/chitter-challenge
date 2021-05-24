@@ -1,6 +1,6 @@
 # Chitter!
 
-This is Makers weekend challenge no.3 where we design a basic twitter clone based on the user stories below. The Chitter app allows users to post 'peeps'.
+This is Makers weekend challenge no.4 where we design a basic twitter clone based on the user stories below. The Chitter app allows users to post 'peeps'.
 
 ## User Stories
 
