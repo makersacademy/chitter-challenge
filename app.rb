@@ -23,7 +23,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    Message.create(params[:text], params[:user_name])
+    @time_stamp = Time.now.strftime("%k:%M %d/%m/%Y")
+    Message.create(params[:text], params[:user_name], @time_stamp)
     redirect ('/chitter')
   end
   

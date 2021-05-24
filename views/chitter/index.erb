@@ -1,5 +1,5 @@
 <ul>
   <% @messages.each do |message| %>
-    <li><%= message.user_name %> - <%= message.text %></li>
+    <li><%= message.time_stamp %> - <%= message.user_name %> - <%= message.text %></li>
     <% end %>
 </ul>
