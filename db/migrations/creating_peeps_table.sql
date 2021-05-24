@@ -1,9 +1,9 @@
 CREATE TABLE peeps (
     id SERIAL PRIMARY KEY,
-    username varchar(22),
     message varchar(255),
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    userid int FOREIGN KEY REFERENCES users(userid)
 );
 
-INSERT INTO peeps (username, message)
-VALUES ('Stu', 'peeps');
+INSERT INTO peeps (message)
+VALUES ('peeps');

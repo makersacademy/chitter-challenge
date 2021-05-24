@@ -1,7 +1,7 @@
 feature 'Viewing chitter feed' do
   scenario 'visiting the feed page' do
     visit('/')
-    expect(page).to have_content "Chitter"
+    expect(page).to have_content "Currently Trending:"
   end
 end
 
