@@ -35,7 +35,7 @@ Use these commands in your terminal:
 
 > Setup the databases on your local machine:  
 > Connect to `psql`
-> Create the live database and test database using the psql command `CREATE DATABASE duckboard;`    
+> Create the database using the psql command `CREATE DATABASE duckboard;`    
 > Connect to the database using the pqsl command `\c duckboard;`  
 > Run the querys I have saved in the [migrations files](https://github.com/BecaLParker/chitter-challenge/tree/main/db/migrations) 
 > exit psql `\q`
