@@ -20,7 +20,7 @@ Here are the [Class Responsibility Cards](https://docs.google.com/spreadsheets/d
 Credits
 -------
 I referred to the [code review rubric](https://github.com/makersacademy/chitter-challenge/blob/master/docs/review.md) for this challenge during my build.   
-I discussed Spearation of Concerns with a non-Rubyist Dev [@allymparker](https://github.com/allymparker) in relation to the [user stories](https://github.com/BecaLParker/chitter-challenge#features).
+I discussed Separation of Concerns with a non-Rubyist Dev [@allymparker](https://github.com/allymparker) in relation to the [user stories](https://github.com/BecaLParker/chitter-challenge#features).
 
 Technologies used
 -----------------
@@ -37,7 +37,7 @@ Use these commands in your terminal:
 > Connect to `psql`
 > Create the database using the psql command `CREATE DATABASE duckboard;`    
 > Connect to the database using the pqsl command `\c duckboard;`  
-> Run the querys I have saved in the [migrations files](https://github.com/BecaLParker/chitter-challenge/tree/main/db/migrations) 
+> Run the SQL commands I have saved in the [migrations files](https://github.com/BecaLParker/chitter-challenge/tree/main/db/migrations)   
 > exit psql `\q`
 
 You can now run the feature and unit tests I built: `rspec`
@@ -49,9 +49,9 @@ Features
 -------
 User story | MVC model | Screenshot
 --- | ---------------------------------------------------- | --- | 
-As a Maker, so that I can see what others are saying, I want to see all quacks in reverse chronological order | ![see all messages MVC](./see_all_quacks_MVC.svg) |![screenshot](./see_all_quacks_screenshot.png)
-As a Maker, so that I can post messages on Duckboard as me, I want to submit my display name| ![user has a display name MVC](./has_display_name_MVC.svg)|![screenshot](./compose_quack%20screenshot.png)
-As a Maker, so that I can let people know what I am doing, I want to post a quack on Duckboard | ![post a message MVC](./post_a_quack_MVC.svg)|![screenshot](./new_quack_posted_screenshot.png)
+As a Maker, so that I can see what others are saying, I want to see all quacks in reverse chronological order | ![see all messages MVC](./planning/see_all_quacks_MVC.svg) |![screenshot](./planning/see_all_quacks_screenshot.png)
+As a Maker, so that I can post messages on Duckboard as me, I want to submit my display name| ![user has a display name MVC](./planning/has_display_name_MVC.svg)|![screenshot](./planning/compose_quack%20screenshot.png)
+As a Maker, so that I can let people know what I am doing, I want to post a quack on Duckboard | ![post a message MVC](./planning/post_a_quack_MVC.svg)|![screenshot](./planning/new_quack_posted_screenshot.png)
 As a Maker, so that I can better appreciate the context of a quack, I want to see the time at which it was made |See above| See above
 
 
