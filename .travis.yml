@@ -4,7 +4,8 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE DATABASE duckboard_test;'
+  - psql --dbname=duckboard_test -U postgres -c 'CREATE TABLE quacks(id SERIAL PRIMARY KEY, message VARCHAR(140), display_name VARCHAR(60), time_stamp timestamp default now());'
 
 script:
   - bundle exec rspec

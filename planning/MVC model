@@ -1,0 +1,42 @@
+
+User->browser: "Enters homepage url '/'"
+browser => controller: "User Story: I want to see all quacks
+GET request for homepage"
+controller -> model: "give me all the quacks!! (Quack.all)"
+model -> model: "SQL SELECT * query from quacks table"
+model -> model: "returns data of all quacks"
+model -> controller: "data of all quacks"
+controller -> view: "data of all quacks"
+view -> browser: "html that converts quack data to required display, 
+also displays form items for entering quacker name (see next user story)"
+#
+#
+User->browser: "On '/'
+* fills in name
+* clicks submit"
+browser => controller: "User story: I want to sign up with a display name
+POST request"
+controller -> model: "add and store this quacker!! (Quacker.new)"
+model -> model: "SQL INSERT INTO quacker table
+SQL SELECT * query from quacks table"
+model-> model: "returns data of all quacks"
+model -> controller: "returns data of all quacks"
+controller -> view: "passes data of all quacks 
+to /compose_quack page"
+view -> browser: "html displays form item for composing a new quack, 
+and displays all quacks (as on homepage)"
+#
+#
+User->browser: "On '/compose_quack'
+* fills in quack message
+* clicks submit"
+browser => controller: "User story: I want to post a public message (quack)
+POST request"
+controller -> model: "add and store this quack!! (Quack.create)"
+model -> model: "SQL INSERT INTO quacks table"
+model-> model: "returns updated data of all quacks"
+model -> controller: "data of all quacks"
+controller -> view: "passes data of all quacks 
+to /compose_quack page"
+view -> browser: "html displays form item for composing a new quack, 
+and displays all quacks (as on homepage)"
