@@ -12,7 +12,7 @@ Here are the [Class Responsibility Cards](https://docs.google.com/spreadsheets/d
 
 >Next steps:  
 >There are some edgecases I still want to solve (eg. throwing friendly errors if user's message is too long).   
->At present there is a known bug, where quacks won't post it they have apostrophes. I plant to fix that soon.   
+>At present there is a known bug, where quacks won't post it they have apostrophes. I plan to fix that soon.     
 >Currently, users can post **quacks** as a **guest quacker** (i.e. entering a display name and message content).    
 >I plan to implement more detailed login/logout functionality (requiring username/password etc.) in a later phase of the build.  
 >Please add other suggested next steps in issues or PR comments.  
@@ -20,7 +20,7 @@ Here are the [Class Responsibility Cards](https://docs.google.com/spreadsheets/d
 Credits
 -------
 I referred to the [code review rubric](https://github.com/makersacademy/chitter-challenge/blob/master/docs/review.md) for this challenge during my build.   
-I discussed Spearation of Concerns with a non-Rubyist Dev [@allymparker](https://github.com/allymparker) in realtion to the [user stories](https://github.com/BecaLParker/chitter-challenge#features).
+I discussed Spearation of Concerns with a non-Rubyist Dev [@allymparker](https://github.com/allymparker) in relation to the [user stories](https://github.com/BecaLParker/chitter-challenge#features).
 
 Technologies used
 -----------------
