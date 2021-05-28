@@ -6,7 +6,7 @@ ENV['ENVIRONMENT'] = 'test'
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-require './spec/setup_test_database.rb'
+require './spec/database_helpers.rb'
 
 # Require all the testing gems
 require 'capybara'

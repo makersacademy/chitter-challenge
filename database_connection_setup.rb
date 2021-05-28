@@ -1,7 +1,7 @@
 require './lib/database_connection.rb'
 
 if ENV['ENVIRONMENT'] == 'test'
-  con = PG.connect(dbname: 'chitter_test')
+  DatabaseConnection.setup('chitter_test')
 else
-  con = PG.connect(dbname: 'chitter')
+  DatabaseConnection.setup('chitter')
 end

@@ -1,7 +1,28 @@
-<ul>
-  <% @messages.each do |message| %>
-    <li class='message'>
-    <%= message.time_stamp %> - <%= message.user_name %> - <%= message.text %>
-    </li>
-    <% end %>
-</ul>
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <h2>Welcome <%= @user.first_name %>!</h2>
+  </head>
+
+  <body>
+  <form action='/chitter/new' method='get'>
+    <input type='submit' value='New peep'>
+  </form>
+    <div>
+      <ul>
+        <% @messages.each do |message| %>
+            <li class='message'>
+              <%= message.time_stamp %> - <%= message.user_name %> - <%= message.text %>
+            </li>
+          <% end %>
+      </ul>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+

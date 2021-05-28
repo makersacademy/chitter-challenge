@@ -1,1 +1,0 @@
-ALTER TABLE messages ADD COLUMN user_name VARCHAR(60);
