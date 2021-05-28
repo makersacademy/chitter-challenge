@@ -9,7 +9,6 @@
   <form action='/chitter/new' method='get'>
     <input type='submit' value='New peep'>
   </form>
-    <div>
       <ul>
         <% @messages.each do |message| %>
             <li class='message'>
@@ -17,7 +16,6 @@
             </li>
           <% end %>
       </ul>
-    </div>
   </body>
 </html>
 
