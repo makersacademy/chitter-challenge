@@ -1,3 +1,28 @@
+# Maker's Week 4: Weekly challenge
+This challenge was the fourth of my Maker's weekly challenges, coded in pairs with a randomised partner each day.
+The learning objectives for this week were:
+
+* Built a simple web app with a database attached to allow permanence
+* Explain the basics of how databases work and how to use SQL to interact with them
+* Object Relational Mapping (ORM) and manually writing a SQL interface with ruby
+* RESTful routes
+
+Successes
+-----
+
+* All but advanced challenge feature implemented with full test coverage
+* Successfully implemented authentication and login, as well as time formatting
+* Everything until Bcrypt and styling done without references/ documentation
+
+
+To improve
+-----
+* Styling is weak and took far too much effort, would use a front end framework next time
+* More detailed planning, needed to remake a table because I couldnt work out how to add a relationship to an existing table
+* User name attached to messages is done by current user, leading to incorrect display when different users log in, needs refactoring to use user data on message creation. 
+
+
+
 Chitter Challenge
 =================
 
@@ -46,18 +71,3 @@ Setup:
 * Run migration files 1, 4 and 5. Files 2 and 3 are redundant after an SQL issue prevented database alteration  
 * Use < rackup > command in terminal to launch Sinatra server, and go to localhost:9292 to interact with the app
 
-
-Successes
------
-
-* All but advanced challenge feature implemented with full test coverage
-* Successfully implemented authentication and login, as well as time formatting
-* Everything until Bcrypt and styling done without references/ documentation
-
-------------------
-
-To improve
------
-* Styling is weak and took far too much effort, would use a front end framework next time
-* More detailed planning, needed to remake a table because I couldnt work out how to add a relationship to an existing table
-* User name attached to messages is done by current user, leading to incorrect display when different users log in, needs refactoring to use user data on message creation. 
