@@ -1,0 +1,22 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<div class="container" style="padding-top: 100px">
+  <div style="padding-left: 550px">
+    <h2 style="color: teal;">Welcome to Chitter</h2>
+    <form action="/sessions" method="post"> 
+      <p style="color: teal;">Username</p>
+      <input type="text" name="username" placeholder="Enter Username" />
+      <p style="color: teal;">Password</p>
+      <input type="password" name="password" placeholder="Enter Password" />
+      <input type="submit" value="Log in" />
+    </form>
+    <div></div>
+    <form action="/users/new" method ='get'>
+      <input type='submit' value="Create new account">
+    </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,19 @@
+.message{
+  width:  450px;
+  height: 100px;
+  
+  position: absolute;
+  top:300;
+  bottom: 0;
+  left: 450;
+  right: 0;
+  text-align: center;
+  color: #595959;
+  /* margin-right: auto; */
+}
+
+.icon{
+  color: teal;
+  text-align: center;
+}
+
