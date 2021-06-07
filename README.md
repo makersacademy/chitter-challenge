@@ -6,6 +6,8 @@ Created by jackmcc08 for week 4 weekend challenge - Makers
 
 This app was developed after the culmination of 4 weeks of solid Ruby study. I decided to implement a twist on Twitter and call it Shouter, where you all your posts are auto cap locked and shouted into the void. You can also login/logout. If you don't login you are anonymised when you shout.
 
+[Video Demo](https://youtu.be/lPeBtkiOBZU)
+
 On submission:
 - RSPEC tests all passed
 - Rubocop - no violations detected
