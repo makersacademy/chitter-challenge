@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>SHOUTER</title>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/main_other.css">
+
+    <!-- <link rel="stylesheet" href="css/application.css"> -->
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/application.js"></script> -->
+
+  </head>
+
+  <body class="container">
+
+    <header>
+      <h1>SHOUTER</h1>
+      <h3>For when your tweets just aren't loud enough</h3>
+    </header>
+
+    <main>
+      <div id='shout_box_div'>
+        <form action="/shout/new" method="post">
+          <textarea name="shout_box" rows="3" cols="50" maxlength="100" placeholder="SHOUT HERE (Max 100 characters)" required></textarea>
+          <br>
+          <input type="submit" value="SHOUT">
+        </form>
+      </div>
+
+      <% if @login[0] == false %>
+        <div id="sign_up_div">
+          <h2 id="sign_up_header">Bored of being an anonymous shouter?</h2>
+          <h4 id="sign_up_subheader">Sign up and let people know who you are and why you are shouting.</h4>
+          <div id="sign_up_buttons">
+            <form action="/login" method="get">
+              <input type="submit" value="LOG IN" id="login_button">
+            </form>
+            <form action="/sign_up" method="get">
+              <input type="submit" value="SIGN UP" id="signup_button">
+            </form>
+          </div>
+        </div>
+      <% elsif @login[0] == true %>
+        <div id="logged_in_div">
+          <h2 id="logged_in_header">Welcome <%= @login[1] %>....START SHOUTING!</h2>
+          <form action="/sign_out" method="post">
+            <input type="submit" value="SIGN OUT" id="signup_button">
+          </form>
+        </div>
+      <% end %>
+
+      <h2>SHOUTS</h2>
+      <div id="shouts_div">
+        <% @shouter.each do |shout| %>
+          <div id='individual_shout'>
+            <div id='author_time_div'>
+              <p id='author_text'><%= "@#{shout['username']}" %></p>
+              <p id='time_text'><%= "#{shout['time_shouted']}" %></p>
+            </div>
+            <div id='shout_content_div'>
+              <p id='shout_content'><%= shout['shout_content'].upcase %></p>
+            </div>
+            <div id='reply_div' class="replies">
+              <p id='reply_text'><%= shout['replies'].count %> <a href="/<%= shout['shout_id']%>/replies" target="_self" id="replies"  name="replies">replies</a></p>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      </div>
+
+    </main>
+
+    <footer>
+    </footer>
+  </body>
+</html>

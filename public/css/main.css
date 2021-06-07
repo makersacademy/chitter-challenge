@@ -1,0 +1,77 @@
+body {
+  background: #EDF5E1;
+  color: #05386B;
+  font-family: helvetica;
+  width: 100vw;
+  height: 100vh;
+  text-align: left;
+}
+
+#header {
+  margin-top: 50px;
+}
+
+#player_buttons {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#name_entries {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#name_containers {
+  margin: 0px 20px;
+}
+
+#player_1_name {
+  width: 80px;
+}
+
+#player_2_name {
+  width: 80px;
+}
+
+#display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+#rps_choice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+#new_round {
+}
+
+#table {
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Bookmark-display {
+  display: flex;
+  flex-direction: row;
+
+  gap: 10px;
+}
+
+#tag_div {
+  border-style: dashed;
+  width: 40vw;
+  padding: 0px 10px;
+}
