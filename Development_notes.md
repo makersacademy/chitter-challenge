@@ -3,7 +3,6 @@
 The below contains my development notes and course of development. Note these are largely unedited.
 
 Domain model & CRC Cards: https://docs.google.com/spreadsheets/d/1n7Jcf08kXf7UYjEGKVqBzyhoxwa44A7R4Y4w0MMAbaA/edit?usp=sharing
-Miro Board:
 
 Plan is to implement the user story one by one and build up the domain model and CRC cards as the user stories are developed - following TDD and avoid implementing any unnecessary requirements.
 
@@ -84,9 +83,12 @@ I want to receive an email if I am tagged in a Peep
 >> don't allow certain letters in name, username or password, also need to validate email.
 >> extract a shout class
 >> code review rubric
->> Ensure Travis working
+>> Ensure Travis working - DONE
 >> ORM?
 >> how to get rid of the notice on rspec it drops cascades
+
+>> didn't add tagging a user in a shout or email functionality
+>> I should have converted the Database outputs into objects
 
 
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.

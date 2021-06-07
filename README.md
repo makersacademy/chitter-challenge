@@ -4,11 +4,13 @@ Chitter Challenge
 ## Welcome to SHOUTER - my answer to the Chitter Challenge
 Created by jackmcc08 for week 4 weekend challenge - Makers
 
-This app was developed after the culmination of 4 weeks of solid Ruby study. I decided to implement a twist on Twitter and call it Shouter, where you all your posts are auto cap locked and shouted into the void. You can also login/logout. If you don't login you are anonymised when you shout. 
+This app was developed after the culmination of 4 weeks of solid Ruby study. I decided to implement a twist on Twitter and call it Shouter, where you all your posts are auto cap locked and shouted into the void. You can also login/logout. If you don't login you are anonymised when you shout.
 
 On submission:
 - RSPEC tests all passed
 - Rubocop - no violations detected
+
+![app screenshot](./shouter-screenshot-v1.png)
 
 ## To use
 1. git clone to your local machine
@@ -32,7 +34,7 @@ On submission:
 ## Development History
 
 See my Development_notes.md file for a breakdown of how I developed the app.
-[Link to Domain Modelling and CRC cards](https://docs.google.com/spreadsheets/d/1n7Jcf08kXf7UYjEGKVqBzyhoxwa44A7R4Y4w0MMAbaA/edit?usp=sharing) 
+[Link to Domain Modelling and CRC cards](https://docs.google.com/spreadsheets/d/1n7Jcf08kXf7UYjEGKVqBzyhoxwa44A7R4Y4w0MMAbaA/edit?usp=sharing)
 
 The app meets all of the user stories required in the challenge except for sending an email when a reply is made to a shout.
 
@@ -58,4 +60,3 @@ Areas to improve:
 - Did not refactor significantly enough
 - need to review code rubric
 - Is there a way to automate the SQL commands? (Rake setup, rake migrate?)
-
