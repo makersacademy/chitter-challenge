@@ -1,5 +1,17 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
+
+
+ENV['ENVIRONMENT'] = 'test'
+
+# require our Sinatra app file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# tell Capybara about our app class
+Capybara.app = ChitterChallenge
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
