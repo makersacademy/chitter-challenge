@@ -1,0 +1,1 @@
+ALTER TABLE messages ADD COLUMN first_name VARCHAR(60);
