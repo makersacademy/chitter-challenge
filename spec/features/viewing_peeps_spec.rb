@@ -20,6 +20,7 @@ feature 'viewing messages' do
     Message.create("Third peep peeps!", "Bob", "15:00 03/03/2021")
 
     visit('/chitter')
+    save_and_open_page
     first_message = find('/html/body/ul/li[1]').text
     expect(first_message).to eq("15:00 03/03/2021 - Bob - Third peep peeps!")  
   end

@@ -9,13 +9,13 @@
   <form action='/chitter/new' method='get'>
     <input type='submit' value='New peep'>
   </form>
-      <ul>
-        <% @messages.each do |message| %>
-            <li class='message'>
-              <%= message.time_stamp %> - <%= message.user_name %> - <%= message.text %>
-            </li>
-          <% end %>
-      </ul>
+    <ul>
+      <% @messages.each do |message| %>
+          <li class='message'>
+            <%= message.time_stamp %> - <%= message.user_name %> - <%= message.text %>
+          </li>
+        <% end %>
+    </ul>
   </body>
 </html>
 
