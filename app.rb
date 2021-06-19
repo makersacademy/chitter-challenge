@@ -29,7 +29,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peep' do
-    Chitter.create(message: params[:message])
+    Chitter.create_peep(message: params[:message])
     redirect '/'
   end
 
