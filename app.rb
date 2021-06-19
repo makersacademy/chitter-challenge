@@ -13,12 +13,11 @@ class ChitterChallenge < Sinatra::Base
 
   get '/' do
     @peeps = Chitter.all
-    p  @peeps
     erb :'index'
   end
 
   post '/peep' do
-    Chitter.create(id: params[:id], message: params[:messsage])
+    Chitter.create(message: params[:messsage])
     redirect '/'
   end
 

@@ -6,7 +6,7 @@ require 'database_connection'
 describe Chitter do
   describe '.create' do
     it 'creates a new peep' do
-      peep = Chitter.create(id: 1, message: "Yo, Tom from MySpace here")
+      peep = Chitter.create(message: "Yo, Tom from MySpace here")
       expect(peep.message).to eq "Yo, Tom from MySpace here" 
     end
   end
@@ -16,9 +16,9 @@ describe Chitter do
         #connects to DB
         connection = PG.connect(dbname: 'bookmark_manager_test')
         # Add the test data
-        peep = Chitter.create(id: 1, message: "Yo, Tom from MySpace here")
-        Chitter.create(id: 2, message: "fakenews")
-        Chitter.create(id: 3, message: "doge to the moon")
+        peep = Chitter.create(message: "Yo, Tom from MySpace here")
+        Chitter.create(message: "fakenews")
+        Chitter.create(message: "doge to the moon")
         #calls All to return all tests
         peeps = Chitter.all
         #expected outcomes

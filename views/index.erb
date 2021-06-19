@@ -3,6 +3,7 @@
   <input type="text" name="messsage" placeholder="What's happening?" />
   <input type="submit" value="Peep" />
 </form>
-<% @peeps.each do |peep| %>
-        <li><%= peep.message %></li>
-      <% end %>
+<% @peeps.reverse.each do |peep| %>
+<li><%= peep.message %>
+<%= peep.time %></p>
+<% end %>
