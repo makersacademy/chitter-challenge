@@ -24,7 +24,7 @@ class ChitterChallenge < Sinatra::Base
 
   get '/' do
     @user = Chitter.find_user(id: session[:user_id])
-    @peeps = Chitter.all
+    @peeps = Chitter.all_peeps
     erb :'index'
   end
 

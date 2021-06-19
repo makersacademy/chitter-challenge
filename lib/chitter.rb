@@ -7,7 +7,7 @@ require 'bcrypt'
 
     #USER ---
 
-    def self.setup(email:, password:)
+    def self.setup_user(email:, password:)
       encrypted_password = BCrypt::Password.create(password)
       result = DatabaseConnection.query("INSERT INTO users (email, password) 
       VALUES('#{email}', '#{encrypted_password}') 
@@ -27,7 +27,7 @@ require 'bcrypt'
 
     #PEEPS ---
     
-    def self.create(message:)
+    def self.create_peep(message:)
       time = Time.new.strftime("%T")
       result = DatabaseConnection.query("INSERT INTO peeps (message, time) 
       VALUES('#{message}', '#{time}') 
@@ -39,7 +39,7 @@ require 'bcrypt'
       )
     end
 
-    def self.all
+    def self.all_peeps
       result = DatabaseConnection.query('SELECT * FROM peeps')
       result.map do |peep|
       Peep.new(
