@@ -1,6 +1,6 @@
 require 'pg'
 
-class Peep
+  class Peep
 
   attr_reader :id, :message, :time
 

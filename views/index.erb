@@ -1,6 +1,9 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
 
 <form action="/peep" method="post">
-  <input type="text" name="messsage" placeholder="What's happening?" />
+  <input type="text" name="message" placeholder="What's happening?" />
   <input type="submit" value="Peep" />
 </form>
 <% @peeps.reverse.each do |peep| %>

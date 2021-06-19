@@ -1,3 +1,0 @@
-require 'chitter'
-require 'peep'
-

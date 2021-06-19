@@ -2,7 +2,26 @@ require 'pg'
 
   class Chitter
 
-    attr_reader :id, :message, :time
+    attr_reader :id, :message, :email
+
+    #USER ---
+
+    def self.setup(email:, password:)
+      result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
+      User.new(
+        id: result[0]['id'],
+        email: result[0]['email'])
+    end
+
+    def self.find_user(id:)
+      return nil unless id
+      result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+      User.new(
+        id: result[0]['id'],
+        email: result[0]['email'])
+    end
+
+    #PEEPS ---
     
     def self.create(message:)
       time = Time.new.strftime("%T")
@@ -14,7 +33,7 @@ require 'pg'
         message: result[0]['message'],
         time: result[0]['time']
       )
-  end
+    end
 
     def self.all
       result = DatabaseConnection.query('SELECT * FROM peeps')

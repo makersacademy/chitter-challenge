@@ -1,12 +1,11 @@
 require 'pg'
 
-class Peep
+  class User
 
-  attr_reader :id, :email_address, :password
+  attr_reader :id, :email
 
-  def initialize(id:, message:)
+  def initialize(id:, email:)
     @id = id
-    @email_address = email_address
-    @password = password
+    @email = email
   end
 end
