@@ -46,6 +46,14 @@ describe Chitter do
         expect(user.email).to eq 'superhans@chitter.com'
       end
     end
+
+    describe '.create' do
+      it 'hashes the password using BCrypt' do
+        expect(BCrypt::Password).to receive(:create).with('guessme')
+    
+        Chitter.setup(email: 'superhans@chitter.com', password: 'guessme')
+      end
+    end
   
     describe '.find_user' do
       it 'finds a user by ID' do
