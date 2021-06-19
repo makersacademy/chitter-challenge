@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
+require './database_connection_setup'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -9,12 +11,15 @@ class ChitterChallenge < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    $peeps
+    @peeps = Peep.all
+    p  @peeps
     erb :'index'
   end
 
   post '/peep' do
-    $peeps = params[:messsage]
+    Peep.create(id: params[:id], message: params[:messsage])
     redirect '/'
   end
+
+  run! if app_file == $0
 end

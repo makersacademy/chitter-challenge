@@ -55,6 +55,35 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
+My first steps were to build out and diagram the various tables that would be required, how they would interact and the methods and objects that I would additionally need to build to meet the user stories. 
+
+I started with the following -
+
+
+Class Chitter
+Initialise
+Peeps = [peep.new, user.new]
+
+Methods -
+sign_up
+post_message
+reverse_order
+message_time
+
+
+User - 
+Initialize
+@ID
+@Email
+@password
+
+
+Peep
+@ID
+@Message
+@Time
+
+
 In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
 If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
@@ -133,3 +162,16 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+```
+CREATE DATABASE chitter_challenge_test;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+```
+CREATE TEST DATABASE chitter_challenge;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
