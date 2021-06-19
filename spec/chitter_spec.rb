@@ -1,14 +1,31 @@
-# describe Chitter do
-#   describe
+require 'chitter'
+require 'peep'
+require 'database_connection'
 
-# describe '.create' do
-#     it 'creates a new bookmark' do
-#       bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
-#       persisted_data = persisted_data(id: bookmark.id)
+  
+describe Chitter do
+  describe '.create' do
+    it 'creates a new peep' do
+      peep = Chitter.create(id: 1, message: "Yo, Tom from MySpace here")
+      expect(peep.message).to eq "Yo, Tom from MySpace here" 
+    end
+  end
 
-#       expect(bookmark).to be_a Bookmark
-#       expect(bookmark.id).to eq persisted_data['id']
-#       expect(bookmark.title).to eq 'Test Bookmark'
-#       expect(bookmark.url).to eq 'http://www.testbookmark.com'
-#     end
-#   end
+    describe '.all' do
+      it 'returns a list of peeps' do
+        #connects to DB
+        connection = PG.connect(dbname: 'bookmark_manager_test')
+        # Add the test data
+        peep = Chitter.create(id: 1, message: "Yo, Tom from MySpace here")
+        Chitter.create(id: 2, message: "fakenews")
+        Chitter.create(id: 3, message: "doge to the moon")
+        #calls All to return all tests
+        peeps = Chitter.all
+        #expected outcomes
+        expect(peeps.length).to eq 3
+        expect(peeps.first).to be_a Peep
+        expect(peeps.first.id).to eq peep.id
+        expect(peeps.first.message).to eq 'Yo, Tom from MySpace here'
+       end
+     end
+end
