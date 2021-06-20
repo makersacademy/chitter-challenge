@@ -6,3 +6,12 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+
+gem 'pg'
+gem 'capybara'
+gem 'launchy'
+gem 'selenium-webdriver'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'sinatra-flash'
+gem 'webrick'
