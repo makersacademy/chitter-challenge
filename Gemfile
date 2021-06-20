@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
+gem 'capybara'
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'capybara'
 
 group :test do
   gem 'rspec'
