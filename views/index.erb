@@ -1,6 +1,11 @@
+<%= flash[:notice] %>
 <% if @user %>
   <h1>Welcome, <%= @user.email %></h1>
 <% end %>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
 
 <form action="/peep" method="post">
   <input type="text" name="message" placeholder="What's happening?" />

@@ -5,6 +5,7 @@ require './lib/peep'
 require './lib/user'
 require './database_connection_setup'
 require './lib/chitter'
+require 'bcrypt'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -37,6 +38,12 @@ class ChitterChallenge < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect '/sessions'
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect '/'
   end
 
   get '/' do
