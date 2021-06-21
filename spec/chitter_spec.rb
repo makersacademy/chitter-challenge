@@ -65,10 +65,23 @@ describe Chitter do
       end
     end
   
-    describe '.find_user' do
       it 'returns nil if there is no ID given' do
         expect(Chitter.find_user(id: nil)).to eq nil
       end
+
+    describe '.authenticate' do
+      it 'returns a user given a correct username and password, if one exists' do
+        user = Chitter.setup_user(email: 'superhans@chitter.com', password: 'guessme')
+        authenticated_user = Chitter.authenticate_user(email: 'superhans@chitter.com', password: 'guessme')
+  
+        expect(authenticated_user.id).to eq user.id
+      end
+    end
+
+      it 'returns nil given an incorrect email address' do
+        user = Chitter.setup_user(email: 'superhans@chitter.com', password: 'guessme')
+    
+        expect(Chitter.authenticate_user(email: 'nohans@chitter.com', password: 'guessme')).to be_nil
     end
   end
 end
