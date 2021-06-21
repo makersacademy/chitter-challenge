@@ -1,18 +1,6 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
 Features:
 -------
 
@@ -55,27 +43,23 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
-My first steps were to build out and diagram the various tables that would be required, how they would interact and the methods and objects that I would additionally need to build to meet the user stories. 
+My first steps were to extract the verbs and nouns from the user story, then diagram the requirements and responsibilties for each class and method. I listed which SQL tables would be required, how they would interact with my application. 
 
 I started with the following -
 
 
-Class Chitter
-Initialise
-Peeps = [peep.new, user.new]
-
-Methods -
-sign_up
-post_message
-reverse_order
-message_time
-
+Class 
+Chitter -
+setup_user
+find_user
+authenticate_user
+create_peep
+all_peeps
 
 User - 
 Initialize
 @ID
 @Email
-@password
 
 
 Peep
@@ -83,55 +67,26 @@ Peep
 @Message
 @Time
 
+Using a BDD approach I build out the application, first writing the feature tests, adding the integration tests and then working through a red, green, refactor technique to build out my application. Initially I was going to have the responsibilities across user and peep and then decided that by applying the spearation of concerns principle it would be best practice to split their methods into the Chitter.rb, thus keeping the peep and user classes specific to storing the attributed information. 
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Motivation --
+-----
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+To create a web application in the form of a popular social media application. The application allows users to sign-up, sign-in and sing out. Further functionality includes the ability to send 'peeps' (messages) with a timestamp to track exactly when it was sent. The application includes database persistence and sends data directly into two PSQL tables, one for the peeps and another for user details. The application also includes BCRPYT password encryption to add a layer of security for users to keep their details secure. 
 
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
 Notes on functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
+* Validation to stop users from signing up with an invalid email address, or password.
 
 Code Review
 -----------
 
-In code review we'll be hoping to see:
-
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
 * The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
 
 Automated Tests:
 -----
@@ -143,32 +98,12 @@ If you want a green tick against your pull request you'll need to configure Trav
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
-Notes on test coverage
+How to use notes -
 ----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
-
 
 ```
 CREATE DATABASE chitter_challenge_test;
 ```
-
-To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
 ```
 CREATE TEST DATABASE chitter_challenge;
