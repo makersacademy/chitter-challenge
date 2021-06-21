@@ -32,10 +32,10 @@ class ChitterChallenge < Sinatra::Base
     user = Chitter.authenticate_user(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect('/')
+      redirect '/'
     else
       flash[:notice] = 'Please check your email or password.'
-      redirect('/sessions')
+      redirect '/sessions'
     end
   end
 

@@ -83,5 +83,11 @@ describe Chitter do
     
         expect(Chitter.authenticate_user(email: 'nohans@chitter.com', password: 'guessme')).to be_nil
     end
+
+      it 'returns nil given an incorrect password' do
+        user = Chitter.setup_user(email: 'superhans@chitter.com', password: 'guessme')
+    
+        expect(Chitter.authenticate_user(email: 'superhans@chitter.com', password: 'emsseug')).to be_nil
+    end
   end
 end

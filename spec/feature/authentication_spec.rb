@@ -24,4 +24,16 @@ feature 'authentication' do
       expect(page).to have_content 'Please check your email or password.'
     end
   end
+
+  scenario 'a user sees an error if they get their password wrong' do
+    Chitter.setup_user(email: 'test@example.com', password: 'password123')
+
+    visit '/sessions'
+    fill_in(:email, with: 'superhans@chitter.com')
+    fill_in(:password, with: 'emsseug')
+    click_button('Sign in')
+
+    expect(page).not_to have_content 'Welcome, superhans@chitter.com'
+    expect(page).to have_content 'Please check your email or password.'
+  end
 end

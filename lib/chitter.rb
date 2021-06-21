@@ -1,5 +1,6 @@
 require 'pg'
 require 'bcrypt'
+require_relative './database_connection'
 
   class Chitter
 
@@ -28,6 +29,7 @@ require 'bcrypt'
     def self.authenticate_user(email:, password:)
       result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
       return unless result.any?
+      return unless BCrypt::Password.new(result[0]['password']) == password
       User.new(
         id: result[0]['id'],
         email: result[0]['email'])
