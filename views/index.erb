@@ -5,6 +5,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
+<h1 class="heading">Chitter</h1>
+
 <%= flash[:notice] %>
 <% if @user %>
   <h1>Welcome, <%= @user.email %></h1>
@@ -30,8 +32,8 @@
 </div>
 <% @peeps.reverse.each do |peep| %>
 <div class="peeps">
-<li><%= peep.message %>
-<span>Time sent <%=  peep.time %></p></span>
+<%= peep.message %>
+<ul class="time">Time sent <%=  peep.time %></p></ul>
 <% end %>
 </div>
 
