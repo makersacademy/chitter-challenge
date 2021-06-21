@@ -1,0 +1,42 @@
+html { box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  width: 500px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -200px;
+  margin-left: -250px;
+  border-style: groove;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid #000000;
+  background-color: #426B69;
+  line-height: 50px;
+}
+span {
+  color: #ADC581;
+  
+}
+
+
+body {
+  margin: 0 auto;
+  min-width: 600px;
+  max-width: 100%;
+  color: #ffffff; 
+  font-family: 'Roboto', sans-serif;
+  background-color: #222E50;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 0.5rem;
+}
+

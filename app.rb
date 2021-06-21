@@ -40,7 +40,7 @@ class ChitterChallenge < Sinatra::Base
     end
   end
 
-  post '/sessions/destroy' do
+  post '/sessions/destroy' do 
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect '/'
