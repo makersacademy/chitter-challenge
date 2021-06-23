@@ -254,7 +254,7 @@ module Helpers
   end
 ```
 
-See https://github.com/makersacademy/course/blob/master/pills/spec_helper_methods.md
+See https://github.com/makersacademy/course/blob/main/pills/spec_helper_methods.md
 
 # Step 4: Application code and \*.rb files
 
@@ -525,7 +525,7 @@ end
 
 ## Nice-to-have: Ensure Rakefile has Appropriate Tasks
 
-(We removed Rake from the Bookmark Manager sequence in 2018, but it's nice to know about. Here is [the step](https://github.com/makersacademy/course/blob/master/bookmark_manager/using_rake.md) and here's [the walkthrough](https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/using_rake.md).)
+(We removed Rake from the Bookmark Manager sequence in 2018, but it's nice to know about. Here is [the step](https://github.com/makersacademy/course/blob/main/bookmark_manager/using_rake.md) and here's [the walkthrough](https://github.com/makersacademy/course/blob/main/bookmark_manager/walkthroughs/using_rake.md).)
 
 Any scripts that touch the database or working area should be moved to the Rakefile.
 
