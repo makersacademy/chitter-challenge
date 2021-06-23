@@ -1,0 +1,20 @@
+<h1>Chitter Chat</h1>
+<form action ='/index' method ='post'>
+<input type = 'text' name ='tweet' placeholder= 'Enter tweet here...'>
+<input type ='submit' value ='Tweet' >
+</form>
+
+<%= @tweet %>
+
+<style>
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 10px;
+}
