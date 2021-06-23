@@ -1,0 +1,20 @@
+<html><br><br><br><br><br><br>
+  <body style="background-color: #1DA1F2; text-align:center font-color: white;">
+    <link rel="stylesheet" href="./stylesheets/application.css">
+      <div class="layout">
+        <img id="main-image" src="/img/chitter2.png" alt="Chitter logo" width="500px"><ul>
+        <form action="/" method="get">
+            <input type="submit" value="Login" />
+              <form action="/" method="get">
+                <input type="submit" value="Sign up" /></form>
+          <h3>Hey User, What's on your mind?</h3>
+        <form action="/peeps" method="post">
+          <input id="typepeep" type="text" name="message" />
+          <input type="submit" value="Post" />
+        </form>
+            <h2> Most recent peeps:</h2>
+        <% @peeps.each do |peep| %>
+      <h3><%= peep %></h3>
+    <% end %>
+  </ul>
+</html>
