@@ -15,6 +15,8 @@ class ChitterChallenge < Sinatra::Base
 
   enable :sessions, :method_override
 
+  # USERS
+
   get '/users' do
     erb :'new'
   end
@@ -45,6 +47,8 @@ class ChitterChallenge < Sinatra::Base
     flash[:notice] = 'You have signed out.'
     redirect '/'
   end
+
+  # PEEPS
 
   get '/' do
     @user = Chitter.find_user(id: session[:user_id])
