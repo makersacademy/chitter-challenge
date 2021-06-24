@@ -8,4 +8,8 @@ class Chitter < Sinatra::Base
 
   enable :session, :method_override
 
+  get '/' do
+    'Chitter'
+  end
+
 end
