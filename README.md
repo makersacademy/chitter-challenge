@@ -67,7 +67,7 @@ Peep
 @Message
 @Time
 
-Using a BDD approach I build out the application, first writing the feature tests, adding the integration tests and then working through a red, green, refactor technique to build out my application. Initially I was going to have the responsibilities across user and peep and then decided that by applying the spearation of concerns principle it would be best practice to split their methods into the Chitter.rb, thus keeping the peep and user classes specific to storing the attributed information. 
+Using a BDD approach I built my application, first writing the feature tests, adding the integration tests and then working through a red, green, refactor technique to build out my application. Initially I was going to have the responsibilities across user and peep and then decided that by applying the spearation of concerns principle it would be best practice to split their methods into the Chitter.rb, thus keeping the peep and user classes specific to storing the attributed information. 
 
 Motivation --
 -----
