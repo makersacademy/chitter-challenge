@@ -1,0 +1,16 @@
+current directory: /Users/mike/Desktop/Makers/chitter-challenge/.bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+/Users/mike/.rvm/rubies/ruby-2.6.5/bin/ruby -I /Users/mike/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210624-48083-kmlrl3.rb extconf.rb
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/mike/Desktop/Makers/chitter-challenge/.bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /Users/mike/Desktop/Makers/chitter-challenge/.bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/mike/Desktop/Makers/chitter-challenge/.bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20210624-48083-n58th1/racc
