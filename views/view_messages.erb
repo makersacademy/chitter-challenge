@@ -1,5 +1,6 @@
 <h1> Message Board: </h1>
 
 <% @messages.each do |message_instance| %>
-  <%= message_instance.message %><br>
+  <h2><%= message_instance.message%><br></h2>
+  Message posted at:<%= message_instance.created_at %><br>
 <% end %>

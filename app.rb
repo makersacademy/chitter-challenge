@@ -7,7 +7,8 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  enable :session, :method_override
+  enable :session
+  
 
   get '/' do
     redirect '/messages'
