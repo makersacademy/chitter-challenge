@@ -9,6 +9,10 @@ class Chitter < Sinatra::Base
 
   enable :session, :method_override
 
+  get '/' do
+    redirect '/messages'
+  end
+
   get '/messages' do
     @messages = Message.all
     erb(:view_messages)
