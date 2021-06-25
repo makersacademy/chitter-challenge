@@ -156,17 +156,22 @@ bundle install
 
 ### To set up the database
 
-Connect to `psql` and create the `chitter` database:
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
 ```
 CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
 ```
 
 Connect to the database using:
 ```
 \c chitter;
 ```
+OR
+```
+\c chitter_test;
+```
 
-Then set up the appropriate tables by running the SQL scripts in the `db/migrations` folder in the given order.
+Then set up the appropriate tables in each database by running the SQL scripts in the `db/migrations` folder in the given order.
 
 ### To run the Chitter app
 
@@ -248,6 +253,7 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 4. Set up the feature for viewing peeps, then refactored using MVC logic by implementing a `Peep` class (the model), and a peep index page view.
 5. I created a database called `chitter` and created a `peeps` table within it.
 6. Installed the `pg` ruby gem that allows a connection to be made with PostgreSQL and handle queries. Then attached the database to the web application.
+7. Set up the test environment.
 
 
 ## TODO
