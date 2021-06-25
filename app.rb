@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
       password: params[:password],
       email: params[:email]
     )
-    redirect '/'
+    redirect '/messages'
   end
 
   get '/messages' do
