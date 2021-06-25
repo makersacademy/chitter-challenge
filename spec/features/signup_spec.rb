@@ -10,7 +10,6 @@ feature 'sign up' do
     fill_in 'name', with: 'john'
     fill_in 'email', with: 'john@gmail.com'
     fill_in 'password', with: '123'
-    fill_in 'dob', with: '21041996'
     click_button('Sign Up')
     expect(page).to have_content('Log In')
   end

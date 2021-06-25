@@ -24,17 +24,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/login' do
+    @credentials = session[:credentials]
     erb(:login)
   end
 
   post '/login' do
-    session[:username] = params[:username]
-    redirect('/feed')
+    session[:credentials] = User.log_in(email: params[:email], password: params[:password])
+    if @credentials == nil
+      redirect('/feed')
+    else
+      redirect('/login')
+    end
   end
 
   get '/feed' do
     p 'get feed'
-    @username = session[:username]
     p @peeps = NewsFeed.all
     erb(:feed)
   end

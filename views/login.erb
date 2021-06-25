@@ -1,6 +1,9 @@
 <h1>Log In</h1>
 <form method="post" action="login">
-  <input type="name" name="username" placeholder="Username">
+  <input type="email" name="email" placeholder="Email">
   <input type="password" name="password" placeholder="Password">
   <input type="submit" value="Log In">
 </form>
+<% if @credentials %>
+  <%= @credentials %>
+<% end %>
