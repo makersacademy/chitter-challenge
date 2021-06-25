@@ -1,6 +1,40 @@
-<h1> Message Board: </h1>
 
+<html>
+  <head>
+  <br>
+<br>
+<form action='/messages/new' method='get'>
+  <input type='submit' value='Add a new message' />
+</form>
+    <h1>Message Board</h1>
+    
+    <style>
+      p, h1, h2, h3, h4, ul, li, a, label {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #157DA6;
+        text-align: left;
+      }
+      .centered {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
 <% @messages.each do |message_instance| %>
-  <h2><%= message_instance.message%><br></h2>
+  <h4><%= message_instance.message%><br></h4>
   Message posted at:<%= message_instance.created_at %><br>
+  ----------------------------------------------------------
 <% end %>
+    <style>
+      p, h1, h2, h3, h4, ul, li, a, label {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #157DA6;
+        text-align: left;
+      }
+      .centered {
+        text-align: left;
+      }
+    </style>
+  <body>
+</html>
+
