@@ -1,20 +1,34 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
+
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
-
       # Add the test data
-      connection.exec("INSERT INTO peeps (peep_text) VALUES ('This is a peep');")
-      connection.exec("INSERT INTO peeps (peep_text) VALUES ('Peep peep!');")
-      connection.exec("INSERT INTO peeps (peep_text) VALUES ('peeping away 🐥');")
+      peep = Peep.create(peep_text: 'This is a peep')
+      Peep.create(peep_text: 'Peep peep!')
+      Peep.create(peep_text: 'peeping away 🐥')
       
       peeps = Peep.all
+      
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.peep_id).to eq peep.peep_id
+      expect(peeps.first.peep_text).to eq "This is a peep"
+      expect(peeps.first.peeped_on).to eq peep.peeped_on
+    end
+  end
 
-      expect(peeps).to include("This is a peep")
-      expect(peeps).to include("Peep peep!")
-      expect(peeps).to include("peeping away 🐥")
+  describe '.create' do
+    it 'creates a new peep' do
+      peep = Peep.create(peep_text: "Test my peep.")
+      persisted_data = persisted_data(peep_id: peep.peep_id)
+
+      expect(peep).to be_a Peep
+      expect(peep.peep_id).to eq persisted_data['peep_id']
+      expect(peep.peep_text).to eq "Test my peep."
+      expect(peep.peeped_on).to eq persisted_data['peeped_on']
     end
   end
 end

@@ -254,6 +254,13 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 5. I created a database called `chitter` and created a `peeps` table within it.
 6. Installed the `pg` ruby gem that allows a connection to be made with PostgreSQL and handle queries. Then attached the database to the web application.
 7. Set up the test environment.
+8. Implemented the feature of 'adding peeps to the database', from browser to database, using MVC pattern.
+9. From the 2nd and 3rd user story, a timestamp is required on each peep. I updated the peeps tables to include a peeped_on column that logs the time it was created. Then TDD'd the feature for having a timestamp on the peeps. 
+10. Wrapped database data in program objects.
+
 
 
 ## TODO
+* Model retreives data in String format.
+* Q: Time delay when storing Time.now for Feature Tests. Unable to freeze time using timecop?
+* Issue: Unable to write peeps with `'` characters due to the way the data is being fetched from the db.
