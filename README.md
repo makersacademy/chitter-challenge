@@ -133,3 +133,120 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+# My Solution
+A Makers Week 4 solo weekend challenge.
+
+* **Languages used**: Ruby, HTML, SQL
+* **Technology used**:
+  * RSpec (unit testing)
+  * Capybara (feature testing)
+  * Sinatra & Rack (handling requests and responses)
+  * PG (Ruby Postgres bridge)
+* **Database**: PostgreSQL
+
+## Usage
+
+### To set up the project
+
+Clone this repository. Then install Gems required using bundler:
+```
+bundle install
+```
+
+### To set up the database
+
+Connect to `psql` and create the `chitter` database:
+```
+CREATE DATABASE chitter;
+```
+
+Connect to the database using:
+```
+\c chitter;
+```
+
+Then set up the appropriate tables by running the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the Chitter app
+
+Start the server in the terminal using:
+```
+rackup
+```
+Note down the port number and access the website via:
+http://localhost:PORT_NUMBER
+
+### To run tests:
+
+```
+rspec
+```
+
+To run feature tests only:
+```
+rspec spec/features
+```
+
+## Domain Model
+
+### CRC
+
+```
+|-----------------------------------|
+|           Peep (message)          |
+|-----------------------------------|
+| Responsibilities |  Collaborators |
+|-----------------------------------|
+| has text         |  User          |
+| has timestamp    |                |
+| knows user       |                |
+|-----------------------------------|
+
+|-----------------------------------------|
+|                   User                  |
+|-----------------------------------------|
+| Responsibilities        | Collaborators |
+|-----------------------------------------|
+| has username            |               |
+| has name                |               |
+| has email               |               |
+| has encrypted password  |               |
+|-----------------------------------------|
+
+```
+Relationships: many-to-one
+
+### Database Structure
+
+```
+Table: Peeps
+|------------------------------------------------|-----------|
+|  peep_id  |  peep_text         |  peeped_on    |  user_id  |
+|------------------------------------------------|-----------|
+|     1     |  "This is a peep"  |  date & time  |     1     |
+|------------------------------------------------|-----------|
+
+Table: Users
+|----------|------------|--------------|-------------------------|----------------------|
+| user_id  |  username  |  name        |  email                  |  encrypted_password  |
+|----------|------------|--------------|-------------------------|----------------------|
+|    1     |     cfu    |  Cynthia Fu  |  cynthia@fakeemail.com  |  encrypted password  |
+|----------|------------|--------------|-------------------------|----------------------|
+```
+
+## Approach
+
+In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to lint, all following the MVC pattern.
+
+1. Looking at the User Stories, I drafted a Domain Model (as shown above) using the Class Responsibility Collaborator (CRC) cards approach.
+2. I set up the Web Project:
+  * Sinatra and Rack for handling requests and responses
+  * Capybara for feature testing
+  * RSpec for unit testing
+3. Set up the first feature, the index page
+4. Set up the feature for viewing peeps, then refactored using MVC logic by implementing a `Peep` class (the model), and a peep index page view.
+5. I created a database called `chitter` and created a `peeps` table within it.
+
+
+## TODO
