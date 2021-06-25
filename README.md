@@ -247,6 +247,7 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 3. Set up the first feature, the index page
 4. Set up the feature for viewing peeps, then refactored using MVC logic by implementing a `Peep` class (the model), and a peep index page view.
 5. I created a database called `chitter` and created a `peeps` table within it.
+6. Installed the `pg` ruby gem that allows a connection to be made with PostgreSQL and handle queries. Then attached the database to the web application.
 
 
 ## TODO
