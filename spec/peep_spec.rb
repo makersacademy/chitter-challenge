@@ -37,12 +37,12 @@ describe Peep do
   describe '.create' do
     it 'creates a new peep' do
       peep = Peep.create(peep_text: "Test my peep.")
-      persisted_data = persisted_data(peep_id: peep.peep_id)
+      persisted_data = persisted_data(id: peep.peep_id, table: 'peeps')
 
       expect(peep).to be_a Peep
-      expect(peep.peep_id).to eq persisted_data['peep_id']
+      expect(peep.peep_id).to eq persisted_data.first['peep_id']
       expect(peep.peep_text).to eq "Test my peep."
-      expect(peep.peeped_on).to eq persisted_data['peeped_on']
+      expect(peep.peeped_on).to eq persisted_data.first['peeped_on']
     end
   end
 end
