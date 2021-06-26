@@ -8,4 +8,16 @@ feature 'Viewing timestamps' do
 
     expect(page).to have_content("#{time_now} peeping away 🐥").or have_content("#{time_now_variance} peeping away 🐥")
   end
+
+  scenario 'peeps are in reverse chronological order' do
+    Peep.create(peep_text: 'This is a peep')
+    Peep.create(peep_text: 'Peep peep!')
+    Peep.create(peep_text: 'peeping away 🐥')
+
+    visit('/peeps')
+
+    expect(page.find('li:nth-child(1)')).to have_content 'peeping away 🐥'
+    expect(page.find('li:nth-child(2)')).to have_content 'Peep peep!'
+    expect(page.find('li:nth-child(3)')).to have_content 'This is a peep'
+  end
 end

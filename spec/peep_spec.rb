@@ -6,17 +6,31 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps' do
       # Add the test data
-      peep = Peep.create(peep_text: 'This is a peep')
+      Peep.create(peep_text: 'This is a peep')
       Peep.create(peep_text: 'Peep peep!')
-      Peep.create(peep_text: 'peeping away 🐥')
+      peep = Peep.create(peep_text: 'peeping away 🐥')
       
       peeps = Peep.all
       
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
       expect(peeps.first.peep_id).to eq peep.peep_id
-      expect(peeps.first.peep_text).to eq "This is a peep"
+      expect(peeps.first.peep_text).to eq 'peeping away 🐥'
       expect(peeps.first.peeped_on).to eq peep.peeped_on
+    end
+
+    it 'returns peeps in reverse chronological order' do
+      Peep.create(peep_text: 'This is a peep')
+      Peep.create(peep_text: 'Peep peep!')
+      Peep.create(peep_text: 'peeping away 🐥')
+      peeps = Peep.all
+
+      expect(peeps.first.peep_text).to eq 'peeping away 🐥'
+
+      Peep.create(peep_text: 'This is a newer peep')
+      peeps = Peep.all
+
+      expect(peeps.first.peep_text).to eq 'This is a newer peep'
     end
   end
 
