@@ -1,11 +1,14 @@
 <h1>Chitter Chat</h1>
-<form action ='/index' method ='post'>
+<form action ='/index' method ='get'>
 <input type = 'text' name ='tweet' placeholder= 'Enter tweet here...'>
-<input type ='submit' value ='Tweet' >
+<input type ='submit' value ='Tweet'/>
 </form>
 
-<%= @tweet %>
+<form action ='/new' method ='post'>
+<input type = 'submit' value='View tweets'>
+</form>
 
+<%= @chitter %>
 <style>
 
 body {
