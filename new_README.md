@@ -45,6 +45,12 @@ I want to receive an email if I am tagged in a Peep
 
 ![Sequence Diagram](https://raw.githubusercontent.com/frodri13/chitter-challenge/main/img/sequence.png)
 
+# Class Modelling
+
+![User](https://raw.githubusercontent.com/frodri13/chitter-challenge/main/img/user.png)
+
+![Peep](https://raw.githubusercontent.com/frodri13/chitter-challenge/main/img/peep.png)
+
 # Data Base
 
 # Testing
