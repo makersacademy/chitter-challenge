@@ -259,6 +259,7 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 10. Wrapped database data in program objects.
 11. Extracted database connection logic to a `DatabaseConnection` object, set up a persistent connection to the correct database with method `setup`. Wrapped PG's `exec` method with a method, `DatabaseConnection.query`, that executes queries on the database.
 12. Implemented the feature 'peeps are in reverse chronological order'. I used the `ORDER BY` SQL query when retrieving the list of peeps.
+13. Created the users table, updated the test setup to truncate the user table between each test. 
 
 
 
