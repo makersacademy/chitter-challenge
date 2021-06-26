@@ -43,7 +43,7 @@ I want to receive an email if I am tagged in a Peep
 
 # Domain Model Diagram
 
-![Sequence Diagram]()
+![Sequence Diagram](https://raw.githubusercontent.com/frodri13/chitter-challenge/main/img/sequence.png)
 
 # Data Base
 
