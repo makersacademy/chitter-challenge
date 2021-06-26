@@ -9,7 +9,7 @@ class DatabaseConnection
     @connection
   end
 
-  def sef.query(sql)
+  def self.query(sql)
     @connection.exec(sql)
   end
 

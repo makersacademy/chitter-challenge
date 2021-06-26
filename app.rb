@@ -2,28 +2,32 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/chitter'
 require './lib/tweet'
+require 'date'
+require 'uri'
+require './lib/database_connection.rb'
+require_relative './lib/database_connection_setup'
 
 class ChitterChat < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
+  before do
+    @chitter = Chitter.all
+  end
+
   enable :sessions, :method_override
 
   get '/' do
-    $chitter = Chitter.new
-    @chitter = $chitter
     erb :index
   end
 
   get '/tweets' do
-    @chitter = $chitter
-    @chitter.add(Tweet.new(params[:tweet]))
+    Chitter.add(tweet: params[:tweet], time: Time.new.strftime("%k:%M %p"))
     erb :index
   end
 
   post '/index' do
-    @chitter = $chitter
     erb :index
   end
 

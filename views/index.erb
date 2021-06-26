@@ -5,15 +5,16 @@
 </form>
 
 <form action ='/index' method ='post'>
-<input type = 'submit' name = 'view' value='View tweets'>
+<input type = 'submit' name ='view' value='View tweets'>
 </form>
 
 <% if params[:view] %>
-<% @chitter.view_tweets.reverse.each do |tweet| %>
+<% @chitter.each do |tweet| %>
 <div class ='tweet'>
-<%= tweet.content %> <%= tweet.time.ctime %>
+<%= tweet.tweet %> <%= tweet.time %> 
 </div>
 <% end %>
+
 <% end %>
 
 

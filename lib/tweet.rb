@@ -1,11 +1,11 @@
 require 'date'
 
 class Tweet
-  attr_reader :time, :content
+  attr_reader :tweet, :time
 
   def initialize(content)
-    @time = Time.new
-    @content = content
+    @tweet = tweet
+    @time = Time.new.min
   end
 
 end

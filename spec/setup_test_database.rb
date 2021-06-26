@@ -1,9 +1,9 @@
-require 'pg'
+# require 'pg'
 
-def setup_test_database
-  p "Setting up test database..."
+# def setup_test_database
+#   p "Setting up test database..."
 
-  connection = PG.connect(dbname: 'chitter_test')
+#   connection = PG.connect(dbname: 'chitter_test')
 
-  connection.exec("TRUNCATE users, tweets;")
-end
+#   connection.exec("TRUNCATE users, tweets;")
+# end
