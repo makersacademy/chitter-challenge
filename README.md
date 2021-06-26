@@ -246,9 +246,9 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 
 1. Looking at the User Stories, I drafted a Domain Model (as shown above) using the Class Responsibility Collaborator (CRC) cards approach.
 2. I set up the Web Project:
-  * Sinatra and Rack for handling requests and responses
-  * Capybara for feature testing
-  * RSpec for unit testing
+    * Sinatra and Rack for handling requests and responses
+    * Capybara for feature testing
+    * RSpec for unit testing
 3. Set up the first feature, the index page
 4. Set up the feature for viewing peeps, then refactored using MVC logic by implementing a `Peep` class (the model), and a peep index page view.
 5. I created a database called `chitter` and created a `peeps` table within it.
@@ -257,12 +257,12 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 8. Implemented the feature of 'adding peeps to the database', from browser to database, using MVC pattern.
 9. From the 2nd and 3rd user story, a timestamp is required on each peep. I updated the peeps tables to include a peeped_on column that logs the time it was created. Then TDD'd the feature for having a timestamp on the peeps. 
 10. Wrapped database data in program objects.
-11. Extracted database connection logic to a `DatabaseConnection` object, set up a persistent connection to the correct database with method `setup`. Wrapped PG's `exec` method with a method, `DatabaseConnection.query`. that executes queries on the database.
+11. Extracted database connection logic to a `DatabaseConnection` object, set up a persistent connection to the correct database with method `setup`. Wrapped PG's `exec` method with a method, `DatabaseConnection.query`, that executes queries on the database.
 12. Implemented the feature 'peeps are in reverse chronological order'. I used the `ORDER BY` SQL query when retrieving the list of peeps.
 
 
 
 ## TODO
-* Model retreives data in String format.
-* Q: Time delay when storing Time.now for Feature Tests. Unable to freeze time using timecop?
+* Model retreives data in String format - Date formatting?
+* Q: Time delay when storing Time.now for Feature Tests. Unable to freeze time using timecop gem?
 * Issue: Unable to write peeps with `'` characters due to the way the data is being fetched from the db.
