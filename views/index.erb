@@ -1,14 +1,22 @@
 <h1>Chitter Chat</h1>
-<form action ='/index' method ='get'>
+<form action ='/tweets' method ='get'>
 <input type = 'text' name ='tweet' placeholder= 'Enter tweet here...'>
 <input type ='submit' value ='Tweet'/>
 </form>
 
-<form action ='/new' method ='post'>
-<input type = 'submit' value='View tweets'>
+<form action ='/index' method ='post'>
+<input type = 'submit' name = 'view' value='View tweets'>
 </form>
 
-<%= @chitter %>
+<% if params[:view] %>
+<% @chitter.view_tweets.reverse.each do |tweet| %>
+<div class ='tweet'>
+<%= tweet.content %> <%= tweet.time.ctime %>
+</div>
+<% end %>
+<% end %>
+
+
 <style>
 
 body {
@@ -19,5 +27,11 @@ body {
 }
 
 input {
+  padding: 10px;
+}
+
+.tweet {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
 }

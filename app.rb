@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/chitter'
+require './lib/tweet'
 
 class ChitterChat < Sinatra::Base
   configure :development do
@@ -10,16 +11,19 @@ class ChitterChat < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
+    $chitter = Chitter.new
+    @chitter = $chitter
     erb :index
   end
 
-  get '/index' do
-    Chitter.add(params[:tweet])
+  get '/tweets' do
+    @chitter = $chitter
+    @chitter.add(Tweet.new(params[:tweet]))
     erb :index
   end
 
-  post '/new' do
-    @chitter = Chitter.view_tweets
+  post '/index' do
+    @chitter = $chitter
     erb :index
   end
 

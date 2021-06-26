@@ -1,4 +1,5 @@
 require 'date'
+require './lib/tweet'
 
 class Chitter
   attr_reader :tweets
@@ -7,12 +8,16 @@ class Chitter
     @tweets = []
   end
 
-  def self.add(tweet)
+  def add(tweet)
     @tweets.push(tweet)
   end
 
-  def self.view_tweets
-    @tweets.each { |tweet| puts tweet }
+  def view_tweets
+    @tweets
+  end
+
+  def how_many
+    @tweets.length
   end
 end
 
