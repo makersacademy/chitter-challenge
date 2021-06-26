@@ -8,6 +8,12 @@
 <input type = 'submit' name ='view' value='View tweets'>
 </form>
 
+<form action = '/users' method = 'get'>
+<input type = 'submit' value ='Sign up'>
+</form>
+
+<%= @user.email %>
+
 <% if params[:view] %>
 <% @chitter.each do |tweet| %>
 <div class ='tweet'>
