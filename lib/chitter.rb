@@ -1,5 +1,6 @@
 require 'date'
 require './lib/tweet'
+require 'pg'
 
 class Chitter
   attr_reader :tweets
@@ -9,6 +10,7 @@ class Chitter
   end
 
   def add(tweet)
+    connect = PG.connect()
     @tweets.push(tweet)
   end
 
