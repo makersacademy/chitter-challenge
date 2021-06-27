@@ -30,13 +30,14 @@ class User
     )
   end
 
-  attr_reader :user_id, :email, :name, :username
-
-  def initialize(user_id:, email:, name:, username:)
-    @user_id = user_id
-    @email = email
-    @name = name
-    @username = username
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    User.new(
+      user_id: result[0]['user_id'], 
+      email: result[0]['email'], 
+      name: result[0]['name'], 
+      username: result[0]['username']
+    )
   end
 
   def self.username_unique?(username)
@@ -57,5 +58,14 @@ class User
     else
       false
     end
+  end
+
+  attr_reader :user_id, :email, :name, :username
+
+  def initialize(user_id:, email:, name:, username:)
+    @user_id = user_id
+    @email = email
+    @name = name
+    @username = username
   end
 end
