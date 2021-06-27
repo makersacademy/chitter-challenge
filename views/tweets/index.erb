@@ -1,4 +1,5 @@
 <h1>Chitter Chat</h1>
+Welcome <%= @username %>
 <form action ='/tweets' method ='get'>
 <input type = 'text' name ='tweet' placeholder= 'Enter tweet here...'>
 <input type ='submit' value ='Tweet'/>
@@ -8,15 +9,19 @@
 <input type = 'submit' name ='view' value='View tweets'>
 </form>
 
-<form action = '/users' method = 'get'>
-<input type = 'submit' value ='Sign up'>
+<form action = '/users/new' method = 'get'>
+<input type = 'submit' name ='user' value ='Sign up'>
 </form>
 
-<%= @user.email %>
+<form action = '/sessions/destroy' method = 'post'>
+<input type = 'submit' name ='logout' value ='Log out'>
+</form>
+
 
 <% if params[:view] %>
 <% @chitter.each do |tweet| %>
 <div class ='tweet'>
+<%= @username %><br>
 <%= tweet.tweet %> <%= tweet.time %> 
 </div>
 <% end %>

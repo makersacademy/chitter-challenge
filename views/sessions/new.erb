@@ -1,0 +1,26 @@
+<h1>Chitter Box</h1>
+<h3>Sign In</h3>
+<form action ='/sessions' method ='post'>
+<input type = 'text' name ='username' placeholder ='Enter username...'>
+<input type = 'password' name ='password' placeholder ='Enter password...'>
+<input type ='submit' value ='Sign In'>
+</form>
+
+<%= flash[:notice] %>
+
+<style>
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 10px;
+}
+
+form {
+   display: flex;
+  flex-direction: column;
+}

@@ -1,5 +1,24 @@
-<form action="/users" method="post">
-  <input type="email" name="email" />
-  <input type="password" name="password" />
+<form action="/users/new" method="post">
+  <input type="name" name="name" placeholder ='Enter name...'/>
+  <input type="username" name="username" placeholder ='Enter username...'/> 
+  <input type="email" name="email" placeholder ='Enter email...'/>
+  <input type="password" name="password" placeholder ='Enter password...'/>
   <input type="submit" value="Submit" />
 </form>
+
+<style>
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 10px;
+}
+
+form {
+   display: flex;
+  flex-direction: column;
+}
