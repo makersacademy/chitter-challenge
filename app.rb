@@ -13,5 +13,13 @@ class Chitter < Sinatra::Base
     'Welcome.'
   end
 
+  get '/peep' do
+    peep = [
+      "Got'a catch them all!",
+      "I met Bulbasaur!"
+    ]
+    
+  end 
+
   run! if app_file == $0
 end
