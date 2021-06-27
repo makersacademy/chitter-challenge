@@ -1,10 +1,11 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Screens 
+
+<img alt ='sign in or sign up page' src ="https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-06-27%20at%2019.26.02.png">
+<img alt ='create an account' src = "https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-06-27%20at%2019.26.12.png">
+<img alt ="https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-06-27%20at%2019.26.39.png">
 
 Challenge:
 -------
