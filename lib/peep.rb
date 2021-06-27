@@ -1,15 +1,6 @@
 require_relative 'database_connection'
 
 class Peep
-  attr_reader :peep_id, :peep_text, :peeped_on, :user_id
-
-  def initialize(peep_id:, peep_text:, peeped_on:, user_id:)
-    @peep_id = peep_id
-    @peep_text = peep_text
-    @peeped_on = peeped_on
-    @user_id = user_id
-  end
-
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY peep_id DESC;")
     result.map do |peep| 
@@ -42,5 +33,14 @@ class Peep
         user_id: peep['user_id']
       )
     end
+  end
+
+  attr_reader :peep_id, :peep_text, :peeped_on, :user_id
+
+  def initialize(peep_id:, peep_text:, peeped_on:, user_id:)
+    @peep_id = peep_id
+    @peep_text = peep_text
+    @peeped_on = peeped_on
+    @user_id = user_id
   end
 end

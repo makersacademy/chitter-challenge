@@ -3,7 +3,7 @@ feature 'Adding and viewing peeps' do
     scenario 'a peep has the name and username of the user' do
       log_in_with_test_user_1
 
-      visit('/peeps/new')
+      click_button('New Peep')
       fill_in('message', with: 'This is my peep')
       click_button('Submit')  
 

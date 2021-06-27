@@ -1,6 +1,7 @@
 require 'bcrypt'
 require_relative './database_connection'
 require 'uri'
+require_relative './peep'
 
 class User
   def self.create(email:, password:, name:, username:)

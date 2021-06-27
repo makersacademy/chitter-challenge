@@ -143,6 +143,7 @@ A Makers Week 4 solo weekend challenge.
   * Capybara (feature testing)
   * Sinatra & Rack (handling requests and responses)
   * PG (Ruby Postgres bridge)
+  * bcrypt (password encryption with salts)
 * **Database**: PostgreSQL
 
 ## Usage
@@ -180,7 +181,7 @@ Start the server in the terminal using:
 rackup
 ```
 Note down the port number and access the website via:
-http://localhost:PORT_NUMBER
+http://localhost:PORT_NUMBER/peeps
 
 ### To run tests:
 
@@ -233,11 +234,11 @@ Table: Peeps
 |------------------------------------------------|-----------|
 
 Table: Users
-|----------|------------|--------------|-------------------------|----------------------|
-| user_id  |  username  |  name        |  email                  |  encrypted_password  |
-|----------|------------|--------------|-------------------------|----------------------|
-|    1     |     cfu    |  Cynthia Fu  |  cynthia@fakeemail.com  |  encrypted password  |
-|----------|------------|--------------|-------------------------|----------------------|
+|----------|-------------------------|----------------------|--------------|------------|
+| user_id  |  email                  |  password            |  name        |  username  |
+|----------|-------------------------|----------------------|--------------|------------|
+|    1     |  cynthia@fakeemail.com  |  encrypted password  |  Cynthia Fu  |     cfu    |
+|----------|-------------------------|----------------------|--------------|------------|
 ```
 
 ## Approach
@@ -261,23 +262,40 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 12. Implemented the feature 'peeps are in reverse chronological order'. I used the `ORDER BY` SQL query when retrieving the list of peeps.
 13. Created the users table, updated the test setup to truncate the user table between each test.
 14. Test drove user sign up/registration
-15. Implemented password encryption using `bcrypt` gem. Passwords are now stored in the db in an encrypted format.
-16. Considered edge cases where users try to sign up with a non-unique username/email. I used the `sinatra-flash` gem to display an error message on the page.
-17. User sign in feature - happy paths and unhappy paths (wrong email/password)
-18. User sign out feature - sign in & sign out buttons only appear on Chitter when appropriate.
-19. User sign up cannot have blank fields. 
-20. User must be logged in to peep.
+15. Implemented password encryption using `bcrypt` gem. Passwords are now stored in the db in an encrypted format with salting.
+16. Considered edge cases where users try to sign up with a non-unique username/email. I used the `sinatra-flash` gem to display an error message on the page. A unique error message is displayed depending on which (username or email) is invalid. 
+17. Test drove user log in feature - happy paths and unhappy paths (wrong email/password)
+18. Test drove user log out feature - log in & log out buttons only appear on Chitter when appropriate.
+19. Implemented user sign up cannot have blank fields. 
+20. Implemented user must be logged in to peep.
 21. "New peep" button created on peeps page.
 22. Added foreign key to peeps table for user ids.
 23. Added names and usernames to peeps.
 24. Added 'register' button to peeps page.
 25. Renamed Sign in/Sign out to Log in/Log out to match user story.
 
+## Test Coverage
+
+```
+COVERAGE:  99.73% -- 366/367 lines in 17 files
+
++----------+------------------------------+-------+--------+---------+
+| coverage | file                         | lines | missed | missing |
++----------+------------------------------+-------+--------+---------+
+|  75.00%  | database_connection_setup.rb | 4     | 1      | 6       |
++----------+------------------------------+-------+--------+---------+
+16 file(s) with 100% coverage not shown
+```
+
+Conclusion: Not necessary to test this line.
+
 ## TODO
-* Model retreives data in String format - Date formatting?
+* Improvement: Model retreives data in String format - Date formatting?
 * Q: Time delay when storing Time.now for Feature Tests. Unable to freeze time using timecop gem?
 * Issue: Unable to write peeps with `'` characters due to the way the data is being fetched from the db.
-* improve condition logic for email/username uniqueness in `.create` method in User class, and in controller.
-* Q: does Capybara form submission surpass required fields in HTML forms?
-* peeps have the name and username of the poster.
-* Isolation: peep class and user class
+* Improvement: condition logic for email/username uniqueness in `.create` method in User class, and in controller.
+* Q: does Capybara form submission (click button) surpass required fields in HTML forms?
+* Improvement: isolate peep class and user class. Not sure how to isolate - need real user_id, the peep table verifies foreign keys
+* Improvement: add CSS
+* Improvement: add screenshots demo-ing the app in README
+* Improvement: rubocop linter - Layout/LineLength: Line is too long - how to improve line length for necessary SQL query?

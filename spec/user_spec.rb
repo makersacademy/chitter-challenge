@@ -7,7 +7,6 @@ describe User do
   describe '.create' do
     it 'creates a new user' do
       user = User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
-
       persisted_data = persisted_data(table: 'users', id: user.user_id)
 
       expect(user).to be_a User

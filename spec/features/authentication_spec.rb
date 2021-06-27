@@ -34,6 +34,7 @@ feature 'Authentication' do
     click_button('Log in')
     
     expect(page).to have_content 'Log in'
+    expect(current_path).to eq '/sessions/new'
   end
 
   scenario 'a user can log out' do

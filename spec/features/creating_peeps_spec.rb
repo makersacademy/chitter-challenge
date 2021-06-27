@@ -23,5 +23,6 @@ feature 'Adding a peep' do
     click_button('New Peep')
     
     expect(page).to have_content 'Make a new peep'
+    expect(current_path).to eq '/peeps/new'
   end
 end
