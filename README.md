@@ -1,3 +1,6 @@
+## My progress
+I was able to finish the first four user stories without too much trouble, and I was able to set up the user log in, but I wasn't able to build the functionality for users to log out, as well as the login details being rejected, if I had more time I'm sure I would have been able to complete it, and I should have allowed myself more time to complete the rest of the user stories
+
 Chitter Challenge
 =================
 

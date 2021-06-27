@@ -1,0 +1,23 @@
+<% if @user %>
+  <form action="/new-peep">
+    <input type='submit' value='Post'>
+  </form>
+  <h1>Welcome, <%= @user.name %></h1>
+<% else %>
+  <form action="/sign-in">
+    <input type="submit" value="Sign in">
+  </form>
+  <form action="/sign-up">
+    <input type="submit" value="Sign up">
+  </form>
+<% end %>
+
+<h2>Your Feed</h2>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep">
+      <%= peep.message %><br>
+      Posted: <%= peep.time%>
+    </li>
+  <% end %>
+</ul>
