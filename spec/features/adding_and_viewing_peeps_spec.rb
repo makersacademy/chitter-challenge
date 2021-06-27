@@ -6,7 +6,7 @@ feature 'Adding and viewing peeps' do
       fill_in('message', with: 'This is my peep')
       click_button('Submit')  
 
-      expect(page).to have_content 'This is my peep - Test Name (@testuser)'
+      expect(page).to have_content 'Test Name (@testuser): This is my peep'
     end
   end
 end

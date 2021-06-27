@@ -1,5 +1,9 @@
 <h1>Register an account</h1>
 
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <form action="/users" method="POST">
   <input type="email" name="email" placeholder="Email" required><br>
   <input type="password" name="password" placeholder="Password" required><br>

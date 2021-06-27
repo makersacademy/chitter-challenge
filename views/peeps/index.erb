@@ -11,11 +11,6 @@
   </form>
 <% end %>
 
-<p>
-  <%= flash[:notice_1] %>
-  <%= flash[:notice_2] %>
-</p>
-
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep.peeped_on %> <%= peep.peep_text %></li>

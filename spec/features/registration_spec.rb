@@ -57,11 +57,11 @@ feature 'registration' do
     expect(page).to have_content "An account with that email already exists."
   end
 
-  xscenario 'new user form cannot have blank fields' do
+  scenario 'new user form cannot have blank fields' do
     visit '/users/new'
     click_button('Sign Up')
 
     expect(page).not_to have_content "Welcome, (@)"
-    # Test fails. Why does Capybara form submission surpass required fields? in feature test you are unable to be redirected to peeps page. 
+    expect(page).to have_content "Please check the required fields."
   end
 end

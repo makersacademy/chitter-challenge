@@ -38,11 +38,23 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
+    if params.values.all? { |x| x.empty? }
+      flash[:notice] = "Please check the required fields."
+      redirect '/users/new'
+    end
+
     user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
-    flash[:notice_1] = "That username is already taken." if user == false
-    flash[:notice_2] = "An account with that email already exists." if user.nil?
-    session[:user_id] = user.user_id if user
-    redirect '/peeps'
+    
+    if user.nil?
+      flash[:notice] = "An account with that email already exists."
+      redirect('/users/new')
+    elsif user == false
+      flash[:notice] = "That username is already taken."
+      redirect('/users/new')
+    elsif user
+      session[:user_id] = user.user_id
+      redirect '/peeps'
+    end
   end
 
   get '/sessions/new' do
