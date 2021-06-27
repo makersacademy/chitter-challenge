@@ -38,7 +38,7 @@ group :test do
   gem 'webdrivers',               '4.6.0'
   gem 'rails-controller-testing', '1.0.5'
   gem 'rexml', '~> 3.2', '>= 3.2.4'
-  gem 'minitest',                 '5.11.3'
+  gem 'minitest',                 '5.14.4'
   gem 'minitest-reporters',       '1.3.8'
   gem 'guard',                    '2.16.2'
   gem 'guard-minitest',           '2.4.6'
