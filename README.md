@@ -324,6 +324,7 @@ Unhappy paths:
 ![](./screenshots/12.png)
 ![](./screenshots/13.png)
 ![](./screenshots/14.png)
+![](./screenshots/15.png)
 
 ## TODO
 * Improvement: Model retreives data in String format - Date formatting?
