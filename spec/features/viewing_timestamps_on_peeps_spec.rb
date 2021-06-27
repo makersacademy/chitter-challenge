@@ -1,18 +1,20 @@
 feature 'Viewing timestamps' do
   scenario 'A user can see timestamps for peeps' do
-    Peep.create(peep_text: 'peeping away 🐥')
+    user = User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
+    Peep.create(peep_text: 'peeping away 🐥', user_id: user.user_id)
     time_now = Time.now.strftime "%Y-%m-%d %H:%M:%S"
     # Can't use timecop to freeze time?
     time_now_variance = (Time.now + 1).strftime "%Y-%m-%d %H:%M:%S"
     visit('/peeps')
 
-    expect(page).to have_content("#{time_now} peeping away 🐥").or have_content("#{time_now_variance} peeping away 🐥")
+    expect(page).to have_content("#{time_now} Test Name (@testuser1): peeping away 🐥").or have_content("#{time_now_variance} Test Name (@testuser1): peeping away 🐥")
   end
 
   scenario 'peeps are in reverse chronological order' do
-    Peep.create(peep_text: 'This is a peep')
-    Peep.create(peep_text: 'Peep peep!')
-    Peep.create(peep_text: 'peeping away 🐥')
+    user = User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
+    Peep.create(peep_text: 'This is a peep', user_id: user.user_id)
+    Peep.create(peep_text: 'Peep peep!', user_id: user.user_id)
+    Peep.create(peep_text: 'peeping away 🐥', user_id: user.user_id)
 
     visit('/peeps')
 

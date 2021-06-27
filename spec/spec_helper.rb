@@ -19,6 +19,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
+require 'features/web_helpers'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter

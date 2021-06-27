@@ -11,19 +11,7 @@ feature 'registration' do
   end
 
   scenario 'new user username must be unique' do
-    visit '/users/new'
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    fill_in('name', with: 'Test Name')
-    fill_in('username', with: 'testuser1')
-    click_button('Sign Up')
-
-    visit '/users/new'
-    fill_in('email', with: 'test2@example.com')
-    fill_in('password', with: 'password123')
-    fill_in('name', with: 'Test Name 2')
-    fill_in('username', with: 'testuser2')
-    click_button('Sign Up')
+    User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
 
     visit '/users/new'
     fill_in('email', with: 'test3@example.com')
@@ -38,12 +26,7 @@ feature 'registration' do
   end
 
   scenario 'new user email must be unique' do
-    visit '/users/new'
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    fill_in('name', with: 'Test Name')
-    fill_in('username', with: 'testuser1')
-    click_button('Sign Up')
+    User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
     
     visit '/users/new'
     fill_in('email', with: 'test@example.com')

@@ -16,6 +16,9 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peeped_on %> <%= peep.peep_text %></li>
+    <li>
+      <% user = User.find(user_id: peep.user_id) %>
+      <%= peep.peeped_on %> <%=user.name%> (@<%=user.username%>): <%= peep.peep_text %>
+    </li>
   <% end %>
 </ul>

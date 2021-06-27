@@ -2,6 +2,8 @@ require 'user'
 require 'database_helpers'
 
 describe User do
+  let(:peep_class) { double(:peep_class) }
+
   describe '.create' do
     it 'creates a new user' do
       user = User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
@@ -67,5 +69,15 @@ describe User do
 
       expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
     end
+  end
+
+  describe '#peeps' do
+    it 'calls .who on the peep class' do
+      user = User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
+      expect(peep_class).to receive(:who).with(user_id: user.user_id)
+
+      user.peeps(peep_class)
+    end
+
   end
 end

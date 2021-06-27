@@ -268,12 +268,14 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 19. User sign up cannot have blank fields. 
 20. User must be logged in to peep.
 21. "New peep" button created on peeps page.
-
+22. Added foreign key to peeps table for user ids.
+23. Added names and usernames to peeps.
 
 ## TODO
 * Model retreives data in String format - Date formatting?
 * Q: Time delay when storing Time.now for Feature Tests. Unable to freeze time using timecop gem?
 * Issue: Unable to write peeps with `'` characters due to the way the data is being fetched from the db.
 * improve condition logic for email/username uniqueness in `.create` method in User class, and in controller.
+* Q: does Capybara form submission surpass required fields in HTML forms?
 * peeps have the name and username of the poster.
-* Q: does Capybara form submission surpass required fields?
+* Isolation: peep class and user class

@@ -71,4 +71,8 @@ class User
     @name = name
     @username = username
   end
+
+  def peeps(peep_class = Peep)
+    peep_class.who(user_id: user_id)
+  end
 end

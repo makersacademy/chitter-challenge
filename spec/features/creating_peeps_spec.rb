@@ -1,11 +1,6 @@
 feature 'Adding a peep' do
   scenario 'A user can add a peep to Chitter when logged in' do
-    User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
-
-    visit '/sessions/new'
-    fill_in :email, with: 'test@example.com'
-    fill_in :password, with: 'password123'
-    click_button('Sign in')
+    sign_in_with_test_user_1
 
     visit('/peeps/new')
     fill_in('message', with: 'Hello chickens!')
@@ -22,12 +17,7 @@ feature 'Adding a peep' do
   end
 
   scenario 'a user can access posting peeps from the peeps page' do
-    User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
-
-    visit '/sessions/new'
-    fill_in :email, with: 'test@example.com'
-    fill_in :password, with: 'password123'
-    click_button('Sign in')
+    sign_in_with_test_user_1
     
     visit '/peeps'
     click_button('New Peep')
