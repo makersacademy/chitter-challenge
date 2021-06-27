@@ -1,4 +1,4 @@
-CREATE TABLE Peeps (
+CREATE TABLE peeps (
    id SERIAL PRIMARY KEY,
    peep VARCHAR(140),
    created_on TIMESTAMP,
