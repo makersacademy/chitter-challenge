@@ -6,9 +6,9 @@ group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'rubocop', '0.79.0'
+  gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'rubocop-rspec', require: false
 end
 
 group :development do

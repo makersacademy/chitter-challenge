@@ -1,4 +1,4 @@
-#I want to post a message (peep) to chitter
+# I want to post a message (peep) to chitter
 
 feature 'posting a new peep' do
   scenario 'A user can add a peep to Chitter' do

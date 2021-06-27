@@ -18,7 +18,6 @@ RSpec.configure do |config|
   end
 end
 
-
 require 'simplecov'
 require 'simplecov-console'
 
