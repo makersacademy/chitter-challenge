@@ -25,12 +25,6 @@ class ChitterChat < Sinatra::Base
     erb :"sessions/new"
   end
 
-  post '/sessions/destroy' do
-    session.clear
-    flash[:notice] = 'You have signed out.'
-    redirect('/')
-  end
-
   post '/sessions' do
     if User.find(params[:username], params[:password]) == false
       flash[:notice] = "Please submit a valid username or password."
@@ -46,6 +40,21 @@ class ChitterChat < Sinatra::Base
       @user_id = session[:id]
       erb :"tweets/index"
     end
+  end
+
+  get '/sessions/sign_up' do
+    @user_id = session[:id]
+    @username = session[:username]
+    @password = session[:password]
+    erb :"users/new"
+  end
+
+  post '/sessions/new' do
+    flash[:notice] = 'New account created'
+    @user_id = session[:id]
+    @password = session[:password]
+    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    redirect('/')
   end
 
   get '/tweets/index' do
@@ -65,22 +74,6 @@ class ChitterChat < Sinatra::Base
     erb :"tweets/index"
   end
 
-  get '/users/new' do
-    @user_id = session[:id]
-    @chitter = Chitter.all(id: @user_id)
-    @username = session[:username]
-    @password = session[:password]
-    erb :"users/new"
-  end
-  
-  post '/users/new' do
-    @user_id = session[:id]
-    @password = session[:password]
-    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    @chitter = Chitter.all(id: @user_id)
-    redirect('/tweets')
-  end
-
   post '/index' do
     @user_id = session[:id]
     @username = session[:username]
@@ -95,6 +88,12 @@ class ChitterChat < Sinatra::Base
     @username = session[:username]
     @password = session[:password]
     erb :"tweets/index"
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
   end
 
   run! if app_file == $0
