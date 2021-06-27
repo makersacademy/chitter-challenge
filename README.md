@@ -270,6 +270,8 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 21. "New peep" button created on peeps page.
 22. Added foreign key to peeps table for user ids.
 23. Added names and usernames to peeps.
+24. Added 'register' button to peeps page.
+25. Renamed Sign in/Sign out to Log in/Log out to match user story.
 
 ## TODO
 * Model retreives data in String format - Date formatting?

@@ -1,6 +1,6 @@
 feature 'Adding a peep' do
   scenario 'A user can add a peep to Chitter when logged in' do
-    sign_in_with_test_user_1
+    log_in_with_test_user_1
 
     visit('/peeps/new')
     fill_in('message', with: 'Hello chickens!')
@@ -17,7 +17,7 @@ feature 'Adding a peep' do
   end
 
   scenario 'a user can access posting peeps from the peeps page' do
-    sign_in_with_test_user_1
+    log_in_with_test_user_1
     
     visit '/peeps'
     click_button('New Peep')

@@ -47,4 +47,11 @@ feature 'registration' do
     expect(page).not_to have_content "Welcome, (@)"
     expect(page).to have_content "Please check the required fields."
   end
+
+  scenario 'a user can sign up from the peeps page' do
+    visit '/peeps'
+    click_button('Register')
+    
+    expect(current_path).to eq '/users/new'
+  end
 end

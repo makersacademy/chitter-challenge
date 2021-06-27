@@ -1,7 +1,7 @@
 feature 'Adding and viewing peeps' do
   feature 'a user can add and then view a peep' do
     scenario 'a peep has the name and username of the user' do
-      sign_in_with_test_user_1
+      log_in_with_test_user_1
 
       visit('/peeps/new')
       fill_in('message', with: 'This is my peep')
