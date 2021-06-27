@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  enable :session
+  enable :sessions
   
 
   get '/' do
