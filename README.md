@@ -263,7 +263,7 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 14. Test drove user sign up/registration
 15. Implemented password encryption using `bcrypt` gem. Passwords are now stored in the db in an encrypted format.
 16. Considered edge cases where users try to sign up with a non-unique username/email. I used the `sinatra-flash` gem to display an error message on the page.
-17. User sign in feature - happy path.
+17. User sign in feature - happy paths and unhappy paths (wrong email/password)
 
 
 
