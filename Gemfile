@@ -6,3 +6,16 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+
+group :web_framework do
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+  gem 'sinatra-reloader'
+  gem 'pg'
+  gem 'webrick'
+end
+
+group :hosting do
+  gem 'rack'
+  gem 'launchy'
+end
