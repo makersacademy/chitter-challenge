@@ -266,7 +266,8 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 17. User sign in feature - happy paths and unhappy paths (wrong email/password)
 18. User sign out feature - sign in & sign out buttons only appear on Chitter when appropriate.
 19. User sign up cannot have blank fields. 
-
+20. User must be logged in to peep.
+21. "New peep" button created on peeps page.
 
 
 ## TODO

@@ -25,6 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    @user = User.find(user_id: session[:user_id])
     erb :'peeps/new'
   end
 
@@ -38,6 +39,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
+    # This if statement never actually runs in live, only for capybara feature tests - see test.
     if params.values.all? { |x| x.empty? }
       flash[:notice] = "Please check the required fields."
       redirect '/users/new'

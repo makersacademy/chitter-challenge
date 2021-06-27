@@ -2,6 +2,9 @@
 
 <% if @user %>
   <h2>Welcome, <%= @user.name %> (@<%= @user.username %>)</h2>
+  <form action="/peeps/new" method="GET">
+    <input type="submit" value="New Peep">
+  </form>
   <form action="/sessions/destroy" method="POST">
     <input type="submit" value="Sign out">
   </form>
