@@ -1,7 +1,14 @@
 <h1>Chitter</h1>
 
 <% if @user %>
-  <h1>Welcome, <%= @user.name %> (@<%= @user.username %>)</h1>
+  <h2>Welcome, <%= @user.name %> (@<%= @user.username %>)</h2>
+  <form action="/sessions/destroy" method="POST">
+    <input type="submit" value="Sign out">
+  </form>
+<% else %>
+  <form action="/sessions/new" method="GET">
+    <input type="submit" value="Sign in">
+  </form>
 <% end %>
 
 <p>
