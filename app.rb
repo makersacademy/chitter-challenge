@@ -19,7 +19,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    
+    erb :new
+  end
+
+  post '/peeps' do
+    Peep.create(peep: params[:peep], author: params[:author])
+    redirect '/peeps'
   end
 
   run! if app_file == $0
