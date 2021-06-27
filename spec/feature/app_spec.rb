@@ -3,13 +3,13 @@
 feature 'Account page' do
   scenario 'visiting the account page' do
     visit('/')
-    expect(page).to have_content "Welcome."
+    expect(page).to have_content 'Welcome.'
   end
 
   # scenario 'enters next page' do
   #   visit('/')
   #   click_button('Enter')
-  # end 
+  # end
 
   # scenario 'able to add in details' do
   #   visit('/')

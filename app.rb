@@ -2,6 +2,7 @@
 
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
 # :nodoc:
 class Chitter < Sinatra::Base
@@ -14,12 +15,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
-    peep = [
-      "Got'a catch them all!",
-      "I met Bulbasaur!"
-    ]
-    
-  end 
+    @peep = Peep.all
+    erb :'peeps/peep'
+  end
 
   run! if app_file == $0
 end
