@@ -1,0 +1,10 @@
+<h1>Make a new peep</h1>
+
+<% if @user %>
+  <form action="/peeps" method="POST">
+    <input type="text" name="message" placeholder="Start typing a peep..."><br>
+    <input type="submit" value="Submit">
+  </form>
+<% else %>
+  <h2>You must be logged in to peep.</h2>
+<% end %>
