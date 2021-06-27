@@ -289,6 +289,42 @@ COVERAGE:  99.73% -- 366/367 lines in 17 files
 
 Conclusion: Not necessary to test this line.
 
+## Examples
+Viewing Peeps and 'Log in' & 'Register' options:
+
+![](./screenshots/1.png)
+
+Log in as Santa:
+
+![](./screenshots/2.png)
+![](./screenshots/3.png)
+
+Welcome message and 'New Peep' & 'Log out' options:
+
+![](./screenshots/4.png)
+
+New Peep:
+
+![](./screenshots/5.png)
+![](./screenshots/6.png)
+![](./screenshots/7.png)
+
+Log out:
+
+![](./screenshots/8.png)
+
+Register:
+
+![](./screenshots/9.png)
+![](./screenshots/10.png)
+![](./screenshots/11.png)
+
+Unhappy paths:
+
+![](./screenshots/12.png)
+![](./screenshots/13.png)
+![](./screenshots/14.png)
+
 ## TODO
 * Improvement: Model retreives data in String format - Date formatting?
 * Q: Time delay when storing Time.now for Feature Tests. Unable to freeze time using timecop gem?
