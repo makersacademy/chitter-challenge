@@ -1,0 +1,11 @@
+ <h1> Welcome to Chitter, <%= @name %> </h1>
+
+ <form action='/homepage' method ="post">
+    <input type="text" placeholder="what will you peep?" name="peep"><br>
+    <input type="submit" value="Post Peep">
+ </form><br>
+
+ <h2> Your feed </h2><br>
+ <h3><% @chitter_feed.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %></h3>
