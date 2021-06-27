@@ -262,10 +262,11 @@ In general, I followed the TDD cycle of RED-GREEN-REFACTOR, then used Rubocop to
 13. Created the users table, updated the test setup to truncate the user table between each test.
 14. Test drove user sign up/registration
 15. Implemented password encryption using `bcrypt` gem. Passwords are now stored in the db in an encrypted format.
-
+16. Considered edge cases where users try to sign up with a non-unique username/email. I used the `sinatra-flash` gem ti display an error message on the page. 
 
 
 ## TODO
 * Model retreives data in String format - Date formatting?
 * Q: Time delay when storing Time.now for Feature Tests. Unable to freeze time using timecop gem?
 * Issue: Unable to write peeps with `'` characters due to the way the data is being fetched from the db.
+* improve condition logic for email/username uniqueness in `.create` method in User class, and in controller.

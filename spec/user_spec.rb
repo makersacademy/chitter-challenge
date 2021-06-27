@@ -18,6 +18,20 @@ describe User do
 
       User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
     end
+
+    it 'does not create a new user if the username is not unique' do
+      User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
+      user = User.create(email: 'test2@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
+
+      expect(user).not_to be_a User
+    end
+
+    it 'does not create a new user if the email is not unique' do
+      User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser1')
+      user = User.create(email: 'test@example.com', password: 'password123', name: 'Test Name', username: 'testuser2')
+
+      expect(user).not_to be_a User
+    end
   end
 
   describe '.find' do

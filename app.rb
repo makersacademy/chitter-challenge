@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'sinatra/flash'
+require 'uri'
 require 'sinatra/reloader'
 require './lib/peep'
 require './lib/user'
@@ -6,6 +8,7 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
@@ -36,7 +39,9 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
-    session[:user_id] = user.user_id
+    flash[:notice_1] = "That username is already taken." if user == false
+    flash[:notice_2] = "An account with that email already exists." if user.nil?
+    session[:user_id] = user.user_id if user
     redirect '/peeps'
   end
 

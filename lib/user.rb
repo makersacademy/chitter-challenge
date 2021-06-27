@@ -1,8 +1,12 @@
 require 'bcrypt'
 require_relative './database_connection'
+require 'uri'
 
 class User
   def self.create(email:, password:, name:, username:)
+    return false unless username_unique?(username)
+    return nil unless email_unique?(email)
+
     encrypted_password = BCrypt::Password.create(password)
 
     result = DatabaseConnection.query("INSERT INTO users (email, password, name, username) VALUES('#{email}', '#{encrypted_password}', '#{name}', '#{username}') RETURNING user_id, email, name, username;")
@@ -33,5 +37,25 @@ class User
     @email = email
     @name = name
     @username = username
+  end
+
+  def self.username_unique?(username)
+    result = DatabaseConnection.query("SELECT 1 FROM users WHERE username ='#{username}'")
+    not_found?(result)
+  end
+
+  def self.email_unique?(email)
+    result = DatabaseConnection.query("SELECT 1 FROM users WHERE email ='#{email}'")
+    not_found?(result)
+  end
+
+  def self.not_found?(result)
+    begin
+      result[0]
+    rescue StandardError
+      true
+    else
+      false
+    end
   end
 end
