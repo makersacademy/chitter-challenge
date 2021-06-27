@@ -7,7 +7,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    'Hello Chitter'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+
+    erb :index
+  end
+
+  get '/peeps/new' do
+    
   end
 
   run! if app_file == $0
