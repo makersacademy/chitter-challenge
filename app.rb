@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Welcome to Chitter'
+    'Welcome to Chitter!'
   end
 
   get '/peeps' do
