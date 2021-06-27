@@ -6,7 +6,11 @@ Welcome <%= @username %>
 </form>
 
 <form action ='/index' method ='post'>
-<input type = 'submit' name ='view' value='View tweets'>
+<input type = 'submit' name ='view_mine' value='View my tweets'>
+</form>
+
+<form action ='/all' method ='post'>
+<input type = 'submit' name ='view_all' value='View all tweets'>
 </form>
 
 <form action = '/users/new' method = 'get'>
@@ -18,16 +22,23 @@ Welcome <%= @username %>
 </form>
 
 
-<% if params[:view] %>
+<% if params[:view_all] %>
 <% @chitter.each do |tweet| %>
 <div class ='tweet'>
-<%= @username %><br>
+<%= tweet.user_id %> <br>
 <%= tweet.tweet %> <%= tweet.time %> 
 </div>
 <% end %>
-
 <% end %>
 
+<% if params[:view_mine] %>
+<% @chitter.each do |tweet| %>
+<div class ='tweet'>
+<%= @username %> <br>
+<%= tweet.tweet %> <%= tweet.time %> 
+</div>
+<% end %>
+<% end %>
 
 <style>
 

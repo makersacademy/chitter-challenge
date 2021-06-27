@@ -14,9 +14,9 @@ class ChitterChat < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  before do
-    @chitter = Chitter.all
-  end
+  # before do
+  #   @chitter = Chitter.all(id: session[:id])
+  # end
 
   enable :sessions, :method_override
   register Sinatra::Flash
@@ -37,37 +37,63 @@ class ChitterChat < Sinatra::Base
       redirect('/')
     else
       user = User.authenticate(username: params[:username], password: params[:password])
-      session[:user_id] = user.id
+      @chitter = Chitter.all(id: user.id)
+      session[:id] = user.id
       session[:username] = user.username
+      session[:password] = params[:password]
       @username = session[:username]
+      @password = session[:password]
+      @user_id = session[:id]
       erb :"tweets/index"
     end
   end
 
   get '/tweets/index' do
+    @user_id = session[:id]
+    @chitter = Chitter.all(id: @user_id)
     @username = session[:username]
+    @password = session[:password]
     erb :"tweets/index"
   end
 
   get '/tweets' do
-    Chitter.add(tweet: params[:tweet], time: Time.new.strftime("%k:%M %p"))
+    @user_id = session[:id]
+    @chitter = Chitter.all(id: @user_id)
     @username = session[:username]
+    @password = session[:password]
+    Chitter.add(tweet: params[:tweet], time: Time.new.strftime("%k:%M %p"), user_id: @user_id)
     erb :"tweets/index"
   end
 
   get '/users/new' do
+    @user_id = session[:id]
+    @chitter = Chitter.all(id: @user_id)
     @username = session[:username]
+    @password = session[:password]
     erb :"users/new"
   end
   
   post '/users/new' do
+    @user_id = session[:id]
+    @password = session[:password]
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    session[:id] = user.id
+    @chitter = Chitter.all(id: @user_id)
     redirect('/tweets')
   end
 
   post '/index' do
+    @user_id = session[:id]
     @username = session[:username]
+    @password = session[:password]
+    @chitter = Chitter.all(id: @user_id)
+    erb :"tweets/index"
+  end
+
+  post '/all' do
+    @user_id = session[:id]
+    @chitter = Chitter.view_all
+    @username = session[:username]
+    @password = session[:password]
     erb :"tweets/index"
   end
 

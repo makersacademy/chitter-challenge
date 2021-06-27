@@ -42,4 +42,11 @@ class User
     result = connect.exec("SELECT * FROM users WHERE username = '#{username}';")
     User.new(name: result[0]['name'], username: result[0]['username'], id: result[0]['id'], email: result[0]['email'])
   end
+
+  def self.get_name(id)
+    connect = PG.connect(dbname: 'chitter_test')
+    result = connect.exec("SELECT * FROM users WHERE id = '#{id}';")
+    User.new(name: result[0]['name'], username: result[0]['username'], id: result[0]['id'], email: result[0]['email'])
+  end
+
   end
