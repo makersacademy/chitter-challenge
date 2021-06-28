@@ -1,0 +1,48 @@
+/* assign a font and color to various html elements*/ 
+p, h1, h2, h3, h4, ul, li, a {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #157DA6;
+  text-align: center;
+}
+
+/* various css class definitions that allow for general styling */
+
+.centered {
+  text-align: center;
+}
+
+.restaurant-display-tile {
+  border: 3px solid #75c196;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 10px;
+  width: 50%;
+}
+
+.super-sport {
+  background-color: white;
+  border: 1px solid #157DA6;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  font-size: 12px;
+  font-weight: normal;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.inline {
+  display: inline;
+}
+
+.pull-right {
+  float: right;
+}
+
+.action-tile {
+  border: 3px solid #c14436;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 10px;
+  width: 50%;
+}
