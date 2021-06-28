@@ -1,0 +1,7 @@
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+    <p><%= peep.peep %></p>
+    <li><%= peep.author %></li>
+    <br>
+  <% end %>
+</ul>
