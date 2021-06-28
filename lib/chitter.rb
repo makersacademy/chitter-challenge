@@ -21,7 +21,7 @@ class Chitter
     connect = PG.connect(dbname: 'chitter_test')
     chitter = connect.exec("SELECT * FROM tweets WHERE user_id = #{id} ORDER BY time DESC;")
     chitter.map do |tweet|
-    Chitter.new(tweet: tweet['tweet'], time: tweet['time'], user_id: tweet['user_id'])
+      Chitter.new(tweet: tweet['tweet'], time: tweet['time'], user_id: tweet['user_id'])
     end
   end
 
@@ -29,7 +29,7 @@ class Chitter
     connect = PG.connect(dbname: 'chitter_test')
     chitter = connect.exec("SELECT * FROM tweets INNER JOIN users ON tweets.user_id = users.id ORDER BY time DESC LIMIT 10;")
     chitter.map do |tweet|
-    Chitter.new(tweet: tweet['tweet'], time: tweet['time'], user_id: tweet['username'])
+      Chitter.new(tweet: tweet['tweet'], time: tweet['time'], user_id: tweet['username'])
     end
   end
 

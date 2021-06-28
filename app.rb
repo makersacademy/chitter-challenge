@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require './lib/chitter'
-require './lib/tweet'
 require './lib/user'
 require 'date'
 require 'uri'
@@ -13,10 +12,6 @@ class ChitterChat < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-
-  # before do
-  #   @chitter = Chitter.all(id: session[:id])
-  # end
 
   enable :sessions, :method_override
   register Sinatra::Flash
@@ -43,16 +38,11 @@ class ChitterChat < Sinatra::Base
   end
 
   get '/sessions/sign_up' do
-    @user_id = session[:id]
-    @username = session[:username]
-    @password = session[:password]
     erb :"users/new"
   end
 
   post '/sessions/new' do
     flash[:notice] = 'New account created'
-    @user_id = session[:id]
-    @password = session[:password]
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect('/')
   end

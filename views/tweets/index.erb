@@ -1,51 +1,52 @@
 <div class ='header'>
-<h1>Chitter Chat</h1>
+  <h1>Chitter Chat</h1>
 </div>
+
 <div class ='send_tweet'>
-<form action ='/tweets' method ='get'>
-<input class = 'input_tweet' type = 'text' name ='tweet' placeholder= 'Enter tweet here...'>
-<input class ='tweet_btn' type ='submit' value ='Tweet'/>
-</form>
+  <form action ='/tweets' method ='get'>
+    <input class = 'input_tweet' type = 'text' name ='tweet' placeholder= 'Enter tweet here...'>
+    <input class ='tweet_btn' type ='submit' value ='Tweet'/>
+  </form>
 </div>
 
 <div class ='main'>
-<div class ='buttons'>
-<h3>Welcome <%= @username.capitalize %></h3>
+  <div class ='buttons'>
+    <h3>Welcome <%= @username.capitalize %></h3>
 
-<form action ='/index' method ='post'>
-<input type = 'submit' name ='view_mine' value='View my tweets'>
-</form>
+    <form action ='/index' method ='post'>
+      <input type = 'submit' name ='view_mine' value='View my tweets'>
+    </form>
 
-<form action ='/all' method ='post'>
-<input type = 'submit' name ='view_all' value='View all tweets'>
-</form>
+    <form action ='/all' method ='post'>
+      <input type = 'submit' name ='view_all' value='View all tweets'>
+    </form>
 
-<form action = '/sessions/destroy' method = 'post'>
-<input type = 'submit' name ='logout' value ='Log out'>
-</form>
-</div>
+    <form action = '/sessions/destroy' method = 'post'>
+      <input type = 'submit' name ='logout' value ='Log out'>
+    </form>
+  </div>
 
-<div class ='feed'>
-<% if params[:view_all] %>
-<% @chitter.each do |tweet| %>
-<div class ='tweet'>
-<span><p><%= tweet.user_id %></p> <br>
-<%= tweet.tweet %></span> <span class ='time'><%= tweet.time %></span>
-</div>
-<% end %>
-<% end %>
-</div>
+  <div class ='feed'>
+    <% if params[:view_all] %>
+    <% @chitter.each do |tweet| %>
+      <div class ='tweet'>
+        <span><p><%= tweet.user_id %></p> <br>
+        <%= tweet.tweet %></span> <span class ='time'><%= tweet.time %></span>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
 
-<div class ='feed'>
-<% if params[:view_mine] %>
-<% @chitter.each do |tweet| %>
-<div class ='tweet'>
-<span><p><%= @username %></p> <br>
-<%= tweet.tweet %></span> <span class ='time'><%= tweet.time %></span>
-</div>
-<% end %>
-<% end %>
-</div>
+  <div class ='feed'>
+    <% if params[:view_mine] %>
+    <% @chitter.each do |tweet| %>
+    <div class ='tweet'>
+      <span><p><%= @username %></p> <br>
+      <%= tweet.tweet %></span> <span class ='time'><%= tweet.time %></span>
+    </div>
+    <% end %>
+   <% end %>
+  </div>
 </div>
 
 <style>
@@ -78,6 +79,7 @@ p {
 .main {
   display: flex;
 }
+
 .buttons {
 display: inline-block;
 justify-content: left;
