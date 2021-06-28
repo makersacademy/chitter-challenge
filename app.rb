@@ -45,7 +45,7 @@ class Chitter < Sinatra::Base
 
   post '/feed' do
     p 'post feed'
-    p NewsFeed.create(name: 'John', message: params[:peep], time: Time.new)
+    p NewsFeed.create(name: params[:name], message: params[:peep], time: Time.new)
     redirect('/feed')
   end
 end

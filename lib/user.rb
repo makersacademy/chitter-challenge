@@ -43,7 +43,7 @@ class User
       connection = PG.connect(dbname: 'users')   
     end
     p "log in"
-    p users = connection.exec("SELECT email, password FROM users WHERE email = #{email};")
+    users = connection.exec("SELECT email, password FROM users WHERE email = #{email};")
     if users['password'] == password
       nil
     else
