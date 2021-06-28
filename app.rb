@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 
 class Chitter < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
   end
@@ -10,13 +11,13 @@ class Chitter < Sinatra::Base
     'Welcome to Chitter!'
   end
 
-  get '/add_post' do
-    @post = params[:post]
+  post '/add_post' do
+    @post = Posts.all
     erb :add_post
-    #redirect '/view_post'
   end
 
   get '/view_post' do
+    @post = params[:text]
     erb :view_post
   end
 
