@@ -133,3 +133,20 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+### To set this up: ###
+
+git clone https://github.com/tremella/chitter_challenge
+$ bundle
+$ rake setup
+$ rake migrate
+$ rspec
+$ rackup
+
+
+## To set up the database: ##
+
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
+Run the queries saved in ./db/migrations/chitter_setup.sql
