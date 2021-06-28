@@ -1,4 +1,3 @@
-
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
 
