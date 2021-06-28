@@ -14,10 +14,3 @@ class DatabaseConnection
     @connection.exec(sql)
   end
 end
-
-
-if ENV['ENVIRONMENT'] == 'test'
-  DatabaseConnection.setup('chitter_test')
-else
-  DatabaseConnection.setup('chitter')
-end

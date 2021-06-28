@@ -14,5 +14,7 @@ describe Chitter do
 
   describe '.all' do
     it 'returns all the peeps' do
-      
+    end
+  end
+  
 end

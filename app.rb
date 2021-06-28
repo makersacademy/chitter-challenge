@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/chitter'
 require_relative './lib/peep'
+require_relative './setting_up_correct_database'
 
 class Chitter_clone < Sinatra::Base
   configure :development do
