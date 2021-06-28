@@ -1,0 +1,16 @@
+<h2>Home</h2>
+<form method="post" action="/feed">
+  <input type="text" name="peep">
+  <input type="submit" value="Post Peep">
+</form>
+<hr>
+<% if @peeps %>
+  <% @peeps.each do |peep| %>
+    <ul>
+      <h3><%= "#{peep['name']}:" %></h3>
+      <p><%= "#{peep['message']}" %></p>
+      <h5><%= peep['time'] %></h5>
+      <br>
+    </ul>
+    <% end%>
+<% end %>
