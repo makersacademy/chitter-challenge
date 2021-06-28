@@ -1,0 +1,1 @@
+CREATE TABLE Chitter(id SERIAL PRIMARY KEY, peeps VARCHAR(300), peeped_time timestamp, account_id uuid);
