@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="<%= url('stylesheets/style.css') %>" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<h1 class="heading">Chitter</h1>
+
+<%= flash[:notice] %>
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
+<form class="signup" action="/users">
+    <input type="submit" value="Sign-up" />
+</form>
+
+<form class="signin" action="/sessions">
+    <input type="submit" value="Sign-in" />
+</form>
+
+<form class="signout" action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+
+<div class="sendpeep">
+<form action="/peep" method="post">
+  <input type="text" name="message" placeholder="What's happening?" />
+  <input class="inputbox" type="submit" value="Peep" />
+</form>
+</div>
+<% @peeps.reverse.each do |peep| %>
+<div class="peeps">
+<%= peep.message %>
+<ul class="time">Time sent <%=  peep.time %></p></ul>
+<% end %>
+</div>
+
+</html>
