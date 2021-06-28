@@ -1,31 +1,32 @@
 require 'bcrypt'
+require 'pg'
 require_relative './database_connection'
 
 class User
   def self.create(email:, password:)
     encrypted_password = BCrypt::Password.create(password)
 
-    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{encrypted_password}') RETURNING id, email;")
+    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{encrypted_password}') RETURNING username, email;")
     User.new(
-      id: result[0]['id'],
+      username: result[0]['username'],
       email: result[0]['email'],
     )
   end
 
-  def self.find(id:)
-    return nil unless id
+  def self.find(username:)
+    return nil unless username
 
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = #{username}")
     User.new(
-      id: result[0]['id'],
+      username: result[0]['username'],
       email: result[0]['email'],
     )
   end
 
-  attr_reader :id, :email
+  attr_reader :username, :email
 
-  def initialize(id:, email:)
-    @id = id
+  def initialize(username:, email:)
+    @username = username
     @email = email
   end
 end
