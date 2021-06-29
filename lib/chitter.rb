@@ -27,7 +27,7 @@ class Chitter
 
   def self.view_all
     connect = PG.connect(dbname: 'chitter_test')
-    chitter = connect.exec("SELECT * FROM tweets INNER JOIN users ON tweets.user_id = users.id ORDER BY time DESC LIMIT 10;")
+    chitter = connect.exec("SELECT * FROM tweets INNER JOIN users ON tweets.user_id = users.id ORDER BY user_id DESC LIMIT 10;")
     chitter.map do |tweet|
       Chitter.new(tweet: tweet['tweet'], time: tweet['time'], user_id: tweet['username'])
     end
