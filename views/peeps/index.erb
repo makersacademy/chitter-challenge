@@ -1,8 +1,38 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+  </head>
+<body style="background-color:powderblue;">
+
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h2 style="color:blue;">Welcome, <%= @user.email %></h2>
 <% end %>
-<ul>
+
+
+<h2 style="color:blue;">Latest peeps: </h2>
+
+<ol>
   <% @peeps.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
-</ul>
+<ol>
+
+
+<style> 
+input {
+  width: 50%;
+  height: 8%;
+}
+input[type=submit]:hover {
+  background-color: #3CBC8D;
+}
+</style>
+
+<br><br>
+<center>
+<img src="https://image.flaticon.com/icons/png/512/1409/1409937.png" alt="chick" width="50" height="50">
+<h2 style="color:blue;">What's new today?</h2>
+<form action="/peeps" method="post">
+<input type="text" name="peep" />
+<input type="submit" style="color:blue;" value="Click to post" />
+</form>
+

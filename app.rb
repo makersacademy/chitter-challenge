@@ -8,22 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
   
   get '/' do
-    'Welcome to Chitter!'
-  end
-
-  get '/peeps' do
-    @user = User.find(id: session[:user_id])
-    @peeps = Peep.all
-    erb :'peeps/index'
-  end
-
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
-
-  post '/peeps' do
-    Peep.create(peep: params[:peep])
-    redirect '/peeps'
+    erb :sign_up
   end
 
   get '/users/new' do
@@ -33,6 +18,17 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.create(email: params['email'], password: params['password'])
     session[:user_id] = user.id
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @user = User.find(id: session[:user_id])
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    Peep.create(peep: params[:peep])
     redirect '/peeps'
   end
 
