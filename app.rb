@@ -11,11 +11,11 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
-  get '/users/new' do
+  get '/login' do
     erb :'users/new'
   end
 
-  post '/users' do
+  post '/login' do
     user = User.create(email: params['email'], password: params['password'])
     session[:user_id] = user.id
     redirect '/peeps'
