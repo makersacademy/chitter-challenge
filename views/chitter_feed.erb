@@ -1,0 +1,15 @@
+<h1> This is Chitter </h1>
+
+<ul>
+<% @peeps.each do |peep| %>
+  <li>
+      <%= peep %></li>
+  </li>
+  <% end %>
+</ul>
+
+<h2> Tell the world what you are up to </h2>
+<form action='/' method='post'>
+  <input type="text" name="text" placeholder='What is up?' />
+  <input type='submit' value='Post' />
+<form>
