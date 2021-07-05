@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN posted_by VARCHAR(60);
