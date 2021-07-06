@@ -1,0 +1,27 @@
+<head><meta http-equiv="refresh" content="30"/></head>
+<h2>Welcome,  <%=@username%></h2>
+<form action='/sign_out' method='get'>
+<input type='submit' value='Sign Out'>
+</form>
+<br>
+<form action='/peeps' method='post'>
+<label for="peep text">type your message here (280 char limit)</label>
+<input type='text' name='peep text' maxlength='280'>
+<input type='hidden' name='username' value='<%= @username%>'> <br>
+<label for="tags">want to tag some other users?</label>
+<input type='text' name='tags' value='Admin, eddoddo, hundredfold' size='25' > <br>
+<input type="submit" value="Submit Peep to Chitter">
+</form>
+<br>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+        <%= post.message %>
+        <h5> users tagged in this post:</h5>
+        <%= post.tagged_users.join(", ")%> <br>
+        <h5> posted by: <%= post.user %></h5>
+        <h6> at: <%= post.time %></h6>
+      </a>
+    </li>
+  <% end %>
+</ul>
