@@ -1,0 +1,17 @@
+<html>
+
+<h1> Live Peeps! </h1>
+
+<form action="/post" method="get">
+  <button type="submit" name="new_peep">Peep!</button>
+</form>
+
+<ul>
+  <% @chitter.each do |chitter| %>
+    <li>
+        <%= chitter.message %>
+    </li>
+  <% end %>
+</ul>
+
+</html>

@@ -6,6 +6,71 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+Planning:
+-------
+#### Page layout
+
+'/' - Route page - Welcome page, post message text box, submit button. (reroutes to /live)
+
+'/live' - List page - Will contain the list of all peeps in reverse chronological order with time/date stamp.
+
+'/sign_up' - Sign up page - Will contain fields (email, password, submit) for a user to sign up to Chitter. (reroutes to confirmation page)
+
+'/confirmation' - Confirmation sign up page - Will confirm the user has signed up.
+
+#### Step 1:
+
+User Story 1
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+Required Elements:
+- Welcome page
+- Database to store new peep and time created
+- Text form to enter text
+- Submit button
+
+Input:      Output:
+Peep        New page shows 
+Submit
+
+Progress So Far:
+-------
+
+1. Gems have been setup. Including Rspec, capybara, sinatra, pg and simplecov.
+2. Initial '/' page has been created and tested to run a simple hello world application to test infrastructure.
+3. I've written the next test to expect a user to input a peep on a new page and display on the /live page.
+4. From here, I worked through the application to create new pages and elements for the page.
+5. I then created the chitter.rb file to house the new .all method. This allowed me to use the /live page as the main place to see all new peeps.
+6. On the chitter.rb file, I then created the .create method so that a new peep can be made. I also added the testing database connections to the methods at this stage.
+7. I then added the connections and inputs from the page to my routing page and connected those to my chitter.rb file.
+
+Tests written so far: 3
+Test coverage: 100%
+
+Installation:
+-------
+
+### Program installation
+
+1. Fork/Clone this repository.
+2. Run bundle install in your terminal
+3. Then you want to run psql in your terminal.
+4. Here you want to create 2 new tables called, "chitter" and "chitter-test" using "CREATE DATABASE (name)" and "CREATE TABLE peep".
+5. Then run 'rackup' in your terminal.
+6. On your web browser, go to localhost:9292
+
+### How to run tests
+
+1. Fork/Clone this repository.
+2. Run bundle install in your terminal
+3. Then run rspec to see tests.
+
+
 Challenge:
 -------
 
