@@ -133,3 +133,11 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+## Progress so far
+- Created file structures and added necessary gems for project in first commit
+- Have constructed index page and first test, all pass.
+- Added additional page with text box for user to add a peep, which will be stored in the database.
+- Created and connected database to ruby file for adding peep functionality. Database saves a record of the peep along with the time.
+- Display all peeps functionality now added and checked all working with passing tests.
+- Dummy database created called chitter_test, have tried to get working but keeps on adding records to normal chitter database. 
