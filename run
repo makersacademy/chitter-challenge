@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# TODO: background rackup first, then launch browser. Kill rackup on finish.
+
+clear
+
+echo -e "NOTE: launches browser first, so need to reload page once server is running"
+
+echo -e "$HOSTNAME\$ open http://localhost:9292"
+open "http://localhost:9292"
+
+CMD="rackup"
+echo -e "$HOSTNAME\$ $CMD\n"
+$CMD
+
+
+

@@ -1,3 +1,38 @@
+# Chitter Challenge
+
+## Setup
+
+```
+$ bundle install
+$ rake db:create
+$ rake db:migrate
+```
+
+This will install all required Gems and create the databases and tables needed.
+
+To remove tables and database use:
+
+```
+rake db:rollback
+rake db:drop
+```
+
+## Usage
+
+```
+$ ./run
+```
+
+This will open the default browser and load http://localhost:9292, probably before the server is running, so need to refresh to see page.
+
+## Todo
+
+* Implement reverse chronological view of peeps
+* Refactor code into app/controllers app/models  app/views folders
+
+
+# Original README.md
+
 Chitter Challenge
 =================
 
