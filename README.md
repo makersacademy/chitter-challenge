@@ -1,5 +1,78 @@
 Chitter Challenge
 =================
+This is a project to create a twitter clone using web apps that interact with databases using ODD and TDD.
+
+## Domain Modelling
+
+```
+Input Image of post it diagram and CRC cards
+```
+
+## User Stories
+
+STRAIGHT UP
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
+Summary of steps
+* Post peep
+* See Peep - chronological order
+* Each peep has time stamp
+* Sign up to Chitter
+
+
+## Set-up Steps
+```
+$ git clone https://github.com/alexakearns/chitter-challenge.git
+$ bundle
+```
+
+* Add Sinatra and Capybara to gemfile
+* Update `spec_helper.rb` with test gems and Capybara.app file
+* Write test to check test gems - red
+* Create `app.rb` and '/' route with content to match test
+* Run test - green.
+--------
+'pg' added to Gemfile to allow connection to and querying of PostgreSQL
+
+
+## Database/Table Setup instructions
+1. Connect to `psql`
+2. Create the database using the psql command `CREATE DATABASE chitter;`
+3. Connect to the database using the pqsl command `\c chitter;`
+4. Run the query we have saved in the file `01_create_peeps_table.sql`
+
+### Chitter Test Database with Table
+1. Connect to `psql`
+2. Create the database using the psql command `CREATE DATABASE chitter_test;`
+3. Connect to the database using the pqsl command `\c chitter_test;`
+4. Run the query we have saved in the file `01_create_peeps_table.sql`
+
+### Add date column to both databases
+1. Connect to `psql'
+2. Connect to the database using the psql command `\c chitter;` or `\c chitter_test;`
+3. Run the query we have saved in the file '02_alter_peeps_table_timestamp.sql` 
+
+Chitter Challenge
+=================
 
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
@@ -17,23 +90,7 @@ Features:
 -------
 
 ```
-STRAIGHT UP
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
 
 HARDER
 
