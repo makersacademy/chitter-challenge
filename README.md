@@ -34,7 +34,47 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
 
+## Plan.
+
+### Controller
+
+get '/chitter'
+list of pieps, button to add new piep
+
+get '/chitter/add_piepjep'
+form for a new piepje
+
+post 'new_piepje'
+adds piepje to database
+
+### Model
+Piep and DB class
+
+Piep
+.all()
+=> Array(peep instances)
+#text, #time
+
+.new(text)
+=> adds to database with text and time
+
+Database
+links Piepjes to database
+
+### Database
+table - peeps
+id, text, time
+
+## 4th user story
+
+username page in controller.
+
+add username to piepjes database.
+
+```
+---------------
 HARDER
 
 As a Maker
