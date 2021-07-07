@@ -1,3 +1,39 @@
+# Chitter Challenge
+
+A web application that allows users to signup & signin,' CRUD 'peeps' and have them visible to all users with the creators username & time of creation.
+
+## Getting started
+
+`git clone https://github.com/tristanlangford/chitter-challenge`
+`bundle`
+`bundle install`
+`db/migration/01_setup_test_database`
+
+## Usage
+
+rackup
+
+## Running tests
+
+`rspec`
+
+## Domain Model
+
+![alt text](https://github.com/tristanlangford/chitter-challenge/blob/master/diagrams/Chitter_Domain_Model.jpg)
+
+## Approach
+
+ISSUE: apostrophe's in peep body throws an error as it closes query early. Didn't have time to solve.
+
+Followed TDD and had a specific focus on coverage of feature tests
+
+Started with signin capability, creating index(signin) page and the User class and users table. Completed with sign up capability. Chose to have one page for the feed to show all peeps, and create peep. Added a timestamp of the peep with condition of showing time if sent in same day, or date if longer.
+
+Added checks on username duplication, email duplication, email format, password = confirm password. Felt like the checks on app.rb could be refractored but unsure how.
+
+Did minimal CSS.
+
+
 Chitter Challenge
 =================
 

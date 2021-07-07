@@ -1,0 +1,27 @@
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<div>
+  <h1 class="chitter_header">Chitter</h1>
+<div class=body>
+  <ul class="login_list">
+  <form action='/feed' method='post'>
+    <li>
+      <label for=username>username:</label>
+      <input type=text name=username><div class=flash_notice> <%= flash[:username] %> </div>
+    </li>
+    <li>
+      <label for=password>password:</label>
+      <input type=text name=password><div class=flash_notice> <%= flash[:password] %> </div>
+    </li>
+    <li>
+      <input type=submit name='login' value=Login>
+    </form>
+    <form action='/sign_up' method=get>
+      <input type=submit value="Sign up">
+    </form>
+    </li>
+
+  </div>
+  </div
