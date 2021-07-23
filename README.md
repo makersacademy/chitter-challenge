@@ -1,3 +1,117 @@
+# Project Title
+## Chitter
+
+### Motivation
+
+Building a replica of the twitter app that will allow user to
+* Sign up and register
+* Login or logout
+* Post a chirp
+* Delete a chirp
+* Comment on chirp
+
+### User Stories
+
+As a maker<br>
+So that I can see what others are saying<br>  
+I want to see all peeps in reverse chronological order<br>
+
+As a user<br>
+So I can store bookmark data for later retrieval<br>
+I want to add a bookmark to Bookmark Manager<br>
+
+As a Maker<br>
+So that I can let people know what I am doing<br>  
+I want to post a message (peep) to chitter
+
+As a Maker<br>
+So that I can better appreciate the context of a peep<br>
+I want to see the time at which it was made
+
+As a Maker<br>
+So that I can post messages on Chitter as me<br>
+I want to sign up for Chitter
+
+### Bonus
+
+As a Maker<br>
+So that only I can post messages on Chitter as me<br>
+I want to log in to Chitter
+
+As a Maker<br>
+So that I can avoid others posting messages on Chitter as me<br>
+I want to log out of Chitter
+
+## Build status
+Initial commit included
+* A README file
+* Forked the repo 
+* Created a gemfile with dependencies
+* Edited spec_helper 
+* Created app.rb
+* Crated config.ru
+* Pass the first test to display a home page.
+Removed the homepage display test and added
+* Chirps class to return all chirps
+* Route and erb files to display all chirps
+Created the databases for chitter.
+* 3 Chirps are currently stored in chitter.
+* 0 Chirps in chitter_test
+* Added the both databases anad tables to TablePlus.
+Setup RSpec and Capybara to use test databases.
+Able to create and add a chirp.
+Added a title column to both database tables.
+Refactored spec tests and code.
+User is now able to delete a chirp.
+User is now able to comment on chirps.
+After commenting on a chirp, there was an issue with deleting a chirp. Now, whether a chirp is commented on or not, it can be deleted.
+Created a users table
+Users are now registered and authenticated
+Attempted saving and displaying an image. Image saves as binary 25 bytes, but returns the binary code into the source. Does not yet display image.
+Project complete according to the minimum requirements.
+
+## Code style
+
+
+## Tech/Framework used
+* VS Code
+
+## Built with
+* Ruby
+* Sinatra (http://sinatrarb.com/documentation.html)
+* PostgreSQL (https://www.postgresql.org/docs/current/)
+* Rspec (https://relishapp.com/rspec)
+* Capybara (https://rubydoc.info/github/teamcapybara/capybara/master)
+* Shotgun (https://github.com/rtomayko/shotgun)
+* Flash (https://gist.github.com/cmkoller/0d3b048b3c4b48ee4955)
+* HTML 
+* CSS
+
+## Installation
+
+### Setting Up a PostgreSQL Database
+
+Please refer to the files in db/migrations for the database setup.
+
+## Tests
+
+## Screenshots
+
+<img src="./public/images/" width="50%">
+<img src="./public/images/" width="50%">
+
+## How to use?
+
+## Credits
+* JP Ferreira
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
