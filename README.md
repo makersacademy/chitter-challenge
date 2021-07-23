@@ -1,21 +1,37 @@
-Chitter Challenge
-=================
+Welcome to my Chitter challenge!
+================================
+I went and spent a lot of time learning by doing with Ruby Object Mapper.  So many questions now!  So little of this challenge completed user story wise!
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
+Here's how to get going -- look further below for development methodology!
 
-As usual please start by forking this repo.
+This project uses Sinatra, PostgreSQL, and Ruby Object Mapper, follow the steps below to install.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+1. clone the repo, and bundle up
+2. setup ENV data inside .env (it's in .gitignore), change your_user_name_here to your system username
+  ```
+  $ cat .env POSTGRESQL_HOST=localhost POSTGRESQL_DB=chitter POSTGRESQL_TEST_DB=chitter_test POSTGRESQL_USER=your_user_name_here POSTGRESQL_PASSWORD=
+  ```
+3. Install PostgreSQL (instructions for linux vary, this is for mac)
+  ```
+  brew install postgresql
+  ```
+ - enter interactive terminal
+ ```
+ $ psql postgres # postgres is automatically provided as a database to connect to
+ $ CREATE DATABASE your_user_name_here; # now you can just type 'psql' to get into the interactive terminal
+ $ CREATE DATABASE chitter;
+ $ CREATE DATABASE chitter_test;
+ $ \c chitter # confirm database setup with connection
+ $ \l # list databases
+ ```
+4. Rather than migrate the database I decided to try and learn a bit more about configuring using the rom-sql gateway and relations for configuring the database initially.
 
-Features:
--------
-
+```
+$ ruby setup.rb # relations work here but not in the model -- I am still missing something in configuring then
+```
+User stories
+============
 ```
 STRAIGHT UP
 
@@ -51,6 +67,10 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+![Simple model extracted from user stories](/user_story_modelling.png)
+
+
 
 Technical Approach:
 -----
