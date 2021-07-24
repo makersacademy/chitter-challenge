@@ -8,8 +8,14 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/' do
-    'Chitter Manager'
+    erb :peep
+  end
+
+  post '/peep_add' do
+    @first_peep = params[:peep]
+    erb :peep_list
   end
 
   run! if app_file == $0
 end
+
