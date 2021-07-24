@@ -15,6 +15,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
+require 'features/web_helpers'
 
 Capybara.app = ChitterChallenge
 

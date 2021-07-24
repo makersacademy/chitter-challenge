@@ -1,8 +1,14 @@
 feature 'show peeps' do
   scenario 'all peeps are shown in reverse chronological order' do
-    Peep.create(text: 'First test peep')
-    Peep.create(text: 'Second test peep')
-    Peep.create(text: 'Third test peep')
+    user = User.create(
+      name: 'Example Name',
+      username: 'exampleusername',
+      email: 'example@example.com',
+      password: 'examplepassword'
+    )
+    Peep.create(text: 'First test peep', user_id: user.id)
+    Peep.create(text: 'Second test peep', user_id: user.id)
+    Peep.create(text: 'Third test peep', user_id: user.id)
 
     visit('/peeps')
 
@@ -12,7 +18,13 @@ feature 'show peeps' do
   end
 
   scenario 'all peeps have the time they were created at' do
-    peep = Peep.create(text: 'Test peep')
+    user = User.create(
+      name: 'Example Name',
+      username: 'exampleusername',
+      email: 'example@example.com',
+      password: 'examplepassword'
+    )
+    peep = Peep.create(text: 'Test peep', user_id: user.id)
 
     visit('/peeps')
 

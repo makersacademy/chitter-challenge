@@ -20,4 +20,22 @@ describe User do
       expect(user.password).to eq('examplepassword')
     end
   end
+
+  describe '.find' do
+    it 'finds a user from their id' do
+      user = User.create(
+        name: 'Example Name',
+        username: 'exampleusername',
+        email: 'example@example.com',
+        password: 'examplepassword'
+      )
+      result = User.find(user.id)
+
+      expect(result).to be_a(User)
+      expect(user.name).to eq('Example Name')
+      expect(user.username).to eq('exampleusername')
+      expect(user.email).to eq('example@example.com')
+      expect(user.password).to eq('examplepassword')
+    end
+  end
 end
