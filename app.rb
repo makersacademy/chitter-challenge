@@ -13,8 +13,7 @@ class ChitterChallenge < Sinatra::Base
   end
   
   get '/peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
-    @peeps = connection.exec("SELECT * FROM peeps;")
+    @peeps = Peep.all
     erb(:"peeps/index")
   end
   
@@ -23,8 +22,6 @@ class ChitterChallenge < Sinatra::Base
   end
   
   post '/peeps' do
-    # connection = PG.connect(dbname: 'chitter_test')
-    # connection.exec("INSERT INTO peeps (text) VALUES ('#{params[:peep]}');")
     Peep.create(text: params[:peep])
     redirect '/peeps'
   end
