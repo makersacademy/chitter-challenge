@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'sinatra/reloader'
 require 'pg'
 require './lib/peep'
+require './lib/user'
 require './database_connection_setup'
 
 class ChitterChallenge < Sinatra::Base
@@ -37,8 +38,13 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users' do
-    session[:name] = params[:name]
-    flash[:notice] = "Signed in as #{session[:name]}" if session[:name]
+    session[:user] = User.create(
+      name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
+    flash[:notice] = "Signed in as #{session[:user].name}" if session[:user]
     redirect '/'
   end
 

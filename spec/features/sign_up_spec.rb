@@ -7,6 +7,7 @@ feature 'sign up' do
     fill_in('password', with: 'examplepassword')
     click_button('Submit')
 
+    expect(current_path).to eq('/')
     expect(page).to have_content('Signed in as Example Name')
   end
 end
