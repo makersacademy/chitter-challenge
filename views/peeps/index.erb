@@ -2,6 +2,7 @@
   <% @peeps.reverse_each do |peep| %>
     <li class='peep'>
       <%= peep.text %>
+      <%= peep.time %>
     </li>
   <% end %>
 </ul>

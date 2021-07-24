@@ -10,6 +10,7 @@ describe Peep do
       expect(peep).to be_a(Peep)
       expect(peep.id).to eq(persisted_data['id'])
       expect(peep.text).to eq('Here is a test peep')
+      expect(peep.time).to eq(persisted_data['time'])
     end
   end
 
@@ -23,6 +24,7 @@ describe Peep do
       expect(peeps.length).to eq(3)
       expect(peeps.first).to be_a(Peep)
       expect(peeps.first.id).to eq(peep.id)
+      expect(peeps.first.time).to eq(peep.time)
       expect(peeps.first.text).to eq(peep.text)
     end
   end

@@ -10,4 +10,12 @@ feature 'show peeps' do
     expect(all('.peep')[1]).to have_content('Second test peep')
     expect(all('.peep')[2]).to have_content('First test peep')
   end
+
+  scenario 'all peeps have the time they were created at' do
+    peep = Peep.create(text: 'Test peep')
+
+    visit('/peeps')
+
+    expect(page).to have_content(peep.time)
+  end
 end
