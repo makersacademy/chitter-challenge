@@ -29,13 +29,12 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
-:heavy_check_mark:
+:construction:
 ```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
-:construction:
 ```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
