@@ -1,6 +1,6 @@
 <ul>
-  <% @peeps.each do |peep| %>
-    <li>
+  <% @peeps.reverse_each do |peep| %>
+    <li class='peep'>
       <%= peep.text %>
     </li>
   <% end %>
