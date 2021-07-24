@@ -6,6 +6,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require 'pg'
+require 'test_database'
 
 Capybara.app = Chitter
 
@@ -15,4 +16,5 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  fresh_table
 end

@@ -1,0 +1,2 @@
+require 'pg'
+require './app'
