@@ -78,6 +78,8 @@ GEM
       rack-protection (= 2.1.0)
       sinatra (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.10)
@@ -97,6 +99,7 @@ DEPENDENCIES
   simplecov-console
   sinatra (~> 2.1)
   sinatra-contrib (~> 2.1)
+  sinatra-flash (~> 0.3.0)
 
 RUBY VERSION
    ruby 2.6.5p114
