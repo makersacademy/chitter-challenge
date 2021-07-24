@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
 require './lib/peep'
+require './database_connection_setup'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -9,7 +10,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/' do
-    'Hello, World!'
+    erb(:index)
   end
   
   get '/peeps' do

@@ -1,4 +1,4 @@
-require 'pg'
+require_relative 'database_connection'
 
 class Peep
   attr_reader :id, :text
@@ -9,14 +9,14 @@ class Peep
   end
 
   def self.create(text:)
-    connection = PG.connect(dbname: 'chitter_test')
-    result = connection.exec("INSERT INTO peeps (text) VALUES ('#{text}') RETURNING id, text;")
+    result = DatabaseConnection.query(
+      "INSERT INTO peeps (text) VALUES ('#{text}') RETURNING id, text;"
+    )
     Peep.new(id: result[0]['id'], text: result[0]['text'])
   end
 
   def self.all
-    connection = PG.connect(dbname: 'chitter_test')
-    result = connection.exec('SELECT * FROM peeps;')
+    result = DatabaseConnection.query('SELECT * FROM peeps;')
     result.map do |peep|
       Peep.new(id: peep['id'], text: peep['text'])
     end
