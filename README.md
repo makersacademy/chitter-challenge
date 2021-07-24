@@ -3,9 +3,19 @@ Chitter Challenge
 
 Features:
 -------
+First user story:
+----------
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+Domain Model
+---------
+<img src="images/chitter_domain_1.png" width= "700" >
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
