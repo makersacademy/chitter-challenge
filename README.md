@@ -15,8 +15,18 @@ Domain Model
 ---------
 <img src="images/chitter_domain_1.png" width= "700" >
 
-```
+MVC planning
+---------
 
+
+| Component   | Responsibility                                | Refactor                                |
+|------------ |---------------------------------------------  |---------------------------------------- |
+| Model       | Encapsulate logic with relevant data          | Encapsulate peep data in a class    |
+| View        | Display the result to a user                  | Show the peep data in a list        |
+| Controller  | Get data from the model and put in the view   | Render peep data into to the view   |
+
+
+```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
