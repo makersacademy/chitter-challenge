@@ -43,13 +43,21 @@ class User
   end
 
   def self.login(username:, password:)
+    unless User.username_exists?(username) && User.password_matches?(username, password)
+      return false 
+    end
+
     result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
     User.new(
       id: result[0]['id'],
       name: result[0]['name'],
       username: result[0]['username'],
       email: result[0]['email'],
-      password: result[0]['password']
-    )
+      password: result[0]['password'])
+  end
+
+  def self.password_matches?(username, password)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';").first
+    result['password'] == password
   end
 end

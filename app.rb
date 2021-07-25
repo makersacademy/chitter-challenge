@@ -60,7 +60,10 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users/login' do
-    session[:user] = User.login(username: params[:username], password: params[:password])
+    unless (session[:user] = User.login(username: params[:username], password: params[:password]))
+      flash[:notice] = "The username and password do not match."
+      redirect '/users/login'
+    end
     flash[:notice] = "Logged in as #{session[:user].name}"
     redirect '/'
   end

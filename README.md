@@ -35,12 +35,13 @@ As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
-:construction:
+:heavy_check_mark:
 ```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
+:construction:
 ```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter

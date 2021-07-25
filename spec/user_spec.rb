@@ -88,21 +88,31 @@ describe User do
   end
 
   describe '.login' do
-    it 'returns the user' do
-      user = User.create(
-        name: 'Example Name',
-        username: 'exampleusername',
-        email: 'example@example.com',
-        password: 'examplepassword'
-      )
-      result = User.login(username: user.username, password: user.password)
+    context 'the username and email are valid' do
+      it 'returns the user' do
+        user = User.create(
+          name: 'Example Name',
+          username: 'exampleusername',
+          email: 'example@example.com',
+          password: 'examplepassword'
+        )
+        result = User.login(username: user.username, password: user.password)
 
-      expect(result).to be_a(User)
-      expect(result.id).to eq(user.id)
-      expect(result.name).to eq('Example Name')
-      expect(result.username).to eq('exampleusername')
-      expect(result.email).to eq('example@example.com')
-      expect(result.password).to eq('examplepassword')
+        expect(result).to be_a(User)
+        expect(result.id).to eq(user.id)
+        expect(result.name).to eq('Example Name')
+        expect(result.username).to eq('exampleusername')
+        expect(result.email).to eq('example@example.com')
+        expect(result.password).to eq('examplepassword')
+      end
+    end
+
+    context 'the username does not exist' do
+      it 'returns false' do
+        result = User.login(username: 'Example', password: 'example')
+
+        expect(result).to eq(false)
+      end
     end
   end
 end
