@@ -1,0 +1,21 @@
+require 'pg'
+
+class Peep
+attr_reader :id, :name, :content
+
+  def self.create(name:, content:)
+    connection = if ENV['RACK_ENV'] == 'test'
+      PG.connect(dbname: 'chitter_test')
+    else
+      PG.connect(dbname: 'chitter')
+    end
+    new_peep = connection.exec("INSERT INTO peeps (name, content) VALUES('#{name}', '#{content}') RETURNING id, name, content;")
+    Peep.new(id: new_peep[0]['id'], name: new_peep[0]['name'], content: new_peep[0]['content'])
+  end
+
+  def initialize(id:, name:, content:)
+    @id = id
+    @name = name
+    @content = content
+  end
+end
