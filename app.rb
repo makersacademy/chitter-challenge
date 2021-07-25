@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/peep.rb'
 require './lib/user.rb'
 require 'pg'
@@ -11,6 +12,7 @@ class Chitter < Sinatra::Base
 
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
   end
   
   get '/peeps' do
@@ -43,6 +45,17 @@ class Chitter < Sinatra::Base
 
   get '/sessions/new' do
     erb :"sessions/new"
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user 
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = "We don't recognise that email please try again"
+      redirect('/sessions/new')
+    end
   end
 
   run! if app_file == $0

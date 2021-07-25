@@ -1,4 +1,7 @@
-<form action='/sessions/new' method='post'>
+
+ <%= flash[:notice] %>
+
+<form action='/sessions' method='post'>
    <input type='text' name='email' placeholder='Email'>
    <input type='text' name='password' placeholder='Password'>
    <input type='submit' value='Sign in'>
