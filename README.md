@@ -3,6 +3,8 @@ Chitter Challenge
 
 This is my Makers weekend challenge for week 4.
 
+(Notes on styling: I experimented with css styling a bit, being heavily influenced by this [video](https://www.youtube.com/watch?v=O7WbVj5apxU))
+
 ### User stories
 (:heavy_check_mark: below means the user story has been implemented, :construction: below means the user story is in progress, :x: below means the user story has not yet been implemented)
 

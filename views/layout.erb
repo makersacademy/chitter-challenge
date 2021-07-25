@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <title>Chitter</title>
+  </head>
+  <body>
+    <main>
+      <section class="glass">
+        <% if flash[:notice] %>
+          <div class='notice'><%= flash[:notice] %></div>
+        <% end %>
+        <div class='inside-glass'>
+          <%= yield %>
+        </div>
+      </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+  </body>
+</html>
