@@ -1,6 +1,6 @@
-
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
 class ChitterManager < Sinatra::Base
   configure :development do
@@ -12,10 +12,14 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peep_add' do
-    @first_peep = params[:peep]
+    @peeps = [
+      'Hi, I\'m peep one',
+      'Hi, I\'m peep two',
+      'Hi, I\'m peep three',
+    ]
+    @peeps.push(params[:peep])
     erb :peep_list
   end
 
   run! if app_file == $0
 end
-
