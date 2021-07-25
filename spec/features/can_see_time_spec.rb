@@ -7,7 +7,7 @@ feature 'Time' do
     click_button('Post a Peep')
     fill_in('peep', with: 'Peep')
     click_button('Submit Peep')
-    expect(page).to have_content ("#{time.strftime("%k:%M") }")
-    expect(page).to have_content ("#{time.strftime("%d/%m")}")
-    end
+    expect(page).to have_content("#{time.strftime("%k:%M")}")
+    expect(page).to have_content("#{time.strftime("%d/%m")}")
+  end
 end

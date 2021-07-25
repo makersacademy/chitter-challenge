@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require './lib/peep.rb'
 require './lib/user.rb'
 require 'pg'
+require_relative 'database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
 
@@ -38,6 +39,10 @@ class Chitter < Sinatra::Base
     user = User.create(email: @email, password: @password)
     session[:user_id] = user.id
     redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :"sessions/new"
   end
 
   run! if app_file == $0

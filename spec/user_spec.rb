@@ -17,7 +17,6 @@ describe User do
     end
   end
 
-
   describe '.find' do
     it 'returns the user' do
       user = User.create(email: 'test@example.com', password: 'password123')
