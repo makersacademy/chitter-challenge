@@ -4,7 +4,7 @@ Chitter Challenge
 This is my Makers weekend challenge for week 4.
 
 ### User stories
-(:heavy_check_mark: bellow means the user story has been implemented, :construction: bellow means the user story is in progress)
+(:heavy_check_mark: below means the user story has been implemented, :construction: below means the user story is in progress, :x: below means the user story has not yet been implemented)
 
 ```
 As a Maker
@@ -47,6 +47,7 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+:x:
 
 ### Set up
 
