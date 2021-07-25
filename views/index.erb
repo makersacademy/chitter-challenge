@@ -1,6 +1,8 @@
 <ul>
   <% @peeps.reverse.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.peep %>
+        (<%= peep.time %>)
+    </li>
   <% end %>
 </ul>
 

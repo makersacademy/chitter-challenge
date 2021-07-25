@@ -1,4 +1,6 @@
 require 'peep'
+require 'time'
+require 'timecop'
 
 describe Peep do
   describe '.all' do
@@ -7,17 +9,27 @@ describe Peep do
     Peep.add('two')
     Peep.add('three')
     peeps = Peep.all
-      expect(peeps).to include 'one'
-      expect(peeps).to include 'two'
-      expect(peeps).to include 'three'
+      expect(peeps.first.peep).to include 'one'
+      expect(peeps.last.peep).to include 'three'
       expect(peeps.length).to eq 3
+    end
+    it 'has adds the time' do
+      time = Timecop.freeze
+      clock = time.strftime("%k:%M") 
+      date = time.strftime("%d/%m")
+      peep = Peep.add('peep')
+      first = Peep.all.first
+      expect(first.time).to include(clock)
+      expect(first.time).to include(date)
     end
   end
 
   describe '.add' do
     it 'adds a peep' do
-      Peep.add('Adding a peep')
-      expect(Peep.all).to include 'Adding a peep'
+      peep = Peep.add('Adding a peep')
+      expect(peep).to be_a Peep
+      expect(peep.peep).to eq 'Adding a peep'
+      # expect(peep.time).to be_within(30.seconds).of(Time.now)
     end
   end
   end

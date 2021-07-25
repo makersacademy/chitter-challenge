@@ -28,3 +28,14 @@ I want to see all peeps in reverse chronological order
 ```
 
 - In index.erb use .reverse method and set up test separate test for it (reverse_chronology_spec)
+
+## User story 3
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+1. Execute SQL instructions in 02_add_timestamp_function to add an automatic timestamp upon creation
+2. Execute SQL instructions in 03_add_timestamp_to_table

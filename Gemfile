@@ -13,3 +13,5 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'capybara'
 end
+
+gem "timecop", "~> 0.9.4"
