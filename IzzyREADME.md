@@ -47,3 +47,5 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
+
+1. Follow SQL commands in 04_create_user_table in both 'chitter' and 'chitter_test' databases
