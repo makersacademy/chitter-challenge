@@ -1,4 +1,3 @@
-
 feature 'Create peep' do
   scenario 'can display peep creation form' do
     visit('/create_peep')
