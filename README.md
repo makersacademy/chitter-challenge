@@ -41,7 +41,7 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
-:construction:
+:heavy_check_mark:
 ```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
