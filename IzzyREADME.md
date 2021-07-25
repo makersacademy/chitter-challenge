@@ -39,3 +39,11 @@ I want to see the time at which it was made
 
 1. Execute SQL instructions in 02_add_timestamp_function to add an automatic timestamp upon creation
 2. Execute SQL instructions in 03_add_timestamp_to_table
+
+## User story 4
+
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
