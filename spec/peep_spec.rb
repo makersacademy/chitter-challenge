@@ -3,13 +3,14 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'contains all the peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (peep) VALUES('one');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('two');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('three');")
-      expect(Peep.all).to include 'one'
-      expect(Peep.all).to include 'two'
-      expect(Peep.all).to include 'three'
+    Peep.add('one')
+    Peep.add('two')
+    Peep.add('three')
+    peeps = Peep.all
+      expect(peeps).to include 'one'
+      expect(peeps).to include 'two'
+      expect(peeps).to include 'three'
+      expect(peeps.length).to eq 3
     end
   end
 
@@ -19,5 +20,7 @@ describe Peep do
       expect(Peep.all).to include 'Adding a peep'
     end
   end
-    
   end
+
+
+  
