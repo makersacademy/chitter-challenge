@@ -1,0 +1,11 @@
+<% @peeps.reverse_each do |peep| %>
+  <div class='peep'>
+    <p class='peep-text'><%= peep.text %></p>
+    <p class='peep-user'>Posted by <%= peep.user.username %></p>
+    <p class='peep-time'>at <%= peep.time %></p>
+  </div>
+<% end %>
+<div class='bottom-nav'>
+  <a href="/">Chitter homepage</a>
+  <a href="/peeps/new">Post a peep</a>
+</div>

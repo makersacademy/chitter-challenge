@@ -1,0 +1,22 @@
+<a href='/' style="text-decoration: none;"><h1>Chitter</h1><a>
+<h3>Like Twitter, but Chitter</h3>
+<div class="homepage-link">
+  <a href='/peeps'>View peeps</a>
+</div>
+<% if session[:user] %>
+  <div class="homepage-link">
+    <a href='/peeps/new'>Create new peep</a>
+  </div>
+  <div class="homepage-link">
+    <form action='/users/logout' method='post'>
+      <input type='submit' value='Log out'>
+    </form>
+  </div>
+<% else %>
+  <div class="homepage-link">
+    <a href='/users/login'>Log in</a>
+  </div>
+  <div class="homepage-link">
+    <a href='/users/new'>Sign up</a>
+  </div>
+<% end %>
