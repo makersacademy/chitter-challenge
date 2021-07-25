@@ -1,0 +1,27 @@
+<% if @user %>
+   <h1>Welcome, <%= @user.email %></h1>
+   <form action="/sessions/destroy" method="post">
+     <input type="submit" value="Sign out" />
+   </form>
+   <% else %>
+   <h1> You are not signed in </h1>
+   <form action="/sessions/new" method="get">
+     <input type="submit" value="Sign in" />
+   </form>
+ <% end %>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep.peep %>
+        (<%= peep.time %>)
+    </li>
+  <% end %>
+</ul>
+
+<form action='/post' method='get'>
+  <input type='submit' value='Post a Peep'>
+</form>
+
+<form action='/users/new' method='get'>
+  <input type='submit' value='Sign Up'>
+</form>
