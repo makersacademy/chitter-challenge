@@ -15,3 +15,5 @@ group :test do
 end
 
 gem "timecop", "~> 0.9.4"
+
+gem "bcrypt", "~> 3.1"

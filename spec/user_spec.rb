@@ -10,7 +10,14 @@ describe User do
       expect(user.id).to eq(persisted_data.first['id'])
       expect(user.email).to eq 'example@example.co.uk'
     end
+    it 'uses BCrypt to scramble password' do
+      expect(BCrypt::Password).to receive(:create).with('password')
+
+      User.create(email: 'example@example.co.uk', password: 'password')
+    end
   end
+
+
   describe '.find' do
     it 'returns the user' do
       user = User.create(email: 'test@example.com', password: 'password123')
