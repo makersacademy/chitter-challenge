@@ -33,7 +33,6 @@ describe Peep do
       peep = Peep.add('Adding a peep')
       expect(peep).to be_a Peep
       expect(peep.peep).to eq 'Adding a peep'
-      # expect(peep.time).to be_within(30.seconds).of(Time.now)
     end
   end
 end

@@ -24,7 +24,7 @@ feature 'Authentication' do
   scenario "Doesn't let user sign in if they have the wrong password" do
     User.create(email: 'example@example.co.uk', password: 'password')
     visit '/sessions/new'
-    fill_in(:email, with: 'examplel@example.co.uk')
+    fill_in(:email, with: 'example@example.co.uk')
     fill_in(:password, with: 'wrongpassword')
     click_button('Sign in')
 
@@ -32,4 +32,14 @@ feature 'Authentication' do
     expect(page).to have_content "We don't recognise your email or password please try again"
   end
 
+  scenario 'A user can sign out' do
+    User.create(email: 'example@example.co.uk', password: 'password')
+    visit '/sessions/new'
+    fill_in(:email, with: 'example@example.co.uk')
+    fill_in(:password, with: 'password')
+    click_button('Sign in')
+
+    click_button('Sign out')
+    expect(page).to have_content 'You are not signed in'
+  end
 end
