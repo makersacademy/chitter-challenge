@@ -55,5 +55,15 @@ class ChitterChallenge < Sinatra::Base
     redirect '/'
   end
 
+  get '/users/login' do
+    erb(:"users/login")
+  end
+
+  post '/users/login' do
+    session[:user] = User.login(username: params[:username], password: params[:password])
+    flash[:notice] = "Logged in as #{session[:user].name}"
+    redirect '/'
+  end
+
   run! if app_file == $0
 end

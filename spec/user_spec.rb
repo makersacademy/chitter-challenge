@@ -32,10 +32,10 @@ describe User do
       result = User.find(user.id)
 
       expect(result).to be_a(User)
-      expect(user.name).to eq('Example Name')
-      expect(user.username).to eq('exampleusername')
-      expect(user.email).to eq('example@example.com')
-      expect(user.password).to eq('examplepassword')
+      expect(result.name).to eq('Example Name')
+      expect(result.username).to eq('exampleusername')
+      expect(result.email).to eq('example@example.com')
+      expect(result.password).to eq('examplepassword')
     end
   end
 
@@ -84,6 +84,25 @@ describe User do
 
         expect(result).to eq(true)
       end
+    end
+  end
+
+  describe '.login' do
+    it 'returns the user' do
+      user = User.create(
+        name: 'Example Name',
+        username: 'exampleusername',
+        email: 'example@example.com',
+        password: 'examplepassword'
+      )
+      result = User.login(username: user.username, password: user.password)
+
+      expect(result).to be_a(User)
+      expect(result.id).to eq(user.id)
+      expect(result.name).to eq('Example Name')
+      expect(result.username).to eq('exampleusername')
+      expect(result.email).to eq('example@example.com')
+      expect(result.password).to eq('examplepassword')
     end
   end
 end
