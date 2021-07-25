@@ -73,5 +73,11 @@ class ChitterChallenge < Sinatra::Base
     redirect '/'
   end
 
+  post '/users/logout' do
+    session[:user] = nil
+    flash[:notice] = 'Logged out succesfully.'
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
