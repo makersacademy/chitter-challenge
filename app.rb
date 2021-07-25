@@ -41,6 +41,9 @@ class ChitterChallenge < Sinatra::Base
     if User.username_exists?(params[:username])
       flash[:notice] = 'That username is already taken.'
       redirect '/users/new'
+    elsif User.email_exists?(params[:email])
+      flash[:notice] = 'There is already an account with the email address.'
+      redirect '/users/new'
     end
     session[:user] = User.create(
       name: params[:name],

@@ -37,4 +37,8 @@ class User
   def self.username_exists?(username)
     !!DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';").first
   end
+
+  def self.email_exists?(email)
+    !!DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';").first
+  end
 end
