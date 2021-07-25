@@ -38,6 +38,10 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users' do
+    if User.username_exists?(params[:username])
+      flash[:notice] = 'That username is already taken.'
+      redirect '/users/new'
+    end
     session[:user] = User.create(
       name: params[:name],
       username: params[:username],

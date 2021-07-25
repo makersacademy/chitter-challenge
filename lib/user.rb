@@ -33,4 +33,8 @@ class User
       email: result[0]['email'],
       password: result[0]['password'])
   end
+
+  def self.username_exists?(username)
+    !!DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';").first
+  end
 end

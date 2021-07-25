@@ -38,4 +38,28 @@ describe User do
       expect(user.password).to eq('examplepassword')
     end
   end
+
+  describe '.username_exists?' do
+    context 'when username does not exist' do
+      it 'returns false' do
+        result = User.username_exists?('Example')
+
+        expect(result).to eq(false)
+      end
+    end
+  end
+
+  context 'when username does exist' do
+    it 'returns true' do
+      user = User.create(
+        name: 'Example Name',
+        username: 'exampleusername',
+        email: 'example@example.com',
+        password: 'examplepassword'
+      )
+      result = User.username_exists?(user.username)
+
+      expect(result).to eq(true)
+    end
+  end
 end
