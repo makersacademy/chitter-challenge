@@ -7,4 +7,12 @@ feature 'create peep as user' do
     expect(current_path).to eq('/peeps')
     expect(page).to have_content('Posted by exampleusername')
   end
+
+  scenario 'cannot post peep if not logged in' do
+    visit('/')
+    click_link('Create new peep')
+
+    expect(current_path).to eq('/users/login')
+    expect(page).to have_content('You must be logged in before you can post a peep.')
+  end
 end

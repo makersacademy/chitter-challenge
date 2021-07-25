@@ -25,6 +25,11 @@ class ChitterChallenge < Sinatra::Base
   end
   
   get '/peeps/new' do
+    unless session[:user]
+      flash[:notice] = 'You must be logged in before you can post a peep.'
+      redirect '/users/login'
+    end
+    
     erb(:"peeps/new")
   end
   
