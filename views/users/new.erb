@@ -1,7 +1,23 @@
-<form action='/users' method='post'>
-  <input type='text' name='name' placeholder='Name' />
-  <input type='text' name='username' placeholder='Username' />
-  <input type='text' name='email' placeholder='Email' />
-  <input type='password' name='password' placeholder='Password' />
-  <input type='submit' value='Submit' />
-</form>
+<h2>Sign up to Chitter</h2>
+<div class='form-container'>
+  <form action='/users' method='post'>
+    <div class='form-child'>
+      <input type='text' name='name' placeholder='Name' />
+    </div>
+    <div class='form-child'>
+      <input type='text' name='username' placeholder='Username' />
+    </div>
+    <div class='form-child'>
+      <input type='text' name='email' placeholder='Email' />
+    </div>
+    <div class='form-child'>
+      <input type='password' name='password' placeholder='Password' />
+    </div>
+    <div class='form-submit'>
+      <input type='submit' value='Submit' />
+    </div>
+  </form>
+</div>
+<div class='bottom-nav'>
+  <a href="/">Chitter homepage</a>
+</div>

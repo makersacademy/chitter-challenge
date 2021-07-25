@@ -2,6 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(5, 123, 170);
+}
+
+h1 {
+  font-size: 60px;
+  letter-spacing: 5px;
 }
 
 main {
@@ -12,6 +19,14 @@ main {
   justify-content: center;
 }
 
+form {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
 .glass {
   background: white;
   min-height: 80vh;
@@ -20,6 +35,8 @@ main {
   border-radius: 30px;
   z-index: 3;
   backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
 }
 
 .circle1,
@@ -49,17 +66,64 @@ main {
 }
 
 .notice {
-  background: rgba(15, 226, 156, 0.3);
+  background: rgba(255, 255, 255, 0.4);
   height: 100px;
   width: 100%;
   border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .inside-glass {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px;
+}
+
+.peep {
+  padding: 10px;
+  width: 100%;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.4);
+  margin-bottom: 10px;
+}
+
+.peep-text {
+  font-size: 20px;
+}
+
+.peep-user,
+.peep-time {
+  font-size: 12px;
+  text-align: right;
+}
+
+.homepage-link {
+  margin-top: 20px;
+}
+
+.bottom-nav {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: collumn;
+}
+
+.form-child {
+  margin: 20px 7% 0px 7%;
+}
+
+.form-submit {
+  margin: 20px 7% 0px 60%;
+  width: 20%;
 }

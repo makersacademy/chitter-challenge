@@ -9,7 +9,7 @@
     <main>
       <section class="glass">
         <% if flash[:notice] %>
-          <div class='notice'><%= flash[:notice] %></div>
+          <div class='notice'><h4><%= flash[:notice] %><h4></div>
         <% end %>
         <div class='inside-glass'>
           <%= yield %>
