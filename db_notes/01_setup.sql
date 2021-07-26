@@ -3,3 +3,4 @@
 - These are: id, peep, time, name, pass and email.
 - I then reapeated these steps with a chitter_test database.
 - This database is used for rspec tests.
+- Removed columns except for id and peep to keep it simple.
