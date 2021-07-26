@@ -39,6 +39,12 @@ Database setup:
 
 4.Run the query we have saved in the file ```01_create_peeps_table.sql```
 
+5.Create the *test* database using the ```psql``` command ```CREATE DATABASE peep_manager_test;```
+
+6.Connect to the test database using the ```pqsl``` command ```\c peep_manager_test;```
+
+7.Run the same query we have saved in the file ```01_create_peeps_table.sql```
+
 ```
 
 As a maker
