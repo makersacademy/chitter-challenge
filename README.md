@@ -5,9 +5,9 @@ Makers week 4 solo weekend challenge.
 
 ## Screens 
 
-<img alt ='sign in or sign up page' src ="https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-06-27%20at%2019.26.02.png">
-<img alt ='create an account' src = "https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-06-27%20at%2019.26.12.png">
-<img alt ='chitter feed' src = "https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-06-27%20at%2019.26.39.png">
+<img alt ='sign in or sign up page' src ="https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-08-01%20at%2016.17.27.png">
+<img alt ='create an account' src = "https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-08-01%20at%2016.18.02.png">
+<img alt ='chitter feed' src = "https://raw.githubusercontent.com/frank-mck/chitter-challenge/main/img/Screenshot%202021-08-01%20at%2016.52.27.png">
 
 ## Technical Skills
 
