@@ -4,7 +4,10 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - bundle exec rake setup
+
+after_script:
+  - rake teardown
 
 script:
   - bundle exec rspec
