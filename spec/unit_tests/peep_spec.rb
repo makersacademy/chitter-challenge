@@ -10,7 +10,6 @@ describe Peep do
       Peep.create(peep: 'Code')
     
       peeps = Peep.all
-    
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
       expect(peeps.first.id).to eq peep.id
@@ -26,6 +25,7 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data.first['id']
       expect(peep.peep).to eq 'Hello World'
+      expect(peep.time).to include "#{Time.now.strftime("%Y-%m-%d %I:%M %p")}" 
     end
   end
 end 

@@ -1,8 +1,6 @@
 feature 'See peeps in reverse chronological order' do
   scenario 'A user can see all peeps in reverse chronological order' do
-    visit '/peeps/new'
-    fill_in('peep', with: 'Hello world')
-    click_button('Submit')
+    add_first_peep
     visit '/peeps/new'
     fill_in('peep', with: 'Code')
     click_button('Submit')
