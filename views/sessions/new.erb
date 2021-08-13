@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/chitter.css" />
+<h1>
+  Sign in to Chitter
+</h1>
+<h2>
+<%= flash[:notice] %>
+</h2>
+<div class="form">
+  <form action='/sessions' method='post'>
+    Username:
+    <input type='text' name='username'>
+    Password:
+    <input type='text' name='password'>
+    <input type='submit' name='Sign In'>
+  </form>
+</div>

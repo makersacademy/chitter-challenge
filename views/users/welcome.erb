@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="stylesheets/chitter.css" />
+
+<body>
+<p>
+  Welcome, <%= @user.name %>! You have registered with the following details:
+</p>
+<ul>
+  <li>Name = <%= @user.name %> </li>
+  <li>Email = <%= @user.email %> </li>
+  <li>Username = <%= @user.username %> </li>
+</ul>
+<p>
+  <a href='/peeps'>Return to Peeps</a>
+</p>
+</body>
