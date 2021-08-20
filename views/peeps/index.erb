@@ -3,9 +3,12 @@
 <head>
 </head>
 <body>
-  <form action='' method='post'>
+  <form action='/peeps/create' method='post'>
     <textarea type='text' name='peep' placeholder='Got something on your mind?'></textarea>
     <input type='submit' value='Peep it'>
   </form>
+  <% @peep.each do |result| %>
+    <p><%= result[:message] %></p>
+  <% end %>
 </body>
 </html>
