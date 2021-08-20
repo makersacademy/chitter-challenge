@@ -133,3 +133,12 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+## Database Setup Instructions
+
+# Setting up the database
+1. Connect to `psql`
+2. Create the production and test databases using the psql commands `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
+3. Connect to the production database using the pqsl command `\c chitter;`
+4. Run the queries saved in the files and `01_create_users_table.sql` and `02_create_peeps_table.sql`
+5. Repeat step 4 after connecting to the test database `\c chitter_test;`
