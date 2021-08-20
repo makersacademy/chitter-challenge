@@ -1,10 +1,10 @@
 require 'PG'
 
 class Peep
-  attr_reader :id, :peep, :user, :timestamp
+  attr_reader :peep_id, :peep, :user, :timestamp
 
   def initialize(id:, peep:, user:, timestamp:)
-    @id = id
+    @peep_id = id
     @peep = peep 
     @user = user
     @timestamp = timestamp

@@ -16,16 +16,16 @@ I want to post a message (peep) to chitter
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
 ```
 
 To Do:
 -------
 
 ```
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter (name, unq username, unq email, password)
@@ -68,6 +68,8 @@ NTH:
 Personal notes
 -----
 - user_fk is integer type, is that ok?
+- make password private
+- make self.connect_db a method that can be used by either class?
 
 DB Setup
 -----

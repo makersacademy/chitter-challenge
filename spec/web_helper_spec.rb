@@ -7,3 +7,7 @@ def add_test_peeps
   fill_in('peep', with: "Cause I've had the time of my life. And I owe it all to you")
   click_on 'Submit'
 end
+
+def add_user
+  described_class.add('Lizzy', 'eballantine', 'lizzy@hey.com', 'Password123')
+end

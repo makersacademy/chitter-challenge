@@ -4,7 +4,7 @@ describe Peep do
   describe '.initialize' do
     it 'has an id' do
       described_class.add("Now with passion in our eyes. There's no way we could disguise it secretly", 1)
-      expect{ described_class.add("Just remember. You're the one thing. I can't get enough of", 1) }.to change{ described_class.all[0].id }
+      expect{ described_class.add("Just remember. You're the one thing. I can't get enough of", 1) }.to change{ described_class.all[0].peep_id }
     end
 
     it 'has peep content' do
