@@ -4,6 +4,7 @@ feature 'Allows a user to post a message to chitter' do
     find_field('peep')
     fill_in 'peep', with: "How is everyone?"
     click_button('Peep it')
+    expect(page).to have_content("How is everyone?")
   end
 
 
