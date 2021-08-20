@@ -23,6 +23,11 @@ class Chitter < Sinatra::Base
   get '/signup' do
     erb :signup
   end
+  
+  post '/add_user' do
+    User.add(params[:name], params[:username], params[:email], params[:password])
+    redirect '/'
+  end
 
   run! if app_file == $0
 end
