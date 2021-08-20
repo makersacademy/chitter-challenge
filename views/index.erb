@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Hello, world!</title>
+  <title>Chitter</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="icon" href="img/favicon-32x32.png">
 </head>
 <body>
-  <h1>Hello, world!</h1>
+  <h1>Chitter</h1>
+
+  <section id="new-peep">
+    <h2>Create Peep</h2>
+    <form action='/add_peep' method="POST">
+      <label for="peep">Peep: </label>
+      <input type="text" maxlength="280" name="peep">
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+  <section id="timeline">
+    <h2>Peep Timeline</h2>
+    <p><%= @peep%></p>
+  </section>
 </body>
 </html>
