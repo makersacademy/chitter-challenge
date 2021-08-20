@@ -77,8 +77,9 @@ CREATE DATABASE chitter;
 \c chitter;
 CREATE TABLE users (user_id SERIAL PRIMARY KEY, name VARCHAR(60) NOT NULL, username VARCHAR(60) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(60) NOT NULL);
 CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, peep VARCHAR(280) NOT NULL, user_fk integer);
-
 CREATE DATABASE chitter_test;
 \c chitter_test;
 CREATE TABLE users (user_id SERIAL PRIMARY KEY, name VARCHAR(60) NOT NULL, username VARCHAR(60) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(60) NOT NULL);
 CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, peep VARCHAR(280) NOT NULL, user_fk integer);
+ALTER TABLE users ADD UNIQUE (username);
+ALTER TABLE users ADD UNIQUE (email);

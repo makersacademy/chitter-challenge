@@ -2,6 +2,7 @@ require "sinatra"
 require "sinatra/base"
 require "sinatra/reloader" if development?
 require_relative './lib/peep'
+require_relative './lib/user'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -23,7 +24,7 @@ class Chitter < Sinatra::Base
   get '/signup' do
     erb :signup
   end
-  
+
   post '/add_user' do
     User.add(params[:name], params[:username], params[:email], params[:password])
     redirect '/'

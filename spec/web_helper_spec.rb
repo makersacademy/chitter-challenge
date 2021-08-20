@@ -11,3 +11,12 @@ end
 def add_user
   described_class.add('Lizzy', 'eballantine', 'lizzy@hey.com', 'Password123')
 end
+
+def sign_up_user
+  visit '/'
+  click_on('Sign Up')
+  fill_in 'name', with: 'Gram Parsons'
+  fill_in 'username', with: 'flyingBurrito'
+  fill_in 'email', with: 'cecil3@gmail.com'
+  fill_in 'password', with: 'Emmylou123'
+end
