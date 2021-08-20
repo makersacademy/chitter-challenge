@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/base"
 require "sinatra/reloader" if development?
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -10,12 +11,12 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peep = session[:peep]
+    @peeps = Peep.all
     erb :index
   end
   
   post '/add_peep' do
-    Peep.new(peep: params[:peep], user: params[:user])
+    Peep.add(params[:peep], params[:user])
     redirect '/'
   end 
 
