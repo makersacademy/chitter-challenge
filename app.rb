@@ -6,6 +6,9 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/peeps/index' do
+    erb(:'peeps/index')
+  end
 
 
   run! if app_file == $0
