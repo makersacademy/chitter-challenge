@@ -24,7 +24,13 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
-# require_relative './setup_test_database'
-# require_relative './web_helper_spec'
+require_relative './setup_test_database'
+require_relative './web_helper_spec'
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
