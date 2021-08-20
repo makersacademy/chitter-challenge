@@ -10,5 +10,9 @@ class Chitter < Sinatra::Base
     'Hello world!'
   end
 
+  get '/sign-up' do
+    'Sign up to Chitter'
+  end
+
   run! if app_file == $0
 end
