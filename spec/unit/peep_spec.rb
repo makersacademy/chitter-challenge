@@ -1,6 +1,28 @@
 require 'peep'
 
 describe Peep do 
+  describe '.initialize' do
+    it 'has an id' do
+      described_class.add("Now with passion in our eyes. There's no way we could disguise it secretly", 1)
+      expect{ described_class.add("Just remember. You're the one thing. I can't get enough of", 1) }.to change{ described_class.all[0].id }
+    end
+
+    it 'has peep content' do
+      described_class.add("So we take each other's hand. 'Cause we seem to understand the urgency", 1)
+      expect(described_class.all[0].peep).to eq "So we take each other's hand. 'Cause we seem to understand the urgency"
+    end
+
+    it 'has a user' do
+      described_class.add("Just remember. You're the one thing. I can't get enough of", 1)
+      expect(described_class.all[0].user).to eq "1"
+    end
+
+    it 'has a timestamp' do
+      described_class.add("So I'll tell you something. This could be love. Because", 1)
+      expect(described_class.all[0].timestamp).not_to be_nil
+    end
+  end
+
   describe '#self.add' do
     it 'allows user to add a peep' do
       expect(described_class).to respond_to(:add).with(2).arguments
