@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Chitter'
+    erb :index
   end
 
   get '/sign-up' do
