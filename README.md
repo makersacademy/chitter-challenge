@@ -60,16 +60,12 @@ In this unit, you integrated a database into Bookmark Manager using the `PG` gem
 If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
 
 Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
 **Ruby Object Mapper**
 - [ROM](https://rom-rb.org/)
 
 **ActiveRecord**
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
 
 Notes on functionality:
 ------
