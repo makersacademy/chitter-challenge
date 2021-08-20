@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @user = User.instance
     erb :index
   end
 
@@ -15,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/welcome' do
+    User.create(params[:name])
     erb :welcome
   end
 

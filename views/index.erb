@@ -1,5 +1,9 @@
 <h1>Chitter</h1>
 
+<% if @user %>
+<h2>Current user is: <%= @user.name %></h2>
+<% end %>
+
 <form action ='/sign-up' method='GET'>
   <input type='submit' value='Sign Up'>
 </form>
