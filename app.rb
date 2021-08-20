@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello world!'
+    'Chitter'
   end
 
   get '/sign-up' do
