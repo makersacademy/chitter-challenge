@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/welcome' do
-    'Thank you for signing up to Chitter!'
+    erb :welcome
   end
 
   run! if app_file == $0
