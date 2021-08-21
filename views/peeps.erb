@@ -1,9 +1,15 @@
 <h1 style="background-color:rgb(134, 207, 190);">
 <br>
 <h2>Enter your Peep Below:</h2>
-<form method='POST' action='/post_peep'>
+<form method='POST' action='/peeps'>
   <input type="text" name="peep" label="new_peep">
   <br>
   <input type="submit" name="Submit" value="Post">
 </form>
-<label></label><br>
+<br>
+<br>
+<h2>Your Most recent posts </h2>
+<% @pip.each do |peeper| %>
+  <%= peeper%>
+  <br>
+<% end %>
