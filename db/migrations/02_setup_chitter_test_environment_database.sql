@@ -1,0 +1,2 @@
+CREATE DATABASE chitter_test;
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, message VARCHAR(280));
