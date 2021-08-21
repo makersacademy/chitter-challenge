@@ -9,6 +9,6 @@ group :test do
   gem 'sinatra-reloader'
   gem 'capybara'
   gem 'webrick'
-  # gem 'pg'
+  gem 'pg'
 end
 
