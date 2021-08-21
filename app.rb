@@ -11,4 +11,8 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/add_post' do
+    erb :newpost
+  end 
+
 end 
