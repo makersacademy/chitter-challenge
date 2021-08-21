@@ -21,6 +21,6 @@ feature 'user signup' do
     fill_in 'username', with: 'flyingBurrito'
     fill_in 'email', with: 'grampy@gmail.com'
     fill_in 'password', with: 'Emmylou123'
-    expect { click_on('Sign Up') }.to change { User.all.length }.by(0)
+    expect { click_on('Sign Me Up!') }.to change { User.all.length }.by(0)
   end
 end

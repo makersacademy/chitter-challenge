@@ -12,7 +12,7 @@ feature 'add peep' do
   context 'not signed in' do
     scenario 'user cannot add peep' do
       visit '/'
-      expect(page).not_to have_content('Create Peep')
+      expect(page).not_to have_content('Submit Peep')
     end
   end
 end

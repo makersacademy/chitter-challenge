@@ -5,25 +5,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
   <link rel="icon" href="img/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <h1>Chitter</h1>
-
-  <section id="signup-form">
-    <form action='/user/signup' method='POST'>
-      <label for="name">Name: </label>
-      <input type="text" name="name">
-      <label for="username">Username: </label>
-      <input type="text" name="username">
-      <label for="email">Email: </label>
-      <input type="text" name="email">
-      <label for="password">Password: </label>
-      <input type="text" name="password">
-      <input type="submit" value="Sign Up">
-    </form>
-  </section>
+  <header>
+    <h1><a class="button" href="/">Chitter</a></h1>
+    <div class="sub-heading">
+    <% if @user %>
+      <%= "Hey " + @user.name + ", what's ha-peep-ning?"%>
+    <% end %>
+    </div>
+    <nav>
+    <% if @user %>
+      <a class="nav-button" href="/user/signout">Sign Out</a>
+    <% else %>
+      <a class="nav-button" href="/user/signup">Sign Up</a>
+      <a class="nav-button" href="/user/signin">Sign In</a>
+    <% end %>
+    </nav>
+  </header>
+  <main>
+    <section id="signup-form">
+      <form action='/user/signup' method='POST'>
+        <label for="name">Name: </label>
+        <input type="text" name="name">
+        <label for="username">Username: </label>
+        <input type="text" name="username">
+        <label for="email">Email: </label>
+        <input type="text" name="email">
+        <label for="password">Password: </label>
+        <input type="text" name="password">
+        <input class="submit-button" type="submit" value="Sign Me Up!">
+      </form>
+    </section>
+  </main>
 </body>
 </html>

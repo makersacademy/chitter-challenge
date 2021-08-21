@@ -5,51 +5,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
   <link rel="icon" href="img/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
+    <h1><a class="button" href="/">Chitter</a></h1>
+    <div class="sub-heading">
     <% if @user %>
-      <%= @user.name %>
+      <%= "Hey " + @user.name + ", what's ha-peep-ning?"%>
     <% end %>
-
+    </div>
+    <nav>
     <% if @user %>
-      <a class="button" href="/user/signout">Sign Out</a>
+      <a class="nav-button" href="/user/signout">Sign Out</a>
     <% else %>
-      <a class="button" href="/user/signup">Sign Up</a>
-      <a class="button" href="/user/signin">Sign In</a>
+      <a class="nav-button" href="/user/signup">Sign Up</a>
+      <a class="nav-button" href="/user/signin">Sign In</a>
     <% end %>
+    </nav>
   </header>
-  <h1>Chitter</h1>
-
-  <% if @user %>
+  <main>
     <section id="new-peep">
-      <h2>Create Peep</h2>
-      <form action='/add_peep' method="POST">
-        <label for="peep">Peep: </label>
-        <input type="text" maxlength="280" name="peep">
-        <input type="hidden" value="1" name="user">
-        <input type="submit" value="Submit">
-      </form>
+      <h3>Create Peep</h3>
+        <% if @user %>
+        <form action='/add_peep' method="POST">
+          <label for="peep">Peep: </label>
+          <input class="input-peep" type="text" maxlength="280" name="peep">
+          <input type="hidden" value="1" name="user">
+          <input class="submit-peep" type="submit" value="Submit Peep">
+        </form>
+        <% else %>
+          <h4>Sign in to start peeping</h4>
+        <% end %>
     </section>
-  <% else %>
-    <section id="sign-in-promt">
-      <h2>Sign in to start peeping</h2>
-    </section>
-  <% end %>
 
   <section id="timeline">
-    <h2>Peep Timeline</h2>
+    <h2 id="timeline-title">Peep Timeline</h2>
     <ul>
       <% @peeps.each do |peep| %>
         <li class="timeline">
           <div class="timeline_peep"><%= peep.peep %></div>
-          <div class="timeline_user"><%= peep.user %></div>
-          <div id=<%"#{peep.peep_id}"%> class="timeline_timestamp"><%= peep.timestamp %></div>
+          <div class="timeline_user"><%= User.find(id: peep.user).name %></div>
+          <div id=<%"#{peep.peep_id}"%> class="timeline_timestamp"><%= peep.timestamp[0..15] %></div>
         </li>
       <% end %>
     </ul>
   </section>
+  </main>
 </body>
 </html>

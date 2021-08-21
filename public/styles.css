@@ -1,0 +1,164 @@
+/* Reset */
+html, body, div, h1, h2, h3, h4, h5, h6, p,
+a, img, b, u, i, center, ol, ul, li, form, label,
+footer, header, nav, section {
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+  background-color: (--brown-color);
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover { color: #555; }
+
+a:active { background-color: black; }
+
+/* Variables */
+:root {
+    --desktop-font-size: 1.2rem/1.5;
+    --text-color: #2d2d2d;
+    --link-color-alt: darkblue;
+    --primary-color: lightsteelblue;
+    --secondary-color: aliceblue;
+    --tertiary-color: whitesmoke;
+    --brown-color: #644c3c;
+}
+
+/* Typography */
+body, input {
+  font: var(--desktop-font-size) -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto, 
+        Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--text-color);
+  margin: 0 auto;
+  max-width: 100%;
+  background-color: #8ccbf3;
+}
+
+header {
+  text-align: left;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  height: 180px;
+  width: 110%;
+  background-color: #fbb404;
+  padding: 24px 48px;
+}
+
+main {
+  position: relative;
+  top: 160px;
+  padding: 24px 48px;
+}
+
+h1,h2,h3,h4,h5,h6,p { margin: 2rem 0; }
+
+h1,h2,h3,h4,h5,h6 { font-weight: bold; line-height: 1.2; }
+h1 { font-size: 350%; font-family: 'Gloria Hallelujah', cursive; }
+h2 { font-size: 150%; }
+h3 { font-size: 120%; font-weight: 700; }
+h4,h5,h6 { font-size: 100%; }
+h5, h6 { text-transform: uppercase; }
+
+p { margin: 2rem 0; }
+b { font-weight: bold; }
+i { font-style: italic; }
+
+ul { 
+  list-style-type: none;
+
+}
+
+li { width: 100%; } 
+
+nav {
+  float: right;
+  height: 100vh;
+  margin: -5% 30%;
+  font-weight: 700;
+}
+
+input { 
+  border: 1px solid var(--text-color);
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.8rem; 
+}
+input:focus, input:active { background-color: var(--secondary-color); border-color: var(--link-color); }
+
+
+.nav-button  {
+  padding: 0 12px;
+} 
+
+.sub-heading {
+  position: fixed;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 150%;
+  top: 120px;
+  left: 92px;
+}
+
+.input-peep {
+  height: 200px;
+  width: 150px;
+}
+
+.submit-peep {
+  width: 150px;
+  border-radius: 5%;
+}
+
+.timeline_peep {
+  font-weight: 700;
+}
+
+.timeline_user {
+  font-family: 'Gloria Hallelujah', cursive;
+  text-align: right;
+  padding: -10px 24px;
+}
+
+.timeline_timestamp {
+  font-family: 'Gloria Hallelujah', cursive;
+  text-align: right;
+  padding: 0 24px;
+  font-size: 60%;
+}
+
+.timeline {
+  margin: 0 auto;
+  padding: 24px 0;
+  width: 50%;
+  min-width: 400px;
+}
+
+#timeline {
+  text-align: right;
+}
+
+#timeline-title {
+  text-align: center;
+  margin: 24px -28px;
+}
+
+#new-peep {
+  float: left;
+}

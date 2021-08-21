@@ -85,3 +85,7 @@ ALTER TABLE users ADD UNIQUE (username);
 ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE tags (tag_id SERIAL PRIMARY KEY, content VARCHAR(20) NOT NULL, peep_fk integer);
+
+Styling
+-----
+Took vanillacss from https://github.com/bradleytaunt/vanilla-css/blob/master/vanilla.css
