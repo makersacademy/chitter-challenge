@@ -24,3 +24,13 @@ def sign_up_user
   fill_in 'email', with: 'cecil3@gmail.com'
   fill_in 'password', with: 'Emmylou123'
 end
+
+def user_sign_in
+  sign_up_user
+  click_on('Sign Up')
+  visit '/'
+  click_on('Sign In')
+  fill_in 'email', with: 'cecil3@gmail.com'
+  fill_in 'password', with: 'Emmylou123'
+  click_on('Sign In')
+end
