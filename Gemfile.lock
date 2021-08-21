@@ -34,6 +34,7 @@ GEM
       rack
     rainbow (3.0.0)
     rake (13.0.6)
+    require_all (3.0.0)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -88,6 +89,7 @@ GEM
     unicode-display_width (1.6.1)
     warden (1.2.9)
       rack (>= 2.0.9)
+    webrick (1.7.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -98,6 +100,7 @@ DEPENDENCIES
   dotenv
   pg
   rake
+  require_all
   rspec
   rubocop (= 0.79.0)
   simplecov
@@ -106,6 +109,7 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-contrib
   warden
+  webrick
 
 RUBY VERSION
    ruby 3.0.2p107

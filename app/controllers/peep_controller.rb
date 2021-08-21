@@ -1,0 +1,3 @@
+class PeepController < ApplicationController
+  
+end
