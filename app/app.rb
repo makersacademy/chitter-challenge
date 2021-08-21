@@ -9,12 +9,9 @@ class Chitter < Sinatra::Base
   attr_reader :db_connection
   configure :development do
     register Sinatra::Reloader
-
-    @db_connection = Connect.initiate(:chitter)
-    CreateTables.if_not_exists(@db_connection)
   end
 
-  configure :test do
+  configure :test, :development do
     @db_connection = Connect.initiate(:chitter)
     CreateTables.if_not_exists(@db_connection)
   end
