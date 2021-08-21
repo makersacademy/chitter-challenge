@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative 'lib/peeps'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -12,6 +13,10 @@ class Chitter < Sinatra::Base
 
   get '/comment' do
     erb :comment
+  end
+
+  post '/comment' do
+    Peeps.create(time: Time.now, message: params[:message], username: params[:username])
   end
 
   run! if app_file == $0
