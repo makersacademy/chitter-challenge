@@ -11,10 +11,15 @@
 <body>
   <header>
     <% if @user %>
-    <%= @user.name %>
+      <%= @user.name %>
     <% end %>
-    <a class="button" href="/user/signup">Sign Up</a>
-    <a class="button" href="/user/signin">Sign In</a>
+
+    <% if @user %>
+      <a class="button" href="/user/signout">Sign Out</a>
+    <% else %>
+      <a class="button" href="/user/signup">Sign Up</a>
+      <a class="button" href="/user/signin">Sign In</a>
+    <% end %>
   </header>
   <h1>Chitter</h1>
 
@@ -33,7 +38,7 @@
       <h2>Sign in to start peeping</h2>
     </section>
   <% end %>
-  
+
   <section id="timeline">
     <h2>Peep Timeline</h2>
     <ul>

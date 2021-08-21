@@ -7,7 +7,7 @@ feature 'user sign in' do
       expect(page).to have_content('Password')
     end
 
-    scenario 'user signs in' do
+    scenario 'user can sign in' do
       sign_up_user
       click_on('Sign Up')
       visit '/'

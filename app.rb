@@ -32,6 +32,11 @@ class Chitter < Sinatra::Base
     erb :'user/signin'
   end
 
+  get '/user/signout' do
+    session[:user_id] = nil
+    redirect '/'
+  end
+
   post '/user/signin' do
     user = User.authenticate(params[:email], params[:password])
     unless user.nil?

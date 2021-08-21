@@ -9,13 +9,13 @@ feature 'user signup' do
   end
 
   scenario 'user completes sign up' do
+    before = User.all.length
     sign_up_user
-    expect { click_on('Sign Up') }.to change { User.all.length }.by(1)
+    expect(User.all.length).to eq before + 1
   end
 
   scenario 'user cannot sign up if username already in use' do
     sign_up_user
-    click_on('Sign Up') 
     click_on('Sign Up') 
     fill_in 'name', with: 'Gram Parsons'
     fill_in 'username', with: 'flyingBurrito'
