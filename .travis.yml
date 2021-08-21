@@ -1,5 +1,6 @@
-language: ruby
 
+language: ruby
+install: ./install-dependencies.sh
 services:
   - postgresql
 

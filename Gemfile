@@ -4,6 +4,7 @@ gem 'sinatra-contrib'
 gem 'pg'
 gem 'rack'
 gem 'selenium-webdriver'
+gem 'rake'
 
 
 
