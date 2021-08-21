@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/user'
+require './lib/peep'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base
@@ -10,16 +10,24 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.instance
+    @peeps = Peep.feed
     erb :index
   end
 
+  post '/' do
+    @user = User.instance
+    Peep.add(params[:content])
+    redirect '/'
+  end
+  
   get '/sign-up' do
     erb :signup
   end
 
   post '/welcome' do
+    data = [params[:name], params[:handle], params[:password], params[:email]]
     # need to call a checker here so that duplicate handles/emails do not create a new user 
-    User.create(params[:name], params[:handle], params[:password], params[:email])
+    User.create(*data)
     erb :welcome
   end
 

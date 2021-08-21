@@ -4,6 +4,33 @@
 <h2>Current user is: <%= @user.name %></h2>
 <% end %>
 
-<form action ='/sign-up' method='GET'>
+<form action='/sign-up' method='GET'>
   <input type='submit' value='Sign Up'>
 </form>
+
+<br>
+
+<form action='/' method='POST'>
+  <label for='content'>What's on your mind?</label>
+  
+  <br>
+  
+  <textarea style='resize: none;' 
+            maxlength='140' 
+            id='content' 
+            name='content' 
+            rows=5 
+            required>
+  </textarea>
+  
+  <br>
+
+  <input type='submit' value='Peep!'>
+</form>
+
+<br>
+
+<% @peeps.each do |peep| %>
+  <li><%=peep%> </li>
+  <%end%>
+

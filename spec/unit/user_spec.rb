@@ -13,8 +13,4 @@ describe User do
     end
   end
 
-  # it 'connects to database' do
-  #   expect(User.connect_to_db).to be_a(PG::Connection)
-  # end
-
 end
