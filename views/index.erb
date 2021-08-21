@@ -1,3 +1,13 @@
-<% @peeps.each do |peep| %>
-  <li><%= peep.peep %>  </li>
-<% end %>
+
+
+<section>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.peep %>  </li>
+    <li><%= peep.created_at%> </li>
+  <% end %>
+</section>
+
+  <form action='/peep' method='post'>
+    <input type='text' name='peep'>
+    <input type='submit' value='Peep'
+  </form>

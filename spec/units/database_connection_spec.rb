@@ -1,5 +1,6 @@
 require 'database_connection'
 
+# thes tests aren't relevant until I change environment logic in peep.rb
 describe DatabaseConnection do
   describe '.setup' do
     it 'sets up a connection to a database through PG' do
