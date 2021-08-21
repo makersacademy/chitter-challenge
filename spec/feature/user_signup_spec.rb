@@ -10,7 +10,7 @@ feature 'user signup' do
 
   scenario 'user completes sign up' do
     sign_up_user
-    expect{ click_on('Sign Up') }.to change{ User.all.length }.by(1)
+    expect { click_on('Sign Up') }.to change { User.all.length }.by(1)
   end
 
   scenario 'user cannot sign up if username already in use' do
@@ -21,6 +21,6 @@ feature 'user signup' do
     fill_in 'username', with: 'flyingBurrito'
     fill_in 'email', with: 'grampy@gmail.com'
     fill_in 'password', with: 'Emmylou123'
-    expect{ click_on('Sign Up') }.to change{ User.all.length }.by(0)
+    expect { click_on('Sign Up') }.to change { User.all.length }.by(0)
   end
 end

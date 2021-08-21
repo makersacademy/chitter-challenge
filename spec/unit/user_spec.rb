@@ -17,4 +17,11 @@ describe User do
       expect(described_class.all[0].email).to eq 'lizzy@hey.com'
     end
   end
+
+  describe '.authenticate' do
+    it 'returns nil given an incorrect email' do
+      add_user
+      expect(User.authenticate('lizzzzy@hey.com', 'Possward123')).to be_nil
+    end
+  end
 end

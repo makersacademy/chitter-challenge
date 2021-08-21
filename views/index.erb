@@ -10,7 +10,11 @@
 </head>
 <body>
   <header>
-    <a class="button" href="/signup">Sign Up</a>
+    <% if @user %>
+    <%= @user.name %>
+    <% end %>
+    <a class="button" href="/user/signup">Sign Up</a>
+    <a class="button" href="/user/signin">Sign In</a>
   </header>
   <h1>Chitter</h1>
 

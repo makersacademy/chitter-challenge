@@ -15,15 +15,12 @@ RSpec.configure do |config|
   end
 end
 
-require 'capybara/rspec'
-
 ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'simplecov'
 require_relative './setup_test_database'
 require_relative './web_helper_spec'
 

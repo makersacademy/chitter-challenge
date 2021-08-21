@@ -4,7 +4,7 @@ describe Peep do
   describe '.initialize' do
     it 'has an id' do
       described_class.add("Now with passion in our eyes. There's no way we could disguise it secretly", 1)
-      expect{ described_class.add("Just remember. You're the one thing. I can't get enough of", 1) }.to change{ described_class.all[0].peep_id }
+      expect { described_class.add("Just remember. You're the one thing. I can't get enough of", 1) }.to(change { described_class.all[0].peep_id })
     end
 
     it 'has peep content' do
@@ -13,7 +13,7 @@ describe Peep do
     end
 
     it 'has a user' do
-      random_user_no = rand(999999) # until I have user model just to keep this test passing.
+      random_user_no = rand(999_999) # until I have user model just to keep this test passing.
       described_class.add("Just remember. You're the one thing. I can't get enough of", random_user_no)
       expect(described_class.all[0].user).to eq random_user_no.to_s
     end

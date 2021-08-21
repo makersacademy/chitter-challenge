@@ -9,7 +9,11 @@ def add_test_peeps
 end
 
 def add_user
-  described_class.add('Lizzy', 'eballantine', 'lizzy@hey.com', 'Password123')
+  described_class.add(
+    'Lizzy', 
+    'eballantine', 
+    'lizzy@hey.com', 
+    'Password123')
 end
 
 def sign_up_user
