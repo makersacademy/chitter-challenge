@@ -33,8 +33,8 @@ describe Peep do
   describe '.feed' do
 
     it 'joins users/peeps databases to create array of strings for chitter feed' do
-      peep = Peep.add('This is a peep')
-      expect(Peep.feed).to include '@Ed209: This is a peep'
+      peep = Peep.add('This is a peep', '17:00:00')
+      expect(Peep.feed).to include '@Ed209: This is a peep (posted at 17:00:00)'
     end
   
   end
