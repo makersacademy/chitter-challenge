@@ -16,12 +16,12 @@ class Peep
 
   def self.create(message:)
     connection = check_environment
-    result = connection.exec_params("INSERT INTO peeps (message) VALUES ('#{message}') RETURNING message;")
+    result = connection.exec_params('INSERT INTO peeps (message) VALUES ($1) RETURNING message;', [message])
     Peep.new(id: result[0]['id'], message: result[0]['message'])
   end
 
   def self.check_environment
-    if ENV['DB_ENV'] == 'test'
+    if ENV['DB_TEST_ENV'] == 'test'
       connection = which_db('chitter_manager_test')
     else
       connection = which_db('chitter_manager')
