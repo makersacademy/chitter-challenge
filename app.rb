@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
+
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
@@ -24,7 +25,8 @@ class Chitter < Sinatra::Base
     if @post == ""
       redirect('/add_post')
     else
-      erb :cheets
+      # call model to save tweet in DB 
+      redirect('/cheets')
     end  
   end 
 
