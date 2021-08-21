@@ -1,3 +1,13 @@
+William's Attempt at Chitter Challenge
+
+To begin I have made two databases using PSQL: 'chitter' and 'chitter_test'.
+
+Each database has two tables: 'users' and 'peeps'.
+
+CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(50), password VARCHAR(20), name VARCHAR(30), username VARCHAR(20));
+
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(1000), author VARCHAR(20), time VARCHAR(30));
+
 Chitter Challenge
 =================
 
