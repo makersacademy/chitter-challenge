@@ -10,13 +10,14 @@ feature "Redirects user to add a post page" do
     visit "/"
     click_button('Add post')
     expect(page).to have_current_path('/add_post')
-    expect(page).to have_content("Add new post page")
+    expect(page).to have_content("Add your post to the text box below")
   end 
 
-  scenario "User clicks cheets button" do 
+  scenario "User clicks cheets button and is directed to new page" do 
     visit "/"
     click_button('Cheets')
-    expect(page).to have_current_path('/cheets') 
+    expect(page).to have_current_path('/cheets')
+    expect(page).to have_content("Display saved cheets in this view")
   end 
 end 
 
