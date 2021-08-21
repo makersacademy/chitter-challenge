@@ -2,7 +2,7 @@ ENV['RACK_ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
-require 'capybara-rspec'
+require 'capybara/rspec'
 require 'rspec'
 require './app/app.rb'
 
