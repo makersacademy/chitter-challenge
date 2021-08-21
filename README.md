@@ -28,16 +28,16 @@ I want to sign up for Chitter (name, unq username, unq email, password)
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
 ```
 
 To Do:
 -------
 
 ```
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
@@ -83,3 +83,5 @@ CREATE TABLE users (user_id SERIAL PRIMARY KEY, name VARCHAR(60) NOT NULL, usern
 CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, peep VARCHAR(280) NOT NULL, user_fk integer);
 ALTER TABLE users ADD UNIQUE (username);
 ALTER TABLE users ADD UNIQUE (email);
+
+CREATE TABLE tags (tag_id SERIAL PRIMARY KEY, content VARCHAR(20) NOT NULL, peep_fk integer);
