@@ -27,4 +27,23 @@ class Peep
       Peep.new(id: row['id'], peep: row['peep'], maker: row['maker'])
     end
   end
+
+  def self.create(peep)
+    if ENV['RACK_ENV'] == 'test'
+      con = PG.connect :dbname => 'chitter_test'
+    else
+      con = PG.connect :dbname => 'chitter'
+    end
+    rs = con.exec("INSERT INTO peeps (peep) VALUES ($1) RETURNING id, peep, maker;", [peep])
+
+    # rs = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES ($1) RETURNING id, peep;", [peep])
+    Peep.new(id: rs[0]['id'], peep: rs[0]['peep'], maker: 1)
+
+  end
+
+
+
+
+
+
 end
