@@ -1,2 +1,17 @@
-"I'm a peep!" <br>
-"I'm another different peep!"
+<!doctype html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <%# <link rel="stylesheet" type='text/css' href="style.css"> %>
+    </style>
+  </head>
+  <body>
+    <div class="chitter">
+      <h1>Welcome to Chitter!</h1><br><br>
+      <%= @all_peeps %><br><br><br><br><br><br>
+      <form action="/chitter/new" method="get">
+        <input type="submit" value="New Peep">
+      </form>
+    </div>
+  </body>
+</html>
