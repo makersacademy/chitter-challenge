@@ -15,4 +15,8 @@ class Chitter < Sinatra::Base
     erb :newpost
   end 
 
+  get '/cheets' do 
+    erb :cheets
+  end 
+
 end 
