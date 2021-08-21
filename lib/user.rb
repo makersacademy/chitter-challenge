@@ -10,7 +10,7 @@ class User
   end
 
   def self.authenticate(email, password)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE email = $1;", [email])
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = $1 AND password = $2;", [email, password])
     result.none? ? nil :
       User.new(
         user_id: result[0]['user_id'], 
