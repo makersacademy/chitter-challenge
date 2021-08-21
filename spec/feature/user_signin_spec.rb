@@ -26,7 +26,4 @@ feature 'user sign in' do
       expect(page).not_to have_content("You're seeing this error because you have enabled the show_exceptions setting")
     end
   end
-
-  # context 'has signed in' do
-  # end
 end

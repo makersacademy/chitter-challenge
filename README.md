@@ -2,10 +2,6 @@ Chitter Challenge
 =================
 A small Twitter clone that will allow the users to post messages to a public stream. 
 
-Design
--------
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-
 Features:
 -------
 ```
@@ -53,17 +49,10 @@ Some useful resources:
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
 
-Automated Tests:
------
-Opening a PR will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests.
-To pass, configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 NTH:
 -----
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
-* Work on the CSS to make it look good.
 
 Personal notes
 -----
@@ -71,20 +60,6 @@ Personal notes
 - make password private
 - make self.connect_db a method that can be used by either class?
 
-DB Setup
------
-CREATE DATABASE chitter;
-\c chitter;
-CREATE TABLE users (user_id SERIAL PRIMARY KEY, name VARCHAR(60) NOT NULL, username VARCHAR(60) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(60) NOT NULL);
-CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, peep VARCHAR(280) NOT NULL, user_fk integer);
-CREATE DATABASE chitter_test;
-\c chitter_test;
-CREATE TABLE users (user_id SERIAL PRIMARY KEY, name VARCHAR(60) NOT NULL, username VARCHAR(60) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(60) NOT NULL);
-CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, peep VARCHAR(280) NOT NULL, user_fk integer);
-ALTER TABLE users ADD UNIQUE (username);
-ALTER TABLE users ADD UNIQUE (email);
-
-CREATE TABLE tags (tag_id SERIAL PRIMARY KEY, content VARCHAR(20) NOT NULL, peep_fk integer);
 
 Styling
 -----

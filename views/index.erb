@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <h1><a class="button" href="/">Chitter</a></h1>
@@ -28,14 +29,16 @@
     <% end %>
     </nav>
   </header>
+
   <main>
+  
     <section id="new-peep">
       <h3>Create Peep</h3>
         <% if @user %>
         <form action='/add_peep' method="POST">
           <label for="peep">Peep: </label>
-          <input class="input-peep" type="text" maxlength="280" name="peep">
-          <input type="hidden" value="1" name="user">
+          <input id="input-peep" type="text" maxlength="280" name="peep">
+          <input type="hidden" value="<%=@user.user_id%>" name="user">
           <input class="submit-peep" type="submit" value="Submit Peep">
         </form>
         <% else %>
@@ -49,12 +52,13 @@
       <% @peeps.each do |peep| %>
         <li class="timeline">
           <div class="timeline_peep"><%= peep.peep %></div>
-          <div class="timeline_user"><%= User.find(id: peep.user).name %></div>
+          <div class="timeline_user">@<%= User.find(id: peep.user).username unless peep.user.nil?%></div>
           <div id=<%"#{peep.peep_id}"%> class="timeline_timestamp"><%= peep.timestamp[0..15] %></div>
         </li>
       <% end %>
     </ul>
   </section>
+
   </main>
 </body>
 </html>

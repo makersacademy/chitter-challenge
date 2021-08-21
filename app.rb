@@ -5,6 +5,7 @@ require "sinatra/reloader" if development?
 require './database_connection_setup'
 require_relative './lib/peep'
 require_relative './lib/user'
+require_relative './lib/tag'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -20,6 +21,8 @@ class Chitter < Sinatra::Base
   end
   
   post '/add_peep' do
+    p params[:peep]
+    p params[:user]
     Peep.add(params[:peep], params[:user])
     redirect '/'
   end 

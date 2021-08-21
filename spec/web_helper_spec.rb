@@ -1,10 +1,9 @@
 def add_test_peeps
-  visit '/'
-  fill_in('Peep:', with: "Now I've had the time of my life. No, I never felt like this before")
+  fill_in('peep', with: "Now I've had the time of my life. No, I never felt like this before")
   click_on 'Submit Peep'
-  fill_in('Peep:', with: "Yes, I swear it's the truth. And I owe it all to you")
+  fill_in('peep', with: "Yes, I swear it's the truth. And I owe it all to you")
   click_on 'Submit Peep'
-  fill_in('Peep:', with: "Cause I've had the time of my life. And I owe it all to you")
+  fill_in('peep', with: "Cause I've had the time of my life. And I owe it all to you")
   click_on 'Submit Peep'
 end
 

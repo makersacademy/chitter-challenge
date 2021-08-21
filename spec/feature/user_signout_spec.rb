@@ -4,6 +4,4 @@ feature 'user signout' do
     click_on('Sign Out')
     expect(page).to have_content('Sign In')
   end
-  
-  # can only sign out if signed in
 end
