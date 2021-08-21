@@ -1,4 +1,11 @@
 source 'https://rubygems.org'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'pg'
+gem 'rack'
+gem 'selenium-webdriver'
+
+
 
 group :test do
   gem 'rspec'
