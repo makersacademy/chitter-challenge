@@ -1,4 +1,17 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
 
+
+
+<form action="/users/new" method="get">
+  <input type='submit' value="Sign up" />
+</form>
+
+<form action='/peep' method='post'>
+  <input type='text' name='peep'>
+  <input type='submit' value='Peep'>
+</form>
 
 <section>
   <% @peeps.each do |peep| %>
@@ -6,8 +19,3 @@
     <li><%= peep.created_at%> </li>
   <% end %>
 </section>
-
-  <form action='/peep' method='post'>
-    <input type='text' name='peep'>
-    <input type='submit' value='Peep'
-  </form>

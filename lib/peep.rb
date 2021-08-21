@@ -13,7 +13,7 @@ class Peep
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] = 'test'
+    if ENV['RACK_ENV'] = 'test'
       con = PG.connect :dbname => 'chitter_test'
     else
       con = PG.connect :dbname => 'chitter'
@@ -27,7 +27,7 @@ class Peep
   end
 
   def self.create(peep)
-    if ENV['ENVIRONMENT'] = 'test'
+    if ENV['RACK_ENV'] = 'test'
       con = PG.connect :dbname => 'chitter_test'
     else
       con = PG.connect :dbname => 'chitter'
@@ -39,10 +39,4 @@ class Peep
     Peep.new(id: rs[0]['id'], peep: rs[0]['peep'], maker: 1, created_at: rs[0]['created_at'])
 
   end
-
-
-
-
-
-
 end
