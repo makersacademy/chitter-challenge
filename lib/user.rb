@@ -2,18 +2,27 @@ require 'pg'
 
 class User
 
-  attr_reader :name
+  attr_reader :name,
+              :handle,
+              :password,
+              :email
 
-  def initialize(name)
+  def initialize(name, handle, password, email)
     @name = name
+    @handle = handle
+    @password = password
+    @email = email
   end
 
   def self.create(name, handle, password, email)
     connect_to_db
     query = "INSERT INTO users (name, handle, password, email)"\
-            "VALUES ('#{name}', '#{handle}', '#{password}', '#{email}') RETURNING name;"
+            "VALUES ('#{name}', '#{handle}', '#{password}', '#{email}')"\
+            "RETURNING name, handle, password, email;"
     result = @connection.exec(query)
-    @user = User.new(result[0]['name'])
+    data = ['name', 'handle', 'password', 'email'].map { |item| result[0][item] }
+    @user = User.new(*data)
+    #@user = User.new(result[0]['name'], result[0]['handle'], result[0]['password'], result[0])
   end
 
   def self.instance

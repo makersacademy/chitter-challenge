@@ -17,6 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/welcome' do
+    # need to call a checker here so that duplicate handles/emails do not create a new user 
     User.create(params[:name], params[:handle], params[:password], params[:email])
     erb :welcome
   end

@@ -2,9 +2,12 @@ require 'user'
 
 describe User do
   
-  it 'creates a new user object with name' do
-    user = User.create('Ed', 'x', 'x', 'x')
+  it 'creates a new user object with parameters' do
+    user = User.create('Ed', 'Ed209', 'password1', 'ed@genericemail.com')
     expect(user.name).to eq 'Ed'
+    expect(user.handle).to eq 'Ed209'
+    expect(user.password).to eq 'password1'
+    expect(user.email).to eq 'ed@genericemail.com'
   end
 
   it 'connects to database' do
