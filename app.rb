@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -16,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/welcome' do
-    User.create(params[:name])
+    User.create(params[:name], params[:handle], params[:password], params[:email])
     erb :welcome
   end
 
