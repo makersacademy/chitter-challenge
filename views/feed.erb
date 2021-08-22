@@ -1,1 +1,7 @@
-Welcome back <%= @user.name %>!
+
+
+<ul>
+  <% Peep.all.reverse.each do |peep| %>
+    <li><h1><%= peep.message %></h1> <br> written by <%= peep.author %> at <%= peep.time %></a></li>
+  <% end %>
+</ul>

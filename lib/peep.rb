@@ -25,14 +25,13 @@ class Peep
 
   def self.all
     if ENV['RACK_ENV'] == 'test'
-      conn = PG.connect(dbname: 'chitter_test')
-    else 
-      conn = PG.connect(dbname: 'chitter')
-    end 
-    result = conn.exec ( "SELECT * FROM peeps;" )
-    puts result
+      @connection = PG.connect(dbname: 'chitter_test')
+    else
+      @connection = PG.connect(dbname: 'chitter')
+    end
+    result = @connection.exec("SELECT * FROM peeps;")
     result.map do |peep|  
-      Peep.new( message: peep['message'], author: peep['author'], time: peep['time']) 
+      Peep.new(peep['message'], peep['author'], peep['time']) 
     end 
   end
 end

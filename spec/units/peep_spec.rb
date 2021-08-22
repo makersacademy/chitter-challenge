@@ -13,9 +13,8 @@ describe '.all' do
   it 'returns all peeps' do
     create_peeps
     feed = Peep.all
-    expect(feed.length).to eq 2
     expect(feed.last).to be_a Peep
-    expect(feed.first.message).to eq "Nobody has better respect for intellegence than Donald Trump", "Donald Trump"
-    expect(feed.first.author).to eq "Donald Trump"
+    expect(feed.last.message).to eq "Making a delicious Sunday Roast!"
+    expect(feed.last.author).to eq "Toms Mum"
   end
 end

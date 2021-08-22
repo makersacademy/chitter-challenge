@@ -30,6 +30,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    @feed = Peep.all
     erb :feed
   end
 
