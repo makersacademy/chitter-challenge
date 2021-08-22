@@ -4,5 +4,7 @@
 <title>Page Title</title>
 </head>
 <body>
-<h1> <%= @cheets %> </h1>
+<% @cheets.each do |hash| %>
+  <p> <%= hash %> </p>
+<% end %>
 </body>

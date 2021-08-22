@@ -12,15 +12,19 @@ class Cheet
 
 
   def all 
-    # returns array of posts 
+    # returns array of posts f
+    # currently returning hashs, we want strings 
     arr = []
     result = @db_connect.exec ( "SELECT posts FROM cheets")
     result.each do |post| 
       arr << post["posts"]
-    end 
-  p arr.join(", ")
+    end
+  p arr 
+  p "WE ARE HERE"
+  arr
   end 
 
+  # happy with this method 
   def create(post)
     @db_connect.exec( "INSERT INTO cheets(posts) VALUES('#{post}');" ) 
   end 
