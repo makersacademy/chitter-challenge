@@ -5,8 +5,8 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;' 
-  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE users(id INT SERIAL PRIMARY KEY, handle VARCHAR(15) UNIQUE NOT NULL, name VARCHAR(40) NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, password BYTEA NOT NULL);'
-  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE peeps(id INT SERIAL PRIMARY KEY, content VARCHAR(140) NOT NULL, time TIME NOT NULL, date DATE NOT NULL, user_id INT, CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE);'
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, handle VARCHAR(15) UNIQUE NOT NULL, name VARCHAR(40) NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, password BYTEA NOT NULL);'
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(140) NOT NULL, time TIME NOT NULL, date DATE NOT NULL, user_id INT, CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE);'
 
 script:
   - bundle exec rspec
