@@ -13,7 +13,7 @@ feature "Displays home page with user options" do
   scenario "User clicks cheets button and is directed to new page" do 
     visit "/"
     click_button('Sign up for chitter here!')
-    expect(page).to have_current_path('/signup')
+    expect(page).to have_current_path('/sign_up')
   end
 
 end 

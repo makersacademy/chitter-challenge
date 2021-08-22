@@ -42,12 +42,12 @@ class Chitter < Sinatra::Base
     if @email == ""
       redirect('/sign_up')
     else
-      redirect('/sign_up_success')
+      redirect('/sign_up/success')
     end
   end
 
   get '/sign_up/success' do 
-    "thank you for signing up"
+    erb :confirmed
   end 
 
 
