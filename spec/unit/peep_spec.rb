@@ -27,8 +27,8 @@ describe Peep do
 
     it 'sorts array of peep objects into reverse chronological order' do
       Peep.add('This should be the last peep', '17:00:00')
-      Peep.add('This should be the middle peep', '17:30:00')
       Peep.add('This should be the first peep', '18:00:00')
+      Peep.add('This should be the middle peep', '17:30:00')
       
       peeps = Peep.feed
 
@@ -39,6 +39,19 @@ describe Peep do
       expect(peeps[1].content).to eq 'This should be the middle peep'
     end
 
-  end
 
+    it 'sorts array of peeps based on time and date' do
+      Peep.add('This should be the last peep', '12:30:00', '2021-08-22')
+      Peep.add('This should be the first peep', '16:00:00', '2021-08-23')
+      Peep.add('This should be the middle peep', '18:30:00', '2021-08-22')
+
+      peeps = Peep.feed
+
+      p peeps
+
+      expect(peeps.first.content).to eq 'This should be the first peep'
+      expect(peeps[1].content).to eq 'This should be the middle peep'
+      expect(peeps.last.content).to eq 'This should be the last peep'
+    end
+  end
 end
