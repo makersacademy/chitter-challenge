@@ -15,18 +15,21 @@ class Cheet
     # returns array of posts f
     # currently returning hashs, we want strings 
     arr = []
-    result = @db_connect.exec ( "SELECT posts FROM cheets")
+    result = @db_connect.exec ( "SELECT * FROM cheets")
     result.each do |post| 
-      arr << post["posts"]
+      p post
+      arr << [post["posts"], post["date"], post["time"]]
     end
-  p arr 
-  p "WE ARE HERE"
-  arr
+  # returns array of arrays
+  p arr
   end 
 
-  # happy with this method 
   def create(post)
-    @db_connect.exec( "INSERT INTO cheets(posts) VALUES('#{post}');" ) 
+    # creates time stamp and saves post inside DataBase
+    time_stamp = Time.now
+    date = time_stamp.strftime("%d/%m/%Y")
+    time = time_stamp.strftime("%k:%M")
+    @db_connect.exec( "INSERT INTO cheets(posts, date, time) VALUES('#{post}', '#{date}', '#{time}');" ) 
   end 
 
 end 

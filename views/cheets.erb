@@ -4,7 +4,8 @@
 <title>Page Title</title>
 </head>
 <body>
-<% @cheets.each do |hash| %>
-  <p> <%= hash %> </p>
+<% @cheets.reverse.each do |hash| %>
+  <p><h1> <%= hash[0] %> </h1> </p>
+  <p> <%= "Date: #{hash[1]}" %> <%= "Time: #{hash[2]}" %> </p>
 <% end %>
 </body>

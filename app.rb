@@ -18,13 +18,12 @@ class Chitter < Sinatra::Base
 
   get '/cheets' do 
     @cheets = Cheet.new.all
-    p @cheets 
     erb :cheets
   end 
 
   post '/confirmed' do 
     @post = params[:post]
-    p @post
+    # setting @post to the posts value, we want to also have a date parameter created here later 
     if @post == ""
       redirect('/add_post')
     else

@@ -4,6 +4,6 @@ describe "Cheat class all method" do
   it "returns list of 'cheets' stored in test DB" do
     set_table 
     cheet = Cheet.new
-    expect(cheet.all).to eq ["The world is flat" , "Hello flat world"]
+    expect(cheet.all).to eq [["The world is flat" , Time.now.strftime("%d/%m/%Y"), Time.now.strftime("%k:%M")], ["Hello flat world" , Time.now.strftime("%d/%m/%Y"), Time.now.strftime("%k:%M")]]
   end 
 end 
