@@ -12,14 +12,12 @@ class Cheet
 
 
   def all 
-    # returns array of posts f
-    # currently returning hashs, we want strings 
+    # currently returning arrays, would possibly change to passing instances ?  
     arr = []
     result = @db_connect.exec ( "SELECT * FROM cheets")
     result.each do |post| 
       arr << [post["posts"], post["date"], post["time"]]
     end
-  # returns array of arrays
   arr
   end 
 
