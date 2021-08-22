@@ -5,11 +5,16 @@ feature 'Posting peeps' do
   end
 
   scenario 'user can save peep to database' do
-    visit('/comment')
+    visit('/')
+    fill_in('email', with: 'example@example.com')
+    fill_in('password', with: 'Password123')
+    fill_in('name', with: 'Wash')
+    fill_in('username', with: 'Leafonthewind')
+    click_button('Submit')
+    click_button('Go')
     fill_in('message', with: 'Dummy peep')
-    fill_in('username', with: 'Jane')
     click_button('Submit')
     expect(page).to have_content('Dummy peep')
-    expect(page).to have_content('Jane')
+    expect(page).to have_content('Leafonthewind')
   end
 end

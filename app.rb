@@ -19,7 +19,8 @@ class Chitter < Sinatra::Base
   post '/comment' do
     post_time = Time.now
     post_time = post_time.strftime("%k:%M:%S")
-    Peep.create(post_time: post_time, message: params[:message], username: params[:username])
+    @username = Users.instance.username
+    Peep.create(post_time: post_time, message: params[:message], username: @username)
     redirect('/peeps')
   end
 

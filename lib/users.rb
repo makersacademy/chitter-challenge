@@ -10,10 +10,14 @@ class Users
     @username = username
   end
 
+  def self.instance
+    @user
+  end
+
   def self.create(email:, password:, name:, username:)
     connection = check_environment
     result = connection.exec("INSERT INTO users (email, password, name, username) VALUES ('#{email}', '#{password}', '#{name}', '#{username}') RETURNING email, password, name, username")
-    Users.new(email: result[0]['email'], password: result[0]['password'], name: result[0]['name'], username: result[0]['username'])
+    @user = Users.new(email: result[0]['email'], password: result[0]['password'], name: result[0]['name'], username: result[0]['username'])
   end
 
   def self.check_environment

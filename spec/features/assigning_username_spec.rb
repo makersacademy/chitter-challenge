@@ -7,11 +7,4 @@ feature 'signing up' do
     expect(page).to have_css('#username')
   end
 
-  # scenario 'user can sign up with email, password, name and a username' do
-  #   visit('/')
-  #   fill_in('email', with: 'example@example.com')
-  #   fill_in('password', with: 'Password123')
-  #   fill_in('name', with: 'Wash')
-  #   fill_in('username', with: 'Leafonthewind')
-  # end
 end
