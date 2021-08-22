@@ -4,25 +4,21 @@
 <p>Handles and emails must be unique.</p>
 
 <form action = '/new-user' method='POST'>
-  <label for='name'>Name</label>
+  <label for='name'>Name</label><br>
   <input type='text' name='name' id='name' required
   maxlength='40'>
   <br>
-  <br>
-  <label for='handle'>Handle</label>
+  <label for='handle'>Handle</label><br>
   <input type='text' name='handle' id='handle' required 
   pattern='[a-zA-Z0-9]+' maxlength='14'>
   <br>
-  <br>
-  <label for='password'>Password</label>
+  <label for='password'>Password</label><br>
   <input type='password' name='password' id='password' required 
   pattern='[a-zA-Z0-9]+' maxlength='30'>
   <br>
-  <br>
-  <label for='email'>Email</label>
+  <label for='email'>Email</label><br>
   <input type='email' name='email' id='email' required
   maxlength='100'>
-  <br>
   <br>
   <input type='submit' value='Submit'>
 </form>

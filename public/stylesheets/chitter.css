@@ -1,0 +1,35 @@
+body {
+  background-color: whitesmoke;
+}
+
+h1, h2, p, li, form, input, textarea {
+  color: royalblue;
+  font-family: Helvetica;
+  text-align: left;
+}
+
+li {
+  list-style: none;
+}
+
+input[type=submit] {
+  color: royalblue;
+  font-weight: bold;
+  background-color: lightskyblue;
+  border: none;
+  padding: 14px 40px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+input[type=text], input[type=password], input[type=email], textarea {
+  width: 20%;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: lightskyblue;
+  border-radius: 8px;
+}
