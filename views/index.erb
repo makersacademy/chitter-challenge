@@ -1,5 +1,6 @@
 <h1>Welcome to Chitter! May I please have your username and email?</h1>
 
+<!----------------
 <section id='box'>
     <form action='/chitter/menu' method='post'>
     <input type='text' id='username' placeholder='Please enter a username' name='username'><br>
@@ -7,3 +8,16 @@
     <input type='submit' name='submit_user_data' value='Submit User Data'>
     </form>
 </section>
+<input class='input' type'text' placeholder='please enter email' name='email'>
+
+<form action="/chitter/menu" method="POST">
+  <input class='input' type'text' placeholder='please enter username' name='username'>
+  <input type='submit' value='Submit User Data'>
+</form>
+----->
+
+<form action="/chitter/menu" method="post">
+  <input type="text" name="username" />
+  <input type="text" name="email" />
+  <input type="submit" value="Submit" />
+</form>
