@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
 require './lib/cheet.rb'
+require './lib/email.rb'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -42,6 +43,7 @@ class Chitter < Sinatra::Base
     if @email == ""
       redirect('/sign_up')
     else
+      Email.new.add(@email)
       redirect('/sign_up/success')
     end
   end
