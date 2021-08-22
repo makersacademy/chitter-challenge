@@ -1,6 +1,6 @@
 body {
   background-color: #cceeff;
-  font-family: courier new;
+  font-family: helvetica neue;
 }
 
 form {
@@ -14,10 +14,6 @@ h1 {
   text-align: center;
 }
 
-form {
-  text-align: center;
-}
-
 #box {
   width: 75%;
   margin: 10% auto;
@@ -26,21 +22,20 @@ form {
   border-radius: 40px;
 }
 
-#name_box {
+#post_peep {
   border-radius: 8px;
-  width: 150px;
-  height: 3vh;
-  font-family: courier new;
-  text-align: center;
+  width: 200px;
+  height: 20vh;
+  font-family: helvetica neue;
   background-color: #fff9e6;
   border: 2px solid #66d9ff;
 }
 
 input {
   border-radius: 8px;
-  /* height: 5vh; */
-  /* width: 80px; */
-  font-family: courier new;
+  height: 5vh;
+  width: 80px;
+  font-family: helvetica neue;
   background-color: #fff9e6;
   border: 2px solid #ffcccc;
 }
@@ -49,7 +44,7 @@ button {
   border-radius: 8px;
   height: 5vh;
   width: 80px;
-  font-family: courier new;
+  font-family: helvetica neue;
   background-color: #fff9e6;
   border: 2px solid #ffcccc;
 }
