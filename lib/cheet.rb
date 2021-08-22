@@ -10,7 +10,6 @@ class Cheet
     end 
   end 
 
-
   def all 
     # currently returning arrays, would possibly change to passing instances ?  
     arr = []

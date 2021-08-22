@@ -52,5 +52,5 @@ class Chitter < Sinatra::Base
     erb :confirmed
   end 
 
-
-end 
+end
+ 

@@ -15,6 +15,4 @@ feature "Displays home page with user options" do
     click_button('Sign up for chitter here!')
     expect(page).to have_current_path('/sign_up')
   end
-
 end 
-

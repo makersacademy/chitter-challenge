@@ -11,7 +11,6 @@ require 'web_helper'
 
 Capybara.app = Chitter
 
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -20,7 +19,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-
+  
   config.before(:each) do 
     conn = PG.connect dbname:"chitter_test"
     conn.exec ( "TRUNCATE cheets;" )

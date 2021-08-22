@@ -5,4 +5,3 @@ describe " " do
     expect(email.all).to eq("myemail@gmail.com")
   end
 end 
-
