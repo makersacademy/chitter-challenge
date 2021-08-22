@@ -168,5 +168,44 @@ rubocop
 ## My Database
 
 ```
-I created a table called peeps that gives each peep(comment/post) a 120 character limit and each peep has an id. You can see this in my 01_create_peeps_table.sql file where I have documented my database setup.
+I used PostgreSQL to store my information in. I installed the 'pg' gem which allowed me to access it. 
+
+I created a database called peeps manager and a table called peeps. This table gives each peep(comment/post) a 120 character limit and each peep has an id. You can see this in my 01_create_peeps_table.sql file where I have documented my database setup.
 ```
+### Entering information into my database
+
+```
+I entered the first two peeps into my database using psql but the rest were entered in through the browser. Below you can see how I entered the peeps into my database.
+
+zainabbaruud@MA373 chitter-challenge % psql
+psql (13.4)
+Type "help" for help.
+
+zainabbaruud=# \c peeps_manager
+You are now connected to database "peeps_manager" as user "zainabbaruud".
+peeps_manager=# INSERT INTO peeps (peeps) VALUES ('my first peep');
+INSERT 0 1
+peeps_manager=# INSERT INTO peeps (peeps) VALUES ('my second peep');
+INSERT 0 1
+peeps_manager=# SELECT * FROM peeps;
+ id |     peeps      
+----+----------------
+  1 | my first peep
+  2 | my second peep
+(2 rows)
+```
+
+## seeing my peeps through irb
+```
+zainabbaruud@MA373 chitter-challenge % irb         
+3.0.0 :001 > require 'pg'
+ => true 
+3.0.0 :002 > connection = PG.connect(dbname: 'peeps_manager')
+ => #<PG::Connection:0x00007f8bc03585d8> 
+3.0.0 :003 > result = connection.exec('SELECT * FROM peeps')
+ => #<PG::Result:0x00007f8bc40ba1d8 status=PGRES_TUPLES_OK ntuples... 
+3.0.0 :004 > result.each { |peeps| p peeps }
+{"id"=>"1", "peeps"=>"my first peep"}
+{"id"=>"2", "peeps"=>"my second peep"}
+ => #<PG::Result:0x00007f8bc40ba1d8 status=PGRES_TUPLES_OK ntuples=2 nfields=2 cmd_tuples=2> 
+ ```
