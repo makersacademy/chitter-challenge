@@ -5,7 +5,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webrick'
 
-group :test do
+group :development, :test do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop', '0.79.0'
