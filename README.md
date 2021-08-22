@@ -1,20 +1,81 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Introduction
 
-Challenge:
--------
+This is a simple twitter clone wep app that uses Ruby, Sinatra, and PostgreSQL. Password encryption is handled by BCrypt.
 
-As usual please start by forking this repo.
+It is fully tested, with 100% coverage using RSpec and Capybara.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Over the course of the weekend, I accomplied the 'straight up' user stories (below), as well as all of the following required functionality:
 
-Features:
--------
+```
+* You don't have to be logged in to see the peeps.
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+```
+
+This was quite a tough project, but it provided good consolidation of what I had learned about SQL and databases from the previous week, and has given me lots of food for thought on what I still need to learn! I modelled the database and MVC on paper before I started coding, and kept notes for an upcoming blog on how the project developed over the weekend.
+
+If I had more time I would look to implement:
+* log in/log out functionality (per the 'Harder' User Stories): at the moment, the app doesn't allow you to log back in as a previous account if you create a new account / restart the server.
+* better CSS
+* email notifications if a user is tagged in a peep (per the 'Advanced' user stories)
+* bring in an Object Relational Mapper as the database interface (i.e. ActiveRecord)
+* provide timezone synchronisation
+* allow replies, likes, re-peeps
+* confirm password box on sign up page
+* password confirmation email
+* account editing functionality - i.e. change password
+* profile images, images in peeps?
+
+In any case, here's how to set up and use this app:
+
+## Installation
+
+```
+git clone https://github.com/edpackard/chitter-challenge.git
+cd chitter-challenge
+gem install bundler # if required
+bundle install
+```
+
+## Database setup
+
+1. Connect to `psql` via the Terminal
+2. Create the production and test databases using the psql commands `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
+3. Connect to the production database using the pqsl command `\c chitter;`
+4. Run the queries saved in the files and `01_create_users_table.sql` and `02_create_peeps_table.sql`
+5. Repeat step 4 after connecting to the test database `\c chitter_test;`
+
+## How to use this program
+
+From the `chitter-challenge` directory run `rackup` from the Terminal.
+
+If rackup starts correctly, you should see a port number (i.e. `port=9292`)
+
+Open a browser windows and enter http://localhost:9292/
+
+The Chitter homepage will list all peeps that have been made so far - on a fresh installation, there won't be any peeps.
+
+To get started, click Sign Up. 
+
+Enter your name, your preferred handle, password, and email address, following the instructions given.
+
+Click Submit when you are ready: if you have chosen a handle or email address that has already been used, you will get a notification, and the opportunity to try again or return to the homepage. On a fresh install, this won't be a problem. 
+
+If your details are accepted, you will receive a welcome message - click Homepage to continue.
+
+You will return to the Chitter homepage, which will indicate that you are logged in. A peep box will allow you to enter up to 140 characters of whatever is on your mind. When you are ready to peep, click Peep! You will see your peep appear in the Peeps feed immediately. If you peep again, you will see your latest peep move to the top of the Peeps feed.
+
+If you want to peep with a different handle, you will have to sign up again - but bear in mind there is currently no functionality that will allow you to sign back in with your previous 'account'.
+
+## How to run the tests
+
+Run `rspec` from Terminal within the `chitter-challenge` directory. This will run all of the feature and unit tests. To run individual tests, put the file path after `rspec`, such as `rspec ./spec/unit/user_spec.rb`.
+
+## User Stories
 
 ```
 STRAIGHT UP
@@ -51,94 +112,3 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [Datamapper wiki](https://en.wikipedia.org/wiki/DataMapper)
-- [Sinatra, PostgreSQL & DataMapper recipe](https://github.com/sinatra/sinatra-recipes/blob/master/databases/postgresql-datamapper.md)
-
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
-
-## Database Setup Instructions
-
-# Setting up the database
-1. Connect to `psql`
-2. Create the production and test databases using the psql commands `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
-3. Connect to the production database using the pqsl command `\c chitter;`
-4. Run the queries saved in the files and `01_create_users_table.sql` and `02_create_peeps_table.sql`
-5. Repeat step 4 after connecting to the test database `\c chitter_test;`
