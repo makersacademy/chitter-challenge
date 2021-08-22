@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Chitter'
+    "Chitter"
   end
 
   get '/comment' do
@@ -16,7 +16,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/comment' do
-    Peeps.create(time: Time.now, message: params[:message], username: params[:username])
+    post_time = Time.now
+    post_time = post_time.strftime("%k:%M:%S")
+    Peep.create(post_time: post_time, message: params[:message], username: params[:username])
+    redirect('/peeps')
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :peeps
   end
 
   run! if app_file == $0
