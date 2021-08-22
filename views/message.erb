@@ -1,1 +1,7 @@
-<%= @message %>
+<h1> Peeps </h1></br>
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <p>
+    <li><%= peep %></li>
+    <% end %>
+  </ul>
