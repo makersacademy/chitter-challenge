@@ -23,9 +23,9 @@ class Chitter < Sinatra::Base
   end 
 
   post '/confirmed' do 
-    @post = params
-    #p @post
-    if @post["post"] == ""
+    @post = params[:post]
+    p @post
+    if @post == ""
       redirect('/add_post')
     else
       # call model to save tweet in DB 
