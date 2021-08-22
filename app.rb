@@ -31,6 +31,10 @@ class Chitter < Sinatra::Base
       Cheet.new.create(@post)
       redirect('/cheets')
     end  
+  end
+  
+  get '/signup' do 
+    erb :signup
   end 
 
 end 

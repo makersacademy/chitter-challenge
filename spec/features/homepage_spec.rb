@@ -8,6 +8,12 @@ feature "Displays home page with user options" do
     visit "/"
     click_button('Cheets')
     expect(page).to have_current_path('/cheets')
+  end  
+
+  scenario "User clicks cheets button and is directed to new page" do 
+    visit "/"
+    click_button('Sign up for chitter here!')
+    expect(page).to have_current_path('/signup')
   end 
 end 
 
