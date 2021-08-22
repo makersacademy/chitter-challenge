@@ -4,6 +4,7 @@ gem 'capybara'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'activerecord'
 
 group :test do
   gem 'rspec'

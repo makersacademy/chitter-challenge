@@ -1,6 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (6.1.4.1)
+      activesupport (= 6.1.4.1)
+    activerecord (6.1.4.1)
+      activemodel (= 6.1.4.1)
+      activesupport (= 6.1.4.1)
+    activesupport (6.1.4.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
@@ -13,6 +24,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    concurrent-ruby (1.1.9)
     data_objects (0.10.17)
       addressable (~> 2.1)
     diff-lcs (1.4.4)
@@ -33,9 +45,12 @@ GEM
     do_postgres (0.10.17)
       data_objects (= 0.10.17)
     docile (1.4.0)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
     mini_mime (1.1.0)
     mini_portile2 (2.6.1)
+    minitest (5.14.4)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
@@ -102,15 +117,19 @@ GEM
     terminal-table (3.0.1)
       unicode-display_width (>= 1.1.1, < 3)
     tilt (2.0.10)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (1.6.1)
     webrick (1.7.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   capybara
   dm-core
   dm-migrations
