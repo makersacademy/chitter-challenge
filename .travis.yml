@@ -1,10 +1,14 @@
 language: ruby
+rvm:
+  - 3.0
 
 services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE DATABASE chitter_test;' 
+  - psql -U postgres -c '\i ./db/migrations/01_create_users_table.sql;'
+  - psql -U postgres -c '\i ./db/migrations/02_create_peeps_table.sql;'
 
 script:
   - bundle exec rspec
