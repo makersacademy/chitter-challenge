@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/peeps'
+require_relative './database_connection_setup'
+
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -9,24 +11,28 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peeps.all
-    erb :message
+    erb :'peeps/message'
   end
   
   get '/peeps/new' do
-    erb :index
+    erb :'peeps/index'
   end
   
-  # get '/newpeep' do
-  #   erb :message
-  # end
-
   post '/peeps' do
     Peeps.create(message: params[:message])
-    # message = params['message']
-    # conn = PG.connect(dbname: 'chitter_test')
-    # conn.exec("INSERT INTO chitter (message) VALUES('#{message}')")
-   redirect '/peeps'
+    redirect '/peeps'
   end
+
+
+get '/users/new' do
+  erb :"users/new"
+end
+
+post '/users' do
+  User.create(email: params[:email],password: params[:password],
+  name: params[:name], username: params[:username])
+  redirect '/peeps'
+end
 
   
 

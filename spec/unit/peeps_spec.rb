@@ -11,15 +11,16 @@ describe Peeps do
       
       peeps = Peeps.all
 
-      expect(peeps).to include("Hi, im tired!")
-      expect(peeps).to include("Hi, life has bein good!")
+      expect(peeps).to has_content("Hi, im tired!")
+      expect(peeps).to has_content("Hi, life has bein good!")
     end
   end
+
   describe '.create' do
     it 'creates a new peep' do
       Peeps.create(message: 'I stay happy')
   
-      expect(Peeps.all).to include 'I stay happy'
+      expect(Peeps.all).to has_content 'I stay happy'
     end
   end
 end

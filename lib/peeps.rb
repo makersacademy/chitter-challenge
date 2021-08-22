@@ -1,5 +1,6 @@
 require 'pg'
 require 'date'
+require_relative 'database_connection'
 
 class Peeps
   attr_reader :message 
@@ -10,23 +11,30 @@ class Peeps
 
   
   def self.all
-    if ENV['RACK_ENV'] == 'test'
-      conn = PG.connect(dbname: 'chitter_test')
-    else
-      conn = PG.connect(dbname: 'chitter') 
+    result = DatabaseConnection.query("SELECT * FROM chitter")
+    result.map do |chitter| 
+      Peeps.new(
+        message: chitter['message'],
+        id: chitter['id']
+        )
     end
-    rs = conn.exec('SELECT * FROM chitter;')
-    rs.map { |chitter| chitter['message'] }
+  end
+
+
+  def self.find(id:)
   end
 
   def self.create(message:)
+    time_stamp = Time.now
+    date = time_stamp.strftime("%d/%m/%Y")
+    time = time_stamp.strftime("%k:%M")
     if ENV['RACK_ENV'] == 'test'
       conn = PG.connect(dbname: 'chitter_test')
     else
       conn = PG.connect(dbname: 'chitter')
     end
   
-    conn.exec("INSERT INTO chitter (message) VALUES('#{message}')")
+    conn.exec("INSERT INTO chitter (message) VALUES('#{message}');")
   end
 end
 
