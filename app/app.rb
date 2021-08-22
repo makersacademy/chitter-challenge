@@ -30,6 +30,10 @@ class Chitter < Sinatra::Base
     erb :create
   end
 
+  get '/peep' do
+    erb :peep
+  end
+
   run! if app_file == $0
 
 end
