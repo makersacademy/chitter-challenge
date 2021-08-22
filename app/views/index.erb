@@ -2,8 +2,67 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <style>
+      .logo{font-family:"Caveat"}
+      a.button{display:inline-block;padding:0.25rem 0.5rem; border:solid 1px rgba(0, 0, 0, .3); border-radius: .25rem; text-decoration: none;transition: box-shadow 200ms}
+      a.button:hover{box-shadow:inset 0 0 0 10rem rgba(0, 0, 0, .3);}
+      .blue{background-color:#007bff; color:white;}
+      .green{background-color:#6c757d; color:white;}
+      .round{border-radius:5rem !important;padding-left:1.5rem !important;padding-right:1.5rem !important;}
+      .left{float:left;}
+      .right{float:right;}
+      .keep-center{text-align:center;}
+      .keep-right{text-align:right;}
+      hr{border-top:rgba(0, 0, 0, 0.1)}
+      .peep{display:block; padding:0.25rem 0.5rem 0.5rem 1.5rem;border:solid 1px rgba(0, 0, 0, .2); border-radius: .5rem;}
+      .peep:hover{animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;}
+      section > .peep > .header{color:#424446; padding-left:2rem;text-align:right}
+      section > .peep > .body{color:#242628;}
+      section > .peep > .footer{color:#848688; text-align:right;}
+      @keyframes shake {
+        10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+        }
+        20%, 80% {
+            transform: translate3d(2px, 0, 0);
+        }
+        30%, 50%, 70% {
+            transform: translate3d(-4px, 0, 0);
+        }
+        40%, 60% {
+            transform: translate3d(4px, 0, 0);
+        }
+      }
+    </style>
   </head>
   <body>
+
+    <section class="keep-center" name="Login">
+      <a class="button left logo" href="/">Chitter</a>
+      <a class="button blue round" href="/peep">Peep that deep</a>
+      <a class="button logo right" href="/signin">Sign in</a>
+    </section>
+    <hr>
+    <section name="peeps">
+      <div class="peep">
+       <div class="header"> 
+         Raducanu
+       </div>
+       <div class="body">
+         Totally agree,it was righ in the first place
+       </div>
+       <div class="footer">
+         18:34
+       </div>
+      </div>
+    </section>
+
+    <section name="footer">
+
+    </section
 
   </body>
 </html>

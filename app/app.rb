@@ -18,8 +18,16 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  get "/" do 
+  get '/' do 
     erb :index
+  end
+
+  get '/signin' do
+    erb :signin
+  end
+
+  get '/create' do
+    erb :create
   end
 
   run! if app_file == $0

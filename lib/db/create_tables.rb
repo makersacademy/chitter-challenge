@@ -1,4 +1,5 @@
 class CreateTables
+
   def self.if_not_exists(connection)
     connection.exec("
       CREATE TABLE IF NOT EXISTS users(
@@ -12,4 +13,5 @@ class CreateTables
       )
     ")
   end
+  
 end
