@@ -1,17 +1,28 @@
 <h1>Sign up to Chitter</h1>
 
+<p>Please use only alphanumeric characters for your handle and password.</p>
+<p>Handles and emails must be unique.</p>
+
 <form action = '/welcome' method='POST'>
   <label for='name'>Name</label>
-  <input type='text' name='name' id='name' required>
+  <input type='text' name='name' id='name' required
+  maxlength='40'>
+  <br>
   <br>
   <label for='handle'>Handle</label>
-  <input type='text' name='handle' id='handle' required>
+  <input type='text' name='handle' id='handle' required 
+  pattern='[a-zA-Z0-9]+' maxlength='15'>
+  <br>
   <br>
   <label for='password'>Password</label>
-  <input type='password' name='password' id='password' required>
+  <input type='password' name='password' id='password' required 
+  pattern='[a-zA-Z0-9]+' maxlength='30'>
+  <br>
   <br>
   <label for='email'>Email</label>
-  <input type='text' name='email' id='email' required>
+  <input type='email' name='email' id='email' required
+  maxlength='100'>
+  <br>
   <br>
   <input type='submit' value='Submit'>
 </form>

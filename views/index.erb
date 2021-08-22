@@ -1,7 +1,7 @@
 <h1>Chitter</h1>
 
 <% if @user %>
-<h2>Current user is: <%= @user.name %></h2>
+<h2><%= @user.name %> is logged in!</h2>
 <% end %>
 
 <form action='/sign-up' method='GET'>
@@ -32,5 +32,4 @@
 
 <% @peeps.each do |peep| %>
   <li><%=peep%> </li>
-  <%end%>
-
+<%end%>

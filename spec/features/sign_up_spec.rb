@@ -16,6 +16,6 @@ feature 'visiting the welcome page' do
     sign_up
     click_button 'Homepage'
     expect(page).to have_current_path('/')
-    expect(page).to have_content('Current user is: Ed')
+    expect(page).to have_content('Ed is logged in!')
   end
 end

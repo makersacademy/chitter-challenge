@@ -29,9 +29,7 @@ class Peep
   end
 
   def self.feed
-    result = DBConnect.query(query_to_join_table)
-    #result.map { |peep| "@#{peep['handle']}: #{peep['content']}" }
-    result.map do |peep| 
+    DBConnect.query(query_to_join_table).map do |peep| 
       feed_string(peep['handle'], peep['content'], peep['time'])
     end
   end
@@ -45,7 +43,8 @@ class Peep
   def self.query_to_join_table
     "SELECT handle, content, time "\
     "FROM users INNER JOIN peeps "\
-    "ON users.id = peeps.user_id"
+    "ON users.id = peeps.user_id "\
+    "ORDER BY time DESC"
   end
 
   def self.feed_string(handle, content, time)

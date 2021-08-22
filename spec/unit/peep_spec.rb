@@ -36,6 +36,19 @@ describe Peep do
       peep = Peep.add('This is a peep', '17:00:00')
       expect(Peep.feed).to include '@Ed209: This is a peep (posted at 17:00:00)'
     end
+
+    it 'sorts peeps into reverse chronological order' do
+      peep = Peep.add('This should be the last peep', '17:00:00')
+      peep = Peep.add('This should be the middle peep', '17:30:00')
+      peep = Peep.add('This should be the first peep', '18:00:00')
+
+      expect(Peep.feed).to eq [
+        "@Ed209: This should be the first peep (posted at 18:00:00)",
+        "@Ed209: This should be the middle peep (posted at 17:30:00)", 
+        "@Ed209: This should be the last peep (posted at 17:00:00)"
+      ]
+    end
+
   
   end
 
