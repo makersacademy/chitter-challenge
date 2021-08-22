@@ -1,1 +1,0 @@
-CREATE TABLE posts(id SERIAL PRIMARY KEY, user_id INTEGER, time DATE, body VARCHAR(200));
