@@ -1,4 +1,4 @@
-require_relative '../lib/app.rb'
+require_relative '../lib/app'
 require_relative 'setup_test_database'
 require_relative 'database_helpers'
 
