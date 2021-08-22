@@ -1,6 +1,7 @@
 feature 'visiting the home page' do
   scenario 'see page title' do
     visit '/'
+    #within h1?
     expect(page).to have_content('Chitter')
   end
 

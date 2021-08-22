@@ -26,12 +26,14 @@ class Chitter < Sinatra::Base
 
   post '/new-user' do
     data = [params[:name], params[:handle], params[:password], params[:email]]
-    redirect '/error' if [:email, :handle].include? User.check_if_unique(*data)
+    User.check_if_unique(*data)
+    redirect '/error' if User.error
     erb :welcome
   end
 
   get '/error' do
-    'Error page'
+    @error = User.error
+    erb :error
   end
 
   run! if app_file == $0

@@ -32,11 +32,16 @@ describe User do
     end
   end
 
-  describe '.check_if_unique' do
-    it 'returns creaes a user if both handle and email are unique' do
+  describe '.check_if_unique_user' do
+    it 'creates a user if both handle and email are unique' do
       expect(User.check_if_unique('Ed', 'Ed209', 'password1', 'ed@genericemail.com')).to be_a User
     end
 
+    it 'sets error flag as nil if both handle and email are unique' do
+      User.check_if_unique('Ed', 'Ed209', 'password1', 'ed@genericemail.com')
+      expect(User.error).to be nil
+    end
+    
     it 'returns :email if email is not unique' do
       User.create('Ed', 'Ed209', 'password1', 'ed@genericemail.com')
       expect(User.check_if_unique('Ed', 'Edd', 'password1', 'ed@genericemail.com')).to eq :email
@@ -45,6 +50,19 @@ describe User do
     it 'returns :handle if handle is not unique' do
       User.create('Ed', 'Ed209', 'password1', 'ed@genericemail.com')
       expect(User.check_if_unique('Ed', 'Ed209', 'password1', 'ed@anotheremail.com')).to eq :handle
+    end
+  end
+
+  describe '.set_error' do
+    it 'sets the error instance variable as whatever is passed to it' do
+      expect(User.set_error(:handle)).to eq :handle
+    end
+  end
+
+  describe '.error' do
+    it 'returns the error instance variable' do
+      User.set_error(:handle)
+      expect(User.error).to eq :handle
     end
   end
 
