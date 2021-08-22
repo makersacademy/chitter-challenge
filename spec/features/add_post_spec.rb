@@ -7,7 +7,7 @@ feature "Redirects user to add a post page" do
   end 
 end
 
-#this test is an edge case incase user enters a nothing into text box ans presses submit DONE 
+#this test is an edge case incase user enters a nothing into text box ans presses submit 
 feature "Checking user enters new 'cheet' into form correctly" do 
   scenario "User clicks add post button with NO text entered" do 
     visit "/add_post"

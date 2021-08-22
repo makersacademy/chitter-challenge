@@ -33,8 +33,22 @@ class Chitter < Sinatra::Base
     end  
   end
   
-  get '/signup' do 
+  get '/sign_up' do 
     erb :signup
+  end
+  
+  post '/signed_up?' do 
+    @email = params[:email]
+    if @email == ""
+      redirect('/sign_up')
+    else
+      redirect('/sign_up_success')
+    end
+  end
+
+  get '/sign_up/success' do 
+    "thank you for signing up"
   end 
+
 
 end 
