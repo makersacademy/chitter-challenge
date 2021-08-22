@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require './lib/peeps'
+require_relative './lib/peeps'
 
 class PeepsManager < Sinatra::Base
   configure :development do
@@ -21,8 +21,11 @@ class PeepsManager < Sinatra::Base
   end
 
   post '/peeps' do
-    p params
-    p "form data submitted to the /bookmarks route"
+    Peeps.create(peeps: params['peeps'])
+    #connection = PG.connect(dbname: 'peeps_manager_test')
+    #connection.exec("INSERT INTO peeps (peeps) VALUES('#{peeps}')")
+    redirect '/peeps'
   end
+  
   run! if app_file == $0
 end
