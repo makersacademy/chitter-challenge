@@ -9,7 +9,16 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @all_peeps = Peep.all_peeps
-    erb(:chitter)
+    erb(:'chitter/index')
+  end
+
+  get '/chitter/newest_first' do
+    @all_peeps = Peep.newest_peeps
+    erb(:'chitter/index')
+  end
+
+  get '/chitter/oldest_first' do
+    redirect('/chitter')
   end
 
   get '/chitter/new' do
@@ -17,8 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    peep = Peep.new
-    @new_peep = peep.create(params[:peep])
+    @new_peep = Peep.create(params[:New_Peep])
     redirect('/chitter')
   end
 

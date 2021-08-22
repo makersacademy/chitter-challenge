@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <%# <link rel="stylesheet" type='text/css' href="style.css"> %>
+    </style>
+  </head>
+  <body>
+    <div class="chitter">
+      <h1>Welcome to Chitter!</h1><br><br>
+      
+      <form action="/chitter/new" method="get">
+        <input type="submit" value="New Peep">
+      </form>
+        <br>
+      <form action="/chitter/newest_first" method="get">
+        <input type="submit" value="Newest Peeps">
+      </form>
+        <br>
+      <form action="/chitter/oldest_first" method="get">
+        <input type="submit" value="Oldest Peeps">
+      </form>
+        <br>
+      <ul>
+        <% @all_peeps.each do |peep| %>
+          <li>
+            <p>Peep <%= peep.id %>: <%= peep.message %></p>
+          </li>
+        <% end %>
+      </ul><br><br><br>
+
+    </div>
+  </body>
+</html>
