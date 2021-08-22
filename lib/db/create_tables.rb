@@ -8,10 +8,10 @@ class CreateTables
       password VARCHAR(40) NOT NULL,
       name VARCHAR(100) NOT NULL,
       username VARCHAR(40) NOT NULL UNIQUE,
-      created_at TIMESTAMP NOT NULL,
-      updated_at TIMESTAMP NOT NULL default current_timestamp
+      created_at TIMESTAMP,
+      updated_at TIMESTAMP default current_timestamp
       )
     ")
   end
-  
+
 end

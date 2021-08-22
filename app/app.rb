@@ -4,6 +4,7 @@ require 'sinatra/reloader'
 # require 'peep'
 require './lib/db/connect.rb'
 require './lib/db/create_tables.rb'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
   attr_reader :db_connection
@@ -19,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do 
-    session[:signed_in] = true if session[:signed_in].nil?
+    session[:signed_in] = false if session[:signed_in].nil?
     @signed_in = session[:signed_in]
     erb :index
   end
@@ -57,7 +58,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep_exec' do
-    
+
     redirect('/') if session[:signed_in] == true
     redirect('/peep?error=You need to Sign in first')
   end
