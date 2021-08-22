@@ -24,9 +24,9 @@ feature 'user authentication process' do
   end
 
   scenario 'allows a user to create a new account' do
-    random_username = "user-#{rand(100000)}"
-    random_password = "#{rand(3000..10000)}HeLlO#{rand(5000)}"
-    random_email = "user#{rand(100000)}@example.com"
+    random_username = "user-#{rand(100_000)}"
+    random_password = "#{rand(3000..10_000)}HeLlO#{rand(5000)}"
+    random_email = "user#{rand(100_000)}@example.com"
 
     visit '/'
     click_on 'Login or sign up'
@@ -40,16 +40,5 @@ feature 'user authentication process' do
     end
 
     expect(page).to have_content "Signed in as #{random_username}"
-
-
-    # click_on 'Logout'
-    # click_on 'Login or sign up'
-
-    # within '#returning-user-form' do
-    #   fill_in 'username', with: random_username
-    #   fill_in 'password', with: random_password
-    #   click_button 'login'
-    # end
-
   end
 end

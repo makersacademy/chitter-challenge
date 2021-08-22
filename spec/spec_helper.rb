@@ -17,7 +17,7 @@ SimpleCov.start
 
 require_all 'app'
 
-configuration = YAML::load(File.open('config/database.yml'))
-ActiveRecord::Base.establish_connection(configuration['test'])
+config = YAML::safe_load(File.open('config/database.yml'))
+ActiveRecord::Base.establish_connection(config['test'])
 
 Capybara.app = ApplicationController
