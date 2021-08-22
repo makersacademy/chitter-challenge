@@ -11,6 +11,10 @@ describe Peep do
     it 'adds a peep to the peep feed' do
       expect { Peep.add('This is a peep') }.to change { Peep.feed.length }.from(0).to(1)
     end
+
+    it 'will not add a blank peep' do
+      expect { Peep.add('') }.not_to change { Peep.feed.length }
+    end
   end
 
   describe '.feed' do

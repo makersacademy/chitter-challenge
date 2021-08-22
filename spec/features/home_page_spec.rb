@@ -26,4 +26,12 @@ feature 'visiting the home page' do
     expect(page).to have_content 'posted at'
   end
 
+  scenario 'cannot post a blank peep' do
+    sign_up
+    click_button 'Homepage'
+    click_button 'Peep!'
+    expect(page).to_not have_content '@ed209:'
+    expect(page).to_not have_content 'posted at'
+  end
+
 end
