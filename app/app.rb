@@ -46,8 +46,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_exec' do
-    session[:registered_user] = false
-
+    User.add(params).nil? ? (session[:registered_user] = false) : (session[:registered_user] = true)
     session[:signed_in] = true if session[:registered_user] == true
     redirect('/') if session[:registered_user] == true
     redirect('/create?error=Something went wrong')
