@@ -1,0 +1,16 @@
+<ul>
+<% @tweets.each do |tweet| %>
+  <li>
+    <%= tweet.tweet %>
+    <br>
+    <%= tweet.time %><%= tweet.date %>
+  </li>
+  <%end%>
+</ul>
+  <br>
+  <form action='/tweets' method='POST'>
+  <label for='tweet'>Tweet: </label>
+  <input type="text" name='tweet'>
+  <br>
+  <input type="submit" value='Post'>
+</form>

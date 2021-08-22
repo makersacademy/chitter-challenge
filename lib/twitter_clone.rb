@@ -12,7 +12,7 @@ class Tweet
 
   def self.all
     connect_db
-    tweets = @connection.exec('SELECT * FROM tweets').map do 
+    @connection.exec('SELECT * FROM tweets').map do 
       |tweet| Tweet.new(id: tweet['id'], tweet: tweet['tweet'], time: tweet['time'], date: tweet['date'])
     end
   end
