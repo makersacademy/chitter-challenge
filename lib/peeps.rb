@@ -1,6 +1,14 @@
 require 'pg'
+require 'date'
 
 class Peeps
+  attr_reader :message 
+  def initialize(message)
+    @message = message
+  
+  end 
+
+  
   def self.all
     if ENV['RACK_ENV'] == 'test'
       conn = PG.connect(dbname: 'chitter_test')

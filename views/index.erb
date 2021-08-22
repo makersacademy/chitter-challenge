@@ -1,14 +1,25 @@
 <html>
-<body>
+<head>
+<style>
+#myHeader {
+  background-color: #cce6ff;
+  color: black;
+  padding: 40px;
+  text-align: center;
 
-<h1>Chitter</h1>
+h1 {text-align: center;}
+p {text-align: center;}
+</style>
+</head>
+<body>
+<h1 id="myHeader">Welcome to Chitter</h1>
+
 
 <form action="/peeps" method='post'>
 
 <textarea name="message" rows="4" cols="20"
  placeholder="What's happening?"></textarea>
-  <input type="submit" value="Post Peep">
-  </input>
+<input type="submit" value="Post Peep"></input>
 </form>
 
 </body>
