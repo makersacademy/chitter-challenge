@@ -16,10 +16,9 @@ class Cheet
     arr = []
     result = @db_connect.exec ( "SELECT posts FROM cheets")
     result.each do |post| 
-      p post
       arr << post["posts"]
     end 
-  arr.join(", ")
+  p arr.join(", ")
   end 
 
   def create(post)

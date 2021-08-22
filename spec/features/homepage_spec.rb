@@ -8,7 +8,6 @@ feature "Displays home page with user options" do
     visit "/"
     click_button('Cheets')
     expect(page).to have_current_path('/cheets')
-    expect(page).to have_content("Display saved cheets in this view")
   end 
 end 
 

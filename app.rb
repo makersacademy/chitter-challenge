@@ -22,12 +22,13 @@ class Chitter < Sinatra::Base
   end 
 
   post '/confirmed' do 
-    @post = params[:post]
-    p @post
-    if @post == ""
+    @post = params
+    #p @post
+    if @post["post"] == ""
       redirect('/add_post')
     else
       # call model to save tweet in DB 
+      Cheet.new.create(@post)
       redirect('/cheets')
     end  
   end 
