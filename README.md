@@ -4,7 +4,7 @@
 
 This is a simple twitter clone wep app that uses Ruby, Sinatra, and PostgreSQL. Password encryption is handled by BCrypt.
 
-It is fully tested, with 100% coverage using RSpec and Capybara.
+It is fully tested, with 100% coverage using RSpec and Capybara. I also managed to get a green tick with Travis CI.
 
 Over the course of the weekend, I accomplished the 'straight up' [user stories](#user-stories), as well as all of the following required functionality:
 
