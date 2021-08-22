@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
     erb :index
   end
   
-  post '/peep' do
+  post '/new_peep' do
     erb :new_peep
   end
 
