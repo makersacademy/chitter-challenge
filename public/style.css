@@ -1,0 +1,57 @@
+body {
+  background-color: #cceeff;
+  font-family: courier new;
+}
+
+form {
+  text-align: center;
+  line-height: 30px;
+  height: 80%;
+  overflow: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+#box {
+  width: 75%;
+  margin: 10% auto;
+  height: 80vh;
+  background-color: rgb(0, 102, 153, 0.5);
+  border-radius: 40px;
+}
+
+#name_box {
+  border-radius: 8px;
+  width: 150px;
+  height: 3vh;
+  font-family: courier new;
+  text-align: center;
+  background-color: #fff9e6;
+  border: 2px solid #66d9ff;
+}
+
+input {
+  border-radius: 8px;
+  /* height: 5vh; */
+  /* width: 80px; */
+  font-family: courier new;
+  background-color: #fff9e6;
+  border: 2px solid #ffcccc;
+}
+
+button {
+  border-radius: 8px;
+  height: 5vh;
+  width: 80px;
+  font-family: courier new;
+  background-color: #fff9e6;
+  border: 2px solid #ffcccc;
+}
+
+button:hover {opacity: 0.6}
