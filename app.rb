@@ -53,5 +53,19 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
+  get '/peeps/:id/comments/new' do
+    @peep_id = params[:id]
+    erb :"comments/new"
+  end
+
+  post '/peeps/:id/comments' do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec_params(
+      "INSERT INTO comments (comment, peep, maker) VALUES($1, $2, $3);",
+      [params[:comment], params[:id], session[:user_id]]
+    )
+    redirect '/'
+  end
+
   run! if app_file == $0
 end

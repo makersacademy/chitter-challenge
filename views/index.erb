@@ -22,7 +22,20 @@
 
 <section>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peep %>  </li>
-    <li><%= peep.created_at%> </li>
+    <div class="peep">
+      <li><%= peep.peep %>  </li>
+      <li><%= peep.created_at%> </li>
+      <ul>
+        <% peep.comments.each do |comment| %>
+          <li><%= comment['comment'] %></li>
+          <li><b><%= comment['maker'] %></b></li>
+        <% end %>
+      </ul>
+      <% if @user %>
+        <form action="/peeps/<%= peep.id %>/comments/new" method="get">
+          <input type="submit" value="Add Comment">
+        </form>
+      <% end %>
+    </div>
   <% end %>
 </section>

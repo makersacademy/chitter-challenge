@@ -37,6 +37,19 @@ class Peep
     # rs = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES ($1) RETURNING id, peep;", [peep])
 
     Peep.new(id: rs[0]['id'], peep: rs[0]['peep'], maker: 1, created_at: rs[0]['created_at'])
-
   end
+
+  def comments
+    if ENV['RACK_ENV'] = 'test'
+      con = PG.connect :dbname => 'chitter_test'
+    else
+      con = PG.connect :dbname => 'chitter'
+    end
+    # peep below is peep_id within comments table
+    con.exec(
+      "SELECT * FROM comments WHERE peep = $1;",
+      [id]
+    )
+  end
+
 end
