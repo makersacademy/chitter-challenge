@@ -1,3 +1,4 @@
+require 'bcrypt'
 require_relative 'dbconnect'
 
 class User
@@ -17,7 +18,8 @@ class User
   end
 
   def self.create(name, handle, password, email)
-    result = DBConnect.query(query_to_create(name, handle, password, email))
+    encrypted_password = BCrypt::Password.create(password)
+    result = DBConnect.query(query_to_create(name, handle, encrypted_password, email))
     data = ['id', 'name', 'handle', 'password', 'email'].map { |item| result[0][item] }
     @user = User.new(*data)
   end

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
