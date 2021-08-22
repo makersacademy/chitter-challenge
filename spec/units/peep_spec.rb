@@ -38,5 +38,12 @@ describe Peep do
 
       expect(comment['comment']).to eq 'Test comment'
     end
+
+    # it 'calls .where on the on the Comment class' do
+    #   peep = Peep.create(peep: 'this is a peep')
+    #   expect(comment_class).to receive(:where).with(peep_id: peep.id)
+
+    #   peep.comment(comment_class)
+    # end
   end
 end

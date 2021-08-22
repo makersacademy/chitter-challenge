@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 require_relative './lib/peep'
 require_relative './lib/user'
+require_relative './lib/comment'
 require 'sinatra/base'
 require 'sinatra/reloader'
 # require_relative './database_connection_setup.rb'
@@ -59,12 +60,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/:id/comments' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec_params(
-      "INSERT INTO comments (comment, peep, maker) VALUES($1, $2, $3);",
-      [params[:comment], params[:id], session[:user_id]]
-    )
-    # Comment.create(comment: params[:comment], peep: params[:peep_id], maker: session[:user_id])
+    # connection = PG.connect(dbname: 'chitter_test')
+    # connection.exec_params(
+    #   "INSERT INTO comments (comment, peep, maker) VALUES($1, $2, $3);",
+    #   [params[:comment], params[:id], session[:user_id]]
+    # )
+    Comment.create(comment: params[:comment], peep: params[:id], maker: session[:user_id])
     redirect '/'
   end
 
