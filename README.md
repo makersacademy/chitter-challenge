@@ -1,8 +1,11 @@
 # Chitter Challenge
 
-## Challenge:
-
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+
+- creating the database
+
+1. run psql
+2. \c to the relevant database (either 'chitter' or 'chitter_test') - syntax for creating these can be found in db/migrations
 
 ## Features:
 
