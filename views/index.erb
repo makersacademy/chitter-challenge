@@ -4,33 +4,29 @@
   <input type='submit' value='Sign Up'>
 </form>
 
-<br>
-
 <% if @user %>
 <h2><%= @user.name %> is logged in!</h2>
 
-
-<br>
-
 <form action='/' method='POST'>
-  <label for='content'>What's on your mind?</label>
-  
+  <label for='content'><i>What's on your mind?</i></label>
   <br>
-  
   <textarea style='resize: none;' maxlength='140' id='content' 
   name='content' rows=5 required>
   </textarea>
-  
   <br>
-
-
   <input type='submit' value='Peep!'>
 </form>
 
-<br>
-
 <% end %>
 
+<h2>Peeps:</h2>
+
 <% @peeps.each do |peep| %>
-  <li>@<%=peep.handle%>: <%=peep.content%> (posted at: <%=peep.time%>) </li>
+  <ul>
+    <li><b><%=peep.handle%></b>: <%=peep.content%> 
+      <ul>
+      <li><i>(posted at: <%=peep.time%>)</i></li>
+      </ul>
+    </li>
+  </ul>
 <%end%>

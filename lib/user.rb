@@ -29,7 +29,7 @@ class User
 
   def self.query_to_create(name, handle, password, email)
     "INSERT INTO users (name, handle, password, email) "\
-    "VALUES ('#{name}', '#{handle}', '#{password}', '#{email}') "\
+    "VALUES ('#{name}', '@#{handle}', '#{password}', '#{email}') "\
     "RETURNING id, name, handle, password, email;"
   end
 

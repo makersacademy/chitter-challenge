@@ -20,7 +20,7 @@ describe Peep do
       
       peep = Peep.feed.first
       
-      expect(peep.handle).to eq 'Ed209'
+      expect(peep.handle).to eq '@Ed209'
       expect(peep.content).to eq 'This is a peep'
       expect(peep.time).to eq '17:00:00'
     end
@@ -33,7 +33,7 @@ describe Peep do
       peeps = Peep.feed
 
       expect(peeps.length).to eq 3
-      expect(peeps.first.handle).to eq 'Ed209'
+      expect(peeps.first.handle).to eq '@Ed209'
       expect(peeps.first.time).to eq '18:00:00'
       expect(peeps.last.time).to eq '17:00:00'
       expect(peeps[1].content).to eq 'This should be the middle peep'
