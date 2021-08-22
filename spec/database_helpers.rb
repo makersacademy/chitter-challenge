@@ -1,7 +1,8 @@
 require 'pg'
 
-def persisted_data(:id)
+def persisted_data(table:, id:)
   con = PG.connect(dbname: 'chitter_test')
-  result = con.query("SELECT * FROM chitter WHERE id = $1;", [id])
-  result.first
+  result = con.query("SELECT * FROM $1 WHERE id = $2;", 
+    [table, id]
+  )
 end
