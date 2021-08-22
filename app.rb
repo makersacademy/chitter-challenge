@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   get '/' do
     @user = User.instance
     @peeps = Peep.feed
-    erb :index
+    erb :chitter
   end
 
   post '/' do
