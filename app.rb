@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/peeps'
+require_relative 'lib/users'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -8,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    "Chitter"
+    erb :index
   end
 
   get '/comment' do
@@ -19,6 +20,11 @@ class Chitter < Sinatra::Base
     post_time = Time.now
     post_time = post_time.strftime("%k:%M:%S")
     Peep.create(post_time: post_time, message: params[:message], username: params[:username])
+    redirect('/peeps')
+  end
+
+  post '/signup' do
+    Users.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
     redirect('/peeps')
   end
 

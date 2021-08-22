@@ -2,7 +2,6 @@ require 'peeps'
 
 describe '.all' do
   it 'returns all peeps from database' do
-    PG.connect(dbname: 'chitter_test')
     Peep.create(post_time: '14:59:00', message: 'Test peep', username: 'Joe') 
 
     peeps = Peep.all
@@ -14,7 +13,7 @@ describe '.all' do
 end
 
 describe '.create' do
-  it 'create a new peep' do
+  it 'can create a new peep' do
     peep = Peep.create(post_time: '15:00:00', message: 'Example peep', username: 'Bob')
 
     expect(peep.post_time).to eq '15:00:00'

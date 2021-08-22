@@ -4,6 +4,10 @@
     <%= peep.post_time%>
     <%= peep.message%>
     <%= peep.username%>
-
   </li>
 <% end %>
+
+<form action='/comment' method= 'get'>
+  <label for='Go'>Want to post a peep?</label>
+  <input type='submit' value='Go' />
+</form>
