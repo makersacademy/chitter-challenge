@@ -17,11 +17,10 @@ class Cheet
     arr = []
     result = @db_connect.exec ( "SELECT * FROM cheets")
     result.each do |post| 
-      p post
       arr << [post["posts"], post["date"], post["time"]]
     end
   # returns array of arrays
-  p arr
+  arr
   end 
 
   def create(post)
