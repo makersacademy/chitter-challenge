@@ -14,8 +14,8 @@ class Peep
     @peep
   end
 
-  def self.add(content, time=Time.now, user=User.instance.id)
-    result = DBConnect.query(add_item_to_db(content, time, user))
+  def self.add(content, time = Time.now, user = User.instance.id)
+    DBConnect.query(add_item_to_db(content, time, user))
   end
 
   def self.feed
