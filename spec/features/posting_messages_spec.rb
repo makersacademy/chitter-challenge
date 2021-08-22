@@ -3,13 +3,17 @@ require 'pg'
 feature "posting messages" do
 
   scenario "check if homepage has status bar" do
-    visit('status/newstatus')
+    visit('/')
     expect(page).to have_content('Enter status here:')
   end
 
-  scenario do "adding a status"
+  scenario "adding a status" do
     Peep.create(peep: "I am feeling chittery today")
-    visit('/status')
+    visit('/statuses')
    end
+
+  scenario "adding a timestamp" do
+
+  end
 
 end
