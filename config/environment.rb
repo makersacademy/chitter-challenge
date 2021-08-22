@@ -3,17 +3,15 @@ Bundler.require
 
 configure :test do
   set :database, {
-    adapter: 'postgresql', encoding: 'unicode',
-    database: ENV['DB_TEST'], pool: 2, username: ENV['DB_USER_TEST'],
-    password: ENV['DB_PASSWORD_TEST']
+    adapter: 'postgresql',
+    database: 'chitter_test'
   }
 end
 
 configure :production do
   set :database, {
-    adapter: 'postgresql', encoding: 'unicode', database: ENV['DB_PRODUCTION'],
-    pool: 2, username: ENV['DB_USER_PRODUCTION'],
-    password: ENV['DB_PASSWORD_PRODUCTION']
+    adapter: 'postgresql',
+    database: 'chitter'
   }
 end
 
