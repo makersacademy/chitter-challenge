@@ -30,8 +30,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    @feed = Peep.all
     erb :feed
+  end
+  
+  post '/peep' do
+    Peep.create(params[:peep], @user.username)
+    redirect '/feed'
   end
 
   post '/sign_in' do
