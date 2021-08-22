@@ -21,7 +21,7 @@ class User
     connection = DBConnect.check_environment
     result = connection.exec_params('SELECT id, handle, password, email FROM users WHERE email = $1 AND password = $2;',[email, password])
     connection.exec_params('UPDATE users SET logged_in = true WHERE email = $1 AND password = $2;', [email, password])
-    result.map { |user| { handle: user['handle'], logged_in: user['logged_in'] = true } }.pop
+    result.map { |user| { handle: user['handle'], email: user['email'], password: user['password'], logged_in: user['logged_in'] = true } }.pop
   end
 
   private

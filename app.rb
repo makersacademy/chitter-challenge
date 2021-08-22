@@ -8,8 +8,11 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/peeps/index' do
     @peep = Peep.all
+    @logged_in_user = session[:logged_in_user]
     erb(:'peeps/index')
   end
 
@@ -23,8 +26,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/create_user' do
-    User.create(handle: params[:handle], password: params[:password], email: params[:email])
+    User.create(handle: params[:handle_sign_up], password: params[:password_sign_up], email: params[:email_sign_up])
     redirect('/peeps/index')
+  end
+
+  post '/peeps/login' do
+    session[:logged_in_user] = User.login(email: params[:email_login], password: params[:password_login])
+    redirect('/peeps/index') 
   end
 
   run! if app_file == $0

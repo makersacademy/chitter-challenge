@@ -4,13 +4,23 @@
 </head>
 <body>
   <form action='/peeps/create_user' method='post'>
+    <h1>Sign Up</h1>
     <label for='handle' >Enter username:</label>
-    <input type='text' name='handle' placeholder='Enter username' required>
+    <input type='text' name='handle_sign_up' placeholder='Enter username'>
     <label for='handle' >Enter email address:</label>
-    <input type='text' name='email' placeholder='Enter email address' required>
+    <input type='text' name='email_sign_up' placeholder='Enter email address'>
     <label for='password' >Enter password:</label>
-    <input type='text' name='password' placeholder='Enter password' required>
+    <input type='password' name='password_sign_up' placeholder='Enter password'>
     <input type='submit' value='Sign Up'>
+  </form>
+  
+  <form action='/peeps/login' method='post'>
+    <h1>Login</h1>
+    <label for='handle' >Enter email address:</label>
+    <input type='text' name='email_login' placeholder='Enter email address'>
+    <label for='password' >Enter password:</label>
+    <input type='password' name='password_login' placeholder='Enter password'>
+    <input type='submit' value='Login'>
   </form>
 </body>
 </html>
