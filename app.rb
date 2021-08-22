@@ -33,27 +33,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
-    if params[:email] == @user.email
-      if params[:password] == @user.password
-        redirect '/feed'
-      else
-        redirect '/incorrect_password'
-      end
+    if @user.fetch(params[:email], params[:password]) == nil
+      redirect '/invalid_user'
     else
-      redirect '/incorrect_username'
+      redirect '/feed'
     end
   end
 
-  get '/incorrect_username' do
-    erb :incorrect_username
+  get '/invalid_user' do
+    erb :invalid_user
   end
-
-  get '/incorrect_password' do
-    erb :incorrect_password
-  end
-
 
   run! if app_file == $0
   
-
 end

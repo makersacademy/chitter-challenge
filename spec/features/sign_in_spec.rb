@@ -12,19 +12,20 @@ feature 'user sign in' do
     expect(page).to have_content('Welcome back Tom!')
   end
 
-  scenario 'non registered user attempts to log in' do
+  scenario 'an invalid email is given' do
     visit '/'
     fill_in('email', with: 'samantha@gmail.com')
     fill_in('password', with: 'tom2000')
     click_button('Sign In')
-    expect(page).to have_content('User not found')
+    expect(page).to have_content('Invalid user')
   end
 
-  scenario 'an incorrect password is given' do
+  scenario 'an invalid password is given' do
     visit '/'
     fill_in('email', with: 'tom@gmail.com')
-    fill_in('password', with: 'incorrectpassword')
+    fill_in('password', with: 'tom10000')
     click_button('Sign In')
-    expect(page).to have_content('Incorrect password for tom@gmail.com')
+    expect(page).to have_content('Invalid user')
   end
+
 end
