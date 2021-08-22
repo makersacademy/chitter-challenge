@@ -32,5 +32,5 @@
 <% end %>
 
 <% @peeps.each do |peep| %>
-  <li><%=peep%> </li>
+  <li>@<%=peep.handle%>: <%=peep.content%> (posted at: <%=peep.time%>) </li>
 <%end%>

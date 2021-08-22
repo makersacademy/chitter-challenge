@@ -6,50 +6,39 @@ describe Peep do
     User.create('Ed', 'Ed209', 'password1', 'ed@genericemail.com')
   end
 
-  describe '.all' do
-    it 'returns all peeps' do
-      Peep.add('Having breakfast', '07:30:00')
-      Peep.add('Having lunch', '12:30:00')
-      Peep.add('Having dinner', '18:00:00')
-
-      peeps = Peep.all
-
-      expect(peeps.length).to eq 3
-      expect(peeps.first.content).to eq 'Having breakfast'
-      expect(peeps.last.time).to eq '18:00:00'
-    end
-
-  end
-
   describe '.add' do
 
-    it 'adds a peep to the database as a peep object' do
-      peep = Peep.add('This is a peep')
-      expect(peep).to be_a(Peep)
-      expect(peep.content).to eq 'This is a peep'
+    it 'adds a peep to the peep feed' do
+      expect { Peep.add('This is a peep') }.to change { Peep.feed.length }.from(0).to(1)
     end
   end
 
   describe '.feed' do
 
-    it 'joins users/peeps databases to create array of strings for chitter feed' do
-      peep = Peep.add('This is a peep', '17:00:00')
-      expect(Peep.feed).to include '@Ed209: This is a peep (posted at 17:00:00)'
+    it 'joins users/peeps databases to create array of peep objects' do
+      Peep.add('This is a peep', '17:00:00')
+      
+      peep = Peep.feed.first
+      
+      expect(peep.handle).to eq 'Ed209'
+      expect(peep.content).to eq 'This is a peep'
+      expect(peep.time).to eq '17:00:00'
     end
 
-    it 'sorts peeps into reverse chronological order' do
-      peep = Peep.add('This should be the last peep', '17:00:00')
-      peep = Peep.add('This should be the middle peep', '17:30:00')
-      peep = Peep.add('This should be the first peep', '18:00:00')
+    it 'sorts array of peep objects into reverse chronological order' do
+      Peep.add('This should be the last peep', '17:00:00')
+      Peep.add('This should be the middle peep', '17:30:00')
+      Peep.add('This should be the first peep', '18:00:00')
+      
+      peeps = Peep.feed
 
-      expect(Peep.feed).to eq [
-        "@Ed209: This should be the first peep (posted at 18:00:00)",
-        "@Ed209: This should be the middle peep (posted at 17:30:00)", 
-        "@Ed209: This should be the last peep (posted at 17:00:00)"
-      ]
+      expect(peeps.length).to eq 3
+      expect(peeps.first.handle).to eq 'Ed209'
+      expect(peeps.first.time).to eq '18:00:00'
+      expect(peeps.last.time).to eq '17:00:00'
+      expect(peeps[1].content).to eq 'This should be the middle peep'
     end
 
-  
   end
 
 end

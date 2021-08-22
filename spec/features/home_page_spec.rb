@@ -11,6 +11,11 @@ feature 'visiting the home page' do
     expect(page).to have_content 'Sign up to Chitter'
   end
 
+  scenario 'cannot post if not signed in' do
+    visit '/'
+    expect(page).not_to have_field 'content'
+  end
+
   scenario 'can sign in and make a post' do
     sign_up
     click_button 'Homepage'
@@ -19,12 +24,5 @@ feature 'visiting the home page' do
     expect(page).to have_content('Ed is logged in!')
     expect(page).to have_content '@ed209: My first peep!'  
   end
-
-  scenario 'cannot post if not signed in' do
-    visit '/'
-    expect(page).not_to have_field 'content'
-  end
-
-   #test - ensure can't post if not signed in - can disable text area using html as well
 
 end
