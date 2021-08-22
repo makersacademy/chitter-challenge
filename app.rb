@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   before do
     @user = User.instance
   end
-  
+
   get '/' do
     erb :index
   end
@@ -33,7 +33,25 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
+    if params[:email] == @user.email
+      if params[:password] == @user.password
+        redirect '/feed'
+      else
+        redirect '/incorrect_password'
+      end
+    else
+      redirect '/incorrect_username'
+    end
   end
+
+  get '/incorrect_username' do
+    erb :incorrect_username
+  end
+
+  get '/incorrect_password' do
+    erb :incorrect_password
+  end
+
 
   run! if app_file == $0
   

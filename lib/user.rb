@@ -26,5 +26,4 @@ class User
   def self.instance
     @user
   end
-  
 end
