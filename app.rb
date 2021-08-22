@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
+  get '/peeps/new' do
     erb :index
   end
   
@@ -15,11 +15,16 @@ class Chitter < Sinatra::Base
   #   erb :message
   # end
 
-  post '/newpeep' do
+  post '/peeps' do
     @message = params[:message]
+    @user = params[:user]
     erb :message
   end
 
+  get '/peeps' do
+    @peeps = Peeps.all
+    erb :message
+  end
 
  # start the server if ruby file executed directly
  run! if app_file == $0
