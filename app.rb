@@ -1,14 +1,14 @@
-# require 'sinatra/base'
-# require 'sinatra/reloader'
+require 'sinatra/base'
+require 'sinatra/reloader'
 
-# class ChitterChallenge < Sinatra::Base
-#   configure :development do
-#     register Sinatra::Reloader
-#   end
+class ChitterChallenge < Sinatra::Base
+  configure :development do
+    register Sinatra::Reloader
+  end
 
-#   get '/status/newstatus' do
-#     erb :index
-#   end
+  get '/status/newstatus' do
+    erb :index
+  end
 
 #   post '/status' do
 #     Peep.create(peep: params[:status])
@@ -17,5 +17,5 @@
 #   end
 
 
-#   run! if app_file == $0
-# end
+  run! if app_file == $0
+end
