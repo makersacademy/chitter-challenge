@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/chitter'
 
-class Chitter_app < Sinatra::Base
+class Chittersweb < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
@@ -13,10 +13,12 @@ class Chitter_app < Sinatra::Base
 
   get '/peeps' do
     @pip = Chitter.all
+    @time_updated = Chitter.time
     erb :peeps
   end
 
   post '/peeps' do
+    # Chitter.post(post: params[:new_peep])
     redirect '/peeps'
   end
 
