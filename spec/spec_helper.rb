@@ -3,8 +3,16 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
 

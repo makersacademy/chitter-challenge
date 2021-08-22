@@ -15,5 +15,14 @@ class PeepsManager < Sinatra::Base
     @peeps = Peeps.all
     erb :'peeps/index'
   end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    p params
+    p "form data submitted to the /bookmarks route"
+  end
   run! if app_file == $0
 end

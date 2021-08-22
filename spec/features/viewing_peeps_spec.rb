@@ -1,3 +1,5 @@
+require 'pg'
+
 feature 'Viewing peeps' do
   scenario 'visiting the index page' do
     visit ('/')
@@ -9,7 +11,7 @@ feature 'Viewing peeps' do
 
     #Add a test data
     connection.exec("INSERT INTO peeps VALUES (1, 'my first peep');")
-    connection.exec("INSERT INTO peeps VALUES (2, 'my second peep')")
+    connection.exec("INSERT INTO peeps VALUES (2, 'my second peep');")
    
     visit ('/peeps')
 
