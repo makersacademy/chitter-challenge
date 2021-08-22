@@ -8,8 +8,8 @@ class Peep
   def initialize(handle, content, time, date)
     @handle = handle
     @content = content
-    @time = time
-    @date = date
+    @time = Time.parse(time).strftime('%H:%M')
+    @date = Date.parse(date).strftime('%a %d %b %Y')
   end
 
   def self.add(content, time = Time.now, date = Date.today, user = User.instance.id)

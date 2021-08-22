@@ -22,7 +22,8 @@ feature 'visiting the home page' do
     fill_in 'content', with: 'My first peep!'
     click_button 'Peep!'
     expect(page).to have_content('Ed is logged in!')
-    expect(page).to have_content '@ed209: My first peep!'  
+    expect(page).to have_content '@ed209: My first peep!' 
+    expect(page).to have_content 'posted at:'
   end
 
 end
