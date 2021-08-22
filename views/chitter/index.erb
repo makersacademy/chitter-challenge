@@ -2,13 +2,12 @@
 <html>
   <head>
     <title>Chitter</title>
-    <%# <link rel="stylesheet" type='text/css' href="style.css"> %>
+    <link rel="stylesheet" type='text/css' href="style.css">
     </style>
   </head>
   <body>
     <div class="chitter">
-      <h1>Welcome to Chitter!</h1><br><br>
-      
+      <h1>Welcome to Chitter!</h1>
       <form action="/chitter/new" method="get">
         <input type="submit" value="New Peep">
       </form>
@@ -27,8 +26,7 @@
             <p>Peep <%= peep.id %>: <%= peep.message %></p>
           </li>
         <% end %>
-      </ul><br><br><br>
-
+      </ul>
     </div>
   </body>
 </html>
