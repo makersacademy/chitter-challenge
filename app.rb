@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/create' do
-    Peep.create(message: params[:peep])
+    Peep.create(message: params[:peep].strip, posted: DateTime.now.strftime('%d/%m/%_Y %_H:%_M'))
     redirect('/peeps/index')
   end
 

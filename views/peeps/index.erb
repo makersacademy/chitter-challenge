@@ -4,13 +4,13 @@
 </head>
 <body>
   <form action='/peeps/create' method='post'>
-    <textarea type='text' name='peep' placeholder='Got something on your mind?'></textarea>
+    <textarea type='text' name='peep' placeholder='Got something on your mind?' required></textarea>
     <input type='submit' value='Peep it'>
   </form>
   <% @peep.each do |result| %>
-    <p>
+    <p class='peep'>
       <%= result[:message] %>
-      <sub><%= result[:posted] %><sub>
+      <sub class='subtitle'><%= result[:posted] %></sub>
     </p>
   <% end %>
 </body>
