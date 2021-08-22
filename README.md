@@ -7,7 +7,7 @@ Challenge:
 Write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
--------
+-------------------------------------------------------------------------------------------------------------
 
 ```
 USER_STORIES
@@ -29,30 +29,47 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
 Setup:
--------
+------------------------------------------------------------------------------------------------------------
 
 To implement this app you will need to install two databases on your computer. To do this follow these steps: 
 
 1. ### Install gems 
   
-   * Discuss missing steps in code review
+   * Discuss missing steps in code review ( Not sure about this ) 
+   
+   * Run bundle install 
+   
+   * Use ruby version 3.0.0 
+   
 
-2. ### Setting up the databases
+2. ### Creating the databases
 
   * Connect to psql
 
-  * Create the databases using the psql command: CREATE DATABASE chitter;
+  * Create the databases using the psql command: "CREATE DATABASE chitter;"
 
-  * Connect to the production database using the pqsl command: `\c chitter`;
+  * Connect to the production database using the pqsl command: "\c chitter;"
 
-  * Create the cheets table using the psql command: `CREATE TABLE cheets(id SERIAL PRIMARY KEY, posts VARCHAR(60), date VARCHAR(10), time VARCHAR(5));`
+  * Create the cheets table using the psql command: "CREATE TABLE cheets(id SERIAL PRIMARY KEY, posts VARCHAR(60), date VARCHAR(10), time VARCHAR(5));"
 
-  * Create the users table using the psql command: `CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60));`
+  * Create the users table using the psql command: "CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60));"
 
-  * Create a second database named "chitter_test" by repeating the above steps
+  * Repeat steps 1-5 and name this database "chitter_test" (This will be our testing database) 
+  
 
 3. ### Testing 
 
   * run the command 'rackup' to start the server 
 
   * visit localhost:9292 to checkout the app ! 
+  
+  
+  Further_features to add later:
+  ------------------------------------------------------------------------------------------------------------
+  
+  * Users can add their username, password and name to sign_up form 
+  * Would like to verify the email address is real
+  * Add the user that posts a tweet 
+  * Create login and log out function 
+  * Send emails when usernames are tagged in "cheet" 
+  * Use more HTML syntax and CSS to create a jazzy looking website 
