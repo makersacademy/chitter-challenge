@@ -22,4 +22,17 @@ class Peep
     RETURNING id, message, author, time;" )
     @peep = Peep.new(message, author, time)
   end
+
+  def self.all
+    if ENV['RACK_ENV'] == 'test'
+      conn = PG.connect(dbname: 'chitter_test')
+    else 
+      conn = PG.connect(dbname: 'chitter')
+    end 
+    result = conn.exec ( "SELECT * FROM peeps;" )
+    puts result
+    result.map do |peep|  
+      Peep.new( message: peep['message'], author: peep['author'], time: peep['time']) 
+    end 
+  end
 end

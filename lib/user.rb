@@ -23,7 +23,7 @@ class User
       @user = User.new(name, email, username, password)
   end
 
-  def fetch(username, password)
+  def self.fetch(username, password)
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test')
     else

@@ -7,3 +7,15 @@ describe '.create' do
     expect(peep.author).to eq 'TomChitter'
   end
 end
+
+describe '.all' do
+
+  it 'returns all peeps' do
+    create_peeps
+    feed = Peep.all
+    expect(feed.length).to eq 2
+    expect(feed.last).to be_a Peep
+    expect(feed.first.message).to eq "Nobody has better respect for intellegence than Donald Trump", "Donald Trump"
+    expect(feed.first.author).to eq "Donald Trump"
+  end
+end

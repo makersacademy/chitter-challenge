@@ -34,7 +34,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
-    if @user.fetch(params[:email], params[:password]) == nil
+    if User.fetch(params[:email], params[:password]) == nil
       redirect '/invalid_user'
     else
       redirect '/feed'
