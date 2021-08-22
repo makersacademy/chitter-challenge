@@ -17,6 +17,13 @@ class User
     @email = email
   end
 
+  def self.all
+    result = DBConnect.query("SELECT * FROM users")
+    result.map do |user| 
+      User.new(user['id'], user['name'], user['handle'], user['password'], user['email'])
+    end
+  end
+
   def self.create(name, handle, password, email)
     encrypted_password = BCrypt::Password.create(password)
     result = DBConnect.query(query_to_create(name, handle, encrypted_password, email))
@@ -26,6 +33,12 @@ class User
 
   def self.instance
     @user
+  end
+
+  def self.check_if_unique(name, handle, password, email)
+    return :email if User.all.find {|user| user.email == email }
+    return :handle if User.all.find {|user| user.handle == "@#{handle}" }
+    User.create(name, handle, password, email)
   end
 
   def self.query_to_create(name, handle, password, email)

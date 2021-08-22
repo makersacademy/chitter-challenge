@@ -24,11 +24,14 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
-  post '/welcome' do
+  post '/new-user' do
     data = [params[:name], params[:handle], params[:password], params[:email]]
-    # need to call a checker here so that duplicate handles/emails do not create a new user 
-    User.create(*data)
+    redirect '/error' if [:email, :handle].include? User.check_if_unique(*data)
     erb :welcome
+  end
+
+  get '/error' do
+    'Error page'
   end
 
   run! if app_file == $0
