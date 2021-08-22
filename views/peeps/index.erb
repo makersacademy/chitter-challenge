@@ -1,0 +1,18 @@
+<!DOCKTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <h1>Hi, <%= @logged_in_user %></h1>
+  <form action='/peeps/create_peep' method='post'>
+    <textarea type='text' name='peep' placeholder='Got something on your mind?' required></textarea>
+    <input type='submit' value='Peep it'>
+  </form>
+  <% @peep.each do |result| %>
+    <p class='peep'>
+      <%= result[:message] %>
+      <sub class='subtitle'><%= result[:posted] %></sub>
+    </p>
+  <% end %>
+</body>
+</html>
