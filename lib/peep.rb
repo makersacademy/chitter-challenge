@@ -26,6 +26,7 @@ class Peep
     end
   end
 
+  # create method to updated to to take 'maker' argument
   def self.create(peep)
     if ENV['RACK_ENV'] = 'test'
       con = PG.connect :dbname => 'chitter_test'

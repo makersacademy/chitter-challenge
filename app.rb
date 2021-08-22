@@ -19,6 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
+    # create method to updated to to take 'maker' argument
     Peep.create(params[:peep])
     redirect '/'
   end
