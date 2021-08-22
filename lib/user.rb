@@ -8,19 +8,20 @@ class User
     @handle = handle
     @email = email
     @password = password
-  end
-
-  def self.handle(handle:)
-    connection = DBConnect.check_environment
-    result = connection.exec_params('SELECT id, handle, password, email FROM users WHERE handle = $1;', [handle])
-    result.select { |user| user['handle'] == user['$1'] }
-    User.create_new_instance(result)
+    @logged_in = false
   end
 
   def self.create(handle:, password:, email:)
     connection = DBConnect.check_environment
     result = connection.exec_params('INSERT INTO users (handle, password, email) VALUES ($1, $2, $3) RETURNING id, handle, email, password;', [handle, password, email,])
     User.create_new_instance(result)
+  end
+
+  def self.login(email:, password:)
+    connection = DBConnect.check_environment
+    result = connection.exec_params('SELECT id, handle, password, email FROM users WHERE email = $1 AND password = $2;',[email, password])
+    connection.exec_params('UPDATE users SET logged_in = true WHERE email = $1 AND password = $2;', [email, password])
+    result.map { |user| { handle: user['handle'], logged_in: user['logged_in'] = true } }.pop
   end
 
   private
