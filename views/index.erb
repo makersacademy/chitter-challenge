@@ -1,12 +1,13 @@
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h1>Welcome, <%= @user.username %></h1>
+<% else %>
+  <form action="/users/new" method="get">
+    <input type='submit' value="Sign up" />
+  </form>
 <% end %>
 
 
 
-<form action="/users/new" method="get">
-  <input type='submit' value="Sign up" />
-</form>
 
 <form action='/peep' method='post'>
   <input type='text' name='peep'>

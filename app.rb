@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    # @user = ??? # where does this come from?
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :index
   end
@@ -27,7 +27,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    session[:user_id] = user.id
     redirect '/'
   end
 

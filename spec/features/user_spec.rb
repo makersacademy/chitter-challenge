@@ -5,7 +5,7 @@ feature 'registration' do
     fill_in('password', with: 'test_password')
     fill_in('name', with: 'testname')
     fill_in('username', with: 'test_username')
-    click_button('Submit')
+    click_button('Sign up')
     expect(page).to have_content "Welcome, test_username"
   end
 
