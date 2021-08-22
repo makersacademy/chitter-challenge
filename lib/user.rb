@@ -27,9 +27,9 @@ class User
 
   def self.check_environment
     if ENV['DB_TEST_ENV'] == 'test'
-      connection = which_db('user_manager_test')
+      connection = which_db('chitter_manager_test')
     else
-      connection = which_db('user_manager')
+      connection = which_db('chitter_manager')
     end
   end
 

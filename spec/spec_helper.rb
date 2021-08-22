@@ -14,7 +14,6 @@ Capybara.app = Chitter
 RSpec.configure do |config|
   config.before(:each) do
     setup_chitter_test_database
-    setup_user_test_database
   end
 end
 
