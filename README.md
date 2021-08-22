@@ -7,7 +7,7 @@ Challenge:
 Write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
--------
+-------------------------------------------------------------------------------------------------------------
 
 ```
 USER_STORIES
@@ -29,7 +29,7 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
 Setup:
--------
+------------------------------------------------------------------------------------------------------------
 
 To implement this app you will need to install two databases on your computer. To do this follow these steps: 
 
@@ -65,7 +65,7 @@ To implement this app you will need to install two databases on your computer. T
   
   
   Further_features to add later:
-  -------
+  ------------------------------------------------------------------------------------------------------------
   
   * Users can add their username, password and name to sign_up form 
   * Would like to verify the email address is real
