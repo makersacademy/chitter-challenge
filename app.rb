@@ -64,6 +64,7 @@ class Chitter < Sinatra::Base
       "INSERT INTO comments (comment, peep, maker) VALUES($1, $2, $3);",
       [params[:comment], params[:id], session[:user_id]]
     )
+    # Comment.create(comment: params[:comment], peep: params[:peep_id], maker: session[:user_id])
     redirect '/'
   end
 
