@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
+require 'cheet'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -16,6 +17,7 @@ class Chitter < Sinatra::Base
   end 
 
   get '/cheets' do 
+    @cheets = Cheet.new.all 
     erb :cheets
   end 
 
