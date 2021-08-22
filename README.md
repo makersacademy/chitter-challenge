@@ -6,7 +6,7 @@ This is a simple twitter clone wep app that uses Ruby, Sinatra, and PostgreSQL. 
 
 It is fully tested, with 100% coverage using RSpec and Capybara.
 
-Over the course of the weekend, I accomplied the 'straight up' user stories (below), as well as all of the following required functionality:
+Over the course of the weekend, I accomplished the 'straight up' [user stories](#user-stories), as well as all of the following required functionality:
 
 ```
 * You don't have to be logged in to see the peeps.
@@ -19,7 +19,7 @@ Over the course of the weekend, I accomplied the 'straight up' user stories (bel
 This was quite a tough project, but it provided good consolidation of what I had learned about SQL and databases from the previous week, and has given me lots of food for thought on what I still need to learn! I modelled the database and MVC on paper before I started coding, and kept notes for an upcoming blog on how the project developed over the weekend.
 
 If I had more time I would look to implement:
-* log in/log out functionality (per the 'Harder' User Stories): at the moment, the app doesn't allow you to log back in as a previous account if you create a new account / restart the server.
+* log in/log out functionality (per the 'Harder' [user stories](#user-stories)): at the moment, the app doesn't allow you to log back in as a previous account if you create a new account / restart the server.
 * better CSS
 * email notifications if a user is tagged in a peep (per the 'Advanced' user stories)
 * bring in an Object Relational Mapper as the database interface (i.e. ActiveRecord)
@@ -30,24 +30,25 @@ If I had more time I would look to implement:
 * account editing functionality - i.e. change password
 * profile images, images in peeps?
 
-In any case, here's how to set up and use this app:
+Meanwhile, here's how to set up and use this app:
 
 ## Installation
 
 ```
 git clone https://github.com/edpackard/chitter-challenge.git
 cd chitter-challenge
-gem install bundler # if required
+gem install bundler
 bundle install
 ```
 
 ## Database setup
 
-1. Connect to `psql` via the Terminal
-2. Create the production and test databases using the psql commands `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
-3. Connect to the production database using the pqsl command `\c chitter;`
-4. Run the queries saved in the files and `01_create_users_table.sql` and `02_create_peeps_table.sql`
-5. Repeat step 4 after connecting to the test database `\c chitter_test;`
+1. Install and set up psql if required (Homebrew: `brew install postgresql`). 
+2. Connect to `psql` via the Terminal
+3. Create the production and test databases using the psql commands `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
+4. Connect to the production database using the pqsl command `\c chitter;`
+5. Run the queries saved in the files `01_create_users_table.sql` and `02_create_peeps_table.sql`
+6. Repeat step 5 after connecting to the test database: `\c chitter_test;`
 
 ## How to use this program
 
@@ -61,7 +62,7 @@ The Chitter homepage will list all peeps that have been made so far - on a fresh
 
 To get started, click Sign Up. 
 
-Enter your name, your preferred handle, password, and email address, following the instructions given.
+Enter your name, your preferred handle, password, and email address, following the instructions provided.
 
 Click Submit when you are ready: if you have chosen a handle or email address that has already been used, you will get a notification, and the opportunity to try again or return to the homepage. On a fresh install, this won't be a problem. 
 
