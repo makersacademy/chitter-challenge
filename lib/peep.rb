@@ -14,6 +14,7 @@ class Peep
 
   def self.add(content, time = Time.now, date = Date.today, user = User.instance.id)
     return if content.chomp.size.zero?
+    
     DBConnect.query(add_item_to_db(content, time, date, user))
   end
 
