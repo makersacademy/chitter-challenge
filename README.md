@@ -129,3 +129,44 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+## Domain Model
+
+![Bookmark Manager domain model](./public/images/bookmark_manager_1.png)
+
+
+## How to use
+
+### To set up the project
+
+Clone this repository and then run:
+
+```
+bundle install
+```
+
+### To run the Peeps Manager app:
+
+```
+rackup -p 3000
+or
+ruby app.rb
+```
+
+### To run tests:
+
+```
+rspec for both feature tests and unit tests
+```
+
+### To run linting:
+
+```
+rubocop
+```
+
+## My Database
+
+```
+I created a table called peeps that gives each peep(comment/post) a 120 character limit and each peep has an id. You can see this in my 01_create_peeps_table.sql file where I have documented my database setup.
+```
