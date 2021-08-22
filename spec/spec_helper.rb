@@ -21,9 +21,9 @@ SimpleCov.start
 RSpec.configure do |config|
   
   config.before(:each) do 
-    conn = PG.connect dbname:"chitter_test"
-    conn.exec ( "TRUNCATE cheets;" )
-    conn.exec ( "TRUNCATE users;" )
+    conn = PG.connect dbname: "chitter_test"
+    conn.exec("TRUNCATE cheets;")
+    conn.exec("TRUNCATE users;")
   end 
 
   config.after(:suite) do
