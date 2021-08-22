@@ -1,12 +1,14 @@
 <h1>Chitter</h1>
 
-<% if @user %>
-<h2><%= @user.name %> is logged in!</h2>
-<% end %>
-
 <form action='/sign-up' method='GET'>
   <input type='submit' value='Sign Up'>
 </form>
+
+<br>
+
+<% if @user %>
+<h2><%= @user.name %> is logged in!</h2>
+
 
 <br>
 
@@ -15,20 +17,19 @@
   
   <br>
   
-  <textarea style='resize: none;' 
-            maxlength='140' 
-            id='content' 
-            name='content' 
-            rows=5 
-            required>
+  <textarea style='resize: none;' maxlength='140' id='content' 
+  name='content' rows=5 required>
   </textarea>
   
   <br>
+
 
   <input type='submit' value='Peep!'>
 </form>
 
 <br>
+
+<% end %>
 
 <% @peeps.each do |peep| %>
   <li><%=peep%> </li>

@@ -20,6 +20,11 @@ feature 'visiting the home page' do
     expect(page).to have_content '@ed209: My first peep!'  
   end
 
+  scenario 'cannot post if not signed in' do
+    visit '/'
+    expect(page).not_to have_field 'content'
+  end
+
    #test - ensure can't post if not signed in - can disable text area using html as well
 
 end
