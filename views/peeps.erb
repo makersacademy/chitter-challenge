@@ -1,4 +1,5 @@
-<% @peeps.each do |peep| %>
+
+<% @peeps.reverse.each do |peep| %>
   <li>
     <%= peep.post_time%>
     <%= peep.message%>
