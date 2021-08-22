@@ -8,7 +8,10 @@
     <input type='submit' value='Peep it'>
   </form>
   <% @peep.each do |result| %>
-    <p><%= result[:message] %></p>
+    <p>
+      <%= result[:message] %>
+      <sub><%= result[:posted] %><sub>
+    </p>
   <% end %>
 </body>
 </html>
