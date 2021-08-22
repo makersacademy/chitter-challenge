@@ -1,10 +1,8 @@
-Welcome to Chitter!
-
-Please sign in:
+Thanks for signing up <%=@user.name%>!
+<br>
+Please sign in with your new username and password to get started!
 <form action="/sign_in" method="post"><br>
 Email:    <input type="text" name="email"><br>
 Password: <input type="text" name="password"><br>
 <input type="submit" value="Sign In"><br>
 </form>
-
-Not registered? Sign up <a href="/sign_up">here</a>!
