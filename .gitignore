@@ -4,4 +4,3 @@
 # Local cache of Rubocop remote config
 .rubocop-*
 chitter_challenge.db
-seeds.rb
