@@ -3,6 +3,10 @@ require_relative 'dbconnect'
 
 class User
 
+  class << self
+    attr_accessor :error
+  end
+
   attr_reader :id,
               :name,
               :handle,
@@ -28,6 +32,15 @@ class User
     end
   end
 
+  def self.check_if_unique(name, handle, password, email)
+    return User.error = :email if User.all.find { |user| user.email == email }
+
+    return User.error = :handle if User.all.find { |user| user.handle == "@#{handle}" }
+
+    User.error = nil
+    User.create(name, handle, password, email) 
+  end
+
   def self.create(name, handle, password, email)
     encrypted_password = BCrypt::Password.create(password)
     result = DBConnect.query(query_to_create_user(name, handle, encrypted_password, email))
@@ -39,21 +52,6 @@ class User
     "INSERT INTO users (name, handle, password, email) "\
     "VALUES ('#{name}', '@#{handle}', '#{password}', '#{email}') "\
     "RETURNING id, name, handle, password, email;"
-  end
-
-  def self.check_if_unique(name, handle, password, email)
-    return User.set_error(:email) if User.all.find {|user| user.email == email }
-    return User.set_error(:handle) if User.all.find {|user| user.handle == "@#{handle}" }
-    User.set_error(nil)
-    User.create(name, handle, password, email) 
-  end
-
-  def self.set_error(error)
-    @error = error
-  end
-
-  def self.error
-    @error
   end
 
 end
