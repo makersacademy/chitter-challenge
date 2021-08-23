@@ -1,23 +1,9 @@
-Chitter Challenge
-=================
+This is the my attempt at the week 4 weekend challenge, which involves writing a very basic Twitter clone, in Ruby and and the 'pg' (postgres sql) gem. A number of other gems were also used, 'sinatra' and 'sinatra-reloader', as well as webrick as I was using ruby 3.0.2, this is contrary to what is in the .ruby-version as rubocop does not support 3.0 
+```(Error: RuboCop found unknown Ruby version 3.0 in .` ruby-version.` Supported versions: 2.3, 2.4, 2.5, 2.6, 2.7) ```
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+The basic challenge involved the following user stories
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
@@ -35,97 +21,26 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
+Two databases were created, one for testing and one for the actual app, these are named chitter and chitter_test. Each database also has two tables, the creation of which is per the 01_create_peeps_table.sql and 02_create_users_table.sql. 
 
-Technical Approach:
------
+## Database setup
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+1. In the Gemfile add the following ``` gem 'pg' ```
+2. Open terminal/command line
+3. Install the gem via the ```bundle install``` command at the promt
+4. Type ```psql``` at prompt
+5. CREATE DATABASE chitter
+6. Connect to the database using \c chitter
+7. Create peeps table as per 01_create_peeps_table.sql
+8. Create users table as per 02_create_users_table.sql
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+To set up the test database follow the above steps, with the following amendment
+5. CREATE DATABASE chitter_test
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+## Reflection
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+Currently the app fulfils the basic user stories, however there is currently no signing in or out functionality, this is something I would like to look into when I have the opportunity. However it is possible to sign up, as per user story 4, however there is no checks and if the username or email are already in the database then a 500 error will occur. Peeps are currently displayed in reverse chronological order, with the timestamp and username, I would've also liked to have added the functionality to choose if the peeps in chronological or reverse chronological order, however as this is not requested in any of the user stories I did not do so, which was a surprisingly difficult thing. The user interfce is not very pretty at the moment and definitely needs work. I also feel I need to spend more time understanding ORM frameworks, as well as Class methods. 
 
-Notes on functionality:
-------
+Simplecov gives a 100% coverage, however I'm not overlly happy as I was unable to envision a feature test for signing up that didnt require the user to also post a peep, as I wasn't sure on how to confirm that signing up had been succesful, also the test requires a lot of setup, and I was wondering if a helper would be appropriate however as the setup is not used again I opted against that. I do have 6 rubocop offences mainly related to line length in either creating new instances or SQL commands, and to reduce the length would require making the methods longer as I would need to assign the values to various variables.
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
