@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'all peeps can be viewed' do
   scenario 'able to see all peeps' do
     Peep.create("this is a test peep")

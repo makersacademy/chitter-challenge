@@ -1,9 +1,8 @@
 require 'pg'
 
 class DatabaseConnection
-
   def self.setup(dbname)
-    @connection = PG.connect(dbname: 'chitter_test')
+    @connection = PG.connect(dbname: dbname)
   end
 
   def self.connection
@@ -11,6 +10,6 @@ class DatabaseConnection
   end
 
   def self.query(sql, params = [])
-    @connnection.exec_params(sql, params)
+    @connection.exec_params(sql, params)
   end
 end

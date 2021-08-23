@@ -4,7 +4,7 @@ require_relative './lib/user'
 require_relative './lib/comment'
 require 'sinatra/base'
 require 'sinatra/reloader'
-# require_relative './database_connection_setup.rb'
+require_relative './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'create new peep' do
   scenario 'user can add peep and see it' do
     visit('/')
