@@ -8,6 +8,8 @@ This is a simple twitter clone wep app that uses Ruby, Sinatra, and PostgreSQL. 
 
 It is fully tested, with 100% coverage using RSpec and Capybara. I also managed to get a green tick with Travis CI.
 
+[![Build Status](https://app.travis-ci.com/edpackard/chitter-challenge.svg?branch=main)](https://app.travis-ci.com/edpackard/chitter-challenge)
+
 Over the course of the weekend, I accomplished the 'straight up' [user stories](#user-stories), as well as all of the following required functionality:
 
 ```
