@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt'
+gem "sinatra-flash", "~> 0.3.0"
 gem 'pg'
 
 group :development, :test do
