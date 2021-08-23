@@ -1,3 +1,55 @@
+# Chitter
+
+A scaled down version of Twitter. The program allows the user to add 'peeps' and to view other peeps
+either by newest or oldest first. Uses PostgreSQL to store the peep information
+
+## Database schema mockup with ERD
+
+Mock up of the potential postgreSQL database schema with ERD.
+[Database Schema Mockup and ERD](https://github.com/Battery0/chitter-challenge/blob/main/public/database_schema_mockup.png)
+
+## To do
+
+1. Add a attribute in the PostgreSQL table (peeps) called 'time' which stores the time of when the peep was made.
+* A potential approach to this would be store store a 'Time.now' initialized when the peep is created and store 
+  that in the table. Modifying the manual ORM to include the extra data passed into the table 'peeps'.
+
+2. Look into ActiveRecord library in order to carry out ORM instead of creating the ruby code and SQL queries manually.
+
+3. Create a brand new table in postgrSQL to store user details (name, password). This would allow for:
+* Allow the user to log in and validate login details from POST against the user table attribute 'password'
+* Setup a foreign key in peeps table against a user id attribute (one user to many peeps). Thus setting a one to many 
+  relationship, enabling tracking of individual user tweets.
+
+
+## Getting started
+
+`git clone https://github.com/Battery0/chitter-challenge.git`
+
+In the project directly, please run:
+`bundle install`
+
+To setup the databases for production and testing, also run:
+
+`psql`
+`\i <then the FULL PATH to the two files found in db/migrations>`
+
+## Usage
+
+To start the program, please run from the root project directory:
+
+`ruby app.rb`
+Navigate to `http://localhost:4567/`
+
+
+## Running tests
+
+To run the suite of feature & unit tests, please run:
+
+`rspec`
+
+
+
 Chitter Challenge
 =================
 
