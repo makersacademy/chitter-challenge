@@ -22,13 +22,8 @@ describe Peep do
     it 'returns a list of comments on the bookmark' do
       new_peep = Peep.create('hello this is a practice peep')
       peep_id = new_peep.id
-      if ENV['RACK_ENV'] == 'test'
-        con = PG.connect :dbname => 'chitter_test'
-      else
-        con = PG.connect :dbname => 'chitter'
-      end
       # peep below is peep_id within comments table
-      con.exec(
+      DatabaseConnection.connection.exec_params(
         "INSERT INTO comments (id, comment, peep) VALUES(1, 'Test comment', $1)",
         [peep_id]
       )
