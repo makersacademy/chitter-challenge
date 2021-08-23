@@ -1,5 +1,7 @@
 # Chitter Challenge
 
+![Screenshot](./public/images/chitter.png)
+
 ## Introduction
 
 This is a simple twitter clone wep app that uses Ruby, Sinatra, and PostgreSQL. Password encryption is handled by BCrypt.
