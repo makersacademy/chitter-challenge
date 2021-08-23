@@ -6,8 +6,7 @@ either by newest or oldest first. Uses PostgreSQL to store the peep information
 ## Database schema mockup with ERD
 
 Mock up of the potential postgreSQL database schema with ERD.
-[Database Schema Mockup and ERD](https://github.com/Battery0/chitter-challenge/blob/main/public/database_schema_mockup)
-
+[Database Schema Mockup and ERD](https://github.com/Battery0/chitter-challenge/blob/main/public/database_schema_mockup.png)
 
 ## To do
 
