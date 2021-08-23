@@ -18,7 +18,7 @@ class Chittersweb < Sinatra::Base
   end
 
   post '/peeps' do
-    # Chitter.post(post: params[:new_peep])
+    Chitter.post(post: params[:new_peep])
     redirect '/peeps'
   end
 

@@ -4,9 +4,9 @@ class Chitter
   
   def self.all
     if ENV['ENVIROMENT'] == 'test'
-      connection = PG.connect( dbname: 'chitter_manager_test')
+      connection = PG.connect(dbname: 'chitter_manager_test')
     else
-      connection = PG.connect( dbname: 'chitter_manager')
+      connection = PG.connect(dbname: 'chitter_manager')
     end
     result = connection.exec ( "SELECT peep FROM chitters" )
     result.map { |row| row["peep"] }
@@ -14,22 +14,22 @@ class Chitter
 
   def self.time
     if ENV['ENVIROMENT'] == 'test'
-      connection = PG.connect( dbname: 'chitter_manager_test')
+      connection = PG.connect(dbname: 'chitter_manager_test')
     else
-      connection = PG.connect( dbname: 'chitter_manager')
+      connection = PG.connect(dbname: 'chitter_manager')
     end
     time = connection.exec ( "SELECT created_on FROM chitters" )
     time.map { |row| row["created_on"] }
   end
 
-  # def self.post(post:)
-  #   if ENV['ENVIROMENT'] == 'test'
-  #     connection = PG.connect( dbname: 'chitter_manager_test')
-  #   else
-  #     connection = PG.connect( dbname: 'chitter_manager')
-  #   end
-  #   connection.exec("INSERT INTO chitters (peep) VALUES ('#{peep}')")
-
-  # end
+  def self.post(post:)
+    if ENV['ENVIROMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_manager_test')
+    else
+      connection = PG.connect(dbname: 'chitter_manager')
+    end
+    connection.exec("INSERT INTO chitters (peep) VALUES ('#{post}')")
+    
+  end
 
 end

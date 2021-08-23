@@ -31,7 +31,12 @@ feature 'So the user can see the new peeps' do
   scenario 'it should show the peeps in the feed below' do
     visit '/peeps'
     expect(page).to have_content('Your Most recent peeps:')
-  end
 
+  end
+  scenario 'it should show the latest peep first' do
+    visit '/peeps'
+    expect(page).to 
+
+  end
 end
 
