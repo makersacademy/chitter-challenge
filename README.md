@@ -1,3 +1,25 @@
+William's Attempt at Chitter Challenge
+
+UPDATE: In Monday's morning pairing review session I was considerably refreshed, and was also paired with my bestie Corinne! Together we had another look, and although it was mostly her doing, spotted an extra instance of @user in the app registration! The code is now all fixed, works like a charm, passes all tests, although sadly I did not have time to run Travis that I wanted to experiment with or touch up the HTML/CSS. Also Rubocop didn't work on my Ruby version, and I didn't have time sort that.
+
+
+
+This weekend challenge was yet again an infuriating one, as I was extremely close to getting it finished, but due to what felt like one fairly small issue which I was unable to fix after 8+ hours I was unable to complete everything. That is the sign in part, for some reason I cannot grasp what the fudge is going on with it. In IRB it all works correctly, in rspec every test passes with full 100% coverage. But it doesn't actually work! Once again I feel completely let down by tests here and genuinely think my limited time would have been better invested in actually writing the code and checking it works by just looking at the website, as when I did start to tinker the code, the capybara test that was definitely supposed to fail passed, and two other capybara tests that should have easily been passing were failing, it literally made zero sense and felt it added more confusion and chaos to what I already had. I don't understand how capybara apparently seems to see the page differently to what I see if I host it. Honestly, it just felt like a waste of time writing capybara feature tests.
+
+Ultimately I don't feel I did too badly here, but these weekend challenges are really starting to take their toll, the amount of time required to complete them doesn't feel sustainable, even if you didn't have any family commitments and had the entire weekend to do it. I also feel like by not completing the previous weeks bookmarks pairing challenge (which was also extremely hard and we had nowhere near enough time on), I have missed out on valuable knowledge and experience that would have helped me immensely with this weekend challenge and saved me a lot of time. As there are there are things that I am aware of, but have no real idea about (such as SQL injection).
+
+Forgive my rant, but I simply hate starting something, and not being able to complete it, call it autism, OCD, or whatever. However it's currently 1.30AM on Monday morning, and even if I could keep my eyes open any longer, my brain has been melted for a good few hours now, and I am getting nowhere further.
+
+
+=================
+To begin I have made two databases using PSQL: 'chitter' and 'chitter_test'.
+
+Each database has two tables: 'users' and 'peeps'.
+
+CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(50), password VARCHAR(20), name VARCHAR(30), username VARCHAR(20));
+
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(1000), author VARCHAR(20), time VARCHAR(30));
+
 Chitter Challenge
 =================
 
