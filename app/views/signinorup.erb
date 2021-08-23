@@ -1,0 +1,29 @@
+<h3>Returning user? Login here</h3>
+
+<form id="returning-user-form" action='/login' method="post">
+  <label for="username">Username</label>
+  <input type="text" id="username" name="username">
+
+  <label for="password">Password</label>
+  <input type="text" id="password" name="password">
+
+  <input type="submit" value="login">
+</form>
+
+<h3>New user? Sign up below</h3>
+
+<form id="new-user-form" action='/add-user' method="post">
+  <label for="name">Name</label>
+  <input type="text" id="new_name" name="name">
+
+  <label for="username">Username</label>
+  <input type="text" id="new_username" name="username">
+
+  <label for="email">Email</label>
+  <input type="text" id="new_email" name="email">
+
+  <label for="password">Password</label>
+  <input type="text" id="new_password" name="password">
+
+  <input type="submit" value="sign up">
+</form>

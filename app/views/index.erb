@@ -1,0 +1,19 @@
+<h1>Welcome to Chitter</h1>
+
+<% if @current_user %>
+  <form action="/create-peep" method="post">
+    <textarea id="peep-body" value="peep-body" name="peep-body">
+      new peep
+    </textarea>
+    <input type="hidden" id="user-id" name="user-id" value="<%= @current_user.id%>">
+    <input type="submit" value="post">
+  </form>
+<% end %>
+
+<% @peeps.each do |peep| %>
+  <% peep_creator = User.find_by(id: peep.user_id) %>
+  <div>
+  <h4><%= peep.body %></h4>
+  <p>-- <%= peep_creator.username %> (<%= peep_creator.name %>)</p>
+  </div>
+<% end %>
