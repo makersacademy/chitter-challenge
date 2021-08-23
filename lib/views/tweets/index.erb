@@ -1,0 +1,16 @@
+<table>
+<% @tweets.reverse.each do |tweet| %>
+  <tr>
+    <%= tweet.tweet %>
+    <%= tweet.time %> <%= tweet.date %>
+    <br>
+  </tr>
+  <%end%>
+</table>
+  <br>
+  <form action='/tweets' method='POST'>
+  <label for='tweet'>Tweet: </label>
+  <input type="text" name='tweet'>
+  <br>
+  <input type="submit" value='Post'>
+</form>
