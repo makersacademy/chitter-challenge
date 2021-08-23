@@ -9,8 +9,11 @@ Chitter Challenge
 ```
 ## To improve:
 
-- 
-
+- print out peep database in reverse order
+- record time for peeps
+- sign up for Zwitscher
+- sign in to Zwitscher
+- sign out of Zwitscher
 
 ## Implementation
 
@@ -46,6 +49,8 @@ $ rspec
 ## The chitter-challenge is built upon the following user stories:
 
 ```
+STRAIGHT UP
+
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
