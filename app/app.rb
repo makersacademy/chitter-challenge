@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require './lib/db/connect.rb'
 require './lib/db/create_tables.rb'
 require './lib/user.rb'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   attr_reader :db_connection
@@ -22,6 +23,7 @@ class Chitter < Sinatra::Base
   get '/' do 
     session[:signed_in] = false if session[:signed_in].nil?
     @signed_in = session[:signed_in]
+    @peeps = Peep.all
     erb :index
   end
 
@@ -30,6 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signin_exec' do
+    session[:username] = params[:username].clean_key
     session[:signed_in] = false
     session[:signed_in] = true unless User.get(params[:username].to_sym, params[:password].to_sym).nil?
     redirect('/') if session[:signed_in] == true
@@ -46,6 +49,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_exec' do
+    session[:username] = params[:username].clean_key
     User.add(params).nil? ? (session[:registered_user] = false) : (session[:registered_user] = true)
     session[:signed_in] = true if session[:registered_user] == true
     redirect('/') if session[:registered_user] == true
@@ -57,8 +61,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep_exec' do
-
-    redirect('/') if session[:signed_in] == true
+    peep = nil
+    params[:foreign_key_username] = session[:username].clean_key.to_s if session[:signed_in] == true
+    p params[:foreign_key_username]
+    peep = Peep.add(params) if session[:signed_in] == true
+    redirect('/') unless (session[:signed_in] == false) || peep.nil?
     redirect('/peep?error=You need to Sign in first')
   end
 

@@ -19,7 +19,7 @@
       .keep-center{text-align:center;}
       .keep-right{text-align:right;}
       hr{opacity:0; border-top:rgba(0, 0, 0, 0.1); margin-bottom:2rem; margin-left:3.33rem;}
-      .peep{display:block; padding:0.25rem 0.5rem 0.5rem 1.5rem;border:solid 1px rgba(0, 0, 0, .2); border-radius: .5rem; background-color:rgba(255, 255, 255, .9);}
+      .peep{display:block; margin-top: .2rem; padding:0.25rem 0.5rem 0.5rem 1.5rem;border:solid 1px rgba(0, 0, 0, .2); border-radius: .5rem; background-color:rgba(255, 255, 255, .9);}
       .peep:hover{animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;}
       section > .peep > .header{color:#424446; padding-left:2rem;text-align:right}
       section > .peep > .body{color:#242628;}
@@ -68,17 +68,19 @@
     </section>
     <hr>
     <section name="peeps">
+    <% @peeps.each do |peep| %>
       <div class="peep">
        <div class="header"> 
-         Raducanu
+         <%= peep[:foreign_key_username] %>
        </div>
        <div class="body">
-         Totally agree,it was righ in the first place
+         <%= peep[:peep] %>
        </div>
        <div class="footer">
-         18:34
+         <%= peep[:created_at].split('.')[0].split(" ")[1] %>
        </div>
       </div>
+    <% end %>
     </section>
 
     <section name="footer">

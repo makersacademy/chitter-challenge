@@ -34,10 +34,9 @@ class User
   end
 
   def self.add(table_column_values_hash = {})
-    return nil if table_column_values_hash.empty?
     [keys_and_values, table_column_values_hash.each { |key, value| check_key_value_return(value, key) }]
-    return nil if @query_keys.count != @query_values.count
-    users_return = query("INSERT INTO users (#{@query_keys.join(",")}) VALUES (#{@query_values.join(",")}) RETURNING id").to_a
+    return nil if @query_keys.count != @query_values.count || table_column_values_hash.empty?
+    users_return = query("INSERT INTO users (#{@query_keys.join(",")}) VALUES (#{@query_values.join(",")}) RETURNING id, username").to_a
     (users_return.nil? || (users_return.count != 1)) ? nil : users_return
   end
 
@@ -48,9 +47,8 @@ class User
   end
 
   def self.get(user_name, password)
-    [keys_and_values, check_key_value_return(user_name, :username)]
-    password = password.to_s.hash_1.clean_value
-    users_return = query("SELECT id, username FROM users WHERE username = #{@query_values.last} AND password = #{password}").to_a
+    [keys_and_values, check_key_value_return(user_name, :username), check_key_value_return(password, :password)]
+    users_return = query("SELECT id, username FROM users WHERE username = #{@query_values[-2]} AND password = #{@query_values.last}").to_a
     users_return.map!{ |pair| pair.transform_keys(&:to_sym) }
     (users_return.nil? || (users_return.count != 1)) ? nil : users_return
   end
