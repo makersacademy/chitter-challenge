@@ -25,16 +25,15 @@ class Peeps
   end
 
   def self.create(message:)
-    time_stamp = Time.now
-    date = time_stamp.strftime("%d/%m/%Y")
-    time = time_stamp.strftime("%k:%M")
+    time_stamp = Time.now.strftime("%d/%m/%Y") + "-" + Time.now.strftime("%k:%M")
+  
     if ENV['RACK_ENV'] == 'test'
       conn = PG.connect(dbname: 'chitter_test')
     else
       conn = PG.connect(dbname: 'chitter')
     end
   
-    conn.exec("INSERT INTO chitter (message) VALUES('#{message}');")
+    conn.exec("INSERT INTO chitter (message, time_stamp) VALUES('#{message}', '#{created_on}');")
   end
 end
 

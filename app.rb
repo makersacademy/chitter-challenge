@@ -7,9 +7,11 @@ require_relative './database_connection_setup'
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    enable :session
   end
 
   get '/peeps' do
+    @user = User.find(session[:id])
     @peeps = Peeps.all
     erb :'peeps/message'
   end
@@ -31,6 +33,7 @@ end
 post '/users' do
   User.create(email: params[:email],password: params[:password],
   name: params[:name], username: params[:username])
+  session[:id]= id
   redirect '/peeps'
 end
 
