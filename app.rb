@@ -12,15 +12,15 @@ class Zwitscher < Sinatra::Base
     erb :'zwitscher/index'
   end
 
-  post '/peep'
-    Peep.new(message: params[:peep])
-    # redirect '/zwitscher/read'
+  post '/peep' do
+    Peep.create(time: '12:11', message: params[:peep])
+    redirect '/zwitscher/read'
   end
 
-  # get '/zwitscher/read' do
-  #   'Hello'
-  #   # erb :'zwitscher/read_peeps'
-  # end
+  get '/zwitscher/read' do
+    @peeps = Peep.all
+    erb :'zwitscher/read_peeps'
+  end
 
   run! if app_file == $0
 end
