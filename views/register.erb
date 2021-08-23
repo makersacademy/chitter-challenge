@@ -1,0 +1,31 @@
+<% if session[:username_invalid] %>
+ <%=session.delete(:username_invalid)%> is already in use, try a different username
+ <% end %>
+
+ <% if session[:email_invalid] %>
+ <%=session.delete(:email_invalid)%> is already in use, try a different email
+ <% end %>
+
+ <h1>Sign up to Chitter!</h1>
+ <h2>Your username and password must be unique.</h2>
+
+ <form action='/register-details' method='post'>
+   <label for='name'>Enter your name</label>
+   <input type='text' id='name' name='name'>
+
+   <label for='username'>Enter your username</label>
+   <input type='text' id='username' name='username'>
+
+   <label for='email'>Enter your email</label>
+   <input type='text' id='email' name='email'>
+
+   <label for='password'>Enter your password</label>
+   <input type='text' id='password' name='password'>
+
+   <input type='submit' name='Submit'>
+ </form>
+
+ <form action='/' method='get'>
+   <label for='homepage'>Return to homepage</label>
+   <input type='submit' name='Homepage'>
+ </form>
