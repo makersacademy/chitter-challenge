@@ -1,14 +1,11 @@
-default: &default
-  adapter: postgresql
-
 development:
-  <<: *default
+  adapter: postgresql
   database: "chitter"
   encoding: unicode
   pool: 5
 
 test:
-  <<: *default
+  adapter: postgresql
   database: "chitter_test"
   encoding: unicode
   pool: 5

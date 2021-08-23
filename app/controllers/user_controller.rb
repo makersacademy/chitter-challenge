@@ -1,42 +1,42 @@
 class UserController < ApplicationController
-  get '/signinorup' do
-    erb :signinorup
-  end
+  # get '/signinorup' do
+  #   erb :signinorup
+  # end
 
-  get '/failure' do
-    erb :failure
-  end
+  # get '/failure' do
+  #   erb :failure
+  # end
 
-  post '/add-user' do
-    user = User.new
-    user.name = params[:name]
-    user.username = params[:username]
-    user.email = params[:email]
-    user.password = params[:password]
+  # post '/add-user' do
+  #   user = User.new
+  #   user.name = params[:name]
+  #   user.username = params[:username]
+  #   user.email = params[:email]
+  #   user.password = params[:password]
 
-    if user.save
-      session[:current_user] = User.find_by(username: params[:username])
-      redirect '/'
-    else
-      redirect '/failure'
-    end
-  end
+  #   if user.save
+  #     session[:current_user] = User.find_by(username: params[:username])
+  #     redirect '/'
+  #   else
+  #     redirect '/failure'
+  #   end
+  # end
 
-  post '/login' do
-    user = User.find_by(username: params[:username])
+  # post '/login' do
+  #   user = User.find_by(username: params[:username])
 
-    if user&.authenticate(params[:password])
-      session[:current_user] = User.find_by(username: params[:username])
-      redirect '/'
-    else
-      redirect '/failure'
-    end
+  #   if user&.authenticate(params[:password])
+  #     session[:current_user] = User.find_by(username: params[:username])
+  #     redirect '/'
+  #   else
+  #     redirect '/failure'
+  #   end
 
-  end
+  # end
 
-  get '/logout' do
-    session[:current_user] = nil
+  # get '/logout' do
+  #   session[:current_user] = nil
 
-    redirect '/'
-  end
+  #   redirect '/'
+  # end
 end

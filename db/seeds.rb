@@ -16,3 +16,4 @@ users = [
 ]
 
 users.each { |user| User.create(user) }
+Peep.create({ body: 'Hello world', user_id: 1 })

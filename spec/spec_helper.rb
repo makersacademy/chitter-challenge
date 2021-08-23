@@ -3,11 +3,11 @@ require 'sinatra'
 require 'capybara'
 require 'capybara/rspec'
 require 'require_all'
-
-ENV['RACK_ENV'] = 'test'
-
 require 'simplecov'
 require 'simplecov-console'
+require 'web_helpers'
+
+ENV['RACK_ENV'] = 'test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
