@@ -1,0 +1,1 @@
+REATE TABLE bookmarks( id SERIAL PRIMARY KEY, peeps VARCHAR(120) );
