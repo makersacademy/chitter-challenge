@@ -1,11 +1,11 @@
-require_relative '../../lib/twitter_clone.rb'
+require_relative '../../lib/tweet'
 
 describe Tweet do
-  let (:tweets) { Tweet.all }
+  let(:tweets) { Tweet.all }
 
   describe '#initialize' do
     it 'should initialize with two attributes' do
-      tweet = Tweet.new(id: 1, tweet: 'example')
+      tweet = Tweet.new(id: 1, tweet: 'example', time: nil, date: nil)
       expect(tweet).to have_attributes(id: 1, tweet: 'example')
     end
   end
@@ -21,7 +21,7 @@ describe Tweet do
 
   describe '#self.post' do
     it 'should post tweet' do
-      tweet = Tweet.post(tweet: 'example')
+      Tweet.post(tweet: 'example')
       expect(tweets[0].id).to eq '1'
       expect(tweets[0].tweet).to eq 'example'
     end

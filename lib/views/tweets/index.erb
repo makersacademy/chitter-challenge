@@ -1,12 +1,12 @@
-<ul>
-<% @tweets.each do |tweet| %>
-  <li>
+<table>
+<% @tweets.reverse.each do |tweet| %>
+  <tr>
     <%= tweet.tweet %>
+    <%= tweet.time %> <%= tweet.date %>
     <br>
-    <%= tweet.time %><%= tweet.date %>
-  </li>
+  </tr>
   <%end%>
-</ul>
+</table>
   <br>
   <form action='/tweets' method='POST'>
   <label for='tweet'>Tweet: </label>

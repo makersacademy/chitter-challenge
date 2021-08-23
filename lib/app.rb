@@ -1,14 +1,12 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative 'twitter_clone'
+require_relative 'tweet'
 
 class TwitterClone < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-
-  # enable :method_override
 
   get '/' do
     redirect '/tweets'
@@ -20,15 +18,7 @@ class TwitterClone < Sinatra::Base
   end
 
   post '/tweets' do
-    Twitter.post(tweet: params[:tweet])
-    redirect '/tweets'
-  end
-
-  delete '/tweets' do
-    redirect '/tweets'
-  end
-
-  put '/tweets' do
+    Tweet.post(tweet: params[:tweet])
     redirect '/tweets'
   end
   
