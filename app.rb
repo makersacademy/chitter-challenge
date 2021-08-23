@@ -30,7 +30,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    erb :feed
+    #if @user == nil
+     # redirect '/not_signed_in'
+    #else
+      erb :feed
+    #end
+  end
+
+  get '/not_signed_in' do
+    erb :sign_in
   end
   
   post '/peep' do
@@ -39,7 +47,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
-    if User.fetch(params[:email], params[:password]) == nil
+    @user = User.fetch(params[:email], params[:password])
+    if @user == nil
       redirect '/invalid_user'
     else
       redirect '/feed'

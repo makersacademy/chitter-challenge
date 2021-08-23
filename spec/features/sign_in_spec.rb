@@ -5,11 +5,11 @@ feature 'user sign in' do
   end
 
   scenario 'user attempts to log in' do
-    visit '/'
+    visit '/not_signed_in'
     fill_in('email', with: 'tom@gmail.com')
     fill_in('password', with: 'tom2000')
     click_button('Sign In')
-    #expect(page).to have_content('Welcome back Tom!')
+    expect(page).to have_content('Welcome back Tom!')
   end
 
   scenario 'an invalid email is given' do

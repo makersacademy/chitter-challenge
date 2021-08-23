@@ -23,18 +23,17 @@ class User
       @user = User.new(name, email, username, password)
   end
 
-  def self.fetch(username, password)
+  def self.fetch(email, password)
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test')
     else
       @connection = PG.connect(dbname: 'chitter')
     end
-      @results = @connection.exec( "SELECT * FROM users WHERE username = '#{username}' AND password = '#{password}'" )
+      @results = @connection.exec( "SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}'" )
       if @results.values.empty?
         return nil
       else
-        @user = User.new(@results.values[1], @results.values[2], @results.values[3], @results.values[4])
-        return @user
+        User.new(@results.values[0][3], @results.values[0][1], @results.values[0][4], @results.values[0][2])
       end
   end
 
