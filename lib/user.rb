@@ -33,7 +33,7 @@ class User
       if @results.values.empty?
         return nil
       else
-        User.new(@results.values[0][3], @results.values[0][1], @results.values[0][4], @results.values[0][2])
+        @user = User.new(@results.values[0][3], @results.values[0][1], @results.values[0][4], @results.values[0][2])
       end
   end
 

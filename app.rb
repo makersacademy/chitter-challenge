@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/registration' do
-    @user = User.create(params[:name], params[:email], params[:username], params[:password])
+    User.create(params[:name], params[:email], params[:username], params[:password])
     redirect '/registration'
   end
 
@@ -30,11 +30,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    #if @user == nil
-     # redirect '/not_signed_in'
-    #else
+    if @user == nil
+      redirect '/not_signed_in'
+    else
       erb :feed
-    #end
+    end
   end
 
   get '/not_signed_in' do
