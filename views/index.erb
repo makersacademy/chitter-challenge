@@ -1,6 +1,9 @@
 <h1>Chitter Chit Chat</h1>
 
-<form action="/new_peep" method="POST">
+<form action="/new_peep" >
 <input type="submit" value="post peep" />
 </form>
+
+<br>
+<h2> <%= @peeps.each { |peep| puts peep }%> </h2>
 
