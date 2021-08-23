@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
 
   post '/signin_exec' do
     session[:signed_in] = false
-
+    session[:signed_in] = true unless User.get(params[:username].to_sym, params[:password].to_sym).nil?
     redirect('/') if session[:signed_in] == true
     redirect('/signin?error=User and password do not match')
   end

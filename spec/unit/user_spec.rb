@@ -1,5 +1,6 @@
 require "./lib/user.rb"
 require "./spec/web_helper.rb"
+require 'digest/sha1'
 
 describe User do 
   user_hash = { email: "john_doe@yahoo.com", 
@@ -19,7 +20,7 @@ describe User do
     test_connect_and_clean_table(:users)
     described_class.add(user_hash)
     created_row = described_class.get(:johndoe, :running123)
-    expect(created_row.first[:name]).to eq("John Doe")
+    expect(created_row.first[:username]).to eq("johndoe".hash_1)
   end
 
 end

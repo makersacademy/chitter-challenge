@@ -1,6 +1,7 @@
 require './lib/db/connect.rb'
 require './lib/string.rb'
 require 'uri'
+require 'digest/sha1'
 
 class User
 
@@ -27,30 +28,31 @@ class User
 
   def self.check_key_value_return(value = :NULL, key = :NULL)
     return if key.to_s.clean_key.downcase == "submit"
-    value = value.to_s.hash_1 if key == :password || key == :user_name
+    value = value.to_s.hash_1 if key.to_s.clean_key.downcase == "password" || key.to_s.clean_key.downcase == "username"
     @query_values << value.to_s.clean_value if not_an_email_address(key, value)
     @query_keys << key.to_s.clean_key
   end
 
   def self.add(table_column_values_hash = {})
     return nil if table_column_values_hash.empty?
-    keys_and_values
-    table_column_values_hash.each { |key, value| check_key_value_return(value, key) }
+    [keys_and_values, table_column_values_hash.each { |key, value| check_key_value_return(value, key) }]
     return nil if @query_keys.count != @query_values.count
-    query("INSERT INTO users (#{@query_keys.join(",")}) VALUES (#{@query_values.join(",")}) RETURNING id").to_a
+    users_return = query("INSERT INTO users (#{@query_keys.join(",")}) VALUES (#{@query_values.join(",")}) RETURNING id").to_a
+    (users_return.nil? || (users_return.count != 1)) ? nil : users_return
   end
 
   def self.find(user_name)
-    [keys_and_values, check_key_value_return(user_name)]
+    [keys_and_values, check_key_value_return(user_name, :username)]
     users_return = query("SELECT * FROM users WHERE username = #{@query_values.first}").to_a
     users_return.map{ |pair| pair.transform_keys(&:to_sym) }
   end
 
   def self.get(user_name, password)
-    [keys_and_values, check_key_value_return(user_name)]
+    [keys_and_values, check_key_value_return(user_name, :username)]
     password = password.to_s.hash_1.clean_value
-    users_return = query("SELECT * FROM users WHERE username = #{@query_values.last} AND password = #{password}").to_a
-    users_return.map{ |pair| pair.transform_keys(&:to_sym) }
+    users_return = query("SELECT id, username FROM users WHERE username = #{@query_values.last} AND password = #{password}").to_a
+    users_return.map!{ |pair| pair.transform_keys(&:to_sym) }
+    (users_return.nil? || (users_return.count != 1)) ? nil : users_return
   end
 
   def self.delete(user_name)

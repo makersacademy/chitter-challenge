@@ -59,7 +59,7 @@
     </div>
     <section class="keep-center" name="Login">
       <a class="button left logo" href="/">Chitter</a>
-      <a class="button blue round" href="/peep">Peep</a>
+      <a class="button blue round" href="/peep" style="visibility:<%= "hidden" if @signed_in !=true %>">Peep</a>
       <% if @signed_in !=true %>
         <a class="button right" href="/signin">Sign in</a>
       <% else %>
