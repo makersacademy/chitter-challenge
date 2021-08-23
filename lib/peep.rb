@@ -27,18 +27,18 @@ class Peep
   end
 
   # create method to updated to to take 'maker' argument
-  def self.create(peep)
+  def self.create(peep, maker=nil)
     if ENV['RACK_ENV'] == 'test'
       con = PG.connect :dbname => 'chitter_test'
     else
       con = PG.connect :dbname => 'chitter'
     end
-    rs = con.exec("INSERT INTO peeps (peep) VALUES ($1) RETURNING id, peep, maker;", [peep])
+    rs = con.exec("INSERT INTO peeps (peep, maker) VALUES ($1, $2) RETURNING id, peep, maker;", [peep, maker])
 
     # rs = DatabaseConnection.query("INSERT INTO peeps (peep) 
     # VALUES ($1) RETURNING id, peep;", [peep])
-
-    Peep.new(id: rs[0]['id'], peep: rs[0]['peep'], maker: 1, created_at: rs[0]['created_at'])
+    
+    Peep.new(id: rs[0]['id'], peep: rs[0]['peep'], maker: rs[0]['maker'], created_at: rs[0]['created_at'])
   end
 
   def comments

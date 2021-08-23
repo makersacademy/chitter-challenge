@@ -19,8 +19,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    # create method to updated to to take 'maker' argument
-    Peep.create(params[:peep])
+    user_id = User.find(session[:user_id]).id unless session[:user_id].nil?
+    Peep.create(params[:peep], user_id)
     redirect '/'
   end
 

@@ -11,10 +11,6 @@
   <input type='submit' value="Login" />
 </form>
 <% end %>
-
-
-
-
 <form action='/peep' method='post'>
   <input type='text' name='peep'>
   <input type='submit' value='Peep'>
@@ -25,6 +21,7 @@
     <div class="peep">
       <li><%= peep.peep %>  </li>
       <li><%= peep.created_at%> </li>
+      <b><%= User.find(peep.maker).username unless peep.maker.nil? %></b>
       <ul>
         <% peep.comments.each do |comment| %>
           <li><%= comment['comment'] %></li>
