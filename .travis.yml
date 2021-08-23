@@ -5,8 +5,8 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, post_time TIME, message VARCHAR(140), username VARCHAR(50));'
-  - psql -U postgres -c 'CREATE TABLE users(email VARCHAR(50) PRIMARY KEY, user_name VARCHAR(50) UNIQUE, password VARCHAR(50), name VARCHAR(50));'
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, post_time TIME, message VARCHAR(140), username VARCHAR(50));'
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE users(email VARCHAR(50) PRIMARY KEY, user_name VARCHAR(50) UNIQUE, password VARCHAR(50), name VARCHAR(50));'
 
 script:
   - bundle exec rspec
