@@ -1,0 +1,25 @@
+<html>
+<head>
+<style>
+#myHeader {
+  background-color: #cce6ff;
+  color: black;
+  padding: 40px;
+  text-align: center;
+
+h1 {text-align: center;}
+p {text-align: center;}
+</style>
+</head>
+<body>
+<h1 id="myHeader">Peeps Timeline</h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <p>
+    <li><%= peep %></li>
+    <% end %>
+  </ul>
+
+  </body>
+</html>
