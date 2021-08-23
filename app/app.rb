@@ -63,7 +63,6 @@ class Chitter < Sinatra::Base
   post '/peep_exec' do
     peep = nil
     params[:foreign_key_username] = session[:username].clean_key.to_s if session[:signed_in] == true
-    p params[:foreign_key_username]
     peep = Peep.add(params) if session[:signed_in] == true
     redirect('/') unless (session[:signed_in] == false) || peep.nil?
     redirect('/peep?error=You need to Sign in first')
