@@ -28,7 +28,7 @@
       <ul>
         <% peep.comments.each do |comment| %>
           <li><%= comment['comment'] %></li>
-          <li><b><%= comment['maker'] %></b></li>
+          <li><b><%= User.find(comment['maker']).username %></b></li>
         <% end %>
       </ul>
       <% if @user %>
