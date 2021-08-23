@@ -8,12 +8,12 @@ class PeepsManager < Sinatra::Base
   end
 
   get '/' do
-    'Peeps'
+    erb :'peeps/index'
   end
 
   get '/peeps' do
     @peeps = Peeps.all
-    erb :'peeps/index'
+    erb :'peeps/add'
   end
 
   get '/peeps/new' do
@@ -26,6 +26,6 @@ class PeepsManager < Sinatra::Base
     #connection.exec("INSERT INTO peeps (peeps) VALUES('#{peeps}')")
     redirect '/peeps'
   end
-  
+
   run! if app_file == $0
 end

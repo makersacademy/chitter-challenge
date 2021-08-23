@@ -1,5 +1,4 @@
 require 'pg'
-
 feature 'Viewing peeps' do
   scenario 'visiting the index page' do
     visit ('/')
