@@ -3,13 +3,14 @@ class Comment
   attr_reader :id, :comment, :peep, :maker
 
   def self.create(comment:, peep:, maker:)
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       con = PG.connect :dbname => 'chitter_test'
     else
       con = PG.connect :dbname => 'chitter'
     end
     result = con.exec(
-      "INSERT INTO comments (comment, peep, maker) VALUES ($1, $2, $3) RETURNING id, comment, peep, maker;",
+      "INSERT INTO comments (comment, peep, maker) VALUES ($1, $2, $3) 
+      RETURNING id, comment, peep, maker;",
       [comment, peep, maker]
     )
     Comment.new(

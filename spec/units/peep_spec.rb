@@ -8,8 +8,6 @@ describe Peep do
 
       expect(Peep.all.length).to eq 1
     end
-
-
   end
 
   describe "#self.add" do
@@ -24,7 +22,7 @@ describe Peep do
     it 'returns a list of comments on the bookmark' do
       new_peep = Peep.create('hello this is a practice peep')
       peep_id = new_peep.id
-      if ENV['RACK_ENV'] = 'test'
+      if ENV['RACK_ENV'] == 'test'
         con = PG.connect :dbname => 'chitter_test'
       else
         con = PG.connect :dbname => 'chitter'

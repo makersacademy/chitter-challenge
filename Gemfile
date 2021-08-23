@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'pg'
 gem 'bcrypt'
+gem 'pg'
 
 group :development, :test do
   gem 'capybara'

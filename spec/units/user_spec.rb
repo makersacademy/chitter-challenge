@@ -18,7 +18,6 @@ describe User do
   end
 
   describe '.find' do
-
     it 'returns nil if there is no ID given' do
       expect(User.find(nil)).to eq nil
     end
