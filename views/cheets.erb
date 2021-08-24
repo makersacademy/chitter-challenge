@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<% @cheets.reverse.each do |hash| %>
+  <p><h1> <%= hash[0] %> </h1> </p>
+  <p> <%= "Date: #{hash[1]}" %> <%= "Time: #{hash[2]}" %> </p>
+<% end %>
+<form method="get" action="/">
+      <input type="submit" value="Return to home"/>
+</form>
+</body>
