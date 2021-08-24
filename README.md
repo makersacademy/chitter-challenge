@@ -44,21 +44,6 @@ To setup the databases for production and testing, also run:
 * psql \i <then the FULL PATH to the two files found in db/migrations>
    
 
-2.5. ### Creating the databases
-
-  * Connect to psql
-
-  * Create the databases using the psql command: "CREATE DATABASE chitter;"
-
-  * Connect to the production database using the pqsl command: "\c chitter;"
-
-  * Create the cheets table using the psql command: "CREATE TABLE cheets(id SERIAL PRIMARY KEY, posts VARCHAR(60), date VARCHAR(10), time VARCHAR(5));"
-
-  * Create the users table using the psql command: "CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60));"
-
-  * Repeat steps 1-5 and name this database "chitter_test" (This will be our testing database) 
-  
-
 3. ### Testing 
 
   * run the command 'rackup' to start the server 
