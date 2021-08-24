@@ -34,15 +34,17 @@ Setup:
 To implement this app you will need to install two databases on your computer. To do this follow these steps: 
 
 1. ### Install gems 
-  
-   * Discuss missing steps in code review ( Not sure about this ) 
    
-   * Run bundle install 
+   * Run bundle install inside project directory
    
-   * Use ruby version 3.0.0 
+2. ### Creating the databases
+
+To setup the databases for production and testing, also run:
+
+* psql \i <then the FULL PATH to the two files found in db/migrations>
    
 
-2. ### Creating the databases
+2.5. ### Creating the databases
 
   * Connect to psql
 
