@@ -3,6 +3,8 @@ require 'bcrypt'
 
 describe User do
   let (:user) { described_class.create(email: 'test@example.com', password: 'password123', name: 'testname', username: 'username') }
+  let (:result) { described_class.find(user.id) }
+  authenticated_user = described_class.authenticate(email: 'test@example.com', password: 'password123')
   describe '.create' do
     it 'creates a new user' do
       expect(user.id).not_to eq nil
@@ -23,7 +25,6 @@ describe User do
     end
 
     it 'finds a user by ID' do
-      result = described_class.find(user.id)
       expect(result.email).to eq user.email
       expect(result.id).to eq user.id
       expect(result.password).to eq user.password
@@ -32,8 +33,6 @@ describe User do
 
   describe '.authenticate' do
     it 'returns a user given a correct username and password, if one exists' do
-      user = described_class.create(email: 'test@example.com', password: 'password123', name: 'testname', username: 'username')
-      authenticated_user = described_class.authenticate(email: 'test@example.com', password: 'password123')
       expect(authenticated_user.id).to eq user.id
     end
 
