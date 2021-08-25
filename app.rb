@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] ||= 'development'
+# ENV['RACK_ENV'] ||= 'development'
 require_relative './lib/peep'
 require_relative './lib/user'
 require_relative './lib/comment'
@@ -13,38 +13,38 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
+  get '/peeps' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :index
   end
 
-  post '/peep' do
+  post '/peeps' do
     user_id = User.find(session[:user_id]).id unless session[:user_id].nil?
     Peep.create(params[:peep], user_id)
-    redirect '/'
+    redirect '/peeps'
   end
 
   get '/users/new' do
     erb :"users/new"
   end
 
-  post '/users' do
+  post '/users/new' do
     user = User.create(email: params[:email], password: params[:password], 
     name: params[:name], username: params[:username])
     session[:user_id] = user.id
-    redirect '/'
+    redirect '/peeps'
   end
 
   get '/sessions/new' do
     erb :"sessions/new"
   end
 
-  post '/sessions' do
+  post '/sessions/new' do
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect('/')
+      redirect('/peeps')
     else
       redirect('/sessions/new')
     end    
@@ -53,7 +53,7 @@ class Chitter < Sinatra::Base
   post '/sessions/destroy' do
     session.clear
     # flash[:notice] = 'You have signed out'
-    redirect('/')
+    redirect('/peeps')
   end
 
   get '/peeps/:id/comments/new' do
@@ -61,9 +61,9 @@ class Chitter < Sinatra::Base
     erb :"comments/new"
   end
 
-  post '/peeps/:id/comments' do
+  post '/peeps/:id/comments/new' do
     Comment.create(comment: params[:comment], peep: params[:id], maker: session[:user_id])
-    redirect '/'
+    redirect '/peeps'
   end
 
   run! if app_file == $0

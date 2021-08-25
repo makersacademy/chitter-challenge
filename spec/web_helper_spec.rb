@@ -9,7 +9,7 @@ end
 
 def sign_in
   User.create(email: 'test@test.com', password: 'password123', name: 'testname', username: 'username')
-  visit '/'
+  visit '/peeps'
   click_button('Login')
   fill_in('email', with: 'test@test.com')
   fill_in('password', with: 'password123')
