@@ -1,10 +1,15 @@
 Chitter Challenge
 =================
 
-[description]
+[demo]
 
-
-WIP README:
+Chitter is a fullstack web app built solo to emulate the functionality of Twitter. Users can: 
+- [ ] Create an account
+- [ ] Sign in
+- [ ] Post a peep
+- [ ] Delete their peeps
+- [ ] View other users' peeps in a reverse chronoligical timeline
+- [ ] Sign out
 
 ## User Stories
 ```
@@ -29,14 +34,14 @@ I want to sign up for Chitter
 'image'
 
 ## How to use
-### To set up the project
+### Set up the project
 ```
 git clone git@github.com:fwill22/chitter-challenge.git
 
 bundle
 ```
 
-### To set up the database
+### Set up the database
 
 Connect to `psql` and create the `chitter` and `test_chitter` databases:
 
@@ -47,7 +52,7 @@ CREATE DATABASE test_chitter;
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-### To run the Bookmark Manager app:
+### Run the app:
 
 ```
 rackup
@@ -59,12 +64,12 @@ ruby app.rb
 
 To view peeps, navigate to `localhost:9292/peeps/timeline`
 
-### To run tests:
+### Run tests:
 
 ```
 rspec
 ```
-### To run linting:
+### Run linting:
 ```
 rubocop
 ```
@@ -88,9 +93,10 @@ If running from ruby app.rb
 `localhost:4567/peeps/new`
 (note that links between domains won't work on this host)
 
-## Technologies Used:
+## Tech Stack:
 * Ruby
 * HTML
+* CSS
 * PostgreSQL database
 * Sinatra web framework
 * RSpec/Capybara
