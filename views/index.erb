@@ -1,0 +1,38 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+<% else %>
+  <form action="/users/new" method="get">
+    <input type='submit' value="Sign up" />
+  </form>
+  <form action="/sessions/new" method="get">
+  <input type='submit' value="Login" />
+</form>
+<% end %>
+<form action='/peeps' method='post'>
+  <input type='text' name='peep'>
+  <input type='submit' value='Peep'>
+</form>
+
+<section>
+  <% @peeps.each do |peep| %>
+    <div class="peep">
+      <li><%= peep.peep %>  </li>
+      <li><%= peep.created_at%> </li>
+      <b><%= User.find(peep.maker).username unless peep.maker.nil? %></b>
+      <ul>
+        <% peep.comments.each do |comment| %>
+          <li><%= comment['comment'] %></li>
+          <li><b><%= User.find(comment['maker']).username %></b></li>
+        <% end %>
+      </ul>
+      <% if @user %>
+        <form action="/peeps/<%= peep.id %>/comments/new" method="get">
+          <input type="submit" value="Add comment">
+        </form>
+      <% end %>
+    </div>
+  <% end %>
+</section>
