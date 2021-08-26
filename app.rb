@@ -7,10 +7,11 @@ require 'sinatra/reloader'
 require_relative './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
-  enable :sessions, :method_override
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
   end
+  enable :sessions, :method_override
 
   get '/peeps' do
     @user = User.find(session[:user_id])
@@ -45,6 +46,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect('/peeps')
     else
+      flash[:notice] = 'You have entered incorrect details'
       redirect('/sessions/new')
     end    
   end

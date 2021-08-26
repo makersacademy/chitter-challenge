@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'pg'
-gem "sinatra-flash", "~> 0.3.0"
+gem "sinatra-flash"
 
 group :development, :test do
   gem 'capybara'

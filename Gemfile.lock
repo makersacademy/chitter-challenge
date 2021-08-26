@@ -103,7 +103,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-contrib
-  sinatra-flash (~> 0.3.0)
+  sinatra-flash
 
 BUNDLED WITH
    2.2.25
