@@ -9,7 +9,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 # Set the environment to "test"
-ENV['ENVIRONMENT'] = 'test'
+ENV['SINATRA_ENV'] = 'test'
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')

@@ -1,5 +1,8 @@
-require_relative './lib/peep'
+require './config/environment'
+require './lib/user'
+# require_relative './lib/peep'
 require 'sinatra/base'
+require 'sinatra'
 require 'sinatra/reloader'
 
 class Zwitscher < Sinatra::Base
@@ -9,18 +12,17 @@ class Zwitscher < Sinatra::Base
   end
 
   get '/' do
+    @users = User.all
     erb :'zwitscher/index'
   end
 
-  post '/peep' do
-    Peep.create(time: '12:11', message: params[:peep])
-    redirect '/zwitscher/read'
-  end
+  # post '/peep' do
+  #   redirect '/zwitscher/read'
+  # end
 
-  get '/zwitscher/read' do
-    @peeps = Peep.all
-    erb :'zwitscher/read_peeps'
-  end
+  # get '/zwitscher/read' do
+  #   erb :'zwitscher/read_peeps'
+  # end
 
   run! if app_file == $0
 end

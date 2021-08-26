@@ -6,9 +6,13 @@
   </head>
   <body>
     <section id='box'>
-      <form action='/peep' method='post'>
-        <input type='text' id='post_peep' placeholder='Text' name='peep'><br>
+      <form action='/' method='get'>
+        <%# <input type='text' id='post_peep' placeholder='Text' name='peep'><br> %>
         <input type='submit' name='post_peep' value='Peep'>
+    
+        <br><% @users.each do |user| %>
+          <li><%= user.username %></li>
+        <% end %>
       </form>
     </section>
   </body>
