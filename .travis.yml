@@ -5,9 +5,6 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -d 'chitter_test' -f ./db/migrations/01_create_peeps_table.sql
-  - psql -U postgres -d 'chitter_test' -f ./db/migrations/02_create_users_table.sql
-  - psql -U postgres -d 'chitter_test' -f ./db/migrations/03_create_comments_table.sql
-
-script:
-  - bundle exec rspec
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(200), maker integer REFERENCES users(id) );'
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(200), password VARCHAR(200), name VARCHAR(200), username VARCHAR(200));'
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE comments(id SERIAL PRIMARY KEY, comment VARCHAR(200), peep integer REFERENCES peeps(id), maker integer REFERENCES users(id));'
