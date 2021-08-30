@@ -6,7 +6,7 @@ services:
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
   - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(200), password VARCHAR(200), name VARCHAR(200), username VARCHAR(200));'
-  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(200), maker integer REFERENCES users(id) );'
+  - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(200), created_at TIMESTAMP, maker integer REFERENCES users(id) );'
   - psql --dbname=chitter_test -U postgres -c 'ALTER TABLE peeps ALTER COLUMN created_at SET DEFAULT now();'
   - psql --dbname=chitter_test -U postgres -c 'CREATE TABLE comments(id SERIAL PRIMARY KEY, comment VARCHAR(200), peep integer REFERENCES peeps(id), maker integer REFERENCES users(id));'
 
