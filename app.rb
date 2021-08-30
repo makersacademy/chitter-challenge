@@ -7,9 +7,9 @@ require 'sinatra/reloader'
 require_relative './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   configure :development do
     register Sinatra::Reloader
-    register Sinatra::Flash
   end
   enable :sessions, :method_override
 
