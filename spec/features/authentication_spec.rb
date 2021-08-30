@@ -7,16 +7,15 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    sign_in
+    sign_in_with_incorrect_email
     expect(page).not_to have_content 'Welcome, username' 
-    expect(page).to have_content 'Please check your email or password'
+    expect(page).to have_content 'You have entered incorrect details'
   end
 
   scenario 'a user sees an error if they get their password wrong' do
-    User.create(email: 'test@test.com', password: 'password123', name: 'testname', username: 'username')
-    sign_in
+    sign_in_with_incorrect_password
     expect(page).not_to have_content 'Welcome, username' 
-    expect(page).to have_content 'Please check your email or password'
+    expect(page).to have_content 'You have entered incorrect details'
   end
 
   scenario 'a user can sign out' do
