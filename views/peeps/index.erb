@@ -11,7 +11,7 @@
 <h2 style="color:blue;">Latest peeps: </h2>
 
 <ol>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 <ol>
