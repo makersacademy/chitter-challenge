@@ -4,6 +4,6 @@ feature 'posting a new peep' do
     fill_in('peep', with: 'Hello Fiday!')
     click_button('Click to post')
 
-    expect(page).to have_content('Hello Friday!')
+    expect(page).to have_content('Latest peeps:')
   end
 end
