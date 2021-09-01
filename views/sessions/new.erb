@@ -24,7 +24,9 @@ div {
 
 
 <center>
-<h2 style="color:blue;">Please log in:</h2>
+<h2 style="color:blue;">Please log in:
+  <%= flash[:notice] %>
+</h2>
 
 
 <form action="/sessions" method="post">
