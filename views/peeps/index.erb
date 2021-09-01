@@ -5,6 +5,9 @@
 
 <% if @user %>
   <h2 style="color:blue;">Welcome, <%= @user.email %></h2>
+  <form action="/sessions/destroy" method="post">
+    <button type="submit" class="btn btn-lg submit" value="Sign out">Sign out</button>
+  </form>
 <% end %>
 
 
