@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/ashtroboy79/chitter-challenge.svg?branch=main)](https://app.travis-ci.com/ashtroboy79/chitter-challenge)
+
 This is the my attempt at the week 4 weekend challenge, which involves writing a very basic Twitter clone, in Ruby and and the 'pg' (postgres sql) gem. A number of other gems were also used, 'sinatra' and 'sinatra-reloader', as well as webrick as I was using ruby 3.0.2, this is contrary to what is in the .ruby-version as rubocop does not support 3.0 
 ```(Error: RuboCop found unknown Ruby version 3.0 in .` ruby-version.` Supported versions: 2.3, 2.4, 2.5, 2.6, 2.7) ```
 
