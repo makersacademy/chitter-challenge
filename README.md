@@ -48,6 +48,7 @@ My first steps were to extract the verbs and nouns from the user story, then dia
 I started with the following -
 
 
+
 Class 
 Chitter -
 setup_user
@@ -60,7 +61,6 @@ User -
 Initialize
 @ID
 @Email
-
 
 Peep
 @ID
@@ -85,7 +85,7 @@ Code Review
 -----------
 
 * All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
+* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
 * The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Automated Tests:

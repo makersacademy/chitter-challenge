@@ -1,17 +1,8 @@
 source 'https://rubygems.org'
 
-gem "sinatra-flash"
-gem 'pg'
-gem 'sinatra'
-gem 'capybara', group: :test
-gem 'rspec', group: :test
-gem 'bcrypt'
-
-
 group :test do
   gem "sinatra-contrib"
   gem 'rspec'
-  gem 'rubocop', '0.79.0'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'launchy'
@@ -19,4 +10,8 @@ group :test do
   gem 'pry', '~> 0.13.1'
   gem 'rexml'
   gem "webrick", "~> 1.7"
+end
+
+group :development, :test do
+  gem 'rubocop', '1.20'
 end
