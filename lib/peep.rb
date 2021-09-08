@@ -34,7 +34,7 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, created_at;")
+    result = connection.exec_params("INSERT INTO peeps (peep) VALUES($1) RETURNING id, peep, created_at;", [peep])
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], time_date: result[0]['created_at'])
   end
 end
