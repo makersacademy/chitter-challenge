@@ -70,7 +70,7 @@ GEM
     backports (3.21.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
-    bootsnap (1.7.2)
+    bootsnap (1.7.7)
       msgpack (~> 1.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -300,7 +300,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations (= 0.9.4)
   bcrypt (= 3.1.13)
-  bootsnap (= 1.7.2)
+  bootsnap (= 1.7.7)
   bootstrap-sass (= 3.4.1)
   bootstrap-will_paginate (= 1.0.0)
   byebug (= 11.1.3)
