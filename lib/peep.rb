@@ -24,7 +24,8 @@ class Peep
   end
 
   def self.create(peep:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES($1) RETURNING id, peep, created_at;", [peep])
+    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES($1) 
+    RETURNING id, peep, created_at;", [peep])
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], time_date: result[0]['created_at'])
   end
 end

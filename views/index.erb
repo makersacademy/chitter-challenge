@@ -1,5 +1,21 @@
-<ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li><%= peep.peep %> : <%= peep.time %> </li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="public/css/styles.css">
+  <title>Chitter</title>
+</head>
+<body>
+  <header>Chitter</header>
+  <div>
+    <h1>Welcome!</h1>
+  <form action="/user/new">
+  <input type="submit" value="Sign Up" class="signup_button">
+  </form>
+</body>
+</html>
+
+
+

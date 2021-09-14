@@ -2,3 +2,9 @@
   <input type="text" name="peep" placeholder="Enter peep" />
   <input type="submit" value="Submit" />
 </form>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep.peep %> : <%= peep.time %> </li>
+  <% end %>
+</ul>
