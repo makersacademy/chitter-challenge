@@ -1,0 +1,37 @@
+INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samp_email@gmail.com','David','davo','123456','14/09/2021 15:16');
+INSERT INTO students (email,student_name,username,password,created_on) VALUES ('sa_email@gmail.com','Sam','Sambo','123456','14/09/2021 15:16');
+INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samp_ema@gmail.com','John','johnny','123456','14/09/2021 15:16');
+INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samail@gmail.com','Richmond','richo','123456','14/09/2021 15:16');
+
+SELECT * FROM students;
+
+\l ##See a list of databases
+\dt ##See a list of Tables in the database after you have connected
+
+
+DROP TABLE students;
+
+CREATE TABLE students (
+	user_id serial PRIMARY KEY,
+    student_name VARCHAR ( 50 ),
+	username VARCHAR ( 50 ) UNIQUE NOT NULL,
+	password VARCHAR ( 50 ) NOT NULL,
+	email VARCHAR ( 255 ) UNIQUE NOT NULL,
+	created_on TIMESTAMP NOT NULL,
+        last_login TIMESTAMP 
+);
+
+CREATE DATABASE "chitter_machine_test";
+\c chitter_machine_test;
+DELETE * FROM students;
+
+SELECT
+    pg_terminate_backend (pid)
+FROM
+    pg_stat_activity
+WHERE
+    datname = 'students_test';
+
+ALTER DATABASE students_test RENAME TO chitter_machine_test;
+
+TRUNCATE students;

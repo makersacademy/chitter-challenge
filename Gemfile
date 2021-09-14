@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '3.0.2'
+#ruby '3.0.2'
+ruby '2.7.3'
+
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem "pg"    # for Postgres
+gem "rake"  # so we can run Rake tasks
+gem "sinatra-activerecord"    # for Active Record models
+gem 'rexml'
+
 
 group :test do
   gem 'rspec'
