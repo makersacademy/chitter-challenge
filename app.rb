@@ -14,7 +14,8 @@ class ChitterMessage < Sinatra::Base
 
   get '/students' do
     @students = Student.all
-    erb(:students)
+    #"Stuck right about here...."
+    erb :students
   end
 
   run! if app_file == $0
