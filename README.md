@@ -1,8 +1,8 @@
 Chitter Challenge
 =================
-Makers Week 4 Solo Weekend Challenge - build a Twitter Clone
+Makers Week 4 Solo Weekend Challenge - build a Twitter Clone!
 
-Features:
+User Stories:
 -------
 
 ```
@@ -40,6 +40,9 @@ I want to log out of Chitter
   * RSpec (unit testing)
   * Capybara (feature testing)
   * Sinatra & Rack 
+
+## Screenshot
+![Screenshot 2021-09-14 at 19 10 47](https://user-images.githubusercontent.com/79845719/133311326-ec1ebe60-d7a4-4b93-b446-0368b6900962.png)
 
 ## Installation
 
