@@ -11,7 +11,7 @@ class ChitterMessage < Sinatra::Base
   end
 
   get '/' do
-    ##sign in
+    ##login or sign up
     erb :index
   end
 
@@ -38,13 +38,15 @@ class ChitterMessage < Sinatra::Base
 
     p "----#{user}-----"
 
-    #session[:user_id] = user.id
+    session[:user_id] = user.last
+
+    p "----#{session[:user_id]}-----"
     redirect('/student/home')    
     
   end
 
   get '/student/home' do
-    ####get all the students peeps###
+    ####get all the students peepsor make a nice splace page list###
     @students = Student.all
     erb :students
   end 
