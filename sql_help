@@ -17,7 +17,7 @@ CREATE TABLE students (
 	username VARCHAR ( 50 ) UNIQUE NOT NULL,
 	password VARCHAR ( 50 ) NOT NULL,
 	email VARCHAR ( 255 ) UNIQUE NOT NULL,
-	created_on TIMESTAMP NOT NULL,
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         last_login TIMESTAMP 
 );
 
@@ -35,3 +35,18 @@ WHERE
 ALTER DATABASE students_test RENAME TO chitter_machine_test;
 
 TRUNCATE students;
+
+CREATE TABLE chitter (
+	chitter_id INT GENERATED ALWAYS AS IDENTITY,
+    user_id INT,
+    chitter_message VARCHAR(255) NOT NULL,
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(chitter_id),
+    CONSTRAINT fk_user_id
+      FOREIGN KEY(user_id) 
+	  REFERENCES students(user_id)
+);
+
+INSERT INTO chitter (user_id,chitter_message) VALUES ('54','This is a test');
+
+created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP

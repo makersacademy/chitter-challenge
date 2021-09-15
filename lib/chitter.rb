@@ -1,19 +1,23 @@
-class ChitterMessage
+require 'pg'
 
-    attr_reader :options
+class ChitterApp
+  
+  def self.create(chitter)
+    # if ENV['ENVIRONMENT'] == 'test'
+    #     connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+    # else
+    #     connection = PG.connect(dbname: 'chitter_machine', user: 'postgres', password: 'password')
+    # end
+    
+    p "----do I get here----"
 
-    def initialize(username,message)
-        @username = username
-        @message = message
-    end
+    connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+    connection.exec("INSERT INTO chitter (user_id,chitter_message) VALUES ('54','#{chitter}');")    
+  end
 
-    def create_peep
-        @message = message
-    end
+  def self.all
+    connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+    result = connection.exec('SELECT * FROM chitter')
+  end
 
-    def generate_timestamp
-        time = Time.new
-        @timestamp = time.strftime("%d/%m/%Y %k:%M")
-    end
-
-  end 
+end
