@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'database_connection'
 
 class ChitterApp
   
@@ -8,10 +9,11 @@ class ChitterApp
     # else
     #     connection = PG.connect(dbname: 'chitter_machine', user: 'postgres', password: 'password')
     # end
+    connection = DatabaseConnection.setup('chitter_machine_test')
     
     p "----do I get here----"
 
-    connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+    #connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
     connection.exec("INSERT INTO chitter (user_id,chitter_message) VALUES ('54','#{chitter}');")    
   end
 

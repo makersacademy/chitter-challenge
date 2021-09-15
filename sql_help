@@ -35,6 +35,7 @@ WHERE
 ALTER DATABASE students_test RENAME TO chitter_machine_test;
 
 TRUNCATE students;
+TRUNCATE chitter;
 
 CREATE TABLE chitter (
 	chitter_id INT GENERATED ALWAYS AS IDENTITY,
