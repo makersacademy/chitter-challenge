@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Page Title</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
+
+
+/* Header/Logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -127,7 +139,10 @@ span.psw {
 </head>
 <body>
 
-<h2>Welcome to Chitter!</h2>
+<div class="header">
+  <h1>Chitter</h1>
+  <p>Welcome!</p>
+</div>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Create Account</button>

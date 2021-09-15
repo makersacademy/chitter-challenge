@@ -48,7 +48,7 @@ class ChitterMessage < Sinatra::Base
   get '/student/home' do
     ####get all the students peepsor make a nice splace page list###
     @students = Student.all
-    erb :students
+    erb :student_home
   end 
 
   get '/chitter' do
