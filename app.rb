@@ -36,13 +36,13 @@ class ChitterMessage < Sinatra::Base
       username: params[:username]
     )
 
-    p "----#{user}-----"
+    p "----#{user[0]}-----"
 
-    session[:user_id] = user.last
+    session[:user_id] = user[0].to_i
+    session[:username] = params[:username]
 
-    p "----#{session[:user_id]}-----"
-    redirect('/student/home')    
-    
+    #p "----#{get_user_id}-----"
+    redirect('/student/home')
   end
 
   get '/student/home' do
@@ -58,12 +58,15 @@ class ChitterMessage < Sinatra::Base
   end
 
   get '/chitter/new' do
+    @username = session[:username]
     ## add new chitters
     erb :"chitter_new"
   end
 
   post '/chitter' do    
-    ChitterApp.create(params[:chitter])    
+    @username = session[:username]
+    user_id = session[:user_id]
+    ChitterApp.create(user_id, params[:chitter])    
     redirect '/chitter'
   end
 

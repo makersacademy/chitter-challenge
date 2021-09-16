@@ -3,6 +3,13 @@ INSERT INTO students (email,student_name,username,password,created_on) VALUES ('
 INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samp_ema@gmail.com','John','johnny','123456','14/09/2021 15:16');
 INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samail@gmail.com','Richmond','richo','123456','14/09/2021 15:16');
 
+(email:'samp_email@gmail.com', password:'123456' ,student_name:'Spartacus', username:'Spartan')
+Student.create(email:'samp_em654a65hjil@gmail.com', password:'123456' ,student_name:'Spartacus', username:'Sfg64hpa64rtan')
+
+SELECT * FROM students WHERE username = '#{username}'
+SELECT * FROM students WHERE username = 'sparty'
+
+
 SELECT * FROM students;
 
 \l ##See a list of databases

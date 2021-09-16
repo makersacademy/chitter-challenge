@@ -9,6 +9,40 @@ body {
   padding: 0 20px;
 }
 
+.sidenav {
+  width: 130px;
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  left: 10px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 20px; /* Same width as the sidebar + left position in px */
+  font-size: 12px; /* Increased text to enable scrolling */
+  padding: 0px 6px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
 .container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
@@ -51,11 +85,33 @@ body {
   float: left;
   color: #999;
 }
+
+.button {
+  background-color: #1452b5;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 20px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
 </style>
 </head>
 <body>
 
-<h2>Chat Messages</h2>
+<div class="sidenav">
+  <a href="#about">Profile</a>
+  <a href="#services">Students</a>
+  <a href="#clients">My Peeps</a>
+  <a class="button" href="/chitter/new">PEEP</a>
+</div>
+
+<div class="main">
+<h2>Peeps</h2>
 
 <ul>
   <% @students.each do |student| %>

@@ -3,7 +3,7 @@ require_relative 'database_connection'
 
 class ChitterApp
   
-  def self.create(chitter)
+  def self.create(user_id,peep)
     # if ENV['ENVIRONMENT'] == 'test'
     #     connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
     # else
@@ -14,7 +14,7 @@ class ChitterApp
     p "----do I get here----"
 
     #connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
-    connection.exec("INSERT INTO chitter (user_id,chitter_message) VALUES ('54','#{chitter}');")    
+    connection.exec("INSERT INTO chitter (user_id,chitter_message) VALUES ('#{user_id}','#{peep}');")    
   end
 
   def self.all
