@@ -1,5 +1,8 @@
-CREATE TABLE chitter;
 
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+
+-- for both Chitter and chitter_test run
 CREATE TABLE  users (
   ID BIGSERIAL NOT NULL PRIMARY KEY,
   user_name varchar(60),

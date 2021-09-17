@@ -38,6 +38,8 @@ This project allows:
 - Install a testing framework for unit tests (RSpec) and Capybara for feature tests.
 - Creating a new Database
   - Using `Postgres`, you can see all scripts used within `db/migrations`
+- Create a new Test database
+- ADD `.env` to `.gitignore`
 
 ---
 
