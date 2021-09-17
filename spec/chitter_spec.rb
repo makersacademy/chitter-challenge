@@ -25,10 +25,14 @@ describe Chitter do
 
   describe '.all' do
     it 'return all peeps' do
+      connection = PG.connect( dbname: 'chitter_test' )
+      connection.exec( "INSERT INTO chitter (time, message) VALUES ('08:00', 'Hello world 3');" )
+      connection.exec( "INSERT INTO chitter (time, message) VALUES ('08:00', 'Hello world 4');" )
+
       peeps = Chitter.all
 
-      expect(peeps).to include('Hello world 1')
-      expect(peeps).to include('Hello world 2')
+      expect(peeps).to include('Hello world 3')
+      expect(peeps).to include('Hello world 4')
     end
   end
 end
