@@ -36,31 +36,22 @@ class ChitterMessage < Sinatra::Base
       username: params[:username]
     )
 
-    p "----#{user[0]}-----"
-
     session[:user_id] = user[0].to_i
     session[:username] = params[:username]
 
-    #p "----#{get_user_id}-----"
+
     redirect('/student/home')
   end
 
   get '/student/home' do
-    ####get all the students peepsor make a nice splace page list###
+    ####get all the students peeps and make a dashboard###
+    @username = session[:username]
     @peeps = ChitterApp.all
-    p @peeps
     erb :student_home
   end 
 
-  get '/chitter' do
-    @chitters = ChitterApp.all
-    "This is my chitter page"    
-    erb :chitters
-  end
-
   get '/chitter/new' do
-    @username = session[:username]
-    ## add new chitters
+    @username = session[:username]    
     erb :"chitter_new"
   end
 
@@ -69,12 +60,6 @@ class ChitterMessage < Sinatra::Base
     user_id = session[:user_id]
     ChitterApp.create(user_id, params[:chitter])    
     redirect '/student/home'
-  end
-
-  get '/chitter/new' do
-    ## add new chitters
-    p params
-    erb :"chitter/new"
   end
 
   run! if app_file == $0

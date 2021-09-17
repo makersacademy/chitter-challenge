@@ -1,7 +1,12 @@
-INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samp_email@gmail.com','David','davo','123456','14/09/2021 15:16');
-INSERT INTO students (email,student_name,username,password,created_on) VALUES ('sa_email@gmail.com','Sam','Sambo','123456','14/09/2021 15:16');
-INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samp_ema@gmail.com','John','johnny','123456','14/09/2021 15:16');
-INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samail@gmail.com','Richmond','richo','123456','14/09/2021 15:16');
+INSERT INTO students (email,student_name,username,password) VALUES ('samp_email@gmail.com','David','davo','123456');
+INSERT INTO students (email,student_name,username,password) VALUES ('sa_email@gmail.com','Sam','Sambo','123456');
+INSERT INTO students (email,student_name,username,password) VALUES ('samp_ema@gmail.com','John','johnny','123456');
+INSERT INTO students (email,student_name,username,password) VALUES ('samail@gmail.com','Richmond','richo','123456');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('1','This is a test');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('1','This is a test');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('1','This is a test');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('2','This is a test');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('3','This is a test');
 
 (email:'samp_email@gmail.com', password:'123456' ,student_name:'Spartacus', username:'Spartan')
 Student.create(email:'samp_em654a65hjil@gmail.com', password:'123456' ,student_name:'Spartacus', username:'Sfg64hpa64rtan')

@@ -1,19 +1,28 @@
 require 'makers_students'
 
-describe '.all' do    
-    it 'returns a list of students' do
+describe '#makers_students' do
+    
+    it '.all' do
         connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+        connection.exec("INSERT INTO students (email, username, student_name, password) VALUES ('samp_emails@gmail.com','davil','David','123456');")
+        connection.exec("INSERT INTO students (email, username, student_name, password) VALUES ('sa_email@gmail.com','Sambo','Sam','123456');")
 
-        connection.exec("INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samp_email@gmail.com','David','davo','123456','14/09/2021 15:16');")
-        connection.exec("INSERT INTO students (email,student_name,username,password,created_on) VALUES ('sa_email@gmail.com','Sam','Sambo','123456','14/09/2021 15:16');")
-        connection.exec("INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samp_ema@gmail.com','John','johnny','123456','14/09/2021 15:16');")
-        connection.exec("INSERT INTO students (email,student_name,username,password,created_on) VALUES ('samail@gmail.com','Richmond','richo','123456','14/09/2021 15:16');")
-        
         student = Student.all
-
-        expect(student).to include "davo"
+        expect(student).to include "davil"
         expect(student).to include "Sambo"
-        expect(student).to include "johnny"
-        expect(student).to include "richo"
+    end
+
+    it '.create' do
+        connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+        connection.exec("INSERT INTO students (email, username, student_name, password) VALUES ('samdp_emlail@gmail.com','davilo','David','123456');")
+        ###I dont know what the best test is for getting a user_id back from a database query?
+        is_expected.not_to be_empty
+    end
+
+    it '.get_student_id' do
+        connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+        connection.exec("INSERT INTO students (email, username, student_name, password) VALUES ('sdfamp_emlail@gmail.com','dasvil','David','123456');")
+        ###I dont know what the best test is for getting a user_id back from a database query?
+        is_expected.not_to be_empty
     end
 end

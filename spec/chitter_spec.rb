@@ -1,15 +1,23 @@
-# require 'chitter'
+require 'chitter'
 
-# describe ChitterMessage do 
-#     subject(:chitter) { described_class.new}
+describe '#chitter' do
 
-#     it 'gets a string as a message' do
-#     end
+    let(:user_id) { 1 }
+    let(:peep) {"This is a new peep"}
+    
+    it '.create' do
+        connection = PG.connect(dbname: 'chitter_machine_test', user: 'postgres', password: 'password')
+        connection.exec("INSERT INTO students (email, username, student_name, password) VALUES ('samp_email@gmail.com','davio','David','123456');")
 
-#     it 'allows the user to create a message' do
-#     end
+        ChitterApp.create(user_id,peep)
+        result = ChitterApp.all
+        expect(result[0]).to include "This is a new peep"
+    end
 
-#     it 'gives a timestamp for when the message was created' do
-#     end
+    it '.all' do
+        #ChitterApp.create(user_id,peep)
+        result = ChitterApp.all
+        expect(result[0]).to include "This is a new peep"
+    end
+  end
 
-# end

@@ -1,10 +1,15 @@
-feature 'registration' do
+feature 'create account' do
     scenario 'a user can sign up' do
-      visit '/users/new'
+      visit '/'
+      click_button('New Account')
       fill_in('email', with: 'test@example.com')
       fill_in('password', with: 'password123')
-      click_button('Submit')
+      fill_in('username', with: 'mctest face')
+      fill_in('student_name', with: 'Gerald')
+      click_button('Create Account')
   
-      expect(page).to have_content "Welcome, test@example.com"
+      expect(page).to have_content "What's happening?"
     end
   end
+
+  
