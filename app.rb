@@ -47,7 +47,8 @@ class ChitterMessage < Sinatra::Base
 
   get '/student/home' do
     ####get all the students peepsor make a nice splace page list###
-    @students = Student.all
+    @peeps = ChitterApp.all
+    p @peeps
     erb :student_home
   end 
 
@@ -67,7 +68,7 @@ class ChitterMessage < Sinatra::Base
     @username = session[:username]
     user_id = session[:user_id]
     ChitterApp.create(user_id, params[:chitter])    
-    redirect '/chitter'
+    redirect '/student/home'
   end
 
   get '/chitter/new' do

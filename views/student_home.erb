@@ -78,7 +78,7 @@ body {
 
 .time-right {
   float: right;
-  color: #aaa;
+  color: #1452b5;
 }
 
 .time-left {
@@ -114,10 +114,11 @@ body {
 <h2>Peeps</h2>
 
 <ul>
-  <% @students.each do |student| %>
+  <% @peeps.each do |peep| %>
     <div class="container">
-    <p><%= student %></p>
-    <span class="time-left">11:02</span>
+    <p><%= peep[0] %></p>
+    <span class="time-left"><%= peep[1] %></span>
+    <span class="time-right"><%= peep[2] %></span>
     </div>
   <% end %>
 </ul>

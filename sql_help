@@ -58,3 +58,5 @@ CREATE TABLE chitter (
 INSERT INTO chitter (user_id,chitter_message) VALUES ('54','This is a test');
 
 created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+
+SELECT chitter_message, chitter.created_at, username FROM chitter INNER JOIN students ON (chitter.user_id = students.user_id);
