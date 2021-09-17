@@ -30,6 +30,8 @@ This project allows:
 - This project is a fork of `https://github.com/makersacademy/chitter-challenge`
 - Understand the `User Stories`
 - Create `Domain Models` from the User Stories
+- Setup a basic layout for the app with `MVC` mapped out
+- Install a testing framework for unit tests (RSpec) and Capybara for feature tests.
 
 ##### User Stories
 
@@ -88,17 +90,49 @@ I want to receive an email if I am tagged in a Peep
 ###### Tables
 
 `Table: Message`
-|ID|message|createdate|
-|-|-|-|
-||||
+|ID|ID_USERS|message|createdate|
+|-|-|-|-|
+|BIGSERIAL NOT NULL PRIMARY KEY|INT NOT NULL REFERENCES users(ID)|VARCHAR(200)|TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP|
 
 `Table: Users`
 |ID|user_name|password|
 |-|-|-|
-||||
+|BIGSERIAL NOT NULL PRIMARY KEY|VARCHAR(30)|VARCHAR(30)|
 
 ###### Relationships
 
 | table   | relationship | table |
 | ------- | ------------ | ----- |
 | Message | 1 - 1        | Users |
+
+## General Sinatra / Capybara Setup
+
+```
+mkdir app
+cd app
+touch app.rb
+mkdir views
+cd views
+touch index.erb
+..
+..
+mkdir db
+cd db
+mkdir migrations
+cd migrations
+touch 01_create_bookmarks.sql
+..
+..
+mkdir lib
+..
+cd spec
+mkdir feature
+cd feature
+touch feature_spec.rb
+touch feature_helper.rb
+..
+..
+touch .gitignore
+touch .env
+touch config.ru
+```
