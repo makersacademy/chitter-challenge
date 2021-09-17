@@ -22,4 +22,13 @@ describe Chitter do
       expect(subject.peeps.size).to eq(4)
     end
   end
+
+  describe '.all' do
+    it 'return all peeps' do
+      peeps = Chitter.all
+
+      expect(peeps).to include('Hello world 1')
+      expect(peeps).to include('Hello world 2')
+    end
+  end
 end

@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'

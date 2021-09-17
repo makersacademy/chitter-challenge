@@ -1,8 +1,16 @@
+require 'pg'
+
 class Chitter
   attr_reader :peeps
 
   def initialize
     @peeps = []
+  end
+
+  def self.all
+    connection = PG.connect( dbname: 'chitter' )
+    result = connection.exec( "SELECT * FROM chitter" )
+    result.map { |row| row['message'] }
   end
 
   def post(peep)
