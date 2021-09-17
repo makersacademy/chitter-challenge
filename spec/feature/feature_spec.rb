@@ -7,7 +7,8 @@ describe 'User Interface', type: :feature do
   context 'check it is working' do
 
     it 'checks page' do
-      expect(page).to have_content("hi")
+      expect(page).to have_content("message A")
+      expect(page).to have_content("message B")
     end
 
   end
