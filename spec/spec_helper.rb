@@ -4,13 +4,13 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
-require 'webdrivers/chromedriver'
+# require 'webdrivers/chromedriver'
 require 'dotenv'
-require_relative './feature/helper'
-Dotenv.load
+require_relative './feature/feature_helper'
 
+Dotenv.load
 ENV['RACK_ENV'] = 'test'
-Capybara.app = BookmarkManager
+Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -27,9 +27,9 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.before(:each) do
-    fill_urls
-  end
+  # config.before(:each) do
+  #   fill_urls
+  # end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 

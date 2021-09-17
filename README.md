@@ -22,6 +22,10 @@ This project allows:
 - In your Terminal:
   - Run `git clone https://github.com/EMDevelop/chitter-challenge.git`
   - For Ruby specific dependencies, run `bundle install`
+  - Run `rackup` in your terminal to spin up a local server (default port 9292)
+  - Visit http://localhost:9292/ to test drive the application
+
+---
 
 ## My Approach
 
@@ -32,6 +36,10 @@ This project allows:
 - Create `Domain Models` from the User Stories
 - Setup a basic layout for the app with `MVC` mapped out
 - Install a testing framework for unit tests (RSpec) and Capybara for feature tests.
+- Creating a new Database
+  - Using `Postgres`, you can see all scripts used within `db/migrations`
+
+---
 
 ##### User Stories
 
@@ -77,8 +85,9 @@ I want to receive an email if I am tagged in a Peep
 `className = Message`
 |methods |attributes|
 |-|-|
-| .new() | @message :Hash (body: , create_date:) |
-
+| .new() | @message :String|
+| | @id :String|
+| | @create_date :String|
 `className = Session`
 |methods |attributes|
 |-|-|
@@ -124,7 +133,7 @@ touch 01_create_bookmarks.sql
 ..
 ..
 mkdir lib
-..
+
 cd spec
 mkdir feature
 cd feature
