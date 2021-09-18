@@ -27,7 +27,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/add-message' do
-    PGDatabase.create_message(user_id: 1, message: params["post-message"])
+    p params["post-message"]
+    Chitter.create_message(message: params["post-message"])
     redirect '/home'
   end
 

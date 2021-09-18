@@ -6,12 +6,6 @@ describe 'User Interface', type: :feature do
   
   context 'Check page layout' do
 
-    it 'checks home page' do
-      visit('/home')
-      expect(page).to have_content("message A")
-      expect(page).to have_content("message B")
-    end
-
     it 'has navbar' do 
       expect(page).to have_content("Chitter")
     end
@@ -28,12 +22,22 @@ describe 'User Interface', type: :feature do
     end
 
     it 'confirms data added was correct' do
-      instance = PGDatabase.create_message(user_id: 1, message:'test')
-      
-      check_stored = PGDatabase.con.exec_params("SELECT * FROM message WHERE id = $1;", [instance[0].id]).first
-      expect(instance[0]).to be_a Message
-      expect(instance[0].id).to eq check_stored['id']
-      expect(instance[0].message).to eq 'test'
+      instance = PGDatabase.create_message(user_id: 1, message:'test').first
+      check_stored = select_all_from_message(id: instance.id) 
+
+      expect(instance).to be_a Message
+      expect(instance.id).to eq check_stored['id']
+      expect(instance.message).to eq 'test'
+    end
+
+  end
+
+  context 'I want to see all peeps in reverse chronological order' do
+
+    it 'displays dummy data' do
+      visit('/home')
+      expect(page).to have_content("Lovely Stuff")
+      expect(page).to have_content("Lovely Stuff 2")
     end
 
   end
