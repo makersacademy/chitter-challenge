@@ -19,9 +19,8 @@ class ChitterApp < Sinatra::Base
   post '/feed' do 
     p params 
     p "Form data submitted to the feed route"
-    message = params['peep']
-    connection = PG.connect(dbname: 'chitter_manager_test')
-    connection.exec("INSERT INTO chitter (message) VALUES('#{message}')")
+    #peep = params['peep']
+    ChitterFeed.post(peep: params[:peep])
     redirect '/feed'
   end 
 

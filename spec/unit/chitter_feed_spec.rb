@@ -18,6 +18,14 @@ describe ChitterFeed do
     end
   end
 
+  describe '.post' do 
+    it 'creates a new peep to add ot the feed' do 
+      ChitterFeed.post(peep: "Hello World")
+
+      expect(ChitterFeed.all).to include "Hello World"
+    end
+  end
+  
 
 end
 
