@@ -1,3 +1,13 @@
+### Setting up the database 
+
+Connect to psql
+
+Create the database using the psql command CREATE DATABASE chitter_app;
+
+Connect to the database using the pqsl command \c chitter_app;
+
+Run the query we have saved in the file 01_create_chitter_table.sql
+
 ### Comments
 
 User Story 1
@@ -5,8 +15,7 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-
-
+-
 
 Chitter Challenge
 
