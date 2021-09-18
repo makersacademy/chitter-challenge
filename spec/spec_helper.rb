@@ -4,13 +4,18 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
-# require 'webdrivers/chromedriver'
 require 'dotenv'
 require_relative './feature/feature_helper'
+require_relative '../db/queries/pg_connect'
+# require_relative '../db/queries/postgres_db'
 require 'pg'
 
+#Setup DB
+include Postgres
+ENV['ENVIRONMENT'] = 'test'
+connect
 Dotenv.load
-ENV['RACK_ENV'] = 'test'
+
 Capybara.app = ChitterApp
 
 
