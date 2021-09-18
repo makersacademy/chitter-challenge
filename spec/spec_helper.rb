@@ -13,6 +13,8 @@ Dotenv.load
 ENV['RACK_ENV'] = 'test'
 Capybara.app = ChitterApp
 
+
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
 ])
@@ -28,9 +30,9 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  # config.before(:each) do
-  #   fill_urls
-  # end
+  config.before(:each) do |test|
+    fill_data unless test.metadata[:store_connection]
+  end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 

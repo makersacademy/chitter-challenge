@@ -6,7 +6,8 @@ CREATE DATABASE chitter_test;
 CREATE TABLE  users (
   ID BIGSERIAL NOT NULL PRIMARY KEY,
   user_name varchar(60),
-  password varchar(30)
+  email varchar(100),
+  password varchar(60)
 );
 
 CREATE TABLE  message (
@@ -15,3 +16,8 @@ CREATE TABLE  message (
   message VARCHAR(200),
   createdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Dummy Data
+
+INSERT INTO users (user_name, email) VALUES ('admin', 'admin@admin.com');
+INSERT INTO message (id_users, message) VALUES ('1', 'Lovely Stuff'), ('1', 'Hey Hey');
