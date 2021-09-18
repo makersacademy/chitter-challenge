@@ -1,8 +1,7 @@
 feature 'view messages' do
   scenario 'user goes on the peeps page and sees the peeps' do
-    connection = PG.connect( dbname: 'chitter_test' )
-    connection.exec( "INSERT INTO chitter (time, message) VALUES ('08:00', 'Hello world 3');" )
-    connection.exec( "INSERT INTO chitter (time, message) VALUES ('08:00', 'Hello world 4');" )
+    Chitter.post(message: "Hello world 3")
+    Chitter.post(message: "Hello world 4")
 
     visit('/')
 

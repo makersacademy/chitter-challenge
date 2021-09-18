@@ -1,27 +1,27 @@
 require 'pg'
+require_relative 'peep'
 
 class Chitter
-  attr_reader :peeps
-
-  def initialize
-    @peeps = []
-  end
-
-  def self.all
+  def self.peeps
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect( dbname: 'chitter_test' )
     else
       connection = PG.connect( dbname: 'chitter' )
     end
     result = connection.exec( "SELECT * FROM chitter" )
-    result.map { |row| row['message'] }
+    result.map do |peep|
+      Peep.new(id: peep['id'], time: peep['time'], message: peep['message'])
+    end
   end
 
-  def post(peep)
-    @peeps << Peep.new(time: Time.now, message: peep)
-  end
-
-  def list_peeps
-    @peeps.reverse.map { |peep| "#{peep.time.strftime("%k:%M")} - #{peep.message}" }
+  def self.post(message:)
+    time = Time.now
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect( dbname: 'chitter_test' )
+    else
+      connection = PG.connect( dbname: 'chitter' )
+    end
+    result = connection.exec( "INSERT INTO chitter (time, message) VALUES ('#{time}', '#{message}') RETURNING id, time, message;" )
+    Peep.new(id: result[0]['id'], time: result[0]['time'], message: result[0]['message'])
   end
 end
