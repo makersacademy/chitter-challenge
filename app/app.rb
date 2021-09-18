@@ -9,8 +9,6 @@ class ChitterApp < Sinatra::Base
 
   include Postgres
 
-  
-
   configure :development do
     register Sinatra::Reloader
   end
@@ -27,7 +25,6 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/add-message' do
-    p params["post-message"]
     Chitter.create_message(message: params["post-message"])
     redirect '/home'
   end

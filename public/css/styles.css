@@ -45,22 +45,6 @@ body {
   font-weight: bold;
 }
 
-.page {
-  width: 100%;
-  min-height: 90vh;
-  height: fit-content;
-}
-
-.grid-container {
-  margin-top: 10%;
-  margin: auto;
-  max-width: 1080px;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-items: center;
-}
-
 input,
 select,
 textarea,
@@ -102,10 +86,27 @@ select:hover {
   opacity: 0.8;
 }
 
+.page {
+  width: 100%;
+  min-height: 90vh;
+  height: fit-content;
+}
+
+.grid-container {
+  margin: auto;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 30px;
+}
+
 .grid-item.input-container {
+  margin-top: 40px;
   width: 100%;
   height: fit-content;
-  background-color: rosybrown;
+  /* background-color: rosybrown; */
   display: flex;
   /* flex-wrap: wrap; */
   flex-direction: column;
@@ -116,4 +117,10 @@ select:hover {
 .message-input {
   min-width: 600px;
   min-height: 100px;
+}
+
+.message-container {
+  width: 100%;
+  height: fit-content;
+  background-color: royalblue;
 }
