@@ -1,6 +1,6 @@
 require 'pg'
 
-class Peeps 
+class Peep 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')

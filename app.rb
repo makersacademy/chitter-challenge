@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative './lib/peeps'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @peeps = Peeps.all
+    @peeps = Peep.all
     erb :chitter
   end
 
@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    Peeps.add(post: params['peep_text'])
+    Peep.add(post: params['peep_text'])
     redirect '/chitter'
   end
 
