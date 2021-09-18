@@ -12,11 +12,23 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/feed' do 
-    #p ENV
-
     @feed = ChitterFeed.all
     erb(:feedpage)
   end
+
+  post '/feed' do 
+    p params 
+    p "Form data submitted to the feed route"
+    message = params['peep']
+    connection = PG.connect(dbname: 'chitter_manager_test')
+    connection.exec("INSERT INTO chitter (message) VALUES('#{message}')")
+    redirect '/feed'
+  end 
+
+  get '/feed/comment' do 
+    erb(:addcomment)
+  end
+
 
   run! if app_file == $0
 
