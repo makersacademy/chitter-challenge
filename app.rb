@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -12,9 +13,9 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/peep_sent' do
+  post '/send' do
     @peep = params['peep']
-    $peeps << @peep
+    Peep.create(content: params['peep'])
     erb :peep_sent
   end
 
