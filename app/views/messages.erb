@@ -6,12 +6,16 @@
   <body>
 
     <div class="nav">Chitter</div>
-    
-    <div class="container">
-      <% @messages.each { |message| %>
-        <h1 class="message"> <%= message %> </h1>
-      <% } %> 
+
+
+    <div class="page">
+      <div class="container">
+        <% @messages.each { |message| %>
+          <h1 class="message"> <%= message %> </h1>
+        <% } %> 
+      </div>
     </div>
+
 
   </body>
 </html>

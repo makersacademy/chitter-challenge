@@ -12,6 +12,10 @@ describe 'User Interface', type: :feature do
       expect(page).to have_content("message B")
     end
 
+    it 'has navbar' do 
+      expect(page).to have_content("Chitter")
+    end
+
   end
 
 end
