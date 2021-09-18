@@ -16,14 +16,17 @@ GEM
     diff-lcs (1.4.4)
     docile (1.4.0)
     mini_mime (1.1.1)
+    mini_portile2 (2.6.1)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.12.3-arm64-darwin)
+    nokogiri (1.12.3)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
+    pg (1.2.3)
     public_suffix (4.0.6)
     racc (1.5.2)
     rack (2.2.3)
@@ -93,6 +96,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  pg
   rspec
   rubocop (= 1.20)
   simplecov
