@@ -1,5 +1,3 @@
-require 'setup_test_database'
-
 feature 'view all peeps' do
   scenario 'user is able to see all peeps' do
     Peep.add(post: 'this is a test message')
