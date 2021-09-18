@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/chitter_feed'
 
 class ChitterApp < Sinatra::Base 
   configure :development do 
@@ -7,9 +8,13 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do 
-    'Welcome'
+    erb(:index)
   end
 
+  get '/feed' do 
+    ['Hello World', 
+    'Hello Chitter']
+  end
 
   run! if app_file == $0
 
