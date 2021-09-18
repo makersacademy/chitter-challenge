@@ -7,7 +7,8 @@ feature 'Viewing feed' do
     ChitterFeed.post(peep: "Hello Chitter")
     
     visit('/feed')
-    expect(page).to have_content("Hello World")
-    expect(page).to have_content("Hello Chitter")
+
+    expect(page).to have_content "Hello World"
+    expect(page).to have_content "Hello Chitter"
   end
 end

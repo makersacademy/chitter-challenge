@@ -15,11 +15,8 @@ class ChitterApp < Sinatra::Base
     @feed = ChitterFeed.all
     erb(:feedpage)
   end
-
+  
   post '/feed' do 
-    p params 
-    p "Form data submitted to the feed route"
-    #peep = params['peep']
     ChitterFeed.post(peep: params[:peep])
     redirect '/feed'
   end 

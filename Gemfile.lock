@@ -88,6 +88,7 @@ GEM
       unicode-display_width (>= 1.1.1, < 3)
     tilt (2.0.10)
     unicode-display_width (2.0.0)
+    webrick (1.7.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -102,6 +103,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra-contrib
+  webrick (~> 1.7)
 
 BUNDLED WITH
    2.2.26

@@ -1,8 +1,12 @@
 # Chitter Challenge
 
+# To do 
+
+* injection
+* CSS 
+
 # User Stories 
 
-* I want to see all peeps in reverse chronological order
 * I want to see the time at which it was made (peep)
 * I want to see all peeps in reverse chronological order
 * I want to sign up for Chitter
