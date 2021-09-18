@@ -7,7 +7,7 @@ describe 'User Interface', type: :feature do
   context 'Check page layout' do
 
     it 'has navbar' do 
-      expect(page).to have_content("Chitter")
+      expect(page).to have_content("Welcome To Chitter")
     end
 
   end
@@ -49,6 +49,15 @@ describe 'User Interface', type: :feature do
       expect(section).to have_text('Lovely Stuff 3')
     end
 
+  end
+
+  context 'I want to sign up for Chitter' do
+
+    it 'checks buttons' do
+      click_button('Sign Up')
+      visit('/')
+      click_button('Sign In')
+    end
 
   end
 

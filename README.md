@@ -110,9 +110,9 @@ I want to receive an email if I am tagged in a Peep
 |BIGSERIAL NOT NULL PRIMARY KEY|INT NOT NULL REFERENCES users(ID)|VARCHAR(200)|TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP|
 
 `Table: Users`
-|ID|user_name|password|
-|-|-|-|
-|BIGSERIAL NOT NULL PRIMARY KEY|VARCHAR(30)|VARCHAR(30)|
+|ID|user_name|password|email|salt|
+|-|-|-|-|-|
+|BIGSERIAL NOT NULL PRIMARY KEY|VARCHAR(30)|VARCHAR(30)|TEXT|TEXT|
 
 ###### Relationships
 

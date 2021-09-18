@@ -2,8 +2,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --c2: #333;
-    --c3: #1e1f20;
+    --c2: #333333;
+    --c3: hsl(210, 3%, 12%);
     --c4: #fff;
   }
 }
@@ -123,4 +123,21 @@ select:hover {
   width: 100%;
   height: fit-content;
   background-color: royalblue;
+}
+
+.login-window {
+  background-color: var(--c2);
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 40vw;
+  height: 40vh;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
