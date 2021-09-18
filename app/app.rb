@@ -16,7 +16,6 @@ class ChitterApp < Sinatra::Base
   get '/' do
     connect
     erb :index
-    redirect '/home'
   end
 
   get '/home' do

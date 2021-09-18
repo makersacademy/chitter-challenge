@@ -17,7 +17,4 @@ CREATE TABLE  message (
   createdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- Dummy Data
 
-INSERT INTO users (user_name, email) VALUES ('admin', 'admin@admin.com');
-INSERT INTO message (id_users, message) VALUES ('1', 'Lovely Stuff'), ('1', 'Hey Hey');

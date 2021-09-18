@@ -4,6 +4,7 @@ ruby '2.7.2'
 
 gem 'pg'
 gem 'dotenv'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'

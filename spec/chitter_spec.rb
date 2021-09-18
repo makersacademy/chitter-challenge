@@ -9,7 +9,6 @@ describe Chitter do
       expect(messages.last.message).to eq 'Lovely Stuff'
     end
 
-
   end
 
 end
