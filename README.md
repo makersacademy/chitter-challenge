@@ -40,6 +40,10 @@ This project allows:
   - Using `Postgres`, you can see all scripts used within `db/migrations`
 - Create a new Test database
 - ADD `.env` to `.gitignore`
+- Setup DB classes
+  - Create a spec file and test for connection
+  - Create a class to make and hold connection
+  - Create a helper file to auto connect in spec_helper and app.rb on load
 
 ---
 
@@ -147,3 +151,9 @@ touch .gitignore
 touch .env
 touch config.ru
 ```
+
+## Questions
+
+- Why do we have the view in the app folder with the model, is this a violation of a "separation of concerns"?
+
+- Am I right to include the Database Connection class within the DB folder under a Queries directory? or should that be with the rest of the model in `lib`?

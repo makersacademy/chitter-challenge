@@ -7,6 +7,7 @@ require_relative '../app/app'
 # require 'webdrivers/chromedriver'
 require 'dotenv'
 require_relative './feature/feature_helper'
+require 'pg'
 
 Dotenv.load
 ENV['RACK_ENV'] = 'test'

@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative '../lib/chitter.rb'
+require_relative '../db/queries/pg_connect.rb'
 
 class ChitterApp < Sinatra::Base
 
