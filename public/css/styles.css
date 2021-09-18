@@ -51,5 +51,69 @@ body {
   height: fit-content;
 }
 
-.container {
+.grid-container {
+  margin-top: 10%;
+  margin: auto;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+input,
+select,
+textarea,
+button,
+img {
+  border-radius: var(--rc);
+}
+input,
+select,
+textarea {
+  font-size: 1em;
+  color: var(--c4);
+  background: var(--c2);
+  border: 0;
+}
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  -webkit-appearance: none;
+  font-size: 1em;
+  display: inline-block;
+  color: var(--c5);
+  background: var(--c1);
+  border: 0;
+  margin: 4px;
+  padding: 0.6em;
+  cursor: pointer;
+  text-align: center;
+  display: flex; /* added */
+  align-items: center; /* added */
+  background-color: orange;
+}
+button:hover,
+button:focus,
+input:hover,
+textarea:hover,
+select:hover {
+  opacity: 0.8;
+}
+
+.grid-item.input-container {
+  width: 100%;
+  height: fit-content;
+  background-color: rosybrown;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-input {
+  min-width: 600px;
+  min-height: 100px;
 }
