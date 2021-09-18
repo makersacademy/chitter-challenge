@@ -6,6 +6,7 @@ group :webdev do
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'capybara'
+  gem 'pg'
 end
 
 group :test do

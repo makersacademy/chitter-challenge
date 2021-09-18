@@ -1,0 +1,1 @@
+CREATE TABLE chitters(id SERIAL PRIMARY KEY, timestamp TIMESTAMP, message VARCHAR(180));
