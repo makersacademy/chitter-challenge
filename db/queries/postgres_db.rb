@@ -9,7 +9,7 @@ class PGDatabase
     @con = PG.connect :dbname => db, :user => ENV['DBUSER'], :password => ENV['DBPASSWORD']
   end
 
-  def self.connection
+  def self.con
     @con
   end
 

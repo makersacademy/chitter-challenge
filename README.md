@@ -157,3 +157,15 @@ touch config.ru
 - Why do we have the view in the app folder with the model, is this a violation of a "separation of concerns"?
 
 - Am I right to include the Database Connection class within the DB folder under a Queries directory? or should that be with the rest of the model in `lib`?
+
+- In the `postgres_db_spec.rb` on the test `it 'stores connection'` I had to use a hook to not run the before in the `spec_helper` on that hook (I left a comment there). For some reason with this test here, I get the error
+
+```
+  1) PGDatabase make connection stores connection
+     Failure/Error: PGDatabase.con.exec("TRUNCATE message;")
+
+     NoMethodError:
+       private method `exec' called for nil:NilClass
+     # ./spec/feature/feature_helper.rb:3:in `fill_data'
+     # ./spec/spec_helper.rb:34:in `block (2 levels) in <top (required)>'
+```
