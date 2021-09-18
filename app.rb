@@ -12,8 +12,10 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/feed' do 
-    ['Hello World', 
-    'Hello Chitter']
+    #p ENV
+
+    @feed = ChitterFeed.all
+    erb(:feedpage)
   end
 
   run! if app_file == $0
