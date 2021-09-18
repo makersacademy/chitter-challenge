@@ -4,7 +4,7 @@ require_relative '../lib/chitter.rb'
 
 class ChitterApp < Sinatra::Base
 
-  set :public, 'public'
+  set :public_folder, 'public'
 
   configure :development do
     register Sinatra::Reloader
@@ -18,6 +18,11 @@ class ChitterApp < Sinatra::Base
   get '/home' do
     @messages = Chitter.show_all_messages
     erb :messages
+  end
+
+  post '/add-message' do
+    p params
+    redirect '/home'
   end
 
   run! if app_file == $0

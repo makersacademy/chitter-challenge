@@ -1,21 +1,32 @@
 <html>
   <head>
     <title>Chitter</title>
-      <link rel="stylesheet" type="text/css" href="<%= url("/css/styles.css")%>"/>  
-    </head>
+    <link rel="stylesheet" type="text/css" href="<%= url("/css/styles.css")%>"/>
+  </head>
   <body>
-
     <div class="nav">Chitter</div>
-
 
     <div class="page">
       <div class="container">
         <% @messages.each { |message| %>
-          <h1 class="message"> <%= message %> </h1>
-        <% } %> 
+        <h1 class="message"><%= message %></h1>
+        <% } %>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-item input-container">
+          <form action="/add-message" method="post">
+            <textarea
+              type="input"
+              name="post-message"
+              placeholder="spread some positivity.."
+              class="message-input"
+              value=""
+            ></textarea>
+            <input type="submit" value="Post" />
+          </form>
+        </div>
       </div>
     </div>
-
-
   </body>
 </html>
