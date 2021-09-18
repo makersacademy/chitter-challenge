@@ -13,7 +13,6 @@ describe ChitterFeed do
 
         feed = ChitterFeed.all
 
-        p feed
         expect(feed.length).to eq 3
         expect(feed.first).to be_a ChitterFeed
         expect(feed.first.id).to eq first_peep.id
@@ -31,7 +30,6 @@ describe ChitterFeed do
       expect(first_peep.id).to eq persisted_data.first['id']
       expect(first_peep.message).to eq "Hello World"
       
-      p first_peep
     end
   end
 
