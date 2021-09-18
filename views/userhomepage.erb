@@ -2,10 +2,25 @@
 
 <h2> Welcome  <%=@username %></h2>
 
-Below is your feed, if you have just signed up it may be empty. 
+Below is your feed, if you have just signed up it may be empty. <br> 
 
 If you feel like you have something to say. 
 
 <input type="text">
+
+
+ <% @user_feed.reverse.each do |val| %>
+   <% if val.name  == @username %>
+    <li style="font-family:verdana"> [<%=val.time%>] : <%=val.name %> posted "<%=val.message %>"   </li> 
+    <br>
+    <% end %>
+    <% end %>
+
+
+ <form action="/feed">
+    <input type="submit" value="View the feed"> 
+  </form>
+
+
 
 </body>

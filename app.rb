@@ -32,16 +32,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/user' do 
-    #ChitterFeed.post(peep: params[:peep])
-    session[:user_name] = params[:user_name]
-    p session[:user_name]
-    # @username = params[:user_name]
-    # p @username
+    session[:username] = params[:username]
+    ChitterFeed.post(peep: params[:peep], username: params[:username])
+    
+    p session[:username]
+    
     redirect '/user/homepage'
   end
 
   get '/user/homepage' do 
-    @username = session[:user_name]
+    @username = session[:username]
+    @user_feed = ChitterFeed.all
     erb(:userhomepage)
   end 
 
