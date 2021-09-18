@@ -1,1 +1,7 @@
-<h1>Chitter</h1>
+<h1>Welcom to Chitter</h1>
+
+<ul>
+  <% @chitter.reverse_each do |chitter| %>
+    <li><%= chitter %></li>
+  <% end %>
+</ul>
