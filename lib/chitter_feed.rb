@@ -25,7 +25,7 @@ class ChitterFeed
     end
   end
 
-  def self.post(peep:)
+  def self.post(peep:, **kwargs)
     @name = AncilliaryClass.new.avatar
     @time = AncilliaryClass.new.time_date
 
@@ -34,7 +34,12 @@ class ChitterFeed
     else
       connection = PG.connect(dbname: 'chitter_manager')
     end
-    result = connection.exec("INSERT INTO chitter (name, message ,time) VALUES('#{@name}','#{peep}','#{@time}') RETURNING id, name, message, time;")
+
+    if kwargs[:username]
+      result = connection.exec("INSERT INTO chitter (name, message ,time) VALUES('#{kwargs[:username]}','#{peep}','#{@time}') RETURNING id, name, message, time;")
+    else 
+      result = connection.exec("INSERT INTO chitter (name, message ,time) VALUES('#{@name}','#{peep}','#{@time}') RETURNING id, name, message, time;")  
+    end
     
     ChitterFeed.new(id: result[0]['id'], name: result[0]['name'], message: result[0]['message'], time: result[0]['time'])
   end 

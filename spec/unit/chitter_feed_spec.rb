@@ -29,8 +29,20 @@ describe ChitterFeed do
       expect(first_peep).to be_a ChitterFeed
       expect(first_peep.id).to eq persisted_data.first['id']
       expect(first_peep.message).to eq "Hello World"
-      
     end
+
+    it 'should recognise username as an argument' do 
+      first_peep = ChitterFeed.post(peep: "Where is Chi Chi", username: "Goku")
+      persisted_data = PG.connect(dbname: 'chitter_manager_test').query("SELECT * FROM chitter WHERE id = #{first_peep.id};")
+
+      p first_peep
+
+      expect(first_peep).to be_a ChitterFeed
+      expect(first_peep.id).to eq persisted_data.first['id']
+      expect(first_peep.message).to eq "Where is Chi Chi"
+      expect(first_peep.name).to eq "Goku"
+    end
+
   end
 
 
