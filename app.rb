@@ -16,5 +16,14 @@ class Chitter < Sinatra::Base
     erb :chitter
   end
 
+  get '/chitter/add' do
+    erb :add
+  end
+
+  post '/chitter' do
+    Peeps.add(post: params['peep_text'])
+    redirect '/chitter'
+  end
+
   run! if app_file == $0
 end
