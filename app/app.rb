@@ -7,13 +7,18 @@ class ChitterApp < Sinatra::Base
 
   set :public_folder, 'public'
 
+  include Postgres
+
+  
+
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    
+    connect
     erb :index
+    redirect '/home'
   end
 
   get '/home' do
@@ -22,7 +27,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/add-message' do
-    p params
+    PGDatabase.create_message(user_id: 1, message: params["post-message"])
     redirect '/home'
   end
 

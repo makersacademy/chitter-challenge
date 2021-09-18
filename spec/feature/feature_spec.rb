@@ -27,6 +27,15 @@ describe 'User Interface', type: :feature do
       expect(page).to have_current_path '/home'
     end
 
+    it 'confirms data added was correct' do
+      instance = PGDatabase.create_message(user_id: 1, message:'test')
+      
+      check_stored = PGDatabase.con.exec_params("SELECT * FROM message WHERE id = $1;", [instance[0].id]).first
+      expect(instance[0]).to be_a Message
+      expect(instance[0].id).to eq check_stored['id']
+      expect(instance[0].message).to eq 'test'
+    end
+
   end
 
 end
