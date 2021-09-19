@@ -71,4 +71,16 @@ describe 'User Interface', type: :feature do
 
   end
 
+  context 'I want to log in to Chitter' do
+
+    it 'logs in' do
+      User.add(username: 'login', email: 'test@example.com', password: 'password123')
+      visit('/users/signin')
+      fill_in(:email, with: 'test@example.com')
+      fill_in(:password, with: 'password123')
+      click_button('Sign in')
+    end
+
+  end
+
 end
