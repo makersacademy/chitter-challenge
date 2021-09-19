@@ -40,7 +40,7 @@
         <% @messages.each { |message| %>
         <div class="message-container">
           <h1 class="message"><%= message.message %></h1>
-          <p><%= message.create_date %></p>
+          <p><%= message.create_date %> posted by <%= message.username %></p>
         </div>
         <% } %>
       </div>

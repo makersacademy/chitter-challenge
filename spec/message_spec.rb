@@ -3,7 +3,7 @@ describe Message do
 
   context 'I want to post a message (peep) to chitter' do
 
-    let(:message) { Message.new(id: 1, message: "hello hello", create_date: "2021-07-12 20:46:56.952782" ) }
+    let(:message) { Message.new(id: 1, message: "hello hello", create_date: "2021-07-12 20:46:56.952782", username: 'whatever') }
 
     it 'Checks a message object exists with an id' do
       expect(message.id).to eq 1
