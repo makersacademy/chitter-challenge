@@ -81,6 +81,24 @@ describe 'User Interface', type: :feature do
       click_button('Sign in')
     end
 
+    it 'wrong username' do
+      # User.add(username: 'login', email: 'test@example.com', password: 'password123')
+      visit('/users/signin')
+      fill_in(:email, with: 'wrongemail@example.com')
+      fill_in(:password, with: 'password123')
+      click_button('Sign in')
+      expect(page).to have_content 'Incorrect email or password - Please try again'
+    end
+
+    it 'wrong password' do
+      User.add(username: 'login', email: 'test@example.com', password: 'password123')
+      visit('/users/signin')
+      fill_in(:email, with: 'wrongemail@example.com')
+      fill_in(:password, with: 'password124')
+      click_button('Sign in')
+      expect(page).to have_content 'Incorrect email or password - Please try again'
+    end
+
   end
 
 end
