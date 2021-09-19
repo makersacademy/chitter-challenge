@@ -4,9 +4,11 @@ ruby '3.0.1'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 gem 'thin'
 gem 'foreman'
 gem 'pg'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
