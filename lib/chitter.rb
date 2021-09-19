@@ -15,6 +15,11 @@ class Chitter
     PGDatabase.create_message(user_id: user_id, message: message)
   end
 
+  def self.create_reply(user_id:, message_id:, message:)
+    p " inside chitter  #{message}"
+    PGDatabase.create_reply(user_id: user_id, message_id:message_id, message: message)
+  end
+
   def self.parse_date(date)
     if date 
       ruby_date = Time.parse(date)

@@ -1,7 +1,7 @@
 require 'dotenv'
 require 'pg'
 require_relative '../../lib/message'
-
+require_relative '../../lib/reply'
 class PGDatabase 
 
   Dotenv.load
@@ -22,6 +22,13 @@ class PGDatabase
     result = @con.exec_params("INSERT INTO message (id_users, message) VALUES ($1,$2) RETURNING *;", [user_id, message])
     username = @con.exec_params("SELECT user_name FROM users WHERE ID = $1;", [user_id])
     result.map { |row| Message.new(id: row['id'], message: row['message'], create_date: row['createdate'], username: username) }
+  end
+
+  def self.create_reply(user_id:, message_id:, message:)
+    p " inside PGDatabase  #{message}"
+    result = @con.exec_params("INSERT INTO reply (id_users, id_message, message) VALUES ($1,$2,$3) RETURNING *", [user_id, message_id, message])
+    username = @con.exec_params("SELECT user_name FROM users WHERE ID = $1;", [user_id])
+    result.map { |row| Reply.new(id: row['id'], message: row['message'], create_date: row['create_date'], username: username, message_id: row['id_message'])}
   end
 
   def self.create_user(username: , email: , password: )
