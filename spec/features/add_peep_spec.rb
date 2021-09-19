@@ -1,7 +1,6 @@
 require 'pg'
 
-
-feature 'allow user to add peeps' do 
+feature 'allow unknown user to add peeps' do 
   scenario 'add peeps' do 
     visit('/feed/comment')
     fill_in :peep, with: "Hello World"

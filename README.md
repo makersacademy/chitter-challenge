@@ -4,6 +4,7 @@
 
 * injection
 * CSS 
+* allow the user to log in and out
 
 # User Stories 
 

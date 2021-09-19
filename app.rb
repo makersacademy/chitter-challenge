@@ -34,9 +34,7 @@ class ChitterApp < Sinatra::Base
   post '/user' do 
     session[:username] = params[:username]
     ChitterFeed.post(peep: params[:peep], username: params[:username])
-    
-    p session[:username]
-    
+  
     redirect '/user/homepage'
   end
 
@@ -44,6 +42,12 @@ class ChitterApp < Sinatra::Base
     @username = session[:username]
     @user_feed = ChitterFeed.all
     erb(:userhomepage)
+  end 
+
+  post '/comment' do 
+    @username = session[:username] 
+    ChitterFeed.post(peep: params[:peep], username: @username)
+    redirect '/user/homepage'
   end 
 
   run! if app_file == $0
