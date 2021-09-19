@@ -15,7 +15,7 @@ describe 'User Interface', type: :feature do
   context 'I want to post a message (peep) to chitter' do
 
     it 'checks form submits' do
-      visit('/home')
+      sign_up
       fill_in('post-message', with: 'Party')
       click_button('Post')
     end
@@ -34,17 +34,15 @@ describe 'User Interface', type: :feature do
 
   context 'I want to see all peeps in reverse chronological order' do
 
-    before do
-      visit('/home')
-    end
-
     it 'displays dummy data' do
-
+      visit('/home')
       expect(page).to have_content("Lovely Stuff")
       expect(page).to have_content("Lovely Stuff 2")
     end
 
     it 'checks order' do
+      sign_up
+      save_and_open_page
       section = find(".message", match: :first)
       expect(section).to have_text('Lovely Stuff 3')
     end
@@ -57,6 +55,16 @@ describe 'User Interface', type: :feature do
       click_button('Sign Up')
       visit('/')
       click_button('Sign In')
+    end
+
+    it 'can signup' do
+      visit('/')
+      click_button('Sign Up')
+      fill_in('username', with: 'username')
+      fill_in('email', with: 'username@gmail.com')
+      fill_in('password', with: 'password')
+      click_button('Sign up')
+      expect(page).to have_content "username"
     end
 
   end

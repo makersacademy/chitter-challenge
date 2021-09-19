@@ -1,12 +1,12 @@
 <html>
   <head>
     <title>Chitter</title>
-    <link rel="stylesheet" type="text/css" href="<%= url("/css/styles.css")%>"/>
+    <link rel="stylesheet" type="text/css" href="http://www.example.com/css/styles.css"/>
   </head>
   <body>
     <div class="nav">
       <h1 class="logo">Chitter</h1>
-      <h2 class="user"><%= @user.username %></h2>
+      <h2 class="user">username</h2>
     </div>
 
     <div class="page">
@@ -23,12 +23,22 @@
             <input type="submit" value="Post" />
           </form>
         </div>
-        <% @messages.each { |message| %>
+        
         <div class="message-container">
-          <h1 class="message"><%= message.message %></h1>
-          <p><%= message.create_date %></p>
+          <h1 class="message">Lovely Stuff 3</h1>
+          <p>19-09-21 09:51</p>
         </div>
-        <% } %>
+        
+        <div class="message-container">
+          <h1 class="message">Lovely Stuff 2</h1>
+          <p>19-09-21 09:51</p>
+        </div>
+        
+        <div class="message-container">
+          <h1 class="message">Lovely Stuff</h1>
+          <p>19-09-21 09:51</p>
+        </div>
+        
       </div>
     </div>
   </body>

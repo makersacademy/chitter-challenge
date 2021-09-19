@@ -23,4 +23,12 @@ class PGDatabase
     result.map { |row| Message.new(id: row['id'], message: row['message'], create_date: row['createdate']) }
   end
 
+  def self.create_user(username: , email: , password: )
+    @con.exec_params("INSERT INTO users (user_name, email, password) VALUES ($1,$2,$3) RETURNING *;", [username, email , password]).first
+  end
+
+  def self.get_user(id)
+    @con.exec_params("SELECT * FROM users WHERE id = $1;", [id]).first
+  end
+
 end
