@@ -18,7 +18,7 @@ class User
   end
 
   def self.encrypt(password)
-    BCrypt::Password.create(password)
+    BCrypt::Password.create(ENV['PEPPER'] + password)
   end
 
   private_class_method :encrypt
