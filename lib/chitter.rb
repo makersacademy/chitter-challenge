@@ -11,8 +11,8 @@ class Chitter
     }
   end
 
-  def self.create_message(message: )
-    PGDatabase.create_message(user_id: 1, message: message)
+  def self.create_message(message: , user_id: )
+    PGDatabase.create_message(user_id: user_id, message: message)
   end
 
   def self.parse_date(date)

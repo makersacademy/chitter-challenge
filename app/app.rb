@@ -21,6 +21,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/home' do
+    session[:error] = ""
     @user = User.get(session[:user_id])
     redirect '/' if @user.nil?
     @messages = Chitter.show_all_messages
@@ -28,7 +29,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/add-message' do
-    Chitter.create_message(message: params["post-message"])
+    p "session :user_id #{session[:user_id]}"
+    Chitter.create_message(message: params["post-message"],user_id: session[:user_id])
     redirect '/home'
   end
 
