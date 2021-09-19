@@ -16,5 +16,13 @@ class ChitterApp < Sinatra::Base
     erb :chitter
   end 
 
+  get '/chitter/new' do 
+    erb :new_post
+  end 
+
+  post '/chitter' do 
+    redirect '/chitter'
+  end 
+
   run! if app_file == $0
 end
