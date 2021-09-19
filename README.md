@@ -94,11 +94,12 @@ I want to receive an email if I am tagged in a Peep
 | .new() | @message :String|
 | | @id :String|
 | | @create_date :String|
-`className = Session`
+`className = User`
 |methods |attributes|
 |-|-|
-| Session.login() | @current_session Hash: @user_name|
-| Session.logout() |
+| | @user_name |
+| | @email |
+| | @id |
 
 ##### Database Model
 
@@ -173,3 +174,5 @@ touch config.ru
 - Had a bit of a nightmare with the `pg_connection.rb`, I had to wrap it in a module and call it after I set the env variable. I think the `ENV['ENVIRONMENT']` was being called after the `require_relative '../db/queries/pg_connect'` ran in the `spec_helper.rb` ? see my prints `p env is?`.
 
 - Should I be setting the timestamp in the Database using `CURRENT_TIMESTAMP` or should this be done on the front end?
+
+- Should you store pepper (for password encryption) in a .env var?

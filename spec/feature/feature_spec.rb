@@ -18,11 +18,11 @@ describe 'User Interface', type: :feature do
       visit('/home')
       fill_in('post-message', with: 'Party')
       click_button('Post')
-      expect(page).to have_current_path '/home'
     end
 
     it 'confirms data added was correct' do
-      instance = PGDatabase.create_message(user_id: 1, message:'test').first
+      user = PGDatabase.con.exec_params("INSERT INTO users (user_name, email, password) VALUES ($1,$2,$3) RETURNING *;", ['admin', 'admin@admin.com' , 'password']).first
+      instance = PGDatabase.create_message(user_id: user["id"], message:'test').first
       check_stored = select_all_from_message(id: instance.id) 
 
       expect(instance).to be_a Message
