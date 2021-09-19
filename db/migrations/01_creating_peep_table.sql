@@ -1,1 +1,1 @@
-CREATE TABLE peeps(timestamp TIMESTAMP, content VARCHAR(280));
+CREATE TABLE peeps(timestamp TIMESTAMP, content VARCHAR(280), username VARCHAR(60));

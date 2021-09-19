@@ -1,8 +1,8 @@
 feature 'See the feed' do
   scenario 'Can see peeps in reverse chronological order' do
-    Peep.send(content: 'First', time: '2021-09-19 12:21:38')
-    Peep.send(content: 'Last', time: '2002-09-19 18:21:38')
-    Peep.send(content: 'Middle', time: '2018-09-19 18:21:38')
+    Peep.send(content: 'First', time: '2021-09-19 12:21:38', username: 'test')
+    Peep.send(content: 'Last', time: '2002-09-19 18:21:38', username: 'test')
+    Peep.send(content: 'Middle', time: '2018-09-19 18:21:38', username: 'test')
 
     peeps = Peep.feed
     visit '/feed'
