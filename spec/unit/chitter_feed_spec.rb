@@ -1,22 +1,21 @@
 require 'chitter_feed'
 
-
 describe ChitterFeed do 
   
   describe '.all' do 
     it 'returns all the messages in the feed' do 
-        connection = PG.connect(dbname: 'chitter_manager_test')
+      connection = PG.connect(dbname: 'chitter_manager_test')
 
-        first_peep = ChitterFeed.post(peep: "Hello World")
-        ChitterFeed.post(peep: "Hello Chitter")
-        ChitterFeed.post(peep: "Is this really twitter")
+      first_peep = ChitterFeed.post(peep: "Hello World")
+      ChitterFeed.post(peep: "Hello Chitter")
+      ChitterFeed.post(peep: "Is this really twitter")
 
-        feed = ChitterFeed.all
+      feed = ChitterFeed.all
 
-        expect(feed.length).to eq 3
-        expect(feed.first).to be_a ChitterFeed
-        expect(feed.first.id).to eq first_peep.id
-        expect(feed.first.message).to eq "Hello World"
+      expect(feed.length).to eq 3
+      expect(feed.first).to be_a ChitterFeed
+      expect(feed.first.id).to eq first_peep.id
+      expect(feed.first.message).to eq "Hello World"
        
     end
   end
@@ -43,7 +42,4 @@ describe ChitterFeed do
 
   end
 
-
 end
-
-

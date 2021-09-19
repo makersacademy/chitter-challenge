@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 
-
 group :test do
   gem 'rspec'
   gem 'sinatra-contrib'
-  gem 'rspec'
   gem 'capybara'
   gem 'pg'
   gem 'simplecov', require: false

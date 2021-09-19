@@ -2,9 +2,12 @@
 
 # To do 
 
-* injection
-* CSS 
+* SQL injection
 * allow the user to log in and out
+* rspec does not loadup web_helper.rb file (currently not able to call the method - not DRY )
+* persisted_data variable in spec test needs to be refactored along DRY principles
+
+****
 
 # User Stories 
 
@@ -16,16 +19,17 @@
 
 Chitter 
 
-  -> log messages
-  -> log time / date / username (unkown if not logged in)
-  -> print messages 
-  -> order messages by date 
+* -> log messages
+* -> log time / date / username (unkown if not logged in)
+* -> print messages 
+* -> order messages by date 
 
 User 
-  -> log in 
-  -> log out
-  -> recieve message 
+* -> log in 
+* -> log out
+* -> recieve message 
 
+****
 
 # SQL Queries
 
@@ -35,11 +39,18 @@ User
 * Run the query we have saved in the file 01_create_bookmarks_table.sql
 * Repeat the first few steps and create a test database named 'chitter_manager_test'
 
+# To run
+
+* Create SQL tables per the above
+* Clone Repo 
+* Navigate to the current directory ... /path/to/chitter-challenge
+* Run app -> 'ruby app.rb' 
+
 ****
 
 # Domain Model 
 
-* Client - 
+* Client 
 * Controller 
 * Model
 * View 

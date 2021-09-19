@@ -1,7 +1,6 @@
 require 'pg'
 require_relative 'supporting_class'
 
-
 class ChitterFeed 
 
   attr_reader :id, :name, :message, :time
@@ -21,7 +20,8 @@ class ChitterFeed
     end
     result = connection.exec("SELECT * FROM chitter;")
     result.map do |input| 
-      ChitterFeed.new(id: input['id'], name: input['name'], message: input['message'], time: input['time'])
+      ChitterFeed.new(id: input['id'], name: input['name'],
+        message: input['message'], time: input['time'])
     end
   end
 
@@ -36,14 +36,15 @@ class ChitterFeed
     end
 
     if kwargs[:username]
-      result = connection.exec("INSERT INTO chitter (name, message ,time) VALUES('#{kwargs[:username]}','#{peep}','#{@time}') RETURNING id, name, message, time;")
+      result = connection.exec("INSERT INTO chitter (name, message ,time) 
+        VALUES('#{kwargs[:username]}','#{peep}','#{@time}') RETURNING id, name, message, time;")
     else 
-      result = connection.exec("INSERT INTO chitter (name, message ,time) VALUES('#{@name}','#{peep}','#{@time}') RETURNING id, name, message, time;")  
+      result = connection.exec("INSERT INTO chitter (name, message ,time) 
+        VALUES('#{@name}','#{peep}','#{@time}') RETURNING id, name, message, time;")  
     end
     
-    ChitterFeed.new(id: result[0]['id'], name: result[0]['name'], message: result[0]['message'], time: result[0]['time'])
+    ChitterFeed.new(id: result[0]['id'], name: result[0]['name'], 
+      message: result[0]['message'], time: result[0]['time'])
   end 
-
-
 
 end 

@@ -1,36 +1,32 @@
 <body style="background-color:honeydew;">
 
-<h2 style="font-family:verdana"> Welcome  <%=@username %></h2>
+  <h2 style="font-family:verdana"> Welcome  <%=@username %></h2>
 
-<p style="font-family:verdana"> Below is your feed, if you have just signed up it may be empty. <br> </p>
+  <p style="font-family:verdana"> Below is your feed, if you have just signed up it may be empty. <br> </p>
 
-<details>
-  <summary style="font-family:verdana"> If you feel like you have something to say. </summary >
+  <details>
+    <summary style="font-family:verdana"> If you feel like you have something to say. </summary >
+    <p>
+      <form action="/comment" method="post">
+        <label style="font-family:verdana" for="peep"> Type out your peep : </label>
+        <input type="text" size="60" name="peep">
+        <input style="font-family:verdana" type="submit" value="Post"> 
+      </form>
+    </p>
+  </details>
+
+
   <p>
-    <form action="/comment" method="post">
-      <label style="font-family:verdana" for="peep"> Type out your peep : </label>
-      <input type="text" size="60" name="peep">
-      <input style="font-family:verdana" type="submit" value="Post"> 
-    </form>
+  <% @user_feed.reverse.each do |val| %>
+    <% if val.name  == @username %>
+      <li style="font-family:verdana"> [<%=val.time%>] : <%=val.name %> posted "<%=val.message %>"   </li> 
+      <br>
+    <% end %>
+  <% end %>
   </p>
-</details>
 
-
-<p>
-
- <% @user_feed.reverse.each do |val| %>
-   <% if val.name  == @username %>
-    <li style="font-family:verdana"> [<%=val.time%>] : <%=val.name %> posted "<%=val.message %>"   </li> 
-    <br>
-    <% end %>
-    <% end %>
-
-</p>
-
- <form action="/feed">
-    <input type="submit" style="font-family:verdana" value="View the feed"> 
+  <form action="/feed">
+      <input type="submit" style="font-family:verdana" value="View the feed"> 
   </form>
-
-
 
 </body>
