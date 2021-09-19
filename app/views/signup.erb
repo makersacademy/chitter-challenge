@@ -4,16 +4,28 @@
     <link rel="stylesheet" type="text/css" href="<%= url("/css/styles.css")%>"/>
   </head>
   <body>
-    <div class="nav">Chitter</div>
+    <div class="nav">
+      <img
+        src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clipartbest.com%2Fcliparts%2FncB%2FK8g%2FncBK8gGAi.png&f=1&nofb=1"
+        alt="chitter logo"
+        class="bird"
+      />
+    </div>
 
     <div class="page">
       <div class="login-window">
-        <form action="/users/signup" method="post">
-          <input type="input" name="username" placeholder="username" />
-          <input type="input" name="email" placeholder="email@gmail.com" />
-          <input type="password" name="password" placeholder="super secret password" />
-          <input type="submit" value="Sign up" />
-        </form>
+        <div class="signup-container">
+          <form action="/users/signup" method="post" class="signup-form">
+            <input type="input" name="username" placeholder="username" />
+            <input type="input" name="email" placeholder="email@gmail.com" />
+            <input
+              type="password"
+              name="password"
+              placeholder="super secret password"
+            />
+            <input type="submit" value="Sign up" />
+          </form>
+        </div>
       </div>
     </div>
   </body>

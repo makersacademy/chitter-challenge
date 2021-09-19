@@ -5,8 +5,22 @@
   </head>
   <body>
     <div class="nav">
-      <h1 class="logo">Chitter</h1>
-      <h2 class="user"><%= @user.username %></h2>
+      <div class="nav-section logo">
+        <img
+          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clipartbest.com%2Fcliparts%2FncB%2FK8g%2FncBK8gGAi.png&f=1&nofb=1"
+          alt="chitter logo"
+          class="bird"
+        />
+      </div>
+      <div class="nav-section space"></div>
+      <div class="nav-section user">
+        <h2 class="user">Username: <%= @user.username %></h2>
+      </div>
+      <div class="nav-section logout">
+        <form action="/log-out" class="logout">
+          <input type="submit" value="Log out" />
+        </form>
+      </div>
     </div>
 
     <div class="page">

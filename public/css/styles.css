@@ -1,12 +1,12 @@
 /* Dark Mode */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --c2: #333333;
     --c3: hsl(210, 3%, 12%);
     --c4: #fff;
   }
-}
+} */
 
 :root {
   --sans: 1em/1.6 system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -22,6 +22,16 @@
   --rc: 8px;
 }
 
+h1 {
+  font-size: 1.5vw;
+  color: #333333;
+}
+
+h2 {
+  font-size: 1.2vw;
+  color: #333333;
+}
+
 body {
   margin: 0;
   font: var(--sans);
@@ -31,18 +41,6 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: var(--c3);
   color: var(--c4);
-}
-
-.nav {
-  height: 10vh;
-  background-color: var(--c2);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--c4);
-  font-size: 2vw;
-  font-weight: bold;
 }
 
 input,
@@ -117,12 +115,14 @@ select:hover {
 .message-input {
   min-width: 600px;
   min-height: 100px;
+  color: #333333;
 }
 
 .message-container {
   width: 100%;
   height: fit-content;
-  background-color: royalblue;
+  border-radius: 5px;
+  border: solid 2px paleturquoise;
 }
 
 .login-window {
@@ -140,4 +140,65 @@ select:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.nav {
+  height: 120px;
+  background-color: var(--c2);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  grid-row: 10vh;
+  justify-content: center;
+  align-items: center;
+  color: var(--c4);
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.bird {
+  height: 120px;
+  width: auto;
+}
+
+.nav-section {
+  top: 0;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-section.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logout {
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.signup-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* background-color: seagreen; */
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
 }
