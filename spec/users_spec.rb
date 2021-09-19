@@ -22,7 +22,7 @@ describe User do
     end
 
     it 'password wrong' do
-      PGDatabase.con.exec("TRUNCATE message, users;")
+      PGDatabase.con.exec("TRUNCATE message, users, reply;")
       user = User.add(username: 'login', email: 'test@example.com', password: 'password123')
       expect(User.auth(email: 'test@example.com', password: 'password12434343')).to be_nil
     end
