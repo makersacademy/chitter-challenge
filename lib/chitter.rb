@@ -8,7 +8,8 @@ class Chitter
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("SELECT * FROM chitter_db;")
-    result.map { |post| post['peep'] }
+    peeps = result.map { |post| post['peep'] }.reverse()
+    peeps.join("<br><br>")
   end
 
   def self.add(peep)
