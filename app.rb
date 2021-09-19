@@ -25,5 +25,13 @@ class Chitter < Sinatra::Base
     erb :feed
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    User.create(email: params['email'], username: params['username'], password: params['password'], name: params['name'])
+  end
+
   run! if app_file == $0
 end
