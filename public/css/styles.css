@@ -20,6 +20,24 @@
   --c5: #fff;
   --m1: 8px;
   --rc: 8px;
+  --color_a: paleturquoise;
+  --color_b: ;
+  --color_b: ;
+  --color_b: ;
+  --color_b: ;
+  --darkestGreen: #203624;
+  --darkGreen: #486858;
+  --midGreen: #294b3b;
+  --lightGreen: #648977;
+  --lightTaupe: #dbc8b9;
+  --lightestTaupe: #e6d9cf;
+  --text: #808080;
+  --colourPop: #e51a94; /* var(--colourPop); */
+  --colourTextGrey: #3e4a56; /* var(--colourTextGrey); */
+  --colourTextDark: #1f306d; /* var(--colourTextDark); */
+  --colourBackLilac: #e0e8fa; /* var(--colourBackLilac); */
+  --colourBackGrey: #f5f7fd; /* var(--colourBackGrey); */
+  --colourBackWhite: #ffffff; /* var(--colourBackWhite); */
 }
 
 h1 {
@@ -47,7 +65,7 @@ body {
   color: var(--c4);
 }
 
-input,
+/* input,
 select,
 textarea,
 button,
@@ -76,8 +94,8 @@ input[type="button"] {
   padding: 0.6em;
   cursor: pointer;
   text-align: center;
-  display: flex; /* added */
-  align-items: center; /* added */
+  display: flex; 
+  align-items: center;
   background-color: orange;
 }
 button:hover,
@@ -86,7 +104,7 @@ input:hover,
 textarea:hover,
 select:hover {
   opacity: 0.8;
-}
+} */
 
 .page {
   width: 100%;
@@ -120,18 +138,6 @@ select:hover {
   min-width: 600px;
   min-height: 100px;
   color: #333333;
-}
-
-.message-container {
-  width: 100%;
-  height: fit-content;
-  border-radius: 5px;
-  border: solid 2px paleturquoise;
-}
-
-.reply-container {
-  display: flex;
-  flex-direction: row;
 }
 
 .login-window {
@@ -210,4 +216,72 @@ select:hover {
   justify-content: center;
   align-items: center;
   row-gap: 10px;
+}
+
+.message-container {
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  border: solid 2px var(--color_a);
+  background-color: var(--colourBackWhite);
+}
+
+.reply-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.message {
+  color: var(--text);
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+.post-details {
+  color: var(--text);
+}
+
+.post-container {
+  background-color: var(--colourBackGrey);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  flex: 1;
+}
+
+.post-text {
+  display: flex;
+  flex: 5;
+  align-items: center;
+  justify-content: center;
+}
+
+.reply-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.reply-container {
+  background-color: var(--colourBackGrey);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reply-info {
+  display: flex;
+  justify-content: right;
+}
+
+.reply-details {
+}
+
+.reply-message {
+}
+
+.reply-text {
 }
