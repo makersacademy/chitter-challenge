@@ -31,7 +31,7 @@ describe Chitter do
 
       # add test data
       peep = Chitter.post(message: "Hello world 4")
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: 'chitter', id: peep.id)
 
       expect(peep).to be_a(Peep)
       expect(peep.id).to eq(persisted_data['id'])
