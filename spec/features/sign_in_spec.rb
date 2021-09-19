@@ -1,4 +1,4 @@
-feature 'signin' do
+feature 'maker can signin' do
     let(:maker) do
         Maker.create(name: 'Clive Myrie',
                     email: 'Clive.Myrie@bbc.co.uk',
@@ -13,7 +13,7 @@ feature 'signin' do
         expect(page).to have_content "Hello, #{maker.name}"
     end
 
-    scenario 'unsuccessful sigin with incorrect details' do
+    scenario 'unsuccessful signin with incorrect details' do
         signin(username: maker.username, password: 'password_incorrect')
         expect(page).to have_content "The username and/or password is not recognised"
     end
