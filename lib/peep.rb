@@ -1,6 +1,8 @@
 require 'pg'
 
 class Peep
+  attr_reader :content, :time
+
   def initialize(content:, time:)
     @content = content
     @time = time
@@ -12,7 +14,10 @@ class Peep
     else
       con = PG.connect(dbname: 'chitter')
     end
-    con.exec("ORDER BY date DESC, timestamp DESC")
+    rs = con.exec("SELECT * FROM peeps ORDER BY timestamp DESC LIMIT 300 OFFSET 0;")
+    rs.map do |row|
+      Peep.new(content: row['content'], time: row['timestamp'])
+    end
   end
 
   def self.send(content:, time:)
@@ -21,6 +26,6 @@ class Peep
     else
       con = PG.connect(dbname: 'chitter')
     end
-    result = con.exec_params("INSERT INTO peeps (timestamp, content) VALUES ($1, $2) RETURNING timestamp, content", [time, content])
+    rs = con.exec_params("INSERT INTO peeps (timestamp, content) VALUES ($1, $2) RETURNING timestamp, content", [time, content])
   end
 end
