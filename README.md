@@ -77,6 +77,14 @@ I want to log out of Chitter
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
+As A Maker
+So that I can start conversations
+I want to be able to reply to peoples messages
+
+As a Maker
+So that I can see what people said to me
+I want to be able to see replies on my home page
 ```
 
 ##### Domain Model
@@ -100,13 +108,17 @@ I want to receive an email if I am tagged in a Peep
 | | @user_name |
 | | @email |
 | | @id |
+`className = Reply < Message`
+|methods |attributes|
+|-|-|
+| | @message_id |
 
 ##### Database Model
 
 ###### Tables
 
 `Table: Message`
-|ID|ID_USERS|message|createdate|
+|ID|ID_USERS|message|create_date|
 |-|-|-|-|
 |BIGSERIAL NOT NULL PRIMARY KEY|INT NOT NULL REFERENCES users(ID)|VARCHAR(200)|TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP|
 
@@ -114,6 +126,11 @@ I want to receive an email if I am tagged in a Peep
 |ID|user_name|password|email|salt|
 |-|-|-|-|-|
 |BIGSERIAL NOT NULL PRIMARY KEY|VARCHAR(30)|VARCHAR(30)|TEXT|TEXT|
+
+`Table: Replies`
+|ID|ID_USERS|ID_MESSAGE|message|create_date|
+|-|-|-|-|-|
+|BIGSERIAL NOT NULL PRIMARY KEY|INT NOT NULL REFERENCES users(ID)|INT NOT NULL REFERENCES messages(ID)|VARCHAR(200)|TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP|
 
 ###### Relationships
 

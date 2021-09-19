@@ -65,5 +65,10 @@ class ChitterApp < Sinatra::Base
     redirect('/')
   end
 
+  post '/reply/:id' do
+    p params
+    redirect('/home')
+  end
+
   run! if app_file == $0
 end
