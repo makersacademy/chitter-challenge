@@ -19,5 +19,11 @@ class Chitter < Sinatra::Base
     erb :peep_sent
   end
 
+  get '/feed' do
+    @peeps = Peep.feed
+    @peeps.reverse!
+    erb :feed
+  end
+
   run! if app_file == $0
 end
