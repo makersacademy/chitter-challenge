@@ -15,6 +15,12 @@ describe User do
       User.add(username: 'encrypted', email: 'encrypted@example.com', password: 'password123')
     end
 
+    it 'when authenticated' do
+      user = User.add(username: 'login', email: 'test@example.com', password: 'password123')
+      auth = User.auth(email: 'test@example.com', password: 'password123')
+      expect(user.id).to eq auth.id
+    end
+
   end
 
 end

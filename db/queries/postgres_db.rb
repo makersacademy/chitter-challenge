@@ -27,8 +27,12 @@ class PGDatabase
     @con.exec_params("INSERT INTO users (user_name, email, password) VALUES ($1,$2,$3) RETURNING *;", [username, email , password]).first
   end
 
-  def self.get_user(id)
-    @con.exec_params("SELECT * FROM users WHERE id = $1;", [id]).first
+  def self.get_user(idendifier: , value: )
+    if idendifier == :id 
+      @con.exec_params("SELECT * FROM users WHERE id = $1;", [value]).first
+    else
+      he = @con.exec_params("SELECT * FROM users WHERE email = $1;", [value]).first
+    end
   end
 
 end
