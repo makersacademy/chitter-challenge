@@ -34,6 +34,10 @@ describe 'User Interface', type: :feature do
 
   context 'I want to see all peeps in reverse chronological order' do
 
+    before do
+      sign_up
+    end
+    
     it 'displays dummy data' do
       visit('/home')
       expect(page).to have_content("Lovely Stuff")
@@ -41,7 +45,6 @@ describe 'User Interface', type: :feature do
     end
 
     it 'checks order' do
-      sign_up
       save_and_open_page
       section = find(".message", match: :first)
       expect(section).to have_text('Lovely Stuff 3')
