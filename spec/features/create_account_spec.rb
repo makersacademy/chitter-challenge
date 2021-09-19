@@ -10,4 +10,5 @@ feature 'create Chitter account' do
         expect(Maker.count).to eq 1
     end
 
+    
 end
