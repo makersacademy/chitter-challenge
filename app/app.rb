@@ -66,7 +66,6 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/reply/:id' do
-    p params
     Chitter.create_reply(user_id: session[:user_id], message_id: params["id"], message: params["reply"])
     redirect('/home')
   end
