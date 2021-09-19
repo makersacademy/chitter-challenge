@@ -11,6 +11,7 @@ require_relative './setup_test_database'
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
+    setup_test_account_database
   end
 end
 

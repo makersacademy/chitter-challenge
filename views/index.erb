@@ -1,3 +1,16 @@
+
+<form action='/registration' method = 'post'>
+  <input type="submit" name="Register" value="Register">
+</form>
+
+<% if @logged_in != true %>
+  <form action='/log_in' method = 'post'>
+    <input type="submit" name="Log in" value="Log in">
+  </form>
+<% else %>
+  Successfully logged in!
+<% end %>
+
 Tell the world about what you are making:
 
 <form action='/peep_added' method = 'post'>

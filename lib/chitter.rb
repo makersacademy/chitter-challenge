@@ -14,6 +14,7 @@ class Chitter
   end
 
   def self.add(peep, user = 'Anon')
+    peep["'"] = "" if peep.include?("'")
     connection = determine_connection
     connection.exec ("INSERT INTO chitter_db (peep,time,date,username) 
       VALUES ('#{peep}','#{Time.now}','#{Date.today}','#{user}');")
