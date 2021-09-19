@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'set_up_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
 
