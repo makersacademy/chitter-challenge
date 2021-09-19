@@ -18,7 +18,8 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO chitter_db (peep) VALUES ('#{peep}');")
+    connection.exec("INSERT INTO chitter_db (peep,time,date) 
+      VALUES ('#{peep}','#{Time.now}','#{Date.today}');")
   end
 
   def self.remove(id)
