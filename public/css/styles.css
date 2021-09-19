@@ -42,13 +42,26 @@
 
 h1 {
   font-size: 1.5vw;
-  color: #333333;
+  color: var(--colourTextDark);
 }
 
 h2 {
   font-size: 1.2vw;
-  color: #333333;
+  color: var(--colourTextDark);
 }
+
+.header-container {
+  width: 70%;
+  margin: auto;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.header {
+  font-size: 1.2vw;
+  color: var(--colourTextDark);
+  font-weight: bold;
+}
+
 .error {
   font-size: 1.2vw;
   color: red !important;
@@ -65,6 +78,57 @@ body {
   color: var(--c4);
 }
 
+textarea {
+  appearance: none;
+  background-color: none;
+  border: 3px solid var(--c2);
+  font-size: 17px;
+  width: 300px;
+  height: 70px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  letter-spacing: 0.01em;
+  font-family: var(--mono);
+}
+
+input[type="text"],
+input[type="input"],
+input[type="password"] {
+  appearance: none;
+  background-color: none;
+  border: 3px solid var(--c2);
+  font-size: 17px;
+  width: 300px;
+  height: 30px;
+  padding: 10px 15px;
+  border-radius: 60px;
+  letter-spacing: 0.01em;
+}
+
+input[type="text"]:focus,
+input[type="input"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+button {
+  color: blue;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(var(--c2) 0%, #67ceff 100%);
+  background-image: linear-gradient(var(--c2) 0%, #67ceff 100%);
+  transition: 0.4s;
+  border: none;
+  border-radius: 20px;
+}
 /* input,
 select,
 textarea,
@@ -98,13 +162,14 @@ input[type="button"] {
   align-items: center;
   background-color: orange;
 }
+ */
 button:hover,
 button:focus,
 input:hover,
 textarea:hover,
 select:hover {
   opacity: 0.8;
-} */
+}
 
 .page {
   width: 100%;
@@ -219,10 +284,11 @@ select:hover {
 }
 
 .message-container {
-  width: 100%;
+  width: 70%;
+  margin: auto;
   height: fit-content;
-  border-radius: 5px;
-  border: solid 2px var(--color_a);
+  border-radius: 25px;
+  border: solid 2px var(--c2);
   background-color: var(--colourBackWhite);
 }
 
@@ -232,20 +298,24 @@ select:hover {
 }
 
 .message {
-  color: var(--text);
+  color: var(--colourTextDark);
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 1.6vw;
 }
 
 .post-details {
   color: var(--text);
+  margin-left: 20px;
 }
 
 .post-container {
-  background-color: var(--colourBackGrey);
-  border-radius: 5px;
+  background-color: var(--c2);
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
 }
 
 .info {
@@ -263,13 +333,20 @@ select:hover {
   display: flex;
   flex-direction: row;
   justify-content: right;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
 }
 
 .reply-container {
   background-color: var(--colourBackGrey);
-  border-radius: 5px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .reply-info {
@@ -281,7 +358,10 @@ select:hover {
 }
 
 .reply-message {
+  color: var(--colourTextDark);
 }
 
 .reply-text {
+  display: flex;
+  justify-content: center;
 }
