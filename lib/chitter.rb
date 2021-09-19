@@ -1,10 +1,21 @@
 require 'pg'
 
 class Chitter
+
+  # def initialize(post:, time:)
+  #   @post = post
+  #   @time = time
+  # end
+
   def self.all
-    connection = PG.connect(dbname: 'chitter_app')
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_app_test')
+    else
+      connection = PG.connect(dbname: 'chitter_app')
+    end
+    
     result = connection.exec("SELECT * FROM chitter;")
-    result.map { |bookmark| bookmark['post'] }
+    result.map { |chitter| chitter['post'] }
     # [
     #   "This is my first Chitter post!",
     #   "This is my second Chitter post!", 
