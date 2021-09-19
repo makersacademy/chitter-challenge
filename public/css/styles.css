@@ -129,6 +129,11 @@ select:hover {
   border: solid 2px paleturquoise;
 }
 
+.reply-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .login-window {
   background-color: var(--c2);
   position: absolute;
