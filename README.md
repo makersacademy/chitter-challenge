@@ -12,20 +12,26 @@ To create the test database use the psql command CREATE DATABASE chitter_app_tes
 
 ### Comments
 
-User Story 2
+User Story 2 (Complete)
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
 I attempted User Story 2 first as it seemed like viewing all posts would come before being able to add to those posts. This was done by testing and creating a .all method in Chitter.rb. I then had to edit the chitter.erb page to display the posts. The results displayed were initially in chronological order, which was changed using 'reverse_each' in chitter.erb. 
 
-User Story 1
+User Story 1 (Complete)
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
 I made a new route for '/chitter/new'. I wrote the feature test for adding a new post then created a new.erb in the views that gave the option to type up a post in the box and submit it to the /chitter page via a post method. This meant using params on 'post'. I created and tested a self.create method that interacted with pg to get the new post added to the data table and showing up on the /chitter page that it had been redirected to. 
 
+User Story 3
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+Earlier on, I added an additional column to my data tables called 'time'. I can see that this is working and shows the date and time of when each entry is made. 
 
 -
 

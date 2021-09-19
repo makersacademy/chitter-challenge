@@ -11,11 +11,11 @@ feature 'Viewing chitter posts' do
     scenario 'user can see all chitter posts' do
       connection = PG.connect(dbname: 'chitter_app_test')
   
-      # Add the test data
-      connection.exec("INSERT INTO chitter (post) VALUES ('This is my first Chitter post!');")
-      connection.exec("INSERT INTO chitter (post) VALUES ('This is my second Chitter post!');")
-      connection.exec("INSERT INTO chitter (post) VALUES ('This is my third Chitter post!');")
-
+      # Refactored adding to test data, using .create
+      Chitter.create(post: "This is my first Chitter post!")
+      Chitter.create(post: "This is my second Chitter post!")
+      Chitter.create(post: "This is my third Chitter post!")
+    
       visit('/chitter')
   
       expect(page).to have_content "This is my first Chitter post!"
