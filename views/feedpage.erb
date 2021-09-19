@@ -1,0 +1,27 @@
+<body style="background-color:honeydew;">
+
+  <h3 style="font-family:verdana"> Welcome to the chitter feed. </h3>
+
+  <h3 style="font-family:verdana"> See what people are saying on the feed below. </h3>
+
+  <% @feed.reverse.each do |val| %>
+    <li style="font-family:verdana"> [<%=val.time%>] : <%=val.name %> posted "<%=val.message %>"   </li> 
+    <br>
+  <% end %>
+
+  <p>
+    <form action="/">
+      <input style="font-family:verdana" type=submit value="Return to Homepage">
+    </form>
+  <p>
+  
+  <p>
+      <form action="/user/homepage">
+        <input style="font-family:verdana" type=submit value="Return to your feed">
+      </form>
+  <p>
+
+</body>
+
+
+
