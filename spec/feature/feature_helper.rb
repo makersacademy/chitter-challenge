@@ -1,5 +1,5 @@
 def fill_data
-  PGDatabase.con.exec("TRUNCATE message, users;")
+  PGDatabase.con.exec("TRUNCATE message, users, reply;")
   # ["users","message"].each { |table| reset_id_seq(table) }
   user = PGDatabase.con.exec_params("INSERT INTO users (user_name, email, password) VALUES ($1,$2,$3) RETURNING *;", ['admin', 'admin@admin.com' , 'password']).first
   PGDatabase.con.exec_params("INSERT INTO message (id_users, message) VALUES ($1,$2);", [ user["id"], 'Lovely Stuff'])
