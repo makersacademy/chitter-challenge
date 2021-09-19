@@ -37,7 +37,7 @@ describe 'User Interface', type: :feature do
     before do
       sign_up
     end
-    
+
     it 'displays dummy data' do
       visit('/home')
       expect(page).to have_content("Lovely Stuff")
@@ -45,7 +45,6 @@ describe 'User Interface', type: :feature do
     end
 
     it 'checks order' do
-      save_and_open_page
       section = find(".message", match: :first)
       expect(section).to have_text('Lovely Stuff 3')
     end

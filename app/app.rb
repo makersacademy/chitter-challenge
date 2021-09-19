@@ -21,7 +21,6 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/home' do
-    p session[:user_id]
     @user = User.get(session[:user_id])
     redirect '/' if @user.nil?
     @messages = Chitter.show_all_messages

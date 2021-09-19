@@ -7,7 +7,6 @@ require_relative '../app/app'
 require 'dotenv'
 require_relative './feature/feature_helper'
 require_relative '../db/queries/pg_connect'
-# require_relative '../db/queries/postgres_db'
 require 'pg'
 
 #Setup DB
