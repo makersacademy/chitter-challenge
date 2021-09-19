@@ -4,10 +4,10 @@ require 'Time'
 class Chitter
 
   def self.show_all_messages
-    result = PGDatabase.con.exec_params("SELECT * FROM message ORDER BY createdate DESC;")
+    result = PGDatabase.con.exec_params("SELECT u.user_name, m.* FROM message m JOIN users u on u.id = m.id_users ORDER BY createdate DESC;")
     result.map { |row |
       
-      Message.new(id: row['id'], message: row['message'] ,create_date: parse_date(row['createdate']))
+      Message.new(id: row['id'], message: row['message'] ,create_date: parse_date(row['createdate']), username: row['user_name'])
     }
   end
 

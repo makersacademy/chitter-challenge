@@ -20,7 +20,8 @@ class PGDatabase
 
   def self.create_message(user_id:, message:)
     result = @con.exec_params("INSERT INTO message (id_users, message) VALUES ($1,$2) RETURNING *;", [user_id, message])
-    result.map { |row| Message.new(id: row['id'], message: row['message'], create_date: row['createdate']) }
+    username = @con.exec_params("SELECT user_name FROM users WHERE ID = $1;", [user_id])
+    result.map { |row| Message.new(id: row['id'], message: row['message'], create_date: row['createdate'], username: username) }
   end
 
   def self.create_user(username: , email: , password: )
