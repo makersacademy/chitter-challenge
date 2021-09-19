@@ -84,7 +84,7 @@ I want to be able to reply to peoples messages
 
 As a Maker
 So that I can see what people said to me
-I want to be able to see replies on my home page
+I want to be able to see replies
 ```
 
 ##### Domain Model

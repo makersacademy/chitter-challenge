@@ -47,6 +47,14 @@
               <input type="submit" value="Reply" />
             </form>
           </div>
+          <div class="replies">
+            <% message.replies.each { |reply| %>
+            <div class="reply-block">
+              <h1><%=reply.message%></h1>
+              <h1><%=reply.username%></h1>
+            </div>
+            <% } %>
+          </div>
         </div>
 
         <% } %>

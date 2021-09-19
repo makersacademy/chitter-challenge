@@ -62,11 +62,11 @@ describe 'User Interface', type: :feature do
     it 'can signup' do
       visit('/')
       click_button('Sign Up')
-      fill_in('username', with: 'username')
+      fill_in('username', with: 'username11')
       fill_in('email', with: 'username@gmail.com')
       fill_in('password', with: 'password')
       click_button('Sign up')
-      expect(page).to have_content "username"
+      expect(page).to have_content "username11"
     end
 
   end
@@ -121,6 +121,21 @@ describe 'User Interface', type: :feature do
       visit('/home')
       fill_in(:reply, with: 'This is a reply')
       click_button("Reply")
+    end
+
+  end
+
+  context 'I want to be able to see replies' do
+
+    it 'checks home page for reply' do
+      PGDatabase.con.exec("TRUNCATE message, users, reply;")
+      sign_up
+      user =  PGDatabase.create_user(username: 'username', email: 'email', password: 'dd')
+      PGDatabase.create_message(user_id: user["id"], message:'test').first
+      visit('/home')
+      fill_in(:reply, with: 'This is a reply')
+      click_button("Reply")
+      expect(page).to have_content 'This is a reply'
     end
 
   end
