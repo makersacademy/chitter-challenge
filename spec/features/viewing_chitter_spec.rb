@@ -8,7 +8,7 @@ feature 'viewing the chitter page' do
 end
 
 feature 'Viewing chitter posts' do
-    scenario 'A user can see all chitter posts' do
+    scenario 'user can see all chitter posts' do
       connection = PG.connect(dbname: 'chitter_app_test')
   
       # Add the test data

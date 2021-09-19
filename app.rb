@@ -17,10 +17,14 @@ class ChitterApp < Sinatra::Base
   end 
 
   get '/chitter/new' do 
-    erb :new_post
+    erb :new
   end 
 
   post '/chitter' do 
+    Chitter.create(post: params['post'])
+    # post = params['post']
+    # connection = PG.connect(dbname: 'chitter_app_test')
+    # connection.exec("INSERT INTO chitter (post) VALUES('#{post}')")
     redirect '/chitter'
   end 
 

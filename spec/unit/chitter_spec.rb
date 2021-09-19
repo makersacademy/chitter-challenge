@@ -1,7 +1,8 @@
 require 'chitter'
 
 describe Chitter do
-  describe '.all' do
+  
+    describe '.all' do
     it 'returns all chitter posts in reverse chronological order' do
         connection = PG.connect(dbname: 'chitter_app_test')
       
@@ -16,4 +17,12 @@ describe Chitter do
       expect(chitter).to include("This is my third Chitter post!")
     end
   end
+
+  describe '.create' do 
+    it 'creates a new post' do 
+        Chitter.create(post: 'This is an example chitter post')
+
+        expect(Chitter.all).to include 'This is an example chitter post'
+    end 
+  end 
 end

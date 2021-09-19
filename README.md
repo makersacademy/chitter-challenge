@@ -24,6 +24,8 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+I made a new route for '/chitter/new'. I wrote the feature test for adding a new post then created a new.erb in the views that gave the option to type up a post in the box and submit it to the /chitter page via a post method. This meant using params on 'post'. I created and tested a self.create method that interacted with pg to get the new post added to the data table and showing up on the /chitter page that it had been redirected to. 
+
 
 -
 
