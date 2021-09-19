@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
 
   post '/send' do
     @peep = params['peep']
-    Peep.create(content: params['peep'])
+    Peep.send(content: params['peep'], time: Time.now)
     erb :peep_sent
   end
 
