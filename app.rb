@@ -15,8 +15,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/' do
-      @user = User.find(id: session[:user_id])
-      @peeps = Chitter.peeps
+    @user = User.find(id: session[:user_id])
+    @peeps = Chitter.peeps
     erb(:index)
   end
 
@@ -46,7 +46,7 @@ class ChitterChallenge < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    if user != nil
+    if user
       session[:user_id] = user.id
       redirect('/')
     else

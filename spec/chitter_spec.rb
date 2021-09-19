@@ -9,9 +9,8 @@ describe Chitter do
 
   describe '.peeps' do
     it 'return all peeps' do
-      connection = PG.connect( dbname: 'chitter_test' )
+      connection = PG.connect(dbname: 'chitter_test')
 
-      # add test data
       peep = Chitter.post(message: "Hello world 3")
       Chitter.post(message: "Hello world 4")
 
@@ -27,9 +26,8 @@ describe Chitter do
 
   describe '.post' do
     it 'create a new peep' do
-      connection = PG.connect( dbname: 'chitter_test' )
+      connection = PG.connect(dbname: 'chitter_test')
 
-      # add test data
       peep = Chitter.post(message: "Hello world 4")
       persisted_data = persisted_data(table: 'chitter', id: peep.id)
 
