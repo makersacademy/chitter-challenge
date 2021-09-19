@@ -21,7 +21,7 @@ describe Peep do
   describe '.add' do
     it 'is able to create a new peep' do
       peep = Peep.add(post: 'This is a test peep to check the add functionality!')
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']

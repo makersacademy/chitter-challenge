@@ -1,3 +1,7 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+<% end %>
+
 <h2>Viewing all peeps</h2>
 <ul>
   <% @peeps.each do |peep| %>
@@ -7,4 +11,8 @@
 
 <form action='/chitter/add'>
   <input type='submit' value='New peep'>
+</form>
+
+<form action='/users/new'>
+  <input type='submit' value='Sign up to Chitter'>
 </form>
