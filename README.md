@@ -186,3 +186,10 @@ touch config.ru
       [email, password]
     )
 ```
+
+- I had issues with the flash notice, is this normal? from the documentation it looks like this is only RAILS?
+  https://api.rubyonrails.org/classes/ActionDispatch/Flash.html
+
+```
+2021-09-19 12:37:06 - NameError - undefined local variable or method `flash' for #<ChitterApp:0x00000001039aae80>:
+```

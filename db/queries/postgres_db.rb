@@ -31,7 +31,7 @@ class PGDatabase
     if idendifier == :id 
       @con.exec_params("SELECT * FROM users WHERE id = $1;", [value]).first
     else
-      he = @con.exec_params("SELECT * FROM users WHERE email = $1;", [value]).first
+      @con.exec_params("SELECT * FROM users WHERE email = $1;", [value]).first
     end
   end
 

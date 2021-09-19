@@ -14,7 +14,7 @@
   --mono: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,
     "Courier New", monospace;
   --c1: #0074d9;
-  --c2: #eee;
+  --c2: rgba(175, 238, 238, 0.543);
   --c3: #fff;
   --c4: #000;
   --c5: #fff;
@@ -30,6 +30,10 @@ h1 {
 h2 {
   font-size: 1.2vw;
   color: #333333;
+}
+.error {
+  font-size: 1.2vw;
+  color: red !important;
 }
 
 body {

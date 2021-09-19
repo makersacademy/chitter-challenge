@@ -43,13 +43,20 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/users/signin' do
+    @error = session[:error]
     erb :signin
   end
 
   post '/users/signin' do
     user = User.auth(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/home')
+    session[:error] = ""
+    if user
+      session[:user_id] = user.id
+      redirect('/home')
+    else
+      session[:error] = 'Incorrect email or password - Please try again'
+      redirect('/users/signin')
+    end
   end
 
   run! if app_file == $0

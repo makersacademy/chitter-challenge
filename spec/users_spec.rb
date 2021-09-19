@@ -21,6 +21,12 @@ describe User do
       expect(user.id).to eq auth.id
     end
 
+    it 'password wrong' do
+      PGDatabase.con.exec("TRUNCATE message, users;")
+      user = User.add(username: 'login', email: 'test@example.com', password: 'password123')
+      expect(User.auth(email: 'test@example.com', password: 'password12434343')).to be_nil
+    end
+
   end
 
 end
