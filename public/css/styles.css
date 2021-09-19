@@ -1,4 +1,75 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Roboto;
+}
+body {
+  background-color: #1dcaff;
+  color: #fcfcfd;
+  letter-spacing: 1px;
+}
+.header h2 {
+  padding: 0.8em 0;
+  background-color: #00aced;
+  color: #fcfcfd;
+  text-align: center;
+  font-size: 2.6em;
+  border-bottom: 5px solid #fff;
+}
+.container {
+  margin: 3em auto;
+  text-align: center;
+}
+form {
+  text-align: center;
+}
+input[type=text], input[type=email], input[type=password] {
+  width: 96%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1.1em
+}
+input[type=submit] {
+  margin-top: 1em;
+  width: 96%;
+  background-color: #00aced;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.4em;
+  letter-spacing: 1px;
+}
+input[type=submit]:hover {
+  background-color: #0096cc;
+}
+form > button {
+  margin: 0 10px;
+  cursor: pointer;
+}
+.container > h2 {
+  margin-bottom: 0.6em;
+}
+li {
+  margin-top: 0.4em;
+}
+.time {
+  font-size: 0.7em;
+  color: #d1e9f5;
+  letter-spacing: 0;
+}
+a {
+  text-decoration: none;
+  padding-top: 1em;
+  display: inline-block;
+  color: #fff;
+}
+a:hover {
+  color: #d1e9f5;;
 }

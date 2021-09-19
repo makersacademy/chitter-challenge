@@ -16,11 +16,11 @@ class Chitter
 
   def self.post(message:)
     time = Time.now.strftime("%m-%d-%Y at %H:%M")
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+      if ENV['ENVIRONMENT'] == 'test'
+        connection = PG.connect(dbname: 'chitter_test')
+      else
+        connection = PG.connect(dbname: 'chitter')
+      end
     result = connection.exec_params(
       "INSERT INTO chitter (time, message) VALUES($1, $2) RETURNING id, time, message;", 
       [time, message])

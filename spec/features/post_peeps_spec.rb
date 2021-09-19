@@ -3,7 +3,7 @@ feature 'post peeps' do
     visit('/peeps/new')
     fill_in('message', with: 'Hello world 10')
 
-    click_button('Submit')
+    click_button('Post a message')
 
     expect(page).to have_content('Hello world 10')
   end

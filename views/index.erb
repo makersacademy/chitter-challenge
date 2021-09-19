@@ -1,12 +1,23 @@
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
-  <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Sign out" />
-  </form>
+  <h2>Welcome, <%= @user.email %></h2>
 <% end %>
 
 <ul>
   <% @peeps.reverse.each do |peep| %>
-    <li><%= peep.time %> - <%= peep.message %></li>
+    <li class="message"><%= peep.message %></li>
+    <p class="time"><%= peep.time %></p>
   <% end %>
 </ul>
+
+<% if @user %>
+  <form method="get" action="/peeps/new">
+      <input type="submit" value="Post a message">
+  </form>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Log out">
+  </form>
+<% else %>
+  <form method="get" action="/sessions/new">
+    <input type="submit" value="Log in">
+  </form>
+<% end %>
