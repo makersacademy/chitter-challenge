@@ -18,7 +18,7 @@ class Chitter
   def self.parse_date(date)
     if date 
       ruby_date = Time.parse(date)
-      ruby_date.strftime("%Y-%m-%d %H:%M")
+      ruby_date.strftime("%d-%m-%y %H:%M")
     end
   end
 
