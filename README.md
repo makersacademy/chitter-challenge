@@ -8,21 +8,31 @@ The project was built over a weekend, planned and modelled on Friday and then ex
 
 I mainly enjoyed learning how to store passwords securely (using Becrypt with SALT and PEPPER hashing), while also building everything with SRP/Encapsulation/Separation of concerns in mind.
 
+Also, the app has 100% TDD coverage.
+
 ---
 
 ## Functionality
 
 #### Post messages
 
+![](https://github.com/EMDevelop/public_resources/blob/main/gifs/Chitter/gifs/post.gif)
+
 #### Post replies to posted messages
+
+![](https://github.com/EMDevelop/public_resources/blob/main/gifs/Chitter/gifs/reply.gif)
 
 #### Sign Up, as a new user
 
+![](https://github.com/EMDevelop/public_resources/blob/main/gifs/Chitter/gifs/signup.gif)
+
 #### Sign In, but only with correct credentials
+
+![](https://github.com/EMDevelop/public_resources/blob/main/gifs/Chitter/gifs/signin.gif)
 
 #### Sign out, no access unless signed in
 
-#### No access with incorrect credentials
+![](https://github.com/EMDevelop/public_resources/blob/main/gifs/Chitter/gifs/logout.gif)
 
 ---
 
