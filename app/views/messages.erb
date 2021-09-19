@@ -38,20 +38,39 @@
           </form>
         </div>
         <% @messages.each { |message| %>
+
         <div class="message-container">
-          <h1 class="message"><%= message.message %></h1>
-          <p><%= message.create_date %> posted by <%= message.username %></p>
-          <div class="reply-container">
+          <div class="post-container">
+            <div class="info">
+              <p class="post-details">
+                Post by <%= message.username %> on <%= message.create_date %>
+              </p>
+            </div>
+            <div class="post-text">
+              <p class="message"><%= message.message %></p>
+            </div>
+          </div>
+
+          <div class="reply-input-container">
             <form action="/reply/<%=message.id%>" method="post">
               <input type="text" name="reply" class="reply" />
               <input type="submit" value="Reply" />
             </form>
           </div>
+
           <div class="replies">
             <% message.replies.each { |reply| %>
             <div class="reply-block">
-              <h1><%=reply.message%></h1>
-              <h1><%=reply.username%></h1>
+              <div class="reply-container">
+                <div class="reply-text">
+                  <p class="reply-message"><%=reply.message%></p>
+                </div>
+                <div class="reply-info">
+                  <p class="reply-details">
+                    Reply by <%= reply.username %> on <%= reply.create_date %>
+                  </p>
+                </div>
+              </div>
             </div>
             <% } %>
           </div>

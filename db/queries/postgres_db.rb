@@ -2,6 +2,7 @@ require 'dotenv'
 require 'pg'
 require_relative '../../lib/message'
 require_relative '../../lib/reply'
+require 'Time'
 class PGDatabase 
 
   Dotenv.load
@@ -22,7 +23,7 @@ class PGDatabase
     result = @con.exec_params("SELECT u.user_name, r.* FROM reply r JOIN users u ON u.id = r.id_users WHERE ID_MESSAGE = $1 ORDER BY createdate DESC", [id])
     arr = []
     result.each { |row| 
-      arr << Reply.new(id: row['id'], message: row['message'], create_date: row['createdate'], username: row['user_name'], message_id: row['id_message'])
+      arr << Reply.new(id: row['id'], message: row['message'], create_date: parse_date(row['createdate']), username: row['user_name'], message_id: row['id_message'])
     }
     return arr
   end
@@ -50,5 +51,14 @@ class PGDatabase
       @con.exec_params("SELECT * FROM users WHERE email = $1;", [value]).first
     end
   end
+
+  def self.parse_date(date)
+    if date 
+      ruby_date = Time.parse(date)
+      ruby_date.strftime("%d-%m-%y %H:%M")
+    end
+  end
+
+  private_class_method :parse_date
 
 end
