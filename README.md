@@ -176,3 +176,13 @@ touch config.ru
 - Should I be setting the timestamp in the Database using `CURRENT_TIMESTAMP` or should this be done on the front end?
 
 - Should you store pepper (for password encryption) in a .env var?
+
+- In your ORM example, where you use the DatabaseConnection object to write a custom string, I thought the point of ORM was to remove any SQL from the Object its self? (aka in this case, the Users class), becuase the SQL for MYsql might be different for Postgres, so with the below, we'd need to edit the User class when really we'd only want to edit the DatabaseConnection class? would it not be something like `DatabaseConnection.create_user(email,password)` ? Query:
+
+```
+# from https://github.com/makersacademy/course/blob/main/bookmark_manager/walkthroughs/19.md
+    result = DatabaseConnection.query(
+      "INSERT INTO users (email, password) VALUES($1, $2) RETURNING id, email;",
+      [email, password]
+    )
+```

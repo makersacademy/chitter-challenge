@@ -7,6 +7,15 @@ def fill_data
   PGDatabase.con.exec_params("INSERT INTO message (id_users, message) VALUES ($1,$2);", [ user["id"], 'Lovely Stuff 3'])
 end
 
+def sign_up
+  visit('/')
+  click_button('Sign Up')
+  fill_in('username', with: 'username')
+  fill_in('email', with: 'username@gmail.com')
+  fill_in('password', with: 'password')
+  click_button('Sign up')
+end
+
 # first line didn't work
 # https://stackoverflow.com/questions/4678110/how-to-reset-sequence-in-postgres-and-fill-id-column-with-new-data
 # def reset_id_seq(table)
