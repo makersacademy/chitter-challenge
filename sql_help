@@ -1,0 +1,31 @@
+CREATE TABLE students (
+	user_id serial PRIMARY KEY,
+    student_name VARCHAR ( 50 ),
+	username VARCHAR ( 50 ) UNIQUE NOT NULL,
+	password VARCHAR ( 50 ) NOT NULL,
+	email VARCHAR ( 255 ) UNIQUE NOT NULL,
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        last_login TIMESTAMP 
+);
+
+CREATE TABLE chitter (
+	chitter_id INT GENERATED ALWAYS AS IDENTITY,
+    user_id INT,
+    chitter_message VARCHAR(255) NOT NULL,
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(chitter_id),
+    CONSTRAINT fk_user_id
+      FOREIGN KEY(user_id) 
+	  REFERENCES students(user_id)
+);
+
+INSERT INTO students (email,student_name,username,password) VALUES ('samp_email@gmail.com','David','davo','123456');
+INSERT INTO students (email,student_name,username,password) VALUES ('sa_email@gmail.com','Sam','Sambo','123456');
+INSERT INTO students (email,student_name,username,password) VALUES ('samp_ema@gmail.com','John','johnny','123456');
+INSERT INTO students (email,student_name,username,password) VALUES ('samail@gmail.com','Richmond','richo','123456');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('1','This is a test 1');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('1','This is a test 2');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('1','This is a test 3');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('2','This is a test 4');
+INSERT INTO chitter (user_id,chitter_message) VALUES ('3','This is a test 5');
+
