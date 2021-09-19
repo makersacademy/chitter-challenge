@@ -2,16 +2,29 @@
 
 ## About
 
-This project allows users to publish text publically on a forum based application, based on the application Twitter.
+This application was built as a clone of Twitter, although it has the functionality of a chatroom.
 
-This project allows:
+The project was built over a weekend, planned and modelled on Friday and then executed on Saturday and Sunday.
 
-- Users to post messages
-- Users can see posts that other users have added
-- Users can view the date and time when the post was made
-- Users can log-in to the application
-- Users can sign-out of the application
-- Users can get an email if they're tagged in a post
+I mainly enjoyed learning how to store passwords securely (using Becrypt with SALT and PEPPER hashing), while also building everything with SRP/Encapsulation/Separation of concerns in mind.
+
+---
+
+## Functionality
+
+#### Post messages
+
+#### Post replies to posted messages
+
+#### Sign Up, as a new user
+
+#### Sign In, but only with correct credentials
+
+#### Sign out, no access unless signed in
+
+#### No access with incorrect credentials
+
+---
 
 ## How To Run
 

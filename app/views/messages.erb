@@ -25,6 +25,9 @@
 
     <div class="page">
       <div class="grid-container">
+        <div class="header-container">
+          <p class="header">Write Something:</p>
+        </div>
         <div class="grid-item input-container">
           <form action="/add-message" method="post">
             <textarea
@@ -37,15 +40,18 @@
             <input type="submit" value="Post" />
           </form>
         </div>
+        <div class="header-container">
+          <p class="header">Posts:</p>
+        </div>
         <% @messages.each { |message| %>
 
         <div class="message-container">
+          <div class="info">
+            <p class="post-details">
+              Post by <%= message.username %> on <%= message.create_date %>
+            </p>
+          </div>
           <div class="post-container">
-            <div class="info">
-              <p class="post-details">
-                Post by <%= message.username %> on <%= message.create_date %>
-              </p>
-            </div>
             <div class="post-text">
               <p class="message"><%= message.message %></p>
             </div>
@@ -65,11 +71,11 @@
                 <div class="reply-text">
                   <p class="reply-message"><%=reply.message%></p>
                 </div>
-                <div class="reply-info">
-                  <p class="reply-details">
-                    Reply by <%= reply.username %> on <%= reply.create_date %>
-                  </p>
-                </div>
+              </div>
+              <div class="reply-info">
+                <p class="post-details">
+                  Reply by <%= reply.username %> on <%= reply.create_date %>
+                </p>
               </div>
             </div>
             <% } %>
