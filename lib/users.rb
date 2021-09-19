@@ -8,6 +8,7 @@ class User
   end
 
   def self.get(id)
+    return nil unless id
     result = PGDatabase.get_user(id)
     User.new(id: result['id'], username: result['user_name'], email:result['email'])
   end
