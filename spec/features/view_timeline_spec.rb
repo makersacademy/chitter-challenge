@@ -1,7 +1,7 @@
-feature 'Posting to Chitter' do
-  scenario 'User can post a message to chitter' do
+feature 'Viewing Chitter' do
+  scenario 'User can visit Chitter homepage' do
     visit ('/')
-    expect(page).to have_content "My chitter message"
+    expect(page).to have_content "Welcome to Chitter!"
   end
 end
 
