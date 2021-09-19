@@ -17,7 +17,13 @@ As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-I attempted User Story 2 first as it seemed like viewing all posts would come before being able to add to those posts. This was done by testing and creating a .all method in Chitter.rb. I then had to edit the chitter.erb page to display the posts. The results displayed were initially in chronological order, which was changed using 'reverse_each' in chitter.erb.  
+I attempted User Story 2 first as it seemed like viewing all posts would come before being able to add to those posts. This was done by testing and creating a .all method in Chitter.rb. I then had to edit the chitter.erb page to display the posts. The results displayed were initially in chronological order, which was changed using 'reverse_each' in chitter.erb. 
+
+User Story 1
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
 
 -
 
