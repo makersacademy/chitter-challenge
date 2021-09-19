@@ -101,4 +101,20 @@ describe 'User Interface', type: :feature do
 
   end
 
+  context 'I want to log out' do
+
+    it 'log out' do
+      visit('/')
+      click_button('Sign Up')
+      fill_in('username', with: 'username')
+      fill_in('email', with: 'username@gmail.com')
+      fill_in('password', with: 'password')
+      click_button('Sign up')
+      click_button('Logout')
+      expect(page).to have_content 'Welcome To Chitter'
+      save_and_open_page
+    end
+
+  end
+
 end

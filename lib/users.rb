@@ -19,7 +19,6 @@ class User
 
   def self.auth(email: , password: )
     result = PGDatabase.get_user(value: email, idendifier: :email)
-    p result
     pepper_pass = ENV['PEPPER'] + password
     if result && BCrypt::Password.new(result['password']) == pepper_pass
       User.new(id: result['id'], username: result['username'], email: result['email'])

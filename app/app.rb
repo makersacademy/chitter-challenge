@@ -29,7 +29,6 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/add-message' do
-    p "session :user_id #{session[:user_id]}"
     Chitter.create_message(message: params["post-message"],user_id: session[:user_id])
     redirect '/home'
   end
@@ -59,6 +58,11 @@ class ChitterApp < Sinatra::Base
       session[:error] = 'Incorrect email or password - Please try again'
       redirect('/users/signin')
     end
+  end
+
+  post '/logout' do
+    session.clear
+    redirect('/')
   end
 
   run! if app_file == $0
