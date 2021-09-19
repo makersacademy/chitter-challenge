@@ -104,15 +104,23 @@ describe 'User Interface', type: :feature do
   context 'I want to log out' do
 
     it 'log out' do
-      visit('/')
-      click_button('Sign Up')
-      fill_in('username', with: 'username')
-      fill_in('email', with: 'username@gmail.com')
-      fill_in('password', with: 'password')
-      click_button('Sign up')
+      sign_up
       click_button('Logout')
       expect(page).to have_content 'Welcome To Chitter'
-      save_and_open_page
+    end
+
+  end
+
+  context 'I want to be able to reply to peoples messages' do
+
+    it 'replies' do
+      PGDatabase.con.exec("TRUNCATE message, users, reply;")
+      sign_up
+      user =  PGDatabase.create_user(username: 'username', email: 'email', password: 'dd')
+      PGDatabase.create_message(user_id: user["id"], message:'test').first
+      visit('/home')
+      fill_in(:reply, with: 'This is a reply')
+      click_button("Reply")
     end
 
   end
