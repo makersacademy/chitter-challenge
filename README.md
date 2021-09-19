@@ -23,6 +23,10 @@ I want to sign up for Chitter
 
 2 feature test being able to add message to chitter 
 
+3 order peeps chronologically and show timestamps
+
+4 add log in functionality
+
 
 Chitter Challenge
 =================

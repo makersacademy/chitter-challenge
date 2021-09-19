@@ -5,7 +5,7 @@ class Peep
 
   def initialize(id:, timestamp:, post:)
     @id = id
-    @timestamp = timestamp
+    @timestamp = timestamp[0..15]
     @post = post
   end
 

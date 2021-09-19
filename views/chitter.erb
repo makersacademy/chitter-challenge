@@ -1,7 +1,7 @@
 <h2>Viewing all peeps</h2>
 <ul>
   <% @peeps.each do |peep| %>
-  <li><%= peep.post %></li>
+  <li class="peep"><%= peep.timestamp %> - <%= peep.post %></li>
   <% end %>
 </ul>
 

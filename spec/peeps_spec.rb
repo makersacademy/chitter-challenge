@@ -25,7 +25,7 @@ describe Peep do
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']
-      expect(peep.timestamp).to eq persisted_data['timestamp']
+      expect(peep.timestamp).to eq persisted_data['timestamp'][0..15]
       expect(peep.post).to eq 'This is a test peep to check the add functionality!'
     end
   end
