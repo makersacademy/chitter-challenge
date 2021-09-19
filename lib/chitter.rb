@@ -1,33 +1,26 @@
-require 'PG'
+require_relative 'connection'
 
 class Chitter
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    connection = determine_connection
     result = connection.exec("SELECT * FROM chitter_db;")
-    peeps = result.map { |post| post['peep'] }.reverse()
-    peeps.join("<br><br>")
+    peeps = result.map { |post| post }.reverse()
+    to_return = ""
+    peeps.each do |post|
+      to_return += 
+        "#{post['username']}<br>#{post['peep']}<br>#{post['date']}: #{post['time']}<br><br>"
+    end
+    to_return
   end
 
-  def self.add(peep)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    connection.exec("INSERT INTO chitter_db (peep,time,date) 
-      VALUES ('#{peep}','#{Time.now}','#{Date.today}');")
+  def self.add(peep, user = 'Anon')
+    connection = determine_connection
+    connection.exec ("INSERT INTO chitter_db (peep,time,date,username) 
+      VALUES ('#{peep}','#{Time.now}','#{Date.today}','#{user}');")
   end
 
   def self.remove(id)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    connection = determine_connection
     connection.exec("DELETE FROM chitter_db WHERE id = '#{id}';")
   end
 

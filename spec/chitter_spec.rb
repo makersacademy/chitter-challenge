@@ -15,6 +15,22 @@ describe Chitter do
     Chitter.add("An older peep")
     Chitter.add("MOST RECENT PEEP")
 
-    expect(Chitter.all).to eq "MOST RECENT PEEP<br><br>An older peep"
+    expect(Chitter.all).to start_with "Anon<br>MOST RECENT PEEP"
+  end
+
+  it "will contain a time and date" do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    Chitter.add("Test peep 2")
+
+    expect(Chitter.all).to include "2021"
+  end
+
+  it "will contain a default username if one if not provided" do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    Chitter.add("Test peep 3")
+
+    expect(Chitter.all).to include "Anon"
   end
 end

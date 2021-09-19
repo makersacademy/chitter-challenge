@@ -3,4 +3,5 @@ Database setup: chitter
                 (id SERIAL PRIMARY KEY,
                 peep varchar
                 time time
-                date date);
+                date date
+                user varchar);
