@@ -1,0 +1,48 @@
+<div class="container">
+    <form class="form-horizontal" action="signin-details" method="post">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <p style="color: black; font-size: 14px;">Sign in here</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <input type="text" name="username" class="form-control" placeholder="@Username" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label style="color: black;">
+                        <input type="checkbox"> Remember my signin details
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="button button-danger">Sign Me In</button>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-4">
+                <p style="color: black; font-size: 14px;">New to Chitter? Click below to create an account</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="/createaccount"><button type="button" class="button button-danger">Create a Chitter account</button></a>
+            </div>
+        </div>
+    </form>
+</div>

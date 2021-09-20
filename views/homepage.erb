@@ -1,0 +1,13 @@
+<% if maker %>
+    <div class="col-md-2 col-md-offset-1 new-peep">
+        <h3 id="peeps-header">Create a Peep!</h3>
+        <form id="new-peep-form" action="/new-peep" method="post">
+            <textarea id="peep-text" placeholder="Create a peep!" name="message" cols="100" rows="10"></textarea>
+            <br />
+            <input id="create-new-peep-button" type="submit" value="Peep!" class="button button-danger button-sm">
+        </form> 
+        <div class="character-count">
+            <p>Characters remaining: <p id="count">280</p>,=</p>
+        </div>
+    </div>
+<% end %>

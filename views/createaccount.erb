@@ -1,0 +1,68 @@
+<div class="container">
+    <form class="form-horizontal" action="/createaccount-details" method="post">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <p style="color: black; font-size: 14px;">Current User?</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="/signin"><button type="button" class="button button-danger">Sign In to my account</button></a>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <p style="color: black; font-size: 14px;">New to Chitter? Create an account</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <input id="full-name" type="text" name="name" class="form-control" placeholder="Full Name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" name="email" value="<%= @maker.email %>" class="form-control" placeholder="Email" required>
+            <div class="col-sm-3">
+                <input type="email" name="email" value="<%= @maker.email %>" class="form-control" placeholder="Email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <input id="username" type="text" name="username" class="form-control" placeholder="@Username" required>
+            </div>
+            <div id="username-feedback"></div>
+        </div>
+        <div class="form-group">
+            <label for="password" name="password" class="form-control" placeholder="Password" required>
+            <div class="col-sm-3">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                <input type="password" name="password" class="form-control" placeholder="Confirm Password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label style="color: black;">
+                        <input type="checkbox"> Remember my account details
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="button button-danger">Create a Chitter account</button>
+            </div>
+        </div>
+    </form>
+</div>
+    
