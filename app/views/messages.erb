@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="<%= url("/css/styles.css")%>"/>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="nav-section logo">
+        <img
+          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clipartbest.com%2Fcliparts%2FncB%2FK8g%2FncBK8gGAi.png&f=1&nofb=1"
+          alt="chitter logo"
+          class="bird"
+        />
+      </div>
+      <div class="nav-section space"></div>
+      <div class="nav-section user">
+        <h2 class="user">Username: <%= @user.username %></h2>
+      </div>
+      <div class="nav-section logout">
+        <form action="/logout" class="logout" method="post">
+          <input type="submit" value="Logout" />
+        </form>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="grid-container">
+        <div class="header-container">
+          <p class="header">Write Something:</p>
+        </div>
+        <div class="grid-item input-container">
+          <form action="/add-message" method="post">
+            <textarea
+              type="input"
+              name="post-message"
+              placeholder="spread some positivity.."
+              class="message-input"
+              value=""
+            ></textarea>
+            <input type="submit" value="Post" />
+          </form>
+        </div>
+        <div class="header-container">
+          <p class="header">Posts:</p>
+        </div>
+        <% @messages.each { |message| %>
+
+        <div class="message-container">
+          <div class="info">
+            <p class="post-details">
+              Post by <%= message.username %> on <%= message.create_date %>
+            </p>
+          </div>
+          <div class="post-container">
+            <div class="post-text">
+              <p class="message"><%= message.message %></p>
+            </div>
+          </div>
+
+          <div class="reply-input-container">
+            <form action="/reply/<%=message.id%>" method="post">
+              <input type="text" name="reply" class="reply" />
+              <input type="submit" value="Reply" />
+            </form>
+          </div>
+
+          <div class="replies">
+            <% message.replies.each { |reply| %>
+            <div class="reply-block">
+              <div class="reply-container">
+                <div class="reply-text">
+                  <p class="reply-message"><%=reply.message%></p>
+                </div>
+              </div>
+              <div class="reply-info">
+                <p class="post-details">
+                  Reply by <%= reply.username %> on <%= reply.create_date %>
+                </p>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
