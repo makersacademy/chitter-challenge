@@ -11,19 +11,13 @@ class Chitter < Sinatra::Base
   $peeps = []
 
   get '/' do
+    @peeps = Peep.feed
     erb :index
   end
 
   post '/send' do
-    @peep = params['peep']
     Peep.send(content: params['peep'], time: Time.now, username: params['username'])
-    erb :peep_sent
-  end
-
-  get '/feed' do
-    @peeps = Peep.feed
-    @peeps.reverse!
-    erb :feed
+    redirect '/'
   end
 
   get '/signup' do

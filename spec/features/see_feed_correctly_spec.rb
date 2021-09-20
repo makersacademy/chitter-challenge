@@ -5,7 +5,7 @@ feature 'See the feed' do
     Peep.send(content: 'Middle', time: '2018-09-19 18:21:38', username: 'test')
 
     peeps = Peep.feed
-    visit '/feed'
+    visit '/'
     expect(peeps.length).to eq 3
     expect(peeps.first.time).to eq "2021-09-19 12:21:38"
     expect(peeps.first.content).to eq "First"

@@ -4,6 +4,6 @@ feature 'Sending peeps' do
     fill_in 'peep', with: 'My test peep!'
     fill_in 'username', with: 'Test'
     click_button 'Send'
-    expect(page).to have_content 'Peep sent successfully! (My test peep!)'
+    expect(page).to have_content 'My test peep!'
   end
 end

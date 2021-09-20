@@ -9,6 +9,6 @@ feature 'Signing up' do
 
     fill_in 'peep', with: 'Test'
     click_button 'Send'
-    expect(page).to have_content 'Peep sent successfully! (Test)'
+    expect(page).to have_content 'Test'
   end
 end
