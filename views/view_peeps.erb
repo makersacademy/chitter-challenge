@@ -1,0 +1,15 @@
+<h1>CHITTER</h1>
+<br>
+<form action='/post_peep' method='post'>
+  <input type='text' name='message' placeholder='280 characters'>
+  <input type='submit' value='POST PEEP'>
+</form>
+<br>
+<br>
+<ul>
+  <%= @peeps.each do |peep| %>
+  <li> 
+    <%= peep.message %>
+  </li>
+  <% end %>
+</ul>
