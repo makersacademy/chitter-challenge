@@ -9,11 +9,9 @@ end
 
 feature 'Viewing chitter feed' do
   scenario 'User can see all peeps in feed' do
-    connection = PG.connect(dbname: 'chitter_app_test')
-
-    connection.exec("INSERT INTO chitter (peep) VALUES('First Peep!');")
-    connection.exec("INSERT INTO chitter (peep) VALUES('Second Peep!');")
-    connection.exec("INSERT INTO chitter (peep) VALUES('Third Peep!');")
+    ChitterFeed.add(peep: "First Peep!")
+    ChitterFeed.add(peep: "Second Peep!")
+    ChitterFeed.add(peep: "Third Peep!")
 
     visit('/feed')
 

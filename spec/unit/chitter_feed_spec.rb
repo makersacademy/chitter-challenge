@@ -11,9 +11,17 @@ describe ChitterFeed do
       
       feed = ChitterFeed.all
 
-      expect(feed).to include "First Peep!"
-      expect(feed).to include "Second Peep!"
-      expect(feed).to include "Third Peep!"
+      expect(feed).to include("First Peep!")
+      expect(feed).to include("Second Peep!")
+      expect(feed).to include("Third Peep!")
+    end
+  end
+  
+  describe '#add' do
+    it 'adds a new peep' do
+      ChitterFeed.add(peep: 'Here is a peep example')
+  
+      expect(ChitterFeed.all).to include 'Here is a peep example'
     end
   end
 end
