@@ -7,6 +7,7 @@ group :webdev do
   gem 'sinatra-contrib'
   gem 'capybara'
   gem 'pg'
+  gem 'bcrypt'
 end
 
 group :test do
