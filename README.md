@@ -125,12 +125,14 @@ I want to be able to see replies
 | .new() | @message :String|
 | | @id :String|
 | | @create_date :String|
+
 `className = User`
 |methods |attributes|
 |-|-|
 | | @user_name |
 | | @email |
 | | @id |
+
 `className = Reply < Message`
 |methods |attributes|
 |-|-|
