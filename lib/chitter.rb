@@ -2,10 +2,14 @@ require 'pg'
 
 class Chitter
 
-  # def initialize(post:, time:)
-  #   @post = post
-  #   @time = time
-  # end
+  attr_reader :post, :time 
+
+  def initialize(post:, time:)
+    # @id = id 
+    # @name = name 
+    @post = post
+    @time = time
+  end
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
@@ -15,7 +19,11 @@ class Chitter
     end
 
     result = connection.exec("SELECT * FROM chitter;")
-    result.map { |chitter| chitter['post'] }
+
+    result.map do |chitter|
+      Chitter.new(post: chitter['post'], time: chitter['time'])
+      # |chitter| chitter['post']
+    end 
     # [
     #   "This is my first Chitter post!",
     #   "This is my second Chitter post!", 

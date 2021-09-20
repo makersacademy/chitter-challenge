@@ -26,14 +26,17 @@ I want to post a message (peep) to chitter
 
 I made a new route for '/chitter/new'. I wrote the feature test for adding a new post then created a new.erb in the views that gave the option to type up a post in the box and submit it to the /chitter page via a post method. This meant using params on 'post'. I created and tested a self.create method that interacted with pg to get the new post added to the data table and showing up on the /chitter page that it had been redirected to. 
 
-User Story 3
+User Story 3 (Complete)
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-Earlier on, I added an additional column to my data tables called 'time'. I can see that this is working and shows the date and time of when each entry is made. 
+Earlier on, I added an additional column to my data tables called 'time'. I can see that this is working and shows the date and time of when each entry is made. In order to get this showing on the /chitter page, I did some editing to chitter.rb. I initialized @post and @time and made them available in the attr_reader. I was then able to call them both in chitter.erb. I'm unsure what I did in chitter.rb with this code Chitter.new(post: chitter['post'], time: chitter['time']) which I think cmeant that each new chitter post had two arguments. 
 
--
+Further comments: 
+
+I will ask a coach to review my code so far, and ask about my two remaining failing Rspec tests. I think I need to alter my unit test to expect it to show time. 
+
 
 Chitter Challenge
 
