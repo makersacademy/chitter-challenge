@@ -5,6 +5,7 @@ require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
+  # This is coming from a PR
   set :public_folder, 'public'
   configure :development do
     register Sinatra::Reloader
