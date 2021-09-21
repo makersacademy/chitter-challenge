@@ -14,7 +14,7 @@ describe Peep do
       connection.exec("INSERT INTO peeps (user_id, body) VALUES(2, 'Hey Ronnie, wanna go dribble half of France together?');")
       connection.exec("INSERT INTO peeps (user_id, body) VALUES(1, 'Yeah, why not');")
       
-      peeps = Peeps.all
+      peeps = Peep.all
 
       expect(peeps).to include 'The real Ronaldo is the first user of this amazing app'
       expect(peeps).to include 'Hey Ronnie, wanna go dribble half of France together?'
