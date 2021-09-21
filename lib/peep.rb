@@ -1,7 +1,7 @@
 require 'pg'
 require_relative './database_connection'
 
-class Peep 
+class Peeps
 
   def self.all
     # if ENV['RACK_ENV'] == 'test'
