@@ -6,6 +6,8 @@ feature "Sign up" do
     fill_in('email', with: "cispr@yahoo.com")
     fill_in('password', with: "123456")
     click_button('Submit')
-    expect(page).to have_content('Welcome!')
+    expect(page).to have_content('Welcome, CRISPR')
   end
+
+  
 end
