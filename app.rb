@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :chitter
   end
