@@ -25,4 +25,18 @@ describe User do
       expect(result.email).to eq user.email
     end
   end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password' do
+      user = User.create(username: 'CRISPR', email: 'crispr@yahoo.com', password: '123456')
+      authenticated_user = User.authenticate('crispr@yahoo.com', '123456')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+    it 'returns nil given an incorrect email' do
+      user = User.create(username: 'CRISPR', email: 'crispr@yahoo.com', password: '123456')
+      expect(User.authenticate('northenlights@yahoo.com', '123456')).to eq nil
+    end
+  end
+
 end

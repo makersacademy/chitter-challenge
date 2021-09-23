@@ -6,7 +6,10 @@
   <input type="text" name="peep" placeholder="Enter peep" />
   <input type="submit" value="Submit" />
 </form>
-
+<form action="/">
+  <input type="submit" value="Logout" class="logout_button">
+  </form>
+  <h1>'Here are the latest posts'</h1>
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li><%= peep.peep %> : <%= peep.time %> </li>

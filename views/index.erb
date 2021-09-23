@@ -11,6 +11,11 @@
   <header>Chitter</header>
   <div>
     <h1>Welcome!</h1>
+  <form action="/session/new" method="post">
+  <input type="text" name="email" placeholder="Email" required="required" class="login_email">
+  <input type="password" name="password" placeholder="Password" required="required" class="login_password">
+  <input type="submit" value="Login" class="login_button">
+  </form>
   <form action="/user/new">
   <input type="submit" value="Sign Up" class="signup_button">
   </form>
