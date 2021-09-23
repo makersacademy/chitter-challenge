@@ -12,4 +12,8 @@ class PGDatabase
   def self.select_peeps
     @db_session.exec("SELECT * FROM peeps;")
   end
+
+  def self.add_peep(post:)
+    @db_session.exec_params("INSERT INTO peeps (timestamp, post) VALUES (NOW(), $1) RETURNING id, timestamp, post;", [post])
+  end
 end
