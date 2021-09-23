@@ -37,6 +37,10 @@ describe User do
       user = User.create(username: 'CRISPR', email: 'crispr@yahoo.com', password: '123456')
       expect(User.authenticate('northenlights@yahoo.com', '123456')).to eq nil
     end
+    it 'returns nil given an incorrect password' do
+      user = User.create(username: 'CRISPR', email: 'crispr@yahoo.com', password: '123456')
+      expect(User.authenticate('crispr@yahoo.com', '111111')).to eq nil
+    end
   end
 
 end
