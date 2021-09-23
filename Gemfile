@@ -2,6 +2,15 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+group :webdev do
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+  gem 'capybara'
+  gem 'pg'
+  gem 'bcrypt'
+  gem 'dotenv'
+end
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
