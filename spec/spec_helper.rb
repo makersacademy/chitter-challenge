@@ -6,12 +6,13 @@ require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative '../db/queries/pg_db'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    PGDatabase.truncate_tables
   end
 end
 

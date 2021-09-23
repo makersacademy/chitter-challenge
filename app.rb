@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep'
 require_relative './lib/user'
+require_relative './db/queries/pg_connect'
+# require_relative './db/queries/pg_db'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -9,6 +11,8 @@ class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+
+  DB.connect
 
   get '/' do
     erb :index

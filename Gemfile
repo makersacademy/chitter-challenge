@@ -8,6 +8,7 @@ group :webdev do
   gem 'capybara'
   gem 'pg'
   gem 'bcrypt'
+  gem 'dotenv'
 end
 
 group :test do
