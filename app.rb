@@ -47,7 +47,10 @@ class Chitter < Sinatra::Base
     end
   end
 
-  
+  post '/session/destroy' do
+    session[:user_id] = nil
+    redirect '/'
+  end
 
   run! if app_file == $0
 end
