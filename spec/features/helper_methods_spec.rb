@@ -6,9 +6,9 @@ end
 
 def sign_up
   visit '/'
-    click_button 'Sign Up'
-    fill_in('username', with: 'CRISPR')
-    fill_in('email', with: 'cispr@yahoo.com')
-    fill_in('password', with: '123456')
-    click_button('Submit')
+  click_button 'Sign Up'
+  fill_in('username', with: 'CRISPR')
+  fill_in('email', with: 'cispr@yahoo.com')
+  fill_in('password', with: '123456')
+  click_button('Submit')
 end

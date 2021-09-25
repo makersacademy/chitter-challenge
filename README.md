@@ -29,6 +29,10 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
+As a Maker 
+So that I can see who posted the peeps
+I want to see the names of the creators displayed
+
 ```
 ## Instructions for database set up:
 

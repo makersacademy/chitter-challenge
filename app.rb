@@ -12,11 +12,16 @@ class Chitter < Sinatra::Base
   
   enable :sessions, :method_override
   
+  before do
+    @user = User.find(session[:user_id])
+  end
+  
   get '/' do
     erb :index
   end
 
   get '/peeps' do
+    redirect '/' unless @user
     @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :peeps
