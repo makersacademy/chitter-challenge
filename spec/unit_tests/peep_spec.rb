@@ -26,7 +26,7 @@ describe Peep do
       expect(peep.id).to eq persisted_data.first['id']
       expect(peep.peep).to eq 'Hello World'
     end
-    it 'creates a new peep that has the username of the creator' do
+    it 'creates a new peep that has the username of the maker' do
       user = User.create(username: 'test1', email: 'test@email.com', password: 'testpassword1')
       peep = Peep.create(username: 'test1', peep: 'Hello World')
 
