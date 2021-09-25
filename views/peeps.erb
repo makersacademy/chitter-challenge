@@ -3,6 +3,7 @@
 <% end %>
 
 <form action="/peeps" method="post">
+<input type="hidden" name="username" id="username" value="<%= @user.username %>">
   <input type="text" name="peep" placeholder="Enter peep" />
   <input type="submit" value="Submit" />
 </form>
@@ -13,5 +14,6 @@
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li><%= peep.peep %> : <%= peep.time %> </li>
+      <%= "Posted by #{peep.username}" %>
   <% end %>
 </ul>

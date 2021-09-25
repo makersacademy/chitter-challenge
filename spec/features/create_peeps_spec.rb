@@ -1,6 +1,6 @@
 feature 'Adding a new peep' do
   scenario 'A user can add a peep to chitter' do
-    visit('/peeps')
+    sign_up
     fill_in('peep', with: 'Hello World')
     click_button('Submit')
   
