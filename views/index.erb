@@ -1,6 +1,8 @@
 <div>
-  <% Peep.all.each do |peep| %>
-    <%= peep.name %> 
-    <%= peep.content %>
+  <% Peep.all.reverse_each do |peep| %>
+    <div class="peep">
+      <%= peep.name %> 
+      <%= peep.content %>
+    </div>
   <% end %>
 </div>
