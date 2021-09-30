@@ -1,12 +1,12 @@
 feature 'Create peep' do
   scenario 'can display peep creation form' do
-    visit('/create_peep')
+    visit('/peeps/new')
     expect(page).to have_field('user_name', type: 'text')
     expect(page).to have_field('content', type: 'text')
     expect(page).to have_button('submit')
   end
   scenario 'can display new peep' do
-    visit('/create_peep')
+    visit('/peeps/new')
     fill_in 'user_name', with: 'Twitter'
     fill_in 'content', with: 'Lawsuit!!'
     click_button('submit')
