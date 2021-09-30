@@ -27,7 +27,7 @@ To run the app execute `rackup -p 4567` in the command line.
 
 Visit http://localhost:4567/ to see created peeps.
 
-Visit http://localhost:4567/create_peep to create a peep.
+Visit http://localhost:4567/peeps/new to create a peep.
 
 **Run tests**
 
