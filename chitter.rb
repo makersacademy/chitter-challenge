@@ -16,11 +16,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb(:new_peep)
+    @username = session[:username]
+    if @username 
+      erb(:new_peep)
+    else
+      redirect to('/')
+    end
   end
 
   post '/peeps' do
-    Peep.create(name: params[:user_name], content: params[:content])
+    Peep.create(name: session[:username], content: params[:content])
     redirect to('/')
   end
 
