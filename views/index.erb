@@ -11,4 +11,11 @@
       Time created: <%= date_time.strftime '%H:%M:%S'%>
     </div>
   <% end %>
+  <form action='/peeps/new' method='get'>
+    <button id='new_peep'>Write peep</button>
+  </form>
+  
+  <form action='/users/new' method='get'>
+    <button id='sign_up'>Sign up</button>
+  </form>
 </div>
