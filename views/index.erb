@@ -1,4 +1,7 @@
 <div>
+  <% if @username %>
+    <p>Welcome <%= @username %>, you are signed in.</p>
+  <% end %>
   <% Peep.all.reverse_each do |peep| %>
     <div class="peep">
       Author: <%= peep.name %> 
