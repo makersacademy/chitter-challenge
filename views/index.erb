@@ -1,9 +1,11 @@
 <div>
   <% Peep.all.reverse_each do |peep| %>
     <div class="peep">
-      <%= peep.name %> 
-      <%= peep.content %>
-      <%= peep.created_at %>
+      Author: <%= peep.name %> 
+      Content: <%= peep.content %>
+      <% date_time = DateTime.parse(peep.created_at) %>
+      Date created: <%= date_time.strftime '%d-%m-%Y' %>
+      Time created: <%= date_time.strftime '%H:%M:%S'%>
     </div>
   <% end %>
 </div>

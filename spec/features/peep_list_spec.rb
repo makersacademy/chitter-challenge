@@ -11,8 +11,7 @@ feature 'Peep list' do
   end
   scenario 'displays peeps in reverse chronological order' do
     peeps = page.all("div.peep")
-
-    expect(peeps[0]).to have_content("Second Potatoes!!")
-    expect(peeps[1]).to have_content("Twitter Lawsuit!!")
+    expect(peeps[0]).to have_content("Author: Second")
+    expect(peeps[1]).to have_content("Author: Twitter")
   end
 end
