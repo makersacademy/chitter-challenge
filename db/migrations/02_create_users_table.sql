@@ -1,0 +1,1 @@
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60), email VARCHAR(240), password VARCHAR(240), created_at timestamp with time zone DEFAULT now());
