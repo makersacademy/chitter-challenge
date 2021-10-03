@@ -1,15 +1,11 @@
 require 'pg'
+require 'db_helpers'
 
 class Peep
   attr_reader :id, :name, :content, :created_at, :user_id
 
   def self.all
-    connection = 
-    if ENV['RACK_ENV'] == 'test'
-      PG.connect(dbname: 'chitter_test')
-    else
-      PG.connect(dbname: 'chitter')
-    end
+    connection = db_connection
     peeps = connection.exec("SELECT * FROM peeps")
     peeps.map do |peep|
       user = connection.exec("SELECT * FROM users WHERE id = #{peep['user_id']};")
@@ -18,12 +14,7 @@ class Peep
   end
 
   def self.create(content:, user_id:)
-    connection = 
-    if ENV['RACK_ENV'] == 'test'
-      PG.connect(dbname: 'chitter_test')
-    else
-      PG.connect(dbname: 'chitter')
-    end
+    connection = db_connection
     new_peep = connection.exec("INSERT INTO peeps (content, created_at, user_id) VALUES('#{content}', '#{Time.now}', '#{user_id}') RETURNING id, content, created_at, user_id;")
     user = connection.exec("SELECT * FROM users WHERE id = #{user_id};")
     Peep.new(id: new_peep[0]['id'], name: user[0]['username'], content: new_peep[0]['content'], created_at: new_peep[0]['created_at'], user_id: new_peep[0]['user_id'])
