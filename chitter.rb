@@ -14,13 +14,12 @@ class Chitter < Sinatra::Base
     if session[:user]
       @username = session[:user].username
     end
-    p session
     erb(:index)
   end
 
   get '/peeps/new' do
-    @user_id = session[:user].id
-    if @user_id 
+    if session[:user]
+      @user_id = session[:user].id
       erb(:new_peep)
     else
       redirect to('/')
