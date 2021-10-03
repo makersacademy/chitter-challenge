@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
   attr_reader :id, :username, :email, :password, :created_at
@@ -6,7 +7,7 @@ class User
   def self.create(username:, email:, password:)
     connection = db_connection
     new_user = connection.exec("INSERT INTO users (username, email, password, created_at) 
-    VALUES('#{username}', '#{email}', '#{password}', '#{Time.now}') 
+    VALUES('#{username}', '#{email}', '#{BCrypt::Password.create(password)}', '#{Time.now}') 
     RETURNING id, username, email, password, created_at;")
     User.new(id: new_user[0]['id'], 
       username: new_user[0]['username'], 

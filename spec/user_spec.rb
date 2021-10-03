@@ -7,6 +7,7 @@ describe User do
     expect(user.id).to eq PG.connect(dbname: 'chitter_test').query("SELECT * FROM users WHERE id = #{user.id};").first['id']
     expect(user.username).to eq 'Test'
     expect(user.email).to eq 'test@example.com'
+    expect(user.password).to eq BCrypt::Password.new(PG.connect(dbname: 'chitter_test').query("SELECT * FROM users WHERE id = #{user.id};").first['password'])
     expect(user.created_at).to eq PG.connect(dbname: 'chitter_test').query("SELECT * FROM users WHERE created_at = '#{user.created_at}';").first['created_at']
   end
 end
