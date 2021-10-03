@@ -1,6 +1,11 @@
 require 'peep'
+require 'user'
 
 describe Peep do
+  before(:each) do
+    User.create(username: 'Test', email: 'test@example.com', password: 'test')
+  end
+
   it 'creates and saves a new peep' do
     peep = Peep.create(content: 'Peeper!', user_id: 1)
     expect(peep).to be_a Peep
