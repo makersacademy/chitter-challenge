@@ -4,7 +4,7 @@ feature 'login' do
     click_button 'Logout'
     fill_in('email', with: 'cispr@yahoo.com')
     fill_in('password', with: '123456')
-    click_button 'Login'
+    click_button 'Log in'
     expect(page).to have_content 'Here are the latest posts'
   end
 
@@ -13,7 +13,7 @@ feature 'login' do
     click_button 'Logout'
     fill_in('email', with: 'northenlights@yahoo.com')
     fill_in('password', with: '123456')
-    click_button 'Login'
+    click_button 'Log in'
     expect(page).not_to have_content 'Here are the latest posts'
   end
   
@@ -22,7 +22,7 @@ feature 'login' do
     click_button 'Logout'
     fill_in('email', with: 'northenlights@yahoo.com')
     fill_in('password', with: '123456')
-    click_button 'Login'
+    click_button 'Log in'
     expect(page).not_to have_content 'Here are the latest posts'
   end
 

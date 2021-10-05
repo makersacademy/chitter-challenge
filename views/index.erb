@@ -4,21 +4,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="public/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <title>Chitter</title>
 </head>
 <body>
+  <div class="bird-icon">
+    <i class='fas fa-crow' style='font-size:24px'></i>
+  </div>
+  <br>
   <header>Chitter</header>
-  <div>
-    <h1>Welcome!</h1>
-  <form action="/session/new" method="post">
-  <input type="text" name="email" placeholder="Email" required="required" class="login_email">
-  <input type="password" name="password" placeholder="Password" required="required" class="login_password">
-  <input type="submit" value="Login" class="login_button">
   </form>
-  <form action="/user/new">
-  <input type="submit" value="Sign Up" class="signup_button">
+    <form action="/user/new">
+    <input type="submit" value="Sign Up" class="btn signup">
   </form>
+  <div class="login-box">
+    <h1>Hear what your fellow Makers are up to</h1>
+    <h2>Join Chitter today.</h2>
+    <h2>Login</h2>
+    <form action="/session/new" method="post">
+      <input type="text" name="email" placeholder="Email" required="required" class="user-box">
+      <br>
+      <br>
+      <input type="password" name="password" placeholder="Password" required="required" class="user-box">
+      <br>
+      <input type="submit" value="Log in" class="btn login">
+    </form>
+  </div>
 </body>
 </html>
 
