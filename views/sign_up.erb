@@ -5,14 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SignUp</title>
-  <link rel="stylesheet" href="public/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
-  <form action="/user/new" method="post">
-  <input type="text" name="username" placeholder="Username" required="required" class="signup_name">
-  <input type="email" name="email" placeholder="Email" required="required" class="signup_email">
-  <input type="password" name="password" placeholder="Password" required="required" class="signup_password">
-  <input type="submit" value="Submit" class="signup_submmit">
-  </form>
+  <div class="bird-icon">
+    <i class='fas fa-crow' style='font-size:24px'></i>
+  </div>
+  <br>
+  <header>Chitter</header>
+  <div class="box signup-form">
+    <nobr> 
+    <h1>Create your account</h1>
+    <br>
+    
+    <form action="/user/new" method="post">
+    <input type="text" name="username" placeholder="Username" required="required" class="user-box">
+    <br>
+    <br>
+    <input type="email" name="email" placeholder="Email" required="required" class="user-box">
+     <br>
+    <br>
+    <input type="password" name="password" placeholder="Password" required="required" class="user-box">
+    <br>
+    <br>
+    <input type="submit" value="Sign up" class="btn signup">
+    </form>
+  </div>
 </body>
 </html>
