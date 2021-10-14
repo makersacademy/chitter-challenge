@@ -1,0 +1,109 @@
+.bird-icon {
+  position: absolute; left:165px;
+  top: 1rem;
+  color:black;
+}
+
+body {
+  background-color:rgb(239, 244, 245);
+}
+
+header {
+  position: absolute; left:20px; 
+  font-family: monospace;
+  font-size: 2.5rem;
+}
+
+.btn {
+  font-family: monospace;
+  border: 2px solid rgb(239, 244, 245);
+  background-color: #2abfe8;
+  color: white;
+  padding: 4px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout {
+  top: 2.3rem;
+  position: absolute; right:20px;
+}
+
+.logout:hover {
+  background-color: #f08f5b;
+}
+
+h4 {
+  font-size: 28px;
+  font-family: monospace;
+  text-align: center;
+}
+
+.textarea-box {
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+  padding-bottom: 70px;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px rgba(65, 61, 61, 0.6);
+  width: 400px;
+  height: 150px;
+}
+
+textarea {
+  width: 360px;
+  height: 120px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1rem;
+}
+
+.post-box {
+  margin: 0 auto;
+  background: white;
+  width: 400px;
+  border-radius: 50px;
+  margin-top: 120px;
+  padding-top: 1px;
+  padding-bottom: 40px;
+  padding-right: 40px;
+  padding-left: 50px;
+  box-shadow: 0 3px 3px rgba(65, 61, 61, 0.6);
+}
+
+.post {
+  margin-top: 10px;
+  margin-left: 15px;
+  display: block;
+  background-color: #f08f5b;
+  font-size: 14px;
+  padding: 5px 7px;
+}
+
+.peep {
+  padding-top: 30px;
+  font-family: monospace;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+  text-align: center;
+  
+}
+
+.name {
+  margin-bottom: 30px;
+  margin-top: -40px;
+  font-family: monospace;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  display: block;
+}
+
+.time {
+  margin-top: 100px;
+  font-family: monospace;
+  text-align: right;
+}

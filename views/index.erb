@@ -1,39 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  <title>Chitter</title>
-</head>
-<body>
-  <div class="bird-icon">
-    <i class='fas fa-crow' style='font-size:24px'></i>
-  </div>
-  <br>
-  <header>Chitter</header>
-  </form>
-    <form action="/user/new">
-    <input type="submit" value="Sign Up" class="btn signup">
-  </form>
-  <div class="box login-form">
-    <h1>Hear what your fellow Makers are up to</h1>
-    <h2>Join Chitter today.</h2>
-    <h3>Login</h3>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/index_and_sign_up.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div class="bird-icon">
+      <i class='fas fa-crow' style='font-size:24px'></i>
+    </div>
     <br>
-    <form action="/session/new" method="post">
-      <input type="text" name="email" placeholder="Email" required="required" class="user-box">
-      <br>
-      <br>
-      <input type="password" name="password" placeholder="Password" required="required" class="user-box">
-      <br>
-      <br>
-      <input type="submit" value="Log in" class="btn login">
+    <header>Chitter</header>
+    <form action="/user/new">
+      <input type="submit" value="Sign Up" class="btn signup">
     </form>
-  </div>
-</body>
+    <div class="box login-form">
+      <h1>Hear what your fellow Makers are up to</h1>
+      <h2>Join Chitter today.</h2>
+      <h3>Login</h3>
+      <br>
+      <form action="/session/new" method="post">
+        <input type="text" name="email" placeholder="Email" required="required" class="user-box">
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="Password" required="required" class="user-box">
+        <br>
+        <br>
+        <input type="submit" value="Log in" class="btn login">
+      </form>
+    </div>
+  </body>
 </html>
 
 

@@ -1,7 +1,7 @@
 def add_first_peep
   visit '/peeps'
   fill_in('peep', with: 'Hello world')
-  click_button('Submit')
+  click_button('Post')
 end
 
 def sign_up

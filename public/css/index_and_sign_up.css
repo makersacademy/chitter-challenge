@@ -44,8 +44,6 @@ h1 {
 }
 
 h2 {
-  margin-top: 0 !important;
-  margin-bottom: 1 !important;
   color: black;
   text-align: left;
   font-size: 1.5rem;
@@ -60,7 +58,6 @@ h3 {
   font-size: 1.5rem;
   font-family: monospace;
 } 
-
 
 .user-box {
   border: 1.5px solid #babfbf;
@@ -96,7 +93,7 @@ h3 {
   top: 20rem;
   left: 50%;
   width: 400px;
-  height: 245px;
+  height: 205px;
 }
 
 .login-form {
@@ -116,3 +113,17 @@ h3 {
   font-size: 14px;
   padding: 5px 7px;
 }
+
+.logout {
+  top: 2.3rem;
+  position: absolute; right:20px;
+}
+
+
+
+
+
+
+
+
+

@@ -1,19 +1,47 @@
-<% if @user %>
-  <h1>Welcome, <%= @user.username %></h1>
-<% end %>
-
-<form action="/peeps" method="post">
-<input type="hidden" name="username" id="username" value="<%= @user.username %>">
-  <input type="text" name="peep" placeholder="Enter peep" />
-  <input type="submit" value="Submit" />
-</form>
-<form action="/session/destroy" method="post">
-  <input type="submit" value="Logout" class="logout_button">
-  </form>
-  <h1>'Here are the latest posts'</h1>
-<ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li><%= peep.peep %> : <%= peep.time %> </li>
-      <%= "Posted by #{peep.username}" %>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/peeps.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Peeps</title>
+  </head>
+  <body>
+    <div class="bird-icon">
+      <i class='fas fa-crow' style='font-size:24px'></i>
+    </div>
+    <br>
+    <header>Chitter</header>
+    <br>
+    <br>
+    <br>
+    <form action="/session/destroy" method="post">
+      <input type="submit" value="Log out" class="btn logout">
+    </form>
+    <h4>Welcome, <%= @user.username %></h4>
+    <div class="textarea-box">
+      <form action="/peeps" method="post">
+        <input type="hidden" name="username" id="username" value="<%= @user.username %>">
+        <textarea class="textarea" input type="text" name="peep" maxlength="280" placeholder="What's happening"></textarea>
+        <input type="submit" value="Post" class="btn post">
+      </form>
+    </div>
+    <br>
+    <br>
+    <h4>Here are the latest posts</h4>
+    <% @peeps.reverse.each do |peep| %>
+      <div class="post-box"> 
+        <div class="name">
+          <%= "#{peep.username} posted:" %>
+        </div>
+        <div class="peep">
+          <%= peep.peep %> 
+        </div>
+        <div class="time">
+          <%= peep.time %>
+        </div>
+      </div>
+    <% end %>
+    <br>
+    <br>
+  </body>
+</html>

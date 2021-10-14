@@ -19,7 +19,7 @@ task :setup do
     connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY,
     username VARCHAR (50),
     FOREIGN KEY (username) REFERENCES users (username),
-    peep VARCHAR(100),
+    peep VARCHAR(280),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );")
    
