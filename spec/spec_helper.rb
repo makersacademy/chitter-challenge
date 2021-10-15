@@ -4,6 +4,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'setup_test_database'
 require 'capybara'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'timecop'
