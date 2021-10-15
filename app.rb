@@ -14,11 +14,11 @@ class Chitter < Sinatra::Base
     @user = User.find(id: session[:user]) if session[:user]
     @peeps = Peep.all
     @signup = params[:signup]
-    erb :index
+    erb :index, :layout => :base
   end
 
   get '/user/new' do
-    erb :'user/new'
+    erb :'user/new', :layout => :base
   end
 
   post '/user' do
