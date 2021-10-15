@@ -4,3 +4,4 @@ CREATE TABLE peeps (id SERIAL PRIMARY KEY, name VARCHAR(60), peep VARCHAR(280));
 -- database for test enviroment
 CREATE DATABASE chitter_test;
 CREATE TABLE peeps (id SERIAL PRIMARY KEY, name VARCHAR(60), peep VARCHAR(280));
+ALTER TABLE peeps ADD COLUMN tags VARCHAR(60);

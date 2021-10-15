@@ -1,6 +1,8 @@
+
 <ul>
-  <% @peeps.each do |name, peep| %>
-    <li><%= name %></li>
-    <li><%= peep %></li>
+  <% @peeps.each do |peep| %>
+    <li>
+        <%= peep.name %> -- <%= peep.peep %> -- <%= peep.tags %>
+    </li>
   <% end %>
 </ul>
