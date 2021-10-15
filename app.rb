@@ -12,5 +12,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/' do
+    Message.add(username: params[:username], content: params[:message])
+    redirect('/')
+  end
+
   run! if app_file == $0
 end

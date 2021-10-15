@@ -2,11 +2,17 @@
   <h1>CHITTER</h1>
 </header>
 <body>
+  <h3>Post a new message!</h3>
+  <form action="/" method="post">
+    <input type="text" name="username" placeholder="Who are you?">
+    <input type="text" name="message" placeholder="What's going on?">
+    <button name="Send">Send</button>
+  </form>
   <h3>Your Feed:</h3>
   <div>
     <% @messages.each do |message| %>
     <div>
-      <p><%= message.user %></p>
+      <p><%= message.username %></p>
       <p><%= message.time %></p>
       <p><%= message.content %></p>
     </div><br>
