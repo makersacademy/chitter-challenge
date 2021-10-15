@@ -1,0 +1,116 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+#notice {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: red;
+}
+
+section {
+  text-align: center;
+}
+
+form {
+  /* text-align: center; */
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  display: inline-block;
+  align-items: center;
+  /* width: 50%; */
+}
+
+input[type=text] {
+  border: none;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  background-color: lightskyblue;
+}
+
+input[type=url] {
+  border: none;
+  padding: 10px 10px;
+  background-color: lightskyblue;
+}
+
+input[type=submit] {
+  border: none;
+  border-radius: 7px;
+  padding: 16px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+}
+
+input[type=submit].delete {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: red;
+}
+
+input[type=submit].edit {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: orange;
+}
+
+input[type=submit].comment {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: blue;
+}
+
+input[type=submit].tag {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: coral;
+}
+
+
+/* 
+input[type=reset] {
+  background-color: red;
+} */
+
+/* @counter-style thumbs {
+  system: cyclic;
+  symbols: "\1F426";
+  suffix: " ";
+}
+
+ul {
+  list-style: "\1F426";
+  font-size: medium;
+  font-family: 'Raleway', sans-serif;
+} */
