@@ -13,4 +13,11 @@ describe Chitter do
       expect(peeps).to include("Debugging is like an onion. There are multiple layers to it, and the more you peel them back, the more likely you will cry.")
     end
   end
+  
+  describe '.create' do
+    it 'creates a new peep' do
+      Peeps.create(name:'Marianne', peep:'90% of coding is debugging. The other 10% is writing bugs.')
+      expect(Peeps.all).to include '90% of coding is debugging. The other 10% is writing bugs.'
+    end
+  end
 end
