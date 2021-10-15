@@ -4,6 +4,7 @@ require_relative 'database_connection_setup'
 require './lib/user'
 require './lib/peep'
 require './helpers/peeps'
+require 'relative_time'
 
 
 class ChitterApp < Sinatra::Base

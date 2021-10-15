@@ -2,7 +2,7 @@
 <div class="card" style="width: 20rem;">
   <div class="card-body">
     <h5 class="card-title"><%= peep.text %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= peep.time %></h6>
+    <h6 class="card-subtitle mb-2 text-muted"><%= format_time(peep.time) %></h6>
     <p class="card-text">@<%= peep_username(peep.user_id) %>
     </p>
   </div>

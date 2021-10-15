@@ -10,6 +10,7 @@ gem 'webrick'
 gem 'sinatra-flash'
 gem 'bcrypt'
 gem 'bootstrap'
+gem 'relative_time'
 
 group :test do
   gem 'rspec'
