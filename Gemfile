@@ -6,7 +6,8 @@ ruby '3.0.2'
 
 source 'https://rubygems.org'
 
-gem 'capybara', group: :test
+gem 'capybara'
+gem 'selenium-webdriver'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -20,4 +21,3 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
-

@@ -9,7 +9,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Welcome to Chitter'
+    erb :index
+  end
+
+  get '/peeps' do
+    'This is a test peep'
   end
 
   run! if app_file == $PROGRAM_NAME
