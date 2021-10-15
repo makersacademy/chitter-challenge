@@ -10,4 +10,7 @@ end
 
 group :development, :test do
   gem 'rubocop', '1.20'
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+  gem 'capybara'
 end
