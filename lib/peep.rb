@@ -22,6 +22,8 @@ class Peep
       Peep.new(id: peep['id'], text: peep['text'],
       time: convert_time(peep['time']))
     end.sort_by { |peep| peep.time }.reverse
+    # time doesn't sort accurately with sql ORDER BY
+    # it's also useful to convert back to a time object here for presenting in html
   end
 
   def self.create(text:)

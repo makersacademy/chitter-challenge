@@ -11,8 +11,9 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @user = User.find(id: params[:user]) if params[:user]
+    @user = User.find(id: session[:user]) if session[:user]
     @peeps = Peep.all
+    @signup = params[:signup]
     erb :index
   end
 
@@ -23,7 +24,8 @@ class Chitter < Sinatra::Base
   post '/user' do
     @user = User.create(username: params[:username], email: params[:email],
     name: params[:name], password: params[:password])
-    redirect("/?user=#{@user.id}")
+    session[:user] = @user.id
+    redirect("/?signup=true")
   end
 
   #halt erb(:error) for later use

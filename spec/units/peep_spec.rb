@@ -24,6 +24,7 @@ describe Peep do
       end
 
       expect(Peep.all.first.time).to eq Timecop.freeze(Time.utc(2021))
+      expect(Peep.all.first.text).to eq "Test tweet 2021"
     end
   end
 
@@ -32,6 +33,7 @@ describe Peep do
       time = Timecop.freeze(Time.utc(2021))
       peep = Peep.create(text: 'Test tweet')
       persisted_data = persisted_data(table: 'peeps', id: peep.id)
+      # persisted_data queries the database and checks what is actually stored
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']
