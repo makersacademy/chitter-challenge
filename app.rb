@@ -2,9 +2,13 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'database_connection_setup'
 require './lib/user'
+require './lib/peep'
+require './helpers/peeps'
 
 
 class ChitterApp < Sinatra::Base
+
+  include PeepHelper
 
   configure :development do
     register Sinatra::Reloader
@@ -14,6 +18,7 @@ class ChitterApp < Sinatra::Base
 
   get '/' do
     @user = User.find(session[:user_id])
+    @peeps = Peep.all
     erb :index
   end
 
@@ -43,6 +48,15 @@ class ChitterApp < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
+    redirect '/'
+  end
+
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+  post '/peeps' do
+    Peep.create(text: params[:text], user_id: session[:user_id], timestamp: Time.now)
     redirect '/'
   end
 

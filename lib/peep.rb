@@ -1,6 +1,6 @@
 class Peep
 
-  attr_reader :id, :text, :user_id, :time
+  attr_reader :id, :text, :user_id, :time, :username
 
   def initialize(id:, text:, user_id:, timestamp: Time.now)
     @id = id
@@ -20,5 +20,12 @@ class Peep
       user_id: result[0]['user_id'],
       timestamp: result[0]['timestamp']
     )
+  end
+
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result.map do |peep|
+      Peep.new(id: peep['id'], text: peep['text'], user_id: peep['user_id'], timestamp: peep['timestamp'])
+    end
   end
 end
