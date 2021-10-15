@@ -1,40 +1,73 @@
 Chitter Challenge
 =================
 
-Features:
+Instructions:
 -------
 
-```
-STRAIGHT UP
+Stack:
+-------
 
+My Learning Objectives:
+-------
+
+1) Practice turning user stories into feature requirements
+2) Practice domain modelling
+3) Improve planning prior to starting
+4) Improve unit test writing
+5) Practice database manipulation
+6) Learn how to use <layout.erb> files with <yield>
+
+Requirements:
+-------
+
+Created from the user stories below:
+
+1) Users should be able to view messages
+2) Users should be able to post messages
+3) Messages should show a timestamp
+4) Users should be able to sign up
+5) Users should be able to log in
+6) Users should be able to log out
+7) Users should be able to receive notification emails
+
+User Stories:
+-------
+
+### STRAIGHT UP
+```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
-
+```
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
-
+```
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-
+```
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
 
-HARDER
-
+### HARDER
+```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
-
+```
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
+```
+### ADVANCED
+```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
