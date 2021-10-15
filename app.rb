@@ -26,7 +26,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(username: params[:username], email: params[:email], password: params[:password])
+    user = User.authenticate(username: params[:username], password: params[:password])
     session[:user_id] = user.id
     redirect '/'
   end
