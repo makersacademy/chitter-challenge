@@ -8,9 +8,9 @@ feature 'Creating a new peep' do
   scenario 'Posting a peep to chitter' do
     visit ('/chitter')
     # fill_in('name', with: "Voldemort")
-    # fill_in('peep', with: "I'm a Pull Stack Developer. I pull things off the internet and put it in my code.")
+    # fill_in('peep', with: "I am a Pull Stack Developer. I pull things off the internet and put it in my code.")
     # click_button('Submit')
 
-    expect(page).to have_content("I'm a Pull Stack Developer. I pull things off the internet and put it in my code.")
+    expect(page).to have_content("I am a Pull Stack Developer. I pull things off the internet and put it in my code.")
   end
 end

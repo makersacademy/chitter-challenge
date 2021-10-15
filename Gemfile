@@ -13,4 +13,5 @@ group :development, :test do
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'capybara'
+  gem 'pg'
 end
