@@ -41,6 +41,11 @@ class ChitterApp < Sinatra::Base
     redirect '/'
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    redirect '/'
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
 
