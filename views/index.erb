@@ -1,4 +1,6 @@
 <h1>Chitter</h1>
 <% if @user %>
   <h1>Welcome, <%= @user.username %></h1>
+<% else %>
+  <h1>Please check your email or password.</h1>
 <% end %>
