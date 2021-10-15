@@ -4,11 +4,12 @@
 <body>
   <h3>Your Feed:</h3>
   <div>
+    <% @messages.each do |message| %>
     <div>
-      <p>I went to the grocery store.</p>
-    </div>
-    <div>
-      <p>Just saw Angelina Jolie at the chippie.</p>
-    </div>
+      <p><%= message.user %></p>
+      <p><%= message.time %></p>
+      <p><%= message.content %></p>
+    </div><br>
+    <% end %>
   </div>
 </body>
