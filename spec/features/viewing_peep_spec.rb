@@ -10,11 +10,10 @@ require 'pg'
 
 feature 'Viewing peeps' do
   scenario 'see all peeps in Chitter' do
-    Peeps.create(name: 'Developer Joe',peep: 'I am a Pull Stack Developer.',tags:'#programming')
-    Peeps.create(name: 'Developer Angela', peep: 'Debugging is like an onion.',tags:'#programming')
+    Peeps.create(name: 'Developer Joe',peep: 'I am a Pull Stack Developer.',tags: '#programming')
+    Peeps.create(name: 'Developer Angela', peep: 'Debugging is like an onion.',tags: '#programming')
     visit ('/chitter')
     expect(page).to have_content('I am a Pull Stack Developer.')
     expect(page).to have_content('#programming')
   end
 end
-

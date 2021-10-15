@@ -15,7 +15,7 @@ describe Chitter do
   
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peeps.create(name:'Developer Ron', peep:'90% of coding is debugging.',tags: '#programming')
+      peep = Peeps.create(name: 'Developer Ron', peep: '90% of coding is debugging.',tags: '#programming')
       persisted_data = persisted_data(id: peep.id)
 
       expect(peep.name).to eq 'Developer Ron'
