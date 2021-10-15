@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
 

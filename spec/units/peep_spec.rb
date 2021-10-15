@@ -10,21 +10,23 @@ describe Peep do
       Peep.create(text: 'Other tweet')
       Peep.create(text: 'Another tweet')
       peep = Peep.create(text: 'Test tweet')
+      peeps = Peep.all
       
-      expect(Peep.all.length).to eq(3)
-      expect(Peep.all.first.id).to eq peep.id
-      expect(Peep.all.first.text).to eq 'Test tweet'
+      expect(peeps.length).to eq(3)
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.text).to eq 'Test tweet'
       # storing peep time isn't tested here as it is tested elsewhere
     end
 
-    it 'is sorted by newest first' do
+    it 'is sorted in reverse chronological order' do
       [2019,2020,2021].each do |year|
         Timecop.freeze(Time.utc(year))
         Peep.create(text: "Test tweet #{year}")
       end
+      peeps = Peep.all
 
-      expect(Peep.all.first.time).to eq Timecop.freeze(Time.utc(2021))
-      expect(Peep.all.first.text).to eq "Test tweet 2021"
+      expect(peeps.first.time).to eq Timecop.freeze(Time.utc(2021))
+      expect(peeps.first.text).to eq "Test tweet 2021"
     end
   end
 
