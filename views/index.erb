@@ -1,0 +1,28 @@
+<h1> Welcome to Chitter </h1>
+
+<% if @user %>
+<h2> Your account has been successfully created, welcome to Chitter <%= @user.username %>! </h2>
+<% end %>
+
+<form action='/peep/new' method='post'>
+  <label for='peep_text'>
+    Create a new peep:
+    <input type='text' name='peep_text'>
+  </label>
+  <input type='submit' value='Create peep'>
+</form>
+
+<div>
+  <form action='/user/new' method='get'>
+    <input type='submit' value='Sign up'>
+  </form>
+</div>
+
+
+<ul>
+  <% @peeps.each do |peep| %> 
+    <li> <%= peep.text %> </li>
+    <li> <%= peep.time.strftime('%H:%M %P · %d %b %Y') %> </li>
+  <% end %>
+</ul>
+
