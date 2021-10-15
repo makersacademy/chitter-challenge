@@ -6,7 +6,7 @@ require 'setup_test_database'
 require 'capybara'
 require 'simplecov'
 require 'simplecov-console'
-
+require 'timecop'
 Capybara.app = ChitterApp
 
 
