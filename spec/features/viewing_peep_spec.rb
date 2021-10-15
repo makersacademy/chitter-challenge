@@ -8,8 +8,8 @@ require 'pg'
 # So that I can see what others are saying  
 # I want to see all peeps in reverse chronological order
 
-feature 'Creating a new peep' do
-  scenario 'Posting a peep to chitter' do
+feature 'Viewing peeps' do
+  scenario 'see all peeps in Chitter' do
     connection = PG.connect(dbname: 'chitter_test')
 
     connection.exec("INSERT INTO peeps (name,peep) VALUES ('Voldemort', 'I am a Pull Stack Developer. I pull things off the internet and put it in my code.');")
