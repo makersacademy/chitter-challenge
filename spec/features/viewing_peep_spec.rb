@@ -10,11 +10,8 @@ require 'pg'
 
 feature 'Viewing peeps' do
   scenario 'see all peeps in Chitter' do
-    connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO peeps (name,peep) VALUES ('Voldemort', 'I am a Pull Stack Developer. I pull things off the internet and put it in my code.');")
-    connection.exec("INSERT INTO peeps (name,peep) VALUES('Gregorovitch', 'Debugging is like an onion. There are multiple layers to it, and the more you peel them back, the more likely you will cry.');")
-
+    Peeps.create(name: 'Voldemort',peep: 'I am a Pull Stack Developer. I pull things off the internet and put it in my code.')
+    Peeps.create(name: 'Gregorovitch', peep: 'Debugging is like an onion. There are multiple layers to it, and the more you peel them back, the more likely you will cry.')
     visit ('/chitter')
     expect(page).to have_content('I am a Pull Stack Developer. I pull things off the internet and put it in my code.')
     expect(page).to have_content('Debugging is like an onion. There are multiple layers to it, and the more you peel them back, the more likely you will cry.')
