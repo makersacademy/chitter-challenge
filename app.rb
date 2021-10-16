@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/user'
+require_relative './spec/setup_connection'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -27,11 +28,24 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/login' do
-    redirect('/')
+    user = User.account(email: params[:email])
+    if user
+      if User.valid_password?(id: user.id, password: params[:password])
+        session[:user_id] = user.id
+        flash[:notice] = "Successfully logged in as #{user.username}"
+        redirect('/')
+      else
+        flash[:notice] = "Please check your password is correct"
+        redirect('/user/login')
+      end
+    else
+      flash[:notice] = "An account with that email doesn't exist"
+      redirect('/user/login')
+    end
   end
 
   post '/user' do
-    if User.unique?(username: params[:username], email: params[:email])
+    if User.unique?(username: params[:username], email: params[:email]) # how do I refactor this
       @user = User.create(username: params[:username], email: params[:email],
       first_name: params[:first_name], last_name: params[:last_name], password: params[:password])
       session[:user] = @user.id
