@@ -34,7 +34,7 @@
 <ul>
   <% @peeps.each do |peep| %> 
     <li> <%= peep.text %> </li>
-    <li> <%= peep.time.strftime('%H:%M %P · %d %b %Y') %> </li>
+    <li> <%= (User.find(id: peep.author)).username %> <%= peep.time.strftime('%H:%M %P · %d %b %Y') %> </li>
   <% end %>
 </ul>
 

@@ -81,8 +81,8 @@ class Chitter < Sinatra::Base
   #halt erb(:error) for later use
 
   post '/peep/new' do
-    text = params[:peep_text]
-    Peep.create(text: text)
+    user = User.find(id: session[:user])
+    Peep.create(text: params[:peep_text], author: user.id)
     redirect('/')
   end
 
