@@ -5,7 +5,7 @@ require './lib/user'
 require './lib/peep'
 require './helpers/peeps'
 require 'relative_time'
-
+require 'rss'
 
 class ChitterApp < Sinatra::Base
 

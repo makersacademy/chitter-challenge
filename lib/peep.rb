@@ -66,7 +66,7 @@ class Peep
     result = DatabaseConnection.query("SELECT peep_id, text, user_id, timestamp FROM peep_tags INNER JOIN peeps ON peeps.id = peep_tags.peep_id WHERE peep_tags.tag_id = $1;", [tag_id])
     puts result
     result.map do |peep|
-      Peep.new(id: peep['id'], text: peep['text'], user_id: peep['user_id'], timestamp: peep['timestamp'])
+      Peep.new(id: peep['id'], text: peep['text'], user_id: peep['user_id'], timestamp: peep['timestamp'], likes: peep['likes'])
     end
   end
 

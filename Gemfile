@@ -11,6 +11,7 @@ gem 'sinatra-flash'
 gem 'bcrypt'
 gem 'bootstrap', '~> 5.0.2'
 gem 'relative_time'
+gem 'rss'
 
 group :test do
   gem 'rspec'

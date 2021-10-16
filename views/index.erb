@@ -1,50 +1,83 @@
 <div class="row align-items-start">
-  <div class="col">
-<% @tags.each do |tag|%>
-  <form action="/tags/<%= tag.id %>/peeps" method="get">
-    <button class="btn btn-sm m-2 btn-outline-primary" type="submit" value="<%= tag.id %>"><%= tag.text %></button>
-  </form>
-<% end %>
-  </div>
-  <div class="col">
-    <% if @user %>
-    <div class="card m-2" style="width: 20rem;">
+  <div class="col-4">
+    <div class="bg-light rounded col-11 p-4 pt-3">
+    <h4>Latest</h4>
+    <% url = 'http://feeds.bbci.co.uk/news/uk/rss.xml' %>
+    <% URI.open(url) do |rss| %>
+    <% feed = RSS::Parser.parse(rss) %>
+    <% feed.items.each do |item| %>
+    <div class="card mt-2" style="width: 22rem;">
       <div class="card-body">
+        <a href="<%= "#{item.link}" %>">
+          <h6 class="card-title text-dark"><%= "#{item.title}" %></h6>
+        </a>
+        <small class="card-text "><%= "#{item.description}" %></small>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  </div>
+  <div class="col-5">
+  <div class="bg-light rounded p-3 pt-3">
+    <h4>Timeline</h4>
+    <% if @user %>
+
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <img src="images/avatar.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <div class="d-flex flex-column gap-2 w-100 justify-content-between">
         <form action="/peeps" method="POST">
-        <h6 class="card-title">@<%= peep_username(@user.id) %></h6>
-          <p class="card-text"><input name="text" type="text" /></p>
-          <input value="Submit" type="submit" />
+          <div class="d-flex flex-row justify-content-between">
+            <h6 class="mb-0">@<%= @user.username %></h6>
+            <input class="btn btn-outline-primary btn-sm" value="Submit" type="submit" />
+          </div>
+          <div>
+            <small class="mb-0 opacity-75"><input class="w-100 mt-2" name="text" type="text" /></small>
+          </div>
         </form>
       </div>
-    </div>
+    </a>
+
+
     <% end %>
-    <% @peeps.each do |peep| %>
-    <div class="card m-2" style="width: 20rem;">
-    <div class="card-header">
-        <h6 class="card-title">@<%= peep_username(peep.user_id) %></h6>
-        <p class="card-subtitle text-muted"><%= format_time(peep.time) %></p>
-      </div>
-      <div class="card-body">
-        <p class="card-text"><%= peep.text %></p>
-      </div>
-       <div class="position-absolute bottom-0 end-0"> <i class="bi bi-heart"><%= peep.likes %></i>
-       </div>
-    </div>
-    <% end %>
-  </div>
-  <div class="col">
-    <% if @user %>
-      <div class="toast m-2" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <strong class="me-auto">Chitter</strong>
-          <small>just now</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    <div class="list-group">
+      <% @peeps.each do |peep| %>
+      <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mt-2 rounded py-3" aria-current="true">
+        <img src="images/avatar.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+        <div class="d-flex flex-column gap-2 w-100 justify-content-between">
+          <div class="d-flex flex-row justify-content-between">
+            <h6 class="mb-0">@<%= peep_username(peep.user_id) %></h6>
+            <small class="opacity-50 text-muted text-nowrap"><%= format_time(peep.time) %></small>
+          </div>
+          <div>
+            <small class="mb-0 opacity-75"><%= peep.text %></small>
+          </div>
         </div>
-        <div class="toast-body">
-          Welcome, <%= @user.username %>
-        </div>
-      </div>
+      </a>
       <% end %>
+    </div>
+    </div>
+  </div>
+  <div class="col-3">
+  <div class="bg-light rounded p-5 pt-3">
+    <h4>Trending</h4>
+    <% if @user %>
+    <div class="toast m-2" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Chitter</strong>
+        <small>just now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Welcome, <%= @user.username %>
+      </div>
+    </div>
+    <% end %>
+    <% @tags.each do |tag|%>
+    <form action="/tags/<%= tag.id %>/peeps" method="get">
+      <button class="btn btn-sm m-2 btn-outline-primary" type="submit" value="<%= tag.id %>"><%= tag.text %></button>
+    </form>
+    <% end %>
+    </div>
   </div>
 </div>
-
