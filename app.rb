@@ -4,7 +4,7 @@ require 'sinatra/reloader'
 require './lib/message'
 require './lib/all_messages'
 
-all_messages = AllMessages.new
+$all_messages = AllMessages.new
 
 class ChitterController < Sinatra::Base
 
@@ -17,13 +17,15 @@ class ChitterController < Sinatra::Base
   end
 
   get '/flow' do
-    @message = Message.instance
+    # @message = Message.instance
+    @all_messages = $all_messages
     erb :"flow/index"
   end
 
   post '/flow' do
     content = params[:message]
-    Message.create(content)
+    @message = Message.new(content)
+    $all_messages.add_message(@message)
     redirect '/flow'
   end
 

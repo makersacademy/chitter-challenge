@@ -3,13 +3,13 @@ require './lib/all_messages'
 
 class Message
 
-  def self.create(content)
-    @message = Message.new(content)
-  end
+  # def self.create(content)
+  #   @message = Message.new(content)
+  # end
 
-  def self.instance
-    @message
-  end
+  # def self.instance
+  #   @message
+  # end
 
   def initialize(content)
     @content = content

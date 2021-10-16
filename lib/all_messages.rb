@@ -7,7 +7,11 @@ class AllMessages
   end
 
   def add_message(message)
-    @content.append(message)
+    @content.append(message.content)
   end
-  
+
+  def display
+    @content.each { |message| print message }
+  end
+
 end
