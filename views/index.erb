@@ -15,15 +15,17 @@
     <% end %>
   </div>
   <div class="col">
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <strong class="me-auto">Bootstrap</strong>
-        <small>11 mins ago</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    <% if @user %>
+      <div class="toast m-2" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Chitter</strong>
+          <small>just now</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Welcome, <%= @user.username %>
+        </div>
       </div>
-      <div class="toast-body">
-        Hello, world! This is a toast message.
-      </div>
-    </div>
+      <% end %>
   </div>
 </div>

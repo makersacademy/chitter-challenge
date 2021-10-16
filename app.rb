@@ -37,7 +37,7 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = user.id
       redirect '/'
     else
-      redirect '/'
+      redirect '/users/sign_in'
     end
   end
 
