@@ -1,0 +1,13 @@
+<body>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <div style="width: 20%; float:left">
+        Placeholder Text
+      </div>
+
+      <div style="width: 80%; float:right">
+        <%= peep.body %>
+      </div>
+    <% end %>
+  </ul>
+</body>

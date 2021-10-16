@@ -8,6 +8,7 @@ gem "capybara"
 gem "pg"
 gem "nokogiri", ">= 1.12.5"
 gem "sinatra-flash"
+gem "webrick"
 
 group :test do
   gem 'rspec'
