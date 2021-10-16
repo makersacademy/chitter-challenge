@@ -2,18 +2,23 @@
 
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative './database_connection_setup'
+require './database_connection_setup'
+require './lib/peeps_manager'
 
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
-  get '/chitter/new' do
-    erb :'chitter/new'
+  get '/chitter' do
+    @peeps = PeepsManager.new.all_in_time_order
+
+    erb :index
   end
 
-  post '/chitter/new' do
-    "#{params['peep']}"
+  post '/chitter' do
+    PeepsManager.new.create_peep(params['peep'])
+
+    redirect '/chitter'
   end
 end

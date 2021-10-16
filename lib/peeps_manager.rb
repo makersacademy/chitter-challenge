@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'database_connection'
-require 'peep'
+require './lib/database_connection'
+require './lib/peep'
 
 class PeepsManager
   def create_peep(peep)

@@ -1,10 +1,58 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Setup
+You will need to have PostgresSQL installed locally to run this app.
+[PostgreSQL installation guides](https://www.postgresql.org/download/)
+
+Once you have setup PostgreSQL
+- Create the database with `CREATE DATABASE chitter;`
+- Create the table with:
+```
+CREATE TABLE peeps(
+  id SERIAL PRIMARY KEY,
+  peep VARCHAR(140),
+  time VARCHAR(30)
+  );
+  ```
+
+
+- `git clone` this repository
+- `bundle install` inside of directory
+- The type `rackup` to run the app
+- You will see a localhost address(usually localhost:9292)
+type that address into a web browser with /chitter
+example: `http://localhost:9292/chitter`
+
+## To run tests
+
+- please create the test database `chitter_test` in your local psql
+```
+CREATE DATABASE chitter_test;
+CREATE TABLE peeps(
+  id SERIAL PRIMARY KEY,
+  peep VARCHAR(140),
+  time VARCHAR(30)
+  );
+```
+before running tests
+
+### My approach to this project
+
+I started with BDD with the first two user stories. I then decided, since I was attempting so a few new techniques like Object relational_mapping I would focus on the back end objects and then implement them into the full stack with Capybara testing after the unit testing.
+
+### What I would have done if I had time
+
+- I would have moved the ordering in time responsibility to presenter class. I may have moved the time formatting responsibility there too.
+
+- I would have looked into automating the database creation and table creation (IF EXISTS) in the database_connection_setup file or in a rake file.
+
+- Doing some basic CSS to make it look nice.
+- Finishing the other user stories.
+
+------------
+
+
 
 Challenge:
 -------

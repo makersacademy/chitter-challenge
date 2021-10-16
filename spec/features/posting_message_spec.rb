@@ -2,12 +2,12 @@
 
 feature 'posting a message' do
   scenario 'loading main page' do
-    visit('/chitter/new')
+    visit('/chitter')
 
     expect(page.status_code).to eq 200
   end
   scenario 'creating a message to chitter' do
-    visit('/chitter/new')
+    visit('/chitter')
     fill_in('peep', with: 'This is a peep')
     click_button('submit')
 
