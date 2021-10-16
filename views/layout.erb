@@ -12,34 +12,29 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.6.0/font/bootstrap-icons.min.css"
     integrity="sha512-7w04XesEFaoeeKX0oxkwayDboZB/+AKNF5IUE50fCUDUywLvDN4gv2513TLQS+RDenAeHEK3O40jZZVrkpnWWw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" type="text/css" href="custom.css">
+  <link rel="stylesheet" type="/text/css" href="custom.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="background-color: #e3f2fd;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Chitter</a>
+      <a class=" text-white  navbar-brand" href="#">Chitter</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <% if @user %>
-        <form action="/peeps/new" method="get">
-          <input type="submit" value="New Peep" />
-        </form>
-      <% end %>
       <div class="nav navbar-right">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <% if @user %>
             <form action="/sessions/destroy" method="post">
-              <input type="submit" value="Sign Out" />
+              <input class="m-2 btn btn-sm btn-light" type="submit" value="Sign Out" />
             </form>
           <% else %>
             <form action="/users/sign_in" method="get">
-              <input type="submit" value="Sign In" />
+              <input class="m-2 btn btn-sm btn-light" type="submit" value="Sign In" />
             </form>
             <form action="/users/sign_up" method="get">
-              <input type="submit" value="Sign Up" />
+              <input class="m-2 btn btn-sm btn-light" type="submit" value="Sign Up" />
             </form>
           <% end %>
       </div>
