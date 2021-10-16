@@ -4,7 +4,8 @@ require 'simplecov-console'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  SimpleCov::Formatter::HTMLFormatter
+  # Want a nice code coverage website? Uncomment this next line!
+  # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
@@ -19,7 +20,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-# Tell Capybara to talk to BookmarkManager
+# Tell Capybara to talk to Chitter
 Capybara.app = Chitter
 
 RSpec.configure do |config|

@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Chitter'
+    erb :login_page
   end
 
   run! if app_file == $0
