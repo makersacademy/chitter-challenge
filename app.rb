@@ -10,7 +10,22 @@ class ChitterController < Sinatra::Base
   end
 
   get '/' do
-    "Welcome to Chitter"
+    erb :index
+  end
+
+  get '/flow' do
+    @chitt = $chitt
+    erb :"flow/index"
+  end
+
+  post '/flow' do
+    p "SEE BELOW"
+    p $chitt = params["chitt"]
+    redirect '/flow'
+  end
+
+  get '/flow/new' do
+    erb :"flow/new"
   end
 
   run! if app_file == $PROGRAM_NAME
