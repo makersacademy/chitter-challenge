@@ -12,18 +12,24 @@
   <input type='submit' value='Create peep'>
 </form>
 
+<% if @user %>
+<div>
+  <form action='/user/logout' method='get'>
+    <input type='submit' value='Log out'>
+  </form>
+</div>
+<% else %>
 <div>
   <form action='/user/login' method='get'>
     <input type='submit' value='Log in'>
   </form>
 </div>
-
 <div>
   <form action='/user/new' method='get'>
     <input type='submit' value='Sign up'>
   </form>
 </div>
-
+<% end %>
 
 <ul>
   <% @peeps.each do |peep| %> 

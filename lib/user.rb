@@ -32,6 +32,7 @@ class User
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE id = $1;", [id]
     )
+    return unless result.any?
 
     User.new(id: result[0]['id'], first_name: result[0]['first_name'], 
     last_name: result[0]['last_name'], username: result[0]['username'],

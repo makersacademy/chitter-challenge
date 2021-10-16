@@ -13,25 +13,35 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @user = User.find(id: session[:user]) if session[:user]
+    @user = User.find(id: session[:user])
     @peeps = Peep.all
     @signup = params[:signup]
     erb :index, :layout => :base
   end
 
   get '/user/new' do
+    @user = User.find(id: session[:user])
+    if @user
+      flash[:notice] = "Please log out first"
+      redirect('/')
+    end
     erb :'user/new', :layout => :base
   end
 
   get '/user/login' do
+    @user = User.find(id: session[:user])
+    if @user
+      flash[:notice] = "Already logged in as #{@user.username}"
+      redirect('/')
+    end
     erb :'user/login', :layout => :base
   end
 
   post '/user/login' do
     user = User.account(email: params[:email])
-    if user
+    if user # don't need an instance variable as we aren't presenting anything
       if User.valid_password?(id: user.id, password: params[:password])
-        session[:user_id] = user.id
+        session[:user] = user.id
         flash[:notice] = "Successfully logged in as #{user.username}"
         redirect('/')
       else
@@ -44,11 +54,23 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/user/logout' do
+    user = User.find(id: session[:user])
+    if user
+      session.clear
+      flash[:notice] = 'You have logged out'
+      redirect('/')
+    else
+      flash[:notice] = "You are not logged in"
+      redirect('/user/login')
+    end
+  end
+
   post '/user' do
     if User.unique?(username: params[:username], email: params[:email]) # how do I refactor this
       @user = User.create(username: params[:username], email: params[:email],
       first_name: params[:first_name], last_name: params[:last_name], password: params[:password])
-      session[:user] = @user.id
+      session[:user] = @user.id # signing up logs you in
       redirect("/?signup=true")
     else
       flash[:notice] = "That username or email already exists"
