@@ -20,6 +20,7 @@ class ChitterApp < Sinatra::Base
   get '/' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all.reverse
+    @tags = Tag.all
     erb :index
   end
 
@@ -59,6 +60,13 @@ class ChitterApp < Sinatra::Base
   post '/peeps' do
     Peep.create(text: params[:text], user_id: session[:user_id], timestamp: Time.now)
     redirect '/'
+  end
+
+  get '/tags/:id/peeps' do
+    @peeps = Peep.tagged(tag_id: params[:id]).reverse
+    @user = User.find(session[:user_id])
+    @tags = Tag.all
+    erb :index
   end
 
   run! if app_file == $PROGRAM_NAME

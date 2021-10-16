@@ -1,5 +1,13 @@
 <div class="row align-items-start">
   <div class="col">
+
+<% @tags.each do |tag|%>
+  <form action="/tags/<%= tag.id %>/peeps" method="get">
+    <button type="submit" value="<%= tag.id %>"><%= tag.text %></button>
+  </form>
+<% end %>
+
+
   </div>
   <div class="col">
     <% if @user %>

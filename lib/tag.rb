@@ -14,6 +14,13 @@ class Tag
     )
   end
 
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM tags")
+    result.map do |tag|
+      Tag.new(id: tag['id'], text: tag['text'])
+    end
+  end
+
 
   attr_reader :id, :text
 

@@ -11,15 +11,33 @@ class Peep
     @time = timestamp
   end
 
+
+  def self.existing(tag)
+    existing_tags = DatabaseConnection.query("SELECT * FROM tags;")
+    arr = []
+    existing_tags.map do |set_tag|
+      arr << set_tag['text']
+    end
+      if arr.include? tag
+       return arr.select do |x| 
+          x['text'] == tag
+        end.join
+        puts 'tag already exists'
+      else
+        return Tag.create(text: tag)
+        puts 'new tag created'
+      end
+  end
+
   def self.hashtag
     query = DatabaseConnection.query("SELECT text FROM peeps ORDER BY timestamp DESC LIMIT 1")
     peep_id = DatabaseConnection.query("SELECT id FROM peeps ORDER BY timestamp DESC LIMIT 1")
     query.map do |qr|
       arr = qr['text'].scan(/#\w+/).flatten
         arr.each do |tag|
-          tagga = Tag.create(text: tag)
+          tagga = Peep.existing(tag)
             peep_id.map do |pid|
-              PeepTag.create(peep_id: pid['id'], tag_id: tagga.id)
+                PeepTag.create(peep_id: pid['id'], tag_id: tagga.id)
             end
       end
     end
@@ -40,7 +58,14 @@ class Peep
     hashtag
   end
 
-  
+  def self.tagged(tag_id:)
+    puts :tag_id
+    result = DatabaseConnection.query("SELECT peep_id, text, user_id, timestamp FROM peep_tags INNER JOIN peeps ON peeps.id = peep_tags.peep_id WHERE peep_tags.tag_id = $1;", [tag_id])
+    puts result
+    result.map do |peep|
+      Peep.new(id: peep['id'], text: peep['text'], user_id: peep['user_id'], timestamp: peep['timestamp'])
+    end
+  end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
@@ -49,3 +74,4 @@ class Peep
     end
   end
 end
+
