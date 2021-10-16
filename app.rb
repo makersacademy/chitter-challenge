@@ -17,10 +17,10 @@ class Chitter < Sinatra::Base
     erb :"chitter/index"
   end
 
-  # post "/chitter/new" do
-  #   params[:peep]
-  #   redirect "/chitter"
-  # end
+  post "/chitter/new" do
+    Peep.create(text: params[:peep])
+    redirect "/chitter"
+  end
 
   run! if app_file == $0
 end

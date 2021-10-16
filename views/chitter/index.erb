@@ -1,12 +1,12 @@
 <h1>Chitter</h1>
 
-<form action ="chitter/new">
+<form action ="chitter/new" method="post">
   <input type="text" name="peep" placeholder="What's up?">
   <input type="submit" value="Send">
 </form>
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 </ul>
