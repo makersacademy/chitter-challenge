@@ -1,0 +1,1 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, user_id int REFERENCES users(user_id), content varchar(140), date_posted date, time_posted time);
