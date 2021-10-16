@@ -12,4 +12,14 @@ describe Peep do
       expect(Peep.all).not_to be_empty 
     end 
   end 
+
+  describe '.delete' do 
+    it 'deletes a given bookmark' do 
+      peep = Peep.add(contents: "I'm tired")
+
+      Peep.delete(id: peep.id)
+
+      expect(Peep.all.length).to eq 0
+    end 
+  end 
 end 
