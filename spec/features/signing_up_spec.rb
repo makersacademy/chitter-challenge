@@ -1,22 +1,29 @@
+require 'web_helpers'
+
 feature 'Signing up' do
   scenario 'user signs up and receives a confirmation message' do
-    visit('/')
-    click_button 'Sign up'
-
-    expect(current_path).to eq '/user/new'
-
-    fill_in :username, with: 'Testuser123'
-    fill_in :email, with: 'test@test.com'
-    fill_in :first_name, with: 'Test'
-    fill_in :last_name, with: 'User'
-    fill_in :password, with: '12345'
-
-    click_button 'Create account'
+    sign_up(username: 'user123', email: 'user123@test.com')
 
     expect(current_path).to eq '/'
-
     expect(page).to have_content(
-      'Your account has been successfully created, welcome to Chitter Testuser123!'
+      'Your account has been successfully created, welcome to Chitter user123!'
     )
+  end
+  
+  # here we are testing the presentation of the error tested in user_spec
+  scenario 'user is prevented from signing up with an existing username' do
+    sign_up(username: 'user123', email: 'user123@test.com')
+    sign_up(username: 'user123', email: 'user456@test.com')
+
+    expect(current_path).to eq '/user/new'
+    expect(page).to have_content("That username or email already exists")
+  end
+
+  scenario 'user is prevented from signing up with an existing email' do
+    sign_up(username: 'user123', email: 'user@test.com')
+    sign_up(username: 'user456', email: 'user@test.com')
+
+    expect(current_path).to eq '/user/new'
+    expect(page).to have_content("That username or email already exists")
   end
 end

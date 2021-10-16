@@ -1,6 +1,12 @@
+<html>
 <h1>Chitter</h1>
 <img src="/images/chitter_logo.png" alt="Chitter" width="75" height="75">
-<html>
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
 <body>
 <%= yield %>
 </body>

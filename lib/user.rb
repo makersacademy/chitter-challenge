@@ -46,4 +46,17 @@ class User
     last_name: result[0]['last_name'], username: result[0]['username'],
     email: result[0]['email'], password: result[0]['password'])
   end
+
+  def self.unique?(username:, email:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.exec_params(
+      "SELECT * FROM users WHERE username = $1 OR email = $2;", [username, email]
+    )
+    result.inspect.match? /ntuples=0/
+    # if the PG result has no data, just fields
+  end
 end
