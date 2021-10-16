@@ -1,5 +1,5 @@
 require './lib/tag'
-
+require './lib/peep_tag'
 class Peep
 
   attr_reader :id, :text, :user_id, :time, :username
@@ -13,13 +13,18 @@ class Peep
 
   def self.hashtag
     query = DatabaseConnection.query("SELECT text FROM peeps ORDER BY timestamp DESC LIMIT 1")
+    peep_id = DatabaseConnection.query("SELECT id FROM peeps ORDER BY timestamp DESC LIMIT 1")
     query.map do |qr|
       arr = qr['text'].scan(/#\w+/).flatten
-      arr.each do |tag|
-      Tag.create(text: tag)
+        arr.each do |tag|
+          tagga = Tag.create(text: tag)
+            peep_id.map do |pid|
+              PeepTag.create(peep_id: pid['id'], tag_id: tagga.id)
+            end
       end
     end
   end
+
 
   def self.create(text:, user_id:, timestamp:)
     result = DatabaseConnection.query(
