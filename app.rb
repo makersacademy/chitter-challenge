@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/chitter'
+require './lib/message'
 
 class ChitterController < Sinatra::Base
 
@@ -14,13 +14,12 @@ class ChitterController < Sinatra::Base
   end
 
   get '/flow' do
-    @chitt = $chitt
+    @message = Message.instance
     erb :"flow/index"
   end
 
   post '/flow' do
-    p "SEE BELOW"
-    p $chitt = params["chitt"]
+    Message.create(content)
     redirect '/flow'
   end
 
