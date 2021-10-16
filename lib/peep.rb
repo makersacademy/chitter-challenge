@@ -10,7 +10,7 @@ class Peep
   end 
 
   def self.add(contents: )
-   time = Time.new.strftime("%Y-%m-%d %I:%M")
+   time = Time.new.strftime("%Y-%m-%d %H:%M:%S")
     result = DatabaseConnection.query(
       "INSERT INTO peeps (contents, time) VALUES ($1, $2) RETURNING id, contents, time;", [contents, time]
     )

@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do 
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb:'/chitter/index'
   end
 
