@@ -21,13 +21,15 @@ end
 def image_picker(id)
   case id
     when "1"
-      "images/neville.png"
+      "/images/neville.png"
     when "2"
-      "images/mouse.png"
+      "/images/mouse.png"
     when "3"
-      "images/tyson.png"
+      "/images/tyson.png"
+    when "4"
+      "/images/press.png"
     else
-      "images/avatar.png"
+      "/images/avatar.png"
   end
 end
 end
