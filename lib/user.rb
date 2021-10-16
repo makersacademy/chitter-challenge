@@ -3,17 +3,18 @@ require 'bcrypt'
 
 class User
 
-  attr_reader :id, :username, :email, :name, :password
+  attr_reader :id, :username, :email, :first_name, :last_name, :password
 
-  def initialize(id:, username:, email:, name:, password:)
+  def initialize(id:, username:, email:, first_name:, last_name:, password:)
     @id = id
-    @name = name
-    @username = username # must be unique
-    @email = email # must be unique
-    @password = password # need to encrypt
+    @first_name = first_name
+    @last_name = last_name
+    @username = username
+    @email = email
+    @password = password
   end
 
-  def self.create(name:, username:, email:, password:)
+  def self.create(first_name:, last_name:, username:, email:, password:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
@@ -21,14 +22,14 @@ class User
     end
     encrypted_password = BCrypt::Password.create(password)
     result = connection.exec_params(
-      "INSERT INTO users(name, username, email, password)
-      VALUES($1, $2, $3, $4) RETURNING id, name, username, email, password;",
-      [name, username, email, encrypted_password]
+      "INSERT INTO users(first_name, last_name, username, email, password)
+      VALUES($1, $2, $3, $4, $5) RETURNING *;",
+      [first_name, last_name, username, email, encrypted_password]
     )
   
-    User.new(id: result[0]['id'], name: result[0]['name'],
-    username: result[0]['username'], email: result[0]['email'], 
-    password: result[0]['password'])
+    User.new(id: result[0]['id'], first_name: result[0]['first_name'], 
+    last_name: result[0]['last_name'], username: result[0]['username'],
+    email: result[0]['email'], password: result[0]['password'])
   end
 
   def self.find(id:)
@@ -41,8 +42,8 @@ class User
       "SELECT * FROM users WHERE id = $1;", [id]
     )
 
-    User.new(id: result[0]['id'], name: result[0]['name'],
-    username: result[0]['username'], email: result[0]['email'], 
-    password: result[0]['password'])
+    User.new(id: result[0]['id'], first_name: result[0]['first_name'], 
+    last_name: result[0]['last_name'], username: result[0]['username'],
+    email: result[0]['email'], password: result[0]['password'])
   end
 end

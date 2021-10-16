@@ -7,7 +7,8 @@ feature 'Signing up' do
 
     fill_in :username, with: 'Testuser123'
     fill_in :email, with: 'test@test.com'
-    fill_in :name, with: 'Test User'
+    fill_in :first_name, with: 'Test'
+    fill_in :last_name, with: 'User'
     fill_in :password, with: '12345'
 
     click_button 'Create account'
