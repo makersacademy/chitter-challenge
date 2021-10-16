@@ -1,13 +1,10 @@
 <div class="row align-items-start">
   <div class="col">
-
 <% @tags.each do |tag|%>
   <form action="/tags/<%= tag.id %>/peeps" method="get">
-    <button type="submit" value="<%= tag.id %>"><%= tag.text %></button>
+    <button class="btn btn-sm m-2 btn-outline-primary" type="submit" value="<%= tag.id %>"><%= tag.text %></button>
   </form>
 <% end %>
-
-
   </div>
   <div class="col">
     <% if @user %>
@@ -30,6 +27,8 @@
       <div class="card-body">
         <p class="card-text"><%= peep.text %></p>
       </div>
+       <div class="position-absolute bottom-0 end-0"> <i class="bi bi-heart"><%= peep.likes %></i>
+       </div>
     </div>
     <% end %>
   </div>

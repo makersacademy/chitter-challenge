@@ -2,13 +2,14 @@ require './lib/tag'
 require './lib/peep_tag'
 class Peep
 
-  attr_reader :id, :text, :user_id, :time, :username
+  attr_reader :id, :text, :user_id, :time, :username, :likes
 
-  def initialize(id:, text:, user_id:, timestamp: Time.now)
+  def initialize(id:, text:, user_id:, timestamp: Time.now, likes:)
     @id = id
     @text = text
     @user_id = user_id
     @time = timestamp
+    @likes = 0
   end
 
 
@@ -54,7 +55,8 @@ class Peep
       id: result[0]['id'],
       text: result[0]['text'],
       user_id: result[0]['user_id'],
-      timestamp: result[0]['timestamp']
+      timestamp: result[0]['timestamp'],
+      likes: result[0]['likes']
     )
     hashtag
   end
@@ -71,7 +73,7 @@ class Peep
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map do |peep|
-      Peep.new(id: peep['id'], text: peep['text'], user_id: peep['user_id'], timestamp: peep['timestamp'])
+      Peep.new(id: peep['id'], text: peep['text'], user_id: peep['user_id'], timestamp: peep['timestamp'], likes: peep['likes'])
     end
   end
 end
