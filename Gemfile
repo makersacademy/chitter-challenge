@@ -2,6 +2,16 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'rspec'
+gem 'capybara'
+
+
+
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
