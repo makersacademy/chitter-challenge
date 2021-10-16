@@ -19,10 +19,11 @@ class User
     else
       connection = PG.connect(dbname: 'chitter')
     end
+    encrypted_password = BCrypt::Password.create(password)
     result = connection.exec_params(
       "INSERT INTO users(name, username, email, password)
       VALUES($1, $2, $3, $4) RETURNING id, name, username, email, password;",
-      [name, username, email, password]
+      [name, username, email, encrypted_password]
     )
   
     User.new(id: result[0]['id'], name: result[0]['name'],

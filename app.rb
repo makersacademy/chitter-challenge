@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   enable :sessions
-
+  p "$2a$12$K0ByB.6YI2/OYrB4fQOYLe6Tv0datUVf6VZ/2Jzwm879BW5K1cHey".length
   get '/' do
     @user = User.find(id: session[:user]) if session[:user]
     @peeps = Peep.all
