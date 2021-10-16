@@ -1,15 +1,26 @@
 <div class="row align-items-start">
   <div class="col">
-    One of three columns
   </div>
   <div class="col">
-    <% @peeps.each do |peep| %>
+    <% if @user %>
     <div class="card m-2" style="width: 20rem;">
       <div class="card-body">
-        <h5 class="card-title"><%= peep.text %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= format_time(peep.time) %></h6>
-        <p class="card-text">@<%= peep_username(peep.user_id) %>
-        </p>
+        <form action="/peeps" method="POST">
+        <h6 class="card-title">@<%= peep_username(@user.id) %></h6>
+          <p class="card-text"><input name="text" type="text" /></p>
+          <input value="Submit" type="submit" />
+        </form>
+      </div>
+    </div>
+    <% end %>
+    <% @peeps.each do |peep| %>
+    <div class="card m-2" style="width: 20rem;">
+    <div class="card-header">
+        <h6 class="card-title">@<%= peep_username(peep.user_id) %></h6>
+        <p class="card-subtitle text-muted"><%= format_time(peep.time) %></p>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= peep.text %></p>
       </div>
     </div>
     <% end %>
@@ -29,3 +40,4 @@
       <% end %>
   </div>
 </div>
+

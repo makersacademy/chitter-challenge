@@ -19,7 +19,7 @@ class ChitterApp < Sinatra::Base
 
   get '/' do
     @user = User.find(session[:user_id])
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :index
   end
 

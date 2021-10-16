@@ -6,9 +6,11 @@ def peep_username(id)
   user.username
 end
 
+
 def format_time(time)
-  date = DateTime.parse(time) - DateTime.now
-  RelativeTime.in_words(DateTime.now - date) 
+  diff = ((DateTime.now - DateTime.parse(time))* 24 * 60 * 60).to_i
+  RelativeTime.in_words(Time.now - diff)
 end
+
 
 end
