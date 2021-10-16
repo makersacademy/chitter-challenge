@@ -19,9 +19,10 @@ class Peep
       arr << set_tag['text']
     end
       if arr.include? tag
-       return arr.select do |x| 
-          x['text'] == tag
-        end.join
+       result = DatabaseConnection.query("SELECT * FROM tags WHERE text = '#{tag}'")
+       result.map do |tag|
+        return Tag.new(id: tag['id'], text: tag['text'])
+      end
         puts 'tag already exists'
       else
         return Tag.create(text: tag)
