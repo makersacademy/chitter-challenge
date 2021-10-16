@@ -3,14 +3,8 @@ feature 'Logging in' do
     User.create(
       first_name: 'Happy', last_name: 'Auth', username: 'happyauth', email: 'happy@auth.com', password: '12345'
     )
-    visit('/')
 
-    click_button 'Log in'
-
-    fill_in :email, with: 'happy@auth.com'
-    fill_in :password, with: '12345'
-
-    click_button 'Log in'
+    log_in(email: 'happy@auth.com', password: '12345')
     
     expect(current_path).to eq('/')
     expect(page).to have_content('Successfully logged in as happyauth')
@@ -24,14 +18,8 @@ feature 'Logging in' do
     User.create(
       first_name: 'Bad', last_name: 'Email', username: 'boohoo', email: 'test@auth.com', password: '12345'
     )
-    visit('/')
 
-    click_button 'Log in'
-
-    fill_in :email, with: 'wrongemail@auth.com'
-    fill_in :password, with: '12345'
-
-    click_button 'Log in'
+    log_in(email: 'wrongemail@auth.com', password: '12345')
     
     expect(current_path).to eq('/user/login')
     expect(page).to have_content("An account with that email doesn't exist")
@@ -41,13 +29,8 @@ feature 'Logging in' do
     User.create(
       first_name: 'Bad', last_name: 'Password', username: 'boohoo', email: 'badpw@auth.com', password: '12345'
     )
-    visit('/')
 
-    click_button 'Log in'
-    expect(current_path).to eq('/user/login')
-    fill_in :email, with: 'badpw@auth.com'
-    fill_in :password, with: 'thewrongpassword'
-    click_button 'Log in'
+    log_in(email: 'badpw@auth.com', password: 'thewrongpassword')
     
     expect(current_path).to eq('/user/login')
     expect(page).to have_content("Please check your password is correct")
@@ -57,13 +40,8 @@ feature 'Logging in' do
     User.create(
       first_name: 'Happy', last_name: 'Auth', username: 'happyauth', email: 'happy@auth.com', password: '12345'
     )
-    visit('/')
 
-    click_button 'Log in'
-    expect(current_path).to eq('/user/login')
-    fill_in :email, with: 'happy@auth.com'
-    fill_in :password, with: '12345'
-    click_button 'Log in'
+    log_in(email: 'happy@auth.com', password: '12345')
     
     visit('/user/login')
 
@@ -75,14 +53,9 @@ feature 'Logging in' do
     User.create(
       first_name: 'Happy', last_name: 'Auth', username: 'happyauth', email: 'happy@auth.com', password: '12345'
     )
-    visit('/')
 
-    click_button 'Log in'
-    expect(current_path).to eq('/user/login')
-    fill_in :email, with: 'happy@auth.com'
-    fill_in :password, with: '12345'
-    click_button 'Log in'
-    
+    log_in(email: 'happy@auth.com', password: '12345')
+
     visit('/user/new')
 
     expect(page).to have_content("Please log out first")
@@ -96,19 +69,15 @@ feature 'logging out:' do
       first_name: 'Happy', last_name: 'Auth', username: 'happyauth', email: 'happy@auth.com', password: '12345'
     )
 
-    visit('/')
-
-    click_button 'Log in'
-    expect(current_path).to eq('/user/login')
-    fill_in :email, with: 'happy@auth.com'
-    fill_in :password, with: '12345'
-    click_button 'Log in'
+    log_in(email: 'happy@auth.com', password: '12345')
     
     click_button 'Log out'
 
     expect(page).to have_content('You have logged out')
     expect(page).to have_button('Log in')
     expect(page).to have_button('Sign up')
+    expect(page).not_to have_button('Log out')
+    expect(page).not_to have_content('Log out')
   end
   
   scenario 'user cannot log out if they are not logged in' do
