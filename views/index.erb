@@ -1,0 +1,16 @@
+<html>
+  <head></head>
+    <body>
+      <form action="/peep" method="post">
+        <fieldset>
+          <input type="text" name='content' id='peep' placeholder = "What's happening?">
+          <input type="submit" name="Peep" value="Peep">
+        </fieldset>
+      </form>
+      <% @peeps.each do |peep| %>
+        <li id="peep-<%= peep.id %>">
+            <%= peep.content %>
+        </li>
+      <% end %> 
+    </body>
+</html>
