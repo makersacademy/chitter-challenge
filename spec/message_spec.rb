@@ -8,5 +8,10 @@ describe Message do
       expect(Message).to respond_to(:create)
     end
 
+    it 'can store many messages' do 
+      expect(Message).to respond_to(:instance)
+      expect(Message).to respond_to(:create)
+    end
+
   end
 end

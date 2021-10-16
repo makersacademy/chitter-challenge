@@ -1,4 +1,5 @@
 require 'pg'
+require './lib/all_messages'
 
 class Message
 
