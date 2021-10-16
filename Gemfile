@@ -9,7 +9,7 @@ gem 'sinatra-reloader'
 gem 'webrick'
 gem 'sinatra-flash'
 gem 'bcrypt'
-gem 'bootstrap'
+gem 'bootstrap', '~> 5.0.2'
 gem 'relative_time'
 
 group :test do

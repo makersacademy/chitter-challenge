@@ -27,9 +27,9 @@ GEM
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
     bcrypt (3.1.16)
-    bootstrap (5.1.0)
+    bootstrap (5.0.2)
       autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.9.3, < 3)
+      popper_js (>= 2.9.2, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     capybara (3.35.3)
@@ -183,7 +183,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
-  bootstrap
+  bootstrap (~> 5.0.2)
   capybara
   pg
   relative_time
