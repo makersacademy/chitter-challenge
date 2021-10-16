@@ -1,4 +1,5 @@
 require 'pg'
+require 'database_connection'
 require 'bcrypt'
 
 class User
@@ -15,13 +16,8 @@ class User
   end
 
   def self.create(first_name:, last_name:, username:, email:, password:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
     encrypted_password = BCrypt::Password.create(password)
-    result = connection.exec_params(
+    result = DatabaseConnection.query(
       "INSERT INTO users(first_name, last_name, username, email, password)
       VALUES($1, $2, $3, $4, $5) RETURNING *;",
       [first_name, last_name, username, email, encrypted_password]
@@ -33,12 +29,7 @@ class User
   end
 
   def self.find(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    result = connection.exec_params(
+    result = DatabaseConnection.query(
       "SELECT * FROM users WHERE id = $1;", [id]
     )
 
@@ -48,15 +39,10 @@ class User
   end
 
   def self.unique?(username:, email:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    result = connection.exec_params(
+    result = DatabaseConnection.query(
       "SELECT * FROM users WHERE username = $1 OR email = $2;", [username, email]
     )
-    result.inspect.match? /ntuples=0/
-    # if the PG result has no data, just fields
+    !result.any?
+    # if the PG result has no data, the account is unique
   end
 end

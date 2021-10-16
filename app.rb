@@ -22,6 +22,14 @@ class Chitter < Sinatra::Base
     erb :'user/new', :layout => :base
   end
 
+  get '/user/login' do
+    erb :'user/login', :layout => :base
+  end
+
+  post '/user/login' do
+    redirect('/')
+  end
+
   post '/user' do
     if User.unique?(username: params[:username], email: params[:email])
       @user = User.create(username: params[:username], email: params[:email],
@@ -33,7 +41,6 @@ class Chitter < Sinatra::Base
       redirect('/user/new')
     end
   end
-  #halt erb(:error) unless User.unique_email?(email: params[:email])
 
   #halt erb(:error) for later use
 
