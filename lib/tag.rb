@@ -21,6 +21,8 @@ class Tag
     end
   end
 
+  
+
 
   attr_reader :id, :text
 

@@ -24,7 +24,7 @@
     <% if @user %>
 
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-      <img src="images/avatar.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <img src="<%= image_picker(@user.id)%>" alt="twbs" width="50" height="50" class="rounded-circle flex-shrink-0">
       <div class="d-flex flex-column gap-2 w-100 justify-content-between">
         <form action="/peeps" method="POST">
           <div class="d-flex flex-row justify-content-between">
@@ -43,10 +43,14 @@
     <div class="list-group">
       <% @peeps.each do |peep| %>
       <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mt-2 rounded py-3" aria-current="true">
-        <img src="images/avatar.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+        <img src="<%= image_picker(peep.user_id)%>" alt="twbs" width="50" height="50" class="rounded-circle flex-shrink-0">
         <div class="d-flex flex-column gap-2 w-100 justify-content-between">
           <div class="d-flex flex-row justify-content-between">
-            <h6 class="mb-0">@<%= peep_username(peep.user_id) %></h6>
+          <div class="d-flex flex-row">
+            <h6 class="mb-0 "><%= peep_name(peep.user_id) %></h6>
+            <div class="m-1"></div>
+            <small class="mb-0 text-muted">@<%= peep_username(peep.user_id) %></small>
+          </div>
             <small class="opacity-50 text-muted text-nowrap"><%= format_time(peep.time) %></small>
           </div>
           <div>
@@ -75,7 +79,7 @@
     <% end %>
     <% @tags.each do |tag|%>
     <form action="/tags/<%= tag.id %>/peeps" method="get">
-      <button class="btn btn-sm m-2 btn-outline-primary" type="submit" value="<%= tag.id %>"><%= tag.text %></button>
+      <button class="btn btn-sm m-2 btn-link bg-white" type="submit" value="<%= tag.id %>"><%= tag.text %></button>
     </form>
     <% end %>
     </div>
