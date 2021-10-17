@@ -1,5 +1,7 @@
+
 body {
   background-color: white;
+  margin-top: 110px;
 }
 
 h1 {
@@ -13,38 +15,32 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
-/* 
-#notice {
-  width: 100%;
-  font-family: 'Montserrat', sans-serif;
-  background-color: red;
-} */
 
 section.homepage-buttons {
   text-align: center;
 }
 
+section.feed {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 form {
-  /* text-align: center; */
+  text-align: center;
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
-  display: inline-block;
-  align-items: center;
-  /* width: 50%; */
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
 
 input[type=text] {
-  border: none;
+  border: 2px solid grey;
   padding: 10px 10px;
   margin-bottom: 10px;
-  background-color: lightskyblue;
+  background-color: white;
 }
-/* 
-input[type=url] {
-  border: none;
-  padding: 10px 10px;
-  background-color: lightskyblue;
-} */
 
 input[type=submit] {
   border: none;
@@ -53,55 +49,9 @@ input[type=submit] {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
-  background-color: green;
+  background-color: #1DA1F2;
   color: white;
 }
-
-/* input[type=submit].delete {
-  border: none;
-  border-radius: 7px;
-  padding: 10px 15px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  background-color: red;
-}
-
-input[type=submit].edit {
-  border: none;
-  border-radius: 7px;
-  padding: 10px 15px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  background-color: orange;
-}
-
-input[type=submit].comment {
-  border: none;
-  border-radius: 7px;
-  padding: 10px 15px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  background-color: blue;
-}
-
-input[type=submit].tag {
-  border: none;
-  border-radius: 7px;
-  padding: 10px 15px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  background-color: coral;
-} */
-
-
-/* 
-input[type=reset] {
-  background-color: red;
-} */
 
 @counter-style bird {
   system: cyclic;
@@ -114,4 +64,36 @@ ul {
   color: black;
   font-size: medium;
   font-family: 'Raleway', sans-serif;
+}
+
+div.center {
+  border: 3px solid #1DA1F2;
+}
+
+div.navbar {
+  overflow: hidden;
+  background-color:#1DA1F2;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  left: 0;
+  height: 100px;
+  width: 100%; /* Full width */
+}
+
+h1.navbar-item {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+h2.navbar-item {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: underline;
 }

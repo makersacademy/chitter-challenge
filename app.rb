@@ -17,12 +17,11 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    p @peeps
     erb :'peeps/feed'
   end
 
   get '/peeps/new' do
-    erb :'peeps/new_peep'
+    erb :'peeps/new_peep', :layout => :layout
   end
 
   post '/save-new-peep' do
