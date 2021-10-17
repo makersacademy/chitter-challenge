@@ -55,4 +55,10 @@ lastname: params['lastname'], email: params['email'], password: params['password
       redirect('/sessions/login')
     end
   end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/home')
+  end
 end
