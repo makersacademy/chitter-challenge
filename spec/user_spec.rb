@@ -1,6 +1,10 @@
 require 'user'
+require 'database_connection'
 
 describe User do
+  before(:each) do
+    DatabaseConnection.query("TRUNCATE users")
+  end
   describe '.create' do
     it "should create a new user" do
       expect(User.create(username: 'tim456', name: 'tim james', email: 'tim@gmail.com', password: '42jk3l4j2l').username).to eq('tim456')

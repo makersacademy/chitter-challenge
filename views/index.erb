@@ -1,8 +1,14 @@
-<form action="/sessions/new" method="get">
-  <input type="submit" value="Sign In" />
-</form>
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign Out" />
+<% if !@user %>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Sign In" />
+  </form>
+<% else %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign Out" />
+  </form>
+<% end %>
+<form action="/users/new" method="get">
+  <input type="submit" value="Create A New Account" />
 </form>
 <header>
   <h1>CHITTER</h1>
@@ -17,7 +23,6 @@
   <% if !@user.nil? %>
     <h3>Post a new message!</h3>
     <form action="/" method="post">
-      <input type="text" name="username" placeholder="Who are you?">
       <input type="text" name="message" placeholder="What's going on?">
       <button name="Send">Send</button>
     </form>

@@ -20,7 +20,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    Message.create(username: params[:username], content: params[:message])
+    @username = User.find(session[:user_id]).username
+    Message.create(username: @username, content: params[:message])
     redirect('/')
   end
 
@@ -30,8 +31,13 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/')
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = "This username is already in use. Please choose another."
+      redirect('/users/new')
+    end
   end
 
   get '/sessions/new' do

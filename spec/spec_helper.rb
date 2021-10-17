@@ -24,6 +24,11 @@ require 'rspec'
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+  # config.before(:each) do
+  #   DatabaseConnection.query("TRUNCATE users")
+  #   DatabaseConnection.query("TRUNCATE messages")
+  # end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
