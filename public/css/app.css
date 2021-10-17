@@ -111,6 +111,7 @@ input[type=reset] {
 
 ul {
   list-style: "\1F426";
+  color: black;
   font-size: medium;
   font-family: 'Raleway', sans-serif;
 } */

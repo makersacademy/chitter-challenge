@@ -1,7 +1,5 @@
-<p>This is a test peep</p>
-
 <ul>
-  <% @peeps.map do |peep| %>
-  <li> <% peep['content'] %> </li>
+  <% @peeps.each do |peep| %>
+  <li> <% peep %> </li>
   <% end %>
 </ul>

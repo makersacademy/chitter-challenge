@@ -25,9 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/save-new-peep' do
-    content = params[:content]
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec_params("INSERT INTO peeps (content, posttime, author_id) VALUES ('#{content}', current_timestamp, 1)");
+    Peep.create(content: params[:content])
     redirect '/peeps'
   end
 

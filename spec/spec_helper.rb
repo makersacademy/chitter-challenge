@@ -4,11 +4,12 @@ require 'capybara'
 require 'capybara/rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require_relative './web_helpers'
+require_relative './test_helper'
+
+require 'setup_test_database'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
-
-require 'setup_test_database'
 
 RSpec.configure do |config|
   config.before(:each) do

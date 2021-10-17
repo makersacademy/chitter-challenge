@@ -1,12 +1,21 @@
 require 'pg'
 
 class Peep
-  def initialize
-    
+  def self.create(content:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    connection.exec_params("INSERT INTO peeps (content, posttime, author_id) VALUES ('#{content}', current_timestamp, 1)");
   end
 
   def self.all
-    connection = PG.connect(dbname: 'chitter_test')
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
     result = connection.exec("SELECT * FROM peeps;")
     result.map do |peep|
       peep['content']
