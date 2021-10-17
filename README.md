@@ -25,7 +25,7 @@
 - [x] Extract hashtags from the text in each Peep (no seperate tag input).
 - [x] Ability to click on tags and only list Peeps with that tag.
 - [x] Show the time of a Peep relatively (e.g. 5 mins ago).
-- [x] Use an RSS feed to private a news column.
+- [x] Use a RSS feed to fill a news column.
 
 <div align="center" >
 
