@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/application.css">
+<form action='/'>
+	<input type="submit" value="Homepage" style="width:130px;height:40px;">
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  setTimeout(function() {
+      $('#chitter').fadeOut('fast');
+  }, 7000);
+</script>
+<div id="chitter" style="text-align: center;">
+  <p><iframe src="https://giphy.com/embed/3ohhwvyCFr88aJoBj2" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
+</div>
+<div style="text-align: center;">
+  <h2>All posts</h2>
+</div>
+<ul class="flex-container wrap">
+  <% @posts.each do |post| %>
+    <li class="flex-item">
+        Posted @ <%= post.ts %> <br>
+        <p>Message: <%= post.text %></p>
+        Posted by: <%= post.user_id %>
+    </li>
+  <% end %>
+</ul>

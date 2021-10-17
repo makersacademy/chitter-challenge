@@ -9,5 +9,14 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rubocop', '1.20'
+  gem "sinatra"
+  gem "capybara"
+  gem "rubocop"
+  gem 'sinatra-reloader'
+  gem 'webrick'
+  gem 'pg'
+  gem 'sinatra-contrib'
+  gem 'sinatra-flash'
+  gem 'uri'
+  gem "bcrypt"
 end
