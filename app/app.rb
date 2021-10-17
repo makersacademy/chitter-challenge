@@ -42,13 +42,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    if session[:user] == nil
-      redirect '/login'
-    else
-      @user = session[:user]
-      @peeps = Peep.all
-      erb :'peeps/home'
-    end
+    @user = session[:user]
+    @peeps = Peep.all
+    erb :'peeps/home'
   end
 
   get '/home/new' do
