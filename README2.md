@@ -8,3 +8,4 @@ Then got server up and running
 Eventually was fixed, but I didn't actually change anything or do anything new, I don't think
 
 <%= @all_messages.content.each { |message| print message } %>
+<%= @messages.map { |x| x.content }%>

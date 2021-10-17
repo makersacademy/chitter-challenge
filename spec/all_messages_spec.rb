@@ -8,8 +8,8 @@ describe AllMessages do
   end
 
   it 'adds a message object' do
-    m1 = Message.new("Bananas are great")
-    m2 = Message.new("Also oranges though?!")
+    m1 = Message.new(content: "Bananas are great", id: "3", time: "4")
+    m2 = Message.new(content: "Also oranges though?!", id: "5", time: "6")
 
     am.add_message(m1)
     am.add_message(m2)
@@ -18,5 +18,3 @@ describe AllMessages do
     expect(am.display).to include("Also oranges though?!")
   end
 end
-
-# allow(@computer).to receive(:choose).and_return( "Rock" )

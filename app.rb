@@ -22,8 +22,7 @@ class ChitterController < Sinatra::Base
   end
 
   post '/flow' do
-    content = params[:message]
-    @message = Message.new(content)
+    @message = Message.new(content: params[:message], id: params[:id], time: params[:time])
     $all_messages.add_message(@message)
 
     # connection = PG.connect(dbname: 'chitter')
