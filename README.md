@@ -25,7 +25,7 @@ Learning Objective Progress:
 3) Completing step 2 allowed me to think about what views and classes I might require for this web app.
 4) 
 5) 
-6) To DRY out my code, I've created a custom layout.erb file that contains the references to my CSS file as well as custom fonts that are required. I've also included the yield tag within my layout.erb file to render in the page content once the layout has been processed.
+6) To DRY out my code, I've created a layout.erb file that contains the references to my CSS file as well as custom fonts that are required. I've also included the yield tag within my layout.erb file to render in the page content once the layout has been processed.
 
 Requirements:
 -------
