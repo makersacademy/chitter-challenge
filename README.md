@@ -30,7 +30,7 @@
 
 <h3>Preview</h3>
 
-<img src="public/images/app_preview.gif" width="600px">
+<img src="public/images/app_preview.gif" width="800px">
 
 &nbsp;
 
