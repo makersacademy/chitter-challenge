@@ -47,7 +47,7 @@ App Modelling:
 2) Each feed can have many Peeps
 3) Each Peep has one author (user)
 
-As an database entity relationship diagram:
+As a database entity relationship diagram:
 
 ![Chitter Entity Relationship Diagram](/public/images/database_entity_model.png)
 
@@ -55,7 +55,7 @@ CRC Cards:
 
 ![Chitter CRC Cards](/public/images/crc_cards.png)
 
-MVC Request/Response Model"
+MVC Request/Response Model:
 
 ![Chitter MVC Request Response Cycle](/public/images/mvc_responses.png)
 
