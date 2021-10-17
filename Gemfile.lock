@@ -5,6 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
     ast (2.4.2)
+    bcrypt (3.1.16)
     capybara (3.35.3)
       addressable
       mini_mime (>= 0.1.3)
@@ -35,6 +36,7 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
+    rake (13.0.6)
     regexp_parser (2.1.1)
     rexml (3.2.5)
     rspec (3.10.0)
@@ -84,9 +86,12 @@ GEM
       rack-protection (= 2.1.0)
       sinatra (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     terminal-table (3.0.1)
       unicode-display_width (>= 1.1.1, < 3)
     tilt (2.0.10)
+    timecop (0.9.4)
     unicode-display_width (2.0.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -95,14 +100,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   pg
+  rake
   rspec
   rubocop (= 1.20)
   simplecov
   simplecov-console
   sinatra
   sinatra-contrib
+  sinatra-flash
+  timecop
 
 RUBY VERSION
    ruby 3.0.2p107

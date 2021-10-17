@@ -26,14 +26,13 @@ class Peep
 
   def self.create(text:, author:)
     result = DatabaseConnection.query(
-      "INSERT INTO peeps(text, time, author) VALUES($1, $2, $3) RETURNING *;", [text, Time.now.utc, author]
+      "INSERT INTO peeps(text, time, author) VALUES($1, $2, $3) RETURNING *;",
+      [text, Time.now.utc, author]
     )
   
     Peep.new(id: result[0]['id'], text: result[0]['text'],
     time: time(result[0]['time']), author: result[0]['author'])
   end
-
-  private
 
   def self.time(string)
     Time.strptime(string, '%Y-%m-%d %H:%M:%S')

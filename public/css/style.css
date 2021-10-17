@@ -166,3 +166,7 @@
   border-radius: 5px;
   width: auto;
 }
+
+.signup-button:hover {
+  background-color: darkred;
+}
