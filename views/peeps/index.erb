@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Chitter</title>
-</head>
-<body>
-  <h1>Welcome to Chitter!</h1>
-    <ul>
-      <% @peeps.each do |peep| %>
-        <li><%= peep.content %> Created at:<%= peep.timestamp %></li>
-      <% end %>
-    </ul>
-</body>
-</html>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %> Created at: <%= peep.timestamp %></li>
+  <% end %>
+</ul>
