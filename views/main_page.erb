@@ -1,8 +1,8 @@
-<form action="/sign-up">
+<form action="/users/new" >
   <input type="submit" id="Sign Up" value="Sign Up">
 </form>
-<% unless @users.empty?%>
-  <h1>Hello <%=@users.first.username%></h1>
+<% if @user %>
+  <h1>Hello <%=@user.username%></h1>
 <% end %>
 <div class="peep-box">
   <form action="/peep" method="POST">

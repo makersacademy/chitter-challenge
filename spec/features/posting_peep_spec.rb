@@ -2,8 +2,6 @@ feature "Posting Peep" do
   scenario "Submitting typed text appears" do
     visit ("/")
     fill_in "content", with: "My first peep"
-    puts "ENV"
-    puts ENV['RACK_ENV']
     click_button "Submit"
     expect(page).to have_content "My first peep"
   end
