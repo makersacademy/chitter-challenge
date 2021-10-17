@@ -1,6 +1,7 @@
 <div align="center">
 
-### chitter
+<img src="public/images/logo_blue.png" width="300px">
+
 ![](https://img.shields.io/github/last-commit/arthurfincham/chitter-challenge)
 ![](https://img.shields.io/github/languages/count/arthurfincham/chitter-challenge)
 ![](https://img.shields.io/github/languages/code-size/arthurfincham/chitter-challenge)
