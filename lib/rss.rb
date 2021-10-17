@@ -2,16 +2,18 @@ require 'rss'
 require 'open-uri'
 
 class Rss
+  
+  attr_reader :feed
 
-  url = 'http://feeds.bbci.co.uk/news/in_pictures/rss.xml'
-  URI.open(url) do |rss|
-    feed = RSS::Parser.parse(rss)
-    puts "Title: #{feed.channel.title}"
-    feed.items.each do |item|
-      puts "Item: #{item.title}"
-      puts "Description: #{item.a}"
-      puts "Link"
-    end
+  def initialize(feed)
+    @feed = feed
   end
 
+  def self.create
+    url = 'http://feeds.bbci.co.uk/news/uk/rss.xml' 
+    URI.open(url) do |rss| 
+      feed = RSS::Parser.parse(rss)
+      Rss.new(feed)
+    end 
+  end
 end

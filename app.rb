@@ -6,6 +6,7 @@ require './lib/peep'
 require './helpers/peeps'
 require 'relative_time'
 require 'rss'
+require './lib/rss'
 
 class ChitterApp < Sinatra::Base
 
@@ -21,6 +22,7 @@ class ChitterApp < Sinatra::Base
     @user = User.find(session[:user_id])
     @peeps = Peep.all.reverse
     @tags = Tag.all
+    @news = Rss.create
     erb :index
   end
 
