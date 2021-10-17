@@ -40,7 +40,7 @@ Created from the user stories below:
 6) Users should be able to log out
 7) Users should be able to receive notification emails
 
-Database Modelling:
+App Modelling:
 -------
 
 1) Each user can have many Peeps
@@ -54,6 +54,10 @@ As an database entity relationship diagram:
 CRC Cards:
 
 ![Chitter CRC Cards](/public/images/crc_cards.png)
+
+MVC Request/Response Model"
+
+![Chitter MVC Request Response Cycle](/public/images/mvc_responses.png)
 
 User Stories:
 -------
