@@ -36,5 +36,15 @@ class Chitter < Sinatra::Base
     redirect "/chitter"
   end
 
+  get "/chitter/sessions/new" do
+    erb :"chitter/sessions/new"
+  end
+
+  post "/sessions" do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect "/chitter"
+  end
+
   run! if app_file == $0
 end
