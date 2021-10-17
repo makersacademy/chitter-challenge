@@ -83,7 +83,13 @@ class Chitter < Sinatra::Base
   post '/peep/new' do
     user = User.find(id: session[:user])
     if user
+      if params[:peep_text].length > 280
+        flash[:notice] = "That peep is too long!"
+        session[:peep] = params[:peep_text] # to keep the tweet in the form
+        redirect('/')
+      end
       Peep.create(text: params[:peep_text], author: user.id)
+      session[:peep] = nil
       redirect('/')
     else
       flash[:notice] = "You are not logged in"

@@ -6,7 +6,7 @@ feature 'Signing up' do
 
     expect(current_path).to eq '/'
     expect(page).to have_content(
-      'Your account has been successfully created, welcome to Chitter user123!'
+      'Your account has been successfully created, welcome to Chitter @user123!'
     )
   end
   

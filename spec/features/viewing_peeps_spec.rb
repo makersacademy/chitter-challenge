@@ -13,12 +13,12 @@ feature 'Viewing peeps' do
     end
 
     visit('/')
-
+    
     expect(page).to have_content(
-      "peep 3 user3 00:00 am · 01 Jan 2021 "\
-      "peep 2 user2 00:00 am · 01 Jan 2020 "\
-      "peep 1 user1 00:00 am · 01 Jan 2019"
-    ) # they are in a html list (and shown as one) but expect_content views them as a single line
+        "Test User\n@user3\n· 00:00 am · 01 Jan 2021\npeep 3\n"\
+        "Test User\n@user2\n· 00:00 am · 01 Jan 2020\npeep 2\n"\
+        "Test User\n@user1\n· 00:00 am · 01 Jan 2019\npeep 1"
+    )
   end
 
   Timecop.return

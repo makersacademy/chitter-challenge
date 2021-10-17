@@ -20,7 +20,7 @@ class User
     result = DatabaseConnection.query(
       "INSERT INTO users(first_name, last_name, username, email, password)
       VALUES($1, $2, $3, $4, $5) RETURNING *;",
-      [first_name, last_name, username, email, encrypted_password]
+      [first_name.capitalize, last_name.capitalize, username, email, encrypted_password]
     )
   
     User.new(id: result[0]['id'], first_name: result[0]['first_name'], 

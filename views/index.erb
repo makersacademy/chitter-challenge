@@ -1,6 +1,6 @@
 
 <% if @signup %>
-<h2> Your account has been successfully created, welcome to Chitter <%= @user.username %>! </h2>
+<h2> Your account has been successfully created, welcome to Chitter @<%= @user.username %>! </h2>
 <% end %>
 
 <div class="layout">
@@ -10,7 +10,7 @@
       <img class="peep__author-pic" src="/images/red_egg.jpeg">
       <div class="peep__main">
         <form action="/peep/new" method="post">
-          <input type="text" class="peep-form" placeholder="What's on your mind..." name="peep_text">
+          <input type="text" class="peep-form" value="<%= session[:peep]%>" placeholder="What's on your mind..." name="peep_text">
           <input type="submit" class="peep-button" value="Peep">
         </form>
       </div>
