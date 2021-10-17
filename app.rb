@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :index, :layout => :layout
   end
 
   get '/peeps' do

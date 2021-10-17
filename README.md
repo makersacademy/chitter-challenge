@@ -10,12 +10,22 @@ Stack:
 My Learning Objectives:
 -------
 
-1) Practice turning user stories into feature requirements
+1) Practice turning user stories into feature requirements ✔️
 2) Practice domain modelling
 3) Improve planning prior to starting
 4) Improve unit test writing
 5) Practice database manipulation
-6) Learn how to use <layout.erb> files with <yield>
+6) Learn how to use <layout.erb> files with <yield> ✔️
+
+Learning Objective Progress:
+-------
+
+1) From the user stories, I created a simple list of initial 7 feature requirements to make it easier to plan my project.
+2) 
+3) 
+4) 
+5) 
+6) To DRY out my code, I've created a custom layout.erb file that contains the references to my CSS file as well as custom fonts that are required. I've also included the yield tag within my layout.erb file to render in the page content once the layout has been processed.
 
 Requirements:
 -------
@@ -29,6 +39,18 @@ Created from the user stories below:
 5) Users should be able to log in
 6) Users should be able to log out
 7) Users should be able to receive notification emails
+
+
+Database Modelling:
+-------
+
+1) Each user can have many Peeps
+2) Each feed can have many Peeps
+3) Each Peep has one author (user)
+
+As an database entity relationship diagram:
+
+![Chitter Entity Relationship Diagram](/public/images/database_entity_model.png)
 
 User Stories:
 -------
