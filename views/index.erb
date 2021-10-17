@@ -4,37 +4,53 @@
 <h2> Your account has been successfully created, welcome to Chitter <%= @user.username %>! </h2>
 <% end %>
 
-<form action='/peep/new' method='post'>
-  <label for='peep_text'>
+<form action="/peep/new" method="post">
+  <label for="peep_text">
     Create a new peep:
-    <input type='text' name='peep_text'>
+    <input type="text" name="peep_text">
   </label>
-  <input type='submit' value='Create peep'>
+  <input type="submit" value="Create peep">
 </form>
 
 <% if @user %>
 <div>
-  <form action='/user/logout' method='get'>
-    <input type='submit' value='Log out'>
+  <form action="/user/logout" method="get">
+    <input type="submit" value="Log out">
   </form>
 </div>
 <% else %>
 <div>
-  <form action='/user/login' method='get'>
-    <input type='submit' value='Log in'>
+  <form action="/user/login" method="get">
+    <input type="submit" value="Log in">
   </form>
 </div>
 <div>
-  <form action='/user/new' method='get'>
-    <input type='submit' value='Sign up'>
+  <form action="/user/new" method="get">
+    <input type="submit" value="Sign up">
   </form>
 </div>
 <% end %>
 
-<ul>
+<div class="layout__main">
   <% @peeps.each do |peep| %> 
-    <li> <%= peep.text %> </li>
-    <li> <%= (User.find(id: peep.author)).username %> <%= peep.time.strftime('%H:%M %P · %d %b %Y') %> </li>
+    <div class="peep">
+      <img class="peep__author-pic" src="/images/red_egg.jpeg">
+      <div class="peep__main">
+        <div class="peep__header">
+          <div class="peep__author-name">
+            <%= (User.find(id: peep.author)).first_name %> <%= (User.find(id: peep.author)).last_name %>
+          </div>
+          <div class="peep__author-username">
+            @<%= (User.find(id: peep.author)).username %>
+          </div>
+          <div class="peep__time-since">
+            · 10m
+          </div>
+        </div>
+        <div class="peep__text">
+          <%= peep.text %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
-
+</div>

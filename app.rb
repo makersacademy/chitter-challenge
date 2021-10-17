@@ -82,8 +82,13 @@ class Chitter < Sinatra::Base
 
   post '/peep/new' do
     user = User.find(id: session[:user])
-    Peep.create(text: params[:peep_text], author: user.id)
-    redirect('/')
+    if user
+      Peep.create(text: params[:peep_text], author: user.id)
+      redirect('/')
+    else
+      flash[:notice] = "You are not logged in"
+      redirect('/')
+    end
   end
 
   run! if app_file == $0
