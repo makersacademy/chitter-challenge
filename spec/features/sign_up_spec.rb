@@ -1,5 +1,5 @@
 feature 'Registration' do
- scenario 'a user can sign up' do
+  scenario 'a user can sign up' do
     visit '/users/sign_up'
     fill_in('username', with: 'test_user')
     fill_in('email', with: 'test@example.com')

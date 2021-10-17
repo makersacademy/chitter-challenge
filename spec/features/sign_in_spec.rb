@@ -1,6 +1,6 @@
-feature 'authentication' do
-  scenario 'a user can sign in' do
-    User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+feature 'Signing IN' do
+  scenario 'user can sign in' do
+    User.create(username: 'test_user', email: 'test@example.com', password: 'password123', name: 'test name')
 
     # Then sign in as them
     visit '/users/sign_in'
@@ -11,8 +11,8 @@ feature 'authentication' do
     expect(page).to have_content 'Welcome, test_user'
   end
 
-  scenario 'a user sees an error if they get their username wrong' do
-    User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+  scenario 'user sees an error if they get their username wrong' do
+    User.create(username: 'test_user', email: 'test@example.com', password: 'password123', name: 'test name')
 
     visit '/users/sign_in'
     fill_in(:username, with: 'test_aasuser')
@@ -20,11 +20,11 @@ feature 'authentication' do
     click_button('Submit')
 
     expect(page).not_to have_content 'Welcome, test_user'
-    expect(page).to have_content 'Please check your email or password.'
+    expect(page).to have_text('Please check your username or password.', normalize_ws: true)
   end
 
-  scenario 'a user sees an error if they get their password wrong' do
-    User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+  scenario 'user sees an error if they get their password wrong' do
+    User.create(username: 'test_user', email: 'test@example.com', password: 'password123', name: 'test name')
 
     visit '/users/sign_in'
     fill_in(:username, with: 'test_user')
@@ -32,6 +32,6 @@ feature 'authentication' do
     click_button('Submit')
 
     expect(page).not_to have_content 'Welcome, test_user'
-    expect(page).to have_content 'Please check your email or password.'
+    expect(page).to have_text('Please check your username or password.', normalize_ws: true)
   end
 end
