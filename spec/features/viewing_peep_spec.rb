@@ -17,3 +17,5 @@ feature 'Viewing peeps' do
     expect(page).to have_content('#programming')
   end
 end
+
+
