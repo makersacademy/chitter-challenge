@@ -6,9 +6,7 @@
 ![](https://img.shields.io/github/languages/count/arthurfincham/chitter-challenge)
 ![](https://img.shields.io/github/languages/code-size/arthurfincham/chitter-challenge)
 
-<img src="public/images/chitter_preview.gif" width="600px">
 
-&nbsp;
 
 </div>
 
@@ -30,7 +28,13 @@
 
 <div align="center" >
 
-<h3>STACK</h3>
+<h3>Preview</h3>
+
+<img src="public/images/chitter_preview.gif" width="600px">
+
+&nbsp;
+
+<h3>Stack</h3>
 
 |                                                        | Tool                                                 | Use?                                       | Where can I see it?                                                  |
 |--------------------------------------------------------|------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------------|
