@@ -30,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <% if @user %>
             <form action="/sessions/destroy" method="post">
-              <input class="m-2 btn btn-sm btn-light" type="submit" value="Sign Out" />
+              <input class="m-2 btn btn-sm btn-light" type="submit" id="Sign Out" value="Sign Out" />
             </form>
           <% else %>
             <form action="/users/sign_in" method="get">
