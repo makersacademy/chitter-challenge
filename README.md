@@ -13,8 +13,8 @@
 
 
 #### Reference
-- **Chitter** _Twitter clone_
-- **Peep** _equivalent of Tweet_
+- **Chitter**: _Twitter clone_
+- **Peep**: _equivalent of Tweet_
 ### Assignment
 - [x] Write a small Twitter clone that will allow the users to post messages to a public stream.
 - [x] See Peeps in reverse chronological order.
@@ -33,11 +33,11 @@
 
 |                                                        | Tool                                                 | Use?                                       | Where can I see it?                                                  |
 |--------------------------------------------------------|------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------------|
-| <img src="public/images/rspec.png" height="40" width="auto">       | [RSpec](https://rspec.info/)                         | Testing tool for Ruby.                     | In the spec file - unit tests for my classes.                              |
-| <img src="public/images/capybara.png" height="40" width="auto">    | [Capybara](https://github.com/teamcapybara/capybara) | Acceptance test framework for Ruby.        |  In spec/features - testing for expected features.                   |
-| <img src="public/images/ruby.png" height="40" width="auto">        | [Ruby](https://www.ruby-lang.org/en/)                | Programming language.                      | Everywhere!                                                          |
+| <img src="public/images/rspec.png" height="40" width="auto">       | [RSpec](https://rspec.info/)                         | Testing tool for Ruby.                     | ```/spec/*``` Unit tests for the app's classes.                              |
+| <img src="public/images/capybara.png" height="40" width="auto">    | [Capybara](https://github.com/teamcapybara/capybara) | Acceptance test framework for Ruby.        |  ```/spec/features/*``` Feature testing for the app. e.g. Sign in/out                   |
+| <img src="public/images/postgres.png" height="40" width="auto">       | [PostgreSQL](https://www.postgresql.org)                         | Object-relation database.                     | ```/db/migrations/*``` In the SQL commands below.                              |
 | <img src="public/images/sinatra.png" height="40" width="auto">     | [Sinatra](http://sinatrarb.com/)                     | DSL for quickly making web apps with Ruby. | In the file structure for the project - it is built on Sinatra.      |
-| <img src="public/images/bootstrap.png" height="40" width="auto">     | [Bootstrap](https://getbootstrap.com/)                     | Open source tool-kit made by twitter. | All of the design!       |
+| <img src="public/images/bootstrap.png" height="40" width="auto">     | [Bootstrap](https://getbootstrap.com/)                     | Open source tool-kit made by twitter. | All of the design (no custom CSS in this app).       |
 
 
 </div>
