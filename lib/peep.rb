@@ -16,7 +16,9 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec_params("INSERT INTO peeps (content, posttime, author_id) VALUES ('#{content}', '#{time}', 1)");
+    connection.exec_params("INSERT INTO peeps(
+      content, posttime, author_id) 
+      VALUES('#{content}', '#{time}', 1)");
   end
 
   def self.all
