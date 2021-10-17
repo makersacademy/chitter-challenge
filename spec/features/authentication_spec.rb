@@ -39,7 +39,7 @@ feature 'authentication' do
     fill_in(:password, with: 'password123')
     click_button('Sign in')
 
-    click_button('Sign out')
+    click_button('Sign Out')
 
     expect(page).not_to have_content 'Welcome, testerguy'
     expect(page).to have_content 'You have signed out.'
