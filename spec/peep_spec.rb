@@ -10,11 +10,15 @@ describe Peep do
 
   describe '.all' do
     it 'returns a list of Peeps' do
+      connection = PG.connect(dbname: 'chitter_test')
+      #Add the test data
+      connection.exec("INSERT INTO peeps (content) VALUES ('I am a great Peep');")
+      connection.exec("INSERT INTO peeps (content) VALUES ('I am another Peep');")
       peeps = Peep.all
-      expect(peeps).to include 'I am a great Peep'
-      expect(peeps).to include 'I am another Peep'
+      expect(peeps.first.content).to eq 'I am a great Peep'
+      expect(peeps[1].content).to eq 'I am another Peep'
       expect(peeps.length).to eq 2
-      # expect(peeps.first).to be_a Peep #this does not work - why? 
+      expect(peeps.first).to be_a Peep  
     end
   end
 end

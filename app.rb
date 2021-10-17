@@ -18,15 +18,13 @@ class Chitter_Messages < Sinatra::Base   #do I always have to configure this?
 
   post '/peeps' do
     p params
-    p "Form data submitted to the /peeps route!"
+    Peep.create(content: params[:new_peep])
     redirect '/peeps'
   end 
 
   get '/peeps/new' do 
     erb :'peeps/new'
   end 
-
-
   
   #start the server if ruby file executed directly
   run! if app_file == $0

@@ -3,8 +3,15 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 #Bring in the contents of the 'app.rb' file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')

@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD created_on timestamp DEFAULT now()
