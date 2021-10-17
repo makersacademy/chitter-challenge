@@ -1,131 +1,65 @@
-Chitter Challenge
-=================
+<div align="center">
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+### chitter
+![](https://img.shields.io/github/last-commit/arthurfincham/chitter-challenge)
+![](https://img.shields.io/github/languages/count/arthurfincham/chitter-challenge)
+![](https://img.shields.io/github/languages/code-size/arthurfincham/chitter-challenge)
 
-Challenge:
--------
+<img src="public/images/single_preview.gif" width="600px">
 
-As usual please start by forking this repo.
+&nbsp;
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+</div>
 
-Features:
--------
 
-```
-STRAIGHT UP
+#### Reference
+- **Chitter** _Twitter clone_
+- **Peep** _equivalent of Tweet_
+#### Assignment
+- [x] Write a small Twitter clone that will allow the users to post messages to a public stream.
+- [x] See Peeps in reverse chronological order.
+- [x] See the time at which Peeps were made.
+- [x] Set up user authentication for Chitter.
+#### My Goals
+- [x] Use Boostrap only for front-end (no custom CSS).
+- [x] Extract hashtags from the text in each Peep (no seperate tag input).
+- [x] Ability to click on tags and only list Peeps with that tag.
+- [x] Show the time of a Peep relatively (e.g. 5 mins ago).
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+<div align="center>
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+<h3>STACK</h3>
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+|                                                        | Tool                                                 | Use?                                       | Where can I see it?                                                  |
+|--------------------------------------------------------|------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------------|
+| <img src="public/images/rspec.png" height="40" width="auto">       | [RSpec](https://rspec.info/)                         | Testing tool for Ruby.                     | In the spec file - unit tests for my classes.                              |
+| <img src="public/images/capybara.png" height="40" width="auto">    | [Capybara](https://github.com/teamcapybara/capybara) | Acceptance test framework for Ruby.        |  In spec/features - testing for expected features.                   |
+| <img src="public/images/ruby.png" height="40" width="auto">        | [Ruby](https://www.ruby-lang.org/en/)                | Programming language.                      | Everywhere!                                                          |
+| <img src="public/images/sinatra.png" height="40" width="auto">     | [Sinatra](http://sinatrarb.com/)                     | DSL for quickly making web apps with Ruby. | In the file structure for the project - it is built on Sinatra.      |
+| <img src="public/images/bootstrap.png" height="40" width="auto">     | [Bootstrap](https://getbootstrap.com/)                     | Open source tool-kit made by twitter. | All of the design!       |
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
 
-HARDER
+</div>
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+## Install
+Try it out in your browser [here](https://arthur-r-p-s.herokuapp.com/).
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+Or to install:
+``` bash
+% git clone https://github.com/arthurfincham/rps-challenge
 ```
 
-Technical Approach:
------
+## Usage
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Go to the project directory and install dependencies:
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+``` ruby
+% bundle install
+ ```
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+Run the app with Sinatra
+``` ruby
+% ruby app.rb
 ```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+and you're off!
