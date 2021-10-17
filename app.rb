@@ -16,4 +16,9 @@ class Chitter < Sinatra::Base
   get '/new' do
     erb :new
   end
+
+  post '/' do
+    
+    redirect '/'
+  end
 end
