@@ -1,18 +1,17 @@
 <h2> Sign up for Chitter </h2>
 
-<form action='/user' method='post'>
-  <fieldset>
-    <legend>Enter your details below:</legend>
+<form action='/user' class="signup-form__container" method='post'>
+  <fieldset class="signup-form__border">
     <label for="username">Username:</label><br>
-    <input type="text" name="username" required><br>
+    <input type="text" class="signup-form" name="username" required><br>
     <label for="email">email:</label><br>
-    <input type="text" name="email" required><br>
+    <input type="text" class="signup-form" name="email" required><br>
     <label for="first_name">First name:</label><br>
-    <input type="text" name="first_name" required><br>
+    <input type="text" class="signup-form" name="first_name" required><br>
     <label for="last_name">Last name:</label><br>
-    <input type="text" name="last_name" required><br>
+    <input type="text" class="signup-form" name="last_name" required><br>
     <label for="password">Password:</label><br>
-    <input type="password" name="password" required><br><br>
-    <input type="submit" value="Create account">
+    <input type="password" class="signup-form" name="password" required><br><br>
+    <input type="submit" class="signup-button" value="Create account">
   </fieldset>
 </form>

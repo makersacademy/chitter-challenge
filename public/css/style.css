@@ -12,11 +12,13 @@
 .sidebar-menu {
   position: fixed;
 }
+
 .sidebar-menu__item {
   display: flex;
   align-items: center;
   padding: 5px 50px;
 }
+
 .sidebar-menu__button {
   background-color: red;
   border: none;
@@ -115,4 +117,52 @@
   cursor: pointer;
   border-radius: 5px;
   width: 100px;
+}
+
+.peep-button:hover {
+  background-color: darkred;
+}
+
+.signup-form__container {
+  display: flex;
+}
+
+.signup-form__border {
+  width: 450px;
+  margin: auto;
+  border-radius: 5px;
+  border-color: red;
+}
+
+.signup-form {
+  font-size: 15px;
+  margin: 5px 1px;
+  padding: 5px 5px;
+  display: inline-block;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  width: 400px;
+}
+
+.signup-form:hover {
+  border-color: black;
+  border-width: 1px;
+}
+
+.signup-button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+  width: auto;
 }
