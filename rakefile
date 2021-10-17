@@ -1,0 +1,28 @@
+require 'pg'
+
+task :setup do
+  p "Creating databases..."
+
+  ['chitter', 'chitter_test'].each do |database|
+    connection = PG.connect
+    begin
+      connection.exec("CREATE DATABASE #{ database };")
+    rescue => exception
+      p "Database #{database} already exists. Skipping creation."
+    else
+      connection = PG.connect(dbname: database)
+      connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(240));")
+      # future tables here
+    end
+
+  end
+end
+
+task :test_database_setup do
+  p "Cleaning database..."
+
+  connection = PG.connect(dbname: 'chitter_test')
+
+  # Clear the database
+  connection.exec("TRUNCATE peeps;")
+end
