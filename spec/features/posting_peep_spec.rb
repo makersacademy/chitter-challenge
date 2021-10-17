@@ -14,6 +14,10 @@ feature "Posting Peep" do
     visit '/'
     expect(page).to have_content "hello"
     expect(page).to have_content "I should be here too"
-  
   end
+  
+  scenario "reverse chronological order" do
+  end
+  
+  
 end

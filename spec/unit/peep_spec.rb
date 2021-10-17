@@ -1,3 +1,5 @@
+
+
 require 'peep'
 
 describe Peep do
@@ -11,11 +13,24 @@ describe Peep do
 
     end
   end
+
   describe ".create" do
+
+    before { Peep.create(content: "hello there") }
+    let(:peep) { Peep.all.first }
+
     it "should create a peep" do
-      Peep.create(content: "hello there")
-      expect(Peep.all.first.content).to eq "hello there"
+      
+      expect(peep.content).to eq "hello there"
+      
     
     end
+
+    it "should have a date" do
+
+      expect(peep.date).to eq Date.today.to_s
+      
+    end
+
   end
 end

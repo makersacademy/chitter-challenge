@@ -5,6 +5,7 @@ require 'simplecov-console'
 require "capybara"
 require "capybara/rspec"
 require "rspec"
+require "date"
 
 
 require_relative "../lib/database_connection.rb"
