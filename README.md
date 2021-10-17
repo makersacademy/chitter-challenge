@@ -1,4 +1,4 @@
-Features:
+User Stories:
 -------
 
 ```
@@ -38,7 +38,6 @@ Notes on functionality:
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 How to set up the application:
 ------
