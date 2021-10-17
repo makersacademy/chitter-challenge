@@ -1,6 +1,4 @@
 require './lib/peep'
-#require 'database_helper'
-
 
 describe Peep do 
   describe '.add' do 
@@ -22,4 +20,4 @@ describe Peep do
       expect(Peep.all.length).to eq 0
     end 
   end 
-end 
+end

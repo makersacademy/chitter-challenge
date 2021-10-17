@@ -4,6 +4,8 @@ require 'sinatra/flash'
 require './database_connection_setup'
 require 'uri'
 require './lib/peep'
+require './lib/user'
+
 =begin
 require './lib/reply'
 require './lib/tags'
@@ -16,17 +18,28 @@ class Chitter < Sinatra::Base
     register Sinatra::Flash
   end
 
-  #enable :method_override, :sessions
+  enable :sessions
   use Rack::MethodOverride
 
-
   get '/' do 
-    'Chitter'
+    erb :'/homepage/index'
   end
 
   get '/home' do 
+    @user = User.find(session[:user_id])
     @peeps = Peep.all.reverse
-    erb:'/chitter/index'
+    erb :'/chitter/index'
+  end
+
+  get '/users/new' do 
+    erb :"users/new"
+  end 
+
+  post '/users' do 
+    user = User.create(email: params[:email], password: params[:password], 
+username: params[:username])
+    session[:user_id] = user.id
+    redirect '/home'
   end
 
   post '/home/add' do 
