@@ -1,0 +1,16 @@
+<div class="bg-light rounded col-11 p-4 pt-3">
+  <div class="d-flex flex-row justify-content-between">
+    <h4 style="font-family: 'Raleway', sans-serif;">Latest</h4>
+    <h4><i class="bi bi-newspaper fa-lg"></i></h4>
+  </div>
+  <% @news.feed.items.each do |item| %>
+  <div class="card mt-2" style="width: 22rem;">
+    <div class="card-body">
+      <a href="<%= "#{item.link}" %>">
+        <h6 class="card-title text-dark"><%= "#{item.title}" %></h6>
+      </a>
+      <small class="card-text "><%= "#{item.description}" %></small>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,117 +13,18 @@
   <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
     integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async>
   </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 </head>
-
 <body class="bg-white">
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-      <a class=" text-white  navbar-brand" href="/"><img src="/images/logo_white.png" height="40"/></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="nav navbar-right">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <% if @user %>
-          <form action="/sessions/destroy" method="post">
-            <input class="m-2 btn btn-sm btn-outline-light" type="submit" style="font-family: 'Raleway', sans-serif;"
-              id="Sign Out" value="Sign Out" />
-          </form>
-          <% else %>
-          <button type="button" class="m-2 btn btn-sm btn-outline-light" data-bs-toggle="modal"
-            style="font-family: 'Raleway', sans-serif;" data-bs-target="#SignInModal">
-            Sign In
-          </button>
-          <button type="button" class="m-2 btn btn-sm btn-outline-light" style="font-family: 'Raleway', sans-serif;"
-            data-bs-toggle="modal" data-bs-target="#SignUpModal">
-            Sign Up
-          </button>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-
-<div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel"
-  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-        <img src="/images/logo_blue.png" height="40" />
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <h5 class="modal-title" id="SignUpModalLabel">Sign Up</h5>
-         <form action="/users" method="post">
-           <div class="mb-3">
-             <label for="exampleInputEmail3" class="form-label">Name</label>
-             <input type="name" name="name" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
-           </div>
-           <div class="mb-3">
-             <label for="exampleInputEmail1" class="form-label">Username</label>
-             <input type="username" name="username" class="form-control" id="exampleInputEmail1"
-               aria-describedby="emailHelp">
-           </div>
-           <div class="mb-3">
-             <label for="exampleInputEmail2" class="form-label">Email Address</label>
-             <input type="email" name="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
-           </div>
-           <div class="mb-3">
-             <label for="exampleInputPassword1" class="form-label">Password</label>
-             <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-           </div>
-         </form>  
-        </div>
-        <div class="modal-footer d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-        </div>
-          </form>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Modal -->
-  <div class="modal fade " id="SignInModal" tabindex="-1" aria-labelledby="SignInModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-        <img src="/images/logo_blue.png" height="40" />
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <h5 class="modal-title" id="SignInModalLabel">Sign In</h5>
-          <h2>
-            <%= flash[:notice] %>
-          </h2>
-          <form action="/sessions" method="post">
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="username" name="username" class="form-control" id="username" aria-describedby="username">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-            </div>
-        </div>
-        <div class="modal-footer d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-        </div>
-          </form>
-      </div>
-    </div>
-  </div>
+  <%= partial :navbar %>
+  <%= partial :sign_up %>
+  <%= partial :sign_in%>
   <main class="m-4 mt-2 bg-white">
     <%= yield %>
-
   </main>
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -134,7 +34,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
   </script>
-
   <script>
     window.onload = (event) => {
       let myAlert = document.querySelector('.toast');

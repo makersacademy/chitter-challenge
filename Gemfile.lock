@@ -160,6 +160,8 @@ GEM
       tilt (~> 2.0)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    sinatra-partial (1.0.1)
+      sinatra (>= 1.4)
     sinatra-reloader (1.0)
       sinatra-contrib
     sprockets (4.0.2)
@@ -202,6 +204,7 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   sinatra-flash
+  sinatra-partial
   sinatra-reloader
   timecop
   webrick

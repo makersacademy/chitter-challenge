@@ -9,6 +9,7 @@ require 'relative_time'
 require 'rss'
 require 'open-uri'
 require './lib/news'
+require 'sinatra/partial'
 
 class ChitterApp < Sinatra::Base
 
@@ -17,9 +18,12 @@ class ChitterApp < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
     register Sinatra::Flash
+    register Sinatra::Partial
   end
 
-  enable :sessions, :method_override
+
+  enable :sessions, :method_override, :partial_underscores
+  set :partial_template_engine, :erb
 
   before do
     @news = News.create
@@ -40,7 +44,7 @@ class ChitterApp < Sinatra::Base
       redirect '/'
     else
       flash[:notice] = 'Please check your username or password.'
-      redirect '/users/sign_in'
+      redirect '/'
     end
   end
 
