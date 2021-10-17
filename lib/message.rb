@@ -2,29 +2,27 @@ require 'pg'
 
 class Message
 
-  def initialize(content:, id:, time:)
+  def initialize(content:, id:, time:, user_id:)
     @content = content
     @id = id 
     @time = time
+    @user_id = user_id
   end
 
-  attr_reader :content, :id, :time
+  attr_reader :content, :id, :time, :user_id
 
   def self.all
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec('SELECT * FROM messages;')
     result.reverse_each.map do |message|
-      Message.new(content: message['message'], id: message['id'], time: message['time'])
+      Message.new(content: message['message'], id: message['id'], time: message['time'], user_id: message['user_id'])
     end
   end
 
-  def self.create (content:)
+  def self.create (content:, user_id: "Anonymous")
     current_time = Time.new.to_s
     connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO messages (message, time) VALUES('#{content}', '#{current_time}');")
-    #connection.exec("INSERT INTO messages (message, time) VALUES('#{content}', '#{current_time}') RETURNING id, message, time;")
+    connection.exec("INSERT INTO messages (message, time, user_id) VALUES('#{content}', '#{current_time}', #{user_id});")
   end
-
-  # Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
 
 end

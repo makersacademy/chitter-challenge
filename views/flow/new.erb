@@ -1,3 +1,12 @@
+<% if @id %>
+
+Welcome! Your user id is: <%= @id %>
+
+<% end %>
+
+<br>
+<br>
+
 <form action="/flow" method="post">
 <input type="text" name="message" placeholder="Your message here"/>
 <input type ="submit" name="Submit"/>

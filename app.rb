@@ -24,12 +24,14 @@ class ChitterController < Sinatra::Base
   end
 
   post '/flow' do
-    Message.create(content: params[:message])
+    @user_id = session[:user_id]
+    Message.create(content: params[:message], user_id: @user_id)
  
     redirect '/flow'
   end
 
   get '/flow/new' do
+    @id = session[:user_id]
     erb :"flow/new"
   end
 

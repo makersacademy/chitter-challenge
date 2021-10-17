@@ -1,8 +1,8 @@
 <h1> This is the flow index page </h1>
 
-<% if @id %>
+<% if @user_id %>
 
-Welcome! Your user id is: <%= @id %>
+Welcome! Your user id is: <%= @user_id %>
 
 <% end %>
 
@@ -11,15 +11,21 @@ Welcome! Your user id is: <%= @id %>
 
 <% @messages.each do |message| %>
 
+  Message content is:
+  <br>
+  <b> <%= message.content %> </b>
+  <br>
+
   Message id is:
   <%= message.id %>
   <br>
-  Message content is:
-  <br>
-  <%= message.content %>
-  <br>
+
   Message time and date are:
   <%= message.time %>
+  <br>
+
+  User id for message is:
+  <%= message.user_id %>
   <br>
   <br>
 
