@@ -3,6 +3,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
+require './database_connection_setup'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -14,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/feed', :layout => :layout
   end
 

@@ -7,6 +7,6 @@ feature 'Homepage' do
   scenario 'Homepage should have a button to allow users to view peeps' do
     visit '/'
     click_button('View all Peeps')
-    expect(page).to have_text('This is a test peep')
+    expect(page).to have_current_path('/peeps?view_peeps=View+all+Peeps')  
   end
 end
