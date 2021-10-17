@@ -103,7 +103,7 @@ input[type=reset] {
   background-color: red;
 } */
 
-/* @counter-style thumbs {
+@counter-style bird {
   system: cyclic;
   symbols: "\1F426";
   suffix: " ";
@@ -114,4 +114,4 @@ ul {
   color: black;
   font-size: medium;
   font-family: 'Raleway', sans-serif;
-} */
+}
