@@ -1,7 +1,5 @@
 language: ruby
-rvm:
- - 3.0.2
- 
+
 services:
   - postgresql
 
