@@ -1,4 +1,11 @@
 language: ruby
+rvm:
+  - 3.0.0
+
+before_install:
+  - gem install bundler
+  - gem update --system
+  - gem --version
 
 services:
   - postgresql
