@@ -1,4 +1,6 @@
 require 'pg'
+require './dummy_posts'
+require './dummy_users'
 
 task :setup do
   p "Creating databases..."
@@ -28,6 +30,36 @@ task :setup do
         );"
     )
   end
+end
+
+task :populate_database do
+  connection = PG.connect(dbname: 'chitter')
+
+  users = []
+  DUMMY_USERS.each do |data|
+    user = connection.exec(
+      "INSERT INTO users(first_name, last_name, username, email, password)
+      VALUES('#{data[0]}', '#{data[1]}', '#{data[2]}', '#{data[3]}', '#{data[4]}') RETURNING id;"
+    )
+    users << user[0]['id']
+  end
+
+  DUMMY_POSTS.each do |text|
+    connection.exec(
+      "INSERT INTO peeps(text, time, author) VALUES('#{text}',
+      '#{rand((Time.now.utc - 10000000)..Time.now.utc)}', #{users.sample});"
+    )
+  end
+
+  p "Added #{DUMMY_USERS.length} users"
+  p "Added #{DUMMY_POSTS.length} posts"
+end
+
+task :reset_database do
+  connection = PG.connect(dbname: 'chitter')
+
+  connection.exec("TRUNCATE TABLE users, peeps;")
+  p "Database has been reset"
 end
 
 task :setup_test_database do
