@@ -25,10 +25,15 @@ task :setup do
         text VARCHAR(280) NOT NULL,
         time timestamp NOT NULL,
         author INT NOT NULL,
+        replying_to INT,
         FOREIGN KEY (author)
-        REFERENCES users (id)
+        REFERENCES users (id),
+        FOREIGN KEY (replying_to)
+        REFERENCES peeps (id)
         );"
     )
+
+    p 'Success!'
   end
 end
 
