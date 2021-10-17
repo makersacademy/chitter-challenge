@@ -8,6 +8,7 @@ require "capybara"
 require "capybara/rspec"
 require "rspec"
 require_relative "./setup_test_database"
+require 'feature/web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

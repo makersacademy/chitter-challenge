@@ -3,7 +3,7 @@ require 'uri'
 
 feature "Posting a peep" do
   scenario "Filling in a peep and posting it" do
-    visit("/home")
+    sign_up
     fill_in("peep", with: "just setting up my chittr")
     click_button("Peep")
 

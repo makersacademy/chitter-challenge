@@ -1,16 +1,29 @@
 <html>
   <head></head>
     <body>
-      <form action="/peep" method="post">
+
+      <% if @user %>
+        <h1><%= "#{@user.firstname} #{@user.lastname}: @#{@user.username} "%></h1>
+        <form action="/peep" method="post">
         <fieldset>
           <input type="text" name='content' id='peep' placeholder = "What's happening?">
           <input type="submit" name="Peep" value="Peep">
         </fieldset>
       </form>
-      <% @peeps.each do |peep| %>
-        <li id="peep-<%= peep.id %>">
-            <%= peep.content %>
-        </li>
-      <% end %> 
+        <% @peeps.each do |peep| %>
+          <li class="peep" id="peep-<%= peep.id %>">
+              <%= "#{peep.content} @ #{peep.time}"%>
+          </li>
+        <% end %>
+      <% else %>
+        <h1>
+          <form action="/sessions/login">
+            <input type="submit" value="Log In">
+          </form>
+          <form action="/users/sign_up">
+            <input type="submit" value="Sign Up">
+          </form>
+        </h1>
+      <% end %>
     </body>
 </html>
