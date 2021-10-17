@@ -9,3 +9,11 @@ Eventually was fixed, but I didn't actually change anything or do anything new, 
 
 <%= @all_messages.content.each { |message| print message } %>
 <%= @messages.map { |x| x.content }%>
+
+Not sure what to do next
+Implementing users involves sessions
+Will have to go back and review how sessions work
+But the subsequent code also uses exec_params
+Would be better to review and implement exec_params
+before implementing users, as the walkthroughs will be
+easier to follow

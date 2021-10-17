@@ -1,5 +1,11 @@
 <h1> This is the flow index page </h1>
 
+<% if @user %>
+
+Welcome, <%= @user.name %>!
+
+<% end %>
+
 <% @messages.each do |message| %>
 
   Message id is:
