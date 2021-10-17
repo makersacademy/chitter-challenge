@@ -1,9 +1,14 @@
 require 'user'
 
 describe User do
-  describe '.new' do
+  describe '.create' do
     it "should create a new user" do
       expect(User.create(username: 'tim456', name: 'tim james', email: 'tim@gmail.com', password: '42jk3l4j2l').username).to eq('tim456')
+    end
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+  
+      User.create(username: 'test456', name: 'test guy', email: 'test@example.com', password: 'password123')
     end
   end
   describe '.find' do

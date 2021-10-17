@@ -14,4 +14,5 @@ group :development, :test do
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'pg'
+  gem 'bcrypt'
 end
