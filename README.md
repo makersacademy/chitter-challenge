@@ -46,6 +46,13 @@ localhost:9292
 Stack:
 -------
 
+|  | Tool | Use? | Where can I see it? |
+|------------------|------------------|------------------|------------------|
+| <img src="public/images/rspec.png" height="40" width="auto"> | [RSpec](https://rspec.info/) | Testing tool for Ruby.| ./spec/rps_computer_spec.rb |
+| <img src="public/images/capybara.png" height="40" width="auto"> | [Capybara](https://github.com/teamcapybara/capybara) | Acceptance test framework for Ruby. | In ./spec/features |
+| <img src="public/images/ruby.png" height="40" width="auto"> | [Ruby](https://www.ruby-lang.org/en/) | Programming language. | Everywhere! |
+| <img src="public/images/sinatra.jpg" height="40" width="auto">  | [Sinatra](http://sinatrarb.com/)  | Sinatra is a DSL for quickly creating web applications in Ruby. | In the file structure for the project - it is built on Sinatra. |
+
 My Learning Objectives:
 -------
 
