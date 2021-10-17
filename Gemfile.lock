@@ -13,6 +13,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    childprocess (4.1.0)
     diff-lcs (1.4.4)
     docile (1.4.0)
     mini_mime (1.1.2)
@@ -35,6 +36,7 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
+    rake (13.0.6)
     regexp_parser (2.1.1)
     rexml (3.2.5)
     rspec (3.10.0)
@@ -63,7 +65,12 @@ GEM
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    rubyzip (2.3.2)
     rufo (0.13.0)
+    selenium-webdriver (4.0.0)
+      childprocess (>= 0.5, < 5.0)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -101,9 +108,11 @@ PLATFORMS
 DEPENDENCIES
   capybara
   pg
+  rake
   rspec
   rubocop
   rufo
+  selenium-webdriver
   simplecov
   simplecov-console
   sinatra
@@ -112,7 +121,7 @@ DEPENDENCIES
   webrick
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.2.28
