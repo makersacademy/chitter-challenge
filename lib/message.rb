@@ -25,7 +25,6 @@ class Message
     connection.exec("INSERT INTO messages (message, time) VALUES('#{content}', '#{current_time}') RETURNING id, message, time;")
   end
 
-  # result = connection.exec("INSERT INTO bookmarks (title, url) VALUES('#{title}', '#{url}') RETURNING id, url, title;")
   # Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
 
 end

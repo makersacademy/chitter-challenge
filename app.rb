@@ -2,9 +2,6 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message'
-require './lib/all_messages'
-
-$all_messages = AllMessages.new
 
 class ChitterController < Sinatra::Base
 
