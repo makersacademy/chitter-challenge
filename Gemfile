@@ -17,4 +17,5 @@ group :development, :test do
   gem "webrick"
   gem "pg"
   gem "sequel"
+  gem "bcrypt"
 end
