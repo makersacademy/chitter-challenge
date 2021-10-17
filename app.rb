@@ -1,7 +1,7 @@
 require 'pg' # remove this later
 require 'sinatra/base'
 require 'sinatra/reloader'
-#require 'sinatra/flash'
+# require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
