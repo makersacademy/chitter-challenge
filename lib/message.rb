@@ -22,7 +22,7 @@ class Message
   def self.create (content:, user_id: "Anonymous")
     current_time = Time.new.to_s
     connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO messages (message, time, user_id) VALUES('#{content}', '#{current_time}', #{user_id});")
+    connection.exec("INSERT INTO messages (message, time, user_id) VALUES('#{content}', '#{current_time}', '#{user_id}');")
   end
 
 end

@@ -17,3 +17,8 @@ But the subsequent code also uses exec_params
 Would be better to review and implement exec_params
 before implementing users, as the walkthroughs will be
 easier to follow
+
+Many things missing eg
+Exec_params
+Test database, cleared after each call
+Authentication

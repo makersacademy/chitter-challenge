@@ -24,6 +24,8 @@ class ChitterController < Sinatra::Base
   end
 
   post '/flow' do
+    p "SEE BELOW"
+    p session[:user_id]
     @user_id = session[:user_id]
     Message.create(content: params[:message], user_id: @user_id)
  
