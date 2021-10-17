@@ -17,8 +17,7 @@ describe Peep do
   describe "#create" do
     it 'creates a new Peep' do
       Peep.create(content: 'This is a peep')
-      peeps = Peep.all
-      expect(peeps.first).to include('This is a peep')      
+      expect(Peep.all.first).to include('This is a peep')      
     end
   end
 end
