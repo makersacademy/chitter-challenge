@@ -12,7 +12,7 @@ task :setup do
     else
       connection = PG.connect(dbname: database)
       connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(240), timestamp TIMESTAMP);")
-      # future tables here
+      connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
     end
 
   end
@@ -24,5 +24,5 @@ task :test_database_setup do
   connection = PG.connect(dbname: 'chitter_test')
 
   # Clear the database
-  connection.exec("TRUNCATE peeps;")
+  connection.exec("TRUNCATE peeps, users;")
 end

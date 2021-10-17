@@ -1,0 +1,38 @@
+/*Based off Milligram https://milligram.io*/
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  color: #606c76;
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.6em;
+  font-weight: 300;
+  letter-spacing: .01em;
+  line-height: 1.6;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 4.6rem;
+  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: -.1rem;
+  margin-bottom: 2.0rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 3.6rem;
+  line-height: 1.25;
+  font-weight: 300;
+  letter-spacing: -.1rem;
+  margin-bottom: 2.0rem;
+  margin-top: 0;
+}
