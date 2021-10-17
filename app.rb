@@ -22,10 +22,8 @@ class ChitterController < Sinatra::Base
   end
 
   post '/flow' do
-    content = params[:message]
-    current_time = Time.new.to_s
-    connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO messages (message, time) VALUES('#{content}', '#{current_time}') RETURNING id, message, time;")
+    Message.create(content: params[:message])
+ 
     redirect '/flow'
   end
 
