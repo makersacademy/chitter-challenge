@@ -2,6 +2,8 @@ require 'pg' # remove this later
 require 'sinatra/base'
 require 'sinatra/reloader'
 # require 'sinatra/flash'
+require './lib/peep'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -10,15 +12,20 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    redirect '/peeps'
   end
 
-  get '/new' do
-    erb :new
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
-  post '/' do
-    
-    redirect '/'
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(content: params[:content])
+    redirect '/peeps'
   end
 end

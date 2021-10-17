@@ -8,6 +8,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start do
   add_filter 'rakefile'
+  add_filter 'database_connection_setup'
 end
 
 ENV['ENVIRONMENT'] = 'test'
