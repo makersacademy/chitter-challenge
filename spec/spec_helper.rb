@@ -8,8 +8,8 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'timecop'
-Capybara.app = ChitterApp
 
+Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
