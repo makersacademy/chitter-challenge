@@ -4,9 +4,9 @@ describe Peep do
 
   describe '.all' do
     it 'displays all peeps' do
-      test_peep = Peep.create(body: "Test Peep")
+      Peep.create(body: "Test Peep")
       Peep.create(body: "Another test")
-      Peep.create(body: "A third test")
+      test_peep = Peep.create(body: "A third test")
 
       all_peeps = Peep.all
 

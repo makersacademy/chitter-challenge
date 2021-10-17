@@ -1,8 +1,11 @@
 <body>
+  <p>
+    <a href='/home/new'>Post a peep</a>
+  </p>
   <ul>
     <% @peeps.each do |peep| %>
       <div style="width: 20%; float:left">
-        Placeholder Text
+        <%= peep.timestamp %>
       </div>
 
       <div style="width: 80%; float:right">

@@ -17,11 +17,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    Peep.create(body: "Test Peep Please Ignore")
-    Peep.create(body: "Another Test Peep")
-    Peep.create(body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod")
     @peeps = Peep.all
     erb :'peeps/home'
+  end
+
+  get '/home/new' do
+    erb :'peeps/new'
+  end
+
+  post '/home/new' do
+    Peep.create(body: params[:body])
+    redirect '/home'
   end
 
 end
