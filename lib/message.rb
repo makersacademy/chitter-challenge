@@ -15,11 +15,12 @@ class Message
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec('SELECT * FROM messages;')
     result.reverse_each.map do |message|
-      Message.new(content: message['message'], id: message['id'], time: message['time'], user_id: message['user_id'])
+      Message.new(content: message['message'], id: message['id'], time: message['time'], 
+user_id: message['user_id'])
     end
   end
 
-  def self.create (content:, user_id: "Anonymous")
+  def self.create(content:, user_id: "Anonymous")
     current_time = Time.new.to_s
     connection = PG.connect(dbname: 'chitter')
     connection.exec("INSERT INTO messages (message, time, user_id) VALUES('#{content}', '#{current_time}', '#{user_id}');")

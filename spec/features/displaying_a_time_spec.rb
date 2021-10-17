@@ -4,6 +4,6 @@ feature ChitterController do
     fill_in('message', with: 'Skynet has become self-aware')
     click_button('Submit')
 
-    expect(page).to have_content '2021' #This test will break when the current year changes
+    expect(page).to have_content '2021' # This test will break when the current year changes
   end
 end

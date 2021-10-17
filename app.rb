@@ -17,7 +17,7 @@ class ChitterController < Sinatra::Base
   end
 
   get '/flow' do
-    #@user = User.find(session[:user_id])
+    # @user = User.find(session[:user_id])
     @id = session[:user_id]
     @messages = Message.all
     erb :"flow/index"

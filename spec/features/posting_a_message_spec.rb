@@ -7,5 +7,3 @@ feature ChitterController do
     expect(page).to have_content 'Skynet has become self-aware'
   end
 end
-
-
