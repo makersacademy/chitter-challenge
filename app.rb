@@ -12,16 +12,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index, :layout => :layout
+    erb :index
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/feed', :layout => :layout
+    erb :'peeps/feed'
   end
 
   get '/peeps/new' do
-    erb :'peeps/new_peep', :layout => :layout
+    erb :'peeps/new_peep'
   end
 
   post '/save-new-peep' do
