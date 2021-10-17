@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    'This is a test peep'
+    erb :peeps, :layout => :layout
   end
 
   run! if app_file == $PROGRAM_NAME
