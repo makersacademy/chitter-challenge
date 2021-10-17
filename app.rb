@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/chitter'
+require './lib/peep'
 
 class Chitter_Messages < Sinatra::Base   #do I always have to configure this? 
   configure :development do
@@ -12,11 +12,14 @@ class Chitter_Messages < Sinatra::Base   #do I always have to configure this?
   end 
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end 
 
   post '/peeps' do
-    redirect '/bookmarks'
+    p params
+    p "Form data submitted to the /peeps route!"
+    redirect '/peeps'
   end 
 
   get '/peeps/new' do 

@@ -2,6 +2,13 @@
 
 <h4>Peep all about it</h4>
 
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
+
 <form action="/peeps/new" method="get">
   <input type="submit" value="Add new Peep">
 </form>
+
