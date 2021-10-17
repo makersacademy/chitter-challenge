@@ -13,14 +13,14 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
-
+/* 
 #notice {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
   background-color: red;
-}
+} */
 
-section {
+section.homepage-buttons {
   text-align: center;
 }
 
@@ -39,12 +39,12 @@ input[type=text] {
   margin-bottom: 10px;
   background-color: lightskyblue;
 }
-
+/* 
 input[type=url] {
   border: none;
   padding: 10px 10px;
   background-color: lightskyblue;
-}
+} */
 
 input[type=submit] {
   border: none;
@@ -57,7 +57,7 @@ input[type=submit] {
   color: white;
 }
 
-input[type=submit].delete {
+/* input[type=submit].delete {
   border: none;
   border-radius: 7px;
   padding: 10px 15px;
@@ -95,7 +95,7 @@ input[type=submit].tag {
   margin: 4px 2px;
   cursor: pointer;
   background-color: coral;
-}
+} */
 
 
 /* 
