@@ -97,5 +97,30 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/peep/new/:id' do # replying to a tweet of this id
+    user = User.find(id: session[:user])
+    if user
+      if params[:peep_text].length > 280
+        flash[:notice] = "That peep is too long!"
+        session[:peep] = params[:peep_text] # to keep the tweet in the form
+        redirect("/peep/#{params[:id]}")
+      end
+      Peep.create(text: params[:peep_text], author: user.id, peep: params[:id])
+      session[:peep] = nil
+      redirect("/peep/#{params[:id]}")
+    else # might be unnecessary
+      flash[:notice] = "You are not logged in"
+      redirect("/")
+    end
+  end
+
+
+  get '/peep/:id' do
+    @peep = Peep.find(id: params[:id])
+    @replies = Peep.replies(id: params[:id])
+    @user = User.find(id: session[:user])
+    erb :reply, :layout => :base
+  end
+
   run! if app_file == $0
 end

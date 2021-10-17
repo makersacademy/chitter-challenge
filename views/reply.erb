@@ -1,22 +1,37 @@
-
-<% if @signup %>
-<h2> Your account has been successfully created, welcome to Chitter @<%= @user.username %>! </h2>
-<% end %>
-
 <div class="layout">
   <div class="layout__main">
-    <% if @user %>
+    <div class="peep-reply">
+      <img class="peep__author-pic" src="/images/red_egg.jpeg">
+      <div class="peep__main">
+        <div class="peep__header">
+          <div class="peep__author-name">
+            <%= (User.find(id: @peep.author)).first_name %> <%= (User.find(id: @peep.author)).last_name %>
+          </div>
+          <div class="peep__author-username">
+            @<%= (User.find(id: @peep.author)).username %>
+          </div>
+          <div class="peep__time-since">
+            · <%= @peep.time.strftime('%H:%M %P · %d %b %Y') %>
+          </div>
+        </div>
+        <div class="peep__text">
+          <%= @peep.text %>
+        </div>
+      </div>
+    </div>
+    <% if @user && @user.id != ((User.find(id: @peep.author)).id) %>
     <div class="peep">
       <img class="peep__author-pic" src="/images/red_egg.jpeg">
       <div class="peep__main">
-        <form action="/peep/new" method="post">
-          <input type="text" class="peep-form" value="<%= session[:peep]%>" placeholder="What's on your mind..." name="peep_text">
+        <form action="/peep/new/<%= @peep.id %>" method="post">
+          <input type="text" class="peep-form" value="<%= session[:peep]%>" placeholder="Reply to this peep" name="peep_text">
           <input type="submit" class="peep-button" value="Peep">
         </form>
       </div>
     </div>
     <% end %>
-    <% @peeps.each do |peep| %> 
+    <% if @replies %>
+    <% @replies.each do |peep| %> 
       <a class="peep" href="/peep/<%= peep.id %>">
         <img class="peep__author-pic" src="/images/red_egg.jpeg">
         <div class="peep__main">
@@ -36,6 +51,7 @@
           </div>
         </div>
       </a>
+    <% end %>
     <% end %>
   </div>
   <div class="layout__sidebar-container">

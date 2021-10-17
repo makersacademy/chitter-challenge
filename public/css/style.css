@@ -44,11 +44,19 @@
   padding: 30px 30px;
 }
 
+.peep-reply {
+  display: flex;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 2px;
+  padding: 10px 15px;
+}
+
 .peep {
   display: flex;
   border-bottom: 1px solid lightgrey;
   margin-bottom: 2px;
   padding: 10px 15px;
+  text-decoration: none;
 }
 
 .peep:hover {
