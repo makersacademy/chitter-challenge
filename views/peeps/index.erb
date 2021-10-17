@@ -8,7 +8,7 @@
   <h1>Welcome to Chitter!</h1>
     <ul>
       <% @peeps.each do |peep| %>
-        <li><%= peep.content %></li>
+        <li><%= peep.content %> Created at:<%= peep.timestamp %></li>
       <% end %>
     </ul>
 </body>

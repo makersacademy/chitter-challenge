@@ -2,10 +2,12 @@ require 'pg'
 
 class Peep
   def self.create(content:)
+    time = Time.now
     result = DatabaseConnection.query(
-      "INSERT INTO peeps (content) VALUES($1) RETURNING id, content;", [content]
+      "INSERT INTO peeps (content, timestamp) VALUES($1, $2) RETURNING id, content, timestamp;",
+      [content, time]
     )
-    Peep.new(id: result[0]['id'], content: result[0]['content'])
+    Peep.new(id: result[0]['id'], content: result[0]['content'], timestamp: result[0]['timestamp'])
   end
 
   def self.all
@@ -13,16 +15,18 @@ class Peep
     result.map do |peep|
       Peep.new(
         id: peep['id'],
-        content: peep['content']
+        content: peep['content'],
+        timestamp: peep['timestamp']
       )
     end
   end
 
-  attr_reader :id, :content
+  attr_reader :id, :content, :timestamp
 
-  def initialize(id:, content:)
+  def initialize(id:, content:, timestamp:)
     @id = id
     @content = content
+    @timestamp = timestamp
   end
   
 end
