@@ -87,6 +87,5 @@ Code Review
 
 In code review we'll be hoping to see:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+* All tests passing - 9 examples, 0 failures
+* High [TEST COVERAGE: 100.00% -- 64/64 lines in 7 files](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md)
