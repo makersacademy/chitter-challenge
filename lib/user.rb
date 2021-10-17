@@ -1,4 +1,3 @@
-require 'pg'
 require 'bcrypt'
 
 class User
@@ -19,10 +18,17 @@ class User
     User.new(id: result[0]['id'], username: result[0]['username'], name: result[0]['name'], email: result[0]['email'])
   end
 
-  def self.find(user)
-    return nil unless user
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = $1", [user.id])
+  def self.find(id)
+    return nil unless id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = $1", [id])
     new_user = User.new(id: result[0]['id'], username: result[0]['username'], name: result[0]['name'], email: result[0]['email'])
     return new_user
+  end
+
+  def self.authenticate(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = $1", [username])
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(id: result[0]['id'], username: result[0]['username'], name: result[0]['name'], email: result[0]['email'])
   end
 end

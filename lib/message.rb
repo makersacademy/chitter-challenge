@@ -1,5 +1,3 @@
-require 'pg'
-
 class Message
 
   attr_reader :id, :content, :username, :time

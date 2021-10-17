@@ -14,13 +14,32 @@ describe User do
   describe '.find' do
     it 'finds a user by ID' do
       user = User.create(username: 'test456', name: 'test guy', email: 'test@example.com', password: 'password123')
-      result = User.find(user)
+      result = User.find(user.id)
   
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
     end
     it 'returns nil if there is no ID given' do
       expect(User.find(nil)).to eq nil
+    end
+  end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      user = User.create(username: 'test1234567', name: 'test guy', email: 'test@example.com', password: 'password123')
+      authenticated_user = User.authenticate(username: 'test1234567', password: 'password123')
+  
+      expect(authenticated_user.username).to eq user.username
+    end
+    it 'returns nil given an incorrect email address' do
+      user = User.create(username: 'test42342432', name: 'test guy', email: 'test@example.com', password: 'password123')
+  
+      expect(User.authenticate(username: 'nottherightguy', password: 'password123')).to be_nil
+    end
+    it 'returns nil given an incorrect password' do
+      User.create(username: 'testerguy', name: 'test guy', email: 'test@example.com', password: 'password123')
+  
+      expect(User.authenticate(username: 'testerguy', password: 'wrongpassword')).to be_nil
     end
   end
   

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+
 group :test do
   gem 'capybara'
   gem 'rspec'
@@ -13,6 +14,7 @@ group :development, :test do
   gem 'rubocop', '1.20'
   gem 'sinatra'
   gem 'sinatra-contrib'
+  gem 'sinatra-flash'
   gem 'pg'
   gem 'bcrypt'
 end
