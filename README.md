@@ -4,7 +4,7 @@ Chitter Challenge
 Instructions:
 -------
 
-## DB Set up instructions
+### DB Set up instructions
 
 * Start PostgreSQL:
 ```
@@ -22,7 +22,7 @@ CREATE DATABASE chitter;
 - 02_create_user_table.sql
 - 03_create_peeps_table.sql
 
-## Launch Instructions
+### Launch Instructions
 
 ```
 git clone git@github.com:s-palmer/chitter-challenge.git
@@ -59,8 +59,8 @@ My Learning Objectives:
 1) Practice turning user stories into feature requirements ✔️
 2) Practice domain modelling ✔️
 3) Improve planning prior to starting ✔️
-4) Improve unit test writing
-5) Practice database manipulation
+4) Improve unit test writing ✔️
+5) Practice database manipulation ✔️
 6) Learn how to use <layout.erb> files with <yield> ✔️
 
 Learning Objective Progress:
