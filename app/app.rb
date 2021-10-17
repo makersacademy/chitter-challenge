@@ -5,8 +5,11 @@ require './database_connection_setup'
 # require the classes
 require './lib/database_connection'
 require './lib/peep'
+require './lib/user'
+require './lib/authenticate'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   configure :development do
     register Sinatra::Reloader
@@ -16,9 +19,36 @@ class Chitter < Sinatra::Base
     erb :main
   end
 
+  get '/register' do
+    erb :'signing_in/register'
+  end
+
+  post '/register' do
+    User.create(username: params[:username], password: params[:password])
+    redirect '/login'
+  end
+
+  get '/login' do
+    erb :'signing_in/login'
+  end
+
+  post '/login' do
+    session[:user] = params[:username]
+    if authenticate(username: params[:username], password: params[:password])['exists'] == "t"
+      redirect '/home'
+    else
+      redirect '/login'
+    end
+  end
+
   get '/home' do
-    @peeps = Peep.all
-    erb :'peeps/home'
+    if session[:user] == nil
+      redirect '/login'
+    else
+      @user = session[:user]
+      @peeps = Peep.all
+      erb :'peeps/home'
+    end
   end
 
   get '/home/new' do
