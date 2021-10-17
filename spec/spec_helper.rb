@@ -8,12 +8,9 @@ require "rspec"
 require "date"
 require 'orderly'
 
-
-require_relative "../lib/database_connection.rb"
+require_relative "../lib/database_connection"
 require_relative "./setup_test_db"
-require_relative "../app.rb"
-
-
+require_relative "../app"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

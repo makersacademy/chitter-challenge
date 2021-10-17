@@ -16,12 +16,9 @@ class Peep
 
   end
 
-  def self.create(content: )
-    DatabaseConnection.query("INSERT INTO peeps(content, date_posted) VALUES ($1, $2) ", [content, Date.today.to_s])
+  def self.create(content:)
+    DatabaseConnection.query("INSERT INTO peeps(content, date_posted) VALUES ($1, $2) ", 
+[content, Date.today.to_s])
   end
-
-
-
-
 
 end

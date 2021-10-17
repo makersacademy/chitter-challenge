@@ -1,9 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/database_connection.rb'
-require_relative './db_connect_at_start.rb'
-require_relative "./lib/peep.rb"
-require_relative "./lib/user.rb"
+require './lib/database_connection'
+require_relative './db_connect_at_start'
+require_relative "./lib/peep"
+require_relative "./lib/user"
 
 class ChitterApp < Sinatra::Base
   configure :development do
@@ -30,7 +30,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], username: params[:username], password: params[:password] )
+    user = User.create(email: params[:email], username: params[:username], 
+password: params[:password])
     session[:user_id] = user.id
     redirect '/'
   end
