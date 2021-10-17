@@ -1,10 +1,12 @@
+require 'bcrypt'
 require 'pg'
 
 class User
   def self.create(email:, password:)
+    encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password) VALUES($1, $2) RETURNING id, email;",
-      [email, password]
+      [email, encrypted_password]
     )
     User.new(id: result[0]['id'], email: result[0]['email'])
   end

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'bcrypt'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
