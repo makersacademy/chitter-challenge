@@ -25,3 +25,51 @@ feature 'Creating peeps' do
     expect(page).to have_content("That peep is too long!")
   end
 end
+
+feature 'Replying to peeps' do
+  scenario "user tries to reply to their own peep" do
+    visit('/')
+    sign_up(username: 'tester', email: 'test@test.com')
+    fill_in :peep_text, with: "What's 2 + 2?"
+    click_button 'Peep'
+
+    visit('/')
+    
+    find(:xpath, "/html/body/div[2]/div[1]/a[1]").click # clicks the peep
+
+    expect(page).not_to have_button 'Peep'
+  end
+
+  scenario "user tries to reply when logged out" do
+    visit('/')
+    sign_up(username: 'tester', email: 'test@test.com')
+    fill_in :peep_text, with: "What's 2 + 2?"
+    click_button 'Peep'
+
+    click_button 'Log out'
+    visit('/')
+    
+    find(:xpath, "/html/body/div[2]/div[1]/a[1]").click
+
+    expect(page).not_to have_button 'Peep'
+  end
+
+  scenario "user replies to another user's tweet" do
+    visit('/')
+    sign_up(username: 'tester', email: 'test@test.com')
+    fill_in :peep_text, with: "What's 2 + 2?"
+    click_button 'Peep'
+
+    click_button 'Log out'
+
+    sign_up(username: 'replyer', email: 'replyer@test.com')
+    visit('/')
+
+    find(:xpath, "/html/body/div[2]/div[1]/a[1]").click
+
+    fill_in :peep_text, with: "I think it's 4"
+    click_button 'Peep'
+
+    expect(page).to have_content("I think it's 4")
+  end
+end
