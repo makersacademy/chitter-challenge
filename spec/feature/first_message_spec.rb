@@ -5,3 +5,4 @@ feature 'First message on Chitter' do
     expect(page).to have_content "Welcome to Chitter"
   end
 end 
+
