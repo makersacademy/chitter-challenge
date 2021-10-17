@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="peep__text">
-          <%= @peep.text %>
+          <%= "@#{(User.find(id: Peep.find(id: @peep.replying_to).author)).username}" if @peep.replying_to %> <%= @peep.text %>
         </div>
       </div>
     </div>
@@ -40,14 +40,14 @@
               <%= (User.find(id: peep.author)).first_name %> <%= (User.find(id: peep.author)).last_name %>
             </div>
             <div class="peep__author-username">
-              @<%= (User.find(id: peep.author)).username %>
+              @<%= (User.find(id: Peep.find(id: peep.replying_to).author)).username %>
             </div>
             <div class="peep__time-since">
               · <%= peep.time.strftime('%H:%M %P · %d %b %Y') %>
             </div>
           </div>
           <div class="peep__text">
-            <%= peep.text %>
+            <%= "@#{(User.find(id: Peep.find(id: peep.replying_to).author)).username}" if peep.replying_to %> <%= peep.text %>
           </div>
         </div>
       </a>

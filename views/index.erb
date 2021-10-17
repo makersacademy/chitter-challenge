@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="peep__text">
-            <%= peep.text %>
+            <%= "@#{(User.find(id: Peep.find(id: peep.replying_to).author)).username}" if peep.replying_to %> <%= peep.text %>
           </div>
         </div>
       </a>
