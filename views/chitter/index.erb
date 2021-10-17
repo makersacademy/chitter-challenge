@@ -1,0 +1,36 @@
+<head>
+  <style>
+    body {
+    background-color: linen;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  </style>
+
+</head>
+
+<% if @user %>
+  <h2>Welcome,  <%= @user.username %></h2>
+<% end %>  
+
+<h1>Chitter Timeline</h1>
+  <form method="post" action="/home/add">
+    <h2>Make a peep!</h2>
+    <input type="text" name="peep" placeholder="What's happening?">
+    <input type="submit" value="Post"> 
+  </form>
+<ul>
+  <% @peeps.each do |peep|%>
+  <li>
+    <%= peep.contents %>
+    <%= peep.time[10..15]%>
+  <form action="/home/delete/<%= peep.id %>" method="post">
+    <input type='hidden' name='_method' value='DELETE'/>
+    <input type="submit" value="Delete"> 
+  </form>
+  </li>
+  <% end %>
+</ul>
