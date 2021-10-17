@@ -29,17 +29,9 @@ class ChitterApp < Sinatra::Base
     @user = User.find(session[:user_id])
     @peeps = Peep.all.reverse
     @tags = Tag.all
-    
     erb :index
   end
 
-  get '/users/sign_up' do
-    erb :"users/sign_up"
-  end
-
-  get '/users/sign_in' do
-    erb :"users/sign_in"
-  end
 
   post '/sessions' do
     @user = User.authenticate(username: params[:username], password: params[:password])
