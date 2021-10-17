@@ -5,10 +5,10 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+      user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123', name: 'test name')
       peep = Peep.create(text: 'This is the first test peep!', user_id: user.id, timestamp: "2021-02-03 04:05:06")
 
-      persisted_data = persisted_data(id: peep.id, table: 'peeps')
+      persisted_data = persisted_data(table: :peeps, id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data.first['id']
