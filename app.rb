@@ -15,13 +15,9 @@ class ChitterController < Sinatra::Base
   get '/' do
     erb :index
   end
-#<%= @messages.each { |x| p x['message'] }  %>
+
   get '/flow' do
-    # @message = Message.instance
-    # @all_messages = $all_messages
-    p @messages = Message.all
-    # p "SEE BELOW"
-    # @messages.each { |x| p x['message'] }
+    @messages = Message.all
     erb :"flow/index"
   end
 
