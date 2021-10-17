@@ -1,3 +1,47 @@
+.header {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1000px auto;
+  margin: 0 auto;
+}
+
+.sidebar-menu {
+  position: fixed;
+}
+.sidebar-menu__item {
+  display: flex;
+  align-items: center;
+  padding: 5px 50px;
+}
+.sidebar-menu__button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.sidebar-menu__button:hover {
+  background-color: darkred;
+}
+
+.new-peep {
+  margin-bottom: 2px;
+  padding: 30px 30px;
+}
+
 .peep {
   display: flex;
   border-bottom: 1px solid lightgrey;
@@ -31,8 +75,44 @@
   color: grey
 }
 
+.peep__text {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
 .peep__time-since {
   margin-left: 5px;
   color: grey
 }
 
+.peep-form {
+  outline: none;
+  font-size: 15px;
+  width: 900px;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.peep-form:hover {
+  border-color: lightgray;
+}
+
+.peep-button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100px;
+}

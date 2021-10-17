@@ -16,4 +16,9 @@ feature 'Creating peeps' do
 
     expect(page).to have_content('You are not logged in')
   end
+
+  scenario 'creating a peep that is too long' do
+    visit('/') #placeholder test
+    expect(page).to have_content("something that stops long peeps")
+  end
 end

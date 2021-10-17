@@ -1,56 +1,64 @@
-<h1> Welcome to Chitter </h1>
 
 <% if @signup %>
 <h2> Your account has been successfully created, welcome to Chitter <%= @user.username %>! </h2>
 <% end %>
 
-<form action="/peep/new" method="post">
-  <label for="peep_text">
-    Create a new peep:
-    <input type="text" name="peep_text">
-  </label>
-  <input type="submit" value="Create peep">
-</form>
-
-<% if @user %>
-<div>
-  <form action="/user/logout" method="get">
-    <input type="submit" value="Log out">
-  </form>
-</div>
-<% else %>
-<div>
-  <form action="/user/login" method="get">
-    <input type="submit" value="Log in">
-  </form>
-</div>
-<div>
-  <form action="/user/new" method="get">
-    <input type="submit" value="Sign up">
-  </form>
-</div>
-<% end %>
-
-<div class="layout__main">
-  <% @peeps.each do |peep| %> 
+<div class="layout">
+  <div class="layout__main">
+    <% if @user %>
     <div class="peep">
       <img class="peep__author-pic" src="/images/red_egg.jpeg">
       <div class="peep__main">
-        <div class="peep__header">
-          <div class="peep__author-name">
-            <%= (User.find(id: peep.author)).first_name %> <%= (User.find(id: peep.author)).last_name %>
-          </div>
-          <div class="peep__author-username">
-            @<%= (User.find(id: peep.author)).username %>
-          </div>
-          <div class="peep__time-since">
-            · 10m
-          </div>
-        </div>
-        <div class="peep__text">
-          <%= peep.text %>
-        </div>
+        <form action="/peep/new" method="post">
+          <input type="text" class="peep-form" placeholder="What's on your mind..." name="peep_text">
+          <input type="submit" class="peep-button" value="Peep">
+        </form>
       </div>
     </div>
-  <% end %>
+    <% end %>
+    <% @peeps.each do |peep| %> 
+      <div class="peep">
+        <img class="peep__author-pic" src="/images/red_egg.jpeg">
+        <div class="peep__main">
+          <div class="peep__header">
+            <div class="peep__author-name">
+              <%= (User.find(id: peep.author)).first_name %> <%= (User.find(id: peep.author)).last_name %>
+            </div>
+            <div class="peep__author-username">
+              @<%= (User.find(id: peep.author)).username %>
+            </div>
+            <div class="peep__time-since">
+              · <%= peep.time.strftime('%H:%M %P · %d %b %Y') %>
+            </div>
+          </div>
+          <div class="peep__text">
+            <%= peep.text %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="layout__sidebar-container">
+    <div class="layout__sidebar">
+      <div class="sidebar-menu">
+        <% if @user %>
+        <div class="sidebar-menu__item">
+          <form action="/user/logout" method="get">
+            <input type="submit" class="sidebar-menu__button" value="Log out">
+          </form>
+        </div>
+        <% else %>
+        <div class="sidebar-menu__item">
+          <form action="/user/login" method="get">
+            <input type="submit" class="sidebar-menu__button" value="Log in">
+          </form>
+        </div>
+        <div class="sidebar-menu__item">
+          <form action="/user/new" method="get">
+            <input type="submit" class="sidebar-menu__button" value="Sign up">
+          </form>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
