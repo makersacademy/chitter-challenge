@@ -3,7 +3,7 @@ require './lib/all_messages'
 
 class Message
 
-  def initialize(content)
+  def initialize(content:)
     @content = content
   end
 
@@ -12,7 +12,9 @@ class Message
   def self.all
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec('SELECT * FROM messages;')
-    result.map { |element| element['message'] }
+    result.map do |message|
+      Message.new(content: message['message'])
+    end
   end
 
 end

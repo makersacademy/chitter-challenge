@@ -1,3 +1,3 @@
 <h1> This is the flow index page </h1>
 
-<%= @messages.each { |x| "#{x}\n" }%>
+<%= @messages.map { |x| x.content }%>
