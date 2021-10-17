@@ -13,7 +13,7 @@ class Message
   def self.all
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec('SELECT * FROM messages;')
-    result.map do |message|
+    result.reverse_each.map do |message|
       Message.new(content: message['message'], id: message['id'], time: message['time'])
     end
   end
