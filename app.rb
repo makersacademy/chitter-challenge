@@ -12,6 +12,7 @@ class ChitterApp < Sinatra::Base
   get '/' do
     
     @peeps = Peep.all
+    @users = User.all 
     erb :main_page
   end
 
@@ -20,5 +21,13 @@ class ChitterApp < Sinatra::Base
     redirect "/"
   end
 
+  get '/sign-up' do
+    erb :sign_up
+  end
+
+  post '/sign-up' do
+    User.create(email: params[:email], username: params[:username], password: params[:password] )
+    redirect '/'
+  end
   run! if app_file == $0
 end

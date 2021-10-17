@@ -16,7 +16,10 @@ feature "Posting Peep" do
     expect(page).to have_content "I should be here too"
   end
   
-  scenario "reverse chronological order" do
+  xscenario "reverse chronological order" do
+    Peep.create(content: "hello")
+    Peep.create(content: "I should be here too")
+    expect("I should be here too").to appear_before("hello")
   end
   
   

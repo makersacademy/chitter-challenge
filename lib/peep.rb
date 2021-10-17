@@ -7,7 +7,9 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC;")
+    puts "Here is my all query"
+    puts result.map { |hash| hash }
 
     result.map do |peep| 
       Peep.new(content: peep['content'], date: peep['date_posted'])

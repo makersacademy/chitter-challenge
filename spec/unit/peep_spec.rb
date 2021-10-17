@@ -12,6 +12,13 @@ describe Peep do
       expect(peep.content).to eq 'HELLO'
 
     end
+
+    it "should return them in reverse chrnological order" do
+      Peep.create(content: 'first')
+      Peep.create(content: 'second')
+      peeps = Peep.all
+      expect(peeps.first.content).to eq 'second'
+    end
   end
 
   describe ".create" do
@@ -31,6 +38,8 @@ describe Peep do
       expect(peep.date).to eq Date.today.to_s
       
     end
+
+    
 
   end
 end

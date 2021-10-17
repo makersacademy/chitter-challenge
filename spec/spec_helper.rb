@@ -6,6 +6,7 @@ require "capybara"
 require "capybara/rspec"
 require "rspec"
 require "date"
+require 'orderly'
 
 
 require_relative "../lib/database_connection.rb"
