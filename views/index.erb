@@ -1,5 +1,8 @@
 <header>
   <h1>CHITTER</h1>
+  <% if @user %>
+    <h1>Welcome, <%= @user.username %></h1>
+  <% end %>
 </header>
 <body>
   <h3>Post a new message!</h3>

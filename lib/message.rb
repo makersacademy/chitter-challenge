@@ -23,7 +23,7 @@ class Message
     end
   end
 
-  def self.add(username:, content:)
+  def self.create(username:, content:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else

@@ -1,22 +1,23 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message.rb'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  
+
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    @user = ???
+    @user = User.find(session[:user_id])
     @messages = Message.all
     erb :index
   end
 
   post '/' do
-    Message.add(username: params[:username], content: params[:message])
+    Message.create(username: params[:username], content: params[:message])
     redirect('/')
   end
 
@@ -25,7 +26,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.add(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    user = User.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user
     redirect('/')
   end
 
