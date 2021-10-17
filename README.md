@@ -48,10 +48,14 @@ App Modelling:
 3) Each Peep has one author (user)
 
 As a database entity relationship diagram:
+  
+* I didn't end up creating a feed table as it wasn't necessary to display Peeps.
 
 ![Chitter Entity Relationship Diagram](/public/images/database_entity_model.png)
 
 CRC Cards:
+  
+* I didn't end up creating a feed table as it wasn't necessary to display Peeps.
 
 ![Chitter CRC Cards](/public/images/crc_cards.png)
 
