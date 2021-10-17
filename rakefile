@@ -11,7 +11,7 @@ task :setup do
       p "Database #{database} already exists. Skipping creation."
     else
       connection = PG.connect(dbname: database)
-      connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(240));")
+      connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(240));")
       # future tables here
     end
 
