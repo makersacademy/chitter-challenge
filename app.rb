@@ -18,6 +18,7 @@ class ChitterController < Sinatra::Base
 
   get '/flow' do
     #@user = User.find(session[:user_id])
+    @id = session[:user_id]
     @messages = Message.all
     erb :"flow/index"
   end
@@ -38,7 +39,11 @@ class ChitterController < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email], password: params[:password])
+    p "SEE BELOW"
+    p @user
+    
     session[:user_id] = @user.id
+
     # create the user, then redirect
     redirect '/flow'
   end
