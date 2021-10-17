@@ -4,6 +4,45 @@ Chitter Challenge
 Instructions:
 -------
 
+## DB Set up instructions
+
+* Start PostgreSQL:
+```
+psql
+```
+* Create a database using the psql command:
+```
+CREATE DATABASE chitter;
+```
+* Connect to the database using the pqsl command
+```
+\c chitter;
+```
+* Run the queries in:
+- 02_create_user_table.sql
+- 03_create_peeps_table.sql
+
+## Launch Instructions
+
+```
+git clone git@github.com:s-palmer/chitter-challenge.git
+```
+
+In the program directory:
+```
+install bundler
+bundle install
+```
+
+```
+rackup
+```
+
+Browse to:
+```
+localhost:9292
+```
+
 Stack:
 -------
 
