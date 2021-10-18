@@ -1,3 +1,13 @@
+Instructions
+
+Clone repo. 
+Create databases: test and real, with the db files in migration folder. 
+
+Enjoy peeping! 
+
+The first several user stories - easier ones - have been completed. More time is required to peep to a more technical level. Peeps, like Rome, were not created fully in just one weekend. Tbc....
+
+
 Chitter Challenge
 =================
 
