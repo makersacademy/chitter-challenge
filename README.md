@@ -70,8 +70,8 @@ Learning Objective Progress:
 1) From the user stories, I created a simple list of initial 7 feature requirements to make it easier to plan my project.
 2) Created database entity relationship diagram & CRC cards
 3) Completing step 2 allowed me to think about what views and classes I might require for this web app.
-4) 
-5) 
+4) All unit tests pass
+5) Used a few new psql commands like 'NOT NULL' and practiced creating tables
 6) To DRY out my code, I've created a layout.erb file that contains the references to my CSS file as well as custom fonts that are required. I've also included the yield tag within my layout.erb file to render in the page content once the layout has been processed.
 
 Requirements:
