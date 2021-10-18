@@ -1,9 +1,11 @@
 require 'pg'
 
+databases = ['chitter', 'chitter_test']
+
 task :setup do
   p "Creating databases..."
 
-  ['chitter', 'chitter_test'].each do |database|
+  databases.each do |database|
     connection = PG.connect
     begin
       connection.exec("CREATE DATABASE #{database};")
@@ -22,7 +24,19 @@ task :test_database_setup do
   p "Cleaning database..."
 
   connection = PG.connect(dbname: 'chitter_test')
-
-  # Clear the database
   connection.exec("TRUNCATE peeps, users;")
+end
+
+task :drop_databases do
+  p "Dropping databases..."
+
+  connection = PG.connect(dbname: 'postgres')
+  databases.each do |database|
+    connection.exec("DROP DATABASE IF EXISTS #{database};")
+  end
+end
+
+task :reset do
+  Rake::Task[:drop_databases].execute
+  Rake::Task[:setup].execute
 end
