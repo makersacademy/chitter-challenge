@@ -14,8 +14,13 @@
             · <%= @peep.time.strftime('%H:%M %P · %d %b %Y') %>
           </div>
         </div>
-        <div class="peep__text">
-          <%= "@#{(User.find(id: Peep.find(id: @peep.replying_to).author)).username}" if @peep.replying_to %> <%= @peep.text %>
+        <div class="peep__content">
+          <div class="peep__replying-to">
+            <%= "@#{(User.find(id: Peep.find(id: @peep.replying_to).author)).username} " if @peep.replying_to %>
+          </div>
+          <div class="peep__text">
+            <%= @peep.text %>
+          </div>
         </div>
         <div class="reply-icon">
           <img src="/images/reply_icon.png" alt="Homepage" width="18" height="18"> <%= @replies.count if @replies %>
@@ -49,8 +54,13 @@
               · <%= peep.time.strftime('%H:%M %P · %d %b %Y') %>
             </div>
           </div>
-          <div class="peep__text">
-            <%= "@#{(User.find(id: Peep.find(id: peep.replying_to).author)).username}" if peep.replying_to %> <%= peep.text %>
+          <div class="peep__content">
+            <div class="peep__replying-to">
+              <%= "@#{(User.find(id: Peep.find(id: peep.replying_to).author)).username} " if peep.replying_to %>
+            </div>
+            <div class="peep__text">
+              <%= peep.text %>
+            </div>
           </div>
           <div class="reply-icon">
             <img src="/images/reply_icon.png" alt="Homepage" width="18" height="18"> <%= Peep.replies(id: peep.id).count if Peep.replies(id: peep.id) %>

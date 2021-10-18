@@ -85,6 +85,16 @@
   color: grey
 }
 
+.peep__content{
+  display: flex;
+}
+
+.peep__replying-to{
+  font-weight: 700;
+  color: red;
+  margin-right: 5px;
+}
+
 .peep__text {
   font-size: 15px;
   overflow-wrap: anywhere;
