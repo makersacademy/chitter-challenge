@@ -1,6 +1,7 @@
 Chitter Challenge
 =================
 [![Build Status](https://app.travis-ci.com/starf0g/chitter-challenge.svg?branch=main)](https://app.travis-ci.com/starf0g/chitter-challenge)
+
 Setup:
 -------
 * Clone this repo
