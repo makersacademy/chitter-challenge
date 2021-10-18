@@ -29,12 +29,12 @@ class Peep
     if peep
       result = DatabaseConnection.query(
         "INSERT INTO peeps(text, time, author, replying_to) VALUES($1, $2, $3, $4) RETURNING *;",
-        [text, Time.now.utc, author, peep]
+        [text, Time.now, author, peep]
       )
     else
       result = DatabaseConnection.query(
         "INSERT INTO peeps(text, time, author) VALUES($1, $2, $3) RETURNING *;",
-        [text, Time.now.utc, author]
+        [text, Time.now, author]
       )
     end
   
@@ -65,7 +65,7 @@ class Peep
   end
 
   def self.time(string)
-    Time.strptime(string, '%Y-%m-%d %H:%M:%S')
+    Time.parse(string)
   end
   
 end

@@ -28,7 +28,7 @@
               @<%= (User.find(id: peep.author)).username %>
             </div>
             <div class="peep__time-since">
-              · <%= peep.time.strftime('%-H:%M %P · %-d %b %Y') %>
+              · <%= time_ago(peep.time) %>
             </div>
           </div>
           <div class="peep__content">

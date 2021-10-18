@@ -29,7 +29,7 @@ describe Peep do
       )
 
       [2019,2020,2021].each do |year|
-        Timecop.freeze(Time.utc(year))
+        Timecop.freeze(Time.new(year))
         Peep.create(text: "Test tweet #{year}", author: user.id)
       end
       peeps = Peep.all
@@ -45,7 +45,7 @@ describe Peep do
         first_name: 'Test', last_name: 'User', username: 'test123',
         email: 'test@test.com', password: '12345'
       )
-      time = Timecop.freeze(Time.utc(2021))
+      time = Timecop.freeze(Time.new(2021))
       peep = Peep.create(text: 'Test tweet', author: user.id)
       persisted_data = persisted_data(table: 'peeps', id: peep.id)
       # persisted_data queries the database and checks what is actually stored

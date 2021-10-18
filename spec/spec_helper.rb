@@ -11,6 +11,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
+require 'orderly'
 
 Capybara.app = Chitter
 
