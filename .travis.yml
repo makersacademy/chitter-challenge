@@ -17,4 +17,5 @@ before_script:
   - psql -U postgres -c 'CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, content VARCHAR (140) NOT NULL, posttime TIMESTAMPTZ, author_id INTEGER REFERENCES users (user_id));'
 
 script:
+  - bundle config set --local deployment 'true'
   - bundle exec rspec
