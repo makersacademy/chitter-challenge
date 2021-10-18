@@ -2,10 +2,11 @@ require 'pg'
 
 class Peep
 
-  attr_reader :content
+  attr_reader :content, :created_on
 
-  def initialize(content:)
+  def initialize(content:, created_on:)
     @content = content
+    @created_on = created_on
   end 
 
   def self.create(content:)
@@ -16,8 +17,8 @@ class Peep
     end
   
     result = connection.exec("INSERT INTO peeps (content) VALUES('#{content}') 
-    RETURNING id, content;").first
-    Peep.new(content: result['content'])
+    RETURNING id, content, created_on;").first
+    Peep.new(content: result['content'], created_on:result['created_on'] )
   end
   
   
@@ -29,7 +30,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end 
     sqldata = connection.exec("SELECT * FROM peeps;")
-    sqldata.map { |row | result << Peep.new(content: row['content']) } #taking out the content, but not storing it, after the map, array of strings.  
+    sqldata.map { |row | result << Peep.new(content: row['content'], created_on: row['created_on']) } #taking out the content, but not storing it, after the map, array of strings.  
     result #array of Peeps 
   end 
 end 
