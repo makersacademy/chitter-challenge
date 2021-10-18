@@ -5,7 +5,7 @@ Setup:
 * Clone this repo
 * Run bundle install to install gems
 * Type `rake setup` in your terminal to create the databases and tables
-* Type `rakeup` in your terminal to start the server
+* Type `rackup` in your terminal to start the server
 * Visit `localhost:9292` in your browser
 
 Features:
