@@ -85,19 +85,19 @@ rackup
 ```
 Then visit on your browser http://localhost:9292
 
-![alt text](https://i.gyazo.com/a37f6e8fcfea49ffcb50dc4fd4190154.png)
+![alt text](https://i.gyazo.com/49c87408e4775cf18317ce619c281f7d.png)
 
 You are greeeted by the homepage, go ahead and create an account - you can't peep without one
 
-![alt text](https://i.gyazo.com/945cc2dcf04159b1b0dee937a2f49ff6.png)
+![alt text](https://i.gyazo.com/e4649dcba523b295d30f43c95f4b0d84.png)
 
 On your return you'll now have the ability to peep whatever you want, in reply to anyone you want.
 
-![alt text](https://i.gyazo.com/496947956f9c3d2e6cd7fb2ae73045bd.png)
+![alt text](https://i.gyazo.com/4643fcea9f1881ef6f0fac72665ce6ef.png)
 
 Click anywhere on a peep to go to it's own page, where you can see all the replies and reply yourself
 
-![alt text](https://i.gyazo.com/3f6ddfdc2be328eefdc619198ad84ced.png)
+![alt text](https://i.gyazo.com/2eb17695f6a2dc8817c2cdf6dea1b90f.png)
 
 Click on the bird to go back to the homepage at any point.
 
