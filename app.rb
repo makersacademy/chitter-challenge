@@ -1,7 +1,5 @@
-require 'pg' # remove this later
 require 'sinatra/base'
 require 'sinatra/reloader'
-# require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 require './database_connection_setup'

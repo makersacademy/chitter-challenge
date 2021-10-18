@@ -2,6 +2,12 @@
   <h2>Welcome, <%= @user.email %></h2>
 <% end %>
 
+<% if @user == nil %>
+<form method="get" action="/users/new">
+  <input type="submit" value="Sign In">
+</form>
+<% end %>
+
 <form method="get" action="/peeps/new">
   <input type="submit" value="Write new peep">
 </form>

@@ -1,5 +1,48 @@
 Chitter Challenge
 =================
+Setup:
+-------
+* Clone this repo
+* Run bundle install to install gems
+* Type `rake setup` in your terminal to create the databases and tables
+* Type `rakeup` in your terminal to start the server
+* Visit `localhost:9292` in your browser
+
+Features:
+-------
+* Features
+  * [x] Sign up
+  * [ ] Log in
+  * [ ] Log out
+  * [x] Peeping
+  * [x] Listing Peeps
+  * [x] Display time of peep
+
+* Bonus Features
+  * [ ] Replying to peeps
+  * [x] CSS styling (some)
+
+## Approach
+
+* Tackled each user story one by one
+* Created a model of the classes and methods required
+* Implemented each story using a TDD approach
+
+## Thoughts
+
+* I needed more time to finish implementing all the features
+* I'm happy with how the challenge turned out but it could be so much better
+* Hoping to revisit it later to improve it
+* I want to add usernames/handles for each post
+* Add log in/log out
+* Improve the CSS
+* Improve testing
+
+## Outstanding issues
+
+* Could not get Travis CI to work
+
+-------
 
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
