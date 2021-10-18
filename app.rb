@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './docs/chitter'
 
-class Chitter < Sinatra::Base
+class Chitter_app < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
   end
@@ -26,7 +28,6 @@ class Chitter < Sinatra::Base
   get '/register' do
     erb :register
   end
-
 
 
 

@@ -19,5 +19,4 @@ feature 'Viewing index page' do
     expect(page).to have_content("Log in")
   end
 
-
 end
