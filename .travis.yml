@@ -1,4 +1,11 @@
 language: ruby
+dist: xenial
+
+addons:
+  apt:
+    packages:
+      firefox-geckodriver
+      
 before_install:
    - rvm reinstall ruby-3.0.2
 
