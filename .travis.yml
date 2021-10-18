@@ -6,7 +6,16 @@ language: ruby
 services:
   - postgresql
 
+env:
+global:
+  - PGPORT=5433
+  - DB_NAME=testdbname
+  - DB_USER=dbowner
+  - DB_PASSWORD=dbpassword
+
 before_script:
+  - psql --command="CREATE USER ${DB_USER};"
+  - psql --command="CREATE DATABASE ${DB_NAME} WITH OWNER = ${DB_USER};"
   - bundle exec rake setup
 
 script:
