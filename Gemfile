@@ -2,6 +2,14 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem "sinatra"
+gem "sinatra-contrib"
+gem "capybara"
+gem "pg"
+gem "nokogiri", ">= 1.12.5"
+gem "sinatra-flash"
+gem "webrick"
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
