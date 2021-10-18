@@ -1,11 +1,13 @@
 Chitter Challenge
 =================
+[![Build Status](https://app.travis-ci.com/starf0g/chitter-challenge.svg?branch=main)](https://app.travis-ci.com/starf0g/chitter-challenge)
+
 Setup:
 -------
 * Clone this repo
 * Run bundle install to install gems
 * Type `rake setup` in your terminal to create the databases and tables
-* Type `rakeup` in your terminal to start the server
+* Type `rackup` in your terminal to start the server
 * Visit `localhost:9292` in your browser
 
 Features:
