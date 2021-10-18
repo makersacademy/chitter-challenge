@@ -64,7 +64,6 @@ class Peep
     end.sort_by { |peep| peep.time }.reverse
   end
 
-
   def self.time(string)
     Time.strptime(string, '%Y-%m-%d %H:%M:%S')
   end

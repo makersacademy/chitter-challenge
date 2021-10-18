@@ -60,7 +60,7 @@ class User
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE username = $1 OR email = $2;", [username, email]
     )
-    !result.any?
+    result.none?
     # if the PG result has no data, the account is unique
   end
 end

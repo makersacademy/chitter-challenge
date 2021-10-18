@@ -9,67 +9,48 @@ feature 'Logging in' do
     expect(current_path).to eq('/')
     expect(page).to have_content('Successfully logged in as happyauth')
     expect(page).not_to have_button('Log in')
-    expect(page).not_to have_content('Log in')
     expect(page).not_to have_button('Sign up')
-    expect(page).not_to have_content('Sign up')
   end
+  feature 'user visits bad paths' do
+    before { sign_up(username: 'happyauth', email: 'happy@auth.com') }
 
-  scenario 'user enters an invalid email' do
-    User.create(
-      first_name: 'Bad', last_name: 'Email', username: 'boohoo', email: 'test@auth.com', password: '12345'
-    )
+    scenario 'user logs in and goes to user/login' do      
+      visit('/user/login')
 
-    log_in(email: 'wrongemail@auth.com', password: '12345')
+      expect(page).to have_content("Already logged in as happyauth")
+      expect(current_path).to eq('/')
+    end
+
+    scenario 'user logs in and goes to user/new' do
+      visit('/user/new')
+
+      expect(page).to have_content("Please log out first")
+      expect(current_path).to eq('/')
+    end
+
+    feature 'user enters wrong details' do
+      before { click_button 'Log out' }
+
+      scenario 'user enters an invalid email' do    
+        log_in(email: 'wrongemail@auth.com', password: '12345')
+        
+        expect(current_path).to eq('/user/login')
+        expect(page).to have_content("An account with that email doesn't exist")
+      end
     
-    expect(current_path).to eq('/user/login')
-    expect(page).to have_content("An account with that email doesn't exist")
-  end
-
-  scenario 'user enters the right email but wrong password' do
-    User.create(
-      first_name: 'Bad', last_name: 'Password', username: 'boohoo', email: 'badpw@auth.com', password: '12345'
-    )
-
-    log_in(email: 'badpw@auth.com', password: 'thewrongpassword')
-    
-    expect(current_path).to eq('/user/login')
-    expect(page).to have_content("Please check your password is correct")
-  end
-
-  scenario 'user logs in and goes to user/login' do
-    User.create(
-      first_name: 'Happy', last_name: 'Auth', username: 'happyauth', email: 'happy@auth.com', password: '12345'
-    )
-
-    log_in(email: 'happy@auth.com', password: '12345')
-    
-    visit('/user/login')
-
-    expect(page).to have_content("Already logged in as happyauth")
-    expect(current_path).to eq('/')
-  end
-
-  scenario 'user logs in and goes to user/new' do
-    User.create(
-      first_name: 'Happy', last_name: 'Auth', username: 'happyauth', email: 'happy@auth.com', password: '12345'
-    )
-
-    log_in(email: 'happy@auth.com', password: '12345')
-
-    visit('/user/new')
-
-    expect(page).to have_content("Please log out first")
-    expect(current_path).to eq('/')
+      scenario 'user enters the right email but wrong password' do    
+        log_in(email: 'happy@auth.com', password: 'thewrongpassword')
+        
+        expect(current_path).to eq('/user/login')
+        expect(page).to have_content("Please check your password is correct")
+      end
+    end
   end
 end
 
 feature 'logging out:' do
   scenario 'user logs out' do
-    User.create(
-      first_name: 'Happy', last_name: 'Auth', username: 'happyauth', email: 'happy@auth.com', password: '12345'
-    )
-
-    log_in(email: 'happy@auth.com', password: '12345')
+    sign_up(username: 'happyauth', email: 'happy@auth.com')
     
     click_button 'Log out'
 

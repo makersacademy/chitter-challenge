@@ -15,7 +15,7 @@ describe User do
       expect(user.first_name).to eq 'Test'
       expect(user.last_name).to eq 'User'
       expect(user.username).to eq 'test123'
-      expect(user.email).to eq  'test@test.com'
+      expect(user.email).to eq 'test@test.com'
       expect(user.password).to eq persisted_data['password']
     end
     
@@ -32,7 +32,7 @@ describe User do
       expect(db_stored_password).not_to eq('abc123')
       expect(db_stored_password).to eq(hashed_password)
       expect(hashed_password).to eq('abc123')
-      # Bcrypt stores a hash and knows it is equivalent to the raw password when compared with ==
+      #  Bcrypt stores a hash and knows it is equivalent to the raw password when compared with ==
     end
 
     it 'only creates accounts with a unique username' do
@@ -76,6 +76,18 @@ describe User do
       expect(result.username).to eq user.username
       expect(result.email).to eq user.email
       expect(result.password).to eq user.password
+    end
+  end
+
+  describe '.account' do
+    it 'checks if a user exists with that email' do
+      user = User.create(
+        first_name: 'Test', last_name: 'User', username: 'test123',
+        email: 'test@test.com', password: '12345'
+      )
+      result = User.account(email: user.email)
+
+      expect(result.id).to eq user.id
     end
   end
 end

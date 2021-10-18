@@ -4,4 +4,4 @@ DUMMY_USERS = [
   ['Maria', 'Williams', 'dragon', '3@email.com', '12345'],
   ['Anna', 'Brown', 'sunshine', '4@email.com', '12345'],
   ['Marco', 'Jones', 'Superman', '5@email.com', '12345']
-]
+].freeze

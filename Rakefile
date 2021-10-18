@@ -52,7 +52,7 @@ task :populate_database do
   DUMMY_POSTS.each do |text|
     connection.exec(
       "INSERT INTO peeps(text, time, author) VALUES('#{text}',
-      '#{rand((Time.now.utc - 10000000)..Time.now.utc)}', #{users.sample});"
+      '#{rand((Time.now.utc - 10_000_000)..Time.now.utc)}', #{users.sample});"
     )
   end
 

@@ -78,7 +78,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  #halt erb(:error) for later use
+  # halt erb(:error) for later use
 
   post '/peep/new' do
     user = User.find(id: session[:user])
@@ -90,11 +90,10 @@ class Chitter < Sinatra::Base
       end
       Peep.create(text: params[:peep_text], author: user.id)
       session[:peep] = nil
-      redirect('/')
     else
       flash[:notice] = "You are not logged in"
-      redirect('/')
     end
+    redirect('/')
   end
 
   post '/peep/new/:id' do # replying to a tweet of this id
@@ -113,7 +112,6 @@ class Chitter < Sinatra::Base
       redirect("/")
     end
   end
-
 
   get '/peep/:id' do
     @peep = Peep.find(id: params[:id])

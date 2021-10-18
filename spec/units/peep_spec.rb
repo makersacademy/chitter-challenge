@@ -7,7 +7,7 @@ describe Peep do
 
   describe '.all' do
     it 'returns an array of all peeps' do
-      user = User.create(
+      user = User.create( # is there a way to DRY this?
         first_name: 'Test', last_name: 'User', username: 'test123',
         email: 'test@test.com', password: '12345'
       )
@@ -55,6 +55,33 @@ describe Peep do
       expect(peep.text).to eq 'Test tweet'
       expect(peep.time).to eq time
       expect(peep.author).to eq user.id
+      # replying_to can be NULL
+    end
+  end
+
+  describe '.replies' do
+    it 'returns an array of all replies to a specific peep' do
+      user1 = User.create(
+        first_name: 'Test', last_name: 'User', username: 'test1',
+        email: 'test1@test.com', password: '12345'
+      )
+      user2 = User.create(
+        first_name: 'Test', last_name: 'User', username: 'test2',
+        email: 'test2@test.com', password: '12345'
+      )
+      user3 = User.create(
+        first_name: 'Test', last_name: 'User', username: 'test3',
+        email: 'test3@test.com', password: '12345'
+      )
+      
+      peep = Peep.create(text: 'Test tweet', author: user1.id)
+      reply_peep1 = Peep.create(text: 'Reply tweet1', author: user2.id, peep: peep.id)
+      reply_peep2 = Peep.create(text: 'Reply tweet2', author: user3.id, peep: peep.id)
+      replies = Peep.replies(id: peep.id)
+
+      expect(replies.length).to eq(2)
+      expect(replies.first.id).to eq reply_peep2.id
+      expect(replies.first.text).to eq 'Reply tweet2' # newest first
     end
   end
 end

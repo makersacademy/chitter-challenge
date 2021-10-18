@@ -1,5 +1,6 @@
 Chitter Challenge
 =================
+COVERAGE: 100.00% -- 229/229 lines in 9 files
 
 ```
 STRAIGHT UP
@@ -49,7 +50,7 @@ Objectives:
 Bonus:
 -----
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* ✓ In order to start a conversation as a maker I want to reply to a peep from another maker.
 * ✓ Work on the CSS to make it look good.
 
 -----------
@@ -78,17 +79,31 @@ rake reset_database
 
 ## Using the app
 
-![alt text](https://i.gyazo.com/10b98a912d9e94197467845c4580d8d0.png)
-
 Whilst inside the chitter-challenge directory:
 ```
 rackup
 ```
+Then visit on your browser http://localhost:9292
 
-Visit http://localhost:9292
+![alt text](https://i.gyazo.com/a37f6e8fcfea49ffcb50dc4fd4190154.png)
+
+You are greeeted by the homepage, go ahead and create an account - you can't peep without one
+
+![alt text](https://i.gyazo.com/945cc2dcf04159b1b0dee937a2f49ff6.png)
+
+On your return you'll now have the ability to peep whatever you want, in reply to anyone you want.
+
+![alt text](https://i.gyazo.com/496947956f9c3d2e6cd7fb2ae73045bd.png)
+
+Click anywhere on a peep to go to it's own page, where you can see all the replies and reply yourself
+
+![alt text](https://i.gyazo.com/3f6ddfdc2be328eefdc619198ad84ced.png)
+
+Click on the bird to go back to the homepage at any point.
+
+Have fun :)
 
 Notes:
-* You need to be logged in to peep. Head over to the Sign up page by clicking on the right
 * You must use a unique email and username when signing up
 * You can log out and log in as someone else, post again, and it will be authored by the other user
 
