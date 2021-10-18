@@ -10,11 +10,6 @@
           <input type="submit" name="Peep" value="Peep">
         </fieldset>
       </form>
-        <% @peeps.each do |peep| %>
-          <li class="peep" id="peep-<%= peep.id %>">
-              <%= "#{peep.content} @ #{peep.time}"%>
-          </li>
-        <% end %>
       <% else %>
         <h1>
           <form action="/sessions/login">
@@ -25,6 +20,11 @@
           </form>
         </h1>
       <% end %>
+      <% @peeps.each do |peep| %>
+          <li class="peep" id="peep-<%= peep.id %>">
+              <%= "#{peep.content} @ #{peep.time}"%>
+          </li>
+        <% end %>
       <% if @user %>
         <form action="/sessions/destroy" method="post">
           <input type="submit" value="Sign out" />
