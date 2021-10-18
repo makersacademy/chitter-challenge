@@ -2,6 +2,7 @@ language: ruby
 
 rvm:
   - 3.0.2
+  - rvm get master
 
 before_install:
   - gem install bundler
