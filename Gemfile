@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.0.2'
+ruby File.read(".ruby-version").strip
 
 gem 'bcrypt'
 gem 'pg'
