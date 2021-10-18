@@ -1,5 +1,4 @@
 language: ruby
-
 before_install:
    - rvm reinstall ruby-3.0.2
 
