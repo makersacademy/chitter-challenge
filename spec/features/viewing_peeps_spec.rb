@@ -15,9 +15,9 @@ feature 'Viewing peeps' do
     visit('/')
     
     expect(page).to have_content(
-        "Test User\n@user3\n· 00:00 am · 01 Jan 2021\npeep 3\n"\
-        "Test User\n@user2\n· 00:00 am · 01 Jan 2020\npeep 2\n"\
-        "Test User\n@user1\n· 00:00 am · 01 Jan 2019\npeep 1"
+        "Test User\n@user3\n· 0:00 am · 1 Jan 2021\npeep 3\n"\
+        "Test User\n@user2\n· 0:00 am · 1 Jan 2020\npeep 2\n"\
+        "Test User\n@user1\n· 0:00 am · 1 Jan 2019\npeep 1"
     )
   end
 

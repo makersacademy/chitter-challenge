@@ -1,6 +1,40 @@
 <div class="layout">
   <div class="layout__main">
-    <div class="peep-reply">
+    <% if @peep.replying_to %>
+    <a class="peep" href="/peep/<%= @target.id %>">
+      <img class="peep__author-pic" src="/images/red_egg.jpeg">
+      <div class="peep__main">
+        <div class="peep__header">
+          <div class="peep__author-name">
+            <%= (User.find(id: @target.author)).first_name %> <%= (User.find(id: @target.author)).last_name %>
+          </div>
+          <div class="peep__author-username">
+            @<%= (User.find(id: @target.author)).username %>
+          </div>
+          <div class="peep__time-since">
+            · <%= @target.time.strftime('%-H:%M %P · %-d %b %Y') %>
+          </div>
+        </div>
+        <div class="peep__content">
+          <% if @target.replying_to %>
+          <div class="peep__replying-to">
+            <%= "@#{(User.find(id: Peep.find(id: @target.replying_to).author)).username}"%>
+          </div>
+          <% end %>
+          <div class="peep__text">
+            <%= @target.text %>
+          </div>
+        </div>
+        <div class="peep__footer">
+          <img class="peep__reply-icon" src="/images/reply_icon.png" alt="Homepage" width="18" height="18">
+          <div class="peep__reply-count">
+            <%= Peep.replies(id: @target.id).count if Peep.replies(id: @target.id) %>
+          </div>
+        </div>
+      </div>
+    </a>
+    <% end %>
+    <div class="peep-focus">
       <img class="peep__author-pic" src="/images/red_egg.jpeg">
       <div class="peep__main">
         <div class="peep__header">
@@ -15,15 +49,20 @@
           </div>
         </div>
         <div class="peep__content">
+          <% if @peep.replying_to %>
           <div class="peep__replying-to">
-            <%= "@#{(User.find(id: Peep.find(id: @peep.replying_to).author)).username} " if @peep.replying_to %>
+            <%= "@#{(User.find(id: Peep.find(id: @peep.replying_to).author)).username}"%>
           </div>
+          <% end %>
           <div class="peep__text">
             <%= @peep.text %>
           </div>
         </div>
-        <div class="reply-icon">
-          <img src="/images/reply_icon.png" alt="Homepage" width="18" height="18"> <%= @replies.count if @replies %>
+        <div class="peep__footer">
+          <img class="peep__reply-icon" src="/images/reply_icon.png" alt="Homepage" width="18" height="18">
+          <div class="peep__reply-count">
+            <%= Peep.replies(id: @peep.id).count if Peep.replies(id: @peep.id) %>
+          </div>
         </div>
       </div>
     </div>
@@ -55,15 +94,20 @@
             </div>
           </div>
           <div class="peep__content">
+            <% if peep.replying_to %>
             <div class="peep__replying-to">
-              <%= "@#{(User.find(id: Peep.find(id: peep.replying_to).author)).username} " if peep.replying_to %>
+              <%= "@#{(User.find(id: Peep.find(id: peep.replying_to).author)).username}"%>
             </div>
+            <% end %>
             <div class="peep__text">
               <%= peep.text %>
             </div>
           </div>
-          <div class="reply-icon">
-            <img src="/images/reply_icon.png" alt="Homepage" width="18" height="18"> <%= Peep.replies(id: peep.id).count if Peep.replies(id: peep.id) %>
+          <div class="peep__footer">
+            <img class="peep__reply-icon" src="/images/reply_icon.png" alt="Homepage" width="18" height="18">
+            <div class="peep__reply-count">
+              <%= Peep.replies(id: peep.id).count if Peep.replies(id: peep.id) %>
+            </div>
           </div>
         </div>
       </a>

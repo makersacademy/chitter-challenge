@@ -117,7 +117,8 @@ class Chitter < Sinatra::Base
     @peep = Peep.find(id: params[:id])
     @replies = Peep.replies(id: params[:id])
     @user = User.find(id: session[:user])
-    erb :reply, :layout => :base
+    @target = Peep.find(id: @peep.replying_to) if @peep.replying_to
+    erb :peep, :layout => :base
   end
 
   run! if app_file == $0
