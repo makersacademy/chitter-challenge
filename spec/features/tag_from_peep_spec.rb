@@ -1,8 +1,9 @@
 feature 'Tags from Peeps' do
   scenario 'a tag will not be created twice' do
-    visit '/users/sign_up'
+    User.create(username: 'test_user', email: 'test@example.com', password: 'password123', name: 'test name')
+    visit '/'
+    click_button 'Sign In'
     fill_in('username', with: 'test_user')
-    fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
     click_button('Submit')
 

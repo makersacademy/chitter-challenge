@@ -10,6 +10,8 @@ require 'simplecov-console'
 require 'timecop'
 
 Capybara.app = ChitterApp
+Capybara.default_driver = :selenium
+Capybara.server = :webrick
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
