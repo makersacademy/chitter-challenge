@@ -15,7 +15,7 @@ task :create_databases do
 end
 
 task :create_tables do
-  connection = PG.connect(dbname: 'peep_manager_test')
+  connection = PG.connect(dbname: 'chitter_test')
 
   connection.exec(
     "CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR( 60 ), username VARCHAR( 60 ), email VARCHAR( 60 ), password VARCHAR( 120 ));"
