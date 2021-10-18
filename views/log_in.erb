@@ -1,0 +1,12 @@
+<div style="text-align: center;">
+  <b style="color: red;"> <%= flash[:notice] %></b>
+	<h1>Login</h1>
+	<p><iframe src="https://giphy.com/embed/J2Cn43dJvkMjn6xICf" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
+
+	<form method="post" action="/log_in">
+    <p><input type="text" name="username" placeholder="Username" /></p>
+    <p><input type="password" name="password" placeholder="Password" /></p>
+    <input type="submit" value="Submit" style="width:100px;height:30px;" />
+  </form>
+
+</div>

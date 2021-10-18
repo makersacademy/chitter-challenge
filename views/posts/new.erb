@@ -1,0 +1,9 @@
+<div style="text-align: center;">
+  <h1>New post</h1>
+    <p><iframe src="https://giphy.com/embed/ZCj9e6TL0Y4ko" width="480" height="264" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
+  <h3>Message:</h3>
+  <form action="/user/<%= @user_id %>/posts" method="POST">
+    <p><textarea name="text" type="text" cols="40" rows="5"></textarea></p>
+    <input value="Submit" type="submit" style="width:100px;height:30px;"/>
+  </form>
+</div>
