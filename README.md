@@ -52,6 +52,7 @@ Stack:
 | <img src="public/images/capybara.png" height="40" width="auto"> | [Capybara](https://github.com/teamcapybara/capybara) | Acceptance test framework for Ruby. | In ./spec/features |
 | <img src="public/images/ruby.png" height="40" width="auto"> | [Ruby](https://www.ruby-lang.org/en/) | Programming language. | Everywhere! |
 | <img src="public/images/sinatra.jpg" height="40" width="auto">  | [Sinatra](http://sinatrarb.com/)  | Sinatra is a DSL for quickly creating web applications in Ruby. | In the file structure for the project - it is built on Sinatra. |
+| <img src="public/images/psql.png" height="40" width="auto">  | [PostgreSQL](https://www.postgresql.org/)  | An object-relational database system | /db/migration for DB setup |
 
 My Learning Objectives:
 -------
