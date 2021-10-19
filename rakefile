@@ -43,6 +43,7 @@ end
 task :reset do
   Rake::Task[:drop_databases].execute
   Rake::Task[:setup].execute
+end
 
 task :setup do
   Rake::Task[:create_databases].execute
