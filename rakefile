@@ -2,7 +2,14 @@ require 'pg'
 
 databases = ['chitter', 'chitter_test']
 
-task :setup do
+task :test_database_setup do
+  p "Cleaning test database..."
+
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("TRUNCATE peeps, users;")
+end
+
+task :create_databases do
   p "Creating databases..."
 
   databases.each do |database|
@@ -11,20 +18,17 @@ task :setup do
       connection.exec("CREATE DATABASE #{database};")
     rescue => exception
       p "Database #{database} already exists. Skipping creation."
-    else
-      connection = PG.connect(dbname: database)
-      connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(240), timestamp TIMESTAMP);")
-      connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
     end
-
   end
 end
 
-task :test_database_setup do
-  p "Cleaning database..."
-
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("TRUNCATE peeps, users;")
+task :create_tables do
+  p "Creating tables..."
+  databases.each do |database|
+    connection = PG.connect(dbname: database)
+    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(240), timestamp TIMESTAMP);")
+    connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
+  end
 end
 
 task :drop_databases do
@@ -39,4 +43,8 @@ end
 task :reset do
   Rake::Task[:drop_databases].execute
   Rake::Task[:setup].execute
+
+task :setup do
+  Rake::Task[:create_databases].execute
+  Rake::Task[:create_tables].execute
 end
