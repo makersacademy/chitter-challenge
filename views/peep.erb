@@ -12,7 +12,7 @@
             @<%= (User.find(id: @target.author)).username %>
           </div>
           <div class="peep__time-since">
-            · <%= time_ago(@target.time) %>
+            · <%= time_since(@target.time) %>
           </div>
         </div>
         <div class="peep__content">
@@ -90,7 +90,7 @@
               @<%= (User.find(id: peep.author)).username %>
             </div>
             <div class="peep__time-since">
-              · <%= time_ago(peep.time) %>
+              · <%= time_since(peep.time) %>
             </div>
           </div>
           <div class="peep__content">

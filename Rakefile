@@ -1,6 +1,7 @@
 require 'pg'
-require './dummy_posts'
-require './dummy_users'
+require_relative 'dummy_posts'
+require_relative 'dummy_users'
+require_relative 'dummy_replies'
 
 task :setup do
   p "Creating databases..."
@@ -49,15 +50,34 @@ task :populate_database do
     users << user[0]['id']
   end
 
+  peeps = []
   DUMMY_POSTS.each do |text|
-    connection.exec(
+    time = rand((Time.now - 172800)..Time.now)
+    peep = connection.exec(
       "INSERT INTO peeps(text, time, author) VALUES('#{text}',
-      '#{rand((Time.now - 10_000_000)..Time.now)}', #{users.sample});"
+      '#{time}', #{users.sample}) RETURNING id, author, time;"
+      # random time within the last 3 days
     )
+    peeps << [peep[0]['id'], peep[0]['author'], time]
   end
 
+  reply_count = 0
+  DUMMY_REPLIES.each do |text|
+    user = users.sample
+    peep = peeps.sample
+    time = rand((Time.now - 172800)..Time.now)
+    unless user == peep[1] || time < peep[2] # stopping db conflicts
+      connection.exec(
+        "INSERT INTO peeps(text, time, author, replying_to) VALUES('#{text}',
+        '#{time}', #{user}, #{peep[0]})"
+        )
+      reply_count +=1
+    end
+  end
+
+
   p "Added #{DUMMY_USERS.length} users"
-  p "Added #{DUMMY_POSTS.length} posts"
+  p "Added #{DUMMY_POSTS.length + reply_count} posts"
 end
 
 task :reset_database do

@@ -58,7 +58,7 @@
 
 .peep-focus {
   display: flex;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid red;
   padding: 35px 15px;
   text-decoration: none;
 }

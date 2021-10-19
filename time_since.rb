@@ -1,4 +1,4 @@
-def time_ago(time) # time object
+def time_since(time) # time object
   year_start = Time.new(Time.now.year)
   return time.strftime('%-d %b %Y') unless time.between?(year_start, Time.now)
 

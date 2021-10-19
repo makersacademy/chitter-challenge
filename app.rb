@@ -4,7 +4,7 @@ require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/user'
 require_relative './spec/setup_connection'
-require_relative 'time_ago'
+require_relative 'time_since'
 
 class Chitter < Sinatra::Base
   configure :development do
