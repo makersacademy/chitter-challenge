@@ -4,7 +4,7 @@ dist: focal
 language: ruby
 
 addons:
-  postgresql: 13
+  postgresql: 14
   apt:
     update: true
     packages:
