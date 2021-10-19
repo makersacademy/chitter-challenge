@@ -3,11 +3,35 @@ dist: focal
 
 language: ruby
 
+addons:
+  postgresql: 13
+  apt:
+    update: true
+    packages:
+      - postgresql-14
+
 services:
   - postgresql
 
+env:
+  global:
+    - PGPORT=5433
+  jobs:
+    - NODE_ENV=test DB_PORT=5433 DB_USERNAME=postgres
+
+before_install:
+  # Use trust instead of peer authentication:
+  - >-
+    sudo sed -i
+    -e '/local.*peer/s/postgres/all/'
+    -e 's/peer\|md5/trust/g'
+    /etc/postgresql/14/main/pg_hba.conf
+  # Restart the PostgreSQL service:
+  - sudo service postgresql@14-main restart
+
+
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - sudo psql -p 5433 -U postgres -c 'create database my-app;'
   - bundle exec rake setup
 
 script:
