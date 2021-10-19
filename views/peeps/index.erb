@@ -1,0 +1,16 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
+<h2>Latest Peeps</h2>
+
+<h4>Peep all about it</h4>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %> peeped on <%= peep.created_on %></li>
+  <% end %>
+</ul>
+
+<a href="/peeps/new">Add new Peep</a>
+
