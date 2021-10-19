@@ -110,7 +110,6 @@ Notes:
 -----
 ## Additional technologies used
 * Timecop gem for testing the time sensitive aspect of the app (viewing tweets in reverse chronological order). Let's you freeze time objects and pass in specific times.
-* Orderly gem for checking peeps appear in the right order.
 * Bcrypt for hashing passwords.
 * Sinatra flash messages for handling unhappy paths.
 * Rake for setting up the database for testing, as well as making it easy to set up for anyone cloning this repo. I made my own script to populate the database with some dummy posts.
