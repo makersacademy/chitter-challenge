@@ -31,6 +31,9 @@ before_install:
     /etc/postgresql/13/main/pg_hba.conf
   # Restart the PostgreSQL service:
   - sudo service postgresql@13-main restart
+  - gem uninstall pg
+  - bundle install
+  
 
 before_script:
   # Create the test database:
