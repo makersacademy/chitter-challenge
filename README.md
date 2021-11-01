@@ -31,3 +31,10 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
+How to connect to Database:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE bookmark_manager;
+3. Connect to the database using the pqsl command \c bookmark_manager;
+4. Run the query saved in the file 01_create_peeps_table.sql

@@ -14,13 +14,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/peeps' do
-    peeps = [
-            "What's up Chitter",
-            "What do you want to say?",
-            "I am hungry"
-           ]
-
-    peeps.join
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   # post '/status' do

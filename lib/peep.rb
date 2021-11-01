@@ -1,4 +1,12 @@
-# require 'pg' #the gem makes object avaialbe to ruby
+require 'pg' #the gem makes object avaialbe to ruby
+
+class Peep
+  def self.all
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map { |peep| peep['peep'] }
+  end
+end
 
 # class Peep
 #   attr_reader :peep, :time

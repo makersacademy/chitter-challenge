@@ -1,4 +1,15 @@
-# require 'peep'
+require 'peep'
+
+describe Peep do
+  describe '.all' do
+    it 'returns all peeps' do
+      peeps = Peep.all 
+      expect(peeps).to include("Whats up Chitter")
+      expect(peeps).to include("What do you want to say?")
+      expect(peeps).to include("I am hungry")
+    end
+  end
+end
 
 # describe Peep do
 
