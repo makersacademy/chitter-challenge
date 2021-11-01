@@ -8,14 +8,15 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.all.reverse
-    erb :index
+    "All chitter peeps"
+    # @peeps = Peep.all.reverse
+    # erb :index
   end
 
-  post '/status' do
-    Peep.create(params[:status])
-    redirect '/'
-  end
+  # post '/status' do
+  #   Peep.create(params[:status])
+  #   redirect '/'
+  # end
 
   run! if app_file == $0
 end

@@ -1,11 +1,11 @@
--- primary database
+-- -- primary database
 
-CREATE DATABASE chitter WITH OWNER faryahussain ENCODING 'UTF8';
+-- CREATE DATABASE chitter WITH OWNER faryahussain ENCODING 'UTF8';
 
-CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(60), peep VARCHAR(100), data DATE);
+-- CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(60), peep VARCHAR(100), data DATE);
 
--- test database
+-- -- test database
 
-CREATE DATABASE chitter_test WITH OWNER faryahussain ENCODING 'UTF8';
+-- CREATE DATABASE chitter_test WITH OWNER faryahussain ENCODING 'UTF8';
 
-CREATE TABLE peeps_test (id SERIAL PRIMARY KEY, username VARCHAR(60), peep VARCHAR(100), data DATE);
+-- CREATE TABLE peeps_test (id SERIAL PRIMARY KEY, username VARCHAR(60), peep VARCHAR(100), data DATE);

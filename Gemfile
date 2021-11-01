@@ -1,14 +1,11 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-group :test do
-  gem 'rspec'
-  gem 'rubocop', '0.79.0'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+source "https://rubygems.org"
 
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'rspec'
-gem 'capybara'
-gem 'pg'
+gem "rubocop", require: false
+gem "sinatra"
+
+gem "capybara", require: false, group: :test
+gem "rspec", require: false, group: :test
+gem "simplecov", require: false, group: :test
+gem "simplecov-console", require: false, group: :test
