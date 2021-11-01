@@ -13,6 +13,16 @@ class ChitterChallenge < Sinatra::Base
     # erb :index
   end
 
+  get '/peeps' do
+    peeps = [
+            "What's up Chitter",
+            "What do you want to say?",
+            "I am hungry"
+           ]
+
+    peeps.join
+  end
+
   # post '/status' do
   #   Peep.create(params[:status])
   #   redirect '/'
