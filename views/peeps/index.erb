@@ -1,5 +1,6 @@
 <ul>
   <% @peeps.each do |peep| %>
+  <ul>
     <li class ="peep" id="peep-<%=peep.id%>">
     <%= peep.peep %>
     <form action="peeps/<%= peep.id%>" method="post">
@@ -9,14 +10,15 @@
        <form action="/peeps/<%= peep.id %>/edit" method="get">
         <input type="submit" value="Edit" />
       </form>
-        <form action="/peeps/<%= peep.id %>/comments/new" method="get">
+      <form action="/peeps/<%= peep.id %>/comments/new" method="get">
         <input type="submit" value="Add Comment" />
       </form>
       <ul>
-      <% peep.comments.each do |comment| %>
-      <li> <%= comment.text %></li>
-      <%end%>
+        <% peep.comments.each do |comment| %>
+          <li><%= comment.text %></li>
+        <% end %>
       </ul>
-      </li>
+</li>
+
   <% end %>
 </ul>
