@@ -1,14 +1,16 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep.rb'
+require './database_connection_setup.rb'
 
 class ChitterChallenge < Sinatra::Base
-enable :sessions, :method_override
 
 
   configure :development do
     register Sinatra::Reloader
   end
+
+  enable :sessions, :method_override
 
   get '/' do
     "All chitter peeps"
