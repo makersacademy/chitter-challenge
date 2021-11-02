@@ -35,6 +35,7 @@ I want to receive an email if I am tagged in a Peep
 How to connect to Database:
 
 1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE bookmark_manager;
-3. Connect to the database using the pqsl command \c bookmark_manager;
+2. Create the database using the psql command CREATE DATABASE chitter;
+3. Connect to the database using the pqsl command \c chitter;
 4. Run the query saved in the file 01_create_peeps_table.sql
+5. Set up test database following above steps - naming it 'chitter_test'
