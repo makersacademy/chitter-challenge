@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep.rb'
-require './database_connection_setup.rb'
+require './database_connection_setup'
 
 class ChitterChallenge < Sinatra::Base
 
@@ -43,6 +43,16 @@ class ChitterChallenge < Sinatra::Base
   patch '/peeps/:id' do
     Peep.update(id: params[:id], peep: params[:peep])
     redirect('/peeps')
+  end
+
+  get '/peeps/:id/comments/new' do
+    @peep_id = params[:id]
+    erb :'comments/new'
+  end
+
+  post '/peeps/:id/comments' do
+    Comment.create(peep_id: params[:id], text: params[:comment])
+    redirect '/peeps'
   end
 
   run! if app_file == $0

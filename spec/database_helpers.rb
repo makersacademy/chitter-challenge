@@ -1,8 +1,6 @@
 require 'pg'
 
-def persisted_data(id:)
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.query(
-    "SELECT * FROM peeps WHERE id = $1;", [id]
-  )
+def persisted_data(id:, table:)
+ connection = PG.connect(dbname: 'chitter_test')
+ connection.query("SELECT * FROM #{table} WHERE id = '#{id}';")
 end

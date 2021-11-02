@@ -1,6 +1,7 @@
--- -- primary database
+-- -- peeps table
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(100));
--- CREATE DATABASE chitter WITH OWNER faryahussain ENCODING 'UTF8';
+-- -- comments table
+CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), peep_id INTEGER REFERENCES peeps (id));
 
 -- CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(60), peep VARCHAR(100), data DATE);
 

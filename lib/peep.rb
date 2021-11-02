@@ -10,8 +10,8 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| 
+    peeps = DatabaseConnection.query("SELECT * FROM peeps")
+    peeps.map { |peep| 
       Peep.new(
         peep: peep['peep'], 
         id: peep['id']
@@ -39,5 +39,9 @@ end
   )
   Peep.new(id: result[0]['id'], peep: result[0]['peep'])
 end
+
+  def comments(comment_class = Comment)
+    comment_class.where(peep_id: id)
+  end
 
 end
