@@ -14,6 +14,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/peeps' do
+    p ENV
     @peeps = Peep.all
     erb :'peeps/index'
   end
