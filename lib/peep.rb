@@ -28,7 +28,7 @@ def self.create(peep:)
     connection = PG.connect(dbname: 'chitter')
   end
 
-  result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep")
+  result = connection.exec_params("INSERT INTO peeps (peep) VALUES($1) RETURNING id, peep", [peep])
   Peep.new(id: result[0]['id'], peep: result[0]['peep'])
 end
 
