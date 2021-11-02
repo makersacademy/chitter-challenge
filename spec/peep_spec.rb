@@ -7,8 +7,8 @@ describe Peep do
     connection = PG.connect(dbname: 'chitter_test')
 
     connection.exec("INSERT INTO peeps (peep) VALUES ('Whats up Chitter');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('What do you want to say?');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('I am hungry');")
+    connection.exec("INSERT INTO peeps (peep) VALUES ('What do you want to say?');")
+    connection.exec("INSERT INTO peeps (peep) VALUES ('I am hungry');")
     
     peeps = Peep.all 
     
