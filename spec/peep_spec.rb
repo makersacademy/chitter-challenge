@@ -41,6 +41,30 @@ describe Peep do
   end
 end
 
+
+describe '.update' do
+  it 'updates the peep with the given data' do
+    peep = Peep.create(peep: "Hi there again")
+    updated_peep = Peep.update(id: peep.id, peep: "Why though?")
+
+    expect(updated_peep).to be_a Peep
+    expect(updated_peep.id).to eq peep.id
+    expect(updated_peep.peep).to eq 'Why though?'
+  end
+end
+
+describe '.find' do
+    it 'returns the requested peep object' do
+      peep = Peep.create(peep: 'How many times')
+
+      result = Peep.find(id: peep.id)
+
+      expect(result).to be_a Peep
+      expect(result.id).to eq peep.id
+      expect(result.peep).to eq 'How many times'
+    end
+  end
+
 end
 
 
