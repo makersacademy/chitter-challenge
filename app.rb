@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep.rb'
 require_relative './lib/comment.rb'
+require_relative './lib/user.rb'
 require './database_connection_setup'
 
 class ChitterChallenge < Sinatra::Base
@@ -17,7 +18,18 @@ class ChitterChallenge < Sinatra::Base
     "All chitter peeps"
   end
 
+  get '/users/new' do
+  erb :"users/new"
+end
+
+post '/users' do
+  user = User.create(email: params['email'], password: params['password'])
+  session[:user_id] = user.id
+  redirect '/peeps'
+end
+
   get '/peeps' do
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
   end
