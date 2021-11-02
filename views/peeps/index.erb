@@ -1,5 +1,9 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peep %></li>
+    <li class ="peep" id="peep-<%=peep.id%>"><%= peep.peep %>
+    <form action="peeps/<%= peep.id%>" method="post">
+    <input type='hidden' name='_method' value='DELETE'>
+     <input type="submit" value="Delete" /></li>
+     </form>
   <% end %>
 </ul>

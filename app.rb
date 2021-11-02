@@ -3,14 +3,15 @@ require 'sinatra/reloader'
 require_relative './lib/peep.rb'
 
 class ChitterChallenge < Sinatra::Base
+enable :sessions, :method_override
+
+
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
     "All chitter peeps"
-    # @peeps = Peep.all.reverse
-    # erb :index
   end
 
   get '/peeps' do
@@ -24,6 +25,11 @@ class ChitterChallenge < Sinatra::Base
 
   post '/peeps' do
     Peep.create(peep: params['peep']);
+    redirect '/peeps'
+  end
+
+  delete '/peeps/:id' do
+    Peep.delete(id: params[:id])
     redirect '/peeps'
   end
 
