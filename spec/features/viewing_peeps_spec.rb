@@ -11,9 +11,9 @@ feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Whats up Chitter');")
-    connection.exec("INSERT INTO peeps (peep) VALUES ('What do you want to say?');")
-    connection.exec("INSERT INTO peeps (peep) VALUES ('I am hungry');")
+    Peep.create(peep: 'Whats up Chitter')
+    Peep.create(peep: 'What do you want to say?')
+    Peep.create(peep: 'I am hungry')
     
     visit('/peeps')
 
