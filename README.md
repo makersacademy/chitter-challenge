@@ -60,6 +60,7 @@ Bonus:
 * User authentication
 * Hashed passwords
 * Flash messages to deal with unhappy paths such as bad or not unique login/signup details
+* Timestamped peeps and the time since they are made is displayed dynamically
 * Sidebar and branding using erb layouts
 * Replies and a clear visual representation of them
 * Reply chains are shown on a peep's page
