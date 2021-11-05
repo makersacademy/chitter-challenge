@@ -1,6 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chitter</title>
+<link rel = "stylesheet" href="../styles.css"/>
+</head>
+<nav>
+<body>
+<div class = "logo"> CHITTER</div>
+<div class = "nav-items">
+<a href="/peeps">HOME</a>
+<a href="/users/new">SIGNUP</a>
+</div>
+</nav>
+<div class = "column-left signup">
 <h2><%= flash[:notice] %></h2>
 <form action="/sessions" method="post">
-  <input type="email" name="email" placeholder= "Email" />
-  <input type="password" name="password" placeholder = "Password" />
-  <input type="submit" value="Sign in" />
+ <h1><input class ="signup" type="email" name="email" placeholder= "Email" />
+ <h1><input class ="signup" type="password" name="password" placeholder = "Password" />
+ <h1><button class ="signup" type="submit" value="Sign in"> LOGIN</button>
 </form>
+</div>
+</body>
+</html>

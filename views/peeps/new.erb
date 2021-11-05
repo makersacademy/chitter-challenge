@@ -1,4 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chitter</title>
+<link rel = "stylesheet" href="../styles.css"/>
+</head>
+
+<body>
+<% if @user %>
+<nav>
+<div class = "logo"> CHITTER</div>
+<div class = "nav-items">
+<a href="/peeps">HOME</a>
+<a href="/">LOGOUT</a>
+</div>
+</nav>
+<div class = "column-left signup">
 <form action="/peeps" method="post">
-  <input type="text" name="peep" placeholder = "Peep" />
-  <input type="submit" value="Submit">
+  <input class = "signup" type="text" name="peep" placeholder = "write your peep here" minlength="1" required />
+  <button class ="signup" type="submit" value="Submit">Create peep</button>
 </form>
+</div>
+<% else %>
+<nav>
+<div class = "logo"> CHITTER</div>
+<div class = "nav-items">
+<a href="/peeps">HOME</a>
+<a href="/users/new">SIGNUP</a>
+<a href="/sessions/new">LOGIN</a>
+</div>
+</nav>
+Sign up or login to peep!
+<% end %>
+</body>
+</html>
+
