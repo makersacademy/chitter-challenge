@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require_relative "./comment"
 
 class Peep
 
@@ -10,7 +11,7 @@ class Peep
   end
 
   def self.all
-    peeps = DatabaseConnection.query("SELECT * FROM peeps")
+    peeps = DatabaseConnection.query("SELECT * FROM peeps;")
     peeps.map { |peep| 
       Peep.new(
         peep: peep['peep'], 

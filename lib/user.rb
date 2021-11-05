@@ -6,7 +6,7 @@ class User
     encrypted_password = BCrypt::Password.create(password)
 
     result = DatabaseConnection.query(
-      "INSERT INTO chitter_users (email, password) VALUES($1, $2) RETURNING id, email;", [email, password]
+      "INSERT INTO chitter_users (email, password) VALUES($1, $2) RETURNING id, email;", [email, encrypted_password]
     )
     User.new(
       id: result[0]['id'],
@@ -23,6 +23,15 @@ class User
       id: result[0]['id'],
       email: result[0]['email'],
     )
+  end
+
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query(
+      "SELECT * FROM chitter_users WHERE email = $1", [email]
+    )
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(id: result[0]['id'], email: result[0]['email'])
   end
 
   attr_reader :id, :email

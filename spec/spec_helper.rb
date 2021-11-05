@@ -18,6 +18,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+
 Capybara.app = ChitterChallenge
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
