@@ -1,5 +1,6 @@
 require 'user'
-require 'database_helpers'
+require 'database_helpers' 
+
 
 describe User do
   describe '.create' do

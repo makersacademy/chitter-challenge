@@ -3,7 +3,7 @@ require 'pg'
 feature 'Viewing peeps' do
   scenario 'visiting the index page' do
     visit('/')
-    expect(page).to have_content "All chitter peeps"
+    expect(page).to have_content "Chit chit, chat chat"
   end
 end
 

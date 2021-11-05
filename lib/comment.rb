@@ -27,6 +27,7 @@ class Comment
     end
   end
 
+
    attr_reader :id, :text, :peep_id
 
   def initialize(id:, text:, peep_id:)
