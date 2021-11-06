@@ -7,14 +7,17 @@
 <link rel = "stylesheet" href="../styles.css"/>
 </head>
 <nav>
-<body class = "hero">
-<div class = "logo"> CHITTER</div>
+<body class = "mainbody">
+<div class = "logo"><a href="/">  CHITTER</a></div>
 <div class = "nav-items">
-<a href="/peeps">HOME</a>
+
 <a href="/sessions/new">LOGIN</a>
+<a href="/peeps">PEEPBAR</a>
 </div>
 </nav>
+
 <div class = "column-left signup">
+<div><h2 class="already">Already a chitterer? <a href="/sessions/new"> Login here!</a><h2></div>
 <form method="post" action="/users">
   <h1><input class ="signup1" type="name" name="username" placeholder="Name" required></h1>
   <h1><input class ="signup1" type="email" name="email" placeholder="Email" minlength='2' required></h1>

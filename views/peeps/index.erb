@@ -8,29 +8,28 @@
 </head>
 <body>
 <nav>
-<body class ="hero">
-<div class = "logo"> CHITTER</div>
+<body class ="mainbody">
+<div class = "logo"><a href="/"> CHITTER</a></div>
 <div class = "nav-items">
 <% if @user %>
 <div class = "loggedinnav">
-  <p> Welcome, <%= @user.username %> </p>
+
   <form action = "/sessions/destroy" method="post">
   <button class= "logoutbutton" type="submit" value="Sign out">LOGOUT</button>
 </form>
+  <p> Welcome, <%= @user.username %> </p>
 </div>
 <% else %>
 <div class = "nav-items">
-<a href="/peeps">HOME</a>
-<a href="/users/new">SIGNUP</a>
 <a href="/sessions/new">LOGIN</a>
+<a href="/users/new">SIGNUP</a>
 </div>
 <% end %>
 <ul>
 </div>
 </nav>
-<h2 class = "flash"><%= flash[:notice] %></h2>
-<section class="hero">
-<div class="hero-container">
+<section class="mainbody">
+<div class="mainbody-container">
 <div class="column-left">
    <% if @user %>
 <div class = "column-left signup">
@@ -40,15 +39,20 @@
 </form>
 </div>
 <%else%>
-<h3><a href = "/users/new"> Sign up</a> or <a href = "sessions/new"> login</a> to peep!<h3>
+
+<h3 class="leftsignup"><h2 class = "flash signoutflash"><%= flash[:notice] %></h2><a href = "/users/new"> sign up</a> or <a href = "sessions/new"> login</a> to peep!<h3>
 <%end%>
  </div>
- <div class="column-right">
+ 
+ <div class="peeptable column-right">
+ <div><h3>Most recent peeps</h3></div>
 <% @peeps.reverse.each do |peep| %>
 <div class = "bunchpeep">
     <li class ="peep" id="peep-<%=peep.id%>">
-     <div><%= "#{peep.date}"%> at <%="#{peep.time}"%></div>
+    <div class = peeptopbar>
+     <div class = "peepdatetime"> <%="#{peep.time}"%> on <%= "#{peep.date}"%> </div>
     <div class><%= peep.user_id %> posted:</div>
+    </div>
    <div class ="signup1 editpeep "> <%= peep.peep %> </div>
     <% if @user %>
     <div class = "editcomment peepedit">
@@ -60,9 +64,9 @@
         <button class="peepbutton" type="submit" value="Edit">Edit</button>
       </form>
      
-      <form action="/peeps/<%= peep.id %>/comments/new" method="get">
-        <button class="peepbutton" type="submit" value="Add Comment">Add comment</button>
-      </form>
+      <%# <form action="/peeps/<%= peep.id/comments/new" method="get"> %>
+        <%# <button class="peepbutton" type="submit" value="Add Comment">Add comment</button>
+      </form> %>
       </div>
       <%end%>
     </div>

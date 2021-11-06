@@ -7,14 +7,15 @@
 <link rel = "stylesheet" href="../styles.css"/>
 </head>
 <nav>
-<body class ="hero">
+<body class ="mainbody">
 <div class = "logo"> CHITTER</div>
 <div class = "nav-items">
-<a href="/peeps">HOME</a>
 <a href="/users/new">SIGNUP</a>
+<a href="/peeps">PEEPBAR</a>
 </div>
 </nav>
 <div class = "column-left signup">
+<div><h2 class="already">Not a member yet? <a href="/users/new"> Signup here!</a><h2></div>
 <h2 class = "flash"><%= flash[:notice] %></h2>
 <form action="/sessions" method="post">
  <h1><input class ="signup1" type="email" name="email" placeholder= "Email" />

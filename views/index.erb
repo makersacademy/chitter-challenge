@@ -1,35 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chitter</title>
-<link rel = "stylesheet" href="styles.css"/>
-</head>
-<body>
-<nav>
-<div class = "logo"> CHITTER</div>
-<div class = "nav-items">
-<a href="/peeps">HOME</a>
-<a href="/">ABOUT</a>
-<a href="/sessions/new">LOGIN</a>
-</div>
-</nav>
-<section class="hero">
-<div class="hero-container">
-<div class="column-left">
-    <h1>chit-chit chat-chat <h1>
-    <h2> Tell the world how you really feel <h2>
-    <p> in 140 characters or less <p>  
-     <form action="users/new" method="get">
-        <button type="submit" value="Get Started">Get Started</button>
-      </form> 
- </div>
- <div class="column-right">
- <img src ="images/birdchitter.png" alt="chitter" class="hero-image">
- </div>
-</div>
 
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chitter</title>
+      <link rel = "stylesheet" href="styles.css"/>
+    </head>
+<body>
+  <nav>
+    <div class = "logo">CHITTER</div>
+    <div class = "nav-items">
+      <a href="/">ABOUT</a>
+      <a href="/sessions/new">LOGIN</a>
+       <a href="/peeps">PEEPBAR</a>
+    </div>
+  </nav>
+  <section class="mainbody">
+    <div class="mainbody-container">
+      <div class="column-left introduction">
+        <h1 >chit-chit chat-chat <h1>
+        <h2> tell the world how you really feel <h2>
+        <p> in 140 characters or less </p> 
+        <form action="users/new" method="get">
+            <button type="submit" value="Get Started">Get Started</button>
+        </form> 
+      </div>
+      <div class="column-right">
+        <img src ="images/birdchitter.png" alt="chitter" class="mainbody-image">
+      </div>
+    </div>
+  </section>
 </body>
+
 </html>
 
