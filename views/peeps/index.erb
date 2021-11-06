@@ -47,6 +47,7 @@
 <% @peeps.reverse.each do |peep| %>
 <div class = "bunchpeep">
     <li class ="peep" id="peep-<%=peep.id%>">
+     <div><%= "#{peep.date}"%> at <%="#{peep.time}"%></div>
     <div class><%= peep.user_id %> posted:</div>
    <div class ="signup1 editpeep "> <%= peep.peep %> </div>
     <% if @user %>
