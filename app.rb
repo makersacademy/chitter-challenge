@@ -32,7 +32,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(peep: params['peep']);
+    Peep.create(peep: params['peep'], user_id: session[:user_id]);
     redirect '/peeps'
   end
 
@@ -66,7 +66,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params['email'], password: params['password'])
+    user = User.create(username: params['username'], email: params['email'], password: params['password'])
     session[:user_id] = user.id
     redirect '/peeps'
   end
@@ -76,7 +76,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
  post '/sessions' do
-  user = User.authenticate(email: params[:email], password: params[:password])
+  user = User.authenticate(email: params[:email], password: params[:password], username: params[:name])
 
   if user
     session[:user_id] = user.id

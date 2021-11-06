@@ -7,7 +7,7 @@
 <link rel = "stylesheet" href="../styles.css"/>
 </head>
 <nav>
-<body>
+<body class ="hero">
 <div class = "logo"> CHITTER</div>
 <div class = "nav-items">
 <a href="/peeps">HOME</a>
@@ -15,11 +15,11 @@
 </div>
 </nav>
 <div class = "column-left signup">
-<h2><%= flash[:notice] %></h2>
+<h2 class = "flash"><%= flash[:notice] %></h2>
 <form action="/sessions" method="post">
- <h1><input class ="signup" type="email" name="email" placeholder= "Email" />
- <h1><input class ="signup" type="password" name="password" placeholder = "Password" />
- <h1><button class ="signup" type="submit" value="Sign in"> LOGIN</button>
+ <h1><input class ="signup1" type="email" name="email" placeholder= "Email" />
+ <h1><input class ="signup1" type="password" name="password" placeholder = "Password" />
+ <h1><button class ="signup1 buttoncolour" type="submit" value="Sign in"> LOGIN</button>
 </form>
 </div>
 </body>

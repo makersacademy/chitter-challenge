@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chitter</title>
-<link rel = "stylesheet" href="../styles.css"/>
+<link rel = "stylesheet" href="styles.css"/>
 </head>
-<nav>
 <body>
+<nav>
+<body class ="hero">
 <div class = "logo"> CHITTER</div>
 <div class = "nav-items">
 <% if @user %>
 <div class = "loggedinnav">
-  <a href = "/"> Welcome, <%= @user.email %></a>
+  <p> Welcome, <%= @user.username %> </p>
   <form action = "/sessions/destroy" method="post">
   <button class= "logoutbutton" type="submit" value="Sign out">LOGOUT</button>
 </form>
@@ -24,25 +25,32 @@
 <a href="/sessions/new">LOGIN</a>
 </div>
 <% end %>
-<h2><%= flash[:notice] %></h2>
 <ul>
 </div>
 </nav>
-<section class ="hero">
-<% if @user %>
+<h2 class = "flash"><%= flash[:notice] %></h2>
+<section class="hero">
+<div class="hero-container">
+<div class="column-left">
+   <% if @user %>
 <div class = "column-left signup">
 <form action="/peeps" method="post">
-  <input class = "signup" type="text" name="peep" placeholder = "write your peep here" minlength="1" required />
-  <button class ="signup" type="submit" value="Submit">Create peep</button>
+  <input class = "signup1 buttonspace1" type="text" name="peep" placeholder = "write your peep here" minlength="1" required />
+  <button class ="signup1 buttoncolour buttonspace" type="submit" value="Submit">Create peep</button>
 </form>
 </div>
+<%else%>
+<h3><a href = "/users/new"> Sign up</a> or <a href = "sessions/new"> login</a> to peep!<h3>
 <%end%>
-<div class = "column-left signup">
+ </div>
+ <div class="column-right">
 <% @peeps.reverse.each do |peep| %>
+<div class = "bunchpeep">
     <li class ="peep" id="peep-<%=peep.id%>">
-    <%= peep.peep %>
+    <div class><%= peep.user_id %> posted:</div>
+   <div class ="signup1 editpeep "> <%= peep.peep %> </div>
     <% if @user %>
-    <div class = "peepedit">
+    <div class = "editcomment peepedit">
     <form action="peeps/<%= peep.id%>" method="post">
     <input type='hidden' name='_method' value='DELETE'>
      <button class="peepbutton" type="submit" value="Delete">Delete</button>
@@ -50,32 +58,32 @@
        <form action="/peeps/<%= peep.id %>/edit" method="get">
         <button class="peepbutton" type="submit" value="Edit">Edit</button>
       </form>
+     
       <form action="/peeps/<%= peep.id %>/comments/new" method="get">
         <button class="peepbutton" type="submit" value="Add Comment">Add comment</button>
       </form>
       </div>
       <%end%>
+    </div>
+       <div class = "commentscolor">
       <% if peep.comments.length > 0 %>
         <div>
           <ul>
             <% peep.comments.each do |comment| %>
-              <li class = "commentlist"><%= comment.text %>
+              <li class = "signup1 commentlist"><%= comment.text %>
           </li>
             <% end %>
           </ul>
         </div>
       <% end %>
 </li>
+<% end %>
 
-  <% end %>
-</ul>
-
+ </div>
 </div>
-<section class ="hero">
+</ul>
+</div>
+
 </body>
 </html>
 
-
-
-
-  

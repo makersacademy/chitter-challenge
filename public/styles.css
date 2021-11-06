@@ -30,7 +30,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #fff;
+  color: white;
 }
 
 .hero {
@@ -45,7 +45,7 @@ nav a:hover {
 }
 
 .column-left {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -56,11 +56,12 @@ nav a:hover {
 .column-left h1 {
   margin-bottom: 1rem;
   font-size: 3rem;
+  padding: 0;
 }
 
 .column-left p {
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1;
 }
 
@@ -72,11 +73,33 @@ button {
   background: #000;
   cursor: pointer;
   border-radius: 50px;
+  width: 80%;
 }
 
 button:hover {
-  background: #fff;
-  color: #000;
+  color: rgb(211, 211, 254);
+}
+
+div.column-right {
+  display: block;
+  width: 1fr;
+}
+
+div.signup1.editpeep {
+  width: 700px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+div.column-left.signup {
+  margin: 0;
+}
+
+input.signup1.buttonspace1 {
+  width: 400px;
 }
 
 .column-right {
@@ -84,10 +107,16 @@ button:hover {
   justify-content: center;
   align-items: center;
   padding: 0rem 2rem;
+  /* 
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #000;
+  padding: 0rem 2rem; */
 }
 
 .hero-image {
-  width: 60%;
+  width: 80%;
   height: 75%;
 }
 
@@ -97,15 +126,34 @@ button:hover {
   }
 }
 
-.signup {
+.signup1 {
   border: none;
   font-size: 1rem;
   display: flex;
   align-items: center;
-  padding: 1.5rem 3rem;
   justify-content: center;
+  background: rgb(211, 211, 254);
+  border-radius: 50px;
+  margin: auto;
+  width: 60%;
+  border: 5px solid rgb(211, 211, 254);
+  padding: 10px;
 }
 
+.buttoncolour {
+  background: black;
+}
+
+.signup {
+  margin: auto;
+  margin-top: 100px;
+  width: 60%;
+  padding: 10px;
+}
+
+button.signup {
+  margin: 0;
+}
 .peepbutton {
   padding: 5px;
   background: none;
@@ -124,12 +172,12 @@ li {
 .commentlist {
   font-size: 0.8rem;
   background-color: #fdcc04;
-  border: dotted grey 1px;
   border-radius: 90%;
+  border: none;
 }
 
 .peep {
-  background-color: #fdcc04;
+  /* background-color: #fdcc04; */
   width: 80%;
   font-size: 1.2rem;
 }
@@ -147,5 +195,68 @@ li {
 
 .loggedinnav {
   display: flex;
-  align-items: flex-end;
+}
+
+.column-left .signup {
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonspace {
+  margin-top: 20px;
+  width: 50%;
+}
+
+.buttonspace1 {
+  width: 80%;
+}
+
+.editcomment {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  margin: auto;
+  margin-left: 150px;
+  width: 80%;
+  padding: 10px;
+}
+
+.editpeep {
+  width: 500px;
+}
+
+.commentlist {
+  background: lightgrey;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  margin: auto;
+  width: 500px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+div.bunchpeep {
+  background: rgb(211, 211, 254);
+  border-radius: 50px;
+}
+
+div.editcomment.peepedit {
+  padding: 0;
+  height: 0;
+  width: 20px;
+  margin-left: 600px;
+}
+
+button.peepbutton {
+  margin-bottom: 17px;
+}
+
+h2.flash {
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  margin-left: 110px;
 }

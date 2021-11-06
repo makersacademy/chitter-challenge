@@ -3,11 +3,12 @@ require_relative "./comment"
 
 class Peep
 
-  attr_reader :id, :peep;
+  attr_reader :id, :peep, :user_id
 
-  def initialize(id:, peep:)
+  def initialize(id:, peep:, user_id:)
     @id = id
     @peep = peep
+    @user_id = findname(user_id)
   end
 
   def self.all
@@ -15,13 +16,14 @@ class Peep
     peeps.map { |peep| 
       Peep.new(
         peep: peep['peep'], 
-        id: peep['id']
+        id: peep['id'],
+        user_id: peep['user_id']
         ) }
   end
 
-def self.create(peep:)
-  result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES($1) RETURNING id, peep", [peep])
-  Peep.new(id: result[0]['id'], peep: result[0]['peep'])
+def self.create(peep:, user_id:)
+  result = DatabaseConnection.query("INSERT INTO peeps (peep, user_id) VALUES($1, $2) RETURNING id, peep, user_id", [peep, user_id])
+  Peep.new(id: result[0]['id'], peep: result[0]['peep'], user_id: user_id)
 end
 
   def self.delete(id:)
@@ -44,5 +46,12 @@ end
   def comments(comment_class = Comment)
     comment_class.where(peep_id: id)
   end
+
+  private
+    def findname(user_id)
+      return 'Chitterer' unless user_id
+      name = DatabaseConnection.query("SELECT username FROM chitter_users WHERE id=#{user_id}") 
+      name[0]['username']
+    end
 
 end
