@@ -54,7 +54,7 @@
     <div class><%= peep.user_id %> posted:</div>
     </div>
    <div class ="signup1 editpeep "> <%= peep.peep %> </div>
-    <% if @user %>
+    <% if @user && @user.id == peep.user_id %>
     <div class = "editcomment peepedit">
     <form action="peeps/<%= peep.id%>" method="post">
     <input type='hidden' name='_method' value='DELETE'>

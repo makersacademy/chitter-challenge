@@ -33,8 +33,8 @@ class Peep
   end
 
 def self.create(peep:, user_id:)
-  result = DatabaseConnection.query("INSERT INTO peeps (peep, user_id, created_at) VALUES($1, $2) RETURNING id, peep, user_id, created_at", [peep, user_id, created_at])
-  Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: peep[0]['created_at'], user_id: user_id)
+   result = DatabaseConnection.query("INSERT INTO peeps (peep, user_id, created_at) VALUES($1, $2, $3) RETURNING id, peep, user_id, created_at", [peep, user_id, created_at])
+  Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: created_at, user_id: user_id)
 end
 
   def self.delete(id:)
