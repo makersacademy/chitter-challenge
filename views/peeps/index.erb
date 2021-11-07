@@ -54,7 +54,7 @@
     <div class><%= peep.user_id %> posted:</div>
     </div>
    <div class ="signup1 editpeep "> <%= peep.peep %> </div>
-    <% if @user && @user.id == peep.user_id %>
+    <% if @user %>
     <div class = "editcomment peepedit">
     <form action="peeps/<%= peep.id%>" method="post">
     <input type='hidden' name='_method' value='DELETE'>
@@ -64,9 +64,7 @@
         <button class="peepbutton" type="submit" value="Edit">Edit</button>
       </form>
      
-      <%# <form action="/peeps/<%= peep.id/comments/new" method="get"> %>
-        <%# <button class="peepbutton" type="submit" value="Add Comment">Add comment</button>
-      </form> %>
+    
       </div>
       <%end%>
     </div>
@@ -91,4 +89,3 @@
 
 </body>
 </html>
-

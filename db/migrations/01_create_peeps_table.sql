@@ -1,7 +1,7 @@
 -- -- peeps table
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(100));
 -- added timestamp column
-ALTER TABLE peeps ADD COLUMN created_at DEFAULT NOW();
+ALTER TABLE peeps ADD COLUMN created_at TIMESTAMP DEFAULT NOW();
 -- add user id to peeps
 ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES chitter_users (id);
 -- -- comments table

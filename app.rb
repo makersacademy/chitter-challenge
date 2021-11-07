@@ -32,8 +32,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(peep: params['peep'], user_id: session[:user_id]);
-    p peep
+    Peep.create(peep: params['peep'], user_id: session[:user_id]);
     redirect '/peeps'
   end
 
