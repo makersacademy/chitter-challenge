@@ -19,6 +19,7 @@
 <div class = "column-left signup">
 <div><h2 class="already">Already a chitterer? <a href="/sessions/new"> Login here!</a><h2></div>
 <form method="post" action="/users">
+<h2 class ="flash"><%= flash[:notice] %><h2>
   <h1><input class ="signup1" type="name" name="username" placeholder="Name" required></h1>
   <h1><input class ="signup1" type="email" name="email" placeholder="Email" minlength='2' required></h1>
   <h1><input class ="signup1" type="password" name="password" placeholder="Password" minlength='8' required ></h1>
