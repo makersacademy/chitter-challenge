@@ -1,6 +1,7 @@
 require_relative 'database_connection'
 require_relative "./comment"
 require 'date'
+require_relative './tag'
 
 class Peep
 
@@ -60,6 +61,10 @@ end
 
   def comments(comment_class = Comment)
     comment_class.where(peep_id: id)
+  end
+
+  def tags(tag_class = Tag)
+    tag_class.where(peep_id: id)
   end
 
   private

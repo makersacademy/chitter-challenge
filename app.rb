@@ -4,6 +4,8 @@ require 'sinatra/reloader'
 require_relative './lib/peep.rb'
 require_relative './lib/comment.rb'
 require_relative './lib/user.rb'
+require_relative './lib/tag'
+require_relative './lib/peep_tag'
 
 require './database_connection_setup'
 
@@ -99,6 +101,17 @@ post '/sessions/destroy' do
   flash[:notice] = 'You have signed out.'
   redirect('/peeps')
 end
+
+  get '/peeps/:id/tags/new' do
+    @peep_id = params[:id]
+    erb :'/tags/new'
+  end
+
+  post '/peeps/:id/tags' do
+    tag = Tag.create(content: params[:tag])
+    PeepTag.create(peep_id: params[:id], tag_id: tag.id)
+    redirect '/peeps'
+  end
 
   run! if app_file == $0
 end

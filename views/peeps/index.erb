@@ -63,8 +63,17 @@
        <form action="/peeps/<%= peep.id %>/edit" method="get">
         <button class="peepbutton" type="submit" value="Edit">Edit</button>
       </form>
-     
-    
+           <form action="/peeps/<%= peep.id %>/tags/new" method="get">
+        <input type="submit" value="Add Tag" />
+      </form>
+      <div>
+        <h2>Tags</h2>
+        <ul>
+          <% peep.tags.each do |tag| %>
+            <li><%= tag.content %></li>
+          <% end %>
+        </ul>
+      </div>
       </div>
       <%end%>
     </div>

@@ -3,6 +3,7 @@ require 'database_helpers'
 
 describe Peep do
   let(:comment_class) { double(:comment_class) }
+  let(:tag_class) { double(:tag_class) }
 
   describe '.all' do
     it 'returns all peeps' do
@@ -72,6 +73,15 @@ describe '.find' do
       expect(comment_class).to receive(:where).with(peep_id: peep.id)
 
       peep.comments(comment_class)
+    end
+  end
+
+  describe '#tags' do
+    it 'calls .where on the Tag class' do
+      peep = Peep.create(peep: "Hi")
+      expect(tag_class).to receive(:where).with(peep_id: peep.id)
+
+      peep.tags(tag_class)
     end
   end
 
