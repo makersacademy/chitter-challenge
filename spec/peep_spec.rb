@@ -85,6 +85,24 @@ describe '.find' do
     end
   end
 
+    describe '.where' do
+    it 'returns peeps with the given tag id' do
+      peep = Peep.create(peep: "Hi John!")
+      tag1 = Tag.create(content: 'test tag 1')
+      tag2 = Tag.create(content: 'test tag 2')
+      PeepTag.create(peep_id: peep.id, tag_id: tag1.id)
+      PeepTag.create(peep_id: peep.id, tag_id: tag2.id)
+
+      peeps = Peep.where(tag_id: tag1.id)
+      result = peeps.first
+
+      expect(peeps.length).to eq 1
+      expect(result).to be_a Peep
+      expect(result.id).to eq peep.id
+      expect(result.peep).to eq peep.peep
+    end
+  end
+
 end
 
 

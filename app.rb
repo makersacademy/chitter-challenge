@@ -113,5 +113,10 @@ end
     redirect '/peeps'
   end
 
+   get '/tags/:id/peeps' do
+    @tag = Tag.find(id: params['id'])
+    erb :'tags/index'
+  end
+
   run! if app_file == $0
 end

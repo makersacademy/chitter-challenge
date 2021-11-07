@@ -5,23 +5,6 @@ require_relative './tag'
 
 class Peep
 
-  attr_reader :id, :peep, :user_id, :created_at
-
-  def initialize(id:, peep:, user_id:, created_at:)
-    @id = id
-    @peep = peep
-    @user_id = findname(user_id)
-    @created_at = timezone_convert(created_at)
-  end
-
-  def time
-    @created_at.strftime('%H:%M')
-  end
-
-  def date
-    @created_at.strftime('%-d/%-m/%Y')
-  end
-
   def self.all
     peeps = DatabaseConnection.query("SELECT * FROM peeps;")
     peeps.map { |peep| 
@@ -33,31 +16,59 @@ class Peep
         ) }
   end
 
-def self.create(peep:, user_id:)
-  result = DatabaseConnection.query("INSERT INTO peeps (peep, user_id) VALUES($1, $2) RETURNING id, peep, created_at, user_id;", [peep, user_id])
-  Peep.new(
-    id: result[0]['id'], 
-    peep: result[0]['peep'], 
-    created_at: result[0]['created_at'], 
-    user_id: user_id)
-end
+  def self.create(peep:, user_id:)
+    result = DatabaseConnection.query(
+      "INSERT INTO peeps (peep, user_id) VALUES($1, $2) RETURNING id, peep, created_at, user_id;", [peep, user_id]
+    )
+    Peep.new(
+      id: result[0]['id'], 
+      peep: result[0]['peep'], 
+      created_at: result[0]['created_at'], 
+      user_id: user_id)
+  end
 
   def self.delete(id:)
-    result = DatabaseConnection.query("DELETE FROM peeps WHERE id = $1", [id])
+    result = DatabaseConnection.query(
+      "DELETE FROM peeps WHERE id = $1", [id]
+    )
   end
 
   def self.update(id:, peep:)
-    result = DatabaseConnection.query("UPDATE peeps SET peep = $1 WHERE id = $2 RETURNING id, peep;",
-    [peep, id])
+    result = DatabaseConnection.query(
+      "UPDATE peeps SET peep = $1 WHERE id = $2 RETURNING id, peep;",
+    [peep, id]
+    )
     Peep.new(id: result[0]['id'], peep: result[0]['peep'])
   end
 
   def self.find(id:)
-    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = $1;",
-    [id]
-  )
-  Peep.new(id: result[0]['id'], peep: result[0]['peep'])
-end
+    result = DatabaseConnection.query(
+      "SELECT * FROM peeps WHERE id = $1;", [id]
+    )
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'])
+  end
+
+  def self.where(tag_id:)
+    result = DatabaseConnection.query(
+      "SELECT id, peep, created_at, user_id FROM peeps_tags INNER JOIN peeps ON peeps.id = peeps_tags.peep_id WHERE peeps_tags.tag_id = '#{tag_id}';"
+    )
+    result.map do |peep|
+      Peep.new(
+        id: peep['id'],
+        peep: peep['peep'], 
+        created_at: peep['created_at'],
+        user_id: peep['user_id'])
+    end
+  end
+
+  attr_reader :id, :peep, :user_id, :created_at
+
+  def initialize(id:, peep:, user_id:, created_at:)
+    @id = id
+    @peep = peep
+    @user_id = findname(user_id)
+    @created_at = timezone_convert(created_at)
+  end
 
   def comments(comment_class = Comment)
     comment_class.where(peep_id: id)
@@ -66,6 +77,25 @@ end
   def tags(tag_class = Tag)
     tag_class.where(peep_id: id)
   end
+
+  def time
+    @created_at.strftime('%H:%M')
+  end
+
+  def date
+    @created_at.strftime('%-d/%-m/%Y')
+  end
+
+
+
+
+
+  
+
+  
+
+
+
 
   private
     def findname(user_id)
