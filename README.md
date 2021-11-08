@@ -1,4 +1,11 @@
-<img src ="./images/app_pages/homepage.png"></img>
+| ![Screenshot](./public/app_pages/homepage.png) |
+| :--------------------------------------------: |
+|             Screenshot of homepage             |
+
+| ![Screenshot](./public/app_pages/homepage.png) |
+| :--------------------------------------------: |
+|          Screenshot of new peep page           |
+
 STRAIGHT UP
 
 As a Maker
