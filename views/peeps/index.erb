@@ -1,94 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chitter</title>
-<link rel = "stylesheet" href="styles.css"/>
-</head>
-<body>
-<nav>
-<body class ="mainbody">
-<div class = "logo"><a href="/"> CHITTER</a></div>
-<div class = "nav-items">
-<% if @user %>
-<div class = "loggedinnav">
-
-  <form action = "/sessions/destroy" method="post">
-  <button class= "logoutbutton" type="submit" value="Sign out">LOGOUT</button>
-</form>
-  <p> Welcome, <%= @user.username %> </p>
-</div>
-<% else %>
-<div class = "nav-items">
-<a href="/sessions/new">LOGIN</a>
-<a href="/users/new">SIGNUP</a>
-</div>
-<% end %>
-<ul>
-</div>
-</nav>
-<section class="mainbody">
-<div class="mainbody-container">
-<div class="column-left">
-   <% if @user %>
-<div class = "column-left signup">
-<form action="/peeps" method="post">
-  <input class = "signup1 buttonspace1" type="text" name="peep" placeholder = "write your peep here" minlength="1" required />
-  <button class ="signup1 buttoncolour buttonspace" type="submit" value="Submit">Create peep</button>
-</form>
-</div>
-<%else%>
-
-<h3 class="leftsignup"><h2 class = "flash signoutflash"><%= flash[:notice] %></h2><a href = "/users/new"> sign up</a> or <a href = "sessions/new"> login</a> to peep!<h3>
-<%end%>
- </div>
- 
- <div class="peeptable column-right">
- <div><h3>Most recent peeps</h3></div>
-<% @peeps.reverse.each do |peep| %>
-<div class = "bunchpeep">
-    <li class ="peep" id="peep-<%=peep.id%>">
-    <div class = peeptopbar>
-     <div class = "peepdatetime"> <%="#{peep.time}"%> on <%= "#{peep.date}"%> </div>
-    <div class><%= peep.user_id %> posted:</div>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chitter</title>
+      <link rel = "stylesheet" href="styles.css"/>
+    </head>
+  <body>
+    <div class ="mainbody">
+      <nav>
+        <div class = "logo"><a href="/"> CHITTER</a></div>
+          <% if @user %>
+            <div class = "logged-in-nav-items">
+              <form action = "/sessions/destroy" method="post">
+                <button class= "logoutbutton" type="submit" value="Sign out">LOGOUT</button>
+              </form>
+              <p> Welcome, <%= @user.username %> </p>
+            </div>
+          <% else %>
+            <div class = "nav-items">
+              <a href="/sessions/new">LOGIN</a>
+              <a href="/users/new">SIGNUP</a>
+            </div>
+          <% end %>
+      </nav>
+  <section class="mainbody">
+    <div class="mainbody-container">
+      <div class = "peeps-page-prompt">
+        <% if @user %>
+          <div class = "center-form create-peep">
+            <form action="/peeps" method="post">
+              <input class = "format-input buttonspace1" type="text" name="peep" placeholder = "write your peep here" minlength="1" required />
+              <button class ="format-input buttoncolour buttonspace" type="submit" value="Submit">Create peep</button>
+            </form>
+          </div>
+        <%else%>
+          <h3><h2 class = "flash signoutflash"><%= flash[:notice] %></h2><a href = "/users/new"> sign up</a> or <a href = "sessions/new"> login</a> to peep!<h3>
+        <%end%>
     </div>
-   <div class ="signup1 editpeep "> <%= peep.peep %> </div>
-    <% if @user %>
-    <div class = "editcomment peepedit">
-    <form action="peeps/<%= peep.id%>" method="post">
-    <input type='hidden' name='_method' value='DELETE'>
-     <button class="peepbutton" type="submit" value="Delete">Delete</button>
-     </form>
-       <form action="/peeps/<%= peep.id %>/edit" method="get">
-        <button class="peepbutton" type="submit" value="Edit">Edit</button>
-      </form>
-           <form action="/peeps/<%= peep.id %>/tags/new" method="get">
-        <input type="submit" value="Add Tag" />
-      </form>
-            <% if peep.tags.length > 0 %>
-        <div>
-          <h2>Tags</h2>
-          <ul>
-            <% peep.tags.each do |tag| %>
-              <li>
-                <a href="/tags/<%= tag.id %>/peeps">
-                  <%= tag.content %>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      </div>
-      <%end%>
-    </div>
+  <div>
+    <h3>Most recent peeps</h3>
+      <% @peeps.reverse.each do |peep| %>
+        <div class = "peepdisplay">
+          <li class ="peep" id="peep-<%=peep.id%>">
+            <div class = "peeptopbar">
+              <div class = "peepdatetime"> <%="#{peep.time}"%> on <%= "#{peep.date}"%> </div>
+              <div class><%= peep.user_id %> posted:</div>
+            </div>
+        <div class ="format-input editpeep "> <%= peep.peep %> </div>
+        <%# <div class="grid-container"> %>
+          <% if peep.tags.length > 0 %>
+              <div class = "grid-container tags">
+                  <% peep.tags.each do |tag| %>
+                    <div class="grid-item">
+                      <a href="/tags/<%= tag.id %>/peeps">
+                          <%= tag.content %>#
+                        </a>
+                    </div>
+                  <%end%>
+              </div>
+          <%end%>  
+                 
+          <% if @user %>
+            <div class = "editcomment peepedit">
+              <form action="/peeps/<%= peep.id %>/tags/new" method="get">
+                <button class="peepbutton" type="submit" value="Add Tag">Add Tag</button>
+              </form>
+              </div>
+               <% end %>
+            
+         
        <div class = "commentscolor">
       <% if peep.comments.length > 0 %>
         <div>
           <ul>
             <% peep.comments.each do |comment| %>
-              <li class = "signup1 commentlist"><%= comment.text %>
+              <li class = "format-input commentlist"><%= comment.text %>
           </li>
             <% end %>
           </ul>

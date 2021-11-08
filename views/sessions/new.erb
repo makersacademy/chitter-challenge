@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chitter</title>
-<link rel = "stylesheet" href="../styles.css"/>
-</head>
-<nav>
-<body class ="mainbody">
-<div class = "logo"> CHITTER</div>
-<div class = "nav-items">
-<a href="/users/new">SIGNUP</a>
-<a href="/peeps">PEEPBAR</a>
-</div>
-</nav>
-<div class = "column-left signup">
-<div><h2 class="already">Not a member yet? <a href="/users/new"> Signup here!</a><h2></div>
-<h2 class = "flash"><%= flash[:notice] %></h2>
-<form action="/sessions" method="post">
- <h1><input class ="signup1" type="email" name="email" placeholder= "Email" />
- <h1><input class ="signup1" type="password" name="password" placeholder = "Password" />
- <h1><button class ="signup1 buttoncolour" type="submit" value="Sign in"> LOGIN</button>
-</form>
-</div>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+    <link rel = "stylesheet" href="../styles.css"/>
+  </head>
+<body>
+  <div class ="mainbody">
+    <nav>
+      <div class = "logo"> CHITTER</div>
+      <div class = "nav-items">
+        <a href="/users/new">SIGNUP</a>
+        <a href="/peeps">PEEPBAR</a>
+      </div>
+    </nav>
+  <section class = "center-form">
+    <div class="log-prompt"><h2 >Not a member yet? <a href="/users/new"> Signup here!</a><h2></div>
+    <h2 class = "flash"><%= flash[:notice] %></h2>
+    <form action="/sessions" method="post">
+      <h1><input class ="format-input" type="email" name="email" placeholder= "Email" />
+      <h1><input class ="format-input" type="password" name="password" placeholder = "Password" />
+      <h1><button class ="format-input buttoncolour" type="submit" value="Sign in"> LOGIN</button>
+    </form>
+  </section>
 </body>
 </html>

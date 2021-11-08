@@ -20,6 +20,7 @@ class ChitterChallenge < Sinatra::Base
     
 
   get '/' do
+   @user = User.find(id: session[:user_id])
    erb :index
   end
 
