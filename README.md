@@ -21,12 +21,10 @@ I created this programme as part of a challenge at [Makers Academy](https://make
   <tr>
     <td>Login</td>
      <td>Signup</td>
-     <td>Create peep</td>
   </tr>
   <tr>
     <td><img src="/public/images/login.png" width=270 height=480></td>
     <td><img src="/public/images/signup.png" width=270 height=480></td>
-    <td><img src="/public/images/create_peep.png" width=270 height=480></td>
   </tr>
  </table>
 
