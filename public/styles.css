@@ -122,6 +122,7 @@ div.column-right {
   height: 75%;
 }
 
+
 /* buttons */
 
 /* title page button 'Get Started */
@@ -200,7 +201,9 @@ h2.flash.signoutflash {
 
 div.format-input.editpeep {
     padding-top: 10px;
-    background: rgb(211, 211, 254);
+    /* background: rgb(211, 211, 254); */
+     background: black;
+    color: yellow;
     width: 700px;
     /* margin-top: 10px;
     margin-bottom: 10px; */
@@ -210,7 +213,8 @@ div.format-input.editpeep {
 .peeptopbar {
   width: 685px;
   background: rgb(161, 123, 190);
-  border: solid 3px rgb(211, 211, 254);
+  /* border: solid 3px rgb(211, 211, 254); */
+  border: solid 3px yellow;
   border-radius: 50px;
   padding: 3px;
   color: rgb(211, 211, 254);
@@ -250,6 +254,30 @@ div.format-input.editpeep {
     cursor:pointer;  
 }
 
+h5 {
+  color: rgb(161, 123, 190);
+}
+
+h1 .tagcontent {
+  margin-left: 40px;
+  letter-spacing: 2px;
+}
+
+.backbutton {
+  margin-top: 45px;
+}
+
+.create-peep-button {
+  margin-top: 25px;
+  margin-left: 50px;
+  width: 150px;
+}
+
+input.format-input.buttonspace1 {
+  width: 250px;
+  margin-top: -100px;
+
+}
 ----------
 
 
@@ -258,17 +286,17 @@ button.format-input.buttoncolour.buttonspace {
   margin-left: -15px;
 }
 
-
+/* 
 input.format-input.buttonspace1 {
   margin-left: -105px;
   margin-top: -67px;
   width: 350px;
   height: 100px;
-}
-
+} */
+/* 
 input.format-input.buttonspace1 {
   width: 400px;
-}
+} */
 
 button.peepbutton {
   margin-left: 5px;
@@ -286,9 +314,7 @@ button.peepbutton {
   width: 50%;
 }
 
-.buttonspace1 {
-  width: 80%;
-}
+
 
 button.signup {
   margin: 0;

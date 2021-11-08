@@ -1,11 +1,60 @@
- <h3>Peeps with #<%=@tag.content%> tag</h3>
-
-
-<ul>
-  <% @tag.peeps.each do |peep| %>
-    <li>
-        <%= peep.peep %>
-      </a>
-    </li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chitter</title>
+      <link rel = "stylesheet" href="/styles.css"/>
+    </head>
+  <body>
+    <div class ="mainbody">
+      <nav>
+        <div class = "logo"><a href="/"> CHITTER</a></div>
+          <% if @user %>
+            <div class = "logged-in-nav-items">
+              <form action = "/sessions/destroy" method="post">
+                <button class= "logoutbutton" type="submit" value="Sign out">LOGOUT</button>
+              </form>
+              <p> Welcome, <%= @user.username %> </p>
+            </div>
+          <% else %>
+            <div class = "nav-items">
+              <a href="/sessions/new">LOGIN</a>
+              <a href="/users/new">SIGNUP</a>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+      <section class="mainbody">
+        <div class="mainbody-container">
+          <div class = "peeps-page-prompt">
+            <% if @user %>
+              <div class = "center-form create-peep">
+                <div><a href="/peeps">Back</a></div>
+              </div>
+            <%else%>
+              <h3><h2></h2><a href = "/users/new"> sign up</a> or <a href = "sessions/new"> login</a> to peep!<h3>
+              <form action="/peeps">
+              <h1><button class ="format-input backbutton" type="submit" value="Back"> BACK</button>
+              </form>
+            <%end%>
+          </div>
+          <div>
+          <h5>peeps tagged </h5><h1 class= "tacontent">#<%=@tag.content%></h1>
+            <% @tag.peeps.each do |peep| %>
+              <div class = "peepdisplay">
+                <li class ="peep" id="peep-<%=peep.id%>">
+                  <div class = "peeptopbar">
+                    <div class = "peepdatetime"> <%="#{peep.time}"%> on <%= "#{peep.date}"%> </div>
+                    <div class><%= peep.user_id %> posted:</div>
+                  </div>
+                  <div class ="format-input editpeep "> <%= peep.peep %> </div>
+                </li>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -39,30 +39,30 @@ class ChitterChallenge < Sinatra::Base
     redirect '/peeps'
   end
 
-  delete '/peeps/:id' do
-    Peep.delete(id: params[:id])
-    redirect '/peeps'
-  end
+  # delete '/peeps/:id' do
+  #   Peep.delete(id: params[:id])
+  #   redirect '/peeps'
+  # end
 
-  get '/peeps/:id/edit' do
-    @peep = Peep.find(id: params[:id])
-    erb :'peeps/edit'
-  end
+  # get '/peeps/:id/edit' do
+  #   @peep = Peep.find(id: params[:id])
+  #   erb :'peeps/edit'
+  # end
   
-  patch '/peeps/:id' do
-    Peep.update(id: params[:id], peep: params[:peep])
-    redirect('/peeps')
-  end
+  # patch '/peeps/:id' do
+  #   Peep.update(id: params[:id], peep: params[:peep])
+  #   redirect('/peeps')
+  # end
 
-  get '/peeps/:id/comments/new' do
-    @peep_id = params[:id]
-    erb :'comments/new'
-  end
+  # get '/peeps/:id/comments/new' do
+  #   @peep_id = params[:id]
+  #   erb :'comments/new'
+  # end
 
-  post '/peeps/:id/comments' do
-    Comment.create(peep_id: params[:id], text: params[:comment])
-    redirect '/peeps'
-  end
+  # post '/peeps/:id/comments' do
+  #   Comment.create(peep_id: params[:id], text: params[:comment])
+  #   redirect '/peeps'
+  # end
 
   get '/users/new' do
     erb :"users/new"
@@ -105,7 +105,8 @@ end
 
   get '/peeps/:id/tags/new' do
     @peep_id = params[:id]
-    erb :'/tags/new'
+    redirect '/peeps'
+    # erb :'/tags/new'
   end
 
   post '/peeps/:id/tags' do
@@ -115,6 +116,7 @@ end
   end
 
    get '/tags/:id/peeps' do
+    @user = User.find(id: session[:user_id])
     @tag = Tag.find(id: params['id'])
     erb :'tags/index'
   end
