@@ -1,6 +1,6 @@
-| ![Image](./public/app_pages/homepage.png) |
-| :---------------------------------------: |
-|                 Homepage                  |
+| ![Image](./app_pages/homepage.png) |
+| :--------------------------------: |
+|              Homepage              |
 
 STRAIGHT UP
 
