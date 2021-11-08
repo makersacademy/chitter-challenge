@@ -1,5 +1,5 @@
-require 'rss'
-require 'open-uri'
+require 'rest-client'
+require 'json'
 
 class News
   
@@ -10,10 +10,15 @@ class News
   end
 
   def self.create
-    url = 'http://feeds.bbci.co.uk/news/uk/rss.xml' 
-    URI.open(url) do |r| 
-      feed = RSS::Parser.parse(r)
-      News.new(feed)
-    end 
+    url = 'https://content.guardianapis.com/search?page-size=5&api-key=test&format=json&show-fields=body,headline,thumbnail'
+    response = RestClient.get(url)
+    results = JSON.parse(response, object_class: OpenStruct)
+    data = results.response.results
+    News.new(data)
   end
 end
+
+
+
+
+

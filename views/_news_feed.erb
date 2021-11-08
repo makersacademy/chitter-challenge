@@ -3,13 +3,11 @@
     <h4 style="font-family: 'Raleway', sans-serif;">Latest</h4>
     <h4><i class="bi bi-newspaper fa-lg"></i></h4>
   </div>
-  <% @news.feed.items.each do |item| %>
+  <% @news.feed.each do |item| %>
   <div class="card mt-2" style="width: 22rem;">
     <div class="card-body">
-      <a href="<%= "#{item.link}" %>">
-        <h6 class="card-title text-dark"><%= "#{item.title}" %></h6>
+        <h6 class="card-title text-dark"><%= item.sectionId %></h6>
       </a>
-      <small class="card-text "><%= "#{item.description}" %></small>
     </div>
   </div>
   <% end %>
