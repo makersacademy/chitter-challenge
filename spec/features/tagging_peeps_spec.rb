@@ -1,7 +1,8 @@
 feature 'Adding and viewing tags' do
   feature 'a user can add and then view a tag' do
     scenario 'a comment is added to a peep' do
-      peep = Peep.create(peep: "Peeeep!")
+      user = User.create(username: "kim", email: 'test@example.com', password: 'password123')
+      peep = Peep.create(peep: "Peeeep!", user_id: user.id)
 
       visit '/peeps'
       first('.peep').click_button 'Add Tag'
@@ -18,9 +19,10 @@ feature 'Adding and viewing tags' do
 
   feature 'a user can filter peeps by tag' do
     scenario 'adding the same tag to multiple peeps then filtering by tag' do
-      Peep.create(peep: "Hi Harry")
-      Peep.create(peep: "Hi Sally")
-      Peep.create(peep: "Hi John")
+      user = User.create(username: "kim", email: 'test@example.com', password: 'password123')
+      Peep.create(peep: "Hi Harry", user_id: user.id)
+      Peep.create(peep: "Hi Sally", user_id: user.id)
+      Peep.create(peep: "Hi John", user_id: user.id)
 
       visit('/peeps')
 
@@ -36,7 +38,7 @@ feature 'Adding and viewing tags' do
       fill_in 'tag', with: 'testing'
       click_button 'Submit'
 
-      first('.peep').click_link 'testing'
+      click_link 'testing'
 
       expect(page).to have_content 'Hi Harry'
       expect(page).to have_content 'Hi Sally'

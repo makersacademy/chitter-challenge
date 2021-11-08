@@ -7,12 +7,13 @@
 }
 
 body {
-  background: #fdcc04; 
+  background: #3D087B;
 }
 
 /* background-color */
 .mainbody {
-  background: #fdcc04; 
+  background: #3D087B;
+  color: #F43B86;
 }
 
 
@@ -25,6 +26,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0rem calc((100vw - 1300px) / 2);
+  color: black;
 }
 
 .nav-items {
@@ -148,6 +150,12 @@ button:hover {
 .log-prompt {
   display: inline;
   text-align: center;
+  color: #F43B86;
+}
+
+.log-prompt a {
+  text-decoration: none;
+    color: rgb(211, 211, 254);
 }
 
 /* form inputs for signup and login */
@@ -167,7 +175,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
+  border-radius: 10px;
   margin: auto;
   width: 60%;
   border: 5px solid rgb(161, 123, 190);
@@ -177,10 +185,14 @@ button:hover {
 /* flash error message */
 
 h2.flash {
+  background: yellow;
+  margin-top: 20px;
+  width: 290px;
   color: red;
   font-size: 1rem;
-  margin-bottom: 10px;
-  margin-left: 180px;
+  margin-bottom: 20px;
+  margin-left: 220px;
+  text-align: center;
 }
 
 h2.flash.signoutflash {
@@ -196,29 +208,42 @@ h2.flash.signoutflash {
     width: auto;
     width: 170px;
 }
-
+.mainbody h3 {
+ color:rgb(161, 123, 190);
+}
 /* peep-row */
 
 div.format-input.editpeep {
     padding-top: 10px;
     /* background: rgb(211, 211, 254); */
      background: black;
-    color: yellow;
+    color: #fdcc04;
     width: 700px;
     /* margin-top: 10px;
     margin-bottom: 10px; */
     padding: 5px;
 }
 
+div.format-input.editpeep:hover {
+  /* background-color: #F43B86; */
+  background: #3D087B;
+  color: #F43B86;
+}
 .peeptopbar {
   width: 685px;
-  background: rgb(161, 123, 190);
+  background: #3D087B;
   /* border: solid 3px rgb(211, 211, 254); */
-  border: solid 3px yellow;
-  border-radius: 50px;
+  border: solid 3px rgb(211, 211, 254);
+  border-radius: 10px;
   padding: 3px;
-  color: rgb(211, 211, 254);
+  color:rgb(211, 211, 254);
+  /* color: #fdcc04; */
   padding-left:10px;
+}
+
+.peeptopbar:hover {
+  color: #fdcc04;
+  background-color: black;
 }
 
 .grid-container {
@@ -231,25 +256,27 @@ div.format-input.editpeep {
 }
 
 .grid-item {
-  background-color: rgb(161, 123, 190);
+  background-color: black;
   border-radius: 50px;
-  border: 3px solid rgb(211, 211, 254);
+  border: 3px solid rgb(161, 123, 190);
   /* padding: 20px; */
   font-size: 15px;
   text-align: center;
 }
 
 .grid-item:hover {
-  background-color: rgb(211, 211, 254);
+  background-color: #3D087B;
+  color: #F43B86;
+  /* color: black; */
 }
 
 .grid-item a {
-    color: rgb(211, 211, 254);
+    color: #fdcc04;
     text-decoration: none;
 }
 
 .grid-item a:hover {
-    color:rgb(161, 123, 190);
+    color:black;
     text-decoration:none; 
     cursor:pointer;  
 }
@@ -294,6 +321,15 @@ button.format-input.buttoncolour.buttonspace {
   margin-left: -15px;
 }
 
+.peeps-page-prompt a {
+  text-decoration: none;
+  color: rgb(211, 211, 254);
+  /* padding: 0 1.5rem; */
+}
+
+a {
+  text-decoration: none;
+}
 /* 
 input.format-input.buttonspace1 {
   margin-left: -105px;
@@ -367,7 +403,7 @@ li {
 }
 
 .peep {
-   background-color: #fdcc04; */
+   background-color: #3D087B;
   width: 80%;
   font-size: 1.2rem; */
 }
@@ -424,6 +460,10 @@ h3 {
 
 .peepdatetime {
   font-size: 10px;
+}
+
+.peepdisplay {
+  margin-bottom: 10px;
 }
 
 
