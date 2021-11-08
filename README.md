@@ -7,12 +7,20 @@ Users can post messages about their learnings and thoughts, which all students c
 
 I created this programme as part of a challenge at [Makers Academy](https://makers.tech).
 
+* [Screenshots](#Screenshots)
 * [Getting started](#Getting-Started)
 * [Usage](#usage)
 * [Tech stack](#tech-stack)
 * [Running tests](#Running-tests)
 * [User Stories](#User-stories)
 * [How I built it](#How-i-built-it)
+
+## Screenshots ##
+
+![Signup](/public/images/signup.png)
+![Login](/public/images/login.png)
+![Create peep](/public/images/create_peep.png)
+![View peeps](/public/images/view_peeps.png)
 
 ## Getting Started ##
 
