@@ -1,10 +1,6 @@
-| ![Screenshot](./public/app_pages/homepage.png) |
-| :--------------------------------------------: |
-|             Screenshot of homepage             |
-
-| ![Screenshot](./public/app_pages/homepage.png) |
-| :--------------------------------------------: |
-|          Screenshot of new peep page           |
+| ![Image](./public/app_pages/homepage.png) |
+| :---------------------------------------: |
+|                 Homepage                  |
 
 STRAIGHT UP
 
