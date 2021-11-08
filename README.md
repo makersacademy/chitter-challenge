@@ -1,4 +1,4 @@
-<img src ="images/app_pages/homepage.png"></img>
+<img src ="./images/app_pages/homepage.png"></img>
 STRAIGHT UP
 
 As a Maker
