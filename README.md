@@ -17,10 +17,8 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 
 ## Screenshots ##
 
-![Signup](/public/images/signup.png)
-![Login](/public/images/login.png)
-![Create peep](/public/images/create_peep.png)
-![View peeps](/public/images/view_peeps.png)
+![Signup](/public/images/signup.png) ![Login](/public/images/login.png)
+![Create peep](/public/images/create_peep.png) ![View peeps](/public/images/view_peeps.png)
 
 ## Getting Started ##
 
