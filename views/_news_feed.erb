@@ -4,10 +4,13 @@
     <h4><i class="bi bi-newspaper fa-lg"></i></h4>
   </div>
   <% @news.feed.each do |item| %>
-  <div class="card mt-2" style="width: 22rem;">
+   <div class="card mt-2" >
     <div class="card-body">
-        <h6 class="card-title text-dark"><%= item.sectionId %></h6>
+      <a href="<%= "#{item.webUrl}" %>">
+        <h6 class="card-title text-dark"><%= "#{item.webTitle}" %></h6>
       </a>
+      <small class="card-text "><%= "#{item.description}" %></small>
+      <img src="<%= "#{item.fields.thumbnail}" %>" class="img-fluid">
     </div>
   </div>
   <% end %>

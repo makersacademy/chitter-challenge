@@ -10,7 +10,7 @@ class News
   end
 
   def self.create
-    url = 'https://content.guardianapis.com/search?page-size=5&api-key=test&format=json&show-fields=body,headline,thumbnail'
+    url = 'https://content.guardianapis.com/search?page-size=20&api-key=test&format=json&show-fields=body,headline,thumbnail'
     response = RestClient.get(url)
     results = JSON.parse(response, object_class: OpenStruct)
     data = results.response.results
