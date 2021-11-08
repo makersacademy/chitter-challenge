@@ -29,9 +29,9 @@
         <div class="mainbody-container">
           <div class = "peeps-page-prompt">
             <% if @user %>
-              <div class = "center-form create-peep">
-                <div><a href="/peeps">Back</a></div>
-              </div>
+            <form action="/peeps">
+              <h1><button class ="format-input backbutton" type="submit" value="Back"> BACK</button>
+               </form>
             <%else%>
               <h3><h2></h2><a href = "/users/new"> sign up</a> or <a href = "sessions/new"> login</a> to peep!<h3>
               <form action="/peeps">

@@ -46,6 +46,13 @@
                   <div class = "peeptopbar">
                     <div class = "peepdatetime"> <%="#{peep.time}"%> on <%= "#{peep.date}"%> </div>
                     <div class><%= peep.user_id %> posted:</div>
+                      <% if @user %>
+                    <div class = "editcomment peepedit">
+                      <form action="/peeps/<%= peep.id %>/tags/new" method="get">
+                        <button class="format-input create-peep-button add-tag-button" type="submit" value="Add Tag">Add Tag</button>
+                      </form>
+                    </div>
+                  <% end %>
                   </div>
                   <div class ="format-input editpeep "> <%= peep.peep %> </div>
                   <% if peep.tags.length > 0 %>
@@ -59,13 +66,6 @@
                       <%end%>
                     </div>
                   <%end%>  
-                  <% if @user %>
-                    <div class = "editcomment peepedit">
-                      <form action="/peeps/<%= peep.id %>/tags/new" method="get">
-                        <button class="peepbutton" type="submit" value="Add Tag">Add Tag</button>
-                      </form>
-                    </div>
-                  <% end %>
                 </li>
               </div>
             <%end%>

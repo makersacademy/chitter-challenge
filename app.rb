@@ -105,8 +105,7 @@ end
 
   get '/peeps/:id/tags/new' do
     @peep_id = params[:id]
-    redirect '/peeps'
-    # erb :'/tags/new'
+    erb :'/tags/new'
   end
 
   post '/peeps/:id/tags' do
@@ -116,7 +115,6 @@ end
   end
 
    get '/tags/:id/peeps' do
-    @user = User.find(id: session[:user_id])
     @tag = Tag.find(id: params['id'])
     erb :'tags/index'
   end

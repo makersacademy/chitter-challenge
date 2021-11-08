@@ -1,4 +1,31 @@
-<form action="/peeps/<%= @peep_id %>/tags" method="POST">
-  <input name="tag" type="text" />
-  <input value="Submit" type="submit" />
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+    <link rel = "stylesheet" href="/styles.css"/>
+  </head>
+<body>
+  <div class = "mainbody">
+    <nav>
+      <div class = "logo"> CHITTER</div>
+      <div class = "nav-items">
+        <a href="/sessions/new">LOGIN</a>
+        <a href="/peeps">PEEPBAR</a>
+      </div>
+  </nav>
+  <section class = "center-form">
+    <div class="log-prompt">
+      <h2 >tag it!</a><h2>
+    </div>
+    <form action="/peeps/<%= @peep_id %>/tags" method="POST">
+  <input class ="format-input" name="tag" type="text" />
+  <h1><button class ="format-input" type="Add tag" value="Submit">Add tag</button></h1>
 </form>
+  </section>
+  </div>
+</body>
+</html>
+
+
