@@ -9,12 +9,22 @@
 <body>
   <div class = "mainbody">
     <nav>
-      <div class = "logo"> CHITTER</div>
-      <div class = "nav-items">
-        <a href="/sessions/new">LOGIN</a>
-        <a href="/peeps">PEEPBAR</a>
-      </div>
-  </nav>
+        <div class = "logo"><a href="/"> CHITTER</a></div>
+          <% if @user %>
+            <div class = "logged-in-nav-items">
+              <form action = "/sessions/destroy" method="post">
+                <button class= "logoutbutton" type="submit" value="Sign out">LOGOUT</button>
+              </form>
+              <p> Welcome, <%= @user.username %> </p>
+            </div>
+          <% else %>
+            <div class = "nav-items">
+              <a href="/sessions/new">LOGIN</a>
+              <a href="/users/new">SIGNUP</a>
+            </div>
+          <% end %>
+        </div>
+      </nav>
   <section class = "center-form">
     <div class="log-prompt">
       <h2 >tag it!</a><h2>

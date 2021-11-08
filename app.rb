@@ -104,6 +104,7 @@ post '/sessions/destroy' do
 end
 
   get '/peeps/:id/tags/new' do
+    @user = User.find(id: session[:user_id])
     @peep_id = params[:id]
     erb :'/tags/new'
   end
@@ -115,6 +116,7 @@ end
   end
 
    get '/tags/:id/peeps' do
+    @user = User.find(id: session[:user_id])
     @tag = Tag.find(id: params['id'])
     erb :'tags/index'
   end
