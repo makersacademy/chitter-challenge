@@ -20,7 +20,7 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 <table>
   <tr>
     <td>Login</td>
-     <td>Sign up</td>
+    <td>Sign up</td>
   </tr>
   <tr>
     <td><img src="/public/images/login.png" width=405 height=480></td>
@@ -28,7 +28,16 @@ I created this programme as part of a challenge at [Makers Academy](https://make
   </tr>
  </table>
 
-![View peeps](/public/images/view_peeps.png)
+ <table>
+  <tr>
+    <td>Create a peep</td>
+    <td>View peeps</td>
+  </tr>
+  <tr>
+    <td><img src="/public/images/create_peep.png" width=405 height=480></td>
+    <td><img src="/public/images/view_peeps.png" width=405 height=480></td>
+  </tr>
+ </table>
 
 ## Getting Started ##
 
@@ -174,4 +183,8 @@ Table: Users
 5. User.authenticate returns a user given a correct username and password
 6. User.authenticate returns nil given an incorrect email
 7. User.authenticate returns nil given an incorrect password
+
+
+|[Back to the top](#chitter-challenge)| 
+|:------------------------------:|
 
