@@ -85,13 +85,13 @@ How to install the app
 ## Database set-up
 
 1. Install (Homebrew: brew install postgresql) and connect to psql via terminal
-2. Create the database using the psql command: 
-    
-    "CREATE DATABASE chitter;" 
-    
-  and the test database 
-    
+2. Create the database and the test database using the psql command:
+  
+  
+    "CREATE DATABASE chitter;"
     "CREATE DATABASE chitter_test;"
+    
+ 
  3. Connect the databases using the pqsl command \c;
  4. Run queries in 'db/migrations' directory.
 
