@@ -5,6 +5,6 @@ feature 'peep creator displayed' do
     click_button('Post')
     
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'Posted by CRISPR'
+    expect(page).to have_content 'CRISPR posted:'
   end
 end

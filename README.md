@@ -69,6 +69,7 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 - **Frameworks:** Sinatra
 - **Testing and code quality:** RSpec, Capybara, Simplecov
 - **Database:** Postgresql
+- **Styling:** CSS
 
 ## Running tests ##
 
