@@ -1,4 +1,9 @@
+# Chitter
+
 <img width="1433" alt="Screenshot 2021-11-08 at 23 21 50" src="https://user-images.githubusercontent.com/76533997/140888778-2e64841f-8153-4e8d-a244-2869229bf749.png">
+
+
+
 
 ## Challenge
 Basic Twitter clone allowing users to post messages to a public stream. 
@@ -13,11 +18,10 @@ and <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cs
 
 Sinatra, Capybara and RSpec used for testing.
 
-## Deployment
+## Heroku
 This website is deployed here:
 
-## How to use this app
-
+## FEATURES & FUNCTIONALITY 
 
 ## Features:
 
@@ -103,20 +107,16 @@ I want to receive an email if I am tagged in a Peep*
 
 ## Notes on functionality:
 
-(complete) You don't have to be logged in to see the peeps.
-(complete) Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-(complete) The username and email are unique.
-(complete) Peeps (posts to chitter) have the name of the maker and their user handle.
-(complete) Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+##### complete
+You don't have to be logged in to see the peeps.  
+Makers sign up to chitter with their email, password, name and a username  
+The username and email are unique.  
+Peeps (posts to chitter) have the name of the maker and their user handle.  
+Your README should indicate the technologies used, and give instructions on how to install and run the tests.  
+Work on the CSS to make it look good.
 
-Bonus:
-If you have time you can implement the following:
-
-(nearly) In order to start a conversation as a maker I want to reply to a peep from another maker.
-And/Or:
-
-(complete) Work on the CSS to make it look good.
-
+##### nearly 
+In order to start a conversation as a maker I want to reply to a peep from another maker.
 
 
 ----------
@@ -142,17 +142,27 @@ These are all the routes this app uses
 
 <img width="637" alt="Screenshot 2021-11-09 at 13 25 00" src="https://user-images.githubusercontent.com/76533997/140932131-f7ba31ac-4bfb-4aa7-8142-88d5797ded76.png">
 
--------------
-## INSTALLATION
+---------
+## TESTING
 
-## How to install this app
+### How to run the tests
+
+Run 
+  <code>rspec</code>
+within the chitter-challenge directory.
+
+## INSTALL & RUN
+
+### Install this app
 Run <code>gem install bundler</code> if required, then:
 
 <code>git clone https://github.com/Xfarya/chitter-challenge.git</code>  
 <code>cd chitter-challenge</code>  
 <code>bundle install</code>
 
-## Database set-up
+---------
+
+### Set-up database
 
 1. Install (Homebrew: <code>brew install postgresql</code>) and connect to psql via terminal
 2. Create the database and the test database using the psql command: 
@@ -170,14 +180,10 @@ Run <code>gem install bundler</code> if required, then:
  3. Connect the databases using the <code>pqsl</code> command <code>\c</code>;
  4. Run queries in 'db/migrations' directory.
 
----------
-## TESTING
+-----------
+### Run
+Run <code>ruby app.rb</code> from directory
 
-## How to run the tests
+Open a browser to http://localhost:4567/  
 
-Run 
-  <code>rspec</code>
-within the chitter-challenge directory.
-
-
-
+-----------
