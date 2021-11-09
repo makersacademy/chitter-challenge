@@ -58,6 +58,8 @@ View tagged peeps
 
 To do:
 
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 
 ----------
@@ -78,63 +80,25 @@ I implemented the MVC model, following this planning process in implementing eac
 
 -------------
 
-
-
-Technologies Used
-
 How to install the app
 
-How to set up the database
+## Database set-up
 
-How to use this app
+1. Install (Homebrew: brew install postgresql) and connect to psql via terminal
+2. Create the database using the psql command: 
+    
+    "CREATE DATABASE chitter;" 
+    
+  and the test database 
+    
+    "CREATE DATABASE chitter_test;"
+ 3. Connect the databases using the pqsl command \c;
+ 4. Run queries in 'db/migrations' directory.
+
+## How to use this app
 
 How to run the tests
 
-User Stories
-
 Notes on functionality
 
-Bonus
 
-
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-
-How to connect to Database:
-
-1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE chitter;
-3. Connect to the database using the pqsl command \c chitter;
-4. Run the query saved in the file 01_create_peeps_table.sql
-5. Set up test database following above steps - naming it 'chitter_test'
