@@ -97,8 +97,26 @@ How to install the app
 
 ## How to use this app
 
-How to run the tests
+## How to run the tests
 
-Notes on functionality
+Run rspec within the chitter-challenge directory.
+
+
+## Notes on functionality:
+
+(complete) You don't have to be logged in to see the peeps.
+(complete) Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+(complete) The username and email are unique.
+(complete) Peeps (posts to chitter) have the name of the maker and their user handle.
+(complete) Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+Bonus:
+If you have time you can implement the following:
+
+(nearly) In order to start a conversation as a maker I want to reply to a peep from another maker.
+And/Or:
+
+(complete) Work on the CSS to make it look good.
+
 
 
