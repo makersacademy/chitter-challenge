@@ -20,11 +20,11 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 <table>
   <tr>
     <td>Login</td>
-     <td>Signup</td>
+     <td>Sign up</td>
   </tr>
   <tr>
-    <td><img src="/public/images/login.png" width=270 height=480></td>
-    <td><img src="/public/images/signup.png" width=270 height=480></td>
+    <td><img src="/public/images/login.png" width=405 height=480></td>
+    <td><img src="/public/images/signup.png" width=405 height=480></td>
   </tr>
  </table>
 
