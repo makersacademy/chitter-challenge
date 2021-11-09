@@ -1,7 +1,13 @@
 <img width="1433" alt="Screenshot 2021-11-08 at 23 21 50" src="https://user-images.githubusercontent.com/76533997/140888778-2e64841f-8153-4e8d-a244-2869229bf749.png">
 
 ## Challenge
-Twitter clone allowing the users to post messages to a public stream. 
+Twitter clone allowing users to post messages to a public stream. 
+
+## Tools:
+This website is built using Ruby, Sinatra, PostgreSQL, RSpec, Capybara, HTML and CSS.
+
+## Deployment
+This website is deployed here:
 
 ## Features:
 
@@ -27,6 +33,7 @@ I want to sign up for Chitter
 --------
 
 I want to log in to Chitter
+
 <img width="547" alt="Screenshot 2021-11-09 at 09 01 32" src="https://user-images.githubusercontent.com/76533997/140894299-f39dfc98-e2c8-43a5-ba74-eaa41e816f3d.png">
 
 ---------
@@ -54,7 +61,10 @@ To do:
 I want to receive an email if I am tagged in a Peep
 
 ----------
-## Planning
+## Planning!
+
+<img width="653" alt="Screenshot 2021-11-09 at 12 04 08" src="https://user-images.githubusercontent.com/76533997/140921179-c42c64ab-5ef7-4934-a447-b13169b5a0e5.png">
+
 
 Database
 
