@@ -118,5 +118,10 @@ And/Or:
 
 (complete) Work on the CSS to make it look good.
 
+## How to install this app
+Run gem install bundler if required, then:
 
+git clone https://github.com/Xfarya/chitter-challenge.git
+cd chitter-challenge
+bundle install
 
