@@ -63,10 +63,22 @@ I want to receive an email if I am tagged in a Peep
 ----------
 ## Planning!
 
+I implemented the MVC model, following this planning process in implementing each user story
+
 <img width="653" alt="Screenshot 2021-11-09 at 12 04 08" src="https://user-images.githubusercontent.com/76533997/140921179-c42c64ab-5ef7-4934-a447-b13169b5a0e5.png">
 
+-------------
 
-Database
+## Database
+<img width="729" alt="Screenshot 2021-11-09 at 13 07 34" src="https://user-images.githubusercontent.com/76533997/140932075-724d4fc8-9dd9-4066-82a8-02463577754d.png">
+
+## Routes
+
+<img width="637" alt="Screenshot 2021-11-09 at 13 25 00" src="https://user-images.githubusercontent.com/76533997/140932131-f7ba31ac-4bfb-4aa7-8142-88d5797ded76.png">
+
+-------------
+
+
 
 Technologies Used
 
