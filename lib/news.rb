@@ -17,8 +17,3 @@ class News
     News.new(data)
   end
 end
-
-
-
-
-

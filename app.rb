@@ -21,7 +21,6 @@ class ChitterApp < Sinatra::Base
     register Sinatra::Partial
   end
 
-
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
 
@@ -36,16 +35,14 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
-
   post '/sessions' do
     @user = User.authenticate(username: params[:username], password: params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect '/'
     else
       flash[:notice] = 'Please check your username or password.'
-      redirect '/'
     end
+    redirect '/'
   end
 
   post '/users' do

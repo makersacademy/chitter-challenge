@@ -1,5 +1,2 @@
-
-   
-require_relative './app'
-
-run ChitterApp
+require './app'
+run ChitterApp::Application
