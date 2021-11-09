@@ -13,6 +13,7 @@ gem 'bootstrap', '~> 5.0.2'
 gem 'relative_time'
 gem 'rss'
 gem 'sinatra-partial'
+gem 'puma'
 
 group :test do
   gem 'rspec'
