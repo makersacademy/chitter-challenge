@@ -1,10 +1,19 @@
 <img width="1433" alt="Screenshot 2021-11-08 at 23 21 50" src="https://user-images.githubusercontent.com/76533997/140888778-2e64841f-8153-4e8d-a244-2869229bf749.png">
 
 ## Challenge
-Twitter clone allowing users to post messages to a public stream. 
+Basic Twitter clone allowing users to post messages to a public stream. 
 
 ## Tools:
-This website is built using Ruby, Sinatra, PostgreSQL, RSpec, Capybara, HTML and CSS.
+This website is built using
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="40" height="40"/> 
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg" alt="postgresql" width="40" height="40"/>
+             <img
+src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="html5" width="40" height="40"/>
+and <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="css3" width="40" height="40"/>.
+
+Sinatra, Capybara and RSpec used for testing.
+
+
 
 ## Deployment
 This website is deployed here:
@@ -85,13 +94,13 @@ How to install the app
 ## Database set-up
 
 1. Install (Homebrew: brew install postgresql) and connect to psql via terminal
-2. Create the database and the test database using the psql command:
-  
-  
-    "CREATE DATABASE chitter;"
-    "CREATE DATABASE chitter_test;"
+2. Create the database using the psql command: 
     
- 
+    "CREATE DATABASE chitter;" 
+    
+  and the test database 
+    
+    "CREATE DATABASE chitter_test;"
  3. Connect the databases using the pqsl command \c;
  4. Run queries in 'db/migrations' directory.
 
