@@ -1,4 +1,4 @@
-Chitter Challenge
+Chitter Challenge -- WORK IN PROGRESS--
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own
