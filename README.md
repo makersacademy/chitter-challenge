@@ -124,7 +124,7 @@ In order to start a conversation as a maker I want to reply to a peep from anoth
 
 ## MVC
 
-I implemented the MVC model, following this planning process in implementing each user story
+I implemented the MVC model, following this planning process in completing each user story
 
 <img width="653" alt="Screenshot 2021-11-09 at 12 04 08" src="https://user-images.githubusercontent.com/76533997/140921179-c42c64ab-5ef7-4934-a447-b13169b5a0e5.png">
 
