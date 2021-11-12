@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative '../lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -10,12 +11,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peep = session[:peep_message]
+    @peeps = Peep.all
     erb :post_peep
   end
 
   post '/' do
-    session[:peep_message] = params[:peep_message]
+    Peep.create(params[:peep_message])
     redirect '/'
   end
 

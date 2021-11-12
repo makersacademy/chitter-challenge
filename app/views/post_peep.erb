@@ -7,13 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-
+		<% @peeps.each do |peep| %>
+			<li><%= peep %></li>
+		<% end %>
+	<br/>
+	<br/>
+	<br/>
     <form action="/" method="post">
-      <input type="text" name="peep_message" value="Your peep:">
+			<label for="peep_message">Enter your peep:</label>
+      <input type="text" name="peep_message">
 			<input type="submit" value="Post" />
     </form>
-
-		<%= @peep %>
 
 </body>
 </html>
