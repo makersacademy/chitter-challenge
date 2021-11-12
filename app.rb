@@ -14,8 +14,8 @@ class Chitter < Sinatra::Base
   get '/Peeps' do
     # 'Here are the latest Peeps!'
     #  'Peeps are viewable with the newest at the top:'
-    @chitter = ['this is a test, should be Ginny as user']
-    # erb :view_peeps
+    @peeps = Chitter.all
+    erb :view_peeps
   end
 
   run! if app_file == $PROGRAM_NAME
