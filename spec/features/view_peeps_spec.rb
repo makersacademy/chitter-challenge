@@ -20,13 +20,11 @@ feature 'View Peeps' do
     visit '/'
     click_button 'Go to Peeps!'
 
+    expect(page).to have_content 'Here are the latest Peeps!'
+    expect(page).to have_content 'Peeps are viewable with the newest at the top:'
     expect(page).to have_content 'this is a test, should be Ginny as user'
-    # expect(page).to have_content 'this is another test message, Ginny as user'
-    # expect(page).to have_content 'test message, Jon as user'
-    # expect(page).to have_content 'Grace as user'
-
-    # expect(page).to have_content 'Here are the latest Peeps!'
-    # expect(page).to have_content 'Peeps are viewable with the newest at the top:'
-
+    expect(page).to have_content 'this is another test message, Ginny as user'
+    expect(page).to have_content 'test message, Jon as user'
+    expect(page).to have_content 'Grace as user'
   end
 end
