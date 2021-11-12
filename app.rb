@@ -11,7 +11,9 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/Peeps' do
+    erb :view_peeps
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
-
-
