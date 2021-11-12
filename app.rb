@@ -1,6 +1,6 @@
-require_relative './lib/chitter'
+require 'sinatra'
 require 'sinatra/base'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -14,8 +14,8 @@ class Chitter < Sinatra::Base
   get '/Peeps' do
     # 'Here are the latest Peeps!'
     #  'Peeps are viewable with the newest at the top:'
-    @chitters = Chitter.all
-    erb :view_peeps
+    @chitter = ['this is a test, should be Ginny as user']
+    # erb :view_peeps
   end
 
   run! if app_file == $PROGRAM_NAME
