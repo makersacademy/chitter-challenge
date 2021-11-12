@@ -6,7 +6,7 @@
 <br><br><br>
 <div>
   <ul>
-    <% @peeps.each do |peep| %>
+    <% @peeps.map do |peep| %>
       <li><%= peep %></li>
     <% end %>
   </ul>

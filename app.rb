@@ -13,8 +13,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/Peeps' do
-    # 'Here are the latest Peeps!'
-    #  'Peeps are viewable with the newest at the top:'
+    ENV['ENVIRONMENT'] = 'test'
+    @peeps = Peep.all
     erb :view_peeps
   end
 
