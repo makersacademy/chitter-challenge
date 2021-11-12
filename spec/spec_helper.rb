@@ -7,7 +7,7 @@ require 'capybara/rspec'
 require 'sinatra'
 require 'sinatra/reloader'
 require_relative './setup_test_database'
-require_relative '../lib/chitter'
+require_relative '../lib/peep'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -30,6 +30,5 @@ RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
   end
-Capybara.app = Chitter
+  Capybara.app = Chitter
 end
-
