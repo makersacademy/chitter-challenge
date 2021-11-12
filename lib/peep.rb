@@ -1,13 +1,16 @@
+require 'pg'
+
 class Peep
 
-	@@peeps = []
-
 	def self.all
-		@@peeps
+		connection = PG.connect(dbname: "chitter")
+		result = connection.exec("SELECT * FROM peeps;")
+		result.map { |peep| peep['message'] }
 	end
 
 	def self.create(message)
-		@@peeps << message
+		connection = PG.connect(dbname: "chitter")
+		connection.exec_params("INSERT INTO peeps (message) VALUES ($1);", [message])
 	end
 
 end
