@@ -1,3 +1,5 @@
+require_relative './lib/chitter'
+
 feature 'View Peeps' do
   scenario 'user can see what others are saying in reverse chronological order' do
     visit '/'

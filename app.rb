@@ -1,7 +1,6 @@
-require 'sinatra'
+require_relative './lib/chitter'
 require 'sinatra/base'
-require 'sinatra/reloader' if development?
-require './lib/chitter'
+require 'sinatra/reloader'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -15,7 +14,7 @@ class Chitter < Sinatra::Base
   get '/Peeps' do
     # 'Here are the latest Peeps!'
     #  'Peeps are viewable with the newest at the top:'
-    @peeps = Chitter.all
+    @chitters = Chitter.all
     erb :view_peeps
   end
 

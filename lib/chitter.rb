@@ -1,3 +1,5 @@
+require 'pg'
+
 class Chitter
   def self.all
     [
