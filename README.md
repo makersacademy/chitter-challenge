@@ -1,3 +1,13 @@
+
+### To set up database:
+
+* Connect to `psql`.
+* Create the database using the `psql` command `CREATE DATABASE chitter;`, `CREATE DATABASE chitter_test;`
+* Connect to the database using the `psql` command `\c chitter` and `\c chitter_test`;
+* Run the query I have saved in the file 01_create_bookmarks_table.sql in the `db/migrations` folder.
+
+
+
 Chitter Challenge
 =================
 
