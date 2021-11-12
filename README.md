@@ -16,11 +16,7 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-![image](https://user-images.githubusercontent.com/84973171/141450700-db55d45a-ef71-4b2d-87d2-881c46dd0d4f.png)
-
-
-
-
+![image](https://user-images.githubusercontent.com/84973171/141451270-cb713981-182f-48a1-8e29-8b7a6cb38ad6.png)
 
 
 
