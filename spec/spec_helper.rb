@@ -5,6 +5,8 @@ require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
 require_relative './setup_test_database'
+require_relative '../lib/chitter'
+
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = Chitter
 

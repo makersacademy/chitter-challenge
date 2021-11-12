@@ -1,4 +1,4 @@
-require 'chitter'
+require_relative '../lib/chitter.rb'
 
 describe Chitter do
   describe '.all' do
