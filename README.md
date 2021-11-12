@@ -129,3 +129,13 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+create Chitter database
+in terminal, psql
+CREATE DATABASE chitter;
+\c chitter
+
+create Chitter_test database
+in terminal, psql
+CREATE DATABASE chitter_test;
+\c chitter_test
