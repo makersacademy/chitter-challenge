@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @username = User.username
+    @username = User.fullname
     @peeps = Peeps.all
     erb(:index)
   end

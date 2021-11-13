@@ -5,6 +5,12 @@ require 'user'
 describe User do
   before(:each) { User.logout }
 
+  describe '.all' do
+    it 'Returns a full list of users from the database' do
+      expect(User.all.count).to eq 5
+    end
+  end
+
   describe '.login' do
     it 'Sets the value of @@id to the passed number' do
       expect { User.login(2) }.to change { User.id }.from(nil).to(2)
@@ -24,22 +30,22 @@ describe User do
     end
 
     it 'Returns the username associated with @@id' do
-      User.login(find_id_from_username('Wayne'))
-      expect(User.username).to eq 'Wayne'
+      User.login(find_id_from_username('Demon'))
+      expect(User.username).to eq 'Demon'
     end
   end
 
   describe '.fullname' do
     it 'Returns the username associated with @@id' do
-      User.login(find_id_from_username('Wayne'))
-      expect(User.fullname).to eq 'Wayne Campbell'
+      User.login(find_id_from_username('Demon'))
+      expect(User.fullname).to eq 'Gene Simmons'
     end
   end
 
   describe '.request_login' do
     it 'Logs in with the supplied username and password if they match the database' do
       expect { User.request_login('Matt', 'password11') }.not_to change { User.username }
-      expect { User.request_login('Matt', 'password111') }.to change { User.username }.from('none').to('Matt')
+      expect { User.request_login('Matt', 'password') }.to change { User.username }.from('none').to('Matt')
     end
   end
 end

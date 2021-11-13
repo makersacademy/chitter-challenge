@@ -21,6 +21,10 @@ class User
       @@id = nil
     end
 
+    def all
+      connection.exec('SELECT * FROM users')
+    end
+
     def id
       @@id
     end
