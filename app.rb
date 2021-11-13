@@ -7,10 +7,15 @@ class Chitter < Sinatra::Base
   end
 
 get '/' do
-  'Hello from the Chitter app!'
+  'Hello and Welcome to the Chitter app!'
 end
 
-
+get '/peeps' do
+  peeps = [
+      'Hello I am a peep!',
+      'I too am a peep!'
+      ]
+end
 
 
   run! if app_file == $0
