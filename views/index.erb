@@ -1,11 +1,13 @@
 <form action="/peeps" method="post">
-  <input type="text" name="peep" placeholder="TYEP YOUR PEEP!" />
+  <input type="text" name="peep" placeholder="TYPE YOUR PEEP!" />
   <input type="submit" value="Submit" />
 </form>
 
 <ul>
 <% @peeps.each do |peep| %>
 <li><%= peep %></li>
-<input type="time" name="timestamp" step="1">
+<p>
+<script> document.write(new Date().toLocaleDateString()); </script>
+</p>
   <% end %>
 </ul>
