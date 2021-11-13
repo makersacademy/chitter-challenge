@@ -3,10 +3,22 @@ Chitter Challenge
 A small Twitter clone that will allow the users to post messages to a public stream.
 
 
-Set up:
--------
+### Set up:
 https://github.com/makersacademy/course/blob/main/pills/ruby_web_project_setup_list.md
 
+
+### To set up the database
+
+Connect to `psql` and create the `chitter` database:
+```
+CREATE DATABASE bookmark_manager;
+```
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the Chitter app:
+```
+rackup -p 3000
+```
 
 User Stories:
 -------
