@@ -9,5 +9,11 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rubocop', '1.20'
+  gem 'pg'
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+  gem 'webrick'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'rubocop', '1.20', require: false
 end
