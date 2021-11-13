@@ -7,8 +7,9 @@ class User
 
   @@id = nil
 
-  def self.username
-    connection.query("SELECT * FROM users WHERE id = #{@@id};").first['username']
+  def self.request_login(username, password)
+    requested_user = connection.query("SELECT * FROM users WHERE username = '#{username}';").first
+    login(requested_user['id']) if requested_user['pword'] == password
   end
 
   def self.login(n)
@@ -19,11 +20,14 @@ class User
     @@id = nil
   end
 
-  def self.user_id
+  def self.id
     @@id
   end
 
-  private
+  def self.username
+    return nil if @@id.nil?
+    connection.query("SELECT * FROM users WHERE id = #{@@id};").first['username']
+  end
 
   def self.connection
     PG.connect(dbname: "chitter_zimmja#{'_test' if ENV['ENVIRONMENT'] == 'test'}")
