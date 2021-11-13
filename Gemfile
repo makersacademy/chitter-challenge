@@ -16,7 +16,7 @@ group :test do
   gem 'reel'
   gem 'http'
   gem 'webrick'
-  end
+end
 
 group :development, :test do
   gem 'rubocop', '1.20'
