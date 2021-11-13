@@ -1,6 +1,14 @@
+require 'setup_test_database'
+
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/chitter_web.rb')
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 require 'capybara'
 require 'capybara/rspec'
