@@ -1,6 +1,14 @@
 Chitter Challenge
 =================
 
+### To set up database:
+
+* Connect to `psql`.
+* Create the database using the `psql` command `CREATE DATABASE chitter_data;`, `CREATE DATABASE chitter_data_test;`
+* Connect to the database using the `psql` command `\c chitter_data` and `\c chitter_data_test`;
+* Run the query I have saved in the file create_peeps_table.sql in the `db/migrations` folder.
+
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**

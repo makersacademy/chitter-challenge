@@ -1,0 +1,15 @@
+<h1>PEEPS</h1>
+
+<form action='/add-peep' method='post'>
+  <label>Your username:</label>
+  <input type='text' name='username' placeholder='Your Username e.g. Memelord3000'>
+  <label>Your peep:</label>
+  <input type='text' name='message' placeholder='e.g. this is the best web app ever!'>
+  <input type='submit' value='Peep'>
+</form>
+
+  <% @peeps.each do |peep| %>
+    <div id='<%= "peep-#{peep.id}" %>' class="peep-block">
+      <h3><%= "#{peep.username}" %> - <%= "#{peep.message}" %></h3>
+    </div>
+  <% end %>
