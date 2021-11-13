@@ -11,7 +11,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-#Tell Capybara to talk to Chitter
+# Tell Capybara to talk to Chitter
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
