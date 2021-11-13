@@ -1,12 +1,14 @@
 require 'pg'
+require 'active_support/all'
 
 class Peep
 
-	attr_reader :id, :message
+	attr_reader :id, :message, :time
 
-	def initialize(id, message)
+	def initialize(id, message, time)
 		@id = id
 		@message = message
+		@time = time
 	end
 
 	def self.all
@@ -16,7 +18,7 @@ class Peep
 			connection = PG.connect(dbname: "chitter")
 		end
 		result = connection.exec("SELECT * FROM peeps;")
-		result.map { |peep| Peep.new(peep['id'], peep['message']) }.reverse
+		result.map { |pp| Peep.new(pp['id'], pp['message'], pp['time']) }.reverse
 	end
 
 	def self.create(message)
@@ -25,7 +27,9 @@ class Peep
 		else
 			connection = PG.connect(dbname: "chitter")
 		end
-		connection.exec_params("INSERT INTO peeps (message) VALUES ($1);", [message])
+		time = Time.now
+		query = "INSERT INTO peeps (message, time) VALUES ($1, $2);"
+		connection.exec_params(query, [message, time])
 	end
 
 end
