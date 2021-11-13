@@ -7,7 +7,7 @@ end
 
 feature 'Viewing peeps' do
     scenario 'User can see Peeps' do 
-    visit('/Chitter')
+    visit('/chitter')
     expect(page).to have_content "I ate a sandwich today"
     expect(page).to have_content "I love sandwiches"
 
