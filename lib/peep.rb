@@ -1,7 +1,13 @@
+require 'pg'
 class Peep
   def self.all
-    @peeps = ["I'm having a great day",
-        "I wonder what the waether is like tomorrow",
-        "OMG I forgot my keys!"]
+    connection = PG.connect(dbname: 'Peeps')
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map { |peep| peep['peep'] }
+  end
+
+  def self.create(peep)
+    connection = PG.connect(dbname: 'Peeps')
+    connection.exec("INSERT INTO Peeps (peep) VALUES('#{peep}');")
   end
 end
