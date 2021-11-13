@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative '../lib/peep'
+require_relative '../lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -25,7 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    session[:user] = params[:user]
+    User.create(params[:username], params[:email])
     redirect('/')
   end
 
