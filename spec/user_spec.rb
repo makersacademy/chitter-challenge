@@ -17,8 +17,8 @@ describe User do
 
   describe '.username' do
     it 'Returns the username associated with @@id' do
-      test_id = find_id_from_username('Matt')
-      expect(User.username(test_id)).to eq 'Matt'
+      User.login(find_id_from_username('Wayne'))
+      expect(User.username).to eq 'Wayne'
     end
   end
 end

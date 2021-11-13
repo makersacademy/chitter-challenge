@@ -7,8 +7,8 @@ class User
 
   @@id = nil
 
-  def self.username(id)
-    'Matt'
+  def self.username
+    connection.query("SELECT * FROM users WHERE id = #{@@id};").first['username']
   end
 
   def self.login(n)
@@ -21,5 +21,11 @@ class User
 
   def self.user_id
     @@id
+  end
+
+  private
+
+  def self.connection
+    PG.connect(dbname: "chitter_zimmja#{'_test' if ENV['ENVIRONMENT'] == 'test'}")
   end
 end
