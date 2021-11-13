@@ -3,9 +3,9 @@ Chitter Challenge
 A small Twitter clone that will allow the users to post messages to a public stream.
 
 
-Challenge:
+Set up:
 -------
-
+https://github.com/makersacademy/course/blob/main/pills/ruby_web_project_setup_list.md
 
 
 User Stories:
