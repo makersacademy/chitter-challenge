@@ -7,6 +7,10 @@ class User
 
   @@id = nil
 
+  def self.username(id)
+    'Matt'
+  end
+
   def self.login(n)
     @@id = n
   end

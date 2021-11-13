@@ -1,3 +1,5 @@
+require_relative './setup_test_database'
+
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
@@ -7,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'tests/test_helpers' # Includes methods for use in spec tests
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -17,6 +20,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:suite) { setup_test_database }
   config.after(:suite) do
     # puts
     # puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
