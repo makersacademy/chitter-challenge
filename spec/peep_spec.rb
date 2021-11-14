@@ -16,4 +16,13 @@ describe Peep do
       expect(peeps).to include('Third peep')
     end
   end
+
+  # describe '.create' do
+  #   it 'adds a peep to the database' do
+  #     Peep.create(message: 'Hello, this is a test peep')
+  #     peeps = Peep.all
+  #     expect(peeps[0].message).to eq('Hello, this is a test peep')
+  #   end
+  # end
+
 end
