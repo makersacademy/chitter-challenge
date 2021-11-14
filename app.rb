@@ -23,8 +23,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up_action' do
-    userID = User.create(params[:email],params[:password],params[:fullname],params[:username])
-    User.login(userID)
+    user_id = User.create(params[:email],params[:password],params[:fullname],params[:username])
+    User.login(user_id)
+    redirect to '/'
+  end
+
+  post '/peep' do
+    Peeps.create(params[:peep], User.username, '20:00')
     redirect to '/'
   end
 

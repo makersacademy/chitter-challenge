@@ -19,6 +19,12 @@ class Peeps
       peeps.map { |pp| create_peep_object(pp) }.reverse
     end
 
+    def create(peep, peep_user, peep_time)
+      created = connection.exec_params('INSERT INTO peeps (peep,peep_user,peep_time) 
+      VALUES ($1,$2,$3) RETURNING id', [peep, peep_user, peep_time])
+      created.first['id']
+    end
+
     private
 
     def create_peep_object(pp)
@@ -26,6 +32,7 @@ class Peeps
     end
 
     def user_fullname(username)
+      return 'none' if username == 'none'
       connection.query("SELECT * FROM users WHERE username = '#{username}';").first['fullname']
     end
 

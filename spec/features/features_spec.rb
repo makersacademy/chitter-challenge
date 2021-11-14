@@ -19,7 +19,7 @@ describe Chitter do
     end
   end
   
-  feature 'sign-up' do
+  feature 'Sign-up' do
     scenario 'Changes the username display on the Homepage' do
       visit('/')
       click_link('Sign up')
@@ -29,6 +29,16 @@ describe Chitter do
       fill_in('email', with: 'fox@gmail.com')
       click_button('Enter details')
       expect(page).to have_content 'Fox'
+    end
+  end
+
+  feature 'Post peep' do
+    scenario 'Adds and displays a peep on the Homepage' do
+      visit('/')
+      my_peep = 'Kiss & Iron Maiden at Download Festival 2022'
+      fill_in('peep', with: my_peep)
+      click_button('Peep!')
+      expect(page).to have_content my_peep
     end
   end
 end
