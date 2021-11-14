@@ -20,7 +20,7 @@ User stories:
 
 **Checklist:**
 - Post a message (peep) ::white_check_mark::
-- See all peeps in reverse chronological order (newest to oldest) :construction:
+- See all peeps in reverse chronological order (newest to oldest) :white_check_mark:
 - See the time each peep was made
 - MORE STORIES TO FOLLOW BUT I'M STARTING WITH THE FIRST THREE TO BEGIN WITH
 
@@ -31,14 +31,14 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 
-**See all peeps in reverse chronological order (newest to oldest):** :construction:
+**See all peeps in reverse chronological order (newest to oldest):** :white_check_mark:
 ```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 ```
 
-**See the time each peep was made:**
+**See the time each peep was made:** :construction:
 ```
 As a Maker
 So that I can better appreciate the context of a peep
