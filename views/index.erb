@@ -9,8 +9,10 @@
 
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.username %>, <%= peep.fullname %>:
-      <br><%= peep.peep%>
+      <% if peep.username != 'none' %>
+        <%= peep.username %>, <%= peep.fullname %>:<br>
+      <% end %>
+      <%= peep.peep%>
       <br><%= peep.time%>
     </li>
   <% end %>
