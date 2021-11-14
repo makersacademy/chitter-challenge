@@ -29,8 +29,9 @@ class Chitter < Sinatra::Base
     session[:email] = params['txt_chit_email']
     session[:password] = params['txt_password']
 
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO chit_user (name, user_name, email, password) VALUES('#{txt_chit_name}', '#{txt_chit_user_name}', '#{txt_chit_email}', '#{txt_password}');")
+    # connection = PG.connect(dbname: 'chitter_test')
+    # connection.exec("INSERT INTO chit_user (name, user_name, email, password) VALUES('#{txt_chit_name}', '#{txt_chit_user_name}', '#{txt_chit_email}', '#{txt_password}');")
+    User.create('user19', 'user19', '19test@test.com', 'test')
     redirect '/confirm_sign_up'
   end
 

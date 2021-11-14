@@ -4,8 +4,6 @@ require_relative '../lib/user'
 describe User do
   describe '.all' do
     it 'returns all chit users' do
-      # connect to database
-      connection = PG.connect(dbname: 'chitter_test')
 
       # load in database info
       # chit_user table
