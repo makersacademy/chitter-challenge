@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-#require './lib/bookmarks'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -9,7 +9,13 @@ class Chitter < Sinatra::Base
 
   
   get '/' do
-    "Welcome to chitter"
+    @peeps = Peep.all
+    erb :peep_feed
+  end
+
+  post '/new_peep' do
+    Peep.create(new_content: params[:peep_content])
+    redirect '/'
   end
 
   run! if app_file == $0
