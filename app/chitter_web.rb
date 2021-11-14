@@ -30,5 +30,18 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    redirect '/user'
+  end
+
+  get '/user' do
+    @peeps = Peep.all
+    erb :post_peep_user
+  end
+
   run! if app_file == $0
 end
