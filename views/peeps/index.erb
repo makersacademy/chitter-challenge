@@ -1,6 +1,9 @@
+<%require 'time'%>
+
 <h1> Welcome to the Peeps page!</h1>
 <ul>
   <% @peeps.each do |peep| %>
-  <li> <%= peep %></li>
+  <li> <%= peep.text %></li>
+      <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
   <% end %>
 </ul>
