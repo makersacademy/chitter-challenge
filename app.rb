@@ -15,14 +15,17 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/peeps' do
-    p ENV
     @peeps = Peep.all
     erb(:peeps)
   end
 
-  post '/post_peep' do
-    Chitter.create(message: params[:message])
-    redirect '/post_peep'
+  get '/new_peep' do
+    erb(:new_peep)
+  end
+
+  post '/peeps' do
+    params['message']
+    redirect '/peeps'
   end
 
 
