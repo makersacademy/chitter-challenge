@@ -22,10 +22,22 @@ describe Peep do
 
       peeps = Peep.all
 
-      expect(peeps).to include 'this is a test, should be Ginny as user'
-      expect(peeps).to include 'this is another test message, Ginny as user'
-      expect(peeps).to include 'test message, Jon as user'
-      expect(peeps).to include 'Grace as user'
+      expect(peeps).to include "content"=>"this is a test, should be Ginny as user",
+                               +  "name"=>"Ginny",
+                               +  "timestamp"=>"2021-08-09 22:07:10",
+                               +  "user_name"=>"ginnyamazed"
+      expect(peeps).to include "content"=>"this is another test message, Ginny as user",
+                               +  "name"=>"Ginny",
+                               +  "timestamp"=>"2021-08-09 21:50:40",
+                               +  "user_name"=>"ginnyamazed"
+      expect(peeps).to include "content"=>"test message, Jon as user",
+                               +  "name"=>"Jon",
+                               +  "timestamp"=>"2021-10-10 03:57:40",
+                               +  "user_name"=>"JonAZ"
+      expect(peeps).to include "content"=>"Grace as user",
+                               +  "name"=>"Grace",
+                               +  "timestamp"=>"2021-08-09 13:57:40",
+                               +  "user_name"=>"doglover"
     end
   end
 end

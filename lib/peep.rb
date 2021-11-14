@@ -4,13 +4,16 @@ class Peep
 
   def self.all
     connection = PG.connect(dbname: "chitter#{'_test' if ENV['ENVIRONMENT'] == 'test'}")
-    result = connection.exec('SELECT * FROM peeps;')
-    result.map { |peep| peep['content'] }
+    result = connection.exec('SELECT peeps."content", chit_user."name",
+      chit_user.user_name, peeps."timestamp"
+      FROM peeps
+        INNER JOIN chit_user ON chit_user.chit_user_id = PEEPS.chit_user_id
+      ORDER BY timestamp DESC;')
+    result.map { |peep| peep}
+# (peep['content'], peep["'chit_user.'name'"], peep['chit_user.user_name'], peep['timestamp']) }
+
   end
 end
 
-
-# INSERT INTO chit_user VALUES (1, 'test@test.com', 'test', 'Ginny', 'ginnyamazed');
-# INSERT INTO chit_user VALUES (2, '1test@test.com', 'test', 'Jon', 'JonAZ');
-# INSERT INTO chit_user VALUES (3, '2test@test.com', 'test', 'Grace', 'doglover');
-# INSERT INTO chit_user VALUES (4, '3test@test.com', 'test', 'Jay', 'amorthian');
+# TODO: need to update the iteration on line 8 to return all peep column info (except ID)
+# TODO: need to sort result for view_peeps page to display in reverse chronological order
