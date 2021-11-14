@@ -2,14 +2,21 @@ require 'pg'
 
 class Peep
 
+  attr_reader :message, :time
+
+  def initialize(message:, time:)
+    @message = message
+    @time = time
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| peep['message'] }
+    result = connection.exec("SELECT * FROM peeps ORDER by id DESC;")
+    result.map { |peep| Peep.new(message: peep['message'], time: peep['time']) }
   end
 
   def self.create(message:, time:)
