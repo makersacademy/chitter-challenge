@@ -29,7 +29,7 @@ Had I continued to progress the app my next step would have been:
 ##### Sign up page
 <img width="775" alt="Screenshot 2021-11-14 at 16 49 34" src="https://user-images.githubusercontent.com/75947453/141688164-613ab8bd-4e4f-4abb-a4af-c14ecf04c981.png">
 
-#### Peeps page
+##### Peeps page
 - My next task is to remove the 'username' input on this page and replace it with a 'current user' method that automatically applies the log in users name to a new peep.
 <img width="1159" alt="Screenshot 2021-11-14 at 16 50 43" src="https://user-images.githubusercontent.com/75947453/141688208-c601244f-e6a4-4fc8-b2b6-e94f8eca03e1.png">
 
