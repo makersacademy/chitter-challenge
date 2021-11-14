@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'webrick'
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
@@ -9,5 +13,8 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rubocop', '1.20'
+  gem 'capybara'
+  gem 'pg'
+  gem 'rubocop'
+  gem 'selenium-webdriver'
 end

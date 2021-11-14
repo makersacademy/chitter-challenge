@@ -1,0 +1,19 @@
+<ul>
+  <h4> User: <%= @username %> </h4>
+  <p><a href="/sign-up">Sign up</a></p>
+
+  <form action="/peep" method="post">
+    <input type="text" name="peep" placeholder="Add a peep here!">
+    <input type="submit" value="Peep!">
+  </form>
+
+  <% @peeps.each do |peep| %>
+    <li>
+      <% if peep.username != 'none' %>
+        <%= peep.username %>, <%= peep.fullname %>:<br>
+      <% end %>
+      <%= peep.peep%>
+      <br><%= peep.time%>
+    </li>
+  <% end %>
+</ul>

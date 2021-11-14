@@ -1,21 +1,6 @@
-Chitter Challenge
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+Introduction
+---------
+This repo contains the code I wrote for the Chitter Challenge, the Makers Academy Week 4 end-of-week challenge. This involved creating a very basic twitter clone using an MCV model and a database based on the following user stories:
 ```
 STRAIGHT UP
 
@@ -52,80 +37,45 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+My approach
+---------
+Throughout this challenge I created new coding assets (including .rb and .erb files) through a TDD approach, creating function tests for both code and web app functionality.
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+I took special care to begin this challenge with a planning session in which I mapped out the classes, database tables and user journeys I thought would be necessary to complete the STRAIGHT UP and HARDER user stories. I produced the following diagrams based on this:
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+### Classes
+![Classes](media/Week-4_Classes.png "Classes")
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+### Database tables
+![Tables](media/Week-4_Database.png "Database tables")
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+### User journey
+![Journey](media/Week-4_User_journey.png "User journey")
 
-Notes on functionality:
-------
+As I began to develop the project by creating the necessary directories, testing-suite, files and relationships, I made several minor modifications to my original diagrammed plan, but ultimately the code I produced did closely resemble my original plan.
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+All four of the STRAIGHT UP user stories were implemented.
 
-Bonus:
------
+Unfortunately, although a lot of the scaffolding was put in place to complete the HARDER challenges, I did run out of time (partly because of the focus I chose to place on planning for this challenge) and was unable to finish the HARDER challenges. With more time, I would have liked to complete these. I would also have liked to work out the ADVANCED challenge and create new diagrams figuring out how this could be implemented. Finally, I would also have liked to spend some time updating the CSS to make the final app more aesthetically pleasing.
 
-If you have time you can implement the following:
+Total rspec testing coverage: 100%; 17 rspec tests; rubocop passed with no offences.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+Technologies used
+---------
+The following technologies were used in this repo
+1) VS Code was used for all coding requirements
+2) Planning diagrams were made in Microsoft Powerpoint
+3) Database hosting was done in TablePlus with PSQL
 
-And/Or:
 
-* Work on the CSS to make it look good.
+Instructions for use
+---------
+### Setup:
+- Using PSQL, create two databases names 'chitter_zimmja' and 'chitter_zimmja_test'
+- For each database, enter the SQL command lists in the db/migration folder
+- Go to the file directory and enter 'rackup -p 4567' to the terminal
+- Open a browser and go to http://localhost:4567/ to interact with the web app
 
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Interaction:
+- A box appears at the top of the page to enter 'peeps' into. Filling this out and pressing 'Peep!' will add a peep to the list on the homepage
+- Clicking the sign-up button will allow the user to enter a username, full name, password and email; this will change information displayed with peeps
