@@ -14,11 +14,11 @@ describe Peep do
 
   describe '#add' do
     it 'adds a new peep' do
-        connection = PG.connect(dbname: 'chitter_data_test')
-        Peep.add("RyanGrimes", "Test peep")
-        Peep.add("GrimesRyan", "Pest teep")
-        peep = Peep.all
-        expect(peep.length).to eq 2
+      connection = PG.connect(dbname: 'chitter_data_test')
+      Peep.add("RyanGrimes", "Test peep")
+      Peep.add("GrimesRyan", "Pest teep")
+      peep = Peep.all
+      expect(peep.length).to eq 2
     end
   end
 end

@@ -19,7 +19,7 @@ class Peep
     end
     result = connection.exec "SELECT * FROM peeps ORDER BY id DESC;"
     result.map do |peep|
-      Peep.new(id: peep['id'], username: peep['username'], message: peep['message'], time:['time'])
+      Peep.new(id: peep['id'], username: peep['username'], message: peep['message'], time: peep['time'])
     end
   end
 
@@ -30,10 +30,8 @@ class Peep
       connection = PG.connect(dbname: 'chitter_data')
     end
 
-    time = Time.now
-
-    result = connection.exec_params("INSERT INTO peeps (username, message) VALUES($1, $2) RETURNING id, username, message, time;", [username, message] )
-    Peep.new(id: result[0]['id'], username: result[0]['username'], message: result[0]['message'], time: result[0]["#{Time.now}"])
+    result = connection.exec_params("INSERT INTO peeps (username, message, time) VALUES($1, $2, $3) RETURNING id, username, message, time;", [username, message, "#{Time.new.strftime("%A %d %B %Y, %I:%M%p").freeze}"])
+    Peep.new(id: result[0]['id'], username: result[0]['username'], message: result[0]['message'], time: result[0]['time'])
   end
 
 end
