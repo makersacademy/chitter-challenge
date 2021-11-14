@@ -67,10 +67,10 @@ THINGS TO INCLUDE HERE:
 - `CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));` - create a 'peeps' table within the database
 - `\dt` - list the tables, you should see 'peeps'
 
-<!-- ## Create a test database
+## Create a test database
 
 - `psql` - navigate to postgreSQL
 - `CREATE DATABASE chitter_test;` - create a test database
 - `\c chitter_test;` - connect to test database
 - `CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));` - create a 'peeps' table within the test database
-- `\dt` - list the tables, you should see 'peeps' -->
+- `\dt` - list the tables, you should see 'peeps'
