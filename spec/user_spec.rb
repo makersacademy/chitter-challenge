@@ -7,7 +7,7 @@ describe User do
 
   describe '.all' do
     it 'Returns a full list of users from the database' do
-      expect(User.all.count).to eq 5
+      expect(User.all.count).to eq 6
     end
   end
 
@@ -46,6 +46,12 @@ describe User do
     it 'Logs in with the supplied username and password if they match the database' do
       expect { User.request_login('Matt', 'password11') }.not_to change { User.username }
       expect { User.request_login('Matt', 'password') }.to change { User.username }.from('none').to('Matt')
+    end
+  end
+
+  describe '.create' do
+    it 'Adds another entry to the user table' do
+      expect { User.create('ankh@gmail.com','password','Vinnie Vincent','Ankh Warrior') }.to change { User.all.count }.by(1)
     end
   end
 end

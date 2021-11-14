@@ -23,7 +23,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up_action' do
-    erb(:'sign-up/index')
+    userID = User.create(params[:email],params[:password],params[:fullname],params[:username])
+    User.login(userID)
+    redirect to '/'
   end
 
   run! if app_file == $PROGRAM_NAME

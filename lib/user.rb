@@ -25,6 +25,11 @@ class User
       connection.exec('SELECT * FROM users')
     end
 
+    def create(email, pword, fullname, username)
+      created = connection.exec_params('INSERT INTO users (email,pword,fullname,username) VALUES ($1,$2,$3,$4) RETURNING id', [email, pword, fullname, username])
+      created.first['id']
+    end
+
     def id
       @@id
     end
