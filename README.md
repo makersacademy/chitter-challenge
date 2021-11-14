@@ -58,3 +58,19 @@ THINGS TO INCLUDE HERE:
 - Create the database
 - Create the test database
 - Anything else another developer would need to get started?
+
+## Create a database
+
+- `psql` - navigate to postgreSQL
+- `CREATE DATABASE chitter;` - create a database
+- `\c chitter;` - connect to database
+- `CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));` - create a 'peeps' table within the database
+- `\dt` - list the tables, you should see 'peeps'
+
+<!-- ## Create a test database
+
+- `psql` - navigate to postgreSQL
+- `CREATE DATABASE chitter_test;` - create a test database
+- `\c chitter_test;` - connect to test database
+- `CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));` - create a 'peeps' table within the test database
+- `\dt` - list the tables, you should see 'peeps' -->
