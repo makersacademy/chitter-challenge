@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peep'
+require './lib/user'
 
 class ChitterPage < Sinatra::Base
 
@@ -10,6 +11,15 @@ class ChitterPage < Sinatra::Base
 
   get '/' do
     erb :index
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    User.create(username: params[:username], password: params[:password])
+    redirect '/peeps'
   end
 
   get '/peeps' do
