@@ -1,5 +1,12 @@
+
+# Required gems
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+# Setting enviroment
 ENV['RACK_ENV'] = 'test'
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
