@@ -17,4 +17,11 @@ describe Peep do
     end
   end
 
+  describe '.create' do
+    it 'creates a peep' do
+      Peep.create(text: 'My first peep!')
+      expect(Peep.all).to include 'My first peep!'
+    end
+  end
+
 end

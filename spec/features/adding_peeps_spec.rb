@@ -1,7 +1,7 @@
 require 'pg'
 
-feature 'Adding peeps' do
-  scenario 'A user can add a peep' do
+feature 'Creating peeps' do
+  scenario 'A user can create a peep' do
     visit('/peeps/new')
     fill_in('text', with: 'My first peep!')
     click_button('Submit')
