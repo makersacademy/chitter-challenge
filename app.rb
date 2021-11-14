@@ -40,5 +40,9 @@ class Chitter < Sinatra::Base
     erb :confirm_sign_up
   end
 
+  get '/sign_in' do
+    erb :sign_in
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
