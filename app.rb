@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -11,11 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = [
-      'This is my peep',
-      'Another peep',
-      'Third peep'
-    ]
+    @peeps = Peep.all
     erb(:peeps)
   end
 
