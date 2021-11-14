@@ -45,7 +45,15 @@ class User
       connection.query("SELECT * FROM users WHERE id = #{@@id};").first['fullname']
     end
 
+    def time(time = Time.new)
+      "#{ft(time.hour)}:#{ft(time.min)}, #{ft(time.day)}/#{ft(time.month)}/#{time.year}"
+    end
+
     private
+
+    def ft(n) # format time
+      n < 10 ? "0#{n}" : n
+    end
 
     def connection
       PG.connect(dbname: "chitter_zimmja#{'_test' if ENV['ENVIRONMENT'] == 'test'}")

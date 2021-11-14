@@ -54,4 +54,12 @@ describe User do
       expect { User.create('ankh@gmail.com','password','Vinnie Vincent','Ankh Warrior') }.to change { User.all.count }.by(1)
     end
   end
+
+  let(:timestamp_0825) { double('timestamp 08:25', :hour => 8, :min => 25, :day => 5, :month => 11, :year => 2021 )}
+
+  describe '.time' do
+    it 'Returns a formatted time' do
+      expect(User.time(timestamp_0825)).to eq '08:25, 05/11/2021'
+    end
+  end
 end
