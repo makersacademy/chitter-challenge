@@ -1,0 +1,9 @@
+<h2>Peeps list:</h2>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep[0] %> <%= peep[1]%></li>
+  <% end %>
+</ul>
+
+<a href="/peeps/new">Add new peep</a>
