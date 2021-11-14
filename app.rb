@@ -14,9 +14,16 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @username = User.username
-    @username = User.fullname
     @peeps = Peeps.all
     erb(:index)
+  end
+
+  get '/sign-up' do
+    erb(:'sign-up/index')
+  end
+
+  post '/sign-up_action' do
+    erb(:'sign-up/index')
   end
 
   run! if app_file == $PROGRAM_NAME

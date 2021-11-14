@@ -1,8 +1,11 @@
 <ul>
+  <h4> User: <%= @username %> </h4>
+  <p><a href="/sign-up">Sign up</a></p>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep['peep_user'] %>, <%= peep['peep_name'] %>: <%= peep['peep']%>
-      <%= peep['peep']%>
+      <%= peep.username %>, <%= peep.fullname %>:
+      <br><%= peep.peep%>
+      <br><%= peep.time%>
     </li>
   <% end %>
 </ul>
