@@ -7,15 +7,17 @@ feature 'View Peeps' do
 
     # load in database info
     #  # chit_user table
-    connection.exec("INSERT INTO chit_user VALUES (1, 'test@test.com', 'test', 'Ginny', 'ginnyamazed');")
-    connection.exec("INSERT INTO chit_user VALUES (2, '1test@test.com', 'test', 'Jon', 'JonAZ');")
-    connection.exec("INSERT INTO chit_user VALUES (3, '2test@test.com', 'test', 'Grace', 'doglover');")
-    connection.exec("INSERT INTO chit_user VALUES (4, '3test@test.com', 'test', 'Jay', 'amorthian');")
+    # load in database info
+    # chit_user table
+    # connection.exec("INSERT INTO chit_user (email, password, name, user_name) VALUES ('test@test.com', 'test', 'Ginny', 'ginnyamazed');")
+    # connection.exec("INSERT INTO chit_user (email, password, name, user_name) VALUES ('1test@test.com', 'test', 'Jon', 'JonAZ');")
+    # connection.exec("INSERT INTO chit_user (email, password, name, user_name) VALUES ('2test@test.com', 'test', 'Grace', 'doglover');")
+    # connection.exec("INSERT INTO chit_user (email, password, name, user_name) VALUES ('3test@test.com', 'test', 'Jay', 'amorthian');")
     # peeps table
-    connection.exec("INSERT INTO peeps VALUES (1, 1, 'this is a test, should be Ginny as user', '2021-08-09 22:07:10');")
-    connection.exec("INSERT INTO peeps VALUES (2, 1, 'this is another test message, Ginny as user', '2021-08-09 21:50:40');")
-    connection.exec("INSERT INTO peeps VALUES (3, 2, 'test message, Jon as user', '2021-10-10 03:57:40');")
-    connection.exec("INSERT INTO peeps VALUES (4, 3, 'Grace as user', '2021-08-09 13:57:40');")
+    connection.exec("INSERT INTO peeps (chit_user_id, content, timestamp) VALUES (1, 'this is a test, should be Ginny as user', '2021-08-09 22:07:10');")
+    connection.exec("INSERT INTO peeps (chit_user_id, content, timestamp) VALUES (1, 'this is another test message, Ginny as user', '2021-08-09 21:50:40');")
+    connection.exec("INSERT INTO peeps (chit_user_id, content, timestamp) VALUES (4, 'test message, Jon as user', '2021-10-10 03:57:40');")
+    connection.exec("INSERT INTO peeps (chit_user_id, content, timestamp) VALUES (3, 'Grace as user', '2021-08-09 13:57:40');")
 
     visit '/'
     click_button 'Go to Peeps!'

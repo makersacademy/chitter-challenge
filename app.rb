@@ -18,5 +18,8 @@ class Chitter < Sinatra::Base
     erb :view_peeps
   end
 
+  get '/sign_up' do
+    erb :sign_up
+  end
   run! if app_file == $PROGRAM_NAME
 end

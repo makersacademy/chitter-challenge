@@ -20,6 +20,3 @@ class Peep
     result.map { |dbrow| Peep.new(dbrow['name'], dbrow['user_name'], dbrow['timestamp'], dbrow['content']) }
   end
 end
-
-# TODO: need to update the iteration on line 8 to return all peep column info (except ID)
-# TODO: need to sort result for view_peeps page to display in reverse chronological order
