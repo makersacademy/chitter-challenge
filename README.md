@@ -1,3 +1,7 @@
+# Chitter Challenge
+
+* **Please note:** Throughout this code, you might see Chitter and other parts of the Chitter's likeness referred to as Twitter or other parts of Twitter's likeness because...well, c'mon. *
+
 Chitter Challenge
 =================
 
