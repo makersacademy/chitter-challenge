@@ -5,9 +5,13 @@
 </div>
 <br><br><br>
 <div>
-  <ul>
-    <% @peeps.map do |peep| %>
-      <li><%= peep %></li>
-    <% end %>
-  </ul>
+  <% @peeps.each do |dbrow| %>
+      <p>
+     <b><%= dbrow.name %></b>
+        @<%= dbrow.user_name%>
+        <%= dbrow.timestamp %>
+      </p>
+      <p><%= dbrow.content %></p>
+    <hr>
+  <% end %>
 </div>
