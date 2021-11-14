@@ -1,6 +1,7 @@
 Chitter Challenge
 =================
 I managed to complete the four 'straight up' user stories this weekend, but unfortunately did not have time to complete the 'harder' or 'advanced' user stories.
+
 :white_check_mark:
 `As a Maker
 So that I can let people know what I am doing  
