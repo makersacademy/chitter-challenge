@@ -3,6 +3,9 @@
 <%@peeps.each do |x| %>
 <li>
 <%= x.content %>
+<%="    Posted:    "%>
+<%= x.created_at %>
+
 </li>
 <%end%>
 
