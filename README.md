@@ -54,7 +54,9 @@ I took special care to begin this challenge with a planning session in which I m
 
 As I began to develop the project by creating the necessary directories, testing-suite, files and relationships, I made several minor modifications to my original diagrammed plan, but ultimately the code I produced did closely resemble my original plan.
 
-All four of the STRAIGHT UP user stories were implemented. Unfortunately, although a lot of the scaffolding was put in place to complete the HARDER challenges, I did run out of time (partly because of the focus I chose to place on planning for this challenge) and was unable to finish the HARDER challenges. With more time, I would have liked to complete these. I would also have liked to work out the ADVANCED challenge and create new diagrams figuring out how this could be implemented. Finally, I would also have liked to spend some time updating the CSS to make the final app more aesthetically pleasing.
+All four of the STRAIGHT UP user stories were implemented.
+
+Unfortunately, although a lot of the scaffolding was put in place to complete the HARDER challenges, I did run out of time (partly because of the focus I chose to place on planning for this challenge) and was unable to finish the HARDER challenges. With more time, I would have liked to complete these. I would also have liked to work out the ADVANCED challenge and create new diagrams figuring out how this could be implemented. Finally, I would also have liked to spend some time updating the CSS to make the final app more aesthetically pleasing.
 
 Total rspec testing coverage: 100%; 17 rspec tests; rubocop passed with no offences.
 
@@ -69,5 +71,11 @@ The following technologies were used in this repo
 Instructions for use
 ---------
 ### Setup:
-### Interaction:
+- Using PSQL, create two databases names 'chitter_zimmja' and 'chitter_zimmja_test'
+- For each database, enter the SQL command lists in the db/migration folder
+- Go to the file directory and enter 'rackup -p 4567' to the terminal
+- Open a browser and go to http://localhost:4567/ to interact with the web app
 
+### Interaction:
+- A box appears at the top of the page to enter 'peeps' into. Filling this out and pressing 'Peep!' will add a peep to the list on the homepage
+- Clicking the sign-up button will allow the user to enter a username, full name, password and email; this will change information displayed with peeps
