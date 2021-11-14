@@ -1,5 +1,10 @@
 <ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+  <% peeps.reverse.each do |peep| %>
+    <li><%= peep.message %></li>
   <% end %>
 </ul>
+
+<form action="/peeps" method="post">
+  <input type="text" name="message"/><br/>
+  <input type="submit" value="Peep!"/>
+</form>
