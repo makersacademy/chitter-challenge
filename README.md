@@ -1,6 +1,25 @@
 Chitter Challenge
 =================
-I managed to complete the four 'straight up' user stories this weekend, but unfortunately did not have time to complete the 'harder' or 'advanced' user stories. 
+I managed to complete the four 'straight up' user stories this weekend, but unfortunately did not have time to complete the 'harder' or 'advanced' user stories.
+:white_check_mark:
+`As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter` 
+
+:white_check_mark:
+`As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order`
+
+:white_check_mark:
+`As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made`
+
+:white_check_mark:
+`As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter `
 
 Had I continued to progress the app my next step would have been:
 - When the user signs up/signs in this assigns a 'current user' that is set to the user that has just logged in. New peeps then posted whilst the 'current user' is signed in would output from the 'current user' automatically.
@@ -40,22 +59,19 @@ Features:
 ```
 STRAIGHT UP
 
-:white_check_mark:
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-:white_check_mark:
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-:white_check_mark:
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-:white_check_mark:
+
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
