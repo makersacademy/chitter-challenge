@@ -9,6 +9,8 @@ gem 'capybara'
 gem 'webrick'
 gem 'rubocop', '1.20'
 gem 'pg'
+gem 'activesupport'
+gem 'timecop'
 
 group :test do
   gem 'rspec'
