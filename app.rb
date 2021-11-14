@@ -13,8 +13,9 @@ class Chitter < Sinatra::Base
 
   post '/new-chitter' do
     Chitter.add(params[:add_chitter_name], params[:add_chitter_chit])
+
     redirect to '/chitter'
-  end
+  end 
 
   run! if app_file == $0
 end
