@@ -15,4 +15,12 @@ describe Chitter do
             expect(peeps).to  include("I love sandwiches")
         end 
     end 
+    
+    describe '.add' do
+        it "adds new peep" do
+            Peep.add(peep: "I went for a walk today")
+            expect(Peep.all).to include "I went for a walk today"
+        end 
+    end 
+
 end 
