@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/chitter'
 
 class ChitterApp < Sinatra::Base
   
@@ -9,6 +10,15 @@ class ChitterApp < Sinatra::Base
 
   get '/' do
     erb :index
+  end
+
+  post '/post-tweet' do
+    Chitter.create(params[:tweet])
+    redirect '/feed'
+  end
+
+  get '/feed' do
+    erb :feed
   end
 
   run! if app_file == $0

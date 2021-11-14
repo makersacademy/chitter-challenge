@@ -1,14 +1,15 @@
 # Chitter Challenge
 
-* **Please note:** Throughout this code, you might see Chitter and other parts of the Chitter's likeness referred to as Twitter or other parts of Twitter's likeness because...well, c'mon. *
+**Please note:** _Throughout this code, you might see Chitter and other parts of the Chitter's likeness referred to as Twitter or other parts of Twitter's likeness because...well, c'mon._
 
-Chitter Challenge
-=================
+## User Story 1
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+```
 
 Challenge:
 -------
