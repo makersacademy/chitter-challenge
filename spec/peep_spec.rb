@@ -1,6 +1,8 @@
 require 'peep'
 
 describe Peep do
+  let(:time) {Time.now}
+
   describe '.all' do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
@@ -19,7 +21,7 @@ describe Peep do
 
   describe '.create' do
     it 'adds a peep to the database' do
-      Peep.create(message: 'Hello, this is a test peep')
+      Peep.create(message: 'Hello, this is a test peep', time: :time)
       expect(Peep.all).to include 'Hello, this is a test peep'
     end
   end

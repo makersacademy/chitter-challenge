@@ -21,7 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params["message"])
+    time = Time.now
+    Peep.create(message: params["message"], time: time)
     redirect '/peeps'
   end
 
