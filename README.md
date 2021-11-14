@@ -54,7 +54,7 @@ I took special care to begin this challenge with a planning session in which I m
 
 As I began to develop the project by creating the necessary directories, testing-suite, files and relationships, I made several minor modifications to my original diagrammed plan, but ultimately the code I produced did closely resemble my original plan.
 
-All four of the STRAIGHT UP user stories were implemented. Unfortunately, although a lot of the scaffolding was put in place to complete the HARDER challenges, I did run out of time (partly because of the focus I chose to place on planning for this challenge) and was unable to finish the HARDER challenges. With more time, I would have liked to complete these. I would also have liked to work out the ADVANCED challenge and create new diagrams figuring out how this could be implemented.
+All four of the STRAIGHT UP user stories were implemented. Unfortunately, although a lot of the scaffolding was put in place to complete the HARDER challenges, I did run out of time (partly because of the focus I chose to place on planning for this challenge) and was unable to finish the HARDER challenges. With more time, I would have liked to complete these. I would also have liked to work out the ADVANCED challenge and create new diagrams figuring out how this could be implemented. Finally, I would also have liked to spend some time updating the CSS to make the final app more aesthetically pleasing.
 
 Total rspec testing coverage: 100%; 17 rspec tests; rubocop passed with no offences.
 
