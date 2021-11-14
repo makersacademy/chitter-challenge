@@ -1,5 +1,6 @@
 require 'pg'
 require 'active_support/all'
+require_relative './user'
 
 class Peep
 
@@ -19,7 +20,7 @@ class Peep
 			connection = PG.connect(dbname: "chitter")
 		end
 		result = connection.exec("SELECT * FROM peeps;")
-		result.map { |pp| Peep.new(pp['id'], pp['message'], pp['time'], pp['userid'].to_i) }.reverse
+		result.map { |pp| Peep.new(pp['id'], pp['message'], pp['time'], pp['userid']) }.reverse
 	end
 
 	def self.create(message, userid)
@@ -30,7 +31,17 @@ class Peep
 		end
 		time = Time.now
 		query = "INSERT INTO peeps (message, time, UserID) VALUES ($1, $2, $3);"
-		connection.exec_params(query, [message, time, userid])
+		connection.exec_params(query, [message, time, userid.to_i])
 	end
 
+	def author(peep_id)
+		if ENV['RACK_ENV'] == 'test'
+			connection = PG.connect(dbname: "chitter_test")
+		else
+			connection = PG.connect(dbname: "chitter")
+		end
+		result = connection.exec_params("SELECT username FROM users WHERE id in (SELECT UserID from peeps WHERE UserID=$1)", [peep_id])
+		result.first['username']
+	end
+	
 end
