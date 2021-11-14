@@ -1,0 +1,47 @@
+<html>
+<head>
+<style>
+body {background-color: midnightblue;
+      font-family: sans-serif;
+      color: peru
+}
+h5 {font-style: italic;
+}
+
+div {background-color: rgba(25,25,180,0.6);
+     border: dashed;
+     border-color: white;
+     border-width: 1px;
+     border-radius: 20px;
+     padding: 5px;
+     margin: 10px; 
+     width: 1100px;
+     font-size: 18px}
+
+input[type='text'] {width: 220px; }
+</style>
+</head>
+  <body>
+
+<h1>PEEPS</h1>
+
+<%if @user %>
+  <h3> Welcome, <%= @user.username %> </h3>
+<% end %>
+
+<form action='/add-peep' method='post'>
+  <label>Your username:</label>
+  <input type='text' name='username' placeholder='Your Username e.g. Memelord3000'>
+  <label>Your peep:</label>
+  <input type='text' name='message' placeholder='e.g. this is the best web app ever!'>
+  <input type='submit' value='Post Peep'>
+</form>
+
+  <% @peeps.each do |peep| %>
+    <div id='<%= "peep-#{peep.id}" %>' class="peep-block">
+      <p><%= "#{peep.time}" %>: <%= "#{peep.username}" %> - <%= "#{peep.message}" %></p>
+    </div>
+  <% end %>
+
+  </body>
+</html>

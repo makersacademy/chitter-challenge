@@ -1,0 +1,28 @@
+<html>
+<head>
+<style>
+body {background-color: midnightblue;
+      font-family: sans-serif;
+      color: peru
+}
+h5 {font-style: italic;
+}
+input[type='text'] {width: 220px; }
+</style>
+</head>
+<body>
+<h1> Chitter! </h1>
+<h5> Pronounced like CHampagne or CHef or maCHine </h5>
+
+<p> Sign up below to enter Chitter! </p>
+
+<form action='/add-user' method='post'>
+  <label>Your username:</label>
+  <input type='text' name='username' placeholder='Your Username e.g. Memelord3000'>
+  <label>Your password:</label>
+  <input type='text' name='password' placeholder="Don't forget this, or you're stuffed...">
+  <input type='submit' value='Sign up'>
+</form>
+
+</body>
+</html>

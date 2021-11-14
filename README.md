@@ -1,5 +1,46 @@
 Chitter Challenge
 =================
+I managed to complete the four 'straight up' user stories this weekend, but unfortunately did not have time to complete the 'harder' or 'advanced' user stories.
+
+:white_check_mark:
+`As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter` 
+
+:white_check_mark:
+`As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order`
+
+:white_check_mark:
+`As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made`
+
+:white_check_mark:
+`As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter `
+
+Had I continued to progress the app my next step would have been:
+- When the user signs up/signs in this assigns a 'current user' that is set to the user that has just logged in. New peeps then posted whilst the 'current user' is signed in would output from the 'current user' automatically.
+- I would then have created a 'log out' function which when called would reset the 'current user' to nil, to indicate no one is signed in. 
+
+##### Sign up page
+<img width="775" alt="Screenshot 2021-11-14 at 16 49 34" src="https://user-images.githubusercontent.com/75947453/141688164-613ab8bd-4e4f-4abb-a4af-c14ecf04c981.png">
+
+##### Peeps page
+- My next task is to remove the 'username' input on this page and replace it with a 'current user' method that automatically applies the log in users name to a new peep.
+<img width="1159" alt="Screenshot 2021-11-14 at 16 50 43" src="https://user-images.githubusercontent.com/75947453/141688208-c601244f-e6a4-4fc8-b2b6-e94f8eca03e1.png">
+
+
+### To set up database:
+
+* Connect to `psql`.
+* Create the database using the `psql` command `CREATE DATABASE chitter_data;`, `CREATE DATABASE chitter_data_test;`
+* Connect to the database using the `psql` command `\c chitter_data` and `\c chitter_data_test`;
+* Run the query I have saved in the file create_peeps_table.sql in the `db/migrations` folder.
+
 
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
@@ -30,6 +71,7 @@ I want to see all peeps in reverse chronological order
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
 
 As a Maker
 So that I can post messages on Chitter as me
