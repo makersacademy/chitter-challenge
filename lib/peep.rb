@@ -8,7 +8,7 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM peeps")
+    result = connection.exec("SELECT * FROM peeps ORDER BY id DESC")
     result.map { |peep| peep['message'] }
     end
 
@@ -22,10 +22,5 @@ class Peep
  
       connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
     end
-
-
-
-
-
 
 end
