@@ -7,10 +7,8 @@ feature 'add new user' do
     visit('/')
     fill_in :username, with: 'RyanGrimes'
     fill_in :password, with: 'password123'
-    click_button('Submit')
+    click_button('Sign up')
 
     expect(page).to have_content "You are signed in as RyanGrimes"
   end
 end
-
-#This test should fail but doesn't?

@@ -25,6 +25,10 @@ input[type='text'] {width: 220px; }
 
 <h1>PEEPS</h1>
 
+<%if @user %>
+  <h3> Welcome, <%= @user.username %> </h3>
+<% end %>
+
 <form action='/add-peep' method='post'>
   <label>Your username:</label>
   <input type='text' name='username' placeholder='Your Username e.g. Memelord3000'>

@@ -1,7 +1,8 @@
 require 'user'
 
-describe '.create' do
+describe '#create' do
   it 'creates a new user' do
-    user = User.add(username: 'RyanGrimes', password: 'password123')
+    connection = PG.connect(dbname: 'chitter_users_test')
+    user = User.add('RyanGrimes', 'password123')
   end
 end

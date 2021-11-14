@@ -1,5 +1,18 @@
 Chitter Challenge
 =================
+I managed to complete the four 'straight up' user stories this weekend, but unfortunately did not have time to complete the 'harder' or 'advanced' user stories. 
+
+Had I continued to progress the app my next step would have been:
+- When the user signs up/signs in this assigns a 'current user' that is set to the user that has just logged in. New peeps then posted whilst the 'current user' is signed in would output from the 'current user' automatically.
+- I would then have created a 'log out' function which when called would reset the 'current user' to nil, to indicate no one is signed in. 
+
+##### Sign up page
+<img width="775" alt="Screenshot 2021-11-14 at 16 49 34" src="https://user-images.githubusercontent.com/75947453/141688164-613ab8bd-4e4f-4abb-a4af-c14ecf04c981.png">
+
+#### Peeps page
+- My next task is to remove the 'username' input on this page and replace it with a 'current user' method that automatically applies the log in users name to a new peep.
+<img width="1159" alt="Screenshot 2021-11-14 at 16 50 43" src="https://user-images.githubusercontent.com/75947453/141688208-c601244f-e6a4-4fc8-b2b6-e94f8eca03e1.png">
+
 
 ### To set up database:
 
