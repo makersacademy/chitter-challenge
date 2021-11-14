@@ -69,6 +69,5 @@ The following technologies were used in this repo
 Instructions for use
 ---------
 ### Setup:
-
 ### Interaction:
 
