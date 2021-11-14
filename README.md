@@ -19,19 +19,19 @@ User stories:
 -------
 
 **Checklist:**
-- Post a message (peep) :construction:
-- See all peeps in reverse chronological order (newest to oldest)
+- Post a message (peep) ::white_check_mark::
+- See all peeps in reverse chronological order (newest to oldest) :construction:
 - See the time each peep was made
 - MORE STORIES TO FOLLOW BUT I'M STARTING WITH THE FIRST THREE TO BEGIN WITH
 
-**Post a message (peep):** :construction:
+**Post a message (peep):** :white_check_mark:
 ```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
 
-**See all peeps in reverse chronological order (newest to oldest):**
+**See all peeps in reverse chronological order (newest to oldest):** :construction:
 ```
 As a maker
 So that I can see what others are saying  
