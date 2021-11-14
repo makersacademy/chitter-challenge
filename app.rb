@@ -24,11 +24,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/confirm' do
-    txt_chit_name = params['txt_chit_name']
-    txt_chit_user_name = params['txt_chit_user_name']
-    session[:user_name] = txt_chit_user_name
-    txt_chit_email = params['txt_chit_email']
-    txt_password = params['txt_password']
+    session[:name] = params['txt_chit_name']
+    session[:user_name] = params['txt_chit_user_name']
+    session[:email] = params['txt_chit_email']
+    session[:password] = params['txt_password']
 
     connection = PG.connect(dbname: 'chitter_test')
     connection.exec("INSERT INTO chit_user (name, user_name, email, password) VALUES('#{txt_chit_name}', '#{txt_chit_user_name}', '#{txt_chit_email}', '#{txt_password}');")
@@ -42,6 +41,12 @@ class Chitter < Sinatra::Base
 
   get '/sign_in' do
     erb :sign_in
+  end
+
+  post '/check-details' do
+    @user_name = session[:user_name]
+    @password = session[:password]
+    redirect '/Peeps'
   end
 
   run! if app_file == $PROGRAM_NAME

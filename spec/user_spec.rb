@@ -22,4 +22,20 @@ describe User do
       # expect(peeps).to include "@name='Grace', @user_name='doglover', @timestamp='2021-08-09 13:57:40', @content='Grace as user'"
     end
   end
+
+  describe '.create' do
+      it 'creates a new chitter user' do
+        user5 = User.create('user18', 'user18', '18test@test.com', 'test')
+        # user5_data = find_in_database(user5.id)
+
+        expect(User.all).to include 'user18'
+        # expect(user5.name).to eq 'user18'
+        # expect(user5.user_name).to eq 'user18'
+        # expect(user5.email).to eq '18test@test.com'
+        # expect(user5.password).to eq 'test'
+        # expect(user5.id). to eq user5_data['id']
+      end
+  end
 end
+
+
