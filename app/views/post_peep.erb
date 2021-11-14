@@ -10,7 +10,7 @@
 			h1   {color: blue;}
 			h5   {color: blue;}
 			.p    {color: red; text-align: right}
-			.banner {text-align: right;}
+			.banner {text-align: right}
 			.peep-message	{	border: 1px solid black;}
 		</style>
 </head>
@@ -26,6 +26,11 @@
 		<h1>Chitter</h3>
 	</div>
 
+  <div>
+  <h3>Wow, you're back so soon <%=@user.username%>. Let's get peeping!</h3>
+  </div>
+
+
 	<form action="/" method="post">
 		<label for="peep_message">Enter your peep:</label>
 		<input type="text" name="peep_message">
@@ -39,7 +44,7 @@
 	<div class="peep-message">
 		<li><%= peep.message %></li>
 	</div>
-	<p id:"author">Posted by <%=peep.author(peep.userid)%></p>
+    <p id:"author">Posted by <%=peep.author(peep.userid)%></p>
 		<p id:"time"><%=peep.time%></p>
 		<br/>
 		<br/>

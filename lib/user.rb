@@ -2,7 +2,7 @@ require 'pg'
 
 class User
 
-  @@current_user = ''
+  @@current_user = nil
 
   attr_reader :id, :username, :email
 
@@ -38,7 +38,7 @@ class User
   end
 
   def self.current_user
-    @@current_user
+    !!@@current_user ? @@current_user : User.new('n/a', 'anonymous', 'n/a')
   end
 
 end

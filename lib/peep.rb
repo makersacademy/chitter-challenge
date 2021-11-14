@@ -40,7 +40,11 @@ class Peep
 		else
 			connection = PG.connect(dbname: "chitter")
 		end
-		result = connection.exec_params("SELECT username FROM users WHERE id in (SELECT UserID from peeps WHERE UserID=$1)", [peep_id])
+		result = connection.exec_params(
+			"SELECT username FROM users WHERE id in 
+			(SELECT UserID from peeps WHERE UserID=$1)",
+			[peep_id]
+			)
 		result.first['username']
 	end
 	
