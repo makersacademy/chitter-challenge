@@ -10,5 +10,9 @@ class ChitterChallenge < Sinatra::Base
     'You have signed up successfully'
   end
 
+  get '/peeps' do
+    'This is my first peep'
+  end 
+
   run! if app_file == $0
 end
