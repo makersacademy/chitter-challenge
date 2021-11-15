@@ -6,6 +6,6 @@ feature 'Sign up' do
     fill_in 'email', with: 'example@email.com'
     fill_in 'password', with: 'letMeIn1'
     click_button 'Sign up'
-    expect(page).to have_content('Tell us what is on your mind.')
+    expect(page).to have_content('Mr Chitter')
   end
 end

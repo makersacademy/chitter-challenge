@@ -3,7 +3,7 @@ require 'chitter'
 describe Chitter do
   
   describe '.all' do
-    it 'returns a feed of tweet' do  
+    it 'returns a feed of tweets' do  
 
       Chitter.create("My first post")
       Chitter.create("And a follow up")

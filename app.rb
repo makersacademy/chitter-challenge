@@ -4,6 +4,8 @@ require './lib/chitter'
 require './lib/account'
 
 class ChitterApp < Sinatra::Base
+
+  enable :sessions
   
   configure :development do
     register Sinatra::Reloader
@@ -14,6 +16,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/post' do
+    @username = session[:username]
     erb :post
   end
 
@@ -22,12 +25,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/post-tweet' do
-    Chitter.create(params[:tweet])
+    if session[:username]
+      Chitter.create(params[:tweet], session[:username])
+    else
+      Chitter.create(params[:tweet])
+    end
     redirect '/feed'
   end
 
   post '/post-sign-up' do
     Account.create(username: params[:username], email: params[:email], password: params[:password])
+    session[:username] = params[:username]
     redirect '/post'
   end
 
