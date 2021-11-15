@@ -1,4 +1,4 @@
-Chitter Challenge
+# Chitter Challenge
 
 
 
@@ -40,25 +40,17 @@ Notes on functionality:
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
 
 Set up:
 -----
 
 * Connect to psql
-* 
+* Create the database using psql command CREATE DATABASE chitter;, CREATE DATABASE chitter_test;
+* Connect to the database using the psql command \c chitter and \c chitter_test;
+* Run the query I have saved in the file 01_ceate_bookmarks_table.sql in db/migrations folder
 
-Code Review
------------
 
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
 
 Automated Tests:
 -----
