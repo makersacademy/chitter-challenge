@@ -2,17 +2,18 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<ul>
-  <% peeps.reverse.each do |peep| %>
-    <li>
-      <span class="user"><%= peep.name %>(<%= peep.username %>) peeped:</span></br>
-      <%= peep.message %></br>
-      <span class="post_time"><%= peep.post_time %></span>
-    </li>
-  <% end %>
-</ul>
+<div id="content">
+  <ul>
+    <% peeps.reverse.each do |peep| %>
+      <li>
+        <%= peep.message %></br>
+        <span class="post_time"><%= peep.post_time %></span>
+      </li>
+    <% end %>
+  </ul>
 
-<form action="/peeps" method="post" id="form">
-  <input type="text" name="message"/><br/>
-  <input type="submit" value="Peep!"/>
-</form>
+  <form action="/peeps" method="post" id="form">
+    <input type="text" name="message"/><br/>
+    <input type="submit" value="Peep!"/>
+  </form>
+</div>

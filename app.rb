@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb(:'index')
+    erb(:index)
   end
 
   post '/signup' do
@@ -19,11 +19,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb(:'peeps', locals: { peeps: Peep.all})
+    erb(:peeps, locals: { peeps: Peep.all })
   end
 
   post '/peeps' do
-    Peep.create(name: params[:name], username: params[:username], message: params[:message], post_time: Time.new.strftime("%d/%m/%y - %R").to_s)
+    Peep.create(message: params[:message], post_time: Time.new.strftime("%d/%m/%y - %R").to_s)
     redirect '/peeps'
   end
 
