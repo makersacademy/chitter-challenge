@@ -18,10 +18,9 @@ class Chitter
     end
 
     result = connection.exec "SELECT * FROM chitters;"
-    result.map do |chitter|
+    mapped = result.map do |chitter|
       Chitter.new(chitter['tweet'], chitter['date'])
     end
-    result.reverse
   end
 
   def self.create(tweet)

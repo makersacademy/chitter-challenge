@@ -25,6 +25,11 @@ class ChitterApp < Sinatra::Base
     redirect '/feed'
   end
 
+  post '/post-sign-up' do
+
+    redirect '/feed'
+  end
+
   get '/feed' do
     @chitters = Chitter.all
     erb :feed

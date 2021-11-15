@@ -20,7 +20,7 @@ describe Chitter do
     it 'creates a new chitter post' do
       Chitter.create("My first post")
       chitters = Chitter.all
-      expect(chitters[0].date).to eq(Date.today)
+      expect(chitters[0].date).to eq(Date.today.to_s)
       expect(chitters[0].tweet).to eq('My first post')
     end
   end
