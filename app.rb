@@ -12,6 +12,14 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
+  get '/post' do
+    erb :post
+  end
+
+  get '/sign-up' do
+    erb :sign_up
+  end
+
   post '/post-tweet' do
     Chitter.create(params[:tweet])
     redirect '/feed'
