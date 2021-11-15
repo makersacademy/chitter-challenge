@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/chitter'
+require './lib/account'
 
 class ChitterApp < Sinatra::Base
   
@@ -26,8 +27,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/post-sign-up' do
-
-    redirect '/feed'
+    Account.create(username: params[:username], email: params[:email], password: params[:password])
+    redirect '/post'
   end
 
   get '/feed' do
