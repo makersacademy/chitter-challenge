@@ -7,7 +7,7 @@ class Peep
 
       connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.coonect(dbname: 'chitter')
+      connection = PG.connect(dbname: 'chitter')
     end  
 
     result = connection.exec('SELECT * FROM peeps')
