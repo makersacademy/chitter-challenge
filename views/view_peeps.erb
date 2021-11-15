@@ -1,0 +1,17 @@
+<h2>Here are the latest Peeps!</h2>
+
+<div>
+  Peeps are viewable with the newest at the top:
+</div>
+<br><br><br>
+<div>
+  <% @peeps.each do |dbrow| %>
+      <p>
+     <b><%= dbrow.name %></b>
+        @<%= dbrow.user_name%>
+        <%= dbrow.timestamp %>
+      </p>
+      <p><%= dbrow.content %></p>
+    <hr>
+  <% end %>
+</div>
