@@ -11,8 +11,8 @@ describe Chitter do
             
             peeps = Peep.all
 
-            expect(peeps).to  include("I ate a sandwich today")
-            expect(peeps).to  include("I love sandwiches")
+            expect(peeps.peep).to  include("I ate a sandwich today")
+            expect(peeps.peep).to  include("I love sandwiches")
         end 
     end 
     
