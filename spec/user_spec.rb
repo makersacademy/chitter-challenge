@@ -9,7 +9,7 @@ describe User do
 
   it 'allows a user to be logged in as current' do
     User.create("Joe Bloggs", "joe@gmail.com")
-    User.set_user("Joe Bloggs")
+    User.assign_user("Joe Bloggs")
     expect(User.current_user.username).to eq "Joe Bloggs"
   end
 

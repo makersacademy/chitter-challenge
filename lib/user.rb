@@ -33,7 +33,7 @@ class User
   end
 
   # set the current user for the session
-  def self.set_user(user)
+  def self.assign_user(user)
     User.all.select { |u| @@current_user = u if u.username == user }
   end
 
