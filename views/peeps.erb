@@ -1,7 +1,15 @@
-<ul>
+<body style='background-color: #87CEFA'>
+
+<h1 style='position:absolute; top: 5%; left: 50%; transform: translate(-50%, -50%);'>Mohammed's Peeps</h1>
+
+<ul style='position:absolute; top: 15%; left: 50%; transform: translate(-50%, -50%); font-size: 20px'>
    <% @peeps.each do |peep| %>
     <li><%= peep.message %>  (<%= peep.time %>)</li>
    <% end %>
  </ul>
 
- <button><a href="/">Return to homepage</button>
+ <button style= 'padding:10px; border-radius: 10px; 
+ background-color: #00008B; color: white; margin: auto; 
+ display:grid; font-size: large; position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);' ><a href="/" style= 'text-decoration: none; color: white'>Return to homepage</button>
+
+ </body>

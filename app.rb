@@ -1,3 +1,5 @@
+
+
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peep'
@@ -25,7 +27,7 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+    Peep.create(message: params[:message], time: params[:time])
     redirect '/peeps'
   end
 
