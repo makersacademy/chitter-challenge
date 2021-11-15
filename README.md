@@ -16,9 +16,31 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
 ![image](https://user-images.githubusercontent.com/84973171/141451270-cb713981-182f-48a1-8e29-8b7a6cb38ad6.png)
 
+#### use
 
+The current user on loading the app is a user object with the name 'anonymous', but this fake user is not in the database and so there is an error message if you try to post as anonymous. 
+
+You must first signup AND login, using the same username. You can then post and the peep will appear with your name.
+
+#### issues and improvements
+
+Unsure on:
+* The logged in user was persisted across server calls using class methods set_user/current_user. Not come across this before so not sure if its the best way to implement.
+
+* In order to access the author of a peep, a separate method (Peep.author) calls to the database, and uses the foreign ID in the peeps table to find the user in the users table. Perhaps this can be better implemented with a ruby object as opposed to SQL query?
+
+With more time:
+* Would have added edge cases such as user cannot post unless they are logged in.
+
+* Tests could be improved with more expect statements to check the data that is being stored.
+
+* Should separate the job of communicating with the database to a different class.
 
 Chitter Challenge
 =================

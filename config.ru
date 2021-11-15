@@ -1,3 +1,3 @@
-require_relative "./app/chitter_web.rb"
+require_relative "./app/chitter_web"
 
 run Chitter
