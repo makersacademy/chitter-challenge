@@ -1,19 +1,9 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
 
-As usual please start by forking this repo.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+User Stories:
 -------
 
 ```
@@ -31,41 +21,18 @@ As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
+Technologies Used:
 -----
+* Rspec
+* Sinatra
+* Capybara
+* Ruby
+* Git
+* Github
+* PostgreSQL
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
 
 Notes on functionality:
 ------
@@ -73,32 +40,17 @@ Notes on functionality:
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
+
+Set up:
 -----
 
-If you have time you can implement the following:
+* Connect to psql
+* Create the database using psql command CREATE DATABASE chitter;, CREATE DATABASE chitter_test;
+* Connect to the database using the psql command \c chitter and \c chitter_test;
+* Run the query I have saved in the file 01_ceate_bookmarks_table.sql in db/migrations folder
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
 
 Automated Tests:
 -----

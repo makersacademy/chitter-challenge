@@ -2,6 +2,16 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'rspec'
+gem 'capybara'
+gem 'webrick'
+gem 'rubocop', '1.20'
+gem 'pg'
+gem 'activesupport'
+gem 'timecop'
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
