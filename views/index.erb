@@ -1,0 +1,18 @@
+<h1> Welcome to your Chitter feed <%= @username %>! </h1>
+<h2> Latest Peeps: </h2>
+<ul>
+  <% puts @peeps%>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= "#{peep.peep}" %> <br>
+      <%="Time of tweet: #{peep.time}" %> 
+      <br>
+      <br>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/peep">Create a peep</a>
+<a href="/logout">Log Out</a>
+
