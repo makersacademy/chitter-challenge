@@ -9,15 +9,16 @@ class ChitterChallenge < Sinatra::Base
 
   get '/' do
     'Welcome to Chitter, You have signed up successfully!'
+    erb :'peeps/index'
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/peeps'
   end 
 
   get '/peeps/new' do
-    erb :"peeps/new"
+    erb :"peeps/new_peep"
   end
 
   post '/peeps' do

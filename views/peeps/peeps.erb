@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+div{
+     height: 600px;
+     width: 600px;
+     background: lightgray;
+     line-height: 50px;
+     text-align: center;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li> <%= peep %></li>
+  <% end %>
+</ul>
+</div>
