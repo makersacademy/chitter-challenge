@@ -5,7 +5,6 @@ require_relative '../lib/peep'
 describe Peep do
   describe '.all' do
     it 'returns all peeps (regardless of log in status)' do
-      # connect to test database
       connection = PG.connect(dbname: 'chitter_test')
 
       # load in database info
@@ -22,8 +21,8 @@ describe Peep do
 
       peeps = Peep.all
 
-      expect(peeps).to include (Peep.new(@name="Jon", @user_name='JonAZ', @timestamp='2021-10-10 03:57:40', @content='test message, Jon as user'))
-      expect(peeps).to include(Peep.new(@name='Ginny', @user_name='ginnyamazed', @timestamp='2021-08-09 22:07:10', @content='this is a test, should be Ginny as user'))
+      expect(peeps[@content]).to eq'test message, Jon as user'
+      expect(peeps[@user_name]).to eq 'JonAZ'
       # expect(peeps).to include "@name='Ginny', @user_name='ginnyamazed', @timestamp='2021-08-09 21:50:40', @content='this is another test message, Ginny as user'"
       # expect(peeps).to include "@name='Grace', @user_name='doglover', @timestamp='2021-08-09 13:57:40', @content='Grace as user'"
     end

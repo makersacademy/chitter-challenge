@@ -20,3 +20,5 @@ class Peep
     result.map { |dbrow| Peep.new(dbrow['name'], dbrow['user_name'], dbrow['timestamp'], dbrow['content']) }
   end
 end
+
+# TODO: lost output of peeps table.

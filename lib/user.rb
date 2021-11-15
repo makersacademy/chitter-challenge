@@ -20,6 +20,8 @@ class User
   def self.create(name, user_name, email, password)
     connection = PG.connect(dbname: "chitter#{'_test' if ENV['ENVIRONMENT'] == 'test'}")
     connection.exec("INSERT INTO chit_user (name, user_name, email, password) VALUES ('#{name}', '#{user_name}', '#{email}', '#{password}') RETURNING name, user_name, email, password, chit_user_id")
+    session[:user_id] = connection.exec("SELECT chit_user_id FROM chit_user WHERE user_name =  '#{user_name}' AND password = '#{password}') ")
+
     # User.new(result[-1]['id'], result[-1]['name'], result[-1]['user_name'], result[-1]['email'], result[-1]['password'])
 
   end

@@ -24,7 +24,7 @@ describe User do
   describe '.create' do
       it 'creates a new chitter user' do
         user5 = User.create('user18', 'user18', '18test@test.com', 'test')
-        # user5_data = find_in_database(user5.id)
+
 
         expect(User.all).to include 'user18'
         # expect(user5.name).to eq 'user18'
