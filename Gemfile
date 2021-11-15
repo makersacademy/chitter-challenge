@@ -6,7 +6,6 @@ gem 'sinatra'
 gem "selenium-webdriver"
 gem 'rack'
 
-
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
