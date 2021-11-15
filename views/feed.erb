@@ -1,0 +1,6 @@
+  <% @chitters.each do |cheet| %>
+    <blockquote class="cheet">
+      <p><%= cheet.tweet %></p>
+      <footer><%= cheet.username %> - <%= cheet.date %></footer>
+    </blockquote>
+  <% end %>

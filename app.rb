@@ -18,6 +18,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/feed' do
+    @chitters = Chitter.all
     erb :feed
   end
 

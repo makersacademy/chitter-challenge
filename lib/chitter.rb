@@ -2,11 +2,12 @@ require 'pg'
 
 class Chitter
 
-  attr_reader :tweet, :date
+  attr_reader :tweet, :date, :username
 
-  def initialize(tweet:, username: = "@ChitChat")
+  def initialize(tweet, username = "@ChitChat")
     @date = Date.today
     @tweet = tweet
+    @username = username
   end
 
   def self.all
@@ -18,7 +19,7 @@ class Chitter
 
     result = connection.exec "SELECT * FROM chitters;"
     result.map do |chitter|
-      Chitter.new(tweet: chitter['tweet'])
+      Chitter.new(chitter['tweet'])
     end
   end
 
@@ -30,7 +31,7 @@ class Chitter
     end
 
     result = connection.exec_params("INSERT INTO chitters (username, tweet, date) VALUES($1, $2, $3) RETURNING id, username, tweet, date;", ["@ChitChat", tweet, Date.today])
-    Chitter.new(tweet: result[0]['tweet'])
+    Chitter.new(result[0]['tweet'])
   end
 
 end
