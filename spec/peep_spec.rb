@@ -7,14 +7,12 @@ describe Peep do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      #add test data and wrapping return data in an object
-    
+      # add test data and wrapping return data in an object
       peep = Peep.create(text: 'Hello I am a peep!')
       Peep.create(text: 'I too am a peep!')
 
       peeps = Peep.all
     
-      # expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
       expect(peeps.first.id).to eq peep.id
       expect(peeps.first.text).to eq 'Hello I am a peep!'
