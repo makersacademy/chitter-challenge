@@ -10,8 +10,6 @@ RSpec.configure do |config|
   end
 end
 
-ENV['RACK_ENV'] = 'test'
-
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 # Require all the testing gems
@@ -21,7 +19,6 @@ require 'rspec'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = ChitterChallenge
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
