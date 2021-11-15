@@ -1,0 +1,1 @@
+CREATE TABLE chitters(id SERIAL PRIMARY KEY, username VARCHAR(60), tweet VARCHAR(250), date VARCHAR(60));
