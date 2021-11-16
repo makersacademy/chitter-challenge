@@ -1,0 +1,7 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message %>  (<%= peep.time %>)</li>
+  <% end %>
+</ul>
+
+<a href='/new-peep'><button>Write a peep</button></a>
