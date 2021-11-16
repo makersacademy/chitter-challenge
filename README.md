@@ -1,6 +1,10 @@
 Chitter Challenge
 =================
 
+Status:
+-------
+First three user stories complete. I ran out of time to start the remaining user stories.
+
 Challenge:
 -------
 
@@ -63,3 +67,12 @@ Setup instructions:
   - `ALTER TABLE peeps ADD COLUMN time VARCHAR(30);` - add a time column to the 'peeps' table
 5. `Rspec` to run unit and feature tests
 6. `Rackup` to run app then view front end at your local host
+
+Test coverage:
+-------
+100%
+
+Time spent on challenge:
+-------
+Saturday - 1 hour
+Sunday - 8 hours
