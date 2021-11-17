@@ -10,52 +10,50 @@
 
 </div>
 
+## Table of Contents
+- [Preview](#Preview)
+- [Assignment](#Assignment)
+- [Features](#Features)
+- [Install](#Install)
+- [Stack](#Stack)
+  * [Project](#Project)
+  * [Testing](#Testing)
+  * [Gems](#Gems)
+
+
+
+<div align="center" >
+
+## Preview
+
+<img src="public/images/app_preview.gif" width="800px">
+
+&nbsp;
+
+</div>
+
+## Assignment
 
 #### Reference
 - **Chitter**: _Twitter clone_
 - **Peep**: _equivalent of Tweet_
-### Assignment
+
 - [x] Write a small Twitter clone that will allow the users to post messages to a public stream.
 - [x] See Peeps in reverse chronological order.
 - [x] See the time at which Peeps were made.
 - [x] Set up user authentication for Chitter.
-### My Goals
+## Features
 - [x] Use Boostrap only for front-end (no custom CSS).
 - [x] Extract hashtags from the text in each Peep (no seperate tag input).
 - [x] Ability to click on tags and only list Peeps with that tag.
 - [x] Show the time of a Peep relatively (e.g. 5 mins ago).
 - [x] Use a RSS feed to fill a news column.
 
-<div align="center" >
-
-<h2>Preview</h2>
-
-<img src="public/images/app_preview.gif" width="800px">
-
-&nbsp;
-
-<h2>Stack</h2>
-
-|                                                        | Tool                                                 | Use?                                       | Where can I see it?                                                  |
-|--------------------------------------------------------|------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------------|
-| <img src="public/images/rspec.png" height="auto" width="60">       | [RSpec](https://rspec.info/)                         | Testing tool for Ruby.                     | ```/spec/*``` Unit tests for the app's classes.                              |
-| <img src="public/images/capybara.png" height="auto" width="60">    | [Capybara](https://github.com/teamcapybara/capybara) | Acceptance test framework for Ruby.        |  ```/spec/features/*``` Feature testing for the app. e.g. Sign in/out                   |
-| <img src="public/images/postgres.png" height="auto" width="60">       | [PostgreSQL](https://www.postgresql.org)                         | Object-relation database.                     | ```/db/migrations/*``` In the SQL commands below.                              |
-| <img src="public/images/sinatra.png" height="auto" width="60">     | [Sinatra](http://sinatrarb.com/)                     | DSL for quickly making web apps with Ruby. | In the file structure for the project - it is built on Sinatra.      |
-| <img src="public/images/bootstrap.png" height="auto" width="60">     | [Bootstrap](https://getbootstrap.com/)                     | Open source tool-kit made by twitter. | All of the design (no custom CSS in this app).       |
-
-
-</div>
-
-
 ## Install
 
 ``` bash
 % git clone https://github.com/arthurfincham/chitter-challenge
 ```
-
-## Usage
-
 #### Go to the project directory and install dependencies:
 
 ``` ruby
@@ -96,3 +94,30 @@ CREATE TABLE peep_tags (id SERIAL PRIMARY KEY, peep_id INTEGER REFERENCES peeps 
 % ruby app.rb
 ```
 and you're off!
+
+## Stack
+
+### Project
+
+|                 | Tool                                      | Use?                                       | Where can I see it?                                             |
+| :-------------: | ----------------------------------------- | ------------------------------------------ | --------------------------------------------------------------- |
+|   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" height="auto" width="50">    | [PostgreSQL](https://www.postgresql.org)  | Object-relation database.                  | ```/db/migrations/*``` In the SQL commands below.               |
+|    <img src="https://cdn.freebiesupply.com/logos/large/2x/sinatra-logo-png-transparent.png" height="auto" width="50">      | [Sinatra](http://sinatrarb.com/)          | DSL for quickly making web apps with Ruby. | In the file structure for the project - it is built on Sinatra. |
+|  :<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1280px-Bootstrap_logo.svg.png" height="auto" width="50">   | [Bootstrap](https://getbootstrap.com/)    | Open source tool-kit made by twitter.      | All of the design (no custom CSS in this app).                  |
+|  <img src="https://www.drupal.org/files/issues/2019-12-27/heroku_logo.png" height="auto" width="50">   | [Heroku](https://www.heroku.com/)    | Cloud platform for deploying web apps.      | Hosting the live preview.         |
+
+### Testing
+
+|             | Tool                                                 | Use?                                | Where can I see it?                                 |
+| :---------: | ---------------------------------------------------- | ----------------------------------- | :-------------------------------------------------- |
+| <img src="https://rspec.info/images/logo_ogp.png" height="auto" width="50">  | [RSpec](https://rspec.info/)                         | Testing tool for Ruby.              | ```/spec/*``` Unit tests for the app's classes.     |
+
+
+
+### Gems
+
+|       | Gem                                                             | Use?                                                                   |
+| :---: | --------------------------------------------------------------- | :--------------------------------------------------------------------- |
+| :gem: | [bcrypt](https://github.com/bcrypt-ruby/bcrypt-ruby)            | Ruby binding for the OpenBSD bcrypt() password hashing algorithm, allowing you to easily store a secure hash of your users' passwords.                            |
+| :gem: | [awesome_print](https://github.com/awesome-print/awesome_print) | One of my favourite gems; pretty prints output from the Rails console. |
+| :gem: | [sinatra_partial](https://github.com/yb66/Sinatra-Partial) | Plug in for Sinatra partials as common in Rails projects. |
