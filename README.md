@@ -1,5 +1,11 @@
 # Chitter
 
+<div align="center">|| <a href="#challenge">Challenge</a> ||
+<a href="#features">Features</a> ||
+<a href="#planning">Planning</a> ||
+<a href="#testing">Testing</a> ||
+            
+ 
 <img width="1433" alt="Screenshot 2021-11-08 at 23 21 50" src="https://user-images.githubusercontent.com/76533997/140888778-2e64841f-8153-4e8d-a244-2869229bf749.png">
 
 
@@ -187,3 +193,4 @@ Run <code>ruby app.rb</code> from directory
 Open a browser to http://localhost:4567/  
 
 -----------
+<div>
