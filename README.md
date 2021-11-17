@@ -2,7 +2,7 @@
 
 <div align="center">|| <a href="#challenge">Challenge</a> ||
 <a href="#features">Features</a> ||
-<a href="#planning">Planning</a> ||
+<a href="#planning-implementation">Planning</a> ||
 <a href="#testing">Testing</a> ||
             
  
@@ -38,7 +38,8 @@ This website is deployed here:
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter*
 
-<img width="335" alt="Screenshot 2021-11-09 at 08 45 35" src="https://user-images.githubusercontent.com/76533997/140891878-3180f6d8-f26a-478f-97c4-a0a08c128687.png">
+<img width="335" alt="Screenshot 2021-11-09 at 08 45 35" src="https://user-images.githubusercontent.com/76533997/140891878-3180f6d8-f26a-478f-97c4-a0a08c128687.png">\
+
 <img width="510" alt="Screenshot 2021-11-09 at 08 56 40" src="https://user-images.githubusercontent.com/76533997/140893455-0b102796-b85a-4d0f-a69d-ebbc79ec59b0.png">
 
 -------
