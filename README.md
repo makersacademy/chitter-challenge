@@ -2,7 +2,7 @@
 
 <div align="center">|| <a href="#challenge">Challenge</a> ||
 <a href="#features">Features</a> ||
-<a href="#planning-implementation">Planning</a> ||
+<a href="#mvc">Planning</a> ||
 <a href="#testing">Testing</a> ||
             
  
