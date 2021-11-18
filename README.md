@@ -3,7 +3,7 @@
 <div align="center">|| <a href="#challenge">Challenge</a> ||
 <a href="#features">Features</a> ||
 <a href="#mvc">Planning</a> ||
-<a href="#testing">Testing</a> ||           
+<a href="#testing">Testing</a> ||</div>           
  <hr>
             
 <img width="1433" alt="Screenshot 2021-11-08 at 23 21 50" src="https://user-images.githubusercontent.com/76533997/140888778-2e64841f-8153-4e8d-a244-2869229bf749.png">
@@ -33,6 +33,8 @@ This website is deployed here:
 
 #### User stories:
 
+<div align = "center">
+ 
 ##### Post a message (peep) to chitter
 *As a Maker  
 So that I can let people know what I am doing  
@@ -99,6 +101,7 @@ I want to log out of Chitter*
 
 <img width="652" alt="Screenshot 2021-11-09 at 09 09 50" src="https://user-images.githubusercontent.com/76533997/140972748-aaf85d68-51e9-4e16-b482-ee5d721ca8f9.png">
 
+</div>
 
 ------------
 
@@ -194,4 +197,3 @@ Run <code>ruby app.rb</code> from directory
 Open a browser to http://localhost:4567/  
 
 -----------
-<div>
