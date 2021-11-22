@@ -1,0 +1,11 @@
+<h1>Chitter</h1>
+<a href="/peep_form">New Peep</a>
+<h2>Recent Peeps</h2>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <p>Name: <%= peep[0] %>, Username: <%= peep[1] %></p>
+      <p><%= peep[2] %></p>
+    </li>
+  <% end %>
+</ul>
