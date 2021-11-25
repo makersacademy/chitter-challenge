@@ -7,6 +7,10 @@ Chitter Challenge
   ( ( \  / ) )
    ''|\  /| ''  
 ```
+______
+ 
+[Set up](#Setup) | [Interact](#Interact) | [Run Tests](#Tests) | [User Stories](#User-Stories)
+
 ## To improve:
 
 - print out peep database in reverse order
@@ -15,13 +19,7 @@ Chitter Challenge
 - sign in to Zwitscher
 - sign out of Zwitscher
 
-## Implementation
-
-Functional representation of user requirements:
-
-[Check out my workflow mindmap]()
-
-## Setup
+## <a name="Setup">Set up</a>
 
 1. **Fork** this [chitter-challenge repository](https://github.com/CorinneBosch/chitter-challenge.git) 
 2. Then clone **your** fork to your computer.
@@ -29,11 +27,11 @@ Functional representation of user requirements:
 4. Run `gem install bundler` if you dont have bundler.
 5. Once installed, run `bundle`.
 
-## How to run
+## <a name="Interact">Interact with the programme</a>
 
 To interact and play rock-paper-scissors web app, run `rackup` or `ruby app.rb` to start `localhost`.
 
-## Run test 
+## <a name="Tests">Run test</a>
 
 To test specific features in your terminal.
 ```
@@ -46,7 +44,7 @@ $ cd chitter-challenge
 $ rspec
 ```
 
-## The chitter-challenge is built upon the following user stories:
+## <a name="User-Stories">The chitter-challenge is built upon the following user stories:</a>
 
 ```
 STRAIGHT UP
