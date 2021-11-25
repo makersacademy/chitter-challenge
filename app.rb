@@ -8,16 +8,16 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :index, :layout => :main_layout
   end
 
   get '/chitter' do
     @chitter = Chitter.all
-    erb :chitter
+    erb :chitter, :layout => :main_layout
   end 
 
   get '/chitter/new' do 
-    erb :new
+    erb :new, :layout => :main_layout
   end 
 
   post '/chitter' do 
