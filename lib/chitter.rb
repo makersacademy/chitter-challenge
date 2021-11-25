@@ -4,9 +4,7 @@ class Chitter
 
   attr_reader :post, :time 
 
-  def initialize(post:, time:)
-    # @id = id 
-    # @name = name 
+  def initialize(post:, time:) 
     @post = post
     @time = time
   end
