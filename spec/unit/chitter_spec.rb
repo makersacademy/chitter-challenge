@@ -21,8 +21,8 @@ describe Chitter do
   describe '.create' do 
     it 'creates a new post' do 
       Chitter.create(post: 'This is an example chitter post')
-      
-      expect(Chitter.all).to include "This is an example chitter post"
+      chitters = Chitter.all
+      expect(chitters.first.post).to eq 'This is an example chitter post'
     end 
   end 
 end
