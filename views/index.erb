@@ -1,3 +1,8 @@
-<h1>Hello there, and welcome to Chitter!</h1>
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
+<h1>Welcome</h1>
 
 <p>View recent peeps <a href="/chitter">here</a>.</p>
+

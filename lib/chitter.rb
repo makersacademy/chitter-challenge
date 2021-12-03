@@ -1,41 +1,30 @@
-require 'pg'
+require_relative 'database_connection'
 
 class Chitter
 
-  attr_reader :post, :time 
-
-  def initialize(post:, time:) 
-    @post = post
-    @time = time
-  end
+  
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
-    else
-      connection = PG.connect(dbname: 'chitter_app')
-    end
-
-    result = connection.exec("SELECT * FROM chitter;")
+    result = DatabaseConnection.query("SELECT * FROM chitter;")
 
     result.map do |chitter|
       Chitter.new(post: chitter['post'], time: chitter['time'])
-      # |chitter| chitter['post']
     end 
-    # [
-    #   "This is my first Chitter post!",
-    #   "This is my second Chitter post!", 
-    #   "This is my third Chitter post!"
-    # ]
+   
   end 
 
   def self.create(post:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
-    else
-      connection = PG.connect(dbname: 'chitter_app')
-    end
+    result = DatabaseConnection.query("INSERT INTO chitter (post) VALUES('#{post}') RETURNING post")
 
-    connection.exec("INSERT INTO chitter (post) VALUES('#{post}')")
+    Chitter.new(id: result[0]['id'], post: result[0]['post'])
   end 
+  
+  attr_reader :id, :post
+
+  def initialize(id:, post:) 
+    @id = id
+    @post = post
+    # @time = time
+  end
+
 end

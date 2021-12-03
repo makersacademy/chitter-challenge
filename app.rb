@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/chitter'
+require './lib/user'
+require './database_connection_setup'
 
 class ChitterApp < Sinatra::Base
   configure :development do
@@ -12,6 +14,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/chitter' do
+    @user = User.find(session[:user_id])
     @chitter = Chitter.all
     erb :chitter, :layout => :main_layout
   end 
@@ -26,7 +29,17 @@ class ChitterApp < Sinatra::Base
     # connection = PG.connect(dbname: 'chitter_app_test')
     # connection.exec("INSERT INTO chitter (post) VALUES('#{post}')")
     redirect '/chitter'
-  end 
+  end
+
+  get '/users/new' do
+    erb :"users/new", :layout => :main_layout
+  end
+  
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/chitter'
+  end
 
   run! if app_file == $0
 end
