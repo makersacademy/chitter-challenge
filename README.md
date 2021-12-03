@@ -1,14 +1,16 @@
 ### Setting up the database 
 
-Connect to psql
+Connect to psql by typing `psql postgres` in the command line
 
-Create the database using the psql command CREATE DATABASE chitter_app;
+Create the database using the psql command `CREATE DATABASE chitter_app;`
 
-Connect to the database using the pqsl command \c chitter_app;
+Connect to the database using the pqsl command `\c chitter_app;`
 
-Run the query we have saved in the file 01_create_chitter_table.sql
+Run each query saved in the folder db > migrations to create the relevant chitter and user databases
 
-To create the test database use the psql command CREATE DATABASE chitter_app_test; and follow the instructions in the file 01_create_chitter_table.sql
+Repeat the aboive 
+
+To create the test database use the psql command `CREATE DATABASE chitter_app_test;` and follow the instructions in the file 01_create_chitter_table.sql
 
 ### Comments
 

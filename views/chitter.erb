@@ -1,4 +1,9 @@
-<h1>Welcome to Chitter</h1>
+<h1>Chitter</h1>
+<div>
+  <% if @user %>
+    <h1>Welcome, <%= @user.email %></h1>
+  <% end %>
+</div>
 
 <h2>Please see below for the most recent peeps</h2>
 
