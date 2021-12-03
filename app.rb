@@ -14,7 +14,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/chitter' do
-    @user = User.find(session[:user_id])
+    # @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
     @chitter = Chitter.all
     erb :chitter, :layout => :main_layout
   end 
