@@ -12,6 +12,7 @@ group :test do
   gem 'pg'
   gem 'rack'
   gem 'webrick'
+  gem 'bcrypt'
 end
 
 group :development, :test do
