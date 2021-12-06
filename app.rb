@@ -14,7 +14,6 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/chitter' do
-    # @user = User.find(session[:user_id])
     @user = User.find(id: session[:user_id])
     @chitter = Chitter.all
     erb :chitter, :layout => :main_layout
@@ -40,6 +39,16 @@ class ChitterApp < Sinatra::Base
     user = User.create(name: params[:name], email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect '/chitter'
+  end
+
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect('/chitter')
   end
 
   run! if app_file == $0
