@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel='stylesheet' type='text/css' href='/stylesheet.css' />
+    <link rel="stylesheet" type="text/css" href="<%= url("/stylesheet.css")%>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  
   <body>
+
+  <%# HEADER %>
   <div>
     <div class="topnav">
       <a href="/">Home</a>
@@ -14,5 +16,6 @@
     </div>
     <%= yield %>
   </div>
+  
   </body>
 <html>

@@ -1,3 +1,9 @@
+=================
+
+Chitter Challenge
+
+=================
+
 ### Setting up the database 
 
 Connect to psql by typing `psql postgres` in the command line
@@ -14,19 +20,19 @@ To create the test database use the psql command `CREATE DATABASE chitter_app_te
 
 ### Comments
 
-User Story 2 (Complete)  
-As a maker   
-So that I can see what others are saying    
-I want to see all peeps in reverse chronological order  
-
-I attempted User Story 2 first as it seemed like viewing all posts would come before being able to add to those posts. This was done by testing and creating a .all method in Chitter.rb. I then had to edit the chitter.erb page to display the posts. The results displayed were initially in chronological order, which was changed using 'reverse_each' in chitter.erb. 
-
 User Story 1 (Complete)  
 As a Maker  
 So that I can let people know what I am doing    
 I want to post a message (peep) to chitter  
 
 I made a new route for '/chitter/new'. I wrote the feature test for adding a new post then created a new.erb in the views that gave the option to type up a post in the box and submit it to the /chitter page via a post method. This meant using params on 'post'. I created and tested a self.create method that interacted with pg to get the new post added to the data table and showing up on the /chitter page that it had been redirected to. 
+
+User Story 2 (Complete)  
+As a maker   
+So that I can see what others are saying    
+I want to see all peeps in reverse chronological order  
+
+I attempted User Story 2 first as it seemed like viewing all posts would come before being able to add to those posts. This was done by testing and creating a .all method in Chitter.rb. I then had to edit the chitter.erb page to display the posts. The results displayed were initially in chronological order, which was changed using 'reverse_each' in chitter.erb. 
 
 User Story 3 (Complete)  
 As a Maker  
@@ -35,27 +41,14 @@ I want to see the time at which it was made
 
 Earlier on, I added an additional column to my data tables called 'time'. I can see that this is working and shows the date and time of when each entry is made. In order to get this showing on the /chitter page, I did some editing to chitter.rb. I initialized @post and @time and made them available in the attr_reader. I was then able to call them both in chitter.erb. I'm unsure what I did in chitter.rb with this code Chitter.new(post: chitter['post'], time: chitter['time']) which I think cmeant that each new chitter post had two arguments. 
 
+User Story 4 (Complete)
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
 Further comments: 
 
 I will ask a coach to review my code so far, and ask about my two remaining failing Rspec tests. I think I need to alter my unit test to expect it to show time. 
-
-=================
-
-Chitter Challenge
-
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -79,7 +72,7 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+ADDITIONAL FEATURES 
 
 As a Maker
 So that only I can post messages on Chitter as me
