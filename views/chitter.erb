@@ -1,3 +1,7 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <h1>Chitter</h1>
 
 <div>
@@ -6,7 +10,9 @@
   <% end %>
 </div>
 
-<h1>Welcome</h1>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
 
 <h2>Please see below for the most recent peeps</h2>
 
