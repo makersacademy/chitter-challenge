@@ -1,8 +1,6 @@
-<%# <form action="/sessions" method="post">
-  <input type="email" name="email" />
-  <input type="password" name="password" />
-  <input type="submit" value="Login" />
-</form> %>
+<h2>
+  <%= flash[:notice] %>
+</h2>
 
 <!DOCTYPE html>
 <html>
@@ -12,13 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
   </head>
+  
   <body>
     <div class="login-form">
       <h1>Login</h1>
       <form action="/sessions" method="post">
-        <input type="email" name="email" class="input-box" placeholder="Enter email"/>
+        <input id="email" type="email" name="email" class="input-box" placeholder="Enter email"/>
         <input type="password" name="password" class="input-box" placeholder="Enter password"/>
-
+    
         <button type="submit" class="login-btn" value="Login">Login</button>
       
       <hr>
@@ -28,5 +27,6 @@
       
       </form>
     </div>
+
   </body>
   <html>
