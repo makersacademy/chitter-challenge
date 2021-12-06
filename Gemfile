@@ -14,6 +14,7 @@ group :test do
   gem 'webrick'
   gem 'bcrypt'
   gem 'htmlbeautifier'
+  gem 'sinatra-flash'
 end
 
 group :development, :test do
