@@ -42,7 +42,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/sessions/new' do
-    erb :"sessions/new"
+    erb :"sessions/new", :layout => :main_layout
   end
 
   post '/sessions' do
