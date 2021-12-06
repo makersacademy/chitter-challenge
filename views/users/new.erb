@@ -1,11 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href="<%= url("/sign-up.css")%>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Sign up</title>
+  </head>
+  <body>
+    <div class="sign-up-form">
+      <img class="user-profile-img" src="/images/user-profile-icon.jpeg">
+      <h1>Sign up now</h1>
+      <form action="/users" method="post">
+        <input type="name" name="name" class="input-box" placeholder="Enter name">
+        <input type="email" name="email" class="input-box" placeholder="Enter email"/>
+        <input type="password" name="password" class="input-box" placeholder="Enter password"/>
 
+        <p><span><input type="checkbox"></span> I agree to the terms of service</p>
 
-<form action="/users" method="post">
+        <button type="submit" class="signup-btn" value="Submit">Sign up</button>
+        <hr>
+        <p class="or">OR</p>
 
-  <p>Email address: <input type="email" name="email" /> </p>
+      <div class="twitter-box" type="submit" value="Submit">
+        <div class="icon-container">
+          <img src="/images/twitter-icon.png">
+        </div>
+        <p class="p-sign">Sign up with Twitter</p>
+      </div>
 
-  <p>Password: <input type="password" name="password" /></p>
+      <div class="google-box" type="submit" value="Submit">
+        <div class="icon-container">
+          <img src="/images/google-icon.png">
+        </div>
+        <p class="p-sign">Sign up with Google</p>
+      </div>
 
-  <input type="submit" value="Submit" />
-</form>
-
+        <p>Already have an account? <a href="/login">Login</p>
+      </form>
+    </div>
+  </body>
+  <html>

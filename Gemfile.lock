@@ -16,6 +16,7 @@ GEM
       xpath (~> 3.2)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    htmlbeautifier (1.4.1)
     mini_mime (1.1.1)
     mini_portile2 (2.6.1)
     multi_json (1.15.0)
@@ -99,6 +100,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  htmlbeautifier
   pg
   rack
   rspec

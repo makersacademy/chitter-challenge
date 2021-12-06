@@ -13,6 +13,7 @@ group :test do
   gem 'rack'
   gem 'webrick'
   gem 'bcrypt'
+  gem 'htmlbeautifier'
 end
 
 group :development, :test do
