@@ -9,6 +9,6 @@ feature 'authentication' do
     fill_in(:password, with: 'password123')
     click_button('Login')
 
-    expect(page).to have_content 'Welcome, test@example.com'
+    expect(page).to have_content 'Welcome'
   end
 end

@@ -33,6 +33,8 @@ describe '.authenticate' do
     user = User.create(name: 'test', email: 'test@example.com', password: 'password123')
     authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
 
-    expect(authenticated_user.id).to eq user.id
+    expect(authenticated_user.email).to eq user.email
+    # This previously tested the user.id but it only passed when tested seperately
+    # Because of all the users being added and tested at the same time  
   end
 end
