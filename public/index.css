@@ -1,0 +1,270 @@
+
+body {
+  text-align: center;
+  background-color: #fff;
+  font-family: raleway;
+} 
+
+.container {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+
+}
+
+.IG-logo {
+  font-family: cursive;
+  font-size: 30px;
+  margin-top: -20px;
+}
+
+.phone-img {
+ background-image: url(https://i.ibb.co/XsHfBLx/Phones.png);
+ background-size: 458px 618px;
+  background-repeat: no-repeat;
+  height: 618px;
+  width: 400px;
+  padding-right: 1.5em;
+  padding-top:1.5em;
+  padding-bottom: 1.5em ;
+
+}
+
+.phone-img > img{
+  margin-top: 5em;
+  margin-left: 9em;
+}
+
+.input-form {
+  background-color: #fff;
+  height: 400px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2em;
+  border: 1px solid #ccc;
+}
+
+.input-container {
+  margin-top: 3em;
+}
+
+.text-input {
+  width: 240px;
+  height: 10px;
+  padding: 1.2em;
+  margin-bottom: 3px;
+  background-color: #eee;
+  border-radius: 4px;
+  border-style: groove;
+  font-size: 12px;
+
+}
+
+.pwd-input {
+  width: 240px;
+  height: 10px;
+  padding: 1.2em;
+  background-color: #eee;
+  border-radius: 4px;
+  border-style: groove;
+  font-size: 12px;
+}
+
+.button {
+  background-color: #a4d6f7;
+  border: none;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  color: #fff;
+  margin-top: 10px;
+  width: 270px;
+  height: 30px;
+  text-align: center;
+}
+
+.lines {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  color: #888;
+}
+
+.left-line {
+  background-color: #aaa;
+  width: 107px;
+  height: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.right-line {
+  background-color: #aaa;
+  width: 107px;
+  height: 1px;
+   margin-left: 5px;
+  margin-right: 5px;
+}
+
+.fb-login-text{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+   margin-top: 15px;
+}
+
+.fb-login-text > span{
+  color: #385185;
+
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.fb-login-text > span a{
+  text-decoration: none;
+  color: #385185;
+}
+
+p.forgot-pwd{
+  margin-top: 1.5em;
+}
+
+p.forgot-pwd > span{
+  color:#385185;
+  font-size: 15px;
+}
+
+div.input-form-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.signup-text{
+  background-color: #fff;
+  width: 350px;
+  height: 63px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+div.signup-text a{
+  text-decoration: none;
+}
+
+div.appstore-btns{
+  margin-top: 20px;
+}
+
+div.appstore-btns > img{
+  width:136px;
+  height: 40px;
+}
+
+span.copyright{
+  color:#888;
+  font-size: 14px;
+  font-family: calibri;
+  /*display: inline;*/
+}
+
+/* /// */
+
+.notice {
+  margin: auto;
+  padding-top: 10px;
+  color: #04AA6D;
+  text-align: center;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-profile-img {
+  width: 90px;
+  margin-top: -50px;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.login-form {
+  width: 300px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  background: #ffff;
+  padding: 20px; 
+  margin: auto 0;
+  text-align: center;
+}
+
+.login-form h1 {
+  color: #04AA6D;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+hr {
+  margin-top: 30px;
+  width: 80%;
+}
+.or {
+  background: white;
+  width: 30px;
+  margin: -19px auto 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.input-box {
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0; 
+  width: 80%;
+  border: 1px solid #999;
+  outline: none; 
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+ color: #ffff;
+ width: 70%;
+ padding: 10px;
+ border-radius: 20px;
+ font-size: 15px;
+ margin: 10px 0;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ font-family: "Poppins", sans-serif;
+}
+
+.login-btn {
+  background-color: #04AA6D;
+  font-family: "Poppins", sans-serif;
+}
+.login-btn:hover {
+  box-shadow: 1px 1px 10px #1c8adb;
+}

@@ -11,9 +11,24 @@
   <div>
     <div class="topnav">
       <a href="/">Home</a>
-      <a href="/chitter">Posts</a>
-      <a href="/sessions/new">Login</a>
-      <a href="/users/new">Sign Up</a>
+      <a href="/chitter">Timeline</a>
+      
+       <% if !@user %>
+        <a href="/sessions/new">Login</a>
+      <% end %>
+
+      <% if !@user %>
+        <a href="/users/new">Sign Up</a>
+      <% end %>
+
+      <% if @user %>
+        <a href="/chitter/new">New Post</a>
+      <% end %>
+
+      <% if @user %>
+        <a href="/sessions/destroy">Logout</a>
+      <% end %>
+      
     </div>
     <%= yield %>
   </div>
