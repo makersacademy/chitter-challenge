@@ -1,38 +1,61 @@
-<h2>
-  <%= flash[:notice] %>
-</h2>
-
-<h1>Chitter</h1>
-
-<div>
-  <% if @user %>
-    <h1>Welcome, <%= @user.email %></h1>
-  <% end %>
-</div>
-
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out" />
-</form>
-
-<h2>Please see below for the most recent peeps</h2>
-
-<p>To create a new peep, <a href="/chitter/new">visit here</a>.</p>
-
-<ul>
-  <% @chitter.reverse_each do |chitter| %>
-  <li> <b>Post:</b> <%= chitter.post %> <br> <b>Time of peep:</b> <%= chitter.time[0, 16] %></li>
-  <% end %>
-  <style>
-        ul {
-  list-style-type: none;
-  border: none;
-}
-li {
-  border: 3px solid blue;
-  vertical-align: top;
-  height: 50px;
-  width: 400px;
-  margin-bottom: 5px;
-}
-    </style>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href="<%= url("/chitter.css")%>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h2>
+      <%= flash[:notice] %>
+    </h2>
+    <div>
+      <% if @user %>
+        <h1>Welcome <%= @user.name %>!</h1>
+      <% end %>
+    </div>
+    <% @chitter.reverse_each do |chitter| %>
+      <div class="card">
+        <div class="containt">
+          <div class="top-bar">
+            <img src="https://picsum.photos/id/16/50/50">
+            <span>
+              <h4>Tejash Vaishnav 
+                <i class="bi bi-patch-check-fill"></i></h4>
+            </span>
+          </div>
+          <div class="post">
+            <h3> <%= chitter.post %> </h3>
+            <span> <%= chitter.time[0, 16] %> </span>
+            <hr/>
+            <div class="stat">
+              <span><b>589</b> Liked <b>120</b> Retweets      </span>
+              <img src="https://picsum.photos/id/10/50/50">
+              <img src="https://picsum.photos/id/30/50">
+              <img src="https://picsum.photos/id/50/50">
+              <img src="https://picsum.photos/id/52/50">
+              <img src="https://picsum.photos/id/57/50">
+              <img src="https://picsum.photos/id/55/50">
+            </div>
+            <hr/>
+          </div>
+          <div class="icons">
+            <i class="bi bi-heart fa-2x"></i>
+            <i class="bi bi-arrow-down-up"></i>
+            <i class="bi bi-chat-square"></i>
+            <i class="bi bi-box-arrow-right"></i>
+          </div>
+          <div class="add-comments">
+            <img src="https://picsum.photos/id/77/50" />
+            <input type="text" placeholder="Add Comment..">
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </body>
+  <html>
