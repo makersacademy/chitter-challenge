@@ -1,3 +1,17 @@
+.notice {
+  margin: auto;
+  padding-top: 10px;
+  color: #04AA6D;
+  text-align: center;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-profile-img {
+  width: 90px;
+  margin-top: -50px;
+}
+
 .body {
   margin: 0;
   padding: 0;

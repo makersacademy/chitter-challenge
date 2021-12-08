@@ -44,9 +44,9 @@ feature 'authentication' do
     fill_in(:password, with: 'password123')
     click_button('Login')
 
-    click_button('Sign out')
+    click_link('Logout')
 
     expect(page).not_to have_content 'Welcome, test@example.com'
-    expect(page).to have_content 'You have signed out.'
+    expect(page).to have_content 'You have successfully signed out.'
   end
 end

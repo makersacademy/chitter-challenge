@@ -1,7 +1,3 @@
-<h2>
-  <%= flash[:notice] %>
-</h2>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +8,13 @@
   </head>
   
   <body>
+
+  <div class="notice">
+  <%= flash[:notice] %>
+</div>
+
     <div class="login-form">
+    <img class="user-profile-img" src="/images/user-profile-icon.jpeg">
       <h1>Login</h1>
       <form action="/sessions" method="post">
         <input id="email" type="email" name="email" class="input-box" placeholder="Enter email"/>

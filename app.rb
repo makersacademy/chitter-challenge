@@ -13,7 +13,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index, :layout => :main_layout
+    erb :index
   end
 
   get '/chitter' do
@@ -61,7 +61,13 @@ class ChitterApp < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
-    flash[:notice] = 'You have signed out.'
+    flash[:notice] = 'You have successfully signed out.'
+    redirect('/chitter')
+  end
+
+  get '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have successfully signed out.'
     redirect('/chitter')
   end
 
