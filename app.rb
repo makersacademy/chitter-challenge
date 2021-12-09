@@ -10,6 +10,7 @@ class ChitterApp < Sinatra::Base
   register Sinatra::Flash
   configure :development do
     register Sinatra::Reloader
+    set :server, :thin
   end
 
   get '/' do

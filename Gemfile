@@ -22,3 +22,7 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+group :production do
+  gem 'thin'  
+end
