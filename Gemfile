@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '3.0.2'
+ruby '3.0.1'
 
- gem 'sinatra'
+  gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'pg'
   gem 'rack'
@@ -10,6 +10,7 @@ ruby '3.0.2'
   gem 'bcrypt'
   gem 'htmlbeautifier'
   gem 'sinatra-flash'
+  gem 'thin'
 
 group :test do
   gem 'rspec'
