@@ -11,6 +11,7 @@ ruby '3.0.1'
   gem 'htmlbeautifier'
   gem 'sinatra-flash'
   gem 'thin'
+  gem 'rake'
 
 group :test do
   gem 'rspec'
@@ -21,8 +22,4 @@ end
 
 group :development, :test do
   gem 'rubocop', '1.20'
-end
-
-group :production do
-  gem 'thin'  
 end
