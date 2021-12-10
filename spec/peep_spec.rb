@@ -26,8 +26,12 @@ describe Peep do
 
   context "#sort_peeps"
   it "should be able to sort peeps by time" do
-    peep_times = ["18:29:23 7 Dec 2021", "18:29:23 7 Dec 2020", "18:29:23 10 Dec 2021", "12:29:23 10 Dec 2021"]
-    expect(Peep.sort_peeps(peep_times)).to eq ["18:29:23 10 Dec 2021", "12:29:23 10 Dec 2021", "18:29:23 7 Dec 2021", "18:29:23 7 Dec 2020"]
+    peep_1 = Peep.new(1, "a", "18:29:23 7 Dec 2021", 1)
+    peep_2 = Peep.new(2, "a", "18:29:23 7 Dec 2020", 2)
+    peep_3 = Peep.new(3, "a", "18:29:23 10 Dec 2021", 1)
+    peep_4 = Peep.new(4, "a", "12:29:23 10 Dec 2021", 1)
+    peep_times = [peep_1, peep_2, peep_3, peep_4]
+    expect(Peep.sort_peeps(peep_times)).to eq [peep_3, peep_4, peep_1, peep_2]
   end
 
   context "#sanitize"
