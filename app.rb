@@ -12,7 +12,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
-    Message.create(text: "Hello World!")
     @messages = Message.all
     erb :messages
   end
