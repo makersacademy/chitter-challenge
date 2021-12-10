@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require './lib/peep'
 
 
 class Chitter < Sinatra::Base
@@ -13,6 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    params
+    @peep = Peep.new(text: params[:text], user_name: params[:user_name], handle: params[:handle])
+    redirect '/'
   end
 end

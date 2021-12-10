@@ -6,6 +6,8 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'pg'
+require './database_connection_setup'
 
 SimpleCov.start
 
@@ -23,6 +25,11 @@ Capybara.app = Chitter
 
 
 RSpec.configure do |config|
+
+  config.before(:each) do 
+    connection = PG.connect(dbname: 'chitter_manager_test')
+    connection.exec("TRUNCATE TABLE peeps;")
+  end
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
