@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -19,6 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages-by-oldest' do
+    @user = User.find(session[:user_id])
     @messages = Message.all.reverse
     erb :messages_by_oldest
   end
