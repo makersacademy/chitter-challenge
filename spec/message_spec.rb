@@ -1,9 +1,17 @@
 require 'message'
 
 describe Message do
-  describe '#add' do
+
+  describe '.view' do
+    it 'should return a message' do
+      expect(Message.view).to eq 'My first message'
+    end
+  end
+
+  describe '.add' do
     it 'should add a chitter post' do
-      expect(Message.add('My first message')).to eq 'My first message'
+      result = Message.add('My first message')
+      expect(result).to eq 'My first message'
     end
   end
 end

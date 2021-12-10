@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/message'
 
 class Chitter < Sinatra::Base 
   enable :sessions
@@ -13,12 +14,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_message' do
-    session[:message] = params[:message]
+    Message.add(params[:message])
     redirect '/home'
   end
 
   get '/home' do
-    @message = session[:message]
+    @message = Message.view
     erb :messages
   end
 
