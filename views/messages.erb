@@ -1,0 +1,25 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= url('/messages.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div id='container'>
+      <div id='image_logo'>
+      </div>
+      <h2>Home</h2>
+      <form action='/post_message' method='post'>
+        <input type='text' name="message" placeholder="What's up?"> 
+        <br>
+        <input type='submit' value='Post' id='button'>
+      </form>
+
+      <p> <%= @message %> </p>
+    </div>
+  </body>
+</html>
