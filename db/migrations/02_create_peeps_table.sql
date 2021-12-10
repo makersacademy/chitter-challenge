@@ -1,0 +1,1 @@
+CREATE TABLE Peeps(id SERIAL PRIMARY KEY, user_id INT REFERENCES Users(id), time TIMESTAMP, content VARCHAR(280), tagged_users_id INT REFERENCES Users(id));
