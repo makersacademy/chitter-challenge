@@ -25,6 +25,10 @@ class Chitter < Sinatra::Base
     erb :messages_by_oldest
   end
 
+  get '/register' do
+    erb :register
+  end
+
   post '/messages' do
     Message.create(text: params[:text])
     redirect '/messages'
