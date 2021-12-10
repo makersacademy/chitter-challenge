@@ -19,7 +19,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-require_relative './setup_test_database'
+require_relative 'support/setup_test_database'
 
 RSpec.configure do |config|
   config.before(:each) do
@@ -32,4 +32,4 @@ RSpec.configure do |config|
   end
 end
 
-require_relative 'support/user_authentication.rb'
+require_relative 'support/user_authentication'
