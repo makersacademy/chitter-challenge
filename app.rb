@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.find(session[:id])
-    @timeline = Peep.all
+    @timeline = Peep.sort_peeps
     erb :index
   end
 

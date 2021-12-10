@@ -1,3 +1,5 @@
+require 'time'
+
 class Peep
 
   attr_reader :id, :content, :time, :user_id
@@ -21,5 +23,9 @@ class Peep
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map {|peep| Peep.new(peep["id"], peep["content"], peep["time"], peep["user_id"])}
+  end
+
+  def self.sort_peeps(peeps = Peep.all)
+    peeps.sort_by { |peep| Time.parse(peep.time)}.reverse
   end
 end

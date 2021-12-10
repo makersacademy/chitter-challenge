@@ -24,4 +24,10 @@ describe Peep do
     expect(Peep.all[1].content).to eq 'Second peep'
   end
 
+  context "#sort_peeps"
+  it "should be able to sort peeps by time" do
+    peep_times = ["18:29:23 7 Dec 2021", "18:29:23 7 Dec 2020", "18:29:23 10 Dec 2021", "12:29:23 10 Dec 2021"]
+    expect(Peep.sort_peeps(peep_times)).to eq ["18:29:23 10 Dec 2021", "12:29:23 10 Dec 2021", "18:29:23 7 Dec 2021", "18:29:23 7 Dec 2020"]
+  end
+
 end
