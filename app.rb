@@ -10,5 +10,9 @@ class Chitter < Sinatra::Base
     'Hello World'
   end
 
+  get '/messages' do
+    'Hello World!'
+  end
+
   run! if app_file == $0
 end
