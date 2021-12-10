@@ -1,6 +1,6 @@
 require 'simplecov'
 require 'simplecov-console'
-require './database_connection_setup.rb'
+require './database_connection_setup'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'

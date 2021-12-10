@@ -1,5 +1,9 @@
 <h1>Chitter</h1>
+<% if @user %>
+<h2>Welcome to Chitter, <%= @user.name %>!</h2>
+<% else %>
 <h2>New to Chitter? Please sign up here!</h2>
 <form action="users/new" method="get">
   <input type="submit" value="Sign up">
 </form>
+<% end %>
