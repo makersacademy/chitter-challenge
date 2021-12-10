@@ -3,8 +3,8 @@ class Message
     [ Message ]
   end
 
-  def self.create
-    
+  def self.create(text:)
+
   end
 
   def self.text

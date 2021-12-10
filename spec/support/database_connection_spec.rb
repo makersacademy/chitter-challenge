@@ -2,8 +2,14 @@ require 'database_connection'
 
 describe DatabaseConnection do
   describe '.setup' do
-    it 'sets up connection to database' do
-      expect(PG).to receive(:connect).with({ dbname: 'bookmark_manager_test' })
+    it 'sets up connection to test database' do
+      expect(PG).to receive(:connect).with({ dbname: 'chitter_test' })
+      DatabaseConnection.setup
+    end
+
+    it 'sets up connection to production database' do
+      ENV['ENVIRONMENT'] = 'production'
+      expect(PG).to receive(:connect).with({ dbname: 'chitter' })
       DatabaseConnection.setup
     end
 
