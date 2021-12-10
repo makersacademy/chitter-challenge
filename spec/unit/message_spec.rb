@@ -1,4 +1,6 @@
 require 'message'
+require 'user'
+
 
 describe Message do
   describe '.create' do
@@ -8,14 +10,10 @@ describe Message do
       expect(message.created_at).to eq "#{Time.new.strftime("%H:%M %p %b' %d, %y")}"
     end
 
-    it 'stores message author if logged in' do
-      message = Message.create(text: 'Hello World!', author: 'Sherwin')
-      expect(message.text).to eq 'Sherwin'
-    end
-
-    it 'stores message author as guest if logged out' do
-      message = Message.create(text: 'Hello World!')
-      expect(message.text).to eq 'Guest'
+    it 'stores author id' do
+      user = User.create(username: 'Sherwin', password: 'test123')
+      message = Message.create(text: 'Hello World!', author_id: user.id)
+      expect(message.author_id).to eq user.id
     end
   end
   
