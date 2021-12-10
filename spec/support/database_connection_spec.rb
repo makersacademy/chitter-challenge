@@ -21,7 +21,7 @@ describe DatabaseConnection do
 
   describe '.query' do
     it 'executes a SQL query string' do
-      expect(DatabaseConnection.connection).to receive(:exec_params).with('SELECT * FROM messages;', [])
+      expect_any_instance_of(PG::Connection).to receive(:exec_params).with('SELECT * FROM messages;', [])
       DatabaseConnection.query('SELECT * FROM messages;')
     end
   end
