@@ -7,7 +7,6 @@ describe User do
       user = User.create(username: 'Sherwin', password: 'test123')
       
       expect(user.username).to eq 'Sherwin'
-      expect(user.password).to eq 'test123'
     end
 
     it 'hashes password using BCrypt' do
