@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require './lib/peep'
+require './database_connection_setup'
 
 
 class Chitter < Sinatra::Base
@@ -10,11 +11,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do 
+    p @peeps = Peep.all
     erb :index
   end
 
   post '/peep' do
-    @peep = Peep.new(text: params[:text], user_name: params[:user_name], handle: params[:handle])
+    Peep.create(text: params[:text], user_name: params[:user_name], handle: params[:handle])
     redirect '/'
   end
 end
