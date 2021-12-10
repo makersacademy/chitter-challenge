@@ -32,3 +32,4 @@ RSpec.configure do |config|
   end
 end
 
+require_relative 'support/user_authentication.rb'
