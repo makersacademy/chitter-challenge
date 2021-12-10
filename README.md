@@ -139,4 +139,4 @@ let's see how far I can go...
 
 ## Domain Model
 
-![Domain Model] (insert screenshot from the miro board)
+![Domain Model] (https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-10%20at%2023.47.31.png)
