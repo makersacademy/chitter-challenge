@@ -15,5 +15,4 @@ group :development, :test do
   gem 'rack'
   gem 'capybara'
   gem 'pg'
-
 end

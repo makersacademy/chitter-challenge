@@ -8,4 +8,7 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/' do 
+    erb :index
+  end
 end
