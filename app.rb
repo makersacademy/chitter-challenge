@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
+require './database_connection_setup'
+
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
