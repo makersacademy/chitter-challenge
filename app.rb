@@ -16,6 +16,11 @@ class Chitter < Sinatra::Base
     erb :messages
   end
 
+  get '/messages-by-oldest' do
+    @messages = Message.all.reverse
+    erb :messages_by_oldest
+  end
+
   post '/messages' do
     Message.create(text: params['text'])
     redirect '/messages'

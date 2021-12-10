@@ -2,8 +2,8 @@
   <input type='text' name='text' placeholder='Enter a message'>
   <input type='submit' name='Submit'>
 </form>
-<form action='/messages-by-oldest' method='get'>
-  <input type='submit' value='View by oldest'>
+<form action='/messages' method='get'>
+  <input type='submit' value='View by newest'>
 </form>
 <ul>
   <% @messages.each do |message|  %>
