@@ -12,12 +12,12 @@ feature 'viewing messages' do
     Message.create(text: "Hello Universe!")
     visit '/messages'
     click_button 'View by oldest'
-    expect(first('li').text).to eq 'Hello Universe!'
+    expect(first('#message').text).to eq 'Hello Universe!'
   end
 
   scenario 'displays time of creation' do
     Message.create(text: "Hello World!")
     visit '/messages'
-    expect(page).to have_content "#{Time.new.localtime}"
+    expect(page).to have_content "#{Time.new.strftime("%H:%M %p %b' %d, %y")}"
   end
 end

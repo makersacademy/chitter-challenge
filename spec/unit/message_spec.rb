@@ -3,9 +3,9 @@ require 'message'
 describe Message do
   describe '.create' do
     it 'creates a new message with text and time' do
-      message = Message.create(text: 'Hello World!', time: Time.now.localtime)
+      message = Message.create(text: 'Hello World!')
       expect(message.text).to eq 'Hello World!'
-      expect(message.text).to eq "#{expect(message.text).to eq 'Hello World!'}"
+      expect(message.created_at).to eq "#{Time.new.strftime("%H:%M %p %b' %d, %y")}"
     end
   end
   
