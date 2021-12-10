@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :index
   end
 
   get '/messages' do
@@ -22,7 +22,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    Message.create(text: params['text'])
+    Message.create(text: params[:text])
+    redirect '/messages'
+  end
+
+  post '/sign-up' do
+    User.create(username: params[:username], password: params[:password])
     redirect '/messages'
   end
 
