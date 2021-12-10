@@ -22,4 +22,17 @@ describe User do
     expect(User.find(nil)).to eq nil
   end
 
+  context "#exists"
+  it "should be able to check for username existence" do
+    User.create("Kim", "kim-morgan", "kim_fake_email@gmail.com", "password123")
+    expect(User.username_exists?("kim-morgan")).to be true
+    expect(User.username_exists?("hater-faker")).to be false
+  end
+
+  it "should be able to check for email existence" do
+    User.create("Kim", "kim-morgan", "kim_fake_email@gmail.com", "password123")
+    expect(User.email_exists?("kim_fake_email@gmail.com")).to be true
+    expect(User.email_exists?("hater-faker@gmail.com")).to be false
+  end
+
 end

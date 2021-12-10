@@ -15,3 +15,5 @@ end
 gem "pg", "~> 1.2"
 
 gem "bcrypt", "~> 3.1"
+
+gem "sinatra-flash", "~> 0.3.0"

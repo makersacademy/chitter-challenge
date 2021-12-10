@@ -32,4 +32,14 @@ class User
              result[0]["email"], result[0]["password"])
   end
 
+  def self.username_exists?(username)
+    result = DatabaseConnection.query("SELECT exists (SELECT 1 FROM users WHERE username = $1 LIMIT 1);", [username])
+    result[0]["exists"] == "t"
+  end
+
+  def self.email_exists?(email)
+    result = DatabaseConnection.query("SELECT exists (SELECT 1 FROM users WHERE email = $1 LIMIT 1);", [email])
+    result[0]["exists"] == "t"
+  end
+
 end
