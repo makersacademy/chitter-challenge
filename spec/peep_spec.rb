@@ -30,4 +30,9 @@ describe Peep do
     expect(Peep.sort_peeps(peep_times)).to eq ["18:29:23 10 Dec 2021", "12:29:23 10 Dec 2021", "18:29:23 7 Dec 2021", "18:29:23 7 Dec 2020"]
   end
 
+  context "#sanitize"
+  it "should be able to sanitize string input from single quotes to put into sql" do
+    expect(Peep.sanitize("don't and won't")).to eq "don''t and won''t"
+  end
+
 end

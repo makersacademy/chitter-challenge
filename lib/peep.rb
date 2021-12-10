@@ -13,6 +13,7 @@ class Peep
 
   def self.create(content, user_id)
     time = Time.now.strftime("%H:%M:%S %d %b %Y").to_s
+    content = Peep.sanitize(content)
     result = DatabaseConnection.query("INSERT INTO peeps (content, time, user_id)
                                        VALUES('#{content}','#{time}',#{user_id})
                                        RETURNING id, content, time, user_id;")
@@ -28,4 +29,9 @@ class Peep
   def self.sort_peeps(peeps = Peep.all)
     peeps.sort_by { |peep| Time.parse(peep.time)}.reverse
   end
+
+  def self.sanitize(text)
+    text.split("'").join("''")
+  end
+
 end

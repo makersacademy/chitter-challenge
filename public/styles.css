@@ -1,0 +1,11 @@
+html {
+	height: 100%;
+	background-color: #8EC5FC;
+	background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+	background-repeat: repeat-y;
+	font-family: 'Sora', sans-serif;
+	color: white;
+}
+
+body{ margin: auto;
+top: 50%; }

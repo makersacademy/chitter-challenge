@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @user = User.find(session[:id])
+    @user = User.find_id(session[:id])
     @timeline = Peep.sort_peeps
     erb :index
   end
@@ -31,6 +31,25 @@ class Chitter < Sinatra::Base
         session[:id] = user.id
       end
     redirect '/'
+  end
+
+  get '/users/login' do
+    erb :login
+  end
+
+  get '/users/logout' do
+    session[:id] = nil
+    redirect '/'
+  end
+
+  post '/users/authenticate' do
+    if User.authenticate(params[:email], params[:password]) == nil
+      flash[:notice] = 'Invalid login credentials'
+      redirect '/users/login'
+    else
+      session[:id] = User.authenticate(params[:email], params[:password]).id
+      redirect '/'
+    end
   end
 
   post '/peep' do

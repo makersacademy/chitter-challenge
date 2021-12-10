@@ -7,7 +7,7 @@ feature 'user should be able to sign up' do
     fill_in('email', with: 'fake_kim_email@gmail.com')
     fill_in('password', with: 'password123')
     click_button('Sign up')
-    expect(page).to have_content('Welcome to Chitter, Kim!')
+    expect(page).to have_content('Logged in as Kim')
   end
 
   scenario 'cannot sign up as existing user' do

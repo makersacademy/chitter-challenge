@@ -1,8 +1,14 @@
 <h1>Chitter</h1>
 <% if @user %>
-<h2>Welcome to Chitter, <%= @user.name %>!</h2>
+<p>Logged in as <%= @user.name %>!</p>
+<form action="users/logout" method="get">
+  <input type="submit" value="Log out">
+</form>
 <% else %>
-<h2>New to Chitter? Please sign up here!</h2>
+<h2>Please log in or sign up:</h2>
+<form action="users/login" method="get">
+  <input type="submit" value="Log in">
+</form>
 <form action="users/new" method="get">
   <input type="submit" value="Sign up">
 </form>
@@ -17,7 +23,7 @@
 <% end %>
 
 <h3> Timeline </h3>
-<% @timeline.each do |peep| user = User.find(peep.user_id) %>
+<% @timeline.each do |peep| user = User.find_id(peep.user_id) %>
   <p> <%=peep.content %></p>
   <p> Posted by <%= user.username %> at <%= peep.time %></p>
 <% end %>
