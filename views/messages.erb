@@ -1,1 +1,7 @@
-Hello World!
+<ul>
+  <% @messages.each do |message|  %>
+  <li>
+    <h3><%= message.text %></h3>
+  </li>
+  <% end %>
+</ul>

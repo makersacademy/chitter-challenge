@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'pg'
+require './lib/database_connection'
 
 def setup_test_database
-  connection = PG.connect(dbname: 'chitter_test')
-
-  connection.exec('TRUNCATE messages;')
+  DatabaseConnection.setup
+  DatabaseConnection.query('TRUNCATE messages;')
 end

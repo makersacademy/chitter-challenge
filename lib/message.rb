@@ -14,7 +14,7 @@ class Message
   end
 
   def self.create(text:)
-    result = DatabaseConnection.query("INSERT INTO messages (text) VALUES($1) RETURNING (id, text)", [text])
+    result = DatabaseConnection.query("INSERT INTO messages (text) VALUES($1) RETURNING id, text", [text])
     Message.new(id: result[0]['id'], text: result[0]['text'])
   end
 end

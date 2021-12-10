@@ -21,8 +21,8 @@ describe DatabaseConnection do
 
   describe '.query' do
     it 'executes a SQL query string' do
-      expect(DatabaseConnection.connection).to receive(:exec_params).with('SELECT * FROM bookmarks;', [])
-      DatabaseConnection.query('SELECT * FROM bookmarks;')
+      expect(DatabaseConnection.connection).to receive(:exec_params).with('SELECT * FROM messages;', [])
+      DatabaseConnection.query('SELECT * FROM messages;')
     end
   end
 end
