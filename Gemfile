@@ -16,3 +16,5 @@ group :development, :test do
   gem 'capybara'
   gem 'pg'
 end
+
+gem "puma", "~> 5.5"
