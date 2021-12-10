@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/user'
+require './lib/peep'
 require './database_connection_setup'
 require 'sinatra/flash'
 
@@ -14,6 +15,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.find(session[:id])
+    @timeline = Peep.all
     erb :index
   end
 
@@ -28,6 +30,11 @@ class Chitter < Sinatra::Base
         user = User.create(params[:name], params[:username], params[:email], params[:password])
         session[:id] = user.id
       end
+    redirect '/'
+  end
+
+  post '/peep' do
+    Peep.create(params[:content], session[:id])
     redirect '/'
   end
 

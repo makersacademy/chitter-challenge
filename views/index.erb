@@ -7,3 +7,17 @@
   <input type="submit" value="Sign up">
 </form>
 <% end %>
+
+<% if @user %>
+<h2> Post a peep</h2>
+<form action="/peep" method="post">
+<input type="text" name="content">
+<input type="submit" value="Peep!">
+</form>
+<% end %>
+
+<h3> Timeline </h3>
+<% @timeline.each do |peep| user = User.find(peep.user_id) %>
+  <p> <%=peep.content %></p>
+  <p> Posted by <%= user.username %> at <%= peep.time %></p>
+<% end %>

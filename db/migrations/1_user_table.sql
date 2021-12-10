@@ -5,3 +5,9 @@ username VARCHAR(60) UNIQUE,
 email VARCHAR(60) UNIQUE,
 password VARCHAR(240)
 );
+
+CREATE TABLE peeps(id SERIAL PRIMARY KEY,
+content VARCHAR(240),
+time VARCHAR(30),
+user_id integer REFERENCES users(id)
+);
