@@ -11,12 +11,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do 
-    p @peeps = Peep.all
+    @peeps = Peep.all
     erb :index
   end
 
   post '/peep' do
-    Peep.create(text: params[:text], user_name: params[:user_name], handle: params[:handle])
+    Peep.create(text: params[:text], user_name: params[:user_name], handle: params[:handle], time_posted: Time.new)
     redirect '/'
   end
 end

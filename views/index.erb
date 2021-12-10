@@ -1,7 +1,7 @@
 <h2> Welcome to Chitter </h2>
 <h3> Let's get tweeting, uh I mean peeping </h3>
 <% @peeps.reverse.each do |peep| %>
-  <h5> "<%= peep.text %>" User: <%= peep.user_name %> , Handle: @<%= peep.handle %> </h5>
+  <h5> "<%= peep.text %>" User: <%= peep.user_name %> , Handle: @<%= peep.handle %> Posted at: <%= peep.time_posted %></h5>
   <p>
   </p>
 <%end%>
