@@ -7,6 +7,15 @@
   font-family: "Poppins", sans-serif;
 }
 
+.welcome-sign {
+  margin: auto;
+  padding-top: 10px;
+  color: #04AA6D;
+  text-align: center;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+}
+
 .post-list-container {
   list-style-type: none;
   border: none;

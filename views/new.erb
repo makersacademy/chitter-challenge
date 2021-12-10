@@ -1,5 +1,23 @@
-<h1>Write your Chitter post here:</h1>
-<form action='/chitter' method='post'>
-  <input type="text" placeholder='Add your post here' name="post" />
-  <input type='submit' value='Submit'>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href="<%= url("/new-post.css")%>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chitter</title>
+  </head>
+  <body>
+      <div>
+          <form action='/chitter' method='post'>
+            <input class='post' name="post" type="text" placeholder="What's happening <%= @user.name %>?"/>
+            <br>
+            <button class='submit-btn' type='submit' value='Submit'>Submit</button>
+          </form>
+      </div>
+
+  </body>
+  <html>
