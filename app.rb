@@ -29,10 +29,9 @@ class ChitterApp < Sinatra::Base
   end 
 
   post '/chitter' do 
-    Chitter.create(post: params['post'])
-    # post = params['post']
-    # connection = PG.connect(dbname: 'chitter_app_test')
-    # connection.exec("INSERT INTO chitter (post) VALUES('#{post}')")
+    @user = User.find(id: session[:user_id])
+    Chitter.create(post: params['post'], author_id: session[:user_id], author_email: @user_email, author_name: @user.name)
+    # @user_email = @user.email
     redirect '/chitter'
   end
 
