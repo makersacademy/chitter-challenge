@@ -9,6 +9,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -17,6 +18,12 @@ require 'capybara/rspec'
 require 'rspec'
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.before(:each) do
+    DatabaseConnection.query("TRUNCATE Users, Peeps;")
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do

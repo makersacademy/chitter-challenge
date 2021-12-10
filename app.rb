@@ -9,7 +9,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Oh hey chitter!'
+    @user = DatabaseConnection.query("SELECT * FROM Users;")
+    @peep = DatabaseConnection.query("SELECT content FROM Peeps;")
+    erb :index
   end
 
   run! if app_file == $0
