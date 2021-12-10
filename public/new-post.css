@@ -1,0 +1,44 @@
+.notice {
+  margin: auto;
+  padding-top: 10px;
+  color: #04AA6D;
+  text-align: center;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+}
+
+.post {
+  padding: 20px;
+  height: 90%;
+  width:50%;
+  margin-top:5%;
+  margin-left:1%;
+  margin-right:1%;
+  margin-bottom:1%;    
+  border-color: #04AA6D;
+  border-style: solid;
+  border-radius: 50px;
+}
+
+button {
+  color: #ffff;
+  width: 100px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 10px 0;;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+ }
+ 
+.submit-btn {
+  background-color: #04AA6D;
+  font-family: "Poppins", sans-serif;
+  margin-left: 1%;
+}
+
+.submit-btn:hover {
+  box-shadow: 1px 1px 10px #1c8adb;
+}
