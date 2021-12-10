@@ -2,16 +2,19 @@ require 'message'
 
 describe Message do
 
-  describe '.view' do
+  describe '.view_all' do
     it 'should return a message' do
-      expect(Message.view).to eq 'My first message'
+      Message.add('My first message')
+      Message.add('My second message')
+      expect(Message.view_all[0].message).to include 'My first message'
+      expect(Message.view_all[1].message).to include 'My second message'
     end
   end
 
   describe '.add' do
     it 'should add a chitter post' do
-      result = Message.add('My first message')
-      expect(result).to eq 'My first message'
+      Message.add('My first message')
+      expect(Message.view_all[0].message).to include 'My first message'
     end
   end
 end

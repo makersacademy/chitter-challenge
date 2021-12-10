@@ -16,10 +16,14 @@
       <form action='/post_message' method='post'>
         <input type='text' name="message" placeholder="What's up?"> 
         <br>
-        <input type='submit' value='Post' id='button'>
+        <input type='submit' value='Peep' id='button'>
       </form>
 
-      <p> <%= @message %> </p>
+      <ul>
+        <% @peeps.each do |peep| %>
+          <li> <%= peep.message %> </li>
+        <% end %>
+      </ul>
     </div>
   </body>
 </html>

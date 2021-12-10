@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base 
   enable :sessions
@@ -19,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    @message = Message.view
+    @peeps = Message.view_all
     erb :messages
   end
 
