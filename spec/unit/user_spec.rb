@@ -1,4 +1,5 @@
 require 'user'
+require 'bcrypt'
 
 describe User do
   describe '.create' do
@@ -7,6 +8,12 @@ describe User do
       
       expect(user.username).to eq 'Sherwin'
       expect(user.password).to eq 'test123'
+    end
+
+    it 'hashes password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('test123')
+
+      User.create(username: 'Sherwin', password: 'test123')
     end
   end
 
