@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
-    'Hello World!'
+    erb :messages
   end
 
   run! if app_file == $0
