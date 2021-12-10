@@ -14,4 +14,10 @@ feature 'viewing messages' do
     click_button 'View by oldest'
     expect(first('li').text).to eq 'Hello Universe!'
   end
+
+  scenario 'displays time of creation' do
+    Message.create(text: "Hello World!")
+    visit '/messages'
+    expect(page).to have_content "#{Time.new.localtime}"
+  end
 end
