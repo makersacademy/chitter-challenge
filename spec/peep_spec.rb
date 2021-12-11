@@ -1,8 +1,8 @@
 require "peep"
 
 describe Peep do
-  context ".add"
-    it "adds a peep to the database" do
+  context ".create"
+    it "creates a peep" do
       time_now = Time.now.strftime("%Y-%m-%d %H:%M:%S")
       allow_any_instance_of(Time).to receive(:now).and_return(time_now)
       peep = Peep.create("Hello")

@@ -1,6 +1,15 @@
+<% if @user %>
+  <h2> Welcome <%=@user.email%> </h2>
+<% end %>
 
 <div>
-  <form action="/message" method="post">
+  <form action="/users/new">
+    <input type="submit" value="Sign up">
+  </form>
+</div>
+
+<div>
+  <form action="/message/new" method="post">
     <input type="text" name="message">
     <input type="submit" value="Chitter">
   </form>
