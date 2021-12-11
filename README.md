@@ -1,17 +1,10 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
 -------
 
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+To write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -54,6 +47,13 @@ I want to receive an email if I am tagged in a Peep
 
 Technical Approach:
 -----
+
+
+## Domain Model
+
+# ![Domain Model](https://github.com/sabrinalord/chitter-challenge/blob/main/screenshot/chitter-MVC-diagram.png)
+
+
 
 In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
