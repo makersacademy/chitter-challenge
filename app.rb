@@ -10,5 +10,18 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/peeps' do
+    @peeps = [
+       "First peep", 
+      "Second peep", 
+      "Third peep"
+      ]
+    erb :peeps
+  end
+
+  post '/peeps' do
+    redirect '/peeps'
+  end
+  
   run! if app_file == $0
 end
