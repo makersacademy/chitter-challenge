@@ -1,10 +1,6 @@
 require "peep"
 
 describe Peep do
-  before do
-    DatabaseConnection.query("TRUNCATE peeps;")
-  end
-  
   context ".add"
     it "adds a peep to the database" do
       peep = Peep.create("Hello")
