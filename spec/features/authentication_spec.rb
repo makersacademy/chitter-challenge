@@ -39,9 +39,11 @@ feature 'authentication' do
 
   scenario 'a user can sign out' do
     User.create(name: 'test', email: 'test@example.com', password: 'password123')
+    
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
+
     click_button('Login')
 
     click_link('Logout')

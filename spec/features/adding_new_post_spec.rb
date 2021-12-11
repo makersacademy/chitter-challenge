@@ -5,7 +5,6 @@ feature 'Adding a post' do
     visit('/chitter/new')
     fill_in('post', with: 'This is my FIRST chitter post')
     click_button('Submit')
-
-    expect(page).to have_content "This is my FIRST chitter post"
+    expect(page).to have_content 'This is my FIRST chitter post'
   end
 end
