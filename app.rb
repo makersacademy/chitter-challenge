@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 
 require './database_connection_setup'
 require './lib/peep'
@@ -9,6 +10,7 @@ class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+  register Sinatra::Flash
 
   enable :sessions
 
@@ -56,9 +58,11 @@ class Chitter < Sinatra::Base
       WHERE email = $1 AND password = $2;", 
       [params['email'], params['password']]
     )
-    if id[0]['id'].nil?
-      @invalid_login = true
-      erb :login
+    
+    if id.num_tuples.zero?
+      flash[:warning] = "Invalid login, please check email and password are correct</h4>
+      <h4>Haven't signed up yet? <a href='/sign-up'>Sign up here</a></h4>"
+      redirect '/log-in'
     else
       session[:logged_in_user_id] = id[0]['id']
       redirect '/'
@@ -67,7 +71,7 @@ class Chitter < Sinatra::Base
 
   get '/logout' do
     session[:logged_in_user_id] = nil
-    # add flash message you've succesfuly logged out
+    flash[:notice] = "You have sucessfully logged out of your Chitter account"
     redirect '/'
   end
 

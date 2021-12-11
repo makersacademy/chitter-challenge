@@ -15,4 +15,6 @@ feature 'login page' do
 
     expect(page).to have_content 'Welcome Birdy!'
   end
+
+  # error message if incorrect details inputted
 end
