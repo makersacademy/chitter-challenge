@@ -30,11 +30,13 @@
       
       <ul>
         <% @replies.each do |reply| %>
-        <li>
-          <h3><%= reply.text %></h3>
-          <h4><%= reply.username %></h4>
-          <h4><%= reply.created_at %></h4>
-        </li>
+        <% if reply.message_id == message.id %>
+          <li>
+            <h3><%= reply.text %></h3>
+            <h4><%= reply.username %></h4>
+            <h4><%= reply.created_at %></h4>
+          </li>
+          <% end %>
         <% end %>
       </ul>
 

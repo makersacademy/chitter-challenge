@@ -4,13 +4,13 @@ require './lib/user'
 class Reply
   attr_reader :id, :text, :created_at, :user_id, :username, :message_id
 
-  def initialize(id:, text:, created_at:, user_id:, user: User, message_id:)
+  def initialize(id:, text:, created_at:, user_id:, message_id:, user: User)
     @id = id
     @text = text
     @created_at = created_at
     @user_id = user_id
     @user = user
-    @message_id = @message_id
+    @message_id = message_id
     @user_id.nil? ? @username = 'Guest' : @username = user.find(@user_id).username
   end
 
@@ -19,13 +19,13 @@ class Reply
     replies = result.map do |reply|
       Reply.new(id: reply['id'], text: reply['text'], 
      created_at: format_time(reply['created_at']), user_id: result[0]['user_id'],
-     message_id: result[0]['message_id'])
+     message_id: reply['message_id'])
     end    
     order == "oldest" ? replies : replies.reverse 
 
   end
 
-  def self.create(text:, user_id: 'null', message_id:)
+  def self.create(text:, message_id:, user_id: 'null')
     if user_id == 'null'
       result = DatabaseConnection.query(
         "INSERT INTO replies (text, created_at, message_id) VALUES($1, CURRENT_TIMESTAMP, $2) 
