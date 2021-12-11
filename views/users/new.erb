@@ -11,32 +11,27 @@
       <img class="user-profile-img" src="/images/user-profile-icon.jpeg">
       <h1>Sign up now</h1>
       <form action="/users" method="post">
-        <input id="name" type="name" class="input-box" placeholder="Enter name">
-        <input id="email" type="email" class="input-box" placeholder="Enter email"/>
-        <input id="password" type="password" class="input-box" placeholder="Enter password"/>
-
+        <input name="name" type="name" class="input-box" placeholder="Enter name">
+        <input name="email" type="email" class="input-box" placeholder="Enter email"/>
+        <input name="password" type="password" class="input-box" placeholder="Enter password"/>
         <p><span><input type="checkbox"></span> I agree to the terms of service</p>
-
         <button type="submit" class="signup-btn" value="Submit">Sign up</button>
         <hr>
         <p class="or">OR</p>
-
-      <div class="twitter-box" type="submit" value="Submit">
-        <div class="icon-container">
-          <img src="/images/twitter-icon.png">
+        <div class="twitter-box" type="submit" value="Submit">
+          <div class="icon-container">
+            <img src="/images/twitter-icon.png">
+          </div>
+          <p class="p-sign">Sign up with Twitter</p>
         </div>
-        <p class="p-sign">Sign up with Twitter</p>
-      </div>
-
-      <div class="google-box" type="submit" value="Submit">
-        <div class="icon-container">
-          <img src="/images/google-icon.png">
+        <div class="google-box" type="submit" value="Submit">
+          <div class="icon-container">
+            <img src="/images/google-icon.png">
+          </div>
+          <p class="p-sign">Sign up with Google</p>
         </div>
-        <p class="p-sign">Sign up with Google</p>
-      </div>
-
         <p>Already have an account? <a href="/sessions/new">Login</p>
-      </form>
-    </div>
-  </body>
-  <html>
+        </form>
+      </div>
+    </body>
+    <html>
