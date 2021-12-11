@@ -30,7 +30,7 @@
 }
 
 .card{
-  height:375px;
+  height:40%;
   width:500px;
   background-color:white;
   margin: auto;
@@ -38,7 +38,7 @@
 }
 .containt{
   padding: 10px;
-  height: 90%;
+  height: 40%;
   width:100%;
   margin-top:1%;
   margin-left:1%;
@@ -50,7 +50,7 @@
 }
 .top-bar{
   display: flex;
-  height:70px;
+  /* height:70px; */
   margin-left:10px;
 }
 .top-bar img{
@@ -64,7 +64,9 @@
 .top-bar h4{
   padding-left:5px;
   margin-top:10px;
+  margin-bottom: 0;
   font-size:17px;
+  font-family: "Poppins", sans-serif;
 }
 .top-bar i{
 color:#307ece;
@@ -76,24 +78,7 @@ color:#307ece;
   font-size:12px;
   color:gray;
 }
-.top-bar input{
-  position:absolute;
-  right:80px;
-  top:15px;
-  font-family:'Roboto', sans-serif;
-  font-size:16px;
-  font-weight:light ;
-  height:40px;
-  width:110px;
-  border:0;
-  border-top-left-radius: 20px 20px;
-  border-bottom-left-radius: 20px 20px;
-  border-top-right-radius: 20px 20px;
-  border-bottom-right-radius: 20px 20px;
-  background-color:#3280d3;
-  color:white;
-  
-}
+
 .buttons i{
   position:absolute;
   right:40px;
@@ -104,20 +89,21 @@ color:#307ece;
 .post{
   margin-left:15px;
   margin-right:15px;
-  
+  font-family: "Poppins", sans-serif;
 }
 .post img{
   width:100%;
   border-radius:15px;
 }
 .post  span{
-  position:grid;
-  margin:auto;
-  margin-bottom:10px;
-  margin-left:10px;
+  display: block;
+  font-size: 1em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
   font-weight:soft;
-  color:gray;
-   
+  color:grey;
 }
 .post hr{
   margin-top:15px;
@@ -128,9 +114,9 @@ color:#307ece;
   
 }
 .stat  {
-  
   height:20px;
  }
+
 .stat img{
   height:20px;
   width:20px;
