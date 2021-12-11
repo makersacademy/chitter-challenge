@@ -1,6 +1,7 @@
 <div>
   <% if @logged_in_user %>
     <h2>Welcome <%= @logged_in_user.name %>!</h2>
+    <a href="/logout">logout</a>
   <% else %>
     <a href="/sign-up">sign up</a>
   <% end %>

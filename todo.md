@@ -1,1 +1,2 @@
 - sort out tagged users
+- change notes like 'you've logged out of your account' to flash notices rather than straight html
