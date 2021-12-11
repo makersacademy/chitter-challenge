@@ -17,10 +17,10 @@ describe Chitter do
   end
 
   describe '.create' do 
-    it 'creates a new post' do 
-      chitter = Chitter.create(post: 'This is my FIRST chitter post')
-
-      # persisted_data = persisted_data(id: chitter.id)
+    it 'creates a new post' do
+      testuser = User.create(email: 'test@test.com', password: 'testpassword', name: 'User')
+      # persisted_data = persisted_data(id: testuser.id, table: 'chitter')
+      chitter = Chitter.create(author_id: testuser.id, author_email: 'test@test.com', author_name: 'test', post: 'This is my FIRST chitter post')
 
       expect(chitter.post).to eq 'This is my FIRST chitter post'
     end 
