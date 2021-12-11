@@ -34,7 +34,7 @@ bundle
 - [x] Registration
 - [x] Log In
 - [x] Guest Mode
-- [ ] Log Out
+- [x] Log Out
 - [ ] Email on tag
 - [ ] Unique username authentication
 - [ ] Email and Name sign up
