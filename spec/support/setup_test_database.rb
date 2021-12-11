@@ -5,5 +5,5 @@ require './lib/database_connection'
 
 def setup_test_database
   DatabaseConnection.setup
-  DatabaseConnection.query('TRUNCATE messages;')
+  DatabaseConnection.query('TRUNCATE users CASCADE;')
 end
