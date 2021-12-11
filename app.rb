@@ -36,6 +36,17 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  post '/sessions' do
+    result = DatabaseConnection.query(
+      "SELECT * FROM users WHERE username = $1",
+      [params[:username]]
+    )
+    user = User.new(id: result[0]['id'], username: result[0]['username'], password: result[0]['password'])
+
+    session[:user_id] = user.id
+    redirect('/messages')
+  end
+
   post '/messages' do
     Message.create(text: params[:text], user_id: session[:user_id])
     redirect '/messages'

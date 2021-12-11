@@ -4,9 +4,10 @@ require 'bcrypt'
 class User
   attr_reader :id, :username, :password
 
-  def initialize(id:, username:)
+  def initialize(id:, username:, password: nil)
     @id = id
     @username = username
+    @password = password
   end
 
   def self.create(username:, password:)
