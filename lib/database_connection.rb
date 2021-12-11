@@ -1,12 +1,12 @@
 
 class DatabaseConnection
 
-  # def self.setup(dbname = 'chitter')
-  #   @conn = 
-  # end
+  def self.setup(dbname: )
+    @conn = PG.connect(dbname: dbname)
+  end
 
   def self.connect
-    @conn = PG.connect(dbname: 'chitter')
+    @conn 
   end
 
   def self.query(sql, args = [])

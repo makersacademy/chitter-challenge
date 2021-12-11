@@ -3,7 +3,9 @@ Setup
 ```
 psql
 CREATE DATABASE chitter;
-CREATE TABLE peeps (id SERIAL PRIMARY KEY, message VARCHAR(280) NOT NULL, timestamp int);
+Follow instructions in db/migrations
+CREATE DATABASE chitter_test and repeat steps above
+```
 
 Usage
 ----

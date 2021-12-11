@@ -2,12 +2,12 @@ require 'peep'
 
 describe Peep do
   before do
-    conn = PG.connect(dbname: 'chitter')
+    conn = PG.connect(dbname: 'chitter_test')
     conn.exec("TRUNCATE peeps;")
   end
   
   context '.add'
-    it 'adds a tweet to the database' do
+    it 'adds a peep to the database' do
       peep = Peep.create('Hello')
 
       expect(peep).to be_a Peep

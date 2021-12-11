@@ -1,6 +1,7 @@
 require 'pg'
 require 'sinatra'
 require 'sinatra/contrib'
+require_relative '../database_connection_setup.rb'
 require_relative '../lib/peep.rb'
 
 class ChitterApp < Sinatra::Base
