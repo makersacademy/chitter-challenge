@@ -1,0 +1,9 @@
+<h1>Here are the past chitts:</h1>
+<ul>
+  <% @chitts.each do |chitt| %>
+    <li><%= chitt %></li>
+  <% end %>
+</ul>
+<form action="/chitter/homepage" method="get">
+  <input type="submit" value="Return to Homepage" />
+</form>
