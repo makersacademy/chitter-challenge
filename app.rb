@@ -39,7 +39,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    if user == nil
+    if user.nil?
       flash[:warning] = 'Invalid username or password.'
       redirect '/'
     end

@@ -4,12 +4,13 @@ require './lib/user'
 class Message
   attr_reader :id, :text, :created_at, :user_id, :username
 
-  def initialize(id:, text:, created_at:, user_id:, username: User)
+  def initialize(id:, text:, created_at:, user_id:, user: User)
     @id = id
     @text = text
     @created_at = created_at
     @user_id = user_id
-    @user_id.nil? ? @username = 'Guest' : @username = User.find(@user_id).username
+    @user = user
+    @user_id.nil? ? @username = 'Guest' : @username = user.find(@user_id).username
   end
 
   def self.all
