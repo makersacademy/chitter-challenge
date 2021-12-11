@@ -8,8 +8,9 @@ feature 'creating messages' do
     expect(page).to have_content 'Hello World!'
   end
 
-  context 'logged in' do
-    scenario 'message has author' do
+  context 'when logged in' do
+    scenario 'displays author' do
+      sign_up
       log_in
       fill_in('text', with: 'Hello World!')
       click_button('Submit')

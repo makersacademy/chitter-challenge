@@ -12,11 +12,15 @@ class Message
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM messages")
-    result.map { |message| Message.new(id: message['id'], text: message['text'], created_at: format_time(message['created_at'])) }
+    result.map { |message| Message.new(id: message['id'], text: message['text'], created_at: format_time(message['created_at']), user_id: result[0]['user_id']) }
   end
 
-  def self.create(text:, user_id:)
-    result = DatabaseConnection.query("INSERT INTO messages (text, created_at, user_id) VALUES($1, CURRENT_TIMESTAMP, $2) RETURNING id, text, created_at, user_id", [text, user_id])
+  def self.create(text:, user_id: 'null')
+    if user_id == 'null'
+      result = DatabaseConnection.query("INSERT INTO messages (text, created_at) VALUES($1, CURRENT_TIMESTAMP) RETURNING id, text, created_at, user_id", [text])
+    else
+      result = DatabaseConnection.query("INSERT INTO messages (text, created_at, user_id) VALUES($1, CURRENT_TIMESTAMP, $2) RETURNING id, text, created_at, user_id", [text, user_id])
+    end
     Message.new(id: result[0]['id'], text: result[0]['text'], created_at: format_time(result[0]['created_at']), user_id: result[0]['user_id'])
   end
 end

@@ -10,10 +10,10 @@ describe Message do
       expect(message.created_at).to eq "#{Time.new.strftime("%H:%M %p %b' %d, %y")}"
     end
 
-    it 'stores author id' do
+    it 'stores author id in database' do
       user = User.create(username: 'Sherwin', password: 'test123')
       message = Message.create(text: 'Hello World!', user_id: user.id)
-      expect(message.author_id).to eq user.id
+      expect(message.username).to eq user.username
     end
   end
   
