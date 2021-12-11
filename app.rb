@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -7,7 +8,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello World!'
+    'Chitter Homepage'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(text: params[:text])
+    redirect '/peeps'
   end
 
   # start the server if ruby file executed directly
