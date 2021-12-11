@@ -8,4 +8,19 @@ describe SignUp do
       expect(example_user.handle).to eq 'sleepy_joe'
     end
   end
+
+  describe '.log_in_verified?' do
+    context 'log in information is correct' do 
+      it 'checks log in information against database and returns true' do
+        example_user = SignUp.create(email: 'example1@fake_email.com', password: 'Password123', user_name: 'Joe Biden', handle: 'sleepy_joe')
+        expect(SignUp.log_in_verified?(email: 'example1@fake_email.com', password: 'Password123')).to eq true
+      end
+    end
+    context 'log in information is incorrect' do 
+      it 'checks log in information against database and returns false' do
+        example_user = SignUp.create(email: 'example1@fake_email.com', password: 'Password123', user_name: 'Joe Biden', handle: 'sleepy_joe')
+        expect(SignUp.log_in_verified?(email: 'example1@fake_email.com', password: 'WrongPassword123')).to eq false
+      end
+    end
+  end
 end
