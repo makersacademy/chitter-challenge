@@ -7,8 +7,15 @@ class Chitter < Sinatra::Base
     end
 
     get '/' do
-        'Hello World'
+        'tweet tweet'
     end
+
+    get '/tweets' do
+        @tweets = Tweet.all
+        erb :'tweets/index'
+    end
+
+
 
     run! if app_file == $0
 end
