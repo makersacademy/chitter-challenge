@@ -134,9 +134,18 @@ let's see how far I can go...
 - see Peeps in revers chronological order (newest first)
 - see the time a Peep was created
 - sign up for Chitter
-  (extra I : - log in to Chitter - log out of Chitter)
-  (extra II: - receive email notification when tagged in a Peep)
+- (extra I : - log in to Chitter - log out of Chitter)
+- (extra II: - receive email notification when tagged in a Peep)
 
 ## Domain Model
 
 ![Domain Model](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-10%20at%2023.47.31.png)
+
+## setting up the database
+
+- connect to sql
+- create a db
+- connect to the db
+- refer to 01_create_peep_table.sql and run query
+
+! I am unsure on how to use a 'time' category for the data entry corresponding to the date of creation of the Peep. Now that I think of it maybe I can use the id? as it is unique and sort it in a descending order ...
