@@ -27,8 +27,6 @@ bundle
  ```
 
 ## Features:
--------
-
 ```
 - [x] Message posting
 - [x] Sort messages by reverse chronological order
