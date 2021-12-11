@@ -3,11 +3,11 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <% flash.keys.each do |type| %>
-      <div data-alert class="flash <%= type %> alert-box radius">
-        <%= flash[type] %>
-        <a href="#" class="close">&times;</a>
-      </div>
+    <%if @user %>
+      <form action="/log-out" method="get">
+        <input type="submit" value="Log Out">
+      </form>
+      <h1>Welcome, <%= @user.username %>!</h1>
     <% end %>
   <%= yield %>
   </body>

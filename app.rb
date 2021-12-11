@@ -2,11 +2,13 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message'
 require './lib/user'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
   end
 
   get '/' do
@@ -27,6 +29,11 @@ class Chitter < Sinatra::Base
 
   get '/register' do
     erb :register
+  end
+
+  get '/log-out' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
   post '/messages' do
