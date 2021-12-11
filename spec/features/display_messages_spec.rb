@@ -1,7 +1,7 @@
 feature "display messages" do
   before do
     @time_now = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    allow_any_instance_of(Time).to receive(:now).and_return(@time_now)
+    allow_any_instance_of(Time).to receive(:now).and_return('bread') # FIX STUBBING OF TIME
   end
 
   scenario "messages show in reverse chronological order" do
