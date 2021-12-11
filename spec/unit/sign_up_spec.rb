@@ -1,4 +1,4 @@
-require 'sign_up.rb'
+require 'sign_up'
 describe SignUp do
   describe '.create' do
     it 'adds a user to the sign_up database' do
@@ -27,7 +27,7 @@ describe SignUp do
   describe '.find_user_name' do
     it 'returns a given bit of information about a user given a criteria' do 
       SignUp.create(email: 'example1@fake_email.com', password: 'Password123', user_name: 'Joe Biden', handle: 'sleepy_joe')
-      expect(SignUp.find_user_name(email: 'example1@fake_email.com' )).to eq 'Joe Biden'
+      expect(SignUp.find_user_name(email: 'example1@fake_email.com')).to eq 'Joe Biden'
     end
   end
 end

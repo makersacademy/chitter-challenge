@@ -4,7 +4,6 @@ require './lib/peep'
 require './lib/sign_up'
 require './database_connection_setup'
 
-
 class Chitter < Sinatra::Base
 
   configure :development do 
