@@ -54,7 +54,7 @@ li {
   padding: 0.7rem 1.2rem 0.7rem 0.7rem;
   border-bottom: thin solid rgba(230, 245, 255, 0.3);
 }
-#peep-date {
+#peep-time {
   padding: 0.5rem;
 }
 #peep-msg {

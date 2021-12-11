@@ -16,10 +16,14 @@
       <div id='form-wrapper'>
         <h2>Sign in to Chitter</h2>
         
-        <form action='/home'>
+        <form action='/sign_in' method='post'>
           <input type='text' name='username' placeholder='Username' id='username'>
           <br>
           <input type='submit' value='Sign in' class='button'>
+        </form>
+        <br>
+        <form action='/anonymous' method='post'>
+          <input type='submit' value='Sign in as a guest' class='button'>
         </form>
 
         <form>

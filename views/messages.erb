@@ -22,7 +22,8 @@
       </form>
 
       <% @peeps.each do |peep| %>
-        <div id='peep-date'>
+        <div id='peep-time'>
+          <%= @username %> -
           <%= peep.created_at[0..4] %>
         </div>
         <div id='peep-msg'>

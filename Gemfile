@@ -4,6 +4,7 @@ ruby '3.0.2'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem "sinatra-flash", "~> 0.3.0"
 gem 'pg'
 
 group :test do
