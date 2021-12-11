@@ -4,12 +4,16 @@
   <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
 </head>
 <h1>Welcome to Chitter</h1>
-<h2>
-  <br>
+<ul>
+  <% @all_peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
+<h3>
   <form method='get' action='/peep'> 
     <label for= 'create a peep'>
       <input type='submit' value='Create A Peep' />
     </label>
   </form>
-</h2>
+</h3>
 </body>

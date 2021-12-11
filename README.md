@@ -162,5 +162,7 @@ I want to post a message (peep) to chitter
 
 1) write failing feature test
 2) update Controller and Views
-3) Rspec configure : connection to test db
+3) Rspec configure : connection to test db (truncate db)
 4) TDD update the Model + select the right db depending it we are testing or not
+
+

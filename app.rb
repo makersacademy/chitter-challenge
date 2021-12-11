@@ -13,6 +13,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/homepage' do
+     @all_peeps = Peep.all
+     p @all_peeps
     erb :homepage
   end
 
@@ -21,7 +23,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peep' do
-    
+    Peep.create(content: params[:peep_content])
+    p params
     redirect '/homepage'
   end
 

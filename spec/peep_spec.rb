@@ -3,11 +3,10 @@ require 'peep'
 describe 'Peep' do
   describe '.all' do
     it "returns all the Peeps" do
-      con = PG.connect(dbname: 'chitter_app_test')
 
-      con.exec("INSERT INTO peeps (content) VALUES('My first Peep');")
-      con.exec("INSERT INTO peeps (content) VALUES('My second Peep');")
-      con.exec("INSERT INTO peeps (content) VALUES('My third Peep');")
+      Peep.create(content: 'My first Peep')
+      Peep.create(content: 'My second Peep')
+      Peep.create(content: 'My third Peep')
 
       peeps = Peep.all
 
