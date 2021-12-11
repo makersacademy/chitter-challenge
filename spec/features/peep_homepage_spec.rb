@@ -40,4 +40,35 @@ feature 'homepage for chitter' do
     expect(page).to have_content 'Oh hey chitter!'
     expect(page).to have_content time
   end
+
+  scenario 'the user can tag other users in their peep posts' do
+    DatabaseConnection.query("INSERT INTO Users(email, password, name, username) VALUES($1, $2, $3, $4);", ['example@gmail.com', '*****', 'Birdy', 'fly_away'])
+    DatabaseConnection.query("INSERT INTO Users(email, password, name, username) VALUES($1, $2, $3, $4);", ['friend@gmail.com', 'secret', 'Parrot', 'ahoy_matey'])
+
+    visit('/log-in')
+    fill_in('email', :with => 'example@gmail.com')
+    fill_in('password', :with => '*****')
+    click_on('Submit')
+    
+    fill_in('peep', :with => 'Oh hey chitter!')
+    fill_in('tags', :with => 'ahoy_matey')
+    click_on('post')
+  
+    expect(all(".peep").first).to have_content '@ahoy_matey'
+  end
+
+  scenario 'the user cannot tag users who are not registered with chitter' do
+    DatabaseConnection.query("INSERT INTO Users(email, password, name, username) VALUES($1, $2, $3, $4);", ['example@gmail.com', '*****', 'Birdy', 'fly_away'])
+
+    visit('/log-in')
+    fill_in('email', :with => 'example@gmail.com')
+    fill_in('password', :with => '*****')
+    click_on('Submit')
+    
+    fill_in('peep', :with => 'Oh hey chitter!')
+    fill_in('tags', :with => 'ahoy_matey')
+    click_on('post')
+  
+    expect(page).to have_content 'ahoy_matey does not have a chitter account'
+  end
 end

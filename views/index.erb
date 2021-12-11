@@ -4,6 +4,7 @@
     <a href="/logout">logout</a>
     <form action="/post-peep" method="POST">
       <input type="text" name="peep" maxlength="280" />
+      <input type="text" name="tags" />      
       <input type="submit" value="post" />
     </form>
   <% else %>
@@ -14,7 +15,7 @@
 <div>
   <% @peeps.reverse_each do |peep| %>
     <div class="peep">
-      <h3><%= peep.user.name %> - <%= peep.user.username %></h3>
+      <h3><%= peep.user.name %> - @<%= peep.user.username %></h3>
       <p><%= peep.time %></p>
       <p><%= peep.content %></p>
     </div>

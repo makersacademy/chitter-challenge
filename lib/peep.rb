@@ -16,15 +16,19 @@ class Peep
       INNER JOIN Users ON Peeps.user_id = Users.id"
     )
     peeps.map do |peep|
-      # tagged_users = DatabaseConnection.query(
-      #   "SELECT * 
-      #   FROM junction_tagged_users 
-      #   INNER JOIN Users ON Users.id = junction_tagged_users.user_id 
-      #   WHERE junction_tagged_users.peep_id = $1;", 
-      #   [peep["id"]]
-      # )
+      tagged_users = DatabaseConnection.query(
+        "SELECT Users.id
+        FROM junction_tagged_users 
+        INNER JOIN Users ON Users.id = junction_tagged_users.user_id 
+        WHERE junction_tagged_users.peep_id = $1;", 
+        [peep["id"]]
+      )
+      array = []
+      tagged_users.each do |tagged_user|
+        array << tagged_user['id']
+      end
       user = User.new(name: peep["name"], username: peep["username"], email: peep["email"])
-      Peep.new(user: user, time: peep["time"], content: peep["content"], tagged_users: "TODO")
+      Peep.new(user: user, time: peep["time"], content: peep["content"], tagged_users: array)
     end
   end
 end
