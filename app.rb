@@ -13,8 +13,18 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/homepage' do
-    
+    erb :homepage
   end
+
+  get '/peep' do
+    erb :create_peep
+  end
+
+  post '/peep' do
+    
+    redirect '/homepage'
+  end
+
 
   run! if app_file == $0
 end
