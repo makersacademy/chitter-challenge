@@ -22,27 +22,37 @@
     <h4 id="author">Posted by <%= message.username %></h4>
     <h4 id="time"><%= message.created_at %></h4>
     <form action='/replies' method='get'>
+      <input type="hidden" name="message_id" value="<%= message.id %>">
       <input type='submit' value='Show replies'>
     </form>
+
     <% if @message_id == message.id %>
+      
       <ul>
         <% @replies.each do |reply| %>
         <li>
-          <h3><%= reply.text %>
+          <h3><%= reply.text %></h3>
           <h4><%= reply.username %></h4>
           <h4><%= reply.created_at %></h4>
         </li>
+        <% end %>
       </ul>
+
       <form action='/replies' method='post'>
         <input id="reply_field" type='text' name='text'>
+        <input type="hidden" name="message_id" value="<%= message.id %>">
         <input type='submit' value='Cheet your reply'>
       </form>
+
     <% else %>
       <form action='/replies/new' method='get'>
         <input type="hidden" name="message_id" value="<%= message.id %>">
         <input type='submit' value='Reply'>
       </form>
+
     <% end %>
+
+    
   </li>
   <% end %>
 </ul>

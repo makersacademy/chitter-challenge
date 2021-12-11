@@ -22,6 +22,7 @@
     <h4 id="author">Posted by <%= message.username %></h4>
     <h4 id="time"><%= message.created_at %></h4>
     <form action='/replies' method='get'>
+      <input type="hidden" name="message_id" value="<%= message.id %>">
       <input type='submit' value='Show replies'>
     </form>
     <form action='/replies/new' method='get'>

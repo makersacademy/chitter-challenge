@@ -22,11 +22,13 @@
     <h4 id="author">Posted by <%= message.username %></h4>
     <h4 id="time"><%= message.created_at %></h4>
     <form action='/replies' method='get'>
+      <input type="hidden" name="message_id" value="<%= message.id %>">
       <input type='submit' value='Show replies'>
     </form>
     <% if @message_id == message.id %>
       <form action='/replies' method='post'>
         <input id="reply_field" type='text' name='text'>
+        <input type="hidden" name="message_id" value="<%= message.id %>">
         <input type='submit' value='Cheet your reply'>
       </form>
     <% else %>

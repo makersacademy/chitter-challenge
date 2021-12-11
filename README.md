@@ -35,8 +35,7 @@ bundle
 - [x] Log In
 - [x] Guest Mode
 - [x] Log Out
+- [x] Unique username authentication
+- [x] Message replies
 - [ ] Email on tag
-- [ ] Unique username authentication
-- [ ] Email and Name sign up
 - [ ] CSS Styling
-- [ ] Message replies

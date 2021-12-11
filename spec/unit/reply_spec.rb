@@ -21,7 +21,8 @@ describe Reply do
   
   describe '.all' do
     it 'returns an array of replies' do
-      Reply.create(text: 'Hello World!')
+      message = Message.create(text: 'Hello World!')
+      Reply.create(text: 'Hello World!', message_id: message.id)
       replies = Reply.all
       expect(replies.first.text).to eq 'Hello World!'
     end

@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/message'
 require './lib/user'
+require './lib/reply'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -36,13 +37,14 @@ class Chitter < Sinatra::Base
   get '/replies' do
     @messages = Message.all(session[:order])
     @message_id = params[:message_id]
-    @replies = [ ]
-    erb :reply
+    @replies = Reply.all.reverse
+    erb :replies
   end
 
   get '/replies/new' do
     @messages = Message.all(session[:order])
     @message_id = params[:message_id]
+    Reply.create(text: params[:text], user_id: session[:user_id], message_id: @message_id)
     erb :reply
   end
 
@@ -69,6 +71,13 @@ class Chitter < Sinatra::Base
     end
     session[:user_id] = user.id
     redirect '/messages'
+  end
+
+  post '/replies' do
+    @messages = Message.all(session[:order])
+    @message_id = params[:message_id]
+    Reply.create(text: params[:text], user_id: session[:user_id], message_id: @message_id)
+    redirect '/replies'
   end
 
   run! if app_file == $0
