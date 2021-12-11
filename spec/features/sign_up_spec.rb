@@ -7,6 +7,6 @@ feature 'User can sign up for Chitter' do
     fill_in 'user_name', with: 'John Smith'
     fill_in 'handle', with: 'the_real_john_smith'
     click_on 'Submit'
-    expect(page).to have_content 'Thanks for signing up for Chitter John!'
+    expect(page).to have_content 'Thanks for signing up for Chitter John Smith!'
   end
 end
