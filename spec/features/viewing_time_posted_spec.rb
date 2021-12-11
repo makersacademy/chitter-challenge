@@ -1,6 +1,6 @@
 feature 'Seeing time posted' do
   scenario 'User posts a peep and can see when it was posted' do
-    visit '/'
+    visit '/user_page'
     fill_in 'text', with: 'I will Make America Great Again #MAGA'
     fill_in 'user_name', with: 'Donald Trump'
     fill_in 'handle', with: 'POTUS'
