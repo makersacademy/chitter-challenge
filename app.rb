@@ -6,9 +6,10 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
+
   configure :development do
     register Sinatra::Reloader
-    register Sinatra::Flash
   end
 
   get '/' do
@@ -38,8 +39,12 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
+    if user == nil
+      flash[:warning] = 'Invalid username or password.'
+      redirect '/'
+    end
     session[:user_id] = user.id
-    redirect('/messages')
+    redirect '/messages'
   end
 
   post '/messages' do
