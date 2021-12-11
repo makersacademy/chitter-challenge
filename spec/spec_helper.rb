@@ -8,6 +8,9 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+require './lib/database_connection'
+require './lib/peep'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

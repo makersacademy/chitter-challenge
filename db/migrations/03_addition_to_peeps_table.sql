@@ -1,0 +1,1 @@
+INSERT INTO peeps (message) VALUES("Coffee is just the best!")
