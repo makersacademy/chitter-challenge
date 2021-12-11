@@ -23,11 +23,4 @@ gem "sinatra-contrib", "~> 2.1"
 gem "sinatra-flash", "~> 0.3.0"
 gem "rack", "~> 2.2"
 gem "webrick", "~> 1.7"
-
-
-
-
-
-
-
-gem "timecop", "~> 0.9.4"
+gem "bcrypt", "~> 3.1"
