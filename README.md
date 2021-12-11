@@ -152,3 +152,15 @@ let's see how far I can go...
 
 ! I am unsure on how to use a 'time' category for the data entry corresponding to the date of creation of the Peep. Now that I think of it maybe I can use the id? as it is unique and sort it in a descending order ...
 ! just looked at how to store time with PostgreSQL, I might have to use the timestamp when I create a post and store some time data as a create_at attribute of Peep instances , or similar?
+
+## first feature : create a peep
+```
+As a Maker
+So that I can let people know what I am doing
+I want to post a message (peep) to chitter
+```
+
+1) write failing feature test
+2) update Controller and Views
+3) Rspec configure : connection to test db
+4) TDD update the Model + select the right db depending it we are testing or not

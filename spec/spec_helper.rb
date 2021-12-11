@@ -8,7 +8,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'
 
@@ -23,6 +22,12 @@ require_relative './setup_test_database'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = ChitterApp
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do
