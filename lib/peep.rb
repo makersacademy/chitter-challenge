@@ -1,6 +1,5 @@
 require 'pg'
 require './lib/database_connection'
-require './lib/time_posted'
 class Peep
   attr_reader :text, :user_name, :handle, :time_posted
 

@@ -3,11 +3,10 @@ require 'peep'
 describe Peep do
   describe '.create' do
     it 'creates a peep which we can then view' do 
-      peep = Peep.create(text: 'Make America Great Again', user_name: 'Donald Trump', handle: 'POTUS', time_posted: Time.new)
+      peep = Peep.create(text: 'Make America Great Again', user_name: 'Donald Trump', handle: 'POTUS', time_posted: Time.now)
       expect(peep.text).to eq 'Make America Great Again'
       expect(peep.user_name).to eq 'Donald Trump'
       expect(peep.handle).to eq 'POTUS'
-      expect(peep.time_posted).to be_a Time
     end
   end
   describe '.all' do
