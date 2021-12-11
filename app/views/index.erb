@@ -1,0 +1,16 @@
+
+<div>
+  <form action="/message" method="post">
+    <input type="text" name="message">
+    <input type="submit" value="Chitter">
+  </form>
+</div>
+
+<div>
+  <ul>
+    <% @chitters.each do |chitter| %>
+      <li> <%= chitter.message %> </li>
+    <% end %>
+  </ul>
+</div>
+
