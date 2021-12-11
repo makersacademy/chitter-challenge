@@ -12,7 +12,7 @@ describe Message do
 
     it 'stores author id' do
       user = User.create(username: 'Sherwin', password: 'test123')
-      message = Message.create(text: 'Hello World!', author_id: user.id)
+      message = Message.create(text: 'Hello World!', user_id: user.id)
       expect(message.author_id).to eq user.id
     end
   end

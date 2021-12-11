@@ -1,13 +1,13 @@
 require_relative './database_connection'
 
 class Message
-  attr_reader :id, :text, :created_at, :author
+  attr_reader :id, :text, :created_at, :user_id
 
-  def initialize(id:, text:, created_at:, author:)
+  def initialize(id:, text:, created_at:, user_id:)
     @id = id
     @text = text
     @created_at = created_at
-    @author
+    @user_id = user_id
   end
 
   def self.all
@@ -16,8 +16,8 @@ class Message
   end
 
   def self.create(text:, user_id:)
-    result = DatabaseConnection.query("INSERT INTO messages (text, created_at) VALUES($1, CURRENT_TIMESTAMP) RETURNING id, text, created_at", [text, user_id])
-    Message.new(id: result[0]['id'], text: result[0]['text'], created_at: format_time(result[0]['created_at']))
+    result = DatabaseConnection.query("INSERT INTO messages (text, created_at, user_id) VALUES($1, CURRENT_TIMESTAMP, $2) RETURNING id, text, created_at, user_id", [text, user_id])
+    Message.new(id: result[0]['id'], text: result[0]['text'], created_at: format_time(result[0]['created_at']), user_id: result[0]['user_id'])
   end
 end
 
