@@ -22,4 +22,22 @@ feature 'homepage for chitter' do
     expect(page).to have_content 'Oh hey chitter!'
     expect(page).to have_content "Man I'm getting old!"
   end
+
+  scenario 'user can add a peep to the homepage' do
+    DatabaseConnection.query("INSERT INTO Users(email, password, name, username) VALUES($1, $2, $3, $4);", ['example@gmail.com', '*****', 'Birdy', 'fly_away'])
+
+    visit('/log-in')
+    fill_in('email', :with => 'example@gmail.com')
+    fill_in('password', :with => '*****')
+    click_on('Submit')
+    
+    fill_in('peep', :with => 'Oh hey chitter!')
+    click_on('post')
+
+    expect(page).to have_content 'Birdy'
+    expect(page).to have_content 'fly_away'
+    expect(page).to have_content 'Oh hey chitter!'
+    # TODO TIME
+    # expect(page).to have_content TIME
+  end
 end

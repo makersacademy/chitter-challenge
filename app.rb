@@ -32,6 +32,15 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/post-peep' do
+    DatabaseConnection.query(
+      "INSERT INTO Peeps(user_id, time, content)
+      VALUES($1, $2, $3);",
+      [session[:logged_in_user_id], Time.now, params['peep']]
+    )
+    redirect '/'
+  end
+
   get '/sign-up' do
     erb :sign_up
   end
@@ -60,7 +69,7 @@ class Chitter < Sinatra::Base
     )
     
     if id.num_tuples.zero?
-      flash[:warning] = "Invalid login, please check email and password are correct</h4>
+      flash[:invalid_login] = "Invalid login, please check email and password are correct</h4>
       <h4>Haven't signed up yet? <a href='/sign-up'>Sign up here</a></h4>"
       redirect '/log-in'
     else
