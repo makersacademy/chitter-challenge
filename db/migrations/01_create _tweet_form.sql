@@ -1,0 +1,1 @@
+CREATE TABLE tweet_timeline(id SERIAL PRIMARY KEY, url VARCHAR(60))

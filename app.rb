@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/tweet'
 
 class Chitter < Sinatra::Base
     configure :development do
@@ -14,8 +15,6 @@ class Chitter < Sinatra::Base
         @tweets = Tweet.all
         erb :'tweets/index'
     end
-
-
 
     run! if app_file == $0
 end
