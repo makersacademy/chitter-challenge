@@ -34,7 +34,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password], username: params[:password])
+    user = User.create(email: params[:email], password: params[:password], username: params[:username])
     if user == 1
       flash[:notice] = 'Email already exists' 
     elsif user == 2
