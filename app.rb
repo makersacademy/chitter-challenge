@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 
 require './database_connection_setup'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -9,8 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @user = DatabaseConnection.query("SELECT * FROM Users;")
-    @peep = DatabaseConnection.query("SELECT content FROM Peeps;")
+    @peeps = Peep.all
     erb :index
   end
 

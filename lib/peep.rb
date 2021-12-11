@@ -1,10 +1,9 @@
 class Peep
 
-  attr_reader :name, :username, :time, :content, :tagged_users
+  attr_reader :user, :time, :content, :tagged_users
 
-  def initialize(name:, username:, time:, content:, tagged_users:)
-    @name = name
-    @username = username
+  def initialize(user:, time:, content:, tagged_users:)
+    @user = user
     @time = time
     @content = content
     @tagged_users = tagged_users
@@ -20,7 +19,8 @@ class Peep
       #   WHERE junction_tagged_users.peep_id = $1;", 
       #   [peep["id"]]
       # )
-      Peep.new(name: peep["name"], username: peep["username"], time: peep["time"], content: peep["content"], tagged_users: "TODO")
+      user = User.new(name: peep["name"], username: peep["username"], email: peep["email"])
+      Peep.new(user: user, time: peep["time"], content: peep["content"], tagged_users: "TODO")
     end
   end
 end

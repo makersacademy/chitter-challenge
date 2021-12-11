@@ -1,2 +1,6 @@
-<h3><%= @user[0]["name"] %> - <%= @user[0]["username"] %></h3>
-<p><%= @peep[0]["content"] %></p>
+<div>
+  <% @peeps.each do |peep| %>
+    <h3><%= peep.user.name %> - <%= peep.user.username %></h3>
+    <p><%= peep.content %></p>
+  <% end %>
+</div>
