@@ -9,7 +9,7 @@
 <div>
   <ul>
     <% @chitters.each do |chitter| %>
-      <li> <%= chitter.message %> </li>
+      <li> <%= chitter.message %> - <%= chitter.timestamp %> </li>
     <% end %>
   </ul>
 </div>
