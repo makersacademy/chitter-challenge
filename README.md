@@ -1,10 +1,4 @@
 Chitter Challenge
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
 Challenge:
 -------
@@ -129,3 +123,15 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+### To set up the chitter database:
+1. Connect to 'psql'
+2. Create the database using the psql command 'CREATE DATABASE chitter;'
+3. Connect to the database using the pqsl command '\c chitter;'
+4. Run the SQL query saved in the 'db/migrations' folder in the file '01_create_peeps_table.sql'
+
+### To set up the chitter_test database:
+1. Connect to 'psql'
+2. Create the database using the psql command 'CREATE DATABASE chitter_test;'
+3. Connect to the database using the pqsl command '\c chitter_test;'
+4. Run the SQL query saved in the 'db/migrations' folder in the file '01_create_peeps_table.sql'
