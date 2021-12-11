@@ -16,3 +16,5 @@ gem "capybara", "~> 3.36"
 
 gem "sinatra-contrib", "~> 2.1"
 gem "sinatra", "~> 2.1"
+
+gem "pg", "~> 1.2"
