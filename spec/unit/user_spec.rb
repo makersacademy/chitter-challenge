@@ -29,4 +29,22 @@ describe User do
       expect(User.find(nil)).to eq nil
     end
   end
+  
+  describe '.authenticate' do
+    it 'returns a user when given a valid user' do
+      user = User.create(username: 'Sherwin', password: 'test123')
+      authenticated_user = User.authenticate(username: 'Sherwin', password: 'test123')
+      expect(authenticated_user.id).to eq(user.id)
+    end
+
+    it 'returns nil when given an invalid username' do
+      User.create(username: 'Sherwin', password: 'test123')
+      expect(User.authenticate(username: 'wrong user', password: 'test123')).to eq nil
+    end
+
+    it 'returns nil when given an invalid password' do
+      User.create(username: 'Sherwin', password: 'test123')
+      expect(User.authenticate(username: 'Sherwin', password: 'wrong password')).to eq nil
+    end
+  end
 end
