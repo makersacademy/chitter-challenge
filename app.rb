@@ -45,5 +45,25 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/log-in' do
+    erb :login
+  end
+
+  post '/log-in' do
+    id = DatabaseConnection.query(
+      "SELECT id 
+      FROM Users 
+      WHERE email = $1 AND password = $2;", 
+      [params['email'], params['password']]
+    )
+    if id[0]['id'].nil?
+      @invalid_login = true
+      erb :login
+    else
+      session[:logged_in_user_id] = id[0]['id']
+      redirect '/'
+    end
+  end
+
   run! if app_file == $0
 end

@@ -1,0 +1,10 @@
+<% if @invalid_login %>
+  <h4>Invalid login, please check email and password are correct</h4>
+  <h4>Haven't signed up yet? <a href="/sign-up">Sign up here</a></h4>
+<% end %>
+
+<form action="/log-in" method="POST">
+  <input type="text" name="email" placeholder="email" />
+  <input type="text" name="password" placeholder="password" />
+  <input type="submit" value="Submit" />
+</form>
