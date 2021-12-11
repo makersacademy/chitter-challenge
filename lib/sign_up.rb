@@ -1,4 +1,4 @@
-require 'database_connection'
+require './lib/database_connection'
 
 class SignUp
 

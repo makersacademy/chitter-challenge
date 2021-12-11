@@ -29,4 +29,13 @@ class Chitter < Sinatra::Base
     @user_sign_up = SignUp.create(email: params[:email], password: params[:password], user_name: params[:user_name], handle: params[:handle])
     erb :confirm_sign_up
   end
+
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/confirm_log_in' do
+    erb :confirm_log_in
+  end
+
 end
