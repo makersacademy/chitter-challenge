@@ -6,9 +6,10 @@ feature 'guest mode' do
     expect(page.current_path).to eq('/messages')
   end
 
-  scenario 'cannot post' do
+  scenario 'posts have guest as author' do
     visit('/messages')
     fill_in('text', with: 'Hello World!')
     click_button('Submit')
-    expect(page).to have_content 'Log in or sign up to post!'
+    expect(first('#author').text).to eq 'Posted by Guest'
+  end
 end
