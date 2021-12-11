@@ -27,7 +27,7 @@ bundle
  To get started, navigate to `localhost:3000/`
 
 ## Features:
-```
+
 - [x] Message posting
 - [x] Sort messages by reverse chronological order
 - [x] Display time of message posted
@@ -40,4 +40,3 @@ bundle
 - [ ] Email and Name sign up
 - [ ] CSS Styling
 - [ ] Message replies
-```
