@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    @peeps = Message.view_all
+    p @peeps = Message.view_all
     erb :messages
   end
 

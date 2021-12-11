@@ -6,12 +6,6 @@ describe DatabaseConnection do
     expect(PG).to receive(:connect).with(dbname: 'chitter_test')
     DatabaseConnection.setup('chitter_test')
   end
-  
-  context '.connection'
-  it "should have a persistent connection" do
-    test_connection = DatabaseConnection.setup('chitter_test')
-    expect(DatabaseConnection.connection).to eq test_connection
-  end
 
   context '.query'
   it 'execute the sql query' do

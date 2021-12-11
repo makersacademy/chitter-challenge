@@ -6,8 +6,8 @@ describe Message do
     it 'should return a message' do
       Message.add('My first message')
       Message.add('My second message')
-      expect(Message.view_all[0].message).to include 'My first message'
-      expect(Message.view_all[1].message).to include 'My second message'
+      expect(Message.view_all[1].message).to include 'My first message'
+      expect(Message.view_all[0].message).to include 'My second message'
     end
   end
 

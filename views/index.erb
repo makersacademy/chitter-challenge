@@ -12,12 +12,21 @@
     <div id='container'>
       <div id='image_logo'>
       </div>
-      <h1>Chitter</h1>
-      <h3>Login in or Sign in to have fun</h3>
 
-      <form action='/home'>
-        <input type='submit' value='Login' id='button'>
-      </form>
+      <div id='form-wrapper'>
+        <h2>Sign in to Chitter</h2>
+        
+        <form action='/home'>
+          <input type='text' name='username' placeholder='Username' id='username'>
+          <br>
+          <input type='submit' value='Sign in' class='button'>
+        </form>
+
+        <form>
+          <p id='sign_up'>Don't have an account yet? <a href=''>Sign up</a></p>
+        </form>
+      </div>
+
     </div>
   </body>
 </html>

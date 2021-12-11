@@ -21,7 +21,10 @@
 
       <ul>
         <% @peeps.each do |peep| %>
-          <li> <%= peep.message %> </li>
+          <li> 
+          <%= peep.created_at[0..4] %>
+          <%= peep.message %> 
+          </li>
         <% end %>
       </ul>
     </div>

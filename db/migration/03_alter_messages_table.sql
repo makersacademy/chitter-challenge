@@ -1,0 +1,1 @@
+ALTER TABLE messages ADD COLUMN created_at TIME;
