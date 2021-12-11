@@ -4,6 +4,7 @@ Chitter Challenge
 
 ## Setup
 
+```
 bundle
  ```
 
@@ -24,7 +25,6 @@ bundle
  ```
 
  To get started, navigate to `localhost:3000/`
- ```
 
 ## Features:
 ```
