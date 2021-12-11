@@ -54,6 +54,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(username: params[:username], password: params[:password])
+    if user.nil?
+      flash[:warning] = 'Username already exists.'
+      redirect '/'
+    end
     session[:user_id] = user.id
     redirect '/messages'
   end
