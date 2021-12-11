@@ -8,7 +8,7 @@ describe Peep do
       peep = Peep.new(user: user, time: '1999-01-08 04:05:06', content: 'Oh hey chitter!', tagged_users: 'TODO')
 
       expect(peep.user).to eq user
-      expect(peep.time).to eq '1999-01-08 04:05:06'
+      expect(peep.time).to eq '08/01/1999  4:05'
       expect(peep.content).to eq 'Oh hey chitter!'
       expect(peep.tagged_users).to eq 'TODO'
     end
@@ -28,7 +28,7 @@ describe Peep do
       expect(peeps.first).to be_a Peep
       expect(peeps.first.user.name).to eq 'Birdy'
       expect(peeps.first.user.username).to eq 'fly_away'
-      expect(peeps.first.time).to eq '1999-01-08 04:05:06'
+      expect(peeps.first.time).to eq '08/01/1999  4:05'
       expect(peeps.first.content).to eq 'Oh hey chitter!'
       expect(peeps.first.tagged_users).to eq 'TODO'
     end

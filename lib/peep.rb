@@ -4,7 +4,7 @@ class Peep
 
   def initialize(user:, time:, content:, tagged_users:)
     @user = user
-    @time = time
+    @time = DateTime.parse(time).strftime("%d/%m/%Y %k:%M")
     @content = content
     @tagged_users = tagged_users
   end

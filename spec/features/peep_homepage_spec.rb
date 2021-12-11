@@ -33,11 +33,11 @@ feature 'homepage for chitter' do
     
     fill_in('peep', :with => 'Oh hey chitter!')
     click_on('post')
+    time = Time.now.strftime("%d/%m/%Y %k:%M")
 
     expect(page).to have_content 'Birdy'
     expect(page).to have_content 'fly_away'
     expect(page).to have_content 'Oh hey chitter!'
-    # TODO TIME
-    # expect(page).to have_content TIME
+    expect(page).to have_content time
   end
 end
