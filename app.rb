@@ -35,7 +35,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/confirm_log_in' do
-    erb :confirm_log_in
+    if SignUp.log_in_verified?(email: params[:email], password: params[:password])
+      @user_name = SignUp.find_user_name(email: params[:email])
+      erb :confirm_log_in
+    else
+      erb :bad_log_in
+    end
   end
 
 end

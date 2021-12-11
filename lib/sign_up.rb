@@ -25,5 +25,10 @@ class SignUp
       true
     end
   end
-  
+
+  def self.find_user_name(email:)
+    result = DatabaseConnection.query("SELECT * FROM sign_up WHERE email = $1;", [email])
+    result[0]['user_name']
+  end
+
 end

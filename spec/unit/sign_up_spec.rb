@@ -23,4 +23,11 @@ describe SignUp do
       end
     end
   end
+
+  describe '.find_user_name' do
+    it 'returns a given bit of information about a user given a criteria' do 
+      SignUp.create(email: 'example1@fake_email.com', password: 'Password123', user_name: 'Joe Biden', handle: 'sleepy_joe')
+      expect(SignUp.find_user_name(email: 'example1@fake_email.com' )).to eq 'Joe Biden'
+    end
+  end
 end
