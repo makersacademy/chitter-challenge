@@ -14,7 +14,7 @@ feature 'creating messages' do
       log_in
       fill_in('text', with: 'Hello World!')
       click_button('Submit')
-      expect(first('#author').text).to eq 'Sherwin'
+      expect(first('#author').text).to eq 'Posted by Sherwin'
     end
   end
 end

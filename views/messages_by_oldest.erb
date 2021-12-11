@@ -13,7 +13,7 @@
   <% @messages.each do |message|  %>
   <li>
     <h3 id="message"><%= message.text %></h3>
-    <h4 id="author">Posted by: <%= message.user_id %></h4>
+    <h4 id="author">Posted by <%= message.username %></h4>
     <h4 id="time"><%= message.created_at %></h4>
   </li>
   <% end %>

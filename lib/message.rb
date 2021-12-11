@@ -1,13 +1,15 @@
 require_relative './database_connection'
+require './lib/user'
 
 class Message
-  attr_reader :id, :text, :created_at, :user_id
+  attr_reader :id, :text, :created_at, :user_id, :username
 
-  def initialize(id:, text:, created_at:, user_id:)
+  def initialize(id:, text:, created_at:, user_id:, username: User)
     @id = id
     @text = text
     @created_at = created_at
     @user_id = user_id
+    @user_id == nil ? @username = 'Guest' : @username = User.find(@user_id).username
   end
 
   def self.all
