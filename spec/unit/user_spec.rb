@@ -17,12 +17,14 @@ describe User do
 
     it 'returns true when given a new user' do
       user = User.create(username: 'Sherwin', password: 'test123')
-      expect(User.unique?(user)).to be_truthy
+      expect(user.username).to eq 'Sherwin'
     end
 
     it 'returns false when given an existing user' do
       user = User.create(username: 'Sherwin', password: 'test123')
-      user = User.create(username: 'Sherwin', password: 'test123')
+      dup_user = User.create(username: 'Sherwin', password: 'test123')
+      expect(dup_user).to be_falsey
+
     end
   end
 
