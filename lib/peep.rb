@@ -10,7 +10,11 @@ class Peep
   end
 
   def self.all
-    peeps = DatabaseConnection.query("SELECT * FROM Peeps INNER JOIN Users ON Peeps.user_id = Users.id")
+    peeps = DatabaseConnection.query(
+      "SELECT * 
+      FROM Peeps 
+      INNER JOIN Users ON Peeps.user_id = Users.id"
+    )
     peeps.map do |peep|
       # tagged_users = DatabaseConnection.query(
       #   "SELECT * 
