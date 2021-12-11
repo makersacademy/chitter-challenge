@@ -14,6 +14,16 @@ describe User do
 
       User.create(username: 'Sherwin', password: 'test123')
     end
+
+    it 'returns true when given a new user' do
+      user = User.create(username: 'Sherwin', password: 'test123')
+      expect(User.unique?(user)).to be_truthy
+    end
+
+    it 'returns false when given an existing user' do
+      user = User.create(username: 'Sherwin', password: 'test123')
+      user = User.create(username: 'Sherwin', password: 'test123')
+    end
   end
 
   describe '.find' do
