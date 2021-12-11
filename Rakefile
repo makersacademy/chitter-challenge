@@ -5,7 +5,7 @@ task :test_database_setup do
 
   connection = PG.connect(dbname: 'chitter_app')
   # Clear the database
-  # connection.exec("TRUNCATE chitter, users;")
+  connection.exec("TRUNCATE chitter, users;")
 end
 
 task :setup do
