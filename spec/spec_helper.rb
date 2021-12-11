@@ -29,6 +29,7 @@ RSpec.configure do |config|
   config.before(:each) do 
     connection = PG.connect(dbname: 'chitter_manager_test')
     connection.exec("TRUNCATE TABLE peeps;")
+    connection.exec("TRUNCATE TABLE sign_up;")
   end
   config.after(:suite) do
     puts
