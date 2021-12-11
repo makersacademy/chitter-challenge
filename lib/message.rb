@@ -13,12 +13,14 @@ class Message
     @user_id.nil? ? @username = 'Guest' : @username = user.find(@user_id).username
   end
 
-  def self.all
+  def self.all(order = "newest")
     result = DatabaseConnection.query("SELECT * FROM messages")
-    result.map do |message|
+    messages = result.map do |message|
       Message.new(id: message['id'], text: message['text'], 
      created_at: format_time(message['created_at']), user_id: result[0]['user_id'])
     end    
+    order == "oldest" ? messages : messages.reverse 
+
   end
 
   def self.create(text:, user_id: 'null')

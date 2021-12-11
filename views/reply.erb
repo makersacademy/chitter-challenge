@@ -24,10 +24,17 @@
     <form action='/replies' method='get'>
       <input type='submit' value='Show replies'>
     </form>
-    <form action='/replies/new' method='get'>
-      <input type="hidden" name="message_id" value="<%= message.id %>">
-      <input type='submit' value='Reply'>
-    </form>
+    <% if @message_id == message.id %>
+      <form action='/replies' method='post'>
+        <input id="reply_field" type='text' name='text'>
+        <input type='submit' value='Cheet your reply'>
+      </form>
+    <% else %>
+      <form action='/replies/new' method='get'>
+        <input type="hidden" name="message_id" value="<%= message.id %>">
+        <input type='submit' value='Reply'>
+      </form>
+    <% end %>
   </li>
   <% end %>
 </ul>

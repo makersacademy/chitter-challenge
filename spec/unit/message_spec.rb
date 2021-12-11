@@ -22,5 +22,26 @@ describe Message do
       messages = Message.all
       expect(messages.first.text).to eq 'Hello World!'
     end
+
+    it 'returns by newest by default' do
+      Message.create(text: 'Hello World!')
+      Message.create(text: 'Hello Universe!')
+      messages = Message.all
+      expect(messages.first.text).to eq 'Hello Universe!'
+    end
+
+    it 'returns by newest by default' do
+      Message.create(text: 'Hello World!')
+      Message.create(text: 'Hello Universe!')
+      messages = Message.all
+      expect(messages.first.text).to eq 'Hello Universe!'
+    end
+
+    it 'can return by oldest' do
+      Message.create(text: 'Hello World!')
+      Message.create(text: 'Hello Universe!')
+      messages = Message.all("oldest")
+      expect(messages.first.text).to eq 'Hello World!'
+    end
   end
 end

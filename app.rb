@@ -17,15 +17,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
+    session[:order] = params[:order]
+    @messages = Message.all(session[:order])
     @user = User.find(session[:user_id])
-    @messages = Message.all
-    erb :messages
-  end
 
-  get '/messages-by-oldest' do
-    @user = User.find(session[:user_id])
-    @messages = Message.all.reverse
-    erb :messages_by_oldest
+    erb :messages
   end
 
   get '/register' do
@@ -35,6 +31,19 @@ class Chitter < Sinatra::Base
   get '/log-out' do
     session[:user_id] = nil
     redirect '/'
+  end
+
+  get '/replies' do
+    @messages = Message.all(session[:order])
+    @message_id = params[:message_id]
+    @replies = [ ]
+    erb :reply
+  end
+
+  get '/replies/new' do
+    @messages = Message.all(session[:order])
+    @message_id = params[:message_id]
+    erb :reply
   end
 
   post '/sessions' do
