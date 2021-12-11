@@ -1,0 +1,15 @@
+<h1> Welcome to Chitter</h1>
+<h2> ...where the world's most fascinating and insightful discussions unfold. </h2>
+
+<form action='/' method='post'>
+  <input type="text" name="peep" placeholder="Share your peep..." />
+  <input type="submit" value="Post" />
+</form>
+
+<h1> Peep Feed </h1>
+
+<ul>
+   <li>
+      <%= $peep %>
+  </li>
+</ul>
