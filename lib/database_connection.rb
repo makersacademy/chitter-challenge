@@ -3,19 +3,19 @@ require 'pg'
 class DatabaseConnection
   def self.setup
     dbname = if ENV['ENVIRONMENT'] == 'test'
-                'chitter_test'
+               'chitter_test'
              else
                'chitter'
              end
     @connection = PG.connect(dbname: dbname)
   end
 
-  def self.connection
-    @connection
+  class << self
+    attr_reader :connection
   end
 
   def self.query(sql, params = [])
-    self.setup
+    setup
     @connection.exec_params(sql, params)
   end
 end

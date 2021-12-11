@@ -18,6 +18,6 @@ feature 'viewing messages' do
   scenario 'displays time of creation' do
     Message.create(text: "Hello World!")
     visit '/messages'
-    expect(page).to have_content "#{Time.new.strftime("%H:%M %p %b' %d, %y")}"
+    expect(page).to have_content Time.new.strftime("%H:%M %p %b' %d, %y").to_s
   end
 end
