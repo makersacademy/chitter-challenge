@@ -23,11 +23,12 @@ describe Peep do
       peeps = Peep.all
 
       expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peep
       expect(peeps.first.name).to eq 'Birdy'
       expect(peeps.first.username).to eq 'fly_away'
       expect(peeps.first.time).to eq '1999-01-08 04:05:06'
       expect(peeps.first.content).to eq 'Oh hey chitter!'
-      expect(peeps.tagged_users).to eq nil
+      expect(peeps.first.tagged_users).to eq 'TODO'
     end
   end
 end

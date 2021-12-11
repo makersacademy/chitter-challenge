@@ -21,7 +21,7 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before(:each) do
-    DatabaseConnection.query("TRUNCATE Users, Peeps;")
+    DatabaseConnection.query("TRUNCATE Users, Peeps, junction_tagged_users;")
   end
 end
 
