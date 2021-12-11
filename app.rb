@@ -7,7 +7,13 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+	get "/" do
+		"Welcome to Chitter App"
+	end
+
 	
+
+
 
 	run! if app_file == $PROGRAM_NAME
 end
