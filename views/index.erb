@@ -1,13 +1,24 @@
+   <center>
+   <head>
+    <style>
+    body {background-color: lightblue;}
+    p {border: outset 2px; border-radius: 3px;}
+    </style>
+    </head>
+
 <h2> Welcome to Chitter </h2>
-<h3> Let's get tweeting, uh I mean peeping </h3>
-<% @peeps.reverse.each do |peep| %>
-  <h5> "<%= peep.text %>" User: <%= peep.user_name %> , Handle: @<%= peep.handle %> Posted at: <%= peep.time_posted %></h5>
-  <p>
-  </p>
-<%end%>
+<h3> <img src="https://i.imgur.com/eTLyhBq.jpg" title="chitter_image" style="width:50px;height:50px;"/> Let's get tweeting, uh I mean peeping <img src="https://i.imgur.com/eTLyhBq.jpg" title="chitter_image" style="width:50px;height:50px;"/> </h3>
 <form action="/peep" method='post'>
   <input type="text" name="text" placeholder='Insert peep'>
   <input type="text" name="user_name" placeholder='User'>
   <input type="text" name="handle" placeholder='Chitter handle'>
   <input type="submit" value="Submit">
 </form>
+<% @peeps.reverse.each do |peep| %>
+  <p> 
+  <h4> "<%= peep.text %>" </h4>
+  <h5> User: <%= peep.user_name %> , Handle: @<%= peep.handle %> Posted at: <%= peep.time_posted %></h5>
+  </p>
+<%end%>
+
+
