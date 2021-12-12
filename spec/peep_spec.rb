@@ -1,4 +1,5 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
   describe '.all' do
@@ -20,11 +21,11 @@ describe Peep do
   describe '.create' do
     it 'creates a Peep' do
       peep = Peep.create(content: "One last peep")
-      persisted_data = DatabaseConnection.setup('chitter_app_test').query("SELECT * FROM peeps WHERE created_at = #{peep.created_at};")
+      persisted_data = persisted_data(created_at: peep.created_at)
 
       expect(peep).to be_a Peep
       p peep.created_at
-      expect(peep.created_at).to eq persisted_time_data['created_at']
+      expect(peep.created_at).to eq persisted_data['created_at']
       expect(peep.content).to eq 'My fourth Peep'
     end
   end

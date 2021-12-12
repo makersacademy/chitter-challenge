@@ -17,7 +17,7 @@ class Peep
       Peep.new(                                    # use the data entries (rs) to create a Peep
         id: peep_data['id'],
         content: peep_data['content'],
-        created_at: (Time.parse(peep_data['created_at'])).strftime(" created at %I:%M%p")  # Takes a string representation of a Time and attempts to parse it
+        created_at: (Time.parse(peep_data['created_at'])).strftime("%A, at %I:%M%p")
       )
     end
   end

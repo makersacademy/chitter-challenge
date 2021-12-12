@@ -2,13 +2,16 @@
 <head>
   <title>Chitter App</title>
   <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <img scr=https://thesaurus.plus/img/synonyms/450/chitter.png >
 </head>
 <h1>Welcome to Chitter</h1>
-<ul>
+<h2>check out the lastest Peeps</h2>
   <% @all_peeps.each do |peep| %>
-    <li><%= peep %></li>
+<dl>
+  <div><%= peep.content %></div>
+  <dt>created on <%= peep.created_at%></dt>
+</dl>
   <% end %>
-</ul>
 <h3>
   <form method='get' action='/peep'> 
     <label for= 'create a peep'>
