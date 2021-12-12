@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
 		@user = User.get(id: session[:user_id])
 
 		if session[:user_id] != nil
-			@peeps = UserPeep.view_all
+			@peeps = UserPeep.view_all.reverse
 			@peeps
 		else
 			redirect('/')
