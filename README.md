@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-[![2-C3-E80-D0-E391-481-C-95-F1-9-B8000895-AEC-1-201-a.jpg](https://i.postimg.cc/VvJPHNB8/2-C3-E80-D0-E391-481-C-95-F1-9-B8000895-AEC-1-201-a.jpg)](https://postimg.cc/30QqkYcS)
+[![B1729-A7-C-507-F-4267-9388-4-CBC49512-B4-C.jpg](https://i.postimg.cc/cHQF1Gxn/B1729-A7-C-507-F-4267-9388-4-CBC49512-B4-C.jpg)](https://postimg.cc/Pp5WKc8X)
 ## Setup
 
 ```

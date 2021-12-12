@@ -28,11 +28,16 @@
       <h4 id="time"><%= message.created_at %></h4>
       <form action='/replies' method='get'>
         <input type="hidden" name="message_id" value="<%= message.id %>">
+        <% if @message_id != message.id %>
         <input type='submit' value='Show replies' class='btn btn-secondary'>
+        <% end %>
       </form>
       
       <div class="container-fluid">
         <% if @message_id == message.id %>
+          <form action='/messages' method='get'>
+            <input type='submit' value='Hide replies' class='btn btn-secondary'>
+          </form>
           <h2>Replies</h2>
           <ul class="list-group" style="list-style: none;"> 
             <% @replies.each do |reply| %>
