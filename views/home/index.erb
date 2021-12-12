@@ -9,7 +9,6 @@
     <div class = "nav-btn-wrapper">
       <div class = "nav-icon site-logo"></div>
       <div class = "nav-text"></div>
-
     </div>
 
     <div class = "nav-btn-wrapper">
@@ -23,17 +22,26 @@
     </div>
   </nav>
 
-  <main class = "main-container"> 
+  <section class = "main-container"> 
     <div class = "main-header"><h3>Home</h3></div>
-     <div class = "post-peep-container">
+
+     <div class = "input-peep-container">
         <div class = "user-avatar"></div>
           <form action="/home" method="post">
             <input class="input-peep" type="text" name="peep-body" placeholder="What's happening?">
             <input class="peep-btn" type="submit" value="Peep">
           </form>
-        </div>
       </div>
-  </main>
+
+      <div class="peep-timeline-container">
+        <ul>
+          <% @peeps.each do |peep| %>
+            <li><%= peep %></li>
+          <% end %>
+        </ul>
+      </div>
+
+  </section>
 
 </div>
 
