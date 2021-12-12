@@ -60,8 +60,14 @@ And/Or:
 
 * Work on the CSS to make it look good.
 
-Good luck and let the chitter begin!
+## Setting up the database
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter;
+3. Connect to the database using the pqsl command \c chitter;
+4. Run the query saved in the file 01_create_peeps_table.sql
 
-Code Review
-
-
+## Setting up the test database
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter;
+3. Connect to the database using the pqsl command \c chitter_test;
+4. Run the query saved in the file 01_create_peeps_table.sql

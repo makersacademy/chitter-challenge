@@ -21,3 +21,5 @@ gem "capybara", "~> 3.36"
 gem "rack", "~> 2.2"
 
 gem "webrick", "~> 1.7"
+
+gem "pg", "~> 1.2"

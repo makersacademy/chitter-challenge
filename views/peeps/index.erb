@@ -1,5 +1,12 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+<h1 style="text-align:center">Peeps</h1>
+<br>
+<form action="http://localhost:9292/peeps/new">
+  <input type="submit"  class="active" value="Peep"     >
+</form>
+  <% @peeps.reverse.each do |peep| %>
+  <div style="border: thin solid black">
+    <p><strong><%= peep.user_name %></strong> </p>
+    <p style="text-align:center"><%= peep.content %></p>
+    <p style="text-align: right;"><%= peep.creation_time %></p>
+  </div>
   <% end %>
-</ul>
