@@ -242,7 +242,7 @@ so when I saw `peep` I thought it was `Peep` though I hadn't wrap my the result 
    but I had a hard time formatting it
    when retrieving the data from the column created_at to add it to my Peep instance it was already a string which I couldn't format with `.strftime(" created at %I:%M%p")` so I used `Time.parse` before turning it into a formatted string. it is now very elegant so I will come back to it...
 
-![String create_at data](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-10%20at%2023.47.31.png)
+![String create_at data](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-12%20at%2018.43.31.png)
 
 3) testing TIME in peep_spec.rb
 there is problem with my query when I try to get some persistent data for the test
@@ -250,4 +250,4 @@ there is problem with my query when I try to get some persistent data for the te
 peep = Peep.create(content: "One last peep")
 persisted_data = DatabaseConnection.setup('chitter_app_test').query("SELECT * FROM peeps WHERE created_at = #{peep.created_at};")
 ```
-![Error Message](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-10%20at%2023.47.31.png)
+![Error Message](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-12%20at%2019.59.47.png)
