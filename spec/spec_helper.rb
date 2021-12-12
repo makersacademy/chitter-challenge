@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ENV['ENVIRONMENT'] == 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'simplecov'

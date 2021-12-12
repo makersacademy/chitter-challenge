@@ -8,7 +8,8 @@ class Setup
   def truncate
     p 'Connecting to chitter_test database...'
     con = PG.connect(dbname: 'chitter_test')
-    p 'Cleaning up chitter_test database...'
+    p 'Cleaning up tables...'
     con.exec('TRUNCATE peeps')
+    con.exec('TRUNCATE users')
   end
 end

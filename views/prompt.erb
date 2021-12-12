@@ -1,0 +1,25 @@
+<h1> Sign up if you don't have a Chitter account </h1>
+<form action='/signup' method='post'>
+    <label for="username"> Username  </label>
+    <input type="text" name="username"> &nbsp;&nbsp;&nbsp;
+    <label for="email"> Email  </label>
+    <input type="text" name="email"> &nbsp;&nbsp;&nbsp; <br><br>
+    <label for="password"> Password:   </label>
+    <input type="password" name="password"> &nbsp;&nbsp;&nbsp; 
+    <label for="confirm_password"> Confirm Password:   </label>
+    <input type="password" name="confirm_password" >
+    <input type="submit" value="Sign up">
+</form>
+
+<b>
+  <%= flash[:notice] %>
+<b>
+
+<h1> Login to Chitter </h1>
+<form action='/login' method='post'>
+    <label for="username"> Username  </label>
+    <input type="text" name="username"> &nbsp;&nbsp;&nbsp;
+    <label for="password"> Password:   </label>
+    <input type="password" name="password"> 
+    <input type="submit" value="Login">
+</form>

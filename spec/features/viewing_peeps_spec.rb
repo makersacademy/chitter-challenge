@@ -2,6 +2,7 @@
 
 require 'capybara/rspec'
 require_relative '../../app'
+require_relative './../web_helper'
 Capybara.app = Chitter
 
 feature 'viewing chitter' do
@@ -18,8 +19,7 @@ feature 'viewing chitter' do
     Peep.create('Test peep', 'tc1316')
     peep = Peep.all   
     displayed_time = peep.first.timestamp[0..18]
-    visit('/')
-    
+    sign_up
     expect(page).to have_content(displayed_time)
     
   end
