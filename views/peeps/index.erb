@@ -8,13 +8,29 @@
     color: white;
     font-family: system-ui;
   }
-  </style>
 
-<h1 style="text-align:center">Peeps</h1>
+  h1 {
+    font-family: system-ui;
+    text-align:center;
+  }
+
+  form {
+    font-family: system-ui;
+  }
+
+  div {
+    font-family: system-ui;
+    padding: 10px;
+  }  
+</style>
+
+<h1>Peeps</h1>
 <br>
+<div>
 <form action="http://localhost:9292/peeps/new">
   <input type="submit"  class="active" value="Peep">
 </form>
+</div>
   <% @peeps.reverse.each do |peep| %>
   <div style="border: thin solid black">
     <p><strong><%= peep.user_name %></strong> peeped: </p>
