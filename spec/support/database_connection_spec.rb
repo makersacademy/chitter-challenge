@@ -7,12 +7,6 @@ describe DatabaseConnection do
       DatabaseConnection.setup
     end
 
-    it 'sets up connection to production database' do
-      ENV['ENVIRONMENT'] = 'production'
-      expect(PG).to receive(:connect).with({ dbname: 'chitter' })
-      DatabaseConnection.setup
-    end
-
     specify 'connection persists' do
       connection = DatabaseConnection.setup
       expect(DatabaseConnection.connection).to eq(connection)
