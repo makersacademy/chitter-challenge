@@ -24,8 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    conn = PG.connect(dbname: 'chitter_test')
-    @result = conn.exec("SELECT * FROM peeps")
+    @all_peeps = Peeps.list
     erb :"peeps/index"
   end
 

@@ -1,5 +1,5 @@
  <ul>
-   <%@result.map do |peep|%>
-     <li><%=peep['peep']%></li>
+   <%@all_peeps.each do |message|%>
+     <li><%=message%></li>
     <%end%>
  </ul>
