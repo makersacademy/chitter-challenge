@@ -1,0 +1,2 @@
+CREATE DATABASE chitter_app
+CREATE DATABASE chitter_app_test

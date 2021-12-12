@@ -218,3 +218,5 @@ I want to see the time at which it was made
 ```
 
 I will need a new attribute for the peep : created_at
+
+I did't have attribute for my Bookmark_manager I did something different but it would be good to update my Peep class to return Peep instances : Pee instance will have 3 parameter: the id , a content and a date of creation (created_at)

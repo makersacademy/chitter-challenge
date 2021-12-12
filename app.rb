@@ -23,7 +23,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(content: params[:peep_content])
+    @peep = Peep.create(content: params[:peep_content])
     redirect '/homepage'
   end
 
