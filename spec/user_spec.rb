@@ -33,9 +33,22 @@ describe User do
     end
 
     context ".authenticate"
-
     it "returns a user if given correct email and password" do
-      
+      user = User.create(email: "test@example.com", password: "1234")
+      authenticated_user = User.authenticate(email: "test@example.com", password: "1234")
+
+      expect(authenticated_user.id).to eq user.id
+    end
+
+    it "returns nil if given an incorrect email" do
+      user = User.create(email: "test@example.com", password: "1234")
+      expect(User.authenticate(email: "test1111@example.com", password: "1234")).to eq nil
+    end
+
+    it "returns nil if given incorrect password" do
+      user = User.create(email: "test@example.com", password: "1234")
+      expect(User.authenticate(email: "test@example.com", password: "wrong_password")).to eq nil
+
     end
 
 end

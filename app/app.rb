@@ -36,7 +36,7 @@ class ChitterApp < Sinatra::Base
   post '/users' do
     user = User.create(email: params[:email], password: params[:password])
     if user == 1
-      flash[:notice] = 'Email already exists' 
+      flash[:notice] = 'Email already exists'
     else
       session[:user_id] = user.id
     end
@@ -48,12 +48,14 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sessions' do
-    # result = DatabaseConnection.query(
-    #   "SELECT * FROM users WHERE email = $1",
-    #   [params[:email]])
-    # user = User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'] )
-    # session[:user_id] = user.id
-    # p user.id
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user != nil
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash[:notice] = 'Please check email or password.' 
+      redirect '/sessions/new'
+    end
     redirect('/peeps')
   end
 
