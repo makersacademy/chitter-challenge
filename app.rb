@@ -57,6 +57,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/users/logout' do
+    session.clear
+    flash[:success] = "You have signed out."
+    redirect '/peeps'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

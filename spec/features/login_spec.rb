@@ -33,4 +33,19 @@ feature "Sign in" do
     expect(page).to have_current_path('/users/login')
    end
 
+   scenario 'a user can sign out' do
+    User.create(name: "Ruby", username: "rb", email: 'test@ruby.com', password: 'password')
+
+    
+    visit '/users/login'
+    fill_in(:email, with: 'test@ruby.com')
+    fill_in(:password, with: 'password')
+    click_button('Sign in')
+
+    click_button('Sign out')
+
+    expect(page).not_to have_content 'Welcome, Ruby'
+    expect(page).to have_content 'You have signed out.'
+  end
+
 end
