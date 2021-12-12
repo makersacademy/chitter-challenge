@@ -1,5 +1,5 @@
 <h1>Chitter</h1>
-<form action="/sessions" method="post">
+<form action="/sessions" method="post" >
   <div>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" placeholder="Username" required>
@@ -8,13 +8,13 @@
     <label for="password">Password:</label>
     <input type="password" id="pass" name="password" minlength="8" placeholder="Password" required>
   </div>
-  <input id="login" type="submit" value="Log In">
+  <input id="login" type="submit" value="Log In" class='btn btn-primary'>
 </form>
 <form action="/messages" method="get">
-  <input id="guest-mode" type="submit" value="Continue as guest">
+  <input id="guest-mode" type="submit" value="Continue as guest" class='btn btn-primary'>
 </form>
 
 <h2>Sign up</h2>
 <form action="/register" method="get">
-  <input id="register" type="submit" value="Create New Account">
+  <input id="register" type="submit" value="Create New Account" class='btn btn-primary'>
 </form>
