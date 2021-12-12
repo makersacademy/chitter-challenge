@@ -5,9 +5,9 @@ describe Peep do
     it 'shows all posted peeps on feed ' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO peeps (name,message) VALUES('ruby123', 'First peep');")
-      connection.exec("INSERT INTO peeps (name,message) VALUES('javascript123', 'Second peep');")
-      connection.exec("INSERT INTO peeps (name,message) VALUES('sql123', 'Third peep');")
+      connection.exec("INSERT INTO peeps (message) VALUES('First peep');")
+      connection.exec("INSERT INTO peeps (message) VALUES('Second peep');")
+      connection.exec("INSERT INTO peeps (message) VALUES('Third peep');")
 
       peeps = Peep.all
       
