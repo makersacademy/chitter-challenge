@@ -2,7 +2,7 @@ require './lib/database_connection'
 
 class SignUp
 
-  attr_reader :email, :user_name, :handle
+  attr_reader :id, :email, :user_name, :handle
 
   def initialize(id:, email:, password:, user_name:, handle:)
     @id = id
@@ -20,7 +20,7 @@ class SignUp
   end
 
   def self.create(email:, password:, user_name:, handle:)
-    result = DatabaseConnection.query("INSERT INTO sign_up(email, password, user_name, handle) VALUES ($1, $2, $3, $4) RETURNING email, password, user_name, handle;", [email, password, user_name, handle])
+    result = DatabaseConnection.query("INSERT INTO sign_up(email, password, user_name, handle) VALUES ($1, $2, $3, $4) RETURNING id, email, password, user_name, handle;", [email, password, user_name, handle])
     SignUp.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'], user_name: result[0]['user_name'], handle: result[0]['handle'])
   end
 
