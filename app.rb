@@ -37,6 +37,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user_page' do
+    p params
     @peeps = Peep.all
     erb :user_page
   end

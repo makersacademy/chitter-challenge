@@ -4,7 +4,8 @@ class SignUp
 
   attr_reader :email, :user_name, :handle
 
-  def initialize(email:, password:, user_name:, handle:)
+  def initialize(id:, email:, password:, user_name:, handle:)
+    @id = id
     @email = email
     @password = password
     @user_name = user_name
@@ -13,7 +14,7 @@ class SignUp
 
   def self.create(email:, password:, user_name:, handle:)
     result = DatabaseConnection.query("INSERT INTO sign_up(email, password, user_name, handle) VALUES ($1, $2, $3, $4) RETURNING email, password, user_name, handle;", [email, password, user_name, handle])
-    SignUp.new(email: result[0]['email'], password: result[0]['password'], user_name: result[0]['user_name'], handle: result[0]['handle'])
+    SignUp.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'], user_name: result[0]['user_name'], handle: result[0]['handle'])
   end
 
   def self.log_in_verified?(email:, password:)
