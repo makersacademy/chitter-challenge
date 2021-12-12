@@ -111,7 +111,7 @@ DEPENDENCIES
   simplecov-console
   sinatra (~> 2.1)
   sinatra-contrib (~> 2.1)
-  sinatra-flash (~> 0.3.0)
+  sinatra-flash
   timecop (~> 0.9.4)
   webrick (~> 1.7)
 

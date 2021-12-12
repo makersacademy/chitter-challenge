@@ -17,6 +17,6 @@ gem "capybara", "~> 3.36"
 gem "sinatra-contrib", "~> 2.1"
 gem "pg", "~> 1.2"
 gem "webrick", "~> 1.7"
-gem "sinatra-flash", "~> 0.3.0"
 gem "timecop", "~> 0.9.4"
 gem 'bcrypt'
+gem 'sinatra-flash'

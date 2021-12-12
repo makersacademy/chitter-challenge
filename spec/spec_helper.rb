@@ -7,6 +7,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'sinatra/flash'
 
 require './lib/database_connection'
 require_relative './setup_test_database'
