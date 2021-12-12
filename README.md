@@ -3,7 +3,7 @@ Chitter Challenge
 
 A Twitter Clone built in Ruby using Sinatra, Capybara, PostgreSQL, and Bootstrap.
 
-[![B1729-A7-C-507-F-4267-9388-4-CBC49512-B4-C.jpg](https://i.postimg.cc/cHQF1Gxn/B1729-A7-C-507-F-4267-9388-4-CBC49512-B4-C.jpg)](https://postimg.cc/Pp5WKc8X)
+[![FE4-DCA6-D-27-EB-4327-8-F83-2-D89-D141-EA7-D.jpg](https://i.postimg.cc/YC9nG1Jq/FE4-DCA6-D-27-EB-4327-8-F83-2-D89-D141-EA7-D.jpg)](https://postimg.cc/nCyYNQF6)
 ## Setup
 
 ```
