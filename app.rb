@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 require './lib/database_connection'
+require './lib/user_peep'
 
 
 class Chitter < Sinatra::Base
@@ -21,21 +22,26 @@ class Chitter < Sinatra::Base
 	end
 
 	post '/peeps' do
-		# This route creates the peep based on the form in `/peeps/new` and redirects it to `/peeps`
-		Peep.create(peep: params[:message])
-		redirect '/peeps'
-	end
-
-	get '/peeps/new' do
-		# This route displays a form to be filled-in to create a new peep
-		erb :'peeps/new'
+		if session[:user_id] != nil
+			# This route creates the peep based on the form in `/peeps/new` and redirects it to `/peeps`
+			new_post = Peep.create(peep: params[:message])
+			UserPeep.create(user_id: session[:user_id], peep_id: new_post.id)
+			redirect '/peeps'
+		else
+			redirect('/')
+		end
 	end
 
 	get '/peeps' do
-		# This route displays all the peeps in chronological order
+
 		@user = User.get(id: session[:user_id])
-		# p @user
-		@peeps = Peep.all
+
+		if session[:user_id] != nil
+			@peeps = UserPeep.view_all
+			@peeps
+		else
+			redirect('/')
+		end
 		erb :'peeps/index'
 	end
 
@@ -44,15 +50,15 @@ class Chitter < Sinatra::Base
 		erb :'users/signup'
 	end
 
+	get '/sessions/new' do
+		erb :'sessions/new'
+	end
+
 	post '/users' do
 		# New user is created, based on the form in `users/new` route
 		user = User.create(email: params[:email], password: params[:password])
 		session[:user_id] = user.id
 		redirect '/peeps'
-	end
-
-	get '/sessions/new' do
-		erb :'sessions/new'
 	end
 
 	post '/sessions' do

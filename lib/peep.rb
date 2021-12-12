@@ -51,5 +51,3 @@ class Peep
 
 end
 
-# peep1 = Peep.new(id: 4, message: 'This should be my 4th peep')
-# p peep1.created_at
