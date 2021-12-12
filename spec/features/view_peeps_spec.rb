@@ -1,5 +1,5 @@
 feature 'Viewing peeps' do
-    scenario 'can see all posted peeps' do
+    scenario 'can see all posted peeps in reverse chronological order' do
       connection = PG.connect(dbname: 'chitter_test')
 
       Peep.post(message: "First peep")
