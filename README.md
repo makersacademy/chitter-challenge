@@ -141,28 +141,40 @@ let's see how far I can go...
 
 ![Domain Model](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-10%20at%2023.47.31.png)
 
-## setting up the database 
+## setting up the database
 
-+ Travis CI for automated test for future pull request
+- Travis CI for automated test for future pull request
 
-- connect to sql
-- create a db called chitter_challenge
-- connect to the db
-- refer to 01_create_peep_table.sql and run query
+* connect to sql
+* create a db called chitter_challenge
+* connect to the db
+* refer to 01_create_peep_table.sql and run query
 
 ! I am unsure on how to use a 'time' category for the data entry corresponding to the date of creation of the Peep. Now that I think of it maybe I can use the id? as it is unique and sort it in a descending order ...
 ! just looked at how to store time with PostgreSQL, I might have to use the timestamp when I create a post and store some time data as a create_at attribute of Peep instances , or similar?
 
 ## first feature : create a peep
+
 ```
 As a Maker
 So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 
-1) write failing feature test
-2) update Controller and Views
-3) Rspec configure : connection to test db (truncate db)
-4) TDD update the Model + select the right db depending it we are testing or not
+1. write failing feature test
+2. update Controller and Views
+3. Rspec configure : connection to test db (truncate db)
+4. TDD update the Model + select the right db depending it we are testing or not
 
+## extracting database setup object
 
+I haven't done this for my bookmark_manager project, so I will try do it for the chitter app as it's better (SRP, TDD)
+I believe this will help me as you could see from previous commits, I didn't connect properly to the right database when testing, as I didn't use TDD when I set it up...
+
+- our sinatra app can read/ write from the database (MVC structure + test and development environements)
+- Peep class is responsible for connecting to the db on top of manipulating date in that db.
+  this means we create a new connection using `PG.connect` each time we want to 'talk' to the db
+- we get a visual confirmation we used the right database when running tests by checking TablePlus, but it would be better to write some test for this.
+
+=> let's extract an object which we will use to: - set up a connection to the db - separate application behaviour from database behaviour - wrap an adaptor object
+1) Extract the db logic to an object
