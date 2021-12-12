@@ -2,7 +2,7 @@ require "peep"
 
 describe Peep do
   before do
-    @user = User.create(email: "www.test@example.come", password: "1234")
+    @user = User.create(email: "test@example.com", password: "1234", username: "Test", name: "Test Test")
   end
 
   context ".create"
