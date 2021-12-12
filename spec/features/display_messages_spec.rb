@@ -20,7 +20,6 @@ feature "display messages" do
     visit("/")
     fill_in(:message, with: "Hi mom")
     click_button("Chitter")
-    time = Time.now.strftime("%Y-%m-%d %H:%M")
     
     expect(page).to have_content("Hi mom - #{@time_now}")
   end
