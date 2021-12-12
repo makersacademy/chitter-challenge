@@ -7,7 +7,9 @@ feature "display messages" do
   end
 
   scenario "messages show in reverse chronological order" do
-    visit("/")
+    sign_up_test_account
+    log_in_test_account
+
     fill_in(:message, with: "Hi mom")
     click_button("Chitter")
     fill_in(:message, with: "Hi mom again!")
@@ -17,7 +19,9 @@ feature "display messages" do
   end
 
   scenario  "timestamp displayed for message" do
-    visit("/")
+    sign_up_test_account
+    log_in_test_account
+
     fill_in(:message, with: "Hi mom")
     click_button("Chitter")
     

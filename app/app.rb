@@ -36,11 +36,12 @@ class ChitterApp < Sinatra::Base
   post '/users' do
     user = User.create(email: params[:email], password: params[:password])
     if user == 1
-      flash[:notice] = 'Email already exists'
+      flash[:notice] = 'Email already exists.'
+      redirect '/users/new'
     else
-      session[:user_id] = user.id
+      flash[:notice] = 'You have successfully signed up.'
+      redirect '/'
     end
-    redirect '/'
   end
 
   get '/sessions/new' do
@@ -56,7 +57,12 @@ class ChitterApp < Sinatra::Base
       flash[:notice] = 'Please check email or password.' 
       redirect '/sessions/new'
     end
-    redirect('/peeps')
+  end
+
+  post '/sessions/delete' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect '/'
   end
 
 end

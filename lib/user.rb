@@ -9,7 +9,7 @@ class User
   end
 
   def self.create(email:,password:)
-    valid = check_if_not_unique(email: email)
+    valid = check_if_email_unique(email: email)
     return valid unless valid == nil
 
     encrypted_password = BCrypt::Password.create(password)
@@ -33,7 +33,7 @@ class User
   
   private
 
-  def self.check_if_not_unique(email:)
+  def self.check_if_email_unique(email:)
     email = DatabaseConnection.query("SELECT count(*) FROM users WHERE email=$1;", [email])
     return 1 if email[0]['count'].to_i > 0
   end

@@ -1,22 +1,28 @@
 <% if @user %>
-  <h2> Welcome <%=@user.email%> </h2>
-<% end %>
 
-<div>
-  <form action="/users/new">
-    <input type="submit" value="Sign up">
+  <h2> Welcome <%=@user.email%> </h2>
+  <form action="/sessions/delete" method="post">
+    <input type="submit" value="Sign out">
   </form>
+
+  <div>
+    <form action="/message/new" method="post">
+      <input type="text" name="message">
+      <input type="submit" value="Chitter">
+    </form>
+  </div>
+
+<% else %>
+
   <form action="/sessions/new">
     <input type="submit" value="Sign in">
   </form>
-</div>
 
-<div>
-  <form action="/message/new" method="post">
-    <input type="text" name="message">
-    <input type="submit" value="Chitter">
-  </form>
-</div>
+<% end %>
+
+<form action="/users/new">
+  <input type="submit" value="Sign up">
+</form>
 
 <div>
   <ul>

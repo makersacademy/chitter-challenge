@@ -1,6 +1,8 @@
 feature "Posting messages" do
-  scenario "posted messsage shows on page" do
-    visit("/")
+  scenario "Can post message if logged in" do
+    sign_up_test_account
+    log_in_test_account
+
     fill_in(:message, with: "Hi mom")
     click_button("Chitter")
 
