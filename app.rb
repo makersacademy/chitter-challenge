@@ -39,8 +39,9 @@ class Chitter < Sinatra::Base
 
   get '/user_page/:id' do
     @peeps = Peep.all
-    @user_info = params[:id]
     erb :user_page
+    # Now we have a custom user page we want to make the user page not require the user_name and handle and instead post tweets with those autofilled. 
+    # The /peep page should be custom too with /peep/:id and auto creat using the user_name and handle from user info
   end
 
   post '/peep' do
