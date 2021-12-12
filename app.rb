@@ -36,6 +36,7 @@ class Chitter < Sinatra::Base
       user = User.create(username: params[:username], password: params[:password], 
 email: params[:email])
       session[:user_id] = user.id
+      session[:username] = user.username
       redirect '/'
     end
   end   
@@ -44,6 +45,7 @@ email: params[:email])
     user = User.find_by(username: params[:username])
     if user && user.authenticate(password: params[:password])
       session[:user_id] = user.id
+      session[:username] = user.username
       redirect "/chitter"
     else
       redirect '/'
@@ -60,7 +62,7 @@ email: params[:email])
   end
 
   post '/post_peep' do
-    Peep.create(params[:content],'tc1316')
+    Peep.create(params[:content],session[:username])
     redirect '/'
   end
 
