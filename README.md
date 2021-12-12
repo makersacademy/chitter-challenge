@@ -220,3 +220,34 @@ I want to see the time at which it was made
 I will need a new attribute for the peep : created_at
 
 I did't have attribute for my Bookmark_manager I did something different but it would be good to update my Peep class to return Peep instances : Pee instance will have 3 parameter: the id , a content and a date of creation (created_at)
+
+had quite a hard time with this one :
+
+1. I didn't realised the that self.all woudl return just a array the result of my query and that I had to 'sort' it into a Peep instance myself
+   this was because before I wrote:
+
+```
+class Peep
+  def self.all
+    rs = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC;")
+
+    rs.map { |peep| peep['content'] }
+  end
+end
+```
+
+so when I saw `peep` I thought it was `Peep` though I hadn't wrap my the result from my query into a Object yet...though I had done it for the self.create just before...
+
+2. I set up the database to get the time of creation of an entry automatically when we enter the data into the table.
+   but I had a hard time formatting it
+   when retrieving the data from the column created_at to add it to my Peep instance it was already a string which I couldn't format with `.strftime(" created at %I:%M%p")` so I used `Time.parse` before turning it into a formatted string. it is now very elegant so I will come back to it...
+
+![String create_at data](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-10%20at%2023.47.31.png)
+
+3) testing TIME in peep_spec.rb
+there is problem with my query when I try to get some persistent data for the test
+```
+peep = Peep.create(content: "One last peep")
+persisted_data = DatabaseConnection.setup('chitter_app_test').query("SELECT * FROM peeps WHERE created_at = #{peep.created_at};")
+```
+![Error Message](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-10%20at%2023.47.31.png)

@@ -13,17 +13,13 @@ class Peep
   def self.all
     rs = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC;")
 
-    array_of_peeps = []
-
-    rs.each do |peep_data|  # rs (result object) is NOT A REAL PEEP instance just data entries. we grab these from the database with each
-      peep = Peep.new(                                    # use the data entries (rs) to create a Peep
+    rs.map do |peep_data|  # rs (result object) is NOT A REAL PEEP instance just data entries. we grab these from the database with map
+      Peep.new(                                    # use the data entries (rs) to create a Peep
         id: peep_data['id'],
         content: peep_data['content'],
-        created_at: Time.parse(peep_data['created_at'])  # Takes a string representation of a Time and attempts to parse it
+        created_at: (Time.parse(peep_data['created_at'])).strftime(" created at %I:%M%p")  # Takes a string representation of a Time and attempts to parse it
       )
-      array_of_peeps << peep.content + peep.created_at.strftime(" created at %I:%M%p")
     end
-    array_of_peeps
   end
 
   def self.create(content:)
