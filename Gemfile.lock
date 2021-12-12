@@ -181,7 +181,6 @@ DEPENDENCIES
   sinatra-contrib (~> 2.1)
   sinatra-flash (~> 0.3.0)
   timecop (~> 0.9.4)
-  travis
   webrick (~> 1.7)
 
 RUBY VERSION
