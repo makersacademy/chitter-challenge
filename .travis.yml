@@ -8,14 +8,14 @@ rvm:
 
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
-  - psql -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE);' -U postgres 
-  - psql -c 'CREATE TABLE users(
+  - psql -c chitter_test 'CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE);' -U postgres 
+  - psql -c chitter_test'CREATE TABLE users(
                                       id SERIAL PRIMARY KEY, 
                                       username VARCHAR(20), 
                                       password VARCHAR(140),
                                       user_id INT REFERENCES users(id)
                                     );' -U postgres
-  - psql -c 'CREATE TABLE replies(
+  - psql -c chitter_test 'CREATE TABLE replies(
                                       id SERIAL PRIMARY KEY, 
                                       text VARCHAR(280), 
                                       created_at TIMESTAMP WITHOUT TIME ZONE, 
