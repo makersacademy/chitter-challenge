@@ -9,8 +9,8 @@ describe SignUp do
         []
       )
 
-      expect(subject.username_valid?('Johnny S')).to eq false
-      expect(subject.username_valid?('Jdawg')).to eq true
+      expect(described_class.username_valid?('Johnny S')).to eq false
+      expect(described_class.username_valid?('Jdawg')).to eq true
     end
 
   end
