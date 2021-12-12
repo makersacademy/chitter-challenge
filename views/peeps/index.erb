@@ -13,7 +13,7 @@
 
 	<ul>
 		<% @peeps.reverse_each do |peep|%>
-		<li> <%= peep.message%> </li>
+		<li> <%= peep.message%> created at: <span style='color:gray'> <%=peep.time%> </span></li>
 		<% end %>
 	</ul>
 	
