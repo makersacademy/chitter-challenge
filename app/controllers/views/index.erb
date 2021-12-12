@@ -1,10 +1,12 @@
+<h1> Chitter </h1>
+
 <form action="/users/new">
   <input type="submit" value="Sign up">
 </form>
 
 <% if @user %>
 
-  <h2> Welcome <%=@user.email%> </h2>
+  <h3> Welcome <%=@user.email%> </h3>
   <form action="/sessions/delete" method="post">
     <input type="submit" value="Sign out">
   </form>
@@ -28,7 +30,7 @@
   <ul>
     <% @chitters.each do |chitter| %>
       <li> <%= chitter.message %> <br> 
-      <%= User.find(id: chitter.user_id).name %> - <%= User.find(id: chitter.user_id).username %> <br>
+      <%= User.find(id: chitter.user_id).name %> - @<%= User.find(id: chitter.user_id).username %> <br>
        <%= chitter.timestamp %> </li>
     <% end %>
   </ul>
