@@ -6,7 +6,12 @@ services:
 rvm:
   - 3.0.2
 
+env:
+  - ENV['RACK_ENV'] = 'test'
+  - ENV['ENVIRONMENT'] = 'test'
+
 before_script:
+  - psql -c 'CREATE DATABASE chitter;' 
   - psql -c 'CREATE DATABASE chitter_test;' 
   - psql -c '\c chitter_test' -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE); '
   - psql -c '\c chitter_test' -c 'CREATE TABLE users(
