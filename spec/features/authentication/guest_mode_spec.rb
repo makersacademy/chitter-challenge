@@ -10,6 +10,6 @@ feature 'guest mode' do
     visit('/messages')
     fill_in('text', with: 'Hello World!')
     click_button('Submit')
-    expect(first('#author').text).to eq 'Posted by Guest'
+    expect(first('#author').text).to eq 'Guest'
   end
 end

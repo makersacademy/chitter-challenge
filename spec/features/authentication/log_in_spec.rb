@@ -7,7 +7,9 @@ feature 'Logging in' do
     fill_in('username', with: 'Sherwin')
     fill_in('password', with: 'password123')
     click_button 'Log In'
-    expect(page).to have_content "Welcome, Sherwin!"
+    fill_in('text', with: 'Hello World!')
+    click_button('Submit')
+    expect(page).to have_content "Sherwin"
     expect(page.current_path).to eq('/messages')
   end
 
