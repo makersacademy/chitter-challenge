@@ -1,8 +1,8 @@
-require 'database_connection'
+require_relative 'database_connection'
 
 class Peep
   def self.all
-    rs = DatabaseConnection.query("SELECT * FROM peeps")
+    rs = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC;")
 
     rs.map { |peep| peep['content'] }
   end

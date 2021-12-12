@@ -177,5 +177,30 @@ I believe this will help me as you could see from previous commits, I didn't con
 - we get a visual confirmation we used the right database when running tests by checking TablePlus, but it would be better to write some test for this.
 
 => let's extract an object which we will use to: - set up a connection to the db - separate application behaviour from database behaviour - wrap an adaptor object
-1) Extract the db logic to an object (DatabaseConnection class)
-2) use our new class to set up a connection (test or dev environment)
+
+1. Extract the db logic to an object (DatabaseConnection class)
+2. use our new class to set up a connection (test or dev environment)
+
+## feature 2 : see peeps in reverse order
+
+```
+As a maker
+So that I can see what others are saying
+I want to see all peeps in reverse chronological order
+```
+For this will will try to tweak my .all method to reverse the order using the id Primary Key of the peeps table
+
+use : SQL ORDER BY keyword
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+
+! Wooopsy something weird happend: I don't know how I did this but after changing the SQL query, I couldn't run my local server anymore.
+It looked my ruby version was 3.0.0 though I did specify 3.0.2 in my Gemfile (I set it up at the beginning + bundle install so all my gem are on the right version)
+and until now all worked fine. no idea what happened.
+
+  to fix it : update rvm
+              remove ruby-3.0.0
+              set ruby-3.0.2 as default (though it showed it as the current version already)
+              bundle install
+              looks like it worked but I don't know why it switched to an older version of ruby in the middle of the project
