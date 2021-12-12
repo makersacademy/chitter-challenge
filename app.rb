@@ -29,6 +29,7 @@ class Chitter < Sinatra::Base
 
   post '/confirm_log_in' do
     if SignUp.log_in_verified?(email: params[:email], password: params[:password])
+      p params
       @user_name = SignUp.find_user_name(email: params[:email])
       erb :confirm_log_in
     else
@@ -37,7 +38,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/user_page' do
-    p params
     @peeps = Peep.all
     erb :user_page
   end

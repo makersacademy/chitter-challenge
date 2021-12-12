@@ -30,4 +30,14 @@ describe SignUp do
       expect(SignUp.find_user_name(email: 'example1@fake_email.com')).to eq 'Joe Biden'
     end
   end
+
+  describe '.all' do
+    it 'returns all sign ups' do
+      SignUp.create(email: 'example1@fake_email.com', password: 'Password123', user_name: 'Joe Biden', handle: 'sleepy_joe')
+      sign_ups = SignUp.all
+      expect(sign_ups.first.email).to eq 'example1@fake_email.com'
+      expect(sign_ups.first.user_name).to eq 'Joe Biden'
+      expect(sign_ups.first.handle).to eq 'sleepy_joe'
+    end
+  end
 end
