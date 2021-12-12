@@ -1,7 +1,17 @@
+require 'pg'
+
 class Peep
   
   def self.all 
-      ["Example peep posted at 3pm","Example peep posted at 2pm","Example peep posted at 1pm"]
+
+    if ENV['ENVIRONMENT'] == 'test'
+       connection = PG.connect(dbname: 'chitter')
+    else 
+      connection = PG.connect(dbname: 'chitter_test')
+    end
+
+   result = connection.exec("SELECT * FROM peeps;")
+   result.map { |peep| peep['message_body']}
   end 
 
 end 

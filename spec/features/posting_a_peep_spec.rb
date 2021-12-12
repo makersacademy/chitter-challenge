@@ -5,7 +5,6 @@ feature 'Posting a message (peep)' do
     click_on 'Peep' # submit's the post
 
     expect(page).to have_content 'this is my first peep'
-
   end
 
 

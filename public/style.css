@@ -33,7 +33,7 @@
 }
 
 /* posting a peep styling */
-.post-peep-container {
+.input-peep-container {
   display:flex;
 }
 .user-avatar {

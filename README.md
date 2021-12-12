@@ -14,11 +14,11 @@ STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (peep) to chitter  ✅
 
 As a maker
 So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+I want to see all peeps ✅ in reverse chronological order 
 
 As a Maker
 So that I can better appreciate the context of a peep
@@ -53,6 +53,21 @@ Technical Approach:
 
 # ![Domain Model](https://github.com/sabrinalord/chitter-challenge/blob/main/screenshot/chitter-MVC-diagram.png)
 
+## Databse Setup
+
+### Main Database
+Connect to psql
+CREATE DATABASE chitter;
+\c chitter 
+
+CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, created_at TIMESTAMP, message_body VARCHAR(60), user_id VARCHAR(60));
+
+### Test Database
+Connect to psql
+CREATE DATABASE chitter_test;
+\c chitter 
+
+CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, created_at TIMESTAMP, message_body VARCHAR(60), user_id VARCHAR(60));
 
 
 In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
