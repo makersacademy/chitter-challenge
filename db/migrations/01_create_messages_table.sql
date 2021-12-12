@@ -1,9 +1,3 @@
-CREATE TABLE users(
-  id SERIAL PRIMARY KEY, 
-  username VARCHAR(20), 
-  password VARCHAR(140)
-);
-
 CREATE TABLE messages(
   id SERIAL PRIMARY KEY, 
   text VARCHAR(280), 
@@ -11,6 +5,12 @@ CREATE TABLE messages(
   user_id INT REFERENCES users(id)
 );
 
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY, 
+  username VARCHAR(20), 
+  password VARCHAR(140)
+);
 
 CREATE TABLE replies(
   id SERIAL PRIMARY KEY, 

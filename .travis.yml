@@ -7,21 +7,20 @@ rvm:
   - 3.0.2
 
 env:
-  - ENV['RACK_ENV'] = 'test'
   - ENV['ENVIRONMENT'] = 'test'
 
 before_script:
   - psql -c 'CREATE DATABASE chitter;' 
   - psql -c 'CREATE DATABASE chitter_test;' 
+  - psql -c '\c chitter_test' -c 'CREATE TABLE messages(
+                                      id SERIAL PRIMARY KEY, text VARCHAR(280), 
+                                      created_at TIMESTAMP WITHOUT TIME ZONE, 
+                                      user_id INT REFERENCES users(id));'
   - psql -c '\c chitter_test' -c 'CREATE TABLE users(
                                       id SERIAL PRIMARY KEY, 
                                       username VARCHAR(20), 
                                       password VARCHAR(140)
                                     );'
-  - psql -c '\c chitter_test' -c 'CREATE TABLE messages(
-                                      id SERIAL PRIMARY KEY, text VARCHAR(280), 
-                                      created_at TIMESTAMP WITHOUT TIME ZONE, 
-                                      user_id INT REFERENCES users(id));'
   - psql -c '\c chitter_test' -c 'CREATE TABLE replies(
                                       id SERIAL PRIMARY KEY, 
                                       text VARCHAR(280), 
