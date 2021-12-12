@@ -1,0 +1,10 @@
+.DS_Store
+pkg
+tmp
+*.cache
+doc
+vendor
+/.bundle
+
+# tempfiles
+*~

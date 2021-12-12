@@ -1,0 +1,23 @@
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/bcrypt-3.1.16/ext/mri
+/Users/alfonsoghislieri/.rvm/rubies/ruby-3.0.2/bin/ruby -I /Users/alfonsoghislieri/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0 -r ./siteconf20211212-3817-w04s0p.rb extconf.rb
+creating Makefile
+
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/bcrypt-3.1.16/ext/mri
+make DESTDIR\= clean
+
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/bcrypt-3.1.16/ext/mri
+make DESTDIR\=
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+gcc -fdeclspec  -D__SKIP_GNU -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+wrapper.c:182:60: warning: declaration of 'struct crypt_data' will not be visible outside of this function [-Wvisibility]
+char *crypt_r(const char *key, const char *setting, struct crypt_data *data)
+                                                           ^
+1 warning generated.
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/bcrypt-3.1.16/ext/mri
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20211212-3817-3aan0j

@@ -1,0 +1,17 @@
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+/Users/alfonsoghislieri/.rvm/rubies/ruby-3.0.2/bin/ruby -I /Users/alfonsoghislieri/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0 -r ./siteconf20211212-3817-trv7b5.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= clean
+
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\=
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/alfonsoghislieri/Coding/Makers/Week4/chitter-challenge/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20211212-3817-864frr/racc
