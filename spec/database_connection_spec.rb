@@ -10,13 +10,6 @@ describe DatabaseConnection do
     end
   end
 
-  xit 'this connection is persistent' do
-    # Grab the connection as a return value from the .setup method
-    connection = DatabaseConnection.setup('chitter_app_test')
-
-    expect(DatabaseConnection.connection).to eq connection
-  end
-
   describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup('chitter_app_test')

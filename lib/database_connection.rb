@@ -8,11 +8,6 @@ class DatabaseConnection
     @connection = PG.connect(dbname: dbname)
   end
 
-# our query method only relies on the connection created by set up
-# we can remove .connetion method and test
-  # def self.connection
-  #   @connection
-  # end
 
   def self.query(sql_string, params = [])
     @connection.exec_params(sql_string, params)
