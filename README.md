@@ -1,7 +1,9 @@
 Chitter Challenge
 =================
 
-A Twitter Clone built in Ruby using Sinatra, Capybara, PostgreSQL, and Bootstrap.
+A Twitter Clone built in Ruby using Sinatra, Capybara, and PostgreSQL.
+
+CSS: Future Coders
 
 [![FE4-DCA6-D-27-EB-4327-8-F83-2-D89-D141-EA7-D.jpg](https://i.postimg.cc/FzVWcGr1/FE4-DCA6-D-27-EB-4327-8-F83-2-D89-D141-EA7-D.jpg)](https://postimg.cc/T5hJvVWX)
 ## Setup
