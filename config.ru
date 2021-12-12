@@ -1,8 +1,8 @@
 require 'sinatra'
-require_relative 'app/app.rb'
-require_relative 'app/controllers/peeps_controller.rb'
-require_relative 'app/controllers/users_controller.rb'
-require_relative 'app/controllers/sessions_controller.rb'
+require_relative 'app/app'
+require_relative 'app/controllers/peeps_controller'
+require_relative 'app/controllers/users_controller'
+require_relative 'app/controllers/sessions_controller'
 
 use PeepsController
 use UsersController

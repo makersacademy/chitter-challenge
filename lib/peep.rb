@@ -1,4 +1,4 @@
-require_relative 'database_connection.rb'
+require_relative 'database_connection'
 
 class Peep 
   attr_reader :id, :message, :timestamp, :user_id
@@ -11,14 +11,28 @@ class Peep
 
   def self.create(message:, user_id:)
     current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    result = DatabaseConnection.query("INSERT INTO peeps(message,timestamp,user_id) VALUES($1,$2,$3) RETURNING id, message, timestamp, user_id;", [message,current_time,user_id])
-    Peep.new(id: result[0]['id'], message: result[0]['message'], timestamp: result[0]['timestamp'], user_id: result[0]['user_id'])
+    result = DatabaseConnection.query(
+      "INSERT INTO peeps(message,timestamp,user_id) VALUES($1,$2,$3) RETURNING id, message, timestamp, user_id;", 
+      [message,current_time,user_id])
+
+    Peep.new(
+      id: result[0]['id'], 
+      message: result[0]['message'], 
+      timestamp: result[0]['timestamp'], 
+      user_id: result[0]['user_id'])
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps INNER JOIN users ON peeps.user_id = users.id
       ORDER BY peeps.id DESC;")
-    result.map { |peep| Peep.new(id: peep['id'], message: peep['message'], timestamp: peep['timestamp'], user_id: peep['username']) }
+    
+    result.map do |peep|
+      Peep.new(
+        id: peep['id'], 
+        message: peep['message'], 
+        timestamp: peep['timestamp'], 
+        user_id: peep['user_id'])
+    end    
   end
 
 end

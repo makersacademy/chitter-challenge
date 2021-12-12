@@ -1,1 +1,1 @@
-CREATE TABLE peeps (id SERIAL PRIMARY KEY, message VARCHAR(280) NOT NULL, timestamp(0) TIMESTAMP VARCHAR;
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, message VARCHAR(280), timestamp VARCHAR, user_id int REFERENCES users(id));

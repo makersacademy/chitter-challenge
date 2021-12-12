@@ -7,7 +7,8 @@ class UsersController < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password], username: params[:username], name: params[:name])
+    user = User.create(email: params[:email], password: params[:password], 
+username: params[:username], name: params[:name])
     if user == 1
       flash[:notice] = 'Email already exists.'
       redirect '/users/new'

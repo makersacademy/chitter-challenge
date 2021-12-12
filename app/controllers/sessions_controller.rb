@@ -8,12 +8,12 @@ class SessionsController < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    if user != nil
-      session[:user_id] = user.id
-      redirect '/'
-    else
+    if user.nil?
       flash[:notice] = 'Please check email or password.' 
       redirect '/sessions/new'
+    else
+      session[:user_id] = user.id
+      redirect '/'
     end
   end
 

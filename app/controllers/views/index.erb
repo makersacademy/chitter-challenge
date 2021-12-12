@@ -27,7 +27,9 @@
 <div>
   <ul>
     <% @chitters.each do |chitter| %>
-      <li> <%= chitter.message %> - <%= chitter.user_id %> - <%= chitter.timestamp %> </li>
+      <li> <%= chitter.message %> <br> 
+      <%= User.find(id: chitter.user_id).name %> - <%= User.find(id: chitter.user_id).username %> <br>
+       <%= chitter.timestamp %> </li>
     <% end %>
   </ul>
 </div>
