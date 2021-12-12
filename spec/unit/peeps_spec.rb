@@ -17,4 +17,12 @@ describe Peep do
     end
   end
 
+  describe '#posts a new peep message' do
+    it 'adds a new peep to the chitter feed ' do
+      Peep.post(message: "This is my first peep!")
+      expect(Peep.all).to include "This is my first peep!"
+    end
+  end
+
+
 end

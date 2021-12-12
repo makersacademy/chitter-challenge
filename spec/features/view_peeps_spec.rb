@@ -2,9 +2,9 @@ feature 'Viewing peeps' do
     scenario 'can see all posted peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO peeps (message) VALUES('First peep');")
-      connection.exec("INSERT INTO peeps (message) VALUES('Second peep');")
-      connection.exec("INSERT INTO peeps (message) VALUES('Third peep');")
+      Peep.post(message: "First peep")
+      Peep.post(message: "Second peep")
+      Peep.post(message: "Third peep")
 
       visit('/peeps')
       expect(page).to have_content "First peep"
