@@ -36,7 +36,9 @@
       <div class="peep-timeline-container">
         <ul>
           <% @peeps.each do |peep| %>
-            <li><%= peep %></li>
+            <li>
+            <%= peep.peep_body %> , <%= peep.created_at %>
+            </li>
           <% end %>
         </ul>
       </div>
