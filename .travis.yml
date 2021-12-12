@@ -3,8 +3,10 @@ language: ruby
 services:
   - postgresql
 
+rvm:
+  - 3.0.2
+
 before_script:
-  - rvm install 3.0.2
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
   - psql -U postgres -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE);' 
   - psql -U postgres -c 'CREATE TABLE users(
