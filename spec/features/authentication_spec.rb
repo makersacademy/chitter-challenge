@@ -1,13 +1,13 @@
 feature "authentication" do
   scenario "Signing in" do
     sign_up_test_account
-    log_in_test_account
 
     expect(page).to have_content("Welcome test@example.com")
   end
 
   scenario "error displayed if user types wrong email" do
     sign_up_test_account
+    click_button "Sign out"
 
     click_button "Sign in"
     fill_in(:email, with: "test11111@example.com")
@@ -19,6 +19,7 @@ feature "authentication" do
 
   scenario "error displayed if user types wrong password" do
     sign_up_test_account
+    click_button "Sign out"
 
     click_button "Sign in"
     fill_in(:email, with: "test@example.com")
@@ -30,7 +31,6 @@ feature "authentication" do
 
   scenario "Sign out" do
     sign_up_test_account
-    log_in_test_account
 
     click_button "Sign out"
 

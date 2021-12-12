@@ -4,7 +4,7 @@ feature "registering" do
   scenario "a user can sign up" do
     sign_up_test_account
 
-    expect(page).to have_content("You have successfully signed up.")
+    expect(page).to have_content("Welcome test@example.com")
   end
 
   scenario "error message shows up if signing in with already exisiting email" do
@@ -22,7 +22,6 @@ feature "registering" do
     fill_in(:name, with: "Test Test")
     fill_in(:username, with: "Test")
     click_button("Sign up")
-    
 
     expect(page).to have_content("Username already exists")
   end
