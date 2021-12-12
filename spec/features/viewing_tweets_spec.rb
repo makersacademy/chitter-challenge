@@ -9,8 +9,8 @@ feature 'Viewing tweets ' do
     scenario ' A user will be able to view tweets ' do
         visit('/tweets')
 
-        expect(page).to have_content "tweet 1"
-        expect(page).to have_content "tweet 2"
-        expect(page).to have_content "tweet 3"
+        expect(page).to have_content "hello I am on twitter 1"
+        expect(page).to have_content "hello I am on twitter 2"
+        expect(page).to have_content "hello I am on twitter 3"
     end
 end
