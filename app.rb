@@ -8,11 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do 
-    @peeps = [
-      'Example peep posted at 3pm',
-      'Example peep posted at 2pm',
-      'Example peep posted at 1pm'
-    ]
+    @peeps = Peep.all
     erb :'home/index'
   end 
 
