@@ -102,7 +102,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1)
+  bcrypt
   capybara (~> 3.36)
   pg (~> 1.2)
   rspec

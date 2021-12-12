@@ -36,9 +36,9 @@ class Chitter < Sinatra::Base
 		erb :'peeps/index'
 	end
 
-	get "/users/new" do
+	get "/signup" do
 		# Just like in peeps/new, this route displays a form to be filled-in to create a new user
-		erb :'users/new'
+		erb :'users/signup'
 	end
 
 	post '/users' do

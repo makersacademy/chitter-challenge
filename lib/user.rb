@@ -1,4 +1,6 @@
+require 'bcrypt'
 require_relative 'database_connection'
+
 
 class User
 	attr_reader :id, :email
@@ -9,14 +11,18 @@ class User
 	end
 
 	def self.create(email:, password:)
+		encrypted_password = BCrypt::Password.create(password)
+
 		if ENV["ENVIRONMENT"] == 'test'
 			DatabaseConnection.setup("chitter_test")
 		else
 			DatabaseConnection.setup("chitter")
 		end
+	
+
 		result = DatabaseConnection.query(
 			"INSERT INTO users (email, password) VALUES ($1, $2) returning id, email;",
-			[email, password]
+			[email, encrypted_password]
 		)
 
 		User.new(
