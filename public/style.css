@@ -1,0 +1,64 @@
+
+.site-wrapper {
+  display: flex;
+}
+
+.main-container {
+  width:70%;
+  padding: 1em;
+  border-left: 1px solid #f1eeee;
+}
+
+/* Navigation section */
+
+.nav-container {
+  margin-left: 3em;
+  padding: 2em;
+}
+
+.site-logo {
+  background-image: url("/images/chitter_bird_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nav-btn-wrapper {
+  display:flex;
+  min-width:150px;
+}
+
+.nav-icon {
+  width:40px;
+  height:40px;
+}
+
+/* posting a peep styling */
+.post-peep-container {
+  display:flex;
+}
+.user-avatar {
+  background-image:url("/images/user_avatar.png");
+  padding: 1.5em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right:0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+.input-peep{
+  border:none;
+  padding:2em 0.5em;
+}
+
+.peep-btn{
+ background-color: #1d9bef;
+ border-radius:20px;
+ color:white;
+ border:none;
+ padding:0.5em 1em;
+ max-width:80px;
+ margin-left: 7em;
+}

@@ -1,4 +1,39 @@
-<form action="/home" method="post">
-  <input type="text" name="peep-body" placeholder="What's happening?">
-  <input type="submit" value="Peep">
-</form>
+<head>
+  <title>Chitter</title>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+<div class = site-wrapper>
+
+  <nav class = "nav-container">
+    <div class = "nav-btn-wrapper">
+      <div class = "nav-icon site-logo"></div>
+      <div class = "nav-text"></div>
+
+    </div>
+
+    <div class = "nav-btn-wrapper">
+      <div class = "nav-icon"></div>
+      <div class = "nav-text"><h4>Home</h4></div>
+    </div>
+
+    <div class = "nav-btn-wrapper">
+      <div class = "nav-icon"></div>
+      <div class = "nav-text"><h4>Explore</h4></div>
+    </div>
+  </nav>
+
+  <main class = "main-container"> 
+    <div class = "main-header"><h3>Home</h3></div>
+     <div class = "post-peep-container">
+        <div class = "user-avatar"></div>
+          <form action="/home" method="post">
+            <input class="input-peep" type="text" name="peep-body" placeholder="What's happening?">
+            <input class="peep-btn" type="submit" value="Peep">
+          </form>
+        </div>
+      </div>
+  </main>
+
+</div>
+
