@@ -5,3 +5,14 @@
     <input type="text" name="content"> &nbsp;&nbsp;&nbsp;
     <input type="submit" value="Post">
 </form>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li class="peep" id="<%= peep.id %>">
+        <%= peep.content %>
+        <br>
+        <small><b> @<%= peep.username %> <%= peep.timestamp[0..18] %> </b></small>      
+    </li>
+    <br>
+  <% end %>
+</ul>

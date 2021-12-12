@@ -8,7 +8,6 @@ require 'capybara/rspec'
 require 'rspec'
 require './spec/setup_testing_database'
 
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -20,7 +19,6 @@ RSpec.configure do |config|
   config.before(:each) do
     Setup.instance.truncate
   end
-
 
   config.after(:suite) do
     puts
