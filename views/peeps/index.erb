@@ -13,11 +13,23 @@
 	<% if @user %>
   	<h1>Welcome, <%= @user.email %></h1>
 	<% end %>
+
+	<form method="post" action='/peeps'>
+			<label for="message">
+			Enter Peep:
+				<input type="text" name="message" placeholder='Peep here🐦'>
+				<input type="submit" value="Send" >
+			</label>
+
+	</form>
+
+
 	<ul>
 		<% @peeps.reverse_each do |peep|%>
 		<li> <%= peep.message%> created at: <span style='color:gray'> <%=peep.time%> </span></li>
 		<% end %>
 	</ul>
+
 
 	<form action="/sessions/destroy" method="post">
  	 <input type="submit" value="Sign out" />

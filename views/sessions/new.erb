@@ -3,8 +3,12 @@
 	<%= flash[:notice] %>
 </h2>
 
+<h1> Welcome to Chitter </h1>
+<h2> Please log in or sign up</h2>
 <form action="/sessions" method="post">
   <input type="email" name="email" placeholder="Enter Email" />
   <input type="password" name="password" placeholder='Enter Password' />
   <input type="submit" value="Sign in" />
 </form>
+</br>
+<a href='/signup'>Sign Up</a>

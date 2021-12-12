@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
 
 	get "/" do
 		# Ordinary home route
-		"Welcome to Chitter App"
+		erb :'sessions/new'
 	end
 
 	post '/peeps' do
@@ -34,7 +34,7 @@ class Chitter < Sinatra::Base
 	get '/peeps' do
 		# This route displays all the peeps in chronological order
 		@user = User.get(id: session[:user_id])
-		p @user
+		# p @user
 		@peeps = Peep.all
 		erb :'peeps/index'
 	end
