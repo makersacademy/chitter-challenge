@@ -28,5 +28,6 @@ before_script:
                                       message_id INT REFERENCES messages (id),
                                       user_id INT REFERENCES users(id)
                                     );'
+  - psql -c '\dt'
 script:
   - bundle exec rspec
