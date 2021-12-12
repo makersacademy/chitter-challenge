@@ -188,6 +188,7 @@ As a maker
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
+
 For this will will try to tweak my .all method to reverse the order using the id Primary Key of the peeps table
 
 use : SQL ORDER BY keyword
@@ -199,8 +200,21 @@ ORDER BY column1, column2, ... ASC|DESC;
 It looked my ruby version was 3.0.0 though I did specify 3.0.2 in my Gemfile (I set it up at the beginning + bundle install so all my gem are on the right version)
 and until now all worked fine. no idea what happened.
 
-  to fix it : update rvm
-              remove ruby-3.0.0
-              set ruby-3.0.2 as default (though it showed it as the current version already)
-              bundle install
-              looks like it worked but I don't know why it switched to an older version of ruby in the middle of the project
+to fix it : update rvm
+remove ruby-3.0.0
+set ruby-3.0.2 as default (though it showed it as the current version already)
+bundle install
+looks like it worked but I don't know why it switched to an older version of ruby in the middle of the project
+
+NOTE: I haven't wrote a test to check the order is reversed but I can see it worked on my webpage:
+the last Peep create (ex 7th peep) shows up at the top of the list though the first {eep created shows up at the bottom of the list.
+
+## Feature 3 : see time of creation of a Peep
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+I will need a new attribute for the peep : created_at
