@@ -13,5 +13,4 @@ before_script:
 
 
 script:
-  - bundle install
   - bundle exec rspec
