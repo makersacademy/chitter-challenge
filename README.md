@@ -1,3 +1,12 @@
+Chitter challenge
+========
+A clone of Twitter built using Ruby with Sinatra and PostgresSQL to create and manage the databases.
+
+Tools
+----
+- `PSQL` was used to create the databases and the `PG` gem to interact with the databases with ruby.
+- `Bcrypt` was used for encryption of user passwords.
+
 Setup
 ----
 ```
@@ -26,10 +35,6 @@ I was able to implement the following features for this challenge:
 - Messages show in reverse chronological order for all users (even if not logged in)
   - Messages include: a  message, user info and a timestamp
 
-Tools
-----
-- `PSQL` was used to create the databases and the `PG` gem to interact with the databases with ruby.
-- `Bcrypt` was used for encryption of user passwords.
 
 TODO:
 - CSS Styling

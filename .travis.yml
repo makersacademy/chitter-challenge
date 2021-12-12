@@ -1,10 +1,5 @@
 language: ruby
 
-before_install:
-  - gem install bundler
-  - gem update --system
-  - gem --version
-
 services:
   - postgresql
 
@@ -14,5 +9,4 @@ before_script:
   - psql -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(160), username VARCHAR(60), name VARCHAR(60));'
 
 script:
-  - bundle config set --local deployment 'true'
   - bundle exec rspec
