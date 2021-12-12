@@ -8,20 +8,20 @@ rvm:
 
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' 
-  - psql -c '\c chitter_test' 
-  - psql -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE);'  
-  - psql -c 'CREATE TABLE users(
+  - psql -d chitter_test
+  - CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE); 
+  - CREATE TABLE users(
                                       id SERIAL PRIMARY KEY, 
                                       username VARCHAR(20), 
                                       password VARCHAR(140),
                                       user_id INT REFERENCES users(id)
-                                    );'
-  - psql -c 'CREATE TABLE replies(
+                                    );
+  - CREATE TABLE replies(
                                       id SERIAL PRIMARY KEY, 
                                       text VARCHAR(280), 
                                       created_at TIMESTAMP WITHOUT TIME ZONE, 
                                       message_id INT REFERENCES messages (id),
                                       user_id INT REFERENCES users(id)
-                                    );' 
+                                    );
 script:
   - bundle exec rspec
