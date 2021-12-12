@@ -21,12 +21,12 @@ describe Peep do
   describe '.create' do
     it 'creates a Peep' do
       peep = Peep.create(content: "One last peep")
-      persisted_data = persisted_data(created_at: peep.created_at)
+      persisted_time_data = peep.created_at
 
       expect(peep).to be_a Peep
       p peep.created_at
-      expect(peep.created_at).to eq persisted_data['created_at']
-      expect(peep.content).to eq 'My fourth Peep'
+      expect(peep.created_at).to eq persisted_time_data # is this really useful?
+      expect(peep.content).to eq "One last peep"
     end
   end
 end
