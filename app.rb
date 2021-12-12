@@ -19,7 +19,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/confirm_sign_up' do
-    @user_sign_up = SignUp.create(email: params[:email], password: params[:password], user_name: params[:user_name], handle: params[:handle])
+    SignUp.create(email: params[:email], password: params[:password], user_name: params[:user_name], handle: params[:handle])
+    @user_info = SignUp.all.first
     erb :confirm_sign_up
   end
 
@@ -36,13 +37,14 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/user_page' do
+  get '/user_page/:id' do
     @peeps = Peep.all
+    @user_info = params[:id]
     erb :user_page
   end
 
   post '/peep' do
     Peep.create(text: params[:text], user_name: params[:user_name], handle: params[:handle], time_posted: Time.new)
-    redirect '/user_page'
+    redirect '/user_page/id:'
   end
 end
