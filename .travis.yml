@@ -7,15 +7,15 @@ rvm:
   - 3.0.2
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE);' 
-  - psql -U postgres -c 'CREATE TABLE users(
+  - psql -c 'CREATE DATABASE chitter_test;' 
+  - psql -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280), created_at TIMESTAMP WITHOUT TIME ZONE);' 
+  - psql -c 'CREATE TABLE users(
                                       id SERIAL PRIMARY KEY, 
                                       username VARCHAR(20), 
                                       password VARCHAR(140),
                                       user_id INT REFERENCES users(id)
                                     );'
-  - psql -U postgres -c 'CREATE TABLE replies(
+  - psql -c 'CREATE TABLE replies(
                                       id SERIAL PRIMARY KEY, 
                                       text VARCHAR(280), 
                                       created_at TIMESTAMP WITHOUT TIME ZONE, 
