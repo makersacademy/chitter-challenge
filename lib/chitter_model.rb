@@ -9,7 +9,7 @@ class Chitter_Model
     end 
     result = connection.exec("SELECT * FROM chitts;")
     result.map do |chitts|
-      p (chitts['username'] + " - " + chitts['chitt']) + " - " + chitts['created_on']
+      p chitts['username'] + " - " + chitts['chitt'] + " - " + chitts['created_on']
     end     
   end
 
@@ -25,13 +25,13 @@ class Chitter_Model
     )
   end
 
-  def self.validation(username:, password:)
+  def self.validation(username, password)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM accounts WHERE username = 'username' AND password = 'password';")
+    result = connection.exec("SELECT * FROM accounts WHERE username = 'username' AND password = 'password';")   
     if result.to_a.empty?
       return false
     else
@@ -39,7 +39,7 @@ class Chitter_Model
     end
   end
 
-  def self.create_account(name:, username:, password:, email:, time:)
+  def self.create_account(name:, username:, password:, email:, created_on:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
@@ -48,8 +48,8 @@ class Chitter_Model
     unless (connection.exec_params("SELECT * FROM accounts WHERE username = 'username'").to_a.empty? &&
       connection.exec_params("SELECT * FROM accounts WHERE email = 'email'").to_a.empty?) && (!name.nil? && !username.nil? && !password.nil? && !email.nil?)
       result = connection.exec_params(
-        "INSERT INTO accounts (name, username, password, email, created_on) VALUES($1, $2, $3, $4, $5) RETURNING name, username, password, email;", [
-          name, username, password, email, time]
+        "INSERT INTO accounts (name, username, password, email, created_on) VALUES($1, $2, $3, $4, $5) RETURNING name, username, password, email, created_on;", [
+          name, username, password, email, created_on]
       )
       return true
     else

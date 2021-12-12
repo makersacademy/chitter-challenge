@@ -11,7 +11,7 @@ feature 'log in' do
 
   scenario 'Can log in if an account has been created' do
     connection = PG.connect(dbname: 'chitter_test')
-    Chitter_Model.create_account(name: 'Someone',username: 'Someone',password: 'Password',email: 'myemail',time: '2021-12-11 16:48:09')
+    Chitter_Model.create_account(name: 'Someone',username: 'Someone',password: 'Password',email: 'myemail',created_on: '2021-12-11 16:48:09')
     visit '/'
     click_button('Log In')
     fill_in('username', with: 'Someone')

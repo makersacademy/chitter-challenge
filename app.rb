@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/validation' do
-    @valid = Chitter_Model.validation(username: params[:username], password: params[:password])
+    @valid = Chitter_Model.validation(params[:username], params[:password])
     if @valid == true 
       @username = params[:username]
       redirect '/chitter/successful_login'
@@ -60,7 +60,7 @@ class Chitter < Sinatra::Base
 
   post '/chitter/account_creation' do
     created = Chitter_Model.create_account(name: params[:name], username: params[:username],
-                                password: params[:password],email: params[:email], time: Time.now)
+                                password: params[:password],email: params[:email], created_on: Time.now)
     if created == true
         redirect '/chitter/successful_creation'
     else
@@ -78,5 +78,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/unsuccessful_creation' do
+    erb :'/unsuccessful_creation'
   end
 end

@@ -21,6 +21,6 @@ feature "Homepage" do
     expect(page).to have_content "Please post your chitt below:"
     visit '/'
     click_button('Log Out')
-    expect(page).to have_content "You've succesfully logged out!"
+    expect(page).to have_content "You've successfully logged out!"
   end
 end
