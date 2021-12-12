@@ -9,8 +9,10 @@
 </head>
 <body>
 
-	<h1> Welcome to Chitter! </h1>
-
+	<%# <h1> Welcome to Chitter! </h1> %>
+	<% if @user %>
+  	<h1>Welcome, <%= @user.email %></h1>
+	<% end %>
 	<ul>
 		<% @peeps.reverse_each do |peep|%>
 		<li> <%= peep.message%> created at: <span style='color:gray'> <%=peep.time%> </span></li>

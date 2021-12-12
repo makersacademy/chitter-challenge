@@ -1,6 +1,5 @@
 require_relative 'database_connection'
 require 'time'
-require 'timecop'
 
 class Peep 
 
