@@ -8,12 +8,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do 
+    
+  end 
+
+  get '/home' do
     @peeps = Peep.all
     erb :'home/index'
   end 
 
   post '/home' do
-    'this is my first peep'
+    Peep.create(peep_body: params[:peep_body])
+    redirect '/home'
   end 
 
 run if app_file == $0 
