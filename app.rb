@@ -24,7 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-      if User.username_exists?(params[:username]) || User.username_exists?(params[:email])
+      if User.username_exists?(params[:username]) || User.email_exists?(params[:email])
         flash[:notice] = 'User already exists!'
       else
         user = User.create(params[:name], params[:username], params[:email], params[:password])

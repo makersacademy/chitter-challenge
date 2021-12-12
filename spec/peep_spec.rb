@@ -34,9 +34,4 @@ describe Peep do
     expect(Peep.sort_peeps(peep_times)).to eq [peep_3, peep_4, peep_1, peep_2]
   end
 
-  context "#sanitize"
-  it "should be able to sanitize string input from single quotes to put into sql" do
-    expect(Peep.sanitize("don't and won't")).to eq "don''t and won''t"
-  end
-
 end

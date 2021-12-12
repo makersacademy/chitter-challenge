@@ -51,12 +51,10 @@ class User
   def self.authenticate(email, password)
     user = User.find_email(email)
     if user == nil
-      p "hello1"
       return nil
     elsif BCrypt::Password.new(user.password) == password
       return user
     else
-      p "hello2"
       return nil
     end    
   end

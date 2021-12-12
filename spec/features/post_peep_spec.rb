@@ -4,6 +4,6 @@ feature "posting peeps" do
     fill_in("content", with: "I'm Kim!")
     click_button("Peep")
     expect(page).to have_content("I'm Kim!")
-    expect(page).to have_content("Posted by kim-morgan")
+    expect(page).to have_content("@kim-morgan")
   end
 end

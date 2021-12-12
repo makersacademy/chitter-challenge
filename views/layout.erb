@@ -8,7 +8,27 @@
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
-<body>
-<%= yield %>
-</body>
+<div class="navbar">
+<img src="/social-media.png"> </img>
+  <% if @user %>
+  <h1>Chitter</h1> 
+    <p>Logged in as <%= @user.name %>!</p>
+    <form action="/users/logout" method="get">
+      <input type="submit" value="Log out">
+    </form>
+  <% else %>
+  <h1>Chitter</h1>
+    <form action="/users/login" method="get">
+      <input type="submit" value="Log in">
+    </form>
+    <form action="/users/new" method="get">
+      <input type="submit" value="Sign up">
+    </form>
+<% end %>
+</div>
+  <div class="container">
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+  </div>
 </html>
