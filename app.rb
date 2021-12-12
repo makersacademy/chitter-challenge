@@ -11,18 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do 
-    # @peeps = Peep.all
     erb :index
-  end
-
-  get '/user_page' do
-    @peeps = Peep.all
-    erb :user_page
-  end
-
-  post '/peep' do
-    Peep.create(text: params[:text], user_name: params[:user_name], handle: params[:handle], time_posted: Time.new)
-    redirect '/user_page'
   end
 
   get '/sign_up' do
@@ -47,4 +36,13 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/user_page' do
+    @peeps = Peep.all
+    erb :user_page
+  end
+
+  post '/peep' do
+    Peep.create(text: params[:text], user_name: params[:user_name], handle: params[:handle], time_posted: Time.new)
+    redirect '/user_page'
+  end
 end
