@@ -1,6 +1,7 @@
 require 'pg'
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
   configure :development do
