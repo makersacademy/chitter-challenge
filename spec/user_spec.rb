@@ -5,7 +5,6 @@ describe User do
   it "creates a user" do
     user = User.create(email: "test@example.com", password: "1234", username: "Test", name: "Test Test")
 
-    expect(user).to be_a User
     expect(user.email).to eq "test@example.com"
     expect(user.username).to eq "Test"
     expect(user.name).to eq "Test Test"

@@ -34,7 +34,7 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = $1", [email])
     return nil unless result.any? && BCrypt::Password.new(result[0]['password']) == password
 
-    User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], name: result[0]['name'])
+   User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], name: result[0]['name'])
   end  
 
   def self.check_if_email_unique(email:,username:)

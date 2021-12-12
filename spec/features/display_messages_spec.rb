@@ -14,7 +14,7 @@ feature "display messages" do
     fill_in(:message, with: "Hi mom again!")
     click_button("Chitter")
     
-    expect(page).to have_content("Hi mom again! Test Test - Test #{@time_now} Hi mom Test Test - Test #{@time_now}")
+    expect(page).to have_content("Hi mom again! Test Test - @Test #{@time_now} Hi mom Test Test - @Test #{@time_now}")
   end
 
   scenario "message, timestamp, name, and username displayed for message" do

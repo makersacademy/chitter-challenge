@@ -26,7 +26,10 @@ I was able to implement the following features for this challenge:
 - Messages show in reverse chronological order for all users (even if not logged in)
   - Messages include: a  message, user info and a timestamp
 
-Unfortunately I was unable to add an API to make a user receive an email when tagged in a message.
+TODO:
+- CSS Styling
+- Allowing users to reply to messages
+- Stub Databases in unit tests
 
 ![Chitter example page](https://i.ibb.co/rGZ70cv/Screenshot-2021-12-12-at-17-44-38.png)
 
