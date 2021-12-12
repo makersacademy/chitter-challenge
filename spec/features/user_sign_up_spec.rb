@@ -1,7 +1,13 @@
 feature 'Sign up user' do
-  scenario 'it should login with a user name' do
-    allow_any_instance_of(Message).to receive(:created_at).and_return('12:25')
-    login_in_and_peep
-    expect(page).to have_content('Pikachu - 12:25')
+  scenario 'it should record user details' do
+    visit('/')
+    click_on('Sign up')
+    visit('/sign_up')
+    fill_in('name', with: 'Pikachu')
+    fill_in('username', with: 'Mighty Pikachu')
+    fill_in('email', with: 'pikachu@gmail.com')
+    fill_in('password', with: '13579pikapika')
+    click_on('Submit')
+    expect(page).to have_content('You have signed up successfully')
   end
 end

@@ -1,24 +1,28 @@
 body {
-  background-color: #007acc;
+  background-color: #004d80;
+  background-image: url('https://shannonclaussen.files.wordpress.com/2013/04/blue-bird-wallpaper-free.jpg');
+  width: 850px;
+  height: 850px;
   margin: 0;
   color: white;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
-#container {
+#form-container {
   background-color: #004d80;
   position: fixed;
-  top: 4.2rem;
-  bottom: 4.2rem;
-  left: 0;
-  right: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -250px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 580px;
-  width: 100%;
-  text-align: center;
-  padding: 1rem 0 5rem 0;
+  width: 500px;
+  height: 200px;
   border-radius: 0.80rem;
+  padding: 1.5rem auto 0.5rem;
 }
 #image_logo {
   background-image: url('https://us.123rf.com/450wm/yupiramos/yupiramos1301/yupiramos130100804/17427774-blue-bird-isolated-over-white-background-vector-illustration.jpg?ver=6');
@@ -26,27 +30,19 @@ body {
   width: 45px;
   height: 45px;
   border-radius: 3rem;
+  margin-top: 0.8rem;
 }
-#form-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 1.1rem;
-}
-#username {
+.details {
   background-color: #005c99;
   width: 18rem;
   height: 3.3rem;
   color: white;
-  margin-top: 1.5rem;
-  margin-bottom: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding-left: 0.7rem;
   border: 1px solid #b3e0ff;
   border-radius: 5px;
   font-size: 1rem;
-}
-input [type=text]:focus {
-  border: 2px solid #33adff;
 }
 .button {
   background-color: white;
@@ -56,12 +52,4 @@ input [type=text]:focus {
   font-size: 1rem;
   font-weight: bold;
   border: none;
-}
-a {
-  color: #33adff;
-  text-decoration: none;
-}
-#sign_up {
-  margin-top: 3rem;
-  color: #c8ddea;
 }

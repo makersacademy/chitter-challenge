@@ -1,23 +1,30 @@
 body {
-  background-color: #007acc;
+  background-color: #004d80;
   margin: 0;
   color: white;
 }
-#container {
+#main-container {
+  display: flex;
+}
+#img-container {
+  background-image: url('https://shannonclaussen.files.wordpress.com/2013/04/blue-bird-wallpaper-free.jpg');
+  width: 900px;
+  height: 900px;
+}
+#form-container {
   background-color: #004d80;
   position: fixed;
-  top: 4.2rem;
-  bottom: 4.2rem;
-  left: 0;
+  top: 0;
+  bottom: 0;
   right: 0;
   margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 580px;
+  align-items: flex-start;
+  max-width: 590px;
   width: 100%;
-  text-align: center;
-  padding: 1rem 0 5rem 0;
+  padding-top: 1rem;
+  padding-left: 1rem;
   border-radius: 0.80rem;
 }
 #image_logo {
@@ -27,19 +34,19 @@ body {
   height: 45px;
   border-radius: 3rem;
 }
-#form-wrapper {
+/* #form-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 1.1rem;
-}
-#username {
+} */
+.details {
   background-color: #005c99;
   width: 18rem;
   height: 3.3rem;
   color: white;
-  margin-top: 1.5rem;
-  margin-bottom: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding-left: 0.7rem;
   border: 1px solid #b3e0ff;
   border-radius: 5px;
@@ -61,7 +68,17 @@ a {
   color: #33adff;
   text-decoration: none;
 }
-#sign_up {
-  margin-top: 3rem;
+#submit {
+  background-color: #33adff;
+  border-radius: 3rem;
+  width: 19rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+}
+#sign_in {
   color: #c8ddea;
 }

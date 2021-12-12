@@ -31,6 +31,14 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  get '/details' do
+    erb :success
+  end
+
   post '/post_message' do
     Message.add(params[:message])
     redirect '/home'

@@ -1,0 +1,41 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= url('/sign_up.css') %>" rel="stylesheet" type="text/css" />
+    <title>Sign up to Chitter</title>
+  </head>
+
+  <body>
+    <div id='main-container'>
+
+      <div id='img-container'>
+      </div>
+
+      <div id='form-container'>
+        <div id='image_logo'>
+        </div>
+
+        <h1>You made an amazing choice</h1>
+        <h2>Join Chitter today.</h2>
+          
+          <form action='/details' method='get'>
+            <input type='text' name='name' placeholder='Name' class='details'>
+            <input type='text' name='username' placeholder='Username' class='details'>
+            <input type='text' name='email' placeholder='example@email.com' class='details'>
+            <input type='text' name='password' placeholder='Password' class='details'>
+            <br>
+            <input type='submit' value='Submit' id='submit'>
+          </form>
+
+          <p id='sign_in'>Already have an account?</p>
+          <form action='/' method='get'>
+            <input type='submit' value='Sign in' class='button'>
+          </form>
+        </div>
+
+    </div>
+  </body>
+</html>
