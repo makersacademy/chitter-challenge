@@ -1,0 +1,15 @@
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  email TEXT NOT NULL,
+  username VARCHAR(15) NOT NULL,
+  full_name VARCHAR(50) NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE peeps(
+  id SERIAL PRIMARY KEY, 
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  body VARCHAR(255),
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0)
+);
