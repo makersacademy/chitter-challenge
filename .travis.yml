@@ -13,7 +13,7 @@ env:
 before_script:
   - psql -c 'CREATE DATABASE chitter;' 
   - psql -c 'CREATE DATABASE chitter_test;' 
-    - psql -c '\c chitter_test' -c 'CREATE TABLE users(
+  - psql -c '\c chitter_test' -c 'CREATE TABLE users(
                                       id SERIAL PRIMARY KEY, 
                                       username VARCHAR(20), 
                                       password VARCHAR(140)
