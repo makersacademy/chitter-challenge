@@ -18,12 +18,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    session[:peep] = params[:peep]
+    Peeps.add(peep: params[:peep])
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @peep = session[:peep]
+    conn = PG.connect(dbname: 'chitter_test')
+    @result = conn.exec("SELECT * FROM peeps")
     erb :"peeps/index"
   end
 
