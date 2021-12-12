@@ -27,8 +27,12 @@ email: rs[0]['email'])
 email: rs[0]['email'])
   end
 
-  def authenticate(password:)
-    rs = DatabaseConnection.query('SELECT * FROM users WHERE pw = $1', [password])
-    return true if @password == password
+  def authenticate(username:, password:)
+    rs = DatabaseConnection.query('SELECT * FROM users WHERE username = $1 AND pw = $2', [username, password])
+    if rs.ntuples != 0
+      return true
+    else 
+      return false
+    end
   end
 end

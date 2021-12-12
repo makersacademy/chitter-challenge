@@ -43,11 +43,12 @@ email: params[:email])
 
   post '/login' do
     user = User.find_by(username: params[:username])
-    if user && user.authenticate(password: params[:password])
+    if user && user.authenticate(username: params[:username],password: params[:password])
       session[:user_id] = user.id
       session[:username] = user.username
       redirect "/chitter"
     else
+      flash[:notice] = "Credentials incorrect!"
       redirect '/'
     end
   end
