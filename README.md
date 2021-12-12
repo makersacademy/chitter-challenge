@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+A Twitter Clone built in Ruby using Sinatra, Capybara, PostgreSQL, and Bootstrap.
+
 [![B1729-A7-C-507-F-4267-9388-4-CBC49512-B4-C.jpg](https://i.postimg.cc/cHQF1Gxn/B1729-A7-C-507-F-4267-9388-4-CBC49512-B4-C.jpg)](https://postimg.cc/Pp5WKc8X)
 ## Setup
 
@@ -39,4 +41,3 @@ bundle
 - [x] Message replies
 - [x] CSS Styling
 - [x] RESTful Routing
-- [ ] Email on tag
