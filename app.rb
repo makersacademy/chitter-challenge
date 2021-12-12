@@ -15,7 +15,6 @@ class ChitterApp < Sinatra::Base
 
   get '/homepage' do
      @all_peeps = Peep.all
-     p @all_peeps
     erb :homepage
   end
 

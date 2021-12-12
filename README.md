@@ -255,4 +255,14 @@ persisted_data = DatabaseConnection.setup('chitter_app_test').query("SELECT * FR
 error message:
 ![Error Message](https://github.com/s-dousse/chitter-challenge/blob/main/screenshots/Screenshot%202021-12-12%20at%2019.59.47.png)
 
+As I have set up the database to create a timestamp for each entry I don't know how to test it, I don't need to freeze time nor have some persistent_data method
+I can see on TablePlus that the created_at attribute doesn't change
+and when I test it on the website the time of the peeps is accurate
 
+## future steps
+1) create separate database to store users login info (ask to re-enter password to check if it's the same)
+2) create log_in where we compare the given params to the one in our database
+3) log_out function
+4) add attribute to Peep to have a author attribute (set up as default to anonymous but if the user logged in it would have his/her username)
+
+Would have love to have more time to finish the challenge

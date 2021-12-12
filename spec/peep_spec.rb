@@ -23,7 +23,6 @@ describe Peep do
       persisted_time_data = peep.created_at
 
       expect(peep).to be_a Peep
-      p peep.created_at
       expect(peep.created_at).to eq persisted_time_data # is this really useful?
       expect(peep.content).to eq "One last peep"
     end
