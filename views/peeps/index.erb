@@ -1,12 +1,24 @@
+<style> 
+  input[type=submit] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background-color: #1DA1F2;  
+    color: white;
+    font-family: system-ui;
+  }
+  </style>
+
 <h1 style="text-align:center">Peeps</h1>
 <br>
 <form action="http://localhost:9292/peeps/new">
-  <input type="submit"  class="active" value="Peep"     >
+  <input type="submit"  class="active" value="Peep">
 </form>
   <% @peeps.reverse.each do |peep| %>
   <div style="border: thin solid black">
-    <p><strong><%= peep.user_name %></strong> </p>
+    <p><strong><%= peep.user_name %></strong> peeped: </p>
     <p style="text-align:center"><%= peep.content %></p>
-    <p style="text-align: right;"><%= peep.creation_time %></p>
+    <p style="text-align: right;">Peep time: <%= peep.creation_time[11..15] %></p>
   </div>
   <% end %>
