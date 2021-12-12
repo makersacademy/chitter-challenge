@@ -9,8 +9,20 @@ class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
 
+  get '/sign-up' do
+    erb :sign_up
+  end
+
+  post '/sign-up' do
+    
+  end
+
   get '/' do
-    erb :index
+    if session[:logged_in] == true
+      erb :index
+    else
+      redirect '/log-in'
+    end
   end
 
   run! if app_file == $0

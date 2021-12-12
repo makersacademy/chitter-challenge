@@ -9,7 +9,6 @@ CREATE TABLE users(
 CREATE TABLE peeps(
   id SERIAL PRIMARY KEY, 
   user_id INT NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(id),
   body VARCHAR(255),
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0)
 );
