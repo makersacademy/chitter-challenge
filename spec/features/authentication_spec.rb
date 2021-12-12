@@ -53,5 +53,6 @@ feature 'authentication' do
     click_button('Sign out')
 
     expect(page).not_to have_content 'Welcome, test@example.com'
-    expect(p
+    expect(page).to have_content 'Welcome to Chitter App'
+  end
 end
