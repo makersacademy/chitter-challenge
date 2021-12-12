@@ -6,6 +6,9 @@ rvm:
 services:
   - postgresql
 
+env:
+  - ENV['ENVIRONMENT'] = 'test'
+
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
   - psql -c '\c chitter_test'
