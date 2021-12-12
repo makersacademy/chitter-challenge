@@ -4,5 +4,5 @@ def setup_test_database
   p "Setting up test database..."
 
   DatabaseConnection.setup('chitter_test')
-  DatabaseConnection.query("TRUNCATE messages;")
+  DatabaseConnection.query('TRUNCATE messages, users CASCADE;')
 end

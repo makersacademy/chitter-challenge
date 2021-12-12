@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/reloader'
 require './lib/message'
+require './lib/user'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base 
@@ -35,7 +36,12 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
-  get '/details' do
+  post '/details' do
+    User.create(params[:name], params[:username], params[:email], params[:password])
+    redirect '/success'
+  end
+
+  get '/success' do
     erb :success
   end
 

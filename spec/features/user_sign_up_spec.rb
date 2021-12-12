@@ -2,7 +2,6 @@ feature 'Sign up user' do
   scenario 'it should record user details' do
     visit('/')
     click_on('Sign up')
-    visit('/sign_up')
     fill_in('name', with: 'Pikachu')
     fill_in('username', with: 'Mighty Pikachu')
     fill_in('email', with: 'pikachu@gmail.com')

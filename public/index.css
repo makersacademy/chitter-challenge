@@ -33,13 +33,12 @@ body {
   align-items: flex-start;
   padding-top: 1.1rem;
 }
-#username {
+.input-field {
   background-color: #005c99;
   width: 18rem;
   height: 3.3rem;
   color: white;
   margin-top: 1.5rem;
-  margin-bottom: 1.6rem;
   padding-left: 0.7rem;
   border: 1px solid #b3e0ff;
   border-radius: 5px;
@@ -56,6 +55,7 @@ input [type=text]:focus {
   font-size: 1rem;
   font-weight: bold;
   border: none;
+  margin-top: 2rem;
 }
 a {
   color: #33adff;
