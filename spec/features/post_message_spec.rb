@@ -7,7 +7,7 @@ Capybara.app = Chitter
 feature 'posting to chitter' do
   scenario 'can show the peep after posting' do
     visit('/')
-    fill_in('post_peep', with: 'Test peep')
+    fill_in('content', with: 'Test peep')
     click_button('Post')
     expect(page).to have_content('Test peep').once
   end
