@@ -1,3 +1,7 @@
+<form action="/users/new">
+  <input type="submit" value="Sign up">
+</form>
+
 <% if @user %>
 
   <h2> Welcome <%=@user.email%> </h2>
@@ -20,14 +24,10 @@
 
 <% end %>
 
-<form action="/users/new">
-  <input type="submit" value="Sign up">
-</form>
-
 <div>
   <ul>
     <% @chitters.each do |chitter| %>
-      <li> <%= chitter.message %> - <%= chitter.timestamp %> </li>
+      <li> <%= chitter.message %> - <%= chitter.timestamp %> - <%= chitter.user_id %></li>
     <% end %>
   </ul>
 </div>

@@ -25,7 +25,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/message/new' do
-    Peep.create(params[:message])
+    Peep.create(message: params[:message], user_id: session[:user_id])
     redirect '/'
   end
 

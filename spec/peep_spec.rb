@@ -1,11 +1,15 @@
 require "peep"
 
 describe Peep do
+  before do
+    @user = User.create(email: "www.test@example.come", password: "1234")
+  end
+
   context ".create"
     it "creates a peep" do
       time_now = Time.now.strftime("%Y-%m-%d %H:%M:%S")
       allow_any_instance_of(Time).to receive(:now).and_return(time_now)
-      peep = Peep.create("Hello")
+      peep = Peep.create(message: "Hello", user_id: @user.id)
 
       expect(peep).to be_a Peep
       expect(peep.message).to eq "Hello"
@@ -14,8 +18,8 @@ describe Peep do
 
   context ".all"
     it "returns an array of peeps" do
-      Peep.create("Hello")
-      Peep.create("Bye")
+      Peep.create(message: "Hello", user_id: @user.id)
+      Peep.create(message: "Bye", user_id: @user.id)
       peeps = Peep.all
 
       expect(peeps.length).to eq 2
@@ -24,8 +28,8 @@ describe Peep do
     end
 
     it "returns an array of peeps in reverse chronological order" do
-      Peep.create("Hello")
-      Peep.create("Bye")
+      Peep.create(message: "Hello", user_id: @user.id)
+      Peep.create(message: "Bye", user_id: @user.id)
       peeps = Peep.all
       
       expect(peeps[0].message).to eq "Bye"
