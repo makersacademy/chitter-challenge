@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/chitter'
+# require './lib/chitter'
 require './lib/peep'
+require './lib/database_connection_setup'
 
 class ChitterApp < Sinatra::Base
   configure :development do

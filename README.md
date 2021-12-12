@@ -177,4 +177,5 @@ I believe this will help me as you could see from previous commits, I didn't con
 - we get a visual confirmation we used the right database when running tests by checking TablePlus, but it would be better to write some test for this.
 
 => let's extract an object which we will use to: - set up a connection to the db - separate application behaviour from database behaviour - wrap an adaptor object
-1) Extract the db logic to an object
+1) Extract the db logic to an object (DatabaseConnection class)
+2) use our new class to set up a connection (test or dev environment)
