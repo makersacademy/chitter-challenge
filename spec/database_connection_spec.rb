@@ -10,10 +10,20 @@ describe DatabaseConnection do
     end
   end
 
-  it 'this connection is persistent' do
+  xit 'this connection is persistent' do
     # Grab the connection as a return value from the .setup method
     connection = DatabaseConnection.setup('chitter_app_test')
 
     expect(DatabaseConnection.connection).to eq connection
+  end
+
+  describe '.query' do
+    it 'executes a query via PG' do
+      connection = DatabaseConnection.setup('chitter_app_test')
+
+      expect(connection).to receive(:exec_params).with("SELECT * FROM peeps;", [])
+
+      DatabaseConnection.query("SELECT * FROM peeps;")
+    end
   end
 end
