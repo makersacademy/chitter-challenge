@@ -41,6 +41,22 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users/login' do
+    erb :'users/login'
+  end
+
+  post '/users/login' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user] = user
+      flash[:success] = "Welcome, #{user.name}"
+      redirect '/peeps'
+    else
+      flash[:danger] = "Wrong Email or password"
+      redirect '/users/login'
+    end
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
