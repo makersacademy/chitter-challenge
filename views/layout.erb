@@ -6,10 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chitter</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <script src="https://kit.fontawesome.com/d2e9692b66.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container is-fluid">
+   
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <% flash.keys.each do |type| %>
+        <div class="notification is-success">
+          <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+          <%= flash[type] %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    
     <%= yield %>
+  
   </div>
+
 </body>
 </html>
