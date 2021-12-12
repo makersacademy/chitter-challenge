@@ -8,6 +8,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'pg'
 require './database_connection_setup'
+require './spec/features/web_helpers'
 
 SimpleCov.start
 

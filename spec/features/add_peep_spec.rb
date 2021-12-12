@@ -1,16 +1,7 @@
 feature 'Adding a peep' do
   scenario 'User can post a peep and see it appear' do
-    example_user = SignUp.create(email: 'example1@fake_email.com', password: 'Password123', user_name: 'Joe Biden', handle: 'sleepy_joe')
-    visit '/'
-    click_on 'Log In'
-    fill_in 'email', with: 'example1@fake_email.com'
-    fill_in 'password', with: 'Password123'
-    click_on 'Submit'
-    click_on 'Home'
-    fill_in 'text', with: 'I will Make America Great Again #MAGA'
-    fill_in 'user_name', with: 'Donald Trump'
-    fill_in 'handle', with: 'POTUS'
-    click_on 'Submit'
+    sign_up_and_log_in
+    peep_example
     expect(page).to have_content 'I will Make America Great Again #MAGA'
     expect(page).to have_content 'Donald Trump'
     expect(page).to have_content '@POTUS'
