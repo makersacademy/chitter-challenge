@@ -9,7 +9,6 @@ feature 'posting to chitter' do
     visit('/')
     fill_in('content', with: 'Test peep')
     click_button('Post')
-
     expect(page).to have_content('Test peep')
   end
 end
