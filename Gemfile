@@ -8,6 +8,7 @@ group :test do
   gem 'simplecov-console', require: false
   gem "capybara", "~> 3.36"
   gem "launchy", "~> 2.5"
+  gem "timecop", "~> 0.9.4"
 end
 
 group :development, :test do
@@ -24,5 +25,3 @@ gem "sinatra-flash", "~> 0.3.0"
 gem "rack", "~> 2.2"
 gem "webrick", "~> 1.7"
 gem "bcrypt", "~> 3.1"
-
-gem "timecop", "~> 0.9.4"
