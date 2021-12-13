@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Josefin+Sans&display=swap');
 body {
   background-color: #007acc;
   margin: 0;
   color: white;
+}
+h2 {
+  font-family: 'Fuzzy Bubbles', cursive;
 }
 #container {
   background-color: #004d80;
@@ -62,6 +66,7 @@ a {
   text-decoration: none;
 }
 #sign_up {
+  font-family: 'Josefin Sans', sans-serif;
   margin-top: 3rem;
   color: #c8ddea;
 }

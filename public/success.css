@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Josefin+Sans&display=swap');
 body {
   background-color: #004d80;
   background-image: url('https://shannonclaussen.files.wordpress.com/2013/04/blue-bird-wallpaper-free.jpg');
@@ -7,7 +8,7 @@ body {
   color: white;
 }
 #form-container {
-  background-color: #004d80;
+  background-color: rgba(0, 77, 128, 0.8);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -20,6 +21,9 @@ body {
   height: 200px;
   border-radius: 0.80rem;
   padding: 1.5rem auto 0.5rem;
+}
+h2 {
+  font-family: 'Fuzzy Bubbles', cursive;
 }
 #image_logo {
   background-image: url('https://us.123rf.com/450wm/yupiramos/yupiramos1301/yupiramos130100804/17427774-blue-bird-isolated-over-white-background-vector-illustration.jpg?ver=6');

@@ -1,4 +1,5 @@
 -- production database
 CREATE DATABASE chitter;
--- testdatabase
+
+-- test database
 CREATE DATABASE chitter_test;

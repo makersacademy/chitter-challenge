@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Josefin+Sans&display=swap');
 body {
   background-color: #004d80;
   margin: 0;
@@ -26,6 +27,9 @@ body {
   padding-top: 1rem;
   padding-left: 1rem;
   border-radius: 0.80rem;
+}
+h1, h2 {
+  font-family: 'Fuzzy Bubbles', cursive;
 }
 #image_logo {
   background-image: url('https://us.123rf.com/450wm/yupiramos/yupiramos1301/yupiramos130100804/17427774-blue-bird-isolated-over-white-background-vector-illustration.jpg?ver=6');
@@ -75,4 +79,5 @@ a {
 }
 #sign_in {
   color: #c8ddea;
+  font-family: 'Josefin Sans', sans-serif;
 }

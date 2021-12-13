@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Josefin+Sans&display=swap');
 body {
   background-color: #004d80;
   background-image: url('https://www.teahub.io/photos/full/295-2953068_yellow-sun-sky-background.jpg');
@@ -31,6 +32,7 @@ body {
 }
 h2 {
   padding-left: 0.5rem;
+  font-family: 'Fuzzy Bubbles', cursive;
 }
 li {
   list-style-type: none;
@@ -64,15 +66,15 @@ li {
   border-bottom: thin solid rgba(230, 245, 255, 0.3);
 }
 #peep-time {
-  padding: 0.5rem;
+  padding: 0.3rem 0 0.3rem 0.8rem;
 }
 #peep-msg {
-  /* background-color: violet; */
   width: 665px;
   height: 4rem;
   display: flex;
   border-bottom: thin solid rgba(230, 245, 255, 0.3);
-  padding: 0.5rem;
+  padding: 0.3rem 0 0.3rem 0.8rem;
+  font-family: 'Josefin Sans', sans-serif;
 }
 .logout {
   position: fixed;
