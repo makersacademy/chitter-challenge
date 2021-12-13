@@ -14,7 +14,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    
+    if SignUp.validate(params["username"], params["email"])
+      User.add_user(email: params["email"], username: params["username"], full_name: params["full_name"], password: params["password"])
+      session[:logged_in] = true
+      redirect '/'
+    else
+      session[:failed_sign_up]
+    end
   end
 
   get '/' do

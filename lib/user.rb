@@ -1,3 +1,5 @@
+require 'database_connection'
+
 class User
   attr_reader :id, :email, :username, :full_name, :password
 
@@ -18,6 +20,14 @@ class User
       [email, username, full_name, password]
     )
 
+    return User.new(result)
+  end
+
+  def self.find_user(credential, data)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE #{credential}='#{data}';")
+    if result.num_tuples.zero?
+      return false
+    end
     return User.new(result)
   end
 end

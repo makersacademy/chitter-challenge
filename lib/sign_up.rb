@@ -1,3 +1,5 @@
+require 'user'
+
 class SignUp
   
   def self.validate(username, email)
@@ -7,10 +9,11 @@ class SignUp
 
   private
   def self.username_valid?(username)
-    true ## TODO: run method to check username is unique
+    !!User.find_user('username', username) ? false : true
   end
 
   def self.email_valid?(email)
     true ## TODO: run method to check email is unique
+    !!User.find_user('email', email) ? false : true
   end
 end

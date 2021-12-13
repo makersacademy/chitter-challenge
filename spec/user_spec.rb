@@ -13,8 +13,6 @@ describe User do
       }]
 
       user = described_class.new(response_data)
-      p response_data[0]['id']
-      p user.id
       expect(user).to be_instance_of(described_class)
       expect(user.id).to eq 1
       expect(user.email).to eq "johnsmith@example.com"
@@ -40,6 +38,20 @@ describe User do
       expect(persisted_data["username"]).to eq 'Johnny S' 
       expect(persisted_data["full_name"]).to eq 'John Smith' 
       expect(persisted_data["password"]).to eq 'password123' 
+    end
+  end
+
+  describe '.find_user' do
+    it 'finds and returns a user from the DB with the specified credential' do
+      user = User.add_user(
+        email: 'johnsmith@example.com',
+        username: 'Johnny S',
+        full_name: 'John Smith',
+        password: 'password123'
+      )
+
+      expect(described_class.find_user('email','johnsmith@example.com')).to be_instance_of User
+      expect(described_class.find_user('username','Johnny S')).to be_instance_of User
     end
   end
 end
