@@ -1,0 +1,86 @@
+
+.site-wrapper {
+  display: flex;
+}
+
+.main-container {
+  padding: 1em;
+  border-left: 1px solid #f1eeee;
+  min-width: 350px;
+    max-width: 600px;
+}
+
+/* Navigation section */
+
+.nav-container {
+  margin-left: 3em;
+  padding: 2em;
+}
+
+.site-logo {
+  background-image: url("/images/chitter_bird_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nav-btn-wrapper {
+  display:flex;
+  min-width:150px;
+}
+
+.nav-icon {
+  width:40px;
+  height:40px;
+}
+
+/* posting a peep styling */
+.input-peep-container {
+  display:flex;
+}
+.user-avatar {
+  background-image:url("/images/user_avatar.png");
+  padding: 1.5em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right:0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  min-width:350px;
+}
+.input-peep{
+  border:none;
+  padding:2em 0.5em;
+}
+
+.peep-btn{
+ background-color: #1d9bef;
+ border-radius:20px;
+ color:white;
+ border:none;
+ padding:0.5em 1em;
+ max-width:80px;
+ margin-left: 15em;
+}
+
+/* Peep timeline styling */
+
+article.peep {
+  padding:1.5em 0em;
+  border-top:1px solid #80808040;
+}
+
+span.peep-username {
+  font-weight:800;
+  margin-right:2em;
+}
+
+.created_at_container {
+    color:grey;
+}
+
+.peep_body_container{
+   margin-top:1em;
+}

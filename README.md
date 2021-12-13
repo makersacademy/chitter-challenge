@@ -1,17 +1,10 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
 -------
 
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+To write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -21,15 +14,15 @@ STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (peep) to chitter  ✅
 
 As a maker
 So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+I want to see all peeps in reverse chronological order ✅ 
 
 As a Maker
 So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+I want to see the time at which it was made ✅ 
 
 As a Maker
 So that I can post messages on Chitter as me
@@ -54,6 +47,36 @@ I want to receive an email if I am tagged in a Peep
 
 Technical Approach:
 -----
+
+I completed the first 3 user stories. I have one table called Peeps, which is populated on initialization of the Peep class with a timestamp and the message body. I planned to create a second table called Users, to store the userid and the username. 
+
+To link the two tables, I would then need to add the userid from the User's table as a Foreign key in my Peeps table. 
+
+## Domain Model
+
+# ![Domain Model](https://github.com/sabrinalord/chitter-challenge/blob/main/screenshot/chitter-MVC-diagram.png)
+
+## Databse Setup
+
+### Main Database
+Connect to psql
+CREATE DATABASE chitter;
+\c chitter 
+
+CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, created_at TIMESTAMP, message_body VARCHAR(60), user_id VARCHAR(60));
+
+### Test Database
+Connect to psql
+CREATE DATABASE chitter_test;
+\c chitter 
+
+CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, created_at TIMESTAMP, message_body VARCHAR(60), user_id VARCHAR(60));
+
+
+### Current Progress
+
+# ![Site screenshot](https://github.com/sabrinalord/chitter-challenge/blob/main/screenshot/chitter_screenshot.png)
+
 
 In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
