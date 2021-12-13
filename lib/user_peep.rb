@@ -29,7 +29,7 @@ class UserPeep
 		)
   end
 
-	def self.add
+	def self.select
 		if ENV["ENVIRONMENT"] == 'test'
 			DatabaseConnection.setup("chitter_test")
 		else
@@ -37,7 +37,6 @@ class UserPeep
 		end
 
 		userpeeps = DatabaseConnection.query("SELECT * FROM userspeeps;")
-
   	userpeeps.map do |userpeep|
       UserPeep.new(user_id: userpeep['user_id'], peep_id: userpeep['peep_id'])
     end
@@ -87,11 +86,10 @@ class UserPeep
 
 	def self.view_all
 		UserPeep.new(user_id: 1, peep_id: 1)
-		UserPeep.add
+		UserPeep.select
 		UserPeep.add_users
 		UserPeep.add_peeps
 		@@pairs
 	end
 end
-
 
