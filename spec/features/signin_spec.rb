@@ -5,12 +5,12 @@ feature 'creating an account' do
   scenario 'user can sign up and sign in' do 
     visit '/'
     click_button 'Sign up'
-    fill_in 'name', with: 'Frank'
-    fill_in 'username', with: 'frank-mck'
-    fill_in 'email', with: 'frank@frank.com'
+    fill_in 'name', with: 'Waqas'
+    fill_in 'username', with: 'waqas-i'
+    fill_in 'email', with: 'waqas@waqas.com'
     fill_in 'password', with: 'qwerty1'
     click_button 'Submit'
-    expect(page).to have_content('Logged in as, Frank')
+    expect(page).to have_content('Logged in as, Waqas')
   end
 end
 
