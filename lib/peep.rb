@@ -23,12 +23,14 @@ class Peep
         WHERE junction_tagged_users.peep_id = $1;", 
         [peep["id"]]
       )
-      array = []
-      tagged_users.each do |tagged_user|
-        array << tagged_user['id']
+      tags_array = []
+      unless tagged_users.num_tuples.zero?
+        tagged_users.each do |tagged_user|
+          array << tagged_user['user_id']
+        end
       end
       user = User.new(name: peep["name"], username: peep["username"], email: peep["email"])
-      Peep.new(user: user, time: peep["time"], content: peep["content"], tagged_users: array)
+      Peep.new(user: user, time: peep["time"], content: peep["content"], tagged_users: tags_array)
     end
   end
 end

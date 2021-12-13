@@ -39,22 +39,26 @@ class Chitter < Sinatra::Base
       RETURNING id;",
       [session[:logged_in_user_id], Time.now, params['peep']]
     )
-    tags = params['tags'].split(',')
-    tags.each do |tag|
-      tagged_user_id = DatabaseConnection.query(
-        "SELECT id
-        FROM Users
-        WHERE username = $1;",
-        [tag]
-      )
-      if tagged_user_id.num_tuples.zero?
-        flash[:invalid_tag] = "#{tag} does not have a chitter account and will not be added to your peep"
-      else
-        DatabaseConnection.query(
-          "INSERT INTO junction_tagged_users(peep_id, user_id)
-          VALUES($1, $2);",
-          [peep_id[0]['id'], tagged_user_id[0]['id']]
+    p "PARAMS TAGS: #{params['tags']}"
+    unless params['tags'] == ""
+      tags = params['tags'].split(',')
+      tags.each { |tag| p "TAG ELEMENT: #{tag}"}
+      tags.each do |tag|
+        tagged_user_id = DatabaseConnection.query(
+          "SELECT id
+          FROM Users
+          WHERE username = $1;",
+          [tag]
         )
+        if tagged_user_id.num_tuples.zero?
+          flash[:invalid_tag] = "#{tag} does not have a chitter account and will not be added to your peep"
+        else
+          DatabaseConnection.query(
+            "INSERT INTO junction_tagged_users(peep_id, user_id)
+            VALUES($1, $2);",
+            [peep_id[0]['id'], tagged_user_id[0]['id']]
+          )
+        end
       end
     end
     redirect '/'
