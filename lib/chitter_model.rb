@@ -1,6 +1,11 @@
 require 'pg'
 
 class Chitter_Model
+
+  def self.username
+    @username
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -25,16 +30,17 @@ class Chitter_Model
     )
   end
 
-  def self.validation(username, password)
+  def self.validation(username:, password:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM accounts WHERE username = 'username' AND password = 'password';")   
+    result = connection.exec_params("SELECT * FROM accounts WHERE username = $1 AND password = $2;", [username, password])   
     if result.to_a.empty?
       return false
     else
+      @username = username
       return true
     end
   end
@@ -45,8 +51,9 @@ class Chitter_Model
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    unless (connection.exec_params("SELECT * FROM accounts WHERE username = 'username'").to_a.empty? &&
-      connection.exec_params("SELECT * FROM accounts WHERE email = 'email'").to_a.empty?) && (!name.nil? && !username.nil? && !password.nil? && !email.nil?)
+    if (connection.exec_params("SELECT * FROM accounts WHERE username = $1",[username]).to_a.empty? &&
+      connection.exec_params("SELECT * FROM accounts WHERE email = $1", [email]).to_a.empty?) && (name != "" && username != "" && password != "" && email != "")
+      puts "I got here!"
       result = connection.exec_params(
         "INSERT INTO accounts (name, username, password, email, created_on) VALUES($1, $2, $3, $4, $5) RETURNING name, username, password, email, created_on;", [
           name, username, password, email, created_on]

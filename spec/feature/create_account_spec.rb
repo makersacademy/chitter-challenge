@@ -12,6 +12,7 @@ feature 'create_account' do
   end
 
   scenario 'If the form is not fully completed or is a duplicate, an account is not created' do
+    connection = PG.connect(dbname: 'chitter_test')
     visit '/'
     click_button('Log In')
     click_button("Create Account")
@@ -20,19 +21,11 @@ feature 'create_account' do
     fill_in('name', with: "Nobody")
     click_button('Submit')
     expect(page).to have_content('Sorry, either that username/password is already taken, or the form wasnt completed correctly')
-    fill_in('username', with: 'Noname')
+    Chitter_Model.create_account(name: 'Someones',username: 'Someone',password: 'Password',email: 'myemail',created_on: '2021-12-11 16:48:09')
+    fill_in('username', with: 'Someones')
     fill_in('password', with: 'Um')
     fill_in('name', with: 'Nobody')
-    fill_in('email', with: 'this_is_my_email')
-    click_button('Submit')
-    expect(page).to have_content('successfully created your account')
-    click_button('back to home')
-    click_button('Log In')
-    click_button("Create Account")
-    fill_in('username', with: 'Noname')
-    fill_in('password', with: 'Um')
-    fill_in('name', with: 'Nobody')
-    fill_in('email', with: 'this_is_my_email')
+    fill_in('email', with: 'myemail')
     click_button('Submit')
     expect(page).to have_content('Sorry, either that username/password is already taken, or the form wasnt completed correctly')
   end

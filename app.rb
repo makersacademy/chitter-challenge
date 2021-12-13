@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/validation' do
-    @valid = Chitter_Model.validation(params[:username], params[:password])
+    @valid = Chitter_Model.validation(username: params[:username],password: params[:password])
     if @valid == true 
       @username = params[:username]
       redirect '/chitter/successful_login'
@@ -47,10 +47,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/posting' do
-    if @username.nil?
-      @username = "Noone"
-    end
-    Chitter_Model.create(username: @username,chitt: params[:chitt],time: Time.now)
+    Chitter_Model.create(username: Chitter_Model.username,chitt: params[:chitt],time: Time.now)
     redirect '/'
   end
 
