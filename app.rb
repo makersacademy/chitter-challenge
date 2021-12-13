@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
 
   post '/confirm_sign_up' do
     SignUp.create(email: params[:email], password: params[:password], user_name: params[:user_name], handle: params[:handle])
-    @user_info = SignUp.all.first
+    @user_info = SignUp.all.reverse.first
     erb :confirm_sign_up
   end
 
@@ -30,7 +30,7 @@ class Chitter < Sinatra::Base
 
   post '/confirm_log_in' do
     if SignUp.log_in_verified?(email: params[:email], password: params[:password])
-      @user_info = SignUp.all.first
+      @user_info = SignUp.all.reverse.first
       erb :confirm_log_in
     else
       erb :bad_log_in
@@ -39,7 +39,7 @@ class Chitter < Sinatra::Base
 
   get '/user_page/:id' do
     @peeps = Peep.all
-    @user_info = SignUp.all.first
+    @user_info = SignUp.all.reverse.first
     erb :user_page
   end
 
