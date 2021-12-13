@@ -15,8 +15,11 @@ class User
 
   def self.find_by(username:)
     rs = DatabaseConnection.query('SELECT * FROM users WHERE username = $1;', [username])
-    User.new(id: rs[0]['id'], username: rs[0]['username'], password: rs[0]['pw'], 
-email: rs[0]['email'])
+    if rs.ntuples != 0
+      User.new(id: rs[0]['id'], username: rs[0]['username'], password: rs[0]['pw'], email: rs[0]['email'])
+    else
+      return false
+    end
   end
 
   def self.create(username:, password:, email:)
@@ -27,9 +30,9 @@ email: rs[0]['email'])
 email: rs[0]['email'])
   end
 
-  def authenticate(username:, password:)
-    rs = DatabaseConnection.query('SELECT * FROM users WHERE username = $1 AND pw = $2', [username, password])
-    if rs.ntuples != 0
+  def self.authenticate(username:, password:)
+    rs = DatabaseConnection.query('SELECT * FROM users WHERE EXISTS(SELECT * FROM users WHERE username = $1 AND pw = $2);', [username, password])
+    if rs.ntuples > 0
       return true
     else 
       return false
