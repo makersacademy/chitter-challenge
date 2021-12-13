@@ -45,7 +45,8 @@ class Chitter < Sinatra::Base
     # The /peep page should be custom too with /peep/:id and auto creat using the user_name and handle from user info
   end
 
-  post '/:id/peep' do
+  post '/:id/:user_name/:handle/peep' do
+    p params
     Peep.create(text: params[:text], user_name: params[:user_name], handle: params[:handle], time_posted: Time.new)
     redirect '/user_page/id:'
   end

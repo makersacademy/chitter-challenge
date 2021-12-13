@@ -7,13 +7,11 @@
  </head>
 
 <h2> Chitter </h2>
-<h2> <%= @user_info.user_name %> <%= @user_info.handle %> </h2>
+<h3> <%= @user_info.user_name %> @<%= @user_info.handle %> </h3>
 <h3> <img src="https://i.imgur.com/eTLyhBq.jpg" title="chitter_image" style="width:50px;height:50px;"/> Let's get tweeting, uh I mean peeping <img src="https://i.imgur.com/eTLyhBq.jpg" title="chitter_image" style="width:50px;height:50px;"/> </h3>
 
-<form action="/<%= @user_info.id%>/peep" method='post'>
+<form action="/<%= @user_info.id%>/<%= @user_info.user_name%>/<%= @user_info.handle%>/peep" method='post'>
   <input type="text" name="text" placeholder='Insert peep'>
-  <input type="text" name="user_name" placeholder='User'>
-  <input type="text" name="handle" placeholder='Chitter handle'>
   <input type="submit" value="Submit">
 </form>
 <% @peeps.reverse.each do |peep| %>
