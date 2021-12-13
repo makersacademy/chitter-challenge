@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/post' do
-    if Chitter_Model.username == nil
+    if Chitter_Model.username.nil?
       erb :'/not_logged_in'
     else
       erb :'/post'
@@ -63,7 +63,7 @@ class Chitter < Sinatra::Base
     created = Chitter_Model.create_account(name: params[:name], username: params[:username],
                                 password: params[:password],email: params[:email], created_on: Time.now)
     if created == true
-        redirect '/chitter/successful_creation'
+      redirect '/chitter/successful_creation'
     else
       redirect '/chitter/unsuccessful_creation'
     end

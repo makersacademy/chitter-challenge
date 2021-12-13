@@ -2,11 +2,11 @@ require 'pg'
 
 def setup_test_database
 
-    p 'setting up test database...'
+  p 'setting up test database...'
 
-    connection = PG.connect(dbname: 'chitter_test')
+  connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec('TRUNCATE chitts;')
-    connection.exec('TRUNCATE accounts;')
+  connection.exec('TRUNCATE chitts;')
+  connection.exec('TRUNCATE accounts;')
 
 end

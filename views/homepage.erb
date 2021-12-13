@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+
 <h1> Welcome to Chitter! Please choose from the below options: </h1>
 <form action="/chitter/view" method="get">
   <input type="submit" value="View Chitts" />
@@ -11,4 +13,7 @@
 <form action="/chitter/logout" method="get">
   <input type="submit" value="Log Out" />
 </form>
-<h1> <%= Chitter_Model.username %> is currently logged in </h1>
+  <h1> <%=  if Chitter_Model.username != nil 
+               Chitter_Model.username
+  else "No-one"
+  end %> is currently logged in </h1>

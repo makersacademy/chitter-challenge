@@ -2,8 +2,8 @@ require 'pg'
 
 class Chitter_Model
 
-  def self.username
-    @username
+  class << self
+    attr_reader :username
   end
 
   def self.all
@@ -40,7 +40,8 @@ class Chitter_Model
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec_params("SELECT * FROM accounts WHERE username = $1 AND password = $2;", [username, password])   
+    result = connection.exec_params(
+"SELECT * FROM accounts WHERE username = $1 AND password = $2;", [username, password])   
     if result.to_a.empty?
       return false
     else
@@ -55,8 +56,10 @@ class Chitter_Model
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    if (connection.exec_params("SELECT * FROM accounts WHERE username = $1",[username]).to_a.empty? &&
-      connection.exec_params("SELECT * FROM accounts WHERE email = $1", [email]).to_a.empty?) && (name != "" && username != "" && password != "" && email != "")
+    if (connection.exec_params("SELECT * FROM accounts WHERE username = $1",
+[username]).to_a.empty? &&
+      connection.exec_params("SELECT * FROM accounts WHERE email = $1", 
+[email]).to_a.empty?) && (name != "" && username != "" && password != "" && email != "")
       puts "I got here!"
       result = connection.exec_params(
         "INSERT INTO accounts (name, username, password, email, created_on) VALUES($1, $2, $3, $4, $5) RETURNING name, username, password, email, created_on;", [

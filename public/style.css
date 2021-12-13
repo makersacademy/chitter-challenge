@@ -1,0 +1,74 @@
+body {
+  font-family: Didot, Didot, serif;
+  font-size: 24px;
+  color: rgb(37, 37, 37);
+  background-color: #12a8ff;
+}
+
+h1 {
+  font-weight: bold;
+  color: rgb(37, 37, 37);
+  font-size: 50px;
+  text-align: center;
+}
+
+label {
+  position: center;
+  font-size: 500x;
+}
+
+input[type='submit'] {
+  position: relative;
+  left: 42.5%;
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+  width: 15%;
+  font-size: 15px;
+  background-color: rgb(65, 137, 159);
+  font-weight: semibold;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type='text'], select {
+  position: relative; left: 30%; margin-left: -400px;
+  width: 40%;
+  padding: 12px 20px;
+  margin: 15px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+}
+
+#centered {
+  position: absolute;
+  text-align: center;
+	top: 12%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#bottom {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}

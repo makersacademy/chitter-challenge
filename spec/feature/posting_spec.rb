@@ -1,7 +1,7 @@
 feature 'posting chitt' do
 
   scenario 'Can log in and post a chitt under your username' do
-    visit'/'
+    visit '/'
     connection = PG.connect(dbname: 'chitter_test')
     Chitter_Model.create_account(name: 'Someone',username: 'Someone',password: 'Password',email: 'myemail',created_on: '2021-12-11 16:48:09')
     click_button('Log In')
