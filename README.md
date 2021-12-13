@@ -14,7 +14,7 @@ bundle
 
  ### To set up the database
 
- Connect to `psql` and create the `bookmark_manager` database:
+ Connect to `psql` and create the `chitter` database:
 
  ```
  CREATE DATABASE chitter;
@@ -29,6 +29,16 @@ bundle
  ```
 
  To get started, navigate to `localhost:3000/`
+
+### Test setup
+
+Follow the database setup instructions, but with the `chitter_test` database.
+
+To run tests:
+
+```
+rspec
+```
 
 ## Features:
 

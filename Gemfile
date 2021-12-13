@@ -6,8 +6,6 @@ gem 'pg'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
-gem 'bootstrap'
-gem 'sprockets'
 
 group :test do
   gem 'capybara'
