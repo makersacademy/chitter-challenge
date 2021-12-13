@@ -34,13 +34,19 @@
       </div>
 
       <div class="peep-timeline-container">
-        <ul>
-          <% @peeps.each do |peep| %>
-            <li>
-            <%= peep.peep_body %> , <%= peep.created_at %>
-            </li>
+        <div class = "peep_container">
+          <% @peeps.reverse_each do |peep| %>
+            <article class = "peep">
+              <div class = "peep-metadata">
+                <span class = "peep-username">Joe Bloggs</span>  
+                <span class = "created_at_container">posted at: <%= peep.created_at %></span>
+              </div>
+              <div class = "peep_body_container">
+                 <%= peep.peep_body %>  
+              </div>
+            </article>
           <% end %>
-        </ul>
+         </div>
       </div>
 
   </section>

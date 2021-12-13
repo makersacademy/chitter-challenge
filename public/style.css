@@ -4,9 +4,10 @@
 }
 
 .main-container {
-  width:70%;
   padding: 1em;
   border-left: 1px solid #f1eeee;
+  min-width: 350px;
+    max-width: 600px;
 }
 
 /* Navigation section */
@@ -47,6 +48,7 @@
 form {
   display: flex;
   flex-direction: column;
+  min-width:350px;
 }
 .input-peep{
   border:none;
@@ -60,5 +62,25 @@ form {
  border:none;
  padding:0.5em 1em;
  max-width:80px;
- margin-left: 7em;
+ margin-left: 15em;
+}
+
+/* Peep timeline styling */
+
+article.peep {
+  padding:1.5em 0em;
+  border-top:1px solid #80808040;
+}
+
+span.peep-username {
+  font-weight:800;
+  margin-right:2em;
+}
+
+.created_at_container {
+    color:grey;
+}
+
+.peep_body_container{
+   margin-top:1em;
 }

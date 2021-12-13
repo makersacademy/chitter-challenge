@@ -18,7 +18,7 @@ I want to post a message (peep) to chitter  ✅
 
 As a maker
 So that I can see what others are saying  
-I want to see all peeps ✅ in reverse chronological order 
+I want to see all peeps in reverse chronological order ✅ 
 
 As a Maker
 So that I can better appreciate the context of a peep
@@ -48,6 +48,9 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
+I completed the first 3 user stories. I have one table called Peeps, which is populated on initialization of the Peep class with a timestamp and the message body. I planned to create a second table called Users, to store the userid and the username. 
+
+To link the two tables, I would then need to add the userid from the User's table as a Foreign key in my Peeps table. 
 
 ## Domain Model
 
@@ -68,6 +71,11 @@ CREATE DATABASE chitter_test;
 \c chitter 
 
 CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, created_at TIMESTAMP, message_body VARCHAR(60), user_id VARCHAR(60));
+
+
+### Current Progress
+
+# ![Site screenshot](https://github.com/sabrinalord/chitter-challenge/blob/main/screenshot/chitter_screenshot.png)
 
 
 In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.

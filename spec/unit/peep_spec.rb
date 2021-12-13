@@ -1,5 +1,4 @@
 require 'peep'
-require 'spec_helper'
 
 describe Peep do
   @fake_timestamp = "11pm"
