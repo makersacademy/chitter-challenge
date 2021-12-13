@@ -52,4 +52,4 @@ rspec
 - [x] Unique username authentication
 - [x] Message replies
 - [x] CSS Styling
-- [x] RESTful Routing
+- [ ] RESTful Routing for all routes
