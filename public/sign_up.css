@@ -34,12 +34,6 @@ body {
   height: 45px;
   border-radius: 3rem;
 }
-/* #form-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 1.1rem;
-} */
 .details {
   background-color: #005c99;
   width: 18rem;

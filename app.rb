@@ -23,12 +23,12 @@ class Chitter < Sinatra::Base
 
   get '/home/anonymous' do
     @peeps = Message.view_all
-    # username to be added from users table
     erb :messages
   end
 
   post '/sign_in' do
     session[:username] = params[:username]
+    session[:password] = params[:password]
     redirect '/home'
   end
 
@@ -46,18 +46,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_message' do
-    Message.add(params[:message])
+    uid = User.current_uid(session[:username])
+    Message.add(params[:message], uid.to_i)
     redirect '/home'
   end
 
   get '/home' do
-    if session[:username] == ""
-      flash[:notice] = 'Please sign in with a username or as a guest'
-      redirect '/'
-    else
-      @username = session[:username]
+    if User.logged_in?(session[:username], session[:password])
       @peeps = Message.view_all
       erb :messages
+    else
+      flash[:notice] = 'Please sign in with a username & password or as a guest'
+      redirect '/'
     end
   end
 

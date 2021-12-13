@@ -5,9 +5,6 @@ body {
   height: 850px;
   margin: 0;
   color: white;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 #form-container {
   background-color: #004d80;

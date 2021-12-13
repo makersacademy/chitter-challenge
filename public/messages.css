@@ -1,22 +1,31 @@
 body {
   background-color: #004d80;
+  background-image: url('https://www.teahub.io/photos/full/295-2953068_yellow-sun-sky-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0;
   color: white;
 }
+#image_logo {
+  background-image: url('https://us.123rf.com/450wm/yupiramos/yupiramos1301/yupiramos130100804/17427774-blue-bird-isolated-over-white-background-vector-illustration.jpg?ver=6');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  border-radius: 3rem;
+  position: fixed;
+  top: 2%;
+  bottom: 80;
+  left: 4%;
+  right: 0;
+}
 #home-container {
   background-color: #005c99;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   max-width: 680px;
   width: 100%;
-  text-align: center;
   padding-bottom: 2rem;
   border: thin solid rgba(230, 245, 255, 0.3);
 }
@@ -64,4 +73,11 @@ li {
   display: flex;
   border-bottom: thin solid rgba(230, 245, 255, 0.3);
   padding: 0.5rem;
+}
+.logout {
+  position: fixed;
+  top: 80;
+  bottom: 2%;
+  left: 2%;
+  right: 0;
 }

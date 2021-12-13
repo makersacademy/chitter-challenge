@@ -9,9 +9,10 @@
   </head>
 
   <body>
+    <div id='image_logo'>
+    </div>
+
     <div id='home-container'>
-      <div id='image_logo'>
-      </div>
       <h2>Home</h2>
       <form action='/post_message' method='post'>
         <input type='text' name="message" placeholder="What's up Makers?" id='message'> 
@@ -23,14 +24,20 @@
 
       <% @peeps.each do |peep| %>
         <div id='peep-time'>
-          <%= @username %> -
+          <%= User.view(peep.user_id).name %> - @<%= User.view(peep.user_id).username %> -
           <%= peep.created_at[0..4] %>
         </div>
         <div id='peep-msg'>
           <%= peep.message %> 
         </div>
       <% end %>
-
     </div>
+
+    <div>
+      <form action='/' method='get'>
+        <input type='submit' value='Logout' class='logout' id='button'>
+      </form>
+    </div>
+
   </body>
 </html>
