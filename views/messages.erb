@@ -1,0 +1,43 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= url('/messages.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div id='image_logo'>
+    </div>
+
+    <div id='home-container'>
+      <h2>Home</h2>
+      <form action='/post_message' method='post'>
+        <input type='text' name="message" placeholder="What's up Makers?" id='message'> 
+        <br>
+        <div id='peep-btn'>
+          <input type='submit' value='Peep' id='button'>
+        </div>
+      </form>
+
+      <% @peeps.each do |peep| %>
+        <div id='peep-time'>
+          <%= User.view(peep.user_id).name %> - @<%= User.view(peep.user_id).username %> -
+          <%= peep.created_at[0..4] %>
+        </div>
+        <div id='peep-msg'>
+          <h4><%= peep.message %></h4>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <form action='/' method='get'>
+        <input type='submit' value='Logout' class='logout' id='button'>
+      </form>
+    </div>
+
+  </body>
+</html>

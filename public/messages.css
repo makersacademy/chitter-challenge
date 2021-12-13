@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Josefin+Sans&display=swap');
+body {
+  background-color: #004d80;
+  background-image: url('https://www.teahub.io/photos/full/295-2953068_yellow-sun-sky-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  color: white;
+}
+#image_logo {
+  background-image: url('https://us.123rf.com/450wm/yupiramos/yupiramos1301/yupiramos130100804/17427774-blue-bird-isolated-over-white-background-vector-illustration.jpg?ver=6');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  border-radius: 3rem;
+  position: fixed;
+  top: 2%;
+  bottom: 80;
+  left: 4%;
+  right: 0;
+}
+#home-container {
+  background-color: #005c99;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 680px;
+  width: 100%;
+  padding-bottom: 2rem;
+  border: thin solid rgba(230, 245, 255, 0.3);
+}
+h2 {
+  padding-left: 0.5rem;
+  font-family: 'Fuzzy Bubbles', cursive;
+}
+li {
+  list-style-type: none;
+}
+#message {
+  background-color: white;
+  width: 665px;
+  height: 4.8rem;
+  color: black;
+  margin-top: 0.2rem;
+  padding-left: 0.7rem;
+  border: 1px solid #b3e0ff;
+  border-radius: 3px;
+  font-size: 1.3rem;
+}
+#button {
+  background-color: white;
+  border-radius: 3rem;
+  width: 5.4rem;
+  height: 2.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: none;
+}
+#peep-btn {
+  display: flex;
+  justify-content: right;
+  padding: 0.7rem 1.2rem 0.7rem 0.7rem;
+  border-bottom: thin solid rgba(230, 245, 255, 0.3);
+}
+#peep-time {
+  padding: 0.3rem 0 0.3rem 0.8rem;
+}
+#peep-msg {
+  width: 665px;
+  height: 4rem;
+  display: flex;
+  border-bottom: thin solid rgba(230, 245, 255, 0.3);
+  padding: 0.3rem 0 0.3rem 0.8rem;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.logout {
+  position: fixed;
+  top: 80;
+  bottom: 2%;
+  left: 2%;
+  right: 0;
+}

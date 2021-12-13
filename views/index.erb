@@ -1,0 +1,38 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= url('/index.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div id='container'>
+      <div id='image_logo'>
+      </div>
+
+      <div id='form-wrapper'>
+        <h2>Sign in to Chitter</h2>
+        
+        <form action='/sign_in' method='post'>
+          <input type='text' name='username' placeholder='Username' class='input-field'>
+          <br>
+          <input type='password' name='password' placeholder='Password' class='input-field'>
+          <br>
+          <input type='submit' value='Sign in' class='button'>
+        </form>
+        <br>
+        <form action='/anonymous' method='post'>
+          <input type='submit' value='Sign in as a guest' class='button'>
+        </form>
+
+        <form>
+          <p id='sign_up'>Don't have an account yet? <a href='/sign_up'>Sign up</a></p>
+        </form>
+      </div>
+
+    </div>
+  </body>
+</html>
