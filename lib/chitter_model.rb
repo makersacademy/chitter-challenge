@@ -30,6 +30,10 @@ class Chitter_Model
     )
   end
 
+  def self.logout
+    @username = nil
+  end
+
   def self.validation(username:, password:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')

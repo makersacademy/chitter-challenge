@@ -25,7 +25,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/post' do
-    erb :'/post'
+    if Chitter_Model.username == nil
+      erb :'/not_logged_in'
+    else
+      erb :'/post'
+    end
   end
 
   post '/chitter/validation' do
@@ -66,7 +70,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/logout' do
-    @username = nil
+    Chitter_Model.logout
     erb :'/logout'
   end
 

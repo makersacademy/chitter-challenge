@@ -20,4 +20,17 @@ feature 'log in' do
     expect(page).to have_content("You've successfully logged in as Someone!")
   end
 
+  scenario 'Can log out' do
+    connection = PG.connect(dbname: 'chitter_test')
+    Chitter_Model.create_account(name: 'Someone',username: 'Someone',password: 'Password',email: 'myemail',created_on: '2021-12-11 16:48:09')
+    visit '/'
+    click_button('Log In')
+    fill_in('username', with: 'Someone')
+    fill_in('password', with: 'Password')
+    click_button('Submit')
+    click_button('Back to home')
+    click_button('Log Out')
+    expect(Chitter_Model.username).to eq(nil)
+  end
+
 end

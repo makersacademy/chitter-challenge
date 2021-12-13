@@ -23,4 +23,9 @@ feature "Homepage" do
     click_button('Log Out')
     expect(page).to have_content "You've successfully logged out!"
   end
+
+  scenario 'If you go to chitter accidentally, it takes you to the homepage' do
+    visit '/chitter'
+    expect(page).to have_content "Welcome"
+  end
 end
