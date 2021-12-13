@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
-<h1> 'Welcome to Chitter!'</h1>
-<br>
+<h1> Welcome to Chitter!</h1>
+
+<h3>Check out the Chitter feed below:</h3>
 <ul>
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep %></li>
+    <li>
+      <%= peep.username %> : "<%= peep.message %>" 
+    </li>
   <% end %>
 </ul>
