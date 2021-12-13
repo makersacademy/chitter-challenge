@@ -1,0 +1,1 @@
+UPDATE users SET tweet_id = 1 WHERE id = 1;
