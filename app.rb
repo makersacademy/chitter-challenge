@@ -65,7 +65,7 @@ email: params[:email])
     end
   end
 
-  post '/post_peep' do
+  post '/peep/new' do
     Peep.create(params[:content],session[:username])
     redirect '/'
   end
