@@ -1,0 +1,1 @@
+ALTER TABLE Peeps DROP COLUMN tagged_users_id;

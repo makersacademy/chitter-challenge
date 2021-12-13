@@ -1,0 +1,1 @@
+CREATE TABLE junction_tagged_users(peep_id INT REFERENCES Peeps(id), user_id INT REFERENCES Users(id));
