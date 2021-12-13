@@ -1,0 +1,17 @@
+<div class="columns is-centered">
+  <div class="column is-half">
+  <% @peeps.each do |peep| %>
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>John Smith</strong> <small>@johnsmith</small> <small><%= peep.time %></small>
+            <br>
+            <%= peep.text %>
+          </p>
+        </div>
+      </div>
+    </article>
+  <% end %>  
+  </div>
+</div>
