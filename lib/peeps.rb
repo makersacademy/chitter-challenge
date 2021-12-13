@@ -1,21 +1,22 @@
 require 'pg'
 
 class Peeps
-  attr_reader :peep
+  attr_reader :peep, :time_of_peep
 
-  def initialize(peep:)
+  def initialize(peep:, time_of_peep:)
     @peep = peep
+    @time_of_peep = time_of_peep
   end
 
-  def self.add(peep:)
+  def self.add(peep:, time_of_peep:)
     conn = PG.connect(dbname: 'chitter')
     if ENV['ENVIRONMENT'] == 'test'
       conn = PG.connect(dbname: 'chitter_test')
     else
       conn = PG.connect(dbname: 'chitter')
     end
-    result = conn.exec_params("INSERT INTO peeps (peep) VALUES ($1) RETURNING id, peep;", [peep])
-    Peeps.new(peep: result[0]['peep'])
+    result = conn.exec_params("INSERT INTO peeps (peep, time_of_peep) VALUES ($1, $2) RETURNING id, peep, time_of_peep;", [peep, time_of_peep])
+    Peeps.new(peep: result[0]['peep'], time_of_peep: result[0]['time_of_peep'])
   end
 
   def self.list
@@ -25,12 +26,9 @@ class Peeps
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    list_of_messages = []
     result = conn.exec("SELECT * FROM peeps")
     result.map do |peep|
-      message = Peeps.new(peep: peep['peep'])
-      list_of_messages << message.peep
+   p Peeps.new(peep: peep['peep'], time_of_peep: peep['time_of_peep:'])
     end
-    list_of_messages.sort.reverse
   end
 end

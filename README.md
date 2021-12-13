@@ -1,6 +1,11 @@
 Chitter Challenge
 =================
 
+* completed user story 1.
+* attempted user story 2 which worked, however when I came to attempting user story 3 
+I couldn't figure out the logic to maintain the reverse orders as well as displaying the time.
+* when user fills in the time, it saves into the database, however I'm unable to see it in my views.
+
 Features:
 -------
 
@@ -39,24 +44,6 @@ Some useful resources:
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
 
-Notes on functionality:
-------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 
