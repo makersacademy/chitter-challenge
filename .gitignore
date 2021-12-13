@@ -1,6 +1,5 @@
 /**/.DS_Store
 /coverage
-/images
 
 # Local cache of Rubocop remote config
 .rubocop-*
