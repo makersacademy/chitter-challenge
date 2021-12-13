@@ -6,6 +6,29 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+Approach:
+-------
+
+* I have used 3 classes: **Peep** to show all the peeps and create one, **User** to create a new one(Sign up) and to authenticate(Sign in)
+* 2 database tables: **users** with id, name, username, email, password columns. **peeps** with id, text, time (and reference id to user but not implemented) columns.
+* I follow RESTful routes convention
+* I have used https://bulma.io/ CSS framework to quickly apply some styling
+
+Databases Setup:
+-------
+
+Create a chitter database with peeps and users tables:
+In your terminal connect to psql, create the database using the psql command, connect to the database
+```
+➜ psql
+➜ CREATE DATABASE chitter;
+➜ \c chitter;
+```
+Run the query saved in the file db/migrations/01_create_peeps_table.sql
+Run the query saved in the file db/migrations/02_create_users_table.sql
+
+Repeat the process for a **chitter_test** database
+
 Challenge:
 -------
 
