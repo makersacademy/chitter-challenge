@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative './database_connection'
 
 class User
   attr_reader :id, :email, :username, :full_name, :password

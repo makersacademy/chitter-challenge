@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
 
+require './lib/sign_up'
+
 class Chitter < Sinatra::Base 
   configure :development do
     register Sinatra::Reloader
@@ -21,6 +23,10 @@ class Chitter < Sinatra::Base
     else
       session[:failed_sign_up]
     end
+  end
+
+  get '/log-in' do
+    erb :login
   end
 
   get '/' do
