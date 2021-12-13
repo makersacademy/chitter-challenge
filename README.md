@@ -129,3 +129,7 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+------ My Comments:
+
+2 Databases created, do not use foregin key to interact and so are separate. You can post a Chitt, sign in, sign out and also create an account. Cannot post a chitt unless signed in, and you cannot delete or update any chitts, or reply to others chitts. Styled using CSS with regards to centering, fonts and colours (including button details)
