@@ -2,14 +2,12 @@
 
 require 'pg'
 require 'singleton'
+require_relative './../lib/database_connection'
 
-class Setup
-  include Singleton
-  def truncate
-    p 'Connecting to chitter_test database...'
-    con = PG.connect(dbname: 'chitter_test')
-    p 'Cleaning up tables...'
-    con.exec('TRUNCATE peeps')
-    con.exec('TRUNCATE users')
-  end
+def truncate
+  p 'Connecting to chitter_test database...'
+  DatabaseConnection.setup('chitter_test')
+  p 'Cleaning up tables...'
+  DatabaseConnection.query('TRUNCATE peeps')
+  DatabaseConnection.query('TRUNCATE users')
 end

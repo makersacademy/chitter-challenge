@@ -21,7 +21,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    Setup.instance.truncate
+    truncate
   end
 
   config.after(:suite) do
