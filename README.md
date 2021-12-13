@@ -3,8 +3,6 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by forking this repo.
-
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
@@ -60,6 +58,9 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
+Comments:
+------
+I was only able to complete first two user stories. 
 
 ### To set up the chitter database:
 1. Connect to 'psql'

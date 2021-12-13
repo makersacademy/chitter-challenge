@@ -10,7 +10,6 @@ describe Peep do
       Peep.post(username: "javascript123", message: "Second peep")
       Peep.post(username: "sql123", message: "Third peep")
 
-
       peeps = Peep.all
       
       expect(peeps.length).to eq 3
@@ -32,6 +31,4 @@ describe Peep do
       expect(peep.message).to eq "This is my first peep!"
     end
   end
-
-
 end
