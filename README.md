@@ -38,8 +38,11 @@ I was able to implement the following features for this challenge:
 
 
 TODO:
+- Prevent users from submitting empty fields
+- Prevent users from submiting empty message
 - Allowing users to reply to messages
 - Stub Databases in unit tests
+- Improve CSS beautification
 
 ![Chitter example page](https://i.ibb.co/LndZ5bx/Screenshot-2021-12-13-at-12-06-20.png)
 
