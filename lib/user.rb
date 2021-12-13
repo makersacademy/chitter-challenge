@@ -37,13 +37,12 @@ class User
    User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], name: result[0]['name'])
   end  
 
-  private 
-    def self.check_if_email_unique(email:,username:)
-      email = DatabaseConnection.query("SELECT count(*) FROM users WHERE email=$1;", [email])
-      username = DatabaseConnection.query("SELECT count(*) FROM users WHERE username=$1;", [username])
+  def self.check_if_email_unique(email:,username:)
+    email = DatabaseConnection.query("SELECT count(*) FROM users WHERE email=$1;", [email])
+    username = DatabaseConnection.query("SELECT count(*) FROM users WHERE username=$1;", [username])
 
-      return 1 if email[0]['count'].to_i.positive?
-      return 2 if username[0]['count'].to_i.positive?
-    end
+    return 1 if email[0]['count'].to_i.positive?
+    return 2 if username[0]['count'].to_i.positive?
+  end
 
 end
