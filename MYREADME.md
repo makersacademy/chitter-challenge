@@ -90,3 +90,6 @@ MVC
 ![MVC model](/images/MVC_model.png)
 Database
 ![Database model](/images/database_model.png)
+
+---
+NOTES: I wanted to add more functionalities but run out of time. A guest can sign in and also post at the moment.. something I should fix when I have time.
