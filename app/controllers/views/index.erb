@@ -1,38 +1,28 @@
-<h1> Chitter </h1>
+<div class="container">
+  <div class="columns is-centered">
 
-<form action="/users/new">
-  <input type="submit" value="Sign up">
-</form>
+    <div class="column is-one-fifth">
+        <% if @user %>
+        <form action="/peeps/new" method="post">
+          <input class="input is-large" type="text" name="message">
+          <input class="input is-info has-background-info has-text-white mt-1 pl-2 pr-2 pt-1 pb-1" type="submit" value="Chitter">
+        </form>
+      <%end%>
+    </div>
 
-<% if @user %>
+    <div class="column is-one-fifth"> </div>
 
-  <h3> Welcome <%=@user.email%> </h3>
-  <form action="/sessions/delete" method="post">
-    <input type="submit" value="Sign out">
-  </form>
-
-  <div>
-    <form action="/peeps/new" method="post">
-      <input type="text" name="message">
-      <input type="submit" value="Chitter">
-    </form>
+    <div class="column">
+      <ul>
+        <% @chitters.each do |chitter| %>
+          <li> <%= chitter.message %> <br> 
+          <%= User.find(id: chitter.user_id).name %> - @<%= User.find(id: chitter.user_id).username %> <br>
+          <%= chitter.timestamp %> </li>
+          <br>
+        <% end %>
+      </ul>
+    </div>
+  
   </div>
-
-<% else %>
-
-  <form action="/sessions/new">
-    <input type="submit" value="Sign in">
-  </form>
-
-<% end %>
-
-<div>
-  <ul>
-    <% @chitters.each do |chitter| %>
-      <li> <%= chitter.message %> <br> 
-      <%= User.find(id: chitter.user_id).name %> - @<%= User.find(id: chitter.user_id).username %> <br>
-       <%= chitter.timestamp %> </li>
-    <% end %>
-  </ul>
 </div>
 

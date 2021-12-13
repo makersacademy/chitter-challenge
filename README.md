@@ -4,6 +4,7 @@ A clone of Twitter built using Ruby with Sinatra and PostgresSQL to create and m
 
 Tools
 ----
+- `Bulma` was used for some basic CSS implementation.
 - `PSQL` was used to create the databases and the `PG` gem to interact with the databases with ruby.
 - `Bcrypt` was used for encryption of user passwords.
 
@@ -37,11 +38,10 @@ I was able to implement the following features for this challenge:
 
 
 TODO:
-- CSS Styling
 - Allowing users to reply to messages
 - Stub Databases in unit tests
 
-![Chitter example page](https://i.ibb.co/rGZ70cv/Screenshot-2021-12-12-at-17-44-38.png)
+![Chitter example page](https://i.ibb.co/LndZ5bx/Screenshot-2021-12-13-at-12-06-20.png)
 
 Model
 -----
@@ -58,7 +58,7 @@ I decided to break down the webapp into 3 classes.
 
 View
 -----
-The view is where I put the least amount of time into, beautifying the website with some CSS would definitely go a long way. However I chose to focus on the functionality.
+The view is where I put the least amount of time into, beautifying the website with more than just some basic `Bulma` classes would definitely go a long way. However I chose to focus on the functionality.
 
 - `index.erb` presents a list of messages with user information and a timestamp.
   - Buttons also allow a user to sign in, sign out and sign up.
