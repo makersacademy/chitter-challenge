@@ -24,8 +24,8 @@ In your terminal connect to psql, create the database using the psql command, co
 ➜ CREATE DATABASE chitter;
 ➜ \c chitter;
 ```
-Run the query saved in the file db/migrations/01_create_peeps_table.sql
-Run the query saved in the file db/migrations/02_create_users_table.sql
+* Run the query saved in the file db/migrations/01_create_peeps_table.sql
+* Run the query saved in the file db/migrations/02_create_users_table.sql
 
 Repeat the process for a **chitter_test** database
 
