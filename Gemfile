@@ -21,6 +21,8 @@ end
 
 group :development do
   gem 'rack'
+  gem 'bcrypt'
+  gem "sinatra-flash"
 end
 
 group :development, :test do
