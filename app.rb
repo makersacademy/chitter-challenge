@@ -9,12 +9,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peep = Peep.all
     erb :homepage
   end
 
   post '/' do
-    $peep = params[:peep] 
-    # Peep.create -- - with the global variable this worked (but didn't save) but now trying to create a class method to do the same thing.
+    @newpeep= Peep.create(peep: params[:peep])
+    erb :homepage
     redirect '/'
   end
 

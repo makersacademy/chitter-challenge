@@ -13,9 +13,12 @@ body {
 </form>
 
 <h1> Peep Feed </h1>
-
 <ul>
+<%@newpeep%>
+  <% @peep.each do |peep| %>
    <li>
-      <%= $peep %>
-  </li>
+      <%=peep.peep%>
+   </li>
+   <% end%>
 </ul>
+
