@@ -1,0 +1,22 @@
+<body>
+<head>
+  <title>Chitter App</title>
+  <link href="<%= href="/styles.css" %>" rel="stylesheet" type="text/css" />
+</head>
+<h1>Welcome to Chitter</h1>
+<img src='https://thesaurus.plus/img/synonyms/450/chitter.png'>
+<h2>check out the lastest Peeps</h2>
+  <% @all_peeps.each do |peep| %>
+<dl>
+  <div><%= peep.content %></div>
+  <dt>created on <%= peep.created_at%></dt>
+</dl>
+  <% end %>
+<h3>
+  <form method='get' action='/peep'> 
+    <label for= 'create a peep'>
+      <input type='submit' value='Create A Peep' />
+    </label>
+  </form>
+</h3>
+</body>

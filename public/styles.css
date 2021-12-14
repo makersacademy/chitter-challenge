@@ -1,0 +1,74 @@
+body {
+  padding: 30px;
+  background-color: rgb(230, 227, 203);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  color: rgb(114, 182, 72);
+}
+
+div {
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  color: rgb(67, 97, 92);
+}
+
+dt {
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-style: italic;
+  color: rgb(67, 97, 92);
+}
+
+h2 {
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  color: rgb(114, 182, 72);
+}
+
+h3 {
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  color: rgb(67, 97, 92);
+}
+
+li {
+  font-size: 13px;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  color: rgb(67, 97, 92);
+}
+
+.new-peep-input {
+  box-sizing: 50px 50px;
+  font-family: "Oswald", sans-serif;
+  display: block;
+  margin: 11px auto;
+  background: rgb(114, 182, 72);
+  font-size: 18px;
+  padding: 15px 20px;
+  border: 2px solid (183, 69, 66);
+  border-radius: 100px;
+}
+
+
+img {
+  size: 50px;
+  display: block;
+  border-radius: 100px;
+  margin: auto;
+}
