@@ -4,10 +4,13 @@
     <h4><i class="bi bi-hash"></i></h4>
   </div>
   <% @tags.each do |tag|%>
-  <form action="/tags/<%= tag.id %>/peeps" method="get">
-    <button class="btn btn-sm m-2 btn-link bg-white" type="submit" value="<%= tag.id %>">
-      <h6><%= tag.text %></h6>
-    </button>
-  </form>
+    <form action="/tags/<%= tag.id %>/peeps" method="get">
+      <button class="btn btn-sm m-2 btn-link bg-white" type="submit" value="<%= tag.id %>">
+        <h6><%= tag.text %></h6>
+      </button>
+    </form>
   <% end %>
 </div>
+<% if @user %>
+  <%= partial :user_card %>
+<% end %>
