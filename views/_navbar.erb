@@ -1,28 +1,28 @@
- <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="background-color: #e3f2fd;">
-   <div class="container-fluid">
-     <a class=" text-white  navbar-brand" href="/"><img src="/images/logo_white.png" height="40" /></a>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+ <nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-primary" style="background-color: #e3f2fd;">
+  <div class="w-100 d-flex justify-content-around">
+    <a class="mt-1  navbar-brand" href="/"><img src="/images/ChitterLogo.svg" height="50" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <div class="nav navbar-right">
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <% if @user %>
-         <form action="/sessions/destroy" method="post">
-           <input class="m-2 btn btn-sm btn-outline-light" type="submit" style="font-family: 'Raleway', sans-serif;"
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav navbar-right">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <% if @user %>
+          <form action="/sessions/destroy" method="post">
+            <input class="m-2 btn btn-sm btn-outline-light" type="submit" style="font-family: 'Raleway', sans-serif;"
              id="Sign Out" value="Sign Out" />
-         </form>
-         <% else %>
-         <button type="button" class="m-2 btn btn-sm btn-outline-light" data-bs-toggle="modal"
+          </form>
+        <% else %>
+          <button type="button" class="m-2 btn btn btn-outline-light" data-bs-toggle="modal"
            style="font-family: 'Raleway', sans-serif;" data-bs-target="#SignInModal">
-           Sign In
-         </button>
-         <button type="button" class="m-2 btn btn-sm btn-outline-light" style="font-family: 'Raleway', sans-serif;"
+            Sign In
+          </button>
+          <button type="button" class="m-2 btn btn btn-light" style="font-family: 'Raleway', sans-serif;"
            data-bs-toggle="modal" data-bs-target="#SignUpModal">
-           Sign Up
-         </button>
-         <% end %>
-       </div>
-     </div>
-   </div>
- </nav>
+            Sign Up
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
