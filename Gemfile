@@ -14,6 +14,9 @@ gem 'relative_time'
 gem 'rss'
 gem 'sinatra-partial'
 gem 'puma'
+gem 'carrierwave', '~> 2.0'
+gem 'figaro'
+gem 'fog-aws'
 
 group :test do
   gem 'rspec'
