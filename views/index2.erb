@@ -1,0 +1,76 @@
+
+<h1>Chitter</h1>
+
+<% if @user %>
+    <h1>Welcome, <%= @user.email %></h1>
+    <form action="/logout_option" method="post">
+      <label for="logout_choice">
+        Log out
+      </label>
+    <input type="submit" name="logout_choice" value="Log out">
+    </form>
+  <% else %>
+    <form action="/login_option" method="post">
+      <label for="login_choice">
+        Register an account here
+      </label>
+    <input type="submit" name="login_choice" value="Register">
+    </form>
+    <h3>or</h3>
+    <form action="/login/option" method="post">
+      <label for="login_choice">
+        Log into your account here
+      </label>
+      <input type="submit" name="login_choice" value="Log in">
+    </form>
+<% end %>
+
+<form action ="peep/new" method="post">
+  <input type="text" name="peep" placeholder="What is on your mind?">
+  <input type="submit" value="Post">
+</form>
+
+<ul>
+  <% @peep_log.each do |peep| %>
+    <li>
+    <%= peep.message %>
+    time: <%= peep.time %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+
+<div class="login-form">
+    <img class="user-profile-img" src="/images/user-profile-icon.jpeg">
+      <h1>Login</h1>
+      <form action="/sessions" method="post">
+        <input id="email" type="email" name="email" class="input-box" placeholder="Enter email"/>
+        <input type="password" name="password" class="input-box" placeholder="Enter password"/>
+
+        <button type="submit" class="login-btn" value="Login">Login</button>
+
+      <hr>
+        <p class="or">OR</p>
+
+        <p>Don't have an account? <a href="/users/new">Sign up</p>
+
+      </form>
+ <div class="appstore-btns">
+          <img src="https://i.ibb.co/PD5kgzL/Apple-appstore-btn.png" alt="Download on apple app store">
+          <img src="https://i.ibb.co/FX4ykMt/Google-Play-Btn.png" alt="Download On Playstore">
+        </div>
+
+    </div>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>

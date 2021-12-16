@@ -6,7 +6,9 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 gem 'pg'
+gem 'selenium-webdriver'
 
 group :test do
   gem 'rspec'
@@ -19,3 +21,5 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem "puma", "~> 5.5"

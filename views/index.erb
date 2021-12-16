@@ -1,19 +1,15 @@
 
 <h1>Chitter</h1>
 
+<h2>Login</h2>
+<form action="/sessions" method="post">
+  <input class="input-box" id="email" type="email" name="email" placeholder="Enter email"/>
+  <input class="input-box" type="password" name="password"  placeholder="Enter password"/>
+  <button class="login-btn" type="submit" value="Login"> Login </button>
 
-<form action="/login_option" method="post">
-  <label for="login_choice">
-    Register an account here
-  </label>
-  <input type="submit" name="login_choice" value="Register">
+  <p>OR</p>
+
+  <p> <a href="/users/register"> Sign up </p>
+
 </form>
 
-<h3>or</h3>
-
-<form action="/login_option" method="post">
-  <label for="login_choice">
-    Log into your account here
-  </label>
-  <input type="submit" name="login_choice" value="Log in">
-</form>
