@@ -14,6 +14,7 @@ class User
   end
 
   def self.add_user(email:, username:, full_name:, password:)
+    ## Class method inserts a new user record into the database; returns an instance of User class
     result = DatabaseConnection.query("INSERT INTO users (email, username, full_name, password) 
       VALUES ($1, $2, $3, $4)
       RETURNING id, email, username, full_name, password;",
@@ -24,10 +25,9 @@ class User
   end
 
   def self.find_user(credential, data)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE #{credential}='#{data}';")
-    if result.num_tuples.zero?
-      return false
-    end
-    return User.new(result)
+    ## Class method queries database for a user based on a specified credential; returns false or an instance of User class
+    result = DatabaseConnection.query("SELECT * FROM users WHERE #{credential}='#{data}';") # TODO: exec_params method ("sql", [params]) DOES NOT WORK for some reason. Fix this.
+    return result.num_tuples.zero? ? false : User.new(result)
   end
+  
 end
