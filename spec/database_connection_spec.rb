@@ -7,6 +7,13 @@ describe DatabaseConnection do
       DatabaseConnection.setup('chitter_test')
     end
   end
+  
+  describe '.connection' do
+    it 'returns a database connection object' do
+      connection = DatabaseConnection.setup('chitter_test')
+      expect(DatabaseConnection.connection).to eq connection 
+    end
+  end
 
   describe '.query' do
     it 'performs an SQL query via PG' do
@@ -17,4 +24,5 @@ describe DatabaseConnection do
       DatabaseConnection.query("SELECT * FROM peeps")
     end
   end
+
 end
