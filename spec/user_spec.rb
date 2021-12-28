@@ -42,7 +42,7 @@ describe User do
   end
 
   describe '.find_user' do
-    it 'finds and returns a user from the DB with the specified credential' do
+    it 'finds and returns a user object from the DB using a specified credential' do
       user = User.add_user(
         email: 'johnsmith@example.com',
         username: 'Johnny S',

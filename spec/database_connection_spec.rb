@@ -16,7 +16,7 @@ describe DatabaseConnection do
   end
 
   describe '.query' do
-    it 'performs an SQL query via PG' do
+    it 'performs an SQL query via PG::connection.exec_params method' do
       connection = DatabaseConnection.setup(dbname)
 
       expect(connection).to receive(:exec_params).with("SELECT * FROM peeps", [])
