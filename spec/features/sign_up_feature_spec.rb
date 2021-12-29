@@ -1,4 +1,9 @@
 feature 'User Sign up' do
+  scenario 'user navigates to sign up page' do
+    visit('/')
+    click_on('Sign Up')
+    expect(current_path).to eq '/sign-up'
+  end
   scenario 'user is at sign in screen and creates an account with valid credentials' do
     visit('/sign-up')
     fill_in('email', with: 'johnsmith@example.com')
