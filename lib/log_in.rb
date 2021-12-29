@@ -3,18 +3,9 @@ require_relative './user'
 class LogIn
   
   def self.validate(email, password)
+    ## Predicate method that checks for existence of an email in the DB
+    ## and if its associated password matches the argument
     user = User.find_user('email', email)
-    if !!user
-      if password_valid?(user, password)
-        return true
-      end
-    end
-
-    return false
+    return !!user && user.password == password
   end
-
-  def self.password_valid?(user, password)
-    user.password == password
-  end
-
 end

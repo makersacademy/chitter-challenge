@@ -4,6 +4,7 @@ class User
   attr_reader :id, :email, :username, :full_name, :password
 
   def initialize(response_data)
+    ## Init method casts a PG::Response object hash values to attributes of a User instance
     response_data = response_data.first
 
     @id = response_data["id"].to_i
