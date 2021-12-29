@@ -4,6 +4,7 @@ class SignUp
   
   def self.validate(username, email)
     ## Class method that validates if sign up credentials are unique; returns bool
+    return false if username == "" || email == ""
     username_valid?(username) && email_valid?(email)
   end
 

@@ -43,15 +43,16 @@ describe User do
 
   describe '.find_user' do
     it 'finds and returns a user object from the DB using a specified credential' do
-      user = User.add_user(
-        email: 'johnsmith@example.com',
-        username: 'Johnny S',
-        full_name: 'John Smith',
-        password: 'password123'
-      )
+      add_user_to_DB()
 
       expect(described_class.find_user('email','johnsmith@example.com')).to be_instance_of User
       expect(described_class.find_user('username','Johnny S')).to be_instance_of User
+      expect(described_class.find_user('full_name','John Smith')).to be_instance_of User
+      expect(described_class.find_user('password','password123')).to be_instance_of User
+    end
+
+    it 'returns false when data argument is an empty string' do
+      expect(described_class.find_user('email', '')).to eq false
     end
   end
 end

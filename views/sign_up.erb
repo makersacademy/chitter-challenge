@@ -12,11 +12,8 @@
     <input type="email" name="email" placeholder="Email">
     <input type="text" name="full_name" placeholder="Full Name">
     <input type="text" name="username" placeholder="User Name (handle)">
-    <input type="text" name="password" placeholder="Password">
+    <input type="password" name="password" placeholder="Password">
     <input type="submit" value="Submit">
   </form>
-  <% if session[:failed_sign_up]%>
-  <h2>The username/email is already taken.</h2>
-  <% end %>
 </body>
 </html>

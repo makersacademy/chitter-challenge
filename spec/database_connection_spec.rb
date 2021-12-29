@@ -9,7 +9,7 @@ describe DatabaseConnection do
   end
   
   describe '.connection' do
-    it 'returns a database connection object' do
+    it 'is a persistent DB connection and so can return a database connection object' do
       connection = DatabaseConnection.setup(dbname)
       expect(DatabaseConnection.connection).to eq connection 
     end

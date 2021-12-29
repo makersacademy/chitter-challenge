@@ -3,13 +3,18 @@ require 'sinatra/reloader'
 require './database_connection_setup'
 
 require './lib/sign_up'
+require './lib/log_in'
 
 class Chitter < Sinatra::Base 
   configure :development do
     register Sinatra::Reloader
   end
-
+  
   enable :sessions, :method_override
+  
+  get '/' do
+    erb :index
+  end
 
   get '/sign-up' do
     erb :sign_up
@@ -17,11 +22,10 @@ class Chitter < Sinatra::Base
 
   post '/sign-up' do
     if SignUp.validate(params["username"], params["email"])
-      User.add_user(email: params["email"], username: params["username"], full_name: params["full_name"], password: params["password"])
-      session[:logged_in] = true
+      session[:logged_in_user] = User.add_user(email: params["email"], username: params["username"], full_name: params["full_name"], password: params["password"])
       redirect '/'
     else
-      session[:failed_sign_up]
+      redirect '/sign-up' ## TODO: Set up 'username/email already in use' banner
     end
   end
 
@@ -29,11 +33,12 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
-  get '/' do
-    if session[:logged_in] == true
-      erb :index
+  post '/log-in' do
+    if LogIn.validate(params["email"], params["password"])
+      session[:logged_in_user] = User.find_user('email', params["email"])
+      redirect '/'
     else
-      redirect '/log-in'
+      redirect '/log-in' ## TODO: Set up 'login failed' banner
     end
   end
 

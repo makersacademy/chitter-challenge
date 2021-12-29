@@ -7,12 +7,15 @@
   <title>Chitter: Log-in</title>
 </head>
 <body>
+<!-- Log in section -->
   <form action="/log-in" method="post">
-    <input type="text" name="email">
-    <input type="text" name="password">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
     <input type="submit" value="Log In">
   </form>
 
+<!-- Sign Up option -->
+  <p>Don't have an account?</p>
   <form action="/sign-up" method="get">
     <input type="submit" value="Sign Up"> 
   </form>
