@@ -2,8 +2,10 @@
 
 <h1> Welcome to the Peeps page!</h1>
 
+<a href="/peeps/new">New Peep!</a>
+
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <p><br><%= peep.text %><br>
       <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
     </br></p>

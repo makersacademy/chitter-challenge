@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello and Welcome to the Chitter app!'
+    erb :'peeps/homepage'
   end
 
   get '/peeps' do
