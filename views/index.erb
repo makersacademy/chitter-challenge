@@ -20,13 +20,26 @@
 
 <% else %>
 <p>Logged in as : <%= session[:logged_in_user].username %> </p>
-<form action="/" method="post">
+<form action="/log-out" method="post">
   <input type="submit" value="Log Out">
 </form>
 
 <% end %>
 
 <h2>Peep Feed</h2>
+<% if session[:logged_in_user] != nil %>
+<form action="/post-peep" method="post">
+  <div>
+  <textarea name="peep_body" id="peep_input" rows="4" cols="50" maxlength="255" placeholder="Maximum 255 characters" ></textarea>
+  </div>
+
+  <div>
+  <input type="submit" value="Post Peep">
+  </div>
+</form>
+
+<% end %>
+
 <ul>
   <li>Most recent peep goes here</li>
   <li>Second most recent peep goes here</li>

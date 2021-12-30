@@ -16,8 +16,12 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/' do
+  post '/log-out' do
     session[:logged_in_user] = nil
+    redirect '/'
+  end
+
+  post '/post-peep' do
     redirect '/'
   end
 
