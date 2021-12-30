@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :'peeps/homepage'
+    erb :'homepage'
   end
 
   get '/peeps' do
@@ -24,6 +24,19 @@ class Chitter < Sinatra::Base
     Peep.create(text: params[:text])
     redirect '/peeps'
   end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+  
+  post '/users/new' do
+    # user = User.create(email: params['email'], password: params['password'])
+    # @user = User.create(email: params[:email], password: params[:password])
+    # session[:user_id] = user.id
+    users={name: 'Hagrid', email: 'hagrid@gmail.com', password: 'hagrid123' }
+    redirect '/peeps'
+  end
+
 
   run! if app_file == $0
 end
