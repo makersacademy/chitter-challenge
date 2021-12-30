@@ -4,13 +4,13 @@ require 'database_helpers'
 describe User do
   describe '#initialize' do
     it 'takes the result of an SQL query and turns it into a user object' do
-      response_data = [{
+      response_data = {
         'id' => "1",
         'email' => "johnsmith@example.com",
         'username' => "Johnny S",
         'full_name' => "John Smith",
         'password' => "password123"
-      }]
+      }
 
       user = described_class.new(response_data)
       expect(user).to be_instance_of(described_class)
