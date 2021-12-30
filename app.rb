@@ -16,6 +16,11 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/' do
+    session[:logged_in_user] = nil
+    redirect '/'
+  end
+
   get '/sign-up' do
     erb :sign_up
   end

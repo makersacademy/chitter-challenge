@@ -9,17 +9,23 @@
 <body>
 <h1>Chitter</h1>
 
-<% if session[:logged_in_user] != nil %>
-  
-<% end %>
+<% if session[:logged_in_user] == nil %>
+<form action="/log-in" method="get">
+  <input type="submit" value="Log In">
+</form>
 
 <form action="/sign-up" method="get">
   <input type="submit" value="Sign Up">
 </form>
 
-<form action="/log-in" method="get">
-  <input type="submit" value="Log In">
+<% else %>
+<p>Logged in as : <%= session[:logged_in_user].username %> </p>
+<form action="/" method="post">
+  <input type="submit" value="Log Out">
 </form>
+
+<% end %>
+
 <h2>Peep Feed</h2>
 <ul>
   <li>Most recent peep goes here</li>
