@@ -4,6 +4,7 @@ require './database_connection_setup'
 
 require './lib/sign_up'
 require './lib/log_in'
+require './lib/peep'
 
 class Chitter < Sinatra::Base 
   configure :development do
@@ -22,6 +23,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/post-peep' do
+    user = session[:logged_in_user]
+    Peep.post(user.id, params["peep_body"])
     redirect '/'
   end
 
