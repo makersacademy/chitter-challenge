@@ -1,6 +1,8 @@
 <% require 'time' %>
 
-
+<% if @user %>
+  <h1>Welcome to Chitter <%= @user.username %></h1>
+<% end %>
 
 <ul>
   <% @peeps.reverse_each do |peep| %>
