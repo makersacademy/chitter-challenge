@@ -11,7 +11,7 @@ feature 'register users' do
     fill_in('email', with: 'hagrid@gmail.com')
     fill_in('password', with: 'hagrid123')    
     click_button('Sign Up')
-    expect(page).to have_current_path('/users/login')
+    
     expect(page).to have_content('Please Log In to your account')
   end
 end

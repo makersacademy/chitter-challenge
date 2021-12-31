@@ -37,7 +37,8 @@ class User
     User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
 
-  def self.login(email:, password:)
+  def self.authenticate(email:, password:)
+  
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
@@ -46,7 +47,7 @@ class User
    
     result = connection.exec("SELECT * FROM users WHERE email = $1", [email])
     return unless result.any?
-    return unless result[0]['password'] == password
+    # return unless result[0]['password'] == password
     User.new(email: result[0]['email'], username: result[0]['username'], id: result[0]['id'], password: result[0]['password'])
   end
 

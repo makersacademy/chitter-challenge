@@ -1,6 +1,9 @@
 <h1> Please Log In to your account </h1>
 
-<form action="/users/login" method="post">
+<p> <%= flash[:notice] %> </p>
+
+
+<form action="/sessions" method="post">
   
   <label for="email">Email</label>
   <input type="email" name="email" required />  
@@ -8,5 +11,5 @@
   <label for="password">Password</label>
   <input type="password" name="password" required />
   
-  <input type="submit" class="button" value="Login" />
+  <input type="submit" class="button" value="Log In" />
 </form>

@@ -5,10 +5,12 @@ ruby '3.0.2'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 gem 'capybara'
 gem 'webrick'
 gem 'rspec'
 gem 'bcrypt'
+
 
 group :test do
   gem 'simplecov', require: false

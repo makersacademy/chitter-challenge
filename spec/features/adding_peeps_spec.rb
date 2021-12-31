@@ -6,10 +6,10 @@ feature 'Creating peeps' do
 
     visit('/')
     click_button('Log In')
-    visit('/users/login')
-    fill_in :email, with: 'hagrid@gmail.com'
-    fill_in :password, with: 'hagrid123'
-    click_button('Login')
+    visit('/sessions/new')
+    fill_in('email', with: 'hagrid@gmail.com')
+    fill_in('password', with: 'hagrid123')
+    click_button('Log In')
     click_link('New Peep!')
     visit('/peeps/new')
     fill_in('text', with: 'My first peep!')
