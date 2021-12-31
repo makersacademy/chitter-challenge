@@ -4,6 +4,8 @@ require_relative './lib/peep'
 require_relative './lib/user'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  
   configure :development do
     register Sinatra::Reloader
   end

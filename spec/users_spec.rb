@@ -22,3 +22,11 @@ describe '.find' do
     expect(result).to eq(user.id)
   end
 end
+
+describe '.login' do 
+  it 'logs in a user' do
+    User.create(username: 'Hagrid', email: 'hagrid@gmail.com', password: 'hagrid123')
+    user = User.login(email: 'hagrid@gmail.com', password: 'hagrid123')
+    expect(user.username).to eq 'Hagrid'
+  end
+end
