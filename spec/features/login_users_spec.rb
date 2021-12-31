@@ -8,9 +8,9 @@ feature 'logging in a user' do
     visit('/')
     click_button('Log In')
     visit('/users/login')
-    fill_in :username, with: 'Hagrid'
-    fill_in :password, with: 'hagrid123'
-    click_button('Log In')
+    fill_in('email', with: 'hagrid@gmail.com')
+    fill_in('password', with: 'hagrid123')
+    click_button('Login')
     visit('/peeps')
     expect(page).to have_content('Welcome to Chitter Hagrid!')
   end

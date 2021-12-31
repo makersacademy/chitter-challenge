@@ -8,6 +8,7 @@ gem 'sinatra-contrib'
 gem 'capybara'
 gem 'webrick'
 gem 'rspec'
+gem 'bcrypt'
 
 group :test do
   gem 'simplecov', require: false

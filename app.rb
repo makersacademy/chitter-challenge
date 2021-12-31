@@ -5,7 +5,7 @@ require_relative './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -15,6 +15,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    # Fetch the user from the database, using an ID stored in the session
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -32,10 +34,11 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
   
-  post '/users/new' do
-    User.create(username: params[:username], email: params[:email], password: params[:password])
-    # session[:user_id] = user.id
-    redirect '/peeps'
+  # post '/users/new' do >> also changed views
+  post '/users' do
+    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/users/login'
   end
 
   get '/users/login' do
@@ -44,6 +47,12 @@ class Chitter < Sinatra::Base
 
   post '/users/login' do
     user = { email: 'hagrid@mail.com', password: 'hagrid123' }
+    # User.login(email: params[:email], password: params[:password])
+    #   # session[:username] = User.find(username: @user.username)
+    #   # session[:email] = @user.email
+    #   # session[:id] = User.find(id: @user.id)
+    # # session[:user_id] = user.id
+    # session[:username] = user.username
     redirect '/peeps'
   end
 
