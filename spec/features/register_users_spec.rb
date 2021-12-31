@@ -5,7 +5,7 @@ feature 'register users' do
     connection = PG.connect(dbname: 'chitter_test')
 
     visit('/')
-    click_link('Register')
+    click_button('Sign Up')
     visit('/users/new')
     fill_in('username', with: 'Hagrid')
     fill_in('email', with: 'hagrid@gmail.com')

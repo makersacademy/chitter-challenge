@@ -1,9 +1,12 @@
 <% require 'time' %>
 
+<p> Welcome to Chitter Hagrid!</p> 
+
 <% if @user %>
   <h1>Welcome to Chitter <%= @user.username %></h1>
 <% end %>
 
+<h3> Peeps Bonanza </h3>
 <ul>
   <% @peeps.reverse_each do |peep| %>
     <p><br><%= peep.text %><br>
@@ -16,4 +19,4 @@
 <a href="/peeps/new">New Peep!</a>
 
 
-<p> Welcome to Chitter Hagrid!</p> 
+

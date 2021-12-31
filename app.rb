@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep'
+require_relative './lib/user'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -32,6 +33,15 @@ class Chitter < Sinatra::Base
   post '/users/new' do
     User.create(username: params[:username], email: params[:email], password: params[:password])
     # session[:user_id] = user.id
+    redirect '/peeps'
+  end
+
+  get '/users/login' do
+    erb :'users/login'
+  end
+
+  post '/users/login' do
+    user = { email: 'hagrid@mail.com', password: 'hagrid123' }
     redirect '/peeps'
   end
 
