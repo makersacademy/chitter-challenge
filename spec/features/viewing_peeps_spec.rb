@@ -4,7 +4,7 @@ require 'time'
 feature 'Visits the homepage' do
   scenario 'Visiting the index page' do
     visit('/')
-    expect(page).to have_content 'Hello and Welcome to the Chitter app!'
+    expect(page).to have_content 'Hello and Welcome to Chitter!'
   end
 end
 

@@ -1,6 +1,12 @@
 <% require 'time' %>
 
-<h1>Welcome to Chitter Hagrid! <%= "#{@user}!" %> </h1>
+<% unless @user == nil %>
+  <h1> Welcome to Chitter <%= @user.username %>!</h1>
+
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Log Out" />
+  </form>
+<% end %>
 
 <h3> Peeps Bonanza </h3>
 <ul>
@@ -11,18 +17,19 @@
   <% end %>
 </ul>
 
+<% if @user != nil %>
+  <a href="/peeps/new">New Peep!</a>
+<% else %>
+    <div>
+      <a href="/users/new">
+        <button>Sign Up</button>
+      </a>
+    </div>
+    <br>
+    <div>
+      <a href="/sessions/new">
+        <button>Log In</button>
+      </a>
+    </div>
+<% end %> 
 
-<a href="/peeps/new">New Peep!</a>
-
-
-
-<div>
-  <a href="/users/new">
-    <button>Sign Up</button>
-  </a>
-</div>
-<div>
-  <a href="/sessions/new">
-    <button>Log In</button>
-  </a>
-</div> 

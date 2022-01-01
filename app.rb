@@ -53,12 +53,15 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
     else
       flash[:notice] = "Please check your email or password."
-      # puts 'Please check your email or password.'
       redirect('/sessions/new')
     end
-
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = "You have signed out."
+    redirect '/'
+  end
 
   run! if app_file == $0
 end

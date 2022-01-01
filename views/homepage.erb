@@ -1,13 +1,15 @@
-<h1>Hello and Welcome to the Chitter app!</h1>
+<h1>Hello and Welcome to Chitter!</h1>
 
+<p> <%= flash[:notice] %> </p> 
 
 <div>
   <a href="/users/new">
     <button>Sign Up</button>
   </a>
 </div>
+<br>
 <div>
-  <a href="/users/login">
+  <a href="/sessions/new">
     <button>Log In</button>
   </a>
 </div> 
