@@ -7,7 +7,7 @@ feature 'Authentication' do
     User.create(username: 'Hagrid', email: 'hagrid@mail.com', password: 'hagrid123')
 
     visit('/sessions/new')
-    fill_in('email', with: 'hagrid@gmail.com')
+    fill_in('email', with: 'hagrid@mail.com')
     fill_in('password', with: 'hagrid123')
     click_button('Log In')
     visit('/peeps')
@@ -45,8 +45,8 @@ feature 'Authentication' do
     User.create(username: 'Hagrid', email: 'hagrid@mail.com', password: 'hagrid123')
 
     visit('/sessions/new')
-    fill_in('email', with: 'hagrid@gmail.com')
-    fill_in('password', with: 'hagrid123')
+    fill_in(:email, with: 'hagrid@mail.com')
+    fill_in(:password, with: 'hagrid123')
     click_button('Log In')
     visit('/peeps')
     click_button('Log Out')

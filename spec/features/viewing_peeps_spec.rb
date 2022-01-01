@@ -20,7 +20,7 @@ feature 'Viewing peeps' do
   end
 
   scenario 'A user can see time of peep' do
-    allow(Time).to receive(:now).and_return(Time.parse("2021-11-14 20:00:00 +0100"))
+    allow(Time).to receive(:now).and_return(Time.parse("2022-01-01 20:00:00 +0100"))
     Peep.create(text: 'Chrono Peep!')
     visit '/peeps'
     expect(page).to have_content('Chrono Peep! 20:00, 14 November')
