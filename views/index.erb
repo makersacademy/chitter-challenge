@@ -42,9 +42,15 @@
 
 <!-- TODO: Display peeps in rev-chron order and display body, username of poster and create time+date -->
 <ul>
-  <li>Most recent peep goes here</li>
-  <li>Second most recent peep goes here</li>
-  <li>etc...</li>
+  <% Peep.all.each do |peep| %>
+    <li>
+      <div>
+        <p><%= peep.user_id %></p> <!-- TODO: Cross ref in Database to get username -->
+        <p><%= peep.body %></p>
+        <p><%= peep.create_time %></p>
+      </div>
+    </li>
+  <% end %>
 </ul>
   
 </body>

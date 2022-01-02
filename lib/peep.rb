@@ -1,6 +1,9 @@
 require_relative './database_connection.rb'
 
 class Peep
+
+  attr_reader :id, :user_id, :body, :create_time
+
   def initialize(response_data)
     ## Init method casts a PG::Response object hash values to attributes of a Peep instance
     @id = response_data["id"].to_i
@@ -22,5 +25,11 @@ class Peep
   end
 
   ## TODO: def self.all to generate an array of peeps in rev-chron order.
+  def self.all
+    results = DatabaseConnection.query("SELECT * FROM peeps ORDER BY create_time DESC;")
+    peep_arr = results.map { |result|
+      Peep.new(result)
+    }
+  end
 
 end

@@ -14,4 +14,13 @@ describe Peep do
       expect(query_hash["body"]).to eq peep_body
     end
   end
+
+  describe '.all' do
+    it 'returns an array of Peep instances' do
+      add_five_peeps_to_DB()
+
+      expect(described_class.all).to be_instance_of(Array)
+      expect(described_class.all).to include(described_class)
+    end
+  end
 end
