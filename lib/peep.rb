@@ -24,12 +24,14 @@ class Peep
     return Peep.new(new_peep.first)
   end
 
-  ## TODO: def self.all to generate an array of peeps in rev-chron order.
-  def self.all
+  def self.all()
+    ## returns an array of Peep instances in descending order of create time attribute
     results = DatabaseConnection.query("SELECT * FROM peeps ORDER BY create_time DESC;")
     peep_arr = results.map { |result|
       Peep.new(result)
     }
   end
+
+  ## TODO: def method that returns the Username of the peep author
 
 end
