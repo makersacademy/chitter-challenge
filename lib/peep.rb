@@ -1,4 +1,4 @@
-require 'database_connection.rb'
+require_relative './database_connection.rb'
 
 class Peep
   def initialize(response_data)
@@ -20,4 +20,7 @@ class Peep
     )
     return Peep.new(new_peep.first)
   end
+
+  ## TODO: def self.all to generate an array of peeps in rev-chron order.
+
 end

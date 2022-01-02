@@ -14,6 +14,8 @@ class User
 
   def self.add_user(email:, username:, full_name:, password:)
     ## Class method inserts a new user record into the database; returns an instance of User class
+
+    ## TODO: encrypt passwords before storing in DB
     result_arr = DatabaseConnection.query("INSERT INTO users (email, username, full_name, password) 
       VALUES ($1, $2, $3, $4)
       RETURNING id, email, username, full_name, password;",
