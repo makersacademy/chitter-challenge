@@ -32,6 +32,4 @@ class Peep
     }
   end
 
-  ## TODO: def method that returns the Username of the peep author
-
 end

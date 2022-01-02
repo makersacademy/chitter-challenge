@@ -9,8 +9,12 @@ feature 'Post a peep' do
     end
 
     scenario 'User can still see peeps posted' do
+      add_user_to_DB()
       add_five_peeps_to_DB()
       visit('/')
+
+      expect(page).to have_content('Johnny S')
+
       expect(page).to have_content('Hey')
       expect(page).to have_content('Hi')
       expect(page).to have_content('Hello')

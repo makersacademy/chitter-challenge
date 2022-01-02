@@ -16,7 +16,7 @@ def add_peep_to_DB(user_id, body, create_time)
   DatabaseConnection.query("INSERT INTO peeps (user_id, body, create_time) VALUES ($1, $2, $3);", [user_id, body, create_time])
 end
 
-def add_five_peeps_to_DB()
+def add_five_peeps_to_DB(user_id=1)
   ## helper method that adds five peeps to the database, time intervals are random within one minute
   time_arr = [Time.new]
   4.times {time_arr << Time.new + rand(60) }
@@ -24,7 +24,7 @@ def add_five_peeps_to_DB()
 
     i = 0
     time_arr.each { |time|
-      add_peep_to_DB(rand(100), peep_bodies[i], time.strftime("%Y-%m-%d %H:%M:%S"))
+      add_peep_to_DB(user_id, peep_bodies[i], time.strftime("%Y-%m-%d %H:%M:%S"))
       i+=1
     }
 end

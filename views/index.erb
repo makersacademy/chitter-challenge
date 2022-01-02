@@ -40,12 +40,11 @@
 
 <% end %>
 
-<!-- TODO: Display peeps in rev-chron order and display body, username of poster and create time+date -->
 <ul>
   <% Peep.all.each do |peep| %>
     <li>
       <div>
-        <p><%= peep.user_id %></p> <!-- TODO: Cross ref in Database to get username -->
+        <p><%= User.find_user('id', peep.user_id).username %></p>
         <p><%= peep.body %></p>
         <p><%= peep.create_time %></p>
       </div>
