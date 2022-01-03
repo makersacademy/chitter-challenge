@@ -37,7 +37,7 @@ describe User do
       expect(persisted_data["email"]).to eq 'johnsmith@example.com' 
       expect(persisted_data["username"]).to eq 'Johnny S' 
       expect(persisted_data["full_name"]).to eq 'John Smith' 
-      expect(persisted_data["password"]).to eq 'password123' 
+      expect(persisted_data["password"]).to eq Digest::SHA256.hexdigest('password123')
     end
   end
 
@@ -48,7 +48,7 @@ describe User do
       expect(described_class.find_user('email','johnsmith@example.com')).to be_instance_of User
       expect(described_class.find_user('username','Johnny S')).to be_instance_of User
       expect(described_class.find_user('full_name','John Smith')).to be_instance_of User
-      expect(described_class.find_user('password','password123')).to be_instance_of User
+      expect(described_class.find_user('password', Digest::SHA256.hexdigest('password123'))).to be_instance_of User
     end
 
     it 'returns false when data argument is an empty string' do

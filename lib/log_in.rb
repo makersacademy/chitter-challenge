@@ -1,3 +1,5 @@
+require 'digest'
+
 require_relative './user'
 
 class LogIn
@@ -6,9 +8,7 @@ class LogIn
     ## Predicate method that checks for existence of an email in the DB
     ## and if its associated password matches the argument
 
-    ## TODO: Once passwords are stored as encrypted in the DB
-    ## hash the password here before validating against database
     user = User.find_user('email', email)
-    return !!user && user.password == password
+    return !!user && user.password == Digest::SHA256.hexdigest(password)
   end
 end
