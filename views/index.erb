@@ -41,10 +41,12 @@
 <% end %>
 
 <ul>
-  <% Peep.all.each do |peep| %>
+  <% Peep.all.each do |peep| 
+    user = User.find_user('id', peep.user_id)
+  %>
     <li>
       <div>
-        <p><%= User.find_user('id', peep.user_id).username %></p>
+        <p> <%= user.full_name %> (<%= user.username %>)</p>
         <p><%= peep.body %></p>
         <p><%= peep.create_time %></p>
       </div>

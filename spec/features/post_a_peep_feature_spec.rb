@@ -13,6 +13,7 @@ feature 'Post a peep' do
       add_five_peeps_to_DB()
       visit('/')
 
+      expect(page).to have_content('John Smith')
       expect(page).to have_content('Johnny S')
 
       expect(page).to have_content('Hey')
