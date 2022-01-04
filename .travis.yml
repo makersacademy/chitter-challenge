@@ -1,10 +1,21 @@
 language: ruby
 
+
+before_install:
+  - gem install bundler
+  - gem update --system
+  - gem --version
+  - rvm reinstall ruby-3.0.2
+
 services:
   - postgresql
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c '\c chitter_test'
+  - psql -U postgres -c 'CREATE TABLE users (user_id SERIAL PRIMARY KEY, username VARCHAR(20) NOT NULL UNIQUE, name VARCHAR (40) NOT NULL UNIQUE, email_address VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(50) NOT NULL);'
+  - psql -U postgres -c 'CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, content VARCHAR (140) NOT NULL, posttime TIMESTAMPTZ, author_id INTEGER REFERENCES users (user_id));'
 
 script:
+  - bundle config set --local deployment 'true'
   - bundle exec rspec

@@ -1,0 +1,14 @@
+<section class="feed">
+  <div class="center">
+    <ul>
+      <% @peeps.reverse.each do |peep| %>
+        <li><%= peep %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="center-button">
+  <form action="/peeps/new">
+    <input type="submit" value="Write new Peep" name="write_peeps">
+  </form>
+  </div>
+</section>

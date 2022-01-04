@@ -1,0 +1,99 @@
+
+body {
+  background-color: white;
+  margin-top: 110px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+section.homepage-buttons {
+  text-align: center;
+}
+
+section.feed {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+form {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+input[type=text] {
+  border: 2px solid grey;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+input[type=submit] {
+  border: none;
+  border-radius: 7px;
+  padding: 16px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #1DA1F2;
+  color: white;
+}
+
+@counter-style bird {
+  system: cyclic;
+  symbols: "\1F426";
+  suffix: " ";
+}
+
+ul {
+  list-style: "\1F426";
+  color: black;
+  font-size: medium;
+  font-family: 'Raleway', sans-serif;
+}
+
+div.center {
+  border: 3px solid #1DA1F2;
+}
+
+div.navbar {
+  overflow: hidden;
+  background-color:#1DA1F2;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  left: 0;
+  height: 100px;
+  width: 100%; /* Full width */
+}
+
+h1.navbar-item {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+h2.navbar-item {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: underline;
+}

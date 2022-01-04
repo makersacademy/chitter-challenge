@@ -1,0 +1,1 @@
+CREATE TABLE feed (id SERIAL PRIMARY KEY, peep_id INTEGER REFERENCES peeps(peep_id));
