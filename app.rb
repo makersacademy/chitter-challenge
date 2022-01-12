@@ -20,6 +20,10 @@ class ChitterApp < Sinatra::Base
     register Sinatra::Partial
   end
 
+  configure :production do
+    register Sinatra::Partial
+  end
+
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
 
