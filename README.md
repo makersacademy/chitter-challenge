@@ -16,7 +16,7 @@ Technologies:
 - Capybara 
 - Sinatra
 
-Test coverage: 100% 
+Test coverage: 100%  
 Passing *all* feature and unit tests 
 
 
