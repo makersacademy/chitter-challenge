@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  username: arthurfincham
+  database: chitter_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  username: arthurfincham
+  database: chitter_test
