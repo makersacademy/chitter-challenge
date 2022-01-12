@@ -8,7 +8,7 @@ require "./helpers/peeps"
 require "relative_time"
 require "rss"
 require "open-uri"
-# require "./lib/news"
+require "./lib/news"
 require "sinatra/partial"
 
 class ChitterApp < Sinatra::Base
@@ -28,9 +28,9 @@ class ChitterApp < Sinatra::Base
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
 
-  # before do
-  #   @news = News.create
-  # end
+  before do
+    @news = News.create
+  end
 
   get "/" do
     @user = User.find(session[:user_id])
