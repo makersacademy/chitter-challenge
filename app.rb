@@ -22,6 +22,7 @@ class ChitterApp < Sinatra::Base
 
   configure :production do
     register Sinatra::Partial
+    register Sinatra::Flash
   end
 
   enable :sessions, :method_override, :partial_underscores
