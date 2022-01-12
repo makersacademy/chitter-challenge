@@ -17,6 +17,7 @@ gem 'puma'
 gem 'carrierwave', '~> 2.0'
 gem 'figaro'
 gem 'fog-aws'
+gem 'rest-client'
 
 group :test do
   gem 'rspec'
