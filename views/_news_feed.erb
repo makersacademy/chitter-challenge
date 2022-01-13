@@ -1,0 +1,17 @@
+<div class="bg-light rounded col-11 p-4 pt-3">
+  <div class="d-flex flex-row justify-content-between">
+    <h4 style="font-family: 'Raleway', sans-serif;">Latest</h4>
+    <h4><i class="bi bi-newspaper fa-lg"></i></h4>
+  </div>
+  <% @news.feed.each do |item| %>
+   <div class="card mt-2" >
+    <div class="card-body">
+      <a href="<%= "#{item.webUrl}" %>">
+        <h6 class="card-title text-dark"><%= "#{item.webTitle}" %></h6>
+      </a>
+      <small class="card-text "><%= "#{item.description}" %></small>
+      <img src="<%= "#{item.fields.thumbnail}" %>" class="img-fluid">
+    </div>
+  </div>
+  <% end %>
+</div>

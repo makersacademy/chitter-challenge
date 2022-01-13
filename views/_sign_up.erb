@@ -1,0 +1,40 @@
+<div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="/images/chitterLogoBlue.svg" height="50" />
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title" id="SignUpModalLabel">Sign Up</h5>
+        <form action="/users" method="post">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="name" name="name" class="form-control" id="name" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="username" name="username" class="form-control" id="username"
+              aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="imageurl" class="form-label">Avatar URL</label>
+            <input type="text" name="imageurl" class="form-control" id="imageurl"
+              aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password">
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary" id="Submit" value="Submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
