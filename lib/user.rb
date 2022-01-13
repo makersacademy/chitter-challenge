@@ -13,7 +13,7 @@ class User
     @imageurl = imageurl
   end
 
-  def self.create(username:, email:, password:, name:)
+  def self.create(username:, email:, password:, name:, imageurl:)
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (username, email, password, name, imageurl) VALUES($1, $2, $3, $4, $5) RETURNING id, username, email, name, imageurl;", [
