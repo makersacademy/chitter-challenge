@@ -10,7 +10,7 @@
     <% @peeps.each do |peep| %>
       <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mt-2 rounded py-3" aria-current="true">
         <img src="<%= image_picker(peep.user_id)%>" alt="twbs" width="50" height="50"
-        class="rounded-circle flex-shrink-0">
+        class="rounded-circle avatarImage flex-grow-0">
         <div class="d-flex flex-column gap-2 w-100 justify-content-between">
           <div class="d-flex flex-row justify-content-between">
             <div class="d-flex flex-row">
@@ -27,4 +27,9 @@
       </a>
     <% end %>
   </div>
+  <style type="text/css">
+    .avatarImage {
+    object-fit: cover
+    }
+  </style>
 </div>
