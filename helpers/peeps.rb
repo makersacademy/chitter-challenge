@@ -19,7 +19,7 @@ module PeepHelper
   def image_picker(id)
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = $1;", [id])
     user = User.new(id: result[0]["id"], username: result[0]["username"], email: result[0]["email"], name: result[0]["name"], imageurl: result[0]["imageurl"])
-    if user.imageurl.length > 5
+    if user.imageurl != nil || user.imageurl.length > 5
       user.imageurl
     else
       "/images/avatar.png"
