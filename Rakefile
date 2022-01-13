@@ -1,9 +1,9 @@
-require 'pg'
+require "pg"
 
 task :test_database_setup do
-  DatabaseConnection.setup('chitter_test')
+  DatabaseConnection.setup("chitter_test")
   DatabaseConnection.query(
-    'TRUNCATE users, peeps, tags, peep_tags;;'
+    "TRUNCATE users, peeps, tags, peep_tags;;"
   )
 end
 
@@ -15,10 +15,10 @@ task :create_databases do
 end
 
 task :create_tables do
-  connection = PG.connect(dbname: 'chitter_test')
+  connection = PG.connect(dbname: "chitter_test")
 
   connection.exec(
-    "CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR( 60 ), username VARCHAR( 60 ), email VARCHAR( 60 ), password VARCHAR( 120 ));"
+    "CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR( 60 ), username VARCHAR( 60 ), email VARCHAR( 60 ), password VARCHAR( 120 ), imageurl VARCHAR(300));"
   )
 
   connection.exec(
