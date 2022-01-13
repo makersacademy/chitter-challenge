@@ -22,7 +22,7 @@ module PeepHelper
     if user.imageurl != nil
       user.imageurl
     else
-      "/images/avatar.png"
+      "/images/chitterDefaultAvatar.svg"
     end
   end
 end

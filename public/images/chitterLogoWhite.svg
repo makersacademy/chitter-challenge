@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 423.05 94.67">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-size: 80px;
+        font-family: Raleway-Black, Raleway;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0.01em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0.01em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M408.88,37.82l-13-8.66C393,17,383.05,12.43,374.24,13.31h0a21.06,21.06,0,0,0-19,17.76L331,14.9a2.28,2.28,0,0,0-3.17.64c-4.65,7-5.34,15.64-2,24.43A43.41,43.41,0,0,0,340.4,58.71c-4.82,7-15.94,10.8-19.87,10.8a2.29,2.29,0,0,0-1.14,4.28,64.36,64.36,0,0,0,31.78,8.56,52.68,52.68,0,0,0,26.48-6.78c11.43-6.63,17.93-17.09,18.46-29.6l12.22-4.07a2.3,2.3,0,0,0,.55-4.08Zm-31.06-.39a4.58,4.58,0,1,1,4.58-4.58,4.58,4.58,0,0,1-4.58,4.58Z"/>
+  <text class="cls-2" transform="translate(10.02 76.98)">Chi<tspan class="cls-3" x="131.44" y="0">t</tspan><tspan class="cls-4" x="166.16" y="0">t</tspan><tspan x="200.72" y="0">e</tspan><tspan class="cls-5" x="250.64" y="0">r</tspan></text>
+</svg>
