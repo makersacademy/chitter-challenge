@@ -13,9 +13,9 @@
         class="rounded-circle avatarImage flex-grow-0">
         <div class="d-flex flex-column gap-2 w-100 justify-content-between">
           <div class="d-flex flex-row justify-content-between">
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-column flex-lg-row">
               <h6 class="mb-0 "><%= peep_name(peep.user_id) %></h6>
-              <div class="m-1"></div>
+              <div class="m-1 d-none d-lg-block"></div>
               <small class="mb-0 text-muted">@<%= peep_username(peep.user_id) %></small>
             </div>
             <small class="opacity-50 text-muted text-nowrap"><%= format_time(peep.time) %></small>
