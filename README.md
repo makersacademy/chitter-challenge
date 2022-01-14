@@ -15,6 +15,7 @@ This is a basic full stack twitter clone using Ruby and Sinatra with a Postgresq
 - Rake for setting up the database for testing, as well as making it easy to set up for anyone cloning this repo. I made my own script to populate the database with some dummy posts.
 - TablePlus for debugging the database
 
+# I've also made a [pure frontend version of this challenge](https://github.com/ConorButler/frontend-api-challenge/blob/master/README.md) connecting to the external Chitter API made by Makers Academy
 
 # Features
 
