@@ -1,0 +1,77 @@
+
+<% if @signup %>
+<h2> Your account has been successfully created, welcome to Chitter @<%= @user.username %>! </h2>
+<% end %>
+
+<div class="layout">
+  <div class="layout__main">
+    <% if @user %>
+    <div class="peep">
+      <img class="peep__author-pic" src="/images/red_egg.jpeg">
+      <div class="peep__main">
+        <form action="/peep/new" method="post">
+          <input type="text" class="peep-form" value="<%= session[:peep]%>" placeholder="What's on your mind..." name="peep_text">
+          <input type="submit" class="peep-button" value="Peep">
+        </form>
+      </div>
+    </div>
+    <% end %>
+    <% @peeps.each do |peep| %> 
+      <a class="peep" href="/peep/<%= peep.id %>">
+        <img class="peep__author-pic" src="/images/red_egg.jpeg">
+        <div class="peep__main">
+          <div class="peep__header">
+            <div class="peep__author-name">
+              <%= (User.find(id: peep.author)).first_name %> <%= (User.find(id: peep.author)).last_name %>
+            </div>
+            <div class="peep__author-username">
+              @<%= (User.find(id: peep.author)).username %>
+            </div>
+            <div class="peep__time-since">
+              · <%= time_since(peep.time) %>
+            </div>
+          </div>
+          <div class="peep__content">
+            <% if peep.replying_to %>
+            <div class="peep__replying-to">
+              <%= "@#{(User.find(id: Peep.find(id: peep.replying_to).author)).username}"%>
+            </div>
+            <% end %>
+            <div class="peep__text">
+              <%= peep.text %>
+            </div>
+          </div>
+          <div class="peep__footer">
+            <img class="peep__reply-icon" src="/images/reply_icon.png" alt="Homepage" width="18" height="18">
+            <div class="peep__reply-count">
+              <%= Peep.replies(id: peep.id).count if Peep.replies(id: peep.id) %>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+  <div class="layout__sidebar-container">
+    <div class="layout__sidebar">
+      <div class="sidebar-menu">
+        <% if @user %>
+        <div class="sidebar-menu__item">
+          <form action="/user/logout" method="get">
+            <input type="submit" class="sidebar-menu__button" value="Log out">
+          </form>
+        </div>
+        <% else %>
+        <div class="sidebar-menu__item">
+          <form action="/user/login" method="get">
+            <input type="submit" class="sidebar-menu__button" value="Log in">
+          </form>
+        </div>
+        <div class="sidebar-menu__item">
+          <form action="/user/new" method="get">
+            <input type="submit" class="sidebar-menu__button" value="Sign up">
+          </form>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

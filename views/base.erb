@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Chitter </title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/global.css">
+  <style>
+  .peep {
+    text-decoration: none;
+    color: inherit;
+  }
+  </style>
+
+  <div class="header">
+    <h1>Chitter</h1>
+    <a href='/'><img src="/images/chitter_logo.png" alt="Homepage" width="75" height="75"></a>
+  </div>
+</head>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+<body>
+  <%= yield %>
+</body>
+</html>
