@@ -1,5 +1,8 @@
 # Chitter Challenge
 
+![alt text](https://i.gyazo.com/29da2950507df1837aa0e16b3618fcb0.png)
+## Instructions on how to use below
+
 This is a basic full stack twitter clone using Ruby and Sinatra with a Postgresql database. It doesn't use an ORM so all SQL queries had to be written manually. It uses Rspec for unit tests and Capybara for feature tests. It was a weekend challenge completed as part of Makers Academeny week 4, however I added some bonus features afterwards.
 
 ## Additional technologies used
