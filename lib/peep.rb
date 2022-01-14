@@ -4,7 +4,7 @@ class Peep
 
   def Peep.all
     connection = db_connect
-    peeps = connection.exec('SELECT * FROM peeps;')
+    peeps = connection.exec('SELECT * FROM peeps ORDER BY id DESC;')
     peeps.map { |peep| peep["message"] }
   end
 

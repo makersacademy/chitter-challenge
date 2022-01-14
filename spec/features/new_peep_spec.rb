@@ -3,7 +3,7 @@
 # I want to post a message (peep) to chitter
 
 feature 'Adding a message (peep)' do
-  scenario 'Maker post a peep to chitter' do
+  scenario 'Maker can post a peep to chitter' do
     visit('/peeps/new-peep')
 
     fill_in('message', with: 'my first peep')
