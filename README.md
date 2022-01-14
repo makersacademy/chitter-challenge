@@ -2,6 +2,7 @@
 
 ![alt text](https://i.gyazo.com/29da2950507df1837aa0e16b3618fcb0.png)
 ## Instructions on how to use below
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is a basic full stack twitter clone using Ruby and Sinatra with a Postgresql database. It doesn't use an ORM so all SQL queries had to be written manually. It uses Rspec for unit tests and Capybara for feature tests. It was a weekend challenge completed as part of Makers Academeny week 4, however I added some bonus features afterwards.
 
@@ -14,56 +15,6 @@ This is a basic full stack twitter clone using Ruby and Sinatra with a Postgresq
 - Rake for setting up the database for testing, as well as making it easy to set up for anyone cloning this repo. I made my own script to populate the database with some dummy posts.
 - TablePlus for debugging the database
 
-```
-✓ As a Maker
-So that I can let people know what I am doing
-I want to post a message (peep) to chitter
-
-✓ As a maker
-So that I can see what others are saying
-I want to see all peeps in reverse chronological order
-
-✓ As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-✓ As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-✓ As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-✓ As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
----
-
-## Objectives:
-
-- ✓ You don't have to be logged in to see the peeps.
-- ✓ Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-- ✓ The username and email are unique.
-- ✓ Peeps (posts to chitter) have the name of the maker and their user handle.
-- ✓ Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-## Bonus:
-
-- ✓ In order to start a conversation as a maker I want to reply to a peep from another maker.
-- ✓ Work on the CSS to make it look good.
-
----
 
 # Features
 
@@ -149,12 +100,52 @@ Tests connect to a test database which is truncated before each test to ensure t
 
 ![Tests](https://i.gyazo.com/bf520557970cc3a28e3d3f8a344723bb.png)
 
-# Possible improvements
+# Task set by Makers Academy:
+```
+✓ As a Maker
+So that I can let people know what I am doing
+I want to post a message (peep) to chitter
 
-- A lot of refactoring
-- Email sent to confirm signup
-- A 'click to view thread' feature
-- The ability to click on a username and see all of their posts
-- Custom profile pictures
+✓ As a maker
+So that I can see what others are saying
+I want to see all peeps in reverse chronological order
 
-I don't think these would be too difficult to implement given more time.
+✓ As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+✓ As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+HARDER
+
+✓ As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+✓ As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+```
+
+---
+
+## Objectives:
+
+- ✓ You don't have to be logged in to see the peeps.
+- ✓ Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+- ✓ The username and email are unique.
+- ✓ Peeps (posts to chitter) have the name of the maker and their user handle.
+- ✓ Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+## Bonus:
+
+- ✓ In order to start a conversation as a maker I want to reply to a peep from another maker.
+- ✓ Work on the CSS to make it look good.
