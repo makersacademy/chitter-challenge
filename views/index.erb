@@ -1,10 +1,12 @@
 'Chitter'
 
-<form>
-  <input name="content" type='text' placeholder="What are you peeping?">
-  <input type='submit' value="Peep">
+<form action='/add' method='post'>
+  <input name='content' type='text' placeholder='What are you peeping?'>
+  <input type='submit' value='Peep'>
 <form>
 
 <ol>
-  <li>'My first peep!'</li>
+  <% @peeps.each do |peep| %>
+  <li class='peep' id='peep-<%= peep.id %>'> <%= peep.content %> </li>
+  <% end %>
 </ol>

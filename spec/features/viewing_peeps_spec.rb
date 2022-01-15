@@ -1,6 +1,14 @@
 feature 'Viewing peeps' do
-  scenario 'visiting the index page' do
+  scenario 'user can see all peeps' do
+    first_peep = Peep.add(content: 'First peep!')
+    second_peep = Peep.add(content: 'Second peep!')
+    third_peep = Peep.add(content: 'Third peep!')
     visit '/'
-    expect(page).to have_content 'Chitter'
+
+    peeps = page.all('.peep')
+   
+    expect(peeps[0]).to have_content "Third peep!"
+    expect(peeps[1]).to have_content "Second peep!"
+    expect(peeps[2]).to have_content "First peep!"
   end
 end

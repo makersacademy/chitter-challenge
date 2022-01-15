@@ -15,7 +15,16 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
+require File.join(File.dirname(__FILE__), 'setup_test_database.rb')
+
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+
+end
 
 RSpec.configure do |config|
   config.after(:suite) do
