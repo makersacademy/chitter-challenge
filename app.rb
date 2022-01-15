@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'peeps'
 require 'pg'
 
 class Chitter < Sinatra::Base
@@ -15,7 +16,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @message = session[:message]
+    connection = PG.connect(dbname: 'chitter')
+    @message = connection.exec_params("SELECT * FROM peeps;")
+    p @message.first
     erb :chitter
   end
 
@@ -24,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/new_peep' do
-    session[:message] = params[:message]
+    Peeps.post(params[:message])
     redirect '/chitter'
   end
 

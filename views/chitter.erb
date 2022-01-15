@@ -1,5 +1,7 @@
 <h1>Peeps will peep about peeping</h1>
 
 <ul>
-  <li><%= @message %></li>
+  <% @message.first.map do |message| %>
+  <li><%=message%></li>
+  <% end %>
 </ul>
