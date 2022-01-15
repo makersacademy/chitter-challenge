@@ -1,6 +1,11 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'rspec'
 require 'capybara/rspec'
+
+# Set the environment to "test"
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
