@@ -1,15 +1,15 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/post'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
-  get '/posts' do
-    @posts = Post.all 
-    erb :'posts/index'
+  get '/peeps' do
+   p @peeps = Peep.all 
+    erb :'peeps/index'
   end
 
   get '/' do

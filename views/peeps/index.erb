@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css" >
+</head> 
+
+<h1>Chitter</h1>
+
+<% @peeps.each do |peep| %>
+  <div class='peep'>
+    <%= peep[:content] %>
+    <p> <em> posted by: <%= peep[:user]%>, <%= peep[:handle] %> </em></p> 
+  </div>
+<% end %>
+
+</html>

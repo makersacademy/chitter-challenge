@@ -1,0 +1,2 @@
+ALTER TABLE peeps ADD COLUMN username VARCHAR(15);
+ALTER TABLE peeps ADD COLUMN userhandle VARCHAR(15);
