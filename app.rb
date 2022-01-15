@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/peeps'
 
 
 class Chitter < Sinatra::Base
@@ -9,12 +10,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    
     'Chitter'
   end
 
   get '/peeps' do
-    @peeps = Peeps.all
-     
+    @peeps = Peeps.all   
     erb :'index'
   end
 
