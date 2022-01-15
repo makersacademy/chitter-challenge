@@ -11,3 +11,10 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'webrick'
+gem 'capybara'
+gem 'launchy'
+gem 'pg'
