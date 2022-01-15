@@ -7,7 +7,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/' do
-    'Hello Chitter!'
+    'Welcome to Chitter!'
   end
 
   run! if app_file == $0
