@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css" >
+</head> 
+
+<h1>Chitter</h1>
+
+<% @posts.each do |post| %>
+  <div class='post'>
+    <%= post[:content] %>
+    <p> <em> posted by: <%= post[:user]%>, <%= post[:handle] %> </em></p> 
+  </div>
+<% end %>
+
+</html>
