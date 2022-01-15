@@ -1,6 +1,18 @@
 Chitter Challenge
 =================
 
+Instructions:
+-------
+Create databases:
+
+CREATE DATABASE chitter;
+\c chitter
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(280));
+
+CREATE DATABASE chitter_test;
+\c chitter
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(280));
+
 Features:
 -------
 
