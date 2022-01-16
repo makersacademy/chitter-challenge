@@ -1,8 +1,18 @@
-Your peeps you've peep'd
-<br>
-<br>
-<ol>
-  <% @peeps.each do |peep| %>
-    <%= @peep.message %>>
-  <% end %>
-</ol>
+<html>
+
+  <body>
+    <h1>Your peeps:</h1>
+
+    <form action='/peeps/new'>
+      <input type='submit' value='add new peep'/>
+    </form>
+
+    <ul>
+      <% @peeps.each do |peep| %>
+      <li class='peeps'> <%= peep.message %></li>
+      <% end %>
+    </ul>
+
+  </body>
+
+</html>
