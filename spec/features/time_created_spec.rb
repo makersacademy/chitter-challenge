@@ -5,10 +5,11 @@
 feature 'Time of peep posting' do
   let(:current_time) { Time.now.strftime('%H:%M') }
   scenario "Maker can see the time a peep was posted" do
-    sign_up_helper
-    visit('/peeps/new-peep')
-    fill_in 'message', with: 'I posted this peep at:'
-    click_button('submit')
+
+    user_sign_up_and_Peep_create_peep("I posted this peep at: ")
+    
+    visit('/peeps')
+
     expect(page).to have_content("I posted this peep at: #{current_time}")
   end
 end

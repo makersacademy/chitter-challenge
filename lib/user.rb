@@ -23,12 +23,6 @@ class User
     end
   end
 
-  def User.current_user
-    # will return the currently signed in user
-    # this is needed so that each peep can display who wrote it
-    # will probs need to implement the above via foreign keys
-  end
-
   def User.sign_up(name:, username:, password:, email:)
       connection = db_connect
       result = connection.exec_params(

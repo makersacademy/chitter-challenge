@@ -4,14 +4,14 @@
 
 feature 'Peeps display order' do
   scenario 'Makers view peeps in reverse chronological order' do
-
-    sign_up_helper
-    add_three_peeps
+    
+    user_sign_up_and_Peep_create_peep("hello")
+    user_sign_up_and_Peep_create_peep("goodbye")
 
     visit('/peeps')
 
     most_recent_peep = first('.peeps').text
 
-    expect(most_recent_peep).to include('peep: 3')
+    expect(most_recent_peep).to include 'goodbye'
   end
 end
