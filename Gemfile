@@ -16,4 +16,3 @@ group :development, :test do
   gem 'sinatra-partial'
   gem 'webrick'
 end
-

@@ -6,7 +6,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
-require_relative 'setup_test_database.rb'
+require_relative 'setup_test_database'
 
 Capybara.app = Chitter
 

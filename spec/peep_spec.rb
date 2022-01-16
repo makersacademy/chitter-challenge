@@ -1,7 +1,7 @@
 require 'pg'
 require 'peep'
 
-describe Peep
+describe Peep do
   describe "add" do
     it 'adds a new peep to the list' do
       peep = Peep.add(content: 'What a fabulous peep I am')
@@ -20,9 +20,5 @@ describe Peep
 
       expect(Peep.all).to include('Tweet number one')
     end
-
   end   
-    
-
-
-
+end

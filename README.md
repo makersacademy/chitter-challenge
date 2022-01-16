@@ -153,6 +153,7 @@ Approach
 * I want to implement this so that the tweets will be loaded. This is time
 to use a database. 
 * I had created a separate class to make a new peep, but I am realising all it does it pass in a string so it might be pointless. I could do what I did for bookmark manager and create a peeps class, but have class methods and instance methods. 
+* Started working on database storage and it took a long time. 
 
 ## diagrams are in the repo 
 
