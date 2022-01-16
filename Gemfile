@@ -7,6 +7,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'capybara'
+  gem 'orderly'
 end
 
 group :development, :test do
