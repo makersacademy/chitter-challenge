@@ -149,3 +149,8 @@ Reflection
 ----------
 
 Help received?
+
+Feedback wanted
+---------------
+* I wanted to avoid using a global variable, so I create a new
+get route for the posted peep. I'd also read that the Singleton pattern should be avoided. I wondered how else I would store params from the `post '/add'` route and have these showing when I redirect to `erb: index`.

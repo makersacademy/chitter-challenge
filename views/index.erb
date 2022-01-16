@@ -2,10 +2,15 @@
 
 <h1>You're on Chitter – Let's Peep!</h2>
 
-<form action="/peep" method="post">
-  <input type="text" name="peep" placeholder="Peep to the world!">
-  <input type="button" value="Submit">
-</form>
+<div>
+  <form action="/peep" method="post">
+    <input type="text" name="peep" placeholder="Peep to the world!">
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<div>
+  <%= @peep %>
+</div>
 
 <!--render tweet here-->
 <!--the first simplest thing to pass the test-->
