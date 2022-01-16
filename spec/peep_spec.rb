@@ -22,7 +22,7 @@ describe Peep do
   describe '.add' do 
     it 'posts a peep and adds to peeps db table' do 
       peep = Peep.add(content: 'test peep content', user: 'test username' , handle: '@test')
-      persisted_data = persisted_data(id: peep.id) 
+      persisted_data = persisted_data(id: peep.id, table: :peeps) 
 
       expect(peep).to be_a Peep 
       expect(peep.id).to eq persisted_data['id']
