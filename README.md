@@ -129,3 +129,22 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+My notes
+--------
+
+How to use
+----------
+... 
+
+Approach
+--------
+My diagramming has been slipping so started by making a domain model and CRC cards. 
+
+* I want to save tweets in a database.
+* I will need a test and real database. 
+
+Reflection
+----------
+
+Help received?
