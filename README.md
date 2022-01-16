@@ -5,6 +5,7 @@ I am doing the chitter challenge which is to create a Twitter clone that allows 
 
 First I installed the gems needed to run the web app and testing, update sepc_helper.rb, and setup app.rb and config.ru.
 I met the first user story and set up a test environment so test messages don't go into the real database.
+I set the result of Peep.all to be in reverse order.
 
 Seting up the databases:
 ----------
@@ -30,6 +31,9 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
 
 
 
