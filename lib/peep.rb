@@ -25,6 +25,7 @@ class Peep
   end
 
   def peeped_at
-    "Peeped at 10:05 AM on 01/09/2022"
+    result = DateTime.parse(@timestamp)
+    result.strftime('%H:%M on %d/%m/%y')
   end
 end
