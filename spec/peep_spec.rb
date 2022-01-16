@@ -29,4 +29,16 @@ describe Peep do
       # expect(peep.timestamp). to
     end
   end 
+
+  describe '.sort_all_peeps' do 
+    it 'sorts all peeps reverse chronologically by peep.time i.e. most recent peep becomes first element' do 
+      older_peep = Peep.add(content: 'older peep content', user: 'old username' , handle: '@test')
+      allow(Time).to receive(:now).and_return(Time.now + 1*60*60 ) #adds 1hr onto Time.now which will apply when Time.now is called in the creation of the newer_peep on line below
+      newer_peep = Peep.add(content: 'newer peep content', user: 'new username' , handle: '@test')
+      
+      sorted_peeps = Peep.sort_all_peeps
+      expect(sorted_peeps.first.content).to eq 'newer peep content'
+
+    end
+  end 
 end

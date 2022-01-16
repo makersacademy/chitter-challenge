@@ -9,7 +9,7 @@
 <% @peeps.each do |peep| %>
   <div class='peep'>
     <%= peep.content %>
-    <p> <em> posted by: <%= peep.user%>, <%= peep.handle %> </em></p> 
+    <p> <em> posted by: <%= peep.user%>, <%= peep.handle %> at <%=peep.time%> </em></p> 
   </div>
 <% end %>
 
