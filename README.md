@@ -9,6 +9,8 @@ I set the result database query in of Peep all to be in reverse order.
 I protected agains SQL injection, added the timestamp to peeps.
 I created a registration method that takes a password and encyrpts.
 
+Next steps: I would like to implement a login and logout procedure.
+
 
 Seting up the databases:
 ----------
