@@ -18,3 +18,8 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
+Demo:
+[Imgur](https://i.imgur.com/HGrDoNV.png)
+[Imgur](https://i.imgur.com/PHnNNZL.png)
+[Imgur](https://i.imgur.com/MxhWO79.png)
+
