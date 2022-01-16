@@ -33,7 +33,7 @@ README.MD
 Testing stage
 
 # Project:
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+I am going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 # Project features:
 - You don't have to be logged in to see the peeps.
@@ -47,7 +47,7 @@ We are going to write a small Twitter clone that will allow the users to post me
 * [ ] Log in
 * [ ] Log out
 * [ ] Peeping
-* [ ] Listing Peeps
+* [X] Listing Peeps
 * [ ] Display time of peep
 
 # User story Template:
@@ -66,7 +66,7 @@ Maker    | post
 peep     |  
 chitter  |  
 
-chitter_manager ---> .post ---> list of messages(peeps).
+chitter_manager ---> .post ---> post a message(peeps).
 
 # Refractoring to MVC:
 | Component   | Responsibility                              | Refactor                        |
@@ -76,9 +76,9 @@ chitter_manager ---> .post ---> list of messages(peeps).
 | Controller  | Get data from the model and put in the view | Render chitter data into to the view
 
 # Instructions to connect to local server:
-- cd /Users/elliottzaki/Desktop/Projects/chitter-challenge
+- cd /Users/elliottzaki/Desktop/Projects/chitter-challenge.
 - Open a seperate terminal and type rackup on the command line.
-- On your browswer, connect to localhost(9292)
+- On your browser, connect to localhost(9292).
 
 # Database creation instructions: 
 - brew install postgresql
@@ -88,6 +88,13 @@ chitter_manager ---> .post ---> list of messages(peeps).
 - Connect to the database using the pqsl command \c chitter;
 - Create a table and call it chitter_posts
 - CREATE TABLE chitter_posts(id SERIAL PRIMARY KEY, text VARCHAR(200));
+
+# Instructions in how to connect to the database:
+- gem install 'pg'
+- require 'pg' in the Peep class
+- Type the following in the Class method: connection = PG.connect(dbname: 'chitter_manager')
+    result = connection.exec('SELECT * FROM chitter_posts')
+    result.map { |peep| peep['chitter_posts'] }
 
 
 # User story 2:
@@ -101,4 +108,5 @@ Maker    | see_all
 peeps    | reverse
 order    |  
 
-chitter_manager ---> .see_all ---> messages(in - reverse chronoligical order). 
+chitter_manager ---> .all ---> messages(in - reverse chronoligical order). 
+

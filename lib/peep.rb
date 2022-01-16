@@ -2,9 +2,13 @@ require 'pg'
 
 class Peep
   def self.all
-    ['Hello Chitter, this is my first message!',
-     'Hello Chitter, this is my second post'
-    ]
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_manager_test')
+    else
+      connection = PG.connect(dbname: 'chitter_manager')
+    end
+    result = connection.exec('SELECT * FROM chitter_posts')
+    result.map { |peep| peep['text'] }
   end
  
   # def self.create(title:, peep:)
