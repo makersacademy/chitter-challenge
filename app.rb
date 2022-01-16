@@ -7,14 +7,23 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/peeps' do
-   p @peeps = Peep.all 
-    erb :'peeps/index'
-  end
-
   get '/' do
     'Welcome to Chitter'
   end
 
+  get '/peeps' do
+   @peeps = Peep.all 
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do 
+    Peep.add(content: params[:peep], user: params[:user], handle: params[:handle])
+    redirect '/peeps' 
+  end
+ 
   run! if app_file == $0
 end
