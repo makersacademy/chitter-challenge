@@ -139,7 +139,8 @@ How to use
 
 Approach
 --------
-My diagramming has been slipping so started by making a domain model and CRC cards. 
+1. I wanted to focus more on diagramming at the beginning of a project, so I started by making a domain model and CRC cards. 
+* I spent a lot of time getting errors after trying to use Sinatra partials and got it working through debugging. I still can't see my CSS although I know it's working because the page title is now working.
 
 * I want to save tweets in a database.
 * I will need a test and real database. 
