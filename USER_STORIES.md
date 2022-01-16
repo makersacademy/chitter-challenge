@@ -81,11 +81,13 @@ chitter_manager ---> .post ---> list of messages(peeps).
 - On your browswer, connect to localhost(9292)
 
 # Database creation instructions: 
+- brew install postgresql
+- brew services start postgresql
 - Connect to psql
 - Create the database using the psql command CREATE DATABASE chitter;
 - Connect to the database using the pqsl command \c chitter;
 - Create a table and call it chitter_posts
-- Run the query saved in the file 01_create_chitter_posts_table.sql
+- CREATE TABLE chitter_posts(id SERIAL PRIMARY KEY, text VARCHAR(200));
 
 
 # User story 2:
