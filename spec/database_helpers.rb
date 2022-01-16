@@ -1,4 +1,5 @@
 require 'pg'
+require 'peeps'
 
 def persisted_data(id)
   connection = PG.connect(dbname: 'chitter_test')

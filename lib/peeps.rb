@@ -1,17 +1,23 @@
-class Peeps
+require_relative '../database_connection_setup'
+require 'action_view'
+require 'active_support'
 
-  attr_reader :id, :message
+class Peeps < ActiveRecord::Base
+  extend ActionView::Helpers::DateHelper
 
-  def initialize(id:, message:)
-    @id = id
-    @message = message
+  def self.post(new_message)
+    create(message: new_message)
   end
 
-  def self.post(message)
-    connection = PG.connect(dbname: 'chitter_test')
-    new_peep = connection.exec_params("INSERT INTO peeps(message) VALUES($1) RETURNING id, message;", [message])
+  def self.list
+    all.order(created_at: :desc)
 
-    Peeps.new(id: new_peep[0]['id'], message: new_peep[0]['message'])
   end
-  
+
+  def self.format_time(time_string)
+    time = Time.now.strftime("%d/%m/%Y at %k:%M")
+    time_ago = time_ago_in_words(time_string)
+
+    "#{time_ago} ago(#{time})"
+  end
 end

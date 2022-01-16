@@ -1,7 +1,13 @@
 <h1>Peeps will peep about peeping</h1>
 
 <ul>
-  <% @message.first.map do |message| %>
-  <li><%=message%></li>
+  <% @peeps.map do |peep| %>
+  <li class='peep'>
+    <p class='peep_bodt'><%= peep.message %></li></p>
+    <p class='timestamp'>
+    <%= Peeps.format_time(peep.created_at) %>
+    </p>
+    </li>
+    
   <% end %>
 </ul>

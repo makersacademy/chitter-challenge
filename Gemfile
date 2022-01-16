@@ -14,9 +14,23 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'sinatra'
   gem 'sinatra-reloader'
+  gem 'sinatra-activerecord'
   gem 'webrick'
   gem 'rack'
   gem 'pg'
+  gem 'thin'
+  gem 'require_all'
+  gem 'activerecord'
+  gem 'rake'
+end 
+
+group :development do
+  gem 'shotgun'
+  gem 'pry'
+  gem 'tux'
+  gem 'sqlite3'
+  gem 'activesupport'
+  gem 'actionview'
+  gem 'yarn'
+  gem 'rails'
 end
-
-

@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require 'peeps'
+require './lib/peeps'
 require 'pg'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -16,9 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    connection = PG.connect(dbname: 'chitter')
-    @message = connection.exec_params("SELECT * FROM peeps;")
-    p @message.first
+    p @peeps = Peeps.list
+    # @time = Peeps.format_time
     erb :chitter
   end
 
@@ -33,4 +33,3 @@ class Chitter < Sinatra::Base
 
   run! if app_file == $0
 end
-
