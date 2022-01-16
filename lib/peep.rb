@@ -8,7 +8,8 @@ class Peep
       connection = PG.connect(dbname: 'chitter_manager')
     end
     result = connection.exec('SELECT * FROM chitter_posts')
-    result.map { |peep| peep['text'] }
+    reverse_chronological_order = result.reverse_each
+    reverse_chronological_order.map { |peep| peep['text'] }
   end
  
   # def self.create(title:, peep:)
