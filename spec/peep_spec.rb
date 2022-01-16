@@ -21,4 +21,10 @@ describe Peep do
       expect(Peep.all).to include('Tweet number one')
     end
   end   
+  describe '#time' do
+    it 'has a timestamp for each peep' do
+      peep = Peep.add(content: 'What a fabulous peep I am')
+      expect(subject.time.to_s[0..-7]).to eq(Timecop.freeze(Time.now).to_s[0..-13])
+    end
+  end
 end

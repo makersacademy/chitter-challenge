@@ -16,4 +16,5 @@ group :development, :test do
   gem 'sinatra-contrib'
   gem 'sinatra-partial'
   gem 'webrick'
+  gem 'timecop'
 end

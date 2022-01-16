@@ -7,6 +7,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'orderly'
+require 'timecop'
 require_relative 'setup_test_database'
 require './spec/features/web_helpers.rb'
 
