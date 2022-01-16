@@ -3,7 +3,8 @@ Chitter Challenge
 
 I am doing the chitter challenge which is to create a Twitter clone that allows the user to post messages to a public stream.
 
-First I will install the gems needed to run the web app and testing, update sepc_helper.rb, and setup app.rb and config.ru.
+First I installed the gems needed to run the web app and testing, update sepc_helper.rb, and setup app.rb and config.ru.
+I met the first user story and set up a test environment so test messages don't go into the real database.
 
 Seting up the databases:
 ----------

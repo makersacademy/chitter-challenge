@@ -3,4 +3,10 @@ What do you want to peep? <input type='text' name='message'>
 <input type='submit' value='Post'>
 </form>
 
-<h1> <%= @peeps %> </h1>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep %>
+    </li>
+  <% end %>
+</ul>
