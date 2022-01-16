@@ -135,12 +135,26 @@ My notes
 
 How to use
 ----------
-... 
+Fork and clone this repo
+
+Run bundle install
+
+
+```CREATE DATABASE peep_list```
+```CREATE TABLE peep_list(id SERIAL PRIMARY KEY, peep VARCHAR(180));```
+
 
 Approach
 --------
 1. I wanted to focus more on diagramming at the beginning of a project, so I started by making a domain model and CRC cards. 
 * I spent a lot of time getting errors after trying to use Sinatra partials and got it working through debugging. I still can't see my CSS although I know it's working because the page title is now working.
+* Firstly implemented feature so that the peep could be seen on the page. 
+* Next I need to be able to have multiple peeps show underneath.
+* I want to implement this so that the tweets will be loaded. This is time
+to use a database. 
+* I had created a separate class to make a new peep, but I am realising all it does it pass in a string so it might be pointless. I could do what I did for bookmark manager and create a peeps class, but have class methods and instance methods. 
+
+## diagrams are in the repo 
 
 * I want to save tweets in a database.
 * I will need a test and real database. 

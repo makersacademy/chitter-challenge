@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/partial'
 require './lib/peep'
 
+
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
@@ -12,13 +13,10 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peep = session[:peep]
     erb(:index)
   end
-
+    
   post '/peep' do
-    params.inspect
-    session[:peep] = params[:peep]
     redirect('/')
   end
 
