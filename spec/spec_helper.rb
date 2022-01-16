@@ -5,6 +5,7 @@ require 'simplecov'
 require 'simplecov-console'
 require './spec/setup_test_database'
 require './spec/peep_adder'
+require './spec/sign_up_helper'
 
 ENV['ENVIRONMENT'] = 'test'
 
