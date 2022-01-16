@@ -69,7 +69,7 @@ run:
 ```
 rackup
 ```
-To view chitter navigate to: `localhost:9292/bookmarks`.
+To view chitter navigate to: `localhost:9292/peeps`.
 
 
 
