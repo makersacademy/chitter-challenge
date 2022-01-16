@@ -7,7 +7,7 @@ First I installed the gems needed to run the web app and testing, update sepc_he
 I met the first user story and set up a test environment so test messages don't go into the real database.
 I set the result database query in of Peep all to be in reverse order.
 I protected agains SQL injection, added the timestamp to peeps.
-I created a basic sign up method so peeps have the users name.
+I created a registration method that takes a password and encyrpts.
 
 
 Seting up the databases:
@@ -19,7 +19,9 @@ Setting up the peeps table in chitter directory:
 3. psql \c chitter;
 4. Run the query in 01_create_peeps_table.sql
 5. Run this query to add the time column 02_add_time_column.sql
-6. Run this query to add the username column to the table 03._add_username_column.sql
+6. Run this query to add the username column to the table 03_add_username_column.sql
+7. Run this query from the chitter database to create the user table 04_create_user_table
+
 
 Setting up the peeps table in chitter directory:
 (This will be used when the application is being tested)
@@ -28,7 +30,8 @@ Setting up the peeps table in chitter directory:
 3. psql \c chitter_test;
 4. Run the query in 01_create_peeps_table.sql
 5. Run this query to add the time column 02_add_time_column.sql
-6. Run this query to add the username column to the table 03._add_username_column.sql
+6. Run this query to add the username column to the table 03_add_username_column.sql
+7. Run this query from the chitter_test database to create the user table 04_create_user_table
 
 
 User Stories that have been met:

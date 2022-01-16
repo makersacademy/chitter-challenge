@@ -7,6 +7,7 @@ gem 'sinatra-contrib'
 gem 'capybara'
 gem 'rack'
 gem 'pg'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
 group :test do
   gem 'rspec'

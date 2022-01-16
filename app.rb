@@ -27,12 +27,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/register' do
-    User.create(params['username'])
+    user = User.create(name: params['username'], username: params['username'], email: params['username'], password: params['username'])
+    flash.next[:info] = 'Weclcome #{user.username}'
     redirect '/peeps'
   end
 
   post '/new_peep' do
-    Peep.create(message: params['message'], user: User.name, time: Time.now.to_s)
+    Peep.create(message: params['message'], user: User.username, time: Time.now.to_s)
     redirect '/peeps'
   end
 
