@@ -1,3 +1,22 @@
+** To run:
+
+```
+bundle install
+rackup
+```
+
+```
+open http://localhost:9292/ in browser
+```
+
+**Existing features:
+- posts appear on the main page in reverse chronological order
+- visitors can add peeps
+- each peep has a timestamp
+
+Unfinished features:
+- user class, with sign in option being developed on user_class branch
+
 User stories:
 
 ```
