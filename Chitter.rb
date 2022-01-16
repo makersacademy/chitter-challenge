@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/peep'
 
 # for accessing test database
@@ -11,13 +12,18 @@ class Chitter < Sinatra::Base
     also_reload './lib/peep'
   end
 
+  configure :test, :development do
+    register Sinatra::Flash
+    enable :sessions
+  end
+
   get '/' do
     @peeps = Peep.get_all
     erb :index
   end
 
   post '/add' do
-    Peep.add(content: params['content'])
+    flash[:notice] = 'Your post has no content!' unless Peep.add(content: params['content'])
     redirect '/'
   end
 

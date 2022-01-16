@@ -16,3 +16,8 @@
   font-size: 12px;
   padding-bottom: 25px;
 }
+
+.flash-object {
+  background-color: red;
+  opacity: 0.5;
+}

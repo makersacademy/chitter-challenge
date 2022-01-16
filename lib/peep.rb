@@ -3,6 +3,7 @@ require 'time'
 
 class Peep
   def self.add(content:)
+    return false if is_empty?(content)
     prs_data = database_connect.exec_params("INSERT INTO peeps (content, created_at) VALUES ($1, now()) RETURNING id, content, created_at;", [content])
     Peep.new(id: prs_data[0]['id'], content: prs_data[0]['content'], created_at: Time.parse(prs_data[0]['created_at']))
   end
@@ -31,5 +32,11 @@ class Peep
 
   def friendly_time
     @created_at.strftime('%H:%M %d %b %y')
+  end
+
+  private
+
+  def self.is_empty?(content)
+    content.empty?
   end
 end

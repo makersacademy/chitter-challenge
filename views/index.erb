@@ -5,7 +5,7 @@
 
 <body>
   Chitter!<br>
-
+  <div class='flash-object'><%= if flash[:notice] then flash[:notice] end %></div>
   <form class='text-box' action='/add' method='post'>
     <input name='content' type='text' placeholder='What are you peeping?'>
     <input type='submit' value='Peep'>
