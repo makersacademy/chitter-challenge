@@ -14,4 +14,13 @@ describe Peeps do
       
     end
   end
+
+  describe '.create' do
+    it 'posts a new peep' do
+      Peeps.create(name: 'Test peep')
+
+      expect(Peeps.all).to include 'Test peep'
+    end
+  end
+      
 end
