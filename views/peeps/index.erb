@@ -2,6 +2,6 @@ Welcome to Chitter
 
 <ul>
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep%></li>
+    <li>Peep: <%= peep['message']%> - Posted: <%= peep['posted_at']%></li>
   <% end %>
 </ul>

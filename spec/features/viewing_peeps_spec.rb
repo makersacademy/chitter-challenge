@@ -1,7 +1,7 @@
 feature 'Viewing peeps' do
   scenario 'shows a list of peeps' do
-    Peep.create(user_name: "Alister", message: "First peep")
-    Peep.create(user_name: "Oliver", message: "Second peep")
+    Peep.create(message: "First peep")
+    Peep.create(message: "Second peep")
     
     visit '/peeps'
 

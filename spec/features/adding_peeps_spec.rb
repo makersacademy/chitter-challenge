@@ -4,6 +4,6 @@ feature 'Adding a peep' do
     fill_in "message", with: 'This is my first peep'
     click_on 'Send'
 
-    expect(page).to have_content 'This is my first peep'
+    expect(page).to have_content('This is my first peep')
   end
 end

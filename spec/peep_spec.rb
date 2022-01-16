@@ -5,22 +5,21 @@ describe Peep do
     it 'returns a list of peeps' do
       con = PG.connect(dbname: 'chitter_test')
 
-      con.exec("INSERT INTO peeps VALUES(1, 'Alister', 'First peep');")
-      con.exec("INSERT INTO peeps VALUES(2, 'Oliver', 'Second peep');")
+      peep = Peep.create(message: "Test peep")
+      Peep.create(message: "Second test peep")
 
       peeps = Peep.all
 
-      expect(peeps).to include('First peep')
-      expect(peeps).to include('Second peep')
+      expect(peeps.length).to eq 2
 
     end
   end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(user_name: 'test_user', message: 'Test peep')
+      peep = Peep.create(message: 'Test peep').first
 
-      expect(Peep.all).to include 'Test peep' 
+      expect(peep['message']).to eq 'Test peep'
     end
   end
 end
