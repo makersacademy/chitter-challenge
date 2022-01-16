@@ -1,0 +1,18 @@
+* {
+  font-family: helvetica;
+}
+
+.peep {
+  word-wrap: break-word;
+  display: flex;
+  justify-content: space-around;
+  border-style: dotted;
+  padding: 25px 25px 25px 25px;
+}
+
+.time_tag {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  padding-bottom: 25px;
+}

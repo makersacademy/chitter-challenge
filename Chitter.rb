@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require './lib/peep'
 
 # for accessing test database
-ENV['ENVIRONMENT'] = 'test'
+# ENV['ENVIRONMENT'] = 'test'
 
 class Chitter < Sinatra::Base
   configure :development do
