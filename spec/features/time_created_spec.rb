@@ -10,6 +10,6 @@ feature 'Time of peep posting' do
     
     visit('/peeps')
 
-    expect(page).to have_content("I posted this peep at: #{current_time}")
+    expect(page).to have_content("test_123 said: I posted this peep at: @ #{current_time}")
   end
 end

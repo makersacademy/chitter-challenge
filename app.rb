@@ -38,6 +38,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     user_id = User.all[0].id
     Peep.create_peep(message: params[:message], user_id: user_id)
+
     redirect('/peeps')
   end
 

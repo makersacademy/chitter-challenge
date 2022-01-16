@@ -10,7 +10,7 @@
 
     <ul>
       <% @peeps.each do |peep| %>
-      <li class='peeps'> <%= peep.message %> <%= peep.created_at %></li>
+      <li class='peeps'> <%= peep.username(peep) %> said: <%= peep.message %> @ <%= peep.created_at %></li>
       <% end %>
     </ul>
 

@@ -4,7 +4,7 @@ describe User do
   describe '.signup' do
     it 'returns a chitter user' do
       new_user = User.sign_up(
-        name:"Testy Testerson",
+        name: "Testy Testerson",
         username: "Testy_T", 
         password: "PASSWORD", 
         email: "testy@test.com")
@@ -16,5 +16,4 @@ describe User do
       expect(new_user.email).to eq("testy@test.com")
     end
   end
-
 end

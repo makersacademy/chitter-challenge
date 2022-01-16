@@ -1,9 +1,10 @@
 require 'PG'
 require 'date'
+require_relative 'user'
 
 class Peep
 
-  attr_reader :id, :created_at, :message, :user_id
+  attr_reader :id, :created_at, :message, :user_id, :username
 
   TIME_FORMAT = '%H:%M'.freeze
 
@@ -24,7 +25,7 @@ class Peep
         user_id: peep['user_id'])
     end
   end
-
+  
   def Peep.create_peep(message:, user_id:)
     connection = db_connect
     result = connection.exec_params(
@@ -35,8 +36,6 @@ class Peep
       message: result[0]['message'],
       user_id: result[0]['user_id'])
   end
-
-  # make private class methods 
 
   def Peep.db_connect
     if 'test' == ENV['ENVIRONMENT']
@@ -50,4 +49,12 @@ class Peep
     DateTime.parse(post_time).strftime(TIME_FORMAT)
   end
 
+  def username(peep)
+    User.all.each do |user|
+      if user.id == peep.id
+        return user.username
+      end
+    end
+  end
+  
 end
