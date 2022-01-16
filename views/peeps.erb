@@ -1,12 +1,25 @@
+<form action='/sign_up' method='get'>
+Do you want to register for Chitter? <input type='submit' value='Sign up'>
+</form>
+
+
 <form action='/new_peep' method='post'>
 What do you want to peep? <input type='text' name='message'>
 <input type='submit' value='Post'>
 </form>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <tr>
+    <th>Peep</th>
+    <th>User</th>
+    <th>Time</th>
+  </tr>
+    <% @peeps.each do |peep| %>
+      <tr>
+        <td><%= peep.message %></td>
+        <td><%= peep.user %></td>
+        <td><%= peep.time %></td>
+      </tr>
+    <% end %>
+</table>
+  
