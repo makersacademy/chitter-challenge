@@ -19,7 +19,8 @@ class Peep
   end
 
   def self.create(message:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES ($1) RETURNING id, peep, created_at", [message])
+    result = DatabaseConnection.query(
+"INSERT INTO peeps (peep) VALUES ($1) RETURNING id, peep, created_at", [message])
     
     Peep.new(id: result[0]['id'], message: result[0]['peep'], timestamp: result[0]['created_at'])
   end

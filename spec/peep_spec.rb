@@ -1,9 +1,6 @@
-ENV['ENVIRONMENT'] == 'test'
-
 describe '.all' do
   it 'returns a list of peeps' do
     
-
     peep = Peep.create(message: 'Testing id')
     Peep.create(message: 'Test peep 1')
     Peep.create(message: 'Test peep 2')
