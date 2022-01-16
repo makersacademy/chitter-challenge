@@ -8,6 +8,7 @@ gem 'sinatra-contrib'
 gem 'pg'
 
 group :test do
+  gem 'timecop'
   gem 'rspec'
   gem 'capybara'
   gem 'simplecov', require: false

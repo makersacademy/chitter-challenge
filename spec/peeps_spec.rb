@@ -2,24 +2,26 @@ ENV['ENVIRONMENT'] == 'test'
 
 describe '.all' do
   it 'returns a list of peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
+    
 
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Test peep 1 peeps spec');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 2');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 3');")
+    peep = Peep.create(message: 'Testing id')
+    Peep.create(message: 'Test peep 1')
+    Peep.create(message: 'Test peep 2')
+    Peep.create(message: 'Test peep 3')
 
     peeps = Peep.all
 
-    expect(peeps).to include('Test peep 1 peeps spec')
-    expect(peeps).to include('Test peep 2')
-    expect(peeps).to include('Test peep 3')
+    expect(peeps.size).to eq 4
+    expect(peeps.first).to be_a Peep
+    expect(peeps.first.message).to eq 'Test peep 3'
+    expect(peeps.last.id).to eq peep.id
   end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(message: 'Testing, testing, 1, 2, 3')
+      peep = Peep.create(message: 'Testing, testing, 1, 2, 3')
   
-      expect(Peep.all).to include 'Testing, testing, 1, 2, 3'
+      expect(peep.message).to eq 'Testing, testing, 1, 2, 3'
     end 
   end 
 end
