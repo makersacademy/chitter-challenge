@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    
     'Chitter'
   end
 

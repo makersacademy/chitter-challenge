@@ -4,6 +4,7 @@ describe Peeps do
   describe '.all' do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
+      
       connection.exec("INSERT INTO chitter VALUES(1, 'This is my first peep');")
       connection.exec("INSERT INTO chitter VALUES(2, 'Hello Peeps!');")
 

@@ -1,1 +1,1 @@
-ALTER TABLE chitter ADD COLUMN time VARCHAR(100);
+ALTER TABLE chitter ADD COLUMN created_at VARCHAR(100);
