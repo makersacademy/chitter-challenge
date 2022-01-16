@@ -19,7 +19,7 @@ I want to sign up for Chitter
 ```
 
 Demo:
-[Imgur](https://i.imgur.com/HGrDoNV.png)
-[Imgur](https://i.imgur.com/PHnNNZL.png)
-[Imgur](https://i.imgur.com/MxhWO79.png)
+![alt text](https://i.imgur.com/HGrDoNV.png)
+![alt text](https://i.imgur.com/PHnNNZL.png)
+![alt text](https://i.imgur.com/MxhWO79.png)
 
