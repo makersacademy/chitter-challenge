@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Chitter</title>
+</head>
+<body>
+
+<h1>Chitter</h1>
+
+<section>
+  <form action="/peeps/post" method="post">
+    <textarea type="textbox" name="peep" rows="3" cols="50" placeholder="Make a peep..." autofocus></textarea>
+    <input type="submit" value="Post">
+  </form>
+</section>
+
+<% @peeps.each do |peep| %>
+  <article>
+    <p><%= peep.print %></p>
+  <article>
+<% end %>
+
+</body>
+</html>
