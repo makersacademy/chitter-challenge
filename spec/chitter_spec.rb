@@ -10,4 +10,13 @@ describe Chitter do
             expect(chitters).to include ('Test Peep')
         end
     end 
+
+    describe '#.post' do
+        it 'creates a new peep' do
+            Chitter.post(message: 'Tester Peep')
+            
+            expect(Chitter.all).to include 'Tester Peep'
+        end 
+    end 
 end 
+
