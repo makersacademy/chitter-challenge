@@ -1,20 +1,8 @@
-Chitter Challenge
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
+# Chitter Challenge
+----
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
--------
+## User Stories
 
 ```
 STRAIGHT UP
@@ -51,6 +39,46 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+# How to 
+
+### -Set Up Project
+
+Clone repo and run:
+
+```
+bundle
+```
+
+### -Set Up DB
+
+1. Connect to `psql` and create `chitter` and `chitter_test` databases:
+
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+
+2. Set Up appropriate tables:
+```
+Connect to EACH DB in `psql` and run SQL scripts in `db/migrations` in the given order.
+```
+
+### -Run App
+run:
+```
+rackup
+```
+To view chitter navigate to: `localhost:9292/peeps`.
+
+
+
+
+
+
+
+
+
 
 Technical Approach:
 -----
