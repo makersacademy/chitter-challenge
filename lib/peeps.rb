@@ -1,5 +1,12 @@
 class Peeps
   def self.all
-    ['Hello chitter users', 'This is my first peep']
+    if ENV['ENVIRONMENT'] == 'test'
+      con = PG.connect(dbname: 'chitter_test')
+    else
+      con = PG.connect(dbname: 'chitter_development')
+    end
+    result = con.exec('SELECT * FROM peeps')
+    result.map { |peep| peep['url']}
+
   end
 end
