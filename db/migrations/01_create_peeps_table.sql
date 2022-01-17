@@ -1,0 +1,1 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(200), peeped_at TIMESTAMPTZ, nanosecs BIGINT);

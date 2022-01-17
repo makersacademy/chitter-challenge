@@ -1,6 +1,12 @@
-<p><%= @peep %></p>
+<ul>
+  <% @peeps.each do |peep| %>  
+    <li class='peep'>
+      <%= peep %>
+    </li>
+  <% end %>
+</ul>
 
 <form action='/peeps' method='post'>
-  <input type='text' name='peep' placeholder='Place to pop a peep'>
+  <input type='text' name='peep' placeholder='peep..peep peep..peep'>
   <input type='submit' value='Peep!'>
 </form>

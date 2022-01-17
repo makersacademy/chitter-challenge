@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/peeps' do
-    @peep = Peep.show
+    @peeps = Peep.show
     erb(:peeps)
   end
 
