@@ -34,6 +34,7 @@ To view peeps at Chitter, navigate to `localhost:9292/chitter`.
 
 Features:
 -------
+I didn't get as far as I wished on this one. I went as far as implementing a registration for the users, but still need to deal with protecting the password.  
 
 ```
 STRAIGHT UP
