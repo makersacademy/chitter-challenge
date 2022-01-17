@@ -72,7 +72,7 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
-Demo:
+## Demo:
 
 ![alt text](https://i.imgur.com/HGrDoNV.png)
 
@@ -81,7 +81,7 @@ Demo:
 ![alt text](https://i.imgur.com/MxhWO79.png)
 
 
-Features in development:
+#### Features in development:
 
 ![alt text](https://i.imgur.com/ZAEKg4P.png)
 
