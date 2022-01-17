@@ -1,0 +1,38 @@
+<h3>
+  <%= flash[:notice] %>
+</h3>
+
+<% unless @user %>
+  <form action='/users/new' mehtod='get'>
+    <input type='submit' value='Sign Up'>
+  </form>
+  <form action='/sessions/new' mehtod='get'>
+    <input type='submit' value='Sign In'>
+  </form>
+<% end %>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.username %>!</h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign Out" />
+  </form>
+<% end %>
+
+<ul>
+  <% @peeps.each do |peep| %>  
+    <li class='peep'>
+      <%= peep.peep %>
+      <ul>
+        <li class='peeped_at'>
+          <%= peep.peeped_at %>
+        </li>
+      </ul>
+    </li>
+  
+  <% end %>
+</ul>
+
+<form action='/peeps' method='post'>
+  <input type='text' name='peep' placeholder='peep..peep peep..peep'>
+  <input type='submit' value='Peep!'>
+</form>
