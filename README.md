@@ -36,7 +36,7 @@ Features:
 -------
 I didn't get as far as I wished on this one. I went as far as implementing a registration for the users, but still need to deal with protecting the password.  
 
-```
+
 STRAIGHT UP
 
 As a Maker
@@ -70,4 +70,3 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
-```
