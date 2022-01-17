@@ -81,7 +81,7 @@ I want to sign up for Chitter
 ![alt text](https://i.imgur.com/MxhWO79.png)
 
 
-#### Features in development:
+#### Features in development:
 
 ![alt text](https://i.imgur.com/ZAEKg4P.png)
 
