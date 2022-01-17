@@ -39,38 +39,3 @@
   <% end %>
 </ul>
 
-
-
-
-<div class="login-form">
-    <img class="user-profile-img" src="/images/user-profile-icon.jpeg">
-      <h1>Login</h1>
-      <form action="/sessions" method="post">
-        <input id="email" type="email" name="email" class="input-box" placeholder="Enter email"/>
-        <input type="password" name="password" class="input-box" placeholder="Enter password"/>
-
-        <button type="submit" class="login-btn" value="Login">Login</button>
-
-      <hr>
-        <p class="or">OR</p>
-
-        <p>Don't have an account? <a href="/users/new">Sign up</p>
-
-      </form>
- <div class="appstore-btns">
-          <img src="https://i.ibb.co/PD5kgzL/Apple-appstore-btn.png" alt="Download on apple app store">
-          <img src="https://i.ibb.co/FX4ykMt/Google-Play-Btn.png" alt="Download On Playstore">
-        </div>
-
-    </div>
-
-
-
-      </div>
-    </div>
-  </body>
-</html>
-
-<% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
-<% end %>

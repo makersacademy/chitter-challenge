@@ -68,3 +68,19 @@ The TEST database was setup with the below commands:
 CREATE DATABASE chitter_challenge_test;
 CREATE TABLE chitter(id SERIAL PRIMARY KEY, time VARCHAR, message VARCHAR(280)); 
 ```
+
+The TEST database was setup with the below commands:
+```
+$ Connect to psql.
+psql
+$ Run the following commands
+SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'chitter_challenge' AND pid <> pg_backend_pid();
+SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'chitter_challenge_test' AND pid <> pg_backend_pid();
+DROP DATABASE IF EXISTS chitter_challenge;
+DROP DATABASE IF EXISTS chitter_challenge_test;
+$ Quit out of psql
+\q
+$ Use the Rakefile to create the databases. Enter the following commands in the command line of the terminal.
+rake setup
+rake test_database_setup
+```

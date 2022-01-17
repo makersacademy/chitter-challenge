@@ -5,26 +5,16 @@
 
 <h3>Please fill out the below form with the required information</h3>
 
-<form action="/register_details" method="post">
-  <label for="first_name">
-    First name
-    <input type="text" name="first_name">
-  </label>
-  <label for="surname">
-    Surname
-    <input type="text" name="surname">
-  </label>
-  <label for="email_address">
-    Email address
-    <input type="text" name="email_address">
-  </label>
-  <label for="username">
-    Username
-    <input type="text" name="username">
-  </label>
-  <label for="password">
-    Password
-    <input type="text" name="password">
-  </label>
-  <input type="submit" value="Create account">
+<form action="/users" method="post">
+  <input class="input-box" name="first_name" type="first_name" placeholder="Enter first name">
+  <br>
+  <input class="input-box" name="surname" type="surname" placeholder="Enter surname">
+  <br>
+  <input class="input-box" name="email_address" type="email_address" placeholder="Enter email address">
+  <br>
+  <input class="input-box" name="password" type="password" placeholder="Enter password">
+  <br>
+
+  <button class="signup-btn" type="submit" value="Create account"> Create account </button>
+
 </form>

@@ -1,14 +1,33 @@
+require_relative 'database_connection'
 
 class Chitter
   
-  attr_reader :peep_log
+  attr_reader :id, :message, :time
 
-  def initialize
-    @peep_log = []
+  def initialize(id:, message:, time:) 
+    @id = id
+    @message = message
+    @time = time
   end
 
-  def peep_history
-    @peep_log.reverse.map { |peep| "Time: #{peep.time.strftime("%k:%M")}  Message: #{peep.message}" }
+  def self.peep_history
+    result = DatabaseConnection.query("SELECT * FROM chitter;")
+
+    result.map do |peep|
+      Chitter.new(
+        id: result[0]['id'], 
+        message: peep['message'], 
+        time: peep['time']
+      )
+    end 
   end
+
+  def self.create(message:)
+    result = DatabaseConnection.query(
+      "INSERT INTO chitter (message) VALUES('#{message}') RETURNING message;"
+    )
+
+    Chitter.new(id: result[0]['id'], message: result[0]['message'], time: result[0]['time'])
+  end 
 
 end

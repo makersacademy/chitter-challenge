@@ -1,0 +1,20 @@
+
+
+<% if @user %>
+  <h1>Welcome <%= @user.first_name %> <%= @user.surname %>!</h1>
+<% end %>
+
+
+<% @chitter.reverse_each do |chitter| %>
+
+  <h4> <%= chitter.first_name chitter.surname %> </h4>
+    
+  <div class="peep">
+    <h2> <%= chitter.post %> </h2>
+    <span> <%= chitter.time[0, 16] %> </span>
+  </div>
+<% end %>
+  
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>

@@ -1,15 +1,34 @@
+<html>
 
 <h1>Chitter</h1>
 
-<h2>Login</h2>
-<form action="/sessions" method="post">
-  <input class="input-box" id="email" type="email" name="email" placeholder="Enter email"/>
-  <input class="input-box" type="password" name="password"  placeholder="Enter password"/>
-  <button class="login-btn" type="submit" value="Login"> Login </button>
+  <body>
 
-  <p>OR</p>
+    <% if @user %>
+      <h1><%= "Signed in as #{@user.firstname} #{@user.lastname}"%></h1>
+      <form action="/peep" method="post">
+        <fieldset>
+          <input type="text" name='content' id='peep' placeholder = "What's happening?">
+          <input type="submit" name="Peep" value="Peep">
+        </fieldset>
+      </form>
+    <% else %>
+      <h1>
+        <form action="/sessions/login">
+          <input type="submit" value="Log In">
+        </form>
+        <form action="/users/register">
+          <input type="submit" value="Register">
+        </form>
+      </h1>
+    <% end %>
 
-  <p> <a href="/users/register"> Sign up </p>
+    <% if @user %>
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+      </form>
+    <% end %>
 
-</form>
+  </body>
 
+</html> 

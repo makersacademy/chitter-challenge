@@ -9,6 +9,9 @@ gem 'sinatra-contrib'
 gem 'sinatra-flash'
 gem 'pg'
 gem 'selenium-webdriver'
+gem 'bcrypt'
+gem 'rake'
+gem 'rack'
 
 group :test do
   gem 'rspec'
