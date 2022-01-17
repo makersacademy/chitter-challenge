@@ -1,0 +1,48 @@
+* {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  background-color: #444;
+}
+
+h1 {
+  color: #fff;
+  margin: 20px 10px;
+}
+
+#peep-box {
+  background-color: #ccc;
+  width: 100%;
+  position: relative;
+  border-radius: 2em;
+}
+
+textarea[name="peep"] {
+  margin: 1em 1em;
+  vertical-align: middle;
+  resize: none;
+  border-radius: 1.5em;
+  padding: .7em 1em;
+  border: 3px solid #ddd;
+  outline: none;
+}
+
+textarea[name="peep"]:focus {
+  border: 3px solid #444;
+  transition: .6s;
+}
+
+input[value="Post"] {
+  margin: 1em;
+  padding: 1.2em 1em;
+  border-radius: 50%;
+  border: 3px solid #444;
+}
+
+input[value="Post"]:hover {
+  transition: .1s;
+  border: 3px solid #fff;
+  background-color: #444;
+  color: #fff;
+}
