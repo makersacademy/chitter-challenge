@@ -31,16 +31,73 @@ I want to sign up for Chitter
 ```
 
 ## Getting started
+
 #### **Tech**
-#### **Installation**
+
+- `ruby`
+- `sinatra`
+- `capybara`
+- `rspec`
+- `postgresql`
+- `pg`
+
+#### **Installation and setup**
+
+#### Download
+
+1. Fork [this repo][chitter repo] and `git clone` it to your local system.
+1. Use `Homebrew` (or your prefered package manager) to install and manage packages.
+1. `brew install bundler`
+1. Run `bundle install` to install the required 'gems' from the Gemfile.
+1. `brew install postgres`
+    - Follow post installation instructions.
+    - `brew service start postgresql`
+    - Create `chitter` and `chitter_test` databases using `psql`
+        - `CREATE DATABASE chitter;`
+        - `CREATE DATABASE chitter_web;`
+    - Create tables in each database using the `psql` sequences in `db/migrations`
+
+[chitter repo]: https://github.com/J-son1/chitter-challenge
+
 #### **Usage**
-#### **Test**
+
+#### PostgreSQL
+
+##### Startup
+
+```psql
+$ psql postgres
+postgres=#
+```
+##### Commands
+
+- `postgres=# \l` - List all database tables
+- `postgres=# \q` - Quit `psql`
+
+#### Rack
+
+##### Startup
+
+- Run `rackup` to start a local server:
+
+```
+$ rackup
+```
+
+#### Browser
+- Use `localhost:XXXX/peeps` with 4-digit port number to view chitter homepage.
 
 ## Technical Approach
 
 ## Notes
 
 ## Testing
+
+#### **RSpec**
+
+- Run `rspec` from the projects root directory.
+
+#### **SimpleCov**
 
 Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
 on your pull request:
