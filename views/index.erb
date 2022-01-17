@@ -1,0 +1,20 @@
+<head>
+  <title>Chitter</title>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  Chitter!<br>
+  <div class='flash-object'><%= if flash[:notice] then flash[:notice] end %></div>
+  <form class='text-box' action='/add' method='post'>
+    <input name='content' type='text' placeholder='What are you peeping?'>
+    <input type='submit' value='Peep'>
+  <form>
+
+  <dl>
+    <% @peeps.each do |peep| %>
+      <dd class='peep' id='peep-<%= peep.id %>'> <%= peep.content %> </dd>
+      <dt class='time_tag' id='time_tag-<%= peep.id %>'>- Peeped at <%= peep.friendly_time %></dt>
+    <% end %>
+  </dl>
+</body>

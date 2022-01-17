@@ -1,0 +1,1 @@
+ALTER TABLE peeps  ADD created_at TIMESTAMP;
