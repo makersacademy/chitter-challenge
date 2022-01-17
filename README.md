@@ -46,7 +46,7 @@ Ruby, Sinatra, PostgreSQL, RSpec, Capybara
 - visitors can add peeps
 - each peep has a timestamp
 
-## Features in development:
+## Features in development (accessible on user_class branch):
 
 - Visitors can register using their name, username, email and password.
 - User can sign
@@ -83,6 +83,6 @@ Demo:
 
 Features in development:
 
-![alt text]([https://i.imgur.com/ZAEKg4P.png](https://i.imgur.com/ZAEKg4P.png))
+![alt text]([https://i.imgur.com/ZAEKg4P.png](https://i.imgur.com/ZAEKg4P.png)
 
-![alt text]([https://i.imgur.com/TbiJam1.png](https://i.imgur.com/TbiJam1.png))
+![alt text]([https://i.imgur.com/TbiJam1.png](https://i.imgur.com/TbiJam1.png)
