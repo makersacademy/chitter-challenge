@@ -5,13 +5,33 @@ Instructions:
 -------
 Create databases:
 
-CREATE DATABASE chitter;
-\c chitter
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(280));
+### To set up the project
 
+Clone this repository and then run:
+
+```
+bundle install
+```
+
+### To set up the database
+
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
+
+```
+CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
-\c chitter
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(280));
+```
+
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the Chitter app:
+
+```
+rackup
+```
+
+To view peeps at Chitter, navigate to `localhost:9292/chitter`.
+
 
 Features:
 -------
