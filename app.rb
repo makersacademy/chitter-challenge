@@ -5,7 +5,7 @@ require './lib/peep'
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
-    also_reload './lib/peep'
+    also_reload './lib/peep.rb'
   end
 
   enable :sessions

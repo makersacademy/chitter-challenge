@@ -1,9 +1,10 @@
 feature 'Posting a peep' do
-  scenario 'a posted peep is displayed' do
+  scenario 'a posted peep is displayed with time' do
     visit '/peeps'
     fill_in 'peep', with: 'Hello World!'
     click_button 'Peep!'
-    expect(page).to have_content 'Hello World!'
+    expect(page).to have_content 'Hello World!' 
+    expect(page).to have_content '31/12/1999 23:59'
   end
 end
 
