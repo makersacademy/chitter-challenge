@@ -1,3 +1,7 @@
+<h3>
+  <%= flash[:notice] %>
+</h3>
+
 <% unless @user %>
   <form action='/users/new' mehtod='get'>
     <input type='submit' value='Sign Up'>

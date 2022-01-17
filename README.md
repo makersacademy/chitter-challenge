@@ -1,10 +1,8 @@
 Chitter Challenge
 =================
 
-Challenge:
--------
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+## Makers Week 4 Challenge
+For my fourth weekend challenge at [Makers](https://www.makers.tech/) I had the pleasure of making a Twitter clone - allowing users to post messages to a public stream.
 
 Features:
 -------
@@ -55,35 +53,48 @@ I want to receive an email if I am tagged in a Peep
 Notes on functionality:
 ------
 
-* You don't have to be logged in to see the peeps.
+* You do not have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
 
 Bonus:
 -----
 
-If you have time you can implement the following:
+If  time you can implement the following:
 
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
 
 ---
+## Installation
 
-### Database Set Up:
+1. Clone this repo 
+2. Run the command ```gem install bundler``` (if you don't have bundler already)
+3. When the installation completes, run ```bundle install```
+---
+## Database Setup
 - Connect to psql
 - Create the database using the psql command CREATE DATABASE chitter;
 - Connect to the database using the pqsl command \c chitter;
-- Run the query we have saved in the file 01_create_peeps_table.sql
+- Run the query saved in the file 01_create_peeps_table.sql
+- Run the query saved in the file 02_create_users_table.sql
+---
+## To Use
+- Run ```rackup```
+- Visit ```http://localhost:9292/```
+- Peep away your day!
+---
+## To Test
 
 ### Test Database Set Up:
 - Connect to psql
 - Create the database using the psql command CREATE DATABASE chitter_test;
 - Connect to the database using the pqsl command \c chitter_test;
-- Run the query we have saved in the file 01_create_peeps_table.sql
+- Run the query saved in the file 01_create_peeps_table.sql
+- Run the query saved in the file 02_create_users_table.sql
+  
+## Running Tests
+
+Run ```rspec```

@@ -52,7 +52,13 @@ class Chitter < Sinatra::Base
       redirect('/peeps')
     else
       flash[:notice] = "Something wasn't right! Try again..."
-      redirect('/sessions/new')
+      redirect '/sessions/new' 
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'Bye for now. Come back soon!'
+    redirect '/peeps'
   end
 end
