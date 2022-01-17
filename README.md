@@ -1,19 +1,16 @@
 Chitter Challenge
 =================
 
-Challenge:
--------
+Weekend challenge (week 4) of Makers bootcamp. I have written a basic Twitter clone (Chitter) that allows users to post messages(peeps) to a public stream.
 
-As usual please start by forking this repo.
+The Chitter database is integrated using PG gem and SQL. The database stores peeps (content, time posted) and users (username, handle) in separate tables. 
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+I am currently in the middle of updating my views and Peep class so that handle, username are pulled from User and users table rather than peeps. 
 
 Features:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -30,7 +27,8 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+Features in process of implementing:
+-------
 
 As a Maker
 So that only I can post messages on Chitter as me
@@ -40,7 +38,8 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
+Features not yet implemented
+-------
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
@@ -60,4 +59,3 @@ I want to receive an email if I am tagged in a Peep
 2. Connect to the database using the pqsl command \c chitter_test;
 3. Run the query we have saved in the file 01_create_peeps_table.sql
 5. Run the query we have saved in the file 04_create_users_table.sql
-

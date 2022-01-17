@@ -4,13 +4,18 @@ require 'database_helpers'
 describe User do 
   describe '.create' do 
     it 'adds new user with username, handle and password' do 
-      user = User.create(username: 'testuser', handle: '@test', password: 'passwordtest')
+      user = User.create(username: 'testuser', handle: '@test', password: 'pwtest')
       persisted_data = persisted_data(table: :users, id: user.id)
 
       expect(user).to be_a User
       expect(user.username).to eq 'testuser'
       expect(user.handle).to eq '@test'
       expect(user.id).to eq persisted_data['id']
+    end
+
+    it 'hashes the password using BCrypt' do 
+      expect(BCrypt::Password).to receive(:create).with('pwtest')
+      User.create(username: 'testuser', handle: '@test', password: 'pwtest')
     end
   end
 

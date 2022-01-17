@@ -7,13 +7,19 @@
 <h1>Chitter</h1>
 
 <% if @user %>
-  <h3> Welcome <%= @user.username %> </h3>
+  <h3> Welcome <%= @user.username %> </h3> 
 <% end %>
 
 <% @peeps.each do |peep| %>
   <div class='peep'>
     <%= peep.content %>
-    <p> <em> posted by: <%= peep.user%>, <%= peep.handle %> at <%=peep.time%> </em></p> 
+    <em> <p> 
+    <% if @user %> 
+      posted by: <%= @user.username%>, <%= @user.handle %> 
+    <% else %>
+      posted by: anonymous 
+    <% end %>
+    at <%=peep.time%> </em></p> 
   </div>
 <% end %>
 
