@@ -3,9 +3,8 @@ Chitter Challenge
 
 Instructions:
 -------
-Create databases:
 
-### To set up the project
+### Setup the project  
 
 Clone this repository and then run:
 
@@ -13,7 +12,7 @@ Clone this repository and then run:
 bundle install
 ```
 
-### To set up the database
+### Setup the database  
 
 Connect to `psql` and create the `chitter` and `chitter_test` databases:
 
@@ -24,7 +23,7 @@ CREATE DATABASE chitter_test;
 
 To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-### To run the Chitter app:
+### Run the Chitter app  
 
 ```
 rackup

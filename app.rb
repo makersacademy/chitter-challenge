@@ -17,13 +17,22 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
+    @name = session[:name]
     p @peeps = Peeps.list
-    # @time = Peeps.format_time
     erb :chitter
   end
 
   get '/chitter/new_peep' do
     erb :new_peep
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    session[:name] = params[:name]
+    redirect '/chitter'
   end
 
   post '/chitter/new_peep' do

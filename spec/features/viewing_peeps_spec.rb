@@ -17,7 +17,7 @@ feature 'viewing peeps' do
 
   scenario 'user can see time peep was posted' do
     post_peep("What time is it?")
-    time = Time.now.strftime("%d/%m/%Y at %k:%M")
+    time = Time.new.strftime("%d/%m/%Y at%k:%M")
 
     expect(current_path).to eq '/chitter'
     expect(page).to have_content time
