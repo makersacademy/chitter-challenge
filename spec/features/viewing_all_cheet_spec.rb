@@ -30,6 +30,6 @@ feature 'viewing cheets' do
 
   scenario 'displays in reverse chronological order' do
     visit('/')
-    expect(page).to have_content("Latest cheets:\n\"The last word\" cheeted by Duck_Tape, @")
+    expect(page).to have_content("Latest cheets:\n\"The last word\" cheeted by Duck_Tape, at")
   end
 end
