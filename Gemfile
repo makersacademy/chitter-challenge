@@ -7,6 +7,7 @@ gem 'sinatra-contrib'
 gem 'capybara'
 gem 'rack'
 gem 'webrick'
+gem 'pg'
 
 group :test do
   gem 'rspec'
