@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peeps'
+require './lib/user'
 require 'pg'
 require './database_connection_setup'
 
@@ -18,7 +19,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @name = session[:name]
-    p @peeps = Peeps.list
+    @peeps = Peeps.list
     erb :chitter
   end
 
@@ -31,6 +32,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
+    user = User.register(
+      name: params[:name], 
+      email: params[:email], 
+      username: params[:username], 
+      password: params[:password]
+    )
     session[:name] = params[:name]
     redirect '/chitter'
   end
