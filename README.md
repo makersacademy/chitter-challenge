@@ -37,7 +37,7 @@ Features:
 I didn't get as far as I wished on this one. I went as far as implementing a registration for the users, but still need to deal with protecting the password.  
 
 
-STRAIGHT UP
+### STRAIGHT UP
 
 As a Maker  
 So that I can let people know what I am doing  
@@ -55,7 +55,7 @@ As a Maker
 So that I can post messages on Chitter as me  
 I want to sign up for Chitter :warning:    
 
-HARDER
+### HARDER
 
 As a Maker  
 So that only I can post messages on Chitter as me  
@@ -65,7 +65,7 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me  
 I want to log out of Chitter    
 
-ADVANCED
+### ADVANCED
 
 As a Maker  
 So that I can stay constantly tapped in to the shouty box of Chitter  
