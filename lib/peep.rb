@@ -8,11 +8,16 @@ class Peep
 
   def self.create(peep)
     time = Time.now
-    peeps = DatabaseConnection.query("INSERT INTO peeps(peep, peeped_at, nanosecs) VALUES ($1, $2, $3);", [peep, time, time.nsec])
+    peeps = DatabaseConnection.query(
+      "INSERT INTO peeps(peep, peeped_at, nanosecs) VALUES ($1, $2, $3);", 
+      [peep, time, time.nsec]
+    )
   end
 
   def self.show
-    peeps = DatabaseConnection.query("SELECT * FROM peeps ORDER BY peeped_at DESC, nanosecs DESC;")
+    peeps = DatabaseConnection.query(
+      "SELECT * FROM peeps ORDER BY peeped_at DESC, nanosecs DESC;"
+    )
     peeps.map { |peep| Peep.new(peep['peep'], peep['peeped_at']) }
   end
 end

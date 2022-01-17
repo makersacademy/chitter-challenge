@@ -1,3 +1,13 @@
+<% unless @user %>
+  <form action='/users/new' mehtod='get'>
+    <input type='submit' value='Sign Up'>
+  </form>
+<% end %>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.username %>!</h1>
+<% end %>
+
 <ul>
   <% @peeps.each do |peep| %>  
     <li class='peep'>

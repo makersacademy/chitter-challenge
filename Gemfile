@@ -8,7 +8,6 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webrick'
 
-
 group :test do
   gem 'capybara'
   gem 'rspec'
