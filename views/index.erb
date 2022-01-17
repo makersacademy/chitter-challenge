@@ -1,12 +1,21 @@
 <h1>Welcome to Chitter.</h1>
-<h2>Scream into the void.</h2>
+<h2>Sign in to scream into the void.</h2>
 
-<form method="post" action="/chitter">
-  <input type="text" name="peep" placeholder="Peep away, friendo" />
-  <input type="submit" value="Peep!" />
+<form method="post" action="/chitter/sign-in">
+  User name:
+  <input type="text" name="username" placeholder="User name here please" />
+  <br>
+  Password:
+  <input type="text" name="password" placeholder="Super secret password?" />
+  <br>
+  <input type="submit" value="Submit" />
 </form>
 
-<h2>Here are some peeps from you and your 'friends'.</h2>
+<h2>Don't have an account? What are you playing at?? 
+<form action='/signup'><input type="submit" value="Sign up here." /></form>
+</h2>
+
+<h2>Here are some peeps.</h2>
 
 <ul>
   <% @peeps.each do |peep| %>

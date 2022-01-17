@@ -11,16 +11,44 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/' do
+    redirect '/chitter'
+  end
+
   get '/chitter' do
     @peeps = Peep.all
 
     erb :index
   end
 
-  post '/chitter' do
-    Peep.create(message: params[:peep])
-      
-    redirect '/chitter'
+  post '/chitter/sign-in' do
+    @user = User.find_by(username: params[:username], password: params[:password])
+    session[:user_id] = @user['id'].to_i
+
+    redirect '/chitter/userpage'
+  end
+
+  get '/chitter/userpage' do
+    @peeps = Peep.all
+  
+    erb :userpage
+  end
+
+  post '/chitter/userpage' do
+    @peeps = Peep.all
+    Peep.create(message: params[:peep], user_id: session[:user_id])
+  
+    redirect '/chitter/userpage'
+  end
+
+  get '/signup' do
+    erb :sign_up
+  end
+
+  post '/signup' do
+    User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+
+    redirect '/chitter/userpage'
   end
   
   run! if app_file == $0

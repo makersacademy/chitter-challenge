@@ -18,4 +18,9 @@ class User
           
     User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
+
+  def self.find_by(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = $1 AND password = $2", [username, password])
+    result.first
+  end
 end

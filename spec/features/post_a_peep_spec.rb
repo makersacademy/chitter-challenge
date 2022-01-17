@@ -1,6 +1,6 @@
 feature 'Posting peeps' do
   scenario 'A user can post a peep' do
-    visit('/chitter')
+    visit('/chitter/userpage')
 
     fill_in('peep', with: 'Test peep 1')
     click_on 'Peep!'
