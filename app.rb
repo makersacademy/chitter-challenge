@@ -6,7 +6,15 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    "Hello!"
+  enable :sessions
+
+  get '/peeps' do
+    @peep = session[:peep]
+    erb(:peeps)
+  end
+
+  post '/peeps' do
+    session[:peep] = params[:peep]
+    redirect '/peeps'
   end
 end
