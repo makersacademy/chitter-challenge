@@ -49,7 +49,7 @@ Ruby, Sinatra, PostgreSQL, RSpec, Capybara
 ## Features in development (accessible on user_class branch):
 
 - Visitors can register using their name, username, email and password.
-- User can sign
+- User can sign in
 - Only logged in users can post
 
 User stories:
@@ -83,6 +83,6 @@ Demo:
 
 Features in development:
 
-![alt text]([https://i.imgur.com/ZAEKg4P.png](https://i.imgur.com/ZAEKg4P.png)
+![alt text](https://i.imgur.com/ZAEKg4P.png)
 
-![alt text]([https://i.imgur.com/TbiJam1.png](https://i.imgur.com/TbiJam1.png)
+![alt text](https://i.imgur.com/TbiJam1.png)
