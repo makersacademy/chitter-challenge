@@ -1,33 +1,59 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap">
+  </head>
 
-<h1>Chitter</h1>
+  <header>
+    <div class="container">
+      <h1 class="logo"></h1>
+
+      <nav>
+        <ul>
+        <li>
+          <div class="heading1">
+            Chitter
+          </div>
+        </li>
+          <li><a href="chitter.erb">Home</a></li>
+          <li><a href="about.erb">About</a></li>
+          <li><a href="setting.erb">Settings</a></li>
+          <li><a href="trending.erb">Trending</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <body>
+  
+    
 
-    <% if @user %>
-      <h1><%= "Signed in as #{@user.firstname} #{@user.lastname}"%></h1>
-      <form action="/peep" method="post">
-        <fieldset>
-          <input type="text" name='content' id='peep' placeholder = "What's happening?">
-          <input type="submit" name="Peep" value="Peep">
-        </fieldset>
-      </form>
-    <% else %>
-      <h1>
-        <form action="/sessions/login">
-          <input type="submit" value="Log In">
-        </form>
-        <form action="/users/register">
-          <input type="submit" value="Register">
-        </form>
-      </h1>
-    <% end %>
+    <div class="flash-notice">
+      <%= flash[:notice] %>
+    </div>
 
-    <% if @user %>
-      <form action="/sessions/destroy" method="post">
-        <input type="submit" value="Sign out" />
-      </form>
-    <% end %>
+    <div class="card">
+      <div class="container">
+        <div class="heading2">
+          Sign in 
+        </div>
+
+        <form action="/sessions" method="post">
+          <input class="input-box" name="email" type="email" placeholder="Enter email">
+          <br>
+          <input class="input-box" name="password" type="password" placeholder="Enter password">
+          <button class="login-btn" type="submit" value="Log in"> Log in </button>
+        </form>
+        <form action="/users-register" method="post">
+          <button class="register-btn" type="submit" value="Register"> Register </button>
+        </form>
+
+      </div>
+    </div>
 
   </body>
 

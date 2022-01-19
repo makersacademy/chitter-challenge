@@ -1,0 +1,24 @@
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-light bg-primary" style="background-color: #e3f2fd;">
+  <div class="w-100 d-flex justify-content-around">
+    <a class="mt-1  navbar-brand" href="/"><img src="/images/chitterLogoWhite.svg" height="50" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav navbar-right">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <% if @user %>
+        <% else %>
+          <button type="button" class="m-2 btn btn btn-outline-light" data-bs-toggle="modal"
+           style="font-family: 'Raleway', sans-serif;" data-bs-target="#SignInModal">
+            Sign In
+          </button>
+          <button type="button" class="m-2 btn btn btn-light" style="font-family: 'Raleway', sans-serif;"
+           data-bs-toggle="modal" data-bs-target="#SignUpModal">
+            Sign Up
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

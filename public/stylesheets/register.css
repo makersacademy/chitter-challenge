@@ -1,0 +1,70 @@
+.background-image-register {
+  background-image: url("/images/ilona-frey-0UKyrKCoutM-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 2px 2px 2px grey;
+  transition: 0.3s;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  margin-top: 50px;
+  border-radius: 8px;
+  opacity: .9;
+}
+
+.card:hover {
+  /* On mouse-over, add a deeper shadow */
+  box-shadow: 0 4px 4px rgb(49, 22, 207);
+}
+
+.container {
+  /* Add some padding inside the card container */
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.heading1 {
+  font-family: 'Qwitcher Grypen', cursive;
+  padding: 0px;
+  text-align: center;
+  color: rgb(235, 200, 22);
+  font-size: 180px;
+  text-shadow: 2px 2px rgb(139, 119, 16);
+}
+
+.heading2 {
+  font-family: 'Tajawal', sans-serif;
+  color: rgb(78, 78, 77);
+  font-size: 30px;
+  line-height: 0;
+}
+
+.body-text {
+  font-family: 'Tajawal', sans-serif;
+  color: rgb(78, 78, 77);
+  font-size: 20px;
+  line-height: 0;
+}
+
+.input-box {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+

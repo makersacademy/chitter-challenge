@@ -21,8 +21,24 @@ class ChitterApp < Sinatra::Base
     erb :"users/register"
   end
 
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/chitter')
+    else
+      flash[:notice] = 'Please check your username or password.'
+      redirect('/')
+    end
+  end
+
   post '/users' do
-    user = User.create(first_name: params['first_name'], surname: params['lastname'], email: params['email'], password: params['password'])
+    user = User.create(
+      first_name: params['first_name'], 
+      surname: params['surname'], 
+      email: params['email'], 
+      password: params['password']
+    )
     session[:user_id] = user.id
     redirect '/'
   end
@@ -31,16 +47,7 @@ class ChitterApp < Sinatra::Base
     erb :"sessions/new"
   end
 
-  post '/sessions' do
-    user = User.authenticate(email: params[:email], password: params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect('/')
-    else
-      flash[:notice] = 'Please check your username or password.'
-      redirect('/sessions/new')
-    end
-  end
+  
 
   post '/sessions/destroy' do
     session.clear

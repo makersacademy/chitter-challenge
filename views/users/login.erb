@@ -1,20 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" >
+  </head>
 
-<h1>Chitter</h1>
+  <h1>Chitter</h1>
 
-<div class="notice">
-  <%= flash[:notice] %>
-</div>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
 
-<h2>Log in</h2>
+  <h2>Log in</h2>
 
-<form action="/login_credentials" method="post">
-  <label for="username">
-    Username
-    <input type="text" name="username">
-  </label>
-  <label for="password">
-    Password
-    <input type="text" name="password">
-  </label>
-  <input type="submit" value="Log in">
-</form>
+  <form action="/users-login" method="post">
+    <input class="input-box" name="email" type="email" placeholder="Enter email">
+    <br>
+    <input class="input-box" name="password" type="password" placeholder="Enter password">
+    <button class="login-btn" type="submit" value="Log in"> Log in </button>
+  </form>
+
+</html> 

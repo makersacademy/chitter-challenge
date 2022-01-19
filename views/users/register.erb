@@ -1,20 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" >
+  </head>
 
-<h1>Chitter</h1>
+  <body class="background-image-register">
+    
+    <div class="heading1">
+      Chitter
+    </div>
 
-<h2>Register</h2>
+    <div class="card">
+      <div class="container">
 
-<h3>Please fill out the below form with the required information</h3>
+        <div class="heading2">
+          <p>Register</p>
+        </div>
 
-<form action="/users" method="post">
-  <input class="input-box" name="first_name" type="first_name" placeholder="Enter first name">
-  <br>
-  <input class="input-box" name="surname" type="surname" placeholder="Enter surname">
-  <br>
-  <input class="input-box" name="email_address" type="email_address" placeholder="Enter email address">
-  <br>
-  <input class="input-box" name="password" type="password" placeholder="Enter password">
-  <br>
+        <div class="body-text">
+          <p>Please fill out the below form with the required information</p>
+        </div>
 
-  <button class="signup-btn" type="submit" value="Create account"> Create account </button>
+        <form action="/users-register" method="post">
+          <input class="input-box" name="first_name" type="first_name" placeholder="Enter first name">
+          <br>
+          <input class="input-box" name="surname" type="surname" placeholder="Enter surname">
+          <br>
+          <input class="input-box" name="email" type="email" placeholder="Enter email address">
+          <br>
+          <input class="input-box" name="password" type="password" placeholder="Enter password">
+          <br>
+          <button class="signup-btn" type="submit" value="Create account"> Create account </button>
+        </form>
+      </div>
+    </div>
 
-</form>
+  </body>
+
+</html> 
+
