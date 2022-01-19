@@ -5,7 +5,6 @@ describe Chitter do
         it 'returns all peeps' do
             connection = PG.connect(dbname: 'chitter_test')
             connection.exec("INSERT INTO chitter_messages (message) VALUES ('Test Peep');")
-
             chitters = Chitter.all
             expect(chitters).to include ('Test Peep')
         end
@@ -14,7 +13,6 @@ describe Chitter do
     describe '#.post' do
         it 'creates a new peep' do
             Chitter.post(message: 'Tester Peep')
-            
             expect(Chitter.all).to include 'Tester Peep'
         end 
     end 

@@ -9,7 +9,8 @@ class Chitter
         end 
     
         result = connection.exec("SELECT * FROM chitter_messages;")
-        result.map { |peep| peep['message'] }
+        reverse_chronological_order = result.reverse_each
+        reverse_chronological_order.map { |peep| peep['message'] }
     end 
 
     def self.post(message:)
