@@ -3,7 +3,6 @@ require'bcrypt'
 
 class User
   include BCrypt
-
   attr_reader :name, :username, :email
 
   def initialize(name:, username:, email:, password:)
@@ -31,6 +30,19 @@ class User
   def password
     password ||= Password.new(@password_hash)
   end
+
+  def self.authenticate(email: , password:)
+
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    result =  connection.exec('SELECT * FROM users WHERE email = $1', [email])
+    User.new(name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
+
+  end 
     
 
 end 
