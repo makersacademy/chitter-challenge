@@ -66,7 +66,7 @@ nav a:hover::before {
   width: 100%;
 }
 
-.message-box{
+.new-message-box{
   box-shadow: 2px 2px 0 grey;
   border: 2px solid;
   border-color: black;
@@ -110,4 +110,23 @@ nav a:hover::before {
   background-color: rgb(29, 161, 242);
   font-family: 'Roboto', sans-serif;
   color: white;
+}
+
+.peep-card {
+  box-shadow: 2px 2px 0 grey;
+  border: 2px solid;
+  border-color: black;
+  transition: 0.3s;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  margin-top: 50px;
+  border-radius: 20px;
+  opacity: .9;
+}
+
+.users-name {
+  font-family: 'Roboto', sans-serif;
+  color: black;
 }
