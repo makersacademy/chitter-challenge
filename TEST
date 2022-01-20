@@ -15,7 +15,7 @@ get '/home' do
 
   post '/users' do
     user = User.create(username: params['username'], firstname: params['firstname'], 
-lastname: params['lastname'], email: params['email'], password: params['password'])
+surname: params['surname'], email: params['email'], password: params['password'])
     session[:user_id] = user.id
     redirect '/home'
   end

@@ -3,27 +3,44 @@
   <head>
     <link rel="stylesheet" href="/stylesheets/register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap">
   </head>
 
-  <body class="background-image-register">
-    
-    <div class="heading1">
-      Chitter
+  <header>
+    <div class="container">
+      <h1 class="logo"></h1>
+
+      <nav>
+        <ul>
+        <li>
+          <div class="heading1">
+            Chitter
+          </div>
+        </li>
+          <li><a href="chitter.erb">Home</a></li>
+          <li><a href="about.erb">About</a></li>
+          <li><a href="setting.erb">Settings</a></li>
+          <li><a href="trending.erb">Trending</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <body>
 
     <div class="card">
       <div class="container">
-
         <div class="heading2">
-          <p>Register</p>
+          Register
         </div>
 
         <div class="body-text">
-          <p>Please fill out the below form with the required information</p>
+          Please fill out the below form with the required information
         </div>
 
-        <form action="/users-register" method="post">
+        <form action="/users" method="post">
           <input class="input-box" name="first_name" type="first_name" placeholder="Enter first name">
           <br>
           <input class="input-box" name="surname" type="surname" placeholder="Enter surname">
@@ -32,12 +49,12 @@
           <br>
           <input class="input-box" name="password" type="password" placeholder="Enter password">
           <br>
-          <button class="signup-btn" type="submit" value="Create account"> Create account </button>
+          <button class="register-btn" type="submit" value="create_account"> Create account </button>
         </form>
+
       </div>
     </div>
 
   </body>
 
 </html> 
-

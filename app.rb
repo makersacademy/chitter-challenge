@@ -17,6 +17,7 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
+
   get '/users/register' do
     erb :"users/register"
   end
@@ -55,24 +56,22 @@ class ChitterApp < Sinatra::Base
     redirect('/')
   end
 
-
-
-  # get '/chitter' do
-  #   @user = User.find(id: session[:user_id])
-  #   @chitter = Chitter.peep_history
-  #   erb :chitter
-  # end
+  get '/chitter' do
+    @user = User.find(id: session[:user_id])
+    @peep_history = Chitter.peep_history.reverse
+    erb :chitter
+  end
 
   # get '/chitter/new' do 
   #   @user = User.find(id: session[:user_id])
   #   erb :new
   # end 
 
-  # post '/chitter' do 
-  #   @user = User.find(id: session[:user_id])
-  #   Chitter.create(message: params['message'])
-  #   redirect '/chitter'
-  # end
+  post '/chitter/message/new' do 
+    @user = User.find(id: session[:user_id])
+    Chitter.create(message: params['message'])
+    redirect '/chitter'
+  end
 
   # run! if app_file == $0
 end

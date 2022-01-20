@@ -18,7 +18,7 @@ task :setup do
     connection.exec(
       "CREATE TABLE chitter (
         id SERIAL PRIMARY KEY,
-        text VARCHAR(140),
+        message VARCHAR(140),
         time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );"
     ) 

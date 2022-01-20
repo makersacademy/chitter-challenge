@@ -13,7 +13,7 @@ class Peep
     result = DatabaseConnection.query("SELECT * FROM chitter;")
 
     result.map do |peep|
-      Peep.new(id: result[0]["id"], time: peep["time"], text: peep["message"])
+      Peep.new(id: result[0]["id"], time: peep["time"], message: peep["message"])
     end
 
   end
@@ -23,7 +23,7 @@ class Peep
       "INSERT INTO chitter (message) VALUES('#{message}') RETURNING message;",
     )
 
-    Peep.new(id: result[0]["id"], created_at: result[0]["time"], text: result[0]["message"])
+    Peep.new(id: result[0]["id"], created_at: result[0]["time"], message: result[0]["message"])
   end
 
 end

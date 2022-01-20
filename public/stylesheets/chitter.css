@@ -33,6 +33,7 @@ nav li {
   margin-left: 70px;
   padding-top: 23px;
   position: relative;
+  
 }
 
 nav a {
@@ -53,9 +54,11 @@ nav a::before {
   display: block;
   height: 5px;
   background-color: #444;
+
   position: absolute;
   top: 0;
   width: 0%;
+
   transition: all ease-in-out 250ms;
 }
 
@@ -63,7 +66,7 @@ nav a:hover::before {
   width: 100%;
 }
 
-.card {
+.message-box{
   box-shadow: 2px 2px 0 grey;
   border: 2px solid;
   border-color: black;
@@ -88,7 +91,15 @@ nav a:hover::before {
   background-color: rgb(225, 241, 247);
 }
 
-.register-btn {
+
+.body-text {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.post-btn {
   width: 100%;
   padding: 12px 12px;
   margin-top: 8px;
@@ -100,19 +111,3 @@ nav a:hover::before {
   font-family: 'Roboto', sans-serif;
   color: white;
 }
-
-.heading2 {
-  font-family: 'Roboto', sans-serif;
-  color: rgb(78, 78, 77);
-  font-size: 30px;
-  line-height: 2;
-}
-
-.body-text {
-  font-family: 'Roboto', sans-serif;
-  color: black;
-  font-size: 15px;
-  line-height: 2;
-}
-
-

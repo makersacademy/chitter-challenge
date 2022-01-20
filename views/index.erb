@@ -30,8 +30,6 @@
 
   <body>
   
-    
-
     <div class="flash-notice">
       <%= flash[:notice] %>
     </div>
@@ -48,7 +46,8 @@
           <input class="input-box" name="password" type="password" placeholder="Enter password">
           <button class="login-btn" type="submit" value="Log in"> Log in </button>
         </form>
-        <form action="/users-register" method="post">
+
+        <form action="/users/register" method="get">
           <button class="register-btn" type="submit" value="Register"> Register </button>
         </form>
 

@@ -42,6 +42,7 @@ nav a {
   text-transform: uppercase;
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
+  color: white;
 }
 
 nav a:hover {
@@ -75,7 +76,7 @@ nav a:hover::before {
   margin-right: auto;
   width: 300px;
   margin-top: 50px;
-  border-radius: 8px;
+  border-radius: 20px;
   opacity: .9;
 }
 
@@ -86,26 +87,33 @@ nav a:hover::before {
   box-sizing: border-box;
   border: 2px solid;
   border-color: black;
-  border-radius: 8px;
+  border-radius: 20px;
+  background-color: rgb(225, 241, 247);
 }
 
 .login-btn {
   width: 100%;
   padding: 12px 12px;
   margin: 8px 0;
-  border: 2px solid;
-  border-color: black;
-  border-radius: 8px;
+  border: 1px solid;
+  border-color: rgb(29, 161, 242);
+  border-radius: 20px;
+  background-color: rgb(29, 161, 242);
+  font-family: 'Roboto', sans-serif;
+  color: white;
 }
 
 .register-btn {
   width: 100%;
   padding: 12px 12px;
   margin-top: 40px;
-  margin-bottom: 8px;
-  border: 2px solid;
-  border-color: black;
-  border-radius: 8px;
+  margin-bottom: 40px;
+  border: 1px solid;
+  border-color: rgb(29, 161, 242);
+  border-radius: 20px;
+  background-color: rgb(29, 161, 242);
+  font-family: 'Roboto', sans-serif;
+  color: white;
 }
 
 .heading2 {
