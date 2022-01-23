@@ -19,7 +19,12 @@ task :setup do
       "CREATE TABLE chitter (
         id SERIAL PRIMARY KEY,
         message VARCHAR(140),
-        time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        author_id VARCHAR(60),
+        author_first_name VARCHAR(60),
+        author_surname VARCHAR(60),
+        author_email VARCHAR(60),
+        author_username VARCHAR(60)
       );"
     ) 
    
@@ -28,7 +33,8 @@ task :setup do
         id SERIAL PRIMARY KEY,
         first_name VARCHAR(100), 
         surname VARCHAR(100), 
-        email VARCHAR(60), 
+        email VARCHAR(60),
+        username VARCHAR(15),
         password VARCHAR(100)
       );"
     )

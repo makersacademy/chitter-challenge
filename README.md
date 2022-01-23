@@ -75,7 +75,9 @@ $ Connect to psql.
 psql
 $ Run the following commands
 SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'chitter_challenge' AND pid <> pg_backend_pid();
+
 SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'chitter_challenge_test' AND pid <> pg_backend_pid();
+
 DROP DATABASE IF EXISTS chitter_challenge;
 DROP DATABASE IF EXISTS chitter_challenge_test;
 $ Quit out of psql

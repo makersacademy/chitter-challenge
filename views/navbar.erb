@@ -1,24 +1,52 @@
-<nav class="navbar fixed-bottom navbar-expand-sm navbar-light bg-primary" style="background-color: #e3f2fd;">
-  <div class="w-100 d-flex justify-content-around">
-    <a class="mt-1  navbar-brand" href="/"><img src="/images/chitterLogoWhite.svg" height="50" /></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="nav navbar-right">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <% if @user %>
-        <% else %>
-          <button type="button" class="m-2 btn btn btn-outline-light" data-bs-toggle="modal"
-           style="font-family: 'Raleway', sans-serif;" data-bs-target="#SignInModal">
-            Sign In
-          </button>
-          <button type="button" class="m-2 btn btn btn-light" style="font-family: 'Raleway', sans-serif;"
-           data-bs-toggle="modal" data-bs-target="#SignUpModal">
-            Sign Up
-          </button>
-        <% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="stylesheets/global-fonts.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/layout.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/brand.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/left-navbar.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/new-peep.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/peep-history.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/trending.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/who-to-follow.css" />
+  </head>
+  <body>
+  
+    <div class="layout">
+    
+      <img src="./images/not-twitter-icon.svg" class="logo" />
+      <div class="left-navbar">
+
+        <div class="left-navbar__item left-navbar__item--active">
+          <img src="./images/home-icon.svg" class="left-navbar__item-icon" />
+          Home
+        </div>
+
+        <div class="left-navbar__item">
+          <img src="./images/explore-hash-icon.svg" class="left-navbar__item-icon" />
+          Explore
+        </div>
+
+        <div class="left-navbar__item">
+          <img src="./images/notifications-icon.svg" class="left-navbar__item-icon" />
+          Notifications
+        </div>
+          
+        <div class="left-navbar__item">
+          <img src="./images/profile-icon.svg" class="left-navbar__item-icon" />
+          <% if @user %>
+              <%= @user.first_name.capitalize %> <%= @user.surname.capitalize %>
+              <%= "@#{@user.username}" %>
+          <% end %>
+        </div>
+      
+        <div class="left-navbar__item">
+          <img src="./images/logout-icon.svg" class="left-navbar__item-icon" /> 
+          <a href="/sessions/destroy">Logout</a>
+         </div>
+
       </div>
+      
     </div>
-  </div>
-</nav>
+  </body>
+<html>

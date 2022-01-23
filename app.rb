@@ -7,16 +7,18 @@ require './database_connection_setup'
 
 class ChitterApp < Sinatra::Base
   enable :sessions, :method_override
+
   register Sinatra::Flash
+
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
     set :server, :thin
   end
 
   get '/' do
     erb :index
   end
-
 
   get '/users/register' do
     erb :"users/register"
@@ -26,7 +28,7 @@ class ChitterApp < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect('/chitter')
+      redirect('/newchitter')
     else
       flash[:notice] = 'Please check your username or password.'
       redirect('/')
@@ -38,6 +40,7 @@ class ChitterApp < Sinatra::Base
       first_name: params['first_name'], 
       surname: params['surname'], 
       email: params['email'], 
+      username: params['username'],
       password: params['password']
     )
     session[:user_id] = user.id
@@ -48,18 +51,16 @@ class ChitterApp < Sinatra::Base
     erb :"sessions/new"
   end
 
-  
-
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect('/')
   end
 
-  get '/chitter' do
+  get '/newchitter' do 
     @user = User.find(id: session[:user_id])
-    @peep_history = Chitter.peep_history.reverse
-    erb :chitter
+    @peep_history = Chitter.all
+    erb :newchitter
   end
 
   # get '/chitter/new' do 
@@ -69,9 +70,18 @@ class ChitterApp < Sinatra::Base
 
   post '/chitter/message/new' do 
     @user = User.find(id: session[:user_id])
-    Chitter.create(message: params['message'])
-    redirect '/chitter'
+    Chitter.create(
+      message: params['message'],
+      time: Time.now,
+      author_id: session[:user_id],
+      author_first_name: @user.first_name,
+      author_surname: @user.surname,
+      author_email: @user.email,
+      author_username: @user.username
+    )
+    redirect '/newchitter'
   end
+
 
   # run! if app_file == $0
 end

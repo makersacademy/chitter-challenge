@@ -28,7 +28,7 @@
           </li>
           <li>
             <form action="/sessions/destroy" method="post">
-              <input type="submit" value="Sign out" />
+              <input class="sign-out-btn" type="submit" value="Sign out" />
             </form>
           </li>
         </ul>
@@ -37,25 +37,74 @@
   </header>
 
   <body>
-    
-    
-      
-    
-    <div class="new-message-box">
-      <div class="container">
-        <div class="users-name">
-          <% if @user %>
-            <%= @user.first_name.capitalize %> <%= @user.surname.capitalize %>
-          <% end %>
-        </div>
+    <div class="layout">
+      <div class="layout__left-sidebar">
+        <img src="./svg/twitter.svg" class="brand" />
+        <div class="sidebar-menu">
+          <div class="sidebar-menu__item sidebar-menu__item--active">
+            <img src="./svg/home.svg" class="sidebar-menu__item-icon" />
+            Home
+          </div>
+          <div class="sidebar-menu__item">
+            <img src="./svg/explore.svg" class="sidebar-menu__item-icon" />
+            Explore
+          </div>
 
-        <form action="/chitter/message/new" method="post">
-          <input class="input-box" name="message" type="message" placeholder="What's happening?">
-          <br>
-          <button class="post-btn" type="submit" value="post"> Post </button>
-        </form>
+          <div class="sidebar-menu__item">
+            <img
+              src="./svg/notifications.svg"
+              class="sidebar-menu__item-icon"
+            />
+            Notifications
+          </div>
+
+          <div class="sidebar-menu__item">
+            <img src="./svg/messages.svg" class="sidebar-menu__item-icon" />
+            Messages
+          </div>
+
+          <div class="sidebar-menu__item">
+            <img src="./svg/profile.svg" class="sidebar-menu__item-icon" />
+            Profile
+          </div>
+          <div class="sidebar-menu__item">
+            <img src="./svg/more.svg" class="sidebar-menu__item-icon" />
+            More
+          </div>
+        </div>
       </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     <div class="peep-feed">
 

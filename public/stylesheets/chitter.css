@@ -1,6 +1,7 @@
 .container {
 	width: 80%;
 	margin: 0 auto;
+  display: flex;
 }
 
 header {
@@ -54,11 +55,9 @@ nav a::before {
   display: block;
   height: 5px;
   background-color: #444;
-
   position: absolute;
   top: 0;
   width: 0%;
-
   transition: all ease-in-out 250ms;
 }
 
@@ -66,7 +65,9 @@ nav a:hover::before {
   width: 100%;
 }
 
-.new-message-box{
+.new-message-card{
+  display: flex;
+  justify-content: space-between;
   box-shadow: 2px 2px 0 grey;
   border: 2px solid;
   border-color: black;
@@ -74,7 +75,7 @@ nav a:hover::before {
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 500px;
   margin-top: 50px;
   border-radius: 20px;
   opacity: .9;
@@ -82,6 +83,17 @@ nav a:hover::before {
 
 .input-box {
   width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid;
+  border-color: black;
+  border-radius: 20px;
+  background-color: rgb(225, 241, 247);
+}
+
+.input-box-peep {
+  width: 300px;
   padding: 12px 12px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -120,7 +132,7 @@ nav a:hover::before {
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 500px;
   margin-top: 50px;
   border-radius: 20px;
   opacity: .9;
@@ -129,4 +141,7 @@ nav a:hover::before {
 .users-name {
   font-family: 'Roboto', sans-serif;
   color: black;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-: 30px;
 }
