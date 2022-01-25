@@ -1,59 +1,210 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/stylesheets/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap">
+    <link rel="stylesheet" href="stylesheets/global-fonts.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/layout.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/brand.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/left-navbar.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/new-peep-box.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/peep-history.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/trending.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/who-to-follow.css" />
   </head>
-
-  <header>
-    <div class="container">
-      <h1 class="logo"></h1>
-
-      <nav>
-        <ul>
-        <li>
-          <div class="heading1">
-            Chitter
-          </div>
-        </li>
-          <li><a href="chitter.erb">Home</a></li>
-          <li><a href="about.erb">About</a></li>
-          <li><a href="setting.erb">Settings</a></li>
-          <li><a href="trending.erb">Trending</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <body>
-  
-    <div class="flash-notice">
-      <%= flash[:notice] %>
-    </div>
+    <div class="layout">
 
-    <div class="card">
-      <div class="container">
-        <div class="heading2">
-          Sign in 
+      <img src="./images/not-twitter-icon.svg" class="logo" />
+      <div class="left-navbar">
+        <div class="left-navbar__item left-navbar__item--active">
+          <img src="./images/home-icon.svg" class="left-navbar__item-icon" />
+          Home
+        </div>
+        <div class="left-navbar__item">
+          <img src="./images/explore-hash-icon.svg" class="left-navbar__item-icon" />
+          Explore
         </div>
 
-        <form action="/sessions" method="post">
-          <input class="input-box" name="email" type="email" placeholder="Enter email address">
-          <br>
-          <input class="input-box" name="password" type="password" placeholder="Enter password">
-          <button class="login-btn" type="submit" value="Log in"> Log in </button>
-        </form>
+        <div class="left-navbar__item">
+          <img src="./images/notifications-icon.svg" class="left-navbar__item-icon" />
+          Notifications
+        </div>
 
-        <form action="/users/register" method="get">
-          <button class="register-btn" type="submit" value="Register"> Register </button>
-        </form>
+        <% if @user %>
+          <div class="left-navbar__item">
+            <img src="./images/profile-icon.svg" class="left-navbar__item-icon" />
+              <%= @user.first_name.capitalize %> <%= @user.surname.capitalize %>
+              <%= "@#{@user.username}" %>
+          </div>
+          
+          <div class="left-navbar__item">
+            <img src="./images/logout-icon.svg" class="left-navbar__item-icon" />
+              <a href="/sessions/destroy">Sign out</a>
+          </div>
+        <% end %>
+      </div>
+   
+      <div class="layout__main">
+        <% if !@user %>
+          <div class="flash-notice">
+            <%= flash[:notice] %>
+          </div>
+          
+          <form action="/sessions" method="post">
+            <input class="input-box" name="email" type="email" placeholder="Enter email address">
+            <br>
+            <input class="input-box" name="password" type="password" placeholder="Enter password">
+            <button class="login-btn" type="submit" value="Log in"> Log in </button>
+          </form>
 
+          <form action="/users/register" method="get">
+            <button class="register-btn" type="submit" value="Register"> Register </button>
+          </form>
+        <% end %> 
+
+
+         <% if @user %>
+          <div class="new-peep-box">
+            <img class="new-peep-box__author-logo" src="<% @user.profile_image_url%>"/>
+            <form action="/chitter/message/new" method="post">
+              <input class="new-peep-box__input-box" name="message" type="message" placeholder="What's happening?">
+              <div class="new-peep-box__footer">
+                <button class="new-peep-box__post-btn" type="submit" value="post"> Peep </button>
+              </div>
+            </form>
+
+          </div>
+         <% end %>
+
+                  
+        <% @peep_history.each do |peep| %>
+          <div class="peep">
+            <img class="peep__author-logo" src="./images/profile-image-1.jpg" />
+            <div class="peep__main">
+              <div class="peep__header">     
+                <div class="peep__author-name">
+                  <%= peep.author_first_name%> <%= peep.author_surname %>
+                </div>
+                <div class="peep__author-slug">
+                  @<%= peep.author_username %>
+                </div>
+                <div class="peep__publish-time">
+                  <%= peep.time %>
+                </div>
+              </div>
+              <div class="peep__content">
+                <%= peep.message %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="layout__right-left-container">
+        <div class="layout__right-left">
+          <div class="trending">
+            <div class="trending__block">
+              <div class="trending__heading">
+                Trends for you
+              </div>
+            </div>
+            <div class="trending__block">
+              <div class="trending__meta-information">
+                Trending in Germany
+              </div>
+              <div class="trending__trend-name">
+                #iPhone12
+              </div>
+              <div class="trending__meta-information">
+                155k peeps
+              </div>
+            </div>
+            <div class="trending__block">
+              <div class="trending__meta-information">
+                Trending in Germany
+              </div>
+              <div class="trending__trend-name">
+                #AmazonPrimeDay
+              </div>
+            </div>
+            <div class="trending__block">
+              <div class="trending__meta-information">
+                Trending - Trending
+              </div>
+              <div class="trending__trend-name">
+                #autos
+              </div>
+              <div class="trending__meta-information">
+                2,800 peeps
+              </div>
+            </div>
+          </div>
+          <div class="who-to-follow">
+            <div class="who-to-follow__block">
+              <div class="who-to-follow__heading">
+                Who to follow
+              </div>
+            </div>
+            <div class="who-to-follow__block">
+              <img
+                class="who-to-follow__author-logo"
+                src="./images/profile-image-1.jpg"
+              />
+              <div class="who-to-follow__content">
+                <div>
+                  <div class="who-to-follow__author-name">
+                    Becki (& Chris)
+                  </div>
+                  <div class="who-to-follow__author-slug">
+                    @beckiandchris
+                  </div>
+                </div>
+                <div class="who-to-follow__button">
+                  Follow
+                </div>
+              </div>
+            </div>
+            <div class="who-to-follow__block">
+              <img
+                class="who-to-follow__author-logo"
+                src="./images/profile-image-2.png"
+              />
+              <div class="who-to-follow__content">
+                <div>
+                  <div class="who-to-follow__author-name">
+                    Elixir Digest
+                  </div>
+                  <div class="who-to-follow__author-slug">
+                    @elixirdigest
+                  </div>
+                </div>
+                <div class="who-to-follow__button">
+                  Follow
+                </div>
+              </div>
+            </div>
+
+            <div class="who-to-follow__block">
+              <img
+                class="who-to-follow__author-logo"
+                src="./images/profile-image-3.jpg"
+              />
+              <div class="who-to-follow__content">
+                <div>
+                  <div class="who-to-follow__author-name">
+                    Chris Martin
+                  </div>
+                  <div class="who-to-follow__author-slug">
+                    @chris_martin
+                  </div>
+                </div>
+                <div class="who-to-follow__button">
+                  Follow
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
   </body>
-
-</html> 
+</html>

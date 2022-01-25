@@ -17,6 +17,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
+    @user = User.find(id: session[:user_id])
+    @peep_history = Chitter.all
     erb :index
   end
 
@@ -59,9 +61,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/newchitter' do 
-    @user = User.find(id: session[:user_id])
-    @peep_history = Chitter.all
-    erb :newchitter
+    
   end
 
   # get '/chitter/new' do 
