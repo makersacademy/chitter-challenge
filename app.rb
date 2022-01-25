@@ -41,7 +41,8 @@ class ChitterApp < Sinatra::Base
       surname: params['surname'], 
       email: params['email'], 
       username: params['username'],
-      password: params['password']
+      password: params['password'],
+      profile_image_url: params['profile_image_url']
     )
     session[:user_id] = user.id
     redirect '/'
@@ -77,11 +78,11 @@ class ChitterApp < Sinatra::Base
       author_first_name: @user.first_name,
       author_surname: @user.surname,
       author_email: @user.email,
-      author_username: @user.username
+      author_username: @user.username,
+      author_profile_image_url: @user.author_profile_image_url
     )
     redirect '/newchitter'
   end
-
 
   # run! if app_file == $0
 end

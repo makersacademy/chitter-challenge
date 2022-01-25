@@ -24,7 +24,8 @@ task :setup do
         author_first_name VARCHAR(60),
         author_surname VARCHAR(60),
         author_email VARCHAR(60),
-        author_username VARCHAR(60)
+        author_username VARCHAR(60),
+        author_profile_image_url VARCHAR(300)
       );"
     ) 
    
@@ -35,7 +36,8 @@ task :setup do
         surname VARCHAR(100), 
         email VARCHAR(60),
         username VARCHAR(15),
-        password VARCHAR(100)
+        password VARCHAR(100),
+        profile_image_url varchar(300)
       );"
     )
   end

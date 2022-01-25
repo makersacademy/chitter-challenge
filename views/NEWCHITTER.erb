@@ -48,7 +48,7 @@
       <div class="layout__main">
 
         <div class="new-peep-box">
-          <img class="new-peep-box__author-logo" src="./images/profile-image-1.jpg" />
+          <img class="new-peep-box__author-logo" src="<% @user.profile_image_url%>"/>
           <form action="/chitter/message/new" method="post">
             <input class="new-peep-box__input-box" name="message" type="message" placeholder="What's happening?">
             <div class="new-peep-box__footer">

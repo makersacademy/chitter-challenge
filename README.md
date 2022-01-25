@@ -40,49 +40,60 @@ Notes on functionality:
 
 How to set up the application:
 ------
+```
+$ Clone the repository
 
-$ git clone https://github.com/tansaku/chitter_challenge
-$ bundle
-$ rake setup
-$ rake migrate
-$ rspec
-$ rackup
+git clone https://github.com/tansaku/chitter_challenge
 
+$ Install bundle
 
-Database setup 
+bundle
+
+$ Use the Rakefile to setup the databases by using the following commands in the terminal.
+
+rake setup
+rake test_database_setup
+rake migrate
+
+$ Install rspec and run test suite.
+
+rspec
+
+$ Start the server up.
+
+rackup
+
+$ Navigate in your browser to the following webpage.
+
+http://localhost:9292/
+```
+
+Resetting the databases
 ------
 
-Use the following commands:
+To reset the databases use the below commands:
 ```
-$ Connect to psql.
-psql
-$ Create the database.
-CREATE DATABASE Chitter-Challenge;
-$ Connect to the database.
-\c chitter_challenge;
-$ Run the query we have saved in the file '01_create_chitter_table.sql'.
-```
+$ Connect to psql by typing it into the terminal.
 
-The TEST database was setup with the below commands:
-```
-CREATE DATABASE chitter_challenge_test;
-CREATE TABLE chitter(id SERIAL PRIMARY KEY, time VARCHAR, message VARCHAR(280)); 
-```
-
-The TEST database was setup with the below commands:
-```
-$ Connect to psql.
 psql
-$ Run the following commands
+
+$ Run the following commands in psql.
+
 SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'chitter_challenge' AND pid <> pg_backend_pid();
 
 SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'chitter_challenge_test' AND pid <> pg_backend_pid();
 
 DROP DATABASE IF EXISTS chitter_challenge;
 DROP DATABASE IF EXISTS chitter_challenge_test;
-$ Quit out of psql
+
+
+$ Quit out of psql back to the terminal.
 \q
-$ Use the Rakefile to create the databases. Enter the following commands in the command line of the terminal.
+
+
+$ Use the Rakefile to create the databases again. Enter the following commands in the command line of the terminal.
+
 rake setup
 rake test_database_setup
 ```
+
