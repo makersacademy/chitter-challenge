@@ -11,9 +11,10 @@
 <h3> Peeps Bonanza </h3>
 <ul>
   <% @peeps.reverse_each do |peep| %>
-    <p><br><%= peep.text %><br>
-      <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
-    </br></p>
+    <p> <%= peep.text %> - <%= peep.user_id %> 
+    - <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
+    </p>
+    
   <% end %>
 </ul>
 

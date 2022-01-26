@@ -20,10 +20,17 @@ feature 'Viewing peeps' do
   end
 
   scenario 'A user can see time of peep' do
-    allow(Time).to receive(:now).and_return(Time.parse("2022-01-01 20:00:00 +0100"))
+    allow(Time).to receive(:now).and_return(Time.parse("2022-01-25 20:00:00 +0100"))
     Peep.create(text: 'Chrono Peep!')
     visit '/peeps'
-    expect(page).to have_content('Chrono Peep! 20:00, 14 November')
+    expect(page).to have_content('Chrono Peep! - 20:00, 25 January')
+  end
+
+  scenario 'a username shows next to its peep' do
+    allow(Time).to receive(:now).and_return(Time.parse("2022-01-25 20:00:00 +0100"))
+    Peep.create(text: 'User Peep')
+    visit '/peeps'
+    expect(page).to have_content('User Peep - Hagrid - 20:00, 25 January')
   end
   
 end

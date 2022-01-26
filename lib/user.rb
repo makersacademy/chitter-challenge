@@ -12,7 +12,7 @@ class User
   end
   
   def self.create(username:, email:, password:)
-    # encrypt the plantext password
+    # encrypt the plaintext password
     encrypted_password = BCrypt::Password.create(password)
     
     if ENV['ENVIRONMENT'] == 'test'
