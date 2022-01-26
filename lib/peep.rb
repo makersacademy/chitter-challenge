@@ -2,13 +2,12 @@ require 'time'
 require_relative 'database_connection'
 
 class Peep
-  attr_reader :id, :content, :user, :handle, :time
+  attr_reader :id, :content, :user_id, :time
 
-  def initialize(id:, content:, user:, handle:, time:)
+  def initialize(id:, content:, user_id:, time:)
     @id = id
     @content = content
-    @user = user
-    @handle = handle
+    @user_id = user_id
     @time = time
   end
 
@@ -18,9 +17,9 @@ class Peep
       Peep.new(
         id: peep['id'],
         content: peep['content'],
-        user: peep['username'],
-        handle: peep['userhandle'],
-        time: peep['time']) 
+        user_id: peep['user_id'],
+        time: peep['time']
+        ) 
     end 
   end
 
@@ -32,7 +31,7 @@ class Peep
       chronological_peeps.reverse
   end
 
-  def self.add(content: , user: , handle: )
+  def self.add(content, user_id = nil )
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
@@ -40,8 +39,19 @@ class Peep
     end
     time = Time.now.strftime("%H:%M:%S %d %b %Y")
 
-    result = DatabaseConnection.query("INSERT INTO peeps (content, username, userhandle, time) VALUES($1, $2, $3, $4) RETURNING id, content, username, userhandle, time;", [content, user, handle, time])
-    
-    Peep.new(id: result[0]['id'], content: result[0]['content'], user: result[0]['username'], handle: result[0]['userhandle'], time: result[0]['time'])
+    result = DatabaseConnection.query(
+      "INSERT INTO peeps (content, user_id, time) "\
+      "VALUES($1, $2, $3) "\
+      "RETURNING id, content, user_id, time;",
+      [content, user_id, time]
+      )
+  
+    Peep.new(
+      id: result[0]['id'],
+      content: result[0]['content'],
+      user_id: result[0]['user_id'],
+      time: result[0]['time']
+      )
   end
+
 end

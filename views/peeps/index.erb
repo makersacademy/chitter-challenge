@@ -7,15 +7,20 @@
 <h1>Chitter</h1>
 
 <% if @user %>
-  <h3> Welcome <%= @user.username %> </h3> 
+  <h3> Welcome <%= @user.username %> </h3>
 <% end %>
 
-<% @peeps.each do |peep| %>
+<form action='/peeps' method='post'>
+  <input type='text' name='peep'/>
+  <input type='submit' value='Post my peep'/>
+</form>
+
+<% @peeps.each do |peep| user = User.find(id: peep.user_id)%>
   <div class='peep'>
     <%= peep.content %>
     <em> <p> 
-    <% if @user %> 
-      posted by: <%= @user.username%>, <%= @user.handle %> 
+    <% unless user.nil? %> 
+      posted by: <%= user.username %>, <%= user.handle %> 
     <% else %>
       posted by: anonymous 
     <% end %>

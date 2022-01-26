@@ -1,11 +1,13 @@
 feature 'posting peeps(aka messages)' do 
   scenario 'a user can post a new peep and see it on /peeps page' do 
-    visit('/peeps/new')
+    sign_up
+    
     fill_in('peep', with: 'Hey, here is my test peep')
-    fill_in('user', with: 'kbrooks')
-    fill_in('handle', with: 'testhandle')
+   
     click_button('Post my peep')
     
+    expect(page).to have_current_path('/peeps')
     expect(page).to have_content('Hey, here is my test peep')
+    expect(page).to have_content('kbooks3')
   end
 end
