@@ -10,7 +10,7 @@ User Stories
 -------
 
 ```
-Implemented: 
+IMPLEMENTED
 
 As a user
 I want to post a message (peep) to chitter
@@ -19,8 +19,6 @@ So that I can let people know what I am doing
 As a user
 I want to see the time at which it was made
 So that I can better appreciate the context of a peep
-
-Not Implemented: 
 
 As a user
 I want to see all peeps in reverse chronological order
@@ -37,6 +35,12 @@ So that only I can post messages on Chitter as me
 As a user
 I want to log out of Chitter
 So that I can avoid others posting messages on Chitter as me
+
+
+Not yet implemented: 
+As a user
+I want to receive an email if I am tagged in a Peep
+So that I can stay constantly tapped in to the shouty box of Chitter
 
 ```
 
