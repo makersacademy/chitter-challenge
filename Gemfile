@@ -38,7 +38,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers'
   gem 'sqlite3'
-  gem 'rubocop', '1.20'
+  gem 'rubocop', '~> 1.20'
 
 end
 
@@ -61,7 +61,7 @@ group :test do
   gem 'webdrivers'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'shoulda-matchers'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

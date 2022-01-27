@@ -1,5 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'shoulda/matchers'
+require_relative "../config/environment"
+require "rails/test_help"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
