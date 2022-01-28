@@ -16,13 +16,15 @@ enable :sessions #we use the session to persist data across the routes and redir
   end
 
   post '/sessions' do
-    result = DatabaseConnection.query(
-      'SELECT * FROM users WHERE username = $1', [params[:username]]
-    )
-    user = User.new(id: result[0]['id'], username: result[0]['username'], handle: result[0]['handle'])
-
-    session[:user_id] = user.id
-    redirect '/peeps'
+    user = User.authenticate(username: params[:username], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = 'This user does not exist. Please check your email or password.'
+      redirect '/sessions/new'
+    end
+   
   end
 
   get '/' do # p 'sign up'

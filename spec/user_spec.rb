@@ -32,4 +32,27 @@ describe User do
     end
   end
 
+  describe '.authenticate' do 
+    it 'returns a user given a correct username and pw, if one exists' do 
+      user = User.create(
+        username: 'testuser',
+        handle: '@test',
+        password: 'pw123'
+        )
+   
+    authenticated_user = User.authenticate(username: 'testuser', password: 'pw123')
+    expect(authenticated_user.id).to eq user.id     
+    end
+    
+    it 'returns nil when username is not identified on database' do 
+      user = User.create(
+        username: 'testuser',
+        handle: '@test',
+        password: 'pw123'
+        )
+      expect(User.authenticate(username: 'incorrect_username', password: 'pw123')).to be_nil
+    end
+
+  end
+
 end

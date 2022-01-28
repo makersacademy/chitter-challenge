@@ -35,4 +35,14 @@ class User
     p User.new(id: result[0]['id'], username: result[0]['username'], handle: result[0]['handle'])
   end
 
+  def self.authenticate(username: , password: )
+
+    result = DatabaseConnection.query(
+      'SELECT * FROM users WHERE username = $1', [username]
+    )
+    return unless result.any? # so that .authenticate returns nil if user isn't found on db
+
+    User.new(id: result[0]['id'], username: result[0]['username'], handle: result[0]['handle'])
+  end
+
 end
