@@ -11,6 +11,20 @@ class Chitter < Sinatra::Base
 
 enable :sessions #we use the session to persist data across the routes and redirects
 
+  get '/sessions/new' do
+    erb:'sessions/new'
+  end
+
+  post '/sessions' do
+    result = DatabaseConnection.query(
+      'SELECT * FROM users WHERE username = $1', [params[:username]]
+    )
+    user = User.new(id: result[0]['id'], username: result[0]['username'], handle: result[0]['handle'])
+
+    session[:user_id] = user.id
+    redirect '/peeps'
+  end
+
   get '/' do # p 'sign up'
     session[:user_id] = nil
     erb :'users/new'
@@ -18,32 +32,32 @@ enable :sessions #we use the session to persist data across the routes and redir
 
   post '/' do 
     p 'info submitted through sign up form at homepage '
-    p user = User.create(
+    user = User.create(
       username: params[:username],
       handle: params[:handle],
       password: params[:password]
       ) #returns User.new, a ruby-wrapped db object with an id from db
-    p session[:user_id] = user.id #user_id stored in the session so we can grab it at get '.peeps'
+    session[:user_id] = user.id #user_id stored in the session so we can grab it at get '.peeps'
     redirect '/peeps'
   end
 
   get '/peeps' do
     p 'peeps page with post a peep form '
-     p session[:user_id] #this relies on sign-up at '/' first otherwise this would be nil
+     session[:user_id] #this relies on sign-up at '/' first otherwise this would be nil
      @user = User.find(id: session[:user_id]) # Fetch the user from the database, using an ID stored in the session. This way, we avoid storing the entire user in the session (partly because the session is v small and can't store much data)
     # p @username = @user.username
     #  @handle = @user.handle
-     p @peeps = Peep.sort_all_peeps 
+     @peeps = Peep.sort_all_peeps 
      
     erb :'peeps/index'
   end
 
   post '/peeps' do # post a peep form which is on the same page as page displaying peeps ('peeps/index')
-    p params
-    p @user = User.find(id: session[:user_id])
+    params
+    @user = User.find(id: session[:user_id])
     
      @user.nil? ? id = nil : id = @user.id
-    p Peep.add(params[:peep], id)
+    Peep.add(params[:peep], id)
     redirect '/peeps' 
   end
  
