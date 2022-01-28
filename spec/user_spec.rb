@@ -43,7 +43,7 @@ describe User do
     authenticated_user = User.authenticate(username: 'testuser', password: 'pw123')
     expect(authenticated_user.id).to eq user.id     
     end
-    
+
     it 'returns nil when username is not identified on database' do 
       user = User.create(
         username: 'testuser',
@@ -51,6 +51,14 @@ describe User do
         password: 'pw123'
         )
       expect(User.authenticate(username: 'incorrect_username', password: 'pw123')).to be_nil
+    end
+    it 'returns nil when pw entered does not match the pw stored for the username on db' do 
+      user = User.create(
+        username: 'testuser',
+        handle: '@test',
+        password: 'pw123'
+        )
+      expect(User.authenticate(username: 'testuser', password: 'wrongpw')).to be_nil
     end
 
   end

@@ -20,6 +20,17 @@ feature 'authentication' do
     click_button('Sign in')
 
     # expect(page).to have_current_path('/peeps')
-    expect(page).to have_content 'Please check your email or password. This user does not exist'
+    expect(page).to have_content 'This user does not exist. Please check your email or password.'
+  end
+  scenario 'user receives error message if they enter their pw wrong i.e. pw does not match db user pw' do
+    # Create a test user
+    User.create(username: 'testuser1', handle: '@test',  password: 'password123')
+    visit 'sessions/new'
+    fill_in(:username, with: 'incorrect_username')
+    fill_in(:password, with: 'wrongpw')
+    click_button('Sign in')
+
+    # expect(page).to have_current_path('/peeps')
+    expect(page).to have_content 'This user does not exist. Please check your email or password.'
   end
 end

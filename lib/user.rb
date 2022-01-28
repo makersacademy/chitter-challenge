@@ -41,6 +41,7 @@ class User
       'SELECT * FROM users WHERE username = $1', [username]
     )
     return unless result.any? # so that .authenticate returns nil if user isn't found on db
+    return unless BCrypt::Password.new(result[0]['password']) == password # BCrypt's .new method reads the encrpted pw back to normal pw
 
     User.new(id: result[0]['id'], username: result[0]['username'], handle: result[0]['handle'])
   end

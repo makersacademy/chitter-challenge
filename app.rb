@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'sinatra/reloader'
 require './lib/peep'
 require './lib/user'
@@ -10,6 +11,7 @@ class Chitter < Sinatra::Base
   end
 
 enable :sessions #we use the session to persist data across the routes and redirects
+register Sinatra::Flash
 
   get '/sessions/new' do
     erb:'sessions/new'
