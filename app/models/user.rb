@@ -1,4 +1,4 @@
-class User < ApplicationRecord::Base64
+class User < ApplicationRecord::Base
   attr_accessor :username, :email, :password, :password_confirmation
 
   EMAIL_REGEX = /^[A-Z0-9.%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
