@@ -11,10 +11,12 @@ describe User do
     end
 
     it 'creates a new user' do
-      connection = PG.connect(dbname: 'chitter_test')
+      # connection = PG.connect(dbname: 'chitter_test')
       user = User.create(username: 'Hagrid', email: 'hagrid@gmail.com', password: 'hagrid123')
+      persisted_data = persisted_data(table: :users, id: user.id)
     
       expect(user).to be_a User
+      expect(user.id).to eq persisted_data.first['id']
       expect(user.username).to eq('Hagrid')
       expect(user.email).to eq('hagrid@gmail.com')
     end
@@ -22,7 +24,7 @@ describe User do
 
   describe '.find' do
     it 'finds a user by ID' do
-      connection = PG.connect(dbname: 'chitter_test')
+      # connection = PG.connect(dbname: 'chitter_test')
       user = User.create(username: 'Hagrid', email: 'hagrid@gmail.com', password: 'hagrid123')
       result = User.find(id: user.id)
 
@@ -38,7 +40,7 @@ describe User do
 
   describe '.authenticate' do 
     it 'returns a user given a correct username and password, if one exists' do
-      connection = PG.connect(dbname: 'chitter_test')
+      # connection = PG.connect(dbname: 'chitter_test')
       user = User.create(username: 'Hagrid', email: 'hagrid@gmail.com', password: 'hagrid123')
       authenticated_user = User.authenticate(email: 'hagrid@gmail.com', password: 'hagrid123')
 

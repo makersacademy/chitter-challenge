@@ -11,6 +11,7 @@ gem 'sinatra-flash'
 gem 'webrick'
 gem 'rspec'
 gem 'bcrypt'
+gem 'timecop'
 
 
 group :test do

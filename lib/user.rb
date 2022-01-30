@@ -1,4 +1,5 @@
-require 'pg'
+# require 'pg'
+require 'database_connection'
 require 'bcrypt'
 
 class User
@@ -12,6 +13,7 @@ class User
   end
   
   def self.create(username:, email:, password:)
+
     # encrypt the plaintext password
     encrypted_password = BCrypt::Password.create(password)
     
@@ -21,7 +23,7 @@ class User
 
   def self.find(id:)
     return nil unless id
-    
+
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = $1", [id])
     User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
