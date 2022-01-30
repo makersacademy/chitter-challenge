@@ -13,7 +13,6 @@ gem 'rspec'
 gem 'bcrypt'
 gem 'timecop'
 
-
 group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

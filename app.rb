@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/user'
-require './database_connection_setup.rb'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :'homepage'
+    erb :homepage
   end
 
   get '/peeps' do
@@ -38,7 +38,8 @@ class Chitter < Sinatra::Base
   end
   
   post '/users' do
-    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    user = User.create(username: params[:username], email: params[:email], 
+password: params[:password])
     session[:user_id] = user.id
     redirect '/sessions/new'
   end
@@ -50,8 +51,8 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
-    session[:user_id] = user.id
-    redirect '/peeps'
+      session[:user_id] = user.id
+      redirect '/peeps'
     else
       flash[:notice] = "Please check your email or password."
       redirect('/sessions/new')
