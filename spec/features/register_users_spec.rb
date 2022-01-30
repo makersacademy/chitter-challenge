@@ -2,7 +2,7 @@ require 'pg'
 
 feature 'register users' do
   scenario 'a user can register' do
-    connection = PG.connect(dbname: 'chitter_test')
+    # connection = PG.connect(dbname: 'chitter_test')
 
     visit('/')
     click_button('Sign Up')
