@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/user'
+require './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions

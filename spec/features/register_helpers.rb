@@ -1,9 +1,4 @@
-require 'pg'
-
-feature 'register users' do
-  scenario 'a user can register' do
-    connection = PG.connect(dbname: 'chitter_test')
-
+def signup
     visit('/')
     click_button('Sign Up')
     visit('/users/new')
@@ -11,8 +6,11 @@ feature 'register users' do
     fill_in('email', with: 'hagrid@gmail.com')
     fill_in('password', with: 'hagrid123')    
     click_button('Sign Up')
-  
-    
-    expect(page).to have_content('Please Log In to your account')
   end
-end
+  
+  def login
+    visit('/sessions/new')
+    fill_in('email', with: 'notrightmail@mail.com')
+    fill_in('password', with: 'hagrid123')
+    click_button('Log In')
+  end

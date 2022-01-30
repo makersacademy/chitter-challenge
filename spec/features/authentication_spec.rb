@@ -1,9 +1,8 @@
 require 'pg'
 
-
 feature 'Authentication' do
   scenario 'a registered user can log in' do
-    connection = PG.connect(dbname: 'chitter_test')
+    # connection = PG.connect(dbname: 'chitter_test')
     User.create(username: 'Hagrid', email: 'hagrid@mail.com', password: 'hagrid123')
 
     visit('/sessions/new')
@@ -15,7 +14,7 @@ feature 'Authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    connection = PG.connect(dbname: 'chitter_test')
+    # connection = PG.connect(dbname: 'chitter_test')
     User.create(username: 'Hagrid', email: 'hagrid@mail.com', password: 'hagrid123')
 
     visit('/sessions/new')
@@ -28,7 +27,7 @@ feature 'Authentication' do
   end
 
   scenario 'a user sees an error if they get their password wrong' do
-    connection = PG.connect(dbname: 'chitter_test')
+    # connection = PG.connect(dbname: 'chitter_test')
     User.create(username: 'Hagrid', email: 'hagrid@mail.com', password: 'hagrid123')
 
     visit('/sessions/new')
@@ -41,7 +40,7 @@ feature 'Authentication' do
   end
 
   scenario 'a user can sign out' do
-    connection = PG.connect(dbname: 'chitter_test')
+    # connection = PG.connect(dbname: 'chitter_test')
     User.create(username: 'Hagrid', email: 'hagrid@mail.com', password: 'hagrid123')
 
     visit('/sessions/new')
