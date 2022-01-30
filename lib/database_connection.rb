@@ -6,9 +6,9 @@ class DatabaseConnection
     @connection = PG.connect(dbname: dbname)
   end
 
-  class << self
-    attr_reader :connection
-    end
+  def self.connection
+    @connection
+  end
 
   def self.query(sql, params = [])
     @connection.exec_params(sql, params)

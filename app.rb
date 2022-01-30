@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/user'
-require './database_connection_setup'
+require './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -38,8 +38,7 @@ class Chitter < Sinatra::Base
   end
   
   post '/users' do
-    user = User.create(username: params[:username], email: params[:email], 
-password: params[:password])
+    user = User.create(username: params[:username], email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect '/sessions/new'
   end
