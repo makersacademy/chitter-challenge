@@ -36,19 +36,14 @@ As a user
 I want to log out of Chitter
 So that I can avoid others posting messages on Chitter as me
 
-
-Not yet implemented: 
-As a user
-I want to receive an email if I am tagged in a Peep
-So that I can stay constantly tapped in to the shouty box of Chitter
-
 ```
 
 Notes
 -----
 - Project set up following the [ruby web project setup list](https://github.com/makersacademy/course/blob/main/pills/ruby_web_project_setup_list.md)
 - TDD with 100% test coverage
-- Built using Ruby, HTML, Rspec, Capybara, Sinatra, 
+- Built using Ruby, HTML, CSS, Bootstrap, RSpec, Capybara, Sinatra  
+- [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
 Want to have a look?
 ------
@@ -60,6 +55,7 @@ Want to have a look?
 ```
 > connect to `psql`
 > create the `chitter` database: CREATE DATABASE chitter;
+> create the `chitter_test` database: CREATE DATABASE chitter_test;
 > To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 ```
 - to run the Chitter app:
@@ -68,8 +64,12 @@ rackup
 ```
 
 #### Test Coverage
+![TestCoverage](https://user-images.githubusercontent.com/10349072/151720462-501d524b-a5f3-48d0-b0d5-b678f7fb71c7.png)
+#### Rubocop - no offenses
+![image](https://user-images.githubusercontent.com/10349072/151720651-2816c719-45ab-4932-a1ee-94a1d0ce83af.png)
 
-![Test Coverage](https://user-images.githubusercontent.com/10349072/147602430-2d93c3bb-e365-4589-a46d-5199a2ce047b.png)
+
+
 
 
 
