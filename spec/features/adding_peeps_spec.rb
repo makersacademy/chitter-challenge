@@ -14,6 +14,9 @@ feature 'Creating peeps' do
     visit('/peeps/new')
     fill_in('text', with: 'My first peep!')
     click_button('Submit')
+
+    visit('/peeps')
     expect(page).to have_content('My first peep!')
+    expect(page).to have_content('Hagrid')
   end
 end
