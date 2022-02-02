@@ -6,9 +6,18 @@
 
 <h1>Chitter</h1>
 
+
+
 <% if @user %>
   <h3> Welcome <%= @user.username %> </h3>
+
+  <form action='/sessions/destroy' method='post'>
+    <input type='submit' value='Sign out'/>
+  </form>
+
 <% end %>
+
+<h2> <%= flash[:notice] %> </h2>
 
 <form action='/peeps' method='post'>
   <input type='text' name='peep'/>

@@ -18,6 +18,7 @@ register Sinatra::Flash
   end
 
   post '/sessions' do
+    p params 
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
       session[:user_id] = user.id
@@ -26,9 +27,14 @@ register Sinatra::Flash
       flash[:notice] = 'This user does not exist. Please check your email or password.'
       redirect '/sessions/new'
     end
-   
   end
 
+  post '/sessions/destroy' do 
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect '/peeps'
+  end
+  
   get '/' do # p 'sign up'
     session[:user_id] = nil
     erb :'users/new'
