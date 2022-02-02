@@ -4,7 +4,6 @@ class PeepsController < Sinatra::Base
   
   get '/peeps' do
     @user = User.find(id: session[:user_id])
-    @user_name = User.find(id: chitter.user_id).username
     @chitters = Peep.all
     erb(:index)
   end
