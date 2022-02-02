@@ -12,7 +12,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps") #try changing result to peeps = and then peeps.map
+    result = DatabaseConnection.query("SELECT * FROM peeps") 
     result.map do |peep| 
       Peep.new(
         id: peep['id'],
@@ -23,9 +23,8 @@ class Peep
     end 
   end
 
-  def self.sort_all_peeps(peeps = Peep.all)
+  def self.sort_all_peeps(peeps = Peep.all) # array of instances of Peep
     chronological_peeps = peeps.sort_by do |peep|
-      peep
       Time.parse(peep.time)
     end
       chronological_peeps.reverse
@@ -54,4 +53,15 @@ class Peep
       )
   end
 
+  def self.delete(id: )
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    connection.exec_params('DELETE FROM peeps WHERE id = $1', [id])
+  end
+
 end
+

@@ -1,4 +1,4 @@
-require_relative './setup_test_database'
+
 require 'database_helpers'
 require 'features/web_helpers'
 # Set the environment to "test"
@@ -7,12 +7,22 @@ ENV['ENVIRONMENT'] = 'test'
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-# run setup_test_database before each spec
+
+require 'rake' 
+Rake.application.load_rakefile #ask Rake to load the Rakefile
+# Rake tast to setup test database before each test: 
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    Rake::Task['test_database_setup'].execute
   end
 end
+
+# alteratively to rake, we were previously using the setup_test_database file and instructing rspec to run the script inside it before each test
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     setup_test_database
+#   end
+# end
 
 # Require all the testing gems
 require 'capybara'

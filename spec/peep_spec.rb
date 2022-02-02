@@ -41,4 +41,12 @@ describe Peep do
 
     end
   end 
+  
+  describe '.delete' do 
+    it 'deletes a peep' do 
+      peep = Peep.add('Un ingeniero de software creó un juego para su pareja, ahora es una sensación en internet.', '1')
+      Peep.delete(id: peep.id)
+      expect(Peep.all.length).to eq 0 
+    end
+  end 
 end

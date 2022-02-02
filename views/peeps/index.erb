@@ -34,6 +34,12 @@
       posted by: anonymous 
     <% end %>
     at <%=peep.time%> </em></p> 
+    <% if @user && peep.user_id === @user.id %>
+      <form action='/peeps/<%= peep.id %>' method='post'>
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type='submit' value='Delete this peep'/>
+    </form>
+    <% end %>
   </div>
 <% end %>
 

@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'capybara'
 gem 'pg'
+gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
 

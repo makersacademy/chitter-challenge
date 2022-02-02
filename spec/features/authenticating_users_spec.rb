@@ -4,6 +4,7 @@ feature 'authentication' do
     # Create a test user
     User.create(username: 'testuser1', handle: '@test',  password: 'password123')
     visit 'sessions/new'
+    # fill in username and pw correctly:
     fill_in(:username, with: 'testuser1')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
@@ -11,10 +12,12 @@ feature 'authentication' do
     # expect(page).to have_current_path('/peeps')
     expect(page).to have_content 'Welcome testuser1'
   end
+
   scenario 'user receives error message if they enter their username wrong i.e. user does not already exist ' do
     # Create a test user
     User.create(username: 'testuser1', handle: '@test',  password: 'password123')
     visit 'sessions/new'
+
     fill_in(:username, with: 'incorrect_username')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
@@ -26,6 +29,7 @@ feature 'authentication' do
     # Create a test user
     User.create(username: 'testuser1', handle: '@test',  password: 'password123')
     visit 'sessions/new'
+
     fill_in(:username, with: 'incorrect_username')
     fill_in(:password, with: 'wrongpw')
     click_button('Sign in')
@@ -36,14 +40,14 @@ feature 'authentication' do
 
   scenario 'user can sign-out' do 
     # Create a test user
-    p User.create(username: 'testuser1', handle: '@test',  password: 'password123')
+    User.create(username: 'testuser1', handle: '@test',  password: 'password123')
     # sign in as that user
     visit 'sessions/new'
     fill_in(:username, with: 'testuser1')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
     expect(page).to have_current_path('/peeps')
-    #sign out
+    # sign out
     click_button('Sign out')
     expect(page).not_to have_content 'Welcome testuser1'
     expect(page).not_to have_button 'Sign out'

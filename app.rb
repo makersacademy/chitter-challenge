@@ -10,15 +10,14 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-enable :sessions #we use the session to persist data across the routes and redirects
+enable :sessions, :method_override # we use the session to persist data across the routes and redirects
 register Sinatra::Flash
 
-  get '/sessions/new' do
+  get '/sessions/new' do # login page
     erb:'sessions/new'
   end
 
   post '/sessions' do
-    p params 
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
       session[:user_id] = user.id
@@ -53,11 +52,9 @@ register Sinatra::Flash
 
   get '/peeps' do
     p 'peeps page with post a peep form '
-     session[:user_id] #this relies on sign-up at '/' first otherwise this would be nil
-     @user = User.find(id: session[:user_id]) # Fetch the user from the database, using an ID stored in the session. This way, we avoid storing the entire user in the session (partly because the session is v small and can't store much data)
-    # p @username = @user.username
-    #  @handle = @user.handle
-     @peeps = Peep.sort_all_peeps 
+    session[:user_id] #this relies on sign-up at '/' first otherwise this would be nil
+    @user = User.find(id: session[:user_id]) # Fetch the user from the database, using an ID stored in the session. This way, we avoid storing the entire user in the session (partly because the session is v small and can't store much data)
+    @peeps = Peep.sort_all_peeps 
      
     erb :'peeps/index'
   end
@@ -66,9 +63,15 @@ register Sinatra::Flash
     params
     @user = User.find(id: session[:user_id])
     
-     @user.nil? ? id = nil : id = @user.id
+    @user.nil? ? id = nil : id = @user.id
     Peep.add(params[:peep], id)
     redirect '/peeps' 
+  end
+
+  delete '/peeps/:id' do 
+    p params[:id]
+    Peep.delete(id: params[:id])
+    redirect '/peeps'
   end
  
   run! if app_file == $0
