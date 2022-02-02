@@ -21,11 +21,11 @@ class Chitter < Sinatra::Base
     # Fetch the user from the database, using an ID stored in the session
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/show'
   end
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    erb :'peeps/index'
   end
 
   post '/peeps' do

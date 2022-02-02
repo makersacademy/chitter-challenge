@@ -1,0 +1,150 @@
+h1 {
+  text-align: center;
+  font-size: calc(1.375rem + 1vw);
+}
+
+h2{
+  text-align: center;
+}
+
+blockquote {
+  text-align: center;
+  padding:20px;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: 'Klee One', sans-serif;
+}
+
+ body {
+  background-color: #C7CDD1;  
+  color: #022D52;
+  height: 100%;
+  background-size: cover;
+  }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #C7CDD1;
+  color:  #F9F1F9;
+  box-shadow: 5px 0 5px -3px #C7CDD1;
+}
+
+.navbar-flex {
+  @media (min-width: 768px) {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+    .inline-items {
+      .nav-link {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.site-main-wrap {
+  background: #f7f7f7;
+  padding: 150px 0 150px;
+  display: block;
+  height: 100%;
+}
+
+.homepage .btn {
+  background: #022D52;
+  color: #F9F1F9;
+  width: 50%;
+  border: 10px;
+  padding: 15px; 
+  font-size: 16px;
+  box-sizing: content-box;
+  position: relative;
+  left: 20%;
+}
+
+
+.form-group-wrap {
+  background: white;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 550px;
+  box-shadow: 0 3px 6px -5px;
+  padding: 30px; 
+  text-align: center;
+  @media (min-width: 1200px) {
+      width: 40vw;
+    } 
+  @media (min-width: 768px) {
+    width: 60vw;
+  }
+}
+
+.form-group {
+  margin-top: 20px;
+  } 
+
+textarea, .form input {
+  outline: 0;
+  background: #F2F2F2;
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+  
+.form-group .button{
+  background: #022D52;
+  width: 50%;
+  border: 0;
+  padding: 15px;
+  color: #F9F1F9;
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  }
+
+.form .button:hover, 
+.form .button:active,
+.form .button:focus {
+  background: #022D52;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #022D52;
+  font-size: 12px;
+}
+
+.form .message a {
+  margin: 15px 0 0;
+  color: #043a69;
+  font-size: 12px;
+}
+
+
+#flash {
+  position: fixed;
+  bottom: 5%;
+  background: rgba(67,118,212, 0.8);
+  margin: 0 auto;
+  width: 40vw;
+  left: 30vw;
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 20px;
+  animation-name: disappear;
+  opacity: 0;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+}

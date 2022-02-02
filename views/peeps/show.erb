@@ -1,0 +1,26 @@
+<% require 'time' %>
+
+<% unless @user == nil %>
+  <h1> Welcome to Chitter <%= @user.username %>!</h1>
+<% end %>
+
+<h3> Peeps Bonanza </h3>
+<ul>
+  <% @peeps.each do |peep| %>
+  <div class="peep-body">
+    <p> <%= peep.text %></p>
+  </div>
+  <div class= "peep-footer">
+     <p>by <%= User.find(id: peep.user_id).username.to_s %> 
+    - <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
+    </p>
+    </div>
+    
+  <% end %>
+</ul>
+
+<% if @user != nil %>
+  <a href="/peeps/new">
+  <button>New Peep!</button>
+<% end %> 
+

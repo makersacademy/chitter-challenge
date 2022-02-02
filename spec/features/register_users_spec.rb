@@ -4,7 +4,7 @@ feature 'register users' do
   scenario 'a user can register' do
   
     visit('/')
-    click_button('Sign Up')
+    click_link('Sign Up')
     visit('/users/new')
     fill_in('username', with: 'Hagrid')
     fill_in('email', with: 'hagrid@gmail.com')
@@ -12,6 +12,6 @@ feature 'register users' do
     click_button('Sign Up')
   
     
-    expect(page).to have_content('Please Log In to your account')
+    expect(page).to have_content('Please log in to your account')
   end
 end

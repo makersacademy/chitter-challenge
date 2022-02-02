@@ -1,39 +1,17 @@
-<% require 'time' %>
+<div class="center-block">
+  <h2> What's on your mind? </h2> 
+  <div class="form"> 
+    <div class="form-group-wrap"> 
+      <form action="/peeps" method="post">
+        <div class="form-group">
+          <textarea id="peeptextarea" name="text" rows="5" cols="30" placeholder="peep..."></textarea>
+        </div> 
+         <div class="form-group">  
+          <input type="submit" class="button" value="Submit">
+        </div> 
+      </form>
+    </div>  
+  </div>
+</div>
 
-<% unless @user == nil %>
-  <h1> Welcome to Chitter <%= @user.username %>!</h1>
-
-  <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Log Out" />
-  </form>
-<% end %>
-
-<h3> Peeps Bonanza </h3>
-<ul>
-  <% @peeps.reverse_each do |peep| %>
-    <p> <%= peep.text %> - <%= User.find(id: peep.user_id).username.to_s %> 
-    - <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
-    </p>
-    
-  <% end %>
-</ul>
-
-<% if @user != nil %>
-  <a href="/peeps/new">
-  <button>New Peep!</button>
-
-<% else %>
-    <div>
-      <a href="/users/new">
-        <button>Sign Up</button>
-      </a>
-    </div>
-    <br>
-    <div>
-      <a href="/sessions/new">
-        <button>Log In</button>
-      </a>
-    </div>
-
-<% end %> 
 
