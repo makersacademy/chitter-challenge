@@ -36,6 +36,17 @@ As a user
 I want to log out of Chitter
 So that I can avoid others posting messages on Chitter as me
 
+Edge cases also covered: 
+- user can't sign up if already in session
+- user can't log in if already logged in
+- user can't log in without the correct password
+- user can't signup/log in without correct format and values for username, email and password
+- error messages display using flash for a better UX
+- passwords are encrypted with Bcrypt
+- user can only add peep if logged in
+- add peeps page is not accessible unless a user is in session
+
+
 ```
 
 Notes
@@ -68,9 +79,22 @@ rackup
 #### Rubocop - no offenses
 ![image](https://user-images.githubusercontent.com/10349072/151720651-2816c719-45ab-4932-a1ee-94a1d0ce83af.png)
 
+### Screenshots of the application
+Welcome page
+![Welcome Page](https://user-images.githubusercontent.com/10349072/152395096-0d036208-e59d-43f0-8330-7755d6b0a6c2.png)
+
+Peeps page - no user logged in
+![Peeps Page no login](https://user-images.githubusercontent.com/10349072/152395348-b6cf36e7-f6cb-444a-8466-268d48256311.png)
+
+Create account page
+![create account page](https://user-images.githubusercontent.com/10349072/152395586-eb6a9fca-d5a3-40d5-be9e-b4e574e4db4c.png)
+
+Log in page 
+![Log in](https://user-images.githubusercontent.com/10349072/152395800-b260c1f1-80b1-4cb2-9927-86e19f64a565.png)
+
+Peep page - user logged in
+![peep page with user logged in](https://user-images.githubusercontent.com/10349072/152396360-8e58adb1-418f-4a92-bbcd-771e75923803.png)
 
 
-
-
-
-
+Create a peep page
+![create peep](https://user-images.githubusercontent.com/10349072/152396017-40413c53-71b1-45d4-93bf-09ebc57c295c.png)
