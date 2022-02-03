@@ -25,6 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    redirect '/peeps' unless session[:user_id]
     erb :'peeps/index'
   end
 
