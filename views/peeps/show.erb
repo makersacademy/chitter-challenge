@@ -1,26 +1,36 @@
 <% require 'time' %>
 
 <% unless @user == nil %>
+<div class='welcome'>
   <h1> Welcome to Chitter <%= @user.username %>!</h1>
+</div>
 <% end %>
+</div>
 
-<h3> Peeps Bonanza </h3>
-<ul>
-  <% @peeps.each do |peep| %>
-  <div class="peep-body">
-    <p> <%= peep.text %></p>
-  </div>
-  <div class= "peep-footer">
-     <p>by <%= User.find(id: peep.user_id).username.to_s %> 
-    - <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
-    </p>
-    </div>
-    
-  <% end %>
-</ul>
+
+<div class="feed">
+    <h2 id='peep-feed-title'>  <span style='font-size:40px;'>&#128035;</span> Peeps Bonanza </h2>
+     
+        <ul id='peep'>
+        <% @peeps.each do |peep| %>
+         
+          <div class="peep-body">
+            <b> <%= peep.text %></b>
+          </div>
+          
+          <div class= "peep-footer">
+            <p><em> - by <%= User.find(id: peep.user_id).username.to_s %> 
+            - <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
+            <em></p>
+          </div>
+          
+        <% end %>
+      </ul>
+
 
 <% if @user != nil %>
   <a href="/peeps/new">
-  <button>New Peep!</button>
+  <button id='peep-btn'>New Peep!</button>
 <% end %> 
 
+</div>

@@ -15,6 +15,7 @@ class Peep
   end
 
   def self.create(text:, user_id:)
+    return false if text.length.zero?
     time = Time.now
     result = DatabaseConnection.query("INSERT INTO peeps (text, user_id, time) VALUES($1,$2,$3) RETURNING id, text, user_id, time;",[text, user_id, time])
     Peep.new(
