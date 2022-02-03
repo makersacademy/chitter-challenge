@@ -27,6 +27,63 @@ blockquote {
   padding:20px;
 }
 
+.navbar {
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100%;
+  background: #C7CDD1;
+  color:  #F9F1F9;
+  box-shadow: 5px 0 5px -3px #C7CDD1;
+}
+
+.navbar-flex {
+  @media (min-width: 768px) {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: left;
+  justify-content: space-between;
+    .inline-items {
+      .nav-link {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.navbar-brand {
+  padding: 10px;
+  font-weight: bold;
+}
+
+li .nav-item {
+  padding: 100px;
+}
+
+.site-main-wrap {
+  background: #f7f7f7;
+  padding: 100px 0 150px;
+  display: block;
+  /* height: 100%; */
+}
+
+.homepage {
+  padding-top: 50px;
+}
+
+.homepage .btn {
+  background: #022D52;
+  color: #F9F1F9;
+  width: 50%;
+  border: 10px;
+  padding: 15px; 
+  font-size: 16px;
+  box-sizing: content-box;
+  position: relative;
+  left: 20%;
+}
+
 
 #peep-feed-title {
   padding: 20px;
@@ -42,6 +99,14 @@ blockquote {
   padding-bottom: 20px;
 } 
 
+#peep-btn {
+  background: #022D52;
+  padding: 10px;
+  color: #F9F1F9;
+  font-size: 16px;
+  border-radius: 10px;
+ } 
+
 .peep-body {
   font-weight: 500px;
 }
@@ -49,65 +114,12 @@ blockquote {
 .peep-footer {
   font-size: 90%;
   margin-left: 15px;
-  
 }
 
 .feed {
   background: #f7f7f7;
   padding: 0 100px 0 100px;
   display: block;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #C7CDD1;
-  color:  #F9F1F9;
-  box-shadow: 5px 0 5px -3px #C7CDD1;
-}
-
-.navbar-flex {
-  @media (min-width: 768px) {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-    .inline-items {
-      .nav-link {
-        display: inline-block;
-      }
-    }
-  }
-}
-
-.navbar-brand {
-  padding: 10px;
-  font-weight: bold;
-}
-
-.site-main-wrap {
-  background: #f7f7f7;
-  padding: 100px 0 150px;
-  display: block;
-  height: 100%;
-}
-
-.homepage{
-  padding-top: 50px;
-}
-
-.homepage .btn {
-  background: #022D52;
-  color: #F9F1F9;
-  width: 50%;
-  border: 10px;
-  padding: 15px; 
-  font-size: 16px;
-  box-sizing: content-box;
-  position: relative;
-  left: 20%;
 }
 
 .form-group-wrap {
@@ -146,14 +158,6 @@ textarea, .form input {
   font-size: 14px;
 }
 
- #peep-btn {
-  background: #022D52;
-  padding: 10px;
-  color: #F9F1F9;
-  font-size: 16px;
-  /* box-sizing: border-box; */
-  border-radius: 10px;
- } 
 
 .form-group .button{
   background: #022D52;

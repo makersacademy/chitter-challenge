@@ -6,26 +6,24 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/chitter.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Mochiy+Pop+P+One&family=Short+Stack&display=swap" rel="stylesheet">
+    <%# <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Short+Stack&display=swap" rel="stylesheet"> %>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Klee+One&family=Mochiy+Pop+P+One&family=Short+Stack&display=swap" rel="stylesheet">
+
     <title> Chitter App </title>
   </head>
   
   <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand navbar-light">
       <div class="container">
         <a class="navbar-brand" href="/"> CHITTER </a>
       </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <%# add NOT LOGIN logic %>
-        <% if @user == nil %>
+        <% if !session[:user_id] %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/users/new">Sign Up</a>
+                <a class="nav-link" aria-current="page" href="/users/new">Sign Up</a>
               </li>
             <li class="nav-item">
               <a class="nav-link active" href="/sessions/new">Log In</a>
@@ -35,11 +33,11 @@
         <% else %>
 
       <%# else if log in %>
-      <%# <% unless @user == nil %>
+      <%# <% unless @user == nil %> 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav navbar-flex">
               <li class="nav-item inline-items">
-                <form class='logout' action="/sessions/destroy" method="post">
+                <form class="logout" action="/sessions/destroy" method="post">
                   <input type="submit" id="logout-button" value="Log Out" />
                 </form>
               </li>

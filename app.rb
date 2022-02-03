@@ -40,11 +40,13 @@ class Chitter < Sinatra::Base
   
   post '/users' do
     user = User.create(username: params[:username], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
+    redirect '/users/new' unless user
+    # session[:user_id] = user.id
     redirect '/sessions/new'
   end
 
   get '/sessions/new' do
+    # redirect '/peeps' if session[:user_id]
     erb :'sessions/new'
   end
 
