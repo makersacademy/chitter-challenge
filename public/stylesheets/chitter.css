@@ -27,15 +27,6 @@ blockquote {
   padding:20px;
 }
 
-.navbar-brand img {
-  height: 100%;
-  padding: 15px;
-  width: auto;
-}
-
-.navbar-brand {
-  padding: 0px;
-}
 
 #peep-feed-title {
   padding: 20px;
@@ -91,11 +82,16 @@ blockquote {
   }
 }
 
+.navbar-brand {
+  padding: 10px;
+  font-weight: bold;
+}
+
 .site-main-wrap {
   background: #f7f7f7;
   padding: 100px 0 150px;
   display: block;
-  /* height: 100%; */
+  height: 100%;
 }
 
 .homepage{
@@ -129,6 +125,9 @@ blockquote {
   @media (min-width: 768px) {
     width: 60vw;
   }
+}
+.center-block{
+  padding-top: 30px;
 }
 
 .form-group {
@@ -181,24 +180,21 @@ textarea, .form input {
 
 .form .message a {
   margin: 15px 0 0;
-  color: #043a69;
+  color: #022D52;
   font-size: 12px;
 }
 
+.logout #logout-button {
+  outline: none;
+  padding-right: 30px;
+  border-style: none;
+  background:#C7CDD1;
+  font-weight: bold;
+}
 
 #flash {
-  position: fixed;
-  bottom: 5%;
-  background: rgba(67,118,212, 0.8);
-  margin: 0 auto;
-  width: 40vw;
-  left: 30vw;
-  color: white;
-  text-align: center;
-  display: block;
+  position: absolute;
+  color: rgb(140, 45, 45);
+  top:5rem;
   padding: 20px;
-  animation-name: disappear;
-  opacity: 0;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
 }
