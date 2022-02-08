@@ -12,6 +12,7 @@ Once you have setup PostgreSQL
 CREATE TABLE peeps(
   id SERIAL PRIMARY KEY,
   peep VARCHAR(140),
+  user_email VARCHAR(30),
   time VARCHAR(30)
   );
   ```
@@ -32,6 +33,7 @@ CREATE DATABASE chitter_test;
 CREATE TABLE peeps(
   id SERIAL PRIMARY KEY,
   peep VARCHAR(140),
+  user_email VARCHAR(30),
   time VARCHAR(30)
   );
 ```

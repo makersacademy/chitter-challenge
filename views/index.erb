@@ -5,7 +5,17 @@
     <title>Chitter</title>
   </head>
   <body>
-    <h1>Chitter</h1>
+    <header>
+      <h1>Chitter</h1>
+
+      <% if @email %>
+      <p>Welcome, <%= @email %></p>
+      <% end %>
+
+      <form action="/users/new">
+        <button type="submit" name="sign-up">Sign Up</button>
+      </form>
+    </header>
 
     <form class="new_peep" action="/chitter" method="post">
       <input type="text" name="peep" placeholder="type your peep here">
@@ -14,6 +24,7 @@
 
     <% @peeps.each do |peep| %>
     <article>
+      <address rel="author"><%= peep.user_email %></address>
       <time><%= peep.timestamp %></time>
       <p><%= peep.peep %></p>
     </article>
