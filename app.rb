@@ -10,7 +10,10 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/chitter' do
+    @email = session[:email]
     @peeps = PeepsManager.new.all_in_time_order
 
     erb :index
@@ -24,5 +27,12 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     erb :'users/new'
+  end
+
+  post '/users/new' do
+    session[:email] = params['email']
+    session[:password] = params['password']
+
+    redirect '/chitter'
   end
 end

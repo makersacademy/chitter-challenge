@@ -7,8 +7,13 @@
   <body>
     <header>
       <h1>Chitter</h1>
+
+      <% if @email %>
+      <p>Welcome, <%= @email %></p>
+      <% end %>
+
       <form action="/users/new">
-        <button type="submit">Sign Up</button>
+        <button type="submit" name="sign-up">Sign Up</button>
       </form>
     </header>
 
