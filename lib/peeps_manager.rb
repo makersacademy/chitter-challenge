@@ -4,13 +4,13 @@ require './lib/database_connection'
 require './lib/peep'
 
 class PeepsManager
-  def create_peep(peep)
+  def create_peep(peep, user_email)
     timestamp = date_time_now_string
 
     DatabaseConnection.query(
-      'INSERT INTO peeps(peep, time)
-       VALUES($1, $2);',
-       [peep, timestamp]
+      'INSERT INTO peeps(peep, user_email, time)
+       VALUES($1, $2, $3);',
+       [peep, user_email, timestamp]
      )
   end
 
@@ -19,7 +19,7 @@ class PeepsManager
       'SELECT * FROM peeps;'
     )
     result.map do |peep|
-      Peep.new(peep['peep'], peep['time'])
+      Peep.new(peep['peep'], peep['user_email'], peep['time'])
     end
   end
 

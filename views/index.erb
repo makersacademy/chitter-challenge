@@ -24,6 +24,7 @@
 
     <% @peeps.each do |peep| %>
     <article>
+      <address rel="author"><%= peep.user_email %></address>
       <time><%= peep.timestamp %></time>
       <p><%= peep.peep %></p>
     </article>

@@ -6,8 +6,10 @@ RSpec.describe PeepsManager do
   let(:connection) { connection = PG.connect(dbname: 'chitter_test') }
 
   describe '#create_peep' do
+    let(:user_email) { 'example@example.com' }
+
     it 'adds a new peep to the database' do
-      subject.create_peep(test_peep)
+      subject.create_peep(test_peep, user_email)
 
       peep = connection.exec('SELECT peep FROM peeps;').first
 
@@ -21,11 +23,21 @@ RSpec.describe PeepsManager do
       .to receive(:to_s)
       .and_return(date_time_now)
 
-      subject.create_peep(test_peep)
+      subject.create_peep(test_peep, user_email)
 
       peep = connection.exec('SELECT time FROM peeps;').first
 
       expect(peep['time']).to eq date_time_now
+    end
+
+    it 'adds a user email to the peep' do
+      user_email = 'test@example.com'
+
+      subject.create_peep(test_peep, user_email)
+
+      peep = connection.exec('SELECT user_email FROM peeps;').first
+
+      expect(peep['user_email']).to eq user_email
     end
   end
 

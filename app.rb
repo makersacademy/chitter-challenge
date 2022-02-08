@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    PeepsManager.new.create_peep(params['peep'])
+    PeepsManager.new.create_peep(params['peep'], session[:email])
 
     redirect '/chitter'
   end
