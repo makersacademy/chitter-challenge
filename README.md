@@ -1,23 +1,45 @@
 Chitter Challenge
-=================
+======
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Demo video:
 -------
 
-As usual please start by forking this repo.
+https://user-images.githubusercontent.com/80223185/149145323-60f64e67-3fd0-49ed-a3e2-f69e1236d563.mov
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Technologies:
+-------
+- Ruby 
+- RSpec 
+- PostgreSQL w/ Active Record  
+- HTML
+- CSS 
+- Capybara 
+- Sinatra
+
+Test coverage: 100%  
+Passing *all* feature and unit tests 
+
+
+Setting up the database:
+-------
+
+Connect to psql by typing `psql postgres` in the command line
+
+Create the database using the psql command `CREATE DATABASE chitter_app;`
+
+Connect to the database using the pqsl command `\c chitter_app;`
+
+Run each query saved in the folder db > migrations to create the relevant chitter and user databases
+
+Repeat the aboive 
+
+To create the test database use the psql command `CREATE DATABASE chitter_app_test;` and follow the instructions in the file 01_create_chitter_table.sql
 
 Features:
 -------
 
 ```
-STRAIGHT UP
+MVP
 
 As a Maker
 So that I can let people know what I am doing  
@@ -35,7 +57,7 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+ADDITIONAL FEATURES 
 
 As a Maker
 So that only I can post messages on Chitter as me
@@ -51,6 +73,14 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+#### Comments 
+
+User Story 1: I made a new route for '/chitter/new'. I wrote the feature test for adding a new post then created a new.erb in the views that gave the option to type up a post in the box and submit it to the /chitter page via a post method. This meant using params on 'post'. I created and tested a self.create method that interacted with pg to get the new post added to the data table and showing up on the /chitter page that it had been redirected to. 
+
+User Story 2: I attempted User Story 2 first as it seemed like viewing all posts would come before being able to add to those posts. This was done by testing and creating a .all method in Chitter.rb. I then had to edit the chitter.erb page to display the posts. The results displayed were initially in chronological order, which was changed using 'reverse_each' in chitter.erb. 
+
+User Story 3: Earlier on, I added an additional column to my data tables called 'time'. I can see that this is working and shows the date and time of when each entry is made. In order to get this showing on the /chitter page, I did some editing to chitter.rb. I initialized @post and @time and made them available in the attr_reader. I was then able to call them both in chitter.erb. I'm unsure what I did in chitter.rb with this code Chitter.new(post: chitter['post'], time: chitter['time']) which I think cmeant that each new chitter post had two arguments. 
 
 Technical Approach:
 -----
@@ -86,8 +116,6 @@ If you have time you can implement the following:
 And/Or:
 
 * Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
 
 Code Review
 -----------
@@ -128,4 +156,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Running the app
+----------------------
+
+To run the app type `rackup` in the command line. The app will run on `http://localhost:9292/`
+

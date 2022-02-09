@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href="<%= url("/index.css")%>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>Login</title>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="phone-img">
+        <img src="https://i.ibb.co/0yFRT6k/IG-Profile-Overview.jpg" alt="" class="img-on-phone">
+      </div>
+
+<div class="login-form">
+    <img class="user-profile-img" src="/images/user-profile-icon.jpeg">
+      <h1>Login</h1>
+      <form action="/sessions" method="post">
+        <input id="email" type="email" name="email" class="input-box" placeholder="Enter email"/>
+        <input type="password" name="password" class="input-box" placeholder="Enter password"/>
+    
+        <button type="submit" class="login-btn" value="Login">Login</button>
+      
+      <hr>
+        <p class="or">OR</p>
+
+        <p>Don't have an account? <a href="/users/new">Sign up</p>
+      
+      </form>
+ <div class="appstore-btns">
+          <img src="https://i.ibb.co/PD5kgzL/Apple-appstore-btn.png" alt="Download on apple app store">
+          <img src="https://i.ibb.co/FX4ykMt/Google-Play-Btn.png" alt="Download On Playstore">
+        </div>
+
+    </div>
+
+
+       
+      </div>
+    </div>
+  </body>
+</html>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>

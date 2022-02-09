@@ -1,0 +1,138 @@
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+.sign-up-form {
+  width: 300px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  background: #ffff;
+  padding: 20px; 
+  margin: 6% auto 0;
+  text-align: center;
+}
+
+.sign-up-form h1 {
+  color: #04AA6D;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-profile-img {
+  width: 90px;
+  margin-top: -50px;
+}
+
+.input-box {
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0; 
+  width: 80%;
+  border: 1px solid #999;
+  outline: none; 
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+ color: #ffff;
+ width: 70%;
+ padding: 10px;
+ border-radius: 20px;
+ font-size: 15px;
+ margin: 10px 0;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ font-family: "Poppins", sans-serif;
+}
+
+.signup-btn {
+  background-color: #04AA6D;
+  font-family: "Poppins", sans-serif;
+}
+.signup-btn:hover {
+  box-shadow: 1px 1px 10px #1c8adb;
+}
+a {
+  text-decoration: none;
+}
+hr {
+  margin-top: 30px;
+  width: 80%;
+}
+.or {
+  background: white;
+  width: 30px;
+  margin: -19px auto 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* twitter-section-start */
+.twitter-box {
+  width: 300px;
+  height: 50px;
+  background-color: #00acee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.twitter-box:hover {
+  box-shadow: 1px 1px 10px #00acee;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  align-items: center;
+  border-radius: 4px;
+  margin-inline-start: 3px;
+}
+.twitter-box .p-sign {
+  color: #fff;
+  margin-right: 45px;
+  font-family: "Poppins", sans-serif;
+}
+.twitter-box img {
+  width: 50px;
+}
+/* twitter-section-end */
+
+/* google-section-start */
+.google-box {
+  width: 300px;
+  height: 50px;
+  background-color: #DB4437;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.google-box:hover {
+  box-shadow: 1px 1px 10px #DB4437;
+}
+
+.google-box .p-sign {
+  color: #fff;
+  margin-right: 45px;
+  font-family: "Poppins", sans-serif;
+}
+.google-box img {
+  width: 40px;
+}
+/* google-section-end */

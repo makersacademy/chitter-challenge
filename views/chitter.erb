@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href="<%= url("/chitter.css")%>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+    <div class="welcome-sign">
+      <% if @user %>
+        <h1>Welcome to your timeline <%= @user.name %>!</h1>
+      <% end %>
+    </div>
+    <% @chitter.reverse_each do |chitter| %>
+      <div class="card">
+        <div class="containt">
+          <div class="top-bar">
+              <h4> <%= chitter.author_name %> <i class="bi bi-patch-check-fill"></i></h4>
+          </div>
+          <div class="post">
+            <h2> <%= chitter.post %> </h2>
+            <span> <%= chitter.time[0, 16] %> </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </body>
+  <html>
