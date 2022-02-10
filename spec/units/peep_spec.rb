@@ -42,37 +42,39 @@ RSpec.describe Peep do
     end
   end
 
-  describe '.all' do
-    it 'returns all peeps in database' do
-      populate_database
-
-      peeps = described_class.all
-
-      expect(peeps.length).to eq 3
+  describe '.populate_peeps' do
+    before(:each) do
+      described_class.instance_variable_set(:@peeps, [])
     end
 
-    it 'returns peep object' do
-      populate_database
+    it 'populates one from database' do
+      insert_peep_today_at(test_peep, '10:00:00')
 
-      peep = described_class.all.first
+      expect { described_class.populate_peeps }
+      .to change { described_class.all_in_time_order.count }.from(0).to(1)
+    end
+
+    it 'populates all peeps from database' do
+      populate_database
+      peeps_count = connection.exec(
+        'SELECT count(*) FROM peeps;'
+      ).getvalue(0, 0).to_i
+
+      expect { described_class.populate_peeps }
+      .to change { described_class.all_in_time_order.count }
+      .from(0).to(peeps_count)
+    end
+
+    it 'populates with peep object' do
+      insert_peep_today_at(test_peep, '10:00:00')
+
+      described_class.populate_peeps
+
+      peep = described_class.all_in_time_order.first
 
       expect(peep).to be_a Peep
-    end
-
-    it 'returns peep with peep message' do
-      insert_peep_today_at(test_peep, '10:00:00')
-
-      peep = described_class.all.first.peep
-
-      expect(peep).to eq test_peep
-    end
-
-    it 'returns peep with timestamp' do
-      insert_peep_today_at(test_peep, '10:00:00')
-
-      peep = described_class.all.first.timestamp
-
-      expect(peep).to eq 'Sat Oct 16 10:00:00 2021'
+      expect(peep.peep).to eq test_peep
+      expect(peep.timestamp).to eq 'Sat Oct 16 10:00:00 2021'
     end
   end
 
@@ -82,6 +84,7 @@ RSpec.describe Peep do
       connection.exec("INSERT INTO peeps(peep, time)
                        VALUES('test', '2021-06-22T10:00:00+01:00')
                        ;")
+      described_class.populate_peeps
 
       peeps = described_class.all_in_time_order
 

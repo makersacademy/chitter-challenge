@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Peep
+  @peeps = []
+
   def self.create_peep(peep, user_email)
     timestamp = DateTime.now
 
@@ -11,18 +13,17 @@ class Peep
      )
   end
 
-  def self.all
-    # change name to populate_peeps
+  def self.populate_peeps
     result = DatabaseConnection.query(
       'SELECT * FROM peeps;'
     )
-    result.map do |peep|
+    @peeps = result.map do |peep|
       Peep.new(peep['peep'], peep['user_email'], peep['time'])
     end
   end
 
   def self.all_in_time_order
-    all.sort_by { |peep| peep.time }.reverse
+    @peeps.sort_by { |peep| peep.time }.reverse
   end
 
   attr_reader :peep, :user_email, :time
