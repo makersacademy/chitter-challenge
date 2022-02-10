@@ -3,7 +3,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
-require './lib/peeps_manager'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -14,13 +14,13 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @email = session[:email]
-    @peeps = PeepsManager.all_in_time_order
+    @peeps = Peep.all_in_time_order
 
     erb :index
   end
 
   post '/chitter' do
-    PeepsManager.create_peep(params['peep'], session[:email])
+    Peep.create_peep(params['peep'], session[:email])
 
     redirect '/chitter'
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 feature 'viewing_peeps' do
-  let(:peeps_manager) { PeepsManager }
+  let(:peeps_manager) { Peep }
   let(:user_email) { 'user@example.com' }
 
   scenario 'seeing all peeps in reverse chronological order' do
