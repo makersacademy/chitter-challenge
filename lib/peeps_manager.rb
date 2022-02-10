@@ -5,7 +5,7 @@ require './lib/peep'
 
 class PeepsManager
   def self.create_peep(peep, user_email)
-    timestamp = date_time_now_string
+    timestamp = DateTime.now
 
     DatabaseConnection.query(
       'INSERT INTO peeps(peep, user_email, time)
@@ -26,10 +26,4 @@ class PeepsManager
   def self.all_in_time_order
     all.sort_by { |peep| peep.time }.reverse
   end
-
-  def self.date_time_now_string
-    DateTime.now.to_s
-  end
-
-  private_class_method :date_time_now_string
 end

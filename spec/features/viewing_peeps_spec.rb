@@ -17,8 +17,8 @@ feature 'viewing_peeps' do
   scenario 'seeing timestamp of a peep' do
     date_time_now = '2021-10-16T16:57:38+01:00'
 
-    allow(PeepsManager)
-    .to receive(:date_time_now_string)
+    allow(DateTime)
+    .to receive(:now)
     .and_return(date_time_now)
 
     peeps_manager.create_peep('Irelivant', user_email)
