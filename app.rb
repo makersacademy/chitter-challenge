@@ -14,13 +14,13 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @email = session[:email]
-    @peeps = PeepsManager.new.all_in_time_order
+    @peeps = PeepsManager.all_in_time_order
 
     erb :index
   end
 
   post '/chitter' do
-    PeepsManager.new.create_peep(params['peep'], session[:email])
+    PeepsManager.create_peep(params['peep'], session[:email])
 
     redirect '/chitter'
   end

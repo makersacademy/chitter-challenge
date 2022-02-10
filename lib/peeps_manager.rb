@@ -4,7 +4,7 @@ require './lib/database_connection'
 require './lib/peep'
 
 class PeepsManager
-  def create_peep(peep, user_email)
+  def self.create_peep(peep, user_email)
     timestamp = date_time_now_string
 
     DatabaseConnection.query(
@@ -14,7 +14,7 @@ class PeepsManager
      )
   end
 
-  def all
+  def self.all
     result = DatabaseConnection.query(
       'SELECT * FROM peeps;'
     )
@@ -23,13 +23,13 @@ class PeepsManager
     end
   end
 
-  def all_in_time_order
+  def self.all_in_time_order
     all.sort_by { |peep| peep.time }.reverse
   end
 
-  private
-
-  def date_time_now_string
+  def self.date_time_now_string
     DateTime.now.to_s
   end
+
+  private_class_method :date_time_now_string
 end

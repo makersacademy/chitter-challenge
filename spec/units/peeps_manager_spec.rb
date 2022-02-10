@@ -5,11 +5,11 @@ require 'peeps_manager'
 RSpec.describe PeepsManager do
   let(:connection) { connection = PG.connect(dbname: 'chitter_test') }
 
-  describe '#create_peep' do
+  describe '.create_peep' do
     let(:user_email) { 'example@example.com' }
 
     it 'adds a new peep to the database' do
-      subject.create_peep(test_peep, user_email)
+      described_class.create_peep(test_peep, user_email)
 
       peep = connection.exec('SELECT peep FROM peeps;').first
 
@@ -23,7 +23,7 @@ RSpec.describe PeepsManager do
       .to receive(:to_s)
       .and_return(date_time_now)
 
-      subject.create_peep(test_peep, user_email)
+      described_class.create_peep(test_peep, user_email)
 
       peep = connection.exec('SELECT time FROM peeps;').first
 
@@ -33,7 +33,7 @@ RSpec.describe PeepsManager do
     it 'adds a user email to the peep' do
       user_email = 'test@example.com'
 
-      subject.create_peep(test_peep, user_email)
+      described_class.create_peep(test_peep, user_email)
 
       peep = connection.exec('SELECT user_email FROM peeps;').first
 
@@ -41,11 +41,11 @@ RSpec.describe PeepsManager do
     end
   end
 
-  describe '#all' do
+  describe '.all' do
     it 'returns all peeps in database' do
       populate_database
 
-      peeps = subject.all
+      peeps = described_class.all
 
       expect(peeps.length).to eq 3
     end
@@ -53,7 +53,7 @@ RSpec.describe PeepsManager do
     it 'returns peep object' do
       populate_database
 
-      peep = subject.all.first
+      peep = described_class.all.first
 
       expect(peep).to be_a Peep
     end
@@ -61,7 +61,7 @@ RSpec.describe PeepsManager do
     it 'returns peep with peep message' do
       insert_peep_today_at(test_peep, '10:00:00')
 
-      peep = subject.all.first.peep
+      peep = described_class.all.first.peep
 
       expect(peep).to eq test_peep
     end
@@ -69,20 +69,20 @@ RSpec.describe PeepsManager do
     it 'returns peep with timestamp' do
       insert_peep_today_at(test_peep, '10:00:00')
 
-      peep = subject.all.first.timestamp
+      peep = described_class.all.first.timestamp
 
       expect(peep).to eq 'Sat Oct 16 10:00:00 2021'
     end
   end
 
-  describe '#all_in_time_order' do
+  describe '.all_in_time_order' do
     it 'returns all peeps in reverse chronological order' do
       populate_database
       connection.exec("INSERT INTO peeps(peep, time)
                        VALUES('test', '2021-06-22T10:00:00+01:00')
                        ;")
 
-      peeps = subject.all_in_time_order
+      peeps = described_class.all_in_time_order
 
       result = peeps.map { |peep| peep.timestamp }
 
