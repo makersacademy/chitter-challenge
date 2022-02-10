@@ -47,7 +47,7 @@ RSpec.describe Peep do
       described_class.instance_variable_set(:@peeps, [])
     end
 
-    it 'populates one from database' do
+    it 'populates one database entry' do
       insert_peep_today_at(test_peep, '10:00:00')
 
       expect { described_class.populate_peeps }
@@ -79,12 +79,24 @@ RSpec.describe Peep do
   end
 
   describe '.all_in_time_order' do
+    it 'returns an empty array when no peeps' do
+      expect(described_class.all_in_time_order).to eq []
+    end
+
+    it 'does not populates peeps if already populated' do
+      described_class.instance_variable_set(:@peeps, [Peep.new('', '', '')])
+      allow(described_class).to receive(:populate_peeps)
+
+      described_class.all_in_time_order
+
+      expect(described_class).not_to have_received(:populate_peeps)
+    end
+
     it 'returns all peeps in reverse chronological order' do
       populate_database
       connection.exec("INSERT INTO peeps(peep, time)
                        VALUES('test', '2021-06-22T10:00:00+01:00')
                        ;")
-      described_class.populate_peeps
 
       peeps = described_class.all_in_time_order
 

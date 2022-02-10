@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Peep
-  @peeps = []
-
   def self.create_peep(peep, user_email)
     timestamp = DateTime.now
 
@@ -23,7 +21,7 @@ class Peep
   end
 
   def self.all_in_time_order
-    @peeps.sort_by { |peep| peep.time }.reverse
+    (@peeps || populate_peeps).sort_by { |peep| peep.time }.reverse
   end
 
   attr_reader :peep, :user_email, :time

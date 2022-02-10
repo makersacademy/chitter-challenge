@@ -22,6 +22,12 @@ class Chitter < Sinatra::Base
   post '/chitter' do
     Peep.create_peep(params['peep'], session[:email])
 
+    redirect '/chitter/refresh'
+  end
+
+  get '/chitter/refresh' do
+    Peep.populate_peeps
+
     redirect '/chitter'
   end
 
