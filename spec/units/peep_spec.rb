@@ -3,7 +3,6 @@
 require 'peep'
 
 RSpec.describe Peep do
-  let(:datatime_string) { '2021-10-16T16:57:38+01:00' }
   let(:connection) { connection = PG.connect(dbname: 'chitter_test') }
 
   describe '.create_peep' do
@@ -32,8 +31,6 @@ RSpec.describe Peep do
     end
 
     it 'adds a user email to the peep' do
-      user_email = 'test@example.com'
-
       described_class.create_peep(test_peep, user_email)
 
       peep = connection.exec('SELECT user_email FROM peeps;').first
@@ -43,26 +40,20 @@ RSpec.describe Peep do
   end
 
   describe '.populate_peeps' do
-    before(:each) do
-      described_class.instance_variable_set(:@peeps, [])
-    end
-
     it 'populates one database entry' do
       insert_peep_today_at(test_peep, '10:00:00')
 
       expect { described_class.populate_peeps }
-      .to change { described_class.all_in_time_order.count }.from(0).to(1)
+      .to change { described_class.instance_variable_get(:@peeps) }
+      .from(nil).to([Peep])
     end
 
     it 'populates all peeps from database' do
       populate_database
-      peeps_count = connection.exec(
-        'SELECT count(*) FROM peeps;'
-      ).getvalue(0, 0).to_i
 
       expect { described_class.populate_peeps }
-      .to change { described_class.all_in_time_order.count }
-      .from(0).to(peeps_count)
+      .to change { described_class.instance_variable_get(:@peeps) }
+      .from(nil).to([Peep, Peep, Peep])
     end
 
     it 'populates with peep object' do
@@ -84,12 +75,11 @@ RSpec.describe Peep do
     end
 
     it 'does not populates peeps if already populated' do
-      described_class.instance_variable_set(:@peeps, [Peep.new('', '', '')])
-      allow(described_class).to receive(:populate_peeps)
+      populate_database
+      ordered_populated_peeps = described_class.populate_peeps
+      .sort_by { |peep| peep.time }.reverse
 
-      described_class.all_in_time_order
-
-      expect(described_class).not_to have_received(:populate_peeps)
+      expect(described_class.all_in_time_order).to eq ordered_populated_peeps
     end
 
     it 'returns all peeps in reverse chronological order' do
@@ -111,25 +101,8 @@ RSpec.describe Peep do
     end
   end
 
-  def populate_database
-    insert_peep_today_at('Hello World', '10:00:00')
-    insert_peep_today_at('I had bacon & eggs today', '09:30:00')
-    insert_peep_today_at('Irelivant information', '11:45:00')
-  end
-
-  def insert_peep_today_at(peep, time)
-    connection.exec("INSERT INTO peeps(peep, time)
-                     VALUES('#{peep}', '2021-10-16T#{time}+01:00')
-                     ;")
-  end
-
-  def test_peep
-    'A test peep of a certain length (140 charaters)
-to test the amount of text going to the database.
-I really like icecream with cookie dough!!'
-  end
-
   context 'when an instance of the class' do
+    let(:datatime_string) { '2021-10-16T16:57:38+01:00' }
     let(:new_peep) { described_class.new('Irelivant', 'example@email.com', datatime_string) }
 
     it { expect(new_peep).to respond_to(:peep) }
@@ -145,5 +118,23 @@ I really like icecream with cookie dough!!'
         expect(new_peep.timestamp).to eq formated_time
       end
     end
+  end
+
+  def populate_database
+    insert_peep_today_at('Hello World', '10:00:00')
+    insert_peep_today_at('I had bacon & eggs today', '09:30:00')
+    insert_peep_today_at('Irelivant information', '11:45:00')
+  end
+
+  def insert_peep_today_at(peep, time)
+    connection.exec("INSERT INTO peeps(peep, time)
+    VALUES('#{peep}', '2021-10-16T#{time}+01:00')
+    ;")
+  end
+
+  def test_peep
+    'A test peep of a certain length (140 charaters)' \
+    'to test the amount of text going to the database.' \
+    'I really like icecream with cookie dough!!'
   end
 end
