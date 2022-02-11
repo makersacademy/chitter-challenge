@@ -19,12 +19,14 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require_relative './clear_test_database'
 require_relative './sign_up_user'
+require_relative './clear_peeps'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before(:each) do
     clear_test_database
+    clear_peeps
   end
 
   config.after(:suite) do

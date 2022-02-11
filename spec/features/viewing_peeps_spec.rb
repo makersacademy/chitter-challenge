@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 feature 'viewing_peeps' do
-  let(:peeps_manager) { PeepsManager.new }
+  let(:peeps_manager) { Peep }
   let(:user_email) { 'user@example.com' }
 
   scenario 'seeing all peeps in reverse chronological order' do
@@ -17,8 +17,8 @@ feature 'viewing_peeps' do
   scenario 'seeing timestamp of a peep' do
     date_time_now = '2021-10-16T16:57:38+01:00'
 
-    allow_any_instance_of(PeepsManager)
-    .to receive(:date_time_now_string)
+    allow(DateTime)
+    .to receive(:now)
     .and_return(date_time_now)
 
     peeps_manager.create_peep('Irelivant', user_email)
