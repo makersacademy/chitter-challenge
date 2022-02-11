@@ -7,7 +7,7 @@ You will need to have PostgresSQL installed locally to run this app.
 
 Once you have setup PostgreSQL
 - Create the database with `CREATE DATABASE chitter;`
-- Create the table with:
+- Create the tables with:
 ```
 CREATE TABLE peeps(
   id SERIAL PRIMARY KEY,
@@ -15,6 +15,12 @@ CREATE TABLE peeps(
   user_email VARCHAR(30),
   time VARCHAR(30)
   );
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(60),
+  password VARCHAR(140)
+  );  
   ```
 
 
@@ -36,6 +42,12 @@ CREATE TABLE peeps(
   user_email VARCHAR(30),
   time VARCHAR(30)
   );
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(60),
+  password VARCHAR(140)
+  );  
 ```
 before running tests
 
