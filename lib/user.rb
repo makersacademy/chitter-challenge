@@ -8,15 +8,21 @@ class User
       'INSERT INTO users (email, password) VALUES($1, $2) RETURNING id, email',
       [email, password]
     )
-    User.new(result[0]['id'], result[0]['email'])
+    new_user(result)
   end
 
   def self.find(id)
     result = DatabaseConnection.query(
       'SELECT * FROM users WHERE id = $1', [id]
     )
+    new_user(result)
+  end
+
+  def self.new_user(result)
     User.new(result[0]['id'], result[0]['email'])
   end
+
+  private_class_method :new_user
 
   attr_reader :id
 
