@@ -32,4 +32,14 @@ RSpec.describe User do
       expect(persisted_data.first['email']).to eq 'example@email.com'
     end
   end
+
+  describe '.find' do
+    it 'finds a user in the database' do
+      user = described_class.create('example@email.com', 'password123')
+
+      result = described_class.find(user.id)
+
+      expect(result.id).to eq user.id
+    end
+  end
 end

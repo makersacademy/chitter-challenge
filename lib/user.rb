@@ -11,6 +11,13 @@ class User
     User.new(result[0]['id'], result[0]['email'])
   end
 
+  def self.find(id)
+    result = DatabaseConnection.query(
+      'SELECT * FROM users WHERE id = $1', [id]
+    )
+    User.new(result[0]['id'], result[0]['email'])
+  end
+
   attr_reader :id
 
   def initialize(id, email)
