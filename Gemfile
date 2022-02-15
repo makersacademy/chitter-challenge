@@ -10,4 +10,9 @@ end
 
 group :development, :test do
   gem 'rubocop', '1.20'
+  gem 'sinatra'
+  gem 'capybara'
+  gem 'rack'
+  gem 'rubocop', '1.20'
+  gem 'pg'
 end
