@@ -4,8 +4,10 @@ describe Peep do
 
   describe ".find_by_id" do
     it "gets a peep by id" do
-      id = Peep.create('This is a test')
-      expect(Peep.find_by_id(id)).to eq 'This is a test'
+      peep = Peep.create('This is a test')
+      persisted_peep = Peep.find_by_id(peep.id)
+
+      expect(peep.peep).to eq persisted_peep.peep
     end
   end
 
@@ -14,19 +16,27 @@ describe Peep do
   # tests
   describe '.create' do
     it 'creates a new peep' do
-      id = Peep.create("Hello World!")
-      expect(Peep.find_by_id(id)).to include 'Hello World!'
+      peep = Peep.create("Hello World!")
+      persisted_peep = Peep.find_by_id(peep.id)
+
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_peep.id
+      expect(peep.peep).to eq persisted_peep.peep
     end
   end
 
   describe '.all' do
     it 'gets all the peeps in reverse chronological order' do
       Peep.create("Wow, that's so cool")
-      Peep.create("The end is nigh")
+      peep = Peep.create("The end is nigh") # This will be the first one returned
       
       peeps = Peep.all
-      expect(peeps).to include("Wow, that's so cool")
-      expect(peeps).to include("The end is nigh")
+
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      # add in canned mock created_by...
+      expect(peeps.first.peep).to eq "The end is nigh"
     end
   end
 end

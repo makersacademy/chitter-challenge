@@ -15,4 +15,3 @@ class DatabaseConnection
   end
 
 end
-

@@ -12,10 +12,8 @@ require 'orderly'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')
 
-
 # tell Capybara about the app class
 Capybara.app = Chitter
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

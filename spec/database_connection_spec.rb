@@ -24,10 +24,8 @@ describe DatabaseConnection do
       connection = DatabaseConnection.setup('chitter_test')
       test_data = "string with a single quote ' in it"
       
-      expect( DatabaseConnection.escape_string(test_data) ).to eq "string with a single quote '' in it"
+      expect(DatabaseConnection.escape_string(test_data)).to eq "string with a single quote '' in it"
     end
   end
 
 end
-
-

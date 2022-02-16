@@ -17,24 +17,19 @@ class Chitter < Sinatra::Base
     erb :"peeps/index"
   end
 
-
   get '/peeps/new' do
     erb :"peeps/new"
   end
 
   post '/peeps' do
-    id = Peep.create(peep: params[:peep])
-    redirect to "/peep/#{id}"
+    peep = Peep.create(peep: params[:peep])
+    redirect to "/peep/#{peep.id}"
   end
 
   get '/peep/:id' do
     @peep =  Peep.find_by_id(id: params[:id])
     erb :"peeps/show"
   end
-
-
-
-
 
   # Start the server if this file is executed directly 
   # (do not change the line below)

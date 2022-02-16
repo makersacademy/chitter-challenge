@@ -10,9 +10,18 @@ feature "viewing all peeps" do
 
     visit '/peeps'
 
-    first_list_item = page.find('li', text: "The end is nigh", match: :prefer_exact )
-    second_list_item = page.find('li', text: "Wow, that's so cool", match: :prefer_exact )
+    first_list_item = page.find('li', text: "The end is nigh", match: :prefer_exact)
+    second_list_item = page.find('li', text: "Wow, that's so cool", match: :prefer_exact)
 
     expect(first_list_item).to appear_before(second_list_item)
+  end
+
+  scenario "view peeps shows the date and time for each peep listed" do
+    peep = Peep.create("Wow, that's so cool")
+    Peep.create("The end is nigh")
+
+    visit '/peeps'
+
+    expect(page).to have_content(peep.created_at)
   end
 end
