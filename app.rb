@@ -1,6 +1,7 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'pg'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
