@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/peep/:id' do
-    @peep =  Peep.find_by_id(:id => params[:id])
+    @peep =  Peep.find_by_id(id: params[:id])
     erb :"peeps/show"
   end
 
@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    id = Peep.create(:peep => params[:peep])
+    id = Peep.create(peep: params[:peep])
     redirect to "/peep/#{id}"
   end
 

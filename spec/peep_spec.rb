@@ -14,7 +14,7 @@ describe Peep do
   # tests
   describe '.create' do
     it 'creates a new peep' do
-      id = Peep.create(peep: 'Hello World!')
+      id = Peep.create("Hello World!")
       expect(Peep.find_by_id(id)).to include 'Hello World!'
     end
   end

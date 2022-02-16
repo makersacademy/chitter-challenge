@@ -6,7 +6,8 @@ class Peep
   end
 
   def self.create(peep)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id") 
+    escaped_peep = DatabaseConnection.escape_string(peep)
+    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES ('#{escaped_peep}') RETURNING id") 
     result.map { |id| id['id'] }.first
   end
 end

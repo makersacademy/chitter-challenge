@@ -10,5 +10,9 @@ class DatabaseConnection
     @connection.exec_params(sql, params)
   end
 
+  def self.escape_string(dirty_string)
+    @connection.escape_string(dirty_string)
+  end
+
 end
 
