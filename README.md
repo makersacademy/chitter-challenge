@@ -57,8 +57,6 @@ admin=# CREATE DATABASE chitter;
 
 # Change to the chitter database
 admin=# \c chitter;
-
-# Run the below migrations found in ./db/migrations
 ~~~~
 
 ### Setting up the test database
@@ -72,9 +70,16 @@ admin=# CREATE DATABASE chitter_test;
 
 # Change to the chitter_test database
 admin=# \c chitter_test;
+~~~~
 
-# Run the below migrations found in ./db/migrations
+### Database Schema
 
+For both the test and app databases run the following scripts in the order as shown listed
+
+These can be found here ./db/migrations
+~~~~
+01_create_peeps_table.sql
+02_alter_table_peeps.sql
 ~~~~
 
 ----------------------

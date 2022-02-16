@@ -18,4 +18,15 @@ describe Peep do
       expect(Peep.find_by_id(id)).to include 'Hello World!'
     end
   end
+
+  describe '.all' do
+    it 'gets all the peeps in reverse chronological order' do
+      Peep.create("Wow, that's so cool")
+      Peep.create("The end is nigh")
+      
+      peeps = Peep.all
+      expect(peeps).to include("Wow, that's so cool")
+      expect(peeps).to include("The end is nigh")
+    end
+  end
 end
