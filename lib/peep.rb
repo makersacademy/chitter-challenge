@@ -31,9 +31,4 @@ class Peep
   result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, peep_created;").first
   Peep.new(id: result['id'], peep: result['peep'], peep_created: result['peep_created'])
   end
-
-  def change_now
-  
-  end
-
 end

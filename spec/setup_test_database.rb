@@ -7,6 +7,6 @@ def setup_test_database
   connection = PG.connect(dbname: 'chitter_manager_test')
 
   # Clear the chitter table
-  connection.exec("TRUNCATE peeps;")
+  connection.exec("TRUNCATE peeps, users;")
 
 end

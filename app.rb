@@ -15,7 +15,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    "CHITTER.COM"
+    erb :index
+  end
+
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post 'sign_up' do
+    User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
+    redirect '/peeps'
   end
 
   get '/peeps' do

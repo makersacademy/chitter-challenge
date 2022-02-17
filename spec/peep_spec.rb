@@ -1,5 +1,4 @@
 require 'peep'
-require 'date'
 require 'database_helpers'
 
 describe Peep do
