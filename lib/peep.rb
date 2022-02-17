@@ -9,8 +9,6 @@ class Peep
     @created_at = DateTime.parse(created_at).strftime("%d/%m/%Y %I:%M %p")
   end
 
-  #strftime("%d/%m/%Y %I:%M %p")
-
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created_at DESC")
     result.map do |peep| 
@@ -27,7 +25,6 @@ class Peep
     escaped_peep = DatabaseConnection.escape_string(peep)
     result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES ('#{escaped_peep}') RETURNING id, peep, created_at") 
     result.map { |peep| Peep.new(peep['id'], peep['peep'], peep['created_at']) }.first
- 
   end
 
 
