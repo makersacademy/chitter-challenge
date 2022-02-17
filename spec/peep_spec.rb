@@ -9,6 +9,10 @@ describe Peep do
 
       expect(peep.peep).to eq persisted_peep.peep
     end
+
+    it 'returns nil if there is no ID given' do
+      expect(Peep.find_by_id(id: nil)).to eq nil
+    end
   end
 
   # Interesting, after refactoring I get to the same test as above...

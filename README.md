@@ -72,7 +72,7 @@ admin=# CREATE DATABASE chitter_test;
 admin=# \c chitter_test;
 ~~~~
 
-### Database Schema
+### Database Build
 
 For both the test and app databases run the following scripts in the order as shown listed
 
@@ -80,6 +80,7 @@ These can be found here ./db/migrations
 ~~~~
 01_create_peeps_table.sql
 02_alter_table_peeps.sql
+03_create_table_users.sql
 ~~~~
 
 ----------------------

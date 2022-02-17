@@ -2,7 +2,9 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'pg'
 require './lib/peep'
+require './lib/user'
 require './database_connection_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
@@ -10,9 +12,15 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  register Sinatra::Flash
   enable :sessions
 
+  get '/' do
+    redirect '/peeps'
+  end
+
   get '/peeps' do
+    @user = User.find_by_id(id: session[:user_id])
     @peeps = Peep.all
     erb :"peeps/index"
   end
@@ -31,7 +39,16 @@ class Chitter < Sinatra::Base
     erb :"peeps/show"
   end
 
+  get '/users/new' do
+    erb :"users/new"
+  end
+  
+  post '/users' do
+    user = User.create(email: params['email'], password: params['password'])
+    session[:user_id] = user.id
+    redirect '/'
+  end
+
   # Start the server if this file is executed directly 
-  # (do not change the line below)
   run! if app_file == $0
 end
