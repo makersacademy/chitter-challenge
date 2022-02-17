@@ -22,12 +22,14 @@ class Chitter < Sinatra::Base
     @peeps = Peep.all
     erb :'peeps/index'
   end
+
   get '/peeps/new' do
     erb :'peeps/new'
   end
 
   post '/peeps' do
-   
+    Peep.create(peep: params[:peep])
+  redirect '/peeps'
   end
 
   # Start the server if this file is executed directly 

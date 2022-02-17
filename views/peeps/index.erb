@@ -1,5 +1,14 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+<ul style="list-style-type:none">
+  <% @peeps.each do |post| %>
+    <li>
+      <%= post.peep %>
+    </li>
+    <li>
+      <%= post.peep_created %> 
+    </li>
   <% end %>
 </ul>
+
+<form action="/peeps/new">
+  <input type="submit" value="New Peep">
+</form>
