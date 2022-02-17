@@ -1,12 +1,12 @@
-# As a maker
-# So that I can see what others are saying  
-# I want to see all peeps in reverse chronological order
 feature "viewing all peeps" do
+  # As a maker
+  # So that I can see what others are saying  
+  # I want to see all peeps in reverse chronological order
   scenario "view peeps in reverse chronological order" do
     
     # Add the test data
-    Peep.create("Wow, that's so cool")
-    Peep.create("The end is nigh")
+    Peep.create(peep: "Wow, that's so cool")
+    Peep.create(peep: "The end is nigh")
 
     visit '/peeps'
 
@@ -16,9 +16,12 @@ feature "viewing all peeps" do
     expect(first_list_item).to appear_before(second_list_item)
   end
 
+  # As a Maker
+  # So that I can better appreciate the context of a peep
+  # I want to see the time at which it was made
   scenario "view peeps shows the date and time for each peep listed" do
-    peep = Peep.create("Wow, that's so cool")
-    Peep.create("The end is nigh")
+    peep = Peep.create(peep: "Wow, that's so cool")
+    Peep.create(peep: "The end is nigh")
 
     visit '/peeps'
 

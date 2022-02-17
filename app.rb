@@ -22,12 +22,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(params[:peep])
+    peep = Peep.create(peep: params[:peep])
     redirect to "/peep/#{peep.id}"
   end
 
   get '/peep/:id' do
-    @peep =  Peep.find_by_id(id = params[:id])
+    @peep =  Peep.find_by_id(id: params[:id])
     erb :"peeps/show"
   end
 

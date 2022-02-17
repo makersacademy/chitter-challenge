@@ -4,8 +4,8 @@ describe Peep do
 
   describe ".find_by_id" do
     it "gets a peep by id" do
-      peep = Peep.create('This is a test')
-      persisted_peep = Peep.find_by_id(peep.id)
+      peep = Peep.create(peep: 'This is a test')
+      persisted_peep = Peep.find_by_id(id: peep.id)
 
       expect(peep.peep).to eq persisted_peep.peep
     end
@@ -16,8 +16,8 @@ describe Peep do
   # tests
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peep.create("Hello World!")
-      persisted_peep = Peep.find_by_id(peep.id)
+      peep = Peep.create(peep: "Hello World!")
+      persisted_peep = Peep.find_by_id(id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_peep.id
@@ -27,8 +27,8 @@ describe Peep do
 
   describe '.all' do
     it 'gets all the peeps in reverse chronological order' do
-      Peep.create("Wow, that's so cool")
-      peep = Peep.create("The end is nigh") # This will be the first one returned
+      Peep.create(peep: "Wow, that's so cool")
+      peep = Peep.create(peep: "The end is nigh") # This will be the first one returned
       
       peeps = Peep.all
 
