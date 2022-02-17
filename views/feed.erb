@@ -1,1 +1,6 @@
-<%= @peep %>
+<h1>Chitter Feed</h1>
+<ol>
+<% @feed.each do |peep| %>
+  <li><%= peep %></li>
+<% end %>
+</ol>
