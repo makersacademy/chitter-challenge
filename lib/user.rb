@@ -1,14 +1,14 @@
 require 'bcrypt'
 
 class User
-  def self.create(email:, password:)
+  def self.create(email:, password:, name:, user_name:)
 
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
-      "INSERT INTO users (email, password) VALUES($1, $2) RETURNING id, email;",[email, encrypted_password]
+      "INSERT INTO users (email, password, name, user_name) VALUES($1, $2, $3, $4) RETURNING id, email, name, user_name;",[email, encrypted_password, name, user_name]
     )
     result.map do |user|
-      User.new(id: user['id'], email: user['email'])
+      User.new(id: user['id'], email: user['email'], name: user['name'], user_name: user['user_name'])
     end.first
   end
 
@@ -16,7 +16,7 @@ class User
     return nil unless id
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}") 
     result.map do |user|
-      User.new(id: user['id'], email: user['email'])
+      User.new(id: user['id'], email: user['email'], name: user['name'], user_name: user['user_name'])
     end.first
   end
 
@@ -29,15 +29,17 @@ class User
     return unless BCrypt::Password.new(result.map{ |user| user['password'] }.first) == password
 
     result.map do |user|
-      user = User.new(id: user['id'], email: user['email'])
+      User.new(id: user['id'], email: user['email'], name: user['name'], user_name: user['user_name'])
     end.first
 
   end
 
-  attr_reader :id, :email
+  attr_reader :id, :email, :name, :user_name
 
-  def initialize(id:, email:)
+  def initialize(id:, email:, name:, user_name:)
     @id = id
     @email = email
+    @name = name
+    @user_name = user_name
   end
 end

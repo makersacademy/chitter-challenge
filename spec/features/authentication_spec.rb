@@ -1,7 +1,6 @@
 feature 'authentication' do
   it 'a user can sign in' do
-    User.create(email: 'test@example.com', password: 'password123')
-
+    create_test_user
     # sessions is a RESTful resource - This is standard for signing-in
     visit_sessions_new_and_sign_in(
       email: 'test@example.com', password: 'password123'
@@ -11,7 +10,7 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    User.create(email: 'test@example.com', password: 'password123')
+    create_test_user
 
     visit_sessions_new_and_sign_in(
       email: 'nottherightemail@me.com', password: 'password123'
@@ -22,7 +21,7 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their password wrong' do
-    User.create(email: 'test@example.com', password: 'password123')
+    create_test_user
 
     visit_sessions_new_and_sign_in(
       email: 'test@example.com', password: 'wrongpassword'
@@ -33,7 +32,7 @@ feature 'authentication' do
   end
 
   scenario 'a user can sign out' do
-    User.create(email: 'test@example.com', password: 'password123')
+    create_test_user
 
     visit_sessions_new_and_sign_in(
       email: 'test@example.com', password: 'password123'

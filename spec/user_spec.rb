@@ -1,27 +1,31 @@
 require_relative '../lib/user'
 
 describe User do
+
+
   describe '.create' do
     it 'creates a new user' do
-      user = User.create(email: 'test@example.com', password: 'password123')
+      user = create_test_user
       persisted_user = User.find_by_id(id: user.id)
 
       expect(user).to be_a User
       expect(user.id).to eq persisted_user.id
+      expect(user.user_name).to eq persisted_user.user_name
+      expect(user.name).to eq persisted_user.name
       expect(user.email).to eq persisted_user.email
     end
 
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('password123')
-  
-      User.create(email: 'test@example.com', password: 'password123')
+      
+      create_test_user
     end
 
   end
 
   describe ".find_by_id" do
     it 'finds a user by ID' do
-      user = User.create(email: 'test@example.com', password: 'password123')
+      user = create_test_user
       persisted_user = User.find_by_id(id: user.id)
   
       expect(persisted_user.id).to eq user.id
@@ -34,22 +38,21 @@ describe User do
   end
 
   describe ".authenticate" do
+    before(:each) do
+      @user = create_test_user
+    end
+
     it 'returns a user given a correct username and password, if one exists' do
-      user = User.create(email: 'test@example.com', password: 'password123')
       authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
-  
-      expect(authenticated_user.id).to eq user.id
+
+      expect(authenticated_user.id).to eq @user.id
     end
 
     it 'returns nil given an incorrect email address' do
-      user = User.create(email: 'test@example.com', password: 'password123')
-  
       expect(User.authenticate(email: 'wrongemail@mail.com', password: 'password123')).to be_nil
     end
 
     it 'returns nil given an incorrect password' do
-      user = User.create(email: 'test@example.com', password: 'password123')
-  
       expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
     end
 

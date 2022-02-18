@@ -9,8 +9,10 @@ require 'capybara/rspec'
 require 'orderly'
 
 # require our Sinatra app file
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
-require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')
+require_relative '../app'
+# require helpers
+require_relative './features/web_helpers'
+require_relative './model_helpers'
 
 # tell Capybara about the app class
 Capybara.app = Chitter

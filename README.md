@@ -78,9 +78,10 @@ For both the test and app databases run the following scripts in the order as sh
 
 These can be found here ./db/migrations
 ~~~~
-01_create_peeps_table.sql
-02_alter_table_peeps.sql
+01_create_table_peeps.sql
+02_alter_table_peeps_add_created_at
 03_create_table_users.sql
+04_alter_table_users_add_name_username.sql
 ~~~~
 
 ----------------------
