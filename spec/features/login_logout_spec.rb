@@ -37,4 +37,15 @@ feature 'logging in' do
     expect(page).not_to have_content "Welcome, #{email}"
     expect(page).to have_content 'Please check your email or password.'
   end
+
+  scenario 'a user can log out' do
+    fill_in(:email, with: email)
+    fill_in(:password, with: password)
+    click_button 'submit'
+
+    click_button 'log-out'
+
+    expect(page).to have_content 'Welcome, anonymouse'
+    expect(page).not_to have_content "Welcome, #{email}"
+  end
 end

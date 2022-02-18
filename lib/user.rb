@@ -50,4 +50,12 @@ class User
     @id = id
     @email = email
   end
+
+  def log_button
+    {
+      label: 'Log Out',
+      name: 'log-out',
+      path_action: '/sessions/destroy'
+    }
+  end
 end

@@ -6,4 +6,12 @@ class NullUser
   end
 
   def id; end
+
+  def log_button
+    {
+      label: 'Log In',
+      name: 'log-in',
+      path_action: '/sessions/new'
+    }
+  end
 end

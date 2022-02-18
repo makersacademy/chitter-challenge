@@ -85,4 +85,18 @@ RSpec.describe User do
       described_class.authenticate(email, password)
     end
   end
+
+  describe '#log_button' do
+    it 'returns parameters for log out button' do
+      parameters = {
+        label: 'Log Out',
+        name: 'log-out',
+        path_action: '/sessions/destroy'
+      }
+
+      user = described_class.new(email, password)
+
+      expect(user.log_button).to eq parameters
+    end
+  end
 end

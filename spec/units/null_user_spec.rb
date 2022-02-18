@@ -14,4 +14,16 @@ RSpec.describe NullUser do
       expect(subject.id).to be_nil
     end
   end
+
+  describe '#log_button' do
+    it 'returns parameters for log out button' do
+      parameters = {
+        label: 'Log In',
+        name: 'log-in',
+        path_action: '/sessions/new'
+      }
+
+      expect(subject.log_button).to eq parameters
+    end
+  end
 end
