@@ -27,9 +27,19 @@ class Chitter < Sinatra::Base
     erb :'sessions/login'
   end
 
+  post '/sessions' do
+   @user = User.find_by(email: params['email'], user_password: params['user_password'])
+   if @user
+   session[:user_id] = @user.id
+   redirect '/peeps'
+   else
+    redirect '/sessions/login'
+   end
+  end
+
   post '/registrations' do
     @user = User.create(id: params[:id], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
-    p session[:user_id] = @user.id
+    session[:user_id] = @user.id
     redirect '/peeps'
   end
 

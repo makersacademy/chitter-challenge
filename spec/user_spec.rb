@@ -21,4 +21,12 @@ describe User do
       expect(retrieved_user.id).to eq user.id
     end
   end
+
+  describe '.find_by' do
+    it "finds the user by email and password" do
+      user = User.create(id: '1', first_name: "Eddie", last_name: "Arnold", email: "123@me.com", user_password: "12345")
+      retrieved_user = User.find_by(email: user.email, user_password: user.user_password)
+      expect(retrieved_user.id).to eq user.id
+    end
+  end
 end
