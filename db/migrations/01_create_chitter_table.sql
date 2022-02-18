@@ -1,1 +1,0 @@
-CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(250), peep_created timestamp);
