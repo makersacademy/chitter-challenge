@@ -1,26 +1,29 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'sinatra/reloader'
 require './database_connection_setup'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
   end
 
   enable :sessions
 
   get '/chitter' do
-    @email = session[:email]
+    @user = User.find(session[:user_id])
     @peeps = Peep.all_in_time_order
 
     erb :index
   end
 
-  post '/chitter' do
-    Peep.create_peep(params['peep'], session[:email])
+  post '/chitter/:email/new' do
+    Peep.create_peep(params['peep'], params['email'])
 
     redirect '/chitter/refresh'
   end
@@ -36,8 +39,30 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    session[:email] = params['email']
-    session[:password] = params['password']
+    @user = User.create(params['email'], params['password'])
+    session[:user_id] = @user.id
+
+    redirect '/chitter'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    @user = User.authenticate(params['email'], params['password'])
+
+    if @user.id
+      session[:user_id] = @user.id
+      redirect '/chitter'
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect '/sessions/new'
+    end
+  end
+
+  get '/sessions/destroy' do
+    session.clear
 
     redirect '/chitter'
   end

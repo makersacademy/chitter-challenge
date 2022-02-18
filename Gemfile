@@ -14,9 +14,11 @@ group :test do
 end
 
 group :development, :test do
+  gem 'bcrypt', '~> 3.1', '>= 3.1.12'
   gem 'pg', '~> 1.2', '>= 1.2.3'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-sinatra', '~> 0.1.2'
   gem 'sinatra', '~> 2.1'
   gem 'sinatra-contrib'
+  gem 'sinatra-flash', '~> 0.3.0'
 end

@@ -14,4 +14,10 @@ feature 'signing up' do
 
     expect(page).to have_content('example@email.com', count: 2)
   end
+
+  scenario 'user is not signed up' do
+    visit('/chitter')
+
+    expect(page).to have_content 'Welcome, anonymouse'
+  end
 end
