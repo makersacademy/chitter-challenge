@@ -107,6 +107,8 @@ GEM
       rack-protection (= 2.1.0)
       sinatra (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     templater (1.0.0)
       diff-lcs (>= 1.1.2)
       extlib (>= 0.9.5)
@@ -140,6 +142,7 @@ DEPENDENCIES
   simplecov-console
   sinatra (~> 2.1)
   sinatra-contrib
+  sinatra-flash (~> 0.3.0)
   webrick (~> 1.7)
 
 RUBY VERSION

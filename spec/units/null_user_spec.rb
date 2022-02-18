@@ -8,4 +8,10 @@ RSpec.describe NullUser do
       expect(subject.email).to eq 'anonymouse'
     end
   end
+
+  describe '#id' do
+    it 'returns nil' do
+      expect(subject.id).to be_nil
+    end
+  end
 end

@@ -65,6 +65,12 @@ RSpec.describe User do
       expect(result.email).to eq email
     end
 
+    it 'returns a null user if email is not in database' do
+      result = described_class.authenticate(email)
+
+      expect(result).to be_a NullUser
+    end
+
     xit 'decrypts the password' do
       expect(BCrypt::Password).to receive(:new)
 

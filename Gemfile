@@ -20,4 +20,5 @@ group :development, :test do
   gem 'rspec-sinatra', '~> 0.1.2'
   gem 'sinatra', '~> 2.1'
   gem 'sinatra-contrib'
+  gem 'sinatra-flash', '~> 0.3.0'
 end

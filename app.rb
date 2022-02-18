@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'sinatra/reloader'
 require './database_connection_setup'
 require './lib/peep'
@@ -9,6 +10,7 @@ require './lib/user'
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
   end
 
   enable :sessions
@@ -50,7 +52,13 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     @user = User.authenticate(params['email'])
-    session[:user_id] = @user.id
-    redirect '/chitter'
+
+    if @user.id
+      session[:user_id] = @user.id
+      redirect '/chitter'
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect '/sessions/new'
+    end
   end
 end

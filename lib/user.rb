@@ -28,6 +28,8 @@ class User
     result = DatabaseConnection.query(
       'SELECT * FROM users WHERE email = $1', [email]
     )
+    return NullUser.new unless result.any?
+
     new_user(result)
   end
 
