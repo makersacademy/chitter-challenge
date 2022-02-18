@@ -58,4 +58,8 @@ class User
       path_action: '/sessions/destroy'
     }
   end
+
+  def signup
+    'hidden'
+  end
 end

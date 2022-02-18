@@ -99,4 +99,12 @@ RSpec.describe User do
       expect(user.log_button).to eq parameters
     end
   end
+
+  describe '#signup' do
+    it "returns 'hidden'" do
+      user = described_class.new(email, password)
+
+      expect(user.signup).to eq 'hidden'
+    end
+  end
 end

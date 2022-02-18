@@ -14,4 +14,8 @@ class NullUser
       path_action: '/sessions/new'
     }
   end
+
+  def signup
+    ''
+  end
 end

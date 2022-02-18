@@ -48,4 +48,12 @@ feature 'logging in' do
     expect(page).to have_content 'Welcome, anonymouse'
     expect(page).not_to have_content "Welcome, #{email}"
   end
+
+  scenario 'when logged in user does not see sign up button' do
+    fill_in(:email, with: email)
+    fill_in(:password, with: password)
+    click_button 'submit'
+
+    expect(page).to_not have_button 'sign-up'
+  end
 end

@@ -26,4 +26,10 @@ RSpec.describe NullUser do
       expect(subject.log_button).to eq parameters
     end
   end
+
+  describe '#signup' do
+    it 'returns an empty string' do
+      expect(subject.signup).to eq ''
+    end
+  end
 end
