@@ -31,6 +31,7 @@ class Chitter < Sinatra::Base
   post '/registrations' do
     @user = User.create(id: params[:id], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
     session[:user_id] = @user.id
+    session[:user_name] = @user.first_name
     redirect '/peeps'
   end
 
@@ -42,6 +43,7 @@ class Chitter < Sinatra::Base
    @user = User.find_by(email: params['email'], user_password: params['user_password'])
    if @user
     session[:user_id] = @user.id
+    session[:user_name] = @user.first_name
     redirect '/peeps'
    else
     redirect '/sessions/login'
@@ -63,7 +65,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep])
+    user_name = session[:user_name]
+    Peep.create(peep: params[:peep], user_id: user_name)
     redirect '/peeps'
   end
 

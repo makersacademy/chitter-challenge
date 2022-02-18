@@ -4,7 +4,8 @@
       <%= post.peep %>
     </li>
     <li>
-      <%= post.created_time %> 
+      @<%= post.user_id %> at <%= post.created_time %> 
+      
     </li>
   <% end %>
 </ul>
@@ -14,7 +15,7 @@
 </form>
 
 
-<h1> It's just a bit of chitter chatter </h1>
+<h1> Join Chitter today </h1>
 <form action="/sessions/login">
 <input type="submit" value="sign in">
 <input type="submit" value="sign up" formaction="/registrations/sign_up">
