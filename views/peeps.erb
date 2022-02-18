@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <title> Chitter </title>
+
+  <body>
+    <form action="/post_peep" method="POST">
+      Peep!
+      <br>
+      <input type="text" name="peep">
+      <input type="submit" value="Post">
+    </form>
+    <%= $peep %>
+  </body>
