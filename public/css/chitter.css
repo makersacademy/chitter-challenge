@@ -9,21 +9,13 @@
     overflow: auto;
   }
   
-  /* Sidebar links */
   .sidebar a {
     display: block;
-    color: black;
+    color: white;
     padding: 16px;
     text-decoration: none;
   }
-  
-  /* Active/current link */
-  .sidebar a.active {
-    background-color: #0a75e6;
-    color: white;
-  }
-  
-  /* Links on mouse-over */
+
   .sidebar a:hover:not(.active) {
     background-color: #555;
     color: white;
@@ -57,6 +49,10 @@
 
   h1 {
     color:  white;
+  }
+
+  .peep-text {
+    color: White !important;
   }
 
   bg-black {
