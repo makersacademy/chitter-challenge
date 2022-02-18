@@ -19,7 +19,7 @@
       </form>
     </header>
 
-    <form class="new_peep" action="/chitter" method="post">
+    <form class="new_peep" action="/chitter/<%= @user.email %>/new" method="post">
       <input type="text" name="peep" placeholder="type your peep here">
       <button type="submit" name="submit">Send Peep</button>
     </form>
