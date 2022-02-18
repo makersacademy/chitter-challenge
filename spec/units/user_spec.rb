@@ -12,6 +12,12 @@ RSpec.describe User do
       expect(user).to be_a(User)
     end
 
+    it 'encrypts the password' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+
+      described_class.create('example@email.com', 'password123')
+    end
+
     it 'creates a new user into the database' do
       user = described_class.create('example@email.com', 'password123')
 

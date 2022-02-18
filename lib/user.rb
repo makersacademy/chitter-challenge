@@ -1,13 +1,16 @@
 # frozen_string_literal: true
 
+require 'bcrypt'
 require './lib/database_connection'
 require './lib/null_user'
 
 class User
   def self.create(email, password)
+    encrypted_password = BCrypt::Password.create(password)
+
     result = DatabaseConnection.query(
       'INSERT INTO users (email, password) VALUES($1, $2) RETURNING id, email',
-      [email, password]
+      [email, encrypted_password]
     )
     new_user(result)
   end
