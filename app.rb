@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
 
+
   get '/' do
     redirect '/peeps'
   end
@@ -55,16 +56,21 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    p "We got here"
     if user
       session[:user_id] = user.id
       redirect('/')
     else
-      flash[:bad_email_password] = 'Please check your email or password.'
+      flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
     end
-
   end
+
+  post '/sessions/delete' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
+  end
+
 
   # Start the server if this file is executed directly 
   run! if app_file == $0

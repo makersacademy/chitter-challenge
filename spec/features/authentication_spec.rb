@@ -32,4 +32,17 @@ feature 'authentication' do
     expect(page).to have_content 'Please check your email or password.'
   end
 
+  scenario 'a user can sign out' do
+    User.create(email: 'test@example.com', password: 'password123')
+
+    visit_sessions_new_and_sign_in(
+      email: 'test@example.com', password: 'password123'
+    )
+
+    click_button('Sign out')
+
+    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).to have_content 'You have signed out.'
+  end
+
 end
