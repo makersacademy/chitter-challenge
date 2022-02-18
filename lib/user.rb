@@ -2,6 +2,7 @@ require 'bcrypt'
 
 class User
   def self.create(email:, password:, name:, user_name:)
+    return nil if email_or_username_exists?(email, user_name)
 
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
@@ -42,4 +43,12 @@ class User
     @name = name
     @user_name = user_name
   end
+
+  private
+    def self.email_or_username_exists?(email, user_name)
+      DatabaseConnection.query(
+        "SELECT * FROM users WHERE email = $1 OR user_name = $2",[email, user_name]
+      ).any?
+    end
+
 end

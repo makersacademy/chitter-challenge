@@ -17,10 +17,31 @@ describe User do
 
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('password123')
-      
+
       create_test_user
     end
 
+    it 'does not allow duplicate email addresses' do
+      create_test_user
+      user = User.create(
+        email: 'test@example.com', 
+        password: 'password123', 
+        user_name: 'different name', 
+        name: 'Test User'
+      )
+      expect(user).to be_nil
+    end
+
+    it 'does not allow duplicate usernames' do
+      create_test_user
+      user = User.create(
+        email: 'different@example.com', 
+        password: 'password123', 
+        user_name: 'testusername', 
+        name: 'Test User'
+      )
+      expect(user).to be_nil
+    end
   end
 
   describe ".find_by_id" do
