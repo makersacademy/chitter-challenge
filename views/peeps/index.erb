@@ -7,8 +7,8 @@
 
 <%=erb :"peeps/new"%>
 <br><br>
-<div id="table-wrapper">
-  <div id="table-scroll">
+<div id="peep_border">
+  <div id="peep-scroll">
     <%@peeps.each do |peep| %>
       <div class="peep">
         Peeped by: <%=User.find_by_id(id: peep.user_id).user_name%><br>
@@ -18,7 +18,7 @@
     <%end%>
   </div>
 </div>
-
+<br>
 <form action="/sessions/delete" method="post">
   <input type="submit" value="Sign out" />
 </form>
