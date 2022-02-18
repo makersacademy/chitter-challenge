@@ -51,7 +51,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    @user = User.authenticate(params['email'])
+    @user = User.authenticate(params['email'], params['password'])
 
     if @user.id
       session[:user_id] = @user.id

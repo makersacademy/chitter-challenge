@@ -24,11 +24,12 @@ class User
     new_user(result)
   end
 
-  def self.authenticate(email)
+  def self.authenticate(email, password)
     result = DatabaseConnection.query(
       'SELECT * FROM users WHERE email = $1', [email]
     )
     return NullUser.new unless result.any?
+    return NullUser.new unless check_password(result, password)
 
     new_user(result)
   end
@@ -37,7 +38,11 @@ class User
     User.new(result[0]['id'], result[0]['email'])
   end
 
-  private_class_method :new_user
+  def self.check_password(result, password)
+    BCrypt::Password.new(result[0]['password']) == password
+  end
+
+  private_class_method :new_user, :check_password
 
   attr_reader :id, :email
 
