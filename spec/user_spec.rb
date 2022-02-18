@@ -13,4 +13,12 @@ describe User do
 
     end
   end
+
+  describe '.find' do
+    it "finds the user it searches" do
+      user = User.create(id: '1', first_name: "Eddie", last_name: "Arnold", email: "123@me.com", user_password: "12345")
+      retrieved_user = User.find(id: user.id)
+      expect(retrieved_user.id).to eq user.id
+    end
+  end
 end

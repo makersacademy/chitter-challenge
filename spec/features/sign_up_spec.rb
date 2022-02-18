@@ -1,6 +1,6 @@
 feature "signing up to chitter" do
   scenario "a new user signs up to chitter" do
-    visit '/sign_up'
+    visit '/registrations/sign_up'
     fill_in :first_name, with: "Eddie"
     fill_in :last_name, with: "Arnold"
     fill_in :email, with: "123@me.com"

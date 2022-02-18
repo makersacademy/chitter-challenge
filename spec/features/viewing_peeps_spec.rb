@@ -1,14 +1,13 @@
+require_relative 'web_helpers'
+
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    Peep.create(peep: "First peep")
-    Peep.create(peep: "Second peep")
-    Peep.create(peep: "Third peep")
-
-    visit('/peeps')
-
+    login
+    visit '/peeps/new'
+    fill_in :peep, with: 'Second peep'
+    click_button "submit"
     expect(page).to have_content ("First peep")
     expect(page).to have_content ("Second peep")
-    expect(page).to have_content ("Third peep")
   end
 end
 

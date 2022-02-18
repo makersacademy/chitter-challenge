@@ -30,6 +30,7 @@ describe Peep do
       expect(peep.id).to eq persisted_data['id']
       expect(peep.peep).to eq 'A new peep'
       expect(peep.peep_created).to include Date.today.to_s
+      
     end
   end
 end

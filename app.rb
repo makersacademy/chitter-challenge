@@ -3,6 +3,7 @@ require "sinatra/reloader" if development?
 require 'sinatra/flash'
 require 'uri'
 require './lib/peep'
+require './lib/user'
 
 
 
@@ -15,19 +16,25 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :home
   end
 
-  get '/sign_up' do
-    erb :sign_up
+  get '/registrations/sign_up' do
+    erb :'registrations/sign_up'
   end
 
-  post 'sign_up' do
-    User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
+ get '/sessions/login' do
+    erb :'sessions/login'
+  end
+
+  post '/registrations' do
+    @user = User.create(id: params[:id], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
+    p session[:user_id] = @user.id
     redirect '/peeps'
   end
 
   get '/peeps' do
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
   end
