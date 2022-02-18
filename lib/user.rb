@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'database_connection'
+require 'null_user'
 
 class User
   def self.create(email, password)
@@ -12,6 +13,8 @@ class User
   end
 
   def self.find(id)
+    return NullUser.new unless id
+
     result = DatabaseConnection.query(
       'SELECT * FROM users WHERE id = $1', [id]
     )

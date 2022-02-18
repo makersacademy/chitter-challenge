@@ -41,5 +41,11 @@ RSpec.describe User do
 
       expect(result.id).to eq user.id
     end
+
+    it 'returns a null user if id is nil' do
+      result = described_class.find(nil)
+
+      expect(result).to be_a NullUser
+    end
   end
 end
