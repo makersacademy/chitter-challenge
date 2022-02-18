@@ -10,6 +10,10 @@
 
       <p>Welcome, <%= @user.email %></p>
 
+      <form action="/sessions/new">
+        <button type="submit" name="log-in">Log In</button>
+      </form>
+
       <form action="/users/new">
         <button type="submit" name="sign-up">Sign Up</button>
       </form>

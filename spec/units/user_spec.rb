@@ -56,4 +56,19 @@ RSpec.describe User do
       expect(result).to be_a NullUser
     end
   end
+
+  describe '.authenticate' do
+    it 'returns the user that matches the given email' do
+      described_class.create(email, password)
+      result = described_class.authenticate(email)
+
+      expect(result.email).to eq email
+    end
+
+    xit 'decrypts the password' do
+      expect(BCrypt::Password).to receive(:new)
+
+      described_class.authenticate(email, password)
+    end
+  end
 end
