@@ -16,13 +16,13 @@ class Chitter < Sinatra::Base
   get '/chitter' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all_in_time_order
+    session[:user_email] = @user.email
 
     erb :index
   end
 
   post '/chitter' do
-    @user = User.find(session[:user_id])
-    Peep.create_peep(params['peep'], @user.email)
+    Peep.create_peep(params['peep'], session[:user_email])
 
     redirect '/chitter/refresh'
   end
