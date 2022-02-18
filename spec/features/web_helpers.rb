@@ -1,6 +1,6 @@
 
 def login
-  visit '/'
+  visit '/peeps'
   click_button 'sign up'
   fill_in :first_name, with: "Eddie"
   fill_in :last_name, with: "Arnold"
@@ -13,7 +13,7 @@ def login
 end
 
 def sign_up_to_sign_in
-  visit '/'
+  visit '/peeps'
   click_button 'sign up'
   fill_in :first_name, with: "Eddie"
   fill_in :last_name, with: "Arnold"

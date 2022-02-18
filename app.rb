@@ -15,12 +15,23 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    erb :home
+  # get '/' do
+  #   erb :home
+  # end
+  get '/peeps' do
+    @user = User.find(id: session[:user_id])
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   get '/registrations/sign_up' do
     erb :'registrations/sign_up'
+  end
+
+  post '/registrations' do
+    @user = User.create(id: params[:id], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
+    session[:user_id] = @user.id
+    redirect '/peeps'
   end
 
  get '/sessions/login' do
@@ -37,30 +48,23 @@ class Chitter < Sinatra::Base
    end
   end
 
-  post '/registrations' do
-    @user = User.create(id: params[:id], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
-    session[:user_id] = @user.id
+  get '/sessions/log_out' do
+    session.clear
     redirect '/peeps'
   end
 
-  get '/peeps' do
-    @user = User.find(id: session[:user_id])
-    @peeps = Peep.all
-    erb :'peeps/index'
-  end
-
-  get '/sessions/log_out' do
-    session.clear
-    redirect '/'
-  end
-
   get '/peeps/new' do
+    @user = session[:user_id]
+    if @user
     erb :'peeps/new'
+    else
+      redirect '/peeps'
+    end
   end
 
   post '/peeps' do
     Peep.create(peep: params[:peep])
-  redirect '/peeps'
+    redirect '/peeps'
   end
 
   # Start the server if this file is executed directly 

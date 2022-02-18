@@ -10,3 +10,7 @@
 - Create the database using the psql command `CREATE DATABASE chitter_test;`
 - Connect to the database using the pqsl command `\c chitter_test;`
 - run the command from file 01_create_chitter_table.sql to create a table
+
+CODE I MAY NEED LATER
+
+<h3> Signed in as <%= @user.first_name %> </h3>

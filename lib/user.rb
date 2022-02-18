@@ -29,7 +29,12 @@ attr_reader :first_name, :last_name, :email, :user_password, :id
       connection = PG.connect(dbname: 'chitter_manager')
     end
     result = connection.exec_params("SELECT * FROM users WHERE id = $1" , [id]).first
-    User.new(id: result['id'], first_name: result['first_name'], last_name: result['last_name'], email: result['email'], user_password: result['user_password'])
+    if result == nil
+      nil
+    else
+      User.new(id: result['id'], first_name: result['first_name'], last_name: result['last_name'], email: result['email'], user_password: result['user_password'])
+    end
+    
   end
 
   def self.find_by(email:, user_password:)

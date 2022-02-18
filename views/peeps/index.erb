@@ -13,5 +13,15 @@
   <input type="submit" value="New Peep">
 </form>
 
-<h1> Signed in as <%= @user.first_name %> </h1>
+
+<h1> It's just a bit of chitter chatter </h1>
+<form action="/sessions/login">
+<input type="submit" value="sign in">
+<input type="submit" value="sign up" formaction="/registrations/sign_up">
+</form>
+<% if @user ==nil %>
+<h3> Not signed in </h3>
+<% else %>
+<h3> Signed in as <%= @user.first_name %> </h3>
+<% end %>
 <a href="/sessions/log_out" > log out </a>
