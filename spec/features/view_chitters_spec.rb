@@ -7,13 +7,11 @@ feature 'Viewing chitters' do
   end
 
   scenario 'A user can view chitters' do
-    connection = PG.connect(dbname: 'chitter_test')
-
     # Add the test data
-    connection.exec("INSERT INTO peeps (message) VALUES ('Test peep 1');")
-    connection.exec("INSERT INTO peeps (message) VALUES ('Test peep 2');")
-    connection.exec("INSERT INTO peeps (message) VALUES ('Test peep 3');")
-
+    Peep.create(message: "Test peep 1")
+    Peep.create(message: "Test peep 2")
+    Peep.create(message: "Test peep 3")
+    
     visit('/peeps')
 
     expect(page).to have_content "Test peep 1"
