@@ -2,13 +2,14 @@
   <%= flash[:notice] %>
 </h2>
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h1>Welcome, <%= @user.name %></h1>
 <% end %>
 <ul>
   <%@peeps.each do |peep| %>
     <li>
-      <%=peep.peep%>
-      <%=peep.created_at%>
+      Peeped by: <%=User.find_by_id(id: peep.user_id).user_name%><br>
+      <%=peep.peep%><br>
+      <%=peep.created_at%><br><br>
     </li>
   <%end%>
 </ul>

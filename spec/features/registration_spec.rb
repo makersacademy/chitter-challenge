@@ -8,6 +8,6 @@ feature 'registration' do
     
     click_button('Sign Up!')
 
-    expect(page).to have_content "Welcome, test@example.com"
+    expect(page).to have_content "Welcome, Test Name"
   end
 end
