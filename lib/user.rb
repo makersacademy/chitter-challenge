@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'database_connection'
-require 'null_user'
+require './lib/database_connection'
+require './lib/null_user'
 
 class User
   def self.create(email, password)
@@ -27,7 +27,7 @@ class User
 
   private_class_method :new_user
 
-  attr_reader :id
+  attr_reader :id, :email
 
   def initialize(id, email)
     @id = id

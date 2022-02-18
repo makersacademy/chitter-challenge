@@ -8,8 +8,8 @@
     <header>
       <h1>Chitter</h1>
 
-      <% if @email %>
-      <p>Welcome, <%= @email %></p>
+      <% if @user %>
+      <p>Welcome, <%= @user.email %></p>
       <% end %>
 
       <form action="/users/new">
