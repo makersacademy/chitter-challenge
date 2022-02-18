@@ -1,5 +1,7 @@
-<ul>
+<ul style="list-style-type:none;">
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.message %></li>
+    <li><%= peep.created_at %></li>
+    <br>
   <% end %>
 </ul>

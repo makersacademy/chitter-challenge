@@ -8,6 +8,9 @@ feature 'Viewing chitters' do
 
   scenario 'A user can view chitters' do
     # Add the test data
+
+    time = Time.new.to_s[0...-6]
+
     Peep.create(message: "Test peep 1")
     Peep.create(message: "Test peep 2")
     Peep.create(message: "Test peep 3")
@@ -17,5 +20,7 @@ feature 'Viewing chitters' do
     expect(page).to have_content "Test peep 1"
     expect(page).to have_content "Test peep 2"
     expect(page).to have_content "Test peep 3"
+
+    expect(page).to have_content time
   end
 end
