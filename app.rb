@@ -5,8 +5,6 @@ require 'uri'
 require './lib/peep'
 require './lib/user'
 
-
-
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
@@ -29,25 +27,26 @@ class Chitter < Sinatra::Base
   end
 
   post '/registrations' do
-    @user = User.create(id: params[:id], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
+    @user = User.create(id: params[:id], first_name: params[:first_name], 
+last_name: params[:last_name], email: params[:email], user_password: params[:user_password])
     session[:user_id] = @user.id
     session[:user_name] = @user.first_name
     redirect '/peeps'
   end
 
- get '/sessions/login' do
+  get '/sessions/login' do
     erb :'sessions/login'
   end
 
   post '/sessions' do
-   @user = User.find_by(email: params['email'], user_password: params['user_password'])
-   if @user
-    session[:user_id] = @user.id
-    session[:user_name] = @user.first_name
-    redirect '/peeps'
-   else
-    redirect '/sessions/login'
-   end
+    @user = User.find_by(email: params['email'], user_password: params['user_password'])
+    if @user
+      session[:user_id] = @user.id
+      session[:user_name] = @user.first_name
+      redirect '/peeps'
+    else
+      redirect '/sessions/login'
+    end
   end
 
   get '/sessions/log_out' do
@@ -58,7 +57,7 @@ class Chitter < Sinatra::Base
   get '/peeps/new' do
     @user = session[:user_id]
     if @user
-    erb :'peeps/new'
+      erb :'peeps/new'
     else
       redirect '/peeps'
     end

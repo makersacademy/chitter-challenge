@@ -1,20 +1,31 @@
-<ul style="list-style-type:none">
-  <form action="/registrations" method="post">
-    <li for="first_name">
-      first name
-      <input type="text" name="first_name">
-    </li>
-    <li for="last_name">
-      last name
-      <input type="text" name="last_name">
-    </li>
-    <li for="email">
-      email
-      <input type="text" name="email">
-    <li for="user_password">
-      passsword
-      <input type="password" name="user_password" maxlength ="20" Minlength ="8">
-    </li>
-      <input type="submit" value="get chitting">
-  </form>
-</ul>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>sign up to chitter</title>
+  </head>
+
+<body>
+<h3>Create your account</h3>
+  <ul style="list-style-type:none">
+    <form action="/registrations" method="post">
+      <li for="first_name">
+        <input type="text" name="first_name" placeholder="First name">
+      </li>
+      <li for="last_name">
+        <input type="text" name="last_name" placeholder="Last name">
+      </li>
+      <li for="email">
+        <input type="text" name="email" placeholder="Email">
+      <li for="user_password">
+        <input type="password" name="user_password" placeholder="Password" Minlength ="8">
+      </li>
+        <input type="submit" value="get chitting">
+    </form>
+  </ul>
+</body>

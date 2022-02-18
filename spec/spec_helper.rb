@@ -20,7 +20,6 @@ RSpec.configure do |config|
   end
 end
 
-
 # require our Sinatra app file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')
@@ -28,8 +27,6 @@ require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
-
-
 
 # tell Capybara about the app class
 Capybara.app = Chitter
