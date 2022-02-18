@@ -39,6 +39,10 @@ attr_reader :first_name, :last_name, :email, :user_password, :id
       connection = PG.connect(dbname: 'chitter_manager')
     end
     result = connection.exec_params("SELECT * FROM users WHERE email = $1 AND user_password = $2" , [email, user_password]).first
-    User.new(id: result['id'], first_name: result['first_name'], last_name: result['last_name'], email: result['email'], user_password: result['user_password'])
+    if result
+      User.new(id: result['id'], first_name: result['first_name'], last_name: result['last_name'], email: result['email'], user_password: result['user_password'])
+    else
+      nil
+    end
   end
 end

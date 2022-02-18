@@ -30,8 +30,8 @@ class Chitter < Sinatra::Base
   post '/sessions' do
    @user = User.find_by(email: params['email'], user_password: params['user_password'])
    if @user
-   session[:user_id] = @user.id
-   redirect '/peeps'
+    session[:user_id] = @user.id
+    redirect '/peeps'
    else
     redirect '/sessions/login'
    end
@@ -47,6 +47,11 @@ class Chitter < Sinatra::Base
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
+  end
+
+  get '/sessions/log_out' do
+    session.clear
+    redirect '/'
   end
 
   get '/peeps/new' do

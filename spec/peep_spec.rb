@@ -10,8 +10,6 @@ describe Peep do
 
       peeps = Peep.all
 
-      allow(Time).to receive(:now).and_return(@time_now)
-
       expect(peeps.length).to eq 3
       expect(peeps.last).to be_a Peep
       expect(peeps.last.id).to eq peep.id

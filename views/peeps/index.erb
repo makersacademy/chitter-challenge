@@ -4,7 +4,7 @@
       <%= post.peep %>
     </li>
     <li>
-      <%= post.peep_created %> 
+      <%= post.created_time %> 
     </li>
   <% end %>
 </ul>
@@ -14,3 +14,4 @@
 </form>
 
 <h1> Signed in as <%= @user.first_name %> </h1>
+<a href="/sessions/log_out" > log out </a>
