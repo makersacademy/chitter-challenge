@@ -1,9 +1,9 @@
 Setup
 --------
 1. Connect to psql
-2. Create a database using the psql command CREATE DATABASE chitter;
+2. Create two databases using the psql command CREATE DATABASE chitter; and CREATE DATABASE chitter_test;
 3. Connect to the database using the pqsl command \c chitter;
-4. Run the queries we have saved in /db/migrations in order
+4. Run the queries saved in /db/migrations in order
 
 
 Chitter Challenge
