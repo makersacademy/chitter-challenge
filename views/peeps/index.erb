@@ -4,15 +4,20 @@
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
-<ul>
-  <%@peeps.each do |peep| %>
-    <li>
-      Peeped by: <%=User.find_by_id(id: peep.user_id).user_name%><br>
-      <%=peep.peep%><br>
-      <%=peep.created_at%><br><br>
-    </li>
-  <%end%>
-</ul>
+
+<%=erb :"peeps/new"%>
+<br><br>
+<div id="table-wrapper">
+  <div id="table-scroll">
+    <%@peeps.each do |peep| %>
+      <div class="peep">
+        Peeped by: <%=User.find_by_id(id: peep.user_id).user_name%><br>
+        <label class="peep_output"><%=peep.peep%><label><br>
+        <%=peep.created_at%><br><br>
+      </div>
+    <%end%>
+  </div>
+</div>
 
 <form action="/sessions/delete" method="post">
   <input type="submit" value="Sign out" />

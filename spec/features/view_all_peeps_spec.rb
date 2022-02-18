@@ -11,10 +11,11 @@ feature "viewing all peeps" do
 
     visit '/peeps'
 
-    first_list_item = page.find('li', text: "The end is nigh", match: :prefer_exact)
-    second_list_item = page.find('li', text: "Wow, that's so cool", match: :prefer_exact)
-
+    first_list_item = page.find('.peep', text: "The end is nigh", match: :prefer_exact)
+    second_list_item = page.find('.peep', text: "Wow, that's so cool", match: :prefer_exact)
+ 
     expect(first_list_item).to appear_before(second_list_item)
+    
   end
 
   # As a Maker
