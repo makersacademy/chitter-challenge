@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
 
 
   get '/' do
-    redirect '/peeps'
+    redirect '/sessions/new'
   end
 
   get '/peeps' do
@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(peep: params[:peep])
+    peep = Peep.create(peep: params[:peep], user_id: session[:user_id])
     redirect to "/peep/#{peep.id}"
   end
 
@@ -50,7 +50,7 @@ class Chitter < Sinatra::Base
       name: params['name'],  user_name: params['user_name']
     )
     session[:user_id] = user.id
-    redirect '/'
+    redirect '/peeps'
   end
 
   get '/sessions/new' do
@@ -61,7 +61,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect('/')
+      redirect('/peeps')
     else
       flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
@@ -73,7 +73,6 @@ class Chitter < Sinatra::Base
     flash[:notice] = 'You have signed out.'
     redirect('/')
   end
-
 
   # Start the server if this file is executed directly 
   run! if app_file == $0

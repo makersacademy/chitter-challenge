@@ -5,18 +5,18 @@ class User
 
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
-      "INSERT INTO users (email, password, name, user_name) VALUES($1, $2, $3, $4) RETURNING id, email, name, user_name;",[email, encrypted_password, name, user_name]
+      "INSERT INTO users (email, password, name, user_name) VALUES($1, $2, $3, $4) RETURNING user_id, email, name, user_name;",[email, encrypted_password, name, user_name]
     )
     result.map do |user|
-      User.new(id: user['id'], email: user['email'], name: user['name'], user_name: user['user_name'])
+      User.new(id: user['user_id'], email: user['email'], name: user['name'], user_name: user['user_name'])
     end.first
   end
 
   def self.find_by_id(id:)
     return nil unless id
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}") 
+    result = DatabaseConnection.query("SELECT * FROM users WHERE user_id = #{id}") 
     result.map do |user|
-      User.new(id: user['id'], email: user['email'], name: user['name'], user_name: user['user_name'])
+      User.new(id: user['user_id'], email: user['email'], name: user['name'], user_name: user['user_name'])
     end.first
   end
 
@@ -29,7 +29,7 @@ class User
     return unless BCrypt::Password.new(result.map{ |user| user['password'] }.first) == password
 
     result.map do |user|
-      User.new(id: user['id'], email: user['email'], name: user['name'], user_name: user['user_name'])
+      User.new(id: user['user_id'], email: user['email'], name: user['name'], user_name: user['user_name'])
     end.first
 
   end

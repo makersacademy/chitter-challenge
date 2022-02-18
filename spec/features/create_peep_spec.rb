@@ -5,10 +5,10 @@
 feature "posting a message" do
   scenario "a user posts a message to Chitter" do
     visit('/peeps/new')
-    fill_in('peep', with: 'HelloWorld')
+    fill_in('peep', with: 'Hello World')
     click_button('Post Peep')
 
-    expect(page).to have_content("HelloWorld")
+    expect(page).to have_content("Hello World")
 
   end
 end

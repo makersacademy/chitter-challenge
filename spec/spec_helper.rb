@@ -34,4 +34,6 @@ RSpec.configure do |config|
     puts
     puts "\e[33mHave you considered running rubocop?\e[0m"
   end
+
+  
 end

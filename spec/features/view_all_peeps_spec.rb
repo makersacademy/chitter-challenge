@@ -5,8 +5,9 @@ feature "viewing all peeps" do
   scenario "view peeps in reverse chronological order" do
     
     # Add the test data
-    Peep.create(peep: "Wow, that's so cool")
-    Peep.create(peep: "The end is nigh")
+    user = create_test_user
+    Peep.create(peep: "Wow, that's so cool", user_id: user.id)
+    Peep.create(peep: "The end is nigh", user_id: user.id)
 
     visit '/peeps'
 
@@ -20,11 +21,13 @@ feature "viewing all peeps" do
   # So that I can better appreciate the context of a peep
   # I want to see the time at which it was made
   scenario "view peeps shows the date and time for each peep listed" do
-    peep = Peep.create(peep: "Wow, that's so cool")
-    Peep.create(peep: "The end is nigh")
+    user = create_test_user
+    peep = Peep.create(peep: "Wow, that's so cool", user_id: user.id)
+    Peep.create(peep: "The end is nigh", user_id: user.id)
 
     visit '/peeps'
 
     expect(page).to have_content(peep.created_at)
   end
+
 end
