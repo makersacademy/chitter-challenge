@@ -4,22 +4,24 @@ require 'user'
 
 RSpec.describe User do
   let(:connection) { connection = PG.connect(dbname: 'chitter_test') }
+  let(:email) { 'example@email.com' }
+  let(:password) { 'password123' }
 
   describe '.create' do
     it 'Returns a new user' do
-      user = described_class.create('example@email.com', 'password123')
+      user = described_class.create(email, password)
 
       expect(user).to be_a(User)
     end
 
     it 'encrypts the password' do
-      expect(BCrypt::Password).to receive(:create).with('password123')
+      expect(BCrypt::Password).to receive(:create).with(password)
 
-      described_class.create('example@email.com', 'password123')
+      described_class.create(email, password)
     end
 
     it 'creates a new user into the database' do
-      user = described_class.create('example@email.com', 'password123')
+      user = described_class.create(email, password)
 
       persisted_data = connection.query(
         "Select * from users WHERE id = '#{user.id}';"
@@ -29,19 +31,19 @@ RSpec.describe User do
     end
 
     it 'new user\'s email inserted into the database' do
-      user = described_class.create('example@email.com', 'password123')
+      user = described_class.create(email, password)
 
       persisted_data = connection.query(
         "Select * from users WHERE id = '#{user.id}';"
       )
 
-      expect(persisted_data.first['email']).to eq 'example@email.com'
+      expect(persisted_data.first['email']).to eq email
     end
   end
 
   describe '.find' do
     it 'finds a user in the database' do
-      user = described_class.create('example@email.com', 'password123')
+      user = described_class.create(email, password)
 
       result = described_class.find(user.id)
 
