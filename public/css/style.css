@@ -6,7 +6,7 @@ body {
 header {
   position: relative;
   background-color: #1D82B4;
-  margin: 1%;
+  margin: 1% 2%;
   padding: 6px;
   border-radius: 5px;
 }
@@ -17,10 +17,7 @@ header h1 {
   font-size: 3em;
 }
 
-header button {
-  position: absolute;
-  bottom: 17%;
-
+button {
   background-color: #9e0031;
   padding: 10px 17px;
   border-color: #ECE4B7;
@@ -29,10 +26,41 @@ header button {
   color: #ECE4B7;
 }
 
+header button {
+  position: absolute;
+  bottom: 17%;
+}
+
 header .signup-button {
   right: 130px;
 }
 
 header .log-button {
   right: 30px;
+}
+
+.welcome, .new-peep, article {
+  text-align: center;
+}
+
+.new-peep input {
+  background-color: #ECE4B7;
+  height: 34px;
+}
+
+.new-peep, article {
+  width: 30%;
+  margin: 10px auto;
+}
+
+.new-peep {
+  margin-bottom: 30px;
+}
+
+article {
+  background-color: #ECE4B7;
+  padding: .5em;
+
+  border: 1px solid #2C302E;
+  border-radius: 10px;
 }
