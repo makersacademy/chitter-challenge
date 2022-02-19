@@ -12,7 +12,9 @@
   <div id="peep-scroll">
     <%@peeps.each do |peep| %>
       <div class="peep">
-        Peeped by: <%=User.find_by_id(id: peep.user_id).user_name%><br>
+        Peeped by: <%=User.find_by_id(id: peep.user_id).name%>,
+         <%=User.find_by_id(id: peep.user_id).user_name%>
+        <br>
         <label class="peep_output"><%=peep.peep%><label><br>
         <%=peep.created_at%><br><br>
       </div>

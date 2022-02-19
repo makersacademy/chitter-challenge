@@ -35,6 +35,16 @@ feature "viewing all peeps" do
     user = create_test_user
     peep = Peep.create(peep: "Wow, that's so cool", user_id: user.id)
     visit '/peeps'
-    expect(page).to have_content("Peeped by: #{user.user_name}")
+    expect(page).to have_content("Peeped by: #{user.name}")
   end
+
+  scenario "shows the name of the maker associated with a peep" do
+    user = create_test_user
+    peep = Peep.create(peep: "Wow, that's so cool", user_id: user.id)
+    visit '/peeps'
+    p user.name
+    expect(page).to have_content(", #{user.user_name}")
+  end
+  
+
 end
