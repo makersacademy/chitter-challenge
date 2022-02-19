@@ -6,8 +6,7 @@ feature 'registration' do
 
   scenario 'a user signs up with an email that already exists' do
     new_user_sign_up
-
-    visit '/'
+    click_button 'Sign out'
     click_button 'Sign Up'
   
     fill_in('email', with: 'test@example.com')
@@ -22,9 +21,8 @@ feature 'registration' do
   scenario 'a user signs up with a username that already exists' do
     new_user_sign_up
 
-    visit '/'
+    click_button 'Sign out'
     click_button 'Sign Up'
-  
     fill_in('email', with: 'different@example.com')
     fill_in('password', with: 'password123')
     fill_in('name', with: 'Test Name')

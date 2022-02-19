@@ -3,9 +3,10 @@
 </h2>
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
+  <%=erb :"peeps/new"%>
+<% else %>
+  <%=erb :"sessions/new"%>
 <% end %>
-
-<%=erb :"peeps/new"%>
 <br><br>
 <div id="peep_border">
   <div id="peep-scroll">
@@ -19,6 +20,9 @@
   </div>
 </div>
 <br>
-<form action="/sessions/delete" method="post">
-  <input type="submit" value="Sign out" />
-</form>
+
+<% if @user %>
+  <form action="/sessions/delete" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+<% end %>

@@ -2,16 +2,14 @@
 
 def visit_sessions_new_and_sign_in (email:, password:)
   #visit '/sessions/new'
-
-  visit '/'
-  click_button('Log on')
+  visit '/peeps'
   fill_in(:email, with: email)
   fill_in(:password, with: password)
   click_button('Log on')
 end
 
 def new_user_sign_up 
-  visit '/'
+  visit '/peeps'
   click_button 'Sign Up'
   fill_in('email', with: 'test@example.com')
   fill_in('password', with: 'password123')

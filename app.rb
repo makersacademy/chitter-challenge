@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
 
 
   get '/' do
-    redirect '/sessions/new'
+    redirect '/peeps'
   end
 
   get '/peeps' do
@@ -69,7 +69,7 @@ class Chitter < Sinatra::Base
       redirect('/peeps')
     else
       flash[:notice] = 'Please check your email or password.'
-      redirect('/sessions/new')
+      redirect('/peeps')
     end
   end
 
