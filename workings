@@ -1,0 +1,17 @@
+User story 1
+```
+As a Maker
+So that I can let people know what I am doing
+I want to post a message (peep) to chitter
+```
+create peep
+- write a feature test that:
+ visits '/' 
+ expects to see a text field 
+ expects to see a submit button
+post peep
+- write a feature test that:
+  visits '/'
+  fill_in placeholder with peep message
+  click_button 'post peep'
+  expects to see message/peep
