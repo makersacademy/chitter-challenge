@@ -1,7 +1,7 @@
-## My Chitter Challenge
+# My Chitter Challenge
 My take on creating a 'Twitter' or should I say 'Chitter' app. I used user stories to write the first set of tests and steps. 
 
-# User Stories
+## User Stories
 To be updated as I complete each one
 
 ```
