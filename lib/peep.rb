@@ -35,8 +35,8 @@ created_time: peep['created_time'], user_id: peep['user_id'])
     end
     result = connection.exec(
      "INSERT INTO peeps (peep, user_id) 
-     VALUES('#{peep}', '#{user_id}') 
-     RETURNING id, peep, peep_created, created_time, user_id;").first
+     VALUES($1, $2) 
+     RETURNING id, peep, peep_created, created_time, user_id;", [peep, user_id]).first
     Peep.new(id: result['id'], peep: result['peep'], peep_created: result['peep_created'], 
 created_time: result['created_time'], user_id: result['user_id'])
   end
