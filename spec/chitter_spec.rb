@@ -1,4 +1,4 @@
-require 'chitter'
+require './lib/chitter'
 
 describe Chitter do
   describe '#add_peep' do
