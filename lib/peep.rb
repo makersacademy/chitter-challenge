@@ -7,12 +7,7 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY time DESC;")
     result.map { |peep| peep['message'] }
-  #   [
-  # "Hello",
-  # "Ciao ragazzi",
-  # "I love coding weekends"
-  #   ]
   end
 end
