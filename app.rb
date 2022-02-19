@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/chitters'
 # require 'capybara'
 require 'pg'
-# require './lib/bookmarks'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -18,16 +18,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/addpeep' do
-    peeps = params[:peep]
-    connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO chitter (peep) VALUES('#{peep})")
-    redirect '/peep'
+    Chitters.addpeep(params[:peep])
+    redirect '/peeps'
   end
 
   get '/peeps' do
-    'test peep'
+    @peep = Chitters.view_peeps
+    erb :'peeps/index'    
   end
-
 
   run! if app_file == $0
 end

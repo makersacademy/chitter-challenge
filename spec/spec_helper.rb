@@ -3,7 +3,6 @@ require 'simplecov'
 require 'simplecov-console'
 require 'pg'
 
-
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'

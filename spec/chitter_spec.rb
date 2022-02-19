@@ -1,10 +1,18 @@
-require './lib/chitter'
+require './lib/chitters'
 
-describe Chitter do
+describe Chitters do
     describe '#Add peep' do
       it 'Adds new peeps' do
-        peeps = Chitter.addpeep(peep: 'test peep')
+        Chitters.addpeep('test peep')
+        peeps = Chitters.view_peeps
         expect(peeps).to include 'test peep'
+      end
+    end
+
+    describe '#view_peeps' do
+      it 'can view peeps' do
+        peeps = Chitters.view_peeps
+        expect(peeps).to include('test peep')
       end
     end
 end
