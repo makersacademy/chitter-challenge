@@ -1,3 +1,5 @@
+![alt text](https://github.com/nyahehnagi/chitter-challenge/blob/main/docs/chitter.png)
+
 # Author Notes
 
 This is Chitter and mimics the behaviour of the micro blogging site Twitter.
