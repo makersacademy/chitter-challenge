@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peep = session[:peep]
-    erb :'index'
+    erb :index
   end
 
   post '/' do
@@ -18,6 +18,5 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-
-  run! if app_file ==$0
+  run! if app_file == $0
 end

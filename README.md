@@ -1,6 +1,22 @@
 Chitter Challenge
 =================
 
+This week my client, Makers Academy, have tasked me with creating a Chitter challenge. Think Twitter but with Peeps instead of Tweets.
+
+To create this program I have required the gem 'pg' which is the Ruby interface to PostgreSQL and will enable me to 'speak to' my database.
+
+My first user story is as follows:
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+I first wrote a feature test that expects the user to be able to see write a field with a placeholder and  see the 'post peep' button. I then created a feature test that would ensure the peep could be posted and be visible on the page to complete this user story.
+
+
+
+
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
