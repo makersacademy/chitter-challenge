@@ -1,1 +1,18 @@
-Peep your reply
+<div class="peep" id="peep">
+  Peeped by: <b><%=User.find_by_id(id: @peep.user_id).name%></b>,
+    <%=User.find_by_id(id: @peep.user_id).user_name%>
+  <br>
+  <label class="peep_output"><%=@peep.peep%></label><br>
+  <%=@peep.created_at%><br>
+</div>
+<br>
+
+<b>Peep your reply</b>
+<br>
+<br>
+
+<form action="/peeps?parent_peep_id=<%=@peep_id%>" method="post">
+  <textarea name="peep" maxlength="280" wrap="soft" class="peep_input"></textarea> <br><br>
+  <input type="submit" value="Post Reply" />
+</form>
+

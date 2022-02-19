@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/reply' do
-    @peep = Peep.find_by_id(id: params[:id])
+    @peep = Peep.find_by_id(id: params[:peep_id])
     erb :reply
   end
 
@@ -38,7 +38,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(peep: params[:peep], user_id: session[:user_id])
+    peep = Peep.create(
+      peep: params[:peep], user_id: session[:user_id], 
+      parent_peep_id:params[:parent_peep_id] )
     redirect to "/peeps"
   end
 
