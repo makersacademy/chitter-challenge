@@ -43,15 +43,15 @@ padding: 10px;
     <ul style="list-style-type:none">
       <form action="/registrations" method="post">
         <li for="first_name">
-          <input type="text" name="first_name" placeholder="First name">
+          <input type="text" name="first_name" placeholder="First name" required>
         </li>
         <li for="last_name">
-          <input type="text" name="last_name" placeholder="Last name">
+          <input type="text" name="last_name" placeholder="Last name" required>
         </li>
         <li for="email">
-          <input type="text" name="email" placeholder="Email">
+          <input type="email" name="email" placeholder="Email" required>
         <li for="user_password">
-          <input type="password" name="user_password" placeholder="Password" Minlength ="8">
+          <input type="password" name="user_password" placeholder="Password" Minlength ="8" required>
         </li>
           <input id="button" type="submit" value="get chitting">
       </form>
