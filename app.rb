@@ -6,6 +6,10 @@ require './lib/user'
 require './database_connection_setup'
 require 'sinatra/flash'
 
+require 'action_view'
+
+include ActionView::Helpers::DateHelper
+
 class Chitter < Sinatra::Base
 
   configure :development do
