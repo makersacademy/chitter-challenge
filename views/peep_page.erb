@@ -1,1 +1,8 @@
-Your Tweet: <%= @peep %>
+Your Peeps: 
+<ul>
+    <% @peeps.each do |peep| %> 
+  <li>
+      <%= peep %>
+  </li>
+<% end %>
+</ul> 
