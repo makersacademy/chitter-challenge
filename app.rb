@@ -5,7 +5,6 @@ require './lib/peep'
 require './lib/user'
 require './database_connection_setup'
 require 'sinatra/flash'
-
 require 'action_view'
 
 include ActionView::Helpers::DateHelper
@@ -19,9 +18,13 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
 
-
   get '/' do
     redirect '/peeps'
+  end
+
+  get '/reply' do
+    @peep = Peep.find_by_id(id: params[:id])
+    erb :reply
   end
 
   get '/peeps' do
@@ -51,7 +54,7 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.create(
       email: params['email'], password: params['password'], 
-      name: params['name'],  user_name: params['user_name']
+      name: params['name'], user_name: params['user_name']
     )
     if user
       session[:user_id] = user.id

@@ -2,18 +2,14 @@ feature 'authentication' do
   it 'a user can sign in' do
     user = create_test_user
     # sessions is a RESTful resource - This is standard for signing-in
-    visit_sessions_new_and_sign_in(
-      email: 'test@example.com', password: 'password123'
-    )
+    sign_in(email: 'test@example.com', password: 'password123')
+
     expect(page).to have_content ("Welcome, #{user.name}")
   end
 
   scenario 'a user sees an error if they get their email wrong' do
     create_test_user
-
-    visit_sessions_new_and_sign_in(
-      email: 'nottherightemail@me.com', password: 'password123'
-    )
+    sign_in(email: 'nottherightemail@me.com', password: 'password123')
 
     expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content 'Please check your email or password.'
@@ -21,10 +17,7 @@ feature 'authentication' do
 
   scenario 'a user sees an error if they get their password wrong' do
     user = create_test_user
-
-    visit_sessions_new_and_sign_in(
-      email: 'test@example.com', password: 'wrongpassword'
-    )
+    sign_in(email: 'test@example.com', password: 'wrongpassword')
 
     expect(page).not_to have_content ("Welcome, #{user.name}")
     expect(page).to have_content 'Please check your email or password.'
@@ -32,10 +25,7 @@ feature 'authentication' do
 
   scenario 'a user can sign out' do
     user = create_test_user
-
-    visit_sessions_new_and_sign_in(
-      email: 'test@example.com', password: 'password123'
-    )
+    sign_in(email: 'test@example.com', password: 'password123')
 
     click_button('Sign out')
 

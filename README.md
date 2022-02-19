@@ -85,6 +85,7 @@ These can be found here ./db/migrations
 03_create_table_users.sql.sql
 04_alter_table_users_add_name_username.sql
 05_alter_table_peeps_add_peeped_by.sql
+06_alter_table_parent_peep_id.sql
 ~~~~
 
 ----------------------

@@ -8,8 +8,9 @@ require 'capybara'
 require 'capybara/rspec'
 require 'orderly'
 
-# require our Sinatra app file
+# require  Sinatra app file
 require_relative '../app'
+
 # require helpers
 require_relative './features/web_helpers'
 require_relative './model_helpers'

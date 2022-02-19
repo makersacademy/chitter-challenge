@@ -17,8 +17,12 @@
         <br>
         <label class="peep_output"><%=peep.peep%></label><br>
         <%=time_ago_in_words(Time.parse(peep.created_at))%> ago<br>
-        
+        <div style="text-align:right">
+          <a id="reply" href="/reply?peep_id=<%=peep.id%>"><img title="reply" alt="Twitter" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Twitter_Reply.png" width="15" height="15">
+          </a>
+        </div>
       </div>
+
       <br>
     <%end%>
   </div>
