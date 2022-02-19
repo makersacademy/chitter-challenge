@@ -1,10 +1,21 @@
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the `app.rb` file.
+require_relative '../app'
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+
+# Tell Capybara to talk to BookmarkManager
+Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 

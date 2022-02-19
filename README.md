@@ -1,10 +1,22 @@
 Chitter Challenge
 =================
 
+How to use:
+-------
+Clone this repo.
+Run the command 'bundle' in the project directory to ensure you have all the gems.
+Run tests with RSpec.
+Run tests with Rubocop.
+Run ruby app.rb in terminal to view in localhost port.
 
 Planning:
 -------
 ![Database Model](/public/CRC_Card_diagram_01.png)
+
+Setup Environment:
+-------
+- https://github.com/makersacademy/course/blob/main/pills/ruby_web_project_setup_list.md
+- Sinatra and Capybara introduced.
 
 Challenge:
 -------
