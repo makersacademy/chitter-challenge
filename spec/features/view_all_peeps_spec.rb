@@ -21,14 +21,14 @@ feature "viewing all peeps" do
   # As a Maker
   # So that I can better appreciate the context of a peep
   # I want to see the time at which it was made
-  scenario "view peeps shows the date and time for each peep listed" do
+  scenario "view peeps shows the time difference to now when tweeted" do
     user = create_test_user
     peep = Peep.create(peep: "Wow, that's so cool", user_id: user.id)
     Peep.create(peep: "The end is nigh", user_id: user.id)
-
     visit '/peeps'
-
-    expect(page).to have_content(peep.created_at)
+    # probably a weak assertion this, but if it was taking a minute to run this test
+    # we would have other issues
+    expect(page).to have_content("minute ago")
   end
 
   scenario "shows the username of the maker associated with a peep" do
