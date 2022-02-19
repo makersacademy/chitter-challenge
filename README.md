@@ -19,6 +19,14 @@ Planning:
 * First feature - post a peep
 ![Views](/public/Post_a_peep.png)
 
+#### Setting Up Database
+
+- Connect to psql
+- Create the database using the psql command CREATE DATABASE chitter;
+- Connect to the database using the pqsl command \c chitter;
+- Run the query saved in the file 01_create_peep_table.sql
+
+
 
 Challenge:
 -------
