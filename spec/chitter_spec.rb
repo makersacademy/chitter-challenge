@@ -3,8 +3,8 @@ require './lib/chitter'
 describe Chitterpeep do
   describe '#add_peep' do
     it'Adds new peeps' do
-      peeps = Chitterpeep.add_peep('My first Peep')
-     
+      Chitterpeep.add_peep('My first Peep')
+      peeps = Chitterpeep.view_peep
       expect(peeps).to include "My first Peep"
     end
   end
