@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Chitter</title>
   </head>
   <body>
@@ -9,11 +11,11 @@
       <h1>Chitter</h1>
 
       <form action="/users/new">
-        <button type="submit" name="sign-up"<%= @user.signup %>>Sign Up</button>
+        <button type="submit" name="sign-up" class="signup-button" <%= @user.signup %>>Sign Up</button>
       </form>
 
       <form action=<%= @user.log_button[:path_action] %>>
-        <button type="submit" name=<%= @user.log_button[:name] %>><%= @user.log_button[:label] %></button>
+        <button type="submit" name=<%= @user.log_button[:name] %> class="log-button"><%= @user.log_button[:label] %></button>
       </form>
 
     </header>

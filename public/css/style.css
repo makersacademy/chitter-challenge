@@ -1,0 +1,38 @@
+body {
+  background: linear-gradient(#C1DFF0, #88CCF1);
+  font-family: sans-serif;
+}
+
+header {
+  position: relative;
+  background-color: #1D82B4;
+  margin: 1%;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+header h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 3em;
+}
+
+header button {
+  position: absolute;
+  bottom: 17%;
+
+  background-color: #9e0031;
+  padding: 10px 17px;
+  border-color: #ECE4B7;
+  border-radius: 5px;
+
+  color: #ECE4B7;
+}
+
+header .signup-button {
+  right: 130px;
+}
+
+header .log-button {
+  right: 30px;
+}
