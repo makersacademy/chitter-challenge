@@ -1,3 +1,16 @@
+## My Chitter Challenge
+My take on creating a 'Twitter' or should I say 'Chitter' app. I used user stories to write the first set of tests and steps. 
+
+# User Stories
+To be updated as I complete each one
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+
 Chitter Challenge
 =================
 
