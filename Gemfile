@@ -7,10 +7,12 @@ gem 'webrick'
 gem 'sinatra-contrib'
 gem 'rspec'
 
+
 group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'sinatra-reloader'
+  gem 'pg'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
