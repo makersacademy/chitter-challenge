@@ -2,6 +2,7 @@ require 'bcrypt'
 
 class User
   def self.create(email:, password:, name:, user_name:)
+    return nil if email.empty? || password.empty? || name.empty? || user_name.empty?
     escaped_user_name = DatabaseConnection.escape_string(user_name)
     return nil if email_or_username_exists?(email, escaped_user_name)
 

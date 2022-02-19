@@ -42,6 +42,47 @@ describe User do
       )
       expect(user).to be_nil
     end
+
+    it 'does not allow an empty email address' do
+      user = User.create(
+        email: '', 
+        password: 'password123', 
+        user_name: 'testusername', 
+        name: 'Test User'
+      )
+      expect(user).to be_nil
+    end
+
+    it 'does not allow an empty password' do
+      user = User.create(
+        email: 'test@test.com', 
+        password: '', 
+        user_name: 'testusername', 
+        name: 'Test User'
+      )
+      expect(user).to be_nil
+    end
+
+    it 'does not allow an empty user_name' do
+      user = User.create(
+        email: 'test@test.com', 
+        password: 'password123', 
+        user_name: '', 
+        name: 'Test User'
+      )
+      expect(user).to be_nil
+    end
+
+    it 'does not allow an empty name' do
+      user = User.create(
+        email: 'test@test.com', 
+        password: 'password123', 
+        user_name: 'testusername', 
+        name: ''
+      )
+      expect(user).to be_nil
+    end
+
   end
 
   describe ".find_by_id" do
