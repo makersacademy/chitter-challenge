@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Chitter</title>
-  </head>
-  <body>
-    <header>
-      <h1>Chitter</h1>
+<h2>Welcome, <%= @user.email %></h2>
 
-      <p>Welcome, <%= @user.email %></p>
+<form class="new_peep" action="/chitter/<%= @user.email %>/new" method="post">
+  <input type="text" name="peep" placeholder="type your peep here">
+  <button type="submit" name="submit">Send Peep</button>
+</form>
 
-      <form action=<%= @user.log_button[:path_action] %>>
-        <button type="submit" name=<%= @user.log_button[:name] %>><%= @user.log_button[:label] %></button>
-      </form>
-
-      <form action="/users/new">
-        <button type="submit" name="sign-up"<%= @user.signup %>>Sign Up</button>
-      </form>
-    </header>
-
-    <form class="new_peep" action="/chitter/<%= @user.email %>/new" method="post">
-      <input type="text" name="peep" placeholder="type your peep here">
-      <button type="submit" name="submit">Send Peep</button>
-    </form>
-
-    <% @peeps.each do |peep| %>
-    <article>
-      <address rel="author"><%= peep.user_email %></address>
-      <time><%= peep.timestamp %></time>
-      <p><%= peep.peep %></p>
-    </article>
-    <% end %>
-  </body>
-</html>
+<% @peeps.each do |peep| %>
+<article>
+  <address rel="author"><%= peep.user_email %></address>
+  <time><%= peep.timestamp %></time>
+  <p><%= peep.peep %></p>
+</article>
+<% end %>
