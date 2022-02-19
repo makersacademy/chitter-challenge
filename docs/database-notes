@@ -1,0 +1,15 @@
+# Installing the database
+
+- Connect to psql
+- Create the database using the psql command `CREATE DATABASE chitter_manager;`
+- Connect to the database using the pqsl command `\c chitter_manager;`
+- Run the query we have saved in the file 01_create_chitter_table_peeps.sql
+- Run the query we have saved in the file 02_create_chitter_table_users.sql
+
+# Installing the test database
+
+- Connect to psql
+- Create the database using the psql command `CREATE DATABASE chitter_manager_test;`
+- Connect to the database using the pqsl command `\c chitter_manager_test;`
+- Run the query we have saved in the file 01_create_chitter_table_peeps.sql
+- Run the query we have saved in the file 02_create_chitter_table_users.sql

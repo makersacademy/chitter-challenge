@@ -1,0 +1,1 @@
+CREATE TABLE users (id SERIAL PRIMARY KEY, first_name VARCHAR(25), last_name VARCHAR(25), email VARCHAR(30), user_password VARCHAR(20));
