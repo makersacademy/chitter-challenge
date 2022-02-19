@@ -30,6 +30,13 @@ describe Peep do
       expect(peep.peep).to eq persisted_peep.peep
       expect(peep.user_id).to eq persisted_peep.user_id
     end
+
+    it ' does not create a peep that is empty' do
+      user = create_test_user
+      peep = Peep.create(peep: "", user_id: user.id)
+      expect(peep).to be_nil
+
+    end
   end
 
   describe '.all' do

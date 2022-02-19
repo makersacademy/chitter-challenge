@@ -17,6 +17,7 @@ class Peep
   end
 
   def self.create(peep:, user_id:)
+    return nil if peep.empty?
     escaped_peep = DatabaseConnection.escape_string(peep)
     query = "INSERT INTO peeps (peep, user_id) VALUES ('#{escaped_peep}', #{user_id}) RETURNING id, peep, created_at, user_id"
     result = DatabaseConnection.query(query) 
