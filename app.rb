@@ -17,9 +17,7 @@ get '/peep_page' do
 end
 
 post '/peep_page' do
-  text = params['text']
-  connection = PG.connect(dbname: 'chitter_database')
-  connection.exec("INSERT INTO peeps (text) VALUES('#{text}')")
+  Peep.create(text: params[:text])
   redirect '/peep_page'
 end
 

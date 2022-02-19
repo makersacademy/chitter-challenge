@@ -8,4 +8,12 @@ describe Peep do
       expect(peeps).to include 'Alright geeza'
     end
   end
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(text: 'Dash for president!')
+      expect(Peep.all).to include 'Dash for president!'
+    end
+  end
+
 end
+

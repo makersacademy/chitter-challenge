@@ -1,6 +1,3 @@
-#as a user
-#so that I can say what I'm feeling
-#I want to post a peep from the web page to a database
 require 'pg'
 
 class Peep
@@ -8,6 +5,12 @@ class Peep
     connection = PG.connect(dbname: 'chitter_database')
     result = connection.exec("SELECT * FROM peeps;")
     result.map { |peep| peep['text']}
+  end
+
+  def self.create(text:)
+
+    connection = PG.connect(dbname: 'chitter_database')
+    connection.exec("INSERT INTO peeps (text) VALUES('#{text}')")
   end
 
 end
