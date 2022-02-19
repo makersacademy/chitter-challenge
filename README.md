@@ -3,15 +3,19 @@ Chitter Challenge
 
 How to use:
 -------
-Clone this repo.
-Run the command 'bundle' in the project directory to ensure you have all the gems.
-Run tests with RSpec.
-Run tests with Rubocop.
-Run ruby app.rb in terminal to view in localhost port.
+* Clone this repo.
+* Run the command 'bundle' in the project directory to ensure you have all the gems.
+* Run tests with RSpec.
+* Run tests with Rubocop.
+* Run ruby app.rb in terminal to view in localhost port.
 
 Planning:
 -------
 ![Database Model](/public/CRC_Card_diagram_01.png)
+
+* First feature - post a peep
+![Views](/public/Post_a_peep.png)
+
 
 Setup Environment:
 -------
