@@ -13,14 +13,12 @@ Planning:
 -------
 ![Database Model](/public/CRC_Card_diagram_01.png)
 
+* Setup environment - Sinatra and Capybara introduced.
+* https://github.com/makersacademy/course/blob/main/pills/ruby_web_project_setup_list.md
+
 * First feature - post a peep
 ![Views](/public/Post_a_peep.png)
 
-
-Setup Environment:
--------
-- https://github.com/makersacademy/course/blob/main/pills/ruby_web_project_setup_list.md
-- Sinatra and Capybara introduced.
 
 Challenge:
 -------
