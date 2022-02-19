@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -17,16 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = [
-          "Hello",
-          "Ciao ragazzi",
-          "I love coding weekends"
-         ]
-    # peeps.join(" ")
+    @peeps = Peep.all
     erb :'peeps/index'
-    # @peeps = Peep.all
-    # p @peeps
-    # p "printing peeps above"
   end
 
 
