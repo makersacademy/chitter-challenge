@@ -12,14 +12,55 @@
   <title>chitter</title>
   </head>
   <style>
+
+
   body {
+    margin: 1%;
+    padding: 0;
     background-color: rgb(50, 128, 245);
     font-family: 'Barlow Condensed', sans-serif;
+    
   }
-  
+  .nav {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+  position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+  }
+  .nav ul {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  }
+  .nav li {
+  font-size: 1em;
+  line-height: 20px;
+  height: 40px;
+  display: inline;
+  float: left;
+  margin: 10px;
+  }
+  @media screen and (min-width: 1200px) {
   #the_post {
     font-size: 20px;
+    max-width: 400px;
   }
+}
+@media screen and (min-width: 915px) and (max-width: 1199px) {
+#the_post {
+    font-size: 15px;
+    max-width: 350px;
+  }
+}
+@media screen and (max-width: 914px) {
+  #the_post {
+    font-size: 12px;
+    max-width: 300px;
+  }
+}
   #name_time_stamp {
     font-size: 15px;
     font-weight: bolder;
@@ -27,17 +68,8 @@
   }
   a:link, a:hover, a:active, a:visited {
     color: antiquewhite;
-    text-decoration: none;
-    text-align: center;
     color: yellow;
   }
-  
-  .log_in_details {
-    width:300px;
-    height: 100px;
-
-  }
- 
   input {
     border-radius: 10px;
     border: none;
@@ -47,42 +79,59 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 50px;
-    align-items: center;
+ 
   }
-  .column, .column1 {
-    max-height: 400px;
-    display: block;
-    max-width: 500px;
-    justify-content: center;
-    align-items: center;
+  .column {
+    max-height: 600px;
+    margin-left: 50px;
   }
+  @media screen and (min-width: 1200px) {
   .column1 {
     font-family: 'Barlow Condensed', sans-serif;
-    display: flex;
-    flex-wrap: wrap;
+    margin-right: 10%;
+    margin-top: 10%;
+    font-size: 80px;
   }
-  .new_peep {
-    display: block;
-    width: 113px;
-    margin: auto;
+}
+  @media screen and (min-width: 915px) and (max-width: 1199px) {
+  .column1 {
     font-family: 'Barlow Condensed', sans-serif;
-    color: yellow;
-    font-size: 50px;
+    margin-right: 10%;
+    margin-top: 10%; 
+    font-size: 40px;
   }
-  input {
-    margin: 10px;
+}
+@media screen and (max-width: 914px) {
+  .column1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-right: 10%;
+    margin-top: 10%; 
+    font-size: 25px;
   }
-  h1 {
-    font-size: 50px;
-  }
-  
-  
-  
+}
+ 
   </style>
 <body>
-<div class="flex-container">
-  <div class="column">
+  <div class="nav">
+    <ul>
+      <li><form action="/peeps/new"><input type="submit" value="New Peep"></form></li>
+      <form action="/sessions/login">
+      <li><input type="submit" value="sign in"></li> 
+      <li><input type="submit" value="sign up" formaction="/registrations/sign_up"></form></li>
+        
+        <li>
+          <% if @user ==nil %>
+          <h6> Not signed in </h6>
+          <% else %>
+          <h5> Signed in as <%= @user.first_name %> </h5>
+          <% end %></li>
+        <li><a href="/sessions/log_out" > log out </a></li>
+    </ul>
+  </div>
+  
+
+  <div class="flex-container">
+    <div class="column">
       <ul style="list-style-type:none">
         <% @peeps.each do |post| %>
           <li id="the_post">
@@ -93,29 +142,7 @@
           </li>
         <% end %>
       </ul>
-    
-  </div>
-  <div class="column1">
-    <div><h1> Join Chitter today </h1></div>
-    <div class="log_in_details">
-      <form action="/sessions/login">
-      <input type="submit" value="sign in">
-      <input type="submit" value="sign up" formaction="/registrations/sign_up">
-      </form>
-          <form action="/peeps/new">
-            <input type="submit" value="New Peep">
-          </form>
-          <% if @user ==nil %>
-          <h6> Not signed in </h6>
-          <% else %>
-          <h5> Signed in as <%= @user.first_name %> </h5>
-          <% end %>
-          <a href="/sessions/log_out" > log out </a>
     </div>
-    
+      <div class="column1">Join Chitter today </div>
   </div>
-</div>
-
-
-
-</body>
+  </body>
