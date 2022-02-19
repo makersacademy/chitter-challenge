@@ -8,4 +8,8 @@ class Chitterpeep
     result = conn.exec('SELECT * FROM chitter_peeps')
     result.map { |peeps| peeps['peep']}
   end
+
+  def self.view_peep
+    ["My first Peep"]
+  end
 end

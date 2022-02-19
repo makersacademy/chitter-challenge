@@ -24,7 +24,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps'do
-  'I am new to chitter'
+    @peeps = Chitterpeep.view_peep
+    erb :'peeps/index'
   end
+
   run! if app_file == $0
 end

@@ -8,4 +8,11 @@ describe Chitterpeep do
       expect(peeps).to include "My first Peep"
     end
   end
+
+  describe '#view_peep' do
+    it "Can view Peeps" do
+      peeps = Chitterpeep.view_peep
+      expect(peeps).to include("My first Peep")
+    end
+  end
 end
