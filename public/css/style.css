@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   background: linear-gradient(#C1DFF0, #88CCF1);
   font-family: sans-serif;
@@ -43,7 +47,7 @@ header .log-button {
   text-align: center;
 }
 
-.new-peep input {
+input {
   background-color: #ECE4B7;
   height: 34px;
 }
@@ -63,4 +67,14 @@ article {
 
   border: 1px solid #2C302E;
   border-radius: 10px;
+}
+
+.new-user {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.new-user input {
+  display: block;
+  margin: 10px auto;
 }
