@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'capybara'
 gem 'webrick'
-gem 'pg'
+
+gem 'capybara', group: :test
+gem 'rspec', group: :test
 
 ruby '3.0.2'
 

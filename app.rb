@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/chitter.rb'
 
-class Chitter < Sinatra::Base
+class Chitter_challenge < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
@@ -9,14 +10,27 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peep = session[:peep]
     erb :index
   end
 
   post '/' do
     session[:peep] = params[:peep]
-    redirect '/'
+    redirect '/timeline'
   end
+
+  get '/timeline' do
+    @peep = Chitter.timeline
+    erb :timeline
+  end
+  
+  post '/timeline' do
+    Chitter.post(peep: params[:peep])
+    redirect '/timeline'
+  end
+
+
+  
+  
 
   run! if app_file == $0
 end

@@ -1,0 +1,13 @@
+<h1> Timeline </h1>
+
+
+
+<ul>
+  <% @peep.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
+<form action='/timeline' method="POST">
+  <input type="text" name="peep" placeholder="What's on your mind?" />
+  <input type="submit" value="Post Peep" />
+</form>

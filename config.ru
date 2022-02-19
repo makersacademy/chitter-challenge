@@ -1,2 +1,2 @@
 require_relative "./app"
-run Chitter
+run Chitter_challenge

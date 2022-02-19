@@ -15,3 +15,6 @@ post peep
   fill_in placeholder with peep message
   click_button 'post peep'
   expects to see message/peep
+
+CREATE TABLE post(id SERIAL PRIMARY KEY, peep VARCHAR (280), date_posted TIMESTAMP NOT NULL);
+INSERT INTO post (peep, date_posted) VALUES ('hello world', current_timestamp);
