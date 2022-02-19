@@ -4,8 +4,7 @@ Chitter Challenge
 
 Planning:
 -------
-![Domain Model] (/images/CRC_Card_diagram_01.png)
-
+![Database Model](/public/CRC_Card_diagram_01.png)
 
 Challenge:
 -------
