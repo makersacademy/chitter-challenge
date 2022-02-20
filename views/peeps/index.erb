@@ -4,8 +4,8 @@
     <meta charset="utf-8">
 
     <title>Chitter</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -17,11 +17,14 @@
       <h2>All the peeps so far</h2>
       <ul>
       <% @peeps.each do |peep| %>
-      <li><%= peep.message %>, <%= peep.time %></li>
+      <li class="peeps"><%= peep.message %>, <%= peep.time %></li>
       <% end %>
       </ul>
       <h2>What's in yor mind, Maker?</h2>
-      <a class="button" href="peeps/new">Write Peep</a>
+      <br>
+        <div>
+          <p><a class="button" href="peeps/new">Write Peep</a></p>
+        </div>
       </div>
   </body>
 </html>

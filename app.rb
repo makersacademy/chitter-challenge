@@ -5,6 +5,7 @@ require './lib/peep'
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    set :public_folder, Proc.new { File.join(root, "public") }
   end
 
   get '/' do
