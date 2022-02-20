@@ -21,8 +21,8 @@ task :setup do
     p "Connecting to user default database"
     connection = PG.connect
     result = connection.exec("SELECT 1 AS result from pg_database WHERE datname='#{database}';")
-    if !result.any?
-      connection.exec("CREATE DATABASE #{ database };")
+    if result.none?
+      connection.exec("CREATE DATABASE #{database};")
       connection = PG.connect(dbname: database)
       connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(280));")
       connection.exec("ALTER TABLE peeps ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT NOW();")

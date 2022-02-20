@@ -12,8 +12,9 @@ class User
         email, encrypted_password, name, escaped_user_name]
     )
     result.map do |user|
-      User.new(id: user['user_id'], email: user['email'], name: user['name'], 
-user_name: user['user_name'])
+      User.new(
+        id: user['user_id'], email: user['email'], name: user['name'], 
+        user_name: user['user_name'])
     end.first
   end
 
@@ -21,8 +22,9 @@ user_name: user['user_name'])
     return nil unless id
     result = DatabaseConnection.query("SELECT * FROM users WHERE user_id = #{id}") 
     result.map do |user|
-      User.new(id: user['user_id'], email: user['email'], name: user['name'], 
-user_name: user['user_name'])
+      User.new(
+        id: user['user_id'], email: user['email'], name: user['name'], 
+        user_name: user['user_name'])
     end.first
   end
 
@@ -35,8 +37,9 @@ user_name: user['user_name'])
     return unless BCrypt::Password.new(result.map { |user| user['password'] }.first) == password
 
     result.map do |user|
-      User.new(id: user['user_id'], email: user['email'], name: user['name'], 
-user_name: user['user_name'])
+      User.new(
+        id: user['user_id'], email: user['email'], name: user['name'], 
+        user_name: user['user_name'])
     end.first
 
   end

@@ -13,7 +13,7 @@ class PeepController < Sinatra::Base
   end
 
   get '/peep/:id' do
-    @peep =  Peep.find_by_id(id: params[:id])
+    @peep = Peep.find_by_id(id: params[:id])
     erb :"peeps/show"
   end
 
@@ -30,7 +30,7 @@ class PeepController < Sinatra::Base
   post '/peeps' do
     peep = Peep.create(
       peep: params[:peep], user_id: session[:user_id], 
-      parent_peep_id:params[:parent_peep_id] )
+      parent_peep_id: params[:parent_peep_id])
     redirect to "/peeps"
   end
 end

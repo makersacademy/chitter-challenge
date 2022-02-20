@@ -4,8 +4,9 @@ class Peep
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created_at DESC")
     result.map do |peep| 
-      Peep.new(id: peep['peep_id'], peep: peep['peep'], created_at: peep['created_at'], 
-user_id: peep['user_id'], parent_peep_id: peep['parent_peep_id'])
+      Peep.new(
+        id: peep['peep_id'], peep: peep['peep'], created_at: peep['created_at'], 
+        user_id: peep['user_id'], parent_peep_id: peep['parent_peep_id'])
     end
   end
 
@@ -13,15 +14,24 @@ user_id: peep['user_id'], parent_peep_id: peep['parent_peep_id'])
     return nil unless id
     result = DatabaseConnection.query("SELECT * FROM peeps WHERE peep_id = #{id}") 
     result.map do |peep|
-      Peep.new(id: peep['peep_id'], peep: peep['peep'], created_at: peep['created_at'], 
-user_id: peep['user_id'], parent_peep_id: peep['parent_peep_id'])
+      Peep.new(
+        id: peep['peep_id'], peep: peep['peep'], 
+        created_at: peep['created_at'], 
+        user_id: peep['user_id'], parent_peep_id: peep['parent_peep_id'])
     end.first
   end
 
   def self.create(peep:, user_id:, parent_peep_id:)
     return nil if peep.empty?
     escaped_peep = DatabaseConnection.escape_string(peep)
-    query = "INSERT INTO peeps (peep, user_id, parent_peep_id) VALUES ('#{escaped_peep}', #{user_id}, CAST(NULLIF('#{parent_peep_id}','') AS INTEGER)) RETURNING peep_id, peep, created_at, user_id, parent_peep_id"
+    query =  "INSERT INTO
+                peeps (peep, user_id, parent_peep_id)
+              VALUES
+              ('#{escaped_peep}', #{user_id}, 
+                CAST(NULLIF('#{parent_peep_id}','') AS INTEGER))
+                 RETURNING 
+              peep_id, peep, created_at, user_id, parent_peep_id"
+
     result = DatabaseConnection.query(query) 
     result.map do 
       |peep| Peep.new(
