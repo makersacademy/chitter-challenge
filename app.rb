@@ -22,6 +22,10 @@ class Chitter_challenge < Sinatra::Base
 
   get '/timeline' do
     @peep = Chitter.timeline
+    time = Time.new
+    @date_posted = time.strftime("%d/%m/%Y")
+    @date_posted2 = time.strftime("%k:%M")
+    
     erb :timeline
   end
   
