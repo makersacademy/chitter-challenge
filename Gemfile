@@ -10,7 +10,7 @@ gem "sinatra-contrib"
 gem 'webrick'
 gem 'sinatra-flash'
 gem 'bcrypt'
-
+gem 'actionview'
 
 group :test do
   gem 'capybara'
