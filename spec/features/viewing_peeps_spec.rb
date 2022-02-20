@@ -2,10 +2,12 @@ require 'pg'
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps VALUES(1, 'This is a new peep!');")
+    Peep.create(message: "This is a new peep!")
+    # connection = PG.connect(dbname: 'chitter_test')
+    # connection.exec("INSERT INTO peeps VALUES(1, 'This is a new peep!');")
+    # visit('/peeps')
+    # expect(page).to have_content "This is a new peep!"
     visit('/peeps')
-    expect(page).to have_content "This is a new peep!"
   end
 end
 
