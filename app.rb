@@ -7,7 +7,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    "Hello, world!"
+    erb :index
+  end
+
+  get '/peep' do
+    erb :peep
+  end
+
+  post '/new-peep' do
+    @name = params[:name]
+    @username = params[:username]
+    @message = params[:message]
+    redirect '/'
   end
 
 
