@@ -7,4 +7,13 @@ describe Chitter do
       expect(peep).to eq ("Hello, chitter!")
     end
   end
+
+  describe '#list' do
+    it 'lists all the posted peeps' do
+      Chitter.post("First post")
+      Chitter.post("Second post")
+      expect(Chitter.list).to include("First post")
+      expect(Chitter.list).to include("Second post")
+    end
+  end
 end

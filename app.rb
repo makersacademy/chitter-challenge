@@ -12,11 +12,12 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Chitter.list
     erb :peeps
   end
 
   post '/post_peep' do
-    $peep = Chitter.post(params[:peep])
+    Chitter.post(params[:peep])
     redirect '/peeps'
   end
 

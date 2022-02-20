@@ -9,5 +9,7 @@
       <input type="text" name="peep">
       <input type="submit" value="Post">
     </form>
-    <%= $peep %>
+    <li>
+      <%= @peeps.each do |peep| peep['peep'] end %>
+    </li>
   </body>
