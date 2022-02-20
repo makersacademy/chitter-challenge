@@ -18,7 +18,6 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'orderly'
-  gem 'rake'
 end
 
 group :development, :test do

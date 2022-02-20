@@ -1,4 +1,4 @@
-ENV['ENVIRONMENT'] = 'test'
+ENV['APP_ENV'] = 'test'
 
 require 'simplecov'
 require 'simplecov-console'

@@ -2,6 +2,10 @@ require 'pg'
 
 task :default => [:setup]
 
+task :set_production do
+  RACK_ENV=production rackup
+end
+
 desc "Resets the test database"
 task :test_database_setup do
   p "Resetting database..."
