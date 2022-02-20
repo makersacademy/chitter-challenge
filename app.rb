@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative './lib/chitter.rb'
+require_relative './lib/peep.rb'
 require_relative './lib/user.rb'
 
 class ChitterApp < Sinatra::Base
@@ -14,7 +14,7 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps' do
     # @user = User.new(params[:user_name])
-    @peeps = Chitter.list
+    @peeps = Peep.list
     erb :peeps
   end
 
@@ -24,7 +24,7 @@ class ChitterApp < Sinatra::Base
   # end
 
   post '/post_peep' do
-    Chitter.post(params[:peep])
+    Peep.post(params[:peep])
     redirect '/peeps'
   end
 

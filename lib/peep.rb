@@ -1,6 +1,6 @@
 require 'pg'
 
-class Chitter
+class Peep
 
   attr_reader :id, :content, :post_time
 
@@ -15,13 +15,13 @@ class Chitter
     result = @connection.exec_params("INSERT INTO peeps(peep, post_time) 
                                            VALUES($1, $2) 
                                         RETURNING id, peep, post_time", [peep, Time.now])
-    Chitter.new(id: result[0]['id'], content: result[0]['peep'], post_time: result[0]['post_time'])
+    Peep.new(id: result[0]['id'], content: result[0]['peep'], post_time: result[0]['post_time'])
   end
 
   def self.list
     database_connect
     result = @connection.exec("SELECT * FROM peeps")
-    result.map { |peep| Chitter.new(id: peep['id'], content: peep['peep'], post_time: peep['post_time']) }
+    result.map { |peep| Peep.new(id: peep['id'], content: peep['peep'], post_time: peep['post_time']) }
 
   end
 
