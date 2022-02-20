@@ -26,6 +26,12 @@ bundle install
 rackup
 ```
 
+Tests
+----
+```
+rspec
+```
+
 Features
 ----
 I was able to implement the following features for this challenge:
