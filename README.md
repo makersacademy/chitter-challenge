@@ -136,5 +136,6 @@ My Attempt
 
 First in order to complete the challenge, I domain modelled each user story before implementing each user requirement. The user stories are attached below.
 
-![](chitterchallengeuserstory1.png)
-![](chitterchallengeuserstory2.png)
+<img src='./images/chitterchallengeuserstory1.png'>
+
+<img src='./images/chitterchallengeuserstory2.png'>
