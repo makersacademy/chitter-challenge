@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 ruby '3.0.0'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-
-
 gem 'pg'
 gem 'sinatra'
 gem "sinatra-contrib"
@@ -12,6 +10,7 @@ gem 'webrick'
 gem 'sinatra-flash'
 gem 'bcrypt'
 gem 'actionview'
+gem 'rake'
 
 group :test do
   gem 'capybara'
