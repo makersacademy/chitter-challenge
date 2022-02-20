@@ -1,6 +1,17 @@
 require 'pg'
 
 class Chitter
+
+  attr_reader :peep, :username, :name, :emailaddress, :password
+  
+  def initialize(peep:, username:, name:, emailaddress:, password:)
+    @peep = peep
+    @username = username
+    @name = name
+    @emailaddress = emailaddress
+    @password = password
+  end
+
   def self.timeline
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -18,7 +29,16 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    p connection.exec("INSERT INTO post (peep, date_posted) VALUES ('#{peep}', '#{time = Time.new}')")
+    connection.exec("INSERT INTO post (peep, date_posted) VALUES ('#{peep}', '#{time = Time.new}')")
+  end
+
+  def self.signup(name:, username:, emailaddress:, password:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'account_test')
+    else
+      connection = PG.connect(dbname: 'account')
+    end
+    connection.exec("INSERT INTO signup (username, name, emailaddress, password) VALUES ('#{username}', '#{name}', '#{emailaddress}', '#{password}')")
   end
 end
 

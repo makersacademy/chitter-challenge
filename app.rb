@@ -10,12 +10,14 @@ class Chitter_challenge < Sinatra::Base
   enable :sessions
 
   get '/' do
+    #@username = Chitter.signup
     erb :index
   end
 
   post '/' do
-    session[:peep] = params[:peep]
-    redirect '/timeline'
+    Chitter.signup(username: params[:username], name: params[:name], emailaddress: params[:emailaddress], password: params[:password])
+    @username = params[:username]
+    erb :signup
   end
 
   get '/timeline' do
@@ -27,10 +29,6 @@ class Chitter_challenge < Sinatra::Base
     Chitter.post(peep: params[:peep])
     redirect '/timeline'
   end
-
-
-  
-  
 
   run! if app_file == $0
 end

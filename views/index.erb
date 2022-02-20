@@ -1,15 +1,18 @@
-<h1> Chitter </h1>
-
-<p><%= @peep %></p>
-  
-
-<% if @peep %>
-  <p><%= @peep %></p>
-<% end %>
+<h1> Welcome to Chitter! </h1>
+<p> See your timeline <a href="http://localhost:9292/timeline">here</a>
+<p> Complete the form below to sign up and create a free account <p>
 
 <form action='/' method="POST">
-  <input type="text" name="peep" placeholder="What's on your mind?" />
-  <input type="submit" value="Post Peep" />
+  Full name: <input type="text" name="name" placeholder="Sam Morgan" /><br>
+<br>
+  Username: <input type="text" name="username" placeholder="username" /><br>
+<br>
+  Email address: <input type="text" name="emailaddress" placeholder="emailaddress@mail.com" /> <br>
+<br>
+  Password: <input type="text" name="password" placeholder="password" /> <br>
+<br>
+  <input type="submit" value="Submit" /> <br>
+<br><br>
 </form>
 
 

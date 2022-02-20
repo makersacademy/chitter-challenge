@@ -16,5 +16,19 @@ post peep
   click_button 'post peep'
   expects to see message/peep
 
+
+- write a feature test that:
+  visits '/'
+  click_button 'signup'
+  fill_in in placeholder with full name
+  fill_in placeholder with username
+  fill_in placeholder with email address
+  fill_in placeholder with password
+  click_button submit
+  redirect '/'
+  expects to see content 'Welcome to Chitter'
+
 CREATE TABLE post(id SERIAL PRIMARY KEY, peep VARCHAR (280), date_posted TIMESTAMP NOT NULL);
 INSERT INTO post (peep, date_posted) VALUES ('hello world', current_timestamp);
+
+CREATE TABLE signup(id SERIAL PRIMARY KEY, username VARCHAR (10), name VARCHAR (20), emailaddress VARCHAR (60), password VARCHAR (20));

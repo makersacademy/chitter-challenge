@@ -1,4 +1,5 @@
 require 'chitter'
+require 'pg'
 
  describe Chitter do
   describe '.timeline' do
@@ -18,9 +19,17 @@ require 'chitter'
   end
   describe '.post' do
     it 'publishes a post' do
-      Chitter.post(peep: 'example')
+      Chitter.post(peep: 'example peep')
       
-      expect(Chitter.post).to include 'example peep'
+      expect(Chitter.timeline).to include 'example peep'
+    end
+  end
+
+  describe '.signup' do
+    it 'lets a user sign up and create an account' do
+      Chitter.signup(name: 'Camilla Greene', username: 'cgreene', emailaddress: 'cgreene@mail.com', password: 'password')
+
+      expect(Chitter.post).to include "Welcome '#{username}"
     end
   end
 end
