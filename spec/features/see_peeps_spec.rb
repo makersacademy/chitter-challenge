@@ -6,12 +6,12 @@ feature 'Open the homepage' do
 end
 
 
-feature 'Posting a peep' do
-  scenario 'A user can post a peep' do
-    visit('/')
-    fill_in('peep', with: 'This is a new peep!')
-    click_button 'Post Peep'
-    expect(page).to have_content('This is a new peep!')
-  end
-end
+# feature 'Posting a peep' do
+#   scenario 'A user can post a peep' do
+#     visit('/')
+#     fill_in('peep', with: 'This is a new peep!')
+#     click_button 'Post Peep'
+#     expect(page).to have_content('This is a new peep!')
+#   end
+# end
 

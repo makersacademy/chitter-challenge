@@ -10,6 +10,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+#require 'sinatra-reloader'
 
 # Tell Capybara to talk to ChitterChallenge
 Capybara.app = ChitterChallenge

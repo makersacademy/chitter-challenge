@@ -11,10 +11,18 @@ class ChitterChallenge < Sinatra::Base
     erb :index
   end
 
-  post '/' do
-    Peep.create(peep: params["peep"], name: params["name"], username: params["@username"], time: params["time"])
-    redirect to('/')
+  get '/peeps' do
+    @peeps = [
+        'This is a new peep!'
+        ]
+    peeps.join
+    erb :peeps
   end
+
+  # post '/' do
+  #   # Peep.create(peep: params["peep"], name: params["name"], username: params["@username"], time: params["time"])
+  #   redirect to('/')
+  # end
 
 
 

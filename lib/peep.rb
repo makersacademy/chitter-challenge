@@ -1,6 +1,9 @@
-# class Peep
-#   include DataMapper::Resource
-#   property :id, Serial
-#   property :peep, String
-#   belongs_to :user
-# end
+class Peep
+  
+  def self.all
+    [
+      'This is a new peep!'  
+    ]
+  end
+  
+end
