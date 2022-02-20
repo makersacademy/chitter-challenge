@@ -1,23 +1,33 @@
 require_relative '../lib/post'
+require_relative './database_helpers'
 
 describe Post do
+  let(:time_test) { Time.new(2019, 04, 31, 5, 0, 10) }
   describe '.all' do
     it 'returns all posts' do
       connection = PG.connect(dbname: 'chitter_test')
-      Post.create(content: "My first Peep")
-      Post.create(content: "My second Peep")
+      post = Post.create(content: "My first Peep", posted_at: time_test)
+      Post.create(content: "My second Peep", posted_at: time_test)
 
-      post = Post.all
+      posts = Post.all
 
-      expect(post).to include("My first Peep")
-      expect(post).to include("My second Peep")
+      expect(posts.length).to eq 2
+      expect(posts.first).to be_a Post
+      expect(posts.first.id).to eq post.id
+      expect(posts.first.content).to eq "My first Peep"
+      expect(posts.first.posted_at).to eq time_test.strftime('%Y-%m-%d %H:%M:%S')
     end
   end
 
   describe '.create' do
     it 'creates a new post' do
-      Post.create(content: 'New Peep')
-      expect(Post.all).to include 'New Peep'
+      post = Post.create(content: 'New Peep', posted_at: time_test)
+      persisted_data = persisted_data(id: post.id)
+
+      expect(post).to be_a Post
+      expect(post.id).to eq persisted_data['id']
+      expect(post.content).to eq 'New Peep'
+      expect(post.posted_at).to eq time_test.strftime('%Y-%m-%d %H:%M:%S')
     end
   end
 end

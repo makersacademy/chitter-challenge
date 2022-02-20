@@ -1,12 +1,59 @@
-Chitter
+<html>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  font-family: Verdana;
+  color: blue;
+  margin-left: 40px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} 
+.column_one {
+  border-bottom: 2px solid grey;
+  font: 15px Verdana;
+  float: left;
+  width: 80%;
+  padding: 20px;
+}
+.column_two {
+  border-bottom: 2px solid grey;
+  font: 15px Verdana;
+  float: right;
+  width: 20%;
+  padding: 20px;
+}
+</style>
+
+<h1>Chitter</h1>
 
 <form action="/new_post" method="POST" >
 <input type="text" name="message">
 <input type="submit" name="submit" value="Peep!">
 </form>
 
-<ul>
+
   <% @posts.each do |post| %>
-    <li><%= post %></li>
-  <% end %>
-</ul>
+  <div id="posts">
+    <div class="row">
+      <div class="column_one">
+      <%= post.content %>
+      </div>
+      <div class="column_two">
+      <%= post.posted_at %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  </html>

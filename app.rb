@@ -10,12 +10,12 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @posts = Post.all
+    @posts = Post.all.reverse
     erb(:index)
   end
 
   post '/new_post' do
-    Post.create(content: params[:message])
+    Post.create(content: params[:message], posted_at: Time.now)
     redirect '/'
   end
 
