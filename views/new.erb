@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header */
+.header {
+  padding: 1px;
+  text-align: center;
+  background: #00008B;
+  color: white;
+  font-size: 20px;
+}
+.temp123{
+  text-align:center;
+}
+.temp123 > input{
+  text-align:left;
+}
+</style>
+
+</head>
+<body>
+<div class="header">
+<h1>Sign Up</h1>
+<form action="/quit" method="get">
+<p>       </p>
+<input type="submit" style="height:50px; width:100px; background-color:#ADD8E6" value="Quit"/>
+</form>
+</div >
+<div class ="temp123">
+<h2>Please enter First Name, Last Name and Username </h2>
+<form action="/createuser" method="post">
+</br>
+<label for="first_name">First Name
+<input  type="text" name="first_name" placeholder="First name" required>
+</label>
+<label for="last_name">Last Name
+<input  type="text" name="last_name" placeholder="Last name" required>
+</label>
+<label for="user_name">Username
+<input  type="text" name="user_name"  placeholder="User name"  required>
+</label>
+</br>
+<h2>Please enter a valid email address and password</h2>
+</br>
+<label for="email">Email
+<input type="email" name="email" required>
+</label>
+<label for="password">Password
+<input type="password" name="password" required>
+</label>
+</br>
+<p>       </p>
+<input type="submit" style="height:50px; width:100px; background-color:#ADD8E6" value="submit" />
+</div >
+</form>
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<head> 
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+/* Header */
+.header {
+  padding: 1px;
+  text-align: center;
+  background: #00008B;
+  color: white;
+  font-size: 20px;
+}
+.temp123{
+  text-align:center;
+}
+.temp123 > input{
+  text-align:left;
+}
+
+</style>
+</head>
+<body>
+<div class="header">
+<h1>Chitter</h1>
+<h2>Welcome, <%= @first_name%> </h2>
+<form action="/quit" method="get">
+<p>       </p>
+<input type="submit" style="height:50px; width:100px; background-color:#ADD8E6" value="Quit"/>
+</form>
+  <p>       </p>
+  <p>       </p>
+</form>
+</div>
+
+<div class ="temp123">
+<form action="/createchitter" method="get">
+<p>Add A Peep (1 to 250) characters</p>
+<textarea name="peep" cols="50" rows="3" style="border:3px solid #00008B;" 
+minlength="1" maxlength="250" required>
+</textarea>
+<p>       </p>
+<input type="submit" style="height:50px; width:100px; background-color:#ADD8E6" value="submit"/>
+</form>
+</div>
+ 
+<ul>
+  <% @chitter.each do |chitter| %>
+    <li>TIME : <%= chitter[1] %>    USERNAME :- <%= chitter[2] %>  : <%= chitter[0] %></li>
+  <% end %>
+</ul>
+</body>
+</html>
