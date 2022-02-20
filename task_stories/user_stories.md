@@ -13,7 +13,7 @@ I want to post a message (peep) to chitter
 
 #### Object Model
 
-Object | Messages
+Object | Peeps
 --------------- | --------------------
 Maker (user) | 
 Peep | .create
@@ -39,7 +39,7 @@ I want to see all peeps in reverse chronological order
 
 #### Object model
 
-Object | Messages
+Object | Peeps
 --------------- | --------------------
 Maker (user) | 
 Peep | .create
@@ -66,7 +66,7 @@ I want to see the time at which it was made
 
 #### Object model
 
-Object | Messages
+Object | Peeps
 --------------- | --------------------
 Maker (user) | 
 Peep | .create
@@ -88,14 +88,14 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
 Notes
-- Makers sign up to chitter with their email, password, name and a username
+- Makers sign up to chitter with their name, a username, email and a password
 - The username and email are unique
 - Peeps will have the name of the maker and their user handle
 ```
 
 #### Object model
 
-Object | Messages
+Object | Peeps
 --------------- | --------------------
 Maker (user) | sign_up
 Peep | .create
@@ -159,29 +159,33 @@ Users
 ------
 
 
-```
-HARDER
+## Harder
 
-User story 5: Log-in
---------------------
+### User story 5 - Log-in
+
+```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+```
 
 #### Object model
 
-Object | Messages
+Object | Peeps
 --------------- | --------------------
-Maker (user) | sign_in
+Maker (user) | sign_up
 Peep | .create
 Peep | .all
 
+------
 
-User story 6: Log-out
----------------------
+### User story 6 - Log-out
+
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+```
 
 #### Object model
 
@@ -190,10 +194,11 @@ Object | Messages
 Maker (user) | sign_out
 
 
-ADVANCED
+## Harder
 
-User story 7: Receive email notification
-----------------------------------------
+### User story 7 - Receive email notification
+
+```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
