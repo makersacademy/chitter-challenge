@@ -1,5 +1,21 @@
+<body style="background-color:powderblue;">
+
+<style>
+body {
+  font-family: 'Courier New'
+}
+</style>
+
+<h2>Your recent peeps:</h2>
+
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 </ul>
+
+<h3>Peep again?!</h3>
+
+<form action="/peeps/new" method="get">
+  <input type="submit" value="Peep Again">
+</form>
