@@ -1,0 +1,60 @@
+h1, h2, h3, .button, button, p, ::placeholder {
+    color: #3e3e3e;
+    font-family: 'Arimo', sans-serif;
+}
+.center {
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  border: 3px solid #3e3e3e;
+  padding: 10px;
+}
+header {
+  text-align: center;
+}
+input {
+  width: 30%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+
+  padding: 15px;
+  margin: 5px;
+  font-size: 24px;
+}
+.input {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 15px;
+  margin: 5px;
+}
+::placeholder {
+  font-size: 18px;
+}
+.button {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #ebebeb;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 15px;
+  margin: 5px;
+}
+ul {
+  list-style: none;
+  }
+.peeps {
+  border: 1px solid #ccc;
+  width: 70%;
+  padding: 15px;
+  margin: 5px;
+  display:inline-block;
+  background-color: #ebebeb;
+  border-radius: 4px;
+}
