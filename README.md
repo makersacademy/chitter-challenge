@@ -48,7 +48,7 @@ Foreign-key constraints:
     "peeps_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
 ```
 
-#### Technologies used
+## Technologies used
 
 - Ruby
 - Rspec (test framework)
