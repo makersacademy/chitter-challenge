@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
     @name = params[:name]
     @username = params[:username]
     @message = params[:message]
-    @peep = Peep.new_peep
+    @peep = Peep.new_peep(@name, @username, @message)
     redirect '/'
   end
 
