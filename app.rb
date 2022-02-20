@@ -6,10 +6,13 @@ require './lib/user'
 require './database_connection_setup'
 require 'sinatra/flash'
 require 'action_view'
+require_relative './controllers/peep_controller'
 
 include ActionView::Helpers::DateHelper
 
 class Chitter < Sinatra::Base
+
+  use PeepController
 
   configure :development do
     register Sinatra::Reloader
@@ -25,28 +28,6 @@ class Chitter < Sinatra::Base
   get '/reply' do
     @peep = Peep.find_by_id(id: params[:peep_id])
     erb :reply
-  end
-
-  get '/peeps' do
-    @user = User.find_by_id(id: session[:user_id])
-    @peeps = Peep.all
-    erb :"peeps/index"
-  end
-
-  get '/peeps/new' do
-    erb :"peeps/new"
-  end
-
-  post '/peeps' do
-    peep = Peep.create(
-      peep: params[:peep], user_id: session[:user_id], 
-      parent_peep_id:params[:parent_peep_id] )
-    redirect to "/peeps"
-  end
-
-  get '/peep/:id' do
-    @peep =  Peep.find_by_id(id: params[:id])
-    erb :"peeps/show"
   end
 
   get '/users/new' do
