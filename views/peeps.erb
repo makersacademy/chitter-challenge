@@ -1,5 +1,6 @@
-<ul>
-  <% @peeps.each do |peep| %>
+<ul style="list-style-type:none;">
+  <% @peeps.reverse_each do |peep| %>
     <li><%= peep %></li>
+    <br>
   <% end %>
-</ul>>
+</ul>

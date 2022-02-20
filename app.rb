@@ -13,10 +13,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = [
-        'This is a new peep!'
-        ]
-    peeps.join
+    @peeps = Peep.all
     erb :peeps
   end
 
