@@ -1,7 +1,7 @@
 <h1>Chitter</h1>
 <br>
 <ul>
-  <% @peeps.each do |i| %>
+  <% @peeps.reverse.each do |i| %>
     <li><%= i.peep_content%><br><%= i.time_posted %></li>
   <% end %>
 </ul>
