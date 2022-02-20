@@ -2,11 +2,6 @@ require 'pg'
 
 feature "Viewing peeps" do
 
-  scenario "a user can see a list on the peep page" do
-    visit "/peeps"
-    expect(page).to have_selector "ul"
-  end
-
   scenario "a user can see list of peeps from other users" do
     # Add test data
     user = create_test_user

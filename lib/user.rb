@@ -4,12 +4,14 @@ require_relative './database_connection'
 class User
   
   def self.create(name:, username:, email:, password:)
+    return nil if email.empty? || password.empty? || name.empty? || username.empty?
+    cleaned_username = DatabaseConnection.escape_string(username)
+    return nil if account_exists?(cleaned_username, email)
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (name, username, email, password) VALUES($1, $2, $3, $4) ON CONFLICT DO NOTHING RETURNING id, name, username, email;", [
-        name, username, email, encrypted_password]
+        name, cleaned_username, email, encrypted_password]
     )
-    return "Unique user error" if result.ntuples < 1
     User.new(
       id: result[0]['id'],
       name: result[0]['name'],
@@ -60,6 +62,12 @@ class User
     @name = name
     @username = username
     @email = email
+  end
+
+  def self.account_exists?(username, email)
+    DatabaseConnection.query(
+      "SELECT * FROM users WHERE username = $1 OR email = $2",[username, email]
+    ).any?
   end
 
 end

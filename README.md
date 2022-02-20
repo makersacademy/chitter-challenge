@@ -7,6 +7,9 @@ Chitter Challenge
 
 - Capture the nouns in the user stories as objects and verbs in user stories as messages. Use the techniques learnt in the first week of Makers to create [object model tables](https://github.com/nelsonclaire/chitter-challenge/blob/master/task_stories/user_stories.md) which should assist with how to create the tests, classes and methods.
 
+## Screenshot of index page
+![Screenshot](/public/images/chitterscreenshot.png)
+
 ## Entity Relationship Diagram
 
 - A User *has many* Peeps
@@ -102,7 +105,10 @@ Run `rspec` directly in root of your local project
 - Features: `spec/features/<name>.rb`
 
 #### What I know I need to work on
-
+- Having a gap between peeps
+- Replying to Peeps
+- Email sent if you are mentioned in a peep
+- Rakefile (started investigating this)
 
 
 -------

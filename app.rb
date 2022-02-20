@@ -46,11 +46,12 @@ class Chitter < Sinatra::Base
     user = User.create(name: params['name'], username: params['username'], 
     email: params['email'], 
     password: params['password'])
-    if user == "Unique user error"
-      redirect "/users/new/error"
-    else
+    if user
       session[:user_id] = user.id
       redirect "/users"
+    else
+      flash[:notice] = 'Email or Username already in use or field(s) is blank!'
+      redirect "/users/new/error"
     end
   end
 
@@ -74,6 +75,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
+    p user
     if user
       session[:user_id] = user.id
       redirect('/peeps')
