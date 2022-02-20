@@ -6,6 +6,7 @@ describe Chitter do
     it 'saves and returns the posted peep' do
       peep = Chitter.post("Hello, chitter!")
       expect(peep.content).to eq ("Hello, chitter!")
+      expect(peep.post_time).to eq Time.now.strftime("%H:%M:%S")
     end
   end
 

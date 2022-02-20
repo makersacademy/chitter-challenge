@@ -4,15 +4,17 @@
 
   <body>
     <form action="/post_peep" method="POST">
-      Peep!
+      <h1> Peep! </h1>
       <br>
       <input type="text" name="peep">
       <input type="submit" value="Post">
     </form>
         <% @peeps.each do |peep| %>
-      <li>
-        <%= peep.content %>
+      
+        <h2><%= peep.content %> </h2>
+        Posted at: 
+        <%= peep.post_time %>
         <% end %>
-      </li>
+      
     
   </body>
