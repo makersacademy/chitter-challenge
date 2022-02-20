@@ -1,5 +1,6 @@
 require 'pg'
 
+desc "Resets the test database"
 task :test_database_setup do
   p "Resetting database..."
 
@@ -9,6 +10,7 @@ task :test_database_setup do
   connection.exec("TRUNCATE users RESTART IDENTITY CASCADE;")
 end
 
+desc "Creates the test and app databases if they do not exist"
 task :setup do
 
   p "Creating databases..."
