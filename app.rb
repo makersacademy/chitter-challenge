@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   configure :development do 
@@ -15,12 +16,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-peep' do
+    p params
     @name = params[:name]
     @username = params[:username]
     @message = params[:message]
+    @peep = Peep.new_peep
     redirect '/'
   end
-
 
   run! if app_file == $0
 end
