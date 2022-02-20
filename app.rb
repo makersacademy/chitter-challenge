@@ -1,22 +1,28 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/peep'
 
 class ChitterApp < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
+  enable :sessions, :method_override
+  
   get '/' do
     erb :index
   end
 
-  post '/' do
-    # saves the content of the form to chitter database
+  post '/add_peep' do
+    Peep.create(
+      peep_content: params[:peep_content],
+      time_posted: params[:time_posted]
+      )
     redirect '/peeps'
   end
 
   get '/peeps' do
-    # displays peeps
+    @peeps = Peep.all
     erb :peeps
   end
 

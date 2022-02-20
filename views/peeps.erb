@@ -1,3 +1,7 @@
 <h1>Chitter</h1>
 <br>
-<h3>My first peep</h3>
+<ul>
+  <% @peeps.each do |i| %>
+    <li><%= i.peep_content%><br><%= i.time_posted %></li>
+  <% end %>
+</ul>

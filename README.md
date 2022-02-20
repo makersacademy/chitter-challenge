@@ -25,8 +25,13 @@ Planning:
 - Create the database using the psql command CREATE DATABASE chitter;
 - Connect to the database using the pqsl command \c chitter;
 - Run the query saved in the file 01_create_peep_table.sql
+- Create the test database using the psql command CREATE DATABASE chitter_test;
+- Connect to the database using the pqsl command \c chitter_test;
+- Run the query saved in the file 01_create_peep_table.sql
 
+* Setup environment - pg gem introduced.
 
+![Domain](/public/request_response_diagram.png)
 
 Challenge:
 -------
