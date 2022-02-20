@@ -5,5 +5,6 @@ feature 'Can post a peep' do
         fill_in('peep', with: 'test peep')
         click_button('Submit')
         expect(page).to have_content 'test peep'
+        
     end
 end

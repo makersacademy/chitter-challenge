@@ -9,7 +9,7 @@ class Chitters
       connection = PG.connect(dbname: 'chitter')
     end
 
-    connection.exec("INSERT INTO chitter (peep) VALUES('#{peep}')")
+    connection.exec("INSERT INTO chitter (peep) VALUES('#{peep}') RETURNING id, peep, ts ")
     # result = connection.exec('SELECT * FROM chitter')
     # result.map { |peeps| peeps['peep']}
   end
@@ -22,10 +22,22 @@ class Chitters
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    # result = connection.exec('SELECT * FROM chitter')
-    result = connection.exec('SELECT * FROM chitter ORDER BY id DESC')
-    #result = connection.exec('SELECT * FROM chitter ORDER BY ts DESC')
-    result.map { |peeps| peeps['peep']}
+    
+    #connection.exec("UPDATE chitter SET ts= DATE_TRUNC('SECOND',NOW());")
+    result = connection.exec('SELECT * FROM chitter ORDER BY ts DESC')
+    
+    
+    return [result.map { |aaa| aaa['peep']}, result.map { |aaa| aaa['ts']} ]
+    # return result.map { |aaa| aaa['ts']}
+    # c = result.map{ |peeps, ts| peeps['peep'] ts['ts'] }
+    
+    # p "LOOOOOKKKKKKKK HHHHEEEERRRREEE"
+    # p 'a is below'
+    # p a
+    # p 'b is below'
+    # p b
+    # # p 'c is below'
+    # p c
   end
 
 end
