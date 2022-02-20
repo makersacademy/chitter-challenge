@@ -44,48 +44,22 @@ $> rackup
 
 Navigate to http://localhost:9292/
 
-## Database Configuration
+## Database Setup
 ----------------------
 Install [postgresql](https://www.postgresql.org/download/ "postgresql")  according to your operating system
 
-### Setting up the app database
+Ensure you have set up your user database as part of the posgresql install
+
+If you already have chitter and/or chitter_test installed on your database and you are reviewing/using my code you will need to drop those databases first. Use the following commands in SQL
+
 ~~~~
-Connect to psql
-$> psql
-
-# At the psql prompt
-# Create the database
-admin=# CREATE DATABASE chitter;
-
-# Change to the chitter database
-admin=# \c chitter;
+DROP DATABASE chitter;
+DROP DATABASE chitter_test;
 ~~~~
 
-### Setting up the test database
+Run the following rake command and this will create both the app and test databases
+
 ~~~~
-Connect to psql
-$> psql
-
-# At the psql prompt
-# Create the database
-admin=# CREATE DATABASE chitter_test;
-
-# Change to the chitter_test database
-admin=# \c chitter_test;
+rake setup
 ~~~~
-
-### Database Build
-
-For both the test and app databases run the following scripts in the order as shown listed
-
-These can be found here ./db/migrations
-~~~~
-01_create_table_peeps.sql
-02_alter_table_peeps_add_created_at.sql
-03_create_table_users.sql.sql
-04_alter_table_users_add_name_username.sql
-05_alter_table_peeps_add_peeped_by.sql
-06_alter_table_parent_peep_id.sql
-~~~~
-
 ----------------------
