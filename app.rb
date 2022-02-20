@@ -28,7 +28,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/reply' do
+    redirect '/peeps' if params[:peep_id].nil? || session[:user_id].nil?
     @peep = Peep.find_by_id(id: params[:peep_id])
+    redirect '/peeps' if @peep.nil?
     erb :reply
   end
 

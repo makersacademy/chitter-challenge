@@ -23,4 +23,16 @@ feature "reply to a peep" do
     expect(page).not_to have_link("reply")
   end
 
+  scenario "Cannot reply to a peep if going directly to reply route and not logged in" do
+    visit '/reply'
+    expect(page).to have_button("Log on")
+  end
+
+  scenario "Cannot reply to a peep if going directly to reply route with a peep that does not exist and logged in" do
+    user = create_test_user
+    sign_in(email: user.email, password: "password123")
+    visit '/reply?peep_id=20'
+    expect(page).to have_content("Welcome")
+  end
+
 end
