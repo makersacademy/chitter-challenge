@@ -10,7 +10,7 @@ gem "sinatra-contrib"
 gem 'webrick'
 gem 'sinatra-flash'
 gem 'bcrypt'
-gem 'rake'
+
 
 group :test do
   gem 'capybara'
@@ -18,7 +18,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'orderly'
-
+  gem 'rake'
 end
 
 group :development, :test do

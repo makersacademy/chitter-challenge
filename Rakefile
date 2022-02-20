@@ -1,5 +1,7 @@
 require 'pg'
 
+task :default => [:setup]
+
 desc "Resets the test database"
 task :test_database_setup do
   p "Resetting database..."
