@@ -9,9 +9,9 @@ describe Peep do
       connection.exec("INSERT INTO peeps (message, time) VALUES('Ciao ragazzi', '2022-02-17 18:33:00');")
       connection.exec("INSERT INTO peeps (message, time) VALUES('I love coding weekends', '2022-02-17 18:32:33');")
       peeps = Peep.all
-      expect(peeps).to include("Hello")
-      expect(peeps).to include("Ciao ragazzi")
-      expect(peeps).to include("I love coding weekends")
+      expect(peeps[0].message).to include("Hello")
+      expect(peeps[1].message).to include("Ciao ragazzi")
+      expect(peeps[2].message).to include("I love coding weekends")
     end
 
     it 'sorts peeps in reverse chronological order' do
@@ -20,15 +20,15 @@ describe Peep do
       connection.exec("INSERT INTO peeps (message, time) VALUES('Newest peep', '2022-02-17 18:33:00');")
       connection.exec("INSERT INTO peeps (message, time) VALUES('This peep is between old and new', '2022-02-17 18:32:33');")
       peeps = Peep.all
-      expect(peeps.first).to eq "Newest peep"
-      expect(peeps.last).to eq "Very old peep"
+      expect(peeps.first.message).to include("Newest peep")
+      expect(peeps.last.message).to include("Very old peep")
     end
   end
 
   describe '#write' do
     it 'creates a new peep' do
       Peep.write(text: 'This is a newly created peep')
-      expect(Peep.all).to include 'This is a newly created peep'
+      expect(Peep.all[-1].message).to include('This is a newly created peep')
     end
   end
 end

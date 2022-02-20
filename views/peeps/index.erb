@@ -17,7 +17,7 @@
       <h2>All the peeps so far</h2>
       <ul>
       <% @peeps.each do |peep| %>
-      <li><%= peep %></li>
+      <li><%= peep.message %>, <%= peep.time %></li>
       <% end %>
       </ul>
       <h2>What's in yor mind, Maker?</h2>
