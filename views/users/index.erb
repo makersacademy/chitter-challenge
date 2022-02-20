@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<h2>List of all Chitter Users</h2>
+
+<form action="/peeps/new">
+  <input type="submit" value="Post a Peep">
+</form>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <div><%= user.name %></div>
+      <div><%= user.username %></div>
+    </li>
+  <% end %>
+</ul>
+
+</html>
+

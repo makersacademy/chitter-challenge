@@ -1,0 +1,1 @@
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(128), created_at TIMESTAMP DEFAULT current_timestamp, user_id INTEGER REFERENCES users (id));
