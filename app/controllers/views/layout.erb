@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitter</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar is-info pt-4 pb-2"  role="navigation" aria-label="main navigation">
+  
+  <div class="navbar-brand">
+      <a class="navbar-item" href="/peeps">
+        <h1 class="title has-text-light is-family-code pl-4">Chitter</h1>
+      </a>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item mr-4">
+      <div class="buttons">
+
+        <% if @user %>
+
+          <h3 class="subtitle is-3 has-text-light is-family-code mb-1 mr-4"> Welcome <%=@user.username%> </h3>
+          
+          <form action="/sessions/delete" method="post">
+            <input class="input is-small is-warning mb-2"  type="submit" value="Sign out">
+          </form>
+
+        <% else %>
+
+          <form action="/sessions/new">
+            <input class="input is-small is-warning mb-2" type="submit" value="Sign in">
+          </form>
+
+        <% end %>
+
+        <form action="/users/new">
+          <input class="input is-small is-warning mb-2" type="submit" value="Sign up">
+        </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="section has-text-info">
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="/" class="close">&times;</a>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</section>
+<html>

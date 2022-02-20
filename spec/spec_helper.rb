@@ -1,12 +1,23 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara/rspec'
+require 'clear_test_database'
+require File.join(File.dirname(__FILE__),'../app/app.rb')
+
+ENV['RACK_ENV'] = 'test'
+
+Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
+  SimpleCov::Formatter::Console,])
 SimpleCov.start
+
+RSpec.configure do |config|
+  config.before(:each) do
+    clear_test_database
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do
