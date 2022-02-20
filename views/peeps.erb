@@ -2,6 +2,6 @@
 <br>
 <ul>
   <% @peeps.reverse.each do |i| %>
-    <li><%= i.peep_content%><br><%= i.time_posted %></li>
+    <li><%= i.peep_content%><br><time><%= i.time_posted %></time></li>
   <% end %>
 </ul>

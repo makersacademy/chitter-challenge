@@ -21,17 +21,25 @@ Planning:
 
 #### Setting Up Database
 
-- Connect to psql
-- Create the database using the psql command CREATE DATABASE chitter;
-- Connect to the database using the pqsl command \c chitter;
-- Run the query saved in the file 01_create_peep_table.sql
-- Create the test database using the psql command CREATE DATABASE chitter_test;
-- Connect to the database using the pqsl command \c chitter_test;
-- Run the query saved in the file 01_create_peep_table.sql
+- Connect to `psql`
+- Create the database using the `psql` command `CREATE DATABASE chitter;`
+- Connect to the database using the `pqsl` command `\c chitter;`
+- Run the query saved in the file `01_create_peep_table.sql`
+- Create the test database using the `psql` command `CREATE DATABASE chitter_test;`
+- Connect to the database using the `pqsl` command `\c chitter_test;`
+- Run the query saved in the file `01_create_peep_table.sql`
+
+
 
 * Setup environment - pg gem introduced.
 
 ![Domain](/public/request_response_diagram.png)
+
+- Setup peep content and time together as it is same form process.
+- Peeps rearranged to show in reverse order.
+- Web helper added to reduce setup for tests.
+- Time format not updated. I tried to change this in the html rather than the database but could not get `HTML <time> datetime Attribute` to work for me.
+
 
 Challenge:
 -------
