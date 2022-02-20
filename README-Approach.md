@@ -53,3 +53,7 @@ I want to sign up for Chitter
 3. Sign up
 4. Sign in
 5. Sign out
+
+
+### Summary
+- I've not managed to finish all of the user stories but I've spent a lot of time working on this piece and reinforcing my learning from throughout the week.
