@@ -25,10 +25,10 @@ describe Peep do
     end
   end
 
-  describe '#new' do
+  describe '#write' do
     it 'creates a new peep' do
-      Peep.new(message: 'This is a newly created peep')
-      expect(Peep.all).to include 'newly created peep'
+      Peep.write(text: 'This is a newly created peep')
+      expect(Peep.all).to include 'This is a newly created peep'
     end
   end
 end
