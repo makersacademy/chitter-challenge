@@ -18,9 +18,9 @@ task :setup do
   p "Creating databases..."
 
   ['chitter', 'chitter_test'].each do |database|
+    p "Connecting to user default database"
     connection = PG.connect
     result = connection.exec("SELECT 1 AS result from pg_database WHERE datname='#{database}';")
-
     if !result.any?
       connection.exec("CREATE DATABASE #{ database };")
       connection = PG.connect(dbname: database)

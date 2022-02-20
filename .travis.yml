@@ -5,5 +5,8 @@ rvm:
 services:
   - postgresql
 
+before_script:
+  - bundle exec rake
+
 script:
   - bundle exec rspec
