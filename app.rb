@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require_relative './lib/post'
 
 class Chitter < Sinatra::Base
   configure :test do
@@ -9,7 +10,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @message = session[:message]
+    @message = Post.all
     erb(:index)
   end
 
