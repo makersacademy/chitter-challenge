@@ -5,8 +5,5 @@ rvm:
 services:
   - postgresql
 
-before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-
 script:
   - bundle exec rspec
