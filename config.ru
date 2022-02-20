@@ -1,10 +1,9 @@
 require 'sinatra'
 require './app'
-# Multiple Controllers is a work in progress
-# I am having issues with RSpec tests passing
-
 require './controllers/peep_controller'
+require './controllers/user_controller'
 
 use PeepController
+use UserController
 
 run Chitter
