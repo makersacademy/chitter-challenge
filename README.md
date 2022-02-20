@@ -139,3 +139,6 @@ First in order to complete the challenge, I domain modelled each user story befo
 <img src='./images/chitterchallengeuserstory1.png'>
 
 <img src='./images/chitterchallengeuserstory2.png'>
+
+In order to begin the project, I set up the web project by setting up Sinatra with RSpec and Capybara. 
+
