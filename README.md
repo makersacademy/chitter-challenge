@@ -1,3 +1,53 @@
+## Chitter
+
+I had a Problem creating the FEATURE tests and I have only created the 'Happy Path' for the User Stories below
+
+
+# Installing the database
+
+- Connect to psql
+- Create the database using the psql command `CREATE DATABASE chitter_manager;`
+- Connect to the database using the pqsl command `\c chitter_manager;`
+- Run the query we have saved in the file 01_create_chitter_user_table.sql
+- Connect to the database using the pqsl command `\c chitter_manager;`
+- Run the query we have saved in the file 02_create_chitter_table.sql 
+
+# Installing the test database
+- Connect to psql
+- Create the database using the psql command `CREATE DATABASE chitter_manager_test;`
+- Connect to the database using the pqsl command `\c chitter_manager_test;`
+- Run the query we have saved in the file 01_create_chitter_user_table.sql
+- Connect to the database using the pqsl command `\c chitter_manager_test;`
+- Run the query we have saved in the file 02_create_chitter_table.sql 
+
+## USER STORIES
+````
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+````
+
+
+## Domain Model
+<br>
+<img src='./images/ChitterDomainModel.png'>
+
+## Database Model
+<br>
+<img src='./images/DatabaseModel.png'>
+
 Chitter Challenge
 =================
 
