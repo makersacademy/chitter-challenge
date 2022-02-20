@@ -33,7 +33,7 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
-### Order I'll do things in:
+### Order I'll build things in:
 1. Post a peep
 2. Display peeps in reverse chronological order
 3. Sign up
