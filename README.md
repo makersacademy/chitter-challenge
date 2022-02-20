@@ -19,7 +19,8 @@ Chitter Challenge
 
 ## Description
 
-                                   Table "public.users"
+```
+ Table "public.users"
   Column  |          Type          | Collation | Nullable |              Default              
 ----------+------------------------+-----------+----------+-----------------------------------
  id       | integer                |           | not null | nextval('users_id_seq'::regclass)
@@ -27,12 +28,25 @@ Chitter Challenge
  username | character varying(30)  |           |          | 
  email    | character varying(60)  |           |          | 
  password | character varying(140) |           |          | 
-
 Indexes:
     "users_pkey" PRIMARY KEY, btree (id)
     "users_email_key" UNIQUE CONSTRAINT, btree (email)
     "users_username_key" UNIQUE CONSTRAINT, btree (username)
+Referenced by:
+    TABLE "peeps" CONSTRAINT "peeps_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
 
+ Table "public.peeps"
+   Column   |            Type             | Collation | Nullable |              Default              
+------------+-----------------------------+-----------+----------+-----------------------------------
+ id         | integer                     |           | not null | nextval('peeps_id_seq'::regclass)
+ peep       | character varying(128)      |           |          | 
+ created_at | timestamp without time zone |           |          | CURRENT_TIMESTAMP
+ user_id    | integer                     |           |          | 
+Indexes:
+    "peeps_pkey" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+    "peeps_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
+```
 
 #### Technologies used
 
