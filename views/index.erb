@@ -1,1 +1,14 @@
-'Hello World'
+<!-- 'Hello World' -->
+<html style="background-color: #faf49e", align="center">
+<form>
+  <label for ="peep"> Enter peep here:</label><br>
+<!-- <input type="text"  id="peep" name"Enter Peep" ><br> -->
+<textarea id="peep" name="Enter Peep" rows="5"></textarea><br>
+<input type="submit" value="Enter Peep">
+</form>
+<ul >
+  <% @peep.each do |peeps| %>
+    <li><%= peeps %></li>
+  <% end %>
+</ul>
+</html>
