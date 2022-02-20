@@ -46,5 +46,5 @@ feature "viewing all peeps" do
     expect(page).to have_content(", #{user.user_name}")
   end
   
-
+  
 end

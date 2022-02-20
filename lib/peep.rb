@@ -41,6 +41,11 @@ class Peep
     end.first
   end
 
+  def self.reply_count(peep_id:)
+    result = DatabaseConnection.query("SELECT COUNT(*) AS result FROM peeps WHERE parent_peep_id = #{peep_id}") 
+    result[0]['result'].to_i > 0 ? result[0]['result'] : ""
+  end
+
   attr_reader :id, :peep, :created_at, :user_id, :parent_peep_id
 
   def initialize(id:, peep:, created_at:, user_id:, parent_peep_id:)

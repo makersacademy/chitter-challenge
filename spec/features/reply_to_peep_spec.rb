@@ -15,7 +15,10 @@ feature "reply to a peep" do
     click_link("reply")
     fill_in('peep', with: 'I have replied')
     click_button('Post Reply')
+    reply_count = find('label.reply_count', text: "1", match: :prefer_exact )
+    expect(reply_count).to have_content("1")
     expect(page).to have_content("I have replied")
+
   end
 
   scenario "Cannot reply to a peep if not logged on" do

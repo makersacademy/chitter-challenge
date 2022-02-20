@@ -22,8 +22,11 @@ task :setup do
     connection = PG.connect
     result = connection.exec("SELECT 1 AS result from pg_database WHERE datname='#{database}';")
     if result.none?
+      p "Creating #{database}"
       connection.exec("CREATE DATABASE #{database};")
+      p "#{database} created."
       connection = PG.connect(dbname: database)
+      p "Building tables"
       connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(280));")
       connection.exec("ALTER TABLE peeps ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT NOW();")
       connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
@@ -35,7 +38,7 @@ task :setup do
       connection.exec("ALTER TABLE peeps ADD CONSTRAINT fk_users FOREIGN KEY (user_id) REFERENCES users(user_id);")
       connection.exec("ALTER TABLE peeps ADD COLUMN parent_peep_id INT NULL;")
       connection.exec("ALTER TABLE peeps RENAME id TO peep_id")
-      p "#{database} created."
+      p "Tables built"
     else
       p "#{database} already exists."
     end

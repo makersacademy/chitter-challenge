@@ -40,8 +40,8 @@ describe Peep do
 
     it 'creates a peep with a parent_peep_id' do
       user = create_test_user
-      peep = Peep.create(peep: "test peep", user_id: user.id, parent_peep_id: user.id)
-      expect(peep.parent_peep_id).to eq user.id
+      peep = Peep.create(peep: "test peep", user_id: user.id, parent_peep_id: 1)
+      expect(peep.parent_peep_id).to eq "1"
     end
   end
 
@@ -59,6 +59,15 @@ describe Peep do
       expect(peeps.first.user_id).to eq peep.user_id
       # add in canned mock created_by...
       expect(peeps.first.peep).to eq "The end is nigh"
+    end
+  end
+
+  describe '.reply_count' do
+    it 'gets the count of peeps that have replied to a peep' do
+      user = create_test_user
+      peep = Peep.create(peep: "Wow, that's so cool", user_id: user.id, parent_peep_id: '')
+      Peep.create(peep: "Wow, that's so cool", user_id: user.id, parent_peep_id: peep.id)
+      expect(Peep.reply_count(peep_id: peep.id)).to eq "1"
     end
   end
 end

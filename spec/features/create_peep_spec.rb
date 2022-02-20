@@ -9,6 +9,11 @@ feature "posting a message" do
     click_button('Post Peep')
 
     expect(page).to have_content("Hello World")
-
   end
+
+  scenario "cannot post a peep if not logged in" do
+    visit "/"
+    expect(page).to_not have_content("Post Peep")
+  end
+
 end
