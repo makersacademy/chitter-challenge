@@ -6,6 +6,10 @@ gem 'sinatra'
 gem 'webrick'
 gem 'sinatra-contrib'
 gem 'rspec'
+gem 'time'
+gem 'date'
+#gem 'active_support/time'
+
 
 
 group :test do

@@ -23,10 +23,12 @@ class Chitters
       connection = PG.connect(dbname: 'chitter')
     end
     
-    #connection.exec("UPDATE chitter SET ts= DATE_TRUNC('SECOND',NOW());")
+    # connection.exec("UPDATE chitter SET ts= DATE_TRUNC('SECOND',NOW());")
+    # connection.exec("UPDATE chitter SET ts= date_trunc('ts', second);")
+
+    # connection.exec("SELECT ts date_trunc('second','ts' ) AS date FROM chitter;")
     result = connection.exec('SELECT * FROM chitter ORDER BY ts DESC')
-    
-    
+
     return [result.map { |aaa| aaa['peep']}, result.map { |aaa| aaa['ts']} ]
     # return result.map { |aaa| aaa['ts']}
     # c = result.map{ |peeps, ts| peeps['peep'] ts['ts'] }
