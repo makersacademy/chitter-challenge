@@ -23,25 +23,42 @@ h1 {
   border-bottom: 2px solid grey;
   font: 15px Verdana;
   float: left;
-  width: 80%;
+  width: 60%;
   padding: 20px;
+  height:70px
 }
 .column_two {
+  border-bottom: 2px solid grey;
+  font: 15px Verdana;
+  float: left;
+  width: 20%;
+  padding: 20px;
+  height:70px
+}
+.column_three {
   border-bottom: 2px solid grey;
   font: 15px Verdana;
   float: right;
   width: 20%;
   padding: 20px;
+  height:70px
 }
 </style>
 
 <h1>Chitter</h1>
 
-<form action="/new_post" method="POST" >
-<input type="text" name="message">
-<input type="submit" name="submit" value="Peep!">
+<% if !@current_user.nil? %>
+  Logged in as: <%= @current_user.name %>
+<% end %>
+
+<form action = "/sign_up">
+  <input type="submit" name="sign_up" value= "Signup">
 </form>
 
+<form action="/new_post" method="POST" >
+  <input type="text" name="message">
+  <input type="submit" name="submit" value="Peep!">
+</form>
 
   <% @posts.each do |post| %>
   <div id="posts">
@@ -50,6 +67,9 @@ h1 {
       <%= post.content %>
       </div>
       <div class="column_two">
+      <%= post.username %>
+      </div>
+      <div class="column_three">
       <%= post.posted_at %>
       </div>
     </div>
