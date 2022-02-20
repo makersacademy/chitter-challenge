@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     'Welcome to Chitter'
+  
   end
 
   get '/peeps/new' do

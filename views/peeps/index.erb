@@ -1,5 +1,10 @@
-<ol>
+<ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    
+    <li>
+    <%= peep.peep %> 
+    peeped at  
+    <%= peep.time_sheet.to_s %>
+    </li>
   <% end %>
-</ol>
+</ul>

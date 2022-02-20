@@ -6,7 +6,9 @@ describe Chitterpeep do
     
       Chitterpeep.add_peep('My first Peep')
       peeps = Chitterpeep.view_peep
-      expect(peeps).to include "My first Peep"
+      
+      expect(peeps[0].peep).to include ("My first Peep")
+   
     end
   end
 
@@ -14,7 +16,7 @@ describe Chitterpeep do
     it "Can view Peeps" do
       Chitterpeep.add_peep("My first Peep")
       peeps = Chitterpeep.view_peep
-      expect(peeps).to include("My first Peep")
+      expect(peeps.first.peep).to include("My first Peep")
     end
   end
 end
