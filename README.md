@@ -1,6 +1,7 @@
 ## Chitter
 
-I had a Problem creating the FEATURE tests and I have only created the 'Happy Path' for the User Stories below
+I had a Problem creating the FEATURE tests and I have only created the 'Happy Path' for the User Stories below.
+I also need to move the CSS rules from the HTML file.
 
 
 # Installing the database
