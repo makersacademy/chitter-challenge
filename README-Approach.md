@@ -48,8 +48,8 @@ I want to sign up for Chitter
 ```
 
 ### Order I'll build things in:
-1. Post a peep
-2. Display peeps in reverse chronological order
+1. Post a peep ✅
+2. Display peeps in reverse chronological order ✅
 3. Sign up
 4. Sign in
 5. Sign out

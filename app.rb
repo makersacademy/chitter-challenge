@@ -8,8 +8,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/' do
-    'Chitter'
     erb :index
+    redirect '/new_peeps'
   end
 
   get '/peeps' do
