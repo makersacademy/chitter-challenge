@@ -1,15 +1,60 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+How to use:
+-------
+* Clone this repo.
+* Run the command 'bundle' in the project directory to ensure you have all the gems.
+* Run tests with RSpec.
+* Run tests with Rubocop.
+* Run ruby app.rb in terminal to view in localhost port.
+
+Planning:
+-------
+![Database Model](/public/CRC_Card_diagram_01.png)
+
+* Setup environment - Sinatra and Capybara introduced.
+* https://github.com/makersacademy/course/blob/main/pills/ruby_web_project_setup_list.md
+
+* First feature - post a peep
+![Views](/public/Post_a_peep.png)
+
+#### Setting Up Database
+
+- Connect to `psql`
+- Create the database using the `psql` command `CREATE DATABASE chitter;`
+- Connect to the database using the `pqsl` command `\c chitter;`
+- Run the query saved in the file `01_create_peep_table.sql`
+- Create the test database using the `psql` command `CREATE DATABASE chitter_test;`
+- Connect to the database using the `pqsl` command `\c chitter_test;`
+- Run the query saved in the file `01_create_peep_table.sql`
+
+
+
+* Setup environment - pg gem introduced.
+- To incorporate a database into Chitter I used the `PG` gem and `SQL` queries to store peeps, and display on Chitter.
+
+![Domain](/public/request_response_diagram.png)
+
+- Setup peep content and time together as it is same form process.
+- Peeps rearranged to show in reverse order.
+- Web helper added to reduce setup for tests.
+- Time format not updated. I tried to change this in the html rather than the database but could not get `HTML <time> datetime Attribute` to work for me.
+
+- I ran out of time to complete more of the challenge. Next I would tackle how to sign up for chitter and create a User class to store the information for user signing up. This name & username could then be displayed on the peeps. 
+
+- HTML updated using Bulma template to format text size and location on page.
+
+![View index.erb](/public/Homepage_view.png)
+
+![View peeps.erb](/public/Peeps_view.png)
+
+-------
+
+
 
 Challenge:
 -------
-
-As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 

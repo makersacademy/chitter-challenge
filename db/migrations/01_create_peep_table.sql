@@ -1,0 +1,1 @@
+chitter=# CREATE TABLE peep(id SERIAL PRIMARY KEY, peep_content VARCHAR(120), time_posted TIMESTAMP);
