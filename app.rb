@@ -6,8 +6,6 @@ class ChitterApp < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-
-  enable :sessions, :method_override
   
   get '/' do
     erb :index

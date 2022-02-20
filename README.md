@@ -32,6 +32,7 @@ Planning:
 
 
 * Setup environment - pg gem introduced.
+- To incorporate a database into Chitter I used the `PG` gem and `SQL` queries to store peeps, and display on Chitter.
 
 ![Domain](/public/request_response_diagram.png)
 
@@ -39,6 +40,17 @@ Planning:
 - Peeps rearranged to show in reverse order.
 - Web helper added to reduce setup for tests.
 - Time format not updated. I tried to change this in the html rather than the database but could not get `HTML <time> datetime Attribute` to work for me.
+
+- I ran out of time to complete more of the challenge. Next I would tackle how to sign up for chitter and create a User class to store the information for user signing up. This name & username could then be displayed on the peeps. 
+
+- HTML updated using Bulma template to format text size and location on page.
+
+![View index.erb](/public/Homepage_view.png)
+
+![View peeps.erb](/public/Peeps_view.png)
+
+-------
+
 
 
 Challenge:
