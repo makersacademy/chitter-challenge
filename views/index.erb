@@ -5,4 +5,8 @@ Chitter
 <input type="submit" name="submit" value="Peep!">
 </form>
 
-<%= @message %>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post %></li>
+  <% end %>
+</ul>
