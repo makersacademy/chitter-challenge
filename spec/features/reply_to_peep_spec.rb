@@ -18,4 +18,9 @@ feature "reply to a peep" do
     expect(page).to have_content("I have replied")
   end
 
+  scenario "Cannot reply to a peep if not logged on" do
+    visit '/'
+    expect(page).not_to have_link("reply")
+  end
+
 end
