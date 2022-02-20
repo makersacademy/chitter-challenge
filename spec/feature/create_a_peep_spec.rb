@@ -3,7 +3,7 @@
 # I want to post a message (peep) to chitter
 
 feature 'Create a Peep' do
-  scenario 'user can enter a post' do
+  xscenario 'user can enter a post' do
     visit('/')
     fill_in 'message', with: "My first Peep"
     click_button 'submit'
