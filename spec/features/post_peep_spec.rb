@@ -4,9 +4,9 @@
 
 feature 'Post a peep' do
   scenario 'user posts a peep to chitter' do
-    visit('/')
-    fill_in 'new_peep', with: 'Here\'s a new peep for you'
+    visit('/peeps/new')
+    fill_in 'new_peep', with: 'Here is a new peep for you'
     click_button('Send peep')
-    expect(page).to have_content 'All the peeps so far'
+    expect(page).to have_content 'new peep for you'
   end
 end

@@ -14,14 +14,16 @@
     </header>
 
       <div class="center">
-      <h2>All the peeps so far</h2>
-      <ul>
-      <% @peeps.each do |peep| %>
-      <li><%= peep %></li>
-      <% end %>
-      </ul>
       <h2>What's in yor mind, Maker?</h2>
-      <a class="button" href="peeps/new">Write Peep</a>
+        <form action='/peeps' method='post'>
+        Share it:
+          <label for='new_peep'>
+            <input type='text' name='new_peep' placeholder="Here's what I peep" required>
+          </label>
+          <button type='submit' name='Send peep' value='Send peep'>Send Peep</button>
+        </form>
+      <br>
+      <a class="button" href="/peeps">See all Peeps</a>
       </div>
   </body>
 </html>
