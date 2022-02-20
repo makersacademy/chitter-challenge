@@ -4,8 +4,8 @@ describe Post do
   describe '.all' do
     it 'returns all posts' do
       connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO post (content) VALUES('My first Peep');")
-      connection.exec("INSERT INTO post (content) VALUES('My second Peep');")
+      Post.create(content: "My first Peep")
+      Post.create(content: "My second Peep")
 
       post = Post.all
 
@@ -16,6 +16,8 @@ describe Post do
 
   describe '.create' do
     it 'creates a new post' do
+      Post.create(content: 'New Peep')
+      expect(Post.all).to include 'New Peep'
     end
   end
 end
