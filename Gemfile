@@ -2,7 +2,13 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'webrick'
+
 group :test do
+  gem 'pg'
+  gem 'capybara'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
