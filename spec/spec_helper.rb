@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './setup_test_database'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
@@ -24,7 +25,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-      load './spec/setup_test_database.rb'
+    setup_test_database
   end
 
   config.mock_with :rspec do |mocks|

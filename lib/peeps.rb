@@ -1,4 +1,5 @@
-require 'database_connection'
+require_relative './database_connection'
+require 'user'
 
 class Peeps
 

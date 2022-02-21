@@ -1,4 +1,7 @@
 <h1>Chitter Feed</h1>
+<% if @user %>
+  <h2>Hello, <%= @user.email %></h2>
+<% end %>
 <ol>
 <% @feed.each do |item| %>
   <li>

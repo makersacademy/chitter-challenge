@@ -15,4 +15,5 @@ group :development, :test do
   gem 'capybara'
   gem 'rack'
   gem 'pg'
+  gem 'bcrypt'
 end
