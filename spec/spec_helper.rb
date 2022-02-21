@@ -1,5 +1,27 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
+require 'rspec'
+require 'capybara'
+require 'capybara/rspec'
+require 'orderly'
+
+# Require Rake
+require 'rake'
+
+# require  Sinatra app file
+require_relative '../app'
+
+# require helpers
+require_relative './features/web_helpers'
+require_relative './model_helpers'
+
+# tell Capybara about the app class
+Capybara.app = Chitter
+
+# Load the Rakefile
+Rake.application.load_rakefile
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -9,9 +31,15 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  config.before(:each) do
+    Rake::Task['test_database_setup'].execute
+  end
+
   config.after(:suite) do
     puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+    puts "\e[33mHave you considered running rubocop?\e[0m"
   end
+
+  
 end

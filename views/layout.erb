@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+    body {
+      background-color: #e6f2ff;
+      min-width:900px;
+
+      
+      }
+    h1   {color: blue;}
+    
+    .content {
+      text-align: center;
+      max-width: 43%;
+      margin: auto;
+      font-family: Garamond, Times, serif;
+      border: 10px solid #99ceff;
+      border-radius: 50px;
+      padding: 30px;
+      }
+
+    .peep_input {
+      width: 60% !important;
+      height: 80px !important;
+      border-radius: 10px;
+      overflow:hidden; 
+      resize:none;
+      
+    }
+
+    #peep{
+      margin: auto;
+      width: 70%;
+      border: 1px solid #99ceff;
+      padding: 3px;
+      border-radius: 10px;
+      background-color: #99ceff;
+    }
+    #registration_border {
+      margin: auto;
+      width: 60%;
+      border: 3px solid #99ceff;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+
+    #peep_border {
+      position:relative;
+      border: 3px solid #99ceff;
+      border-radius: 50px;
+      padding: 15px;
+    }
+
+    #peep-scroll {
+      height:350px;
+      overflow:auto;  
+      margin-top:10px;
+    }
+
+    td{
+        text-align:right;
+    }
+
+    .peep_output {
+        max-width: 100px ;
+        word-wrap: break-word ;
+    }
+
+    body input[type="text"] {
+      border-radius: 5px;
+      width: 300px;
+      height: 30px
+    }
+    body input[type="email"] {
+      border-radius: 5px;
+      width: 300px;
+      height: 30px
+    }
+    body input[type="password"] {
+      border-radius: 5px;
+      width: 300px;
+      height: 30px
+    }
+
+    body input[type="submit"] {
+      width:200px;
+      display: inline-block;
+      padding: 5px 17px;
+      font-size: 15px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #80c1ff;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 8px #999;
+      height: 30px
+    }
+
+    body input[type="submit"]:hover {background-color: #66b5ff}
+
+    body input[type="submit"]:active {
+      background-color: #66b5ff;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+      height: 30px
+    }
+    
+  </style>
+  </head>
+
+  <body>
+  <div class="content">
+  <h1>Chitter</h1>
+  <%= yield %>
+  </div>
+  </body>
+</html>
