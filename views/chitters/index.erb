@@ -1,0 +1,9 @@
+<ul>
+  <% @chitters.each do |chitter| %>
+    <li>
+      <a ref="<%= chitter.text %>">
+        <%= chitter.message %>
+      </a>
+    </li>
+  <% end %>
+</ul>
