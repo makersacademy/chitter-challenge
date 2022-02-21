@@ -1,0 +1,1 @@
+ALTER TABLE chitters ADD COLUMN message VARCHAR(60);
