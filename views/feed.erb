@@ -1,14 +1,22 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="styles.css">
 <h1>Chitter Feed</h1>
+<% if !@user %>
+  <a href="<%= '/users/new' %>">
+    <h2>Sign Up to Chitter</h2>
+  </a> 
+<% end %>
+</head>
+<body>
 <% if @user %>
   <h2>Hello, <%= @user.email %></h2>
 <% end %>
 <ol>
 <% @feed.each do |item| %>
-  <li>
-  <%= item.peep %>
-  <br>
-  Created at: <%= item.created_at %>
-  </li>
-
+  <p><%= item.peep %></p>
+  <p2><%= item.created_at %></p>
+  <p>--------------------------</p>
 <% end %>
 </ol>
+</body>
