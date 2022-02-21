@@ -1,29 +1,24 @@
-html {
-  height: 100%;
-}
-
 body {
-  background: linear-gradient(#C1DFF0, #88CCF1);
+  background: linear-gradient(#C1DFF0, #88CCF1) no-repeat fixed;
   font-family: sans-serif;
 }
 
 header {
   position: relative;
   background-color: #1D82B4;
-  margin: 1% 2%;
-  padding: 6px;
+  margin: 1% 1.5%;
+  padding: 0.5em;
   border-radius: 5px;
 }
 
 header h1 {
-  text-align: center;
   margin: 0;
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 button {
   background-color: #9e0031;
-  padding: 10px 17px;
+  padding: 0.5em 0.8em;
   border-color: #ECE4B7;
   border-radius: 5px;
 
@@ -36,11 +31,11 @@ header button {
 }
 
 header .signup-button {
-  right: 130px;
+  right: 5.5em;
 }
 
 header .log-button {
-  right: 30px;
+  right: 0.3em;
 }
 
 .welcome, .new-peep, article {
@@ -53,7 +48,7 @@ input {
 }
 
 .new-peep, article {
-  width: 30%;
+  width: 90%;
   margin: 10px auto;
 }
 
@@ -77,4 +72,10 @@ article {
 .new-user input {
   display: block;
   margin: 10px auto;
+}
+
+@media (min-width: 1080px) {
+  .new-peep, article {
+      width: 30%;
+  }
 }
