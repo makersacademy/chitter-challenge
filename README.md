@@ -7,7 +7,13 @@
   * git clone https://github.com/Ledders26/chitter-challenge.git 
   * bundle install
   * rackup
-* visit http://localhost:9292/
+* setup the database:
+  * open psql (run 'psql' in the command line)
+  * run the following commands:
+    * CREATE DATABASE chitter;
+    * \c chitter
+    * run the SQL within db/migrations
+* visit http://localhost:9292/ and have fun!
 
 User Stories
 ```
