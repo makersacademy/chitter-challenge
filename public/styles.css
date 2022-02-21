@@ -1,0 +1,63 @@
+body {
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 35%, rgba(33,46,198,1) 100%);
+  text-align: center;
+}
+h1 {
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 55px;
+  font-family: fantasy;
+}
+h2 {
+  color: white;
+  text-align: right;
+  font-size: 20px;
+  font-family: Georgia;
+}
+h3 {
+  color: white;
+  font-size: 55px;
+}
+p {
+  color: white;
+  text-align: center;
+  font-family: Georgia;
+  font-size: 20px
+}
+p2 {
+  color: white;
+  text-align: center;
+  font-size: 13px;
+}
+form {
+  color: white
+}
+.submit-button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white;
+}
+.enter-button{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white;
+  font-size: 23px;
+  font-weight: 300;
+}
+.input {
+  border: none;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 150;
+  margin: auto;
+}
