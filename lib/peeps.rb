@@ -26,7 +26,7 @@ class Peep
       
       results.map { |peep|
         Peep.new(id: peep['id'], message: peep['message'], 
-       time_stamp: DateTime.parse(peep['time_stamp']).strftime('%l: %M %p'))
+       time_stamp: DateTime.parse(peep['time_stamp']).strftime('%l:%M %p'))
       }      
     end
     

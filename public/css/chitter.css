@@ -1,30 +1,9 @@
-/* The side navigation menu */
-.sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: black;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-  }
-  
-  .sidebar a {
-    display: block;
-    color: white;
-    padding: 16px;
-    text-decoration: none;
-  }
-
-  .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  }
   
   /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
   div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 1px 10px;
     height: 1000px;
   }
   
