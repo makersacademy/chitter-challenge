@@ -15,8 +15,11 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  get '/chitter' do
+  before do
     @user = User.find(session[:user_id])
+  end
+
+  get '/chitter' do
     @peeps = Peep.all_in_time_order
 
     erb :index
