@@ -8,7 +8,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/' do
-     'Chitter Manager'
+     'Chitter'
     # p ENV
   end
 
