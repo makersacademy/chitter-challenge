@@ -7,7 +7,7 @@ Use this list to set up a project with:
 - RSpec for unit testing
 - PostgreSQL for databases
 
-### 1. Ready a project for Sinatra, RSpec, Capybara and PostgreSQl
+### 1. Ready a project for Sinatra, RSpec, Capybara and PostgreSQL
 
 Any Ruby project starts by creating a Gemfile, which lists all libraries (dependent programs, or 'gems') of this project. [Bundler](http://bundler.io/), which is a dependency management program for Ruby, can do this for us. Use Bundler's `init` command:
 
@@ -130,7 +130,7 @@ To configure Capybara, we need to adjust the `spec_helper.rb`, which configures 
 - Set the environment to "test".
 - Bring in the contents of the `app.rb` file.
 - Require all the testing gems (RSpec, Capybara, and the Capybara/RSpec package that lets them talk to each other).
-- Tell Capybara that any instructions like `visit('/')` should be directed at the application called 'BookmarkManager'.
+- Tell Capybara that any instructions like `visit('/')` should be directed at the application called 'Chitter'.
 
 Add the following to `spec/spec_helper.rb`:
 
@@ -148,7 +148,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-# Tell Capybara to talk to RPS
+# Tell Capybara to talk to Chitter
 Capybara.app = Chitter
 
 ### the rest of the file ###

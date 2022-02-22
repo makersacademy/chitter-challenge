@@ -117,6 +117,7 @@ Run `rspec` directly in root of your local project
 - Models: `lib/<name>.rb`
 - Specs: `spec/<name>.rb`
 - Features: `spec/features/<name>.rb`
+- Databases: `db/migrations/<name>.sql`
 
 #### What I know I need to work on
 - Having a gap between peeps
