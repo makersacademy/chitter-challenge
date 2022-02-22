@@ -1,8 +1,10 @@
 Setup instructions
 ==================
 
-1. Bundle install
+1. Install ruby '3.0.2' 
+
+2. In root, run "bundle install" 
 
 2. Create real and test databases via the SQL queries listed in db/migrations
 
-3. Run 'rackup' in root directory
+3. In root, run "rackup"
