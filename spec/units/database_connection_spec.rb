@@ -3,6 +3,14 @@
 require 'database_connection'
 
 RSpec.describe DatabaseConnection do
+  describe 'remote_connection' do
+    it 'sets up a connection to a database though pg' do
+      url = 'postgresql://dbname:chitter_test'
+      expect(PG).to receive(:connect).with(url)
+
+      described_class.remote_connection(url)
+    end
+  end
   describe '.setup' do
     it 'sets up a connection to a database though pg' do
       expect(PG).to receive(:connect).with(dbname: 'chitter_test')

@@ -7,6 +7,10 @@ class DatabaseConnection
     attr_reader :connection
   end
 
+  def self.remote_connection(url)
+    @connection = PG.connect(url)
+  end
+
   def self.setup(dbname)
     @connection = PG.connect(dbname: dbname)
   end

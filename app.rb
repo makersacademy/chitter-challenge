@@ -19,6 +19,10 @@ class Chitter < Sinatra::Base
     @user = User.find(session[:user_id])
   end
 
+  get '/' do
+    redirect '/chitter'
+  end
+
   get '/chitter' do
     @peeps = Peep.all_in_time_order
 
