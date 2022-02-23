@@ -1,13 +1,15 @@
 Chitter Challenge
 =================
 
+[Deployed on Heroku](https://chitter-challenge-matt.herokuapp.com)
+
 ## Setup
 You will need to have PostgresSQL installed locally to run this app.
 [PostgreSQL installation guides](https://www.postgresql.org/download/)
 
 - `git clone` this repository
 - `bundle install` inside of directory
-- `rake setup` to create the databases
+- `rake local_setup` to create the databases
 
 ## Running app
 - Type `rackup` to run the app
