@@ -1,13 +1,30 @@
 require 'pg'
 
-task :setup do
+task :production_setup do
+  connection = PG::Connection.new(ENV['DATABASE_URL'])
+
+  connection.exec(
+    'CREATE TABLE peeps(
+    id SERIAL PRIMARY KEY,
+    peep VARCHAR(140),
+    user_email VARCHAR(30),
+    time VARCHAR(30));'
+  )
+  connection.exec(
+    'CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(60),
+    password VARCHAR(140));'
+  )
+end
+
+task :local_setup do
   puts "Creating databases..."
 
   ['chitter', 'chitter_test'].each do |database|
-    connection = PG.connect
-    connection.exec("CREATE DATABASE #{database};")
-
     connection = PG.connect(dbname: database)
+
+    connection.exec("CREATE DATABASE #{database};")
 
     connection.exec(
       'CREATE TABLE peeps(
