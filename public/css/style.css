@@ -9,6 +9,8 @@ header {
   margin: 1% 1.5%;
   padding: 0.5em;
   border-radius: 5px;
+
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.25);
 }
 
 header h1 {
@@ -23,6 +25,12 @@ button {
   border-radius: 5px;
 
   color: #ECE4B7;
+
+  box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.20);
+}
+
+button:active {
+  box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.20);
 }
 
 header button {
@@ -45,6 +53,8 @@ header .log-button {
 input {
   background-color: #ECE4B7;
   height: 34px;
+
+  box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.20);
 }
 
 .new-peep, article {
@@ -66,6 +76,8 @@ article {
 
   border: 1px solid #2C302E;
   border-radius: 10px;
+
+  box-shadow: 1px 1px 6px 1.5px rgba(0,0,0,0.20);
 }
 
 .new-user {
