@@ -9,7 +9,7 @@ You will need to have PostgresSQL installed locally to run this app.
 
 - `git clone` this repository
 - `bundle install` inside of directory
-- `rake local_setup` to create the databases
+- `rake db:local_setup` to create the databases
 
 ## Running app
 - Type `rackup` to run the app
@@ -19,12 +19,12 @@ example: `http://localhost:9292/chitter`
 
 ## To run tests
 
-Before running tests ensure you have run `rake setup`.
+Before running tests ensure you have run `rake db:local_setup`.
 Then `Bundle exec rspec` to run all tests.
 
 ### Clearing the databases
 
-`rake teardown` to clear the databases.
+`rake db:teardown` to clear the databases.
 
 
 ### My approach to this project
