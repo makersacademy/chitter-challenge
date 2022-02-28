@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  configure :development, :production do
+  configure do
     register Sinatra::Flash
   end
 
