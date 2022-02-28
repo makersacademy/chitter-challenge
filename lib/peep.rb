@@ -9,7 +9,6 @@ class Peep
 		@id = id
 		@message = message
 		@time = time
-		
 	end
 
 	def self.create(peep:)
@@ -50,4 +49,3 @@ class Peep
 	end
 
 end
-

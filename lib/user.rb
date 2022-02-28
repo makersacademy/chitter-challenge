@@ -1,7 +1,6 @@
 require 'bcrypt'
 require_relative 'database_connection'
 
-
 class User
 	attr_reader :id, :email
 
@@ -18,7 +17,6 @@ class User
 		else
 			DatabaseConnection.setup("chitter")
 		end
-	
 
 		result = DatabaseConnection.query(
 			"INSERT INTO users (email, password) VALUES ($1, $2) returning id, email;",
@@ -65,8 +63,6 @@ class User
 			id: result[0]['id'], 
 			email: result[0]['email'], 
 		)
-	
 	end
-
 
 end

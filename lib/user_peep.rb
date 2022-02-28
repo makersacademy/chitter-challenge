@@ -5,13 +5,11 @@ require_relative 'user'
 class UserPeep 
 	attr_reader :user_id, :peep_id
 	
-
-	def initialize(user_id:, peep_id: )
+	def initialize(user_id:, peep_id:)
 		@user_id = user_id
 		@peep_id = peep_id
 		@@pairs = []
 	end
-
 
 	def self.create(user_id:, peep_id:)
 		if ENV["ENVIRONMENT"] == 'test'
@@ -22,7 +20,6 @@ class UserPeep
 
     result = DatabaseConnection.query("INSERT INTO userspeeps (user_id, peep_id)
      VALUES ($1, $2) RETURNING user_id, peep_id;", [user_id, peep_id])
-
     UserPeep.new(
 			user_id: result[0]['user_id'], 
 			peep_id: result[0]['peep_id']
@@ -44,8 +41,6 @@ class UserPeep
     userpeeps.each do |userpeep|
       @@pairs.push([userpeep['user_id'], userpeep['peep_id']])
     end
-		
-	
 	end
 
 	def self.add_users
@@ -71,7 +66,6 @@ class UserPeep
 		else
 			DatabaseConnection.setup("chitter")
 		end
-
 
 		DatabaseConnection.query("SELECT * FROM peeps;").map do |peep|
       new_peep = Peep.new(id: peep['id'], message: peep['message'], time: peep['time'])
