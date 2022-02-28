@@ -10,6 +10,9 @@ require './lib/user'
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+  end
+
+  configure :development, :production do
     register Sinatra::Flash
   end
 
