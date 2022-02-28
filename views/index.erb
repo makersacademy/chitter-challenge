@@ -1,0 +1,14 @@
+<h2 class="welcome">Welcome, <%= @user.email %></h2>
+
+<form class="new-peep" action="/chitter/<%= @user.email %>/new" method="post">
+  <input type="text" name="peep" placeholder="type your peep here">
+  <button type="submit" name="submit">Send Peep</button>
+</form>
+
+<% @peeps.each do |peep| %>
+<article>
+  <address rel="author"><%= peep.user_email %></address>
+  <time><%= peep.timestamp %></time>
+  <p><%= peep.peep %></p>
+</article>
+<% end %>

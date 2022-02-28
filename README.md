@@ -1,10 +1,40 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+[Deployed on Heroku](https://chitter-challenge-matt.herokuapp.com)
+
+## Setup
+You will need to have PostgresSQL installed locally to run this app.
+[PostgreSQL installation guides](https://www.postgresql.org/download/)
+
+- `git clone` this repository
+- `bundle install` inside of directory
+- `rake db:local_setup` to create the databases
+
+## Running app
+- Type `rackup` to run the app
+- You will see a localhost address(usually localhost:9292)
+type that address into a web browser with /chitter
+example: `http://localhost:9292/chitter`
+
+## To run tests
+
+Before running tests ensure you have run `rake db:local_setup`.
+Then `Bundle exec rspec` to run all tests.
+
+### Clearing the databases
+
+`rake db:teardown` to clear the databases.
+
+
+### My approach to this project
+
+I started with BDD with the first two user stories. I then decided, since I was attempting so a few new techniques like Object relational_mapping I would focus on the back end objects and then implement them into the full stack with Capybara testing after the unit testing.
+
+
+------------
+
+
 
 Challenge:
 -------

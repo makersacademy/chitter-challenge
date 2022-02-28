@@ -1,0 +1,97 @@
+body {
+  background: linear-gradient(#C1DFF0, #88CCF1) no-repeat fixed;
+  font-family: sans-serif;
+}
+
+header {
+  position: relative;
+  background-color: #1D82B4;
+  margin: 1% 1.5%;
+  padding: 0.5em;
+  border-radius: 5px;
+
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.25);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+button {
+  background-color: #9e0031;
+  padding: 0.5em 0.8em;
+  border-color: #ECE4B7;
+  border-radius: 5px;
+
+  color: #ECE4B7;
+
+  box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.20);
+}
+
+button:active {
+  box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.20);
+}
+
+header button {
+  position: absolute;
+  bottom: 17%;
+}
+
+header .signup-button {
+  right: 5.5em;
+}
+
+header .log-button {
+  right: 0.3em;
+}
+
+.welcome, .new-peep, article {
+  text-align: center;
+}
+
+input {
+  background-color: #ECE4B7;
+  height: 34px;
+
+  box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.20);
+}
+
+.new-peep, article {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.new-peep {
+  margin-bottom: 25px;
+}
+
+.new-peep button {
+  margin-top: 20px;
+}
+
+article {
+  background-color: #ECE4B7;
+  padding: .5em;
+
+  border: 1px solid #2C302E;
+  border-radius: 10px;
+
+  box-shadow: 1px 1px 6px 1.5px rgba(0,0,0,0.20);
+}
+
+.new-user {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.new-user input {
+  display: block;
+  margin: 10px auto;
+}
+
+@media (min-width: 1080px) {
+  .new-peep, article {
+      width: 30%;
+  }
+}
