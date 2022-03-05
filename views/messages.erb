@@ -1,0 +1,82 @@
+<div class="feed">
+  <div class="feed__header">
+    <h2>Home</h2>
+    <div class="container-fluid">
+  
+  <div class="cheetBox">   
+    <form action='/messages' method='post'>
+      <div class="cheetbox__input">
+        <input type='text' name='text' placeholder="What's going on?">
+        <input type='submit' name='Submit' class='cheetBox__cheetButton'>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="order">
+    <% if session[:order] == "oldest" %>
+      <form action='/messages' method='get'>
+        <input type= "hidden" name="order" value="newest">
+      <input type='submit' value='View by newest' class='cheetBox__cheetButton'>
+    </form>
+    <% else %>
+      <form action='/messages' method='get'>
+        <input type= "hidden" name="order" value="oldest">
+        <input type='submit' value='View by oldest' class='cheetBox__cheetButton'>
+      </form>
+    <% end %>
+  </div>
+
+  <div class="posts">
+
+      <ul class="post__list"> 
+        <% @messages.each do |message|  %>
+
+        <div class="post">
+          <li>
+          <div class="post__avatar">
+            <img
+              src="https://i.imgur.com/86neBHd.jpg"
+              alt="hentai protagonist"
+            />
+          </div>
+
+          <div class="post__body">
+            <div class="post__header">
+              <div class="post__headerText">
+                <h3 id="author"><%= message.username %></h3> 
+                <span class="post__headerSpecial">
+                  <% if message.username != "Guest" %>
+                    <span class="material-icons post__badge"> verified </span>@<%= message.username %>
+                  <% end %>
+                </span> 
+              </div>
+            </div>
+
+            <div class="post__headerDescription">
+              <p id="message"><%= message.text %></p> 
+            </div>
+
+
+            <div class="post__footer">
+              <h4 id="time"><%= message.created_at %></h4>
+              <form action='/replies' method='get'>
+                <input type="hidden" name="message_id" value="<%= message.id %>">
+                <input type='submit' value='Show replies' class='cheetBox__cheetButton__small'>
+              </form>
+                <a href="/replies/new">
+                </a>
+              <form action='/replies/new' method='get'>
+                <input type="hidden" name="message_id" value="<%= message.id %>">
+                <input type='submit' value='Reply' class='cheetBox__cheetButton__small'>
+              </form>
+            </div>
+          </div>
+        </div>
+        </li>
+      </div>
+
+      <% end %>
+    </ul>
+</div>
+

@@ -3,8 +3,31 @@ language: ruby
 services:
   - postgresql
 
-before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+rvm:
+  - 3.0.2
 
+env:
+  - ENV['ENVIRONMENT'] = 'test'
+
+before_script:
+  - psql -c 'CREATE DATABASE chitter;' 
+  - psql -c 'CREATE DATABASE chitter_test;' 
+  - psql -c '\c chitter_test' -c 'CREATE TABLE users(
+                                      id SERIAL PRIMARY KEY, 
+                                      username VARCHAR(20), 
+                                      password VARCHAR(140)
+                                    );'
+  - psql -c '\c chitter_test' -c 'CREATE TABLE messages(
+                                      id SERIAL PRIMARY KEY, text VARCHAR(280), 
+                                      created_at TIMESTAMP WITHOUT TIME ZONE, 
+                                      user_id INT REFERENCES users(id));'
+  - psql -c '\c chitter_test' -c 'CREATE TABLE replies(
+                                      id SERIAL PRIMARY KEY, 
+                                      text VARCHAR(280), 
+                                      created_at TIMESTAMP WITHOUT TIME ZONE, 
+                                      message_id INT REFERENCES messages (id),
+                                      user_id INT REFERENCES users(id)
+                                    );'
+  - psql -c '\c chitter_test' -c '\dt'
 script:
   - bundle exec rspec

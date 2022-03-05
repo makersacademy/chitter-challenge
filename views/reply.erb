@@ -1,0 +1,42 @@
+<form action='/messages' method='post'>
+  <input type='text' name='text' placeholder='Enter a message'>
+  <input type='submit' name='Submit'>
+</form>
+
+<% if session[:order] == "oldest" %>
+  <form action='/messages' method='get'>
+    <input type= "hidden" name="order" value="newest">
+  <input type='submit' value='View by newest'>
+</form>
+<% else %>
+  <form action='/messages' method='get'>
+    <input type= "hidden" name="order" value="oldest">
+    <input type='submit' value='View by oldest'>
+  </form>
+<% end %>
+
+<ul class="list-group" style="list-style: none;"> 
+  <% @messages.each do |message|  %>
+  <li>
+    <h3 id="message"><%= message.text %></h3>
+    <h4 id="author">Posted by <%= message.username %></h4>
+    <h4 id="time"><%= message.created_at %></h4>
+    <form action='/replies' method='get'>
+      <input type="hidden" name="message_id" value="<%= message.id %>">
+      <input type='submit' value='Show replies'>
+    </form>
+    <% if @message_id == message.id %>
+      <form action='/replies' method='post'>
+        <input id="reply_field" type='text' name='text'>
+        <input type="hidden" name="message_id" value="<%= message.id %>">
+        <input type='submit' value='Cheet your reply'>
+      </form>
+    <% else %>
+      <form action='/replies/new' method='get'>
+        <input type="hidden" name="message_id" value="<%= message.id %>">
+        <input type='submit' value='Reply'>
+      </form>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

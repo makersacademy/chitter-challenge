@@ -1,0 +1,12 @@
+<h2>Sign up</h2>
+<form action="/users" method="post">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Username" required>
+  </div>
+  <div>
+    <label for="password">Password (min. 8 characters):</label>
+    <input type="password" id="pass" name="password" minlength="8" placeholder="Password" required>
+  </div>
+  <input type="submit" value="Sign up" class='btn btn-primary'>
+</form>
