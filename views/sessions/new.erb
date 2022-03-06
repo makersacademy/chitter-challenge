@@ -1,0 +1,17 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<h1>Chitter</h1>
+
+<h2>Login</h2>
+<form action="/sessions" method="post">
+  <input type="email" name="email" placeholder="Enter email"/>
+  <input type="password" name="password"  placeholder="Enter password"/>
+  <button type="submit" value="Login"> Login </button>
+
+  <p>OR</p>
+
+  <p> <a href="/users/register"> Sign up </p>
+
+</form>

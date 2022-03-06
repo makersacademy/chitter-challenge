@@ -1,0 +1,3 @@
+
+CREATE DATABASE chitter_challenge;
+CREATE TABLE chitter(id SERIAL PRIMARY KEY, text VARCHAR(140));

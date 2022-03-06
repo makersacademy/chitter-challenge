@@ -1,0 +1,41 @@
+
+<h1>Chitter</h1>
+
+<% if @user %>
+    <h1>Welcome, <%= @user.email %></h1>
+    <form action="/logout_option" method="post">
+      <label for="logout_choice">
+        Log out
+      </label>
+    <input type="submit" name="logout_choice" value="Log out">
+    </form>
+  <% else %>
+    <form action="/login_option" method="post">
+      <label for="login_choice">
+        Register an account here
+      </label>
+    <input type="submit" name="login_choice" value="Register">
+    </form>
+    <h3>or</h3>
+    <form action="/login/option" method="post">
+      <label for="login_choice">
+        Log into your account here
+      </label>
+      <input type="submit" name="login_choice" value="Log in">
+    </form>
+<% end %>
+
+<form action ="peep/new" method="post">
+  <input type="text" name="peep" placeholder="What is on your mind?">
+  <input type="submit" value="Post">
+</form>
+
+<ul>
+  <% @peep_log.each do |peep| %>
+    <li>
+    <%= peep.message %>
+    time: <%= peep.time %>
+    </li>
+  <% end %>
+</ul>
+

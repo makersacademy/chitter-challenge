@@ -1,0 +1,118 @@
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+  background-color: rgb(29, 161, 242);
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+.card {
+  box-shadow: 2px 2px 0 grey;
+  border: 2px solid;
+  border-color: black;
+  transition: 0.3s;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  margin-top: 50px;
+  border-radius: 20px;
+  opacity: .9;
+}
+
+.input-box {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid;
+  border-color: black;
+  border-radius: 20px;
+  background-color: rgb(225, 241, 247);
+}
+
+.register-btn {
+  width: 100%;
+  padding: 12px 12px;
+  margin-top: 8px;
+  margin-bottom: 40px;
+  border: 1px solid;
+  border-color: rgb(29, 161, 242);
+  border-radius: 20px;
+  background-color: rgb(29, 161, 242);
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.heading2 {
+  font-family: 'Roboto', sans-serif;
+  color: rgb(78, 78, 77);
+  font-size: 30px;
+  line-height: 2;
+}
+
+.body-text {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 15px;
+  line-height: 2;
+}
+
+

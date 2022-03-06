@@ -1,0 +1,28 @@
+<div class="card">
+      <div class="container">
+        <% if @user %>
+          <h1><%= "Signed in as #{@user.firstname} #{@user.surname}"%></h1>
+          <form action="/peep" method="post">
+            <fieldset>
+              <input type="text" name='content' id='peep' placeholder = "What's happening?">
+              <input type="submit" name="Peep" value="Peep">
+            </fieldset>
+          </form>
+
+          <form action="/sessions/destroy" method="post">
+            <input type="submit" value="Sign out" />
+          </form>
+
+        <% else %>
+          <h1>
+            <form action="/sessions/new">
+              <input class="submit-btn" type="submit" value="Log In">
+            </form>
+            <form action="/users/register">
+              <input class="submit-btn" type="submit" value="Register">
+            </form>
+          </h1>
+        <% end %>
+
+      </div>
+    </div>

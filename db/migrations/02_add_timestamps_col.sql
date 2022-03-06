@@ -1,0 +1,2 @@
+
+ALTER TABLE chitter ADD COLUMN created_at TIMESTAMP;
