@@ -30,7 +30,7 @@ class ChitterApp < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect('/newchitter')
+      redirect('/')
     else
       flash[:notice] = 'Please check your username or password.'
       redirect('/')
@@ -43,8 +43,7 @@ class ChitterApp < Sinatra::Base
       surname: params['surname'], 
       email: params['email'], 
       username: params['username'],
-      password: params['password'],
-      profile_image_url: params['profile_image_url']
+      password: params['password']
     )
     session[:user_id] = user.id
     redirect '/'
@@ -60,9 +59,7 @@ class ChitterApp < Sinatra::Base
     redirect('/')
   end
 
-  get '/newchitter' do 
-    
-  end
+  
 
   # get '/chitter/new' do 
   #   @user = User.find(id: session[:user_id])
@@ -78,10 +75,9 @@ class ChitterApp < Sinatra::Base
       author_first_name: @user.first_name,
       author_surname: @user.surname,
       author_email: @user.email,
-      author_username: @user.username,
-      author_profile_image_url: @user.author_profile_image_url
+      author_username: @user.username
     )
-    redirect '/newchitter'
+    redirect '/'
   end
 
   # run! if app_file == $0

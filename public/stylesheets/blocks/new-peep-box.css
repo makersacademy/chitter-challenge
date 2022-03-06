@@ -24,8 +24,6 @@
   border-radius: 15px;
 }
 
-
-
 .post-btn:hover {
   background: rgba(29, 161, 242, 0.1);
   color: #1da0f2;
@@ -35,7 +33,6 @@
 .new-peep-box__footer {
   padding: 5px;
   display: flex;
-  flex-direction: column;
   flex-direction: row-reverse;
 }
 

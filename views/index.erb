@@ -6,14 +6,17 @@
     <link rel="stylesheet" href="stylesheets/blocks/brand.css" />
     <link rel="stylesheet" href="stylesheets/blocks/left-navbar.css" />
     <link rel="stylesheet" href="stylesheets/blocks/new-peep-box.css" />
+    <link rel="stylesheet" href="stylesheets/blocks/sign-in-box.css" />
     <link rel="stylesheet" href="stylesheets/blocks/peep-history.css" />
     <link rel="stylesheet" href="stylesheets/blocks/trending.css" />
     <link rel="stylesheet" href="stylesheets/blocks/who-to-follow.css" />
   </head>
   <body>
+
     <div class="layout">
 
       <img src="./images/not-twitter-icon.svg" class="logo" />
+
       <div class="left-navbar">
         <div class="left-navbar__item left-navbar__item--active">
           <img src="./images/home-icon.svg" class="left-navbar__item-icon" />
@@ -44,41 +47,45 @@
       </div>
    
       <div class="layout__main">
+        
         <% if !@user %>
-          <div class="flash-notice">
-            <%= flash[:notice] %>
-          </div>
-          
-          <form action="/sessions" method="post">
-            <input class="input-box" name="email" type="email" placeholder="Enter email address">
-            <br>
-            <input class="input-box" name="password" type="password" placeholder="Enter password">
-            <button class="login-btn" type="submit" value="Log in"> Log in </button>
-          </form>
+          <div class="sign-in-box-container">
+            
+            <div class="flash-notice">
+              <%= flash[:notice] %>
+            </div>
+            
+            <form action="/sessions" method="post">
+              <input class="sign-in-box__input-box" name="email" type="email" placeholder="Enter email address">
+              <input class="sign-in-box__input-box" name="password" type="password" placeholder="Enter password">
+              <button class="sign-in-box__btn" type="submit" value="Log in"> Log in </button>
+            </form>
 
-          <form action="/users/register" method="get">
-            <button class="register-btn" type="submit" value="Register"> Register </button>
-          </form>
+            <form action="/users/register" method="get">
+              <button class="sign-in-box__btn" type="submit" value="Register"> Register </button>
+            </form>
+            
+          </div>
         <% end %> 
+        
 
 
          <% if @user %>
           <div class="new-peep-box">
-            <img class="new-peep-box__author-logo" src="<% @user.profile_image_url%>"/>
+            <img class="new-peep-box__author-logo" src="./images/default_profile_twitter.png"/>
             <form action="/chitter/message/new" method="post">
               <input class="new-peep-box__input-box" name="message" type="message" placeholder="What's happening?">
               <div class="new-peep-box__footer">
                 <button class="new-peep-box__post-btn" type="submit" value="post"> Peep </button>
               </div>
             </form>
-
           </div>
          <% end %>
 
                   
         <% @peep_history.each do |peep| %>
           <div class="peep">
-            <img class="peep__author-logo" src="./images/profile-image-1.jpg" />
+            <img class="peep__author-logo" src="./images/default_profile_twitter.png" />
             <div class="peep__main">
               <div class="peep__header">     
                 <div class="peep__author-name">
