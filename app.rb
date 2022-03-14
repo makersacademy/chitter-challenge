@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/bookmark'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -11,12 +11,12 @@ class Chitter < Sinatra::Base
     'Chitter'
   end
 
-  # get '/bookmarks' do
+  get '/peeps' do
 
-  #   @bookmarks = Bookmark.all
-  #   erb :'bookmarks/index'
+    @peeps = Peep.all
+    erb :'peeps/index'
 
-  # end
+   end
 
 
 
