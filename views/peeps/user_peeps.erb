@@ -1,4 +1,5 @@
 <p><%= @selected_peeps[0].user_id %>'s Peeps</p>
+<a href="/peeps"><button>Back to all Peeps</button></a>
 <ul>
   <% @selected_peeps.each do |peep| %>
     <li>
@@ -11,3 +12,4 @@
     </li>
   <% end %>
 </ul>
+<a href="/peeps"><button>Back to all Peeps</button></a>
