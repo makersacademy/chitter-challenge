@@ -1,4 +1,5 @@
 require 'pg'
+require 'Date'
 
 class Peep
 
@@ -30,7 +31,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("INSERT INTO peeps (peep_text, user_id, time) VALUES('#{peep_text}', '#{user_id}', '#{time}') RETURNING id, peep_text, user_id, time;")
+    
+    result = connection.exec("INSERT INTO peeps (peep_text, user_id, time) VALUES('#{peep_text}', '#{user_id}', '#{Time.now.strftime("%H:%M")}') RETURNING id, peep_text, user_id, time;")
     Peep.new(id: result[0]['id'], peep_text: result[0]['peep_text'], user_id: result[0]['user_id'], time: result[0]['time'])
   end
 
