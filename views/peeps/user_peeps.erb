@@ -1,0 +1,12 @@
+<ul>
+  <% @selected_peeps.each do |peep| %>
+    <li>
+    <%= peep.user_id %>
+    <br>
+    <%= peep.peep_text %>
+    <br>
+    <%= peep.time %>
+    <p> </p>
+    </li>
+  <% end %>
+</ul>

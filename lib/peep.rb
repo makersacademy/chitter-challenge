@@ -36,6 +36,18 @@ class Peep
     Peep.new(id: result[0]['id'], peep_text: result[0]['peep_text'], user_id: result[0]['user_id'], time: result[0]['time'])
   end
 
+  def self.select(user_id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.exec("SELECT * FROM peeps WHERE user_id = '#{user_id}';")
+    result.map do |peep|
+      Peep.new(id: peep['id'], peep_text: peep['peep_text'], user_id: peep['user_id'], time: peep['time'])
+    end
+  end
+
 end
 
 

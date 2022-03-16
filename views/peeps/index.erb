@@ -2,7 +2,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li>
-    <%= peep.user_id %>
+    <a href="/peeps/<%=peep.user_id%>"><%= peep.user_id %></a>
     <br>
     <%= peep.peep_text %>
     <br>
@@ -11,3 +11,4 @@
     </li>
   <% end %>
 </ul>
+<a href="/new"><button>New Peep</button></a>
