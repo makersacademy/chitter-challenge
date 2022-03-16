@@ -26,15 +26,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:user_id' do
-    # p params[:user_id]
     @selected_peeps = Peep.select(user_id: params[:user_id])
     erb :'peeps/user_peeps'
   end
-
-  # get '/bookmarks/:id/edit' do
-  #   @bookmark = Bookmark.find(id: params[:id])
-  #   erb :'bookmarks/edit'
-  # end
 
   run! if app_file == $0
 end
