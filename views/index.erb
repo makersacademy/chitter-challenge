@@ -1,0 +1,11 @@
+<h2> Welcome to Chitter you chatter </h2>
+<h3> Have a look at the latest peeps:</h3>
+<ul> <% @peep.each do |peep| %>
+  <li> 
+  <%= peep %>
+  </li>
+  <% end %>
+</ul>
+<form action='/newpeep'>
+  <input type='submit' value='+Peep'>
+</form>
