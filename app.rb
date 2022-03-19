@@ -1,9 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
-# require 'peeps'
+require_relative './lib/chitter'
 
-class Chitter < Sinatra::Base
+class ChitterApp < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end 
 
   get '/peeps' do
-  #   # @messages = Peeps.all
+    # Chitter.all
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec("SELECT post FROM chitter_posts")
     @messages = result.map do |row| 
@@ -28,9 +28,8 @@ class Chitter < Sinatra::Base
     erb(:post)
   end
 
-
   post '/peeps/post' do
-  #   Peeps.create(post: params[:message])
+    # Chitter.create(post: params[:message])
     message = params['message']
     connection = PG.connect(dbname: 'chitter')
     connection.exec("INSERT INTO chitter_posts (post) VALUES ('#{message}');")

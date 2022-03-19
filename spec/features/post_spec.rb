@@ -14,10 +14,10 @@ feature "post" do
   scenario "post a message/'peep'" do
     visit ('/')
     click_on "Post a Peep"
-    fill_in "message", with: "Hello world"
+    fill_in "message", with: "My names Jeff"
     click_on "POST"
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content "Hello world"
+    expect(page).to have_content "My names Jeff"
   end
 
 end
