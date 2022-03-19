@@ -1,14 +1,21 @@
 require './app/models/peep'
-require 'pg'
 
 describe Peep do
 
+  context '#all' do
+    it 'returns all the posts' do
+      Peep.create(post: 'This is my first Chitter Post.')
+      Peep.create(post: 'Sunny today eh?')
+
+      peeps = Peep.all
+      expect(peeps.first).to eq 'This is my first Chitter Post.'
+    end
+  end
+
   context '#create' do
     it 'creates a new post' do
-      peep = Peep.create(post: 'This is my first Peep Post')
-
-      expect(peep).to be_a Peep
-      expect(peep.first.id).to eq 1
+      peep = Peep.create(post: 'This is my first Chitter Post.')
+      expect(Peep.all).to include 'This is my first Chitter Post.'
     end
   end
 end
