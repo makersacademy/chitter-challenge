@@ -1,3 +1,5 @@
+ENV['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
 
@@ -7,10 +9,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-ENV['ENVIRONMENT'] = 'test'
-
-require_relative './setup_test_database'
 require_relative '../app'
+require_relative './setup_test_database'
 require_relative './database_helpers'
 require 'capybara/rspec'
 
