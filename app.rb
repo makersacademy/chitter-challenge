@@ -13,7 +13,7 @@ class ChitterApp < Sinatra::Base
   end 
 
   get '/peeps' do
-    @messages =  Chitter.all
+    @messages = Chitter.all
     # connection = PG.connect(dbname: 'chitter')
     # result = connection.exec("SELECT post FROM chitter_posts")
     # @messages = result.map do |row| 

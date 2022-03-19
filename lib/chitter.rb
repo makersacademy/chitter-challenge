@@ -34,6 +34,6 @@ class Chitter
     messages = result.map do |row| 
       Chitter.new(post: row["post"])
     end
-
+    messages.reverse
   end
 end

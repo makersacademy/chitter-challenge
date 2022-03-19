@@ -11,15 +11,15 @@ feature "view" do
     expect(page).to have_content "Howdy"
   end
 
-  # scenario "see the list of peeps in reverse chronological order" do
-  #   Chitter.create(post: "Hello1")
-  #   Chitter.create(post: "Hello2")
-  #   Chitter.create(post: "Hello3")
-  #   visit('/peeps')
-  #   messages = Chitter.all
-  #   expect(messages[2]).to eq "Hello3"
-  #   expect(messages[1]).to eq "Hello2"
-  #   expect(messages[0]).to eq "Hello1"
-  # end
+  scenario "see the list of peeps in reverse chronological order" do
+    Chitter.create(post: "Hello1")
+    Chitter.create(post: "Hello2")
+    Chitter.create(post: "Hello3")
+
+    messages = Chitter.all
+    expect(messages[0].post).to eq "Hello3"
+    expect(messages[1].post).to eq "Hello2"
+    expect(messages[2].post).to eq "Hello1"
+  end
 
 end
