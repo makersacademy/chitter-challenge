@@ -2,6 +2,6 @@
 <br>
 <ol>
 <% @peeps.each do |peep| %>
-  <li><%= peep.text %></li>
+  <li><%= peep.text %>           <%= peep.created_at.strftime('%d/%m/%Y - %R') %></li>
 <% end %>
 </ol>

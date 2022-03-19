@@ -4,6 +4,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner/active_record'
+require 'active_support'
 
 DatabaseCleaner.strategy = :truncation
 

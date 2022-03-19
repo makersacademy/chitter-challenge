@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   
   get '/' do
     @peeps = Peep.order(id: :desc)
+    p Peep.order(id: :desc)
     erb(:index)
   end
 
