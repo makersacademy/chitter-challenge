@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   
   get '/' do
-    @peep = Peep.first
+    @peeps = Peep.order(id: :desc)
     erb(:index)
   end
 

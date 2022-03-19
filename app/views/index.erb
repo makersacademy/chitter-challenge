@@ -1,3 +1,7 @@
 <a href="/new_peep">New Peep</a>
-
-<%= @peep.text if @peep %>
+<br>
+<ol>
+<% @peeps.each do |peep| %>
+  <li><%= peep.text %></li>
+<% end %>
+</ol>
