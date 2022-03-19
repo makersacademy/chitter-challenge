@@ -2,7 +2,7 @@
 <a href='/peeps/new'>Add Peep</a>
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 </ul>
