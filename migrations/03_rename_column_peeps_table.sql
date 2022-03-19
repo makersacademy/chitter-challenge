@@ -1,0 +1,1 @@
+ALTER TABLE peeps RENAME COLUMN message TO peep;

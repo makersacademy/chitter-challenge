@@ -1,3 +1,5 @@
+require 'pg'
+
 feature 'viewing peeps' do
   scenario 'a user can see peeps' do
     visit '/peeps'
