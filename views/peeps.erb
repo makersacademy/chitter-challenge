@@ -1,6 +1,11 @@
 <h2> Peeps </h2>
 
 Howdy
-<%= 
-  @messages.join("<br><br>") 
-%>
+<ul>
+  <% @messages.each do |message| %>
+    <li>
+        <%= message.post %>
+      </a>
+    </li>
+  <% end %>
+</ul>

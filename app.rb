@@ -13,12 +13,12 @@ class ChitterApp < Sinatra::Base
   end 
 
   get '/peeps' do
-    # Chitter.all
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT post FROM chitter_posts")
-    @messages = result.map do |row| 
-      row['post']
-    end
+    @messages =  Chitter.all
+    # connection = PG.connect(dbname: 'chitter')
+    # result = connection.exec("SELECT post FROM chitter_posts")
+    # @messages = result.map do |row| 
+    #   row['post']
+    # end
     erb(:peeps)
   #   # view all of the messages
 
@@ -29,10 +29,10 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peeps/post' do
-    # Chitter.create(post: params[:message])
-    message = params['message']
-    connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO chitter_posts (post) VALUES ('#{message}');")
+    Chitter.create(post: params[:message])
+    # message = params['message']
+    # connection = PG.connect(dbname: 'chitter')
+    # connection.exec("INSERT INTO chitter_posts (post) VALUES ('#{message}');")
     redirect '/peeps'
   end
 
