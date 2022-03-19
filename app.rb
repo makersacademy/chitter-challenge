@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peep'
+require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -8,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Chitter'
+    redirect '/peeps'
   end
 
   get '/peeps' do
