@@ -1,0 +1,1 @@
+ALTER TABLE chitter RENAME COLUMN post TO content;

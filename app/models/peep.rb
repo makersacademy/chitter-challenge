@@ -10,16 +10,16 @@ class Peep
     end
 
     results = connection.exec("SELECT * FROM chitter;")
-    results.map { |result| result['post']}
+    results.map { |result| result['content']}
   end
 
-  def self.create(post:)
+  def self.create(content:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_app_test')
     else
       connection = PG.connect(dbname: 'chitter_app')
     end
 
-    connection.exec_params("INSERT INTO chitter(post) VALUES($1)", [post])
+    connection.exec_params("INSERT INTO chitter(content) VALUES($1)", [content])
   end 
 end

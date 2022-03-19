@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './app/models/peep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -11,17 +12,19 @@ class Chitter < Sinatra::Base
    redirect '/peeps'
   end
 
-  # post 'peeps/new' do
-  #   redirect '/peeps'
-  # end
-
-  # get '/peeps/new' do
-  #   erb:new
-  # end
-
   get '/peeps' do
+    @peeps = Peep.all
     erb :index
-  end 
+  end
+
+  get '/peeps/new' do
+    erb :new
+  end
+
+  post '/peeps' do
+    Peep.create(content: params['message'])
+    redirect '/peeps'
+  end
 
   run if app_file == $0
 

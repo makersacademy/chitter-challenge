@@ -1,2 +1,8 @@
 <h1>Peeps!</h1>
-<button>Add Peep</button>
+<a href='/peeps/new'>Add Peep</a>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
