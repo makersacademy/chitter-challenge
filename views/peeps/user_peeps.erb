@@ -1,0 +1,15 @@
+<p><%= @selected_peeps[0].user_id %>'s Peeps</p>
+<a href="/peeps"><button>Back to all Peeps</button></a>
+<ul>
+  <% @selected_peeps.each do |peep| %>
+    <li>
+    <%= peep.user_id %>
+    <br>
+    <%= peep.peep_text %>
+    <br>
+    <%= peep.time %>
+    <p> </p>
+    </li>
+  <% end %>
+</ul>
+<a href="/peeps"><button>Back to all Peeps</button></a>
