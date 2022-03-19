@@ -6,4 +6,4 @@ feature 'posting a new peep' do
 
     expect(page).to have_content 'What a sunny day!!'
   end
-end 
+end

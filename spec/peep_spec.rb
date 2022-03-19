@@ -6,10 +6,10 @@ describe Peep do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-        peep1 = Peep.post(peep: 'What a beautil day!')
-        peep2 = Peep.post(peep: 'Going for a run now')
+      peep1 = Peep.post(peep: 'What a beautil day!')
+      peep2 = Peep.post(peep: 'Going for a run now')
 
-    p  peeps = Peep.all
+      peeps = Peep.all
 
       expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
