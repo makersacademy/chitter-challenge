@@ -1,0 +1,29 @@
+<style>
+   
+    
+      .form-text{
+       padding: 10px 0;
+      }
+
+      # .button {
+      #   background: #016ABC;
+      #   color: #fff;
+      #   border: 1px solid #eee;
+      #   padding: 10px 25px;
+      #   font-size: 16px;
+      #   display: inline-block;
+      #   border-radius: 20px;
+      #   box-shadow: 5px 5px 5px #eee;
+      #   text-shadow: none;
+      # }
+</style>
+
+<body class="peep">
+ 
+    <% @peeps.each do |peep| %>
+      <form action="/peeps/<%= peep.id %>" method="post">
+        <h2><%= peep.peep %></h2>
+      </form>
+    <% end %>
+  
+</body>
