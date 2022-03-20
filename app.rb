@@ -8,6 +8,10 @@ class ChitterApp < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/' do
+    redirect('/peeps')
+  end
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'

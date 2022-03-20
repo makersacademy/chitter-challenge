@@ -26,7 +26,9 @@
     <% @peeps.each do |peep| %>
       <form action="/peeps/<%= peep.id %>" method="post">
         <h2><%= peep.peep %></h2>
+        <p><%= peep.peep_entry %></p>
       </form>
     <% end %>
   
 </body>
+
