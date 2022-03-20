@@ -10,7 +10,7 @@ SimpleCov.start
 
 # SimpleCov Config goes ABOVE this line (before all other configuration)
 
-# require_relative './path/to/name_of_database_helper.rb'
+require_relative './support/setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
 
@@ -25,11 +25,10 @@ Capybara.app = ChitterApp
 
 RSpec.configure do |config|
   config.before(:each) do
-    # Place method calls to helper module here
+    setup_test_database
+    add_default_peeps_to_test_database
   end
-end
 
-RSpec.configure do |config|
   config.after(:suite) do
     # RSpec good vibes section
     puts "\n\e[33m#{GoodVibes.vibe_check}\e[0m"

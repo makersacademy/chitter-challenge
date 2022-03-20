@@ -15,6 +15,7 @@ class ChitterApp < Sinatra::Base
 
   get '/' do
     @peeps = @peep_manager.all_peeps
+    p "Peeps: #{@peeps}"
     erb :index
   end
 
@@ -23,6 +24,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peeps' do
+    p "Params: #{params}"
+    p "Body: #{params['body']}"
     @peep_manager.add(params['body'])
     redirect '/'
   end
