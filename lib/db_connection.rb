@@ -17,7 +17,8 @@ class DbConnection
 
     def process
       @request.map do |message|
-        Message.new(message['id'], message['message'], Time.parse(message['timestamp']).strftime('%F %T'))
+        Message.new(message['id'], message['message'], 
+Time.parse(message['timestamp']).strftime('%F %T'))
       end
     end
     

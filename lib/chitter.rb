@@ -18,7 +18,8 @@ class Chitter
     private
 
     def process_submitted(result)
-      Message.new(result[0]['id'], result[0]['message'], Time.parse(result[0]['timestamp']).strftime('%F %T'))
+      Message.new(result[0]['id'], result[0]['message'], 
+Time.parse(result[0]['timestamp']).strftime('%F %T'))
     end
 
     def show_all_query
