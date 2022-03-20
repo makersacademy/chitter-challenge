@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep_manager'
 
 class ChitterApp < Sinatra::Base
   configure :development do
@@ -8,8 +9,22 @@ class ChitterApp < Sinatra::Base
     # :nocov:
   end
 
+  before do
+    @peep_manager = PeepManager.instance
+  end
+
   get '/' do
-    'Hello World!'
+    @peeps = @peep_manager.all_peeps
+    erb :index
+  end
+
+  get '/peeps/new' do
+    erb :new_peep
+  end
+
+  post '/peeps' do
+    @peep_manager.add(params['body'])
+    redirect '/'
   end
 
   run! if app_file == $0
