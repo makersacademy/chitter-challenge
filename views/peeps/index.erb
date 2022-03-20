@@ -20,14 +20,17 @@
 
 <body class="peep">
     <form action="/peep/new" method="post" style='text-align: left'> 
-        <input class="add-peep" type="submit" value="New Peep">
+      <input class="add-peep" type="submit" value="New Peep">
+    </form>
+
+    <form action="/sessions/destroy" method="post" style='text-align: right'>
+      <input type="submit" value="Sign out" />
     </form>
 
     <% if @user %>
       <h2>Welcome, <%= @user.name %>!</h2>
     <% end %>
 
- 
     <% @peeps.each do |peep| %>
       <form action="/peeps/<%= peep.id %>" method="post">
         <h2><%= peep.peep %></h2>
