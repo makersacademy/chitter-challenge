@@ -1,8 +1,17 @@
-<h1>Peeps!</h1>
-<a href='/peeps/new'>Add Peep</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <%# <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>
+</head>
+<body>
+  <h1>Peeps!</h1>
+  <a href='/peeps/new'>Add Peep</a>
 
-<ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li><%= peep %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+        <li><%= peep.content %> => Posted on: <%= peep.date[0, 16]%></li>
+    <% end %>
+  </ul>
+</div>
+</body>
+</html>

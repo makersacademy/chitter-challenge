@@ -17,9 +17,7 @@ class Peep
     end
 
     posts = connection.exec("SELECT * FROM chitter;")
-    posts.map { |post| 
-      Peep.new(id: post['id'], content: post['content'], date: post['date_post'])
-    }
+    posts.map { |post| Peep.new(id: post['id'], content: post['content'], date: post['date_post'])}
   end
 
   def self.create(content:)
