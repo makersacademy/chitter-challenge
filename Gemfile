@@ -15,4 +15,3 @@ group :development, :test do
   gem 'sinatra-contrib'
   gem "pg", "~> 1.3"
 end
-
