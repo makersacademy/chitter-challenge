@@ -1,8 +1,24 @@
-<h1>Here are all Chitter peeps!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+</head>
+<body>
+
+<% if @user %>
+  <h1>Welcome to Chitter, <%= @user.name %>!</h1>
+<% end %>
+
+<h2>Here are the latest peeps!</h2>
+
 <br>
 <br>
+<div id= 'peepbox' class="peepbox">
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peep %> Posted at: <%= peep.timestamp.to_s[10, 6]%> on <%= peep.timestamp.to_s[0, 10]%> </li>
+    <li><%= peep.peep %> <br> Posted at: <%= peep.timestamp.to_s[10, 6]%> on <%= peep.timestamp.to_s[0, 10]%> </li>
   <% end %>
 </ul>
+</div>
+</body>
+</html>

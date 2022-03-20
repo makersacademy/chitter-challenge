@@ -3,7 +3,7 @@ feature 'viewing peeps' do
     scenario ' the page title is visible' do
       visit '/'
 
-      expect(page).to have_content 'Welcome to Chitter!'
+      expect(page).to have_content 'Here are the latest peeps!'
     end
   end
 

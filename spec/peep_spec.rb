@@ -30,7 +30,7 @@ describe Peep do
   describe '#post' do
     it 'posts a new peep' do
       peep = Peep.post(peep: 'Studying all the weekend long...')
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep).to be_a Peep
       expect(peep.peep).to eq 'Studying all the weekend long...'
