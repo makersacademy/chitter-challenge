@@ -8,21 +8,21 @@ This program is a basic Twitter clone, where users can post 'peeps' that are pre
 
 1. Clone this repo
 
-2. Run the command bundle install in your terminal to install all the gems in the Gemfile
+2. Run the command `bundle install` in your terminal to install all the gems in the Gemfile
 
-4. Connect to psql
+3. Connect to psql
 
-5. Create the database using the psql command CREATE DATABASE chitter_manager;
+4. Create the database using the psql command `CREATE DATABASE chitter_manager;`
 
-6. Connect to the database using the pqsl command \c chitter_manager;
+5. Connect to the database using the pqsl command `\c chitter_manager;`
 
-7. Run the query saved in the file 01_create_peeps_table.sql
+6. Run the query saved in the file 01_create_peeps_table.sql
 
-8. Follow the same steps to create a chitter_manager_test database with the same table
+7. Follow the same steps to create a chitter_manager_test database with the same table
 
-9. Run the command rackup and visit your localhost using the port provided
+8. Run the command rackup and visit your localhost using the port provided
 
-## User Stories
+## User Stories
 
 ```
 As a Maker
@@ -60,13 +60,13 @@ I want to see the time at which it was made
 
 ## Example Screenshot
 
-![Chitter challenge screenshot](https://imgur.com/1lByToh)
+![Chitter challenge screenshot](https://i.imgur.com/1lByToh.jpg)
 
 ## Improvements I Would Like to Implement
 
-Given more time I would like to have added a User class and database in order to manage user registration, so that users have to sign up to Chitter before they're allowed to post.
+Given more time I would like to have added a User class and database in order to manage user registration, so that users have to sign up to Chitter before they're allowed to post. More like the real thing, basically.
 
-Ideally I'd also have used CSS to pimp up the design; as it is I left it plain and focused on the development, as it was my first time using databases.
+Ideally I'd also have used CSS to pimp up the design. As it is, I left it plain and focused on the development given that it was my first time using databases.
 
 [Jonny Abrams](https://github.com/jonnyabrams)
 
