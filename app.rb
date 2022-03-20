@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './database_connection_setup'
 require_relative './lib/peep'
 require_relative './lib/user'
@@ -7,9 +8,10 @@ require_relative './lib/user'
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
   end
 
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     redirect '/peeps'
@@ -37,6 +39,28 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.create(email: params['email'], password: params['password'], name: params['name'], username: params['username'])
     session[:user_id] = user.id
+    redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = 'Incorrect email or password! Please check your details.'
+      redirect '/sessions/new'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'See you soon!'
     redirect '/peeps'
   end
 

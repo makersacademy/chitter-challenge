@@ -4,11 +4,14 @@
   <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
 </head>
 <body>
-<h1>Enter new peep</h1>
+
+<h2>Enter new peep</h2>
+
 <br>
 <br>
+
 <form action='/peeps' method='post'>
-  <input type='text' name='peep' />
+  <input type='text' name='peep' placeholder='Your peep'/>
   <input type='submit' name='Post!' />
 </form>
 </body>
