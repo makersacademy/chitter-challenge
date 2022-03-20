@@ -1,0 +1,1 @@
+ALTER TABLE post ADD COLUMN posted_at TIMESTAMP;

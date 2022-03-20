@@ -4,6 +4,6 @@ feature 'View all peeps in chronological order' do
     connection.exec("INSERT INTO post (content) VALUES('First Peep');")
     connection.exec("INSERT INTO post (content) VALUES('Second Peep');")
     visit('/')
-    expect(page).to have_content 'Second peep'
+    expect(page).to have_content 'Second Peep'
   end
 end
