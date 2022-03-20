@@ -1,0 +1,22 @@
+<head>
+<link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+<title>Chitter</title>
+</head>
+
+<body>
+<div>
+<h1>Chitter</h1>
+<h2>Post your pee(p) for the world to see:</h2>
+<form action="/submit_message" method="post">
+  <textarea id="message" name="message" placeholder=">"></textarea>
+  <input type="submit" value="Submit">
+</form>
+<br><br>
+<% @chitters.reverse_each do |message| %>
+<h3>Anonymous || <%= message.timestamp %></h3><br>
+<b><%= message.message %></b><br><br><br><br>
+<% end %>
+
+<h2>Thank you &hearts;</h2>
+</div>
+</body>

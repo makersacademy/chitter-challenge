@@ -1,0 +1,74 @@
+body {
+  background-color: #fafafa;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4a4a4a;
+  }
+div {
+  position: absolute;
+  text-align: center;
+  top: 2vw;
+  left: 28.5vw;
+  width: 35.5vw;
+  }
+textarea {
+  font-size: 1.5vw;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1.5vw;
+  letter-spacing: 7px;
+  color: #5c5c5c;
+  background-color: #fafafa;
+  width: 35vw;
+  height: 10vw;
+  border: none;
+  word-wrap: break-word;
+  resize: none;
+  transition: background-color 1s ease-in-out;
+}
+textarea:focus {
+  background-color: #e8e8e8;
+  outline: none;
+  border: none;
+  letter-spacing: 7px;
+}
+
+input[type=submit] {
+  margin-top: 20px;
+  width: 10%;
+  border:none;
+  text-align: center;
+  font-size: 2vw;
+  color: #826bbf;
+  letter-spacing: 1px;
+  background-color: #fafafa;
+  font-weight: bold;
+  width: 30%;
+  height: 40px;
+  transition: color 1s ease;
+}
+input[type=submit]:hover {
+  color: #bababa;
+  cursor: pointer;
+}
+/* p {
+  background-color: black;
+  font-size: 10vw;
+} */
+h1 {
+  font-size: 5vw;
+}
+h2 {
+  font-size: 2vw;
+  color: #bababa;
+}
+h3 {
+  font-size: 1.4vw;
+  color: #bfbfbf;
+  border-bottom: 0.6vw #d3e3e8 double;
+  font-style: oblique;
+}
+b {
+  font-size: 1.6vw;
+  color: #8a8a8a;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
