@@ -14,6 +14,7 @@ group :development, :test do
 gem 'sinatra'
 gem 'capybara'
 gem 'sinatra-contrib'
-
+gem 'webrick'
+gem 'puma'
 end
 
