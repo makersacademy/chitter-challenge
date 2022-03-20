@@ -9,4 +9,3 @@ feature 'Viewing peeps' do
     expect(page).to have_content 'Sunny today'
   end
 end
-
