@@ -2,8 +2,10 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
 require_relative './lib/peep'
+require_relative './lib/user'
 
 class ChitterApp < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
   end
@@ -13,6 +15,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -29,6 +32,21 @@ class ChitterApp < Sinatra::Base
   post '/peep/new' do
     erb :'peeps/new'
    end
+
+  get '/user/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(
+      email: params[:email], 
+      password: params[:password], 
+      name: params[:name], 
+      username: params[:username]
+      )
+    session[:user_id] = user.id
+    redirect '/peeps'
+  end
 
   run! if app_file == $0
 end
