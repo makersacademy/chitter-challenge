@@ -8,36 +8,36 @@ div {
   text-align: center;
   top: 2vw;
   left: 28.5vw;
+  width: 35.5vw;
   }
 textarea {
-  font-size: 2vw;
-  padding: 10px;
-  letter-spacing: 3px;
-  background-color: #f0f0f0;
-  color: #87CEEB;
+  font-size: 1.5vw;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1.5vw;
+  letter-spacing: 7px;
+  color: #5c5c5c;
+  background-color: #fafafa;
   width: 35vw;
-  height: 5vw;
+  height: 10vw;
   border: none;
   word-wrap: break-word;
   resize: none;
-  border-bottom: 6px solid #bababa;
-  transition: border-color 1s ease-in-out, height 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
 }
-  textarea:focus {
-  border-bottom: 6px solid #87CEEB;
+textarea:focus {
+  background-color: #e8e8e8;
   outline: none;
-  height: 15vw;
+  border: none;
+  letter-spacing: 7px;
 }
-  textarea:hover {
-  border-bottom: 6px solid #6c3b96;
-}
+
 input[type=submit] {
   margin-top: 20px;
   width: 10%;
   border:none;
   text-align: center;
-  font-size: 1.8vw;
-  color: #bababa;
+  font-size: 2vw;
+  color: #826bbf;
   letter-spacing: 1px;
   background-color: #fafafa;
   font-weight: bold;
@@ -46,13 +46,29 @@ input[type=submit] {
   transition: color 1s ease;
 }
 input[type=submit]:hover {
-  color: #6c3b96;
+  color: #bababa;
   cursor: pointer;
 }
+/* p {
+  background-color: black;
+  font-size: 10vw;
+} */
 h1 {
   font-size: 5vw;
 }
 h2 {
   font-size: 2vw;
   color: #bababa;
+}
+h3 {
+  font-size: 1.4vw;
+  color: #bfbfbf;
+  border-bottom: 0.6vw #d3e3e8 double;
+  font-style: oblique;
+}
+b {
+  font-size: 1.6vw;
+  color: #8a8a8a;
+  font-weight: 400;
+  letter-spacing: 2px;
 }

@@ -6,16 +6,17 @@
 <body>
 <div>
 <h1>Chitter</h1>
-<h2>Post your pee(p) for the world to see:<h2>
+<h2>Post your pee(p) for the world to see:</h2>
 <form action="/submit_message" method="post">
-  <textarea id="message" name="message"></textarea>
+  <textarea id="message" name="message" placeholder=">"></textarea>
   <input type="submit" value="Submit">
 </form>
-
-<% @chitters.each do |message| %>
-<%= message.message %> <br>
-<%= message.timestamp %> <br><br>
+<br><br>
+<% @chitters.reverse_each do |message| %>
+<h3>Anonymous || <%= message.timestamp %></h3><br>
+<b><%= message.message %></b><br><br><br><br>
 <% end %>
 
+<h2>Thank you &hearts;</h2>
 </div>
 </body>
