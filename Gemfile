@@ -13,4 +13,6 @@ group :development, :test do
   gem 'rubocop', '1.20'
   gem 'sinatra'
   gem 'sinatra-contrib'
+  gem "pg", "~> 1.3"
 end
+
