@@ -1,12 +1,6 @@
 feature 'authentication' do
   scenario 'a user can sign in' do
-    User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
-
-    visit '/sessions/new'
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    click_button('Sign in')
-
+    user_login
     expect(page).to have_content 'Welcome to Chitter, Valentina!'
   end
 
@@ -15,7 +9,7 @@ feature 'authentication' do
 
     visit '/sessions/new'
     fill_in('email', with: 'notmyemail@wrongemail.com')
-    fill_in('password', with: 'pasword123')
+    fill_in('password', with: 'password123')
     click_button('Sign in')
 
     expect(page).not_to have_content 'Welcome to Chitter, Valentina!'
@@ -35,12 +29,7 @@ feature 'authentication' do
   end
 
   scenario 'a user can sign out' do
-    User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
-
-    visit '/sessions/new'
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    click_button('Sign in')
+    user_login
 
     click_button('Sign out')
 

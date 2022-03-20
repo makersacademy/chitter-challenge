@@ -37,22 +37,28 @@ describe User do
     end
   end
 
-  describe 'authenticate' do
-    it 'returns a user given a correct username and password, if one exists' do
-      user = User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
-      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+  describe '#authenticate' do
+    context 'when valid credential details' do
+      it 'returns a user given a correct username and password, if one exists' do
+        user = User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
+        authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
 
-      expect(authenticated_user.id).to eq user.id
+        expect(authenticated_user.id).to eq user.id
+      end
     end
 
-    it 'returns nil given an incorrect email address' do
-      user = User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
-      expect(User.authenticate(email: 'notmyemail@wrongemail.com', password: 'password123')).to be_nil
+    context 'when email in invalid' do
+      it 'returns nil given an incorrect email address' do
+        user = User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
+        expect(User.authenticate(email: 'notmyemail@wrongemail.com', password: 'password123')).to be_nil
+      end
     end
 
-    it 'returns nil given an incorrect password' do
-      user = User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
-      expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
+    context 'when password in invalid' do
+      it 'returns nil given an incorrect password' do
+        user = User.create(email: 'test@example.com', password: 'password123', name: 'Valentina', username: 'ValentinaM')
+        expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
+      end
     end
   end
 end

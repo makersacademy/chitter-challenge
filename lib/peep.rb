@@ -11,7 +11,13 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created_at DESC;")
-    result.map { |message| Peep.new(id: message['id'], peep: message['peep'], timestamp: message['created_at']) }
+    result.map do |message| 
+      Peep.new(
+        id: message['id'], 
+        peep: message['peep'], 
+        timestamp: message['created_at']
+      ) 
+    end
   end
 
   def self.post(peep:)

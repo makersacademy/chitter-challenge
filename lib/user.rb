@@ -7,8 +7,7 @@ class User
 
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password, name, username) VALUES($1, $2, $3, $4) RETURNING id, email, name, username;",
-      [email, encrypted_password, name, username]
-    )
+      [email, encrypted_password, name, username])
     User.new(
       id: result[0]['id'], 
       email: result[0]['email'], 
