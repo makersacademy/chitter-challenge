@@ -7,24 +7,41 @@
 
 <% if @user %>
   <h1>Welcome to Chitter, <%= @user.name %>!</h1>
-  <form action='/sessions/destroy' method='post'>
-  <input type='submit' value='Sign out' />
-</form>
 <% end %>
 
 <h2>Here are the latest peeps!</h2>
 
 <br>
 <br>
-<div id= 'peepbox' class="peepbox">
+
+<div id= 'peepbox' class='peepbox'>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peep %> <br> Posted at: <%= peep.timestamp.to_s[10, 6]%> on <%= peep.timestamp.to_s[0, 10]%> </li>
+    <div style="font-weight: bold" <li><%= peep.peep %> </div> Posted at: <%= peep.timestamp.to_s[10, 6]%> on <%= peep.timestamp.to_s[0, 10]%> </li> 
   <% end %>
 </ul>
 </div>
-<h2>
-  <%= flash[:notice] %>
-</h2>
+
+
+<div id= 'newpeep' class='newpeep'>
+  <form action="/peep" method="post">
+    <input type="submit" value="New peep">
+  </form>
+</div>
+
+
+<div id='logout' class='logout'>
+  <% if @user %>
+    <form action='/sessions/destroy' method='post'>
+    <input type='submit' value='Sign out' />
+  </form>
+  <% end %>
+</div>
+
+
+  <h1>
+    <%= flash[:notice] %>
+  </h1>
+
 </body>
 </html>

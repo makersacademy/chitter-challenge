@@ -1,7 +1,7 @@
 feature 'viewing peeps' do
   feature 'visiting the home page' do
     scenario ' the page title is visible' do
-      visit '/'
+      visit '/peeps'
 
       expect(page).to have_content 'Here are the latest peeps!'
     end

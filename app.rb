@@ -14,13 +14,25 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    redirect '/peeps'
+    erb :welcome
+  end
+
+  post '/sign_up' do
+    redirect '/users/new'
+  end
+
+  post '/sign_in' do
+    redirect '/sessions/new'
   end
 
   get '/peeps' do
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
+  end
+
+  post '/peep' do
+    redirect '/peeps/new'
   end
 
   get '/peeps/new' do
