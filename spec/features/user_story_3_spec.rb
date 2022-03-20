@@ -6,7 +6,6 @@ feature 'timestamp' do
   let(:timestamp) { double(:timestamp, strftime: '31/12/2022 - 14:04') } 
   scenario 'timestamp visible on peeps' do
     visit('/')
-
     allow_any_instance_of(Peep).to receive(:created_at).and_return(timestamp)
     click_link(text: 'New Peep', href: '/new_peep')
     fill_in(name: 'peep_text', with: 'This is a test peep.')
