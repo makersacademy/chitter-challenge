@@ -15,7 +15,7 @@ class Peep
       connection = PG.connect(dbname: 'peep_manager')
     end
     
-    result = connection.exec('SELECT * FROM peeps')
+    result = connection.exec('SELECT * FROM peeps ORDER BY id DESC;')
     result.map { |peep| Peep.new(id: peep['id'], peep_content: peep['content']) } 
   end
 
