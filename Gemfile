@@ -10,6 +10,7 @@ gem "rack"
 gem "activerecord", '5.2'
 gem 'sinatra-activerecord'
 gem 'rake' 
+gem 'pg'
 
 group :test do
   gem 'rspec'

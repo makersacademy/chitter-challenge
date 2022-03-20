@@ -129,3 +129,13 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+#### My Approach
+
+##### First User story
+To complete this user story I need to be able to:
+- Post a peep
+  - I will need a form to collect the user input
+  - Store this user input in the database
+  - The user is brought back to the home page which display their peeps

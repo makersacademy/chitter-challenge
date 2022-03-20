@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -8,7 +9,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    "Welcome to Chitter"
+    @peeps = Peep.all
+    erb :home_page
+  end
+
+  post '/new_peep' do
+    Peep.create(peep_content: params[:peep_content])
+
+    redirect :/
   end
   
   # dont delete this

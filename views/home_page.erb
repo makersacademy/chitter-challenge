@@ -1,0 +1,16 @@
+Welcome to Chitter
+
+Add a new peep below
+<form action = "/new_peep" method = "post">
+  <textarea name = "peep_content" rows = "4" cols = "50" placeholder = "What's on your mind?"> </textarea>
+  <input type = "submit" value = "Peep">
+</form>
+
+All your current peeps:
+<ul>
+<% @peeps.each do |peep| %>
+  <li>
+    <%=peep.peep_content%>
+  </li>
+<%end%>
+</ul>
