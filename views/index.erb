@@ -2,8 +2,12 @@
 
 <h3>Please enter your peep<h3/>
 <form action="/peep" method="post">
-  <input type='text' name='peep'/>
+  <input type='text' name='posts'/>
   <input type="submit" value="Submit" />
 </form>
 
-<%= @peep %>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post %></li>
+  <% end %>
+</ul>

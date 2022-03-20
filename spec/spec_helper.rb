@@ -2,14 +2,14 @@ require 'simplecov'
 require 'simplecov-console'
 require_relative './setup_test_database'
 
-#ENV['ENVIRONMENT'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 ENV['RACK_ENV'] = 'test'
 
-# RSpec.configure do |config|
-#   config.before(:each) do
-#     setup_test_database
-#   end
-# end
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 #require File.join(File.dirname(__FILE__), '..', 'app.rb')
