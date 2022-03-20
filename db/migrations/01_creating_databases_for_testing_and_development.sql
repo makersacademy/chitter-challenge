@@ -1,0 +1,2 @@
+CREATE DATABASE chitter_test;
+CREATE DATABASE chitter;
