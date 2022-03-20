@@ -11,6 +11,7 @@ gem 'pg'
 gem 'activerecord', '5.2'
 gem 'sinatra-activerecord'
 gem 'rake'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
