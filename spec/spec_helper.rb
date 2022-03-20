@@ -13,11 +13,12 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative 'db_setup'
 
 RSpec.configure do |config|
-  # config.before(:each) do
-    
-  # end
+  config.before(:each) do
+    truncate_db
+  end
 
   config.after(:suite) do
     puts
