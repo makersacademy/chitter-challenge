@@ -1,8 +1,8 @@
 feature 'Viewing all peeps' do
   scenario 'A user can see peeps' do
     
-    Peep.create(peep: 'This is my first peep!')
-    Peep.create(peep: 'This is my second peep!')
+    Peep.create(peep: 'This is my first peep!', user_id: 10)
+    Peep.create(peep: 'This is my second peep!', user_id: 10)
     
     visit('/peeps')
 

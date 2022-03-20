@@ -15,7 +15,7 @@ class ChitterApp < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    redirect('/peeps')
+    erb :'homepage/homepage'
   end
 
   get '/peeps' do
@@ -29,7 +29,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep])
+    Peep.create(peep: params[:peep], user_id: session[:user_id])
     redirect('/peeps')
   end
 
