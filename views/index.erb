@@ -1,0 +1,16 @@
+<h1>Hello World!</h1>
+<div class='timeline'>
+<% @peeps.each do |peep| %>
+  <div class='peep'>
+    <div class='header'>
+      <h4>Maker Name</h4><h5>Handle</h5><p>Posted at <%= peep.format_time %></p>
+    </div>
+    <div class='content'>
+      <p><%= peep.content %></p>
+    </div>
+  </div>
+<% end %>
+</div>
+<form action="peeps/new" method="get">
+  <input type="submit" value="New Peep">
+</form>
