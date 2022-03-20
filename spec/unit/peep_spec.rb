@@ -11,7 +11,7 @@ describe Peep do
       Peep.add("I'm peeping today")
       peeps = Peep.all
       expect(peeps).to be_a Array
-      expect(peeps[0]).to eq "I'm peeping today"
+      expect(peeps[0].text).to eq "I'm peeping today"
     end
   end
 end
