@@ -139,3 +139,23 @@ To complete this user story I need to be able to:
   - I will need a form to collect the user input
   - Store this user input in the database
   - The user is brought back to the home page which display their peeps
+
+##### Second User story
+I had already listed all peeps from the database whilst completing the last user story. The only part outstanding was to dislay the peeps in reverse order
+- Use the SQL command ORDER BY to reverse the order of the peeps
+
+I could not figure out how I could test for order using RSpec and Capybara
+
+##### Third User story
+This is point where I remembered that Active record would have logged the time each peep was created. Since I didn't use Activerecord we will have to add two new columns (Date and Time) to the sql database.
+
+- We will need to require the Time to be able to use this class
+- store the date and time whenever .create is called 
+- Think about whether this part of the database can be extracted. 
+  - I'm guessing it would be a one to one relations ship, each peep can only have one creation date and time
+  - When we expand functionaly though and include editing, each peep can have many edits and therefore edit times.
+
+Overall, I opted to just stick to the standard format that Time.now provides as splitting the time and date was too tedious and unecessary.
+
+Tests were created first this time round. I finally realised the benefit of creating the test first.
+

@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
-    p ENV
     erb :home_page
   end
 
