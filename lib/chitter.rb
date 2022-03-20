@@ -1,4 +1,4 @@
-require 'pg'
+require 'db_connection'
 
 class Chitter
   attr_reader :post, :timestamp
@@ -9,28 +9,16 @@ class Chitter
   end
     
   def self.create(post:, timestamp:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    
-    result = connection.exec(
+    result = DatabaseConnection.query(
       "INSERT INTO chitter_posts (post, time) 
-      VALUES ('#{post}', '#{timestamp}') 
-      RETURNING post, time;"
+      VALUES ('#{post}', '#{timestamp}')
+      RETURNING post, time"
     )
     Chitter.new(post: result[0]["post"], timestamp: result[0]["time"])
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    
-    result = connection.exec("SELECT * FROM chitter_posts")
+    result = DatabaseConnection.query("SELECT * FROM chitter_posts")
     messages = result.map do |row| 
       Chitter.new(post: row["post"], timestamp: row["time"])
     end

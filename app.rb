@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require 'pg'
 require_relative './lib/chitter'
+require_relative './lib/db_connection'
+require_relative './lib/db_connection_setup'
 
 class ChitterApp < Sinatra::Base
   configure :development do
@@ -24,7 +25,7 @@ class ChitterApp < Sinatra::Base
   post '/peeps/post' do
     Chitter.create(
       post: params[:message], 
-      timestamp: Time.now.strftime("%H:%M (%d/%m/%Y)")
+      timestamp: Time.now.strftime("%H:%M on %d/%m/%Y")
     )
     redirect '/peeps'
   end
