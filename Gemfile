@@ -9,6 +9,7 @@ group :test do
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'capybara'
+  gem 'pg'
 end
 
 group :development, :test do

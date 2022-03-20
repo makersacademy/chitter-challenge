@@ -1,9 +1,15 @@
 class Peep
   def self.all
-    @peeps = [
-      "Peep test 1",
-      "Peep test 2",
-      "Peep test 3"
-    ]
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map do |peep|
+      peep['peep']
+    end    
   end
-end 
+  
+end
