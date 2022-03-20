@@ -1,0 +1,21 @@
+<head>
+<link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+<title>Chitter</title>
+</head>
+
+<body>
+<div>
+<h1>Chitter</h1>
+<h2>Post your pee(p) for the world to see:<h2>
+<form action="/submit_message" method="post">
+  <textarea id="message" name="message"></textarea>
+  <input type="submit" value="Submit">
+</form>
+
+<% @chitters.each do |message| %>
+<%= message.message %> <br>
+<%= message.timestamp %> <br><br>
+<% end %>
+
+</div>
+</body>

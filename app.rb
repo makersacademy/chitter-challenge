@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-# require_relative './lib/chitter'
+require './lib/chitter'
+require './lib/message'
 
 # Chitter Application
 class ChitterApp < Sinatra::Base
@@ -11,14 +12,14 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
-  #   @chitters = Chitter.all
+    @chitters = Chitter.all
     erb :index
   end
 
-  # post '/submit_message' do
-  #   Chitter.submit(params[:message])
-  #   redirect '/'
-  # end
+  post '/submit_message' do
+    Chitter.submit(params[:message])
+    redirect '/'
+  end
 
   run! if app_file == $PROGRAM_NAME
 end
