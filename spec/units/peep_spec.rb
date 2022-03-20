@@ -1,7 +1,7 @@
 require 'peep'
 
 describe Peep do
-  subject(:peep) { described_class.new(1, "Example Peep Content", 5, "just now") }
+  subject(:peep) { described_class.new(1, "Example Peep Content", 5, "2022-03-20 19:31:52.789054+00") }
 
   it 'stores an id' do
     expect(peep.id).to eq 1
@@ -16,6 +16,12 @@ describe Peep do
   end
 
   it 'stores the timestamp of peep creation' do
-    expect(peep.created).to eq "just now"
+    expect(peep.created).to eq DateTime.parse("2022-03-20 19:31:52.789054+00")
+  end
+
+  describe '#format_time' do
+    it 'returns a formatted time' do
+      expect(peep.format_time).to eq '19:31'
+    end
   end
 end
