@@ -7,6 +7,8 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/' do
     @peeps = Peep.all
     erb :index

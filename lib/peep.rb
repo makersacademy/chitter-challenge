@@ -7,7 +7,7 @@ class Peep
   def initialize(id:, content:, time:)
     @id = id
     @content = content
-    @time = DateTime.parse(time).strftime("%d/%m/%Y %k:%M")
+    @time = time
   end
 
   def self.all
@@ -22,7 +22,7 @@ class Peep
     end
   end
 
-  def self.create(content:, time:)
+  def self.create(content:, time: Time.now)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_manager_test')
     else
