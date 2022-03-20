@@ -7,6 +7,7 @@ gem 'sinatra-contrib'
 gem 'sinatra-flash'
 gem 'webrick'
 gem 'pg'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
