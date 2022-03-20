@@ -16,6 +16,10 @@ class Chitter < Sinatra::Base
     erb(:peeps)
   end
 
+  get '/write' do
+    erb(:write)
+  end
+
   run! if app_file == $0
 
 end
