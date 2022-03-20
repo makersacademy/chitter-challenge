@@ -34,48 +34,54 @@ go to your browser of choice, enter the following url
 http://localhost:9292/
 ```
 
-the home page should load:
+## the home page should load:
 ![alt text](images/homepage.png)
 
-click the sign up button:
+## click the sign up button:
 ![alt text](images/sign_in_sign_up_page.png)
 
-fill in the fields under Chitter: Sign Up and then click the sign up button. This should display the home page:
-![alt text](images/signed_in_homepage.png)
+## fill in the fields under Chitter: Sign Up and then click the sign up button. This should display the home page:
 ![alt text](images/sign_up.png)
+![alt text](images/signed_in_homepage.png)
 
-you now have access to posting and comments, fill in the field after create new post and click Send Peep:
-![alt text](images/user_post.png)
-
-you can log out by clicking log out: 
+## you can log out by clicking log out: 
 ![alt text](images/log_out_homepage.png)
 
-if you try to log in with an unknown account it raises a message:
+## if you try to log in with an unknown account it raises a message:
 ![alt text](images/fake_user.png)
 ![alt text](images/user_error.png)
 
-if you try to input a wrong password when signing in it raises an error:
+## if you try to input a wrong password when signing in it raises an error:
 ![alt text](images/wrong_password.png)
 
-if you try to sign up without filling in all the fields it raises an error:
+## if you try to sign up without filling in all the fields it raises an error:
 ![alt text](images/fill_all_fields.png)
 ![alt text](images/fill_all_fields_error.png)
 
-you can now sign in again or sign up a new account
+## you can now sign in again or sign up a new account
 ![alt text](images/second_sign_up.png)
 
-you can comment on a peep by clicking the Add Comment button, you should see what post you're commenting on and who posted it:
+## you now have access to posting and comments, fill in the field after create new post and click Send Peep:
+![alt text](images/user_post.png)
+
+## you can comment on a peep by clicking the Add Comment button, you should see what post you're commenting on and who posted it:
 ![alt text](images/add_comment.png)
 
-fill in the field and click submit:
+## fill in the field and click submit:
 ![alt text](images/filled_in_comment.png)
 
-This will display on the homepage:
+## This will display on the homepage:
 ![alt text](images/homepage_with_post_and_comment.png)
 
-if you add a new post it is displayed on the top of the chitter feed:
+## if you add a new post it is displayed on the top of the chitter feed:
 ![alt text](images/new_post.png)
 ![alt text](images/two_posts.png)
+
+
+To run tests type the following into your terminal from the main directory
+```
+rspec
+```
 
 Challenge:
 -------
