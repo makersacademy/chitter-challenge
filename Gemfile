@@ -2,8 +2,16 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'sinatra-flash'
+gem 'webrick'
+gem 'pg'
+gem 'bcrypt'
+
 group :test do
   gem 'rspec'
+  gem 'capybara'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

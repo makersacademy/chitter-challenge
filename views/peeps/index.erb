@@ -1,0 +1,36 @@
+<style>
+
+</style>
+
+<body class="peep">
+    <% if @user %>  
+      <form action="/peep/new" method="post" style='text-align: left'> 
+        <input class="add-peep" type="submit" value="New Peep">
+      </form>
+    <% end %>
+
+    <% if @user %>
+      <form action="/sessions/destroy" method="post" style='text-align: right'>
+       <input type="submit" value="Sign out" />
+      </form>
+    <% else %>
+      <form action="/sessions/new" method="get" style='text-align: right'>
+       <input type="submit" value="Sign In" />
+      </form>
+    <% end %>
+
+    <% if @user %>
+      <h2>Welcome, <%= @user.name %>!</h2>
+    <% end %>
+
+    <% @peeps.each do |peep| %>
+      <% peeper = User.find(peep.user_id) %>
+        <form action="/peeps/<%= peep.id %>" method="post">
+        <p><%= peeper.name%>  <%= peeper.username%></p>
+          <h2><%= peep.peep %></h2>
+          <p><%= peep.peep_entry %></p>
+      </form>
+    <% end %>
+  
+</body>
+
