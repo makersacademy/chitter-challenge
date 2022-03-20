@@ -3,6 +3,6 @@
 <br>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peep %></li>
+    <li><%= peep.peep %> Posted at: <%= peep.timestamp.to_s[10, 6]%> on <%= peep.timestamp.to_s[0, 10]%> </li>
   <% end %>
 </ul>

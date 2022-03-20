@@ -4,8 +4,6 @@ require 'database_helpers'
 describe Peep do
   describe '#all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
-
       peep1 = Peep.post(peep: 'What a beautil day!')
       peep2 = Peep.post(peep: 'Going for a run now')
 
@@ -13,8 +11,19 @@ describe Peep do
 
       expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.peep).to eq 'What a beautil day!'
-      expect(peeps.first.id).to eq peep1.id
+      expect(peeps.first.peep).to eq 'Going for a run now'
+      expect(peeps.first.id).to eq peep2.id
+    end
+
+    it 'returns the peeps in reverse chronological order' do
+      peep1 = Peep.post(peep: 'Oldest peep')
+      peep2 = Peep.post(peep: 'Newest peep')
+
+      peeps = Peep.all
+      peeps.first.timestamp
+
+      expect(peeps.first.peep).to eq 'Newest peep'
+      expect(peeps.last.peep).to eq 'Oldest peep'
     end
   end
 
