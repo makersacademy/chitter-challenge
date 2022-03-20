@@ -1,4 +1,4 @@
-require 'pg'
+require_relative 'database_connection'
 
 class Peep
 
@@ -11,25 +11,14 @@ class Peep
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_manager_test')
-    else
-      connection = PG.connect(dbname: 'chitter_manager')
-    end
-    result = connection.exec("SELECT * FROM peeps;")
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
       Peep.new(id: peep['id'], content: peep['content'], time: peep['time'])
     end
   end
 
   def self.create(content:, time: Time.now)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_manager_test')
-    else
-      connection = PG.connect(dbname: 'chitter_manager')
-    end
-  
-    result = connection.exec_params("INSERT INTO peeps (content, time) VALUES($1, $2) RETURNING id, content, time;", [content, time])
+    result = DatabaseConnection.query("INSERT INTO peeps (content, time) VALUES($1, $2) RETURNING id, content, time;", [content, time])
     Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time'])
   end
 end
