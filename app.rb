@@ -77,8 +77,8 @@ class Chitter < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
-    flash[:notice] = 'See you soon!'
-    redirect '/peeps'
+    flash[:notice] = 'See you soon!!'
+    redirect '/'
   end
 
   run! if app_file == $0
