@@ -2,7 +2,6 @@ require 'peep'
 
 describe Peep do
   it "should return a list of bookmarks when .all is called" do
-    connection = PG.connect(dbname: 'peep_manager')
 
     peep = Peep.create(peep_content: "I just built my own computer")
     
@@ -14,8 +13,7 @@ describe Peep do
   end
 
   it "shoud save the content when .create is called" do
-    connection = PG.connect(dbname: 'peep_manager')
-
+    
     peep = Peep.create(peep_content: "I just built my own computer")
 
     expect(peep.peep_content).to eq("I just built my own computer")
