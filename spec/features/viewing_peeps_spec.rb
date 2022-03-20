@@ -1,9 +1,7 @@
 feature 'Viewing peeps' do
   scenario 'user can see all peeps' do
-    connection = PG.connect(dbname: 'chitter_manager_test')
-
-    connection.exec("INSERT INTO peeps (content) VALUES ('Hello World');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('Sunny today');")
+    Peep.create(content: 'Hello World', time: '2006-01-01 00:00:01')
+    Peep.create(content: 'Sunny today', time: '2007-05-06 13:30:30')
 
     visit('/')
     

@@ -14,4 +14,12 @@ describe Peep do
       expect(peeps).to include('Sunny today')
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(content: 'Howdy', time: '2006-01-01 00:00:01')
+
+      expect(Peep.all).to include 'Howdy'
+    end
+  end
 end
