@@ -1,5 +1,11 @@
 /**/.DS_Store
 /coverage
 
+# My ongoing notes for the README
+PK-notes-for-README.md
+
+# My copy of GoodVibes class
+good_vibes_pk.rb
+
 # Local cache of Rubocop remote config
 .rubocop-*
