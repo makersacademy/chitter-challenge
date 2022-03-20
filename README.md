@@ -1,131 +1,122 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+
+How to set up:
+-------
+Clone this repo by typing the following into your terminal:
+```
+git clone https://github.com/clovellbsc/chitter-challenge.git
+```
+
+install bundler:
+```
+gem install bundler
+```
+
+run bundler
+```
+bundle install
+```
+
+go to the migrations folder and follow the steps in psql, each step is numbered:
+```
+cd db/migrations
+```
+
+run rackup in terminal
+```
+rackup
+```
+
+go to your browser of choice, enter the following url
+```
+http://localhost:9292/
+```
+
+the home page should load:
+![alt text](images/homepage.png)
+
+click the sign up button:
+![alt text](images/sign_in_sign_up_page.png)
+
+fill in the fields under Chitter: Sign Up and then click the sign up button. This should display the home page:
+![alt text](images/signed_in_homepage.png)
+![alt text](images/sign_up.png)
+
+you now have access to posting and comments, fill in the field after create new post and click Send Peep:
+![alt text](images/user_post.png)
+
+you can log out by clicking log out: 
+![alt text](images/log_out_homepage.png)
+
+if you try to log in with an unknown account it raises a message:
+![alt text](images/fake_user.png)
+![alt text](images/user_error.png)
+
+if you try to input a wrong password when signing in it raises an error:
+![alt text](images/wrong_password.png)
+
+if you try to sign up without filling in all the fields it raises an error:
+![alt text](images/fill_all_fields.png)
+![alt text](images/fill_all_fields_error.png)
+
+you can now sign in again or sign up a new account
+![alt text](images/second_sign_up.png)
+
+you can comment on a peep by clicking the Add Comment button, you should see what post you're commenting on and who posted it:
+![alt text](images/add_comment.png)
+
+fill in the field and click submit:
+![alt text](images/filled_in_comment.png)
+
+This will display on the homepage:
+![alt text](images/homepage_with_post_and_comment.png)
+
+if you add a new post it is displayed on the top of the chitter feed:
+![alt text](images/new_post.png)
+![alt text](images/two_posts.png)
 
 Challenge:
 -------
-
-As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
 
-```
-STRAIGHT UP
-
-As a Maker
+As a User
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a User
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a Maker
+As a User
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-As a Maker
+As a User
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
-As a Maker
+As a User
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
-As a Maker
+As a User
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
 
 Notes on functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* Users sign up to chitter with their email, password, first name, last name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
