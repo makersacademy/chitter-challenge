@@ -1,6 +1,18 @@
+require 'simplecov'
+SimpleCov.start do 
+  add_filter "/Rakefile/"
+  add_filter "/database_connection_setup/"
+end
 
 require 'database_helpers'
 require 'features/web_helpers'
+
+require 'simplecov'
+SimpleCov.start do 
+  #these filters are supposed to exclude the files from coverage results, but don't appear to be...
+  add_filter "/Rakefile/" 
+  add_filter "/database_connection_setup/"
+end
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
