@@ -12,9 +12,9 @@ feature "view" do
   end
 
   scenario "see the list of peeps in reverse chronological order" do
-    Chitter.create(post: "Hello1")
-    Chitter.create(post: "Hello2")
-    Chitter.create(post: "Hello3")
+    Chitter.create(post: "Hello1", timestamp: "17:24 01/01/2022")
+    Chitter.create(post: "Hello2", timestamp: "17:25 01/01/2022")
+    Chitter.create(post: "Hello3", timestamp: "17:26 01/01/2022")
 
     messages = Chitter.all
     expect(messages[0].post).to eq "Hello3"
@@ -22,4 +22,14 @@ feature "view" do
     expect(messages[2].post).to eq "Hello1"
   end
 
+# As a Maker
+# So that I can better appreciate the context of a peep
+# I want to see the time at which it was made
+
+  scenario "display the time at which the post was made" do
+    Chitter.create(post: "Time", timestamp: "17:24 01/01/2022")
+    timestamp = Chitter.all[0].timestamp
+    visit "/peeps"
+    expect(page).to have_content(timestamp)
+  end
 end
