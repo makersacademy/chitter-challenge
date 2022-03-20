@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peep_manager'
+require './lib/user_manager'
 
 class ChitterApp < Sinatra::Base
   configure :development do
@@ -11,11 +12,11 @@ class ChitterApp < Sinatra::Base
 
   before do
     @peep_manager = PeepManager.instance
+    @user_manager = UserManager.instance
   end
 
   get '/' do
     @peeps = @peep_manager.all_peeps
-    p "Peeps: #{@peeps}"
     erb :index
   end
 
@@ -24,10 +25,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peeps' do
-    p "Params: #{params}"
-    p "Body: #{params['body']}"
     @peep_manager.add(params['body'])
     redirect '/'
+  end
+
+  get '/users/new' do
+    erb :new_user
+  end
+
+  post '/users' do
+    @new_user = @user_manager.add(params)
+    erb :new_user_welcome
   end
 
   run! if app_file == $0

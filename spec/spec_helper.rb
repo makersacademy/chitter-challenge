@@ -27,6 +27,7 @@ RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
     add_default_peeps_to_test_database
+    add_default_users_to_test_database
   end
 
   config.after(:suite) do
