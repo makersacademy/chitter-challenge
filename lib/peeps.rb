@@ -1,8 +1,27 @@
+require 'pg'
+
 class Peeps
-  def self.all
-    [
-      "Hi rio do u want picking up in the morning pal",
-      "Mr bean. Funny"
-    ]
+  class << self
+    def all
+      connect
+      request('SELECT * FROM peeps;')
+      process
+    end
+
+    private
+
+    def connect
+      @connection = PG.connect(dbname: "chitter")
+    end
+
+    def request(command)
+      @request = @connection.exec(command)
+    end
+
+    def process
+      @request.map do |row| 
+        row['peep']
+      end
+    end
   end
 end
