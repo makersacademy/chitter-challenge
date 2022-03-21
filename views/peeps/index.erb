@@ -1,0 +1,13 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+<h2>Your peeps</h2>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.peep_id %>">
+      <%= peep.content %><br>
+      <%= peep.post_date %>
+    </li>
+    <br>
+  <% end %>
+</ul>
