@@ -1,0 +1,15 @@
+<h2> Peeps </h2>
+
+Howdy
+<ul>
+  <% @messages.each do |message| %>
+    <li>
+        <%= message.post %> 
+        <br>
+        Posted at <%= message.timestamp %> 
+        <br>
+        <br>
+    </li>
+
+  <% end %>
+</ul>
