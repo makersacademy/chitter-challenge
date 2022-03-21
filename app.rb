@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/chitter'
+require_relative './lib/user'
 require_relative './lib/db_connection'
 require_relative './lib/db_connection_setup'
 
@@ -34,9 +35,16 @@ class ChitterApp < Sinatra::Base
     erb(:signup)
   end
 
-  # post '/user/signup' do
-   
-  # end
+  post '/user/signup' do
+    @user = User.signup(
+     firstname: params[:first_name], 
+     lastname: params[:last_name],
+     email: params[:email],
+     password: params[:password],
+     username: params[:username]
+    )
+    erb(:confirmation)
+  end
 
   run! if app_file == $0
 end
