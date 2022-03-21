@@ -1,0 +1,10 @@
+<p>Welcome, <%= @user%></p>
+
+<form action="/peeps" method="post">
+  <textarea type="text" name="message" value="input"> </textarea>
+  <input type="submit" value="Submit" />
+</form>
+
+<form action="/" method="get">
+  <input type="submit" value="Sign out" />
+</form>
