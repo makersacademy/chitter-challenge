@@ -18,3 +18,4 @@ gem "rack"
 gem "capybara"
 gem "webrick"
 gem 'pg'
+gem 'bcrypt'
