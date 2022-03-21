@@ -4,7 +4,6 @@ require 'sinatra/activerecord'
 require './lib/peep'
 require './lib/user'
 
-
 class Chitter < Sinatra::Base
   configure :development do
     # :nocov:
@@ -27,7 +26,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_user' do
-    user = User.new(full_name: params[:full_name], username: params[:username], email: params[:email], password: '')
+    user = User.new(full_name: params[:full_name], username: params[:username], 
+email: params[:email], password: '')
     user.password = params[:password]
     user.save!
     redirect '/'
