@@ -46,5 +46,9 @@ class ChitterApp < Sinatra::Base
     erb(:confirmation)
   end
 
+  get '/user/return' do
+    erb(:index)
+  end
+
   run! if app_file == $0
 end

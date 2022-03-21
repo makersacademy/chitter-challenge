@@ -1,5 +1,8 @@
+require 'bcrypt'
+
 class User
-  
+  include BCrypt
+
   attr_reader :id, :username
 
   def initialize(id:, username:)
@@ -8,9 +11,10 @@ class User
   end
 
   def self.signup(firstname:, lastname:, email:, password:, username:)
+    encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (first_name, last_name, email, username, password) 
-      VALUES ('#{firstname}', '#{lastname}', '#{email}', '#{username}', '#{password}')
+      VALUES ('#{firstname}', '#{lastname}', '#{email}', '#{username}', '#{encrypted_password}')
       RETURNING id, username"
     )
     User.new(
