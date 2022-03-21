@@ -3,6 +3,8 @@ require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require './lib/peep'
 require './lib/user'
+
+
 class Chitter < Sinatra::Base
   configure :development do
     # :nocov:

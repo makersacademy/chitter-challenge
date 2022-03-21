@@ -15,6 +15,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require 'features/web_helpers'
 require File.join(File.dirname(__FILE__), '..', '/app/app.rb')
 Capybara.app = Chitter
 

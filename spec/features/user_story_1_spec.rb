@@ -4,10 +4,7 @@
 
 feature 'Posting a peep' do
   scenario 'User can add peep to chitter' do
-    visit('/')
-    click_link(text: 'New Peep', href: '/new_peep')
-    fill_in(name: 'peep_text', with: 'This is a test peep.')
-    click_button(id: 'submit', value: 'Add Peep')
+    add_peep('This is a test peep.')
     expect(page).to have_text('This is a test peep.')
   end
 end

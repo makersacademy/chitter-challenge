@@ -7,9 +7,7 @@ feature 'timestamp' do
   scenario 'timestamp visible on peeps' do
     visit('/')
     allow_any_instance_of(Peep).to receive(:created_at).and_return(timestamp)
-    click_link(text: 'New Peep', href: '/new_peep')
-    fill_in(name: 'peep_text', with: 'This is a test peep.')
-    click_button(id: 'submit', value: 'Add Peep')
+    add_peep('This is a test peep.')
     expect(page.find('li:nth-child(1)')).to have_content '31/12/2022 - 14:04'
   end
 end
