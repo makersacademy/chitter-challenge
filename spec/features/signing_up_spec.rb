@@ -31,10 +31,11 @@ feature "signing up" do
     fill_in 'last_name', with: 'Lovell'
     fill_in 'first_name', with: 'Chris'
     fill_in 'email', with: 'chris@chris.com'
+    click_button "Sign up"
 
     expect(current_path).to eq '/sign-up'
     expect(page).to_not have_content "Welcome, ChrisL"
-    # expect(page).to have_css('h2', text: "Please ensure you have filled all the fields")
+    expect(page).to have_css('h2', text: "Please ensure you have filled all the fields")
   end
 
 end

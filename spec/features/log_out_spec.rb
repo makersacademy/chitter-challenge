@@ -4,6 +4,6 @@ feature "Signing in" do
     click_button "Log out"
 
     expect(current_path).to eq '/'
-    # expect(page).to have_content "Successfully logged out"
+    expect(page).to have_content "Successfully logged out"
   end
 end

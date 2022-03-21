@@ -19,8 +19,6 @@ else
 end
 
 class Comment < ActiveRecord::Base
-  self.table_name = 'comments'
-  self.primary_key = 'id'
   belongs_to :post
 
   validates :comment, presence: true

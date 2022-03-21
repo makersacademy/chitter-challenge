@@ -11,10 +11,11 @@ feature "Signing in" do
     click_button("Log in")
     fill_in 'username', with: 'ChrisL'
     fill_in 'password', with: '12345'
+    click_button 'Log in'
 
     expect(current_path).to eq '/sign-up'
     expect(page).to_not have_content "Welcome, ChrisL"
-    # expect(page).to have_css('h2', text: 'Please check your username')
+    expect(page).to have_css('h2', text: 'Please check your username')
   end
 
   scenario "entering invalid username, raises message 'Please check your password'" do
