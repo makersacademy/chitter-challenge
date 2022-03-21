@@ -1,4 +1,18 @@
+<%if @current_user != nil %>
+Welcome to Chitter <%= @current_user.name %>
+<%else%>
 Welcome to Chitter
+<%end%>
+
+<div>
+  <form action = "/login_page">
+    <input type = "submit" value = "login">
+  </form>
+
+  <form action = "/sign_up_page">
+    <input type = "submit" value = "sign up">
+  </form>
+</div>
 
 Add a new peep below
 <form action = "/new_peep" method = "post">

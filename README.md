@@ -159,3 +159,10 @@ Overall, I opted to just stick to the standard format that Time.now provides as 
 
 Tests were created first this time round. I finally realised the benefit of creating the test first.
 
+##### Fourth User story
+This user story wants me to create a sign in page. I don't want to force a sign in on the home page. 
+
+All users should be able to see all peeps whether signed in or not. So homepage should still show all peeps that are posted.
+
+However, I need to move the form element that adds new peeps, for this I want to force users to sign in 
+before they can post new peeps
