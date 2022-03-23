@@ -1,0 +1,13 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
+<h2>What would you like to do?</h2>
+<a href="/new" target="/blank">Post a peep</a>
+<div>
+  <% @peeps.reverse_each do |peep| %>
+    <div class="peep">
+      <p><%= peep.time %></p>
+      <p><%= peep.content %></p>
+    </div>
+  <% end %>
+</div>
