@@ -8,6 +8,13 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
+gem 'pg'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'rspec'
+gem 'capybara'
+gem 'bcrypt'
+
 group :development, :test do
   gem 'rubocop', '1.20'
 end

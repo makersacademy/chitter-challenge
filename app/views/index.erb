@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%# <link rel="stylesheet" type="text/css" href="<%= url("/style.css") %>
+</head>
+<body>
+  <% if @user %>
+    <h1 style='text-align: center;'>Welcome to chitter <%= @user.name%></h1>
+  <% end %>
+  <a href='/peeps/new'>Add Peep</a>
+  <h1>Peeps!</h1>
+
+  <ul>
+    <% @peeps.reverse.each do |peep| %> 
+        <li style='font-size: 22px; list-style: none;'><%= peep.content %> 
+          <span style='font-size: 16px;'><b>Posted on: <%= peep.date[0, 10]%> @<%= peep.date[10, 6]%></b></span>
+        </li></br>
+        
+    <% end %>
+  </ul>
+</div>
+</body>
+</html>
