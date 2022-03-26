@@ -4,11 +4,11 @@
   <%# <link rel="stylesheet" type="text/css" href="<%= url("/style.css") %>
 </head>
 <body>
-  <h1>Peeps!</h1>
-  <a href='/peeps/new'>Add Peep</a>
   <% if @user %>
-    <h1>Welcome, <%= @user.email%></h1>
+    <h1 style='text-align: center;'>Welcome to chitter <%= @user.name%></h1>
   <% end %>
+  <a href='/peeps/new'>Add Peep</a>
+  <h1>Peeps!</h1>
 
   <ul>
     <% @peeps.reverse.each do |peep| %> 
