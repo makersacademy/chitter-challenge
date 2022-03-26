@@ -22,7 +22,7 @@ class Peep
     Peep.new(
       id: result.first['id'], 
       content: result.first['content'], 
-      date: result.first['date_post']
+      date: result.first['date_post'],
     )
   end 
 end

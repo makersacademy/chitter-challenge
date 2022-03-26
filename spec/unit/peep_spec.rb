@@ -19,7 +19,7 @@ describe Peep do
   context '#create' do
     it 'creates a new post' do
       peep = Peep.create(content: 'This is my first Chitter Post.')
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: :chitter, id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']
