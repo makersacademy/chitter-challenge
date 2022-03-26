@@ -4,7 +4,7 @@ require 'database_helper'
 describe User do
 
   context '#create' do
-      it 'creates a new users' do
+    it 'creates a new users' do
       user = User.create(
         name: 'Samuel',
         username: 'samuelmbp',
@@ -19,6 +19,17 @@ describe User do
       expect(user.name).to eq 'Samuel'
       expect(user.username).to eq 'samuelmbp'
       expect(user.email).to eq 'sam@example.com'
+    end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('test1234')
+
+      User.create(
+        name: 'samuel', 
+        username: 'samuelmbp', 
+        email: 'sam@example.com', 
+        password: 'test1234'
+      )
     end
   end
 
