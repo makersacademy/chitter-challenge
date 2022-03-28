@@ -1,11 +1,11 @@
 require 'pg'
 
 class Peep
-  attr_reader :id, :print
+  attr_reader :id, :text
 
   def initialize(id:, peep:)
     @id = id
-    @print = peep
+    @text = peep
   end
 
   def self.all

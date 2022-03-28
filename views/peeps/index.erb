@@ -3,27 +3,30 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
 <title>Chitter</title>
 </head>
 <body>
 
-<h1>Chitter</h1>
+<nav>
+  <h1>Chitter</h1>
+</nav>
+<div class="container">
+  <section>
+    <form id="peep-box" action="/peeps/post" method="post">
+      <textarea class="peep-box-input" type="textbox" name="peep" rows="3" cols="50" placeholder="Make a peep..." autofocus></textarea>
+      <input class="peep-box-btn" type="submit" value="Post">
+    </form>
+  </section>
 
-<section id="peep-box">
-  <form action="/peeps/post" method="post">
-    <textarea type="textbox" name="peep" rows="3" cols="50" placeholder="Make a peep..." autofocus></textarea>
-    <input type="submit" value="Post">
-  </form>
-</section>
-
-<% @peeps.each do |peep| %>
-  <article>
-    <section>
-      <p><%= peep.print %></p>
-    </section>
-  <article>
-<% end %>
+  <section class="peep-list">
+    <% @peeps.each do |peep| %>
+      <div class="peep">
+        <%= peep.text %>
+      </div>
+    <% end %>
+  </section>
+</div>
 
 </body>
 </html>

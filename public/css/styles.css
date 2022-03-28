@@ -1,26 +1,72 @@
 * {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
+html, body {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100vh;
   background-color: #444;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 h1 {
   color: #fff;
-  margin: 20px 10px;
+  margin: 20px auto;
+  background-color: black;
+  margin: 0 1em 1em;
+  padding: 1em;
+  font-size: 2em;
+  border-radius: 0 0 1em 1em;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 490px;
+  min-width: 350px;
+}
+
+section {
+  margin: auto;
+  width: 100%;
 }
 
 #peep-box {
+  margin: 0.5em auto 2em;
+  padding: 0.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ccc;
   width: 100%;
-  position: relative;
   border-radius: 2em;
+}
+
+.peep-box-input {
+  margin: auto;
+}
+
+.peep-box-btn {
+  display: flex;
 }
 
 textarea[name="peep"] {
   margin: 1em 1em;
   vertical-align: middle;
+  height: 5em;
+  width: 80%;
   resize: none;
   border-radius: 1.5em;
   padding: .7em 1em;
@@ -34,9 +80,14 @@ textarea[name="peep"]:focus {
 }
 
 input[value="Post"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 1em;
+  height: 4em;
+  width: 4em;
   padding: 1.2em 1em;
-  border-radius: 50%;
+  border-radius: 8em;
   border: 3px solid #444;
 }
 
@@ -45,4 +96,20 @@ input[value="Post"]:hover {
   border: 3px solid #fff;
   background-color: #444;
   color: #fff;
+}
+
+.peep-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.peep {
+  display: flex;
+  justify-content: center;
+  padding: 1em 20px;
+  margin: 0.5em auto;
+  border-radius: 2em;
+  width: 100%;
+  background-color: #ccc;
 }

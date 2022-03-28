@@ -32,7 +32,7 @@ I want to sign up for Chitter
 
 ## Getting started
 
-#### **Tech**
+### Tech
 
 - `ruby`
 - `sinatra`
@@ -41,7 +41,7 @@ I want to sign up for Chitter
 - `postgresql`
 - `pg`
 
-#### **Installation and setup**
+### Installation and setup
 
 #### Download
 
@@ -59,7 +59,7 @@ I want to sign up for Chitter
 
 [chitter repo]: https://github.com/J-son1/chitter-challenge
 
-#### **Usage**
+### Usage
 
 #### PostgreSQL
 
@@ -93,11 +93,11 @@ $ rackup
 
 ## Testing
 
-#### **RSpec**
+### RSpec
 
 - Run `rspec` from the projects root directory.
 
-#### **SimpleCov**
+### SimpleCov
 
 Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
 on your pull request:
