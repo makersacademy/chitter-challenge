@@ -3,9 +3,9 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      peep = Peep.create(peep: "This is a peep")
+      Peep.create(peep: "This is a peep")
       Peep.create(peep: "This is a second peep")
-      Peep.create(peep: "Another peep!")
+      peep = Peep.create(peep: "Another peep!")
       
       peeps = Peep.all
 

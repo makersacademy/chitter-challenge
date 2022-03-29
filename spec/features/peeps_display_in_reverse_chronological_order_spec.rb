@@ -5,9 +5,9 @@ feature 'Ordered peeps' do
     Peep.create(peep: "Here is a second peep")
     Peep.create(peep: "Another peep!")
     
-    peeps = page.find_all('.peep')
-
     visit '/peeps'
+
+    peeps = page.find_all('.peep')
     
     expect(peeps[0].text).to eq "Another peep!"
     expect(peeps[1].text).to eq "Here is a second peep"
