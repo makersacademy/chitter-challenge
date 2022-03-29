@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    "<h1 style='text-align:center'>Welcome to Chitter</h1>"
+    erb :'index'
   end
 
   get '/peeps' do
