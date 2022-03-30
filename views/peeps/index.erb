@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
+
+<body>
+<h1>Peeps</h1>
+<br>
+<div>
+<form action="http://localhost:9292/peeps/new">
+  <input type="submit"  class="active" value="Peep">
+</form>
+</div>
+  <% @peeps.reverse.each do |peep| %>
+  <div class="peep">
+    <p><strong><%= peep.user_name %></strong> at <%= peep.creation_time[11..15] %> </p>
+    <p style="text-align:center"><%= peep.content %></p>
+    <!-- <p style="text-align: right;">Peep time: <%= peep.creation_time[11..15] %></p> -->
+  </div>
+  <% end %>
+</body>
+</html>
