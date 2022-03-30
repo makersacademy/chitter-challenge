@@ -3,7 +3,7 @@ feature 'Posting a new peep' do
     visit('peeps/new')
     fill_in('content', with: 'Third post, databases are fun but hard.')
     fill_in('user_name', with: 'Tomas')
-    click_button('Post')
+    click_button('Peep')
 
     expect(page).to have_content 'Third post, databases are fun but hard.'
     expect(page).to have_content 'Tomas'

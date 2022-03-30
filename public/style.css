@@ -1,0 +1,38 @@
+input[type=submit] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background-color: #1DA1F2;  
+    color: white;
+    font-family: system-ui;
+  }
+
+  h1 {
+    font-family: system-ui;
+    text-align:center;
+  }
+
+  form {
+    font-family: system-ui;
+    text-align: center;
+  }
+
+  div {
+    font-family: system-ui;
+    padding: 10px;
+    text-align:center;
+    margin: 0 60px 0 60px;
+  }  
+
+  input {
+     
+    font-family: system-ui;
+    padding: 10px;
+  
+  }
+
+  .peep {
+    border: thin solid black;
+    
+  }

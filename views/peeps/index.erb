@@ -1,29 +1,14 @@
-<style> 
-  input[type=submit] {
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-radius: 25px;
-    background-color: #1DA1F2;  
-    color: white;
-    font-family: system-ui;
-  }
+<!DOCTYPE html>
+<html lang="en">
 
-  h1 {
-    font-family: system-ui;
-    text-align:center;
-  }
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
 
-  form {
-    font-family: system-ui;
-  }
-
-  div {
-    font-family: system-ui;
-    padding: 10px;
-  }  
-</style>
-
+<body>
 <h1>Peeps</h1>
 <br>
 <div>
@@ -32,9 +17,11 @@
 </form>
 </div>
   <% @peeps.reverse.each do |peep| %>
-  <div style="border: thin solid black">
-    <p><strong><%= peep.user_name %></strong> peeped: </p>
+  <div class="peep">
+    <p><strong><%= peep.user_name %></strong> at <%= peep.creation_time[11..15] %> </p>
     <p style="text-align:center"><%= peep.content %></p>
-    <p style="text-align: right;">Peep time: <%= peep.creation_time[11..15] %></p>
+    <!-- <p style="text-align: right;">Peep time: <%= peep.creation_time[11..15] %></p> -->
   </div>
   <% end %>
+</body>
+</html>

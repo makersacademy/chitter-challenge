@@ -1,22 +1,18 @@
-<style> 
-input[type=submit] {
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border-radius: 25px;
-  background-color: #1DA1F2;  
-  color: white;
-  font-family: system-ui;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-form {
-  text-align: center;
-}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
 
-</style>
-
-<form action="/peeps" method="post">
-  <input type="text" name="content" placeholder="peep"/>
-  <input type="text" name="user_name" placeholder="Maker"/>
-  <input type="submit" value="Peep">
-</form>
+  <body>
+    <form action="/peeps" method="post">
+      <input type="text" name="content" placeholder="peep"/>
+      <input type="text" name="user_name" placeholder="Maker"/>
+      <input type="submit" value="Peep">
+    </form>
+  </body>
+</html>
