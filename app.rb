@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep'
+require './database_connection_setup'
 
 class ChitterWeb < Sinatra::Base
   configure :development do

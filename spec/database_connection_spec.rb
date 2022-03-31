@@ -7,11 +7,13 @@ describe DatabaseConnection do
 
       DatabaseConnection.setup(dbname: 'chitter_web_test')
     end
+  end
 
+  describe '.connection' do
     it 'is a persistant connection' do
       connection = DatabaseConnection.setup(dbname: 'chitter_web_test')
 
       expect(DatabaseConnection.connection).to eq connection
     end
-  end  
+  end
 end
