@@ -9,14 +9,6 @@ describe DatabaseConnection do
     end
   end
 
-  describe '.connection' do
-    it 'is a persistant connection' do
-      connection = DatabaseConnection.setup(dbname: 'chitter_web_test')
-
-      expect(DatabaseConnection.connection).to eq connection
-    end
-  end
-
   describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup(dbname: 'chitter_web_test')
