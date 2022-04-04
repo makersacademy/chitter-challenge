@@ -4,6 +4,7 @@ require './lib/user'
 require './lib/post'
 require './lib/comment'
 require 'sinatra/flash'
+require './lib/active_record_setup'
 
 class Chitter < Sinatra::Base
 
@@ -12,8 +13,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.find_by_id(session[:user_id])
-    @post = Post.order(created_at: :desc).pluck(:peep, :created_at, :id, :user_id)
-    @comment = Comment.order(created_at: :asc)
+    @posts = Post.order(created_at: :desc).includes(:comments)
     erb :index
   end
 
@@ -29,8 +29,9 @@ class Chitter < Sinatra::Base
 
   get '/add-comment/:id' do
     @post_id = params[:id]
-    @post_text = Post.find_by_id(@post_id).peep
-    @post_user_id = Post.find_by_id(@post_id).user_id
+    @post = Post.find_by_id(@post_id)
+    @post_text = @post.peep
+    @post_user_id = @post.user_id
     @username = User.find_by_id(@post_user_id).username
     erb :new_comment
   end
@@ -48,7 +49,6 @@ class Chitter < Sinatra::Base
       last_name: params[:last_name],
       password: params[:password]
     )
-    @new_user.save
     
     if User.find_by_id(@new_user.id)
       session[:user_id] = @new_user.id

@@ -40,17 +40,17 @@
     <% end %>
       <h3> Your Chitter Feed </h3>
     <ul>
-      <% @post.each do |peep| %>
-      <%time = peep[1].strftime("%d/%m/%Y %k:%M")%>
-      <li class="post" id="post-<%= peep[2] %>">
-        <%= peep.first %> posted by <%= User.find(peep.last).username %> <%= time %>
+      <% @posts.each do |peep| %>
+      <%time = peep.created_at.strftime("%d/%m/%Y %k:%M")%>
+      <li class="post" id="post-<%= peep.id %>">
+        <%= peep.peep %> posted by <%= User.find(peep.user_id).username %> <%= time %>
         <% if @user%>
-        <form action="/add-comment/<%= peep[2] %>" method="get">
+        <form action="/add-comment/<%= peep.id %>" method="get">
           <input type="submit" value="Add Comment" />
         </form>
         <% end %>
         <ul>
-          <% @comment.where(:post_id => peep[2]).each do |comment| %>
+          <% peep.comments.each do |comment| %>
           <li class="comment" id="comment-<%= comment.id %>">
             <%= comment.comment %> comment posted by <%= User.find(comment.user_id).username %> <%= comment.created_at.strftime("%d/%m/%Y %k:%M") %>
           </li>

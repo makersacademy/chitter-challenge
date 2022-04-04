@@ -15,7 +15,7 @@ feature "viewing posts and comments" do
     click_button 'Send Peep'
 
     expect(page).to have_content "Hello, world!"
-    expect(page).to have_content "#{Time.now.strftime("%d/%m/%Y %k:%M")}"
+    expect(page).to have_content Time.now.utc.strftime("%d/%m/%Y %k:%M").to_s
   end
 
   scenario "Viewing new posts with time of post and username of person who posted" do
@@ -23,7 +23,7 @@ feature "viewing posts and comments" do
     fill_in "peep",	with: "Hello, world!"
     click_button 'Send Peep'
 
-    expect(page).to have_content "Hello, world! posted by ChrisL #{Time.now.strftime("%d/%m/%Y %k:%M")}"
+    expect(page).to have_content "Hello, world! posted by ChrisL #{Time.now.utc.strftime("%d/%m/%Y %k:%M")}"
   end
 
   scenario "Viewing comments in chronological order" do
