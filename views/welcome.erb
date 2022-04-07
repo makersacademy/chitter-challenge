@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+</head>
+<body>
+
+<h1>Welcome to Chitter!</h1>
+
+
+<h2>Join us today</h2>
+
+
+  <form action='/sign_up' method='post'>
+    <input type="submit" value="Sign up">
+  </form>
+
+<br>
+<br>
+<br>
+
+<h3>Already have an account?</h3>
+
+  <form action='/sign_in' method='post'>
+    <input type="submit" value="Sign in">
+  </form>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h1>
+    <%= flash[:notice] %>
+  </h1>
+
+</body>
+</html>

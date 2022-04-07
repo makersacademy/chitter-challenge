@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+</head>
+<body>
+
+<% if @user %>
+  <h1>Welcome to Chitter, <%= @user.name %>!</h1>
+<% end %>
+
+<h2>Here are the latest peeps!</h2>
+
+<br>
+<br>
+
+<div id= 'peepbox' class='peepbox'>
+<ul>
+  <% @peeps.each do |peep| %>
+  <% user = User.find(peep.user_id) %>
+    <div style="font-weight: bold">
+    <li><%= peep.peep %> </div> Posted at: <%= peep.timestamp.to_s[10, 6]%> on <%= peep.timestamp.to_s[0, 10]%> By: <%= user.username%></li> 
+  <% end %>
+</ul>
+</div>
+
+
+<div id= 'newpeep' class='newpeep'>
+  <% if @user %>
+    <form action="/peep" method="post">
+      <input type="submit" value="New peep">
+    </form>
+  <% end %>
+</div>
+
+
+<div id='logout' class='logout'>
+  <% if @user %>
+    <form action='/sessions/destroy' method='post'>
+    <input type='submit' value='Sign out' />
+  </form>
+  <% end %>
+</div>
+
+</body>
+</html>
