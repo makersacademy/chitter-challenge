@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = User.find(id: session[:user_id])
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -40,7 +40,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.post(peep: params[:peep])
+    Peep.post(peep: params[:peep], user_id: session[:user_id])
     redirect '/peeps'
   end
 

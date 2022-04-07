@@ -22,6 +22,7 @@ Database instructions
 6. Create test database using psql command `CREATE DATABASE chitter_test;`
 7. Connect to the database using the pqsl command `\c chitter_test;`
 8. Repeat steps 4 and 5
+10. Run the query saved in the file 05_add_userid_to_peep_table.sql in both databases
 
 How to run the software
 -----
@@ -97,7 +98,6 @@ Technologies used
 Future implementations to consider
 -----
 * Use Active Record to manage database connections
-* Add username for posted Peeps (I didn't have the time to implement this functionality)
 * Implement email to send to user when tagged in a Peep
 * Add ability for user to reply to a peep from another user
 

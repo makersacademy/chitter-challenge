@@ -9,8 +9,8 @@ feature 'viewing peeps' do
 
   feature 'viewing peeps' do
     scenario 'a user can see peeps' do
-      Peep.post(peep: 'What a beautil day!')
-      Peep.post(peep: 'Going for a run now')
+      Peep.post(peep: 'What a beautil day!', user_id: 3)
+      Peep.post(peep: 'Going for a run now', user_id: 5)
 
       visit '/peeps'
 
