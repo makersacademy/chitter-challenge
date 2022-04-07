@@ -37,7 +37,7 @@ After setting up your databases, run `rackup` in the command line to start the s
 
 How to run the tests
 -----
-Make sure to be in the root folder of the project, then run 'rspec' from the command line to run all feature and unit tests. 
+Make sure to be in the root folder of the project, then run `rspec` from the command line to run all feature and unit tests. 
 The tests are run in the test environment, where the table are cleared every time before running the tests.
 
 User stories used to design the software
