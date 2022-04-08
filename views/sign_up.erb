@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter Sign In/ Sign Up </title>
+  </head>
+  <body>
+    <header>
+      <h1>Chitter: <small>Sign In</small></h1>
+    </header>
+    <h2 style="color:red" id="flash">
+      <%= flash[:notice] %>
+    </h2>
+    <form action="/logging-in" method="post">
+      <label for="username">
+        Enter Username
+        <input type="text" name="log_in_username">
+      </label>
+      <label for="password">
+        Enter A Password 
+        <input type="password" name="log_in_password">
+      </label>
+      <input type="submit" value="Log in">
+    </form>
+      <br>
+    <header>
+      <h1>Chitter: <small>Sign Up</small></h1>
+    </header>
+    <h3> Sign Up For The Unique Experience </h3>
+    <form action="/signing-up" method="post">
+      <label for="username">
+        Enter Desired Username
+        <input type="text" name="username">
+      </label>
+      <br>
+      <label for="first_name">
+        Enter Your First Name
+        <input type="text" name="first_name">
+      </label>
+      <br>
+      <label for="last_name">
+        Enter Your Last Name 
+        <input type="text" name="last_name">
+      </label>
+      <br>
+      <label for="email">
+        Enter Your Email 
+        <input type="text" name="email">
+      </label>
+      <br>
+        <label for="password">
+        Enter A Password 
+        <input type="password" name="password">
+      </label>
+      <br>
+      <input type="submit" value="Sign up">
+    </form>
+
+  </body>
+</html>

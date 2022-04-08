@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter </title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Chitter: <small>The Completely Original Website</small></h1>
+    </header>
+    <%if @user %>
+      <h3> Welcome, <%=@user.username%> </h3> 
+    <% end %>
+    <h3 style="color:red" id="flash">
+      <%= flash[:notice] %>
+    </h3>
+    <br>
+    <br>
+    <% if !@user %>
+      <form action="/sign-up" method="get">
+        <input type="submit" value="Log in">
+        <input type="submit" value="Sign up">
+      </form>
+      <br>
+      <br>
+    <% else %> 
+      <form action="/logging-out" method="post">
+        <input type="submit" value="Log out">
+      </form>
+      <br>
+      <br>
+      <form action="/add_post" method="post">
+        <label for="add_post">
+        Create New Post
+          <input type="text" name="peep">
+        </label>
+        <input type="submit" value="Send Peep">
+      </form>
+      <br>
+      <br>
+    <% end %>
+      <h3> Your Chitter Feed </h3>
+    <ul>
+      <% @posts.each do |peep| %>
+      <%time = peep.created_at.strftime("%d/%m/%Y %k:%M")%>
+      <li class="post" id="post-<%= peep.id %>">
+        <%= peep.peep %> posted by <%= User.find(peep.user_id).username %> <%= time %>
+        <% if @user%>
+        <form action="/add-comment/<%= peep.id %>" method="get">
+          <input type="submit" value="Add Comment" />
+        </form>
+        <% end %>
+        <ul>
+          <% peep.comments.each do |comment| %>
+          <li class="comment" id="comment-<%= comment.id %>">
+            <%= comment.comment %> comment posted by <%= User.find(comment.user_id).username %> <%= comment.created_at.strftime("%d/%m/%Y %k:%M") %>
+          </li>
+          <%end%>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

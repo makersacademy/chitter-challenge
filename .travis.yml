@@ -5,6 +5,18 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c '\c chitter_test'
+  - psql -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, username  VARCHAR(60) UNIQUE, email VARCHAR(60) UNIQUE, first_name VARCHAR(60), last_name VARCHAR(60), password_digest VARCHAR(140));'
+  - psql -U postgres -c 'CREATE TABLE posts(id SERIAL PRIMARY KEY, peep  VARCHAR(60), user_id INT);'
+  - psql -U postgres -c 'ALTER TABLE posts ADD created_at TIMESTAMP;' 
+  - psql -U postgres -c 'CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), post_id INT, user_id INT, created_at TIMESTAMP);'
+  - psql -U postgres -c 'CREATE DATABASE chitter;'
+  - psql -U postgres -c '\c chitter'
+  - psql -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, username  VARCHAR(60) UNIQUE, email VARCHAR(60) UNIQUE, first_name VARCHAR(60), last_name VARCHAR(60), password_digest VARCHAR(140));'
+  - psql -U postgres -c 'CREATE TABLE posts(id SERIAL PRIMARY KEY, peep  VARCHAR(60), user_id INT);'
+  - psql -U postgres -c 'ALTER TABLE posts ADD created_at TIMESTAMP;' 
+  - psql -U postgres -c 'CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), post_id INT, user_id INT, created_at TIMESTAMP);'
+
 
 script:
   - bundle exec rspec
