@@ -11,6 +11,8 @@ html, body {
   flex-direction: column;
   height: 100vh;
   background-color: #444;
+  background-image: linear-gradient(#c8deff, #002864);
+  background-attachment: fixed;
 }
 
 nav {
@@ -22,11 +24,12 @@ nav {
 h1 {
   color: #fff;
   margin: 20px auto;
-  background-color: black;
+  background-color: #002864;
   margin: 0 1em 1em;
   padding: 1em;
   font-size: 2em;
   border-radius: 0 0 1em 1em;
+  box-shadow: 0 0.3em 0.4em 0 rgba(0,0,0,0.5), 0 0.1em 0.2em 0 rgba(0,0,0,0.2);
 }
 
 .container {
@@ -49,9 +52,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ccc;
+  background-color: #c8deff;
   width: 100%;
   border-radius: 2em;
+  box-shadow: 0 0.4em 0.5em 0 rgba(0,0,0,0.5);
 }
 
 .peep-box-input {
@@ -75,7 +79,7 @@ textarea[name="peep"] {
 }
 
 textarea[name="peep"]:focus {
-  border: 3px solid #444;
+  border: 3px solid #002864;
   transition: .6s;
 }
 
@@ -83,19 +87,21 @@ input[value="Post"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #002864;
   margin: 1em;
   height: 4em;
   width: 4em;
   padding: 1.2em 1em;
   border-radius: 8em;
-  border: 3px solid #444;
+  border: 3px solid #fff;
+  color: #fff;
 }
 
 input[value="Post"]:hover {
   transition: .1s;
-  border: 3px solid #fff;
-  background-color: #444;
-  color: #fff;
+  border: 3px solid #002864;
+  background-color: #fff;
+  color: #002864;
 }
 
 .peep-list {
@@ -108,8 +114,10 @@ input[value="Post"]:hover {
   display: flex;
   justify-content: center;
   padding: 1em 20px;
-  margin: 0.5em auto;
+  margin: 0.5em auto 1em;
   border-radius: 2em;
   width: 100%;
-  background-color: #ccc;
+  color: #002864;
+  background-color: #c8deff;
+  box-shadow: 0 0.4em 0.5em 0 rgba(0,0,0,0.5);
 }
