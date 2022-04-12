@@ -11,7 +11,7 @@ html, body {
   flex-direction: column;
   height: 100vh;
   background-color: #444;
-  background-image: linear-gradient(#c8deff, #002864);
+  background-image: linear-gradient(150deg, #fff, #002864);
   background-attachment: fixed;
 }
 
@@ -24,7 +24,8 @@ nav {
 h1 {
   color: #fff;
   margin: 20px auto;
-  background-color: #002864;
+  background-color: #444;
+  background-image: linear-gradient(210deg, #c8deff, #002864);
   margin: 0 1em 1em;
   padding: 1em;
   font-size: 2em;
@@ -76,11 +77,11 @@ textarea[name="peep"] {
   padding: .7em 1em;
   border: 3px solid #ddd;
   outline: none;
+  transition: .6s;
 }
 
 textarea[name="peep"]:focus {
   border: 3px solid #002864;
-  transition: .6s;
 }
 
 input[value="Post"] {
@@ -95,13 +96,15 @@ input[value="Post"] {
   border-radius: 8em;
   border: 3px solid #fff;
   color: #fff;
+  cursor: pointer;
 }
 
 input[value="Post"]:hover {
-  transition: .1s;
-  border: 3px solid #002864;
-  background-color: #fff;
-  color: #002864;
+  background: linear-gradient(150deg, #c8deff, #002864);
+}
+
+input[value="Post"]:active {
+  background: linear-gradient(330deg, #c8deff, #002864);
 }
 
 .peep-list {
