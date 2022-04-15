@@ -59,6 +59,8 @@ I want to receive an email if I am tagged in a Peep
 ## References
 ```
 https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=CHITTER
+https://www.postgresql.org/docs/current/functions-datetime.html
 
 ```
 used the above for ASCII letters in banner on README\
+used the above to store the current time the entry is made inside the database
