@@ -6,4 +6,12 @@ feature 'Post Peep' do
     click_button('Peep!')
     expect(page).to have_content("Hey guys! I'm new")
   end
+
+  scenario 'User can see the time the Peep was created' do
+    visit('/')
+    click_button('New Peep')
+    fill_in :peep, with: "Hey guys! I'm new"
+    click_button('Peep!')
+    expect(page).to have_content("2022-04-15 12:54")
+  end
 end

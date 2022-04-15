@@ -9,6 +9,12 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.message).to eq "Hey guys! I'm new"
     end
+
+    it 'has the time the peep was created' do
+      peep = Peep.post(peep: "Hey guys! I'm new")
+      allow(peep).to receive(:time).and_return("2022-04-15 12:54")
+      expect(peep.time).to eq "2022-04-15 12:54"
+    end
   end
 
   describe '#all' do
