@@ -13,11 +13,17 @@ describe Peep do
 
   describe '#all' do
     it 'shows all of the peeps' do
-      peep = Peep.post(peep: "Hey guys! I'm new")
-      peep = Peep.post(peep: "Hey new! I'm Peeper")
+      Peep.post(peep: "Hey guys! I'm new")
+      Peep.post(peep: "Hey new! I'm Michael")
       peeps = Peep.all
-      p peeps
       expect(peeps.length).to eq(2)
+    end
+
+    it 'shows peeps in reverse chronological order' do
+      Peep.post(peep: "Hey guys! I'm new")
+      peep = Peep.post(peep: "Hey new! I'm Michael")
+      peeps = Peep.all
+      expect(peeps.first).to eq peep
     end
   end
 
