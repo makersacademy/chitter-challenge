@@ -23,9 +23,8 @@ describe Peep do
       Peep.post(peep: "Hey guys! I'm new")
       peep = Peep.post(peep: "Hey new! I'm Michael")
       peeps = Peep.all
-      expect(peeps.first).to eq peep
+      expect(peeps.first.message).to eq "Hey new! I'm Michael"
     end
   end
 
 end
-
