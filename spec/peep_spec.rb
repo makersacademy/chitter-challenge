@@ -16,7 +16,8 @@ describe Peep do
       peep = Peep.post(peep: "Hey guys! I'm new")
       peep = Peep.post(peep: "Hey new! I'm Peeper")
       peeps = Peep.all
-      expect(peeps).length to eq(2)
+      p peeps
+      expect(peeps.length).to eq(2)
     end
   end
 

@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require_relative '../app'
+require_relative './database_helper.rb'
 
 require 'rspec'
 require 'capybara'
@@ -23,5 +24,9 @@ RSpec.configure do |config|
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+
+  config.before(:each) do
+    truncate_database
   end
 end
