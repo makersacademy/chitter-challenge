@@ -1,17 +1,9 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+A small Twitter clone that will allow the users to post messages to a public stream. Duplicate home pages - one with a log in / sign up buttons, the other with peep it / sign out buttons
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Fork this repo, then run bundle install.
 
 Features:
 -------
@@ -21,9 +13,9 @@ STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (Peep) to Chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
@@ -51,6 +43,38 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+CRC (Class-Responsibility-Collaborations) Planning:
+-----
+
+https://docs.google.com/spreadsheets/d/1atyx1TRpeNsPnwf3tTABDROlOtcoptVrIU2CBwAtexA/edit?usp=sharing
+
+Database Setup
+-----
+
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE chitter;`
+3. Connect to the database using the `pqsl` command `\c chitter;`
+4. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/01_create_messages_table.sql`
+5. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/02_add_posted_time_to_messages.sql`
+6. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/03_create_users_table.sql`
+7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_user_id_to_messages.sql`
+8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_logged_in_to_users.sql`
+
+
+Database Setup for Testing
+-----
+
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE chitter_test;`
+3. Connect to the database using the `pqsl` command `\c chitter_test;`
+4. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/01_create_messages_table.sql`
+5. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/02_add_posted_time_to_messages.sql`
+6. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/03_create_users_table.sql`
+7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_user_id_to_messages.sql`
+8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_logged_in_to_users.sql`
+
+
 
 Technical Approach:
 -----
@@ -103,7 +127,7 @@ Reviewers will potentially be using this [code review rubric](docs/review.md).  
 Automated Tests:
 -----
 
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
+Opening a pull request against this repository will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
 
 If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
 

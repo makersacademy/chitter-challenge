@@ -1,3 +1,21 @@
+require_relative './setting_up_test_database'
+
+ENV['RACK_ENV'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    wipe_tables
+  end
+end
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+Capybara.app = Chitter
+
 require 'simplecov'
 require 'simplecov-console'
 
