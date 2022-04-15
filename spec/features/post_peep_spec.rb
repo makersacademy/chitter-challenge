@@ -12,6 +12,6 @@ feature 'Post Peep' do
     click_button('New Peep')
     fill_in :peep, with: "Hey guys! I'm new"
     click_button('Peep!')
-    expect(page).to have_content("2022-04-15 12:54")
+    expect(page).to have_content(Date.today)
   end
 end

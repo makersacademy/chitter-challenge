@@ -13,6 +13,7 @@ group :test do
   gem 'rack'
   gem 'pg'
   gem 'bcrypt'
+  gem 'orderly'
 end
 
 group :development do

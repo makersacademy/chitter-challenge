@@ -6,6 +6,7 @@ require_relative './database_helper'
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
+require 'orderly'
 
 require 'simplecov'
 require 'simplecov-console'
