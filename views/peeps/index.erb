@@ -1,4 +1,7 @@
 <ul>
+<% if @user %>
+Welcome, <%= @user.username %>!
+<% end %>
   <% @peeps.each do |peep| %>
     <li>
      <%= peep.message %>
