@@ -1,15 +1,15 @@
 require 'pg'
 require_relative '../lib/peep'
+# require_relative '../lib/database_connection'
 
 def wipe_tables
   connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("TRUNCATE peeps;")
-  # connection.exec("TRUNCATE users;")
+  connection.exec("TRUNCATE peeps, users;")
 end
 
 
-def persisted_data(peep_id:)
+def persisted_data(table:, id:)
   connection = PG.connect(dbname: 'chitter_test')
-  result = connection.query("SELECT * FROM peeps WHERE peep_id = #{peep_id};")
+  result = connection.exec("SELECT * FROM #{table} WHERE id = #{id};")
   result.first
 end

@@ -12,7 +12,7 @@ feature 'viewing home' do
   end
 
   ## Test using gem explained here - https://github.com/jmondo/orderly
-  ## Not working, althoug there is coverage in app file, and gem is being installed
+  ## Not working, although there is coverage in peep_spec, and gem is being installed
   # scenario 'new peeps appear at the top' do
   #   visit('/')
   #   fill_in('content', with: 'a new peep')

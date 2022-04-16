@@ -12,7 +12,7 @@ describe Peep do
 
       expect(peeps[2].content).to eq 'Chitter is cool!'
       expect(peeps[2]).to be_a Peep
-      expect(peeps[2].peep_id).to eq peep.peep_id
+      expect(peeps[2].id).to eq peep.id
       expect(peeps[1].content).to eq 'An interesting message..'
       expect(peeps[0].content).to eq 'Blah blah blah'
     end
@@ -25,10 +25,10 @@ describe Peep do
       formatted_time = time_now.strftime("%I:%M %p, %d/%m/%Y")
       
       peep = Peep.create(content: 'What a day!')
-      persisted_data = persisted_data(peep_id: peep.peep_id)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
       
       expect(peep).to be_a Peep
-      expect(peep.peep_id).to eq persisted_data['peep_id']
+      expect(peep.id).to eq persisted_data['id']
       expect(peep.content).to eq 'What a day!'
       expect(peep.posted).to eq formatted_time
     end

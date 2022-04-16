@@ -27,9 +27,6 @@ GEM
     nokogiri (1.13.4)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    orderly (0.1.1)
-      capybara (>= 1.1)
-      rspec (>= 2.14)
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
@@ -105,7 +102,6 @@ PLATFORMS
 DEPENDENCIES
   capybara
   launchy
-  orderly
   pg
   rspec
   rubocop (= 1.20)
