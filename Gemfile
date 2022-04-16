@@ -5,6 +5,10 @@ ruby '3.0.2'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'capybara'
+gem 'pg'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'rake'
 
 group :test do
   gem 'rspec'

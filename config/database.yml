@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: chitter
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: chitter_test
+  timeout: 5000
