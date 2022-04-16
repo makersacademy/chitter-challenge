@@ -5,7 +5,6 @@ describe Peep do
   describe '#post' do
     it 'posts a new peep' do
       peep = Peep.post(peep: "Hey guys! I'm new")
-
       expect(peep).to be_a Peep
       expect(peep.message).to eq "Hey guys! I'm new"
     end
