@@ -9,5 +9,9 @@ class Chitter < Sinatra::Base
   get '/' do
     'Hello world'
   end
+
+  get '/chitter/peeps/new' do
+    erb :'posts/new'
+  end
   run! if app_file == $0
 end
