@@ -1,20 +1,26 @@
 require 'pg'
+require_relative 'database_connection'
 
 class Peep
+  attr_reader :peep_id, :content, :posted
+
+  def initialize(peep_id:, content:, posted: Time.now.strftime("%I:%M %p, %d/%m/%Y"))
+    @peep_id = peep_id
+    @content = content
+    @posted = posted
+  end
+
   def self.all
-    connection = PG.connect(dbname: 'chitter_test') if ENV['RACK_ENV'] == 'test'
-    connection = PG.connect(dbname: 'chitter') if ENV['RACK_ENV'] != 'test'
-    
-    result = connection.exec("SELECT * FROM peeps")
-    array_of_peeps = result.map { |peep| { content: peep['content'], posted: peep['posted'] } }
+    result = DatabaseConnection.query("SELECT * FROM peeps")
+    array_of_peeps = result.map do |peep| 
+      Peep.new(peep_id: peep['peep_id'], content: peep['content'], posted: peep['posted'])
+    end
     array_of_peeps.reverse
   end
 
   def self.create(content:)
-    connection = PG.connect(dbname: 'chitter_test') if ENV['RACK_ENV'] == 'test'
-    connection = PG.connect(dbname: 'chitter') if ENV['RACK_ENV'] != 'test'
-
     posted = Time.now.strftime("%I:%M %p, %d/%m/%Y")
-    connection.exec("INSERT INTO peeps (content, posted) VALUES('#{content}', '#{posted}');")
+    result = DatabaseConnection.query("INSERT INTO peeps (content, posted) VALUES($1, $2) RETURNING peep_id, content, posted;", [content, posted])
+    Peep.new(peep_id: result[0]['peep_id'], content: result[0]['content'], posted: result[0]['posted'])
   end
 end

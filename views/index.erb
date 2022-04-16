@@ -37,7 +37,7 @@ body {
 <ul>
     <% @peeps.each do |peep|%>
     <li>
-      <strong> <%= peep[:content] %> </strong> &emsp; &emsp; &emsp; <em> at <%= peep[:posted] %> </em>
+      <strong> <%= peep.content %> </strong> &emsp; &emsp; &emsp; <em> at <%= peep.posted %> </em>
     </li>
     <% end %>
 </ul>

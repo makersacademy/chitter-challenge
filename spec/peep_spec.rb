@@ -1,16 +1,20 @@
 require_relative '../lib/peep'
-require_relative './setting_up_test_database'
+require_relative './database_helpers'
 
 describe Peep do
   describe '.all' do
     it 'returns peeps in reverse order' do
-      add_three_peeps
-      
+      peep = Peep.create(content:'Chitter is cool!')
+      Peep.create(content:'An interesting message..')
+      Peep.create(content:'Blah blah blah')
+
       peeps = Peep.all
 
-      expect(peeps[2][:content]).to eq 'Chitter is cool!'
-      expect(peeps[1][:content]).to eq 'An interesting message..'
-      expect(peeps[0][:content]).to eq 'Blah blah blah'
+      expect(peeps[2].content).to eq 'Chitter is cool!'
+      expect(peeps[2]).to be_a Peep
+      expect(peeps[2].peep_id).to eq peep.peep_id
+      expect(peeps[1].content).to eq 'An interesting message..'
+      expect(peeps[0].content).to eq 'Blah blah blah'
     end
   end
 
@@ -20,12 +24,13 @@ describe Peep do
       allow(Time).to receive(:now).and_return(time_now)
       formatted_time = time_now.strftime("%I:%M %p, %d/%m/%Y")
       
-      Peep.create(content: 'What a day!')
-
-      peeps = Peep.all
-
-      expect(peeps[0][:content]).to eq 'What a day!'
-      expect(peeps[0][:posted]).to eq formatted_time
+      peep = Peep.create(content: 'What a day!')
+      persisted_data = persisted_data(peep_id: peep.peep_id)
+      
+      expect(peep).to be_a Peep
+      expect(peep.peep_id).to eq persisted_data['peep_id']
+      expect(peep.content).to eq 'What a day!'
+      expect(peep.posted).to eq formatted_time
     end
   end
 end
