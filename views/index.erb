@@ -29,7 +29,6 @@ div.b {
 
 div.c {
   font-size: 150%;
-  margin: 0px 10px;
 }
 
 ul {
@@ -51,7 +50,7 @@ ul li {
 <br>
 <div class="a">
 <% if @user != nil%>
-  <h2>Welcome back to Chitter <%= @user.username %>!</h2>
+  <h2>Welcome back to Chitter <%= @user.name.split(' ')[0] %>!</h2>
   <h3> Get peepin'... </h3>
   <form action='/end_session' method='post'>
     Finished peeping? &emsp; &emsp; <input type='submit' value='Log out'>
@@ -78,9 +77,10 @@ ul li {
 <ul>
     <% @peeps.each do |peep|%>
     <li>
-      <strong> <em><%=peep.username %> </em></strong> 
+      <div class="c"><strong><%=peep.name%></strong></div>
+      <strong> <em>@<%=peep.username %> </em></strong> 
       <br>
-      <div class="c"> <%= peep.content %> </div>
+      <div class="c" style="margin: 0px 10px"> <%= peep.content %> </div>
       <br>
       <div class="b"> <small><em> (at <%= peep.posted %>) </em></small></div>
     </li>

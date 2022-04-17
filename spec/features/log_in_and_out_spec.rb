@@ -7,7 +7,7 @@ feature 'logging in and out' do
     fill_in(:password, with: 'pwpwpwpw')
     click_button('Log in')
 
-    expect(page).to have_content 'Welcome back to Chitter Sarahness!'
+    expect(page).to have_content 'Welcome back to Chitter Sarah!'
   end
   scenario 'a user can log out' do
     User.create(username: 'Sarahness', name: 'Sarah Smith', email: 'email@email.com', password: 'pwpwpwpw')
@@ -18,7 +18,7 @@ feature 'logging in and out' do
     click_button('Log in')
     click_button('Log out')
 
-    expect(page).not_to have_content 'Welcome back to Chitter Sarahness!'
+    expect(page).not_to have_content 'Welcome back to Chitter Sarah!'
     expect(page).to have_content "Welcome to Chitter!"
   end
   scenario 'a user sees an error if they get their username wrong' do
@@ -29,7 +29,7 @@ feature 'logging in and out' do
     fill_in(:password, with: 'pwpwpwpw')
     click_button('Log in')
   
-    expect(page).not_to have_content 'Welcome back to Chitter Sarahness!'
+    expect(page).not_to have_content 'Welcome back to Chitter Sarah!'
     expect(page).to have_content "Whoops, your details don't match any that we have saved!"  
     expect(page).to have_button('Try again?')
   end 
@@ -41,7 +41,7 @@ feature 'logging in and out' do
     fill_in(:password, with: 'wpwpwpwp')
     click_button('Log in')
   
-    expect(page).not_to have_content 'Welcome back to Chitter Sarahness!'
+    expect(page).not_to have_content 'Welcome back to Chitter Sarah!'
     expect(page).to have_content "Whoops, your details don't match any that we have saved!"  
     expect(page).to have_button('Try again?')
   end 

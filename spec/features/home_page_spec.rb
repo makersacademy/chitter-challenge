@@ -62,7 +62,7 @@ feature 'viewing home' do
     expect(page).to have_content 'M'
     expect(page).to have_content '/'
   end
-  scenario 'user can see their name of author of each peep' do
+  scenario 'user can see their name and username of the author of each peep' do
     User.create(username: 'Sarahness', name: 'Sarah Smith', email: 'email@email.com', password: 'pwpwpwpw')
     
     visit('/log_in')
@@ -72,7 +72,8 @@ feature 'viewing home' do
     fill_in('content', with: 'I (Sarah) peeped this!')
     click_button('Peep it!')
 
-    expect(page).to have_content '(at '
+    expect(page).to have_content 'Sarah Smith'
+    expect(page).to have_content 'Sarahness'
   end
 
   ## Test using gem explained here - https://github.com/jmondo/orderly

@@ -7,7 +7,7 @@ feature 'Signing up' do
     fill_in('password', with: 'reallygoodpassword')
     click_button('Join Chitter')
 
-    expect(page).to have_content 'Welcome back to Chitter Josenewmano!'
+    expect(page).to have_content 'Welcome back to Chitter Joseph!'
   end
   scenario 'a user cannot sign up when the username is already taken' do
     User.create(username: 'Josenewmano', name: 'Reg Dennis', email: 'a@b.com', password: 'abc')
