@@ -1,0 +1,50 @@
+<style>
+  body {
+      background-color: lightskyblue;
+    }
+  .form{
+    font-family: arial;
+    text-align: left;
+    color: rebeccapurple;
+  }
+  input[type=submit]{
+    background-color: mediumpurple;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    width: 35% ;
+  }
+  label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 120px;
+  }
+  input[type=text]{
+    display: inline-block;
+    float:left;
+    width: 27.75% ;
+  }
+</style>
+
+<%= flash[:notice] %>
+
+<div class = 'form'>
+<form action = '/users' method = 'post'>
+  <label for 'email'> Email: </label>
+  <input type = 'text' name = 'email' placeholder = "Email"/>
+  <br>
+  <label for 'password'> Password: </label>
+  <input type = 'text' name = 'password' placeholder = "Password"/>
+  <br>
+  <label for 'name'> Name: </label>
+  <input type = 'text' name = 'name' placeholder = "Name"/>
+  <br>
+  <label for 'username'> Username: </label>
+  <input type = 'text' name = 'username' placeholder = "Username"/>
+  <br>
+  <br>
+  <input type= 'submit' value = 'Submit'/>
+</form>
+</div>

@@ -1,0 +1,39 @@
+<style>
+  body {
+      background-color: lightskyblue;
+    }
+  .newpeep{
+    font-family: arial;
+    text-align: left;
+    color: rebeccapurple;
+  }
+  input[type=submit]{
+    background-color: mediumpurple;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    width: 35% ;
+  }
+  label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 50px;
+  }
+  input[type=text]{
+    display: inline-block;
+    float:left;
+    width: 32% ;
+  }
+</style>
+
+<div class = 'newpeep'>
+<form action = '/peeps' method = 'post'>
+  <label for 'peep'> Peep: </label>
+  <input type = 'text' name = 'peep' placeholder = "Write your peep here"/>
+  <br>
+  <br>
+  <input type= 'submit' value = 'Peep!'>
+</form >
+</div>

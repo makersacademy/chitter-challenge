@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN time TIMESTAMP DEFAULT current_timestamp;
