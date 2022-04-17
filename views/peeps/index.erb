@@ -5,7 +5,12 @@
   <form action='/sessions/destroy' method='post'>
     <input type='submit' value='Sign out'/>
   </form>
+
+  <form action = '/peeps/new'>
+    <input type = 'submit' value = 'New Peep'/>
+  </form>
 <% end %>
+
   <% @peeps.each do |peep| %>
     <li>
      <%= peep.message %>
