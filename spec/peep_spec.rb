@@ -16,4 +16,10 @@ describe Peep do
     Peep.create({ description: "" })
     expect(Peep.all).to be_empty
   end
+
+  it "has a created_at time" do
+    subject = Peep.create({ description: "This is a test peep" })
+    p subject.created_at.class
+    expect(subject.created_at).to be_a Time
+  end
 end

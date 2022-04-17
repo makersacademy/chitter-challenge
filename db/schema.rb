@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 20_220_416_163_704) do
 
   create_table "peeps", force: :cascade do |t|
     t.string "description"
+    t.datetime "created_at", null: false
   end
 
 end
