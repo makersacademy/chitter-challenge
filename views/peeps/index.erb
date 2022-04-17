@@ -12,10 +12,11 @@
 <% end %>
 
   <% @peeps.each do |peep| %>
+    <% user = User.find(peep.user_id) %>
     <li>
      <%= peep.message %>
      <br>
-     <%= peep.time[0..18] %>
+     posted by <%= user.username %> at <%=peep.time[0..18] %>
     </li>
   <% end %>
 </ul>
