@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep'
+require_relative './lib/user'
 require_relative './lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
@@ -10,13 +11,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    session[:user_id] != nil ? @user = User.find(session[:user_id]) : @user = nil
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :index
   end
 
   post '/add_peeps' do
-    Peep.create(content: params['content'])
+    user = User.find(session[:user_id])
+    Peep.create(content: params['content'], username: user.username)
     redirect '/'
   end
 
@@ -25,9 +27,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_user' do
-    user = User.create(username: params['username'], name: params['name'], email: params['email'], password: params['password'])
-    session[:user_id] = user.id
-    redirect '/'
+    result = User.check_usernames_and_emails(username: params['username'], email: params['email'])
+    if result == true
+      redirect '/sign_up_failure'
+    else
+      user = User.create(username: params['username'], name: params['name'], 
+                         email: params['email'], password: params['password'])
+      session[:user_id] = user.id
+      redirect '/'
+    end
   end
 
   get '/log_in' do
@@ -36,8 +44,25 @@ class Chitter < Sinatra::Base
 
   post '/new_session' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
+    if user.nil?
+      redirect '/log_in_failure'
+    else
+      session[:user_id] = user.id
+      redirect '/'
+    end
+  end
+
+  post '/end_session' do
+    session[:user_id] = nil
     redirect '/'
+  end
+
+  get '/log_in_failure' do
+    erb :log_in_failure
+  end
+
+  get '/sign_up_failure' do
+    erb :sign_up_failure
   end
 
   run! if app_file == $0

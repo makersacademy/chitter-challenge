@@ -7,12 +7,6 @@ describe DatabaseConnection do
 
       DatabaseConnection.setup('chitter_test')
     end
-
-    it 'connection will not go down' do
-      connection = DatabaseConnection.setup('chitter_test')
-    
-      expect(DatabaseConnection.connection).to eq connection
-    end
   end
 
   describe '.query' do

@@ -16,20 +16,50 @@ body {
   margin: auto;
   background-color: #6BCAF6;
   background-size: 50%;
-  text-align: center;
   border-radius: 40px;
+}
+
+div.a {
+  text-align: center;
+}
+
+div.b {
+  text-align: right;
+} 
+
+div.c {
+  font-size: 150%;
+  margin: 0px 10px;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+ul li {
+  padding: 10px;
+  margin: 20px;
+  background: #CEE9F6;
+  border-radius: 10px;
 }
 
 </style>
 </head>
 <body>
 <br>
+<div class="a">
 <% if @user != nil%>
-  <h1>Welcome back to Chitter <%= @user.username %>!</h1>
-  <h2> Get peepin'... </h2>
+  <h2>Welcome back to Chitter <%= @user.username %>!</h2>
+  <h3> Get peepin'... </h3>
+  <form action='/end_session' method='post'>
+    Finished peeping? &emsp; &emsp; <input type='submit' value='Log out'>
+  </form>
+  <br>
   <form action='/add_peeps' method='post'>
     <label for='new - content'>
-      Write a message to the world: &emsp; <input type='text' name='content' placeholder="Peep peep">
+      Write a message to the world: &emsp; <input type='text' name='content' placeholder="Peep peep" required>
     </label>
     &emsp; <input type='submit' value='Peep it!'>
   </form>
@@ -43,14 +73,20 @@ body {
     Already a member? &emsp; <input type='submit' value='Log in here...'>
   </form>
 <% end %>
+</div>
 <br><br>
 <ul>
     <% @peeps.each do |peep|%>
     <li>
-      <strong> <%= peep.content %> </strong> &emsp; &emsp; &emsp; <em> at <%= peep.posted %> </em>
+      <strong> <em><%=peep.username %> </em></strong> 
+      <br>
+      <div class="c"> <%= peep.content %> </div>
+      <br>
+      <div class="b"> <small><em> (at <%= peep.posted %>) </em></small></div>
     </li>
     <% end %>
 </ul>
+<br>
 
 </body>
 

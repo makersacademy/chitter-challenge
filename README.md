@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-A small Twitter clone that will allow the users to post messages to a public stream. Duplicate home pages - one with a log in / sign up buttons, the other with peep it / sign out buttons
+A small Twitter clone that will allow the users to post messages to a public stream. Users must log in (or sign up, when users are automatically logged in).
 
 Fork this repo, then run bundle install.
 
@@ -37,7 +37,7 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
+ADVANCED - To be completed
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
@@ -58,9 +58,7 @@ Database Setup
 4. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/01_create_messages_table.sql`
 5. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/02_add_posted_time_to_messages.sql`
 6. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/03_create_users_table.sql`
-7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_user_id_to_messages.sql`
-8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_user_id_foreign_key_to_messages.sql`
-9. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/06_add_logged_in_to_users.sql`
+7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_username_to_messages.sql`
 
 
 Database Setup for Testing
@@ -72,9 +70,7 @@ Database Setup for Testing
 4. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/01_create_messages_table.sql`
 5. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/02_add_posted_time_to_messages.sql`
 6. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/03_create_users_table.sql`
-7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_user_id_to_messages.sql`
-8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_user_id_foreign_key_to_messages.sql`
-9. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/06_add_logged_in_to_users.sql`
+7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_username_to_messages.sql`
 
 
 
