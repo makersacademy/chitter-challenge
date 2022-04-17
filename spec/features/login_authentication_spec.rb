@@ -27,4 +27,19 @@ feature "Authentication" do
     expect(page).not_to have_content('Welcome, TTest')
     expect(page).to have_content('Please check your login details')
   end
+
+  scenario "User provides the wrong password and gets an error" do
+    User.create(
+      email: 'test@example.com',
+      password: 'test123',
+      name: 'Tester Test',
+      username: 'TTest'
+    )
+    visit('/sessions/new')
+    fill_in :email, with: 'test@example.com'
+    fill_in :password, with: 'failtest123'
+    click_button('Sign in')
+    expect(page).not_to have_content('Welcome, TTest')
+    expect(page).to have_content('Please check your login details')
+  end
 end
