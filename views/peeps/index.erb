@@ -1,11 +1,13 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.description %></li>
+    <li class='list'>
+      <%= peep.description %>
+    </li>
   <% end %>
 </ul>
 
 <form action='/peeps/new' method='post'>
-  <label for='Words'>Enter your peep text here:</label>
-  <input type='text' name='Words'>
+  <label for='description'>Enter your peep text here:</label>
+  <input type='text' name='description'>
   <input type='submit' value='Post'>
 </form>

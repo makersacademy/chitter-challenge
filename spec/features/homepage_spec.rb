@@ -1,5 +1,5 @@
-feature "Chitter" do
-  scenario "has a homepage" do
+feature "Homepage" do
+  scenario "exists" do
     visit '/'
     expect(page).to have_content "Welcome to Chitter!"
   end
