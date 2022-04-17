@@ -29,7 +29,7 @@ describe User do
     end
 
     it 'does not create a new user if email already in use' do
-      user1 = User.create(
+      user = User.create(
         email: 'test@example.com',
         password: 'test123',
         name: 'Tester Test',
@@ -45,7 +45,7 @@ describe User do
     end
 
     it 'does not create a new user if username already in use' do
-      user1 = User.create(
+      user = User.create(
         email: 'test@example.com',
         password: 'test123',
         name: 'Tester Test',
@@ -92,22 +92,10 @@ describe User do
     end
 
     it 'returns nil given an incorrect email address' do
-      user = User.create(
-        email: 'test@example.com',
-        password: 'test123',
-        name: 'Tester Test',
-        username: 'TTest'
-      )
       expect(User.authenticate('failtest@example.com', 'test123')).to be_nil
     end
 
     it 'returns nil given an incorrect password' do
-      user = User.create(
-        email: 'test@example.com',
-        password: 'test123',
-        name: 'Tester Test',
-        username: 'TTest'
-      )
       expect(User.authenticate('test@example.com', 'failtest123')).to be_nil
     end
   end
