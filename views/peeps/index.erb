@@ -1,8 +1,10 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li class='list'>
-      <%= peep.description %>
+      <%= peep.description %><br>
+      <%= peep.format_time %>
     </li>
+    <br>
   <% end %>
 </ul>
 
