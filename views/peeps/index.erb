@@ -1,7 +1,5 @@
 <ul>
-+ <h2>
-+   <%= flash[:notice] %>
-+ </h2>
+<%= flash[:notice] %>
 <% if @user %>
   Welcome, <%= @user.username %>!
   <form action='/sessions/destroy' method='post'>
