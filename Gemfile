@@ -12,6 +12,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'launchy'
+  gem 'byebug'
   gem 'bcrypt'
 end
 

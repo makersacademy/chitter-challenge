@@ -19,24 +19,25 @@ ul{
 
 <br>
 
+
   <h3>Already have an account?</h3>
   <form action="/sign_in" method="post">
-  <label>Username:</label>
-  <input type="text" name="username"><br>
+  <label>Email:</label>
+  <input type="text" name="email"><br>
   <label>Password:</label>
   <input type="text" name="password"><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Sign in">
   </form>
-
 
 <form action='/chitters' method='post'>
 <label>Write your peep below: </label><br>
 <input type='text' name='peep'>
-<input type='submit' value='Submit'>
+<input type='submit' value='Peep'>
 </form>
 
 <ul>
 <% @peeps.each do |peep| %>
-<li><%= peep.created_at %><br><%= peep.peep %></li><br>
+<li><% if @user %><%= @user.name %><% end %>
+<%= peep.created_at %><br><%= peep.peep %></li><br>
 <% end %>
 </ul>
