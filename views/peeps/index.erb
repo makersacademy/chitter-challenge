@@ -1,4 +1,30 @@
+<style>
+  body {
+      background-color: lightskyblue;
+    }
+  .header{
+    font-family: arial;
+    text-align: left;
+    font-size: 40pt;
+    color: darkmagenta;
+  }
+  input[type=submit]{
+    background-color: mediumpurple;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    width: 30% ;
+  }
+  .peeps{
+    font-family: arial;
+    text-align: left;
+    color: rebeccapurple;
+  }
+</style>
+
 <ul>
+<div class = 'header'>
 <%= flash[:notice] %>
 <% if @user %>
   Welcome, <%= @user.username %>!
@@ -10,13 +36,16 @@
     <input type = 'submit' value = 'New Peep'/>
   </form>
 <% end %>
+</div>
 
-  <% @peeps.each do |peep| %>
-    <% user = User.find(peep.user_id) %>
-    <li>
-     <%= peep.message %>
-     <br>
-     posted by <%= user.username %> at <%=peep.time[0..18] %>
-    </li>
-  <% end %>
+<div class = 'peeps'>
+<% @peeps.each do |peep| %>
+  <% user = User.find(peep.user_id) %>
+  <li>
+    <%= peep.message %>
+    <br>
+    posted by <%= user.username %> at <%=peep.time[0..18] %>
+  </li>
+<% end %>
 </ul>
+</div>

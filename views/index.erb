@@ -1,11 +1,64 @@
+<style>
+  body {
+      background-color: lightskyblue;
+    }
+  .header{
+    font-family: arial;
+    text-align: center;
+    font-size: 40pt;
+    color: darkmagenta;
+  }
+  .login{
+    font-family: arial;
+    text-align: left;
+    font-size: 15pt;
+    text-indent: 350px;
+    color: rebeccapurple;
+  }
+  .register{
+    font-family: arial;
+    text-align: left;
+    font-size: 15pt;
+    text-indent: 350px;
+    color: rebeccapurple;
+  }
+  .peeps{
+    font-family: arial;
+    text-align: left;
+    font-size: 15pt;
+    text-indent: 350px;
+    color: rebeccapurple;
+  }
+  input[type=submit]{
+    background-color: mediumpurple;
+    border: none;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    width: 57.5%
+  }
+</style>
+
+<div class = 'header'>
+  <h1> Welcome to Chitter </h1>
+</div>
+
+<div class = 'login'>
+Already have an account? Login here:
 <form action = '/sessions/new'>
   <input type = 'submit' value = 'Login'/>
 </form>
+</div>
 
+<div class = 'register'>
+Or sign up here to come and chit-chat!
 <form action = '/users/new'>
   <input type = 'submit' value = 'Register'/>
 </form>
+</div>
 
+<div class = 'peeps'>
+Sign in as guest
 <form action = '/peeps'>
   <input type = 'submit' value = 'See Peeps'/>
 </form>

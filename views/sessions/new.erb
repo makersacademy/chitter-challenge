@@ -1,5 +1,36 @@
+<style>
+  body {
+      background-color: lightskyblue;
+    }
+  .login{
+    font-family: arial;
+    text-align: left;
+    color: rebeccapurple;
+  }
+  input[type=submit]{
+    background-color: mediumpurple;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    width: 35% ;
+  }
+  label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 120px;
+  }
+  input[type=text]{
+    display: inline-block;
+    float:left;
+    width: 27.75% ;
+  }
+</style>
+
 <%= flash[:notice] %>
 
+<div class = 'login'>
 <form action = '/sessions' method = 'post'>
   <label for 'email'> Email: </label>
   <input type = 'text' name = 'email' placeholder = "Email"/>
@@ -7,5 +38,7 @@
   <label for 'password'> Password: </label>
   <input type = 'text' name = 'password' placeholder = "Password"/>
   <br>
+  <br>
   <input type= 'submit' value = 'Sign in'/>
 </form>
+</div>

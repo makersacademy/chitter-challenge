@@ -14,7 +14,9 @@ class User
   
   def self.create(email:, password:, name:, username:)
     encrypted_password = BCrypt::Password.create(password)
-    exist = DatabaseConnection.query("SELECT * FROM users WHERE email = $1 OR username = $2;", [email, username])
+    exist = DatabaseConnection.query(
+      "SELECT * FROM users WHERE email = $1 OR username = $2;", [email, username]
+    )
     return nil if exist.any?
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password, name, username) VALUES($1, $2, $3, $4) RETURNING id, email, name, username;",
