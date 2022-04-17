@@ -27,6 +27,38 @@ describe User do
         username: 'TTest'
       )
     end
+
+    it 'does not create a new user if email already in use' do
+      user1 = User.create(
+        email: 'test@example.com',
+        password: 'test123',
+        name: 'Tester Test',
+        username: 'TTest'
+      )
+      user2 = User.create(
+        email: 'test@example.com',
+        password: '123test',
+        name: 'Test Tester',
+        username: 'TTester'
+      )
+      expect(user2).to eq(nil)
+    end
+
+    it 'does not create a new user if username already in use' do
+      user1 = User.create(
+        email: 'test@example.com',
+        password: 'test123',
+        name: 'Tester Test',
+        username: 'TTest'
+      )
+      user2 = User.create(
+        email: 'tester@example.com',
+        password: '123test',
+        name: 'Test Tester',
+        username: 'TTest'
+      )
+      expect(user2).to eq(nil)
+    end
   end
 
   describe '.find' do
