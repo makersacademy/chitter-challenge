@@ -1,4 +1,4 @@
-require './lib/database_connection'
+require_relative 'database_connection'
 
-PG.connect(dbname: 'chitter_test') if ENV['RACK_ENV'] == 'test'
-PG.connect(dbname: 'chitter') if ENV['RACK_ENV'] != 'test'
+DatabaseConnection.setup('chitter_test') if ENV['RACK_ENV'] == 'test'
+DatabaseConnection.setup('chitter') if ENV['RACK_ENV'] != 'test'

@@ -59,7 +59,8 @@ Database Setup
 5. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/02_add_posted_time_to_messages.sql`
 6. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/03_create_users_table.sql`
 7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_user_id_to_messages.sql`
-8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_logged_in_to_users.sql`
+8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_user_id_foreign_key_to_messages.sql`
+9. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/06_add_logged_in_to_users.sql`
 
 
 Database Setup for Testing
@@ -72,7 +73,8 @@ Database Setup for Testing
 5. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/02_add_posted_time_to_messages.sql`
 6. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/03_create_users_table.sql`
 7. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/04_add_user_id_to_messages.sql`
-8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_logged_in_to_users.sql`
+8. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/05_add_user_id_foreign_key_to_messages.sql`
+9. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/06_add_logged_in_to_users.sql`
 
 
 

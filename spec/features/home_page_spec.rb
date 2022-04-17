@@ -4,6 +4,23 @@ feature 'viewing home' do
     expect(page).to have_content "Welcome to Chitter!"
   end
 
+  scenario 'sign up button' do
+    visit('/')
+    click_button('Sign up here...')
+    expect(page).to have_content "Ready to join the Chitter Family?"
+  end
+
+  scenario 'user cannot add a peep to the page before signing up/logging in' do
+    visit('/')
+    expect(page).to have_no_button('Peep it!')
+  end
+
+  scenario 'log in button' do
+    visit('/')
+    click_button('Log in here...')
+    expect(page).to have_content "Enter your username and password below:"
+  end
+  
   scenario 'user can add a peep to the page' do
     visit('/')
     fill_in('content', with: 'My first peep!')

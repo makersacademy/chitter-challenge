@@ -1,4 +1,3 @@
-require 'pg'
 require_relative 'database_connection'
 
 class Peep
@@ -11,7 +10,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     array_of_peeps = result.map do |peep| 
       Peep.new(id: peep['id'], content: peep['content'], posted: peep['posted'])
     end

@@ -4,12 +4,13 @@ require_relative './lib/peep'
 require_relative './lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
-    enable :sessions
   end
 
   get '/' do
+    session[:user_id] != nil ? @user = User.find(session[:user_id]) : @user = nil
     @peeps = Peep.all
     erb :index
   end
@@ -24,7 +25,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_user' do
-    User.create(username: params['username'], name: params['name'], email: params['email'], password: params['password'])
+    user = User.create(username: params['username'], name: params['name'], email: params['email'], password: params['password'])
+    session[:user_id] = user.id
+    redirect '/'
+  end
+
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/new_session' do
+    user = User.authenticate(username: params[:username], password: params[:password])
+    session[:user_id] = user.id
     redirect '/'
   end
 

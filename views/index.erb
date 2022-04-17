@@ -24,15 +24,25 @@ body {
 </head>
 <body>
 <br>
-<h1> Welcome to Chitter!</h1>
-<h2> Get peepin'... </h2>
-
-<form action='/add_peeps' method='post'>
-  <label for='new - content'>
-    Write a message to the world: &emsp; <input type='text' name='content' placeholder="Peep peep">
-  </label>
-  &emsp; <input type='submit' value='Peep it!'>
-</form>
+<% if @user != nil%>
+  <h1>Welcome back to Chitter <%= @user.username %>!</h1>
+  <h2> Get peepin'... </h2>
+  <form action='/add_peeps' method='post'>
+    <label for='new - content'>
+      Write a message to the world: &emsp; <input type='text' name='content' placeholder="Peep peep">
+    </label>
+    &emsp; <input type='submit' value='Peep it!'>
+  </form>
+<% else %>
+  <h1> Welcome to Chitter!</h1><br>
+  <form action='/sign_up' method='get'>
+    Not yet a member? &emsp; <input type='submit' value='Sign up here...'>
+  </form>
+  <br>
+  <form action='/log_in' method='get'>
+    Already a member? &emsp; <input type='submit' value='Log in here...'>
+  </form>
+<% end %>
 <br><br>
 <ul>
     <% @peeps.each do |peep|%>

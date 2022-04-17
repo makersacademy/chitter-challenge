@@ -7,6 +7,7 @@ feature 'Signing up' do
     fill_in('password', with: 'reallygoodpassword')
     click_button('Join Chitter')
 
-    expect(page).to have_content "Welcome, Josenewmano"
+    expect(page).to have_content "Welcome back to Chitter Josenewmano!"
   end
+
 end
