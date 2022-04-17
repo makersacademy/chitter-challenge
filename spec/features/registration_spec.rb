@@ -22,7 +22,7 @@ feature 'Registration' do
     fill_in :name, with: 'Test Tester'
     fill_in :username, with: 'TTester'
     click_button('Submit')
-    expect(page).to have_content("Email already in use")
+    expect(page).to have_content("Email or username already in use")
   end
 
   scenario 'User can not sign up if username already used' do
@@ -38,7 +38,7 @@ feature 'Registration' do
     fill_in :name, with: 'Test Tester'
     fill_in :username, with: 'TTest'
     click_button('Submit')
-    expect(page).to have_content("Username already in use")
+    expect(page).to have_content("Email or username already in use")
   end
 
 end
