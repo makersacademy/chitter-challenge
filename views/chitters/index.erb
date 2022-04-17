@@ -1,0 +1,42 @@
+<body>
+
+<style type="text/css">
+ul{
+  display:flex;
+  flex-direction: column-reverse;
+}
+</style>
+
+<% if @user %>
+  <h1>Welcome to Chitter <%= @user.name %></h1>
+  <% else %>
+  <h1>Welcome to Chitter</h1>
+  <h2>Sign up today.</h2>
+  <% end %>
+<form action='/users/new' method='get'>
+<input type='submit' value="Sign up">
+</form>
+
+<br>
+
+  <h3>Already have an account?</h3>
+  <form action="/sign_in" method="post">
+  <label>Username:</label>
+  <input type="text" name="username"><br>
+  <label>Password:</label>
+  <input type="text" name="password"><br>
+  <input type="submit" value="Submit">
+  </form>
+
+
+<form action='/chitters' method='post'>
+<label>Write your peep below: </label><br>
+<input type='text' name='peep'>
+<input type='submit' value='Submit'>
+</form>
+
+<ul>
+<% @peeps.each do |peep| %>
+<li><%= peep.created_at %><br><%= peep.peep %></li><br>
+<% end %>
+</ul>
