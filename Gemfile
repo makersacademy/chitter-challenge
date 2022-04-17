@@ -8,6 +8,7 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'sinatra'
   gem 'sinatra-contrib'
+  gem 'pg'
 end
 
 group :development, :test do
