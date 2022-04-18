@@ -12,8 +12,9 @@ describe Chitter do
   end
   context 'adding a new peep' do
     it 'lets a user to post a new peep on chitter' do
-      peep = Chitter.add('Hello')
-      expect(peep).to eq 'Hello'
+      peep = Chitter.create(peep: 'Hello')
+      expect(Chitter.all).to include 'Hello'
     end
   end 
+
 end

@@ -23,8 +23,9 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peeps/new/add' do
-    @new_peep = params[:peeps]
-    p @new_peep
+    p params
+    Chitter.create(peep: params[:peeps])
+    redirect '/peeps'
   end
 
   run! if app_file == $0
