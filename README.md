@@ -22,26 +22,7 @@ The database was created using PostgreSQL
 
 The password of users are encrypted in the database with the use of 'bcrypt'
 
-# Gems
-
-gem 'sinatra'
-gem 'sinatra-flash'
-gem 'webrick'
-gem 'pg'
-gem 'bcrypt'
-
-
-gem 'rspec'
-gem 'simplecov'
-gem 'simplecov-console'
-gem 'capybara'
-gem 'launchy'
-
-gem 'rubocop', '1.20'
-gem 'sinatra-contrib'
-
 ## Getting started
-
 
 1) git clone path-to-repo
 2) Install bundler via `gem install bundle` (if you don't have bundler already)
@@ -62,14 +43,11 @@ Enter the following url into your preferred browser: http://localhost:9292/
 
 ## User Stories
 
-
 STRAIGHT UP
 
 `As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter`
-
-
 
 As a maker
 So that I can see what others are saying  
@@ -102,7 +80,6 @@ I want to log out of Chitter
    `\i ./db/migrations/01_create_messages_table.sql`
    `\i ./db/migrations/02_add_creation_to_messages.sql`
    `\i ./db/migrations/03_create_users_table.sql`
-
 
 # Database Setup for Testing
 
