@@ -83,7 +83,7 @@ See Github: `https://github.com/almorcrette/chitter-challenge`
 
 ### Project approach
 
-![] (./chitter-plan.jpg)
+![](/chitter-plan.png)
 
 ### Tech stack
 
