@@ -8,12 +8,15 @@ class ChitterManager < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+  
+  enable :sessions
 
   get '/' do
     'Hello world'
   end
 
   get '/peeps' do
+    @user = User.find(session[:user_id])
     @peeps = Chitter.all
     erb :'peeps/index'
   end
@@ -33,7 +36,8 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password])
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/peeps'
   end
 
