@@ -6,6 +6,8 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/' do
     'Chitter'
   end
@@ -23,6 +25,12 @@ class Chitter < Sinatra::Base
     new_peep = Peep.create(peep: params[:peep], user_id: session[:user_id])
     new_peep.save
     redirect :'/peeps'
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'Successfully signed out.'
+    redirect('/sessions/new')
   end
 
  

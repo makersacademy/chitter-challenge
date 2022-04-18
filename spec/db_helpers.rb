@@ -7,5 +7,5 @@ end
 
 def add_test_chitters
   connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("INSERT INTO bookmarks (title) VALUES('Hello!)
+  connection.exec("INSERT INTO chitters (title) VALUES('Hello!)
 end

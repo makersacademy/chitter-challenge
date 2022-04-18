@@ -1,7 +1,23 @@
-<div>
-  <ul id='peeps'>
-    <% @peeps.each do |peep| %> 
-      <%= partial :peep, :locals => {:peep => peep}  %>
-    <% end %>
-  </ul>
-</div>
+<h1> Welcome to Chitter! </h1>
+<p> See your timeline <a href="http://localhost:9292/timeline">here</a>
+<p> Sign up and create a free account <p>
+
+
+<form action='/' method="POST">
+  Full name: <input type="text" name="name" input type="test1" /><br>
+<br>
+  Username: <input type="text" name="username" input type="username" /><br>
+<br>
+  Email address: <input type="text" name="emailaddress" placeholder="test1@test.com" /> <br>
+<br>
+  Password: <input type="password" name="password" placeholder="password" /> <br>
+<br>
+  <input type="submit" value="Submit" /> <br>
+<br><br>
+</form>
+
+
+
+<form action="/sessions/destroy" method="post" style='text-align: right'>
+      <input type="submit" value="Sign out" />
+    </form>
