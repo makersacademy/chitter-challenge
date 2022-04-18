@@ -1,5 +1,15 @@
+<%= flash[:notice] %>
+
 <form action='/users/new' method='GET'>
   <input type='submit' value='Register'>
+</form>
+
+<form action='/sessions/new' method='GET'>
+  <input type='submit' value='Sign in'>
+</form>
+
+<form action='/sessions/destroy' method='POST'>
+  <input type='submit' value='Sign out'>
 </form>
 
 <% if @user %>
