@@ -1,6 +1,13 @@
 require 'pg'
 
 class Peep
+  attr_reader :id, :content
+
+  def initialize(id:, content:)
+    @id = id
+    @content = content
+  end
+
   def self.all
     if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -18,7 +25,10 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-
-    connection.exec("INSERT INTO peeps (content) VALUES('#{content}')")
+    
+    result = connection.exec_params(
+      "INSERT INTO peeps (content) VALUES($1) RETURNING id, content;", [content]
+      )
+    Peep.new(id: result[0]['id'], content: result[0]['content'])
   end
 end
