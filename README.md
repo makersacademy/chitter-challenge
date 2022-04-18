@@ -44,7 +44,7 @@ From the Chitter homepage, you can either go to peeps page, log in or sign up fo
 Tests
 ------
 
-The tests that have been created in the [spec](https://github.com/jmcnally17/chitter-challenge/tree/main/spec) folder can be ran by simply running `rspec` in the terminal.
+The tests that have been created in the [spec](https://github.com/jmcnally17/chitter-challenge/tree/main/spec) folder can be ran by simply running `rspec` in the terminal. These tests have provided a 100% test coverage from SimpleCov while this program also commits 0 offenses when running RuboCop. This program was made using the TDD (Test-Driven Development) process where each test was written before the code that it was targeting.
 
 User Stories:
 -------
