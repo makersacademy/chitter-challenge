@@ -1,9 +1,9 @@
 Chitter Challenge
 =================
 
-This is a small Twitter clone that will allow the users to post messages to a public stream.
+This is a basic Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+User stories:
 -------
 
 ```
@@ -42,19 +42,23 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Domain Model
+Domain Model & structures
 -----
 
-[click here]() to view domain model 
+Here is a domain model for the first user story:
+
+
+Here is the database structure plan for the first user story:
+
 
 
 To set up the bookmark manager database
 -----
 
-Connect to `psql` and create the `???` database:
+Connect to `psql` and create the `chitter` database:
 
 ```
-CREATE DATABASE ???;
+CREATE DATABASE chitter;
 ```
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
@@ -62,10 +66,10 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 To set up the test database
 -----
 
-Connect to `psql` and create the `???` database:
+Connect to `psql` and create the `chitter_test` database:
 
 ```
-CREATE DATABASE ???;
+CREATE DATABASE chitter_test;
 ```
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
