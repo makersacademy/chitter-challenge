@@ -1,3 +1,7 @@
+require 'peep.rb'
+
+truncate_database
+
 describe '.all' do
   it 'returns a list peeps' do
     connection = PG.connect(dbname: 'chitter_test')
