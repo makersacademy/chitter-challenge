@@ -1,3 +1,6 @@
+
+<style>
+
 <body>
 
 <style type="text/css">
@@ -7,26 +10,15 @@ ul{
 }
 </style>
 
+<h2> 
+  <%= flash[:notice] %>
+  </h2>
+
 <% if @user %>
   <h1>Welcome to Chitter <%= @user.name %></h1>
-  <% else %>
-  <h1>Welcome to Chitter</h1>
-  <h2>Sign up today.</h2>
-  <% end %>
-<form action='/users/new' method='get'>
-<input type='submit' value="Sign up">
-</form>
 
-<br>
-
-
-  <h3>Already have an account?</h3>
-  <form action="/sign_in" method="post">
-  <label>Email:</label>
-  <input type="text" name="email"><br>
-  <label>Password:</label>
-  <input type="text" name="password"><br>
-  <input type="submit" value="Sign in">
+  <form action='/sessions/destroy' method="post">
+    <input type="submit" value="Sign out">
   </form>
 
 <form action='/chitters' method='post'>
@@ -35,9 +27,34 @@ ul{
 <input type='submit' value='Peep'>
 </form>
 
+  <% else %>
+  <h1>Welcome to Chitter</h1>
+  <h2>Sign up today.</h2>
+
+<form action='/users/new' method='get'>
+<input type='submit' value="Sign up">
+</form>
+
+   <h3>Already have an account?</h3>
+  <form action="/sessions/new" method="get">
+  <input type="submit" value="Sign in">
+  </form>
+  <% end %>
+
+
+
+<br>
+
+
+
+
+ 
+<h1> See what others are saying: </h1>
+
 <ul>
 <% @peeps.each do |peep| %>
-<li><% if @user %><%= @user.name %><% end %>
+<li><%= User.find(id: (peep.user_id)).username %>
 <%= peep.created_at %><br><%= peep.peep %></li><br>
 <% end %>
 </ul>
+</body>

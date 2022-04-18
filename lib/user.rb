@@ -1,6 +1,5 @@
 require_relative './database_connection'
 require 'bcrypt'
-require 'byebug'
 
 class User
 
@@ -21,7 +20,7 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'], username: result[0]['username'])
   end
 
-  def self.find(id)
+  def self.find(id:)
     return nil unless id
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE id = $1;", [id]
@@ -35,6 +34,7 @@ class User
       [email]
     )
     return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
     
     User.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'], username: result[0]['username'])
   end

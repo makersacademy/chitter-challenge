@@ -14,7 +14,7 @@ end
 describe '.find' do
   it 'finds a user by ID' do
     user = User.create(email: 'test@gmail.com', password: 'password123', name: 'Jordan', username: 'jordanschitter')
-    result = User.find(id: user)
+    result = User.find(id: user.id)
 
     expect(result.id).to eq user.id
     expect(result.email).to eq user.email
@@ -22,7 +22,7 @@ describe '.find' do
     expect(result.username).to eq user.username
   end
   it 'returns nil if there is no ID given' do
-    expect(User.find(nil)).to eq nil
+    expect(User.find(id: nil)).to eq nil
   end
   describe '.create' do 
     it 'hases the password using BCcrypt' do
@@ -43,5 +43,10 @@ describe '.find' do
 
       expect(User.authenticate(email: 'incorrectemail@gmail.com', password: 'test123')).to be_nil
     end
+  end
+  it 'returns nil given an incorrect password' do
+    user = User.create(email: 'incorrectemail@gmail.com', password: 'test123', name: 'Test', username: 'testing')
+
+    expect(User.authenticate(email: 'incorrectemail@gmail.com', password: 'wrongpassword')).to be_nil
   end
 end

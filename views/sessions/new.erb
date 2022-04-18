@@ -1,12 +1,11 @@
- <h2>
-  <%= flash[:notice] %>
-  </h2>
-  
- 
- <form action="/sign_in" method="post">
+  <form action="/sign_in" method="post">
   <label>Email:</label>
   <input type="text" name="email"><br>
   <label>Password:</label>
-  <input type="text" name="password"><br>
+  <input type="password" name="password"><br>
   <input type="submit" value="Sign in">
   </form>
+
+  <h2> 
+  <%= flash[:notice] %>
+  </h2>
