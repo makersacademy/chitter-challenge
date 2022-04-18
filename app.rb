@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require_relative './models/peep'
+require_relative './models/user'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -12,8 +13,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/' do
-    redirect '/peeps'
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post '/sign_up' do
+    User.create(params)
+    redirect '/'
   end
 
   get '/peeps' do
