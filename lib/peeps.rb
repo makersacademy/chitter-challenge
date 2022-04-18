@@ -1,9 +1,9 @@
+require 'pg'
+
 class Peeps
   def self.all
-    [
-      'The sun is out! I wish this govt were too!',
-      'Saw this pub sign... Come in our beer is as cold as Pritti Patels heart! LOL',
-      'Support Ukraine - join the anti-war March on Saturday'
-    ]
+    connection = PG.connect(dbname: 'peep_manager')
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map { |peeping| peeping['peep'] }
   end
 end

@@ -16,5 +16,9 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  post '/peeps' do
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 end

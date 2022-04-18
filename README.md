@@ -1,14 +1,29 @@
 Chitter Challenge
 =================
 
+To launch: 
+
 1. To begin building my Chitter app I started by adding the relevant gem dependencies and ran bundle install and bundle.
 
 2. I made sure all relevant gem testing dependencies were required in the spec_helper.rb file, set the environment to test and so Capybara could communicate with the ChitterChallenge app.
 
 3. Ran an initial features test to make sure all tests working, coverage was above 95% and app was being tested/communicated with by Capaybara & home page could be visited.
 
+4. Created a feature test to check it could read a hard-coded array of 'peeps' from app.rb, added a erb file to handle printing to a 'peeps' page in local host and created a unit test then Peeps class.
+
+5. Migrated peeps to database in psql. To access psql database:
+  - brew install postgresql
+  - brew services start postgresql
+  - create by typing 'psql' CREATE DATABASE peep_manager;
+  - create peeps table with CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR (280), date_posted TIMESTAMP NOT NULL);
+  - connect by typing '\c peep_manager;'
+  - \dt or \dt+ to see peeps table
+  - SELECT * FROM peeps; to view table contents in psql
+
 1st version of domain model - viewing peeps
 https://miro.com/app/board/uXjVO8UMQG0=/
+
+
 <iframe width="768" height="432" src="https://miro.com/app/embed/uXjVO8UMQG0=/?pres=1&frameId=3458764523449377498" frameBorder="0" scrolling="no" allowFullScreen></iframe>
 
 # USER STORY 1

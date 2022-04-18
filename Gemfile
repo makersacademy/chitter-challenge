@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 ruby '3.0.2'
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', group: :test
   gem 'pg'
-  gem 'rspec'
+  gem 'rspec', group: :test
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'sinatra'
