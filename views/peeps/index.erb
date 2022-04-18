@@ -18,6 +18,7 @@
       <div class="feed__header">
         <h2>Home</h2>
       </div>
+      
 <div class="tweetBox">
         <form action="/peeps/new">
           <div class="tweetbox__input">
@@ -38,6 +39,7 @@
                   ><span class="material-icons post__badge"> verified </span>@bsrakhra</span
                 >
               </h3>
+              <%= flash[:notice] %>
             </div>
             <div class="post__headerDescription">
               <p>Welcome to Chitter.</p>
@@ -51,6 +53,9 @@
     <li><%= peep.peep %> &nbsp;&nbsp; at &nbsp;&nbsp;  <%= peep.time[0..18]  %></li>
   <% end %>
 </ul>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
           <div class="post__footer">
             <span class="material-icons"> repeat </span>
             <span class="material-icons"> favorite_border </span>
