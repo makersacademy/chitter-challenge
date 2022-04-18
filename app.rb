@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -11,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/peeps/new' do
-    p ENV
+  
     erb :'posts/new'
   end
 
