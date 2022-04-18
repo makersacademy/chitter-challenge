@@ -16,9 +16,12 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peeps;")
-    result.map do |peep|
+    list_of_peeps =result.map do |peep|
         Peep.new(id: peep['id'], message: peep['message'])
     end
+
+    list_of_peeps.reverse
+
   end
 
   def self.create(message:)
