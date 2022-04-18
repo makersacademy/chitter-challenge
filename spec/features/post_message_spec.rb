@@ -3,7 +3,6 @@
 # So that I can let people know what I am doing  
 # I want to post a message (peep) to chitter
 
-
 feature 'Posting a message' do
   scenario 'A user can post a peep to chitter public stream' do
     visit '/peeps/new'
