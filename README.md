@@ -11,6 +11,8 @@ See tech stack section below for details of this
 
 ## Feature specifications
 
+As of Monday 18 April 17:09, I have completed the 'straight up' requirements, but not yet the 'harder' or 'advanced' ones.
+
 ### STRAIGHT UP
 ```
 As a Maker
