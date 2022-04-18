@@ -2,13 +2,20 @@ Chitter Challenge
 =================
 
 1. To begin building my Chitter app I started by adding the relevant gem dependencies and ran bundle install and bundle.
+
 2. I made sure all relevant gem testing dependencies were required in the spec_helper.rb file, set the environment to test and so Capybara could communicate with the ChitterChallenge app.
+
 3. Ran an initial features test to make sure all tests working, coverage was above 95% and app was being tested/communicated with by Capaybara & home page could be visited.
 
+1st version of domain model - viewing peeps
+https://miro.com/app/board/uXjVO8UMQG0=/
+<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVO8UMQG0=/?pres=1&frameId=3458764523449377498" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+
 # USER STORY 1
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+As a Maker,\
+So that I can let people know what I am doing,\  
+I want to post a message (peep) to chitter.
+
 
 =============================================
 

@@ -22,4 +22,4 @@ RSpec.configure do |config|
   end
 end
 
-Capybara.app = ChitterChallenge
+Capybara.app = Chitter
