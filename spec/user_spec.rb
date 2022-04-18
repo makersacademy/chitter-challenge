@@ -19,4 +19,22 @@ describe User do
       expect(user.username).to eq persisted_data.first['username']
     end
   end
+
+  context '#find' do
+    it 'finds a user by id' do
+      user = User.create(
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Conor',
+        username: 'Thor'
+      )
+
+      result = User.find(id: user.id)
+
+      expect(result.id).to eq user.id
+      expect(result.email).to eq user.email
+      expect(result.name).to eq user.name
+      expect(result.username).to eq user.username
+    end
+  end
 end

@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require 'uri'
 require_relative './lib/message'
 require_relative './database_connection_setup'
+require_relative './lib/user'
 
 class ChitterManager < Sinatra::Base
   configure :development do
@@ -15,7 +16,7 @@ class ChitterManager < Sinatra::Base
   enable :method_overide, :sessions
 
   get '/' do
-    # @user = User.find
+    @user = User.find(id: session[:user_id])
     @messages = Message.all
     erb :index
   end
@@ -30,7 +31,8 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/users' do
-    p params
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    session[:user_id] = user.id
     redirect '/'
   end
 
