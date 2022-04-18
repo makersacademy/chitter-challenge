@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 20_220_418_114_235) do
     t.string "name"
     t.string "username"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

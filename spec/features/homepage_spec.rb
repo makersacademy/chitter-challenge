@@ -4,7 +4,7 @@ feature "Homepage" do
     expect(page).to have_content "Welcome to Chitter!"
   end
 
-  scenario "can go to the peeps page" do
+  scenario "can go to see the peeps without logging in" do
     visit '/'
     click_button "Enter"
     expect(current_path).to eq "/peeps"

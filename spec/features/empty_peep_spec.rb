@@ -1,6 +1,6 @@
 feature "Empty Post" do
   it "won't allow the user to post an empty peep" do
-    visit '/peeps'
+    signup_and_login
     click_button 'Post'
     expect(page).not_to have_css('li.list', text: "")
   end

@@ -1,6 +1,6 @@
 feature "Time" do
   scenario "the time a peep was made is displayed" do
-    visit '/peeps'
+    signup_and_login
     fill_in 'description', with: "This is a test peep"
     click_button 'Post'
     peep = Peep.first

@@ -7,7 +7,6 @@ describe User do
     expect(first.name).to eq john.name
     expect(first.username).to eq john.username
     expect(first.email).to eq john.email
-    expect(first.password).to eq john.password
   end
 
   it "doesn't add duplicate usernames" do
@@ -25,7 +24,7 @@ describe User do
   it "password must be between 8 to 20 characters long" do
     User.create(name: "John Doe", username: 'JDoe123', email: 'johndoe@gmail.co.uk', password: 'this')
     User.create(name: "Jane Doe", username: 'JaneDoe123', email: 'janedoe@gmail.co.uk', password: 'buckminsterfullerene12')
-    expect(User.where(password: 'this')).to be_empty
-    expect(User.where(password: 'buckminsterfullerene12')).to be_empty
+    expect(User.where(name: 'John Doe')).to be_empty
+    expect(User.where(name: 'Jane Doe')).to be_empty
   end
 end

@@ -1,15 +1,32 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class='list'>
-      <%= peep.description %><br>
-      <%= peep.format_time %>
-    </li>
-    <br>
-  <% end %>
-</ul>
+<% if @username %>
+  <h1>Hello <%= @username %>!</h1>
+<% else %>
+  <h1>Hello Guest!</h1>
+<% end %>
 
-<form action='/peeps/new' method='post'>
-  <label for='description'>Enter your peep text here:</label>
-  <input type='text' name='description' required>
-  <input type='submit' value='Post'>
-</form>
+<dl>
+  <% @peeps.each do |peep| %>
+    <dt><%= peep.format_time %></dt>
+    <dd class='list'><%= peep.description %></dd>
+  <% end %>
+</dl>
+
+<% if @username %>
+  <form action='/peeps/new' method='post'>
+    <label for='description'>Enter your peep text here:</label>
+    <input type='text' name='description' required>
+    <input type='submit' value='Post'>
+  </form>
+<% end %>
+
+<% unless @username %>
+  <form action='/signup' method='get'>
+    <label for='Sign up'>Make an account to post peeps:</label>
+    <input type='submit' value='Sign up'>
+  </form>
+
+  <form action='/login' method='get'>
+    <label for='Log in'>Already have an account?</label>
+    <input type='submit' value='Log in'>
+  </form>
+<% end %>
