@@ -23,6 +23,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @peeps_sorted = @peeps.sort_by { |peep| peep.time_created }.reverse
     erb :"/peeps/index"
   end
 
