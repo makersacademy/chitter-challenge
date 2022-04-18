@@ -4,6 +4,10 @@ In this project I demonstrate the skills that I've learned in week 4 of the Make
 
 The project demonstrates my ability to:
 * Test drive a simple web app with a database
+* RESTful routing
+* Build my own Object-relational mapping (ORM)
+
+See tech stack section below for details of this
 
 ## Feature specifications
 
@@ -48,32 +52,49 @@ I want to receive an email if I am tagged in a Peep
 
 `git clone https://github.com/almorcrette/chitter-challenge`
 
-`command_to_install_dependencies` (e.g. `bundle`)
+Setting up the database:
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE chitter;`
+3. Connect to the database using the `qsql` command `\c chitter;`
+4. Run the queries saved in the following files:
+* `./db/migrations/01_create_peeps_table.sql`
+* `./db/migrations/01_create_users_table.sql`
+
+Install dependencies by running `bundle` command on the command line.
 
 ## Usage
 
-`command_to_start` (e.g. `rackup` or `rails s`)
-Navigate to `http://localhost:4567/`
+Start command: `rackup`
+Navigate to `http://localhost:9292/users/new`
+
+To add a new peep, go to:
+`http://localhost:9292/peeps/new`
 
 
 ## Running tests
 
-`test_command` (e.g. `rspec`)
+`rspec`
+
+Note that you'll need to set up a test database for this. Follow instructions for setting up the database above, but call the database `chitter_test`
 
 ## File manifest
 
+See Github: `https://github.com/almorcrette/chitter-challenge`
 
+### Project approach
 
-----------------------------------------------
+![] (./chitter-plan.jpg)
 
-At the barest minimum, it should contain a description of what the code does, how to install it, how to use it and how to run its tests. In addition, READMEs often include other information such as:
+### Tech stack
 
-- Configuration instructions
-- A file manifest (list of files included)
-- Copyright and licensing information
-- Contact information for the distributor or programmer
-- Known bugs
-- Troubleshooting
-- Credits and acknowledgments
-- A changelog (usually for programmers)
-- A news section (usually for users)
+* Ruby
+* Rack
+* Sinatra
+* PostgreSQL
+* PG
+_For testing_
+* RSpec
+* Capybara
+* Simplecov
+_For development_
+* Rubocop
