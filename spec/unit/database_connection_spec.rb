@@ -13,4 +13,15 @@ describe DatabaseConnection do
       expect(DatabaseConnection.connection).to eq connection
     end
   end
+
+  # describe '.query' do
+  #   it 'executes a query via PG' do
+  #     connection = DatabaseConnection.setup('chitter_test')
+  #     time1 = Time.new.strftime("%Y-%m-%d %H:%M:%S")
+  #     peep1 = 'how are you'
+  #     expect(connection).to receive(:exec_params).with("SELECT * FROM peeps")
+  #     #expect(connection).to receive(:exec_params).with("INSERT INTO peeps (peep, time) VALUES($1, $2);, [peep1 , time1]")
+
+  #   end
+  # end
 end

@@ -1,8 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
+require_relative './lib/chitter'
 
-class Chitter < Sinatra::Base
+class ChitterManager < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
@@ -11,12 +12,17 @@ class Chitter < Sinatra::Base
     'Hello world'
   end
 
-  get '/chitter/peeps/new' do
-  
-    erb :'posts/new'
+  get '/peeps' do
+    @peeps = Chitter.all
+    erb :'peeps/index'
   end
 
-  post '/chitter/peeps/new/add' do
+  get '/peeps/new' do
+  
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new/add' do
     @new_peep = params[:peeps]
     p @new_peep
   end
