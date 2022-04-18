@@ -1,0 +1,23 @@
+<form action='/users/new' method='GET'>
+  <input type='submit' value='Register'>
+</form>
+
+<% if @user %>
+<h2> Welcome <%= @user.username %></h2>
+<% end %>
+
+<form action='/' method='POST'>
+  <label for='new_comment'>
+    Post a comment:
+    <input type='text' name='comment'>
+  </label>
+  <input type='submit' value='Post'>
+</form>
+
+
+<% @messages.reverse.each do |message| %>
+<p class='message'>
+<%= message.comment %> - Created:
+<%= message.creation %>
+</p>
+<% end %>

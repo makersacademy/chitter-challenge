@@ -8,4 +8,13 @@ describe DatabaseConnection do
       DatabaseConnection.setup('chitter_manager_test')
     end
   end
+
+  context '#query' do
+    it 'executes a query via PG' do
+      connection = DatabaseConnection.setup('chitter_manager_test')
+
+      expect(connection).to receive(:exec_params).with("SELECT * FROM messages;", [])
+      DatabaseConnection.query("SELECT * FROM messages;")
+    end
+  end
 end

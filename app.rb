@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require 'uri'
+require_relative './lib/message'
+require_relative './database_connection_setup'
 
 class ChitterManager < Sinatra::Base
   configure :development do
@@ -13,7 +15,23 @@ class ChitterManager < Sinatra::Base
   enable :method_overide, :sessions
 
   get '/' do
-    'Hello world'
+    @user = User.find
+    @messages = Message.all
+    erb :index
+  end
+
+  post '/' do
+    Message.create(message: params[:comment])
+    redirect '/'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    p params
+    redirect '/'
   end
 
   run! if app_file == $0
