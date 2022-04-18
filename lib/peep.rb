@@ -1,4 +1,5 @@
 require_relative './database_connection'
+require 'date'
 
 class Peep
 
@@ -27,7 +28,7 @@ content: result[0]['content'])
 
   def initialize(id:, time_created:, content:)
     @id = id
-    @time_created = time_created
+    @time_created = DateTime.parse(time_created)
     @content = content
   end
 

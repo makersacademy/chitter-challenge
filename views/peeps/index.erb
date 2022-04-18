@@ -1,5 +1,7 @@
 <ul>
   <% @peeps_sorted.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>"><%= peep.content %> - posted at <%= peep.time_created %></li>
+    <li class="peep" id="peep-<%= peep.id %>">
+    <%= peep.content %> - posted at <%= peep.time_created.strftime('%H:%M %d-%m-%Y') %>
+    </li>
   <% end %>
 </ul>
