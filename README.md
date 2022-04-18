@@ -47,11 +47,11 @@ Domain Model & structures
 
 Here is a domain model for the first user story:
 
-![Screenshot](https://imgur.com/09Ag5BV)
+![Screenshot](https://i.imgur.com/09Ag5BV.png)
 
 Here is the database structure plan for the first user story:
 
-![Screenshot](https://imgur.com/J0yxklY)
+![Screenshot](https://i.imgur.com/J0yxklY.png)
 
 To set up the bookmark manager database
 -----
