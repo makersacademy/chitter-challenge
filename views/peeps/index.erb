@@ -6,8 +6,11 @@
 
 <dl>
   <% @peeps.each do |peep| %>
-    <dt><%= peep.format_time %></dt>
+    <dt class='details'>
+      <strong><%= @users.find_by(id: peep.user_id).name %></strong> @<%= @users.find_by(id: peep.user_id).username %> <%= peep.format_time %>
+    </dt>
     <dd class='list'><%= peep.description %></dd>
+    <br>
   <% end %>
 </dl>
 

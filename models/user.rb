@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   has_secure_password
   validates :password, presence: true, length: { in: 8..20 }
+  has_many :peeps
 end

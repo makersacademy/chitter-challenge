@@ -47,13 +47,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @users = User.all
     @username = session[:username]
     @peeps = Peep.order(created_at: :desc)
     erb :'peeps/index'
   end
 
   post '/peeps/new' do
-    Peep.create(params)
+    peep = Peep.new(params)
+    peep.user = User.find_by(username: session[:username])
+    peep.save
     redirect '/peeps'
   end
 

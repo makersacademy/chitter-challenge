@@ -4,6 +4,6 @@ feature "Time" do
     fill_in 'description', with: "This is a test peep"
     click_button 'Post'
     peep = Peep.first
-    expect(page).to have_content peep.format_time.to_s
+    expect(first('.details')).to have_content peep.format_time.to_s
   end
 end
