@@ -24,4 +24,4 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-Capybara.app = PeepManager
+Capybara.app = Chitter

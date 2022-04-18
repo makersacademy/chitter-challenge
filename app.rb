@@ -1,13 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
-class PeepManager < Sinatra::Base
+class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    'Hello World'
+    "Welcome to Chitter!"
   end
 
   run! if app_file == $0
