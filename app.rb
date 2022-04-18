@@ -56,7 +56,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @users = User.all
+    @users = User
     @username = User.find_by(id: session[:user_id]).username unless session[:user_id].nil?
     @peeps = Peep.order(created_at: :desc)
     erb :'peeps/index'
