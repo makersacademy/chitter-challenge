@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-  validates :name, presence: true
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
   has_secure_password
-  validates :password, presence: true, length: { in: 8..20 }
+  validates :password, length: { in: 8..20 }
   has_many :peeps
 end
