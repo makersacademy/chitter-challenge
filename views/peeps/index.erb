@@ -1,3 +1,7 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.username %>!</h1>
+<% end %>
+
 <ul>
   <% @peeps_sorted.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
