@@ -43,9 +43,9 @@ Enter the following url into your preferred browser: http://localhost:9292/
 
 ## User Stories
 
+```
 STRAIGHT UP
 
-```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
