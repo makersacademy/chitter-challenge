@@ -18,4 +18,3 @@ describe DatabaseConnection do
     end
   end
 end
-

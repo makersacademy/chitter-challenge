@@ -5,6 +5,7 @@ require './lib/user'
 require_relative './database_connection_setup'
 require 'bcrypt'
 require 'sinatra/flash'
+require 'byebug'
 
 class ChitterManager < Sinatra::Base
   configure :development do
@@ -12,7 +13,6 @@ class ChitterManager < Sinatra::Base
     register Sinatra::Flash
   end
   enable :sessions
-
 
   get '/' do
     erb :index
@@ -34,13 +34,10 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], 
+username: params[:username])
     session[:user_id] = user.id
     redirect '/chitters'
-  end
-
-  get '/sessions/new' do
-    erb :"sessions/new"
   end
 
   post '/sign_in' do
@@ -50,14 +47,14 @@ class ChitterManager < Sinatra::Base
       redirect '/chitters'
     else
       flash[:notice] = "Please check your email or password"
-      redirect '/sessions/new'
+      redirect '/'
+    end
   end
-end
 
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = "You have signed out."
-    redirect '/chitters'
+    redirect '/'
   end
 
   run! if app_file == $0

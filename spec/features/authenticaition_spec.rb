@@ -2,7 +2,7 @@ feature 'authentication' do
   scenario 'a user sees an error if they get their email wrong' do
     User.create(email: 'test@example.com', password: 'Test123', name: 'Test', username: 'testing')
 
-    visit '/sessions/new'
+    visit '/'
     fill_in('email', with: 'incorrectemail@gmail.com')
     fill_in('password', with: 'test123')
     click_button('Sign in')
@@ -13,7 +13,7 @@ feature 'authentication' do
   scenario 'a user sees an error if they get their password wrong' do
     User.create(email: 'test@example.com', password: 'Test123', name: 'Test', username: 'testing')
 
-    visit '/sessions/new'
+    visit '/'
     fill_in('email', with: 'incorrectemail@gmail.com')
     fill_in('password', with: 'wrongpassword')
     click_button('Sign in')
@@ -24,8 +24,7 @@ feature 'authentication' do
   scenario 'it allows a user to sign out' do
     User.create(email: 'test@example.com', password: 'Test123', name: 'Test', username: 'testing')
 
-    visit('/chitters')
-    click_button("Sign in")
+    visit('/')
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'Test123')
     click_button('Sign in')

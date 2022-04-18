@@ -8,7 +8,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
 ENV['ENVIRONMENT'] = 'test'
 
 require 'capybara/rspec'
@@ -19,7 +18,6 @@ require 'capybara'
 require 'rspec'
 
 Capybara.app = ChitterManager
-
 
 RSpec.configure do |config|
   config.before(:each) do

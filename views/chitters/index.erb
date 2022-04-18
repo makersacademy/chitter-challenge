@@ -1,18 +1,8 @@
 
-<style>
-
-<body>
-
-<style type="text/css">
-ul{
-  display:flex;
-  flex-direction: column-reverse;
-}
-</style>
-
-<h2> 
-  <%= flash[:notice] %>
-  </h2>
+            <body><p> 
+            <font color=red><%= flash[:notice] %></p></font>
+            </body>
+            </div>
 
 <% if @user %>
   <h1>Welcome to Chitter <%= @user.name %></h1>
@@ -22,39 +12,44 @@ ul{
   </form>
 
 <form action='/chitters' method='post'>
-<label>Write your peep below: </label><br>
+<div>
+<label>Write your peep below: </label>
+</div>
 <input type='text' name='peep'>
 <input type='submit' value='Peep'>
 </form>
-
-  <% else %>
-  <h1>Welcome to Chitter</h1>
-  <h2>Sign up today.</h2>
-
-<form action='/users/new' method='get'>
-<input type='submit' value="Sign up">
-</form>
-
-   <h3>Already have an account?</h3>
-  <form action="/sessions/new" method="get">
-  <input type="submit" value="Sign in">
-  </form>
-  <% end %>
-
-
-
+<% end %>
 <br>
 
-
-
-
- 
 <h1> See what others are saying: </h1>
 
 <ul>
 <% @peeps.each do |peep| %>
-<li><%= User.find(id: (peep.user_id)).username %>
+<li><img src="https://i.pinimg.com/originals/c2/31/20/c23120359b42d7bba31dd07e6a31370e.jpg" width="50px" height="50px" class="img-thumbnail" alt="Thumbnail">
+<%= User.find(id: (peep.user_id)).name %> - @<%= User.find(id: (peep.user_id)).username %>
 <%= peep.created_at %><br><%= peep.peep %></li><br>
 <% end %>
 </ul>
 </body>
+
+<body>
+<style>
+body  {
+  background-image: url("https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-hero-desktop.jpg.twimg.1920.jpg");
+  width:1590px; 
+  height:900px; 
+  background-position:center;">
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style>
+
+<style type="text/css">
+ul{
+  display:flex;
+  flex-direction: column-reverse;
+}
+</style>
+
+
+        

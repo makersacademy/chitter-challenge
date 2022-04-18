@@ -1,6 +1,6 @@
 describe Chitter do
 
-  let (:chitters) {Chitter.all}
+  let (:chitters) { Chitter.all }
 
   context "when created" do
     it "has am id, peep and created at instances" do
