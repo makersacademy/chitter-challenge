@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-This is a program that runs a small Twitter clone called Chitter. Users can visit Chitter and can view the page which lists all the peeps in reverse chronological order. Users can also post peeps to Chitter after signing up and logging in with a secure password. Each peep also displays the user who posted it and the time and date it was created. ActiveRecord was used to create the databases, datatables and classes that are needed for this program to function.
+This is a program that runs a small Twitter clone called Chitter. Users can visit Chitter and can view the page which lists all the peeps in reverse chronological order. Users can also post peeps to Chitter after signing up and logging in with a secure password. Each peep also displays the user who posted it and the time and date it was created. ActiveRecord was used to create the databases, datatables and classes that are needed for this program to function. This program follows MVC convention with the [models](https://github.com/jmcnally17/chitter-challenge/tree/main/models) folder containing the Model, the [views](https://github.com/jmcnally17/chitter-challenge/tree/main/views) containing the View and the [app](https://github.com/jmcnally17/chitter-challenge/blob/main/app.rb) file being the Controller.
 
 **ActiveRecord**
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
@@ -12,7 +12,7 @@ A [Rakefile](https://github.com/jmcnally17/chitter-challenge/blob/main/Rakefile)
 
 The files in the [migrate](https://github.com/jmcnally17/chitter-challenge/tree/main/db/migrate) folder contain the necessary information on the structure of the tables that ActiveRecord will create. These files can be created in the terminal by running `rake db:create_migration NAME=<migration_name>`, before the developer inputs all the necessary column information.
 
-
+After running these migrations, the class files in the models folder are then modified so that the classes fit what the developer intends. These classes can contain any helper methods that are necessary, validations (checks on specific class attributes that have to be fulfilled before they can be saved to the database) and links to other tables in the database (foreign keys).
 
 Getting Started
 -------
