@@ -1,0 +1,22 @@
+
+<h1 style="background-color:powderblue;" >Chitter<h1>
+
+
+<form action='/add_peep' method='post' >
+<label>
+  <p>Please write a peep:</p>
+  <input type='text' name='message'>
+</label>
+<input type='submit' value='Submit'>
+</form>
+
+
+<h3>Peeps</h3>
+<ul>
+<% @peeps.each do |peep| %> 
+  <li>
+    <a>  <%=peep.message%> </a>
+  </li>
+<% end %>
+</ul>
+
