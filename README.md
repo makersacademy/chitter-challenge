@@ -94,9 +94,11 @@ See Github: `https://github.com/almorcrette/chitter-challenge`
 * Sinatra
 * PostgreSQL
 * PG
+
 _For testing_
 * RSpec
 * Capybara
 * Simplecov
+
 _For development_
 * Rubocop
