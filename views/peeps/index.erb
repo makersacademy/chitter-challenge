@@ -15,20 +15,24 @@
 </dl>
 
 <% if @username %>
-  <form action='/peeps/new' method='post'>
+  <form action='/peeps' method='post'>
     <label for='description'>Enter your peep text here:</label>
     <input type='text' name='description' required>
     <input type='submit' value='Post'>
   </form>
+
+  <form action='/sessions/destroy' method='post'>
+    <input type='submit' value='Logout'>
+  </form>
 <% end %>
 
 <% unless @username %>
-  <form action='/signup' method='get'>
+  <form action='/users/new' method='get'>
     <label for='Sign up'>Make an account to post peeps:</label>
     <input type='submit' value='Sign up'>
   </form>
 
-  <form action='/login' method='get'>
+  <form action='/sessions/new' method='get'>
     <label for='Log in'>Already have an account?</label>
     <input type='submit' value='Log in'>
   </form>

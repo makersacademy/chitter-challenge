@@ -15,35 +15,44 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/login' do
-    erb :login
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
-  post '/login' do
+  post '/sessions' do
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      redirect '/failure'
+      redirect '/sessions/failure'
     end
   end
 
-  get '/signup' do
-    erb :signup
+  get '/sessions/failure' do
+    erb :'sessions/failure'
   end
 
-  post '/signup' do
+  get '/sessions/destroy' do
+    erb :'sessions/destroy'
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    redirect 'sessions/destroy'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
     user = User.new(params)
     if user.save
-      redirect '/login'
+      redirect '/sessions/new'
     else
-      redirect '/failure'
+      redirect '/sessions/failure'
     end
-  end
-
-  get '/failure' do
-    erb :failure
   end
 
   get '/peeps' do
@@ -53,7 +62,7 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  post '/peeps/new' do
+  post '/peeps' do
     peep = Peep.new(params)
     peep.user = User.find_by(id: session[:user_id])
     peep.save
