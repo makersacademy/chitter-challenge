@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
 require_relative './lib/chitter'
+require_relative './lib/user'
 
 class ChitterManager < Sinatra::Base
   configure :development do
@@ -23,8 +24,16 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peeps/new/add' do
-    p params
     Chitter.create(peep: params[:peeps])
+    redirect '/peeps'
+  end
+
+  get'/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    User.create(email: params[:email], password: params[:password])
     redirect '/peeps'
   end
 
