@@ -15,7 +15,7 @@ class ChitterManager < Sinatra::Base
   enable :method_overide, :sessions
 
   get '/' do
-    @user = User.find
+    # @user = User.find
     @messages = Message.all
     erb :index
   end
