@@ -1,0 +1,14 @@
+<ul id='peeps'>
+  <% @all_peeps.reverse.each do |show_peeps| %>
+  <p>
+    <li><%= show_peeps.peep  %> => <%= show_peeps.user.name %>
+    <% end %>
+  </ul>
+
+  <div>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %> 
+      <%= partial :peep, :locals => {:peep => peep}  %>
+    <% end %>
+  </ul>
+</div>
