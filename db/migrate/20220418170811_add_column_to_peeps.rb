@@ -1,0 +1,5 @@
+class AddColumnToPeeps < ActiveRecord::Migration[7.0]
+  def change
+    add_column :peeps, :user_id, :integer
+  end
+end

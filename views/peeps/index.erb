@@ -1,0 +1,39 @@
+<% if @username %>
+  <h1>Hello <%= @username %>!</h1>
+<% else %>
+  <h1>Hello Guest!</h1>
+<% end %>
+
+<dl>
+  <% @peeps.each do |peep| %>
+    <dt class='details'>
+      <strong><%= @users.find_by(id: peep.user_id).name %></strong> @<%= @users.find_by(id: peep.user_id).username %> <%= peep.format_time %>
+    </dt>
+    <dd class='list'><%= peep.description %></dd>
+    <br>
+  <% end %>
+</dl>
+
+<% if @username %>
+  <form action='/peeps' method='post'>
+    <label for='description'>Enter your peep text here:</label>
+    <input type='text' name='description' required>
+    <input type='submit' value='Post'>
+  </form>
+
+  <form action='/sessions/destroy' method='post'>
+    <input type='submit' value='Logout'>
+  </form>
+<% end %>
+
+<% unless @username %>
+  <form action='/users/new' method='get'>
+    <label for='Sign up'>Make an account to post peeps:</label>
+    <input type='submit' value='Sign up'>
+  </form>
+
+  <form action='/sessions/new' method='get'>
+    <label for='Log in'>Already have an account?</label>
+    <input type='submit' value='Log in'>
+  </form>
+<% end %>

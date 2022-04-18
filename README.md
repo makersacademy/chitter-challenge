@@ -1,19 +1,52 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is a program that runs a small Twitter clone called Chitter. Users can visit Chitter and can view the page which lists all the peeps in reverse chronological order. Users can also post peeps to Chitter after signing up and logging in with a secure password. Each peep also displays the user who posted it and the time and date it was created. ActiveRecord was used to create the databases, datatables and classes that are needed for this program to function. This program follows MVC convention with the [models](https://github.com/jmcnally17/chitter-challenge/tree/main/models) folder containing the Model, the [views](https://github.com/jmcnally17/chitter-challenge/tree/main/views) containing the View and the [app](https://github.com/jmcnally17/chitter-challenge/blob/main/app.rb) file being the Controller.
 
-Challenge:
+**ActiveRecord**
+- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
+
+ActiveRecord is an ORM (Object Relational Mapper) which helps to convert data back and forth between SQL and Ruby. Initially a [database.yml](https://github.com/jmcnally17/chitter-challenge/blob/main/config/database.yml) file is needed in the [config](https://github.com/jmcnally17/chitter-challenge/tree/main/config) folder to provide ActiveRecord with the necessary database connections for each environment. 
+
+A [Rakefile](https://github.com/jmcnally17/chitter-challenge/blob/main/Rakefile) is needed in the [main](https://github.com/jmcnally17/chitter-challenge) directory in order for the user to input rake commands.
+
+The files in the [migrate](https://github.com/jmcnally17/chitter-challenge/tree/main/db/migrate) folder contain the necessary information on the structure of the tables that ActiveRecord will create. These files can be created in the terminal by running
+```
+rake db:create_migration NAME=<migration_name>
+```
+before the developer inputs all the necessary column information.
+
+After running these migrations, the class files in the models folder are then modified so that the classes fit what the developer intends. These classes can contain any helper methods that are necessary, validations (checks on specific class attributes that have to be fulfilled before they can be saved to the database) and links to other tables in the database (foreign keys).
+
+Getting Started
 -------
 
-As usual please start by forking this repo.
+To begin, clone this repository and install the necessary gems:
+```
+git clone https://github.com/jmcnally17/chitter-challenge.git
+bundle
+```
+Run `gem install bundler` if you haven't already got bundler installed. So that ActiveRecord can setup the databases, while in the main directory, run:
+```
+rake db:prepare
+rake db:migrate
+rake db:migrate RACK_ENV=test
+```
+`db:prepare` will create the 'chitter' and 'chitter_test' databases but will not create the datatables because the default environment has not been specificied. `db:migrate` will setup the tables in the production environment (i.e. for the 'chitter' database), while `db:migrate RACK_ENV=test` will setup the tables in the test environment (i.e. for the 'chitter_test' database).
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+How To Use
+------
 
-Features:
+The server can then be started by either runnning `ruby app.rb` or `rackup` in the terminal while in the main directory. Then, in the web browser, visit the URL `localhost:4567` or `localhost:9292`, depending on how the server was started.
+
+From the Chitter homepage, you can either go to peeps page, log in or sign up for an account. Only after signing up and logging in can you start posting peeps on the peeps page. Once you have posted all the peeps you want, a log out button is present on the peeps page so that you can end your session.
+
+Tests
+------
+
+The tests that have been created in the [spec](https://github.com/jmcnally17/chitter-challenge/tree/main/spec) folder can be ran by simply running `rspec` in the terminal. These tests have provided a 100% test coverage from SimpleCov while this program also commits 0 offenses when running RuboCop. This program was made using the TDD (Test-Driven Development) process where each test was written before the code that it was targeting.
+
+User Stories:
 -------
 
 ```
@@ -52,80 +85,4 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+***Note: I did want to format the pages using CSS but didn't have enough time.***
