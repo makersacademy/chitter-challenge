@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
-require 'uri'
 require_relative './lib/message'
 require_relative './database_connection_setup'
 require_relative './lib/user'

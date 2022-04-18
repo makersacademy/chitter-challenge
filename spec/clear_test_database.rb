@@ -5,5 +5,5 @@ def clear_test_database
   connection = PG.connect(dbname: 'chitter_manager_test')
 
   # Clears the comments on the chitter_test table
-  connection.exec("TRUNCATE messages;")
+  connection.exec("TRUNCATE messages, users;")
 end

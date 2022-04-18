@@ -20,9 +20,10 @@ describe Message do
 
   context '#create' do
     it 'inputs value into database and returns an object (ORM)' do
+
       message = Message.create(message: 'Hello Chitter')
       persisted_data = persisted_data(table: 'messages', id: message.id)
-      p persisted_data.first
+
       expect(message).to be_a Message
       expect(message.id).to eq persisted_data.first['id']
       expect(message.comment).to eq persisted_data.first['comment']

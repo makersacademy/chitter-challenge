@@ -1,7 +1,6 @@
 Chitter Challenge
 =================
 
-
 Task
 -------
 
@@ -15,7 +14,31 @@ I approached this challenge by using a test driven approach. I created the unit 
 4) Refactor the code and re-test (orange)
 5) Once I have A) high coverage, B) passing Rspec tests, C) code that fulfills the user story. I progress to the next user story and repeat steps 1-5
 
-I used the MVC pattern to develop the web application, and the server is created with Sinatra.
+I used the MVC pattern to develop the web application. 
+
+The server is created with Sinatra.
+
+The database was created using PostgreSQL
+
+The password of users are encrypted in the database with the use of 'bcrypt'
+
+# Gems
+
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'webrick'
+gem 'pg'
+gem 'bcrypt'
+
+
+gem 'rspec'
+gem 'simplecov'
+gem 'simplecov-console'
+gem 'capybara'
+gem 'launchy'
+
+gem 'rubocop', '1.20'
+gem 'sinatra-contrib'
 
 ## Getting started
 
@@ -26,15 +49,18 @@ I used the MVC pattern to develop the web application, and the server is created
 
 ## Test Code
 
+[Follow these instructions to set-up the PostgreSQL test database](#Database-Setup-for-Testing)
+
 Run rspec from the root directory to test the code and check test coverage
 
 ## Run
 
+[Follow these instructions to set-up the PostgreSQL database](#Database-Setup)
+
 In the terminal whilst at the root directory, type `rackup` and press enter
 Enter the following url into your preferred browser: http://localhost:9292/
 
-User Stories
------
+## User Stories
 
 
 STRAIGHT UP
@@ -67,25 +93,23 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
+# Database Setup
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+1. Connect to `psql` (it's important to run this command from the root directory of 'chitter-challenge')
+2. Create the database using the `psql` command `CREATE DATABASE messages;`
+3. Connect to the database using the `pqsl` command `\c messages;`
+4. Run the following commands within psql:
+   `\i ./db/migrations/01_create_messages_table.sql`
+   `\i ./db/migrations/02_add_creation_to_messages.sql`
+   `\i ./db/migrations/03_create_users_table.sql`
 
-Database Setup
------
 
-1. Connect to `psql`
-2. Create the database using the `psql` command `CREATE DATABASE NAME;`
-3. Connect to the database using the `pqsl` command `\c TABLE NAME;`
-4. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/01 - STEP ONE.sql`
+# Database Setup for Testing
 
-Database Setup for Testing
------
-
-1. Connect to `psql`
-2. Create the database using the `psql` command `CREATE DATABASE NAME;`
-3. Connect to the database using the `pqsl` command `\c TABLE NAME;`
-4. Run the query we have saved in the file from the root directory by running `\i ./db/migrations/01 - STEP ONE.sql`
+1. Connect to `psql` (it's important to run this command from the root directory of 'chitter-challenge')
+2. Create the database using the `psql` command `CREATE DATABASE messages;`
+3. Connect to the database using the `pqsl` command `\c messages;`
+4. Run the following commands within psql:
+   `\i ./db/migrations/01_create_messages_table.sql`
+   `\i ./db/migrations/02_add_creation_to_messages.sql`
+   `\i ./db/migrations/03_create_users_table.sql`
