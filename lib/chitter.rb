@@ -1,5 +1,5 @@
 class Chitter
   def self.add(peep)
-      peep
+    peep
   end
 end

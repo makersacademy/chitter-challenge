@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/peeps/new' do
-    
+    p ENV
     erb :'posts/new'
   end
 
