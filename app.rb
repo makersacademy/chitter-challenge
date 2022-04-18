@@ -11,12 +11,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/peeps/new' do
-    @new_peep = params[:peeps]
+    
     erb :'posts/new'
   end
 
   post '/chitter/peeps/new/add' do
-
+    @new_peep = params[:peeps]
+    p @new_peep
   end
 
   run! if app_file == $0
