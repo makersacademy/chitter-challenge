@@ -10,7 +10,11 @@ ActiveRecord is an ORM (Object Relational Mapper) which helps to convert data ba
 
 A [Rakefile](https://github.com/jmcnally17/chitter-challenge/blob/main/Rakefile) is needed in the [main](https://github.com/jmcnally17/chitter-challenge) directory in order for the user to input rake commands.
 
-The files in the [migrate](https://github.com/jmcnally17/chitter-challenge/tree/main/db/migrate) folder contain the necessary information on the structure of the tables that ActiveRecord will create. These files can be created in the terminal by running `rake db:create_migration NAME=<migration_name>`, before the developer inputs all the necessary column information.
+The files in the [migrate](https://github.com/jmcnally17/chitter-challenge/tree/main/db/migrate) folder contain the necessary information on the structure of the tables that ActiveRecord will create. These files can be created in the terminal by running
+```
+rake db:create_migration NAME=<migration_name>
+```
+before the developer inputs all the necessary column information.
 
 After running these migrations, the class files in the models folder are then modified so that the classes fit what the developer intends. These classes can contain any helper methods that are necessary, validations (checks on specific class attributes that have to be fulfilled before they can be saved to the database) and links to other tables in the database (foreign keys).
 
