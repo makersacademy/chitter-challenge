@@ -10,5 +10,11 @@ end
     'Hello World'
   end
 
+  get '/chitter/peeps' do
+    'Chitter Challenge'  
+  end
+  
+
+
   run! if app_file == $0
 end
