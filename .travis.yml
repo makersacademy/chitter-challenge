@@ -8,3 +8,11 @@ before_script:
 
 script:
   - bundle exec rspec
+
+psql:
+  - brew install postgresql
+  - brew services start postgresql
+  - connect by typing 'psql' CREATE DATABASE peep_manager;
+  - connect to by typing '\c peep_manager;'
+  - \dt or \dt+ to see peeps table
+  - to see table contents - SELECT * FROM peeps;
