@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="user-scalable=no">
+    <title>Chitter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<head>
+<style>
+body  {
+  background-image: url("https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-hero-desktop.jpg.twimg.1920.jpg");
+  width:700px; 
+  height:400px; 
+  background-position:left;">
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style>
+</head>
+<body>
+<section class="main-page">
+<h1><b>Welcome to Chitter!</b></h1>
+    <div class="right">
+        <div class="right-content">
+            <div>
+                <i class="fas fa-search"></i>
+                <h3 class="right-content-heading">Find your interests</h3>
+            </div>
+            <div>
+                <i class="fas fa-user-friends"></i>
+                <h3 class="right-content-heading">Explore what people are talking about</h3>
+            </div>
+            <div>
+                <i class="fas fa-comment"></i>
+                <h3 class="right-content-heading">Join the people</h3>
+            </div>
+        </div>
+    </div>
+    <div class="left">
+          <div>
+            <form action="/sign_in" method="post">
+            <input type="text" name="email" placeholder="Email"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input type="submit" value="Sign in">
+            </form>
+
+            <body><p> 
+            <font color=red><%= flash[:notice] %></p></font>
+            </body>
+            </div>
+            
+      
+        <div class="middle-content">
+            <i class="fas fa-dove"></i>
+            <h1>Explore what's happening in the world</h1>
+            <h4>Join Chitter today</h4>
+            <form action='/users/new' method='get'>
+            <button type="submit" value="Sign up">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <footer class="main-page-footer">
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Brand</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">&copy; 2022 Chitter</a></li>
+        </ul>
+    </footer>
+</section>
+</body>
+</html>

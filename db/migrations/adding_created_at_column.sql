@@ -1,0 +1,1 @@
+ALTER TABLE chitters ADD COLUMN created_at TIMESTAMP DEFAULT current_timestamp;

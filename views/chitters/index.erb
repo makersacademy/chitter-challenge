@@ -1,0 +1,55 @@
+
+            <body><p> 
+            <font color=red><%= flash[:notice] %></p></font>
+            </body>
+            </div>
+
+<% if @user %>
+  <h1>Welcome to Chitter <%= @user.name %></h1>
+
+  <form action='/sessions/destroy' method="post">
+    <input type="submit" value="Sign out">
+  </form>
+
+<form action='/chitters' method='post'>
+<div>
+<label>Write your peep below: </label>
+</div>
+<input type='text' name='peep'>
+<input type='submit' value='Peep'>
+</form>
+<% end %>
+<br>
+
+<h1> See what others are saying: </h1>
+
+<ul>
+<% @peeps.each do |peep| %>
+<li><img src="https://i.pinimg.com/originals/c2/31/20/c23120359b42d7bba31dd07e6a31370e.jpg" width="50px" height="50px" class="img-thumbnail" alt="Thumbnail">
+<%= User.find(id: (peep.user_id)).name %> - @<%= User.find(id: (peep.user_id)).username %>
+<%= peep.created_at %><br><%= peep.peep %></li><br>
+<% end %>
+</ul>
+</body>
+
+<body>
+<style>
+body  {
+  background-image: url("https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-hero-desktop.jpg.twimg.1920.jpg");
+  width:1590px; 
+  height:900px; 
+  background-position:center;">
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style>
+
+<style type="text/css">
+ul{
+  display:flex;
+  flex-direction: column-reverse;
+}
+</style>
+
+
+        

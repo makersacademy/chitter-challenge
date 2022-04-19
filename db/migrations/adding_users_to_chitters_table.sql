@@ -1,0 +1,1 @@
+ALTER TABLE chitters ADD column user_id INT;

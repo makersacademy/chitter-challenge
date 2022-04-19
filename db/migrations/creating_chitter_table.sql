@@ -1,0 +1,1 @@
+CREATE TABLE chitter (id SERIAL PRIMARY KEY, chitters VARCHAR(240));
