@@ -66,8 +66,8 @@ I want to receive an email if I am tagged in a Peep
 Screenshots of Chitter:
 -----
 
-![Screenshot](https://ibb.co/fk4ggpv)
-![Screenshot](https://imgur.com/gUFFrD7)
+![Screenshot](https://ibb.co/fk4ggpv.png)
+![Screenshot](https://imgur.com/gUFFrD7.png)
 
 How to use:
 ------
