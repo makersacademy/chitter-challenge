@@ -19,8 +19,9 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get 'sign_up' do
-    
+  post 'sign_up' do
+    User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    redirect '/'
   end
 
   run! if app_file == $0
