@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+html {
+    height: 100%;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  max-width: 500px;
+  min-height: 100%;
+  margin: auto;
+  background-color: #6BCAF6;
+  background-size: 50%;
+  text-align: center;
+  border-radius: 40px;
+}
+
+</style>
+</head>
+<body>
+<br>
+<h2> We can't wait for you to start peepin' again! </h2>
+<br>
+<form action="/log_in" method="post">
+Enter your username and password below:<br><br>
+  <input type="username" name="username" placeholder= "Your username" required>
+  <input type="password" name="password" placeholder= "Your password" required><br><br>
+  <input type="submit" value="Log in" >
+</form>
+
+<h3>Not yet a member? Find the sign up page here:</h3><br>
+<form action='/sign_up' method='get'>
+  Join us! &emsp; <input type='submit' value='Sign up here...'>
+</form>
+
+</body>
+
+</html>
