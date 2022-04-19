@@ -1,10 +1,10 @@
 
-<h1 style="background-color:powderblue;" >Chitter<h1>
+<h1 style="background-color:powderblue;" >Welcome to Chitter!<h1>
 
 
 <form action='/add_peep' method='post' >
 <label>
-  <p>Please write a peep:</p>
+  <p>Write a peep here:</p>
   <input type='text' name='message'>
 </label>
 <input type='submit' value='Submit'>
@@ -16,6 +16,7 @@
 <% @peeps.each do |peep| %> 
   <li>
     <a>  <%=peep.message%> </a>
+    <a> <small> (Peep posted at: <%= peep.time %>) </small> </a>
   </li>
 <% end %>
 </ul>

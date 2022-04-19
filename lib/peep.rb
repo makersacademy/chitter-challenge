@@ -1,11 +1,12 @@
 require 'pg'
 
 class Peep
- attr_reader :id, :message
+ attr_reader :id, :message, :time
 
-  def initialize(id:, message:)
+  def initialize(id:, message:, time: Time.now)
     @id = id
     @message = message
+    @time = time
   end
 
   def self.all
@@ -17,7 +18,7 @@ class Peep
 
     result = connection.exec("SELECT * FROM peeps;")
     list_of_peeps =result.map do |peep|
-        Peep.new(id: peep['id'], message: peep['message'])
+        Peep.new(id: peep['id'], message: peep['message'], time: peep['time'])
     end
 
     list_of_peeps.reverse
@@ -31,8 +32,9 @@ class Peep
       connection = PG.connect( dbname: 'peeps_manager')
     end
 
-    result = connection.exec_params("INSERT INTO peeps (message) VALUES ($1) RETURNING id, message;", [message])
-    Peep.new(id: result[0]['id'], message: result[0]['message'])
+    time = Time.now
+    result = connection.exec_params("INSERT INTO peeps (message,time) VALUES ($1,$2) RETURNING id, message, time;", [message,time])
+    Peep.new(id: result[0]['id'], message: result[0]['message'], time: result[0]['time'])
   end
 
 end
