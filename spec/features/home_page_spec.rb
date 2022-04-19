@@ -57,10 +57,7 @@ feature 'viewing home' do
     fill_in('content', with: 'a timely peep')
     click_button('Peep it!')
 
-    expect(page).to have_content 'at'
-    expect(page).to have_content ':'
-    expect(page).to have_content 'M'
-    expect(page).to have_content '/'
+    expect(page).to have_content /\d{2}:\d{2}/
   end
   scenario 'user can see their name and username of the author of each peep' do
     User.create(username: 'Sarahness', name: 'Sarah Smith', email: 'email@email.com', password: 'pwpwpwpw')

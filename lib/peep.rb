@@ -1,12 +1,13 @@
 require_relative 'database_connection'
+require 'date'
 
 class Peep
   attr_reader :id, :content, :posted, :username, :name
 
-  def initialize(id:, content:, username:, name:, posted: Time.now.strftime("%I:%M %p, %d/%m/%Y"))
+  def initialize(id:, content:, username:, name:, posted: Time.now)
     @id = id
     @content = content
-    @posted = posted
+    @posted = DateTime.parse(posted)
     @username = username
     @name = name
   end
@@ -21,7 +22,7 @@ class Peep
   end
 
   def self.create(content:, username:, name:)
-    posted = Time.now.strftime("%I:%M %p, %d/%m/%Y")
+    posted = Time.now
     result = DatabaseConnection.query("INSERT INTO peeps (content, posted, username, name) 
                                       VALUES($1, $2, $3, $4) RETURNING id, content, posted, username, name;", 
                                       [content, posted, username, name])

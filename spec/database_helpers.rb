@@ -1,5 +1,4 @@
 require 'pg'
-require_relative '../lib/peep'
 
 def wipe_tables
   connection = PG.connect(dbname: 'chitter_test')

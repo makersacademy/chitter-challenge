@@ -52,7 +52,7 @@ ul li {
 <% if @user != nil%>
   <h2>Welcome back to Chitter <%= @user.name.split(' ')[0] %>!</h2>
   <h3> Get peepin'... </h3>
-  <form action='/end_session' method='post'>
+  <form action='/log_out' method='post'>
     Finished peeping? &emsp; &emsp; <input type='submit' value='Log out'>
   </form>
   <br>
@@ -82,7 +82,7 @@ ul li {
       <br>
       <div class="c" style="margin: 0px 10px"> <%= peep.content %> </div>
       <br>
-      <div class="b"> <small><em> (at <%= peep.posted %>) </em></small></div>
+      <div class="b"> <small><em> (at <%= peep.posted.strftime("%I:%M %p, %d/%m/%Y") %>) </em></small></div>
     </li>
     <% end %>
 </ul>

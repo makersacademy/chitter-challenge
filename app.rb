@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
-  post '/add_user' do
+  post '/sign_up' do
     result = User.check_usernames_and_emails(username: params['username'], email: params['email'])
     if result == true
       redirect '/sign_up_failure'
@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
     erb :log_in
   end
 
-  post '/new_session' do
+  post '/log_in' do
     user = User.authenticate(username: params[:username], password: params[:password])
     if user.nil?
       redirect '/log_in_failure'
@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  post '/end_session' do
+  post '/log_out' do
     session[:user_id] = nil
     redirect '/'
   end

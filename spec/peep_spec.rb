@@ -22,10 +22,6 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep with the time and username' do
-      time_now = Time.now
-      allow(Time).to receive(:now).and_return(time_now)
-      formatted_time = time_now.strftime("%I:%M %p, %d/%m/%Y")
-      
       peep = Peep.create(content: 'What a day!', username: 'Pauline', name: 'Pauline French')
       persisted_data = persisted_data(table: 'peeps', id: peep.id)
       
@@ -34,7 +30,7 @@ describe Peep do
       expect(peep.content).to eq 'What a day!'
       expect(peep.username).to eq 'Pauline'
       expect(peep.name).to eq 'Pauline French'
-      expect(peep.posted).to eq formatted_time
+      expect(peep.posted).to eq DateTime.parse(persisted_data['posted'])
     end
   end
 end
