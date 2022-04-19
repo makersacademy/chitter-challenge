@@ -14,4 +14,18 @@ describe Peep do
       expect(peeps.first.message).to eq 'third test...'
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep with the time and username' do
+      time_now = Time.now
+      allow(Time).to receive(:now).and_return(time_now)
+      formatted_time = time_now.strftime("%Y-%m-%d %I:%M:%S")
+      peep = Peep.create(message: 'Test4')
+      
+      expect(peep).to be_a Peep
+      expect(peep.message).to eq 'Test4'
+      expect(peep.time).to eq formatted_time
+    end
+  end
+
 end
