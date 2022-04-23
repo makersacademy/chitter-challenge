@@ -1,7 +1,7 @@
 
 feature 'View peeps' do  
   let(:date) do
-    Time.now.strftime('%l:%M%P, %-m %b %Y')
+    formatted_time
   end
 
   scenario 'visiting the index page' do    

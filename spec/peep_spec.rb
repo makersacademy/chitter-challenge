@@ -2,7 +2,7 @@ require 'peep'
 
 describe Peep do
   let(:date) do
-    Time.now.strftime('%l:%M%P, %-m %b %Y')
+    formatted_time
   end
 
   describe '.all' do

@@ -1,7 +1,7 @@
 
 feature 'Ordered peeps' do
   let(:date) do
-    Time.now.strftime('%l:%M%P, %-m %b %Y')
+    formatted_time
   end
 
   scenario 'users see peeps displayed in reverse chronological order' do    
