@@ -16,7 +16,7 @@ class Peep
       Peep.new(
         id: peep['id'],
         peep: peep['post'],
-        created_at: result[0]['created_at']
+        created_at: peep['created_at']
       )
     end
   end
@@ -35,6 +35,6 @@ class Peep
   private
 
   def format_time(created_at)
-    Time.parse(created_at).strftime('%l:%M%P, %-m %b %Y')
+    Time.parse(created_at).strftime('%l:%M%P, %-d %b %Y')
   end
 end

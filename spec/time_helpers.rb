@@ -1,4 +1,4 @@
 
 def formatted_time
-  Time.now.strftime('%l:%M%P, %-m %b %Y')
+  Time.now.strftime('%l:%M%P, %-d %b %Y')
 end
