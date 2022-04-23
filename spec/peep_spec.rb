@@ -23,15 +23,14 @@ describe Peep do
   describe '.create' do
     it 'adds a peep to the database' do
       peep = Peep.create(peep: "This is a peep")
-      connection = PG.connect dbname: 'chitter_web_test'
-      result = connection.query("SELECT * FROM peeps WHERE id = #{peep.id};")
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       peeps = Peep.all
 
       expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
       expect(peep.text).to eq "This is a peep"
       expect(peep.created_at).to eq date
-      expect(peep.id).to eq result.first['id']
     end
   end
 end
