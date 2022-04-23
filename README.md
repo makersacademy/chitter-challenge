@@ -1,24 +1,22 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+<div align="center">
+  <img src="./public/images/chitter-gif.gif" width="400px">
+</div>
 
-Challenge:
--------
+## The challenge
 
-As usual please start by forking this repo.
+Write a small Twitter clone that will allow the users to post messages to a public stream.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+## Features
 
-Features:
--------
+- [x] Post a peep (message)
+- [x] Peeps are shown in reverse chronological order
+- [x] Peeps have a timestamp
+- [ ] Chitter sign-up
 
+### User stories:
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -34,84 +32,76 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+## Getting started
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+### Tech
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+- `ruby`
+- `sinatra`
+- `capybara`
+- `rspec`
+- `postgresql`
+- `pg`
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+### Installation and setup
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+#### Download
 
-Notes on functionality:
-------
+1. Fork [this repo][chitter repo] and `git clone` it to your local system.
+1. Use `Homebrew` (or your prefered package manager) to install and manage packages.
+1. `brew install bundler`
+1. Run `bundle install` to install the required 'gems' from the Gemfile.
+1. `brew install postgres`
+    - Follow post installation instructions.
+    - `brew service start postgresql`
+    - Create `chitter` and `chitter_test` databases using `psql`
+        - `CREATE DATABASE chitter;`
+        - `CREATE DATABASE chitter_web;`
+    - Create tables in each database using the `psql` sequences in `db/migrations`
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+[chitter repo]: https://github.com/J-son1/chitter-challenge
 
-Bonus:
------
+### Usage
 
-If you have time you can implement the following:
+#### PostgreSQL
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+##### Startup
 
-And/Or:
+```psql
+$ psql postgres
+postgres=#
+```
+##### Commands
 
-* Work on the CSS to make it look good.
+- `postgres=# \l` - List all database tables
+- `postgres=# \q` - Quit `psql`
 
-Good luck and let the chitter begin!
+#### Rack
 
-Code Review
------------
+##### Startup
 
-In code review we'll be hoping to see:
+- Run `rackup` to start a local server:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+```
+$ rackup
+```
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
+#### Browser
+- Use `localhost:XXXX/peeps` with 4-digit port number to view chitter homepage.
 
-Automated Tests:
------
+## Technical Approach
 
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
+## Notes
 
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
+## Testing
 
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+### RSpec
 
-Notes on test coverage
-----------------------
+- Run `rspec` from the projects root directory.
+
+### SimpleCov
 
 Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
 on your pull request:
@@ -127,5 +117,3 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 ```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

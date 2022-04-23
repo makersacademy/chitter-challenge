@@ -1,0 +1,139 @@
+* {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #444;
+  background-image: linear-gradient(150deg, #fff, #002864);
+  background-attachment: fixed;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+h1 {
+  color: #fff;
+  margin: 20px auto;
+  background-color: #444;
+  background-image: linear-gradient(210deg, #c8deff, #002864);
+  margin: 0 1em 1em;
+  padding: 1em;
+  font-size: 2em;
+  border-radius: 0 0 1em 1em;
+  box-shadow: 0 0.3em 0.4em 0 rgba(0,0,0,0.5), 0 0.1em 0.2em 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 490px;
+  min-width: 350px;
+}
+
+section {
+  margin: auto;
+  width: 100%;
+}
+
+#peep-box {
+  margin: 0.5em auto 2em;
+  padding: 0.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c8deff;
+  width: 100%;
+  border-radius: 2em;
+  box-shadow: 0 0.4em 0.5em 0 rgba(0,0,0,0.5);
+}
+
+.peep-box-input {
+  margin: auto;
+}
+
+.peep-box-btn {
+  display: flex;
+}
+
+textarea[name="peep"] {
+  margin: 1em 1em;
+  vertical-align: middle;
+  height: 5em;
+  width: 80%;
+  resize: none;
+  border-radius: 1.5em;
+  padding: .7em 1em;
+  border: 3px solid #ddd;
+  outline: none;
+  transition: .6s;
+}
+
+textarea[name="peep"]:focus {
+  border: 3px solid #002864;
+}
+
+input[value="Post"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #002864;
+  margin: 1em;
+  height: 4em;
+  width: 4em;
+  padding: 1.2em 1em;
+  border-radius: 8em;
+  border: 3px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[value="Post"]:hover {
+  background: linear-gradient(150deg, #c8deff, #002864);
+}
+
+input[value="Post"]:active {
+  background: linear-gradient(330deg, #c8deff, #002864);
+}
+
+.peep-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.peep {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em 20px;
+  margin: 0.5em auto 1em;
+  border-radius: 2em;
+  width: 100%;
+  background-color: #c8deff;
+  box-shadow: 0 0.4em 0.5em 0 rgba(0,0,0,0.5);
+}
+
+.peep-body {
+  margin: auto;
+  display: flex;
+  color: #002864;
+}
+
+.peep-footer {
+  margin-top: 1em;
+  display: flex;
+  color: #777;
+  font-size: 0.7em;
+}

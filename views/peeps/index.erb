@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<title>Chitter</title>
+</head>
+<body>
+
+<nav>
+  <h1>Chitter</h1>
+</nav>
+<div class="container">
+  <section>
+    <form id="peep-box" action="/peeps/post" method="post">
+      <textarea class="peep-box-input" type="textbox" name="peep" rows="3" cols="50" placeholder="Make a peep..." autofocus></textarea>
+      <input class="peep-box-btn" type="submit" value="Post">
+    </form>
+  </section>
+
+  <section class="peep-list">
+    <% @peeps.each do |peep| %>
+      <div class="peep">
+        <div class="peep-body">
+          <%= peep.text %>
+        </div>
+        <div class="peep-footer">
+          <%= peep.created_at %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</div>
+
+</body>
+</html>
