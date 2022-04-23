@@ -6,6 +6,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'timecop'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 # require_relative '../app'
@@ -25,7 +26,13 @@ RSpec.configure do |config|
     setup_test_database
   end
 
+  config.before(:suite) do
+    Timecop.freeze(Time.now)
+  end
+
   config.after(:suite) do
+    Timecop.return
+
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"

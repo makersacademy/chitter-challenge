@@ -89,6 +89,7 @@ GEM
     terminal-table (3.0.1)
       unicode-display_width (>= 1.1.1, < 3)
     tilt (2.0.10)
+    timecop (0.9.5)
     unicode-display_width (2.0.0)
     webrick (1.7.0)
     xpath (3.2.0)
@@ -106,6 +107,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-contrib
+  timecop
   webrick
 
 RUBY VERSION

@@ -1,5 +1,9 @@
 
 feature 'Ordered peeps' do
+  let(:date) do
+    Time.now.strftime('%l:%M%P, %-m %b %Y')
+  end
+
   scenario 'users see peeps displayed in reverse chronological order' do    
     Peep.create(peep: "This is a peep")
     Peep.create(peep: "Here is a second peep")
@@ -9,8 +13,8 @@ feature 'Ordered peeps' do
 
     peeps = page.find_all('.peep')
     
-    expect(peeps[0].text).to eq "Another peep!"
-    expect(peeps[1].text).to eq "Here is a second peep"
-    expect(peeps[2].text).to eq "This is a peep"
+    expect(peeps[0].text).to eq "Another peep!\n" + date.strip
+    expect(peeps[1].text).to eq "Here is a second peep\n" + date.strip
+    expect(peeps[2].text).to eq "This is a peep\n" + date.strip
   end
 end

@@ -9,6 +9,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'capybara'
+  gem 'timecop'
 end
 
 group :development, :test do

@@ -22,7 +22,12 @@
   <section class="peep-list">
     <% @peeps.each do |peep| %>
       <div class="peep">
-        <%= peep.text %>
+        <div class="peep-body">
+          <%= peep.text %>
+        </div>
+        <div class="peep-footer">
+          <%= peep.created_at %>
+        </div>
       </div>
     <% end %>
   </section>

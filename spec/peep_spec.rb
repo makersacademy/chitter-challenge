@@ -1,6 +1,10 @@
 require 'peep'
 
 describe Peep do
+  let(:date) do
+    Time.now.strftime('%l:%M%P, %-m %b %Y')
+  end
+
   describe '.all' do
     it 'returns all peeps' do
       Peep.create(peep: "This is a peep")
@@ -26,6 +30,7 @@ describe Peep do
 
       expect(peep).to be_a Peep
       expect(peep.text).to eq "This is a peep"
+      expect(peep.created_at).to eq date
       expect(peep.id).to eq result.first['id']
     end
   end
