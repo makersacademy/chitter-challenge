@@ -115,12 +115,25 @@ input[value="Post"]:active {
 
 .peep {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 1em 20px;
   margin: 0.5em auto 1em;
   border-radius: 2em;
   width: 100%;
-  color: #002864;
   background-color: #c8deff;
   box-shadow: 0 0.4em 0.5em 0 rgba(0,0,0,0.5);
+}
+
+.peep-body {
+  margin: auto;
+  display: flex;
+  color: #002864;
+}
+
+.peep-footer {
+  margin-top: 1em;
+  display: flex;
+  color: #777;
+  font-size: 0.7em;
 }
