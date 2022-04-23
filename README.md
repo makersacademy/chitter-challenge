@@ -1,14 +1,18 @@
 # Chitter Challenge
 
+<div align="center">
+  <img src="./public/images/chitter-gif.gif" width="400px">
+</div>
+
 ## The challenge
 
 Write a small Twitter clone that will allow the users to post messages to a public stream.
 
 ## Features
 
-- [ ] Post a peep (message)
-- [ ] Peeps are shown in reverse chronological order
-- [ ] Peeps have a timestamp
+- [x] Post a peep (message)
+- [x] Peeps are shown in reverse chronological order
+- [x] Peeps have a timestamp
 - [ ] Chitter sign-up
 
 ### User stories:
