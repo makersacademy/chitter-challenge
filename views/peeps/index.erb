@@ -1,5 +1,7 @@
 <ul>
-<% @peep.each do |peep| %>
-<li><%= peep %></li>
+<% @peeps.each do |peep| %>
+<li><%= peep.peep %>
+<%= peep.ts.to_s %>
+</li>
 <%end %>
 </ul>
