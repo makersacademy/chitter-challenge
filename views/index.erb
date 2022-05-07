@@ -1,0 +1,44 @@
+
+<h1 style="background-color:powderblue;" >Welcome to Chitter!<h1>
+
+
+<form action='/add_peep' method='post' >
+<label>
+  <p>Write a peep here:</p>
+  <input type='text' name='message'>
+</label>
+<input type='submit' value='Submit'>
+</form>
+
+
+<h3>Peeps</h3>
+<ul>
+<% @peeps.each do |peep| %> 
+  <li>
+    <a>  <%=peep.message%> </a>
+    <a> <small> (Peep posted at: <%= peep.time %>) </small> </a>
+  </li>
+<% end %>
+</ul>
+
+<h3> Have you got a Chitter Account? Why not sign up? </h3>
+
+<form action='/sign_up' method='post' >
+<label>
+  <p>Name:</p>
+  <input type='text' name='name'>
+</label>
+<label>
+  <p>Username:</p>
+  <input type='text' name='username'>
+</label>
+<label>
+  <p>Email:</p>
+  <input type='text' name='email'>
+</label>
+<label>
+  <p>Password:</p>
+  <input type='text' name='password'>
+</label>
+<input type='submit' value='Ok'>
+</form>
