@@ -11,32 +11,27 @@
   <body>
 
     <%# <img src="" /> %>
-
     <h1>Chitter</h1>
 
     <br />
     <br />
     <br />
 
-    <h2>My peeps</h2>
+    <h2>Please sign up</h2>
 
-    <br />
-    <br />
-
-    <p>My bla bla bla text</p>
-
-    <form action="/message">
-      <div class="action_btn1">
-        <button name="add message" class="action_btn" type="submit" value="Add message">Add message</button>
+    <form action="/signup" method="post">
+      <div class="input">
+        <input type="text" name="user_name" placeholder="Create login..." />
       </div>
-    </form>
+      <br />
+      <div class="input">
+        <input type="text" name="password" placeholder="Create password..." />
+      </div>
 
-    <br />
-    <br />
+      <br />
 
-    <form action="/login">
-      <div class="action_btn1">
-        <button name="log out" class="action_btn" type="submit" value="Log out">Log out</button>
+      <div class="button1 action_btn1">
+        <button name="signup" class="action_btn submit" type="submit" value="Sign up">Sign up</button>
       </div>
     </form>
 

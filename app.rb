@@ -4,25 +4,25 @@ require 'sinatra/reloader'
 class App < Sinatra::Base
   enable :sessions
 
-  # get '/register' do
-  #   erb :index
-  #   # register
-  # end
+  get '/signup' do
 
-  # post '/register' do
+    erb :signup
+  end
 
-  #   redirect to '/login'
-  # end
+  post '/signup' do
 
-  # get '/login' do
+    redirect to '/login'
+  end
 
-  #   redirect to '/messages'
-  # end
+  get '/login' do
 
-  # post '\login' do
+    erb :login
+  end
 
-  #   redirect to '/message'
-  # end
+  post '/login' do
+
+    redirect to '/message'
+  end
 
   get '/message' do
 
