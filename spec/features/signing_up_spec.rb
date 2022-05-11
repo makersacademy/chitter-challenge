@@ -1,4 +1,4 @@
-feature "Sign up" do
+xfeature "Sign up" do
   scenario 'user can sign up to use chitter' do
     visit('/signup')
     expect(page).to have_content "Chitter"

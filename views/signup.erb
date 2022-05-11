@@ -1,48 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<html>
   
   <head>
     <title>Chitter</title>
-    <link href="<%= url('') %>" rel="stylesheet" type="text/css" />
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
 
-    <%# <img src="" /> %>
-    <h1>Chitter</h1>
-
-    <br />
-    <br />
-    <br />
-
-    <h2>Please sign up</h2>
-
     <form action="/signup" method="post">
-      <div class="input">
-        <input type="text" name="user_name" placeholder="Create login..." />
-      </div>
-      <br />
-      <div class="input">
-        <input type="text" name="password" placeholder="Create password..." />
+
+      <div class='bold-line'></div>
+        <div class='container'>
+          <div class='window'>
+            <div class='overlay'></div>
+            <div class='content'>
+              <div class='welcome'>Chitter</div>
+              <br />
+              <div class='subtitle'>Before using our service<br>you need to create an account</div>
+              <div class='input-fields'>
+                <input type='text' placeholder='Create login' class='input-line full-width' />
+                <input type='password' placeholder='Create password' class='input-line full-width' />
+              </div>
+              <div class='spacing'></div>
+              <div><button class='ghost-round full-width'>Create Account</button></div>
+          </div>
+        </div>
       </div>
 
-      <br />
-
-      <div class="button1 action_btn1">
-        <button name="signup" class="action_btn submit" type="submit" value="Sign up">Sign up</button>
-      </div>
     </form>
 
+
+    <div id="footer" class="contacts">
+      <a class="icons" href="https://www.linkedin.com/in/yaroslava-yates-629517221/" target="_blank">
+          <img class="icons" src="https://i.postimg.cc/CKhnxt4D/link.png" alt="Linkedin">
+      </a>
+    </div>
+
   </body>
-
-  <br />
-
-  <%# <footer id="footer" class="contacts">
-    <a class="icons" href="https://www.linkedin.com/in/yaroslava-yates-629517221/" target="_blank">
-        <img class="icons" src="https://i.postimg.cc/CKhnxt4D/link.png" alt="Linkedin">
-    </a>
-  </footer> %>
-
+    
 </html>

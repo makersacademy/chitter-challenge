@@ -1,5 +1,4 @@
 <html>
-  
   <head>
     <title>Chitter</title>
     <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
@@ -7,22 +6,21 @@
 
   <body>
 
-    <form action="/login" method="post">
+    <form action="/peep" method="post">
 
       <div class='bold-line'></div>
         <div class='container'>
-          <div class='window'>
-            <div class='overlay2'></div>
+          <div class='window3'>
+            <div class='overlay3'></div>
             <div class='content'>
               <div class='welcome'>Chitter</div>
               <br />
-              <div class='subtitle'>Before using our service<br>you need to login</div>
+              <div class='subtitle'>Please add your peep here</div>
               <div class='input-fields'>
-                <input type='text' placeholder='User name' class='input-line full-width' />
-                <input type='password' placeholder='Password' class='input-line full-width' />
+                <textarea type="text" name="peep_text" cols="40" rows="6" style="resize: none;" class='input3'></textarea>
               </div>
               <div class='spacing'></div>
-              <div><button class='ghost-round full-width'>Please login</button></div>
+              <div><button name="submit" type="submit" value="Submit" class='ghost-round full-width3'>Submit</button></div>
           </div>
         </div>
       </div>
