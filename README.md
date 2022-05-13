@@ -1,13 +1,13 @@
 # Chitter Challenge
 
-## link  --> []() <-- link
+## link  --> [chitter app](https://chit-ter-app.herokuapp.com/) <-- link
 ---
 
-- This program posts a message (peep) to chitter
+- This program posts a message (peep) to chitter +
 - This program allows to see all peeps in reverse chronological order
 - This program allows to see the time at which it was made
-- This program allows user to sign up for Chitter
-- This program allows user to log in to Chitter *
+- This program allows user to sign up for Chitter +
+- This program allows user to log in to Chitter +
 - This program allows user to log out of Chitter *
 - This program allows user to receive an email if there were tagged in a Peep **
 

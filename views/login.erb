@@ -16,14 +16,21 @@
             <div class='content'>
               <div class='welcome'>Chitter</div>
               <br />
-              <div class='subtitle'>Before using our service<br>you need to login</div>
+              <div class='subtitle'>To send peeps<br>you need to login</div>
               <div class='input-fields'>
-                <input type='text' placeholder='User name' class='input-line full-width' />
-                <input type='password' placeholder='Password' class='input-line full-width' />
+                <input name="user_name" type='text' placeholder='User name' class='input-line full-width' required/>
+                <input name="password" type='password' placeholder='Password' class='input-line full-width' required/>
               </div>
-              <div class='spacing'></div>
+              
+              <div class='spacing2'><a class='highlight' href="/signup">Sign up</a></div>
+
               <div><button class='ghost-round full-width'>Please login</button></div>
           </div>
+          
+          <% if session[:error_message] %>
+            <div class="error"> <%= session[:error_message] %> </div>
+          <% end %>
+
         </div>
       </div>
 
@@ -36,5 +43,5 @@
     </div>
 
   </body>
-
+  
 </html>

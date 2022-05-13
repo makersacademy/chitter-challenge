@@ -5,21 +5,40 @@ html {
   height: 100%;
 }
 
+div {
+  border: 1px solid red;
+} /* <------------------- delete when finish!!! */
+
+div.left {
+    box-sizing: border-box;
+    width: 30%;
+    height: 100%;
+    float: left;
+    position: fixed;
+   
+}
+
+div.right {
+  overflow: hidden;
+}
+
 input {
   border: none;
 }
 
 .input3 {
-  border: 1px solid rgb(255, 255, 255);
+  border: 0.5px solid rgb(255, 255, 255);
   background: rgb(255, 255, 255);
   font-family: roboto;
   font-weight: 300;
   letter-spacing: 0px;
-  letter-spacing: 0.02rem;
-  font-size: 19px;
-  font-size: 1.2rem;
+  letter-spacing: 0.07rem;
+  font-size: 29px;
+  font-size: 1.6rem;
+  color: rgb(255, 255, 255);
   width: 100%;
-  
+  background: transparent;
+  outline: none;
 }
 
 button:focus {
@@ -51,7 +70,31 @@ button:focus {
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  height: 120px;
+  height: 110px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.65)
+}
+
+.spacing1 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  height: 69px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.65)
+}
+
+.spacing2 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  height: 130px;
   font-weight: 300;
   text-align: center;
   margin-top: 10px;
@@ -111,6 +154,7 @@ button:focus {
 .full-width {
   width: 100%;
 }
+
 .full-width3 {
   width: 40%;
   margin-left: 30%;
@@ -192,8 +236,38 @@ button:focus {
   height: 560px;
   width: 360px;
   background: #fff;
-  background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') top left no-repeat;
 }
+
+.window5 {
+  z-index: 100;
+  color: #fff;
+  font-family: roboto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  float: left;
+}
+
+.overlay5 {
+  background: -webkit-linear-gradient(#8CA6DB, #9562bc);
+  background: linear-gradient(#7995ce, #f87676);
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
 .window3 {
   z-index: 100;
   color: #fff;
@@ -211,27 +285,25 @@ button:focus {
   height: 560px;
   width: 700px;
   background: #fff;
-  background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') top left no-repeat;
 }
 
 .window4 {
   z-index: 100;
   color: #fff;
   font-family: roboto;
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
+  
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
   flex-flow: column;
-  box-shadow: 10px 15px 50px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   height: 560px;
-  width: 700px;
-  background: #fff;
-  background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') top left no-repeat;
+  width: 80%;
+  overflow: hidden;
+ 
 }
 
 .overlay {
@@ -286,7 +358,6 @@ button:focus {
   height: 360px;
   z-index: 1;
   opacity:0.1;
-    background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') left no-repeat;
   background-size:cover;
 }
 
@@ -300,17 +371,20 @@ button:focus {
     height: 100%;
   }
 }
+
 .icons {
   width: 40px;
   height: 40px;
   padding-top: 20px;
   opacity: 0.7;
 }
+
 .icons:hover {
   opacity: 0.4;
   width: 40px;
   height: 40px;
 }
+
 .contacts {
   bottom: 25px;
   left: 5px;
@@ -322,6 +396,7 @@ ul.timeline {
   list-style-type: none;
   position: relative;
 }
+
 ul.timeline:before {
   content: ' ';
   background: #d4d9df;
@@ -332,10 +407,12 @@ ul.timeline:before {
   height: 100%;
   z-index: 400;
 }
+
 ul.timeline > li {
   margin: 20px 0;
   padding-left: 20px;
 }
+
 ul.timeline > li:before {
   content: ' ';
   background: white;
@@ -347,4 +424,15 @@ ul.timeline > li:before {
   width: 20px;
   height: 20px;
   z-index: 400;
+}
+
+.error {
+  color: rgba(153, 51, 249, 0.65);
+  -ms-flex-item-align: auto;
+  font-size: 10px;
+  font-size: 1rem;
+  font-family: roboto;
+  font-weight: 300;
+  line-height: 2.5em;
+  margin: auto;
 }

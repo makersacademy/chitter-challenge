@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peeps'
+require './lib/user'
+require 'bcrypt'
 
 class App < Sinatra::Base
   configure :development do
@@ -9,41 +11,46 @@ class App < Sinatra::Base
   enable :sessions
 
   get '/signup' do
-
     erb :signup
   end
 
   post '/signup' do
-
-    redirect to '/login'
+    begin
+      session[:error_message] = nil
+      user = User.create(user_name: params[:user_name], password: params[:password], email: params[:email])
+      redirect to '/login'
+    rescue => exception
+      p exception
+      session[:error_message] = "This email has already been used"
+      redirect to '/signup'
+    end
   end
 
   get '/login' do
-
     erb :login
   end
-
+  
   post '/login' do
-
-    redirect to '/peep'
+    begin
+      session[:error_message] = nil
+      user = User.login_find(user_name: params[:user_name], password: params[:password])
+      session[:user] = user
+      redirect to '/peep'
+    rescue => exception
+      p exception
+      session[:error_message] = "Wrong login or password"
+      redirect to '/login'
+    end
   end
 
   get '/peep' do
-
+    @peeps = Peep.all
     erb :peep
   end
 
   post '/peep' do
     Peep.create(peep_text: params[:peep_text])
-    # peep_text = params['peep_text']
-    # connection = PG.connect(dbname: 'chitter_test')
-    # connection.exec("INSERT INTO peeps (peep_text) VALUES('#{peep_text}')")
-    redirect to :wall
-  end
-
-  get '/wall' do
-    @peeps = Peep.all
-    erb :wall
+    redirect to :peep
   end
 
   run! if app_file == $0

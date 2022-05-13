@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'puma'
 gem 'pg'
+gem 'bcrypt'
 
 
 group :test do

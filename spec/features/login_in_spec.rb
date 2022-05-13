@@ -1,17 +1,16 @@
-xfeature "Log in" do
+feature "Log in" do
   scenario 'user can log in to use chitter' do
     visit('/signup')
-    expect(page).to have_content "Chitter"
-    expect(page).to have_content "Please sign up"
     fill_in :user_name, with: "amfibiya17"
     fill_in :password, with: "12345678"
-    expect(page).to have_button 'Sign up'
-    click_button 'Sign up'
+    fill_in :email, with: 'test@email.com'
+    click_button 'Create account'
+
     visit('/login')
-    expect(page).to have_content "Please login"
+
     fill_in :user_name, with: "amfibiya17"
     fill_in :password, with: "12345678"
-    expect(page).to have_button 'Login'
-    click_button 'Login'
+    expect(page).to have_button 'Please login'
+    click_button 'Please login'
   end
 end

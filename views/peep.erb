@@ -1,38 +1,70 @@
 <html>
+
   <head>
-    <title>Chitter</title>
-    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+      <title>Chitter</title>
+      <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+      <link href="<%= url('/styles2.css') %>" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
 
-    <form action="/peep" method="post">
+    <div class="left">
+          <form action="/peep" method="post">
+              <div class='window5'>
+                  <div class='overlay5'></div>
+                      <div class='content'>
+                          <div class='welcome'>Chitter</div>
+                          <br />
+                          <div class='subtitle'>Please add your peep here</div>
+                          <div class='input-fields'>
+                              <textarea type="text" name="peep_text" cols="40" rows="6" style="resize: none;" class='input3' required></textarea>
+                          </div>
 
-      <div class='bold-line'></div>
-        <div class='container'>
-          <div class='window3'>
-            <div class='overlay3'></div>
-            <div class='content'>
-              <div class='welcome'>Chitter</div>
-              <br />
-              <div class='subtitle'>Please add your peep here</div>
-              <div class='input-fields'>
-                <textarea type="text" name="peep_text" cols="40" rows="6" style="resize: none;" class='input3'></textarea>
+                          <div class='spacing'>
+                              <% if !session[:user] %>
+                              <span>To send a peep you need to <a class='highlight' href="/login">login</a></span>
+                              <% end %>
+                          </div>
+
+                          <% if session[:user] %>
+                              <div><button name="submit" type="submit" value="Submit" class='ghost-round full-width3'>Submit</button></div>
+                          <% end %>
+                      
+          </form>
+                          <% if session[:user] %>
+                              <form action="/login">
+                                  <div class="action_btn1">
+                                      <button name="log out" class="action_btn ghost-round full-width3" type="submit" value="Log out">Log out</button>
+                                  </div>
+                              </form>
+                          <% end %>
+
+                          <div id="footer" class="contacts">
+                              <a class="icons" href="https://www.linkedin.com/in/yaroslava-yates-629517221/" target="_blank">
+                                  <img class="icons" src="https://i.postimg.cc/CKhnxt4D/link.png" alt="Linkedin">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <div class='spacing'></div>
-              <div><button name="submit" type="submit" value="Submit" class='ghost-round full-width3'>Submit</button></div>
-          </div>
-        </div>
-      </div>
 
-    </form>
-
-    <div id="footer" class="contacts">
-      <a class="icons" href="https://www.linkedin.com/in/yaroslava-yates-629517221/" target="_blank">
-          <img class="icons" src="https://i.postimg.cc/CKhnxt4D/link.png" alt="Linkedin">
-      </a>
     </div>
-
+    
+    <div class="right">
+      <form action="/peep" method="post">
+          <% @peeps.each do |peep| %>
+            <div class="bubbleWrapper">
+                <div class="inlineContainer own"><span class="own">Slava</span>
+                    <img class="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+                    <div class="ownBubble own">
+                        <%= peep %>
+                    </div>
+                </div><span class="own">08:55</span>
+            </div>
+          <% end %>
+      </form>
+    </div>
+    
   </body>
 
 </html>

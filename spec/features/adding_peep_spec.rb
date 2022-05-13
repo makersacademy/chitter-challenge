@@ -4,7 +4,7 @@ feature "Adding a new peep" do
     fill_in('peep_text', with: 'Every application somehow needs PosgreSQL')
     click_button 'Submit'
 
-    visit('/wall')
+    visit('/peep')
 
     expect(page).to have_content 'Every application somehow needs PosgreSQL'
   end

@@ -1,7 +1,6 @@
 require 'pg'
 
 class Peep 
-  
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -22,5 +21,4 @@ class Peep
 
     connection.exec("INSERT INTO peeps (peep_text) VALUES('#{peep_text}')")
   end
-  
 end
