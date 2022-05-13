@@ -21,7 +21,7 @@ class App < Sinatra::Base
       redirect to '/login'
     rescue => exception
       p exception
-      session[:error_message] = "This email has already been used"
+      session[:error_message] = "This login or email has already been used"
       redirect to '/signup'
     end
   end
