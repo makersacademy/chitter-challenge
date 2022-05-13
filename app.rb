@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
 
   post '/account_created' do
     @username = params[:username]
+    User.sign_up(params[:username], params[:password], true)
     erb :account_created
   end
 

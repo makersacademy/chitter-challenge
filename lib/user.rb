@@ -23,7 +23,7 @@ class User
     end    
     users = con.exec "SELECT * FROM users"
     users.each do |row|
-      @users << Peep.new(row['username'],row['password'],row['logged_in'])
+      @users << Peep.new(row['email_address'],row['password'],row['logged_in'])
     end
     return @users
 
@@ -37,7 +37,7 @@ class User
       con = PG.connect :dbname => 'chitter'
     end
 
-    con.exec("INSERT INTO users(email_address, password, logged_in) VALUES('#{@username}', '#{password}', '#{is_logged_in}')")
+    con.exec("INSERT INTO users(email_address, password, logged_in) VALUES('#{username}', '#{password}', '#{is_logged_in}')")
 
   end
 
