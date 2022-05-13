@@ -11,3 +11,9 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem "capybara", "~> 3.37"
+gem "sinatra", "~> 2.2"
+gem "sinatra-contrib", "~> 2.2"
+
+gem "rerun", "~> 0.13.1"
