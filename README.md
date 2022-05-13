@@ -1,6 +1,70 @@
 Chitter Challenge
 =================
 
+## How to use
+----
+
+### **To set up the project**
+
+* Clone this repository and then run:
+```
+  bundle
+```
+
+### **To set up the database**
+
+1. Connect to `psql`
+2. Create the database using the `psql` command 
+```
+  CREATE DATABASE chitter_manager;
+```
+3. Connect to the database using the `pqsl` command 
+```
+  \c chitter_manager;
+```
+4. Run the query we have saved in the file `01_create_peeps_table.sql`
+
+<br>
+
+### **To set up the test database**
+
+1. Connect to `psql`
+2. Create the database using the `psql` command 
+```
+  CREATE DATABASE chitter_manager_test;
+```
+3. Connect to the database using the `pqsl` command 
+```
+  \c chitter_manager_test;
+```
+4. Run the query we have saved in the file `01_create_peeps_table.sql`
+
+
+
+<br>
+
+## User Stories
+---------
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+
+
+## -> -> Change below
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
