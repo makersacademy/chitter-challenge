@@ -6,7 +6,7 @@ html {
 }
 
 div {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 } /* <------------------- delete when finish!!! */
 
 div.left {

@@ -8,8 +8,8 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("SELECT * FROM peeps")
-    result.map { |peep| peep['peep_text']}
+    result = connection.exec("SELECT * FROM peeps ORDER BY time DESC;")
+    
   end
 
   def self.create(peep_text:)
@@ -18,7 +18,10 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-
-    connection.exec("INSERT INTO peeps (peep_text) VALUES('#{peep_text}')")
+  
+    current_time = DateTime.now
+    time = current_time.strftime "%Y-%m-%d %H:%M:%S"
+    
+    connection.exec("INSERT INTO peeps (peep_text, time) VALUES('#{peep_text}', '#{time}');")
   end
 end

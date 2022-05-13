@@ -32,7 +32,7 @@
                       
           </form>
                           <% if session[:user] %>
-                              <form action="/login">
+                              <form action="/logout" method="post">
                                   <div class="action_btn1">
                                       <button name="log out" class="action_btn ghost-round full-width3" type="submit" value="Log out">Log out</button>
                                   </div>
@@ -52,14 +52,16 @@
     
     <div class="right">
       <form action="/peep" method="post">
+
           <% @peeps.each do |peep| %>
+        
             <div class="bubbleWrapper">
                 <div class="inlineContainer own"><span class="own">Slava</span>
                     <img class="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
                     <div class="ownBubble own">
-                        <%= peep %>
+                        <%= peep["peep_text"] %>
                     </div>
-                </div><span class="own">08:55</span>
+                </div><span class="own"><%= peep["time"] %></span>
             </div>
           <% end %>
       </form>

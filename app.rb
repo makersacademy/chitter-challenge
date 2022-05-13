@@ -53,5 +53,10 @@ class App < Sinatra::Base
     redirect to :peep
   end
 
+  post '/logout' do
+    session[:user] = nil
+    redirect to :login
+  end
+
   run! if app_file == $0
 end
