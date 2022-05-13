@@ -1,0 +1,5 @@
+<ul>
+  <% @peeps_sorted.each do |peep| %>
+    <li><%=peep.content%><br>Posted at:<%=peep.time_posted%></li>
+  <% end %>
+</ul>
