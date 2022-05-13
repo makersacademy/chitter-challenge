@@ -10,6 +10,7 @@ gem 'webrick'
 gem 'launchy'
 gem 'pg'
 gem 'rerun'
+gem 'capybara'
 
 group :test do
   gem 'rspec'
