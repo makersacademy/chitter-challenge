@@ -1,8 +1,3 @@
-def land_ing
-  visit('/')
-  expect(page).to have_current_path('/peep')
-end
-
 def sign_up
   visit('/signup')
   fill_in :user_name, with: "amfibiya17"

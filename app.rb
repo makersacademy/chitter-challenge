@@ -21,6 +21,7 @@ class App < Sinatra::Base
       user = User.create(user_name: params[:user_name], password: params[:password], email: params[:email])
       redirect to '/login'
     rescue => exception
+      p exception.message
       if exception.message.include?("check_min_length")
         session[:error_message] = "Username or email is too short"
       else
@@ -41,7 +42,7 @@ class App < Sinatra::Base
       session[:user] = user
       redirect to '/peep'
     rescue => exception
-      p exception
+      p exception.message
       session[:error_message] = "Wrong login or password"
       redirect to '/login'
     end
