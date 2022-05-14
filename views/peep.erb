@@ -56,7 +56,7 @@
           <% @peeps.each do |peep| %>
         
             <div class="bubbleWrapper">
-                <div class="inlineContainer own"><span class="own">Slava</span>
+                <div class="inlineContainer own"><span class="own"><%= peep["user_name"] %></span>
                     <img class="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
                     <div class="ownBubble own">
                         <%= peep["peep_text"] %>
