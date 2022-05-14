@@ -1,12 +1,17 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/message'
+
 
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
+
+
   get '/' do
+    @messages = Message.all
     erb :index
   end
 

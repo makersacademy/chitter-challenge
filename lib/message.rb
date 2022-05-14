@@ -28,10 +28,10 @@ class Message
     else
       con = PG.connect :dbname => 'chitter'
     end
-    result = con.exec_params('SELECT * FROM messages ORDER BY created_at DESC')
+    result = con.exec_params('SELECT *, EXTRACT(YEAR FROM created_at) "year", EXTRACT(MONTH FROM created_at) "month", EXTRACT(DAY FROM created_at) "day", EXTRACT(HOUR FROM created_at) "hour", EXTRACT(MINUTE FROM created_at) "minute" FROM messages ORDER BY created_at DESC;')
 
     result.each do |row|
-      messages << Message.new(body: row['body'], name: row['name'], username: row['username'], time: row['created_at'], id: row['id'])
+      messages << Message.new(body: row['body'], name: row['name'], username: row['username'], time: Time.new(row['year'], row['month'], row['day'], row['hour'], row['minute']), id: row['id'])
     end
     messages
   end
