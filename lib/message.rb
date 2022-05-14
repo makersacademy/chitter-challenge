@@ -9,7 +9,7 @@ class Message
     end
     
     result = connection.exec("SELECT * FROM messages;")
-    result.map { |message| message['content'] }
+    result.map { |message| Message.new(message['id'], message['content'], message['timestamp']) }
   end
 
   def self.post(content)
@@ -20,8 +20,17 @@ class Message
     end
     
     if content
-      result = connection.exec("INSERT INTO messages (content) VALUES ('#{content}') RETURNING id, content;")
-      result.first['content']
+      result = connection.exec("INSERT INTO messages (content) VALUES ('#{content}') RETURNING id, content, timestamp;")
+      Message.new(result[0]['id'], result[0]['content'], result[0]['timestamp'])
     end
   end
+
+  attr_reader :id, :content, :timestamp
+
+  def initialize(id, content, timestamp)
+    @id = id
+    @content = content
+    @timestamp = timestamp
+  end
+
 end
