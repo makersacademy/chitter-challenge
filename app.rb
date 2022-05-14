@@ -5,9 +5,6 @@ require './lib/user'
 require 'bcrypt'
 
 class App < Sinatra::Base
-  configure :development do
-    register Sinatra::Reloader
-  end
   enable :sessions
 
   get '/' do

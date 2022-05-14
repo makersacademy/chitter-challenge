@@ -9,6 +9,6 @@ feature 'Viewing peeps on the wall' do
 
     visit('/peep')
     connection = PG.connect(dbname: 'chitter_test')
-    Peep.create(peep_text: 'Every application somehow needs PosgreSQL')
+    Peep.create(peep_text: 'Every application somehow needs PosgreSQL', user_id: '45')
   end
 end

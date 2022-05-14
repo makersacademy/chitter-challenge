@@ -13,4 +13,22 @@ feature "Sign up" do
     expect(page).to have_button 'Create Account'
     click_button 'Create Account'
   end
+
+  scenario "user can't sign up to use chitter - not enough characters" do
+    visit('/signup')
+
+    fill_in :user_name, with: "7"
+    fill_in :password, with: "8"
+    fill_in :email, with: 'test@email.com'
+    click_button 'Create Account'
+    
+    expect(page).to have_content "Username or email is too short"
+  end
+
+  scenario "user can't sign up to use chitter - user already exists" do
+    sign_up
+    sign_up
+
+    expect(page).to have_content "This username or email has already been used"
+  end
 end
