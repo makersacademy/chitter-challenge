@@ -1,4 +1,6 @@
 ENV['RACK_ENV'] = 'test'
+ENV['DB_ENV'] = 'test'
+
 
 require 'simplecov'
 require 'simplecov-console'
@@ -7,9 +9,12 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+def empty_test_db
+  con = PG.connect :dbname => 'chitter_test'
+  con.exec "TRUNCATE TABLE messages;"
+end
+
 Capybara.app = Chitter
-
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

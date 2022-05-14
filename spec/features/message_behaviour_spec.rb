@@ -1,6 +1,6 @@
 feature 'messages behaves as expected' do
   scenario 'user can post a message' do
-    visit '/message/new'
+    visit '/new'
     fill_in 'message', with: 'test message'
     fill_in 'username', with: 'testusername'
     fill_in 'name', with: 'testname'
