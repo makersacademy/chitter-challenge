@@ -7,10 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @chits = ["This is Chitter",
-      "Help I'm tired yo",
-      "Can I just shock you? I like wine",
-      "My cat was right about you"]
+    @chits = Chitter.all
       erb :index
   end
 
