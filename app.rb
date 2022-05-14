@@ -11,11 +11,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    peeps = [
+    @peeps = [
       'Elon who?',
       'COYS',
       'How almost two o\'clock is it?'
     ]
+
+   erb :peeps
 
   end 
 
