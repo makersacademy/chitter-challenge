@@ -18,7 +18,7 @@ class Peep
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'chitter')
+      connection = PG.connect("postgres://bkhzeojfcrccvf:48beeb924bf7e4cb7592f9915c6c475d0a09df705b135eb4652dbd4c8c051462@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/d4i40hd290ll7e")
     end
   end
 end
