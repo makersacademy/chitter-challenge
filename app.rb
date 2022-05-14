@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require './lib/message'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -10,6 +11,11 @@ class Chitter < Sinatra::Base
 
   get '/' do
     'Hello World'
+  end
+
+  get '/messages' do
+    @messages = Message.all
+    erb :'messages/index'
   end
 
   run! if app_file == $0
