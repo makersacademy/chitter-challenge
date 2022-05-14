@@ -9,7 +9,6 @@ class Peep
     end
     
     result = connection.exec("SELECT * FROM peeps;")
-    result.map do |peep| peep['content']
-    end 
+    result.map {|peep| peep['content']}.reverse
   end
 end 
