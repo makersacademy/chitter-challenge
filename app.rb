@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -11,14 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = [
-      'Elon who?',
-      'COYS',
-      'How almost two o\'clock is it?'
-    ]
-
-   erb :peeps
-
+    @peeps = Peep.all
+    erb :peeps
   end 
 
   run! if app_file == $0
