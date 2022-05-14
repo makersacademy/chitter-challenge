@@ -7,7 +7,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello'
+    redirect '/home'
+  end
+
+  get '/home' do
+    'Chitter Home.'
   end
 
   run! if app_file == $0
