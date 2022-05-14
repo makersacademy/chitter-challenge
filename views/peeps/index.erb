@@ -1,1 +1,20 @@
 <h1>Chitter</h1>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
+
+<form action="/peeps/new">
+    <input type="submit" value="New Peep" />
+</form>
+
+<br>
+
+<% @peeps.each do |peep| %>
+  <div class="peep">
+    <%= peep.body%>
+    <%= peep.created_at%>
+    <br>
+  </div class="peep>
+<% end %>
+  
