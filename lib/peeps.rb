@@ -12,7 +12,10 @@ class Peep
     connection = pg_connection
     current_time = DateTime.now
     time = current_time.strftime "%Y-%m-%d %H:%M:%S"
-    connection.exec_params("INSERT INTO peeps (peep_text, time, user_id) VALUES('#{peep_text}', '#{time}', '#{user_id}');")
+    connection.exec_params(
+      "INSERT INTO peeps (peep_text, time, user_id) VALUES($1, $2, $3) RETURNING peep_id, peep_text, time, user_id;",
+        [peep_text, time, user_id]
+    )
     connection.close
   end
   

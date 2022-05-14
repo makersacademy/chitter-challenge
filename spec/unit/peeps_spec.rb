@@ -14,7 +14,7 @@ describe Peep do
       expect(peep['peep_text']).to eq 'Every application somehow needs PosgreSQL'
       expect(peep['time']).to eq '2022-05-13 15:24:57'
       expect(peep['user_name']).to eq 'Slava'
-      # expect(peep['user_id']).to eq 45
+      expect(peep['user_id']).to eq 45
     end
   end
 

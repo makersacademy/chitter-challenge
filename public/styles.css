@@ -294,7 +294,6 @@ button:focus {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
   flex-flow: column;
@@ -326,6 +325,7 @@ button:focus {
   width: 360px;
   z-index: 1;
 }
+
 .overlay3 {
   background: -webkit-linear-gradient(#d6db8c, #bc9b62);
   background: linear-gradient(#edd983, #8f40cc);
@@ -333,7 +333,7 @@ button:focus {
   filter: alpha(opacity=85);
   height: 560px;
   position: absolute;
-  width: 700px;
+  width: 360px;
   z-index: 1;
 }
 

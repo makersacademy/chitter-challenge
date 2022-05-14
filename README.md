@@ -1,15 +1,20 @@
 # Chitter Challenge
 
-## link  --> [chitter app](https://chit-ter-app.herokuapp.com/) <-- link
+## link  --> [chitter app](https://chitter---app.herokuapp.com/) <-- link
+```
+❗❗❗ To test the app DO NOT use your real email for registration ❗❗❗
+All the data is collected by Heroku and I don't know how secure it is
+```
 ---
 
-- This program posts a message (peep) to chitter +
-- This program allows to see all peeps in reverse chronological order +
+- This program posts a message (peep) to Chitter 
+- This program allows to see all peeps in reverse chronological order 
 - This program allows to see all peeps with user name
-- This program allows to see the time at which it was made +
-- This program allows user to sign up for Chitter +
-- This program allows user to log in to Chitter +
-- This program allows user to log out of Chitter +
+- This program allows to see the time at which it was made 
+- This program allows user to sign up for Chitter 
+- This program allows user to log in to Chitter 
+- This program allows user to log out of Chitter 
+- This program has database connected to Heroku
 
 ---
 

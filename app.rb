@@ -11,7 +11,7 @@ class App < Sinatra::Base
   enable :sessions
 
   get '/' do
-    redirect to '/signup'
+    redirect to '/peep'
   end
   
   get '/signup' do
@@ -24,8 +24,11 @@ class App < Sinatra::Base
       user = User.create(user_name: params[:user_name], password: params[:password], email: params[:email])
       redirect to '/login'
     rescue => exception
-      p exception
-      session[:error_message] = "This login or email has already been used"
+      if exception.message.include?("check_min_length")
+        session[:error_message] = "Username or email is too short"
+      else
+        session[:error_message] = "This username or email has already been used"
+      end
       redirect to '/signup'
     end
   end
