@@ -1,5 +1,9 @@
+require 'pg'
+
 class Message
   def self.all
-    ["Message one, blah blah", "Message two, blah blah blah"]
+    connection = PG.connect(dbname: 'messages')
+    result = connection.exec("SELECT * FROM messages;")
+    result.map { |message| message['content'] }
   end
 end

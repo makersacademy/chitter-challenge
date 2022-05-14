@@ -18,3 +18,16 @@ Message.new
 
 Message.all
 
+## Database setup
+
+
+1. Connect to psql
+
+2. Create the 'messages' and 'messages_test' databases:
+
+```
+CREATE DATABASE messages;
+CREATE DATABASE messages_test;
+```
+
+3. To set up appropriate tables, connect to each database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
