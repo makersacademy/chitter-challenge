@@ -16,7 +16,9 @@ CREATE TABLE peeps (
   posted TIMESTAMPTZ NOT NULL DEFAULT NOW()
   );
 
-3. CREATE TRIGGER set_timestamp
+3. 
+
+CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON peeps
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
