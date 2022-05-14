@@ -14,7 +14,7 @@ All the data is collected by Heroku and I don't know how secure it is
 - This program allows user to sign up for Chitter 
 - This program allows user to log in to Chitter 
 - This program allows user to log out of Chitter 
-- This program has database connected to Heroku
+- This program has a database connected to Heroku
 
 ---
 
