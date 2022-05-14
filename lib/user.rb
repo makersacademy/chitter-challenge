@@ -16,6 +16,7 @@ class User
     connection = pg_connection
     user = connection.exec("INSERT INTO users (user_name, password, email) VALUES($1, $2, $3) RETURNING id, user_name;", 
       [user_name, password, email])
+    connection.close
     User.new(id: user[0]['id'], user_name: user[0]['user_name'])
   end
     
@@ -23,6 +24,7 @@ class User
     return nil unless id
     connection = pg_connection
     user = connection.exec("SELECT * FROM users WHERE id = $1", [id])
+    connection.close
     User.new(id: user[0]['id'], user_name: user[0]['user_name'])
   end
   
@@ -34,6 +36,7 @@ class User
       "SELECT * FROM users WHERE user_name = $1 AND password = $2",
       [user_name, password]
     )
+    connection.close
     User.new(id: user[0]['id'], user_name: user[0]['user_name'])
   end
 

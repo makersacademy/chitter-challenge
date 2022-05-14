@@ -10,6 +10,10 @@ class App < Sinatra::Base
   end
   enable :sessions
 
+  get '/' do
+    redirect to '/signup'
+  end
+  
   get '/signup' do
     erb :signup
   end
