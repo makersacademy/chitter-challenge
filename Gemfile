@@ -10,9 +10,9 @@ gem 'webrick'
 gem 'launchy'
 gem 'pg'
 gem 'rerun'
-gem 'capybara'
 
 group :test do
+  gem 'capybara'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
