@@ -20,8 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages/post' do
-    Message.post(params[:content]) if params[:content] != ""
-    p params[:content]
+    Message.post(params[:content])
     redirect '/messages'
   end
 

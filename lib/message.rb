@@ -19,7 +19,7 @@ class Message
       connection = PG.connect(dbname: 'messages')
     end
     
-    if content != ""
+    if content
       result = connection.exec("INSERT INTO messages (content) VALUES ('#{content}') RETURNING id, content;")
       result.first['content']
     end
