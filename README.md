@@ -139,3 +139,6 @@ I want to receive an email if I am tagged in a Peep
 2. Run bundle
 
 
+# To run the Chitter app
+
+1. Run rackup

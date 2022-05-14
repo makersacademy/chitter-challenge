@@ -1,14 +1,23 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
-class ChitterChallenge < Sinatra::Base
+class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    'Hello World'
+    'Welcome to Chitter'
   end
+
+  get '/peeps' do
+    peeps = [
+      'Elon who?',
+      'COYS',
+      'How almost two o\'clock is it?'
+    ]
+
+  end 
 
   run! if app_file == $0
 end
