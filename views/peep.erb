@@ -15,14 +15,22 @@
                       <div class='content'>
                           <div class='welcome'>Chitter</div>
                           <br />
-                          <div class='subtitle'>Please add your peep here</div>
+
+                          <% if session[:user] %>
+                            <div class='subtitle'>Please add your peep here</div>
+                          <% end %>
+
                           <div class='input-fields'>
+
+                            <% if session[:user] %>
                               <textarea type="text" name="peep_text" cols="40" rows="6" style="resize: none;" class='input3' required></textarea>
+                            <% end %>
+
                           </div>
 
                           <div class='spacing'>
                               <% if !session[:user] %>
-                              <span>To send peeps you need to <a class='highlight' href="/login">login</a></span>
+                              <span>To send peeps you need to <a class='highlight1' href="/login">login</a></span>
                               <% end %>
                           </div>
 
@@ -70,3 +78,4 @@
   </body>
 
 </html>
+
