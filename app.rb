@@ -7,11 +7,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    chits = ["This is Chitter",
+    @chits = ["This is Chitter",
       "Help I'm tired yo",
       "Can I just shock you? I like wine",
       "My cat was right about you"]
-
+      erb :index
   end
 
   run! if app_file == $0
