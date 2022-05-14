@@ -12,4 +12,12 @@ describe Message do
       expect(Message.all).to include "Message two, blah blah blah"
     end
   end
+
+  describe '.post' do
+    it 'posts a message' do
+      content = 'This is a very important message'
+      Message.post(content)
+      expect(Message.all).to eq [content]
+    end
+  end
 end

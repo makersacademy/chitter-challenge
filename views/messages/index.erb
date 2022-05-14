@@ -3,3 +3,8 @@
     <li><%= message %></li>
   </ul>
 <% end %>
+
+<form action='/messages/post' method='post'>
+  <input type='text' name='content' placeholder='Type in your peep' />
+  <input type='submit' value='Post' />
+</form>
