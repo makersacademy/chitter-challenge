@@ -12,8 +12,9 @@ $$ LANGUAGE plpgsql;
 
 CREATE TABLE peeps (
   id SERIAL NOT NULL PRIMARY KEY,
-  peep TEXT,
-  posted TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  content TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
   );
 
 3. 

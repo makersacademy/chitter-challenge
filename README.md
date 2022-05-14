@@ -156,3 +156,17 @@ Run the queries in db/migrations/01_create_peeps_table.sql
 1. Creates a function to record the date and time an entry is made
 2. Creates the peeps table 
 3. Creates the trigger so that a timestamp will be recorded for every entry
+
+# To set up a test database
+
+1. Run psql in the terminal
+2. Create a database called chitter_test with CREATE DATABASE chitter_test;
+3. Connect to chitter using \c chitter_test;
+
+# To set up test peeps table with timestamp
+
+Run the queries in db/migrations/01_create_peeps_table.sql
+
+1. Creates a function to record the date and time an entry is made
+2. Creates the peeps table 
+3. Creates the trigger so that a timestamp will be recorded for every entry
