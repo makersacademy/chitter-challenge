@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @chits = Chitter.all
-      erb :index
+    erb :index
   end
 
   run! if app_file == $0

@@ -1,9 +1,11 @@
+require 'pg'
+
 class Chitter
+
   def self.all
-    #research self
-    ["This is Chitter",
-      "Help I'm tired yo",
-      "Can I just shock you? I like wine",
-      "My cat was right about you"]
+    # research self
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec('SELECT * FROM chits')
+    result.map { |chit| chit['chit'] }
   end
 end
