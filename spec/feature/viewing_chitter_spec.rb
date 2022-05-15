@@ -1,19 +1,18 @@
 require 'pg'
 
 feature 'viewing chitter' do
-  scenario 'a user can see messages' do
-    connection = PG.connect(dbname: 'chitter_messenger_test')
+  scenario 'Visiting /messages show me all the peeps' do
 
-    connection.exec("INSERT INTO messages VALUES(1, 'I love Chitter!');")
-    connection.exec("INSERT INTO messages VALUES(2, 'How do I peep?');")
-    connection.exec("INSERT INTO messages VALUES(3, 'This is so fun.');")
-
+    Chitter.create(peep: 'I love Chitter!')
+    Chitter.create(peep: 'How do I peep?')
+    Chitter.create(peep: 'This is so fun.')
+    
     visit('/messages')
 
-    expect(page).to have_content "I love Chitter!"
-    expect(page).to have_content "How do I peep?"
     expect(page).to have_content "This is so fun."
-
+    expect(page).to have_content "How do I peep?"
+    expect(page).to have_content "I love Chitter!"
+    
   end
 
 end

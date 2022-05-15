@@ -1,14 +1,21 @@
 require 'sinatra/base'
+require 'sinatra/reloader'
 require_relative './lib/chitter'
 
 class ChitterMessenger < Sinatra::Base
+
+  enable :sessions, :method_override
+
+  configure :development do
+    register Sinatra::Reloader
+  end
 
   get '/' do
     redirect '/messages'
   end
 
   get '/messages' do
-    @messages = Chitter.all
+    @messages = Chitter.all.reverse
     erb :'messages/index'
   end
 
@@ -17,9 +24,7 @@ class ChitterMessenger < Sinatra::Base
   end
 
   post '/messages' do
-    peep = params['peep']
-    connection = PG.connect(dbname: 'chitter_messenger_test')
-    connection.exec("INSERT INTO messages (peep) VALUES('#{peep}')")
+    Chitter.create(peep: params[:peep])
     redirect '/messages'
   end
 
