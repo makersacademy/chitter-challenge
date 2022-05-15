@@ -7,8 +7,8 @@ describe 'messages' do
     
   connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps (handle, first_name, peep) VALUES ('@KLamar', 'Kendrick', 'New album coming soon :D');")
-    connection.exec("INSERT INTO peeps (handle, first_name, peep) VALUES ('@Ronaldo', 'Cristiano', 'Messi is better tbh.');")
+    Peeps.new_peep('Kendrick', '@KLamar', 'New album coming soon :D')
+    Peeps.new_peep('Cristiano', '@Ronaldo', 'Messi is better tbh.')
 
     peeps = Peeps.all
 
