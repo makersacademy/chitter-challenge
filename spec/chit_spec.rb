@@ -29,11 +29,12 @@ describe Chit do
   end
 
   describe '.post' do
-    xit 'includes a timestamp' do
+    it 'includes a timestamp' do
+      time_of_test = Time.new.strftime "%H:%M:%S %d-%m-%Y"
       connection = PG.connect(dbname: 'chitter_test')
       Chit.post("I respect wood", "Larry")
       chits = Chit.all
-      expect(chits).to include(['I respect wood', "Larry"])#add time test
+      expect(chits[0][2]).to include("#{time_of_test}")
     end
   end
 
