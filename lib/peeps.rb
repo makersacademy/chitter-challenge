@@ -1,8 +1,14 @@
+require 'pg'
+
 class Peeps
   def self.all
-    [
-      "Kendrick (@KLamar): New album coming soon :D",
-      "Cristiano Ronaldo (@Ronaldo): Messi is better tbh."
-    ]
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    result = connection.exec("SELECT handle, first_name, peep FROM peeps;")
+    result.map { |peep| "#{peep['first_name']} (#{peep['handle']}): #{peep['peep']}"}
   end
 end
