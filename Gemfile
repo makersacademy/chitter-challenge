@@ -8,6 +8,7 @@ gem 'capybara'
 gem 'webrick'
 gem 'rerun'
 gem 'pg'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'

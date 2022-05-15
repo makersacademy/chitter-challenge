@@ -1,3 +1,4 @@
+require 'bcrypt'
 require_relative './database_connection'
 
 class User
@@ -10,22 +11,21 @@ class User
     @username = username
   end
 
-  def self.create(
-    email:, 
-    password:, 
-    name:, 
-    username:
-  )
+  def self.create(email:, password:, name:, username:)
+    # hashed_password = SCrypt::Password.create(password)
+    hashed_password = BCrypt::Password.create(password)
+
+    # p "#{hashed_password}"
 
     user = DatabaseConnection.query(
-      "INSERT INTO users (email, password, name, username) VALUES($1, $2, $3, $4) RETURNING id, email, name, username;", [email, password, name, username]
+      "INSERT INTO users (email, password, name, username) VALUES($1, $2, $3, $4) RETURNING id, email, name, username;", [email, hashed_password, name, username]
     )
 
     User.new(
       id: user[0]['id'],
       email: user[0]['email'],
       name: user[0]['name'],
-      username: user[0]['username'],
+      username: user[0]['username']
     )
   end
 
@@ -35,6 +35,22 @@ class User
     user = DatabaseConnection.query(
       "SELECT * FROM users WHERE id = $1", [id]
     )
+
+    User.new(
+      id: user[0]['id'],
+      email: user[0]['email'],
+      name: user[0]['name'],
+      username: user[0]['username']
+    )
+  end
+
+  def self.authenticate(email:, password:)
+    user = DatabaseConnection.query(
+      "SELECT * FROM users WHERE email = $1", [email]
+    )
+
+    return unless user.any?
+    return unless BCrypt::Password.new(user[0]['password']) == password
 
     User.new(
       id: user[0]['id'],

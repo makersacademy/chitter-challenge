@@ -4,9 +4,9 @@ require 'database_helpers'
 describe Peep do
   describe '.all' do
     it 'returns a list of peeps' do
-      peep = Peep.create(body: 'my first peep')
-      Peep.create(body: 'my second peep')
-      Peep.create(body: 'my third peep')
+      peep = Peep.create(body: 'my first peep', user_id: 1)
+      Peep.create(body: 'my second peep', user_id: 1)
+      Peep.create(body: 'my third peep', user_id: 1)
 
       peeps = Peep.all
 
@@ -20,7 +20,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a peep' do
-      peep = Peep.create(body: 'my first peep')
+      peep = Peep.create(body: 'my first peep', user_id: 1)
       persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep).to be_a Peep

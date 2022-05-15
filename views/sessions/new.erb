@@ -1,0 +1,15 @@
+<head>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<h1>Log in</h1>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<form action="/sessions" method="post">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Log in">
+</form>
