@@ -6,8 +6,8 @@ describe Peep do
 
     it 'shows messages from database in reverse chronological order' do
 
-      Peep.post('First')
-      peep = Peep.post('Second')
+      Peep.post(message: 'First')
+      peep = Peep.post(message: 'Second')
       peeps = Peep.show
       expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
@@ -23,8 +23,8 @@ describe Peep do
 
     it 'inserts a message in the database' do
 
-      Peep.post('Message 1')
-      peep = Peep.post('Message 2')
+      Peep.post(message: 'Message 1')
+      peep = Peep.post(message: 'Message 2')
 
       data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
       expect(peep).to be_a Peep
