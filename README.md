@@ -1,15 +1,32 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+*
+Planning: 
+-------
+
+Domain diagram
+
+<img width="763" alt="Screenshot 2022-05-15 at 15 30 20" src="https://user-images.githubusercontent.com/101583630/168478230-665ec02b-b6a0-4a90-b72f-74fef168e111.png">
+
+User Stories
+
+<img width="523" alt="Screenshot 2022-05-15 at 15 34 28" src="https://user-images.githubusercontent.com/101583630/168478418-163aae21-02c7-4fe3-90a9-c332625ec74d.png">
+
+<img width="518" alt="Screenshot 2022-05-15 at 15 34 44" src="https://user-images.githubusercontent.com/101583630/168478429-97e1b759-810e-44d1-8451-53815a981e95.png">
+
+<img width="388" alt="Screenshot 2022-05-15 at 15 35 10" src="https://user-images.githubusercontent.com/101583630/168478452-0e4f8cc2-6531-4575-99db-ad20a6c765c6.png">
+
+CRC cards:
+
+<img width="524" alt="Screenshot 2022-05-15 at 15 35 23" src="https://user-images.githubusercontent.com/101583630/168478469-d916bd45-8682-4a3b-9701-0655222fd40f.png">
+
 
 Challenge:
 -------
 
 As usual please start by forking this repo.
+
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
