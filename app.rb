@@ -24,7 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_chit' do
-    Chit.post(params[:handle], params[:chit])
+    Chit.post(handle: params[:handle], content: params[:chit])
     redirect '/'
   end
 

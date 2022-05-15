@@ -1,5 +1,5 @@
 <ul>
-  <% @chits.each do |chit, handle, timestamp|%>
-    <li><%= handle %> chits: <%= chit %> at <%= timestamp %></li>
+  <% @chits.each do |chit|%>
+    <li><%= chit.handle %> chits: <%= chit.content %></li>
   <% end %>
 </ul>

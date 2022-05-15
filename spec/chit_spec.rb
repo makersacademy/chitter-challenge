@@ -5,26 +5,23 @@ describe Chit do
     it 'returns all chits' do
       timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
       connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('Bob', 'help I''m tired yo', '#{timestamp}');")
-      connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('Alan', 'Can I just shock you? I like wine', '#{timestamp}');")
-      connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('Gayle', 'My cat was right about you', '#{timestamp}');")
+      chit = Chit.post(handle: 'Bob', content: "help I''m tired yo")
+      Chit.post(handle: 'Alan', content: 'Can I just shock you? I like wine')
+      Chit.post(handle: 'Gayle', content: 'My cat was right about you')
       chits = Chit.all
-      expect(chits[0]).to include("help I'm tired yo")
-      expect(chits[0]).to include("Bob")
-      expect(chits[1]).to include("Can I just shock you? I like wine")
-      expect(chits[1]).to include("Alan")
-      expect(chits[2]).to include("My cat was right about you")
-      expect(chits[2]).to include("Gayle")
+      expect(chits.length).to eq 3
+      expect(chits.first).to be_a Chit
+      expect(chits.first.handle).to eq 'Bob'
+      expect(chits.first.content).to eq "help I'm tired yo"
     end
   end
 
   describe '.post' do
     it 'adds a chit' do
       connection = PG.connect(dbname: 'chitter_test')
-      Chit.post('Tina', 'Do you think horses get songs stuck in their heads?')
-      chits = Chit.all
-      expect(chits[3]).to include('Do you think horses get songs stuck in their heads?')
-      expect(chits[3]).to include('Tina')
+      chit = Chit.post(handle: 'Tina', content: 'Do you think horses get songs stuck in their heads?')
+      expect(chit).to be_a Chit
+      expect(chit.content).to include('Do you think horses get songs stuck in their heads?')
     end
   end
 
@@ -32,9 +29,8 @@ describe Chit do
     it 'includes a timestamp' do
       time_of_test = Time.new.strftime "%H:%M:%S %d-%m-%Y"
       connection = PG.connect(dbname: 'chitter_test')
-      Chit.post("I respect wood", "Larry")
-      chits = Chit.all
-      expect(chits[0][2]).to include("#{time_of_test}")
+      chit = Chit.post(handle: "Larry", content: "I respect wood", timestamp: "#{time_of_test}")
+      expect(chit.timestamp).to include(time_of_test)
     end
   end
 

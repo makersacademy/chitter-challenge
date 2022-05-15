@@ -2,11 +2,12 @@ require 'pg'
 
 class Chit
 
-# attr_reader :time
-#
-#   def initialize(time = Time.new)
-#     @time = time
-#   end
+attr_reader :content, :handle, :timestamp #need to find out how to initialize time
+
+  def initialize(content:, handle:)
+    @content = content
+    @handle = handle
+  end
 
   def self.all
     # research self
@@ -16,16 +17,20 @@ class Chit
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec('SELECT * FROM chits')
-    result.map { |chit| content = chit['content'], handle = chit['handle'], time = chit['timestamp']}
+    result.map do |chit|
+      Chit.new(content: chit['content'], handle: chit['handle'])
+    end
   end
 
-  def self.post(handle, chit)
+  def self.post(handle:, content:)
     timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-      result = connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('#{handle}', '#{chit}', '#{timestamp}');")
+      # result = connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('#{handle}', '#{content}', '#{timestamp}');")
+      result = connection.exec("INSERT INTO chits (handle, content) VALUES ('#{handle}', '#{content}') RETURNING handle, content;")
+      Chit.new(content: result[0]['content'], handle: result[0]['handle'])
   end
 end
