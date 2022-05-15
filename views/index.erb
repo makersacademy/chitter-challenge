@@ -1,5 +1,30 @@
-<ul>
+<style>
+  div {
+    margin: 10 auto;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 15px;
+    width: 30%;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+  h1 {
+    margin: 10 auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<h1>The latest chits</h1>
   <% @chits.each do |chit|%>
-    <li><%= chit.handle %> chits: <%= chit.content %></li>
+    <div>
+      <%= chit.handle %><br>
+      "<%= chit.content %>"<br>
+      <%= chit.timestamp %><br>
+    </div>
   <% end %>
-</ul>

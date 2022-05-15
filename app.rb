@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
 require './lib/chit'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -32,12 +33,13 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
-  post '/sign_up_confirmation' do
+  post '/sign_up' do
+    User.sign_up(full_name: params[:full_name], username: params[:username], handle: params[:handle], email: params[:email], password: params[:password])
     redirect '/sign_up_confirmation'
   end
 
   get '/sign_up_confirmation' do
-    "You're all signed up! Let's start chatting chit!"
+    erb :sign_up_confirmation
   end
 
   run! if app_file == $0
