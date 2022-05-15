@@ -3,7 +3,15 @@
 <form action="/peeps" method="post"> 
   <label for="peep">What's happening?</label>
   <textarea id="peep" name="peep" row="5" cols="40"></textarea>
+  <label for="name">your name</label>
+  <input type="text" name="name">
   <input type="submit" value="Peep">
 </form>
 
-<%= @peep %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.name %> wrote: "<%= peep.peep %>"
+    </li>
+  <% end %>
+</ul>

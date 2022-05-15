@@ -2,7 +2,6 @@ Chitter Challenge
 =================
 
 ## How to use
-----
 
 ### **To set up the project**
 
@@ -22,9 +21,8 @@ Chitter Challenge
 ```
   \c chitter_manager;
 ```
-4. Run the query we have saved in the file `01_create_peeps_table.sql`
+4. Run the query saved in the file `01_create_peeps_table.sql`
 
-<br>
 
 ### **To set up the test database**
 
@@ -37,14 +35,13 @@ Chitter Challenge
 ```
   \c chitter_manager_test;
 ```
-4. Run the query we have saved in the file `01_create_peeps_table.sql`
+4. Run the query saved in the file `01_create_peeps_table.sql`
 
 
 
-<br>
 
 ## User Stories
----------
+
 ```
 As a Maker
 So that I can let people know what I am doing  

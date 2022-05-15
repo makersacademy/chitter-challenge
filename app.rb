@@ -1,22 +1,28 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
+  get '/' do
+    'Chitter'
+  end
+
   get '/peeps' do
-    erb :'peeps/index'
+    @peeps = Peep.all
+    erb :'/peeps/new'
   end
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    erb :'/peeps/new'
   end
 
   post "/peeps" do
-    @peep = params[:peep]
-    erb :'peeps/new'
+    Peep.add(name: params[:name], peep: params[:peep])
+    redirect '/peeps'
   end
 
   run! if app_file == $0
