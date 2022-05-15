@@ -8,13 +8,6 @@ describe DatabaseConnection do
       DatabaseConnection.setup('messages_test')
     end
 
-    it 'this connection is persistent' do
-      connection = DatabaseConnection.setup('messages_test')
-
-      expect(DatabaseConnection.connection).to eq connection
-    end
-  end
-
   describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup('messages_test')
