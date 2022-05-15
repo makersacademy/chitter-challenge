@@ -2,11 +2,13 @@ require 'pg'
 
 class Chit
 
-attr_reader :content, :handle, :timestamp #need to find out how to initialize time
+attr_reader :content, :handle, :timestamp #:timestamp #need to find out how to initialize time
 
   def initialize(content:, handle:)
     @content = content
     @handle = handle
+    @timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
+    # @timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
   end
 
   def self.all
@@ -30,7 +32,7 @@ attr_reader :content, :handle, :timestamp #need to find out how to initialize ti
       connection = PG.connect(dbname: 'chitter')
     end
       # result = connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('#{handle}', '#{content}', '#{timestamp}');")
-      result = connection.exec("INSERT INTO chits (handle, content) VALUES ('#{handle}', '#{content}') RETURNING handle, content;")
+      result = connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('#{handle}', '#{content}', '#{@timestamp}') RETURNING handle, content, timestamp;")
       Chit.new(content: result[0]['content'], handle: result[0]['handle'])
   end
 end

@@ -18,6 +18,7 @@ describe Chit do
 
   describe '.post' do
     it 'adds a chit' do
+      time_of_test = Time.new.strftime "%H:%M:%S %d-%m-%Y"
       connection = PG.connect(dbname: 'chitter_test')
       chit = Chit.post(handle: 'Tina', content: 'Do you think horses get songs stuck in their heads?')
       expect(chit).to be_a Chit
@@ -29,7 +30,7 @@ describe Chit do
     it 'includes a timestamp' do
       time_of_test = Time.new.strftime "%H:%M:%S %d-%m-%Y"
       connection = PG.connect(dbname: 'chitter_test')
-      chit = Chit.post(handle: "Larry", content: "I respect wood", timestamp: "#{time_of_test}")
+      chit = Chit.post(handle: "Larry", content: "I respect wood")
       expect(chit.timestamp).to include(time_of_test)
     end
   end
