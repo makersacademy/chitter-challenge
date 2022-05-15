@@ -9,7 +9,7 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
-group :development, :test do
+group :development, :test, :deployment do
   gem 'sinatra'
   gem 'webrick'
   gem 'sinatra-contrib'
