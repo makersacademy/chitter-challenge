@@ -32,6 +32,28 @@ CRC cards:
 
 * To view table do. SELECT * FROM bookmarks;
 
+-------
+
+Russell's Progress:
+
+* Completed 3 User Stories.
+* 1 Test failing (Currently unsure why)
+* If I had more time:
+  - I'd implement the other User Stories, by adding in a new table for User information.
+  - Make it look nice with CSS.
+  - Add a reply feature.
+
+How to use.
+
+* Clone my repo.
+* type Bundle install
+* Follow the Database setup
+* type ruby app.rb to run local host(for some reason rackup isn't working)
+* Go to localhost:4567
+* To see the messages go to localhost:4567/messages
+* To post new messages go to localhost:4567/messages/new
+
+-------
 
 Challenge:
 -------
