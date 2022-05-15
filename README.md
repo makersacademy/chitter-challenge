@@ -28,6 +28,7 @@ CRC cards:
 2. Create the database using the psql command CREATE DATABASE chitter_messenger;
 3. Connect to the database using the pqsl command \c chitter_messenger;
 4. Run the query we have saved in the file 01_create_messages_table.sql
+5. Run the query we have saved in the file 02_add_posted_at_colum.sql
 
 * To view table do. SELECT * FROM bookmarks;
 

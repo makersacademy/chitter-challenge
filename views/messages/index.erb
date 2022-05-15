@@ -1,5 +1,5 @@
 <ul>
   <% @messages.each do |message| %>
-    <li><%= message.peep %></li>
+    <li><%= message.peep %><%= message.posted_at %></li>
   <% end %>
 </ul>
