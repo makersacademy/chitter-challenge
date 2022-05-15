@@ -67,4 +67,4 @@ feature 'authentication' do
     expect(page).not_to have_content 'Welcome, Test Name'
     expect(page).to have_content 'You have signed out'
   end
-end 
+end

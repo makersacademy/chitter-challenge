@@ -18,7 +18,10 @@ class User
     # p "#{hashed_password}"
 
     user = DatabaseConnection.query(
-      "INSERT INTO users (email, password, name, username) VALUES($1, $2, $3, $4) RETURNING id, email, name, username;", [email, hashed_password, name, username]
+      "INSERT INTO users (email, password, name, username)
+      VALUES($1, $2, $3, $4)
+      RETURNING id, email, name, username;",
+      [email, hashed_password, name, username]
     )
 
     User.new(

@@ -12,7 +12,8 @@ class Peep
 
   def self.create(body:, user_id:)
     peep = DatabaseConnection.query(
-      "INSERT INTO peeps (body, user_id) VALUES($1, $2) RETURNING id, created_at, body, user_id;", [body, user_id]
+      "INSERT INTO peeps (body, user_id) VALUES($1, $2) RETURNING id, created_at, body, user_id;", [
+        body, user_id]
     )
     Peep.new(
       id: peep[0]['id'],
