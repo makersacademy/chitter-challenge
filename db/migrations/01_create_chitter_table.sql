@@ -1,0 +1,2 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));
+ALTER TABLE chitter_posts ADD time VARCHAR(30);
