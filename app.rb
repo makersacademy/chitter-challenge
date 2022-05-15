@@ -6,8 +6,16 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    'Hello World'
+  get '/board' do
+    erb :'/peeps/board'
+  end
+
+  get '/peeps/message' do
+    erb :'/peeps/message'
+  end
+  
+  post '/peeps/message' do
+    redirect '/board'
   end
 
   run! if app_file == $0
