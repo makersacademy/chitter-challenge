@@ -25,7 +25,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages/post' do
-    Message.post(params[:content])
+    author = User.find(session[:user_id])
+    if author
+      Message.post(params[:content], author.email)
+    else
+      Message.post(params[:content])
+    end
     redirect '/messages'
   end
 

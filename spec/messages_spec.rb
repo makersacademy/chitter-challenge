@@ -39,4 +39,13 @@ describe Message do
       expect(message.timestamp).to eq persisted_data.first['timestamp']
     end
   end
+
+  describe '#author' do
+    it 'displays the message author' do
+      message = Message.post('This is a message authored by test@gmail.com')
+      persisted_data = DatabaseConnection.query("SELECT * FROM messages WHERE id=$1;", [message.id])
+
+      expect(message.author).to eq persisted_data.first['author']
+    end
+  end
 end
