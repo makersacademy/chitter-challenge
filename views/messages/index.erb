@@ -1,25 +1,61 @@
-<% if @user %>
-  <h1>Welcome, <%= @user.email %>!</h1>
-<% end %>
+<!DOCTYPE html>
+<html>
 
-<% @messages.each do |message|%>
-  <ul>
-    <li>
-      <%= message.content %>
-      <%= message.timestamp %>
-    </li>
-  </ul>
-<% end %>
+  <head>
+    <meta name='viewport' content='widht=devide-width,initial-scale=1'>
+    <title>Chitter</title>
+    <%# <link href='/style.css' rel="stylesheet" type="text/css"> %>
+  </head>
 
-<form action='/messages/post' method='post'>
-  <input type='text' name='content' placeholder='Type in your peep' />
-  <input type='submit' value='Post' />
-</form>
+  <body>
+    <header>
+      <% if !@user %>
+        <form action='/users/new' method='get'>
+        <input type='submit' value='Sign up' />
+        </form>
 
-<form action='/sessions/destroy' method='post'>
-  <input type='submit' value='Log out' />
-</form>
+        <form action='sessions/new' method='get'>
+          <input type='submit' value='Log in' />
+        </form>
+      <% else %>
+        <form action='/sessions/destroy' method='post'>
+          <input type='submit' value='Log out' />
+        </form>
+      <% end %>
+    </header>
 
-<h3>
-  <%= flash[:notice] %>
-</h3>
+    <main>
+      <div class='main_container'>
+        <div class='welcome'>
+          <% if @user %>
+            <h1>Welcome, <%= @user.email %>!</h1>
+          <% end %>
+
+          <h3>
+            <%= flash[:notice] %>
+          </h3>
+        </div>
+
+        <div class='messages'>
+          <% @messages.each do |message|%>
+            <ul>
+              <li>
+                <div class='message_content'><%= message.content %></div>
+                <div class='author'><%= %></div>
+                <div class='time'><%= message.timestamp %></div>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+
+        <div class='post'>
+          <form action='/messages/post' method='post'>
+            <input type='text' name='content' placeholder='Type in your peep' />
+            <input type='submit' value='Post' />
+          </form>
+        </div>
+
+      </div>
+    </main>  
+  </body>
+</html>
