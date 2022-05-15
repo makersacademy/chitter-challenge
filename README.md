@@ -21,6 +21,16 @@ CRC cards:
 
 <img width="524" alt="Screenshot 2022-05-15 at 15 35 23" src="https://user-images.githubusercontent.com/101583630/168478469-d916bd45-8682-4a3b-9701-0655222fd40f.png">
 
+-------
+
+## Database setup
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter_messenger;
+3. Connect to the database using the pqsl command \c chitter_messenger;
+4. Run the query we have saved in the file 01_create_messages_table.sql
+
+* To view table do. SELECT * FROM bookmarks;
+
 
 Challenge:
 -------

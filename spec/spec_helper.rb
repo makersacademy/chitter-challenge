@@ -1,6 +1,3 @@
-require 'simplecov'
-require 'simplecov-console'
-
 # at the top of spec/spec_helper.rb
 
 # Set the environment to "test"
@@ -13,9 +10,11 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'simplecov'
+require 'simplecov-console'
 
 # Tell Capybara to talk to Chitter
-Capybara.app = Chitter
+Capybara.app = ChitterMessenger
 
 ### the rest of the file ###
 

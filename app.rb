@@ -1,21 +1,11 @@
 require 'sinatra/base'
-require 'sinatra/reloader'
+require_relative './lib/chitter'
 
-class Chitter < Sinatra::Base
-
-  enable :sessions, :method_override
-
-  configure :development do
-    register Sinatra::Reloader
-  end
+class ChitterMessenger < Sinatra::Base
 
   get '/peeps' do
-    messages = [
-      "I love chitter!",
-      "How do I peep?",
-      "This is so fun."
-    ]
-    messages.join
+    @messages = Chitter.all
+    erb :'peeps/index'
   end
 
   run! if app_file == $0
