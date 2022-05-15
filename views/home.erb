@@ -3,3 +3,17 @@
   <% @peeps.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
+</ul>
+
+<form action="/post_peep" method="POST">
+  <label for="first_name">
+    <input name="first_name" type="text" placeholder="First Name" required>
+  </label>
+  <label for="handle">
+    <input name="handle" type="text" placeholder="@..." pattern="@.+" required>
+  </label>
+  <label for="peep">
+    <input name="peep" type="text" placeholder="Peep!" required>
+  </label>
+  <input type="submit" value="Peep">
+</form>
