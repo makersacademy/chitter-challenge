@@ -1,6 +1,32 @@
 Chitter Challenge
 =================
 
+A very basic twitter clone that allows a user to create tweets and see them updated to the twitter feed in reverse chronological order with the date of each tweet.
+
+## Installation guide
+
+To clone this repository run the following from the terminal:
+
+git clone https://github.com/tomoneill32/chitter-challenge.git
+
+Within the directory with the gemfile, run bundle to install all gems.
+
+##  Database setup
+
+Within `psql` and create the following databases: `peep_database` and `peep_database_test`
+
+```
+CREATE DATABASE peep_database;
+CREATE DATABASE peep_database_test;
+```
+
+To setup the relevant tables, run the SQL scripts in the db/migrations folder for each database.
+
+---------
+
+### Challenge Instructions
+
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**

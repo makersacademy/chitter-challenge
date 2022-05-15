@@ -1,0 +1,13 @@
+</form>
+<br>
+<form action="/home/add" method="get">  
+  <input type="submit" value="Create Peep">
+</form>
+
+<ul>
+  <% @feed.each do |peep| %>
+    <%= peep.peep %>
+    <br>
+    <br>
+  <% end %>
+</ul>
