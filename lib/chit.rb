@@ -7,7 +7,7 @@ attr_reader :content, :handle, :timestamp
   def initialize(content:, handle:)
     @content = content
     @handle = handle
-    @timestamp = Time.new.strftime "%H:%M %d-%m-%Y"
+    @timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
   end
 
 
@@ -25,7 +25,6 @@ attr_reader :content, :handle, :timestamp
   end
 
   def self.post(handle:, content:)
-    timestamp = Time.new.strftime "%H:%M %d-%m-%Y"
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else

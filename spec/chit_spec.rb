@@ -3,7 +3,6 @@ require './lib/chit'
 describe Chit do
   describe '.all' do
     it 'returns all chits' do
-      timestamp = Time.new.strftime "%H:%M %d-%m-%Y"
       connection = PG.connect(dbname: 'chitter_test')
       chit = Chit.post(handle: 'Bob', content: "help I'm tired yo")
       Chit.post(handle: 'Alan', content: 'Can I just shock you? I like wine')
@@ -28,7 +27,7 @@ describe Chit do
 
   describe '.post' do
     it 'includes a timestamp' do
-      time_of_test = Time.new.strftime "%H:%M %d-%m-%Y"
+      time_of_test = Time.new.strftime "%H:%M:%S %d-%m-%Y"
       connection = PG.connect(dbname: 'chitter_test')
       chit = Chit.post(handle: "Larry", content: "I respect wood")
       expect(chit.timestamp).to include(time_of_test)
