@@ -9,8 +9,13 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    'Hello world'
+  get '/peeps' do
+    messages = [
+      "I love chitter!",
+      "How do I peep?",
+      "This is so fun."
+    ]
+    messages.join
   end
 
   run! if app_file == $0
