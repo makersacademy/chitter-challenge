@@ -1,0 +1,31 @@
+<head>
+  <style>
+  body {
+    background-color: lightgrey;
+  }
+
+  .peep {
+    text-align: center;
+  }
+  .peep_style {
+    font-size: 4em;
+    font-family: 'Abel';
+  }
+  .formclass {
+    display: inline;
+  }
+  </style>
+</head>
+<body>
+
+<ul>
+  <div style="text-align: center;">
+    <a href="/new"> <button type="button">New Peep!</button> </a>
+  </div>
+  <div class="peep">
+    <%= @name %>
+    <%= @peep %>
+  </div>
+</ul>
+
+Test user Test peep

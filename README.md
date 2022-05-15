@@ -43,7 +43,7 @@ Domain Models
 Viewing peeps
 ```mermaid
   sequenceDiagram
-    participant A as Client(/)
+    participant A as Client(/index)
     participant B as Controller(app)
     participant C as class_peeps(model)
     participant D as erb_peeps(view)
@@ -82,7 +82,7 @@ id  | display_name |  peep  | time_of_peep <br>
 
 SQL to create the table. <br>
 ```
-CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, display_name VARCHAR(60), peep VARCHAR(280), time TIMESTAMPTZ);
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, display_name VARCHAR(60), peep VARCHAR(280), time TIMESTAMPTZ);
 ```
 
 Class Diagram
@@ -92,13 +92,13 @@ Main class for the model
 
 ```mermaid
   classDiagram
-  class Peeps
-  Peeps : +int id
-  Peeps : +String display_name
-  Peeps : +String peep
-  Peeps : +String time
-  Peeps : +self.all()
-  Peeps : +self.new(display_name, peep)
+  class Peep
+  Peep : +int id
+  Peep : +String display_name
+  Peep : +String peep
+  Peep : +String time
+  Peep : +self.all()
+  Peep : +self.create(display_name, peep)
 ```
 *self.all returns class instances that wrap the data from the database
 
