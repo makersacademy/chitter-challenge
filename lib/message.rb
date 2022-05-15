@@ -20,7 +20,10 @@ class Message
     end
     
     if content
-      result = connection.exec("INSERT INTO messages (content) VALUES ('#{content}') RETURNING id, content, timestamp;")
+      result = connection.exec_params(
+        "INSERT INTO messages (content) VALUES ($1) RETURNING id, content, timestamp;",
+        [content]
+      )
       Message.new(result[0]['id'], result[0]['content'], result[0]['timestamp'])
     end
   end
