@@ -12,7 +12,9 @@ Learnt about databases during the week. Used `TablePlus`, `psql` and `Ruby` code
 
 Given user stories, I tried to implement into code using the previous weeks' learning. <br>
 
-Below are the user stories, set-up, testing and database instructions.
+Below are the user stories, set-up, testing and database instructions. <br>
+
+**I managed to complete the first 3 stories due to time constraints.**
 
 <br>
 
@@ -55,7 +57,7 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-**The below user stories were presented. I managed to complete the first 3 stories due to time constraints.**
+
 <br>
 
 ## Set-up
