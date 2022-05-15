@@ -25,6 +25,15 @@ class Chitter < Sinatra::Base
     redirect '/messages'
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    User.create(params[:email], params[:password])
+    redirect '/messages'
+  end
+
   run! if app_file == $0
 
 end
