@@ -35,4 +35,14 @@ describe User do
     end
   end
 
+  describe '.authenticate' do
+    it 'returns a registered user' do
+      user = User.create('test@gmail.com', 'password123')
+      registered_user = User.authenticate('test@gmail.com', 'password123')
+
+      expect(registered_user.id).to eq user.id
+
+    end
+  end
+
 end
