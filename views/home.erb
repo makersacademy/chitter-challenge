@@ -1,7 +1,7 @@
 <h1>Chitter Home.</h1>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= "#{peep.first_name} (#{peep.handle}): #{peep.peep}" %></li>
   <% end %>
 </ul>
 
