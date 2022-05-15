@@ -15,3 +15,11 @@
   <input type='text' name='content' placeholder='Type in your peep' />
   <input type='submit' value='Post' />
 </form>
+
+<form action='/sessions/destroy' method='post'>
+  <input type='submit' value='Log out' />
+</form>
+
+<h3>
+  <%= flash[:notice] %>
+</h3>
