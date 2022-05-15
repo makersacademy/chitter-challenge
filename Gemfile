@@ -9,6 +9,7 @@ gem 'webrick'
 gem 'rerun'
 gem 'pg'
 gem 'bcrypt'
+gem 'puma'
 
 group :test do
   gem 'rspec'
