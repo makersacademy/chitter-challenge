@@ -16,12 +16,22 @@
     margin: 10 auto;
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  form {
+    margin: 10 auto;
+    text-align: center;
+    padding-top: 0px;
     padding-bottom: 40px;
   }
 </style>
 
 <h1>The latest chits</h1>
-  <% @chits.each do |chit|%>
+<form method="get" action="/post_chit">
+<input type="submit" name="go_to_post_chit" value="get chitting!"/>
+</form>
+  <% @chits.reverse.each do |chit|%>
     <div>
       <%= chit.handle %><br>
       "<%= chit.content %>"<br>

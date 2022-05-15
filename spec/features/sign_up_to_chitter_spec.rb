@@ -28,6 +28,6 @@ feature 'signing up to chitter' do
     fill_in 'password', with: 'jimmyjr1234'
     click_on 'submit'
     expect(current_path). to eq ('/sign_up_confirmation')
-    expect(page).to have_button("homepage")
+    expect(page).to have_button("go_to_post_chit")
   end
 end
