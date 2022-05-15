@@ -4,12 +4,16 @@ describe Peep do
 
   describe '#.show' do
 
-    it 'shows messages on database in reverse chronological order' do
+    it 'shows messages from database in reverse chronological order' do
 
-      connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO peeps (message) VALUES ('First');")
-      connection.exec("INSERT INTO peeps (message) VALUES ('Second');")
-      expect(Peep.show).to eq ['Second', 'First']
+      Peep.post('First')
+      peep = Peep.post('Second')
+      peeps = Peep.show
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.message).to eq 'Second'
+      expect(peeps.first.time).to eq peep.time
 
     end
 
@@ -20,8 +24,13 @@ describe Peep do
     it 'inserts a message in the database' do
 
       Peep.post('Message 1')
-      Peep.post('Message 2')
-      expect(Peep.show).to include('Message 1', 'Message 2')
+      peep = Peep.post('Message 2')
+
+      data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq data.first['id']
+      expect(peep.message).to eq 'Message 2'
+      expect(peep.time).to eq data.first['time']
 
     end
 

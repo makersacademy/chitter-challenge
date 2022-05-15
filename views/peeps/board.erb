@@ -1,10 +1,13 @@
-<% if @peeps%>
-  <ul>
-    <% @peeps.each do |peep| %>
-        <li><%= peep %></li>
-    <% end %>
-  </ul>
-<% end %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+      <li>
+      <%= peep.message %> <br>
+        written: <%= peep.time %>
+      </li>
+  <% end %>
+</ul>
+
 
 <form action=/peeps/message action='get'>
   <input type='submit' value='New message'/>
