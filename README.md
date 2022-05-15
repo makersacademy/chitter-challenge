@@ -87,6 +87,8 @@ Can build a database using `psql`:
 
 The above can be repeated to make a test database by substituting step 2 `chitter` with `chitter_test`
 
+<br>
+
 ## Moving forward
 ---
 - If time constraints weren't a factor, I would've tackled the fourth user story
