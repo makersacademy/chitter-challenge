@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require './lib/message'
 require 'pg'
 require_relative 'database_connection_setup'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -16,6 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
+    @user = User.find(session[:user_id])
     @messages = Message.all
     erb :'messages/index'
   end
@@ -30,7 +32,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(params[:email], params[:password])
+    user = User.create(params[:email], params[:password])
+    session[:user_id] = user.id
     redirect '/messages'
   end
 
