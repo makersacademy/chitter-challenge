@@ -1,3 +1,7 @@
+require_relative './setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
+
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
@@ -24,3 +28,5 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+
