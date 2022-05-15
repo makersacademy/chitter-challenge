@@ -4,11 +4,17 @@ require 'pg'
 describe Message do
   describe '.all' do
     it 'displays all the messages' do
-      message_1 = Message.post('Message one, blah blah')
-      message_2 = Message.post('Message two, blah blah blah')
+      Message.post('Message one, blah blah')
+      Message.post('Message two, blah blah blah')
 
-      expect(Message.all.first.content).to include message_1.content
-      #expect(Message.all).to include message_2
+      persisted_data = PG.connect(dbname: 'messages_test').query("SELECT * FROM messages;")
+      messages = Message.all
+
+      expect(messages.length).to eq 2
+      expect(messages.first).to be_a Message
+      expect(messages.first.id).to eq persisted_data.first['id']
+      expect(messages.first.content).to eq 'Message one, blah blah'
+      expect(messages.first.timestamp).to eq persisted_data.first['timestamp']
     end
   end
 
@@ -16,15 +22,21 @@ describe Message do
     it 'posts a message' do
       content = 'This is a very important message'
       message = Message.post(content)
-      expect(Message.all.first.content).to eq(message.content)
+      persisted_data = PG.connect(dbname: 'messages_test').query("SELECT * FROM messages WHERE id = #{message.id};")
+ 
+      expect(message).to be_a Message
+      expect(message.id).to eq persisted_data.first['id']
+      expect(message.content).to eq content
+      expect(message.timestamp).to eq persisted_data.first['timestamp']
     end
   end
 
   describe '#timestamp' do
     it 'displays when the message was posted' do
       message = Message.post('This is a very important message')
-      p message.timestamp[0]['timestamp']
-      expect(message.timestamp).to eq "2022-05-14 20:39:56.262763" 
+      persisted_data = PG.connect(dbname: 'messages_test').query("SELECT * FROM messages WHERE id=#{message.id};")
+
+      expect(message.timestamp).to eq persisted_data.first['timestamp']
     end
   end
 end
