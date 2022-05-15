@@ -2,12 +2,12 @@ require 'pg'
 
 class Message
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM messages LIMIT 10;")
+    result = DatabaseConnection.query("SELECT * FROM messages;")
     result.map { |message| Message.new(message['id'], message['content'], message['timestamp'], message['author']) }
   end
 
   def self.post(content, author = 'Anonymous')
-    if content
+    if content != ""
       result = DatabaseConnection.query(
         "INSERT INTO messages (content, author) VALUES ($1, $2) RETURNING id, content, timestamp, author;",
         [content, author]

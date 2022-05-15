@@ -4,28 +4,34 @@
   <head>
     <meta name='viewport' content='widht=devide-width,initial-scale=1'>
     <title>Chitter</title>
-    <%# <link href='/style.css' rel="stylesheet" type="text/css"> %>
+    <link href='/styles.css' rel="stylesheet" type="text/css">
   </head>
 
   <body>
     <header>
-      <% if !@user %>
-        <form action='/users/new' method='get'>
-        <input type='submit' value='Sign up' />
-        </form>
+      <div class='title container'>
+        <h1>Chitter</h2>
+      </div>
 
-        <form action='sessions/new' method='get'>
-          <input type='submit' value='Log in' />
-        </form>
-      <% else %>
-        <form action='/sessions/destroy' method='post'>
-          <input type='submit' value='Log out' />
-        </form>
-      <% end %>
+      <div class='login container'>
+        <% if !@user %>
+          <form action='/users/new' method='get'>
+            <input type='submit' value='Sign up' />
+          </form>
+
+          <form action='sessions/new' method='get'>
+            <input type='submit' value='Log in' />
+          </form>
+        <% else %>
+          <form action='/sessions/destroy' method='post'>
+            <input type='submit' value='Log out' />
+          </form>
+        <% end %>
+      </div>
     </header>
 
     <main>
-      <div class='main_container'>
+      <div class='main-container'>
         <div class='welcome'>
           <% if @user %>
             <h1>Welcome, <%= @user.email %>!</h1>
@@ -39,8 +45,8 @@
         <div class='messages'>
           <% @messages.each do |message|%>
             <ul>
-              <li>
-                <div class='message_content'><%= message.content %></div>
+              <li class='message'>
+                <div class='message-content'><%= message.content %></div>
                 <div class='author'><p>By <%= message.author %></p></div>
                 <div class='time'><%= message.pretty_date %></div>
               </li>
@@ -50,8 +56,8 @@
 
         <div class='post'>
           <form action='/messages/post' method='post'>
-            <input type='text' name='content' placeholder='Type in your peep' />
-            <input type='submit' value='Post' />
+            <input type='text' name='content' placeholder='Type in your peep' class='message-content'/>
+            <input type='submit' value='Post' id='post-button' />
           </form>
         </div>
 

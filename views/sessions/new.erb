@@ -1,9 +1,26 @@
-<form action='/sessions' method='post'>
-  <input type='email' name='email' placeholder='Email' />
-  <input type='password' name='password' placeholder='Password' />
-  <input type='submit' value='Log in' />
-</form>
+<!DOCTYPE html>
+<html>
 
-<h3>
-  <%= flash[:notice] %>
-</h3>
+  <head>
+    <meta name='viewport' content='widht=devide-width,initial-scale=1'>
+    <title>Chitter</title>
+    <link href='/styles.css' rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div class='registration'>
+      <div class='reg-form'>
+        <form action='/sessions' method='post'>
+          <input type='email' name='email' placeholder='Email' />
+          <input type='password' name='password' placeholder='Password' />
+          <input type='submit' value='Log in' id='login-button' />
+        </form>
+
+        <h3>
+          <%= flash[:notice] %>
+        </h3>
+      </div>
+    </div>
+  </body>
+
+</html>
