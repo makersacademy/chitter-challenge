@@ -10,13 +10,25 @@ class Chitter < Sinatra::Base
   end
 
   # get '/' do
-  #   erb :index
+  #   # erb :index
+  #   redirect '/chits'
   # end
 
-  get '/chits' do
+  get '/' do
     @chits = Chit.all
-    erb :'chits/index'
+    erb :index
   end
+
+  get '/post_chit' do
+    erb :post_chit
+  end
+
+  post '/post_chit' do
+    Chit.post(params[:handle], params[:chit])
+    redirect '/'
+  end
+
+
 
   run! if app_file == $0
 end
