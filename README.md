@@ -3,7 +3,7 @@ Chitter Challenge
 
 This is my weekend challenge as part of the Makers Academy bootcamp. 
 
-The task is to create a simple web app inspired by Twitter which we are calling Twitter
+The task is to create a simple web app inspired by Twitter which we are calling Chitter
 
 Features:
 -------
