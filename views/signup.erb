@@ -1,0 +1,47 @@
+<html>
+  
+  <head>
+    <title>Chitter</title>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+
+    <form action="/signup" method="post">
+
+      <div class='bold-line'></div>
+        <div class='container'>
+          <div class='window'>
+            <div class='overlay'></div>
+            <div class='content'>
+              <div class='welcome'>Chitter</div>
+              <br />
+              <div class='subtitle'>To send peeps <br>you need to create an account</div>
+              <div class='input-fields'>
+                <input name="user_name" type='login' placeholder='Create login (min 8 chars)' class='input-line full-width' required/>
+                <input name="password" type='password' placeholder='Create password (min 8 chars)' class='input-line full-width' required/>
+                <input name="email" type='email' placeholder='Your email' class='input-line full-width' required/>
+              </div>
+              <div class='spacing1'><a class='highlight' href="/login">Login</a></div>
+
+              <div><button class='ghost-round full-width'>Create Account</button></div>
+          </div>
+
+          <% if session[:error_message] %>
+          <div class="error"> <%= session[:error_message] %> </div>
+          <% end %>
+
+        </div>
+      </div>
+
+    </form>
+
+    <div id="footer" class="contacts">
+      <a class="icons" href="https://www.linkedin.com/in/yaroslava-yates-629517221/" target="_blank">
+          <img class="icons" src="https://i.postimg.cc/CKhnxt4D/link.png" alt="Linkedin">
+      </a>
+    </div>
+
+  </body>
+    
+</html>
