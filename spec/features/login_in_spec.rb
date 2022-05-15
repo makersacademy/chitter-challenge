@@ -1,6 +1,5 @@
 feature "Log in" do
   scenario 'user can log in to use chitter' do
-
     sign_up
     
     visit('/login')

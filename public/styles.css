@@ -10,11 +10,11 @@ div {
 } /* <------------------- delete when finish!!! */
 
 div.left {
-    box-sizing: border-box;
-    width: 30%;
-    height: 100%;
-    float: left;
-    position: fixed;
+  box-sizing: border-box;
+  width: 30%;
+  height: 100%;
+  float: left;
+  position: fixed;
    
 }
 

@@ -2,7 +2,6 @@ require 'pg'
 
 feature 'Viewing peeps on the wall' do
   scenario 'A user can see their peeps in Chitter' do
-
     sign_up
     log_in
     add_peep
