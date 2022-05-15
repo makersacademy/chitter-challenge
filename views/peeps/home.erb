@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
   <style>
-    h1, h2, div {
+    h1 {
       text-align: center;
+    }
+
+    h1, h2, div {
       background-color: yellow;
       color: black;
     }
+
+    /* tried changing bullet point icon but proved difficult
+    .list-peeps {
+      list-style-image: url('https://cdn.iconscout.com/icon/premium/png-256-thumb/small-bird-2503359-2095428.png');
+    } */
+
   </style>
 
   <body>
@@ -14,9 +23,14 @@
 
     <h2>What's on your mind?</h2>
 
+      <form action=/peeps/message action='get'>
+        <input type='submit' value='New Message'/>
+      </form>
+
     <div>
+      <h2>Previous peeps (newest first): </h2>
       <% if @peeps%>
-          <ul>
+          <ul class="list-peeps">
             <% @peeps.each do |peep| %>
               <li>
               &#128172  <%= peep.message %> <br>
@@ -25,10 +39,6 @@
             <% end %>
           </ul>
         <% end %>
-
-      <form action=/peeps/message action='get'>
-        <input type='submit' value='New Message'/>
-      </form>
     </div>
 
   </body>

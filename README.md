@@ -1,20 +1,26 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+<br>
 
-Challenge:
--------
+## Challenge:
+---
 
-As usual please start by forking this repo.
+Makers Academy bootcamp - End of Week 4 (weekend challenge): to make a Twitter clone. <br>
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Learnt about databases during the week. Used `TablePlus`, `psql` and `Ruby` code to try and create a bookmark manager page (can be seen on repo: database). <br>
 
-Features:
--------
+Given user stories, I tried to implement into code using the previous weeks' learning. <br>
+
+Below are the user stories, set-up, testing and database instructions.
+
+<br>
+
+## User Stories
+---
+<br>
+
+**The below user stories were presented. I managed to complete the first 3 stories due to time constraints.**
 
 ```
 STRAIGHT UP
@@ -51,81 +57,39 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+<br>
 
-Technical Approach:
------
+## Set-up
+---
+1. Fork this repo
+2. Clone onto local machine
+3. Run `bundle install` to install all required gems
+4. On the main folder (`chitter-challenge`) run `rackup`
+5. Type `localhost:9292/home` in your local browser to access the home page
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+<br>
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+## Testing
+---
+- On main folder `chitter-challenge` run `rspec` in command line
+- Can also use `rubocop` in command line to see indentation/missing newline etc. offenses
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+<br>
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+## Database
+---
+Can build a database using `psql`:
+1. Open command line and type `psql`
+2. type `CREATE DATABASE chitter;` <-- semi-colon is very important
+3. Connect to chitter database: `\c chitter;`
+4. Run query saved in file `01_create_chitter_table.sql`
 
-Notes on functionality:
-------
+The above can be repeated to make a test database by substituting step 2 `chitter` with `chitter_test`
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## Moving forward
+---
+- If time constraints weren't a factor, I would've tackled the fourth user story
+- This would've involved me implementing a user class (with separate files, feature and unit tests)
+- This way a user could sign up to chitter
+- This would have led me to making a log in page that takes a user's email address and password so they could solely post on their behalf
+- The above would have led to making a log out element on the page so they could log out and not post anymore
