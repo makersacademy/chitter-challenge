@@ -19,9 +19,6 @@ Below are the user stories, set-up, testing and database instructions.
 ## User Stories
 ---
 <br>
-
-**The below user stories were presented. I managed to complete the first 3 stories due to time constraints.**
-
 ```
 STRAIGHT UP
 
@@ -57,6 +54,7 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+**The below user stories were presented. I managed to complete the first 3 stories due to time constraints.**
 <br>
 
 ## Set-up
