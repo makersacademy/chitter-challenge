@@ -6,7 +6,7 @@ class Message
     result.map { |message| Message.new(message['id'], message['content'], message['timestamp'], message['author']) }
   end
 
-  def self.post(content, author='Anonymous')
+  def self.post(content, author = 'Anonymous')
     if content
       result = DatabaseConnection.query(
         "INSERT INTO messages (content, author) VALUES ($1, $2) RETURNING id, content, timestamp, author;",

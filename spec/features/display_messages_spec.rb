@@ -14,7 +14,7 @@ feature 'Displays messages' do
     fill_in :password, with: 'password123'
     click_button 'Log in'
 
-    Message.post('Message authored by me.', user.email )
+    Message.post('Message authored by me.', user.email)
     visit('/messages')
 
     expect(page).to have_content "By test@gmail.com"
@@ -29,5 +29,3 @@ feature 'Displays messages' do
     expect(page).to have_content 'Message posted by anonymous.'
   end
 end
-
-
