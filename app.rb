@@ -17,7 +17,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_peep' do
-
     Peeps.new_peep(params['first_name'], params['handle'], params['peep'])
     redirect '/home'
   end
