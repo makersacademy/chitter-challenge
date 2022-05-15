@@ -14,4 +14,14 @@ describe DatabaseConnection do
       expect(DatabaseConnection.connection).to eq connection
     end
   end
+
+  describe '.query' do
+    it 'executes a query via PG' do
+      connection = DatabaseConnection.setup('messages_test')
+
+      expect(connection).to receive(:exec_params).with("SELECT * FROM messages;", [])
+
+      DatabaseConnection.query("SELECT * FROM messages;")
+    end
+  end
 end
