@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative 'lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -7,6 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/board' do
+    @peeps = Peep.show
     erb :'/peeps/board'
   end
 
@@ -15,6 +17,7 @@ class Chitter < Sinatra::Base
   end
   
   post '/peeps/message' do
+    Peep.post(params[:message])
     redirect '/board'
   end
 

@@ -1,3 +1,11 @@
+<% if @peeps%>
+  <ul>
+    <% @peeps.each do |peep| %>
+        <li><%= peep %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action=/peeps/message action='get'>
   <input type='submit' value='New message'/>
 </form>

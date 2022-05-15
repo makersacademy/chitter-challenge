@@ -15,4 +15,16 @@ describe Peep do
 
   end
 
+  describe '#.post' do
+
+    it 'inserts a message in the database' do
+
+      Peep.post('Message 1')
+      Peep.post('Message 2')
+      expect(Peep.show).to include('Message 1', 'Message 2')
+
+    end
+
+  end
+
 end
