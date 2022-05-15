@@ -32,6 +32,8 @@ attr_reader :content, :handle, :timestamp
     end
       result = connection.exec_params("INSERT INTO chits (handle, content, timestamp) VALUES ($1, $2, '#{@timestamp}') RETURNING handle, content, timestamp;", [handle, content])
       #is the above safe? it uses interpolation but timestamp isn't accessible to the web user...
+      #I do not understand why this isn't sending timestamp to the timestamp column . Instead, when I calls timestamp, it seems to initialize time
+      # then and there, so it's not saving the time a post was made
       Chit.new(content: result[0]['content'], handle: result[0]['handle'])
   end
 end
