@@ -1,5 +1,8 @@
 language: ruby
 
+install:
+  - bundle install
+
 services:
   - postgresql
 
