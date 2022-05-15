@@ -4,14 +4,15 @@ ruby '3.0.2'
 
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'capybara'
-gem 'webrick'
-gem 'rerun'
+
+# gem 'webrick'
+# gem 'rerun'
 gem 'pg'
 gem 'bcrypt'
 gem 'puma'
 
 group :test do
+  gem 'capybara'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
