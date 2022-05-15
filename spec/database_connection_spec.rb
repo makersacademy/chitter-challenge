@@ -7,6 +7,7 @@ describe DatabaseConnection do
 
       DatabaseConnection.setup('messages_test')
     end
+  end
 
   describe '.query' do
     it 'executes a query via PG' do
