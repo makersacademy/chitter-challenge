@@ -26,6 +26,8 @@ class User
       "SELECT * FROM users WHERE email=$1;",
       [email]
     )
+    return unless result.any?
+    
     User.new(result[0]['id'], result[0]['email'])
   end
 

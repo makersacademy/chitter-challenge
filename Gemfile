@@ -16,4 +16,5 @@ group :development, :test do
   gem 'rubocop', '1.20'
   gem 'pg'
   gem 'bcrypt'
+  gem 'sinatra-flash'
 end

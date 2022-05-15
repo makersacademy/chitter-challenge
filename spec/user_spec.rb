@@ -41,7 +41,13 @@ describe User do
       registered_user = User.authenticate('test@gmail.com', 'password123')
 
       expect(registered_user.id).to eq user.id
+    end
 
+    it 'returns nil for unregistered email' do
+      user = User.create('test@gmail.com', 'password123')
+      unregistered_user = User.authenticate('otheremail@gmail.com', 'password123')
+
+      expect(unregistered_user).to be_nil
     end
   end
 

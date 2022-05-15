@@ -4,9 +4,11 @@ require './lib/message'
 require 'pg'
 require_relative 'database_connection_setup'
 require './lib/user'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader 
@@ -42,9 +44,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    User.authenticate(params[:email], params[:password])
-    session[:user_id] = user.id
-    redirect '/messages'
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/messages'
+    else
+      flash[:notice] = "Username does not exist"
+      redirect '/sessions/new'
+    end
   end
 
   run! if app_file == $0
