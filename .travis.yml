@@ -7,17 +7,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test; CREATE TABLE peeps(
-  id SERIAL NOT NULL PRIMARY KEY,
-  body VARCHAR(280) NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT NOW()
-); CREATE TABLE users(
-	id SERIAL PRIMARY KEY,
-	email VARCHAR(60) NOT NULL UNIQUE,
-	password VARCHAR(140) NOT NULL,
-	name VARCHAR(50) NOT NULL,
-	username VARCHAR(15) NOT NULL UNIQUE
-); ALTER TABLE peeps ADD column user_id INT NOT NULL;'
+  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
 
 script:
   - bundle exec rspec
