@@ -3,9 +3,24 @@ require_relative './lib/chitter'
 
 class ChitterMessenger < Sinatra::Base
 
-  get '/peeps' do
+  get '/' do
+    redirect '/messages'
+  end
+
+  get '/messages' do
     @messages = Chitter.all
-    erb :'peeps/index'
+    erb :'messages/index'
+  end
+
+  get '/messages/new' do
+    erb :'messages/new'
+  end
+
+  post '/messages' do
+    peep = params['peep']
+    connection = PG.connect(dbname: 'chitter_messenger_test')
+    connection.exec("INSERT INTO messages (peep) VALUES('#{peep}')")
+    redirect '/messages'
   end
 
   run! if app_file == $0
