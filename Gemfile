@@ -13,6 +13,7 @@ group :development, :test do
   gem 'sinatra'
   gem 'webrick'
   gem 'sinatra-contrib'
-  gem 'pg'
   gem 'rubocop', '1.20'
+  gem 'pg'
+  gem 'bcrypt'
 end
