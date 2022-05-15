@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require './lib/message'
 require 'pg'
+require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
