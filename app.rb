@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/messages'
     else
-      flash[:notice] = "Username does not exist"
+      flash[:notice] = "Please check your email or password"
       redirect '/sessions/new'
     end
   end

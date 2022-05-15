@@ -49,6 +49,13 @@ describe User do
 
       expect(unregistered_user).to be_nil
     end
+
+    it 'returns nil for wrong password' do
+      user = User.create('test@gmail.com', 'password123')
+      wrong_password = User.authenticate('test@gmail.com', 'wrongpassword')
+
+      expect(wrong_password).to be_nil
+    end
   end
 
 end
