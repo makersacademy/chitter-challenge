@@ -28,7 +28,17 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/sign_up' do
+    erb :sign_up
+  end
 
+  post '/sign_up_confirmation' do
+    redirect '/sign_up_confirmation'
+  end
+
+  get '/sign_up_confirmation' do
+    "You're all signed up! Let's start chatting chit!"
+  end
 
   run! if app_file == $0
 end

@@ -2,14 +2,14 @@ require 'pg'
 
 class Chit
 
-attr_reader :content, :handle, :timestamp #:timestamp #need to find out how to initialize time
+attr_reader :content, :handle, :timestamp
 
   def initialize(content:, handle:)
     @content = content
     @handle = handle
-    @timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
-    # @timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
+    @timestamp = Time.new.strftime "%H:%M %d-%m-%Y"
   end
+
 
   def self.all
     # research self
@@ -25,14 +25,14 @@ attr_reader :content, :handle, :timestamp #:timestamp #need to find out how to i
   end
 
   def self.post(handle:, content:)
-    timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
+    timestamp = Time.new.strftime "%H:%M %d-%m-%Y"
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-      # result = connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('#{handle}', '#{content}', '#{timestamp}');")
-      result = connection.exec("INSERT INTO chits (handle, content, timestamp) VALUES ('#{handle}', '#{content}', '#{@timestamp}') RETURNING handle, content, timestamp;")
+      result = connection.exec_params("INSERT INTO chits (handle, content, timestamp) VALUES ($1, $2, '#{@timestamp}') RETURNING handle, content, timestamp;", [handle, content])
+      #is the above safe? it uses interpolation but timestamp isn't accessible to the web user...
       Chit.new(content: result[0]['content'], handle: result[0]['handle'])
   end
 end
