@@ -2,25 +2,13 @@ require 'pg'
 
 class Message
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'messages_test')
-    else
-      connection = PG.connect(dbname: 'messages')
-    end
-    
-    result = connection.exec("SELECT * FROM messages;")
+    result = DatabaseConnection.query("SELECT * FROM messages;")
     result.map { |message| Message.new(message['id'], message['content'], message['timestamp']) }
   end
 
   def self.post(content)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'messages_test')
-    else
-      connection = PG.connect(dbname: 'messages')
-    end
-    
     if content
-      result = connection.exec_params(
+      result = DatabaseConnection.query(
         "INSERT INTO messages (content) VALUES ($1) RETURNING id, content, timestamp;",
         [content]
       )

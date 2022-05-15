@@ -7,7 +7,7 @@ describe Message do
       Message.post('Message one, blah blah')
       Message.post('Message two, blah blah blah')
 
-      persisted_data = PG.connect(dbname: 'messages_test').query("SELECT * FROM messages;")
+      persisted_data = DatabaseConnection.query("SELECT * FROM messages;")
       messages = Message.all
 
       expect(messages.length).to eq 2
@@ -22,7 +22,7 @@ describe Message do
     it 'posts a message' do
       content = 'This is a very important message'
       message = Message.post(content)
-      persisted_data = PG.connect(dbname: 'messages_test').query("SELECT * FROM messages WHERE id = #{message.id};")
+      persisted_data = DatabaseConnection.query("SELECT * FROM messages WHERE id =$1;", [message.id])
  
       expect(message).to be_a Message
       expect(message.id).to eq persisted_data.first['id']
@@ -34,7 +34,7 @@ describe Message do
   describe '#timestamp' do
     it 'displays when the message was posted' do
       message = Message.post('This is a very important message')
-      persisted_data = PG.connect(dbname: 'messages_test').query("SELECT * FROM messages WHERE id=#{message.id};")
+      persisted_data = DatabaseConnection.query("SELECT * FROM messages WHERE id=$1;", [message.id])
 
       expect(message.timestamp).to eq persisted_data.first['timestamp']
     end
