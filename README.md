@@ -15,6 +15,14 @@ This is a basic Twitter clone that allows a user to sign up, login to their Chit
 4. Run the sql commands in the db/migrations folder to confiqure database tables
 5. Run ```rackup``` to open app in localhost or ```rspec``` to run tests
    
+## Images
+
+![homepage](/public/images/homepage.png)
+![sing up](/public/images/sing_up.png)
+![log in](/public/images/log_in.png)
+![signed in](/public/images/signed_in.png)
+![new peep](/public/images/new_peep.png)
+
 ## User Stories
 
 As a Maker
