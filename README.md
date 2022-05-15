@@ -13,7 +13,7 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+User stories:
 -------
 
 ```
@@ -51,6 +51,22 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+Create Databases:
+-----
+
+Chitter database:
+1. Connect to `psql`
+2. Create database: `CREATE DATABASE chitter;`
+3. Connect to chitter database: `\c chitter;`
+4. Run query saved in file `01_create_peeps_table.sql`
+
+Chitter test database:
+1. Connect to `psql`
+2. Create database: `CREATE DATABASE chitter_test;`
+3. Connect to chitter database: `\c chitter_test;`
+4. Run query saved in file `01_create_peeps_table.sql`
+
 
 Technical Approach:
 -----
