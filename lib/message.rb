@@ -2,7 +2,7 @@ require 'pg'
 
 class Message
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM messages;")
+    result = DatabaseConnection.query("SELECT * FROM messages LIMIT 10;")
     result.map { |message| Message.new(message['id'], message['content'], message['timestamp'], message['author']) }
   end
 
@@ -23,6 +23,10 @@ class Message
     @content = content
     @timestamp = timestamp
     @author = author
+  end
+
+  def pretty_date
+    @timestamp[0,16].split().reverse.join(' ')
   end
 
 end
