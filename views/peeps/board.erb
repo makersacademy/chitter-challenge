@@ -1,0 +1,17 @@
+<h1>Hello there!  This is Chitter <br>
+Any thoughts you would like to share today?
+</h1>
+
+<ul>
+  <% @peeps.each do |peep| %>
+      <li>
+      <%= peep.message %> <br>
+        written: <%= peep.time %>
+      </li>
+  <% end %>
+</ul>
+
+
+<form action=/peeps/message action='get'>
+  <input type='submit' value='New message'/>
+</form>
