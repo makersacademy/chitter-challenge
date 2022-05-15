@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    h1, h2, div {
+      text-align: center;
+      background-color: yellow;
+      color: black;
+    }
+  </style>
+
+  <body>
+
+    <h1>&#128035 Welcome to Chitter! &#128035</h1>
+
+    <h2>What's on your mind?</h2>
+
+    <div>
+      <% if @peeps%>
+          <ul>
+            <% @peeps.each do |peep| %>
+              <li>
+              &#128172  <%= peep.message %> <br>
+              peeped at: <%= peep.time %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <form action=/peeps/message action='get'>
+        <input type='submit' value='New Message'/>
+      </form>
+    </div>
+
+  </body>
+</html>
