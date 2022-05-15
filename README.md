@@ -11,8 +11,6 @@ Features:
 I will be focusing on the following user stories for this challenge. 
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -80,11 +78,11 @@ Database setup
 
 Proposed table
 
-id  | username |  peep  | time_of_peep <br>
+id  | display_name |  peep  | time_of_peep <br>
 
 SQL to create the table. <br>
 ```
-CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, username VARCHAR(60), peep VARCHAR(280), time TIMESTAMPTZ);
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, display_name VARCHAR(60), peep VARCHAR(280), time TIMESTAMPTZ);
 ```
 
 Class Diagram
@@ -96,11 +94,11 @@ Main class for the model
   classDiagram
   class Peeps
   Peeps : +int id
-  Peeps : +String username
+  Peeps : +String display_name
   Peeps : +String peep
   Peeps : +String time
   Peeps : +self.all()
-  Peeps : +self.new(username, peep)
+  Peeps : +self.new(display_name, peep)
 ```
 *self.all returns class instances that wrap the data from the database
 
