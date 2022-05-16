@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-bundle lock --add-platform x86_64-linux
-
 ruby '3.0.4'
 
 gem 'sinatra'
