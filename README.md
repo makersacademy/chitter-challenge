@@ -7,6 +7,11 @@ I want to post a message (peep) to chitter.
 ```
 
 ## How to use
+
+Run `bundle` to install neccessary gems.
+Run `rackup`.
+Navigate to `localhost:9292/`.
+
 ### To set up the project
 Clone this repository and then run:
 ```
@@ -23,7 +28,7 @@ CREATE DATABASE chitter;
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-### To run the Bookmark Manager app:
+### To run the Chitter app:
 
 ```
 rackup
