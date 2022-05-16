@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
+  /* border: solid 1px #F21D37; */
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+body {
+  margin: 2rem;
+}
+
+img {
+  height: 60px;
+}
+
+.logo {
+  display: flex;
+}
+
+header {
+  margin: 0;
+}
+
+.flash {
+  margin: 0;
+}
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options {
+  display: flex;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  margin: 0;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.item {
+  margin: 0.5em;
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: 'Pacifico', cursive;
+  color: #F26E1D;
+}
+
+input[type=submit] {
+  color: white;
+  background-color: #F26E1D;
+  padding: 0.5em 1em;
+}
+
+menu {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.peep {
+  border: 1px solid #F26E1D;
+  width: 80%;
+}

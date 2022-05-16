@@ -1,0 +1,60 @@
+<head>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+  <header class="container">
+    <div class="logo">
+      <img src="/images/bird.png" alt="Chitter logo">
+      <h1>Chitter</h1>
+    </div>
+
+    <div class="options">
+      <% if !@user %>
+      <div>
+        <form action="/users/new">
+          <input type="submit" value="Sign Up">
+        </form>
+
+        <form action="/sessions/new">
+          <input type="submit" value="Log In">
+        </form>
+      </div>
+
+      <% else %>
+        <form action="/sessions/destroy" method="post">
+          <input type="submit" value="Log out">
+        </form>
+      <% end %>
+    </div>
+  </header>
+
+  <h2 class="flash">
+    <%= flash[:notice] %>
+  </h2>
+
+  <menu class="left">
+    <% if @user %>
+      <h2>Welcome, <%= @user.name %></h2>
+      <form action="/peeps/new">
+        <input type="submit" value="New Peep">
+      </form>
+    <% end %>
+  </menu>
+
+  <main class="center">
+    <% @peeps.each do |peep| %>
+      <div class="peep">
+        <% peep_user = User.find(id: (peep.user_id)) %>
+        <div class="item">
+          <%= peep_user.name %>
+          <%= peep_user.username %>
+          <%= peep.created_at%>
+        </div>
+        <div class="item">
+          <%= peep.body%>
+        </div>
+      </div>
+    <% end %>
+  <main>
+</body>
