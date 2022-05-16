@@ -1,7 +1,7 @@
 require 'peep'
 
 describe Peep do
-  describe '.all' do
+  xdescribe '.all' do
     it 'shows all Peeps' do
       connection = PG.connect(dbname: 'chitter_test')
       
@@ -17,11 +17,11 @@ describe Peep do
     end
   end
 
-  describe '.new' do
+  xdescribe '.new' do
     it 'creates a new Peep' do
       Peep.new(content: 'Test Peep')
 
-      expect(Peep.all).to include 'Test Peep'
+      expect(Peep.all).to include('Test Peep')
     end
   end
 end 

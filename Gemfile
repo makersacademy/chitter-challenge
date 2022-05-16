@@ -13,6 +13,7 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'capybara'
   gem 'rerun'
+  gem 'timecop'
 end
 
 

@@ -1,10 +1,33 @@
-<h1>Your Feed</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-colour : white;
+}
+
+h1 {
+  color: lightblue;
+  text align: center;
+}
+
+body {
+  font-family: verdana;
+  font-size: 20px
+}
+</style>
+</head>
+<body>
+<h1>Chitter</h1>
+<h2>Your Feed</h2>
 <ul> 
   <% @peeps.each do |peep| %>
   <li><%= peep %></li>
   <% end %>
 </ul>
 <form action="/peeps" method="post">  
-  <input type="text" name="content" placeholder="New Peep" />
+  <input type="text" name="content" placeholder="What's Happening?" />
   <input type="submit" name="Submit" />
 </form>
+</body>
+</html>
