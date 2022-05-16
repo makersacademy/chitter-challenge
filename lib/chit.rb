@@ -25,7 +25,7 @@ attr_reader :content, :handle, :timestamp
     end
     result = connection.exec('SELECT * FROM chits')
     result.map do |chit|
-      Chit.new(content: chit['content'], handle: chit['handle'])
+      Chit.new(content: chit['content'], handle: chit['handle'], timestamp: result[0]['timestamp'])
     end
   end
 
@@ -36,6 +36,6 @@ attr_reader :content, :handle, :timestamp
       connection = PG.connect(dbname: 'chitter')
     end
       result = connection.exec_params("INSERT INTO chits (handle, content) VALUES ($1, $2) RETURNING handle, content;", [handle, content])
-      Chit.new(content: result[0]['content'], handle: result[0]['handle'])
+      Chit.new(content: result[0]['content'], handle: result[0]['handle'], timestamp: result[0]['timestamp'])
   end
 end
