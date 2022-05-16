@@ -5,7 +5,7 @@
 
 CREATE TABLE chitter_users(
   id SERIAL PRIMARY KEY,
-  hitterer VARCHAR(255),
+  chitterer VARCHAR(255),
   email VARCHAR(255),
   handle VARCHAR(255),
   username VARCHAR(255),
