@@ -9,7 +9,7 @@ describe Peep do
       Peep.create('Name 2', 'Peep 2')
       Peep.create('Name 3', 'Peep 3')
       
-      p peeps = Peep.all
+      peeps = Peep.all
 
       expect(peeps.length).to eq 3
       expect(peeps[0]).to be_a Peep

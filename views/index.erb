@@ -6,9 +6,11 @@
 
   .peep {
     text-align: center;
+    border-style: solid;
+    
   }
   .peep_style {
-    font-size: 4em;
+    font-size: 2em;
     font-family: 'Abel';
   }
   .formclass {
@@ -22,10 +24,12 @@
   <div style="text-align: center;">
     <a href="/new"> <button type="button">New Peep!</button> </a>
   </div>
-  <div class="peep">
-    <%= @name %>
-    <%= @peep %>
-  </div>
+  <% @peeps.reverse.each do |peep| %>
+    <div class="peep" id="peep-<%= peep.id %>">
+      Peep from: <%= peep.display_name %> <br>
+      <%= peep.peep %> <br>
+      Time of peep: <%= peep.time %>
+      </a>
+    <div>
+  <% end %>
 </ul>
-
-Test user Test peep
