@@ -1,17 +1,43 @@
-<h1>Chitter<h1>
+<html>
 
-<form action="/peeps" method="post"> 
-  <label for="peep">What's happening?</label>
-  <textarea id="peep" name="peep" row="5" cols="40"></textarea>
-  <label for="name">your name</label>
-  <input type="text" name="name">
-  <input type="submit" value="Peep">
-</form>
+  <head>
+    <h1>Chitter<h1>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <head>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.name %> wrote: "<%= peep.peep %>"
-    </li>
-  <% end %>
-</ul>
+  <body>
+
+    <div class="textbox">
+      <form action="/peeps" method="post"> 
+        
+          <label for="peep">What's happening?</label>
+          <textarea id="peep" name="peep" row="5" cols="40"></textarea>
+          <br>
+          <label for="name">your name</label>
+          <input type="text" name="name">
+       
+          <input type="submit" value="Peep">
+      </form>
+    </div>
+    
+    <div>
+      <ul>
+        <div>
+          <% @peeps.each do |peep| %>
+            <ul class="wrap">
+              
+              <div class="handle">
+                <%= peep.name %> wrote: 
+              
+              <div class="quote">
+                "<%= peep.peep %>"
+            
+            </ul>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+
+  </body>
+
+</html>
