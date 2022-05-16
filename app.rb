@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require './database_connection_setup'
+require_relative './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -19,9 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/index' do
-    # p params
-    # $name = params[:display_name]
-    # $peep = params[:peep]
+    Peep.create(params[:display_name], params[:peep])
     redirect './index'
   end
 

@@ -10,6 +10,13 @@ class Peep
     @time = time
   end
 
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result.map do |peep|
+      Peep.new(id: peep['id'], display_name: peep['display_name'], peep: peep['peep'], time: result[0]['time'])
+    end
+  end
+
   def self.create(display_name, peep)
     result = DatabaseConnection.query(
       "INSERT INTO peeps (display_name, peep) VALUES($1, $2) RETURNING id, display_name, peep, time;", [display_name, peep]
