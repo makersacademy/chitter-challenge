@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
 
   post '/home' do
     p params
-    Peep.create(params[:new_peep])
+    Peep.create(params[:new_peep], Time.new)
     redirect '/home'
   end
   
