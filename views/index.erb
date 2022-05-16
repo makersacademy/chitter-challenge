@@ -23,7 +23,11 @@
     margin: 10 auto;
     text-align: center;
     padding-top: 0px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
+  }
+
+  input {
+    width: 100px;
   }
 
 </style>
@@ -31,7 +35,8 @@
 <h1>The latest chits</h1>
 <form method="get" action="/post_chit">
 <input type="submit" name="go_to_post_chit" value="get chitting!"/>
-<form method="get" action="/sign_up">
+</form>
+<form action="/sign_up" method="get">
 <input type="submit" name="go_to_sign_up" value="sign up!"/>
 </form>
   <% @chits.reverse.each do |chit|%>
