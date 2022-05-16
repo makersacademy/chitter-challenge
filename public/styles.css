@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  height: 5.5rem;
+  background-color: rgb(175, 184, 191);
+  border: 0.15rem solid rgb(87, 91, 94);
+  text-align: right;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.main-container {
+  width: 60%;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  background-color: rgb(218, 232, 252);
+  border: 0.3rem solid rgb(108, 142,191);
+}
+
+.message,
+.post {
+  width: 80%;
+  margin: 3% auto;
+  background-color: rgb(236, 233, 233);
+  border: 0.2rem solid rgb(100, 99, 99);
+  list-style: none;
+}
+
+.message-content {
+  width: 95%;
+  margin: 2% auto;
+  padding: 1rem;
+  background-color: white;
+  border: 0.15rem solid rgb(100, 99, 99);
+}
+
+.author,
+.time {
+  width: 10rem;
+  margin: 0 1% 2% 1%;
+  padding: 0.15rem;
+  background-color: rgba(242, 238, 111, 0.672);
+  border: 0.15rem solid rgba(239, 222, 30, 0.759);
+  font-size: 0.8rem;
+  color: rgb(85, 84, 84);
+  display: inline-block;
+}
+
+input[type='submit'] {
+  height: 2rem;
+  width: 5rem;
+  background-color: rgb(235, 171, 182);
+  border: 0.15rem solid rgb(230, 113, 133);
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+input[type='submit']:hover {
+  background-color: rgb(230, 113, 133);
+}
+
+header .title {
+  display: inline-block;
+  margin-right: 50%;
+  margin-top: 2%;
+  color: rgb(49, 49, 49);
+  font-size: 1.5rem;
+}
+
+header .login {
+  display: inline-block;
+}
+
+.login input[type='submit'] {
+  margin: 0.25rem;
+  margin-right: 1rem;
+}
+
+#post-button {
+  margin-bottom: 0.7rem;
+}
+
+.welcome h1 {
+  color: rgb(49, 49, 49);
+  padding-top: 1rem;
+}
+
+.registration {
+  width: 60%;
+  height: 12rem;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  background-color: rgb(218, 232, 252);
+  border: 0.3rem solid rgb(108, 142,191);
+}
+
+.registration form {
+  width: 80%;
+  margin: 5% auto;
+  padding-top: 1rem;
+  background-color: rgb(236, 233, 233);
+  border: 0.2rem solid rgb(100, 99, 99);
+}
+
+#register-button,
+#login-button {
+  margin: 1rem;
+}
