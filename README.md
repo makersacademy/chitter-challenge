@@ -63,4 +63,4 @@ CREATE DATABASE messages_test;
 
 To set up appropriate tables, connect to each database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
 
-
+----
