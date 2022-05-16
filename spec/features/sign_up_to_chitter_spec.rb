@@ -17,7 +17,7 @@ feature 'signing up to chitter' do
     fill_in 'password', with: 'jimmyjr1234'
     click_on 'submit'
     expect(current_path). to eq ('/sign_up_confirmation')
-    expect(page).to have_content("You're all signed up! Let's start chatting chit!")
+    expect(page).to have_content("You're all signed up!")
   end
 
   scenario 'a user can navigate back to the homepage from the sign_up confirmation' do

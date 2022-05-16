@@ -4,10 +4,15 @@ class Chit
 
 attr_reader :content, :handle, :timestamp
 
-  def initialize(content:, handle:)
+  def initialize(content:, handle:, timestamp: Time.new.strftime("%H:%M:%S %d-%m-%Y"))
     @content = content
     @handle = handle
-    @timestamp = Time.new.strftime "%H:%M:%S %d-%m-%Y"
+    @timestamp = timestamp
+    #I don't know why, but while I can initialize content and handle as keywords(?) without giving them a value, timestamp throws a strop
+    #if I don't assign it a value here. Which then overrides any assignment that might take place in 'result'. Which means that with this
+    #method I can't display the time of posting, just the time the page was loaded, which is pretty useless.
+    #if there were a way to initialize timestamp in the same way as the other two, I'd be fine. Can't understand what the difference is,
+    #except that content and handle are assigned values in params in the controller, whereas timestamp first comes into existence here...
   end
 
 
@@ -31,11 +36,6 @@ attr_reader :content, :handle, :timestamp
       connection = PG.connect(dbname: 'chitter')
     end
       result = connection.exec_params("INSERT INTO chits (handle, content) VALUES ($1, $2) RETURNING handle, content;", [handle, content])
-      #is the above safe? it uses interpolation but timestamp isn't accessible to the web user...
-      #I do not understand why this isn't sending timestamp to the timestamp column . Instead, when I calls timestamp, it seems to initialize time
-      # then and there, so it's not saving the time a post was made
-      #I've tried generating the timestamp in the table, as well as generating it here and inserting it into the table, but whenever I've got either
-      #of those to work it's broken rackup, even though it works in irb
       Chit.new(content: result[0]['content'], handle: result[0]['handle'])
   end
 end
