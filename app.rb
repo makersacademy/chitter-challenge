@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/database_connection'
 require './lib/user'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
 
@@ -19,14 +20,26 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/feed' do
+  post '/peeps' do
     User.create(username: params[:username],password: params[:password])
     session[:user_id] = User.find_by_username(params[:username]).user_id
-    redirect '/feed'
+    redirect '/peeps'
   end
 
-  get '/feed' do
-    "Welcome, #{User.find_by_user_id(session[:user_id]).username}"
+  get '/peeps' do
+    @session_id = session[:user_id]
+    @all_peeps = Peeps.all
+
+    erb :'peeps/pindex'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/pnew'
+  end
+
+  post '/peeps/post' do
+    Peeps.create(user_id: session[:user_id], peep: params[:peep_text])
+    redirect '/peeps'
   end
 
 end

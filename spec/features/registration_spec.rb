@@ -5,7 +5,7 @@ feature 'registration' do
     fill_in('password', with: 'password123')
     click_button('Submit')
 
-    expect(current_path).to eq '/feed'
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content "Welcome, test name"
   end
 end
