@@ -18,4 +18,20 @@ class User
     User.new(username: result[0]['username'], user_id: result[0]['id'])
   end
 
+  def self.find_by_username(username)
+    result = DatabaseConnection.query(
+      "SELECT id, username FROM users WHERE username IN ($1);",
+      [username]
+    )
+    User.new(username: result[0]['username'], user_id: result[0]['id'])
+  end
+
+  def self.find_by_user_id(user_id)
+    result = DatabaseConnection.query(
+      "SELECT id, username FROM users WHERE id IN ($1);",
+      [user_id]
+    )
+    User.new(username: result[0]['username'], user_id: result[0]['id'])
+  end
+
 end

@@ -19,12 +19,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do
-    session[:username] = params[:username]
+    User.create(username: params[:username],password: params[:password])
+    session[:user_id] = User.find_by_username(params[:username]).user_id
     redirect '/feed'
   end
 
   get '/feed' do
-    "Welcome, #{session[:username]}"
+    "Welcome, #{User.find_by_user_id(session[:user_id]).username}"
   end
 
 end
