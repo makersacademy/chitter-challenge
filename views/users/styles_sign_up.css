@@ -1,0 +1,88 @@
+body {
+  margin: 0 auto;
+  font-family: 'Merriweather', serif;
+  background-color: white;
+  background-size: 120vw;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-size: 19px;
+ }
+
+.sign-up-box {
+  border-radius: 2px;
+  background-color: whitesmoke;
+  height: 350px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto;     
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border: 1px solid black;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;     
+  justify-content: space-around;
+  align-items: center;
+}
+
+input[type="text"] {
+  display: block;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+  transition: 0.2s ease;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  background: orangered;
+  border: none;
+  border-radius: 15px;
+  color: #FFF;
+  font-weight: 500;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+h2 {
+  color: black;
+  text-align: center;
+}
+
+p {
+  color: black;
+  text-align: center;
+}
