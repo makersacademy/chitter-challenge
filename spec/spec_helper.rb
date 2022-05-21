@@ -8,7 +8,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-# require_relative './set_up_test_database'
+require_relative './set_up_test_database'
 
 Capybara.app = Chitter
 
@@ -22,9 +22,9 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
-  # config.before(:each) do
-  #   set_up_test_database
-  # end
+  config.before(:each) do
+    set_up_test_database
+  end
  
   config.expect_with :rspec do |expectations|
   

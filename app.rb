@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/database_connection'
 
 class Chitter < Sinatra::Base
 
