@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 require_relative '../database_connection_setup.rb'
 
 class User
@@ -11,9 +12,11 @@ class User
   end
 
   def self.create(username:, password:)
+    encrypted_password = BCrypt::Password.create(password)
+
     result = DatabaseConnection.query(
       "INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id, username;",
-      [username, password]
+      [username, encrypted_password]
     )
     User.new(username: result[0]['username'], user_id: result[0]['id'])
   end
@@ -40,7 +43,7 @@ class User
       [username]
     )
     return false unless result.any?
-    return false unless result[0]['password'] == password
+    return false unless BCrypt::Password.new(result[0]['password']) == password
     true
   end
 
