@@ -1,14 +1,37 @@
-Welcome, <%= "#{User.find_by_user_id(@session_id).username}" %>
+<html>
 
-<div class="title_text">
-  <h1>Peeps<h1>
-</div>
-      
-<% @all_peeps.each do |peep| %>
-  <div class="peep" id="peep-<%= peep.peep_id%>">
-    Content: <br>
-    <%= peep.peep %> <br>
-  </div>
-<%end%>
-    
-</div>
+  <head>
+    <title>Peeps</title>
+    <link href="/styles_peeps.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+
+    <div id="banner">
+      <div id="banner-content">
+      <%# Need to update to bring in username %>
+        <% if @session_id %>
+          Welcome, <%= "#{User.find_by_user_id(@session_id).username}" %>
+        <% end %>
+
+        <form action="/peeps/new" method="get">
+          <input type="submit" value="New Peep"/>
+        </form>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="title_text">
+        <h1>Peeps<h1>
+      </div>
+          
+      <% @all_peeps.each do |peep| %>
+        <div class="peep" id="peep-<%= peep.peep_id%>">
+          <div class="peep_text">
+            <h2>Content:</h2>
+            <%= peep.peep %> <br>
+          </div>
+        </div>
+      <%end%>
+    </div>
+</html>

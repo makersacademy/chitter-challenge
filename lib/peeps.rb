@@ -1,8 +1,6 @@
 require 'pg'
 require_relative '../database_connection_setup.rb'
 
-# INSERT INTO peeps (user_id, peep, time_stamp) VALUES (1, 'hello', NOW())
-
 class Peeps
 
   attr_reader :peep_id, :time_stamp, :user_id, :peep
