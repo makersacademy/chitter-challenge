@@ -34,4 +34,14 @@ class User
     User.new(username: result[0]['username'], user_id: result[0]['id'])
   end
 
+  def self.authenticate(username:, password:)
+    result = DatabaseConnection.query(
+      "SELECT * FROM users WHERE username IN ($1);",
+      [username]
+    )
+    return false unless result.any?
+    return false unless result[0]['password'] == password
+    true
+  end
+
 end

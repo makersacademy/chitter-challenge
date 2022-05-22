@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Login</title>
+    <link href="/styles_sign_up.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="sign-up-box"> 
+      <h2>Log in here</h2>     
+      <form class="sign-up-form" action="/users/authentication" method="post">
+        <label for="username">
+          <p>
+            Username:
+          <p>
+          <input type="text" name="username" placeholder="Enter Username" />
+        </label>
+        <label for="password">
+          <p>
+            Password:
+          <p>
+          <input type="text" name="password" placeholder="Enter Username" /> <br/>
+        </label>
+        <input type="submit" value="Log In" />
+      </form>
+    </div>
+  </body>
+</html>

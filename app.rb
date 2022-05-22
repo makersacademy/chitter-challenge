@@ -13,11 +13,31 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'hello'
+    @session_id = session[:user_id]
+    erb :home
   end
 
   get '/users/new' do
     erb :'users/new'
+  end
+
+  get '/users/login' do
+    erb :'users/login'
+  end
+
+  post '/users/authentication' do
+    if User.authenticate(username: params[:username],password: params[:password])
+      session[:user_id] = User.find_by_username(params[:username]).user_id
+      redirect '/peeps'
+    else
+      redirect '/login'
+      # add authentication error?
+    end
+  end
+
+  post '/users/logout' do
+    session.clear
+    redirect '/'
   end
 
   post '/peeps' do
