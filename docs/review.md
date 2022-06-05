@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the code review for the Chitter Challenge!  Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to.  These are common issues to look out for in this challenge - but you may decide to take your own route.  
+Welcome to the code review for the Chitter Challenge! Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to. These are common issues to look out for in this challenge - but you may decide to take your own route.
 
 <!-- Either way we'd very much appreciate you submitting the form, even if it's just to say that you didn't use it :-)
 
@@ -8,21 +8,22 @@ Please use this [form](http://goo.gl/forms/0tgr6Q9Xh8) to tick off where your re
 
 # Step 0: Checkout and Run tests
 
-Please checkout your reviewee's code and run their tests. Read the code and try and use the app through the web interface.  You can also experiment with the engine in IRB. How easy is it to understand the structure of their code? How readable is their code? Did you need to make any cognitive leaps to 'get it'?
+Please checkout your reviewee's code and run their tests. Read the code and try and use the app through the web interface. You can also experiment with the engine in IRB. How easy is it to understand the structure of their code? How readable is their code? Did you need to make any cognitive leaps to 'get it'?
 
-# Step 1:  How far did they get?
+# Step 1: How far did they get?
 
-* Features
-  * [ ] Sign up
-  * [ ] Log in
-  * [ ] Log out
-  * [ ] Peeping
-  * [ ] Listing Peeps
-  * [ ] Display time of peep
+- Features
 
-* Bonus Features
-  * [ ] Replying to peeps
-  * [ ] CSS styling
+  - [ ] Sign up
+  - [ ] Log in
+  - [ ] Log out
+  - [ ] Peeping
+  - [ ] Listing Peeps
+  - [ ] Display time of peep
+
+- Bonus Features
+  - [ ] Replying to peeps
+  - [ ] CSS styling
 
 The relevance of the subsequent steps may depend on how far the reviewee got with their challenge.
 
@@ -46,24 +47,25 @@ And as we saw in previous weeks you'll want to have screenshots of how the app w
 For more info on embedding images in a README: https://guides.github.com/features/mastering-markdown/
 
 e.g.:
+
 ```
 ![Screenshot](https://path_to_your_image)
 ```
 
 You will need to host your images somewhere, e.g.:
-* http://imgur.com/
-* http://dropbox.com/
+
+- http://imgur.com/
+- http://dropbox.com/
 
 ## Unnecessary Components should be Removed
 
-Always leave a space to check over your pull request before submission.  Please try to check for simple issues like:
+Always leave a space to check over your pull request before submission. Please try to check for simple issues like:
 
-* dead code in comments
-* unnecessary files
-* indentation
+- dead code in comments
+- unnecessary files
+- indentation
 
-For example if you've been using the [launchy gem](https://github.com/copiousfreetime/launchy) to `save_and_open_page` then you'll have a load of `capybara-<TIMESTAMP>.html` files in your root directory that you don't want committed to git.  Try updating `.gitignore` like so:
-
+For example if you've been using the [launchy gem](https://github.com/copiousfreetime/launchy) to `save_and_open_page` then you'll have a load of `capybara-<TIMESTAMP>.html` files in your root directory that you don't want committed to git. Try updating `.gitignore` like so:
 
 ```
 capybara-*.html
@@ -75,7 +77,7 @@ and if you already have unwanted files committed to git then delete them from gi
 $ git rm capybara-*.html
 ```
 
-then commit and push.  Please also ensure you follow the Ruby style guide regarding indentation and layout:
+then commit and push. Please also ensure you follow the Ruby style guide regarding indentation and layout:
 
 https://github.com/bbatsov/ruby-style-guide
 
@@ -114,7 +116,7 @@ Make sure that your spec_helper:
 
 > Don't pull in the models etc. separately in the spec helper or you risk having the tests pass when the app might be missing a dependency.
 
-Also watch out for spec helpers vs [Sinatra helpers](https://www.sitepoint.com/using-sinatra-helpers-to-clean-up-your-code/). They are two very different things.  Don't pull your Sinatra helpers into your RSpec config:
+Also watch out for spec helpers vs [Sinatra helpers](https://www.sitepoint.com/using-sinatra-helpers-to-clean-up-your-code/). They are two very different things. Don't pull your Sinatra helpers into your RSpec config:
 
 ```
 RSpec.configure do |config|
@@ -129,7 +131,7 @@ end
 
 ## Clean the Database between tests
 
-Each test (feature or unit) should: 
+Each test (feature or unit) should:
 
 - Start on an empty database.
 - Create whatever data is needed for that test.
@@ -154,7 +156,6 @@ You can set up a manual Rake task for this. Or, if you're using an ORM like [Dat
 
 > For more on the difference between truncation, transaction and deletion strategies, go to [this Stack Overflow question](https://stackoverflow.com/questions/10904996/difference-between-truncation-transaction-and-deletion-database-strategies/10906127#10906127).
 
-
 ## Ensure Asset Routes are Set Correctly
 
 Want to load static assets such as CSS, images, and so on? Set a 'public folder' in your root, called 'static', then add the following configuration to your `app.rb`:
@@ -165,15 +166,15 @@ set :public_folder, Proc.new { File.join(root, 'static') }
 
 > You can vary where the public folder lives, and what it's called, using this method. Try it!
 
-# Step 3: Tests and \*\_spec.rb files  
+# Step 3: Tests and \*\_spec.rb files
 
 ## Avoid RSpec Feature Scenarios organized like Unit Tests
 
 Ensure your feature tests look like feature tests, not unit tests. They're probably:
 
-* Longer
-* More procedural (do this, then do this, then do this, then expect this, and this too)
-* Named more like 'doing something' (e.g. `adding_peep_spec.rb` rather than `user_spec.rb`)
+- Longer
+- More procedural (do this, then do this, then do this, then expect this, and this too)
+- Named more like 'doing something' (e.g. `adding_peep_spec.rb` rather than `user_spec.rb`)
 
 > It's common for feature tests to expect more than one thing.
 
@@ -214,12 +215,11 @@ scenario 'Peep is shown after signing up and peeping'  do
 end
 ```
 
-
 ## Ensure Correct Location of Feature/Acceptance and Unit Tests
 
-All your acceptance tests should be in a separate folder called `features`.  This can be in your `spec` folder or on the root; up to you.  It depends if you want the convenience of running units and features together or the convenience of being able to run them separately (helpful if feature tests run very slowly).
+All your acceptance tests should be in a separate folder called `features`. This can be in your `spec` folder or on the root; up to you. It depends if you want the convenience of running units and features together or the convenience of being able to run them separately (helpful if feature tests run very slowly).
 
-If a test is in the feature folder it should be testing the entire stack, i.e. it should interact with the app via a web page, and then test the results of that action in the web page that gets returned.  It's acceptable to manipulate the database directly to set things up, but note their are risks associated here, i.e. that you will get your database in a state that it couldn't get into via the web interface, then when the tests pass it may not reflect precisely the user experience of using the site.
+If a test is in the feature folder it should be testing the entire stack, i.e. it should interact with the app via a web page, and then test the results of that action in the web page that gets returned. It's acceptable to manipulate the database directly to set things up, but note their are risks associated here, i.e. that you will get your database in a state that it couldn't get into via the web interface, then when the tests pass it may not reflect precisely the user experience of using the site.
 
 Conversely if you are testing your models, with or without database interactions, then these tests should NOT be in your feature folder and should be in the `spec` folder, or in `spec/models`
 
@@ -262,17 +262,18 @@ See https://github.com/makersacademy/course/blob/main/pills/spec_helper_methods.
 
 ### Prefer Modular over Classic Style
 
-* http://www.sinatrarb.com/intro.html#Modular%20vs.%20Classic%20Style
+- http://www.sinatrarb.com/intro.html#Modular%20vs.%20Classic%20Style
 
 ### Use flash.now and flash.next Correctly
 
 Note that you have to register Sinatra Flash before you can use it.
 
-Also be careful of the difference between `next` and `now` methods.  Use
+Also be careful of the difference between `next` and `now` methods. Use
 
 ```
 flash.next[:notice]
 ```
+
 to see the message after a redirect, and
 
 ```
@@ -399,12 +400,12 @@ POST /peeps/:id/delete
 Specifically use a for attribute in labels as per [mozilla's guide](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form):
 
 ```html
-<form action='/peeps' method='post'>
-Message
-  <label for='message'>
-    <input type='text' name='message' required>
+<form action="/peeps" method="post">
+  Message
+  <label for="message">
+    <input type="text" name="message" required />
   </label>
-  <button type='submit'>Create Peep</button>
+  <button type="submit">Create Peep</button>
 </form>
 ```
 
@@ -412,39 +413,35 @@ but please follow the HTML styles described in https://developer.mozilla.org/en-
 
 Related Resources:
 
-* https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/My_first_HTML_form
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/My_first_HTML_form
 
 ### Prefer other Semantic HTML Elements to Divs Where Possible
 
-It's tempting to wrap everything HTML5 in a div.  However we should try to make use of other semantic HTML elements where possible.  Try using this [flowchart](http://html5doctor.com/downloads/h5d-sectioning-flowchart.png).  This flowchart should help us choose item 2 from the following list
+It's tempting to wrap everything HTML5 in a div. However we should try to make use of other semantic HTML elements where possible. Try using this [flowchart](http://html5doctor.com/downloads/h5d-sectioning-flowchart.png). This flowchart should help us choose item 2 from the following list
 
-* 1. Pure Div
+- 1. Pure Div
 
 ```html
-<div class='peep'>
-</div>
+<div class="peep"></div>
 ```
 
-* 2. Article (HTML5 recommended)
+- 2. Article (HTML5 recommended)
 
 ```html
-<article class='peep'>
-</article>
+<article class="peep"></article>
 ```
 
-* 3. Creating your own HTML5 element (avoid unless really required)
+- 3. Creating your own HTML5 element (avoid unless really required)
 
 ```html
-<peep>
-</peep>
+<peep> </peep>
 ```
 
 Related links:
 
-* http://html5doctor.com/lets-talk-about-semantics/
-* http://learn.shayhowe.com/advanced-html-css/semantics-accessibility/ ?
-* http://www.w3schools.com/html/html5_semantic_elements.asp
-
+- http://html5doctor.com/lets-talk-about-semantics/
+- http://learn.shayhowe.com/advanced-html-css/semantics-accessibility/ ?
+- http://www.w3schools.com/html/html5_semantic_elements.asp
 
 ### Use Partials with Standard HTML Conventions
 
@@ -460,9 +457,7 @@ Let's take a look at a mixed bag example that does partials but also breaks some
 </head>
 
 <body>
-  <div class="flash_header">
-    <%= erb :'/partials/flash_messages' %>
-  </div>
+  <div class="flash_header"><%= erb :'/partials/flash_messages' %></div>
 </body>
 <%= yield %>
 ```
@@ -474,23 +469,12 @@ Let's take a look at a mixed bag example that does partials but also breaks some
 
 ```html
 <!-- '/partials/flash_messages.erb -->
-<% if flash[:peep_confirmation] %>
-  <%= flash[:peep_confirmation] %>
-<% end %>
-
-<% if flash[:no_peepy] %>
-  <%= flash[:no_peepy] %>
-<% end %>
-
-<% if flash[:password_reset_sent] %>
-  <%= flash[:password_reset_sent] %>
-<% end %>
-
-...
+<% if flash[:peep_confirmation] %> <%= flash[:peep_confirmation] %> <% end %> <%
+if flash[:no_peepy] %> <%= flash[:no_peepy] %> <% end %> <% if
+flash[:password_reset_sent] %> <%= flash[:password_reset_sent] %> <% end %> ...
 ```
 
-a partial for the favicon in the above code seems excessive.  The style sheet ref shouldn't be relative if the public root is being set correctly, and notice that the yield is outside the html body element, and the top level html settings are missing.  Extracting flash_messages to partial okay, but how often will that actually be re-used?  It's justified here because the the flash messages partial is so long, but that's partly because the partial itself is unDRY - it should use flash[:error] and flash[:notice] rather than a separate symbol for every kind of message.
-
+a partial for the favicon in the above code seems excessive. The style sheet ref shouldn't be relative if the public root is being set correctly, and notice that the yield is outside the html body element, and the top level html settings are missing. Extracting flash_messages to partial okay, but how often will that actually be re-used? It's justified here because the the flash messages partial is so long, but that's partly because the partial itself is unDRY - it should use flash[:error] and flash[:notice] rather than a separate symbol for every kind of message.
 
 ## Use View Helpers
 
