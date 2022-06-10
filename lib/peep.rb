@@ -3,7 +3,7 @@ class Peep
     @post = post
   end
 
-  def read
+  def post
     @post
   end
 end
