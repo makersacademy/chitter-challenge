@@ -1,8 +1,9 @@
 class Peep
   def initialize(post)
+    @post = post
   end
 
   def read
-    'my wife just left me'
+    @post
   end
 end
