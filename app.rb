@@ -6,8 +6,8 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    'Hello world'
+  get '/chitter' do
+    'Chitter'
   end
 
   run if app_file == $0
