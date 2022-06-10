@@ -9,7 +9,7 @@ Chitter Challenge
 
 Design:
 -------
-![](images/Screenshot 2022-06-10 at 20.46.34.png?raw=true)
+![](images/first_design.png?raw=true)
 
 Challenge:
 -------
