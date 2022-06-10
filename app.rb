@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 
 class Chitter < Sinatra::Base
   configure :develpment do
-    register Sinatra::reloader
+    register Sinatra::Reloader
   end
 
   get '/' do
