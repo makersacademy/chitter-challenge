@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
 require './lib/peeps'
+require './lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -19,8 +20,8 @@ class Chitter < Sinatra::Base
 
   post '/mypeeps' do
     puts params[:new_peep]
-    connection = PG.connect(dbname: 'chitter')
-    connection.exec_params(
+    connection = PG.connect(dbname: 'chitter_test')
+    DatabaseConnection.query(
       "INSERT INTO peeps (content, peeper, post_time) VALUES ($1, $2, current_timestamp)",
       [params[:new_peep], 'DEV_TESTING']
     )
@@ -28,10 +29,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/mypeeps' do
-    connection = PG.connect(dbname: 'chitter')
-    @result = connection.exec_params(
+    @result = DatabaseConnection.query(
       "SELECT * FROM peeps WHERE peeper = $1 ORDER BY post_time DESC",
-      ["DEV_TESTING"]
+      ['DEV_TESTING']
     )
     erb :'/peeps/mypeeps'
   end
