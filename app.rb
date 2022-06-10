@@ -10,6 +10,10 @@ class Chitter < Sinatra::Base
     erb(:'chitter/index')
   end
 
+  post '/chitter' do
+    redirect ('/chitter')
+  end
+    
   get '/chitter/write' do
     erb(:'chitter/write')
   end
