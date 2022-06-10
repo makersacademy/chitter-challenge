@@ -10,5 +10,9 @@ class Chitter < Sinatra::Base
     erb(:'chitter/index')
   end
 
+  get '/chitter/write' do
+    erb(:'chitter/write')
+  end
+
   run if app_file == $0
 end
