@@ -6,6 +6,11 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+
+Design:
+-------
+![](images/Screenshot 2022-06-10 at 20.46.34.png?raw=true)
+
 Challenge:
 -------
 
