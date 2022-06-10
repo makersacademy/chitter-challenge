@@ -1,3 +1,3 @@
 Chitter
 <a href='/chitter/write'>Write</a>
-<%=$peep%>
+<%=if !$peep.nil? then $peep.post end%>
