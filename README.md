@@ -9,7 +9,11 @@ Chitter Challenge
 
 Design:
 -------
+Model:
 ![](images/first_design.png?raw=true)
+
+User Pathways:
+![](images/first_user_experience_design.png?raw=true)
 
 Challenge:
 -------
