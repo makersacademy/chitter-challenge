@@ -138,3 +138,4 @@ You can see your test coverage when you run your tests. If you want this in a gr
 3) Connect to the database using \c chitter (or \c chitter_test)
 4) Create the chits table using 01_create_chits_table.sql 
 5) Follow 02_add_time_to_table.sql to add time column to Chits table
+6) Follow 03_create_user_table.sql to create users table, do this in both chitter and chitter_test
