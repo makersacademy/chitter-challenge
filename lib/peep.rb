@@ -5,7 +5,7 @@ class Peep
   def self.all
     Peep.choose_database
     result = @controller.exec ("SELECT * FROM peeps")
-    result.map { |rows| rows['post'] }
+    result.map { |rows| rows['post'] }.reverse
   end
 
   def self.add(post)

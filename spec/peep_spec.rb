@@ -27,12 +27,12 @@ RSpec.describe Peep do
       expect(Peep.all).to eq ["What's your favourite colour?"]
     end
 
-    it 'shows mutliple peeps that have been created' do
+    it 'shows mutliple peeps that have been created, in reverse chronological order' do
       Peep.add("What's your favourite colour?")
       p Peep.all
       Peep.add("Loving the sunshine!!!")
       p Peep.all
-      expect(Peep.all).to eq ["What's your favourite colour?", "Loving the sunshine!!!"]
+      expect(Peep.all).to eq ["Loving the sunshine!!!", "What's your favourite colour?"]
     end
   end
 end
