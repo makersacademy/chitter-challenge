@@ -49,26 +49,26 @@ Installation:
 To set up this application:
 
 1. Clone this repo:
-,,,
+```
 https://github.com/Aisha-Yusuff/chitter-challenge
-,,,
+```
 
 2. Install all the gems
 
-,,,
+```
 bundle install
-,,,
+```
 
 3. Set up RSpec, 
-,,,
+```
 rspec --init
-,,,
+```
 
 This will create a spec directoy and spec_helper.rb file.
 
 4. Set up Sinatra by creating app.rb file and add this to your file 
 
-,,,
+```
 # in app.rb
 
 require 'sinatra/base'
@@ -85,21 +85,21 @@ class Chitter < Sinatra::Base
 
   run! if app_file == $0
 end
-,,,
+```
 
 5. Create config.ru file to configure rackup command
 
-,,,
+```
 # in config.ru
 
 require_relative "./app"
 
 run Chitter
-,,,
+```
 
 6. Connect capybara with sinatra by adding this to your spec_helper.rb file
 
-,,,
+```
 # at the top of spec/spec_helper.rb
 
 # Set the environment to "test"
@@ -115,7 +115,7 @@ require 'rspec'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
-,,,
+```
 
 Databases:
 ------
@@ -127,14 +127,14 @@ To create each database:
 1. Download PostgresSQL
 2. Run psql
 3. Then run the following psql commands:
-,,,
+```
 CREATE DATABASE chitter
 CREATE DATABASE chitter_test
-,,,
+```
 4. Then enter each database using:
-,,,
+```
 \c 'database-name'
-,,,
+```
 5. Add then enter the psql commands to create the accounts and peeps table. The psql commands can be found in the db/migrations directory.
 
 
