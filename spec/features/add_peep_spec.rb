@@ -14,4 +14,18 @@ feature 'add a peep' do
     click_on 'Share'
     expect(page).to have_content "What's peeping with YOU!?"
   end
+
+  context 'multiple peeps are added' do
+    scenario 'it shows multiple peeps' do
+      visit '/chitter'
+      click_on 'Compose a peep'
+      fill_in 'peep', with: "What's peeping with YOU!?"
+      click_on 'Share'
+      click_on 'Compose a peep'
+      fill_in 'peep', with: "I'm loving to peep"
+      click_on 'Share'
+      expect(page).to have_content "What's peeping with YOU!?"
+      expect(page).to have_content "I'm loving to peep"
+    end
+  end  
 end
