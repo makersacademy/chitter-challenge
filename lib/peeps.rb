@@ -23,6 +23,18 @@ class Peeps
     )
   end
 
+  def self.show_all
+    result = DatabaseConnection.query(
+      "SELECT * FROM peeps ORDER BY post_time DESC"
+    )
+    result.map { |entry| 
+      Peeps.new(content: entry['content'],
+        peeper: entry['peeper'],
+        id: entry['id'],
+        post_time: entry['post_time'])
+    }
+  end
+
   def self.show_mine
     result = DatabaseConnection.query(
       "SELECT * FROM peeps WHERE peeper = $1 ORDER BY post_time DESC",

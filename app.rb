@@ -33,6 +33,13 @@ class Chitter < Sinatra::Base
     @result = Peeps.show_mine
     erb :'/peeps/mypeeps'
   end
+
+  get '/viewpeeps' do
+    DatabaseConnection.setup('chitter_test')
+    @result = Peeps.show_all
+    puts "@results: #{@result}"
+    erb :'/peeps/allpeeps'
+  end
  
   # # Start the server if this file is executed directly (do not change the line below)
   run! if app_file == $0
