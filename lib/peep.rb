@@ -3,11 +3,7 @@ require 'pg'
 class Peep
 
   def self.all
-    if ENV['RACK_ENV'] == 'test'
-      @controller = PG.connect :dbname => 'chitter_test'
-    else
-      @controller = PG.connect :dbname => 'chitter'
-    end
+    Peep.choose_database
     result = @controller.exec ("SELECT * FROM peeps")
     result.map { |rows| rows['post'] }
   end
