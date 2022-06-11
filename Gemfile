@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'pg'
 gem 'sinatra-flash'
+gem 'orderly'
 
 group :test do
   gem 'capybara'

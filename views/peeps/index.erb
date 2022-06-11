@@ -1,7 +1,7 @@
 <ul>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.content %>
-    </li>
+  <% @peeps.reverse.each do |peep| %>
+    <b><%= peep.name %></b> @<%= peep.username %> <br>
+    <%= peep.content %> <br> 
+    <small><%= peep.timestamp %> </small><br> <br>
   <% end %>
 </ul>
