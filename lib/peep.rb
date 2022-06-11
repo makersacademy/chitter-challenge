@@ -12,10 +12,9 @@ class Peep
     result.map { |rows| rows['post'] }
   end
 
-  def initialize(post)
-    @post = post
-    @new_post = double_apostrophe
-    choose_database
+  def self.add(post)
+    @new_post = Peep.double_apostrophe(post)
+    Peep.choose_database
     @controller.exec ("TRUNCATE TABLE peeps")
     @controller.exec (
       %$INSERT INTO peeps(post) VALUES('#{@new_post}') returning post;$
@@ -27,8 +26,8 @@ class Peep
     result.map { |rows| rows['post'] }
   end
 
-  def double_apostrophe
-    chars = @post.chars
+  def self.double_apostrophe(post)
+    chars = post.chars
     new_chars = []
     chars.each do |char|
       char = "''" if char == "'"
@@ -37,7 +36,7 @@ class Peep
     new_chars.join
   end
 
-  def choose_database
+  def self.choose_database
     if ENV['RACK_ENV'] == 'test'
       @controller = PG.connect :dbname => 'chitter_test'
     else
