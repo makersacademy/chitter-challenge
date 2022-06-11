@@ -1,3 +1,9 @@
 Chitter <p></p>
 <a href='/chitter/compose'>Compose a peep</a> <p></p>
-<%=if !@peeps.nil? then @peeps end%>
+<% if !@peeps.nil? %>
+  <% @peeps.each do |peep| %> <p> </p>
+    <%= peep %>
+  <% end %>
+<% end %>
+
+
