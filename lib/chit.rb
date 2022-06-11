@@ -1,8 +1,9 @@
+require 'pg'
+
 class Chit
   def self.all
-    [
-      "My first chit",
-      "Look ma, I'm chitting!"
-    ]
+    connection = PG.connect(dbname: 'chitter_test')
+    result = connection.exec_params("SELECT * FROM chits")
+    result.map { |chit| chit['text'] }
   end
 end
