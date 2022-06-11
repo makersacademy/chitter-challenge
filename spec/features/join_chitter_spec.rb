@@ -20,6 +20,7 @@ feature 'form to sign up to chitter' do
     fill_in 'password', with: 'SweetJohn321'
     click_on 'Submit'
     expect(page).to have_content 'Welcome to Chitter, johnjohn!'
+    expect(page).not_to have_content 'Welcome to Chitter, penelopeheartsyou'
     expect(page).to have_link 'Compose a peep'
   end
 end
