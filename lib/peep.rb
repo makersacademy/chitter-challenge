@@ -1,7 +1,6 @@
 require 'pg'
 
 class Peep
-  attr_accessor :post
   def initialize(post)
     @post = post
     @new_post = double_apostrophe
@@ -14,7 +13,7 @@ class Peep
 
   def post
     result = @controller.exec ("SELECT post FROM peeps")
-    result.map {|rows| rows['post']}
+    post_data = result.map {|rows| rows['post']}
   end
 
   def double_apostrophe()
@@ -24,8 +23,7 @@ class Peep
       char = "''" if char == "'"
       new_chars << char
     end
-    p new_chars
-    p new_chars.join("")
+    new_chars.join("")
   end        
   
 end
