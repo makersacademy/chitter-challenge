@@ -3,20 +3,19 @@
 require 'database_connection'
 
 describe DatabaseConnection do
-  describe '.connect' do
+  describe '.setup' do
     it 'connects to the database' do
       expect(PG).to receive(:connect).with(dbname: 'chitter_test')
-      
-      @connection = DatabaseConnection.setup('chitter_test')
+      DatabaseConnection.setup('chitter_test')
     end
   end
 
   describe '.query' do
     it 'sends the SQL query to the database' do
-      connection = PG.connect(dbname: 'chitter_test')
+      connection = DatabaseConnection.setup('chitter_test')
       expect(connection).to receive(:exec_params).with("SELECT * FROM peeps", [])
-      connection.exec_params(
-        "SELECT * FROM peeps", []
+      DatabaseConnection.query(
+        "SELECT * FROM peeps"
       )
     end
   end

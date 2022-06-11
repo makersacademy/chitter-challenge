@@ -3,8 +3,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
-require 'peeps'
-require 'database_connection_setup'
+require './lib/peeps'
+require './lib/database_connection_setup'
 # as the connection setup is required here,
 # the connection will be set accordingly when app.rb is started
 
@@ -29,15 +29,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/mypeeps' do
-    DatabaseConnection.setup('chitter_test')
+    # DatabaseConnection.setup('chitter_test')
     @result = Peeps.show_mine
     erb :'/peeps/mypeeps'
   end
 
   get '/viewpeeps' do
-    DatabaseConnection.setup('chitter_test')
+    # DatabaseConnection.setup('chitter_test')
     @result = Peeps.show_all
-    puts "@results: #{@result}"
     erb :'/peeps/allpeeps'
   end
  
