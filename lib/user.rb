@@ -1,9 +1,9 @@
 class User
-  attr_reader :name, :email, :username, :password
-  def initialize(name, email, username, password)
-    @name = name
-    @email = email
+  def self.create(name, email, username, password)
     @username = username
-    @password = password
+  end
+
+  def self.username
+    @username
   end
 end
