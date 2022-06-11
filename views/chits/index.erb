@@ -1,5 +1,11 @@
+<form action="/signup" method="get">
+  <input type="submit" value="Sign up!" />
+</form>
 <ul>
   <% @chits.each do |chit| %>
     <li class="chit"><%= chit.text %></li>
   <% end %>
 </ul>
+<h2>
+  <%= flash[:join] %>
+</h2>

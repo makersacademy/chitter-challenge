@@ -1,8 +1,11 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/chit'
 
 class Chitter < Sinatra::Base
+  enable :sessions, :method_override
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
@@ -13,7 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chits' do
-    @chits = Chit.all.reverse
+    @chits = Chit.all
     erb :'chits/index'
   end
 
@@ -23,6 +26,15 @@ class Chitter < Sinatra::Base
 
   post '/chits' do
     Chit.create(text: params[:chit])
+    redirect '/chits'
+  end
+
+  get '/signup' do
+    erb :"chits/signup"
+  end
+
+  post '/chits/join' do
+    flash[:join] = "Welcome, you little chitter-er"
     redirect '/chits'
   end
 
