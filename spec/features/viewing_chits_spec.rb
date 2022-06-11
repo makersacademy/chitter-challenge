@@ -11,7 +11,10 @@ feature 'Viewing chits' do
 
   scenario 'Should be able to view chits in reverse chronological order' do
     Chit.create(text: "My first chit")
-    Chit.create(text: "Look ma, I'm chitting")
+    chit = Chit.create(text: "Look ma, I'm chitting")
+    chits = Chit.all
     visit('/chits')
+    expect(chits.first).to eq chit.text
+    
   end
 end
