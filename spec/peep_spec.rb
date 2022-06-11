@@ -22,4 +22,11 @@ RSpec.describe Peep do
       expect(peep.double_apostrophe).to eq "What''s your favourite colour?"
     end
   end
+
+  describe 'self.all' do
+    it 'shows a peep that has been created' do
+      peep = Peep.new("What's your favourite colour?")
+      expect(Peep.all).to eq ["What's your favourite colour?"]
+    end
+  end
 end

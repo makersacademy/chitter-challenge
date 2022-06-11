@@ -25,6 +25,13 @@ Create the database using `CREATE DATABASE chitter;`
 Connect to the database using `\c chitter;`
 Run the commands in the db/migrations folder, in order.
 
+To Set up The Test Database:
+----------
+Connect to `psql`
+Create the database using `CREATE DATABASE chitter;`
+Connect to the database using `\c chitter;`
+Run the commands in the db/migrations folder, in order.
+
 Challenge:
 -------
 
