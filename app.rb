@@ -11,4 +11,7 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
     register Sinatra::Flash 
     
+  get '/' do
+    "Welcome to Chitter"
+  end
 end
