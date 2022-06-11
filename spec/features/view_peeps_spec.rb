@@ -4,6 +4,11 @@ feature 'homepage' do
     expect(page).to have_content 'Chitter'
   end
 
+  scenario 'contains a button to sign up' do
+    visit '/chitter'
+    expect(page).to have_link 'Join Chitter'
+  end
+
   scenario 'shows multiple peeps not in an array' do
     add_two_peeps
     expect(page).to have_content "What's peeping with YOU!?"
