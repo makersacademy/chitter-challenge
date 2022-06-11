@@ -1,4 +1,4 @@
-# ./spec/landing_page_spec.rb
+# ./spec/post_peep_spec.rb
 
 feature 'Posting and viewing peeps' do
   scenario 'it allows me to post and view a peep' do

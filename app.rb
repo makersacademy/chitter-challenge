@@ -20,6 +20,36 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    puts "params[:user]: #{params[:new_user]}"
+    result = DatabaseConnection.query(
+      "SELECT * from users WHERE peeper = $1",
+      [params[:new_user]]
+    )
+    puts "result cmdtuples: #{result.cmdtuples}"
+    if result.cmdtuples == 0
+      signup = DatabaseConnection.query(
+        "INSERT INTO users (peeper) VALUES ($1) RETURNING id, peeper;",
+        [params[:new_user]]
+      )
+      $user_id = signup[0]['id']
+      $peeper = signup[0]['peeper']
+    end
+    puts $user_id
+    redirect ('/signup_success')
+  end
+
+  get '/signup_success' do
+    puts "@user_id at signup_success #{$user_id}"
+    @user_id = $user_id
+    @peeper = $peeper
+    erb :signup_success
+  end
+
   post '/mypeeps' do
     DatabaseConnection.query(
       "INSERT INTO peeps (content, peeper, post_time) VALUES ($1, $2, current_timestamp)",
