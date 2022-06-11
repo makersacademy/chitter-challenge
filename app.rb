@@ -8,7 +8,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    "Hello there!"
+    "Welcome to Chitter!"
+  end
+
+  get '/chits' do
+    @chits = [
+      "My first chit",
+      "Look ma, I'm chitting",
+    ]
+    erb :'chits/index'
   end
 
   run! if app_file == $0
