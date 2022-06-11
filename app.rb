@@ -16,8 +16,8 @@ class Chitter < Sinatra::Base
     redirect ('/chitter')
   end
     
-  get '/chitter/write' do
-    erb(:'chitter/write')
+  get '/chitter/compose' do
+    erb(:'chitter/compose')
   end
 
   run if app_file == $0
