@@ -16,11 +16,6 @@ class Peep
       )
   end
 
-  def post
-    result = @controller.exec ("SELECT post FROM peeps")
-    result.map { |rows| rows['post'] }
-  end
-
   def self.double_apostrophe(post)
     chars = post.chars
     new_chars = []
