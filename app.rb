@@ -21,5 +21,13 @@ class Chitter < Sinatra::Base
     erb(:'chitter/compose')
   end
 
+  get '/chitter/join' do
+    erb(:'chitter/join')
+  end
+
+  post '/chitter/join' do
+    redirect ('/chitter/join')
+  end
+
   run if app_file == $0
 end
