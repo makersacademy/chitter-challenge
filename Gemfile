@@ -20,3 +20,5 @@ gem "sinatra", "~> 2.2"
 gem "sinatra-contrib", "~> 2.2"
 
 gem "pg", "~> 1.3"
+
+gem "launchy", "~> 2.5"

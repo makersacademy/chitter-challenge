@@ -5,6 +5,8 @@ require 'sinatra/reloader'
 require 'pg'
 require './lib/peeps'
 require './lib/database_connection_setup'
+# as the connection setup is required here,
+# the connection will be set accordingly when app.rb is started
 
 class Chitter < Sinatra::Base
   configure :development do

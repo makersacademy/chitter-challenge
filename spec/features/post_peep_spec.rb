@@ -5,7 +5,6 @@ feature 'Posting and viewing my peeps' do
     visit('/mypeeps')
     fill_in("new_peep", with: 'This is my latest peep!')
     click_button "PEEP!"
-    save_and_open_page
     expect(page).to have_content 'This is my latest peep!'
   end
 end
