@@ -9,12 +9,12 @@
 </div>
 
 <div class="show_my_peeps">
-  <% if @result != nil%>
+
   <% @result.each do |mypeep| %>
     <p>
       <%= mypeep['content'] %><br>
       <%= mypeep['timestamp'] %>
     </p>
   <% end %>
-  <% end %>
+
 </div>

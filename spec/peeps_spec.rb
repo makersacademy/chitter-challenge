@@ -4,16 +4,16 @@ require './lib/peeps'
 
 describe '.show_mine' do
   it 'shows all peeps by myself' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec_params(
+    DatabaseConnection.setup('chitter_test')
+    DatabaseConnection.query(
       "INSERT INTO peeps (content, peeper, post_time) VALUES($1, $2, current_timestamp)",
     ['This is a test peep', 'DEV_TESTING']
     )
-    connection.exec_params(
+    DatabaseConnection.query(
       "INSERT INTO peeps (content, peeper, post_time) VALUES($1, $2, current_timestamp)",
     ['This is the second test peep.', 'DEV_TESTING']
     )
-    connection.exec_params(
+    DatabaseConnection.query(
       "INSERT INTO peeps (content, peeper, post_time) VALUES($1, $2, current_timestamp)",
     ['This is the third test peep.', 'DEV_TESTING']
     )

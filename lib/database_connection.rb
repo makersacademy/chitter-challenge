@@ -8,6 +8,7 @@ class DatabaseConnection
   end
 
   def self.query(sql, params = [])
+    puts "sending query"
     @connection.exec_params(sql, params)
   end
 end
