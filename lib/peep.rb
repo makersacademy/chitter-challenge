@@ -15,7 +15,6 @@ class Peep
   def self.add(post)
     @new_post = Peep.double_apostrophe(post)
     Peep.choose_database
-    @controller.exec ("TRUNCATE TABLE peeps")
     @controller.exec (
       %$INSERT INTO peeps(post) VALUES('#{@new_post}') returning post;$
       )
