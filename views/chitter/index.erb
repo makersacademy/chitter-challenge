@@ -1,4 +1,6 @@
+
 <% @peeps.each do |peep| %>
+  <%= peep.time_created %>
   <%= peep.content %></br>
 <% end %>
 <form action="/chitter" method="post">

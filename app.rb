@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/peep.rb'
 require_relative './lib/database_connection_setup.rb'
+require 'date'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -18,8 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    p params
-    @peep = Peep.create(content: params[:content])
+    @peep = Peep.create(content: params[:content], time_created: Time.now.to_s)
     redirect '/chitter'
   end
 

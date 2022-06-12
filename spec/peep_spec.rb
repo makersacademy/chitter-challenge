@@ -3,9 +3,9 @@ require 'peep.rb'
 describe Peep do
   describe '.all' do
     it "shows all peeps" do
-      peep_test = Peep.create(content: dummy_text)
-      Peep.create(content: "hello there")
-      Peep.create(content: "blah blah")
+      peep_test = Peep.create(content: dummy_text, time_created: Time.now.to_s)
+      Peep.create(content: "hello there", time_created: Time.now.to_s)
+      Peep.create(content: "blah blah", time_created: Time.now.to_s)
       expect(Peep.all.size).to eq 3
       expect(Peep.all.first.content).to eq dummy_text
     end
