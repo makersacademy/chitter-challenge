@@ -16,9 +16,9 @@ Please checkout your reviewee's code and run their tests. Read the code and try 
   * [ ] Sign up
   * [ ] Log in
   * [ ] Log out
-  * [ ] Peeping
-  * [ ] Listing Peeps
-  * [ ] Display time of peep
+  * [X] Peeping
+  * [X] Listing Peeps
+  * [X] Display time of peep
 
 * Bonus Features
   * [ ] Replying to peeps

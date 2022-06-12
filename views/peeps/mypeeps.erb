@@ -1,0 +1,20 @@
+<!-- ./views/peeps/mypeeps.erb -->
+
+<div class="new_peep">
+<form action='/mypeeps' method='post'>
+  <label for="new_peep">Write your new PEEP:</label><br>
+  <input type="text" name="new_peep" id="new_peep" /><br>
+  <input type="submit" value="PEEP!">
+</form>
+</div>
+
+<div class="show_my_peeps">
+
+  <% @result.each do |mypeep| %>
+    <p>
+      <%= mypeep.content %><br>
+      <%= mypeep.post_time %>
+    </p>
+  <% end %>
+
+</div>
