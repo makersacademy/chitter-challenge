@@ -7,9 +7,10 @@ RSpec.describe Peep do
     expect(Peep.all).to eq [['my wife just left me', '15:49:00']]
   end
 
-  xit 'shows a different peep' do
-    peep = Peep.add('my wife came back!')
-    expect(Peep.all).to eq ['my wife came back!']
+  it 'shows a different peep' do
+    time = double :time, now: Time.new(2022, 06, 12, 17, 30, 02)
+    peep = Peep.add('my wife came back!', time)
+    expect(Peep.all).to eq [['my wife came back!', '17:30:00']]
   end
 
   describe ".double_apostrophe" do
