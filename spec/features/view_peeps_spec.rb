@@ -19,6 +19,7 @@ feature 'Viewing peeps' do
     expect(page).to have_content "This is my second peep"
     expect(page).to have_content "This is my third peep"
   end
+end
 
   
 
