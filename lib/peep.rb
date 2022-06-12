@@ -8,7 +8,7 @@ class Peep
     result.map { |rows| rows.values_at('post', 'time') }.reverse
   end
 
-  def self.add(post, time)
+  def self.add(post, time = Time)
     @new_post = Peep.double_apostrophe(post)
     post_time = time.now.strftime("%k:%M")
     Peep.choose_database
