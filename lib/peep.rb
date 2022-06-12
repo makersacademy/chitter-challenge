@@ -37,4 +37,3 @@ class Peep
   
 end
   
-#time.strftime("%k:%M")

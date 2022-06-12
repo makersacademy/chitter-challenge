@@ -6,7 +6,8 @@ class User
   def self.create(name, email, username, password)
     User.choose_database
     @controller.exec (
-      %$INSERT INTO users(name, email, username, password) VALUES('#{name}', '#{email}', '#{username}', '#{password}');$
+      %$INSERT INTO users(name, email, username, password) 
+      VALUES('#{name}', '#{email}', '#{username}', '#{password}');$
       )
   end
 
