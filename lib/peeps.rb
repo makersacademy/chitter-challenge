@@ -31,8 +31,8 @@ class Peeps
     else
       conn = PG.connect(dbname: 'chitter')
     end
-    result = conn.exec_params("INSERT INTO peeps (message) VALUES('#{message}') 
-       RETURNING peep_id, account_id, message, created_at, updated_at;")
+    result = conn.exec_params("INSERT INTO peeps (message) VALUES($1) 
+       RETURNING peep_id, account_id, message, created_at, updated_at;", [message])
     Peeps.new(peep_id: result[0]['peep_id'], account_id: result[0]['account_id'],
        message: result[0]['message'], created_at: result[0]['created_at'], 
        updated_at: result[0]['updated_at'])
