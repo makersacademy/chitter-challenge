@@ -4,10 +4,12 @@ ruby '3.0.2'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'capybara'
+gem 'puma'
+gem 'webrick'
 
 group :test do
   gem 'rspec'
-  gem 'capybara'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
