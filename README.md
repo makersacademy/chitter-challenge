@@ -26,6 +26,15 @@ Example of Use:
 --------
 ![](images/chitter_in_use3.png?raw=true)
 
+To run on your computer:
+---------------------
+* Clone this repository
+* In the terminal, run:
+* `bundle`
+* Follow instructions below to set up the databases
+* `rackup` to run in the browser
+* `rspec` to run the tests
+
 To Set Up The Databases:
 -------
 Connect to `psql` \
