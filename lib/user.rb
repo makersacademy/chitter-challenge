@@ -11,13 +11,19 @@ class User
   def self.username
     User.choose_database
     username = @controller.exec ("SELECT username FROM users;")
-    username.map { |row| row['username'] }.first
+    username.map { |row| row['username'] }.last
   end
 
   def self.name
     User.choose_database
     username = @controller.exec ("SELECT name FROM users;")
-    username.map { |row| row['name'] }.first
+    username.map { |row| row['name'] }.last
+  end
+
+  def self.return_name_for_username(username)
+    User.choose_database
+    user_details = @controller.exec ("SELECT name FROM users WHERE username='#{username}';")
+    user_details.map { |user| user['name'] }.first
   end
 
   def self.choose_database
@@ -27,10 +33,5 @@ class User
       @controller = PG.connect :dbname => 'chitter'
     end
   end
-
-  def self.return_name_for_username(username)
-    User.choose_database
-    user_details = @controller.exec ("SELECT name FROM users WHERE username='#{username}';")
-    user_details.map { |user| user['name'] }.first
-  end
+ 
 end

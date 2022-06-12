@@ -17,15 +17,25 @@ feature 'add a peep' do
 
   context 'multiple peeps are added' do
     scenario 'it shows multiple peeps' do
-      visit '/chitter'
-      click_on 'Compose a peep'
-      fill_in 'peep', with: "What's peeping with YOU!?"
-      click_on 'Share'
-      click_on 'Compose a peep'
-      fill_in 'peep', with: "I'm loving to peep"
-      click_on 'Share'
+      add_two_peeps
       expect(page).to have_content "What's peeping with YOU!?"
       expect(page).to have_content "I'm loving to peep"
     end
   end  
+
+  context 'two people sign up' do
+    scenario 'it attaches the most recent sign up to the tweet' do
+      sign_up_as_penelope
+      click_on 'Compose a peep'
+      fill_in 'peep', with: "What's peeping with YOU!?"
+      click_on 'Share'
+      sign_up_as_john
+      click_on 'Compose a peep'
+      fill_in 'peep', with: "What's your peep"
+      click_on 'Share'
+      expect(page).to have_content 'John Pie'
+      expect(page).to have_content 'johnjohn!'
+    end
+  end
+
 end
