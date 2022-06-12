@@ -1,7 +1,4 @@
 class User
-  # def self.create(name, email, username, password)
-  #   @username = username
-  # end
 
   def self.create(name, email, username, password)
     User.choose_database
@@ -15,6 +12,11 @@ class User
     username = @controller.exec ("SELECT username FROM users;")
     username.map { |row| row['username'] }.first
   end
+
+   def self.name
+     username = @controller.exec ("SELECT name FROM users;")
+     username.map { |row| row['name'] }.first
+   end
 
   def self.choose_database
     if ENV['RACK_ENV'] == 'test'

@@ -24,4 +24,13 @@ feature 'homepage' do
     click_on 'Share'
     expect(page).to have_content(time)
   end
+
+  scenario 'peeps shows a username and name when they have signed up' do
+    sign_up_as_penelope
+    click_on 'Compose a peep'
+    fill_in 'peep', with: "What's peeping with YOU!?"
+    click_on 'Share'
+    expect(page).to have_content("Penelope Heart")
+    expect(page).to have_content("penelopeheartsyou")
+  end
 end

@@ -13,3 +13,13 @@ def add_two_peeps
   fill_in 'peep', with: "I'm loving to peep"
   click_on 'Share'
 end
+
+def sign_up_as_penelope
+  visit '/chitter'
+  click_on 'Join Chitter'
+  fill_in 'Name', with: 'Penelope Heart'
+  fill_in 'Email', with: 'penel<3@makers.com'
+  fill_in 'username', with: 'penelopeheartsyou'
+  fill_in 'password', with: 'SweetHeart321'
+  click_on 'Submit'
+end
