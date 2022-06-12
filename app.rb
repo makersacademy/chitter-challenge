@@ -9,9 +9,8 @@ class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-
   enable :sessions
-
+  
   get '/' do
     'Chitter'
   end
@@ -29,16 +28,15 @@ class Chitter < Sinatra::Base
 
   post '/chitter/peeps' do
     Peeps.create(message: params[:message])
-    redirect '/chitter/member' 
+    redirect '/chitter' 
   end 
 
 # accounts_controller
-
-  get '/chitter/account/new' do 
-    erb :'/accounts/new'
+  get '/chitter/signup' do 
+    erb :'/accounts/signup'
   end 
 
-  post '/chitter/account' do # CREATE data
+  post '/chitter/newaccount' do # CREATE data
     Account.create(name: params[:full_name], username: params[:username], 
                     email: params[:email], password: params[:password])
     session[:success_message] = "You've successfully signed up to chitter!"
