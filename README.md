@@ -9,7 +9,6 @@ To write a small Twitter clone that will allow the users to post messages to a p
 Features:
 -------
 
-```
 User Story 1:
 As a Maker
 So that I can let people know what I am doing  
@@ -42,7 +41,6 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-```
 
 Technical Approach:
 -----
