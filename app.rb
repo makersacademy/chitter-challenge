@@ -1,13 +1,18 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
-class ChitterChallenge < Sinatra::base
+class ChitterChallenge < Sinatra::Base
   configure :development do
     register Sinatra::reloader
   end
 
-  get ('/')
-    'Hello World'
+  get ('/') do
+    'Welcome to Chitter'
+  end
+
+  get ('/peeps') do
+    @peeps = Chitter.all
+    erb :peeps
   end
 
 
