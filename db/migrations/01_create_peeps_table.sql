@@ -1,1 +1,1 @@
-CREATE TABLE peeps (id SERIAL PRIMARY KEY, time TIME, username VARCHAR (16), post VARCHAR);
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, time TIME, post VARCHAR, foreign_id_users int);

@@ -23,4 +23,10 @@ feature 'form to sign up to chitter' do
     expect(page).not_to have_content 'Welcome to Chitter, penelopeheartsyou'
     expect(page).to have_link 'Compose a peep'
   end
+
+  scenario 'shows no confirmation if you have not signed up' do
+    visit '/chitter'
+    click_on 'Join Chitter'
+    expect(page).not_to have_content 'Welcome to Chitter,'
+  end
 end
