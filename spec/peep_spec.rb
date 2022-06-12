@@ -30,12 +30,14 @@ RSpec.describe Peep do
       expect(Peep.all).to eq [["What's your favourite colour?", "17:30:00"]]
     end
 
-    xit 'shows mutliple peeps that have been created, in reverse chronological order' do
-      Peep.add("What's your favourite colour?")
+    it 'shows mutliple peeps that have been created, in reverse chronological order' do
+      time = double :time, now: Time.new(2022, 06, 12, 17, 30, 02)
+      second_time = double :time, now: Time.new(2022, 06, 12, 17, 45, 02)
+      Peep.add("What's your favourite colour?", time)
       p Peep.all
-      Peep.add("Loving the sunshine!!!")
+      Peep.add("Loving the sunshine!!!", second_time)
       p Peep.all
-      expect(Peep.all).to eq ["Loving the sunshine!!!", "What's your favourite colour?"]
+      expect(Peep.all).to eq [["Loving the sunshine!!!", "17:45:00"], ["What's your favourite colour?", "17:30:00"]]
     end
   end
 end
