@@ -1,5 +1,5 @@
 require 'pg'
-require 'user'
+require './lib/user'
 
 class Peep
 
