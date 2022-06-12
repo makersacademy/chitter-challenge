@@ -33,4 +33,14 @@ feature 'homepage' do
     expect(page).to have_content("Penelope Heart")
     expect(page).to have_content("penelopeheartsyou")
   end
+
+  scenario 'peeps shows a different username and name when they have signed up' do
+    sign_up_as_john
+    click_on 'Compose a peep'
+    fill_in 'peep', with: "What's peeping with YOU!?"
+    click_on 'Share'
+    expect(page).to have_content("John Pie")
+    expect(page).to have_content("johnjohn!")
+  end
+
 end

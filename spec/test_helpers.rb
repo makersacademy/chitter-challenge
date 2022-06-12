@@ -23,3 +23,13 @@ def sign_up_as_penelope
   fill_in 'password', with: 'SweetHeart321'
   click_on 'Submit'
 end
+
+def sign_up_as_john
+  visit '/chitter'
+  click_on 'Join Chitter'
+  fill_in 'Name', with: 'John Pie'
+  fill_in 'Email', with: 'john<3@makers.com'
+  fill_in 'username', with: 'johnjohn!'
+  fill_in 'password', with: 'SweetJohn321'
+  click_on 'Submit'
+end

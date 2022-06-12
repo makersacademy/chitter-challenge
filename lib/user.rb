@@ -9,11 +9,13 @@ class User
   end
 
   def self.username
+    User.choose_database
     username = @controller.exec ("SELECT username FROM users;")
     username.map { |row| row['username'] }.first
   end
 
    def self.name
+    User.choose_database
      username = @controller.exec ("SELECT name FROM users;")
      username.map { |row| row['name'] }.first
    end

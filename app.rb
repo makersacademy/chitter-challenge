@@ -9,12 +9,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
+    @name = User.name
+    @username = User.username
     @peeps = Peep.all
     erb(:'chitter/index')
   end
 
   post '/chitter' do
-    Peep.add(params[:peep])
+    Peep.add(params[:peep], )
     redirect ('/chitter')
   end
     
