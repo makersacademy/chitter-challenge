@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/database_connection_setup.rb'
+require_relative './lib/peep.rb'
+require_relative './lib/database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -8,8 +9,19 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    redirect '/chitter'
   end
 
-  run! if app_file == $0
+  get '/chitter' do
+    @peeps = Peep.all
+    erb :'chitter/index'
+  end
+
+  post '/chitter' do
+    p params
+    @peep = Peep.create(content: params[:content])
+    redirect '/chitter'
+  end
+
+    run! if app_file == $0
 end

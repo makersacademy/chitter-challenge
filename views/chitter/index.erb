@@ -1,0 +1,9 @@
+<% @peeps.each do |peep| %>
+  <%= peep.content %></br>
+<% end %>
+<form action="/chitter" method="post">
+  <label for="content">New peep:
+    <input type="text" name="content" maxlength="240">
+  </label>
+  <input type="submit" value="Peep!">
+</form>
