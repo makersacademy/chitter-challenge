@@ -1,5 +1,6 @@
 require 'peeps'
 require 'pg'
+require 'database_helpers'
 
 describe Peeps do 
   
@@ -25,12 +26,10 @@ describe Peeps do
   describe '.create' do 
     it "creates a new peep" do 
       peep = Peeps.create(message: "I love chitter more than twitter!")
-      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE peep_id = #{peep.peep_id};")
-
-      p persisted_data
+      persisted_data = persisted_data(peep_id: peep.peep_id)
 
       expect(peep).to be_a Peeps
-      expect(peep.peep_id).to eq persisted_data.first['peep_id']
+      expect(peep.peep_id).to eq persisted_data['peep_id']
       expect(peep.message).to eq "I love chitter more than twitter!"
     end 
   end 
