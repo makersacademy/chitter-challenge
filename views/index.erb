@@ -12,8 +12,8 @@
 
 
 <% if @success_message %>
-  <div id="success" style="">
-  <%= @success_message %>
+  <div id="success" style="color: green">
+  <b> <%= @success_message %> </b>
   </div>
 <% end %>
 
@@ -21,17 +21,17 @@
 <h3>Have a look at the latest peeps:</h3>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.message %></li>
   <% end %>
 </ul>
 
  <%# sign up button  %>
- <P> <b>Do you want to post a peep?</b>
-  <form action="/chitter/signup" method="get">
+  <form action="/chitter/account/new" method="get">
+  <P><b>Do you want to post a peep?</b></P>
   <label for="sign_up1">All you need to do is join our community and sign up:</label><br>
-      <input type="submit" name="sign_up1" value="Sign Up" />
+      <input type="submit" name="sign_up" value="Sign Up" />
   </form>
-  </P>
+  
 
 <%# log in button 
    <form action="/chitter/login" method="get">

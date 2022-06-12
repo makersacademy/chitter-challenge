@@ -3,7 +3,6 @@ require 'sinatra/reloader'
 require './lib/peeps'
 require './lib/account'
 require 'pg'
-require 'sinatra/flash'
 
 # application_controller 
 class Chitter < Sinatra::Base
@@ -22,15 +21,15 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+# peeps_controller
+
   get '/chitter/peeps/new' do
     erb :'peeps/new'
   end 
 
   post '/chitter/peeps' do
-    message = params['message']
-    conn = PG.connect(dbname: 'chitter_test')
-    conn.exec("INSERT INTO peeps (message) VALUES('#{message}')")
-    redirect '/chitter' 
+    Peeps.create(message: params[:message])
+    redirect '/chitter/member' 
   end 
 
 # accounts_controller
@@ -40,7 +39,8 @@ class Chitter < Sinatra::Base
   end 
 
   post '/chitter/account' do # CREATE data
-    Account.create(name: params[:full_name], username: params[:username], email: params[:email], password: params[:password])
+    Account.create(name: params[:full_name], username: params[:username], 
+                    email: params[:email], password: params[:password])
     session[:success_message] = "You've successfully signed up to chitter!"
     redirect '/chitter/member'
   end 
