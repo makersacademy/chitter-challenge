@@ -29,3 +29,6 @@ require 'rspec'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
+
+# Set up envirmoment variable
+ENV['ENVIRONMENT'] = 'test'
