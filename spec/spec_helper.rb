@@ -38,8 +38,5 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
-
-# in spec/spec_helper.rb
