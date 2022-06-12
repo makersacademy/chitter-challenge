@@ -4,7 +4,7 @@ Chitter Challenge
 
 About:
 -------
-This is a weekend challenge form week 4 of the Maker's Academy course. We were asked to create a twitter clone that allows users to post messages to a public streams.
+This is a weekend challenge from week 4 of the Maker's Academy course. We were asked to create a twitter clone that allows users to post messages to a public streams.
 
 User Stories:
 -------
@@ -135,7 +135,7 @@ CREATE DATABASE chitter_test
 ```
 \c 'database-name'
 ```
-5. Add then enter the psql commands to create the accounts and peeps table. The psql commands can be found in the db/migrations directory.
+5. Finally run the psql commands in the db/migrations directory to create the accounts and peeps table for each database. 
 
 
 
