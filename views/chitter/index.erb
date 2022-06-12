@@ -1,11 +1,18 @@
-
+<h1>Chitter</h1>
 <% @peeps.each do |peep| %>
   <%= peep.time_created %>
   <%= peep.content %></br>
 <% end %>
-<form action="/chitter" method="post">
-  <label for="content">New peep:
-    <input type="text" name="content" maxlength="240">
-  </label>
-  <input type="submit" value="Peep!">
-</form>
+<%if @user%>
+  <form action="/chitter" method="post">
+    <label for="content">New peep:
+      <input type="text" name="content" maxlength="240">
+    </label>
+    <input type="submit" value="Peep!">
+  </form>
+<%else%>
+  You must sign in to peep
+  <form action="chitter/user/new" method="get">
+    <input type="submit" value="Sign up">
+  </form>
+<%end%>

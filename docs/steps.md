@@ -1,0 +1,4 @@
+- use sessions with user so we know if they're active
+- encrypt password
+- implement log in
+- implement log out
