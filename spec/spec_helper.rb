@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'simplecov-console'
+require './spec/test_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -9,9 +10,34 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  ENV['RACK_ENV'] = 'test'
+
+  require_relative '../app'
+
+  require 'capybara'
+  require 'capybara/rspec'
+  require 'rspec'
+
+  Capybara.app = Chitter
+
+  RSpec.configure do |config|
+
+    config.before(:each) do
+      truncate_tables
+    end
+
+    config.after(:suite) do
+      puts
+      puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
+      puts "\e[33mTry it now! Just run: rubocop\e[0m"
+    end
+  end
+
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end  
+
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
   end
 end

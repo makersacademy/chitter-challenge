@@ -1,15 +1,56 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+What I completed:
+----------------
+This is a partial solution. It fulfils the first 4 user stories but has some issues with them, which I would fix if I had more time. It does not have a feature for logging in and out.
 
-Challenge:
+If I had more time, I would:
+* write a test that raised a message on the interface if the username was already taken, and pass it
+* ensure that only unique usernames can be stored in the database
+* add the log in and log out page
+* update my designs so they more fully represent the system as it stands now
+
+Design:
 -------
+Model:
+![](images/class_design2.png?raw=true)
 
-As usual please start by forking this repo.
+User Pathways:
+![](images/first_user_experience_design.png?raw=true)
+
+Database:
+![](images/database_design.png?raw=true)
+
+Example of Use:
+--------
+![](images/chitter_in_use3.png?raw=true)
+
+To run on your computer:
+---------------------
+* Clone this repository
+* In the terminal, run:
+* `bundle`
+* Follow instructions below to set up the databases
+* `rackup` to run in the browser
+* `rspec` to run the tests
+
+To Set Up The Databases:
+-------
+Connect to `psql` \
+Create the database using `CREATE DATABASE chitter;` \
+Connect to the database using `\c chitter;` \
+Run the commands in the db/migrations folder, in order.
+
+To Set up The Test Database:
+----------
+Connect to `psql` \
+Create the database using `CREATE DATABASE chitter;` \
+Connect to the database using `\c chitter;` \
+Run the commands in the db/migrations folder, in order.
+
+Challenge Instructions I followed:
+-------
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 

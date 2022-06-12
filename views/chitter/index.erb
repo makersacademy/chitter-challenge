@@ -1,0 +1,10 @@
+Chitter <p></p>
+<a href='/chitter/compose'>Compose a peep</a> <p></p>
+<a href='/chitter/join'>Join Chitter</a> <p></p>
+<% if !@peeps.nil? %>
+  <% @peeps.each do |peep| %>
+    <b> <%= peep[0] %> </b> | @<%= peep[1] %> <br>
+    <%= peep[2] %><br>
+    <%= peep[3] %><p></p>
+  <% end %>
+<% end %>
