@@ -1,0 +1,1 @@
+CREATE TABLE chitter_user (user_id SERIAL PRIMARY KEY, email VARCHAR(40), password VARCHAR(20), name VARCHAR(30), username VARCHAR(30));
