@@ -14,11 +14,11 @@ class User
     username.map { |row| row['username'] }.first
   end
 
-   def self.name
-    User.choose_database
-     username = @controller.exec ("SELECT name FROM users;")
-     username.map { |row| row['name'] }.first
-   end
+  def self.name
+  User.choose_database
+    username = @controller.exec ("SELECT name FROM users;")
+    username.map { |row| row['name'] }.first
+  end
 
   def self.choose_database
     if ENV['RACK_ENV'] == 'test'
@@ -28,4 +28,8 @@ class User
     end
   end
 
+  def self.return_name_for_username(username)
+    user_details = @controller.exec ("SELECT name FROM users WHERE username='#{username}';")
+    user_details.map {|user| user['name']}.first
+  end
 end

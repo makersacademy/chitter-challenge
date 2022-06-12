@@ -20,4 +20,9 @@ RSpec.describe User do
     User.create('John Pie', 'penel<3@makers.com', 'penelopeheartsyou', 'SweetHeart321')
     expect(User.name).to eq 'John Pie'
   end
+
+  it 'returns the name linked to a username' do
+    User.create('Penelope Heart', 'penel<3@makers.com', 'penelopeheartsyou', 'SweetHeart321')
+    expect(User.return_name_for_username("penelopeheartsyou")).to eq 'Penelope Heart'
+  end
 end
