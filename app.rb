@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require 'pg'
 require './lib/peeps'
 require './lib/database_connection_setup'
+require './lib/users'
 # as the connection setup is required here,
 # the connection will be set accordingly when app.rb is started
 
@@ -26,27 +27,17 @@ class Chitter < Sinatra::Base
 
   post '/signup' do
     puts "params[:user]: #{params[:new_user]}"
-    result = DatabaseConnection.query(
-      "SELECT * from users WHERE peeper = $1",
-      [params[:new_user]]
-    )
-    puts "result cmdtuples: #{result.cmdtuples}"
-    if result.cmdtuples == 0
-      signup = DatabaseConnection.query(
-        "INSERT INTO users (peeper) VALUES ($1) RETURNING id, peeper;",
-        [params[:new_user]]
-      )
-      $user_id = signup[0]['id']
-      $peeper = signup[0]['peeper']
+    puts "Users.username_available(params[:new_user]): #{Users.username_available(params[:new_user])}"
+    if Users.username_available(params[:new_user])
+      $user = Users.signup(params[:new_user])
+      puts "$user id: #{$user.id}"
+      redirect ('/signup_success') 
     end
-    puts $user_id
-    redirect ('/signup_success')
   end
 
   get '/signup_success' do
-    puts "@user_id at signup_success #{$user_id}"
-    @user_id = $user_id
-    @peeper = $peeper
+    puts "redirect successful"
+    @user = $user
     erb :signup_success
   end
 
@@ -59,13 +50,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/mypeeps' do
-    # DatabaseConnection.setup('chitter_test')
     @result = Peeps.show_mine
     erb :'/peeps/mypeeps'
   end
 
   get '/viewpeeps' do
-    # DatabaseConnection.setup('chitter_test')
     @result = Peeps.show_all
     erb :'/peeps/allpeeps'
   end

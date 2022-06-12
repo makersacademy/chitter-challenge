@@ -4,8 +4,8 @@ require_relative './database_connection'
 
 if ENV['ENVIRONMENT'] == 'test'
   DatabaseConnection.setup('chitter_test')
-  puts "test"
+  puts "testing env"
 else
   DatabaseConnection.setup('chitter')
-  puts "dev"
+  puts "dev env"
 end
