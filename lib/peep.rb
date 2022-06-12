@@ -1,5 +1,5 @@
 class Peep
-  attr_reader :content, :time_created
+  attr_reader :id, :content, :time_created
 
   def initialize(id, content, time_created)
     @id = id

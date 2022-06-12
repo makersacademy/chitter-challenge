@@ -1,10 +1,10 @@
 class User
-  attr_reader :id, :firstname, :lastname, :email, :handle, :password
+  attr_reader :id, :first_name, :last_name, :email, :handle, :password
 
-  def initialize(id, firstname, lastname, email, handle, password)
+  def initialize(id, first_name, last_name, email, handle, password)
     @id = id
-    @firstname = firstname
-    @lastname = lastname
+    @first_name = first_name
+    @last_name = last_name
     @email = email
     @handle = handle
     @password = password
@@ -15,8 +15,8 @@ class User
     result.map do |user| 
       User.new(
         user['id'],
-        user['firstname'], 
-        user['lastname'],
+        user['first_name'], 
+        user['last_name'],
         user['email'],
         user['handle'],
         user['password']
@@ -24,14 +24,14 @@ class User
     end
   end
 
-  def self.create(firstname:, lastname:, email:, handle:, password:)
+  def self.create(first_name:, last_name:, email:, handle:, password:)
     result = DatabaseConnection.query(
-      "INSERT INTO users (firstname, lastname, email, handle, password) VALUES($1, $2, $3, $4, $5) RETURNING id, firstname, lastname, email, handle, password", 
-      [firstname, lastname, email, handle, password]
+      "INSERT INTO users (first_name, last_name, email, handle, password) VALUES($1, $2, $3, $4, $5) RETURNING id, first_name, last_name, email, handle, password", 
+      [first_name, last_name, email, handle, password]
     )
     User.new(result[0]['id'],
-            result[0]['firstname'], 
-            result[0]['lastname'], 
+            result[0]['first_name'], 
+            result[0]['last_name'], 
             result[0]['email'], 
             result[0]['handle'], 
             result[0]['password']
@@ -42,8 +42,8 @@ class User
     return nil unless id
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = $1", [id])
     User.new(result[0]['id'],
-      result[0]['firstname'], 
-      result[0]['lastname'], 
+      result[0]['first_name'], 
+      result[0]['last_name'], 
       result[0]['email'], 
       result[0]['handle'], 
       result[0]['password']

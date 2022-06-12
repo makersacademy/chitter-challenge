@@ -3,8 +3,8 @@ def dummy_text
 end
 
 def user_sign_up
-  fill_in "firstname", with: "Sophie"
-  fill_in "lastname", with: "Gilder"
+  fill_in "first_name", with: "Sophie"
+  fill_in "last_name", with: "Gilder"
   fill_in "email", with: "sophie.macramazing@gmail.com"
   fill_in "handle", with: "sophieg"
   fill_in "password", with: "password123"

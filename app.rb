@@ -27,13 +27,13 @@ class Chitter < Sinatra::Base
     redirect '/chitter'
   end
 
-  get '/chitter/user/new' do
-    erb :'chitter/user/new'
+  get '/chitter/user' do
+    erb :'chitter/user'
   end
 
-  post '/chitter/user/new' do
+  post '/chitter/user' do
     user = User.create(
-      firstname: params[:firstname], lastname: params[:lasttname], email: params[:email], handle: params[:handle], password: params[:password]
+      first_name: params[:first_name], last_name: params[:last_name], email: params[:email], handle: params[:handle], password: params[:password]
     )
     session[:user_id] = user.id
     redirect '/chitter'

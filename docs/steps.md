@@ -1,4 +1,6 @@
-- use sessions with user so we know if they're active
+- sign up X
+- add a peep X
+- add user_id to the peeps database
 - encrypt password
 - implement log in
 - implement log out
