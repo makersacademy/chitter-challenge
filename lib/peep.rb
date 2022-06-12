@@ -3,12 +3,12 @@ require 'user'
 
 class Peep
 
-  def self.all
+  def self.all(user = User)
     Peep.choose_database
     result = @controller.exec ("SELECT * FROM peeps")
     post_details = result.map { |rows| rows.values_at('username', 'post', 'time') }.reverse
     post_details.each do |peep|
-      # extracts the name from the users table
+      peep.insert(0, user.return_name_for_username(peep[0]))
     end
   end
 

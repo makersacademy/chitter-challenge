@@ -15,7 +15,7 @@ class User
   end
 
   def self.name
-  User.choose_database
+    User.choose_database
     username = @controller.exec ("SELECT name FROM users;")
     username.map { |row| row['name'] }.first
   end
@@ -29,6 +29,7 @@ class User
   end
 
   def self.return_name_for_username(username)
+    User.choose_database
     user_details = @controller.exec ("SELECT name FROM users WHERE username='#{username}';")
     user_details.map {|user| user['name']}.first
   end

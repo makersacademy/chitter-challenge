@@ -37,15 +37,15 @@ RSpec.describe Peep do
       p Peep.all
       Peep.add("Loving the sunshine!!!", second_time)
       p Peep.all
-      expect(Peep.all).to eq [["Loving the sunshine!!!", "17:45:00"], ["What's your favourite colour?", "17:30:00"]]
+      expect(Peep.all).to eq [["", "", "Loving the sunshine!!!", "17:45:00"], ["What's your favourite colour?", "17:30:00"]]
     end
 
     context 'user has signed up' do
       it 'shows the name, the username, the post, and the time' do
         time = double :time, now: Time.new(2022, 0o6, 12, 17, 30, 0o2)
-        user = double :user, name: "John Pie", username: "johnjohn!"
-        Peep.add("What's your favourite colour?", time, user)
-        expect(Peep.all).to eq [["John Pie", "johnjohn!", "What's your favourite colour?", "17:30:00"]]
+        fake_user = double :user, return_name_for_username: "John Pie", username: "johnjohn!"
+        Peep.add("What's your favourite colour?", time, fake_user)
+        expect(Peep.all(fake_user)).to eq [["John Pie", "johnjohn!", "What's your favourite colour?", "17:30:00"]]
       end
     end
   end
