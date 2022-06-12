@@ -18,7 +18,8 @@ class Peep
     username = user.username
     Peep.choose_database
     @controller.exec (
-      %$INSERT INTO peeps(post, username, time) VALUES('#{@new_post}', '#{username}', '#{post_time}') returning post;$
+      %$INSERT INTO peeps(post, username, time) 
+      VALUES('#{@new_post}', '#{username}', '#{post_time}') returning post;$
       )
   end
 

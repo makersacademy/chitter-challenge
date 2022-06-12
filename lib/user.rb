@@ -31,6 +31,6 @@ class User
   def self.return_name_for_username(username)
     User.choose_database
     user_details = @controller.exec ("SELECT name FROM users WHERE username='#{username}';")
-    user_details.map {|user| user['name']}.first
+    user_details.map { |user| user['name'] }.first
   end
 end
