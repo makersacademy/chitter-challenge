@@ -6,9 +6,9 @@ gem 'launchy'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'sinatra-contrib'
 gem 'webrick', '~> 1.3', '>= 1.3.1'
-
 
 group :test do
   gem 'capybara'
