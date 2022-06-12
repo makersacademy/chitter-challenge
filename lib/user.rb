@@ -1,13 +1,14 @@
-class User
-  attr_reader :id, :first_name, :last_name, :email, :handle, :password
+require 'bcrypt'
 
-  def initialize(id, first_name, last_name, email, handle, password)
+class User
+  attr_reader :id, :first_name, :last_name, :email, :handle
+
+  def initialize(id, first_name, last_name, email, handle)
     @id = id
     @first_name = first_name
     @last_name = last_name
     @email = email
     @handle = handle
-    @password = password
   end
 
   def self.all
@@ -18,23 +19,22 @@ class User
         user['first_name'], 
         user['last_name'],
         user['email'],
-        user['handle'],
-        user['password']
+        user['handle']
       )
     end
   end
 
   def self.create(first_name:, last_name:, email:, handle:, password:)
+    encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (first_name, last_name, email, handle, password) VALUES($1, $2, $3, $4, $5) RETURNING id, first_name, last_name, email, handle, password", 
-      [first_name, last_name, email, handle, password]
+      [first_name, last_name, email, handle, encrypted_password]
     )
     User.new(result[0]['id'],
             result[0]['first_name'], 
             result[0]['last_name'], 
             result[0]['email'], 
-            result[0]['handle'], 
-            result[0]['password']
+            result[0]['handle']
     )
   end
 
@@ -45,8 +45,18 @@ class User
       result[0]['first_name'], 
       result[0]['last_name'], 
       result[0]['email'], 
-      result[0]['handle'], 
-      result[0]['password']
+      result[0]['handle']
     )  
-end
+  end
+
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = $1", [email])
+    return nil unless result.any?
+    User.new(result[0]['id'],
+            result[0]['first_name'], 
+            result[0]['last_name'], 
+            result[0]['email'], 
+            result[0]['handle']
+    )
+  end
 end
