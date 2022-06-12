@@ -9,13 +9,13 @@ Chitter Challenge
 Diagrams:
 -------
 Classes:
-![](diagrams/classes.png)
+![](diagrams/classes.png?raw=true)
 
 MVC Posting diagram:
-![](diagrams/posting.png)
+![](diagrams/posting.png?raw=true)
 
 MVC Signup diagram:
-![](diagrams/signup.png)
+![](diagrams/signup.png?raw=true)
 
 
 
