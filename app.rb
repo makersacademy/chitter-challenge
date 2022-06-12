@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative 'lib/chitter'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -20,9 +21,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post ('/peeps') do
-    your_peep = params['text']
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (text) VALUES('#[your_peep}');")
+    Chitter.create(text: params[:text])
     redirect '/peeps'
   end
 

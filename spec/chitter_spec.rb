@@ -18,5 +18,14 @@ RSpec.describe 'Chitter' do
       expect(peeps).to eq ["peep_3", "peep_2", "peep_1"]
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Chitter.create(text: "peep peep one two")
+
+      expect(Chitter.all).to include "peep peep one two"
+    end
+  end
 end
+
 
