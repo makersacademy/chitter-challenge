@@ -17,6 +17,18 @@ class ChitterApp < Sinatra::Base
     erb :'peeps/index'
   end 
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    content = params['content']
+    user_id = params['user_id']
+    connection = PG.connect(dbname: 'chitter_chatter_test')
+    connection.exec("INSERT INTO peeps (content, user_id) VALUES('#{content}') ")
+    redirect '/peeps'
+  end
+
 
   run! if app_file == $0
 end
@@ -38,11 +50,10 @@ end
 # I want to see all peeps in reverse chronological order ///////\\\\\\\\\\
 
 
-
 # user story 2
 # As a Maker
 # So that I can let people know what I am doing  
-# I want to post a message (peep) to chitter
+# I want to post a message (peep) to chitter ///////
 
 
 # user story 3
