@@ -12,16 +12,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT * FROM chitter;")
-    result.map { |peep| @peep = peep['peep'] }
+    @peep = Peep.post
     erb:'chitter'
   end
 
   post '/chitter' do
-    peep = params[:peep]
-    connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO chitter (peep) VALUES('#{peep}')")
+    Peep.new(peep: params[:peep])
     redirect '/chitter'
   end
 
