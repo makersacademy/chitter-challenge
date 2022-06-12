@@ -25,7 +25,7 @@ Database:
 
 Example of Use:
 --------
-![](images/example_of_use.png?raw=true)
+![](images/chitter_in_use.png?raw=true)
 
 To Set Up The Databases:
 -------
