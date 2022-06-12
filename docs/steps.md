@@ -1,6 +1,6 @@
 - sign up X
 - add a peep X
 - add user_id to the peeps database X
-- encrypt password
-- implement log in
-- implement log out
+- encrypt password X
+- implement log in X
+- implement log out X
