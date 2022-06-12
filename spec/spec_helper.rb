@@ -12,7 +12,7 @@ require 'capybara/rspec'
 require 'rspec'
 
 # Tell Capybara to talk to BookmarkManager
-Capybara.app = ChitterChat
+Capybara.app = Chitter
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
