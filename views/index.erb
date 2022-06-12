@@ -20,7 +20,7 @@
 
 <h3>Have a look at the latest peeps:</h3>
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li><%= peep.message %></li>
   <% end %>
 </ul>
