@@ -1,6 +1,6 @@
 <h1>Chitter</h1>
 <% @peeps.each do |peep| %>
-  <%= peep.time_created %>
+  <%= "@#{User.find(id: peep.user_id).handle}: #{peep.time_created}" %></br>
   <%= peep.content %></br>
 <% end %>
 <%if @user%>
