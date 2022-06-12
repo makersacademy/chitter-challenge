@@ -8,9 +8,14 @@ Chitter Challenge
 
 Diagrams:
 -------
-![](classes.png)
-![](posting.png)
-![](signup.png)
+Classes:
+![](diagrams/classes.png)
+
+MVC Posting diagram:
+![](diagrams/posting.png)
+
+MVC Signup diagram:
+![](diagrams/signup.png)
 
 
 
