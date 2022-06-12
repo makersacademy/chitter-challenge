@@ -1,6 +1,6 @@
 <p>Peeps List</p>
 <ul>
   <% @peeps.each do |message| %>
-    <li><%= message %></li>
+    <li><%= message.peep %> <%= message.created_on[0...-10] %></li>
   <% end %>
 </ul>
