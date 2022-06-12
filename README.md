@@ -1,3 +1,34 @@
+# Chitter
+
+How to use:
+
+**Set up database**
+
+1. Connect to psql
+2. Create the database using the psql command 
+````console
+psql=# CREATE DATABASE chitter;
+````
+3. Connect to the database using the pqsl command 
+````console
+psql=# \c chitter
+````
+4. Run the query we have saved in the file 01_create_users_table.sql in migrations
+5. Run the query we have saved in the file 02_create_peeps_table.sql in migrations
+6. \c to psql home
+7. 
+````console
+psql=# CREATE DATABASE chitter_test;
+psql=# \c chitter_test;
+````
+8. Repeat steps  4 & 5
+
+**Install gems**
+
+````console
+% bundle install
+````
+
 Chitter Challenge
 =================
 
