@@ -17,11 +17,11 @@ feature 'homepage' do
   end
 
   scenario 'peeps shows a time stamp' do
-    time = double :time, new: Time.new(2022, 06, 12, 15, 49, 02)
     visit '/chitter'
     click_on 'Compose a peep'
     fill_in 'peep', with: "What's peeping with YOU!?"
+    time = Time.now.strftime("%k:%M")
     click_on 'Share'
-    expect(page).to have_content '15:49'
+    expect(page).to have_content(time)
   end
 end
