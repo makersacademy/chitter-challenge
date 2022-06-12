@@ -17,7 +17,7 @@ describe '.show_mine' do
       "INSERT INTO peeps (content, peeper, post_time) VALUES($1, $2, current_timestamp)",
     ['This is the third test peep.', 'DEV_TESTING']
     )
-    result = Peeps.show_mine
+    result = Peeps.show_mine('DEV_TESTING')
     expect(result[0].content).to eq 'This is the third test peep.'
     expect(result[1].content).to eq 'This is the second test peep.'
     expect(result[2].content).to eq 'This is a test peep'
@@ -30,7 +30,7 @@ describe '.create' do
     Peeps.create('This is a test', 'DEV_TESTING')
     Peeps.create('This is the second test', 'DEV_TESTING')
     Peeps.create('This is a the last peep', 'DEV_TESTING')
-    result = Peeps.show_mine
+    result = Peeps.show_mine('DEV_TESTING')
     expect(result[0].content).to eq 'This is a the last peep'
     expect(result[1].content).to eq 'This is the second test'
     expect(result[2].content).to eq 'This is a test'

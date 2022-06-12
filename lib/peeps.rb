@@ -35,10 +35,10 @@ class Peeps
     }
   end
 
-  def self.show_mine
+  def self.show_mine(name)
     result = DatabaseConnection.query(
       "SELECT * FROM peeps WHERE peeper = $1 ORDER BY post_time DESC",
-      ['DEV_TESTING']
+      [name]
     )
     result.map { |entry| 
       Peeps.new(content: entry['content'],

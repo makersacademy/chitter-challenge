@@ -16,6 +16,9 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
+  $logged_in = false
+  $log_in_name = nil
+
   # our routes would go here
   get '/' do
     erb :index
@@ -26,32 +29,48 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    puts "params[:user]: #{params[:new_user]}"
     puts "Users.username_available(params[:new_user]): #{Users.username_available(params[:new_user])}"
     if Users.username_available(params[:new_user])
       $user = Users.signup(params[:new_user])
-      puts "$user id: #{$user.id}"
       redirect ('/signup_success') 
     end
   end
 
   get '/signup_success' do
-    puts "redirect successful"
     @user = $user
     erb :signup_success
   end
 
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/log_in' do
+    redirect ('/log_in') unless Users.username_available(params[:username]) == false
+    $log_in_name = params[:username]
+    $logged_in = true
+    redirect ('/mypeeps')
+  end
+
   post '/mypeeps' do
+    @log_in_name = $log_in_name
+    puts "post /mypeeps @log_in_name: #{@log_in_name}"
     DatabaseConnection.query(
       "INSERT INTO peeps (content, peeper, post_time) VALUES ($1, $2, current_timestamp)",
-      [params[:new_peep], 'DEV_TESTING']
+      [params[:new_peep], @log_in_name]
     )
     redirect ('/mypeeps')
   end
 
   get '/mypeeps' do
-    @result = Peeps.show_mine
-    erb :'/peeps/mypeeps'
+    # if @logged_in == false
+    #   redirect ('/log_in')
+    # else
+    @log_in_name = $log_in_name
+      # puts "/mypeeps @log_in_name: #{@log_in_name}"
+      @result = Peeps.show_mine(@log_in_name)
+      erb :'/peeps/mypeeps'
+    # end
   end
 
   get '/viewpeeps' do

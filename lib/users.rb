@@ -33,6 +33,4 @@ class Users
     puts signup[0]['peeper']
     return Users.new(id: signup[0]['id'], username: signup[0]['peeper'])
   end
-
-
 end
