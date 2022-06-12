@@ -8,7 +8,10 @@ Chitter Challenge
 
 Diagrams:
 -------
-![](diagrams/Untitled-2022-06-12-1202.png)
+![](classes.png)
+![](posting.png)
+![](signup.png)
+
 
 
 Features:
