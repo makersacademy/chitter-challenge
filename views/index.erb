@@ -1,5 +1,35 @@
+<head>
+<title>Welcome to Chitter</title>
+</head>
+
+<body>
+<h1> Welcome to Chitter!</h1>
+<h3> A place where you can post peeps and also read other peoples peeps! </h3>
+
+<p>What is a peep?<br>
+    Well a peep is a 300 character limit message that you can post on chitter for others to read. <br>
+</p>
+
+
+<% if @success_message %>
+  <div id="success" style="">
+  <%= @success_message %>
+  </div>
+<% end %>
+
+
+<h3>Have a look at the latest peeps:</h3>
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 </ul>
+
+ <%# sign up button  %>
+ <P> Do you want to post a peep?
+  <form action="/chitter/signup" method="get">
+  <label for="sign_up1">All you need to do is join our community and sign up:</label><br>
+      <input type="submit" name="sign_up1" value="Sign Up" />
+  </form>
+  </P>
+
