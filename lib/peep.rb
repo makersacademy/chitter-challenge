@@ -6,22 +6,12 @@ class Peep
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = DatabaseConnection.setup('chitter_test')
-    else
-      connection = DatabaseConnection.setup('chitter')
-    end
-    result = connection.exec("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps", [])
     result.map {|peep| Peep.new(peep['content'])}
   end
 
   def self.create(content:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = DatabaseConnection.setup('chitter_test')
-    else
-      connection = DatabaseConnection.setup('chitter')
-    end
-    result = connection.exec("INSERT INTO peeps (content) VALUES('#{content}')")
+    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES($1)", [content])
     Peep.new(content)
   end
 end

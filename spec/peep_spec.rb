@@ -11,10 +11,10 @@ describe Peep do
     end
   end
 
-  # describe '.create' do
-  #   xit "adds a new peep" do
-  #     peep = Peep.create(content: dummy_text)
-  #     expect(Peep.all).to include dummy_text
-  #   end
-  # end
+  describe '.create' do
+    it "adds a new peep" do
+      peep = Peep.create(content: dummy_text)
+      expect(Peep.all.first.content).to eq peep.content
+    end
+  end
 end

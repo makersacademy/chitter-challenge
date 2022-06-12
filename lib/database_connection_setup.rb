@@ -1,3 +1,4 @@
+require 'pg'
 require_relative './database_connection'
 
 if ENV['ENVIRONMENT'] == 'test'
