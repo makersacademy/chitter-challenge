@@ -9,13 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @name = User.name
-    @username = User.username
     @peeps = Peep.all
-    if !@name.nil? && !@username.nil? && !@peeps.nil?
-      @peeps[0].insert(0, @name)
-      @peeps[0].insert(1, @username)
-    end
     erb(:'chitter/index')
   end
 
