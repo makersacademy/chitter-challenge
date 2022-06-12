@@ -11,7 +11,11 @@
     </label>
     <input type="submit" value="Peep!">
   </form>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out">
+  </form>
 <%else%>
+  <%= flash[:notice] %>
   You must sign in to peep
   <form action="chitter/user" method="get">
     <input type="submit" value="Sign up">
