@@ -1,23 +1,21 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/peep'
 
-class Chitter < Sinatra::Base
+class ChitterApp < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    erb :index
+    'Chitter Chatter'
   end
 
   get '/peeps' do
-    peeps = [
-      "This is my first peep",
-      "This is my second peep",
-      "This is my third peep"
-    ]
-    peeps.join
+    @peeps = Peep.all
+    erb :'peeps/index'
   end 
+
 
   run! if app_file == $0
 end
