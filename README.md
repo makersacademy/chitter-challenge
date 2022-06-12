@@ -8,7 +8,6 @@ This is a partial solution. It fulfils the first 4 user stories but has some iss
 If I had more time, I would:
 * write a test that raised a message on the interface if the username was already taken, and pass it
 * ensure that only unique usernames can be stored in the database
-* ensure the most recent 'sign up' is the username and name that appears on the peep
 * add the log in and log out page
 * update my designs so they more fully represent the system as it stands now
 
@@ -25,7 +24,7 @@ Database:
 
 Example of Use:
 --------
-![](images/chitter_in_use2.png?raw=true)
+![](images/chitter_in_use3.png?raw=true)
 
 To Set Up The Databases:
 -------
