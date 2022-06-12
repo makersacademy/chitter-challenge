@@ -15,6 +15,8 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+<img src="chitter_challenge _ model_1.png">
+
 User Story 2:
 As a Maker
 So that I can see what others are saying  
