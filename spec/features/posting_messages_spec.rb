@@ -1,5 +1,5 @@
 feature 'post a peep message' do
-  scenario 'a user can post a peep message' do
+  scenario 'A user can post a peep message' do
     visit('/messages/new')
     fill_in('message', with: "This is a peep")
     fill_in('user', with; 'Clare')
