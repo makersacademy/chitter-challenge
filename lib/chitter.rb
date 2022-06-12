@@ -8,9 +8,10 @@ class Chitter
       connection = PG.connect(dbname: 'chitter')
     end
       result = connection.exec("SELECT * FROM peeps")
-    result.map do |peep|
+    peeps = result.map do |peep|
       peep['text']
     end
+    peeps.reverse
   end
 
 

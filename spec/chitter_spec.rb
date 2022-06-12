@@ -14,6 +14,8 @@ RSpec.describe 'Chitter' do
       expect(peeps).to include "peep_1"
       expect(peeps).to include "peep_2"
       expect(peeps).to include "peep_3"
+      #returns in reverse chronological order
+      expect(peeps).to eq ["peep_3", "peep_2", "peep_1"]
     end
   end
 end
