@@ -5,14 +5,15 @@ class Peep
   def self.all
     Peep.choose_database
     result = @controller.exec ("SELECT * FROM peeps")
-    result.map { |rows| rows['post'] }.reverse
+    result.map { |rows| rows.values_at('post', 'time') }.reverse
   end
 
-  def self.add(post)
+  def self.add(post, time)
     @new_post = Peep.double_apostrophe(post)
+    post_time = time.now.strftime("%k:%M")
     Peep.choose_database
     @controller.exec (
-      %$INSERT INTO peeps(post) VALUES('#{@new_post}') returning post;$
+      %$INSERT INTO peeps(post, time) VALUES('#{@new_post}', '#{post_time}') returning post;$
       )
   end
 
@@ -36,3 +37,4 @@ class Peep
   
 end
   
+#time.strftime("%k:%M")

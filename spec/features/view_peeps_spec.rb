@@ -15,4 +15,13 @@ feature 'homepage' do
     expect(page).to have_content "I'm loving to peep"
     expect(page).not_to have_content ["What's peeping with YOU!?", "I'm loving to peep"]
   end
+
+  scenario 'peeps shows a time stamp' do
+    time = double :time, new: Time.new(2022, 06, 12, 15, 49, 02)
+    visit '/chitter'
+    click_on 'Compose a peep'
+    fill_in 'peep', with: "What's peeping with YOU!?"
+    click_on 'Share'
+    expect(page).to have_content '15:49'
+  end
 end
