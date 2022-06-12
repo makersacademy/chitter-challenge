@@ -23,7 +23,7 @@ RSpec.configure do |config|
   RSpec.configure do |config|
 
     config.before(:each) do
-      truncate_table
+      truncate_tables
     end
 
     config.after(:suite) do

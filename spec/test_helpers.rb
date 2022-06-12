@@ -1,6 +1,7 @@
-def truncate_table
+def truncate_tables
   controller = PG.connect :dbname => 'chitter_test'
   controller.exec ("TRUNCATE TABLE peeps")
+  controller.exec ("TRUNCATE TABLE users")
 end
 
 def add_two_peeps

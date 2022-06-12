@@ -23,13 +23,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/join' do
-    @username = User.username
     erb(:'chitter/join')
   end
 
   post '/chitter/join' do
     User.create(params[:Name], params[:Email], params[:username], params[:password])
-    redirect ('/chitter/join')
+    redirect ('/chitter/join/welcome')
+  end
+
+  get './chitter/join/welcome' do
+    @username = User.username
+    erb(:'chitter/join/welcome')
   end
 
   run if app_file == $0
