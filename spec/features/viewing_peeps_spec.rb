@@ -9,11 +9,10 @@ end
 
 feature 'viewing peeps' do
   scenario 'a user can view peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps VALUES(1, 'peep_1');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'peep_2');")
-    connection.exec("INSERT INTO peeps VALUES(3, 'peep_3');")
+    Chitter.create(text: "peep_1")
+    Chitter.create(text: "peep_2")
+    Chitter.create(text: "peep_3")
 
     visit('/peeps')
     expect(page).to have_content "peep_3"
