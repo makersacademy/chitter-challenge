@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -8,12 +9,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do 
-    'Hello World'
+    erb :'index'
   end
 
   get '/chitter' do
     @peep = Peep.post
-    erb:'chitter'
+    erb :'chitter'
   end
 
   post '/chitter' do
