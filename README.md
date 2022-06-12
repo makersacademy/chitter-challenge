@@ -39,6 +39,12 @@ As a Maker,
 So that I can avoid others posting messages on Chitter as me, 
 I want to log out of Chitter
 
+Progress so far:
+-----
+- Features for user stories 1 and 2 built.
+- Added some minor style features (my eyes can't take Times New Roman)
+- Next would be to add the time feature to the peeps. I'd do this by updating the test and development databases so that peeps have a ```time``` as well as ```text```. Then update the create method to take two parameters - text and time. And to fulfil the user story, this would involve updating the view so that time is shown also. 
+- This would involve using the ```Time``` class in Ruby. 
 
 Technical Approach:
 -----
