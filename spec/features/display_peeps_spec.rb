@@ -1,7 +1,7 @@
 feature "Displaying peeps" do
   scenario "a user can see a peep" do
     peep = Peep.create(
-      name: "Dack Korsey",
+      name: "Dack Jorsey",
       username: "dack",
       content: "just setting up my chttr"
     )
@@ -11,7 +11,7 @@ feature "Displaying peeps" do
 
   scenario "peeps are displayed with newest at top" do
     peep_1 = Peep.create(
-      name: "Dack Korsey",
+      name: "Dack Jorsey",
       username: "dack",
       content: "just setting up my chttr"
     )
@@ -30,7 +30,7 @@ feature "Displaying peeps" do
 
   scenario "peeps display user and username, along with content" do
     peep = Peep.create(
-      name: "Dack Korsey",
+      name: "Dack Jorsey",
       username: "dack",
       content: "just setting up my chttr"
     )
@@ -38,12 +38,12 @@ feature "Displaying peeps" do
 
     expect(page).to have_content "just setting up my chttr"
     expect(page).to have_content "@dack"
-    expect(page).to have_content "Dack Korsey"
+    expect(page).to have_content "Dack Jorsey"
   end
 
   scenario "peeps display time and date peep was posted" do
     peep = Peep.create(
-      name: "Dack Korsey",
+      name: "Dack Jorsey",
       username: "dack",
       content: "just setting up my chttr"
     )
@@ -52,7 +52,7 @@ feature "Displaying peeps" do
 
     expect(page).to have_content "just setting up my chttr"
     expect(page).to have_content "@dack"
-    expect(page).to have_content "Dack Korsey"
+    expect(page).to have_content "Dack Jorsey"
     expect(page).to have_content time
   end
 end

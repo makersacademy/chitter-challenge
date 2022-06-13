@@ -4,7 +4,7 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps' do
       peep = Peep.create(
-        name: "Dack Korsey",
+        name: "Dack Jorsey",
         username: "dack",
         content: "just setting up my chttr"
       )
@@ -24,7 +24,7 @@ describe Peep do
   describe '.create' do
     it 'creates a new peep with content' do
       peep = Peep.create(
-        name: "Dack Korsey",
+        name: "Dack Jorsey",
         username: "dack",
         content: "just setting up my chttr"
       )
@@ -34,20 +34,20 @@ describe Peep do
 
     it 'creates a new peep with content, name, and username' do
       peep = Peep.create(
-        name: "Dack Korsey",
+        name: "Dack Jorsey",
         username: "dack",
         content: "just setting up my chttr"
       )
 
       expect(peep).to be_a Peep
       expect(peep.content).to eq "just setting up my chttr"
-      expect(peep.name).to eq "Dack Korsey"
+      expect(peep.name).to eq "Dack Jorsey"
       expect(peep.username).to eq "dack"
     end
 
     it 'timestamps each new peep' do
       peep = Peep.create(
-        name: "Dack Korsey",
+        name: "Dack Jorsey",
         username: "dack",
         content: "just setting up my chttr"
       )
