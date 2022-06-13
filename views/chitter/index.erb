@@ -1,11 +1,8 @@
 <html>
-
 <style>
 body {
-    background-color: #c4c4c4;
-  
+    background-color: #c4c4c4; 
 }
-
 .text {
     position: absolute;
     top: 10%; 
@@ -31,9 +28,18 @@ body {
     1px 25px 35px rgba(16,16,16,0.2),
     1px 30px 60px rgba(16,16,16,0.4);
 }
-
 </style>
-
 <span class="text">Welcome to Chitter</span>
+
+<form action="/chitter" method="post"> 
+  <input type='text' name='chat_log' placeholder="Whats on your mind?" />
+  <input type="submit" name="Submit" >
+</form>
+
+<ul>
+  <% @user_input.each do |user| %>
+    <h3><%= user %></h3>
+  <% end %>
+</ul>
 
 </html>

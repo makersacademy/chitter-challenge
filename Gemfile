@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'puma'
 gem 'ruby'
 gem 'pg'
 gem 'sinatra'

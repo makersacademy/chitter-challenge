@@ -1,0 +1,1 @@
+CREATE TABLE chat_log(id SERIAL PRIMARY KEY, chat_log VARCHAR(60));

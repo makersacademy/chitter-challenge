@@ -1,6 +1,16 @@
-feature 'viewing chitter homepage' do
-  scenario 'visiting index page' do 
+feature 'Viewing Chitter' do
+  scenario 'A user can see all comments' do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    # Add the test data
+    connection.exec("INSERT INTO chat_log (chat_log) VALUES ('Hello!');")
+    connection.exec("INSERT INTO chat_log (chat_log) VALUES ('That is fun!');")
+    connection.exec("INSERT INTO chat_log (chat_log) VALUES('Please go on!');")
+
     visit('/chitter')
-    expect(page).to have_content "Welcome to Chitter"
+
+    expect(page).to have_content "Hello"
+    expect(page).to have_content "That is fun!"
+    expect(page).to have_content "Please go on!"
   end
 end
