@@ -1,0 +1,49 @@
+<head>
+<title>Welcome to Chitter</title>
+</head>
+
+<body>
+<h1> Welcome to Chitter!</h1>
+<h3> A place where you can post peeps and also read other peoples peeps! </h3>
+
+<p><b>What is a peep?</b><br>
+    Well a peep is a 300 character limit message that you can post on chitter for others to read. <br>
+</p>
+
+
+<% if @success_message %>
+  <div id="success" style="color: green">
+  <h2> <%= @success_message %> </h2>
+  </div>
+<% end %>
+
+
+<h3>Have a look at the latest peeps:</h3>
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <%= peep.created_at%><br>
+    <li><%= peep.message %></li><br>
+  <% end %>
+</ul>
+
+
+<form action="/chitter/peeps/new" method="get">
+<P><b>Do you want to post a peep?</b></p>
+  <label for="create">Yes! Then click this button:</label><br>
+      <button type="submit" name="create">Post a Peep</button>
+  </form>
+
+ <%# sign up button  %>
+  <form action="/chitter/signup" method="get">
+  <label for="sign_up">Join our community and sign up:</label><br>
+      <button type="submit" name="sign_up">Sign Up</button>
+    </p>
+  </form>
+  
+
+<%# log in button 
+   <form action="/chitter/login" method="get">
+  <label for="log_in1">Already a member? Log in here:</label><br>
+      <input type="submit" name="log_in1" value="Log In" />
+  </form>
+<body> %>

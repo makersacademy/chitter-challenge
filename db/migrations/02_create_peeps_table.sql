@@ -1,0 +1,1 @@
+ CREATE TABLE peeps(peep_id SERIAL PRIMARY KEY, account_id INT,  CONSTRAINT fk_account FOREIGN KEY(account_id) REFERENCES accounts(account_id), message VARCHAR(300), created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), updated_at TIMESTAMPTZ  NOT NULL DEFAULT NOW ());
