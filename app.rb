@@ -18,7 +18,7 @@ class ChitterApp < Sinatra::Base
   end 
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    erb :"peeps/new"
   end
 
   post '/peeps' do
@@ -50,7 +50,7 @@ end
 # user story 2
 # As a Maker
 # So that I can let people know what I am doing  
-# I want to post a message (peep) to chitter ///////
+# I want to post a message (peep) to chitter ///////\\\\\\\\\\
 
 
 # user story 3

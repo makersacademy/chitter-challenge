@@ -11,7 +11,9 @@ class Peep
 
     result = connection.exec("SELECT * FROM peeps;")
     peeps = result.map { |peep| peep['content'] }
-    peeps.reverse
+    time = result.map { |peep| peep['created_at'] }
+    together = peeps + time
+    together.reverse
   end
 
   def self.create(content:)
@@ -23,6 +25,4 @@ class Peep
 
     connection.exec("INSERT INTO peeps (content) VALUES('#{content}')")
   end
-
-
 end

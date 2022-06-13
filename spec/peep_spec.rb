@@ -24,5 +24,13 @@ describe Peep do
       expect(Peep.all).to include 'This is a test'
     end
   end
-  
+
+  describe '.create' do
+    it 'creates a new peep and shows the timestamp' do
+      Peep.create(content: 'This is a test')
+
+      expect(Peep.all).to include 'This is a test'
+    end
+  end
+
 end
