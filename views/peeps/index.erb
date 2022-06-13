@@ -1,7 +1,8 @@
+<ul style="list-style: none;">
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep.content %></li>
+    <li style="font-size: 70%" ><%= peep.time_stamp %></li><br>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
   <% end %>
 </ul>
 
