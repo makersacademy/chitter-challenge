@@ -1,11 +1,11 @@
 require 'simplecov'
 require 'simplecov-console'
 
-
+ENV['ENVIRONMENT'] == 'test'
 ENV['RACK_ENV'] = 'test'
 
 # Bring in the contents of the `app.rb` file
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require './app.rb'
 
 # Require all the testing gems
 require 'capybara'

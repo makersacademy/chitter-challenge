@@ -1,0 +1,1 @@
+CREATE TABLE peeps (peep_id INT NOT NULL, user_id INT NOT NULL, date_of_peep TIMESTAMP, content VARCHAR (255), PRIMARY KEY (peep_id), FOREIGN KEY (user_id) REFERENCES users (user_id));
