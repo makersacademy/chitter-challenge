@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @chits = Chit.all
+    @chit = Chit.all
     erb :main
   end
 

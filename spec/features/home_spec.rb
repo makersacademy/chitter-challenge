@@ -1,4 +1,4 @@
-feature 'Viewing chitter' do
+feature 'Viewing home' do
   scenario 'visiting the index page' do
     visit('/')
     fill_in :first_name, with: 'hafiz'
