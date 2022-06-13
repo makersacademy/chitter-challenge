@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-  What is this?
+ Chitter is a full stack web application that allow users to post message known as peeps, view other people peeps and also allows users to create an account and sign up. 
 
 About:
 -------
@@ -42,6 +42,19 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+Technologies
+-----
+
+This project is created with: 
+* Ruby 3.0.2
+* Postgresql
+* Sinatra
+* Rspec
+* Capybara
+* Rackup
+* Rubocop
+* Webrick 1.3.1
 
 Installation:
 -----
@@ -131,45 +144,37 @@ To create each database:
 CREATE DATABASE chitter
 CREATE DATABASE chitter_test
 ```
-4. Then enter each database using:
+4. Then enter each database using
 ```
 \c 'database-name'
 ```
+
 5. Finally run the psql commands in the db/migrations directory to create the accounts and peeps table for each database. 
-
-
 
 
 Notes on functionality:
 ------
-
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
+Roadmap:
 -----
 
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
+There is still more features that can be added to this application. The current application only fulfils the first four user stories. Here is a list of feature that need to be completed in order to fulfil the remaining user stories:
+- [ ] Allow users to log in and log out
+- [ ] The timestamp for when a post is created should only display time 
+- [ ] When a user logs in and creates a peep, the name and username should also be displayed within the peep
+- [ ] Users can receive emails if they are tagged in peeps
+- [ ] Add CSS linksheet to improve the design of the application
 
 
-Automated Tests:
+Contributing
 -----
 
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
 
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
