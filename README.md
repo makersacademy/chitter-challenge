@@ -1,3 +1,10 @@
+# Steps to setup the Database
+To setup the database: CREATE DATABASE chitter; 
+To add the first table to store the user comments: CREATE TABLE chat_log(id SERIAL PRIMARY KEY, chat_log VARCHAR(60));
+To setup the test database: CREATE DATABASE chitter_test; 
+To add the first table to store the user comments: CREATE TABLE chat_log(id SERIAL PRIMARY KEY, chat_log VARCHAR(60));
+
+
 Chitter Challenge
 =================
 
