@@ -1,0 +1,19 @@
+<h1>Chitter</h1>
+
+<form action="/peeps" method="post">
+  <label for="peep">Send out a peep!</label>
+  <input type="text" name="peep" placeholder="Peep"/>
+  <label for="name">Your name</label>
+  <input type="text" name="name" placeholder="Name"/>
+  <input type="submit" value="Submit peep" />
+</form>
+
+<%= @peep %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+        <%= peep.name %> wrote: '<%= peep.peep %>"
+    </li>
+  <% end %>
+</ul>
