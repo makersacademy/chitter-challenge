@@ -1,0 +1,9 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <a href="<%= peeps.created_on %>">
+        <%= peeps.created_on %>
+      </a>
+    </li>
+  <% end %>
+</ul>
