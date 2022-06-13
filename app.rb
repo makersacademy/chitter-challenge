@@ -6,25 +6,19 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    'Chitter'
+  get '/peeps' do
+    erb :'peeps/index'
   end
 
-  get '/messages' do
-    @messages = Chitter.all
-    erb :'messages/index'
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
-  get '/messages/new' do
-    erb :'messages/new'
-  end
-
-  post '/messages' do
-    Chitter.create(message: params[:message], user_id: params[:user_id])
-    redirect '/messages'
+  post '/peeps' do
+    @peep = params[:peep]
+    erb :'peeps/new'
   end
 
   run! if app_file == $0
 end
-
 
