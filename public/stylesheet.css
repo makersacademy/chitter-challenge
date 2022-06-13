@@ -1,0 +1,82 @@
+* {
+  text-decoration: none;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 30px;
+  color: darkslategrey;
+}
+
+header  {
+  background-color: navy;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: 'Oleo Script', monospace;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: whitesmoke;
+  padding: 0.25em 0.5em;
+  text-align: left;
+  font-weight: bold;
+}
+
+h2 {
+  color: rgb(71, 80, 78);
+  font-family: 'Oleo Script', monospace;
+  font-size: 30px;
+  text-align: left;
+  font-weight: normal;
+  padding: 0.25em 0.5em;
+}
+
+input[type="submit"] {
+  font-size: 30px;
+  font-family: 'Oleo Script', monospace;
+  text-align: center;
+  background-color: #54ddc1;
+  color: whitesmoke;
+  border: 0;
+  padding: 0.25em 0.5em;  
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 20px;
+}
+
+textarea {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 20px;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+#left {
+  vertical-align:top;
+
+}
+
+#feed {
+  vertical-align:top;
+
+  margin: 60px;
+}
+
+
+.multi_submit {
+  text-align: center;
+  padding: 30px
+}
