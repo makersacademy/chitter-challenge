@@ -1,9 +1,9 @@
 require 'chitter'
 
 describe '.all' do
-  it 'returns a list of bookmarks' do
+  it 'returns a list of chats' do
     connection = PG.connect(dbname: 'chitter_test')
-    
+
 
     # Add the test data
     connection.exec("INSERT INTO chat_log (chat_log) VALUES('Hello');")
