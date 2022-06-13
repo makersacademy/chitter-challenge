@@ -1,0 +1,5 @@
+<form method="post" action="/messages/<%= @message.id %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <input type="text" name="message" value="<%= @message.message %>" />
+  <input type="submit" value="Submit" />
+</form>

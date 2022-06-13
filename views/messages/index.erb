@@ -1,0 +1,85 @@
+<html>
+<h1>Welcome to Chitter!</h1>
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+      <form action="/messages/post" method="get">
+        <input type="submit" value="Post Message on Chitter!" />
+      </form>
+<ul>
+  <% @messages.each do |message| %>
+    <li class="message" id="id-<%= message.id %>">
+        <b><%= message.date_time %></b> - 
+        <%= message.message %>
+      </a>
+      <p></p>
+      <form action="/messages/<%= message.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
+      <form action="/messages/<%= message.id %>/edit" method="get">
+        <input type="submit" value="Edit" />
+      </form>
+    </li>
+  <% end %>
+</ul>
+<p>
+<style>
+/* .centered {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+form {
+    display: inline-block; //Or display: inline; 
+}
+h1 {
+  color: #008CBA;
+}
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+input[type=submit] {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+input[type=submit]:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+</style> */
+</html>
