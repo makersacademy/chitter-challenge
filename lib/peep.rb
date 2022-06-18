@@ -18,13 +18,14 @@ class Peep
 
     result = connection.exec("SELECT * FROM peeps;")
 
-    result.map { |peep| 
+    message = result.map { |peep| 
       Peep.new(content: peep['content'],
         time_stamp: peep['time_stamp'])
     }
+    message.to_s
   end
 
-  def self.create(content:)
+  def self.create(content)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_chatter_test')
     else
@@ -32,18 +33,7 @@ class Peep
     end
 
     connection.exec("INSERT INTO peeps (content) VALUES('#{content}')")
+
+
   end
 end
-
-# time = result.map { |peep| peep['created_at'] }
-#       together = time + content
-
-# def self.time_stamp
-  #   if ENV['ENVIRONMENT'] == 'test'
-  #     connection = PG.connect(dbname: 'chitter_chatter_test')
-  #   else
-  #     connection = PG.connect(dbname: 'chitter_chatter')
-  #   end
-
-  #   result.map { |peep| peep['created_at'] }
-  # end
