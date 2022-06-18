@@ -13,7 +13,7 @@ $$ LANGUAGE plpgsql;
 
 -- step 2: Create the Table
 
-CREATE TABLE todos (
+CREATE TABLE peeps (
   id SERIAL NOT NULL PRIMARY KEY,
   content TEXT,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
