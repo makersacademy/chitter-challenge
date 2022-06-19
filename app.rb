@@ -25,12 +25,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/users/sign_up' do
-    User.create(
-      username: params[:username],
-      email: params[:email],
-      password: params[:password]
-    )
-    @user = session[:username]
+    User.create(username: params[:username], email: params[:email], password: params[:password])
+    # @user = User.create(params[:username])
     erb :"users/user_homepage"
   end 
 
