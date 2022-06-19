@@ -1,4 +1,5 @@
 require 'peep'
+
 RSpec.describe Peep do
   describe Peep do
     describe '.all' do
