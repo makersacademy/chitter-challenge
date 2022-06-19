@@ -22,6 +22,7 @@ class Peep
       Peep.new(content: peep['content'],
         time_stamp: peep['time_stamp'])
     }
+
   end
 
   def self.create(content:)
