@@ -33,7 +33,5 @@ class Peep
     end
 
     connection.exec("INSERT INTO peeps (content) VALUES('#{content}')")
-
-
   end
 end
