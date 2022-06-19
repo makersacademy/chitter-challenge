@@ -3,12 +3,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Oleo+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
     <title>Chitter</title>
   </head>
   <body>
     <header>
-      <h1>Chitter</h1>
+      <a href="/">
+        <div class="heading">
+          <h1>Chitter</h1>
+        </div>
+      </a>
+    <div class="navigation">
+    <%if @user%>
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out">
+      </form>
+    <%end%>
+      </div>
     </header>
     <%=yield%>
   </body>

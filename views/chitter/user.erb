@@ -1,20 +1,22 @@
-<h2>Register for Chitter</h2>
-<form action="/chitter/user" method="post">
-  <label for="first_name">First name:
-    <input type="text" name="first_name" maxlength="60">
-  </label>
-  <label for="last_name">Last name:
-    <input type="text" name="last_name" maxlength="60">
-  </label>
-  <label for="email">Email:
-    <input type="text" name="email" maxlength="60">
-  </label>
-  <label for="handle">Handle:
-    <input type="text" name="handle" maxlength="30">
-  </label>
-  <label for="password">Password:
-    <input type="text" name="password">
-  </label>
+<h2 class="centered-container">Register for Chitter</h2>
+<div class="user-info-box">
+  <form action="/chitter/user" method="post">
+    <label for="first_name">First name</br>
+      <input type="text" name="first_name" maxlength="60" required>
+    </label></br>
+    <label for="last_name">Last name</br>
+      <input type="text" name="last_name" maxlength="60" required>
+    </label></br>
+    <label for="email">Email</br>
+      <input type="email" name="email" maxlength="60" required>
+    </label></br>
+    <label for="handle">Handle</br>
+      <input type="text" name="handle" maxlength="30"required>
+    </label></br>
+    <label for="password">Password</br>
+      <input type="password" name="password" required>
+    </label></br>
 
-  <input type="submit" value="Register">
-</form>
+    <input type="submit" value="Register">
+  </form>
+</div>

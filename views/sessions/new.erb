@@ -1,10 +1,12 @@
-<%= flash[:notice] %>
-<form action="/sessions" method="post">
-  <label for="email">Email:
-    <input type="email" name="email">
-  </label>
-  <label for="password">Password:
-    <input type="password" name="password">
-  </label>
-  <input type="submit" value="Sign in" >
-</form>
+<h2 class="centered-container">Log in to Chitter</h2><div class="user-info-box">
+  <form action="/sessions" method="post">
+    <%= flash[:notice] %>
+    <label for="email">Email</br>
+      <input type="email" name="email">
+    </label></br>
+    <label for="password">Password</br>
+      <input type="password" name="password">
+    </label></br>
+    <input type="submit" value="Sign in" >
+  </form>
+</div>
