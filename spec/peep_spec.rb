@@ -6,16 +6,16 @@ RSpec.describe Peep do
     describe '.all' do
       it 'returns all peeps' do
         Peep.create("This is my first peep")
-        expect(Peep.all).to include ("This is my first peep")
+        expect(Peep.all.to_s).to include ("This is my first peep")
       end
     end
 
-    describe '.create' do
-      it 'creates a new peep' do
-        Peep.create(content: 'This is a test')
-        expect(Peep.all).to include 'This is a test'
-      end
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(content: 'This is a test')
+      expect(Peep.all.to_s).to include 'This is a test'
     end
   end
-
+  
+  #ASK ALEX IF IT IS OK PRACTICE TO LEAVE .to_s (conversion of array to string) inside test.
 end

@@ -18,11 +18,10 @@ class Peep
 
     result = connection.exec("SELECT * FROM peeps;")
 
-    message = result.map { |peep| 
+    result.map { |peep| 
       Peep.new(content: peep['content'],
         time_stamp: peep['time_stamp'])
     }
-    message.to_s
   end
 
   def self.create(content)
