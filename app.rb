@@ -9,12 +9,16 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
-    'Chitter Chatter'
+    erb :"users/sign_up"
+  end
+
+  post '/users/new' do
+    redirect '/users/sign_up'
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/all'
   end 
 
   get '/peeps/new' do
@@ -25,6 +29,8 @@ class ChitterApp < Sinatra::Base
     Peep.create(content: params[:content])
     redirect '/peeps'
   end
+
+  
 
 
   run! if app_file == $0
