@@ -5,9 +5,6 @@ RSpec.describe Peep do
   describe '.all' do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_chatter_test')
-
-      # connection.exec("INSERT INTO users (username) VALUES ('Godzilla');")
-  
       connection.exec("INSERT INTO peeps (content) VALUES ('This is my first peep');")
   
       peeps = Peep.all
