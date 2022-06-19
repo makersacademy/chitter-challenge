@@ -14,7 +14,14 @@ class Chitter < Sinatra::Base
     register Sinatra::Flash 
     
   get '/' do
-    "Welcome to Chitter"
+    erb :homepage
+  end
+
+  post '/user/new' do
+    redirect '/sessions/new'
+  end
+
+  get '/sessions/new' do
   end
 
   get '/peeps' do
