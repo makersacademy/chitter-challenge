@@ -1,10 +1,10 @@
 require 'pg'
 
 feature 'Viewing peeps' do
-  scenario 'visiting the index page' do
-    visit('/')
-    expect(page).to have_content "Chitter Chatter"
-  end
+  # scenario 'visiting the index page' do
+  #   visit('/')
+  #   expect(page).to have_content "Chitter Chatter"
+  # end
 
   scenario 'A user can see peeps' do
     connection = PG.connect(dbname: 'chitter_chatter_test')
