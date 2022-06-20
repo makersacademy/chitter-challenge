@@ -1,3 +1,5 @@
+require 'web_helpers'
+
 feature "Displaying peeps" do
   scenario "a user can see a peep" do
     peep = Peep.create(
@@ -42,6 +44,7 @@ feature "Displaying peeps" do
   end
 
   scenario "peeps display time and date peep was posted" do
+    register_and_sign_in
     peep = Peep.create(
       name: "Dack Jorsey",
       username: "dack",
@@ -49,7 +52,7 @@ feature "Displaying peeps" do
     )
     time = "#{Time.now.strftime("%k:%M")} - #{Time.now.strftime("%d/%m/%Y")}"
     visit('/peeps')
-
+  
     expect(page).to have_content "just setting up my chttr"
     expect(page).to have_content "@dack"
     expect(page).to have_content "Dack Jorsey"

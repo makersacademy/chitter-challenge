@@ -8,5 +8,6 @@ feature 'signing up for Chitter' do
     click_button('Sign up for Chitter')
 
     expect(current_path).to eq '/sessions/new'
+
   end
 end

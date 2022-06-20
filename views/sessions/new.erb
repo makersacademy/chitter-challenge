@@ -1,0 +1,11 @@
+<h1> Log-in to Chitter </h1>
+
+<form action="/sessions" method="post" >
+  <input type="text" name="username" placeholder="Username" />
+  <input type="password" name="password" placeholder="Password" />
+  <input type="submit" value="Sign in" />
+</form>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>

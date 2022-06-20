@@ -1,3 +1,8 @@
+Logged in as: @<%= @user.username%>
+<form action="/sessions/end" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <b><%= peep.name %></b> @<%= peep.username %> <br>
