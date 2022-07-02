@@ -1,5 +1,11 @@
 Chitter Challenge
 =================
+```
+      _          _          _          _          _
+    >(')____,  >(')____,  >(')____,  >(')____,  >(') ___,
+      (` =~~/    (` =~~/    (` =~~/    (` =~~/    (` =~~/
+~^~^~^`---'~^~^~^`---'~^~^~^`---'~^~^~^`---'~^~^~^`---'~^~^~
+```
 
 This is a basic Twitter clone that will allow the users to post messages to a public stream.
 
