@@ -1,0 +1,26 @@
+<html>
+    <head></head>
+    <body>
+        <h1><%=@user.username%>'s CHITTER</h1>
+        <form method="POST" action="/new_post">
+
+        <label>Your peep!</label>
+        <input type="text" name="content" />
+
+        <input type="hidden" name="time" value=<%=DateTime.now%>/>
+        
+        <input type="hidden" name="user_id" value=<%=@user.id%>/>
+
+        <input type="Submit" />
+        </form>
+        <% @posts.each do |post| %>
+            <%user_repo = UserRepository.new%>
+            <%user = user_repo.find(post.user_id)%>
+            <%username = user.username%>
+
+            <h2><%=username%></h2>
+            <h3>"<%=post.content%>"</h3>
+            <h5><%=post.time%></h5><br />
+        <% end %>
+    </body>
+</html>
