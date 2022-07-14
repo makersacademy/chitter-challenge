@@ -90,3 +90,17 @@ INSERT INTO messages (massage,date,author_id) VALUES
 ('It is too hot today','11/07/2022',2),
 ('We need to go to the beach','14/07/2022',3);
 
+
+Pages:
+GET /
+No parameters
+
+Response 200 OK
+Lists all posts
+
+GET /new-post
+No patameters
+Has a form to fill
+
+POST /
+has body parameters and adds the post to the db

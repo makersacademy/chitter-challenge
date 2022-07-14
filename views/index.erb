@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h1>All peeps</h1>
+        <div>
+            <%@messages.each do |message|%>
+                <%=message.message%> by <%=message.author%> at <%=message.date%> </br>
+            <%end%>
+        </div>
+
+        <div>
+            <a href='/new-peep'>Add a new peep!</a>
+        </div>
+    </body>
+</html>

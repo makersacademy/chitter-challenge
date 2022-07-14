@@ -1,6 +1,6 @@
-require 'database_connection'
-require 'message'
-require 'message_and_author'
+require_relative 'database_connection'
+require_relative 'message'
+require_relative 'message_and_author'
 
 class MessageRepository
     def all
