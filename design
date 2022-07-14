@@ -1,0 +1,92 @@
+0. User stories
+
+STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+
+Summary:
+Post a message(peep) with date to chitter
+See all previously posted peeps (reverse chronological order)
+There should be sign up
+Receive an email if I'm tagged
+
+1. DATABASE:
+We need to save the peeps with the dates and the author
+We need to save users with their password and email addresses
+
+Table: users
+columns:
+id SERIAl,
+name text,
+email text,
+password text
+
+Table: messages
+Columns:
+id SERIAL,
+message text,
+date timestamp,
+author text(foreign id)
+
+Can a message have several authors? NO
+Can an author have several messages? YES
+
+One-to-many
+
+SQL
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name text,
+    email text,
+    password text
+)
+
+INSERT INTO users (name,email,password) VALUES
+('Irina','irina@email.com','test'),
+('Tim','tim@gmail.com','test2'),
+('Julien','julien@gmail.com','test3');
+
+CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+    message text,
+    date timestamp,
+    author_id text,
+    constraint fk_author foreign key(author_id) references users(id)
+);
+
+INSERT INTO messages (massage,date,author_id) VALUES
+('I had a tasty salad','14/07/2022',1),
+('It is too hot today','11/07/2022',2),
+('We need to go to the beach','14/07/2022',3);
+
