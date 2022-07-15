@@ -2,23 +2,19 @@ CREATE EXTENSION IF NOT EXISTS citext;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION pgcrypto;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS peeps;
-DROP TABLE IF EXISTS comments;
-
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   user_id uuid DEFAULT uuid_generate_v4 (),
   email citext NOT NULL UNIQUE,
-  username varchar (12) NOT NULL UNIQUE,
+  username varchar (32) NOT NULL UNIQUE,
   password text NOT NULL,
   PRIMARY KEY (user_id)
 );
 
-CREATE TABLE peeps (
+CREATE TABLE IF NOT EXISTS peeps (
   peep_id uuid DEFAULT uuid_generate_v4 (),
-  content text,
+  content varchar (512) NOT NULL,
   created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0) NOT NULL,
-  updated TIMESTAMP,
+  updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0) NOT NULL,
   user_id uuid,
   PRIMARY KEY (peep_id),
   CONSTRAINT fk_user
@@ -27,11 +23,11 @@ CREATE TABLE peeps (
       ON DELETE SET NULL
 );
 
-CREATE TABLE comments (
+CREATE TABLE IF NOT EXISTS comments (
   comment_id uuid DEFAULT uuid_generate_v4 (),
-  content text,
+  content varchar (512) NOT NULL,
   created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0) NOT NULL,
-  updated TIMESTAMP,
+  updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0) NOT NULL,
   user_id uuid,
   peep_id uuid,
   PRIMARY KEY (comment_id),
