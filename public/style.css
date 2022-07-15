@@ -31,6 +31,13 @@ body {
 form {
     color: rgb(86, 128, 169);
     font-family: Arial;
-    font-size: large;
+    font-size:x-large;
+    text-align: center;
+}
+
+input {
+    color: rgb(86, 128, 169);
+    font-family: Arial;
+    font-size: x-large;
     text-align: center;
 }
