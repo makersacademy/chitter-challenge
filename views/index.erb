@@ -1,7 +1,9 @@
 <html>
-    <head></head>
+    <head>
+      <link href="<%= url('/style.css') %>"rel="stylesheet" type="text/css" />
+    </head>
     <body>
-        <h1>CHITTER</h1>
+        <h1 >CHITTER</h1>
         <a href="/signup">SIGN UP</a><br /><br /><br />
         <a href="/login">LOG IN</a><br /><br /><br />
         <% @posts.each do |post| %>

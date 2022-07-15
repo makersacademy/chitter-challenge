@@ -1,5 +1,7 @@
 <html>
-    <head></head>
+    <head>
+      <link href="<%= url('/style.css') %>"rel="stylesheet" type="text/css" />
+    </head>
     <body>
         <form method="POST" action="/new_user">
 
@@ -13,7 +15,7 @@
         <input type="text" name="username" />
 
         <label>PASSWORD</label>
-        <input type="text" name="password" />
+        <input type="password" name="password" />
 
         <input type="Submit" />
     </body>

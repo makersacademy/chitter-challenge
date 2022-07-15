@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(86, 169, 128);
+}
+
+h1 {
+    color: rgb(86, 128, 169);
+}
+
+h3 {
+    color: rgb(86, 128, 169);
+}
+
+h2 {
+    color: rgb(37, 74, 74);
+}
+
+h5 {
+    color: rgb(37, 74, 74);
+}
+
+a {
+    color: rgb(86, 128, 169);
+}
+
+body {
+    font-family: Impact;
+    font-size: large;
+    text-align: center;
+}
+
+form {
+    color: rgb(86, 128, 169);
+}
