@@ -30,4 +30,7 @@ body {
 
 form {
     color: rgb(86, 128, 169);
+    font-family: Arial;
+    font-size: large;
+    text-align: center;
 }
