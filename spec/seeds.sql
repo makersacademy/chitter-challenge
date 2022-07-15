@@ -15,7 +15,6 @@ INSERT INTO "public"."users" ("id", "username", "email", "password") VALUES
 (2, 'test2@email.com', 'username2', "000000"),
 (3, 'test3@email.com', 'username3', "password");
 
------------------------------------------
 -- Table with foreign key
 DROP TABLE IF EXISTS peeps CASCADE;
 CREATE SEQUENCE IF NOT EXISTS peeps_id_seq;
@@ -27,7 +26,6 @@ CREATE TABLE peeps (
   "user_id" int,
   constraint "fk_user" foreign key("user_id") references "users"("id")
 );
-
 
 INSERT INTO peeps ("id", "content", "date", "user_id") VALUES
 (1, 'content1', 2020-10-10 10:10:10, 1),
