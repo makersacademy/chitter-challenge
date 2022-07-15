@@ -1,0 +1,49 @@
+STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+User
+Post Message
+View All Messages
+See Time of Message
+Create Account
+--
+Log In
+Log Out
+--
+Receive Email If tagged
+
+Classes
+Message
+Account
+
+Message.post (body, who, time)
+Message.all (body, who, time)
+
+Account.create(username, name, email, password)
+
+Account.log_in(identifier, password)
+Account.log_out(identifier, password)
+Account.email(email, body)
+
+Database setup
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+\c chitter;
+CREATE TABLE messages(id SERIAL PRIMARY KEY, body VARCHAR(280), username VARCHAR(40), name VARCHAR(60),  created_at TIMESTAMP));
+\c chitter_test;
+CREATE TABLE messages(id SERIAL PRIMARY KEY, body VARCHAR(280), username VARCHAR(40), name VARCHAR(60),  created_at TIMESTAMP));
