@@ -11,9 +11,9 @@ CREATE TABLE "public"."users" (
 );
 
 INSERT INTO "public"."users" ("id", "name", "username", "email", "password") VALUES
-(1, 'name1', 'test1@email.com', 'username1', '123'),
-(2, 'name2', 'test2@email.com', 'username2', '000000'),
-(3, 'name3', 'test3@email.com', 'username3', 'password1');
+(1, 'name1', 'username1', 'test1@email.com', '123'),
+(2, 'name2', 'username2', 'test2@email.com', '000000'),
+(3, 'name3', 'username3', 'test3@email.com', 'password1');
 
 -- Table with foreign key
 DROP TABLE IF EXISTS peeps CASCADE;
