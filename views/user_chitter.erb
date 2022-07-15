@@ -2,6 +2,8 @@
     <head></head>
     <body>
         <h1><%=@user.username%>'s CHITTER</h1>
+        <a href="/">LOG OUT</a><br /><br /><br />
+        
         <form method="POST" action="/new_post">
 
         <label>Your peep!</label>
@@ -12,7 +14,7 @@
         <input type="hidden" name="user_id" value=<%=@user.id%>/>
 
         <input type="Submit" />
-        </form>
+        </form><br />
         <% @posts.each do |post| %>
             <%user_repo = UserRepository.new%>
             <%user = user_repo.find(post.user_id)%>

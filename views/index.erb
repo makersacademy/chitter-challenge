@@ -3,6 +3,7 @@
     <body>
         <h1>CHITTER</h1>
         <a href="/signup">SIGN UP</a><br /><br /><br />
+        <a href="/login">LOG IN</a><br /><br /><br />
         <% @posts.each do |post| %>
             <%user_repo = UserRepository.new%>
             <%user = user_repo.find(post.user_id)%>

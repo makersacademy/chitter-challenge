@@ -1,8 +1,8 @@
-require 'sinatra/base'
-require 'sinatra/reloader'
-require_relative 'lib/database_connection'
-require_relative 'lib/user_repository'
-require_relative 'lib/post_repository'
+require "sinatra/base"
+require "sinatra/reloader"
+require_relative "lib/database_connection"
+require_relative "lib/user_repository"
+require_relative "lib/post_repository"
 
 DatabaseConnection.connect("chitter_test")
 
@@ -13,9 +13,11 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get "/" do
     post_repo = PostRepository.new
-    @posts = post_repo.all.sort {|post| DateTime.parse(post.time)}
+    @posts = post_repo.all.sort { |post| DateTime.parse(post.time) }
     return erb(:index)
   end
 
@@ -23,16 +25,15 @@ class Application < Sinatra::Base
     return erb(:signup)
   end
 
-  get "/home/:id" do
-    user_id = params[:id]
-    user_repo = UserRepository.new
-    @user = user_repo.find(user_id)
-    
+  #   get "/home/:id" do
+  #     user_id = params[:id]
+  #     user_repo = UserRepository.new
+  #     @user = user_repo.find(user_id)
 
-    post_repo = PostRepository.new
-    @posts = post_repo.all.sort {|post| DateTime.parse(post.time)}
-    return erb(:user_chitter)
-  end
+  #     post_repo = PostRepository.new
+  #     @posts = post_repo.all.sort {|post| DateTime.parse(post.time)}
+  #     return erb(:user_chitter)
+  #   end
 
   post "/new_user" do
     name = params[:name]
@@ -64,5 +65,43 @@ class Application < Sinatra::Base
     post_repo.create(@post)
 
     return erb(:new_post_confirmation)
+  end
+
+  get "/login" do
+    return erb(:login)
+  end
+
+  post "/login" do
+    email = params[:email]
+    password = params[:password]
+
+    if UserRepository.new.find_by_email(email) == nil
+      return erb(:login_error)
+    end
+    
+    user_repo = UserRepository.new
+    @user = user_repo.find_by_email(email)
+
+    if @user.password == password
+      # Set the user ID in session
+      session[:user_id] = @user.id
+      p @user.id
+
+      return erb(:login_success)
+    else
+      return erb(:login_error)
+    end
+  end
+
+  get "/account_page" do
+    if session[:user_id] == nil
+        # return redirect('/login')
+        return "whoops"
+    else
+        @user = UserRepository.new.find(session[:user_id])
+        post_repo = PostRepository.new
+        @posts = post_repo.all.sort { |post| DateTime.parse(post.time) }
+        return erb(:user_chitter)
+    end
   end
 end
