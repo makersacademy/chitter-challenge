@@ -25,34 +25,26 @@ class Application < Sinatra::Base
     return erb(:signup)
   end
 
-  #   get "/home/:id" do
-  #     user_id = params[:id]
-  #     user_repo = UserRepository.new
-  #     @user = user_repo.find(user_id)
-
-  #     post_repo = PostRepository.new
-  #     @posts = post_repo.all.sort {|post| DateTime.parse(post.time)}
-  #     return erb(:user_chitter)
-  #   end
-
   post "/new_user" do
     name = params[:name]
     email = params[:email]
     username = params[:username]
     password = params[:password]
 
-    @new_user = User.new
-    @new_user.name = name
-    @new_user.email = email
-    @new_user.username = username
-    @new_user.password = password
+    if UserRepository.new.find_by_email(email) == nil
+      @new_user = User.new
+      @new_user.name = name
+      @new_user.email = email
+      @new_user.username = username
+      @new_user.password = password
 
-    @user_repo = UserRepository.new
-    @user_repo.create(@new_user)
+      @user_repo = UserRepository.new
+      @user_repo.create(@new_user)
 
-    # return user_repo.all.last.id
-
-    return erb(:signup_confirmation)
+      return erb(:signup_confirmation)
+    else
+      return erb(:signup_error)
+    end
   end
 
   post "/new_post" do
@@ -78,7 +70,7 @@ class Application < Sinatra::Base
     if UserRepository.new.find_by_email(email) == nil
       return erb(:login_error)
     end
-    
+
     user_repo = UserRepository.new
     @user = user_repo.find_by_email(email)
 
@@ -95,13 +87,13 @@ class Application < Sinatra::Base
 
   get "/account_page" do
     if session[:user_id] == nil
-        # return redirect('/login')
-        return "whoops"
+      # return redirect('/login')
+      return "whoops"
     else
-        @user = UserRepository.new.find(session[:user_id])
-        post_repo = PostRepository.new
-        @posts = post_repo.all.sort { |post| DateTime.parse(post.time) }
-        return erb(:user_chitter)
+      @user = UserRepository.new.find(session[:user_id])
+      post_repo = PostRepository.new
+      @posts = post_repo.all.sort { |post| DateTime.parse(post.time) }
+      return erb(:user_chitter)
     end
   end
 end
