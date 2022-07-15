@@ -87,8 +87,7 @@ class Application < Sinatra::Base
 
   get "/account_page" do
     if session[:user_id] == nil
-      # return redirect('/login')
-      return "whoops"
+      return redirect('/login')
     else
       @user = UserRepository.new.find(session[:user_id])
       post_repo = PostRepository.new
