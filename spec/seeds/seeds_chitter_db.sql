@@ -14,7 +14,7 @@ CREATE TABLE "public"."users"(
 
 CREATE TABLE "public"."peeps"(
   id SERIAL PRIMARY KEY,
-  peep_content text,
+  content text,
   author_id int,
   time_posted timestamp ,
   constraint fk_users foreign key(author_id) references users(id)
@@ -25,6 +25,6 @@ INSERT INTO "public"."users"("username", "password") VALUES
 ('Joseph', 'Thisismypassword');
 
 
-INSERT INTO "public"."peeps"("peep_content","author_id","time_posted") VALUES
-('This is post num 1', 1, '2022-07-16 15:13:00'),
-('This is second post', 2, '2020-05-12 14:13:30');
+INSERT INTO "public"."peeps"("content","author_id","time_posted") VALUES
+('This is post num 1', 1, '2020-05-12 14:13:30'),
+('This is second post', 2,'2022-07-16 15:13:00');

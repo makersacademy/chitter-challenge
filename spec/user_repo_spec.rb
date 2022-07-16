@@ -28,12 +28,9 @@ describe UserRepo do
     new_user.username = "Colin"
     new_user.password = "emmerdale"
     repo.create_user(new_user)
-
     users = repo.all
-    
     expect(users.length).to eq(3)
     expect(users[2].username).to eq("Colin")
     expect(users[2].password).to eq("emmerdale")
-    
   end
 end

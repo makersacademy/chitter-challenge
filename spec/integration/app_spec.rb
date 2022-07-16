@@ -30,12 +30,13 @@ describe Application do
   end
   context "POST/signup " do
     it "validates a new user " do
-      response = get("/signup", invalid_username: "", invalid_password: "123")
+      response = post("/signup", invalid_username: "", invalid_password: "123")
       expect(response.status).to eq(400)
     end
   end
 
   context "GET/login" do
-
+    xit "" do
+    end
   end
 end

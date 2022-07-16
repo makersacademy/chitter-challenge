@@ -1,14 +1,16 @@
 require_relative 'lib/database_connection'
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative 'lib/peep'
-require_relative 'lib/user'
+require_relative 'lib/peep_repo'
+require_relative 'lib/user_repo'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
 
   configure :development do
     register Sinatra::Reloader
+    also_reload 'lib/peep_repo'
+    also_reload 'lib/user_repo'
   end
 
   get '/' do
@@ -23,13 +25,15 @@ class Application < Sinatra::Base
   post "/signup" do
     if invalid_signup?
       status 400
-      return ""
+      return " "
     end
 
+    repo = UserRepo.new
     user = User.new
-    user.name = params[:username]
+    user.username = params[:username]
     user.password = params[:password]
-
+    repo.create_user(user)
+    return " "
   end
 
   def invalid_signup?

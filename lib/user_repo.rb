@@ -1,4 +1,4 @@
-require 'database_connection'
+
 require_relative 'user'
 
 class UserRepo
