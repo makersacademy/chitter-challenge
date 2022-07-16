@@ -18,7 +18,8 @@ See: ../spec/seeds_chitter.sql
 |   => 'returns all users' info'     │
 │ - find(id)                         |
 |   => 'returns a sinle user's info' │
-│ - create(id, col, val)             │
+│ - create(new_user)                 |
+| - update(id, col, val)             │
 │ - delete(username)                 │
 └───────────┬────────────────────────┘
             │
@@ -89,15 +90,6 @@ class UserRepository
   def find(id)
     # Executes the SQL query:
     # SELECT id, name, username, email FROM users WHERE id = $1;
-
-    # Returns a single User object.
-  end
-
-  # Gets a single record by its username
-  # One argument: the username
-  def find_by_username(username)
-    # Executes the SQL query:
-    # SELECT id, name, username, email FROM users WHERE username = $1;
 
     # Returns a single User object.
   end
