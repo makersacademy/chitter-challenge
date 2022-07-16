@@ -32,4 +32,12 @@ describe Application do
       expect(response.body).to include('<form action="/signup" method="POST">')
     end
   end
+
+  context 'POST /signup' do
+    it 'create a new user' do
+      response = post('/signup')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("Thank you for sign up!")
+    end
+  end
 end
