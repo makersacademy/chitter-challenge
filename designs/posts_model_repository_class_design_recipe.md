@@ -18,7 +18,8 @@ See: ../spec/seeds_chitter.sql
 |   => 'returns all posts' info'     │
 │ - find(id)                         |
 |   => 'returns a sinle post's info' │
-│ - create(id, col, val)             │
+│ - create(new_post)                 |
+| - update(id, col, val)             │
 │ - delete(id)                       │
 └───────────┬────────────────────────┘
             │
@@ -58,7 +59,6 @@ end
 # (in lib/post.rb)
 
 class Post
-
   attr_accessor :id, :message, :timestamp, :user_id
 end
 ```
@@ -137,7 +137,7 @@ end
 
 # 1
 # Get all posts
-repo = postRepository.new
+repo = PostRepository.new
 
 posts = repo.all
 
