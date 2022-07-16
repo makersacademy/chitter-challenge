@@ -18,8 +18,6 @@ See: ../spec/seeds_chitter.sql
 |   => 'returns all users' info'     │
 │ - find(id)                         |
 |   => 'returns a sinle user's info' │
-| - find_by_username(username)       |
-|   => 'returns a sinle user's info' │
 │ - create(id, col, val)             │
 │ - delete(username)                 │
 └───────────┬────────────────────────┘

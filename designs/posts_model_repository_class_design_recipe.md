@@ -1,4 +1,4 @@
-# posts - Model and Repository Classes Design Recipe
+# Post - Model and Repository Classes Design Recipe
 
 ## 1. Design and create the Table
 
@@ -158,10 +158,10 @@ posts[2].message # =>  'message 3'
 posts[2].timestamp # => '2022-07-16 10:25:54'
 posts[2].user_id # =>  3
 
-posts[2].id # =>  4
-posts[2].message # =>  'message 4'
-posts[2].timestamp # => '2022-07-16 10:26:54'
-posts[2].user_id # =>  2
+posts[3].id # =>  4
+posts[3].message # =>  'message 4'
+posts[3].timestamp # => '2022-07-16 10:26:54'
+posts[3].user_id # =>  2
 
 # 2
 # Get a single post by id
@@ -169,10 +169,10 @@ repo = postRepository.new
 
 post = repo.find(1)
 
-posts[0].id # =>  1
-posts[0].message # =>  'message 1'
-posts[0].timestamp # => '2022-07-15 10:23:54'
-posts[0].user_id # =>  1
+post.id # =>  1
+post.message # =>  'message 1'
+post.timestamp # => '2022-07-15 10:23:54'
+post.user_id # =>  1
 
 # 3
 # Adds new record to the 'posts' table
@@ -189,12 +189,12 @@ posts[0].user_id # =>  1
   posts.length # =>  5
   posts.last.message # =>  'message 1'
   posts.last.user_id # =>  4
-  end
 
 # 4
 # updates a message' 
 repo = PostRepository.new
 repo.update(2, 'message', 'del_m')
+
 posts = repo.all
 posts[1].id # =>  '2'
 posts[1].message # =>  'funnier message'
