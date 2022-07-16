@@ -1,4 +1,4 @@
-# Users - Model and Repository Classes Design Recipe
+# User - Model and Repository Classes Design Recipe
 
 ## 1. Design and create the Table
 
