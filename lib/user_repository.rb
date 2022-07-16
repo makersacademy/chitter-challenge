@@ -1,4 +1,4 @@
-require 'user'
+require '/Users/paris/Desktop/Projects/chitter-challenge/lib/user'
 
 class UserRepository
   def all
@@ -11,6 +11,13 @@ class UserRepository
     sql = "SELECT id, username, email, password FROM users WHERE id=$1;"
     result_set = DatabaseConnection.exec_params(sql, [id])
     convert(result_set)
+  end
+
+  def find_dbl(username, email)
+    sql = "SELECT id, username, email, password FROM users WHERE username=$1 OR email=$2;"
+    result_set = DatabaseConnection.exec_params(sql, [username, email])
+    array = convert(result_set)
+    !array.empty?
   end
 
   def create(user)

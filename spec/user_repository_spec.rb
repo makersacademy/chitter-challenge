@@ -60,5 +60,20 @@ RSpec.describe UserRepository do
     expect(users[0].username).to eq "tessa34"
     expect(users[0].email).to eq "tessa34@yahoo.com"
   end
+  context "username is in use but email is not" do
+    it "checks if username or password is in use" do
+      repo = UserRepository.new
+      dbl = repo.find_dbl("tessa34", "wrongemail@yahoo.com")
+      expect(dbl).to eq true
+    end
+  end
+
+  context "both are not in use" do
+    it "checks if username or password is in use" do
+      repo = UserRepository.new
+      dbl = repo.find_dbl("tessa3s", "wrongemail@yahoo.com")
+      expect(dbl).to eq false
+    end
+  end
 
 end
