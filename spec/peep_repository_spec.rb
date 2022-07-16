@@ -30,13 +30,15 @@ describe PeepRepository do
   context 'Create peeps' do
     it 'create a new peep' do
       repo = PeepRepository.new
+
       new_peep = Peep.new
-      new_peep.id = '4'
       new_peep.content = 'Lovely hot day'
       new_peep.date = '2022-07-16 08:15:15'
       new_peep.user_id = '3'
       repo.create(new_peep)
+
       peeps = repo.all
+      
       expect(peeps.length).to eq 4
       expect(peeps.last.id).to eq '4'
       expect(peeps.last.content).to eq 'Lovely hot day'

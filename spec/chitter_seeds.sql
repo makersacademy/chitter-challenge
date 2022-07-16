@@ -10,10 +10,12 @@ CREATE TABLE "public"."users" (
   "password" text
 );
 
-INSERT INTO "public"."users" ("id", "name", "username", "email", "password") VALUES
-(1, 'name1', 'username1', 'test1@email.com', '123'),
-(2, 'name2', 'username2', 'test2@email.com', '000000'),
-(3, 'name3', 'username3', 'test3@email.com', 'password1');
+TRUNCATE TABLE users RESTART IDENTITY;
+
+INSERT INTO "public"."users" ("name", "username", "email", "password") VALUES
+('name1', 'username1', 'test1@email.com', '123'),
+('name2', 'username2', 'test2@email.com', '000000'),
+('name3', 'username3', 'test3@email.com', 'password1');
 
 -- Table with foreign key
 DROP TABLE IF EXISTS peeps CASCADE;
@@ -27,9 +29,11 @@ CREATE TABLE peeps (
   constraint "fk_user" foreign key("user_id") references "users"("id")
 );
 
-INSERT INTO peeps ("id", "content", "date", "user_id") VALUES
-(1, 'content1', '2020-10-10 10:10:10', 1),
-(2, 'content2', '2020-12-22 12:12:12', 1),
-(3, 'content3', '2020-07-10 09:09:09', 2);
+TRUNCATE TABLE peeps RESTART IDENTITY;
+
+INSERT INTO peeps ("content", "date", "user_id") VALUES
+('content1', '2020-10-10 10:10:10', 1),
+('content2', '2020-12-22 12:12:12', 1),
+('content3', '2020-07-10 09:09:09', 2);
 
 -- timestamp format: 'YYYY-MM-DD HH:MI:SS'

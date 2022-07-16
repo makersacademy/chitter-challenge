@@ -25,6 +25,9 @@ describe Application do
       response = post('/signup')
       expect(response.status).to eq(200)
       expect(response.body).to include("Thank you for sign up!")
+      repo = UserRepository.new
+      all_users = repo.all
+      expect(all_users.length).to eq 5
     end
   end
 end
