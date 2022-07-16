@@ -166,10 +166,10 @@ repo = UserRepository.new
 
 user = repo.find(1)
 
-users[0].id # =>  1
-users[0].name # =>  'name 1'
-users[0].username # =>  'username_1'
-users[0].email # =>  'test1@email.com'
+user.id # =>  1
+user.name # =>  'name 1'
+user.username # =>  'username_1'
+user.email # =>  'test1@email.com'
 
 # 3
 # Adds new record to the 'users' table
@@ -186,7 +186,6 @@ users[0].email # =>  'test1@email.com'
   users.length # =>  4
   users.last.username # =>  'ma_rie'
   users.last.email # =>  'test4@email.com'
-  end
 
 
 # 4
@@ -204,6 +203,7 @@ users[1].email # =>  'test2@email.com'
 # updates a username' 
 repo = UserRepository.new
 repo.update(2, 'username', 'del_m')
+
 users = repo.all
 users[1].id # =>  '2'
 users[1].name # =>  'name3'

@@ -15,7 +15,6 @@ describe UserRepository do
         repo = UserRepository.new
         
         users = repo.all
-        
         expect(users.length).to eq 3
         
         expect(users[0].id).to eq 1
@@ -32,6 +31,16 @@ describe UserRepository do
         expect(users[2].name).to eq 'name 3'
         expect(users[2].username).to eq 'username_3'
         expect(users[2].email).to eq 'test3@email.com'
+    end
+
+    it "returns a single user by id" do 
+        repo = UserRepository.new
+        user = repo.find(1)
+        
+        expect(user.id).to eq 1
+        expect(user.name).to eq 'name 1'
+        expect(user.username).to eq 'username_1'
+        expect(user.email).to eq 'test1@email.com'
     end
     
 end
