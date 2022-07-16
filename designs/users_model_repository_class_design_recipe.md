@@ -31,6 +31,7 @@ See: ../spec/seeds_chitter.sql
 │ - name                  │
 │ - username              │
 │ - email                 |
+| - password              |
 └─────────────────────────┘
 ```
 
@@ -59,7 +60,7 @@ end
 
 class User
 
-  attr_accessor :id, :name, :username, :email
+  attr_accessor :id, :name, :username, :email, :password
 end
 ```
 
@@ -210,13 +211,13 @@ users[1].email # =>  'test3@email.com'
 
 
 # 6
-# 'deletes an user' do
+# 'deletes a user' do
 repo = UserRepository.new
 
 repo.delete(1)
 users = repo.all
 
-users.length # =>  11
+users.length # =>  2
 users.first.id # =>  2
 
 ```

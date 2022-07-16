@@ -1,3 +1,3 @@
 class User
-  attr_accessor :id, :name, :username, :email
+  attr_accessor :id, :name, :username, :email, :password
 end

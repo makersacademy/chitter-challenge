@@ -84,7 +84,8 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
   username text,
-  email text
+  email text,
+  password password
 );
 
 -- Then the table with the foreign key first.

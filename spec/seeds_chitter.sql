@@ -6,13 +6,14 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
   username text,
-  email text
+  email text,
+  password text
 );
 
-INSERT INTO "public"."users" ("name", "username", "email") VALUES
-('name 1', 'username_1', 'test1@email.com'),
-('name 2', 'username_2', 'test2@email.com'),
-('name 3', 'username_3', 'test3@email.com');
+INSERT INTO "public"."users" ("name", "username", "email", "password") VALUES
+('name 1', 'username_1', 'test1@email.com', 'password123'),
+('name 2', 'username_2', 'test2@email.com', 'password234'),
+('name 3', 'username_3', 'test3@email.com', 'password345');
 
 -------------------------------------------------------------------------------
 
