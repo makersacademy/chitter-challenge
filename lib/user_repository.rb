@@ -29,5 +29,21 @@ class UserRepository
     user.name = result['name']
     user.username = result['username']
     user.email = result['email']
+
+    return user
+  end
+
+  def create(new_user)
+    sql = 'INSERT INTO 
+            users (name, username, email) 
+            VALUES ($1, $2, $3)'
+
+    params = [
+      new_user.name,
+      new_user.username,
+      new_user.email
+    ]
+
+    DatabaseConnection.exec_params(sql, params)
   end
 end

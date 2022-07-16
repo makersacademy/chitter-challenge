@@ -43,4 +43,19 @@ describe UserRepository do
     expect(user.username).to eq 'username_1'
     expect(user.email).to eq 'test1@email.com'
   end
+  
+  it "adds a new user to database" do
+    repo = UserRepository.new
+
+    new_user = User.new
+    new_user.name = 'Marie'
+    new_user.username = 'ma_rie'
+    new_user.email = 'test4@email.com'
+    repo.create(new_user)
+    
+    users = repo.all
+    expect(users.length).to eq 4
+    expect(users.last.username).to eq 'ma_rie'
+    expect(users.last.email).to eq 'test4@email.com'
+  end
 end
