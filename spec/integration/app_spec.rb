@@ -12,24 +12,24 @@ describe Application do
   let(:app) { Application.new }
 
 
-  def reset_users_table
-    seed_sql = File.read('spec/chitter_seeds.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-    connection.exec(seed_sql)
-  end
+#   def reset_users_table
+#     seed_sql = File.read('spec/chitter_seeds.sql')
+#     connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+#     connection.exec(seed_sql)
+#   end
 
-  def reset_peeps_table
-    seed_sql = File.read('spec/chitter_seeds.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-    connection.exec(seed_sql)
-  end
+#   def reset_peeps_table
+#     seed_sql = File.read('spec/chitter_seeds.sql')
+#     connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+#     connection.exec(seed_sql)
+#   end
 
   context 'GET /' do
     it 'returns 200 OK and a form to sign in' do
-      response get('/')
+      response = get('/')
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>Welcome to Chitter</h1>")
-      expect(reponse.body).to include("<form>")
+      expect(response.body).to include('<form action="/signup" method="POST">')
     end
   end
 end
