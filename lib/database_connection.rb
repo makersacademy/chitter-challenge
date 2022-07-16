@@ -12,9 +12,7 @@ class DatabaseConnection
   # the database name given in argument.
 # file: lib/database_connection.rb
 
-  def self.connect(database_name)
-    # If the environment variable (set by Heroku)
-    # is present, use this to open the connection.
+  def self.connect
     if ENV['DATABASE_URL'] != nil
       @connection = PG.connect(ENV['DATABASE_URL'])
       return
@@ -28,11 +26,7 @@ class DatabaseConnection
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   end
 
-  # This method executes an SQL query 
-  # on the database, providing some optional parameters
-  # (you will learn a bit later about when to provide these parameters).
   def self.exec_params(query, params)
     @connection.exec_params(query, params)
   end
 end
-
