@@ -12,8 +12,9 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repo'
     also_reload 'lib/user_repo'
   end
+  
 
-  get '/' do
+  get "/" do
     return erb(:home)
   end
 
@@ -29,11 +30,12 @@ class Application < Sinatra::Base
     end
 
     repo = UserRepo.new
-    user = User.new
-    user.username = params[:username]
-    user.password = params[:password]
-    repo.create_user(user)
-    return " "
+    new_user = User.new
+    new_user.username = params[:username]
+    new_user.password = params[:password]
+    repo.create_user(new_user)
+    @user = new_user
+    return erb(:succesful_signup)
   end
 
   def invalid_signup?
