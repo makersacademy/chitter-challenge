@@ -66,7 +66,9 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 2. Name of the second table (always plural): `users` 
 
-    Column names: `name`, `email`, `password`
+    Column names: `name`, `email`, `username`, `password`
+
+    User's email is their username. The real name is being used in interaction with other Makers.
 
 ## 3. Decide the column types.
 
@@ -79,6 +81,7 @@ time: text
 Table: users
 id: SERIAL
 name: text
+username: text
 email: text
 password: text
 ```
@@ -123,6 +126,7 @@ Replace the relevant bits in this example with your own:
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name: text,
+  username: text,
   email: text,
   password: text
 );
@@ -137,10 +141,10 @@ CREATE TABLE peeps (
   constraint fk_user foreign key(user_id) references users(id)
 );
 
-INSERT INTO users (name, email, password) VALUES
-('Anna', 'anna@hotmail.com', '235346hgsdv'),
-('John', 'john123@gmail.com', 'ddff!@£!@$34tfsd'),
-('Rachel', 'notrachel@msn.com', 'DR3tg3gwwdsvs');
+INSERT INTO users (name, username, email, password) VALUES
+('Anna', 'anna123', 'anna@hotmail.com', '235346hgsdv'),
+('John', 'jonh123', 'john123@gmail.com', 'ddff!@£!@$34tfsd'),
+('Rachel', 'rachel123', 'notrachel@msn.com', 'DR3tg3gwwdsvs');
 
 INSERT INTO peeps (content, time, user_id) VALUES
 ('I love sunshine', '2004-10-19 10:23:54', 1),

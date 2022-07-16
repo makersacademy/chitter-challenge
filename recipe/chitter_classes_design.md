@@ -47,13 +47,13 @@ Define the attributes of your Model class. You can usually map the table columns
 # Model class
 # (in lib/user.rb)
 class User
-  attr_accessor :id, :name, :email, :password
+  attr_accessor :id, :name, :username, :email, :password
 end
 
 # Model class
 # (in lib/peep.rb)
 class Peep
-  attr_accessor :id, :content, :time
+  attr_accessor :id, :content, :time, :user_id
 end
 
 
@@ -77,7 +77,7 @@ class UserRepository
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, email, password FROM users;
+    # SELECT * FROM users;
     # Returns an array of User objects.
   end
 
@@ -85,21 +85,15 @@ class UserRepository
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, name, email, password FROM users WHERE id = $1;
+    # SELECT * FROM users WHERE id = $1;
     # Returns a single user object.
   end
 
   def create(user)
     # Executes the SQL query:
-    # INSERT INTO users (name, email, password) VALUES ($1, $2, $3);
+    # INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);
     # Returns nil
   end
-
-  # def update(user)
-  # end
-
-  # def delete(user)
-  # end
 end
 
 # Table name: users
@@ -115,6 +109,18 @@ class PeepRepository
     # Returns an array of Peep objects.
   end
 
+  def all_with_users
+    # Executes the SQL query:
+    # SELECT peeps.id AS peep_id, 
+          # peeps.content, 
+          # peeps.time, 
+          # users.name,
+          # users.username
+          # FROM peeps
+          # JOIN users ON peeps.user_id = users.id;
+    # Returns an array of Peeps objects with related User information
+  end
+
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
@@ -128,12 +134,6 @@ class PeepRepository
     # INSERT INTO peeps (content, time, user_id) VALUES ($1, $2, $3);
     # Returns nil
   end
-
-  # def update(user)
-  # end
-
-  # def delete(user)
-  # end
 end
 ```
 
@@ -157,31 +157,34 @@ users.length # =>  3
 
 users[0].id # =>  1
 users[0].name # =>  'Anna'
+users[0].username # =>  ''anna123''
 users[0].email # =>  'anna@hotmail.com'
 users[0].password # =>  '235346hgsdv'
 
 users[1].id # =>  2
 users[1].name # =>  'John'
+users[1].username # =>  'john123'
 users[1].email # =>  'john123@gmail.com'
 users[1].password # =>  'ddff!@£!@$34tfsd'
 
 # 2
-# Get a single user
+# Get a single user by ID
 
 repo = UserRepository.new
 
-user = repo.find(1)
+user = repo.find(2)
 
-users[1].id # =>  2
-users[1].name # =>  'John'
-users[1].email # =>  'john123@gmail.com'
-users[1].password # =>  'ddff!@£!@$34tfsd'
+user.id # =>  2
+user.name # =>  'John'
+users.username # =>  'john123'
+user.email # =>  'john123@gmail.com'
+user.password # =>  'ddff!@£!@$34tfsd'
 
 # 3
 # Get a single user: fails if the user is not on the list
 
 repo = UserRepository.new
-repo.find(10) # =>  fails with "No record found"
+repo.find(10) # =>  "No record found"
 
 
 # 4
@@ -190,45 +193,17 @@ repo.find(10) # =>  fails with "No record found"
 repo = UserRepository.new
 new_user = User.new
 new_user.name # =>  'Joanna'
-new_user.email # =>  'joannaMccain@gmail.com'
+new_user.username # =>  'joanna123'
+new_user.email # =>  'joannaMccain@makersacademy.com'
 new_user.password # =>  'er4gg@$34tfsd'
-repo.create(new_user)
-added_user = repo.all.find[-1]
+repo.create(new_user) # => nil
+repo.all.length # => 4
+added_user = repo.all[-1]
 added_user.id # =>  4
-added_user.name # =>  'Jonaan'
-added_user.email # =>  'joannaMccain@gmail.com'
+added_user.name # =>  'Joanna'
+added_user.username # =>  'joanna123'
+added_user.email # =>  'joannaMccain@makersacademy.com.com'
 added_user.password # =>  'er4gg@$34tfsd'
-
-# 4
-# Create a single user: fails if name provided is incorrect
-
-repo = UserRepository.new
-new_user = User.new
-new_user.name # =>  'Jonaan! pc,7^'
-new_user.email # =>  'joannaMccain@gmail.com'
-new_user.password # =>  'er4gg@$34tfsd'
-repo.create(new_user) # => fails with 'Please review your name: no numbers or special letters allowed.'
-
-# 4
-# Create a single user: fails if email provided is incorrect
-
-repo = UserRepository.new
-new_user = User.new
-new_user.name # =>  'Joanna'
-new_user.email # =>  'joanna Mccaingmail.!<com'
-new_user.password # =>  'er4gg@$34tfsd'
-repo.create(new_user) # => fails with 'Your email is incorrect'
-
-# 4
-# Create a single user: fails if password provided is incorrect
-
-repo = UserRepository.new
-new_user = User.new
-new_user.name # =>  'Joanna'
-new_user.email # =>  'joannaMccain@gmail.com'
-new_user.password # =>  'v' 
-repo.create(new_user) # => fails with 'The password should be longer than 7 characters'
-
 
 # PEEP REPOSITORY TESTS
 
@@ -243,44 +218,46 @@ peeps.length # =>  6
 
 peeps[0].id # =>  1
 peeps[0].content # =>  'I love sunshine'
-peeps[0].time # =>  '10:23'
+peeps[0].time # =>  '2004-10-19 10:23:54'
 peeps[0].user_id # =>  1
 
 peeps[4].id # =>  5
 peeps[4].content # =>  'I like dogs'
-peeps[4].time # =>  '10:15'
-peeps[4].user_id # =>  2
+peeps[4].time # =>  '2004-10-19 10:15:54'
+peeps[4].user_id # =>  1
 
 # 2
 # Get a single peep
 
 repo = PeepRepository.new
 
-peep = repo.find(1)
+peep = repo.find(2)
 
-peeps[1].id # =>  2
-peeps[1].content # =>  'I do not love sunshine'
-peeps[1].time # =>  '12:23'
-peeps[1].user_id # =>  2
+peep.id # =>  2
+peep.content # =>  'I do not love sunshine'
+peep.time # =>  '2004-10-19 12:23:54'
+peep.user_id # =>  2
 
 # 3
 # Get a single user: fails if the user is not on the list
 
 repo = PeepRepository.new
-repo.find(10) # =>  fails with "No record found"
+repo.find(10) # => "No record found"
 
-# 3
+# 4
 # Create a single peep
 
 repo = PeepRepository.new
-new_peep = peep.new
+new_peep = Peep.new
 new_peep.content # =>  'a very new content'
-new_peep.time # =>  '16.54'
+new_peep.time # =>  '2004-10-19 16:54:54'
 new_peep.user_id # =>  2
-added_peep = repo.all.find[-1]
+repo.create(new_peep) # => nil
+repo.all.length # =>  7
+added_peep = repo.all[-1]
 added_peep.id # =>  7
 added_peep.content # =>  'a very new content'
-added_peep.time # =>  '16.54'
+added_peep.time # =>  '2004-10-19 16:54:54'
 added_peep.user_id # =>  2
 ```
 
@@ -296,7 +273,7 @@ This is so you get a fresh table contents every time you run the test suite.
 # file: spec/user_repository_spec.rb
 
 def reset_chitter_table
-  seed_sql = File.read('spec/seeds/seeds_chitter_database.sql')
+  seed_sql = File.read('spec/seeds/seeds_chitter_database_test.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_database_test' })
   connection.exec(seed_sql)
 end
@@ -312,7 +289,7 @@ end
 # file: spec/peep_repository_spec.rb
 
 def reset_chitter_table
-  seed_sql = File.read('spec/seeds/seeds_chitter_database.sql')
+  seed_sql = File.read('spec/seeds/seeds_chitter_database_test.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_database_test' })
   connection.exec(seed_sql)
 end
