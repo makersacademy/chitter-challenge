@@ -23,15 +23,15 @@ class Application < Sinatra::Base
   post '/signup' do
     repo = UserRepository.new
     @new_user = User.new
-    
+    new_user.id = params[:id]
+    new_user.name = params[:name]
+    new_user.username = params[:username]
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+    repo.create(new_user)
     return erb(:post_signup)
   end
 end
 
 
-#     new_user.id = params[:id]
-#     new_user.name = params[:name]
-#     new_user.username = params[:username]
-#     new_user.email = params[:email]
-#     new_user.password = params[:password]
-#     repo.create(new_user)
+    
