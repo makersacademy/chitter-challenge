@@ -205,7 +205,7 @@ repo.update(2, 'username', 'del_m')
 users = repo.all
 users[1].id # =>  '2'
 users[1].name # =>  'name3'
-users[1].username # =>  'Del_m'
+users[1].username # =>  'del_m'
 users[1].email # =>  'test3@email.com'
 
 

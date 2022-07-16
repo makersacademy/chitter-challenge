@@ -2,7 +2,7 @@ require_relative './user'
 
 class UserRepository
   def all
-    sql = 'SELECT id, name, username, email FROM users'
+    sql = 'SELECT id, name, username, email FROM users ORDER by id'
     result_set = DatabaseConnection.exec_params(sql, [])
     users = []
 
@@ -12,7 +12,6 @@ class UserRepository
       user.name = record['name']
       user.username = record['username']
       user.email = record['email']
-      
       users << user
     end
     
@@ -44,6 +43,15 @@ class UserRepository
       new_user.email
     ]
 
+    DatabaseConnection.exec_params(sql, params)
+  end
+
+  def update(id, col, val)  
+    sql = 'UPDATE users SET name = $2 WHERE id = $1' if col == 'name' 
+    sql = 'UPDATE users SET username = $2 WHERE id = $1' if col == 'username'
+    sql = 'UPDATE users SET email = $2 WHERE id = $1' if col == 'email'
+     
+    params = [id, val]
     DatabaseConnection.exec_params(sql, params)
   end
 end

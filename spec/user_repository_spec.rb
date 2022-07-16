@@ -58,4 +58,15 @@ describe UserRepository do
     expect(users.last.username).to eq 'ma_rie'
     expect(users.last.email).to eq 'test4@email.com'
   end
+
+  it do
+    repo = UserRepository.new
+    repo.update(2, 'username', 'del_m')
+    
+    users = repo.all
+    expect(users[1].id).to eq 2
+    expect(users[1].name).to eq 'name 2'
+    expect(users[1].username).to eq 'del_m'
+    expect(users[1].email).to eq 'test2@email.com'
+  end 
 end
