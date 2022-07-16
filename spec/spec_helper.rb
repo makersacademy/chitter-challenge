@@ -17,4 +17,4 @@ RSpec.configure do |config|
   end
 end
 
-DatabaseConnection.connect('your_database_name_test')
+DatabaseConnection.connect('chitter_directory_test')
