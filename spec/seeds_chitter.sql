@@ -14,7 +14,7 @@ INSERT INTO "public"."users" ("name", "username", "email") VALUES
 ('name 2', 'username_2', 'test2@email.com'),
 ('name 3', 'username_3', 'test3@email.com');
 
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 DROP TABLE IF EXISTS posts CASCADE;
 
