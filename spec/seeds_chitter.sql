@@ -31,6 +31,6 @@ CREATE TABLE posts (
 
 INSERT INTO posts ("message", "timestamp", "user_id") VALUES
 ('message 1', '2022-07-15 10:23:54', 1),
-('massage 2', '2022-07-15 10:24:54', 2),
+('message 2', '2022-07-15 10:24:54', 2),
 ('message 3', '2022-07-16 10:25:54', 3),
 ('message 4', '2022-07-16 10:26:54', 2);
