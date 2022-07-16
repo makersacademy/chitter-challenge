@@ -15,6 +15,7 @@ class Application < Sinatra::Base
   
 
   get "/" do
+    
     return erb(:home)
   end
 
@@ -38,11 +39,30 @@ class Application < Sinatra::Base
     return erb(:succesful_signup)
   end
 
+  get "/peep" do
+    return erb(:peep)
+  end
+
+  post "/peep" do
+    if invalid_peep?
+      status 400
+      return " "
+    end
+
+    repo = PeepRepo.new
+    new_peep = Peep.new
+    new_peep.content = params[:content]
+    new_peep.author_id = params[:author_id]
+    new_peep.time_posted = params[:time_posted]
+    repo.create_peep(new_peep)
+    return erb(:home)
+  end
+
   def invalid_signup?
     return (params[:username].nil? || params[:password].nil?)
   end
 
-  def invalid_post?
-    return params[:peep_comment].nil?
+  def invalid_peep?
+    return params[:content] == nil? || params[:author_id] == nil?
   end
 end

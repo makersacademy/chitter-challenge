@@ -8,7 +8,7 @@ describe Application do
   let(:app) { Application.new }
 
   context "GET to /" do
-    it "returns 200 OK only" do
+    it "returns 200 OK" do
       # Send a GET request to /
       # and returns a response object we can test.
       response = get("/")
@@ -16,6 +16,15 @@ describe Application do
       # Assert the response status code and body.
       expect(response.status).to eq(200)
       expect(response.body).to include("Like twitter")
+    end
+
+    it "contains the sign up link" do
+      response = get("/")
+      expect(response.body).to include('<a href = "/signup">Sign up here!</a>')
+    end
+    it "contains the write peep link" do
+      response = get("/")
+      expect(response.body).to include('<a href = "/peep">Write new peep!</a>')
     end
   end
 
@@ -35,8 +44,18 @@ describe Application do
     end
   end
 
-  context "GET/login" do
-    xit "" do
+  context "GET/peep" do
+    it "returns 200 OK and the new peep form data" do
+      response = get("/peep")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<input type="text" name="content" />')
+    end 
+  end
+
+  context "POST/peep " do
+    xit "validates a new peep" do
+      response = post("/peep", invalid_content: "")
+      expect(response.status).to eq(400)
     end
   end
 end

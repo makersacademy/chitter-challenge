@@ -17,7 +17,7 @@ class PeepRepo
 
   def create_peep(peep)
     sql = "INSERT INTO peeps (content, author_id, time_posted) VALUES ($1,$2, $3);"
-    params = [peep.content, peep.author_id, peep.time_posted]
+    params = [peep.content, peep.author_id.to_i, peep.time_posted]
     DatabaseConnection.exec_params(sql, params)
     return peep
   end

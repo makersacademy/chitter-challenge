@@ -17,7 +17,8 @@ CREATE TABLE peeps(
   id SERIAL PRIMARY KEY,
   content text,
   author_id int,
-  time_posted timestamp ,
+  time_posted text ,
   constraint fk_users foreign key(author_id) references users(id)
 );
 
+TRUNCATE TABLE peeps RESTART IDENTITY;

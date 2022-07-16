@@ -1,1 +1,21 @@
+<form method="POST" action="/peep">
 <html>
+  <div>
+    <head><h1>Chitter</h1><head>
+  </div>
+  <div>
+    <body> <label>Write peep here!</label>
+      <input type="text" name="content" />
+      <input type="hidden" name="time_posted" value=<%DateTime.now%> />
+      <input type="submit"/>
+    </body>
+  </div>
+
+  <div>
+    <body>
+      <label>TO BE REMOVED- Enter your author ID</label>
+      <input type="text" name="author_id" />
+    </body>
+  </div>
+</html>
+</form>
