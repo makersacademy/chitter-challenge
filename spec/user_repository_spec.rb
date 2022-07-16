@@ -2,7 +2,7 @@ require 'user'
 require 'user_repository'
 
 def reset_users_table
-    seed_sql = File.read('spec/chitter_seeds.sql')
+    seed_sql = File.read('spec/seeds/chitter_seeds.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
     connection.exec(seed_sql)
 end
@@ -34,7 +34,7 @@ describe UserRepository do
     it 'create a new user' do 
       repo = UserRepository.new
       new_user = User.new
-      new_user.id = '4'
+      # new_user.id = '4'
       new_user.name = 'Tim Robsons'
       new_user.username = 'trob'
       new_user.email = 'trom@email.com'

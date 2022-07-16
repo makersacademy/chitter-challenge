@@ -11,6 +11,26 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
+  def reset_users_table
+    seed_sql = File.read('spec/seeds/chitter_seeds.sql')
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
+    connection.exec(seed_sql)
+  end
+
+  # def reset_peeps_table
+  #   seed_sql = File.read('spec/seeds/chitter_seeds.sql')
+  #   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
+  #   connection.exec(seed_sql)
+  # end
+  
+  before(:each) do 
+    reset_users_table
+  end
+
+  before(:each) do 
+    reset_users_table
+  end
+
   context 'GET /' do
     it 'returns 200 OK and a form to sign in' do
       response = get('/')
@@ -21,9 +41,18 @@ describe Application do
   end
 
   context 'POST /signup' do
-    it 'create a new user' do
-      response = post('/signup')
+    it 'returns 200 OK and create a new user' do
+      response = post(
+        '/signup', 
+        name: "Gogi", 
+        username: "gogiii", 
+        email: "gogi",
+        password: "gogi123"
+        )
+    
       expect(response.status).to eq(200)
+
+      response = post('/signup')
       expect(response.body).to include("Thank you for sign up!")
       repo = UserRepository.new
       all_users = repo.all
@@ -31,3 +60,4 @@ describe Application do
     end
   end
 end
+
