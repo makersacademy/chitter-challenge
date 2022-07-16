@@ -74,5 +74,24 @@ describe UserRepository do
     expect(users[1].username).to eq 'del_m'
     expect(users[1].email).to eq 'test2@email.com'
     expect(users[1].password).to eq 'password234'
-  end  
+  end
+  
+  it 'deletes a user' do
+    repo = UserRepository.new
+    
+    new_user = User.new
+    new_user.name = 'Marie'
+    new_user.username = 'ma_rie'
+    new_user.email = 'test4@email.com'
+    new_user.password = 'password456'
+    repo.create(new_user)
+    
+    users = repo.all
+    expect(users.length).to eq 4
+
+    repo.delete(4)
+    users = repo.all
+    expect(users.length).to eq 3
+    expect(users.last.id).to eq 3
+  end
 end

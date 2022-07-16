@@ -58,4 +58,9 @@ class UserRepository
     params = [id, val]
     DatabaseConnection.exec_params(sql, params)
   end
+
+  def delete(id)
+    sql = 'DELETE FROM users WHERE id = $1'
+    DatabaseConnection.exec_params(sql, [id])
+  end
 end
