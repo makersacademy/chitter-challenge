@@ -32,4 +32,4 @@ INSERT INTO peeps ("id", "content", "date", "user_id") VALUES
 (2, 'content2', '2020-12-22 12:12:12', 1),
 (3, 'content3', '2020-07-10 09:09:09', 2);
 
--- datetime format: YYYY-MM-DD HH:MI:SS
+-- timestamp format: 'YYYY-MM-DD HH:MI:SS'
