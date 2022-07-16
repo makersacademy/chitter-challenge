@@ -1,0 +1,43 @@
+require_relative './user'
+
+class UserRepository
+
+  def all
+    sql = 'SELECT * FROM users;'
+    result_set = DatabaseConnection.exec_params(sql, [])
+    users = []
+    result_set.map do |record|
+      users << record_to_user_object(record)
+    end
+    return users
+  end
+
+  def find(id)
+    sql = 'SELECT * FROM users WHERE id = $1;'
+    params = [id]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    return "No record found" if result_set.to_a.length == 0
+    record = result_set[0]
+    return record_to_user_object(record)
+  end
+
+  def create(user)
+    sql = 'INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);'
+    params = [user.name, user.username, user.email, user.password]
+    DatabaseConnection.exec_params(sql, params)
+    return nil
+  end
+
+  private
+
+  def record_to_user_object(record)
+    user = User.new
+    user.id = record['id'].to_i
+    user.name = record['name']
+    user.username = record['username']
+    user.email = record['email']
+    user.password = record['password']
+    return user
+  end
+end
+  
