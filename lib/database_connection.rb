@@ -2,11 +2,11 @@ require "pg"
 
 class DatabaseConnection
   def self.connect
-    if ENV["ENV"] == "test"
-      database_name = "chitter_test"
-    else
-      database_name = "chitter"
-    end
+    database_name = if ENV["ENV"] == "test"
+        "chitter_test"
+      else
+        "chitter"
+      end
     @connection = PG.connect({ host: "127.0.0.1", dbname: database_name })
   end
 
