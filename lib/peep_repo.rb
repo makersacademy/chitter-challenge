@@ -17,10 +17,7 @@ class PeepRepo
   end
 
   def peep_feed
-    sql = "SELECT peeps.content, peeps.time_posted, users.username
-    FROM peeps
-    JOIN users
-    ON users.id = peeps.author_id;"
+    sql = "SELECT peeps.content, peeps.time_posted, users.username FROM peeps JOIN users ON users.id = peeps.author_id;"
     feed = []
     result_set = DatabaseConnection.exec_params(sql, [])
     result_set.each do |result|

@@ -2,7 +2,16 @@ require "spec_helper"
 require "rack/test"
 require_relative '../../app'
 
+def reset_tables
+  sql_seed = File.read('spec/seeds/seeds_chitter_db.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_db' })
+  connection.exec_params(sql_seed)
+end
+
 describe Application do
+  before(:each) do
+    reset_tables
+  end
   include Rack::Test::Methods
 
   let(:app) { Application.new }
@@ -52,25 +61,42 @@ describe Application do
       expect(response.status).to eq (200)
       expect(response.body).to include("<div><head>Succesfully wrote a peep!</head></div>")
     end
+
+  end
+
+  context "POST/peep" do
+    it "returns 400 status and body 'Contents or author id must not be empty'" do
+      response = post("/peep", content: "", author_id: 1)
+      expect(response.status).to eq(400)
+      expect(response.body).to include("Contents or author id must not be empty")
+    end
+
+    it "returns 200 and and body when peep is succesfully made" do
+      response = post('/peep', content: "This is my content", author_id: 1)
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<div><head>Succesfully wrote a peep!</head></div>")
+      all = get("/")
+      expect(all.body).to include("This is my content")
+    end
   end
 
   context "POST/signup invalid signup" do
     it "returns 400 OK and message 'Username or password cannot be empty' when empty username" do
-      response = post("/signup", username: "", password:'1234')
+      response = post("/signup", username: "", password: '1234')
       expect(response.status).to eq(400)
       expect(response.body).to include("Username or password cannot be empty")
     end
 
     it "returns 200 OK and posts succesfully when username and password are valid" do
-      response = post("/signup", username: "John", password:'1234')
+      response = post("/signup", username: "John", password: '1234')
       expect(response.status).to eq(200)
       expect(response.body).to include("<div><head>Succesfully signed up!</head></div>")
     end
 
     it "returns Existing username, please choose another if Username exists" do
-      existing_name_repo = post("/signup", username: "Mike", password:'1234')
+      existing_name_repo = post("/signup", username: "Mike", password: '1234')
       expect(existing_name_repo.status).to eq(200)
-      repo = post("/signup", username: "Joe", password:'1234')
+      repo = post("/signup", username: "Joe", password: '1234')
       expect(repo.body).to include ("Existing username, please choose another")
     end
   end

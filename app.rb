@@ -42,7 +42,7 @@ class Application < Sinatra::Base
     new_user.password = params[:password]
     repo.create_user(new_user)
     @user = new_user
-    @ID = repo.find(params[:username])
+    @id = repo.find(params[:username])
     return erb(:successful_signup)
   end
 
@@ -53,9 +53,8 @@ class Application < Sinatra::Base
   post "/peep" do
     if invalid_peep?
       status 400
-      return " "
+      return "Contents or author id must not be empty"
     end
-
 
     repo = PeepRepo.new
     new_peep = Peep.new
@@ -76,9 +75,10 @@ class Application < Sinatra::Base
   
   def existing_username?
     repo = UserRepo.new
-    return (repo.match_username?(params[:username]))
+    return repo.match_username?(params[:username])
   end
+
   def invalid_peep?
-    return params[:content] == nil? || params[:author_id] == nil?
+    return (params[:content].empty? || params[:author_id].empty?)
   end
 end
