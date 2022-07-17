@@ -52,7 +52,5 @@ describe UserRepository do
     expect(new_user.last_name).to eq "Doe"
     expect(new_user.email).to eq "jane@doe.com"
     expect(new_user.username).to eq "Jane1"
-
-    p repo.all
   end
 end
