@@ -77,8 +77,6 @@ class Application < Sinatra::Base
     if @user.password == password
       # Set the user ID in session
       session[:user_id] = @user.id
-      p @user.id
-
       return erb(:login_success)
     else
       return erb(:login_error)
