@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/user_repository'
-require './lib/peep_repository'
-require './lib/database_connection'
+require_relative './lib/user_repository'
+require_relative './lib/peep_repository'
+require_relative './lib/database_connection'
 
 DatabaseConnection.connect
 
