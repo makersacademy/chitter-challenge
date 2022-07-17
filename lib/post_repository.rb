@@ -32,21 +32,21 @@ class PostRepository
   end
 
   def create(post)
-   sql = 'INSERT INTO 
+    sql = 'INSERT INTO 
           posts (message, timestamp, user_id) 
           VALUES ($1, $2, $3)'
-
-   params =[
-    post.message,
-    post.timestamp,
-    post.user_id
-   ]
-
-   DatabaseConnection.exec_params(sql, params)
+    
+    params = [
+      post.message,
+      post.timestamp,
+      post.user_id
+    ]
+    
+    DatabaseConnection.exec_params(sql, params)
   end
 
   def update(id, col, val)
-    sql = 'UPDATE posts SET message = $2 WHERE id = $1' if col = 'message'
+    sql = 'UPDATE posts SET message = $2 WHERE id = $1' if col == 'message'
 
     params = [id, val]
     DatabaseConnection.exec_params(sql, params)
