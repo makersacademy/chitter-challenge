@@ -13,6 +13,9 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/' do 
+    return "bey"
+  end
   get '/signup' do
     repo = UserRepository.new
     # First page: give the form to sign in
