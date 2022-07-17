@@ -1,6 +1,6 @@
-require_relative 'lib/database_connection'
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
 
@@ -11,11 +11,14 @@ class Application < Sinatra::Base
   # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
+    also_reload 'lib/album_repository'
+    also_reload 'lib/artist_repository'
   end
 
-  get '/' do 
-    return "bey"
-  end
+  # get '/' do 
+  
+  # end
+
   get '/signup' do
     repo = UserRepository.new
     # First page: give the form to sign in
