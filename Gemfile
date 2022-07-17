@@ -19,4 +19,4 @@ gem "rack-test", "~> 2.0"
 
 gem "pg", "~> 1.4"
 
-gem "bcrypt", "~> 3.1.3"
+gem "bcrypt", "~> 3.1.18"
