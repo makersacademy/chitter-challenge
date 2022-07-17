@@ -1,76 +1,62 @@
-TRUNCATE TABLE comments RESTART IDENTITY;
-TRUNCATE TABLE peeps RESTART IDENTITY;
-TRUNCATE TABLE users RESTART IDENTITY;
+TRUNCATE TABLE peeps RESTART IDENTITY CASCADE;
+TRUNCATE TABLE users RESTART IDENTITY CASCADE;
 
-INSERT INTO users (
-  email, 
-  username, 
-  password
-) 
-VALUES
-  (
+  WITH new_user AS (
+    INSERT INTO users (first_name, last_name, email, username, password)
+    VALUES (
+    'Sara',
+    'Smith',
     'test@example.com',
-    'TaylorSwift20',
-    crypt('password', gen_salt('bf', 8)), 
-  ),
-  (
+    'SaraSmith1',
+    crypt('password', gen_salt('bf', 8))
+  )
+    RETURNING user_id
+  )
+  INSERT INTO peeps (content, user_id)
+    SELECT 'my first peep!!', user_id
+    FROM new_user;
+
+  WITH new_user AS (
+    INSERT INTO users (first_name, last_name, email, username, password)
+    VALUES (
+    'John',
+    'Parker',
     'test2@example.com',
-    'JustinBieber1',
-    crypt('password', gen_salt('bf', 8)), 
-  ),
-  (
+    'J0hnParker',
+    crypt('password2', gen_salt('bf', 8))
+  )
+    RETURNING user_id
+  )
+  INSERT INTO peeps (content, user_id)
+    SELECT 'what a great concept for an app', user_id
+    FROM new_user;
+
+  WITH new_user AS (
+    INSERT INTO users (first_name, last_name, email, username, password)
+    VALUES (
+    'Troy',
+    'Ng',
     'test3@example.com',
-    'SelenaGomez50',
-    crypt('password', gen_salt('bf', 8)), 
-  ),
-  (
+    'tAsInTroy',
+    crypt('password3', gen_salt('bf', 8))
+  )
+    RETURNING user_id
+  )
+  INSERT INTO peeps (content, user_id)
+    SELECT 'peeping everyday!', user_id
+    FROM new_user;
+
+  WITH new_user AS (
+    INSERT INTO users (first_name, last_name, email, username, password)
+    VALUES (
+    'Bethany',
+    'Roy',
     'test4@example.com',
-    'NickJonas8',
-    crypt('password', gen_salt('bf', 8)), 
-  ),
-  (
-    'test5@example.com',
-    'MileyCyrus5',
-    crypt('password', gen_salt('bf', 8)), 
-  );
-
-INSERT INTO peeps (
-  content,
-  user_id 
-)
-VALUES  
-  (
-    'first peep',
-    SELECT user_id FROM users WHERE email == 'test@example.com'
-  ),
-  (
-    'second peep',
-    SELECT user_id FROM users WHERE email == 'test2@example.com'
-  ),
-  (
-    'third peep',
-    SELECT user_id FROM users WHERE email == 'test3@example.com'
-  );
-
-INSERT INTO comments (
-  content,
-  user_id,
-  peep_id
-)
-VALUES 
-  (
-    'comment',
-    SELECT user_id FROM users WHERE email == 'test5@example.com',
-    SELECT peep_id FROM peeps WHERE content == 'first peep'
-  ),
-  (
-    'second comment',
-    SELECT user_id FROM users WHERE email == 'test4@example.com',
-    SELECT peep_id FROM peeps WHERE content == 'second peep'
-  ),
-  (
-    'third comment',
-    SELECT user_id FROM users WHERE email == 'test3@example.com',
-    SELECT peep_id FROM peeps WHERE content == 'first peep'
-  );
-  
+    'Bethxx',
+    crypt('password4', gen_salt('bf', 8))
+  )
+    RETURNING user_id
+  )
+  INSERT INTO peeps (content, user_id)
+    SELECT 'chitter reminds me of something...', user_id
+    FROM new_user;
