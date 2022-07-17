@@ -85,7 +85,7 @@ CREATE TABLE users (
   name text,
   username text,
   email text,
-  password password
+  password text
 );
 
 -- Then the table with the foreign key first.
