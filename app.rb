@@ -13,10 +13,10 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
+  get '/signup' do
     repo = UserRepository.new
     # First page: give the form to sign in
-    return erb(:index)
+    return erb(:get_signup)
   end
   
   post '/signup' do
