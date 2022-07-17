@@ -2,14 +2,9 @@ require "spec_helper"
 require "rack/test"
 require_relative '../../app'
 
-
 describe Application do
-  include Rack::Test::Methods
-
-  let(:app) { Application.new }
-
   def reset_tables
-    seed_sql = File.read('spec/seeds/test_seeds.sql')
+    seed_sql = File.read('spec/seeds/chitter_seeds.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
     connection.exec(seed_sql)
   end
@@ -17,6 +12,10 @@ describe Application do
   before(:each) do 
     reset_tables
   end
+
+  include Rack::Test::Methods
+
+  let(:app) { Application.new }
 
   context 'GET /signup' do
     it 'returns 200 OK and a form to sign up' do
