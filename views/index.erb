@@ -19,7 +19,7 @@
         <%=peep.content%>
       </p>
       <footer>
-        <%=@users.find(peep.user_id)[0].username%>    <%=@users.find(peep.user_id)[0].email%>    <%=peep.date%>
+        @<%=@users.find(peep.user_id)[0].username%>    <%=@users.find(peep.user_id)[0].email%>    <%=peep.date%>
       </footer>
     </div><br>
     <%end%>

@@ -47,9 +47,9 @@ class Application < Sinatra::Base
 
   get "/account/:id" do
     unless ENV["USER_ID"] == "0"
-      @user = UserRepository.new.find(params[:id])[0]
+      @user = UserRepository.new.find(ENV["USER_ID"])[0]
       @users = UserRepository.new
-      @peeps = PeepRepository.new.find_by_user(params[:id])
+      @peeps = PeepRepository.new.find_by_user(ENV["USER_ID"])
       return erb(:account)
     else
       redirect "/"

@@ -4,7 +4,8 @@
   <head>
     <title>Chitter Account Page Homepage!</title>
       <a href='/'>Home</a><br>
-      <a href='/logout'>Logout</a>        
+      <a href='/logout'>Logout</a><br>
+      <a href='/account/:id'>Logout</a>        
   </head>
 
   <body>
@@ -19,7 +20,7 @@
         <%=peep.content%>
       </p>
       <footer style="border:solid">
-        <%=@users.find(peep.user_id)[0].username%>    <%=@users.find(peep.user_id)[0].email%>    <%=peep.date%>
+        @<%=@users.find(peep.user_id)[0].username%>    <%=@users.find(peep.user_id)[0].email%>    <%=peep.date%>
       </footer>
     </div><br>
     <%end%>
