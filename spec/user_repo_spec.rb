@@ -40,4 +40,20 @@ describe UserRepo do
     found_id = repo.find(to_find)
     expect(found_id).to eq(2)
   end
+
+  it "match_users? returns false if username does not match any existing" do
+    repo = UserRepo.new
+    new_user = User.new
+    new_user.username = "Colin"
+    new_user.password = "1234"
+    expect(repo.match_username?(new_user.username)).to eq(false)
+  end
+
+  it "match_users? returns true if username does  match any existing" do
+    repo = UserRepo.new
+    new_user = User.new
+    new_user.username = "Joseph"
+    new_user.password = "1234"
+    expect(repo.match_username?(new_user.username)).to eq(true)
+  end
 end

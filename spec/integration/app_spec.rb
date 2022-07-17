@@ -60,4 +60,10 @@ describe Application do
     end
   end
 
+  # context "invalid signup" do
+  #   it "returns 400 OK and message 'Username or password cannot be empty" do
+
+  #   end
+  end
+
 end

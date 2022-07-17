@@ -65,7 +65,8 @@ class Application < Sinatra::Base
   end
 
   def invalid_signup?
-    return (params[:username].nil? || params[:password].nil?)
+    repo = UserRepo.new
+    return (params[:username].nil? || params[:password].nil? || repo.match_username?(params[:username]))
   end
 
   def invalid_peep?

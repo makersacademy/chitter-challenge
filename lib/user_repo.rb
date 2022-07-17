@@ -34,4 +34,14 @@ class UserRepo
     end
     return found_users[0].id
   end
+
+  def match_username?(username)
+    sql = "SELECT username FROM users WHERE username = $1;"
+    params = [username]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    result_set.each do |result|
+      return true if username == result['username']
+    end
+    return false
+  end
 end
