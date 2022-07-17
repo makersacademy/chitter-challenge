@@ -4,7 +4,7 @@ require_relative 'lib/peep_repository'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
-DatabaseConnection.connect('chitter_database_test')
+# DatabaseConnection.connect('chitter_database_test')
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -23,36 +23,51 @@ class Application < Sinatra::Base
   end
 
   get "/signup" do
-    
+    return erb(:signup)
   end
 
-  get "/login" do
-    
+  post "/new_user" do
+    @name = params[:name]
+    params[:name].empty?
+    params[:name] == nil
+    params[:name].length != 0
+    @username = params[:username]
+    email = params[:email]
+    password = params[:password]
+    @error = nil
+    input_validation
+    if @error.nil? == false
+      return erb(:new_user_error)
+    end
+    repo_users = UserRepository.new
+    users = repo_users.all
+    if repo_users.email_exists?(email)
+      @error = "email_exists"
+      erb(:new_user_error)
+    elsif repo_users.username_exists?(@username)
+      @error = "username_taken"
+      erb(:new_user_error)
+    else
+      @user = User.new
+      @user.name = @name
+      @user.username = @username
+      @user.email = email
+      @user.password = password
+      repo_users.create(@user)
+      erb(:new_user_confirmation)
+    end
   end
 
-  get "/logout" do
-    
+  def input_validation
+    if params[:name].match?(/[^a-z\s-]{2,30}/i)
+      @error = "invalid_name"
+    elsif params[:username].match?(/[^a-z\d]{5,16}/i)
+      @error = "invalid_username"
+    elsif (!params[:email].include?('@') || params[:email].split("@")[-1] != 'makersacademy.com' || params[:email].split("@")[0].match?(/[^a-z\s-]{2,16}/i))
+      @error = "not_makers_email"
+    elsif ((params[:name].length == 0) || (params[:username].length == 0) || (params[:password].length == 0))
+      @error = "input_missing"
+    end  
+    @error
   end
-
-  post "/peep" do
-  
-  end
-
-
-
 end
-
-
-
-
-
-# # Perform a SQL query on the database and get the result set.
-# sql = 'SELECT * FROM users;'
-# result = DatabaseConnection.exec_params(sql, [])
-
-# # Print out each record from the result set .
-# result.each do |record|
-   
-#    p record['name'].include?("Rachel")
-# end
-

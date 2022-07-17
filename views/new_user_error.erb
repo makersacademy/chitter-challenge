@@ -1,0 +1,50 @@
+<html>
+  <head><h1>CHITTER</h1></head>
+  <head><h2>maker's chit chat</h2></head>
+
+<body> 
+
+<%if @error == "invalid_name"%>
+    <%puts%><p>Your name seems to be incorrect.</p>
+<%elsif @error == "invalid_username"%>
+    <%puts%><p>Your username can only contain letters and numbers, and must be between 5 and 16 characters long.</p>
+<%elsif @error == "not_makers_email"%>
+    <%puts%><p>Please use your Makers' email to create a Chitter account.</p>
+<%elsif @error == "input_missing"%>
+    <%puts%><p>Some essential information is missing.</p>
+<%elsif @error == "email_exists"%>
+    <%puts%><p>Hi <%=@name%>, this email has already been registered.</p>
+<%elsif @error == "username_taken"%>
+    <%puts%><p>Hi <%=@name%>, username <%=@username%> is already in use. Please choose a different one.</p>
+<%end%>
+
+<body>
+<p>Please review your details:</p>
+<form method='POST' action='/new_user'>
+  <div>
+    <label>your name:</label>
+    <input type='text' name='name'/>
+  </div>  
+
+  <div>
+    <label>your username:</label>
+    <input type='text' name='username'/>
+  </div>    
+  
+  <div>  
+    <label>your email:</label>
+    <input type='text' name='email'/>  
+  </div>   
+
+  <div>  
+    <label>your password:</label>
+    <input type='text' name='password'/>  
+  </div>   
+  <div>  
+  <input type='submit' name="join us today"/>
+  </div>  
+</form>
+
+<div>  
+  <a href= "/">keep on reading us</a>
+  </div>  
