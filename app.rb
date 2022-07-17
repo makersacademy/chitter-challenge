@@ -12,12 +12,29 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repo'
     also_reload 'lib/user_repo'
   end
-  
 
+  
   get "/" do
     peep_repo = PeepRepo.new
     @posts = peep_repo.peep_feed.sort { |post| DateTime.parse(post.time) }
     return erb(:home)
+  end
+
+  get "/login" do
+    return erb(:login)
+  end
+
+  post "/login" do
+    if invalid_login?
+      status 400
+      return "Username or password cannot be empty"
+    end
+
+    if incorrect_login?
+      status 400
+      return "Incorrect username or password"
+    end
+    return erb(:loggedin)
   end
 
   get "/signup" do
@@ -85,6 +102,16 @@ class Application < Sinatra::Base
 
   def invalid_peep?
     return (params[:content].empty? || params[:author_id].empty?)
+  end
+
+  def invalid_login?
+    repo = UserRepo.new
+    return (params[:username].empty? || params[:password].empty?)
+  end
+
+  def incorrect_login?
+    repo = UserRepo.new
+    return repo.invalid_login?(params[:username], params[:password])
   end
 
   def author_id?

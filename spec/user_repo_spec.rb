@@ -53,7 +53,30 @@ describe UserRepo do
     repo = UserRepo.new
     new_user = User.new
     new_user.username = "Joseph"
-    new_user.password = "1234"
     expect(repo.match_username?(new_user.username)).to eq(true)
+  end
+
+  it "compares entered password to existing passwords- succesful match" do
+    repo = UserRepo.new
+    new_user = User.new
+    new_user.username = "Joe"
+    new_user.password = "123"
+    expect(repo.invalid_login?(new_user.username, new_user.password)).to eq(false)
+  end
+
+  it "compares entered password to existing passwords- failed match- wrong password" do
+    repo = UserRepo.new
+    new_user = User.new
+    new_user.username = "Joe"
+    new_user.password = "Hello"
+    expect(repo.invalid_login?(new_user.username, new_user.password)).to eq(true)
+  end
+
+  it "compares entered password to existing passwords- failed match no username exists" do
+    repo = UserRepo.new
+    new_user = User.new
+    new_user.username = "Nick"
+    new_user.password = "123"
+    expect(repo.invalid_login?(new_user.username, new_user.password)).to eq(true)
   end
 end

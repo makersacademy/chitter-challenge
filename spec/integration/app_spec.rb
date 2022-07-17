@@ -113,4 +113,36 @@ describe Application do
     end
   end
 
+  context "GET/login" do
+    it "Returns 200 OK and body of form to login" do
+      response = get("/login")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<input type="text" name ="username" />')
+      expect(response.body).to include('<input type="text" name ="password" />')
+      expect(response.body).to include('<input type="submit" />')
+    end
+  end
+
+  context "POST/login" do
+    it "returns 200 OK and body text of succesful login" do
+      response = post("/login", username: "Joe", password: "123")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<head><h2>Logged in succesfully!</h2></head>')
+      expect(response.body).to include('<a href ="/"><h2>Return to homepage</h2></a>')
+    end
+
+    it "returns 400 and error message if wrong password for username" do
+      response = post("/login", username: "Joe", password: "hello")
+      expect(response.status).to eq(400)
+      expect(response.body).to include('Incorrect username or password')
+
+    end
+  end
+
+  # context "GET/loggedin" do
+  #   it "returns 200 OK and body" do
+  #     response = get("/loggedin")
+  #     expect(response.status).to eq(200)
+  #   end
+  # end 
 end

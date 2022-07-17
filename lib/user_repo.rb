@@ -45,4 +45,12 @@ class UserRepo
     return false
   end
 
+  def invalid_login?(username, password)
+    return true if match_username?(username) == false
+    sql = "SELECT password FROM users WHERE username = $1;"
+    param = [username]
+    result_set = DatabaseConnection.exec_params(sql, param)
+    p result_set
+    result_set[0]["password"] == password ? false : true
+  end
 end
