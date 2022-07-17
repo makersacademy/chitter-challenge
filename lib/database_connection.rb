@@ -11,6 +11,12 @@ class DatabaseConnection
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
   def self.connect
+
+    if ENV['postgresql-closed-52449'] != nil
+      @connection = PG.connect(ENV['postgresql-closed-52449'])
+      return
+    end
+
     if ENV['ENV'] == 'test'
       database_name = 'chitter_test'
     else
