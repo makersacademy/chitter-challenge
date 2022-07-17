@@ -1,0 +1,72 @@
+#whole-page{
+  background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
+  max-width: 540px;
+  min-width: 540px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid;
+  border-radius: 15px;
+  width: 100%;
+  padding-top: 20px;
+  font-family: Arial, Hevetica, sans-serif;
+
+}
+
+h1{
+  color: blue;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  
+  
+}
+
+#button{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 5px;
+  width: 15%;
+  margin-top: 10px;
+  
+}
+
+#button:hover{
+  color: white;
+  background-color: blue;
+}
+
+#allposts{
+  text-align: left;
+  display: block;
+  margin: 0 auto;
+ 
+  padding: 5px;
+  width: 75%;
+  margin-top: 10px;
+
+
+}
+
+#singlepost{
+  background: #79c2d0; 
+  border: 1px solid;
+  border-radius: 15px;
+  margin: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color:#962071;
+
+}
+
+.containerpeepform{
+
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+}
+
