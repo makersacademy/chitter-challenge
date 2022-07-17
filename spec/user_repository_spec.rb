@@ -16,13 +16,13 @@ describe UserRepository do
     users = repo.all
 
     expect(users.length).to eq 4
-    expect(users.first).to include "Sara"
-    expect(users.first).to include "Smith"
-    expect(users.first).to include "SaraSmith1"
-    expect(users.first).to include "test@example.com"
-    expect(users.last).to include "test4@example.com"
-    expect(users.last).to include "Bethxx"
-    expect(users.last).to include "Bethany"
-    expect(users.last).to include "Roy"
+    expect(users.first.first_name).to eq "Sara"
+    expect(users.first.last_name).to eq "Smith"
+    expect(users.first.username).to eq "SaraSmith1"
+    expect(users.first.email).to eq "test@example.com"
+    expect(users.last.email).to eq "test4@example.com"
+    expect(users.last.username).to eq "Bethxx"
+    expect(users.last.first_name).to eq "Bethany"
+    expect(users.last.last_name).to eq "Roy"
   end
 end
