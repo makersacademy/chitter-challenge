@@ -32,4 +32,24 @@ describe Application do
       expect(response.body).to include "Return to Homepage"
     end
   end
+
+  context 'GET /signup' do
+    it 'should get the sign up page' do
+      response = get('/signup')
+      
+      expect(response.status).to eq 200
+      expect(response.body).to include "password"
+      expect(response.body).to include "username"
+      expect(response.body).to include "email"
+    end
+  end
+
+  context 'POST /signup' do
+    it 'should add new user to database' do
+      response = post('/signup')
+      
+      expect(response.status).to eq 200
+      expect(response.body).to include "Thank you for joining Chitter"
+    end
+  end
 end
