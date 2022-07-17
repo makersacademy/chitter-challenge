@@ -56,7 +56,14 @@ TRUNCATE TABLE users RESTART IDENTITY CASCADE;
     crypt('password4', gen_salt('bf', 8))
   )
     RETURNING user_id
+  ),
+  new_peep AS (
+    INSERT INTO peeps (content, user_id)
+    SELECT 'chitter reminds me of something...', user_id
+    FROM new_user
   )
   INSERT INTO peeps (content, user_id)
-    SELECT 'chitter reminds me of something...', user_id
+    SELECT 'love to peep', user_id
     FROM new_user;
+
+  
