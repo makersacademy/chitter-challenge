@@ -28,11 +28,38 @@ describe Application do
   end
 
   context 'POST /signup' do
-    it 'returns 200 OK and the correct content' do
+    it 'returns 200 OK when the user has no account' do
       response = post('/signup', name: 'Sam', username: 'Samy', email: 'samy@mail.com', password: 'samy123' )
-      expect(response.status).to eq (200)
+      expect(response.status).to eq(200)
       expect(response.body).to include('<h2> Thank you for sign up! <h2>')
       expect(response.body).to include('<a href="/peeps"> View peeps </a>')
+    end
+
+    it 'returns 200 OK when the user has an account' do
+      response = post('/signup', name: 'Tami', username: 'bigtami', email: 'tam@mail.com', password: '1234')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2> Chitter account already exists</h2>')
+      expect(response.body).to include('Please login <a href="/login"> here </a>')
+    end
+  end
+
+  context 'GET /login' do
+    it 'return the form to login' do
+      response = get('/login')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form action="/login" method="POST">')
+    end
+  end
+
+  context 'POST /login' do
+    xit 'login if it is the correct password' do
+      response = post('/login')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Correct password!') # Hi username!
+    end
+
+    xit 'go to error page if password is incorrect' do
+
     end
   end
        
