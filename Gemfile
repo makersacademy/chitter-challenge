@@ -6,7 +6,6 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'database_cleaner-active_record'
 end
 
 group :development, :test do
