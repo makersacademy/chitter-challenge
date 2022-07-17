@@ -65,14 +65,14 @@ RSpec.describe Application do
   context "POST /login" do
     it 'when log in details match' do
 
-      response = post('/login', params={email: "parismonson@yahoo.com", password: "hash_password"})
+      response = post('/login', params = { email: "parismonson@yahoo.com", password: "hash_password" })
       last_response.should be_redirect
       follow_redirect!
       last_request.url.should == "http://example.org/account/1"
     end
     it 'when log in details dont match' do
 
-      response = post('/login', params={email: "parismonson@yahoo.com", password: "password"})
+      response = post('/login', params = { email: "parismonson@yahoo.com", password: "password" })
       
       expect(response.status).to eq 200
       expect(response.body).to include("Try Again")
@@ -111,7 +111,7 @@ RSpec.describe Application do
     it 'returns 200 OK' do
 
       ENV["USER_ID"] = "1"
-      response = post('/peep', params={contents: "Test content"})
+      response = post('/peep', params = { contents: "Test content" })
 
       last_response.should be_redirect
       follow_redirect!

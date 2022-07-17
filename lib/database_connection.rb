@@ -10,7 +10,7 @@ class DatabaseConnection
       @connection = PG.connect(ENV['DATABASE_URL'])
       return
     end
-    
+
     if ENV['ENV'] == 'test'
       database_name = 'chitter_test'
     else

@@ -1,6 +1,5 @@
 require 'user_repository'
 
-
 def reset_tables
   sql = File.read("spec/seed.sql")
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })

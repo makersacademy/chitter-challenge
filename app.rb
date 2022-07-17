@@ -25,13 +25,13 @@ class Application < Sinatra::Base
     unless check_credentials_for_dbls(params[:username], params[:email])
       create_account(params[:username], params[:email], params[:password])
       return erb(:account_creation)
-    else
-      return erb(:account_creation_fail)
     end
+    return erb(:account_creation_fail)
   end
 
   get "/login" do
-    return erb(:login)
+    return erb(:login) if ENV["USER_ID"].nil?
+    redirect "/account/#{ENV["USER_ID"]}"
   end
 
   post "/login" do
@@ -40,21 +40,18 @@ class Application < Sinatra::Base
     unless account.empty?
       ENV["USER_ID"] = account[0].id.to_s
       redirect "/account/#{account[0].id}"
-    else
-      return erb(:fail)
     end
+    return erb(:fail)
   end
 
   get "/account/:id" do
-    
-    unless ENV["USER_ID"] == nil
+    unless ENV["USER_ID"].nil?
       @user = UserRepository.new.find(ENV["USER_ID"])[0]
       @users = UserRepository.new
       @peeps = PeepRepository.new.find_by_user(ENV["USER_ID"])
       return erb(:account)
-    else
-      redirect "/login"
     end
+    redirect "/login"
   end
 
   post "/peep" do
@@ -88,5 +85,4 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     return repo.find_dbl(username, email)
   end
-
 end
