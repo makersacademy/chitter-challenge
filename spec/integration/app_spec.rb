@@ -37,12 +37,6 @@ describe Application do
       expect(response.body).to include('<input type="submit" />')
     end
   end
-  context "POST/signup " do
-    it "validates a new user " do
-      response = post("/signup", invalid_username: "", invalid_password: "123")
-      expect(response.status).to eq(400)
-    end
-  end
 
   context "GET/peep" do
     it "returns 200 OK and the new peep form data" do
@@ -60,10 +54,25 @@ describe Application do
     end
   end
 
-  # context "invalid signup" do
-  #   it "returns 400 OK and message 'Username or password cannot be empty" do
+  context "POST/signup invalid signup" do
+    it "returns 400 OK and message 'Username or password cannot be empty' when empty username" do
+      response = post("/signup", username: "", password:'1234')
+      expect(response.status).to eq(400)
+      expect(response.body).to include("Username or password cannot be empty")
+    end
 
-  #   end
+    it "returns 200 OK and posts succesfully when username and password are valid" do
+      response = post("/signup", username: "John", password:'1234')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<div><head>Succesfully signed up!</head></div>")
+    end
+
+    it "returns Existing username, please choose another if Username exists" do
+      existing_name_repo = post("/signup", username: "Mike", password:'1234')
+      expect(existing_name_repo.status).to eq(200)
+      repo = post("/signup", username: "Joe", password:'1234')
+      expect(repo.body).to include ("Existing username, please choose another")
+    end
   end
 
 end

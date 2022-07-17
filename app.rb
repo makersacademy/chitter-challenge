@@ -28,7 +28,12 @@ class Application < Sinatra::Base
   post "/signup" do
     if invalid_signup?
       status 400
-      return " "
+      return "Username or password cannot be empty"
+    end
+
+    if existing_username?
+      status 400 
+      return "Existing username, please choose another"
     end
 
     repo = UserRepo.new
@@ -51,6 +56,7 @@ class Application < Sinatra::Base
       return " "
     end
 
+
     repo = PeepRepo.new
     new_peep = Peep.new
     new_peep.content = params[:content]
@@ -65,10 +71,13 @@ class Application < Sinatra::Base
   end
 
   def invalid_signup?
-    repo = UserRepo.new
-    return (params[:username].nil? || params[:password].nil? || repo.match_username?(params[:username]))
+    return (params[:username].empty? || params[:password].empty?)
   end
-
+  
+  def existing_username?
+    repo = UserRepo.new
+    return (repo.match_username?(params[:username]))
+  end
   def invalid_peep?
     return params[:content] == nil? || params[:author_id] == nil?
   end
