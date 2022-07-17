@@ -1,0 +1,15 @@
+<html>
+  <head><h1>CHITTER</h1></head>
+  <head><h2>maker's chit chat</h2></head>
+<a href='/signup'> SIGN UP </a><br/>
+<a href='/login'> LOG IN </a><br/><br/>
+
+  <%@peeps.map do |peep|%>
+  <body>
+  <div>
+    <p><%=@user_repo.find(peep.user_id).name%> @<%=@user_repo.find(peep.user_id).username%> at <%=peep.time%></p>
+    <p><%=peep.content%></p><br/>
+    </div>
+  </body>
+  <%end%>
+</html>
