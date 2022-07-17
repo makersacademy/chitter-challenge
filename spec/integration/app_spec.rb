@@ -1,7 +1,7 @@
 require "spec_helper"
 require "rack/test"
 require_relative '../../app'
-
+  
 describe Application do
   # This is so we can use rack-test helper methods.
   include Rack::Test::Methods
@@ -29,6 +29,7 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include "message 1"
       expect(response.body).to include "2022-07-15 10:24:54"
+      expect(response.body).to include "Return to Homepage"
     end
   end
 end
