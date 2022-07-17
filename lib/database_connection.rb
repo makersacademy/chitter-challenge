@@ -17,12 +17,6 @@ class DatabaseConnection
       return
     end
 
-    if ENV['ENV'] == 'test'
-      database_name = 'chitter_test'
-    else
-      database_name = 'chitter'
-    end
-    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   end
 
   # This method executes an SQL query 
