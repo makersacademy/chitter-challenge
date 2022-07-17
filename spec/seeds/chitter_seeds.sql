@@ -33,7 +33,7 @@ TRUNCATE TABLE peeps RESTART IDENTITY;
 
 INSERT INTO peeps ("content", "date", "user_id") VALUES
 ('content1', '2020-10-10 10:10:10', 1),
-('content2', '2020-12-22 12:12:12', 1),
-('content3', '2020-07-10 09:09:09', 2);
+('content2', '2021-12-22 12:12:12', 1),
+('content3', '2022-07-10 09:09:09', 2);
 
 -- timestamp format: 'YYYY-MM-DD HH:MI:SS'

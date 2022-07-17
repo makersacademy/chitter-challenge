@@ -73,6 +73,29 @@ describe Application do
       expect(response.body).to include('<a href="/"> Create an account </a>')
     end
   end
-       
+  
+  context 'GET /peeps' do
+    it 'view all peeps' do
+      response = get('/peeps')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Hello world')
+      expect(response.body).to include('Testing.. 1..2..3')
+    end
+
+    it 'return 200 OK and the form to create new peep' do
+      response = get('/peeps')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h3> Create your peep </h3>')
+      expect(response.body).to include('<form action="/peeps" method="POST">')
+    end
+  end
+
+  context 'POST/peeps' do
+    it 'create new peep' do
+      response = post('/peeps', content: 'Hello world!')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Your peep was created!</h2>')
+    end
+  end
 end
 

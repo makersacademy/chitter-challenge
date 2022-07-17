@@ -20,6 +20,15 @@ describe UserRepository do
       expect(users.first.name).to eq "Tam"
     end
 
+    it 'return one user by their id' do
+      repo = UserRepository.new
+      user = repo.find(1)
+      expect(user.name).to eq 'Tam'
+      expect(user.email).to eq 'tam@mail.com'
+      expect(user.username).to eq 'Tamy'
+      expect(user.password).to eq '1234'
+    end
+
     it 'return one user by their email' do
       repo = UserRepository.new
       user = repo.find_by_email("tam@mail.com")

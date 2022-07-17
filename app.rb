@@ -52,13 +52,39 @@ class Application < Sinatra::Base
   post '/login' do 
     email = params[:email]
     password = params[:password]
+
     repo = UserRepository.new
-    user = repo.find_by_email(email)
-    if user == nil || user.password != password
+    @user = repo.find_by_email(email)
+    if @user == nil || @user.password != password
       return erb(:error_login)
     else
+      # session[:user_id] = @user.id
       return erb(:post_login)
     end
+  end
+
+  post '/peeps' do
+    repo = PeepRepository.new
+    new_peep = Peep.new
+    new_peep.id = params[:id]
+    new_peep.content = params[:content]
+    new_peep.date = params[:date]
+    new_peep.user_id = params[:user_id].to_i
+    repo.create(new_peep)
+    return erb(:peep_created)
+  end
+
+  get '/peeps' do
+    # if session[:user_id] == nil
+    #   return redirect('/login')
+    # else
+      # @user = UserRepository.new.find(session[:user_id])
+      repo = PeepRepository.new
+      @peeps = repo.all.sort do |peep|
+        DateTime.parse(peep.time)
+      end
+      return erb(:get_peeps)
+    # end
   end
 end
     
