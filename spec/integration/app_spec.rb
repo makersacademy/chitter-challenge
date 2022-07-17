@@ -17,9 +17,9 @@ describe Application do
     reset_tables
   end
 
-  context 'GET /signup' do
+  context 'GET /' do
     it 'returns 200 OK and a form to sign up' do
-      response = get('/signup')
+      response = get('/')
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>Welcome to Chitter</h1>")
       expect(response.body).to include('<form action="/signup" method="POST">')
@@ -62,7 +62,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2> Email or Password incorrect</h2>')
       expect(response.body).to include('Please try again <a href="/login"> here </a>')
-      expect(response.body).to include('<a href="/signup"> Create an account </a>')
+      expect(response.body).to include('<a href="/"> Create an account </a>')
     end
 
     it 'go to error page if email is not in the database' do
@@ -70,7 +70,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2> Email or Password incorrect</h2>')
       expect(response.body).to include('Please try again <a href="/login"> here </a>')
-      expect(response.body).to include('<a href="/signup"> Create an account </a>')
+      expect(response.body).to include('<a href="/"> Create an account </a>')
     end
   end
        
