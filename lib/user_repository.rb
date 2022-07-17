@@ -1,4 +1,5 @@
 require_relative './user'
+require_relative './database_connection'
 
 class UserRepository
   def all
@@ -14,7 +15,7 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
-    return get_users(result_set)
+    return get_users(result_set)[0]
   end
 
   def create(user)

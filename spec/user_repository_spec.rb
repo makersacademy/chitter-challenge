@@ -41,10 +41,10 @@ describe UserRepository do
     repo = UserRepository.new
     user = repo.find(1)
     
-    expect(user[0].id).to eq 1
-    expect(user[0].name).to eq 'name 1'
-    expect(user[0].username).to eq 'username_1'
-    expect(user[0].email).to eq 'test1@email.com'
+    expect(user.id).to eq 1
+    expect(user.name).to eq 'name 1'
+    expect(user.username).to eq 'username_1'
+    expect(user.email).to eq 'test1@email.com'
   end
   
   it "adds a new user to database" do

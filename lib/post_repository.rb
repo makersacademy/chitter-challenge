@@ -1,4 +1,5 @@
 require_relative './post'
+require_relative './database_connection'
 
 class PostRepository
   def all
@@ -14,7 +15,7 @@ class PostRepository
     sql = 'SELECT * FROM posts WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
-    return get_posts(result_set)
+    return get_posts(result_set)[0]
   end
 
   def create(post)
