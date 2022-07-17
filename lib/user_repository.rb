@@ -28,6 +28,20 @@ class UserRepository
     return nil
   end
 
+  def email_exists?(email)
+    sql = 'SELECT * FROM users WHERE email = $1;'
+    params = [email]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    return !result_set.to_a.empty?
+  end
+
+  def username_exists?(username)
+    sql = 'SELECT * FROM users WHERE username = $1;'
+    params = [username]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    return !result_set.to_a.empty?
+  end
+
   private
 
   def record_to_user_object(record)
@@ -39,5 +53,6 @@ class UserRepository
     user.password = record['password']
     return user
   end
+
 end
   

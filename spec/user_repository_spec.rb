@@ -19,13 +19,13 @@ describe UserRepository do
     expect(users[0].id).to eq 1
     expect(users[0].name).to eq 'Anna'
     expect(users[0].username).to eq 'anna123'
-    expect(users[0].email).to eq 'anna@hotmail.com'
+    expect(users[0].email).to eq 'anna@makersacademy.com'
     expect(users[0].password).to eq '235346hgsdv'
     
     expect(users[1].id).to eq 2
     expect(users[1].name).to eq 'John'
     expect(users[1].username).to eq 'john123'
-    expect(users[1].email).to eq 'john123@gmail.com'
+    expect(users[1].email).to eq 'john123@makersacademy.com'
     expect(users[1].password).to eq 'ddff!@£!@$34tfsd'
   end
 
@@ -37,7 +37,7 @@ describe UserRepository do
       expect(user.id).to eq 2
       expect(user.name).to eq 'John'
       expect(user.username).to eq 'john123'
-      expect(user.email).to eq 'john123@gmail.com'
+      expect(user.email).to eq 'john123@makersacademy.com'
       expect(user.password).to eq 'ddff!@£!@$34tfsd'
     end
 
@@ -64,6 +64,33 @@ describe UserRepository do
       expect(added_user.email).to eq 'joannaMccain@makersacademy.com'
       expect(added_user.password).to eq 'er4gg@$34tfsd'
     end
+  end
 
+  context "when verifying if the email exists in the database" do
+    it 'returns true if the record has been found' do
+      repo = UserRepository.new
+      result = repo.email_exists?('anna@makersacademy.com')
+      expect(result).to eq true
+    end
+
+    it "returns false if no record found" do
+      repo = UserRepository.new
+      result = repo.email_exists?('arabella@makersacademy.com')
+      expect(result).to eq false
+    end
+  end
+
+  context "when verifying if the username exists in the database" do
+    it 'returns true if the record has been found' do
+      repo = UserRepository.new
+      result = repo.username_exists?('anna123')
+      expect(result).to eq true
+    end
+
+    it "returns false if no record found" do
+      repo = UserRepository.new
+      result = repo.username_exists?('arabella123')
+      expect(result).to eq false
+    end
   end
 end

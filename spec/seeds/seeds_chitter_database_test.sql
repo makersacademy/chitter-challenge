@@ -35,9 +35,9 @@ CREATE TABLE peeps (
 -- TRUNCATE TABLE items_orders RESTART IDENTITY; 
 
 INSERT INTO users (name, username, email, password) VALUES
-('Anna', 'anna123', 'anna@hotmail.com', '235346hgsdv'),
-('John', 'john123', 'john123@gmail.com', 'ddff!@£!@$34tfsd'),
-('Rachel', 'rachel123', 'notrachel@msn.com', 'DR3tg3gwwdsvs');
+('Anna', 'anna123', 'anna@makersacademy.com', '235346hgsdv'),
+('John', 'john123', 'john123@makersacademy.com', 'ddff!@£!@$34tfsd'),
+('Rachel', 'rachel123', 'notrachel@makersacademy.com', 'DR3tg3gwwdsvs');
 
 INSERT INTO peeps (content, time, user_id) VALUES
 ('I love sunshine', '2004-10-19 10:23:54', 1),
