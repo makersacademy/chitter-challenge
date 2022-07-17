@@ -114,7 +114,7 @@ class PostRepository
   # 3 arguments: id, column name, value
   def update(id, col, val)
     # Executes the SQL query:
-    # UPDATE posts SET message = $3 WHERE id = $1;
+    # UPDATE posts SET message = $2 WHERE id = $1;
 
     # Doesn't return anything
   end
@@ -165,7 +165,7 @@ posts[3].user_id # =>  2
 
 # 2
 # Get a single post by id
-repo = postRepository.new
+repo = PostRepository.new
 
 post = repo.find(1)
 
@@ -179,31 +179,31 @@ post.user_id # =>  1
   repo = PostRepository.new
 
   new_post = Post.new
-  new_post.message = 'fun message'
-  new_post.timestamp = '2022-07-17 10:26:54'
-  new_post.user_id = 'test4@email.com'
+  new_post.message # = 'fun message'
+  new_post.timestamp# = '2022-07-17 10:26:54'
+  new_post.user_id #= 3
   repo.create(new_post)
 
   posts = repo.all
 
   posts.length # =>  5
-  posts.last.message # =>  'message 1'
-  posts.last.user_id # =>  4
+  posts.last.message # =>  'fun message'
+  posts.last.user_id # =>  3
 
 # 4
 # updates a message' 
 repo = PostRepository.new
-repo.update(2, 'message', 'del_m')
+repo.update(2, 'message', 'funnier message')
 
 posts = repo.all
-posts[1].id # =>  '2'
+posts[1].id # =>  2
 posts[1].message # =>  'funnier message'
 posts[1].timestamp # =>  '2022-07-15 10:24:54'
-posts[1].user_id # =>  '2'
+posts[1].user_id # =>  2
 
 
 # 5
-# 'deletes an Post' do
+# 'deletes a post' do
 repo = PostRepository.new
 
 repo.delete(1)
