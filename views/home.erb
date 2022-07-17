@@ -9,6 +9,14 @@
   <div>
     <h3><a href = "/peep">Write new peep!</a></h3>
   </div>
-  <h1></h1>
+  <div> 
+
+  <% @posts.each do |post| %>
+    <p><h1><%= post.content %></h1>
+    <h2><%= post.author %>-<%=post.time %></h3>
+    </p>
+  <% end %>
+
+  </div>
   </body>
 </html>

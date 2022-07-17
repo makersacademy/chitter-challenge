@@ -33,4 +33,11 @@ describe UserRepo do
     expect(users[2].username).to eq("Colin")
     expect(users[2].password).to eq("emmerdale")
   end
+
+  it "find method returns user ID by username" do
+    repo = UserRepo.new
+    to_find = 'Joseph'
+    found_id = repo.find(to_find)
+    expect(found_id).to eq(2)
+  end
 end

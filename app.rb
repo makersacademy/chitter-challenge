@@ -15,7 +15,8 @@ class Application < Sinatra::Base
   
 
   get "/" do
-    
+    peep_repo = PeepRepo.new
+    @posts = peep_repo.peep_feed.sort { |post| DateTime.parse(post.time) }
     return erb(:home)
   end
 
@@ -36,7 +37,8 @@ class Application < Sinatra::Base
     new_user.password = params[:password]
     repo.create_user(new_user)
     @user = new_user
-    return erb(:succesful_signup)
+    @ID = repo.find(params[:username])
+    return erb(:successful_signup)
   end
 
   get "/peep" do
@@ -55,7 +57,11 @@ class Application < Sinatra::Base
     new_peep.author_id = params[:author_id]
     new_peep.time_posted = params[:time_posted]
     repo.create_peep(new_peep)
-    return erb(:home)
+    return erb(:successful_peep)
+  end
+
+  get "/peepmade" do
+    return erb(:successful_peep)
   end
 
   def invalid_signup?

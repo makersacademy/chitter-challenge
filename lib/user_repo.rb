@@ -21,4 +21,17 @@ class UserRepo
     result_set = DatabaseConnection.exec_params(sql, params)
     return user
   end
+
+  def find(username)
+    sql = "SELECT * FROM users WHERE username = $1;"
+    params = [username]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    found_users = []
+    result_set.each do |result|
+      found_user = User.new
+      found_user.id = result['id'].to_i
+      found_users << found_user
+    end
+    return found_users[0].id
+  end
 end

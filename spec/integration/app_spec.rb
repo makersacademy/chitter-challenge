@@ -51,11 +51,13 @@ describe Application do
       expect(response.body).to include('<input type="text" name="content" />')
     end 
   end
-
-  context "POST/peep " do
-    xit "validates a new peep" do
-      response = post("/peep", invalid_content: "")
-      expect(response.status).to eq(400)
+  
+  context "GET/peepmade" do
+    it "returns 200O OK and body" do
+      response = get('/peepmade')
+      expect(response.status).to eq (200)
+      expect(response.body).to include("<div><head>Succesfully wrote a peep!</head></div>")
     end
   end
+
 end

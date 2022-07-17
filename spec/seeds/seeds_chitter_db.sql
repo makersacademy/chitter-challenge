@@ -29,4 +29,5 @@ CREATE TABLE peeps(
 TRUNCATE TABLE peeps RESTART IDENTITY;
 INSERT INTO peeps("content","author_id","time_posted") VALUES
 ('This is post num 1', 1, '2020-05-12 14:13:30'),
-('This is second post', 2,'2022-07-16 15:13:00');
+('This is second post', 2,'2022-07-16 15:13:00'),
+('Birthday!', 2, '2021-05-12 12:00:00');
