@@ -34,4 +34,12 @@ describe UserRepository do
     expect(user.last_name).to eq "Ng"
     expect(user.username).to eq "tAsInTroy"
   end
+
+  context "email does not exist in db" do
+    it "fails" do
+      repo = UserRepository.new
+
+      expect { repo.find_by_email("test") }.to raise_error "This email does not exist in the database."
+    end
+  end
 end
