@@ -1,11 +1,10 @@
 require_relative 'lib/database_connection'
 require 'sinatra/base'
 require 'sinatra/reloader'
-require 'sinatra'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
 
-DatabaseConnection.connect('chitter')
+DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
   # This allows the app code to refresh

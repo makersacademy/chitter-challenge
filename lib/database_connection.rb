@@ -13,12 +13,6 @@ def self.connect(database_name)
     @connection = PG.connect(ENV['DATABASE_URL'])
     return
   end
-
-  if ENV['ENV'] == 'test'
-    database_name = 'chitter_test'
-  else
-    database_name = 'chitter'
-  end
   @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
 end
 
