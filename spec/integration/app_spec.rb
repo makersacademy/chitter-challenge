@@ -78,6 +78,18 @@ describe Application do
       all = get("/")
       expect(all.body).to include("This is my content")
     end
+
+    it "returns 400 and 'Cannot enter author id above number of users' if author_id > num of users" do
+      response = post('/peep', content: "This is my content", author_id: 40)
+      expect(response.status).to eq(400)
+      expect(response.body).to include("Author id not found")
+    end
+
+    it "returns 400 and 'Author id must be above 0' if author id <0" do
+      response = post('/peep', content: "This is content", author_id: 0)
+      expect(response.status).to eq(400)
+      expect(response.body).to include ("Author id not found")
+    end
   end
 
   context "POST/signup invalid signup" do

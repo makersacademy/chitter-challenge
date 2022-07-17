@@ -56,6 +56,11 @@ class Application < Sinatra::Base
       return "Contents or author id must not be empty"
     end
 
+    if author_id?
+      status 400  
+      return 'Author id not found'
+    end
+
     repo = PeepRepo.new
     new_peep = Peep.new
     new_peep.content = params[:content]
@@ -80,5 +85,13 @@ class Application < Sinatra::Base
 
   def invalid_peep?
     return (params[:content].empty? || params[:author_id].empty?)
+  end
+
+  def author_id?
+    repo = UserRepo.new
+    users = repo.all
+    if params[:author_id].to_i <= 0 || params[:author_id].to_i > (users.length.to_i)
+      return true
+    end
   end
 end
