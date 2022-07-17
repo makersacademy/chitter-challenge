@@ -1,7 +1,10 @@
 require_relative './user'
-require_relative './database_connection'
 
 class UserRepository
+  def initialize
+    DatabaseConnection.connect('chitter_directory_test')
+  end 
+
   def all
     sql = 'SELECT id, name, username, email, password 
            FROM users 

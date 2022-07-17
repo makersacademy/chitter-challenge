@@ -1,7 +1,10 @@
 require_relative './post'
-require_relative './database_connection'
 
 class PostRepository
+  def initialize
+    DatabaseConnection.connect('chitter_directory_test')
+  end 
+
   def all
     sql = 'SELECT id, message, timestamp, user_id 
            FROM posts 
