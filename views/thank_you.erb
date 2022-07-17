@@ -1,5 +1,5 @@
 <html>
-    <head>
+   <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
@@ -13,14 +13,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                        <% if @logged_in %>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href='/new-peep'>Add a new peep</a>
-                            </li>
-                        <%end%>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href='/sign-up'>Sign up</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href='/log-in'>Log in</a>
                         </li>
@@ -28,24 +20,7 @@
                 </div>
             </div>
         </nav>
+        <h1 style='text-align: center;'>Thank you for signing up! Log in to add your peep.</h1>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-        <h1 style='text-align: center;'>Add your peep!</h1>
-<!--        <div>
-            
-                <label for='message'>Enter your message</label>
-                <input type='text' name='message' id='message'>
 
-                <input type="submit" value='Submit your peep!'>
-
-        </div>
--->
-        <form method='POST' action='/'>
-            <div class="mb-3" style='padding-right: 150px; padding-left: 150px;'>
-                <textarea type='text' name='message' class="form-control" id="message" rows="3"></textarea>
-            </div>
-            <div class="mb-3" style='text-align: center;'>
-                <button type="submit" class="btn btn-primary">Post!</button>
-            </div>
-        </form>
-    </body>
 </html>

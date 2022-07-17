@@ -1,9 +1,9 @@
 TRUNCATE TABLE users RESTART IDENTITY CASCADE;
 
 INSERT INTO users (name,email,password) VALUES
-('Irina','irina@email.com','test'),
-('Tim','tim@gmail.com','test2'),
-('Julien','julien@gmail.com','test3');
+('Irina','irina@email.com','$2a$04$5sYFlPVgQkg7aysJ/zzdqeagXIESBjzJo2pq.NHrFjAYW0lonCIRS'),
+('Tim','tim@gmail.com','$2a$04$BmxeMdBOt/sRk6v5ZSNg3uvSxeGWeIvGu1Tx8ppQ6OIKHS2m4RPXe'),
+('Julien','julien@gmail.com','$2a$04$u6MRxbgndNpMrZ/rit.MtOWLxZ8Zz2HZ3PTgbhLetMgAZX4OXbSL.');
 
 TRUNCATE TABLE messages RESTART IDENTITY CASCADE;
 

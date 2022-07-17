@@ -44,7 +44,7 @@ class MessageRepository
         
         messages_with_authors << message_and_author
       end
-      return messages_with_authors
+      return messages_with_authors.sort_by {|obj| obj.date}
     end
     
   end
