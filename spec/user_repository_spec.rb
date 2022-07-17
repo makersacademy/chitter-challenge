@@ -25,4 +25,13 @@ describe UserRepository do
     expect(users.last.first_name).to eq "Bethany"
     expect(users.last.last_name).to eq "Roy"
   end
+
+  it "finds a user by email" do
+    repo = UserRepository.new
+    user = repo.find_by_email("test3@example.com")
+
+    expect(user.first_name).to eq "Troy"
+    expect(user.last_name).to eq "Ng"
+    expect(user.username).to eq "tAsInTroy"
+  end
 end
