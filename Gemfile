@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.0.2'
+ruby '3.0.0'
 
 group :test do
   gem 'rspec'
@@ -19,4 +19,4 @@ gem "rack-test", "~> 2.0"
 
 gem "pg", "~> 1.4"
 
-gem "bcrypt-ruby", "~> 5.0.1"
+gem "bcrypt", "~> 3.1.3"
