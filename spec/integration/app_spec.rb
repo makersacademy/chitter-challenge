@@ -1,4 +1,4 @@
-require '/Users/paris/Desktop/Projects/chitter-challenge/app'
+require_relative '../../app'
 require 'rack/test'
 
 def reset_tables

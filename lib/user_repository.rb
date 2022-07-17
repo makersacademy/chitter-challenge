@@ -1,4 +1,4 @@
-require '/Users/paris/Desktop/Projects/chitter-challenge/lib/user'
+require 'user'
 
 class UserRepository
   def all

@@ -1,4 +1,4 @@
-require '/Users/paris/Desktop/Projects/chitter-challenge/lib/peep'
+require 'peep'
 
 class PeepRepository
 

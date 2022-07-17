@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require '/Users/paris/Desktop/Projects/chitter-challenge/lib/user_repository'
-require '/Users/paris/Desktop/Projects/chitter-challenge/lib/peep_repository'
-require '/Users/paris/Desktop/Projects/chitter-challenge/lib/database_connection'
+require './lib/user_repository'
+require './lib/peep_repository'
+require './lib/database_connection'
 
 DatabaseConnection.connect
 
