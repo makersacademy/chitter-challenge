@@ -20,6 +20,12 @@ class UserRepository
     !array.empty?
   end
 
+  def check_login(email, password)
+    sql = "SELECT id, username, email, password FROM users WHERE email=$1 AND password=$2;"
+    result_set = DatabaseConnection.exec_params(sql, [email, password])
+    convert(result_set)
+  end
+
   def create(user)
     sql = "INSERT INTO users(username, email, password) VALUES($1, $2, $3);"
     params = [user.username, user.email, user.password]

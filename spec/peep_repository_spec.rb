@@ -57,4 +57,16 @@ RSpec.describe PeepRepository do
     expect(peeps[0].date).to eq "1999-01-08 04:05:06"
     expect(peeps[0].user_id).to eq 1
   end
+
+  it "finds all user tweeps" do
+    repo = PeepRepository.new
+    
+    peeps = repo.find_by_user(1)
+
+    expect(peeps.length).to eq 2
+    expect(peeps[0].id).to eq 1
+    expect(peeps[0].content).to eq "some text"
+    expect(peeps[0].date).to eq "1999-01-08 04:05:06"
+    expect(peeps[0].user_id).to eq 1
+  end
 end

@@ -50,4 +50,63 @@ RSpec.describe Application do
 
     end
   end
+  context "GET /login" do
+    it 'returns 200 OK' do
+      
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<form")
+      expect(response.body).to include('/login')
+      
+    end
+  end
+
+  context "POST /login" do
+    it 'when log in details match' do
+
+      response = post('/login', params={email: "parismonson@yahoo.com", password: "hash_password"})
+      last_response.should be_redirect
+      follow_redirect!
+      last_request.url.should == "http://example.org/account/1"
+    end
+    it 'when log in details dont match' do
+
+      response = post('/login', params={email: "parismonson@yahoo.com", password: "password"})
+      
+      expect(response.status).to eq 200
+      expect(response.body).to include("Try Again")
+    end
+  end
+  context "GET /account/:id" do
+    it 'returns 200 OK' do
+      response = get('/account/1')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<div>")
+      expect(response.body).to include("pmonson1")
+      expect(response.body).to include("pmonson1")
+
+    end
+  end
+  context "GET /logout" do
+    it 'returns 200 OK' do
+      response = get('/logout')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<title>Logged Out</title>")
+    end
+  end
+
+  context "POST /peep" do
+    it 'returns 200 OK' do
+
+      ENV["USER_ID"] = "1"
+      response = post('/peep', params={contents: "Test content"})
+
+      last_response.should be_redirect
+      follow_redirect!
+      last_request.url.should == "http://example.org/account/1"
+    end
+  end
 end

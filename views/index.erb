@@ -3,13 +3,15 @@
 <html>
   <head>
     <title>Welcome to Chitter!</title>
-    <a href='/signup'>Sign Up Here</a>
+    <a href='/signup'>Sign Up Here</a><br>
+    <br>
+    <a href='/login'>Log in Here</a>
   </head>
 
   <body>
   <h1>Chitter Message Board</h1>
-    <%@peeps.each do |peep|%>
-    <div>
+    <%@peeps.reverse.each do |peep|%>
+    <div style="border:solid">
       <head>
         Peep ID#<%=peep.id%>
       </head>
@@ -19,7 +21,7 @@
       <footer>
         <%=@users.find(peep.user_id)[0].username%>    <%=@users.find(peep.user_id)[0].email%>    <%=peep.date%>
       </footer>
-    </div>
+    </div><br>
     <%end%>
   </body>
 

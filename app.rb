@@ -30,6 +30,48 @@ class Application < Sinatra::Base
     end
   end
 
+  get "/login" do
+    return erb(:login)
+  end
+
+  post "/login" do
+    repo = UserRepository.new
+    account = repo.check_login(params[:email], params[:password])
+    unless account.empty?
+      ENV["USER_ID"] = account[0].id.to_s
+      redirect "/account/#{account[0].id}"
+    else
+      return erb(:fail)
+    end
+  end
+
+  get "/account/:id" do
+    unless ENV["USER_ID"] == "0"
+      @user = UserRepository.new.find(params[:id])[0]
+      @users = UserRepository.new
+      @peeps = PeepRepository.new.find_by_user(params[:id])
+      return erb(:account)
+    else
+      redirect "/"
+    end
+  end
+
+  post "/peep" do
+    peep = Peep.new
+    peep.content = params[:contents]
+    peep.date = Time.new.strftime("%Y-%m-%d %H:%M:%S")
+    peep.user_id = ENV["USER_ID"]
+    PeepRepository.new.create(peep)
+    redirect "/account/#{peep.user_id}"
+  end
+
+  get "/logout" do
+    ENV["USER_ID"] = "0"
+    return erb(:logout)
+  end
+  
+  
+
   private
 
   def create_account(username, email, password)

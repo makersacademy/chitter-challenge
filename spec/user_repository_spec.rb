@@ -75,5 +75,10 @@ RSpec.describe UserRepository do
       expect(dbl).to eq false
     end
   end
+  it "checks if login details are on record" do
+    repo = UserRepository.new
+    result = repo.check_login("parismonson@yahoo.com", "hash_password")
+    expect(result.length).to eq 1
+  end
 
 end
