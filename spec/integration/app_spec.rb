@@ -51,13 +51,21 @@ describe Application do
   end
 
   context 'POST /login' do
-    xit 'login if it is the correct password' do
-      response = post('/login')
+    it 'login if it is the correct password' do
+      response = post('/login', email: 'jam@mail.com', password: '0000')
       expect(response.status).to eq(200)
       expect(response.body).to include('Correct password!') # Hi username!
     end
 
-    xit 'go to error page if password is incorrect' do
+    it 'go to error page if password is incorrect' do
+      response = post('/login', email: 'jam@mail.com',password: '0001' )
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2> Email or Password incorrect</h2>')
+      expect(response.body).to include('Please try again <a href="/login"> here </a>')
+      expect(response.body).to include('Or <a href="/singup"> Create an account </a>')
+    end
+
+    xit 'go to error page if email is not in the database' do
 
     end
   end
