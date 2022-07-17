@@ -89,6 +89,15 @@ RSpec.describe Application do
 
     end
   end
+  context "GET /account/:id" do
+    it 'redirects to login' do
+      ENV["USER_ID"] = nil
+      response = get('/account/1')
+      last_response.should be_redirect
+      follow_redirect!
+      last_request.url.should == "http://example.org/login"
+    end
+  end
   context "GET /logout" do
     it 'returns 200 OK' do
       response = get('/logout')

@@ -46,13 +46,14 @@ class Application < Sinatra::Base
   end
 
   get "/account/:id" do
-    unless ENV["USER_ID"] == "0"
+    
+    unless ENV["USER_ID"] == nil
       @user = UserRepository.new.find(ENV["USER_ID"])[0]
       @users = UserRepository.new
       @peeps = PeepRepository.new.find_by_user(ENV["USER_ID"])
       return erb(:account)
     else
-      redirect "/"
+      redirect "/login"
     end
   end
 
@@ -66,7 +67,7 @@ class Application < Sinatra::Base
   end
 
   get "/logout" do
-    ENV["USER_ID"] = "0"
+    ENV["USER_ID"] = nil
     return erb(:logout)
   end
   
