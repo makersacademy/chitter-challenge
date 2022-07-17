@@ -41,21 +41,21 @@ describe UserRepository do
     repo = UserRepository.new
     user = repo.find(1)
     
-    expect(user.id).to eq 1
-    expect(user.name).to eq 'name 1'
-    expect(user.username).to eq 'username_1'
-    expect(user.email).to eq 'test1@email.com'
+    expect(user[0].id).to eq 1
+    expect(user[0].name).to eq 'name 1'
+    expect(user[0].username).to eq 'username_1'
+    expect(user[0].email).to eq 'test1@email.com'
   end
   
   it "adds a new user to database" do
     repo = UserRepository.new
 
-    new_user = User.new
-    new_user.name = 'Marie'
-    new_user.username = 'ma_rie'
-    new_user.email = 'test4@email.com'
-    new_user.password = 'password456'
-    repo.create(new_user)
+    user = User.new
+    user.name = 'Marie'
+    user.username = 'ma_rie'
+    user.email = 'test4@email.com'
+    user.password = 'password456'
+    repo.create(user)
     
     users = repo.all
     expect(users.length).to eq 4
@@ -79,12 +79,12 @@ describe UserRepository do
   it 'deletes a user' do
     repo = UserRepository.new
     
-    new_user = User.new
-    new_user.name = 'Marie'
-    new_user.username = 'ma_rie'
-    new_user.email = 'test4@email.com'
-    new_user.password = 'password456'
-    repo.create(new_user)
+    user = User.new
+    user.name = 'Marie'
+    user.username = 'ma_rie'
+    user.email = 'test4@email.com'
+    user.password = 'password456'
+    repo.create(user)
     
     users = repo.all
     expect(users.length).to eq 4

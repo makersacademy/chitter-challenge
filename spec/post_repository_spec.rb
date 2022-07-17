@@ -38,14 +38,14 @@ describe PostRepository do
     expect(posts[3].user_id).to eq 2
   end
 
-  it 'a single post' do
+  it 'returns a single post' do
     repo = PostRepository.new
     post = repo.find(1)
     
-    expect(post.id).to eq 1
-    expect(post.message).to eq 'message 1'
-    expect(post.timestamp).to eq '2022-07-15 10:23:54'
-    expect(post.user_id).to eq 1
+    expect(post[0].id).to eq 1
+    expect(post[0].message).to eq 'message 1'
+    expect(post[0].timestamp).to eq '2022-07-15 10:23:54'
+    expect(post[0].user_id).to eq 1
   end
 
   it 'adds new post' do
