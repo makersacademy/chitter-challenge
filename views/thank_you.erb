@@ -13,14 +13,28 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href='/log-in'>Log in</a>
-                        </li>
+                        <%if @user_exists%>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href='/log-in'>Log in</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href='/sign-up'>Sign up</a>
+                            </li>
+                        <%else%>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href='/log-in'>Log in</a>
+                            </li>
+                        <%end%>
                     </ul>
                 </div>
             </div>
         </nav>
-        <h1 style='text-align: center;'>Thank you for signing up! Log in to add your peep.</h1>
+        <% if @user_exists %>
+            <h1>The email already exists, log in instead</h1>
+        <%else%>
+            <h1 style='text-align: center;'>Thank you for signing up! Log in to add your peep.</h1>
+        <%end%>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 </html>

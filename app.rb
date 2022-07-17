@@ -52,10 +52,10 @@ class Application < Sinatra::Base
     user.name = params[:name]
     user.email = params[:email]
     user.password = params[:password]
-    puts user
-    repo = UserRepository.new
 
-    repo.create(user)
+    repo = UserRepository.new
+    @user_exists = repo.find_by_email(user.email)
+    repo.create(user) if !@user_exists
     return erb(:thank_you)
   end
 

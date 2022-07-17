@@ -42,7 +42,7 @@
             <%@messages.each do |message|%>
                 <div class="card">
                     <div class="card-header">
-                        <%=message.date%>
+                        <%=message.date.split(" ")[0]%>
                     </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
