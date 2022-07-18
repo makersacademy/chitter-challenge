@@ -1,0 +1,23 @@
+<html>
+ <head></head>
+  <body>
+    <h1>All peeps</h1>
+    
+    <div>
+        <h3> Create your peep </h3>
+
+        <form action="/peeps" method="POST">
+            <input type="text" name="content"> <br>
+            <input type="hidden" name="date" value=<%= DateTime.now %>>
+            <input type="hidden" name="user_id" value=<%= "1" %>>
+        <input type="submit" value="Post!">
+    </div>
+    <div>
+      <% @peeps.reverse.each do |peep| %>
+      <br><br>
+      <%= peep.content %> 
+      <br>Date: <%= peep.date %>
+      <% end %>
+   </div>
+  </body>
+</html>
