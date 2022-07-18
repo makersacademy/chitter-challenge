@@ -1,0 +1,14 @@
+<html>
+<body>
+<form method="POST" action='\login'>
+<title>Username</title>
+<input type="text" name="username" id="username">
+<label for="username">Username</label>
+<input type="text" name="password" id= "password">
+<label for="password">Password</label>
+<title>Submit</title>
+<input type="submit" value="Submit">
+<% if @loggedout %> You're logged out now <%end%>
+<% if @invalid_entry %> Username or Password is incorrect <%end%>
+</body>
+</html>
