@@ -110,7 +110,7 @@ describe Application do
       expect(response.body).to include('<p>Please review your details:</p>')
     end
 
-    xit 'fails to create a new user if the username is invalid' do
+    it 'fails to create a new user if the username is invalid' do
       response = post(
         '/new_user', 
         name: 'Joanna', 

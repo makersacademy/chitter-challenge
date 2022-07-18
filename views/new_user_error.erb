@@ -4,17 +4,18 @@
 
 <body> 
 
-<%if @error == "invalid_name"%>
+<%case @error%>
+<%when "invalid_name"%>
     <%puts%><p>Your name seems to be incorrect.</p>
-<%elsif @error == "invalid_username"%>
+<%when "invalid_username"%>
     <%puts%><p>Your username can only contain letters and numbers, and must be between 5 and 16 characters long.</p>
-<%elsif @error == "not_makers_email"%>
+<%when "not_makers_email"%>
     <%puts%><p>Please use your Makers' email to create a Chitter account.</p>
-<%elsif @error == "input_missing"%>
+<%when "input_missing"%>
     <%puts%><p>Some essential information is missing.</p>
-<%elsif @error == "email_exists"%>
+<%when "email_exists"%>
     <%puts%><p>Hi <%=@name%>, this email has already been registered.</p>
-<%elsif @error == "username_taken"%>
+<%when "username_taken"%>
     <%puts%><p>Hi <%=@name%>, username <%=@username%> is already in use. Please choose a different one.</p>
 <%end%>
 
