@@ -13,7 +13,7 @@
         <input type="submit" value="Post!">
     </div>
     <div>
-      <% @peeps.each do |peep| %>
+      <% @peeps.reverse.each do |peep| %>
       <br><br>
       <%= peep.content %> 
       <br>Date: <%= peep.date %>
