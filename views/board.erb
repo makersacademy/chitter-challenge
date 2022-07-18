@@ -1,0 +1,28 @@
+<html>
+ <head></head>
+  <body>
+    <h1>Chitter Board!</h1>
+    <div>
+      <%@posts.all.reverse.each do |post|%>
+      <p>
+        <h3>"<%=post.message%>"</h3>
+      </p>
+        @<%=@users.find(post.user_id).username%><br>
+        <br>  
+        <%=post.timestamp%>
+    </div><br>
+    <%end%>
+    <br>
+    </div>
+    <div>
+        <footer>
+        <a href='/signup'>Sign up to join the converstion</a><br>
+        <br>
+        <a href='/login'>Log In</a><br>
+        <br>
+        <a href='/'>Return to Homepage</a><br>
+        <br>
+        </footer>
+    </div>
+  </body>
+</html

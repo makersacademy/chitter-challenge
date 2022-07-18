@@ -1,0 +1,28 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>Hi, <%=@user.username%></h2><br />
+        <form method="POST" action="/new_post">
+        <label>What's on your mind</label>
+        <input type="text" name="message" />
+        <input type="hidden" name="timestamp" value=<%=DateTime.now%>/>
+        <input type="hidden" name="user_id" value=<%=@user.id%>/>
+        <input type="Submit" />
+        </form><br><br>
+        <div>
+            <h2>The Most Recent Peeps:</h2>
+            <%@posts.all.reverse.each do |post|%>
+            <p>
+            <h3>"<%=post.message%>"</h3>
+            </p>
+            @<%=@users.find(post.user_id).username%><br>
+            <br>  
+            <%=post.timestamp%>
+            </div><br>
+            <%end%>
+            <br>
+        </div>
+        <a href="/">Log out</a><br />
+    </body>
+</html>
