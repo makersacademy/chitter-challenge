@@ -10,7 +10,7 @@
     <%= session[:message] if session[:message] %>
     <form action="/sessions" method="POST" class="login_form">
       <label> Email: </label>
-      <input type="text" name="email"/><br>
+      <input type="email" name="email"/><br>
       <label> Password: </label> 
       <input type="password" name="password"/><br> 
       <input type="submit" class="submit_button" value="Login!"/>
