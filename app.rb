@@ -26,6 +26,12 @@ class Application < Sinatra::Base
     erb(:index)
   end
 
+  get "/logout" do
+    session.delete(:user_id)
+
+    redirect "/"
+  end
+
   get "/post_peep" do
     erb(:post_peep)
   end

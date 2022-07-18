@@ -3,16 +3,20 @@
      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
   </head>
   <body>
+    <% if session[:user_id] %>
+    <form action="/logout" class="button">
+      <input type="submit" value="Log out"/>
+    </form>
+    <form action="/post_peep" class="button">
+      <input type="submit" value="Post Peep"/>
+    </form>
+    <%else%>
     <form action="/sign_up" class="button">
       <input type="submit" value="Sign Up"/>
     </form>
     <form action="/login" class="button">
       <input type="submit" value="Login"/>
-    </form>
-    <% if session[:user_id] %>
-    <form action="/post_peep" class="button">
-      <input type="submit" value="Post Peep"/>
-    </form>
+    </form>  
     <%end%>
     <h1>Chitter</h1>
     <% if !session[:user_id] %>
@@ -20,7 +24,7 @@
     <%else%>
       <h2>Here are all the latest peeps, <%= @users.find_by_id(session[:user_id]).username %>!</h2>
     <%end%>
-     <div>
+     <div class="main">
       <% @peeps.reverse.each do |peep| %>
       <p class="peeps">
       <a href=/<%="#{@users.find_by_id(peep.user_id).username}"%>><%= @users.find_by_id(peep.user_id).username %></a><br>
