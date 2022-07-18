@@ -15,7 +15,6 @@ class PeepRepository
     raise "This username does not exist in the database." if result_set.to_a.empty?
 
     peeps = map_records_to_peep_objects(result_set)
-    peeps.size == 1 ? peeps[0] : peeps
   end
 
   def create(peep)

@@ -1,0 +1,20 @@
+<html>
+  <head> 
+   <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+  </head>
+  <body>
+    <form action="/sign_up" class="button">
+      <input type="submit" value="Sign up"/>
+    </form>
+    <h1>Chitter</h1>
+    <%= session[:message] if session[:message] %>
+    <form action="/sessions" method="POST" class="login_form">
+      <label> Email: </label>
+      <input type="text" name="email"/><br>
+      <label> Password: </label> 
+      <input type="password" name="password"/><br> 
+      <input type="submit" class="submit_button" value="Login!"/>
+    </form>
+    <a href="/" class="home">Go back to homepage</a>
+  </body>
+</html>

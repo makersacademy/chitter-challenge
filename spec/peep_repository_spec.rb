@@ -45,7 +45,7 @@ describe PeepRepository do
     repo = PeepRepository.new
     peep = repo.find_by_username("SaraSmith1")
 
-    expect(peep.content).to eq "my first peep!!"
+    expect(peep.first.content).to eq "my first peep!!"
   end
 
   context "username not in database" do
