@@ -1,4 +1,5 @@
 require_relative './user'
+require_relative './database_connection'
 
 class UserRepository
   def initialize
@@ -13,10 +14,24 @@ class UserRepository
 
     return get_users(result_set)
   end
-  
+
   def find(id)
     sql = 'SELECT * FROM users WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
+
+    return get_users(result_set)[0]
+  end
+  
+  def find_username(username)
+    sql = 'SELECT * FROM users WHERE username = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [username])
+
+    return get_users(result_set)[0]
+  end
+
+  def find_email(email)
+    sql = 'SELECT * FROM users WHERE email = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email])
 
     return get_users(result_set)[0]
   end

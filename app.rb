@@ -26,14 +26,62 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.new
-    @user.name = params[:name]
-    @user.email = params[:email]
-    @user.username = params[:username]
-    @user.password = params[:password]
     @users = UserRepository.new
-    @users.create(@user)
+    email = params[:email]
+    username = params[:username]
 
-    return erb(:signup_confirmation)
+    if @users.find_username(username) == nil && @users.find_email(email) == nil
+      @user = User.new
+      @user.email = email
+      @user.username = username
+      @user.name = params[:name]
+      @user.password = params[:password]
+      @users.create(@user)
+      return erb(:signup_confirmation)
+    else
+      return erb(:signup_error)
+    end
+  end
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    @users = UserRepository.new
+    @posts = PostRepository.new
+    username = params[:username]
+    password = params[:password]
+
+    @user = @users.find_username(username)
+    if @user == nil
+      return erb(:login_error)
+    end
+
+    if @user.password != password
+      return erb(:login_error)
+    end
+    return erb(:user_account)
+  end
+
+  get '/:username' do
+    repo = UserRepository.find_username(params[:username])
+    return erb(:user_account)
+  end
+
+  post '/new_post' do
+    @users = UserRepository.new
+    @posts = PostRepository.new
+
+    user_id = params[:user_id].to_i
+    @user = @users.find(user_id)
+
+    post = Post.new
+    post.message = params[:message]
+    post.timestamp = params[:timestamp]
+    post.user_id = user_id
+    @posts.create(post)
+
+    return erb(:user_account)
   end
 end
