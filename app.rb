@@ -34,6 +34,10 @@ class Application < Sinatra::Base
       status 400
       return "Incorrect username or password"
     end
+    repo = UserRepo.new
+    @username = params[:username]
+    @user_id = repo.find(params[:username]) 
+    @loggedin = true
     return erb(:loggedin)
   end
 
