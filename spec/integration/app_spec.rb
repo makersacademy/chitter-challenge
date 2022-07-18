@@ -3,7 +3,7 @@ require "rack/test"
 require_relative '../../app'
 
 def reset_tables
-  sql_seed = File.read('spec/seeds/seeds_chitter_db.sql')
+  sql_seed = File.read('spec/seeds/empty_seeds_chitter_db.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_db' })
   connection.exec_params(sql_seed)
 end
