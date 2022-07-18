@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 0;
+  height: 0;
+  font-size: 93.75%;
+  font-family: 'Geneva';
+  /* Divided desired font size in px by 16px e.g (15/16)*100 = 93.75%, % units better for accessibility */
+}
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem 5rem;
+  font-weight: 400;
+}
+
+h2 {
+  padding: 3rem 0;
+}
+
+.button:first-of-type {
+  display: inline-block;
+  padding: 0.4 0 0 30rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.4rem 30rem;
+}
+
+.submit_button {
+  margin: 2rem 0;
+}
+
+.peep_form {
+  margin: 5rem 0;
+}
+
+.sign_up_form,
+.login_form {
+  display: block;
+  padding: 5rem 0;
+}
+
+.peeps:first-of-type {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+.peeps {
+  padding: 2rem 0;
+}
+
+.home {
+  display: block;
+  padding: 2rem 0;
+}

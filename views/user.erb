@@ -1,0 +1,25 @@
+<html>
+  <head> 
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+  </head>
+  <body>
+    <form action="/sign_up" class="button">
+      <input type="submit" value="Sign Up"/>
+    </form>
+     <form action="/login" class="button">
+      <input type="submit" value="Login"/>
+    </form>
+    <h1>Chitter</h1>
+    <h2>Here are all the latest peeps from <%= @username %>!</h2>
+     <div>
+      <% @peeps.each do |peep| %>
+      <p class="peeps">
+        <%= @username %><br>
+        <%= peep.content %><br>
+        <%= peep.created %>
+      <p>
+      <% end %>
+    </div>
+    <a href="/" class="home">Go back to homepage</a>
+  </body>
+</html>
