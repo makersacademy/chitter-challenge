@@ -1,0 +1,62 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bcrypt (3.1.18)
+    diff-lcs (1.5.0)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    mini_mime (1.1.2)
+    multi_json (1.15.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    pg (1.4.1)
+    pony (1.13.1)
+      mail (>= 2.0)
+    rack (2.2.4)
+    rack-protection (2.2.1)
+      rack
+    rspec (3.11.0)
+      rspec-core (~> 3.11.0)
+      rspec-expectations (~> 3.11.0)
+      rspec-mocks (~> 3.11.0)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-support (3.11.0)
+    ruby2_keywords (0.0.5)
+    sinatra (2.2.1)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.2.1)
+      tilt (~> 2.0)
+    sinatra-contrib (2.2.1)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.2.1)
+      sinatra (= 2.2.1)
+      tilt (~> 2.0)
+    sinatra-reloader (1.0)
+      sinatra-contrib
+    tilt (2.0.10)
+    webrick (1.7.0)
+
+PLATFORMS
+  arm64-darwin-20
+  x86_64-linux
+
+DEPENDENCIES
+  bcrypt (~> 3.1)
+  pg (~> 1.4)
+  pony (~> 1.13)
+  rspec (~> 3.11)
+  sinatra (~> 2.2)
+  sinatra-reloader (~> 1.0)
+  webrick (~> 1.7)
+
+BUNDLED WITH
+   2.3.17

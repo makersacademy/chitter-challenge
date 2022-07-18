@@ -1,0 +1,27 @@
+
+<html>
+<head>
+</head>
+  <body>
+  <div> Hi <%=@username%></div>
+    <form action="/post_message" method="POST">
+    <div>
+    <input type="text" name="title" value = "Title">
+    </div>
+    <div>
+    <input type="text" name="message" value = "Message">
+    </div>
+    <input type="submit">
+    </form>
+    <form action ="/logout" method = "POST"><input type="submit" value ="Logout"></form>
+    <% @sorted_posts.each do |post| %>
+      <div class = "container">
+      <p><%= post.title %></p>
+      <p><%= post.content %></p>
+      <p><%= post.username %></p>
+      <span><%= post.post_date %></span>
+      </div>
+      <hr style="width:50%;text-align:left;margin-left:0">
+    <% end %>
+  </body>
+</html>

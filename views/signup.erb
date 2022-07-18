@@ -1,0 +1,20 @@
+
+
+<html>
+<body>
+<form method="POST" action='\signup'>
+<title>Username</title>
+<input type="text" name = "email" id= "email">
+<label for="email">Email</label>
+<input type="text" name="username" id="username">
+<label for="username">Username</label>
+<input type="text" name="password" id= "password">
+<label for="password">Password</label>
+<title>Submit</title>
+<input type="submit" value="Submit">
+</form>
+<% if @username_exists%> Username already exists <% end %>
+
+
+</body>
+</html>
