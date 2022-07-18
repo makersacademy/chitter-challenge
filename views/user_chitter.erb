@@ -1,0 +1,17 @@
+<html>
+<head><h1>CHITTER</h1>
+ <h2>makers chit chat</h2>
+<h3>Hi <%=@user.name%>!</h3></head>
+<body>
+<p>What are you up to today?</p>
+
+<form method='POST' action='/new_peep'>
+<input type='text' name='content'/>
+ 
+<input type='Submit' />
+</form><br/>
+ 
+<a href='/'>chit out </a>
+</body>
+
+</html>

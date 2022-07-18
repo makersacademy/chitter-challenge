@@ -6,6 +6,7 @@ require 'simplecov-console'
 
 # Make sure this connects to your test database
 # (its name should end with '_test')
+ENV['ENV'] = 'test'
 DatabaseConnection.connect('chitter_database_test')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

@@ -61,5 +61,8 @@ end
     expect(added_peep.content).to eq 'a very new content'
     expect(added_peep.time).to eq '2004-10-19 16:54:54'
     expect(added_peep.user_id).to eq 2
+    expect(repo.all).to include(
+      have_attributes(content: 'a very new content')
+    )
   end
 end

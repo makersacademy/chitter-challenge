@@ -22,17 +22,26 @@ class UserRepository
   end
 
   def create(user)
+    # to add encryption
+    # encrypted_password = BCrypt::Password.create(new_user.password)
     sql = 'INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);'
+    # to replace password with encrypted_password
     params = [user.name, user.username, user.email, user.password]
     DatabaseConnection.exec_params(sql, params)
     return nil
   end
 
-  def email_exists?(email)
+  def find_by_email(email)
     sql = 'SELECT * FROM users WHERE email = $1;'
     params = [email]
     result_set = DatabaseConnection.exec_params(sql, params)
-    return !result_set.to_a.empty?
+    return nil if result_set.to_a.length == 0
+    record = result_set[0]
+    return record_to_user_object(record)
+  end
+
+  def email_exists?(email)
+    return !find_by_email(email).nil?
   end
 
   def username_exists?(username)

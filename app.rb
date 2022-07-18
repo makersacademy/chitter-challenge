@@ -4,7 +4,7 @@ require_relative 'lib/peep_repository'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
-# DatabaseConnection.connect('chitter_database_test')
+DatabaseConnection.connect('chitter_database_test')
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -17,7 +17,7 @@ class Application < Sinatra::Base
     peep_repo = PeepRepository.new
     @user_repo = UserRepository.new
     @peeps = peep_repo.all.sort do |post|
-      DateTime.parse(post.time)
+      post.id
     end
     return erb(:index)
   end
@@ -44,6 +44,52 @@ class Application < Sinatra::Base
     end
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    @user = UserRepository.new.find_by_email(params[:email])
+    if (@user == nil || @user.password != params[:password])
+      return erb(:login_error)
+    else
+      session[:user_id] = @user.id
+      return erb(:user_chitter)
+    end
+  end
+
+  get '/user_chitter' do
+    if session[:user_id] == nil
+      return redirect('/login')
+    else
+      peep_repo = PeepRepository.new
+      @user_repo = UserRepository.new
+      @peeps = peep_repo.all.sort do |post|
+        post.id
+      end
+      return erb(:user_chitter)
+    end
+  end
+
+  get '/logout' do
+    session[:user_id] = nil
+    return redirect('/logout')
+  end
+
+  post '/new_peep' do
+    if session[:user_id] == nil
+      return redirect('/login')
+    else
+      peep = Peep.new
+      peep.content = params['content']
+      peep.time = Time.new
+      peep.user_id = session[:user_id]
+      peep_repo = PeepRepository.new
+      peep_repo.create(peep)
+    end
+    return erb(:user_chitter)
+  end
+
   private
 
   def input_validation
@@ -62,6 +108,6 @@ class Application < Sinatra::Base
       @username = params[:username]
       @error = "username_taken"
     end  
-      @error
+    return @error
   end
 end

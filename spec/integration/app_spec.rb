@@ -27,9 +27,9 @@ describe Application do
       expect(response.body).to include("<head><h2>makers chit chat</h2></head>")
       expect(response.body).to include("<a href='/signup'> SIGN UP </a><br/>")
       expect(response.body).to include("<a href='/login'> LOG IN </a><br/><br/>")
-      expect(response.body).to include("<p>Anna @anna123 at 2004-10-19 10:23:54</p>")
+      expect(response.body).to include("<p>Anna @anna123</p>")
       expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>John @john123 at 2004-10-19 10:00:54</p>")
+      expect(response.body).to include("<p>John @john123</p>")
       expect(response.body).to include("<p>I like cats</p>")
       expect(response.body).to include("<div>","</div>")
     end
@@ -59,7 +59,7 @@ describe Application do
       users = UserRepository.new.all
       expect(response.status).to eq(200)
       expect(response.body).to include('<p>Welcome to CHITTER, Joanna!</p>')
-      expect(response.body).to include("<a href='/new_peep'>share your thoughts with other Makers here</a>")
+      expect(response.body).to include("<a href='/user_chitter'>share your thoughts with other Makers here</a>")
       response = get('/')
       expect(users).to include(
         have_attributes(email: 'joannaMccain@makersacademy.com')
@@ -178,6 +178,78 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include("<p>Some essential information is missing.</p>")
       expect(response.body).to include('<p>Please review your details:</p>')
+    end
+  end
+
+  context "GET to /login" do
+    it "returns the HTML form to create a new user" do
+      response = get('/login')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<form method='POST' action='/login'>")
+      expect(response.body).to include("<input type='text' name='email'/>")
+      expect(response.body).to include("<input type='text' name='password'/>")
+    end
+  end
+
+  context "POST /login" do
+    it "returns the error page when email is incorrect" do
+      response = post('/login', 
+        email: 'avdvna@makersacademy.com',
+        password: '235346hgsdv'
+      )
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<form method='POST' action='/login'>")
+      expect(response.body).to include("<p>The information you provided does not match our records.</p>")
+      expect(response.body).to include("<input type='text' name='email'/>")
+      expect(response.body).to include("<input type='text' name='password'/>")
+    end
+
+    it "returns the error page when email is incorrect" do
+      response = post('/login', 
+        email: 'anna@makersacademy.com',
+        password: 'incorrect5'
+      )
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<form method='POST' action='/login'>")
+      expect(response.body).to include("<p>The information you provided does not match our records.</p>")
+      expect(response.body).to include("<input type='text' name='email'/>")
+      expect(response.body).to include("<input type='text' name='password'/>")
+    end
+
+    it "logs in user when email and password are correct adn displays the list of peeps" do
+      response = post('/login', 
+        email: 'anna@makersacademy.com',
+        password: '235346hgsdv'
+      )
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<form method='POST' action='/new_peep'>")
+      expect(response.body).to include("<h3>Hi Anna!</h3></head>")
+      expect(response.body).to include("<p>What are you up to today?</p>")
+      expect(response.body).to include("<input type='text' name='content'/>")
+      # expect(response.body).to include("<p>Anna @anna123 at 2004-10-19 10:23:54</p>")
+      # expect(response.body).to include("<p>I love sunshine</p>")
+      # expect(response.body).to include("<p>John @john123 at 2004-10-19 10:00:54</p>")
+      # expect(response.body).to include("<p>I like cats</p>")
+      # expect(response.body).to include("<div>","</div>")
+      # expect(response.body).to include("<a href='/logout'> log out </a><br/><br/>")
+    end
+  end
+  
+  context "POST /new_peep" do
+    it 'creates a new peep and returns 200 OK' do
+      response = post(
+        '/new_peep', 
+        content: 'I am happy', 
+        time: '2004-10-19 12:23:54',
+        user_id: 1
+      )
+      peeps = PeepRepository.new.all
+      expect(response.status).to eq(200)
+      expect(peeps).to include(
+        have_attributes(content: 'I am happy')
+      )
+      response = get('/')
+      expect(response.body).to include('I am happy')
     end
   end
 end
