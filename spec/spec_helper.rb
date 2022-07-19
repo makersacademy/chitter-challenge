@@ -1,3 +1,5 @@
+require 'database_connection'
+DatabaseConnection.connect('chitter_test')
 require 'simplecov'
 require 'simplecov-console'
 

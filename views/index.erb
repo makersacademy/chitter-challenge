@@ -1,0 +1,19 @@
+<html>
+    <head>
+      <link href="<%= url('/style.css') %>"rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 >CHITTER</h1>
+        <a href="/signup">SIGN UP</a><br /><br /><br />
+        <a href="/login">LOG IN</a><br /><br /><br />
+        <% @posts.each do |post| %>
+            <%user_repo = UserRepository.new%>
+            <%user = user_repo.find(post.user_id)%>
+            <%username = user.username%>
+
+            <h2><%=username%></h2>
+            <h3>"<%=post.content%>"</h3>
+            <h5><%=post.time%></h5><br />
+        <% end %>
+    </body>
+</html>
