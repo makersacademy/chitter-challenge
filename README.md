@@ -1,11 +1,27 @@
 # Chitter Challenge
 
+# Instructions for use:
+- Clone this repo
+- Run bundler to install dependencies
+- Set up your tables as follows:
+  - enter ```# psql postgresql``` in the terminal:
+  - You should now see something like the following:<br>
+  ```psql (14.4)```<br>
+  ```Type "help" for help.```
+  - once in psql, enter the info found in ```db/migrations```
+  - You should now have your database and test database set up
+- start up the server with ```rackup```, ```$ rackup config.ru``` or ```$ rackup -p 3000```
+- navigate to the relevant localhost address, either ```localhost:9292``` or ```localhost:3000```, depending on the above choice
+- to view the info in the databases, navigate to the you wish to view database, then enter ```# \dt``` to view all tables.
+- to view a specific table, e.g. spaces, enter ```SELECT * FROM spaces```
+- to run tests, run rspec
+
 ## To do: 
 
-Fix timestamp (see below)
-Sort out the styling
-Prevent duplicate signups
-Deploy
+- Fix timestamp (see below)
+- Sort out the styling
+- Prevent duplicate signups
+- Deploy
 
 ##
 
