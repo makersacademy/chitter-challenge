@@ -1,5 +1,14 @@
 # Chitter Challenge
 
+## To do: 
+
+Fix timestamp (see below)
+Sort out the styling
+Prevent duplicate signups
+Deploy
+
+##
+
 Notes for coach:
 
 I found this one extremely challenging.
