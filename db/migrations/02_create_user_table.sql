@@ -1,7 +1,7 @@
 -- Connect to psql
--- Create the database using the psql command CREATE DATABASE chitter_users;
--- Connect to the database using the pqsl command \c chitter_users;
--- Run the query we have saved in the file 02_create_chitter_users_table.sql
+-- You should already have a database called chitter; 
+-- Connect to the database using the pqsl command \c chitter;
+-- Run the query below:
 
 CREATE TABLE chitter_users(
   id SERIAL PRIMARY KEY,
