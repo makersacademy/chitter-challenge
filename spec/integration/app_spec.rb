@@ -80,6 +80,7 @@ RSpec.describe Application do
   end
   context "GET /account/:id" do
     it 'returns 200 OK' do
+      post("/login", params={ email: "parismonson@yahoo.com", password: "hash_password"})
       response = get('/account/1')
 
       expect(response.status).to eq(200)
@@ -91,7 +92,7 @@ RSpec.describe Application do
   end
   context "GET /account/:id" do
     it 'redirects to login' do
-      ENV["USER_ID"] = nil
+      
       response = get('/account/1')
       last_response.should be_redirect
       follow_redirect!
@@ -109,8 +110,7 @@ RSpec.describe Application do
 
   context "POST /peep" do
     it 'returns 200 OK' do
-
-      ENV["USER_ID"] = "1"
+      post("/login", params={ email: "parismonson@yahoo.com", password: "hash_password"})
       response = post('/peep', params = { contents: "Test content" })
 
       last_response.should be_redirect

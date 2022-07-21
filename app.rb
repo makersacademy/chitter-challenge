@@ -9,6 +9,7 @@ DatabaseConnection.connect
 class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    enable :sessions
   end
 
   get "/" do
@@ -30,25 +31,25 @@ class Application < Sinatra::Base
   end
 
   get "/login" do
-    return erb(:login) if ENV["USER_ID"].nil?
-    redirect "/account/#{ENV["USER_ID"]}"
+    return erb(:login) if session[:id].nil?
+    redirect "/account/#{session[:id]}"
   end
 
   post "/login" do
     repo = UserRepository.new
     account = repo.check_login(params[:email], params[:password])
     unless account.empty?
-      ENV["USER_ID"] = account[0].id.to_s
+      session[:id] = account[0].id.to_s
       redirect "/account/#{account[0].id}"
     end
     return erb(:fail)
   end
 
   get "/account/:id" do
-    unless ENV["USER_ID"].nil?
-      @user = UserRepository.new.find(ENV["USER_ID"])[0]
+    unless session[:id].nil?
+      @user = UserRepository.new.find(session[:id])[0]
       @users = UserRepository.new
-      @peeps = PeepRepository.new.find_by_user(ENV["USER_ID"])
+      @peeps = PeepRepository.new.find_by_user(session[:id])
       return erb(:account)
     end
     redirect "/login"
@@ -58,13 +59,13 @@ class Application < Sinatra::Base
     peep = Peep.new
     peep.content = params[:contents]
     peep.date = Time.new.strftime("%Y-%m-%d %H:%M:%S")
-    peep.user_id = ENV["USER_ID"]
+    peep.user_id = session[:id]
     PeepRepository.new.create(peep)
     redirect "/account/#{peep.user_id}"
   end
 
   get "/logout" do
-    ENV["USER_ID"] = nil
+    session[:id] = nil
     return erb(:logout)
   end
   
