@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Chitter Account Page Homepage!</title>
+      <a href='/'>Home</a><br>
+      <a href='/logout'>Logout</a><br>        
+  </head>
+
+  <body>
+  <h1>Hi <%=@user.username%>! Welcome to your Account Homepage!</h1>
+  <h2>Your Peeps!</h2>
+    <%@peeps.reverse.each do |peep|%>
+    <div style="border:solid">
+      <head>
+        Peep ID#<%=peep.id%>
+      </head>
+      <p>
+        <%=peep.content%>
+      </p>
+      <footer style="border:solid">
+        @<%=@users.find(peep.user_id)[0].username%>    <%=@users.find(peep.user_id)[0].email%>    <%=peep.date%>
+      </footer>
+    </div><br>
+    <%end%>
+    <div>
+      <form action="/peep" method="POST">
+
+        <label for="TITLE">Peep:</label><br>
+        <textarea rows="5" cols="80" id="TITLE" name="contents">
+        </textarea>
+        <input type="submit" value="Post Peep">
+      </form>
+    </div>
+  </body>
+
+</html>

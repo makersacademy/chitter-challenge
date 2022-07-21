@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Login</title>
+    <a href='/'>Home</a><br>
+    <br>
+    <a href='/account/:id'>Account</a><br>
+    <br>
+    <a href='/signup'>Sign Up Here</a><br>
+    <h1>Enter your Login details</h1>
+  </head>
+
+  <body>
+    <form action="/login" method="POST">
+
+      <label for="email">Email Address:</label><br>
+      <input type="text" id="email" name="email"><br>
+
+      <label for="password">Password:</label><br>
+      <input type="text" id="password" name="password"><br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+
+
+</html>
