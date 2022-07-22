@@ -24,14 +24,16 @@ describe Application do
 
       # Assert the response status code and body.
       expect(response.status).to eq(200)
-      expect(response.body).to include("Like twitter")
+      expect(response.body).to include("Login")
     end
 
     it "contains the sign up link" do
       response = get("/")
-      expect(response.body).to include('<a href = "/signup">Sign up here!</a>')
+      expect(response.body).to include('<a href="/signup"><h2>Sign up!</h2></a>')
     end
     it "contains the write peep link" do
+      signup = post("/signup", username: "Joe", password: "123")
+      login = post("/login", username: "Joe", password: "123")
       response = get("/")
       expect(response.body).to include('<a href = "/peep">Write new peep!</a>')
     end
@@ -72,6 +74,8 @@ describe Application do
     end
 
     it "returns 200 and and body when peep is succesfully made" do
+      signup= post("/signup", username: "Joe", password: "123")
+      login =post("/login", username: "Joe", password: "123")
       response = post('/peep', content: "This is my content", author_id: 1)
       expect(response.status).to eq(200)
       expect(response.body).to include("<div><head>Succesfully wrote a peep!</head></div>")
@@ -107,8 +111,8 @@ describe Application do
 
     it "returns Existing username, please choose another if Username exists" do
       existing_name_repo = post("/signup", username: "Mike", password: '1234')
+      repo = post("/signup", username: "Mike", password: '12345')
       expect(existing_name_repo.status).to eq(200)
-      repo = post("/signup", username: "Joe", password: '1234')
       expect(repo.body).to include ("Existing username, please choose another")
     end
   end
@@ -125,9 +129,9 @@ describe Application do
 
   context "POST/login" do
     it "returns 200 OK and body text of succesful login" do
+      signup = post("/signup", username: "Joe", password: "123")
       response = post("/login", username: "Joe", password: "123")
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<head><h2>Logged in succesfully as Joe with ID 1!</h2></head>')
+      expect(response.body).to include('<head><h2>Logged in succesfully as Joe!</h2></head>')
       expect(response.body).to include('<a href ="/"><h2>Return to homepage</h2></a>')
     end
 

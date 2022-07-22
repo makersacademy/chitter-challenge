@@ -11,10 +11,16 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
     also_reload 'lib/peep_repo'
     also_reload 'lib/user_repo'
+    enable :sessions
   end
+  enable :sessions
 
   
+
   get "/" do
+    if session[:id].nil?
+      return erb(:login)
+    end
     peep_repo = PeepRepo.new
     @posts = peep_repo.peep_feed.sort { |post| DateTime.parse(post.time) }
     return erb(:home)
@@ -29,20 +35,23 @@ class Application < Sinatra::Base
       status 400
       return "Username or password cannot be empty"
     end
-
     if incorrect_login?
       status 400
       return "Incorrect username or password"
     end
     repo = UserRepo.new
-      @username = params[:username]
-      @user_id = repo.find(params[:username]) 
-      @loggedin = true
+    user_id = repo.find(params[:username])
+    @username = params[:username]
+    @user_id_for_display = user_id
+    session[:id] = user_id
     return erb(:loggedin)
   end
 
-  get "/signup" do
+   get "/loggedin" do
+     return erb(:loggedin)
+   end
 
+  get "/signup" do
     return erb(:signup)
   end
 
@@ -62,8 +71,8 @@ class Application < Sinatra::Base
     new_user.username = params[:username]
     new_user.password = params[:password]
     repo.create_user(new_user)
-    @user = new_user
-    @id = repo.find(params[:username])
+    @username = params[:username]
+    @user_id_for_display = repo.find(params[:username])
     return erb(:successful_signup)
   end
 
@@ -85,7 +94,7 @@ class Application < Sinatra::Base
     repo = PeepRepo.new
     new_peep = Peep.new
     new_peep.content = params[:content]
-    new_peep.author_id = params[:author_id]
+    new_peep.author_id = session[:id]
     new_peep.time_posted = params[:time_posted]
     repo.create_peep(new_peep)
     return erb(:successful_peep)
@@ -93,6 +102,11 @@ class Application < Sinatra::Base
 
   get "/peepmade" do
     return erb(:successful_peep)
+  end
+
+  get "/logout" do
+    session[:id] = nil
+    return erb(:logout)
   end
 
   def invalid_signup?

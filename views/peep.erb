@@ -6,16 +6,13 @@
   <div>
     <body> <label>Write peep here!</label>
       <input type="text" name="content" />
+      <input type="hidden" name="author_id" value=<%=session[:id]%>/>
       <input type="hidden" name="time_posted" value=<%=DateTime.now%>/>
       <input type="submit"/>
     </body>
   </div>
-
   <div>
-    <body>
-      <label>TO BE REMOVED- Enter your author ID</label>
-      <input type="text" name="author_id" />
-    </body>
+  <br><a href="/">Return home</a>
   </div>
 </html>
 </form>

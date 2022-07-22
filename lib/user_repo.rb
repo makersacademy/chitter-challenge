@@ -8,6 +8,7 @@ class UserRepo
     result_set = DatabaseConnection.exec_params(sql, [])
     result_set.each do |result|
       user = User.new
+      user.id = result['id']
       user.username = result['username']
       user.password = result['password']
       users << user
