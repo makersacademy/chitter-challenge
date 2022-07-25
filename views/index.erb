@@ -1,0 +1,19 @@
+<%= erb :partials_header %>
+
+<h1>You're on Chitter – Let's Peep!</h2>
+
+<div>
+  <form action="/peep" method="post">
+    <input type="text" name="peep" placeholder="Peep to the world!">
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <a><%= peep %></a>
+    </li>
+  <% end %>
+</ul>
+

@@ -21,11 +21,11 @@ STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (peep) to chitter :white_check_mark:
 
 As a maker
 So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+I want to see all peeps in reverse chronological order :white_check_mark:
 
 As a Maker
 So that I can better appreciate the context of a peep
@@ -121,3 +121,43 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+My notes
+--------
+
+How to use
+----------
+Fork and clone this repo
+
+Run bundle install
+
+
+```CREATE DATABASE peep_list```
+```CREATE TABLE peep_list(id SERIAL PRIMARY KEY, peep VARCHAR(180));```
+
+
+Approach
+--------
+1. I wanted to focus more on diagramming at the beginning of a project, so I started by making a domain model and CRC cards. 
+* I spent a lot of time getting errors after trying to use Sinatra partials and got it working through debugging. I still can't see my CSS although I know it's working because the page title is now working.
+* Firstly implemented feature so that the peep could be seen on the page. 
+* Next I need to be able to have multiple peeps show underneath.
+* I want to implement this so that the tweets will be loaded. This is time
+to use a database. 
+* I had created a separate class to make a new peep, but I am realising all it does it pass in a string so it might be pointless. I could do what I did for bookmark manager and create a peeps class, but have class methods and instance methods. 
+* Started working on database storage and it took a long time! I had to refer to some of the work done in bookmark manager but eventually got the feature working. 
+
+## diagrams are in the repo 
+
+* I want to save tweets in a database.
+* I will need a test and real database. 
+
+Reflection
+----------
+
+Help received?
+
+Feedback wanted
+---------------
+* I wanted to avoid using a global variable, so I create a new
+get route for the posted peep. I'd also read that the Singleton pattern should be avoided. I wondered how else I would store params from the `post '/add'` route and have these showing when I redirect to `erb: index`.
