@@ -1,0 +1,1 @@
+ALTER TABLE chitter ADD COLUMN created_at VARCHAR(100);
