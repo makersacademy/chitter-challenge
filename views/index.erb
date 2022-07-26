@@ -1,0 +1,18 @@
+<% if @user %>
+<h2> Post a peep</h2>
+<form action="/peep" method="post">
+<input type="text" name="content">
+<input type="submit" value="Peep!">
+</form>
+<% end %>
+
+<h1> Timeline </h1>
+<ul class="sessions">
+<% @timeline.each do |peep| user = User.find_id(peep.user_id) %>
+  <li>
+  <div class="user">@<%= user.username %></div>
+  <div class="time"><%= peep.time %></div>
+  <p> <%=peep.content %></p>
+  </li>
+<% end %>
+</ul>
