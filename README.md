@@ -6,7 +6,7 @@ Installation
 
 ```
 $ git clone https://github.com/LGretzk/chitter-challenge.git
-$ cd rps-challenge
+$ cd chitter-challenge
 $ bundle
 ```
 
