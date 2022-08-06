@@ -39,4 +39,10 @@
 <form action="/sign_up" method="get">
 <input type="submit" name="go_to_sign_up" value="sign up!"/>
 </form>
- 
+  <% @chits.reverse.each do |chit|%>
+    <div>
+      <%= chit.handle %><br>
+      "<%= chit.content %>"<br>
+      <%= chit.timestamp %><br>
+    </div>
+  <% end %>
