@@ -5,7 +5,7 @@ require 'pg'
 require './lib/chit'
 require './lib/user'
 
-class Chitter < Sinatra::Base
+class App < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
