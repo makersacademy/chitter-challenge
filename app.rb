@@ -1,5 +1,5 @@
 
-require 'sinatra/base'
+# require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
 require './lib/chit'
