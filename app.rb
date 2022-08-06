@@ -16,7 +16,7 @@ require './lib/user'
   # end
 
   get '/' do
-    @chits = Chit.all
+    # @chits = Chit.all
     erb :index
   end
 
