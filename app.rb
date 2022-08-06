@@ -5,10 +5,10 @@ require 'pg'
 require './lib/chit'
 require './lib/user'
 
-class App < Sinatra::Base
-  configure :development do
-    register Sinatra::Reloader
-  end
+# class App < Sinatra::Base
+#   configure :development do
+#     register Sinatra::Reloader
+#   end
 
   # get '/' do
   #   # erb :index
@@ -42,5 +42,5 @@ class App < Sinatra::Base
     erb :sign_up_confirmation
   end
 
-  run! if app_file == $0
-end
+#   run! if app_file == $0
+# end
