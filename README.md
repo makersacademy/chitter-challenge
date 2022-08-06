@@ -1,6 +1,46 @@
 # Chitter Challenge
 
+
 Currently in the midst of deploying to Heroku.
+=======
+# Instructions for use:
+- Clone this repo
+- Run bundler to install dependencies
+- Set up your tables as follows:
+  - enter ```# psql postgresql``` in the terminal:
+  - You should now see something like the following:<br>
+  ```psql (14.4)```<br>
+  ```Type "help" for help.```
+  - once in psql, enter the info found in ```db/migrations```
+  - You should now have your database and test database set up
+- start up the server with ```rackup```, ```$ rackup config.ru``` or ```$ rackup -p 3000```
+- navigate to the relevant localhost address, either ```localhost:9292``` or ```localhost:3000```, depending on the above choice
+- to view the info in the databases, navigate to the you wish to view database, then enter ```# \dt``` to view all tables.
+- to view a specific table, e.g. spaces, enter ```SELECT * FROM spaces```
+- to run tests, run rspec
+
+## To do: 
+
+- Fix timestamp (see below)
+- Sort out the styling
+- Prevent duplicate signups
+- Deploy
+
+##
+
+Notes for coach:
+
+I found this one extremely challenging.
+
+The reason it looks so rough around the edges is because I spent about six hours trying to get the timestamp to work and so had no time for html/css.
+Never managed to get timestamp to work. It worked fine in IRB, but it continually broke rackup, and I couldn't solve it using the stacktrace. I tried generating the timestamp in the model and in the database, and was able to do so in both cases, but could never get rackup to recognise the 'unknown keyword'. Just came up against a bit of a wall here. Eventually Simon Tinsley soved the problem for me (the problem was that the keyword timestamp: existed in the Chit.new in the post function but not the all function). 
+
+I went looking for answers on my timestamp issue, and came across this blog - the blog didn't solve the question of the timestamp, but I should credit the author with suggesting reverse for the each block (to be honest, I hadn't even started thinking about that at this stage).
+
+Had I had the time, I would have liked to look into preventing the user from signing up with an existing email or handle - I assume we'd tell SQL to block entries if they exist in the same column - as well as password and email confirmation (just getting them to write it twice and check they match), and minimum and maximum password length, special requirements (numbers and symbols etc). I also assume that there was some call for making certain attributes private?
+
+I would really appreciate the chance to discuss this one with a coach while it's still half-fresh in my mind, as I'd say week 4 and this challenge have been the toughest yet by a long stretch. It was certainly the most frustrating in that I had a clear idea of what I could do and was held back by what is probably a very simple fix and comes down to comprehension of some of the techniques learned this week.
+>>>>>>> 719bb9fb566b6ac3054050bf46382bf2b8c17fbf
 
 My notes and planning can be found here: https://www.notion.so/manic-picnic-dreamworld/Chitter-5a7c5b89c6164ae2a3db219b0c28f0b7
 
