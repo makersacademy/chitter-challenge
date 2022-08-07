@@ -219,7 +219,7 @@ textarea {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 28%;
+  width: 30%;
   height: 100%;
   background-color: white;
   text-align: center;
@@ -233,7 +233,7 @@ textarea {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 28%;
+  width: 30%;
   height: 100%;
   background-color: white;
   border-left: 1px lightgrey solid;
