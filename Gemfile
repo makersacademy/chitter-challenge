@@ -21,3 +21,9 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+#below was not necessary before heroku, not sure if it will help with the PG::ConnectionBad error
+
+group :production do
+  gem 'pg'
+end
