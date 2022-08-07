@@ -5,6 +5,7 @@ body {
   flex-direction: row;
   height: 100vh;
   margin: auto;
+  justify-content: flex-end;
 }
 
 html {
@@ -62,9 +63,9 @@ html {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 60%;
+  width: 30%;
   background-color: white;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   text-align: center;
   border-left: 1px lightgrey solid;
   /* /* width: 30%; */
@@ -82,10 +83,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40%;
+  width: 20%;
   height: 100%;
   background-color: white;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   text-align: center;
   border-left: 1px lightgrey solid;
   /* width: 30%;
@@ -233,8 +234,15 @@ button {
 
 textarea {
   resize: none;
+  font-family: arial;
+  font-size: 20px;
 }
 
+
+.chit-container {
+  border-top: 1px lightgrey solid;
+  border-bottom: 1px lightgrey solid;
+}
 
 
 

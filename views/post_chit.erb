@@ -11,11 +11,11 @@
 </form>
 </body>
 </html> %>
-
+<body>
 <div class="bi-column-one-post">
   <h1>The latest chits</h1>
   <% @chits.reverse.each do |chit|%>
-  <div>
+  <div class="chit-container">
     <%= chit.handle %><br>
     <%= chit.content %><br>
     <%= chit.timestamp%>

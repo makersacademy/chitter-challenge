@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
 
   post '/post_chit' do
     Chit.post(handle: params[:handle], content: params[:chit])
-    redirect '/'
+    redirect '/post_chit'
   end
 
   get '/sign_up' do
