@@ -28,9 +28,11 @@ body {
 .main-column {
   display: flex;
   flex-direction: row;
+  /* margin: auto; */
   background-color: white;
   justify-content: flex-end;
   max-width: 1300px;
+  /* overflow-x: scroll; */
 }
 
 
@@ -245,6 +247,7 @@ button {
 }
 
 textarea {
+  padding: 20px;
   resize: none;
   font-family: arial;
   font-size: 20px;
@@ -273,7 +276,7 @@ textarea {
   display: flex;
   flex-direction: column;
   border-top: 1px lightgrey solid;
-  border-bottom: 1px lightgrey solid;
+  /* border-bottom: 1px lightgrey solid; */
   padding: 5px;
 }
 
@@ -297,7 +300,29 @@ textarea {
   border-radius: 0px;
 }
 
+.handle-and-submit-container {
+  display: flex;
+  flex-direction: row;
+}
 
+.handle-input {
+  width: 200px;
+  margin: 10 auto;
+  margin-bottom: 30px;
+  border-radius: 9999px;
+  min-height: 40px;
+  border: 1px lightgrey solid;
+  text-align: center;
+}
+
+.page-title {
+  font-family: arial;
+  font-size: 20px;
+  min-height: 20px;
+  text-align: left;
+  padding: 20px;
+  background-color: lightgray;
+}
 
 
 
