@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cormorant+Garamond:wght@300&family=Dongle:wght@300;400;700&family=IBM+Plex+Serif:wght@100;300&family=Julius+Sans+One&family=Prata&family=Russo+One&family=Varela+Round&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+  div {
+    margin: 10 auto;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 15px;
+    width: 30%;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+form {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+input {
+  width: 200px;
+  margin: 10 auto;
+}
+
+.results-page {
+  /* margin: 0 auto; */
+  text-align: center;
+  width: 100vw;
+  background-image: url("https://source.unsplash.com/h4elZPxUXLU");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.rock-button {
+  margin: 0px auto;
+  width: 400;
+  height: 265; 
+  overflow: hidden; 
+  border: 2px solid black;
+  background-color: grey;
+}
+
+h1 {
+  text-align: center; 
+  font-family: 'Bangers', arial; margin: 0
+}
+
+h2 {
+  text-align: center; 
+  font-family: 'Bangers', arial;
+}
+
+h3 {
+  text-align: center; 
+  font-family: 'Bangers', arial;
+}
+div {
+  text-align: center;
+}
+form {
+  text-align: center;
+  font-family: 'Bangers', arial;
+  /* margin-top: 10px; */
+}
+form:hover {
+  opacity: 0.7;
+}
+
+.text-input {
+  border-radius: 7px;
+}
+button {
+  margin-top: 10px;
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+
+
+
+
+
+
