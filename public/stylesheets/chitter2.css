@@ -3,11 +3,12 @@
 body {
   display: flex;
   flex-direction: row;
-  background-color: cornsilk;
+  background-color: grey;
   height: 100vh;
 }
 
 .tri-column-one {
+  background-image: url(/images/forest.jpg);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -20,12 +21,17 @@ body {
   padding-top: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
-
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position-x: 50%; 
+  background-position-y: 60%;
+  background-size: cover;
 }
 
 .tri-column-two {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 40%;
   height: 100vh;
   background-color: white;
@@ -39,13 +45,31 @@ body {
   padding-left: 5px; */
 }
 
-.signup-login-box {
+.signup-login-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 50%;
   height: 100vh;
+  border-top: 1px lightgrey solid;
   /* background-color: green; */
+}
+
+.signup-box {
+  display: flex;
+  flex-direction: column;
+  /* border-bottom: 1px lightgrey solid; */
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px lightgrey solid;
+}
+
+.signup-heading {
+  margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 /* .tri-column-three {
@@ -68,6 +92,10 @@ form {
 input {
   width: 200px;
   margin: 10 auto;
+  margin-bottom: 30px;
+  border-radius: 9999px;
+  min-height: 40px;
+  border: 1px lightgrey solid;
 }
 
 .buttons-container {
