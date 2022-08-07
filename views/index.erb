@@ -3,24 +3,27 @@
 </head>
 
 <body>
-<style>
 
+<div class="tri-column-one">
+</div>
 
-</style>
-
-<h1>The latest chits</h1>
+<div class="tri-column-two">
+<h1>Join chitter!</h1>
 <form method="get" action="/post_chit">
 <input type="submit" name="go_to_post_chit" value="get chitting!"/>
 </form>
 <form action="/sign_up" method="get">
 <input type="submit" name="go_to_sign_up" value="sign up!"/>
 </form>
-  <% @chits.reverse.each do |chit|%>
-    <div>
+  <%# <% @chits.reverse.each do |chit|%>
+    <%# <div>
       <%= chit.handle %><br>
-      "<%= chit.content %>"<br>
-      <%= chit.timestamp %><br>
-    </div>
-  <% end %>
+      <%# "<%= chit.content %>"<br> %>
+      <%# <%= chit.timestamp %><br> %>
+    <%# </div> %> %>
+  <%# <% end %> %> %>
+</div>
 
-</body>
+<%# <div class="tri-column-three">
+</div>
+</body> %>
