@@ -2,17 +2,29 @@
 <head>
   <link rel="stylesheet" type="text/css" href="/stylesheets/chitter4.css">
 </head>
-<%# 
-<h1>Post a chit</h1>
-<form action="post_chit" method="post">
-  <input type="text" name="handle" placeholder="type your handle here"><br>
-  <input type="text" name="chit" placeholder="type your chit here" /><br>
-  <input type="submit" value="post chit!" />
-</form>
-</body>
-</html> %>
 <div class="post-body">
   <div class='main-column'>
+
+    <div class="inner-column-three-posts">
+      <div class="links">
+        <div class="home-button">
+          Home
+        </div>
+        <div class="notifications-button">
+          Notifications
+        </div>
+        <div class="messages-button">
+          Messages
+        </div>
+        <div class="bookmarks-button">
+          Bookmarks
+        </div>
+        <div class="profile-button">
+          Profile
+        </div>
+      </div>
+    </div>
+    
     <div class="bi-column-one-post">
     <div class="page-title">
       Home
@@ -46,19 +58,16 @@
     </div>
 
     <div class="bi-column-two-post">
-      <%# <div class="post-chit-main-container">
-        <div class="post-chit-box">
-            <form class="post-form" action="post_chit" method="post">
-              <textarea class="post-input" type="text" name="chit" placeholder="type your chit here"> </textarea><br>
-              <div class="input-box">
-                <div class="divider">
-                </div>
-                <input class="input" type="text" name="handle" placeholder="type your handle here"><br>
-              </div>
-              <input type="submit" value="post chit!" />
-            </form>
+      <div class="what-is-happening">
+        <div class="what-is-happening-header">
+        What is happening?
         </div>
-      </div> %>
+      </div>
+      <div class="people-you-know">
+        <div class="people-you-know-header">
+          People you might know
+        </div>
+      </div>
     </div>
   </div>
 </div>
