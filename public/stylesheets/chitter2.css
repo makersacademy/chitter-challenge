@@ -5,10 +5,10 @@ body {
   flex-direction: row;
   height: 100vh;
 }
-html {
+/* html {
   overflow: hidden;
   height: 100%;
-}
+} */
 
 .tri-column-one {
   background-image: url(/images/forest.jpg);
