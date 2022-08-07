@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/chitter.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/chitter2.css">
 </head>
 
 <body>
@@ -8,20 +8,22 @@
 </div>
 
 <div class="tri-column-two">
-<h1>Join chitter!</h1>
-<form method="get" action="/post_chit">
-<input type="submit" name="go_to_post_chit" value="get chitting!"/>
-</form>
-<form action="/sign_up" method="get">
-<input type="submit" name="go_to_sign_up" value="sign up!"/>
-</form>
-  <%# <% @chits.reverse.each do |chit|%>
-    <%# <div>
-      <%= chit.handle %><br>
-      <%# "<%= chit.content %>"<br> %>
-      <%# <%= chit.timestamp %><br> %>
-    <%# </div> %> %>
-  <%# <% end %> %> %>
+  <div class="signup-login-box">
+    <h1>Join chitter!</h1>
+    <form method="get" action="/post_chit">
+    <input type="submit" name="go_to_post_chit" value="get chitting!"/>
+    </form>
+    <form action="/sign_up" method="get">
+    <input type="submit" name="go_to_sign_up" value="sign up!"/>
+    </form>
+      <%# <% @chits.reverse.each do |chit|%>
+        <%# <div>
+          <%= chit.handle %><br>
+          <%# "<%= chit.content %>"<br> %>
+          <%# <%= chit.timestamp %><br> %>
+        <%# </div> %> %>
+      <%# <% end %> %> %>
+    </div>
 </div>
 
 <%# <div class="tri-column-three">

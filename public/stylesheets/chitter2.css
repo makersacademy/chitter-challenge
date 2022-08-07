@@ -5,7 +5,7 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   justify-items: flex-start;
-  background-color: white;
+  background-color: cornsilk;
   height: 100vh;
 }
 
@@ -23,6 +23,14 @@ body {
   width: 50%;
   height: 100vh;
   background-color: white;
+}
+
+.signup-login-box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100vh;
+  background-color: green;
 }
 
 /* .tri-column-three {
