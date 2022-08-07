@@ -73,8 +73,18 @@ form {
   padding-bottom: 0px;
 }
 
-input {
+.input-post-chit {
   width: 30%;
+  margin: 10 auto;
+  margin-bottom: 30px;
+  border-radius: 9999px;
+  min-height: 40px;
+  border: 1px lightgrey solid;
+  text-align: center;
+}
+
+input {
+  width: 200px;
   margin: 10 auto;
   margin-bottom: 30px;
   border-radius: 9999px;
