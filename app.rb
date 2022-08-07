@@ -9,11 +9,6 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  # get '/' do
-  #   # erb :index
-  #   redirect '/chits'
-  # end
-
   get '/' do
     @chits = Chit.all
     erb :index

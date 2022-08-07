@@ -34,4 +34,13 @@ attr_reader :content, :handle, :timestamp
     end
       connection.exec_params("INSERT INTO chits (handle, content, timestamp) VALUES ($1, $2, $3) RETURNING handle, content, timestamp;", [handle, content, timestamp])
   end
+
+  def self.pg_connection
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect("postgres://tjcpisthcdezaj:e8888f176d8c4a9279a0c01b0ab685b3c51d82a97c406f0778ac35dccb85bfb1@ec2-3-213-228-206.compute-1.amazonaws.com:5432/db76t2s6m0vebl")
+    end
+  end
+  
 end
