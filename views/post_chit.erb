@@ -11,32 +11,50 @@
 </form>
 </body>
 </html> %>
-<body>
-<div class="bi-column-one-post">
-  <h1>The latest chits</h1>
-  <% @chits.reverse.each do |chit|%>
-  <div class="chit-container">
-    <%= chit.handle %><br>
-    <%= chit.content %><br>
-    <%= chit.timestamp%>
-  </div>
-<% end %>
-</div>
-
-<div class="bi-column-two-post">
-  <div class="post-chit-main-container">
+<div class="post-body">
+  <div class='main-column'>
+    <div class="bi-column-one-post">
     <div class="post-chit-box">
-        <form class="post-form" action="post_chit" method="post">
-          <textarea class="post-input" type="text" name="chit" placeholder="type your chit here"> </textarea><br>
-          <div class="input-box">
-            <div class="divider">
-            </div>
-            <input class="input" type="text" name="handle" placeholder="type your handle here"><br>
-          </div>
-          <input type="submit" value="post chit!" />
-        </form>
+            <form class="post-form" action="post_chit" method="post">
+              <textarea class="post-input" type="text" name="chit" placeholder="type your chit here"> </textarea><br>
+              <div class="input-box">
+                <div class="divider">
+                </div>
+                <input class="input" type="text" name="handle" placeholder="type your handle here"><br>
+              </div>
+              <input type="submit" value="post chit!" />
+            </form>
+        </div>
+      <h1>The latest chits</h1>
+      <% @chits.reverse.each do |chit|%>
+      <div class="chit-container">
+        <div class="handle">
+          <%= chit.handle %>
+        </div>
+        <div class="content">
+          <%= chit.content %>
+        </div>
+        <div class="timestamp">
+          <%= chit.timestamp%>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="bi-column-two-post">
+      <div class="post-chit-main-container">
+        <div class="post-chit-box">
+            <form class="post-form" action="post_chit" method="post">
+              <textarea class="post-input" type="text" name="chit" placeholder="type your chit here"> </textarea><br>
+              <div class="input-box">
+                <div class="divider">
+                </div>
+                <input class="input" type="text" name="handle" placeholder="type your handle here"><br>
+              </div>
+              <input type="submit" value="post chit!" />
+            </form>
+        </div>
+      </div>
     </div>
   </div>
-  <h6>Photo by <a href="https://unsplash.com/@maritafox?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marita Kavelashvili</a> on <a href="https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></h6>
 </div>
-</body>
