@@ -1,9 +1,8 @@
 # Chitter Challenge
 
 
-Currently in the midst of deploying to Heroku.
-=======
-# Instructions for use:
+## Currently in the midst of deploying to Heroku. To see progress, <a href="https://chitter5.herokuapp.com">click here</a>
+## Instructions for use:
 - Clone this repo
 - Run bundler to install dependencies
 - Set up your tables as follows:
