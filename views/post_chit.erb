@@ -1,10 +1,8 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/chitter2.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/chitter3.css">
 </head>
-
-<body>
-
+<%# 
 <h1>Post a chit</h1>
 <form action="post_chit" method="post">
   <input type="text" name="handle" placeholder="type your handle here"><br>
@@ -12,4 +10,24 @@
   <input type="submit" value="post chit!" />
 </form>
 </body>
-</html>
+</html> %>
+
+<div class="bi-column-one-post">
+  <h1>The latest chits</h1>
+</div>
+
+<div class="bi-column-two-post">
+  <div class="post-chit-main-container">
+    <div class="post-chit-box">
+        <form class="post-form" action="post_chit" method="post">
+          <input type="text" name="handle" placeholder="type your handle here"><br>
+          <div class="input-box">
+            <input type="text" name="chit" placeholder="type your chit here" /><br>
+          </div>
+          <input type="submit" value="post chit!" />
+        </form>
+    </div>
+  </div>
+  <h6>Photo by <a href="https://unsplash.com/@maritafox?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marita Kavelashvili</a> on <a href="https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></h6>
+</div>
+</body>
