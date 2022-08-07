@@ -218,6 +218,7 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   width: 28%;
   height: 100%;
   background-color: white;
@@ -230,7 +231,8 @@ textarea {
 .inner-column-three-posts {
   display: flex; 
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
   width: 28%;
   height: 100%;
   background-color: white;
@@ -239,10 +241,43 @@ textarea {
   /* padding: 10px; */
 }
 
-/* .links {
-  background-color: green;
+.links {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  height: 30%;
+  font-family: arial;
+  text-align: left;
+}
 
-} */
+.home-button {
+
+}
+
+.notifications-button {
+  
+}
+
+.messages-button {
+  
+}
+
+.bookmarks-button {
+  
+}
+
+.profile-button {
+  
+}
+
+.dead-div-links {
+  /* meant to keep the boxes on left and right columns at same height */
+  /* but only works if boxes are to stay the same height */
+  width: 90%;
+  height: 40%
+}
 
 /* chits */
 
@@ -315,7 +350,7 @@ textarea {
   flex-direction: column;
   min-height: 30%;
   max-height: 30%;
-  width: 100%;
+  width: 90%;
   background-color: rgba(196, 192, 192, 0.8);
   border-radius: 15px;
 }
@@ -340,7 +375,7 @@ textarea {
   flex-direction: column;
   min-height: 40%;
   max-height: 40%;
-  width: 100%;
+  width: 90%;
   background-color: rgba(196, 192, 192, 0.8);
   border-radius: 15px;
 }
@@ -359,6 +394,7 @@ textarea {
   font-family: arial;
   text-align: left;
 }
+
 
 
 
