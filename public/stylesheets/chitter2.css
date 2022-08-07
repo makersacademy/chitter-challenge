@@ -4,11 +4,12 @@ body {
   display: flex;
   flex-direction: row;
   height: 100vh;
+  margin: auto;
 }
-/* html {
+html {
   overflow: hidden;
   height: 100%;
-} */
+}
 
 .tri-column-one {
   background-image: url(/images/forest.jpg);
@@ -21,7 +22,7 @@ body {
   text-align: center;
   border-left: 1px lightgrey solid;
   /* /* width: 30%; */
-  padding-top: 5px;
+  /* padding-top: 5px; */
   padding-right: 5px;
   padding-bottom: 5px;
   background-attachment: fixed;
@@ -129,7 +130,7 @@ h3 {
 h6 {
   text-align: right; 
   font-family: arial;
-  margin: 5px;
+  margin-bottom: 15px;
 }
 
 form:hover {
