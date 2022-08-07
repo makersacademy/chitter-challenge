@@ -1,12 +1,12 @@
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: db/development.db
-  host: localhost
-  pool: 5
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: production
-  host: <%= ENV[‘DATABASE_HOST’] %>
-  pool: 5
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: db/development.db
+#   host: localhost
+#   pool: 5
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: production
+#   host: <%= ENV[‘DATABASE_HOST’] %>
+#   pool: 5
