@@ -25,7 +25,7 @@ attr_reader :content, :handle, :timestamp
   # end
  
   def self.all
-    
+    connection = pg_connection
     result = connection.exec_params("SELECT * FROM chits")
     connection.close
     result.map do |chit|
