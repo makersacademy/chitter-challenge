@@ -31,6 +31,7 @@ body {
   /* margin: auto; */
   background-color: white;
   justify-content: flex-end;
+  min-width: 1000px;
   max-width: 1300px;
   /* overflow-x: scroll; */
 }
