@@ -14,15 +14,24 @@
 
 <div class="bi-column-one-post">
   <h1>The latest chits</h1>
+  <% @chits.reverse.each do |chit|%>
+  <div>
+    <%= chit.handle %><br>
+    <%= chit.content %><br>
+    <%= chit.timestamp%>
+  </div>
+<% end %>
 </div>
 
 <div class="bi-column-two-post">
   <div class="post-chit-main-container">
     <div class="post-chit-box">
         <form class="post-form" action="post_chit" method="post">
-          <input type="text" name="handle" placeholder="type your handle here"><br>
+          <textarea class="post-input" type="text" name="chit" placeholder="type your chit here"> </textarea><br>
           <div class="input-box">
-            <input type="text" name="chit" placeholder="type your chit here" /><br>
+            <div class="divider">
+            </div>
+            <input class="input" type="text" name="handle" placeholder="type your handle here"><br>
           </div>
           <input type="submit" value="post chit!" />
         </form>

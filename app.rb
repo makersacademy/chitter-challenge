@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/post_chit' do
+    @chits = Chit.all
     erb :post_chit
   end
 

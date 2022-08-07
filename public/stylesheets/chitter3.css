@@ -6,9 +6,17 @@ body {
   height: 100vh;
   margin: auto;
 }
+
 html {
   overflow: hidden;
   height: 100%;
+}
+
+.divider {
+  min-height: 5px;
+  max-height: 5px;
+  max-width: 100%;
+  border-bottom: 1px lightgrey solid;
 }
 
 .bi-column-one {
@@ -50,7 +58,7 @@ html {
 }
 
 .bi-column-one-post {
-  background-image: url(/images/forest.jpg);
+  /* background-image: url(/images/forest.jpg); */
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -102,6 +110,7 @@ html {
   justify-content: center;
   width: 100%;
   height: 100vh;
+  justify-content: flex-start;
   /* border-top: 1px lightgrey solid; */
   /* background-color: green; */
 }
@@ -120,8 +129,8 @@ html {
 }
 
 .input-box {
-  background-color: grey;
-  height: 100px;
+  /* background-color: grey; */
+  /* height: 100px; */
   width: 100%;
 }
 
@@ -129,6 +138,14 @@ html {
   display: flex;
   flex-direction: column;
   border-bottom: 1px lightgrey solid;
+}
+
+.post-input {
+  /* background-color: grey; */
+  /* height: 100px; */
+  width: 95%;
+  height: 200px;
+  border-radius: 0px;
 }
 
 .signup-heading {
@@ -212,6 +229,10 @@ button {
   margin-top: 10px;
   border-radius: 7px;
   padding: 5px 10px;
+}
+
+textarea {
+  resize: none;
 }
 
 
