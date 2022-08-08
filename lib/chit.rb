@@ -9,20 +9,6 @@ attr_reader :content, :handle, :timestamp
     @handle = handle
     @timestamp = timestamp
   end
-
-
-  # def self.all
-  #   # research self
-  #   if ENV['ENVIRONMENT'] == "test"
-  #     connection = PG.connect(dbname: 'chitter_test')
-  #   else
-  #     connection = PG.connect(dbname: 'chitter')
-  #   end
-  #   result = connection.exec('SELECT * FROM chits')
-  #   result.map do |chit|
-  #     Chit.new(content: chit['content'], handle: chit['handle'], timestamp: chit['timestamp'])
-  #   end
-  # end
  
   def self.all
     connection = pg_connection

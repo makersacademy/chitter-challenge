@@ -18,6 +18,12 @@ class User
     User.new(full_name: result[0]['chitterer'], username: result[0]['username'], handle: result[0]['handle'], email: result[0]['email'], password: result[0]['password'])
   end
 
+  def self.find_user(handle:, password:)
+    connection = pg_connection
+    user = connection.exec_params("SELECT * FROM chitter_users WHERE handle = $1 AND password = $2", [handle, password])
+    User.new(full_name: user[0]['chitterer'], username: user[0]['username'], handle: user[0]['handle'], email: user[0]['email'], password: user[0]['password'])
+  end
+
   def self.pg_connection
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
