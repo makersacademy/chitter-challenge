@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cormorant+Garamond:wght@300&family=Dongle:wght@300;400;700&family=IBM+Plex+Serif:wght@100;300&family=Julius+Sans+One&family=Prata&family=Russo+One&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Lora&family=Reenie+Beanie&family=Rock+Salt&family=Rubik+Mono+One&family=Sansita&family=Shrikhand&display=swap');
 
 /* general */
 
@@ -103,25 +103,27 @@ input {
 h1 {
   margin: 10 auto;
   text-align: center; 
-  font-family: 'Bangers', arial; margin: 0;
+  font-family: 'Lora', arial; margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 h2 {
   text-align: center; 
-  font-family: 'Bangers', arial;
+  font-family: 'Lora', arial;
 }
 
 h3 {
   text-align: center; 
-  font-family: 'Bangers', arial;
+  font-family: 'Lora', arial;
 }
 
 h6 {
   text-align: right; 
-  font-family: arial;
+  font-family: 'Lora', arial;
+  font-size: 12px;
   margin-bottom: 5px;
+  font-weight: 100;
 }
 
 form:hover {
@@ -258,7 +260,7 @@ textarea {
   justify-content: space-around;
   width: 90%;
   height: 30%;
-  font-family: arial;
+  font-family: 'Lora';
   text-align: left;
 }
 
@@ -305,6 +307,7 @@ textarea {
 .handle {
   font-family: arial;
   font-size: 20px;
+  font-weight: lighter;
   text-align: left;
 }
 
