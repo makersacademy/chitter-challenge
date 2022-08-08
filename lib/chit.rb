@@ -31,7 +31,6 @@ attr_reader :content, :handle, :timestamp
     result.map do |chit|
       Chit.new(content: chit['content'], handle: chit['handle'], timestamp: chit['timestamp'])
     end
-    # connection.close
   end
 
   def self.post(handle:, content:)

@@ -284,13 +284,6 @@ textarea {
   
 }
 
-.dead-div-links {
-  /* meant to keep the boxes on left and right columns at same height */
-  /* but only works if boxes are to stay the same height */
-  width: 90%;
-  height: 40%
-}
-
 /* chits */
 
 .chit-container {
