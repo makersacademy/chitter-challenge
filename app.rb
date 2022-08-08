@@ -11,6 +11,8 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/' do
     @chits = Chit.all
     erb :index
@@ -23,7 +25,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_chit' do
-    Chit.post(handle: params[:handle], content: params[:chit])
+    user = session[:user]
+    Chit.post(handle: user.handle, content: params[:chit])
     redirect '/post_chit'
   end
 
@@ -41,17 +44,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    user = Session.find_user(handle: params[:handle], password: params[:password])
-    session[:user] = user
-    session[:message] = "testing, testing"
-    user = session[:user]
-    $user = user.handle
-    if user 
-      redirect './post_chit'
-    else
-      redirect './'
+    begin
+      user = Session.find_user(handle: params[:handle], password: params[:password])
+      session[:user] = user
+      user = session[:user]
+      $user = user.handle
+      redirect '/post_chit'
+    rescue => exception 
+      redirect '/login'
     end
-
   end
 
 
