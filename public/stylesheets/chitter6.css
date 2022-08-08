@@ -329,7 +329,12 @@ textarea {
 
 .handle-and-submit-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.post-submit {
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 .handle-input {

@@ -1,13 +1,13 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/chitter5.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/chitter6.css">
 </head>
 <div class="post-body">
   <div class='main-column'>
     <div class="inner-column-three-posts">
       <div class="links">
         <div>
-          Hi,   <%= @message %>
+          Hi, <%= @user_handle %>
         </div>
         <div class="home-button">
           Home
@@ -38,12 +38,14 @@
             <form class="post-form" action="post_chit" method="post">
               <textarea class="post-input" type="text" name="chit" placeholder="Type your chit here"></textarea><br>
               <div class="input-box">
-                <%# <div class="divider">
-                </div> %>
+                <%# <div class="divider"> %>
+                <%# </div> %>
               </div>
               <div class="handle-and-submit-container">
-              <input class="handle-input" type="text" name="handle" placeholder="type your handle here"><br>
-              <input type="submit" value="post chit!" />
+              <%# <input class="handle-input" type="text" name="handle" placeholder="type your handle here"><br> %>
+              <div class="post-submit">
+                <input type="submit" value="post chit!" />
+              </div>
               </div>
             </form>
         </div>

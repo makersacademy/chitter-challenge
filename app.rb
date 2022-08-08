@@ -20,7 +20,8 @@ class Chitter < Sinatra::Base
 
   get '/post_chit' do
     @chits = Chit.all
-    @message = $user
+    user = session[:user]
+    @user_handle = user.handle
     erb :post_chit
   end
 
@@ -45,12 +46,13 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     begin
+      session[:error_message] = ''
       user = Session.find_user(handle: params[:handle], password: params[:password])
       session[:user] = user
-      user = session[:user]
-      $user = user.handle
+      # user = session[:user]
       redirect '/post_chit'
-    rescue => exception 
+    rescue 
+      session[:error_message] = 'Sorry, I cannot find that email/password'
       redirect '/login'
     end
   end
