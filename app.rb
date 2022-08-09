@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   get '/post_chit' do
     @chits = Chit.all
     user = session[:user]
-    @user_handle = user.handle
+    # @user_handle = user.handle
     erb :post_chit
   end
 
