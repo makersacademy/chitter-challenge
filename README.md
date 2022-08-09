@@ -1,7 +1,7 @@
 # Chitter Challenge
 
 
-## To use the deployed app (still being improved), <a href="https://chitter5.herokuapp.com">click here</a>
+## To use the deployed app (still being improved), <a href="https://chitter5.herokuapp.com">click here</a> (due to a bug, after signing up return to the login page in order to be able to post)
 ## Local use instructions:
 - Clone this repo
 - Run bundler to install dependencies
