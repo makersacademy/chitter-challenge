@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   get '/post_chit' do
     @chits = Chit.all
     user = session[:user]
-    @user_handle = user.username
+    @user_handle = user.handle
     erb :post_chit
   end
 
@@ -42,6 +42,7 @@ class Chitter < Sinatra::Base
     begin
       session[:error_message] = ''
       User.sign_up(full_name: params[:full_name], username: params[:username], handle: params[:handle], email: params[:email], password: params[:password])
+      user = session[:user]
       redirect '/sign_up_confirmation'
     rescue
       session[:error_message] = 'Sorry, username/email taken'
