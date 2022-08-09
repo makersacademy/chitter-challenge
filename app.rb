@@ -41,8 +41,11 @@ class Chitter < Sinatra::Base
     #it says so, and if both exist in the database, it says so
     begin
       session[:error_message] = ''
+      #entering the posts page straight from signin doesn't transmit the session data. The result
+      #is that you can't post unless you log in via the login page... need to work out 
+      #how to get the sessions working 
       User.sign_up(full_name: params[:full_name], username: params[:username], handle: params[:handle], email: params[:email], password: params[:password])
-      session[:user] = user
+      # session[:user] = user
       redirect '/sign_up_confirmation'
     rescue
       session[:error_message] = 'Sorry, username/email taken'
@@ -55,11 +58,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
+  
     begin
       session[:error_message] = ''
       user = Session.find_user(handle: params[:handle], password: params[:password])
       session[:user] = user
-      # user = session[:user]
+      user = session[:user]
       redirect '/post_chit'
     rescue 
       session[:error_message] = 'Sorry, I cannot find that email/password'
