@@ -5,9 +5,12 @@
 
 CREATE TABLE chitter_users(
   id SERIAL PRIMARY KEY,
-  chitterer VARCHAR(255),
-  email VARCHAR(255),
-  handle VARCHAR(255),
-  username VARCHAR(255),
+  chitterer VARCHAR(255) UNIQUE,
+  email VARCHAR(255) UNIQUE,
+  handle VARCHAR(255) UNIQUE,
+  username VARCHAR(255) UNIQUE,
   password VARCHAR(255)
 );
+
+-- note to self, use the UNIQUE keyword to prevent duplication of certain fields
+-- you can also alter the table later to add uniqueness to specific columns

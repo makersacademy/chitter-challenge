@@ -13,10 +13,11 @@
     <form action='sign_up' method="post">
       <input type="text" name="name" placeholder="type name"/><br>
       <input type="email" name="email" placeholder="enter your email"/><br>
-      <input type="text" name="handle" placeholder="choose a handle"/><br>
+      <input type="text" name="handle" placeholder="choose a username"/><br>
       <input type ="password" name="password" placeholder="choose a password"/><br>
       <input type ="submit" name="submit" />
     </form>
+    <%= session[:error_message]%>
   </div>
   <h6>Photo by <a href="https://unsplash.com/@maritafox?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marita Kavelashvili</a> on <a href="https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></h6>
 </div>

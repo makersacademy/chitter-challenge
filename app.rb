@@ -36,8 +36,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.sign_up(full_name: params[:full_name], username: params[:username], handle: params[:handle], email: params[:email], password: params[:password])
-    redirect '/sign_up_confirmation'
+    #rewrite this with an if else statement so that if the username 
+    #exists in the database, it says so, and if the email exists in the database
+    #it says so, and if both exist in the database, it says so
+    begin
+      session[:error_message] = ''
+      User.sign_up(full_name: params[:full_name], username: params[:username], handle: params[:handle], email: params[:email], password: params[:password])
+      redirect '/sign_up_confirmation'
+    rescue
+      session[:error_message] = 'Sorry, username/email taken'
+      redirect '/sign_up'
+    end
   end
 
   get '/login' do
