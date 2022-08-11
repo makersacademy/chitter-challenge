@@ -15,3 +15,11 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+
+
+require 'database_connection'
+
+# Make sure this connects to your test database
+# (its name should end with '_test')
+DatabaseConnection.connect('chitter_test')
