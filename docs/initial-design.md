@@ -45,5 +45,5 @@ FEATURES WANTED:
 
 # WEBSITE DESIGN 
 
-![[Imgur]](https://imgur.com/64GC9WI)
+![[Imgur]](https://imgur.com/a/p3QLj2C)
 
