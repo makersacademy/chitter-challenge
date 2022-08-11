@@ -44,6 +44,7 @@ FEATURES WANTED:
   . return to home page 
 
 # WEBSITE DESIGN 
+![chitter-diagam2](https://user-images.githubusercontent.com/105153564/184225926-a81702d0-fe41-4b0c-884f-2b70edb53d4c.png)
 
-![[Imgur]](<blockquote class="imgur-embed-pub" lang="en" data-id="a/3n6oj4S" data-context="false" ><a href="//imgur.com/a/3n6oj4S"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>)
+
 
