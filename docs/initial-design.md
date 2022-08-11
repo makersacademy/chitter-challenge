@@ -45,5 +45,3 @@ FEATURES WANTED:
 
 # WEBSITE DESIGN 
 
-![[Imgur]](<blockquote class="imgur-embed-pub" lang="en" data-id="a/3n6oj4S" data-context="false" ><a href="//imgur.com/a/3n6oj4S"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>)
-
