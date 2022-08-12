@@ -92,9 +92,9 @@ class UserRepository
 
     return nil if user.nil?
 
-    encrypted_submitted_password = BCrypt::Password.create(submitted_password)
+    my_password = BCrypt::Password.new(user['password'])
 
-    if user.password == encrypted_submitted_password
+    if my_password == submitted_password
       # login success
     else
       # wrong password
@@ -118,88 +118,65 @@ saved_user.id # => '1'
 saved_user.email # => 'duck@makers.com'
 saved_user.password # => 'quack!'
 
-#2 Create a user account
+#2 Find non-existent user
+repo = UserRepository.new
+repo.find_by_email('ducks@makers.com') # => fail "user not found"
 
+#3 Create a user account
 encrypted = BCrypt::Password.create('rubbish')
 new_user = {email: 'billy@silly.com', password: encrypted}
-
 repo = UserRepository.new
 repo.create(new_user)
-
 billy = repo.find_by_email('billy@silly.com')
 billy['id'] # => '2'
 billy['email'] # => 'billy@silly.com'
 billy['password'] # => encrypted
 
+#4 no email
+new_user = { password: '' }
+b_crypt = double :bcrypt
+repo = UserRepository.new(b_crypt)
+repo.create(new_user) # => fail "no email"
 
-#1.1 Find an item
+#5 no password
+new_user = { email: 'billy@silly.com', password: '' }
+b_crypt = double :bcrypt
+repo = UserRepository.new(b_crypt)
+repo.create(new_user) # => fail"no password"
 
-repo = ItemRepository.new
-item = repo.find_item(4)
+#6 Sign a user in 
+new_user = { email: 'billy@silly.com', password: 'rubbish' }
+repo = UserRepository.new
+repo.create(new_user)
+result = repo.sign_in(new_user[:email], 'rubbish')
+result2 = repo.sign_in(new_user[:email], 'wrong_password')
+result # => true
+result2 # => false
 
-item.id # => '4'
-item.name # =>  'Tumble Dryer'
-item.unit_price # =>  '279'
-item.qty # => '44'
+#7 No password
+new_user = { email: 'billy@silly.com', password: 'rubbish' }
+repo = UserRepository.new
+repo.create(new_user)
+result = repo.sign_in(new_user[:email], '')
+result # => false
 
-#2 Create an item
+#8 Blank email
+new_user = { email: 'billy@silly.com', password: 'rubbish' }
+repo = UserRepository.new
+repo.create(new_user)
+repo.sign_in('', 'rubbish') # => fail "user not found"
 
-repo = ItemRepository.new
-
-item = Item.new
-item.name = 'Dishwasher'
-item.unit_price = '429'
-item.qty = '7'
-
-repo.create(item)
-items = repo.all
-
-items.length # => 6
-
-items[0].id # =>  1
-items[0].name # =>  'Hoover'
-items[0].unit_price # =>  '100'
-items[0].qty # => '20'
-
-items[5].id # =>  6
-items[5].name # =>  'Dishwasher'
-items[5].unit_price # =>  '429'
-items[5].qty # => '7'
-
-#3 Update an item
-
-repo = ItemRepository.new
-
-item = Item.new
-item.name = 'Hoover'
-item.unit_price = '149'
-item.qty = '15'
-
-repo.update(1, item)
-items = repo.all.sort_by { |item| item.id.to_i }
-
-items.length # => 5
-
-items[0].id # =>  1
-items[0].name # =>  'Hoover'
-items[0].unit_price # =>  '149'
-items[0].qty # => '15'
-
-items[1].id # =>  2
-items[1].name # =>  'Washing Machine'
-items[1].unit_price # =>  '400'
-items[1].qty # => '30'
 ```
 
 ## 7. Reload the SQL seeds before each test run
 
 ```ruby
 
-# file: spec/item_repo_spec.rb
+# file: spec/user_repo_spec.rb
 
 def reset_tables
-  seed_sql = File.read('spec/seeds_items_orders.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'shop_manager' })
+  seed_sql = File.read('spec/seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(seed_sql)
 end
 
