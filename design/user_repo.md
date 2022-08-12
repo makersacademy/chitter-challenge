@@ -18,36 +18,21 @@ CREATE TABLE users (
 ```sql
 -- (file: spec/seeds_items_orders.sql)
 
-TRUNCATE TABLE items, orders, items_orders RESTART IDENTITY;
+TRUNCATE TABLE users RESTART IDENTITY;
 
-INSERT INTO items (name, unit_price, qty) VALUES ('Hoover', '100', '20');
-INSERT INTO items (name, unit_price, qty) VALUES ('Washing Machine', '400', '30');
-INSERT INTO items (name, unit_price, qty) VALUES ('Cooker', '389', '12');
-INSERT INTO items (name, unit_price, qty) VALUES ('Tumble Dryer', '279', '44');
-INSERT INTO items (name, unit_price, qty) VALUES ('Fridge', '199', '15');
-
-INSERT INTO orders (customer_name, date_placed) VALUES ('Frank', '04-Jan-2021');
-INSERT INTO orders (customer_name, date_placed) VALUES ('Benny', '05-Aug-2022');
-
-INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('1', '1', '2');
-INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('2', '1', '1');
-INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('1', '2', '1');
-INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('3', '2', '3');
+INSERT INTO users (email, password) VALUES ('duck@makers.com', 'quack!');
 ```
 
 ```bash
-psql -h 127.0.0.1 shop_manager < spec/seeds_items_orders.sql
+psql -h 127.0.0.1 chitter_test < spec/seeds.sql
 ```
 
 ## 3. Define the class names
 
 ```ruby
-# Table name: useres
+# Table name: users
 
-# Model class
-# (in lib/user.rb)
-class User
-end
+# Model class not necessary
 
 # Repository class
 # (in lib/user_repo.rb)
@@ -63,7 +48,7 @@ class User
   attr_accessor :id, :email, :password, :name, :username
 end
 ```
-But this is considered bad practice. This design will receive user data as a hash directly into the UserRepository
+But this is considered bad practice. We will receive user data as a hash directly into the UserRepository
 
 ## 5. Define the Repository Class interface
 
@@ -142,7 +127,7 @@ repo.create(new_user) # => fail "no email"
 new_user = { email: 'billy@silly.com', password: '' }
 b_crypt = double :bcrypt
 repo = UserRepository.new(b_crypt)
-repo.create(new_user) # => fail"no password"
+repo.create(new_user) # => fail "no password"
 
 #6 Sign a user in 
 new_user = { email: 'billy@silly.com', password: 'rubbish' }

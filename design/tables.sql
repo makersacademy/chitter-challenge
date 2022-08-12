@@ -5,3 +5,11 @@ CREATE TABLE users (
   name text,
   username text UNIQUE
 );
+
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  content text,
+  timestamp text,
+  name text,
+  username text
+);
