@@ -16,8 +16,4 @@ describe Application do
   before(:each) do 
     reset_tables
   end
-
-  context "a context" do
-    
-  end
-  
+end

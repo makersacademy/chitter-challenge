@@ -1,25 +1,28 @@
-CREATE SEQUENCE IF NOT EXISTS users_id_seq;
+-- CREATE SEQUENCE IF NOT EXISTS users_id_seq;
 
--- Create the table without the foreign key first.
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name text,
-  email text,
-  username text,
-  password text
-);
+-- -- Create the table without the foreign key first.
+-- CREATE TABLE users (
+--   id SERIAL PRIMARY KEY,
+--   name text,
+--   email text,
+--   username text,
+--   password text
+-- );
 
--- Then the table with the foreign key first.
-CREATE TABLE peeps (
-  id SERIAL PRIMARY KEY,
-  content text,
-  date timestamp,
--- The foreign key name is always {other_table_singular}_id
-  user_id int,
-  constraint fk_user foreign key(user_id)
-    references users(id)
-    on delete cascade
-);
+-- -- Then the table with the foreign key first.
+-- CREATE TABLE peeps (
+--   id SERIAL PRIMARY KEY,
+--   content text,
+--   date timestamp,
+-- -- The foreign key name is always {other_table_singular}_id
+--   user_id int,
+--   constraint fk_user foreign key(user_id)
+--     references users(id)
+--     on delete cascade
+-- );
+
+TRUNCATE TABLE users RESTART IDENTITY CASCADE;
+TRUNCATE TABLE peeps RESTART IDENTITY;
 
 INSERT INTO users ("id", "name", "email", "username", "password") VALUES 
 (1, 'Joe Bloggs', 'joe.bloggs@test.com', 'j_blog', 'test123'),
