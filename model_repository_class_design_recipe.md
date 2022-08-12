@@ -1,4 +1,4 @@
-1. Design and create the table
+1. Design and create the tables
   Table: users
   Columns: id, name, email_address, password, username
 
@@ -95,4 +95,45 @@
     def create(peep)
       # Executes the SQL query
       # INSERT INTO peeps ("content", "date_time", "user_id") VALUES
-      # ($1, $2, $3),
+      # ($1, $2, $3)
+    end
+  end
+
+6. Write Test Examples
+  # Examples
+
+  #1
+  #Get all peeps
+
+  repository = PeepRepository.new
+
+  peeps = repository.all
+
+  peeps.length # => 3
+
+  peeps[0].id # => 1
+  peeps[0].content # => 'Hello'
+  peeps[0].user_id # => 1
+
+  peeps[1].id # => 2
+  peeps[1].content # => "It is sunny today"
+  peeps[1].user_id # => 1
+ 
+
+  #2
+  #Add peep to list
+
+  repository = PeepRepository.new
+  peep = Peep.new
+  peep.content = "What's everyone's plans tonight?"
+  peep.user_id = 2
+  repository.create(peep)
+
+  peeps = repository.all
+
+  peeps.last.content # => "What's everyone's plans tonight?"
+  peeps.last.user_id # => 2
+
+  7. Reload the SQL seeds before each test
+
+  8. Test-drive and implement the Repository class behaviours
