@@ -1,74 +1,80 @@
-# 1
-# Get all users
+require "UsersRepository"
 
-repo = UsersRepository.new
+def reset_users_posts_table
+  seed_sql = File.read('spec/schemas-tables/seeds_users_posts.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection.exec(seed_sql)
+end
+RSpec.describe UsersRepository do
+  before(:each) do 
+    reset_users_posts_table
+  end
 
-users = repo.all
+  context "Users repo correctly interactes with database" do 
+    it "shows all items in database correctly" do 
+      repo = UsersRepository.new
+      users = repo.all
 
-users.length # =>  2
+      expect(users.length).to eq  6
 
-users[0].id # =>  1
-users[0].username # =>  'David'
-users[0].email # =>  330
-users[0].password #=> 4
+      expect(users[0].id).to eq  "1"
+      expect(users[0].username).to eq  'micheal23'
+      expect(users[0].email).to eq  'micheal_james@gmail.com'
+      expect(users[0].password).to eq '123456'
 
-users[1].id # =>  2
-users[1].username # =>  'Anna'
-users[1].email # =>  330
-users[1].password #=> 5
+      expect(users[1].id).to eq  "2"
+      expect(users[1].username).to eq 'fred23'
+      expect(users[1].email).to eq  'fred-manu@gmail.com'
+      expect(users[1].password).to eq 'ilovemymom456'
+    end
+    
+    it "Gets a single user" do
+      repo = UsersRepository.new
+      user = repo.find(1)
 
-# 2
-# Get a single user
+      expect(user.id).to eq  "1"
+      expect(user.username).to eq  'micheal23'
+      expect(user.email).to eq  'micheal_james@gmail.com'
+      expect(user.password).to eq '123456'
+    end
+     it 'create a single user' do
+      repo = UsersRepository.new
+      user = User.new
 
-repo = UsersRepository.new
+      user.username =   'new_username'
+      user.email = "new_email@gmail.com"
+      user.password =  "bigolbitties69"
 
-users = repo.find(1)
+      repo.create(user)
+      users = repo.all
+      
+      expect(users.length).to eq 7
+      expect(users[6].id).to eq "7"
+      expect(users[6].username).to eq  'new_username'
+      expect(users[6].email).to eq  "new_email@gmail.com"
+      expect(users[6].password).to eq  "bigolbitties69"
+    end 
+     it 'update an user' do
+      repo = UsersRepository.new
+      user = repo.find(3)
 
-users.id # =>  1
-users.username # =>  'David'
-users.email # =>  "23"
-users.password # =>  "3"
-
-# 3
-# create a single order 
-repo = UsersRepository.new
-user = user.new
-user.id # => "??"
-user.username # =>  'rings_new'
-user.email # =>  34
-user.password # =>  6
-
-repo.create(user)
-users = repo.all
-
-
-users[2].id # => "3"
-users[2].username # =>  'rings_new'
-users[2].email # =>  34
-users[2].password # =>  6
-
-#4
-# update an user
-repo = UsersRepository.new
-user = repo.find(1)
-
-user.username # =>  'rubies_new'
-repo.update(user)
-
-users = repo.all
+      user.username = 'rubies_new'
+      repo.update(user)
+      users = repo.all
 
 
-users[2].id # => "1"
-users[2].username # =>  'rubies_new'
-users[2].email # => 800
-users[2].password # => 19
+      expect(users[5].id).to eq "3"
+      expect(users[5].username).to eq  'rubies_new'
+      expect(users[5].email).to eq "james-lewis333@gmail.com"
+      expect(users[5].password).to eq "summin-summin!2323"
+    end 
+     it 'delete an user' do
+      repo = UsersRepository.new
+      user = repo.find(1)
+      repo.delete(user)
 
-#5
-# delete an user
-repo = UsersRepository.new
-user = repo.find(1)
-
-repo.delete(user)
-
-users = repo.all
-users.length #=> 1
+      users = repo.all
+      expect(users.length).to eq  5
+    end
+  end
+end 

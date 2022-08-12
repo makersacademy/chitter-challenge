@@ -1,73 +1,80 @@
-# Get all posts
+require "PostsRepository"
 
-repo = PostRepository.new
+def reset_users_posts_table
+  seed_sql = File.read('spec/schemas-tables/seeds_users_posts.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection.exec(seed_sql)
+end
+RSpec.describe PostsRepository do
+  before(:each) do 
+    reset_users_posts_table
+  end
 
-posts = repo.all
+  context "Users repo correctly intergrates with database" do 
+    it "shows all items in database correctly" do 
+      repo = PostsRepository.new
+      posts = repo.all
+        posts
 
-posts.length # =>  2
+      expect(posts.length).to eq  6
 
-posts[0].id # =>  1
-posts[0].content # =>  'David'
-posts[0].date_created # =>  330
-posts[0].artist_id #=> 4
+      expect(posts[1].id).to eq  "2"
+      expect(posts[1].content).to eq  'hot take: vine is the american dream'
+      expect(posts[1].date_created).to eq  '12/6/22'
+      expect(posts[1].user_id).to eq '5'
 
-posts[1].id # =>  2
-posts[1].content # =>  'Anna'
-posts[1].date_created # =>  330
-posts[1].artist_id #=> 5
+      expect(posts[2].id).to eq  "3"
+      expect(posts[2].content).to eq 'i always daydream about how kanye west will save the economy'
+      expect(posts[2].date_created).to eq  '12/6/22'
+      expect(posts[2].user_id).to eq '4'
+    end
+    
+    it "Gets a single user" do
+      repo = PostsRepository.new
+      user = repo.find(6)
 
-# 2
-# Get a single post
+      expect(user.id).to eq  "6"
+      expect(user.content).to eq  'u know what pisses me off? the fact that the dark side of the moon is fake.'
+      expect(user.date_created).to eq  "12/6/22"
+      expect(user.user_id).to eq '1'
+    end
+     it 'create a single post' do
+      repo = PostsRepository.new
+      post = Post.new
+      
+      post.content =   'new_content'
+      post.date_created = "12:11"
+      post.user_id =  "3"
 
-repo = PostRepository.new
+      repo.create(post)
+      posts = repo.all
+      
+      expect(posts.length).to eq 7
+      expect(posts[6].id).to eq "7"
+      expect(posts[6].content).to eq  'new_content'
+      expect(posts[6].date_created).to eq  "12:11"
+      expect(posts[6].user_id).to eq  "3"
+    end 
+     it 'update a post' do
+      repo = PostsRepository.new
+      user = repo.find(3)
 
-posts = repo.find(1)
+      user.content = 'rubies_new'
+      repo.update(user)
+      posts = repo.all
 
-posts.id # =>  1
-posts.content # =>  'David'
-posts.date_created # =>  "23"
-posts.artist_id # =>  "3"
+      expect(posts[5].id).to eq "3"
+      expect(posts[5].content).to eq  'rubies_new'
+      expect(posts[5].date_created).to eq "12/6/22"
+      expect(posts[5].user_id).to eq "4"
+    end 
+     it 'delete an user' do
+      repo = PostsRepository.new
+      user = repo.find(1)
+      repo.delete(user)
 
-# 3
-# create a single order 
-repo = PostRepository.new
-post = post.new
-post.id # => "??"
-post.content # =>  'rings_new'
-post.date_created # =>  34
-post.artist_id # =>  6
-
-repo.create(post)
-posts = repo.all
-
-
-posts[2].id # => "3"
-posts[2].content # =>  'rings_new'
-posts[2].date_created # =>  34
-posts[2].artist_id # =>  6
-
-#4
-# update an post
-repo = PostRepository.new
-post = repo.find(1)
-
-post.content # =>  'rubies_new'
-repo.update(post)
-
-posts = repo.all
-
-
-posts[2].id # => "1"
-posts[2].content # =>  'rubies_new'
-posts[2].date_created # => 800
-posts[2].artist_id # => 19
-
-#5
-# delete an post
-repo = PostRepository.new
-post = repo.find(1)
-
-repo.delete(post)
-
-posts = repo.all
-posts.length #=> 1
+      posts = repo.all
+      expect(posts.length).to eq  5
+    end
+  end
+end 

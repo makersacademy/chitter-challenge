@@ -2,7 +2,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
  username text,
  email text,
- password
+ password text
 );
 
 -- Then the table with the foreign key first.
@@ -15,3 +15,5 @@ CREATE TABLE posts (
     references users(id)
     on delete cascade
 );
+
+

@@ -1,3 +1,3 @@
-class post
-  attr_accessor :id, :content, :date_create, : :user_id
+class Post
+  attr_accessor :id, :content, :date_created, :user_id
 end
