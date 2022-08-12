@@ -15,7 +15,7 @@ class DatabaseConnection
     end
     
     if ENV['ENV'] == 'test'
-      database_name = 'chitter_challenge_test'
+      database_name = 'chitter_test'
     else
       database_name = 'chitter_challenge'
     end
