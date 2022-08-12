@@ -1,0 +1,217 @@
+# {{items}} Model and Repository Classes Design Recipe
+
+## 1. Design and create the Table
+
+```sql
+-- (file: design/tables.sql)
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email text UNIQUE,
+  password text,
+  name text,
+  username text UNIQUE
+);
+```
+
+## 2. Create Test SQL seeds
+
+```sql
+-- (file: spec/seeds_items_orders.sql)
+
+TRUNCATE TABLE items, orders, items_orders RESTART IDENTITY;
+
+INSERT INTO items (name, unit_price, qty) VALUES ('Hoover', '100', '20');
+INSERT INTO items (name, unit_price, qty) VALUES ('Washing Machine', '400', '30');
+INSERT INTO items (name, unit_price, qty) VALUES ('Cooker', '389', '12');
+INSERT INTO items (name, unit_price, qty) VALUES ('Tumble Dryer', '279', '44');
+INSERT INTO items (name, unit_price, qty) VALUES ('Fridge', '199', '15');
+
+INSERT INTO orders (customer_name, date_placed) VALUES ('Frank', '04-Jan-2021');
+INSERT INTO orders (customer_name, date_placed) VALUES ('Benny', '05-Aug-2022');
+
+INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('1', '1', '2');
+INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('2', '1', '1');
+INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('1', '2', '1');
+INSERT INTO items_orders (item_id, order_id, item_qty) VALUES ('3', '2', '3');
+```
+
+```bash
+psql -h 127.0.0.1 shop_manager < spec/seeds_items_orders.sql
+```
+
+## 3. Define the class names
+
+```ruby
+# Table name: useres
+
+# Model class
+# (in lib/user.rb)
+class User
+end
+
+# Repository class
+# (in lib/user_repo.rb)
+class UserRepository
+end
+```
+
+## 4. Implement the Model class
+
+It would be this:
+```ruby
+class User
+  attr_accessor :id, :email, :password, :name, :username
+end
+```
+But this is considered bad practice. This design will receive user data as a hash directly into the UserRepository
+
+## 5. Define the Repository Class interface
+
+```ruby
+# Table name: users
+
+# Repository class
+# (in lib/user_repo.rb)
+
+class UserRepository
+  def create(new_user)
+      encrypted_password = BCrypt::Password.create(new_user.password)
+
+      sql = '
+        INSERT INTO users (email, password)
+          VALUES($1, $2);
+      '
+      sql_params = [
+        new_user.email,
+        encrypted_password
+      ]
+    end
+
+  def sign_in(email, submitted_password)
+    user = find_by_email(email)
+
+    return nil if user.nil?
+
+    encrypted_submitted_password = BCrypt::Password.create(submitted_password)
+
+    if user.password == encrypted_submitted_password
+      # login success
+    else
+      # wrong password
+    end
+  end
+
+  def find_by_email(email)
+    # sql = 'SELECT * FROM users WHERE email = $1;'
+  end
+end
+```
+
+## 6. Test Examples
+
+```ruby
+#1 Find existing user
+repo = UserRepository.new
+user = repo.create(new_user)
+saved_user = repo.find_by_email('duck@makers.com')
+saved_user.id # => '1'
+saved_user.email # => 'duck@makers.com'
+saved_user.password # => 'quack!'
+
+#2 Create a user account
+
+encrypted = BCrypt::Password.create('rubbish')
+new_user = {email: 'billy@silly.com', password: encrypted}
+
+repo = UserRepository.new
+repo.create(new_user)
+
+billy = repo.find_by_email('billy@silly.com')
+billy['id'] # => '2'
+billy['email'] # => 'billy@silly.com'
+billy['password'] # => encrypted
+
+
+#1.1 Find an item
+
+repo = ItemRepository.new
+item = repo.find_item(4)
+
+item.id # => '4'
+item.name # =>  'Tumble Dryer'
+item.unit_price # =>  '279'
+item.qty # => '44'
+
+#2 Create an item
+
+repo = ItemRepository.new
+
+item = Item.new
+item.name = 'Dishwasher'
+item.unit_price = '429'
+item.qty = '7'
+
+repo.create(item)
+items = repo.all
+
+items.length # => 6
+
+items[0].id # =>  1
+items[0].name # =>  'Hoover'
+items[0].unit_price # =>  '100'
+items[0].qty # => '20'
+
+items[5].id # =>  6
+items[5].name # =>  'Dishwasher'
+items[5].unit_price # =>  '429'
+items[5].qty # => '7'
+
+#3 Update an item
+
+repo = ItemRepository.new
+
+item = Item.new
+item.name = 'Hoover'
+item.unit_price = '149'
+item.qty = '15'
+
+repo.update(1, item)
+items = repo.all.sort_by { |item| item.id.to_i }
+
+items.length # => 5
+
+items[0].id # =>  1
+items[0].name # =>  'Hoover'
+items[0].unit_price # =>  '149'
+items[0].qty # => '15'
+
+items[1].id # =>  2
+items[1].name # =>  'Washing Machine'
+items[1].unit_price # =>  '400'
+items[1].qty # => '30'
+```
+
+## 7. Reload the SQL seeds before each test run
+
+```ruby
+
+# file: spec/item_repo_spec.rb
+
+def reset_tables
+  seed_sql = File.read('spec/seeds_items_orders.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'shop_manager' })
+  connection.exec(seed_sql)
+end
+
+describe ItemRepository do
+  before(:each) do 
+    reset_tables
+  end
+
+  # (tests will go here).
+end
+```
+
+## 8. Test-drive and implement the Repository class behaviour
+
+_Follow the test-driving process of red, green, refactor to implement the behaviour._
