@@ -107,9 +107,9 @@ repo = UserRepository.new
 new_peep = Peep.new
 
 new_peep.content = 'Send help. Melting.'
-new_peep.email = 'fleuremail@test.com'
+new_peep.timestamp = '2022-13-08 14:00:00'
+new_peep.name = 'Fleur'
 new_peep.username = 'itsfleurduh'
-new_peep.password = 'fleurpassword'
 
 repo.create(new_peep)
 
@@ -117,9 +117,9 @@ peeps = repo.all
 newest_peep = peeps.first
 
 expect(newest_peep.content).to eq 'Send help. Melting.'
-expect(newest_peep.email).to eq 'fleuremail@test.com'
-expect(newest_peep.username).to eq 'itsfleurduh'
-expect(newest_peep.password).to eq 'fleurpassword'
+expect(newest_peep.email).to eq '2022-13-08 14:00:00'
+expect(newest_peep.username).to eq 'Fleur'
+expect(newest_peep.password).to eq 'itsfleurduh'
 ```
 
 Encode this example as a test.
