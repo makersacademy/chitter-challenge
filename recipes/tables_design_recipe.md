@@ -70,9 +70,9 @@ username: text
 1. Can one user have many peeps? YES
 2. Can one peep have many users? NO
 
--> Therefore,
-  -> A user HAS MANY peeps
-  -> A peep BELONGS TO a user
+-> Therefore,  
+-> A user HAS MANY peeps  
+-> A peep BELONGS TO a user  
 
 -> Therefore, the foreign key is on the peeps table.
 ```
