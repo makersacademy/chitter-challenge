@@ -15,8 +15,8 @@ id | name | email | username | password
 
 TRUNCATE TABLE users RESTART IDENTITY;
 
-INSERT INTO users (name, email, username, password) VALUES ('Alex', 'alexemail@test.com', 'iloveanimals391', 'password123')
-INSERT INTO users (name, email, username, password) VALUES ('Zeus', 'zeusemail@test.com', 'habanerohotstuff', 'password123')
+INSERT INTO users (name, email, username, password) VALUES ('Alex', 'alexemail@test.com', 'iloveanimals391', 'alexpassword')
+INSERT INTO users (name, email, username, password) VALUES ('Zeus', 'zeusemail@test.com', 'habanerohotstuff', 'zeuspassword')
 ```
 
 ## 3. Define the class names
@@ -53,9 +53,19 @@ end
 
 class UserRepository
 
+  # Shows all users
+  # No arguments
+  def all
+
+  # Executes the SQL query:
+  # SELECT * FROM users;
+
+  # Returns an array of User objects.
+  end
+
   # Creates a new user
   # Takes a user object as argument
-  def create(new_user)
+  def create(user)
     # Executes the SQL query:
     # INSERT INTO users (name, email, username, password) VALUES ($1, $2, $3, $4);'
 
@@ -66,70 +76,47 @@ end
 
 ## 6. Write Test Examples
 
-Write Ruby code that defines the expected behaviour of the Repository class, following your design from the table written in step 5.
-
-These examples will later be encoded as RSpec tests.
-
 ```ruby
 # EXAMPLES
 
-# 1
-# Get all students
+# 1.
+# Create a new user
 
-repo = StudentRepository.new
+repo = UserRepository.new
+new_user = User.new
 
-students = repo.all
+new_user.name = 'Max'
+new_user.email = 'maxemail@test.com'
+new_user.username = 'maxonthesax'
+new_user.password = 'maxpassword'
 
-students.length # =>  2
+repo.create(new_user)
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+users = repo.all
+last_user = users.last
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
-
-# 2
-# Get a single student
-
-repo = StudentRepository.new
-
-student = repo.find(1)
-
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
-
-# Add more examples for each method
+expect(last_user.name).to eq 'Max'
+expect(last_user.email).to eq 'maxemail@test.com'
+expect(last_user.username).to eq 'maxonthesax'
+expect(last_user.password).to eq 'maxpassword'
 ```
-
-Encode this example as a test.
-
 ## 7. Reload the SQL seeds before each test run
-
-Running the SQL code present in the seed file will empty the table and re-insert the seed data.
-
-This is so you get a fresh table contents every time you run the test suite.
 
 ```ruby
 # EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/user_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_users_table
+  seed_sql = File.read('spec/seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
   connection.exec(seed_sql)
 end
 
 describe StudentRepository do
   before(:each) do 
-    reset_students_table
+    reset_users_table
   end
-
-  # (your tests will go here).
-end
 ```
 
 ## 8. Test-drive and implement the Repository class behaviour
