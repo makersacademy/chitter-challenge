@@ -37,6 +37,7 @@ describe Application do
     it "includes login link but logout and new peep are hidden" do
       response = get('/')
       expect(response.body).to include("<a href=\"/login\">Login</a>")
+      expect(response.body).to include("<a href=\"/signup\">Signup</a>")
       expect(response.body).not_to include("<a href=\"/logout\">Logout</a>")
       expect(response.body).not_to include("<a href=\"/new\">New peep</a>")
     end
@@ -55,6 +56,7 @@ describe Application do
       post('/login', email: 'duck2@makers.com', password: 'quack!')
       response = get('/')
       expect(response.body).not_to include("<a href=\"/login\">Login</a>")
+      expect(response.body).not_to include("<a href=\"/signup\">Signup</a>")
       expect(response.body).to include("<a href=\"/logout\">Logout</a>")
       expect(response.body).to include("<a href=\"/new\">New peep</a>")
     end
