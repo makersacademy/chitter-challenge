@@ -58,7 +58,27 @@ class Application < Sinatra::Base
       username: user['username']
     }
 
-    create(peep)
+    create_peep(peep)
+  end
+
+  get ('/signup') do
+    erb(:signup)
+  end
+
+  post ('/signup') do
+    new_user = {
+      email: params['email'], 
+      password: params['password'],
+      name: params['name'],
+      username: params['username']
+    }
+
+    return erb(:signup_error) if invalid_user?(new_user)
+
+    repo = UserRepository.new
+    repo.create(new_user)
+    @email = new_user[:email]
+    erb(:signup_success)
   end
 
   private
@@ -78,7 +98,7 @@ class Application < Sinatra::Base
     repo.find_by_email(email)
   end
 
-  def create(peep)
+  def create_peep(peep)
     repo = PeepRepository.new
     begin
       repo.create(peep)
@@ -88,5 +108,21 @@ class Application < Sinatra::Base
       @error = e
       erb(:error)
     end
+  end
+
+  def invalid_user?(user)
+    return true if user.keys.length != 4
+
+    key_list = [:email, :password, :name, :username]
+    key_list.each do |item|
+      return true unless user.keys.include?(item)
+    end
+    
+    user.each_key do |key|
+      return true if user[key].nil?
+      return true if user[key].empty?
+    end
+
+    false
   end
 end

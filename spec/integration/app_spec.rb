@@ -152,7 +152,51 @@ describe Application do
 
   context "get /signup" do
     it "gets signup form" do
-      
+      response = get('/signup')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter Signup</h1>')
+      expect(response.body).to include('<label>Email address: </label>')
+      expect(response.body).to include('<input type="text" name="email">')
+      expect(response.body).to include('<label>Password: </label>')
+      expect(response.body).to include('<input type="text" name="password">')
+      expect(response.body).to include('<label>Name: </label>')
+      expect(response.body).to include('<input type="text" name="name">')
+      expect(response.body).to include('<label>Username: </label>')
+      expect(response.body).to include('<input type="text" name="username">')
+      expect(response.body).to include('<input type="submit" value="submit">')
+    end
+
+    it "gets signup form even when logged in" do
+      post('/login', email: 'duck2@makers.com', password: 'quack!')
+      response = get('/signup')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter Signup</h1>')
+    end
+  end
+
+  context "post /signup" do
+    it "creates a user" do
+      response = post(
+        '/signup',
+        email: 'willy@wonka.com',
+        password: 'chocolate3',
+        name: 'Willy Wonka',
+        username: '@wonka'
+      )
+      expect(response.status).to eq(200)
+      expect(response.body).to include('User: willy@wonka.com created')
+      expect(response.body).to include('Click here to return to home screen')
+    end
+
+    it "won't create a user if the form is incomplete" do
+      response = post(
+        '/signup',
+        email: 'willy@wonka.com',
+        password: 'chocolate3'
+      )
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter: Failed to create user</h1>')
+      expect(response.body).to include('<p>User form incomplete</p>')
     end
   end
 end
