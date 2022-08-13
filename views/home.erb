@@ -3,9 +3,20 @@
   <body>
     <h1>Chitter</h1>
     <div>
-      <a href="">Login</a>
-      <a href="">New peep</a>
+      <% if @user != nil %>
+        Logged in as: <%= @user %>
+      <% end %>
     </div>
+
+    <div>
+      <% if @user == nil %>
+        <a href="/login">Login</a>
+      <% else %>
+        <a href="/logout">Logout</a>
+        <a href="">New peep</a>
+      <% end %>
+    </div>
+
     <% @peeps.each do |peep| %>
       <div>
         <p><%= peep['content'] %></p>

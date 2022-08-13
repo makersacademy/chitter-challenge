@@ -13,7 +13,10 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repo'
   end
   
+  enable :sessions
+
   get '/' do
+    @user = session[:user_email]
     repo = PeepRepository.new
     peeps = repo.view_all
     @peeps = peeps.sort_by { |a, b, c| c }.reverse
@@ -24,21 +27,24 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  get '/logout' do
+    session.clear
+    return redirect('/')
+  end
+
   post '/login' do
     email = params[:email]
     password = params[:password]
 
-    user = UserRepository.new
-    success = user.sign_in(email, password)
+    repo = UserRepository.new
+    success = repo.sign_in(email, password)
 
     if success == true
-      # Set the user ID in session
-      # session[:user_id] = user.id
-      "It's good"
-      # return erb(:login_success)
+      user = repo.find_by_email(email)
+      session[:user_email] = user['email']
+      return redirect('/')
     else
-      "No banana"
-      # return erb(:login_error)
+      return erb(:login_error)
     end
   end
 end

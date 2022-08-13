@@ -91,18 +91,4 @@ describe UserRepository do
       expect { repo.sign_in('', 'rubbish') }.to raise_error "user not found"
     end
   end
-
-
-  xit "create a real user" do
-    new_user = { email: 'duck2@makers.com', password: 'quack!' }
-    # b_crypt = double :bcrypt
-    # expect(b_crypt).to receive(:create).with('rubbish').and_return('encrypted')
-    repo = UserRepository.new
-    repo.create(new_user)
-    
-    # billy = repo.find_by_email('billy@silly.com')
-    # expect(billy['id']).to eq('2')
-    # expect(billy['email']).to eq('billy@silly.com')
-    # expect(billy['password']).to eq('encrypted')
-  end
 end
