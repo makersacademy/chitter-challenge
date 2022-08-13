@@ -81,13 +81,19 @@ end
 #1 View peeps
 repo = PeepRepository.new
 peeps = repo.view_all
-peeps.length # => 2
+peeps.ntuples # => 2
+
 peeps[0]['id'] # => '1'
 peeps[0]['content'] # => 'It is awfully hot today'
 peeps[0]['timestamp'] # => '2022-08-12 21:55:12.940137 +0100'
 peeps[0]['name'] # => 'Daffy Duck'
 peeps[0]['username'] # => '@daffy'
 
+peeps[1]['id'] # => '2'
+peeps[1]['content'] # => 'Nice weather for ducks'
+peeps[1]['timestamp'] # => '2022-08-12 21:56:54.385627 +0100'
+peeps[1]['name'] # => 'Donald Duck'
+peeps[1]['username'] # => '@donald'
 
 
 #2 Find non-existent user
@@ -137,6 +143,59 @@ new_user = { email: 'billy@silly.com', password: 'rubbish' }
 repo = UserRepository.new
 repo.create(new_user)
 repo.sign_in('', 'rubbish') # => fail "user not found"
+
+#9 Create a peep
+new_peep = {
+  content: 'Dogs chase squirrels',
+  name: 'Suzy Sheep',
+  username: '@suzy'
+}
+
+fake_time = double :time
+expect(fake_time).to receive(:now).and_return('2022-08-13 08:20:25 +0100')
+
+repo = PeepRepository.new(time = fake_time)
+repo.create(new_peep)
+
+peeps = repo.view_all
+peeps.ntuples # => 3
+
+peeps[2]['id'] # => '3'
+peeps[2]['content'] # => 'Dogs chase squirrels'
+peeps[2]['timestamp'] # => '2022-08-13 08:20:25 +0100'
+peeps[2]['name'] # => 'Suzy Sheep'
+peeps[2]['username'] # => '@suzy'
+
+#10 User tries to input time
+new_peep = {
+  content: 'Dogs chase squirrels',
+  time: '2022-08-13 08:45:27',
+  name: 'Suzy Sheep',
+  username: '@suzy'
+}
+
+repo = PeepRepository.new
+repo.create(new_peep) # => fail "new peep has wrong key, value pairs"
+
+#11 Mis-labelled peep key
+new_peep = {
+  contents: 'Dogs chase squirrels',
+  name: 'Suzy Sheep',
+  username: '@suzy'
+}
+
+repo = PeepRepository.new
+repo.create(new_peep) # => fail "invalid peep submitted"
+
+#12 Blank or nil in a peep key
+new_peep = {
+  content: nil,
+  name: '',
+  username: '@suzy'
+}
+
+repo = PeepRepository.new
+repo.create(new_peep) fail # => "invalid peep submitted"
 
 ```
 
