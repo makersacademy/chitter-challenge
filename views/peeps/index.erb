@@ -1,0 +1,16 @@
+
+<h1>Chitter</h1>
+<h2>Let the world know what your toughts</h2>
+<h3>Your peeps:</h3>
+<ul>
+  <% @peeps.each do |peep|%>
+  <li><%= peep %></li>
+  <%end%>
+</ul>
+
+<a href="/peeps/new">ENTER</a>
+<style>
+body {
+  background-image: url('https://techcrunch.com/wp-content/uploads/2018/07/fake-twitter-accounts.png?w=1390&crop=1');
+}
+</style>
