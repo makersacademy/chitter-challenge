@@ -41,18 +41,27 @@ describe UserRepository do
       expect(billy['password']).to eq('encrypted')
     end
 
-    it "fail" do
+    it "fails if no password is provided" do
       new_user = { email: 'billy@silly.com', password: '' }
       b_crypt = double :bcrypt
       repo = UserRepository.new(b_crypt)
       expect { repo.create(new_user) }.to raise_error("no password")
     end
 
-    it "fail" do
+    it "fails if no email is provided" do
       new_user = { password: '' }
       b_crypt = double :bcrypt
       repo = UserRepository.new(b_crypt)
       expect { repo.create(new_user) }.to raise_error("no email")
+    end
+ 
+    it "fails if email or username is a duplicate" do
+      new_user = { email: 'duck@makers.com', password: 'swim_1' }
+      b_crypt = double :bcrypt
+      expect(b_crypt).to receive(:create).with('swim_1').and_return('gobbledy_gook')
+      repo = UserRepository.new(b_crypt)
+      # This is bad but I can't work out what the exact error message string should be!
+      expect { repo.create(new_user) }.to raise_error PG::UniqueViolation
     end
   end
 

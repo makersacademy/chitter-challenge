@@ -129,7 +129,15 @@ b_crypt = double :bcrypt
 repo = UserRepository.new(b_crypt)
 repo.create(new_user) # => fail "no password"
 
-#6 Sign a user in 
+#6 duplicate email or username
+new_user = { email: 'duck@makers.com', password: 'swim_1' }
+b_crypt = double :bcrypt
+expect(b_crypt).to receive(:create).with('swim_1').and_return('gobbledy_gook')
+repo = UserRepository.new(b_crypt)
+# This is bad but I can't work out what the exact error message string should be!
+repo.create(new_user) # => fail PG::UniqueViolation
+
+#7 Sign a user in 
 new_user = { email: 'billy@silly.com', password: 'rubbish' }
 repo = UserRepository.new
 repo.create(new_user)
@@ -138,14 +146,14 @@ result2 = repo.sign_in(new_user[:email], 'wrong_password')
 result # => true
 result2 # => false
 
-#7 No password
+#8 No password
 new_user = { email: 'billy@silly.com', password: 'rubbish' }
 repo = UserRepository.new
 repo.create(new_user)
 result = repo.sign_in(new_user[:email], '')
 result # => false
 
-#8 Blank email
+#9 Blank email
 new_user = { email: 'billy@silly.com', password: 'rubbish' }
 repo = UserRepository.new
 repo.create(new_user)
