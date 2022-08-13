@@ -39,6 +39,7 @@ class Application < Sinatra::Base
     post '/peeps' do
         # {create new peep}
         return erb(:new_peep)
+    end
 
 
 
