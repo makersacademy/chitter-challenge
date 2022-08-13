@@ -1,108 +1,145 @@
-# Two Tables Design Recipe Template
+# {{TABLE NAME}} Model and Repository Classes Design Recipe
 
-## 1. Noun extraction from the user stories or specification
-
-```
-USER STORY:
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-```
-
-```
-Nouns:
-
-peeps, content, timestamp, name, username
-user, name, email, password, username
-```
-## 2. Infer the Table Name and Columns
-
-Put the different nouns in this table. Replace the example with your own nouns.
-
-| Record               | Properties                         |
-| ---------------------| -----------------------------------|
-| peep                 | content, timestamp, name, username |
-| user                 | name, email, password, username    |
-
-1. Name of the first table (always plural): `peeps` 
-
-    Column names: `content`, `timestamp`, `name`, `username`
-
-2. Name of the second table (always plural): `users` 
-
-    Column names: `name`, `email`, `password`, `username`
-
-## 3. Decide the column types.
-
+## 1. Design and create the Table
 ```
 Table: peeps
-id: SERIAL
-content: text
-timestamp: timestamp
-name: text
-username: text
 
-Table: users
-id: SERIAL
-name: text
-email: text
-password: text
-username: text
+Columns:
+id | content | timestamp | name | username
 ```
 
-## 4. Decide on The Tables Relationship
-
-1. Can one user have many peeps? YES
-2. Can one peep have many users? NO
-
--> Therefore,  
--> A user HAS MANY peeps  
--> A peep BELONGS TO a user  
-
--> Therefore, the foreign key is on the peeps table.
-```
-
-## 4. Write the SQL.
+## 2. Create Test SQL seeds
 
 ```sql
+-- (file: spec/test_seeds.sql)
 
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name text,
-  email text,
-  password text,
-  username text
-);
+TRUNCATE TABLE peeps RESTART IDENTITY;
 
-CREATE TABLE peeps (
-  id SERIAL PRIMARY KEY,
-  content text,
-  timestamp timestamp
--- The foreign key name is always {other_table_singular}_id
-  user_id int,
-  constraint fk_user foreign key(user_id)
-    references users(id)
-    on delete cascade
-);
-
+INSERT INTO peeps (content, timestamp, name, username) VALUES ('Now I know how lobsters feel :-(', '2022-13-08 12:00:00', 'Alex', 'iloveanimals391');
+INSERT INTO peeps (content, timestamp, name, username) VALUES ('Just call me the man with a fan!', '2022-13-08 13:00:00', 'Zeus', 'technoraver99');
 ```
 
-## 5. Create the tables.
+## 3. Define the class names
 
-```bash
-psql -h 127.0.0.1 chitter < peeps_table.sql
-psql -h 127.0.0.1 chitter < users_table.sql
+```ruby
+
+Model class
+in lib/peep.rb)
+class Peep
+end
+
+Repository class
+in lib/peep_repository.rb)
+class PeepRepository
+end
 ```
+
+## 4. Implement the Model class
+
+```ruby
+
+Model class
+in lib/peep.rb)
+
+class Peep
+
+  attr_accessor :id, :content, :timestamp, :name, :username
+end
+```
+
+## 5. Define the Repository Class interface
+
+```ruby
+
+class PeepRepository
+
+  # Shows all peeps
+  # No arguments
+  def all
+    # Executes the SQL query:
+    # SELECT * FROM peeps;
+
+    # Returns an array of Peep objects.
+  end
+
+  # Post new peep
+  # Takes a peep object as argument
+  def create(peep)
+    # Executes the SQL query:
+    # INSERT INTO peeps (content, timestamp, name, username, user_id) VALUES ($1, $2, $3, $4, $5);'
+
+    # Doesn't return anything
+  end
+end
+```
+
+## 6. Write Test Examples
+
+Write Ruby code that defines the expected behaviour of the Repository class, following your design from the table written in step 5.
+
+These examples will later be encoded as RSpec tests.
+
+```ruby
+# EXAMPLES
+
+# 1
+# Get all students
+
+repo = StudentRepository.new
+
+students = repo.all
+
+students.length # =>  2
+
+students[0].id # =>  1
+students[0].name # =>  'David'
+students[0].cohort_name # =>  'April 2022'
+
+students[1].id # =>  2
+students[1].name # =>  'Anna'
+students[1].cohort_name # =>  'May 2022'
+
+# 2
+# Get a single student
+
+repo = StudentRepository.new
+
+student = repo.find(1)
+
+student.id # =>  1
+student.name # =>  'David'
+student.cohort_name # =>  'April 2022'
+
+# Add more examples for each method
+```
+
+Encode this example as a test.
+
+## 7. Reload the SQL seeds before each test run
+
+Running the SQL code present in the seed file will empty the table and re-insert the seed data.
+
+This is so you get a fresh table contents every time you run the test suite.
+
+```ruby
+# EXAMPLE
+
+# file: spec/student_repository_spec.rb
+
+def reset_students_table
+  seed_sql = File.read('spec/seeds_students.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+  connection.exec(seed_sql)
+end
+
+describe StudentRepository do
+  before(:each) do 
+    reset_students_table
+  end
+
+  # (your tests will go here).
+end
+```
+
+## 8. Test-drive and implement the Repository class behaviour
+
