@@ -2,7 +2,7 @@ require 'bcrypt'
 require 'peep_repo'
 
 def reset_tables
-  seed_sql = File.read('spec/seeds.sql')
+  seed_sql = File.read('spec/seeds/seeds.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(seed_sql)
 end
