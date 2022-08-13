@@ -1,7 +1,5 @@
 # Two Tables Design Recipe Template
 
-_Copy this recipe template to design and create two related database tables from a specification._
-
 ## 1. Noun extraction from the user stories or specification
 
 ```
