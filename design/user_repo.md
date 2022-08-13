@@ -23,6 +23,8 @@ TRUNCATE TABLE users RESTART IDENTITY;
 INSERT INTO users (email, password) VALUES ('duck@makers.com', 'quack!');
 INSERT INTO users (email, password)
   VALUES ('duck2@makers.com', '$2a$12$qmO3XbZHMXhymqZBstr48O0rW8ubyqAITgm9T.cIoQrk0CMEEfECm');
+INSERT INTO users (email, password, name, username)
+  VALUES ('homer@simpsons.com', '$2a$12$GKyE/JG3VsUfVeaPzfoNu.4U2DLkXo9uPbq1/K2MohAgAC2Qw4sTm','Homer Simpson',	'@homer');
 
 ```
 
@@ -116,7 +118,7 @@ new_user = {email: 'billy@silly.com', password: encrypted}
 repo = UserRepository.new
 repo.create(new_user)
 billy = repo.find_by_email('billy@silly.com')
-billy['id'] # => '3'
+billy['id'] # => '4'
 billy['email'] # => 'billy@silly.com'
 billy['password'] # => encrypted
 

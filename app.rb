@@ -36,14 +36,29 @@ class Application < Sinatra::Base
     email = params[:email]
     password = params[:password]
 
-    success = sign_in(email, password)
+    return erb(:login_error) unless sign_in(email, password) == true
 
-    return erb(:login_error) unless success == true
-
-    repo = UserRepository.new
-    user = repo.find_by_email(email)
-    session[:user_email] = user['email']
+    session[:user_email] = email
     return redirect('/')
+  end
+
+  get '/new' do
+    return erb(:new_error) if session[:user_email].nil?
+    erb(:new_peep)
+  end
+
+  post '/new' do
+    return erb(:new_error) if session[:user_email].nil?
+
+    user = find_by_email(session[:user_email])
+    
+    peep = {
+      content: params['content'],
+      name: user['name'],
+      username: user['username']
+    }
+
+    create(peep)
   end
 
   private
@@ -54,8 +69,24 @@ class Application < Sinatra::Base
       return repo.sign_in(email, password)
     rescue => e
       puts "error: #{e}"
-      return false
+      false
+    end
+  end
+
+  def find_by_email(email)
+    repo = UserRepository.new
+    repo.find_by_email(email)
+  end
+
+  def create(peep)
+    repo = PeepRepository.new
+    begin
+      repo.create(peep)
+      redirect('/')
+    rescue => e
+      puts "error: #{e}"
+      @error = e
+      erb(:error)
     end
   end
 end
-

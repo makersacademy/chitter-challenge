@@ -6,12 +6,11 @@ class UserRepository
   end
 
   def create(new_user)
-    fail "no email" if new_user[:email].class != String || new_user[:email].empty?
-    fail "no password" if new_user[:password].class != String || new_user[:password].empty?
+    check_fail(new_user)
     encrypted_password = @enc.create(new_user[:password])
-    sql = 'INSERT INTO users (email, password)
-        VALUES($1, $2);'
-    params = [new_user[:email], encrypted_password]
+    sql = 'INSERT INTO users (email, password, name, username)
+        VALUES($1, $2, $3, $4);'
+    params = [new_user[:email], encrypted_password, new_user[:name], new_user[:username]]
     DatabaseConnection.exec_params(sql, params)
     return
   end
@@ -29,5 +28,12 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, [email])
     fail "user not found" if result.ntuples.zero?
     result[0]
+  end
+
+  private
+
+  def check_fail(new_user)
+    fail "no email" if new_user[:email].class != String || new_user[:email].empty?
+    fail "no password" if new_user[:password].class != String || new_user[:password].empty?
   end
 end

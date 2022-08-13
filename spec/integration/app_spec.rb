@@ -106,4 +106,53 @@ describe Application do
       expect(response.body).to include('<h1>Chitter: Login failed!</h1>')      
     end
   end
+
+  context "get /new" do
+    it "can't fetch the form unless logged in" do
+      response = get('/new')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter: Login to post a peep</h1>') 
+    end
+
+    it "gets the new peep form when logged in" do
+      post('/login', email: 'duck2@makers.com', password: 'quack!')
+      response = get('/new')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<label>Type your peep here: </label>')
+      expect(response.body).to include('<textarea name="content", rows="4", cols="50">')
+      expect(response.body).to include('<input type="submit" value="submit">')
+    end
+  end
+
+  context "post /new" do
+    it "can't post a peep unless logged in" do
+      response = post('/new', content: "Peep from a rogue user")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter: Login to post a peep</h1>')
+    end
+
+    it "can't post a peep when logged in if name or username are missing" do
+      post('/login', email: 'duck2@makers.com', password: 'quack!')
+      response = post('/new', content: "Hello from duck2!")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter: Error posting Peep!</h1>')
+      expect(response.body).to include('<p>Error details: invalid peep submitted</p>')
+    end
+
+    it "posts a peep" do
+      post('/login', email: 'homer@simpsons.com', password: 'springfield1')
+      response = post('/new', content: "Call Homer for all your plutonium disposal needs!")
+      expect(response.status).to eq(302)
+      expect(response.body).to eq("")
+      result = get('/')
+      expect(result.body).to include('<p>Call Homer for all your plutonium disposal needs!</p>')
+      expect(result.body).to include('<p>By: Homer Simpson - @homer</p>')
+    end
+  end
+
+  context "get /signup" do
+    it "gets signup form" do
+      
+    end
+  end
 end

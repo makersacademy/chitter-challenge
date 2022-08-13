@@ -35,7 +35,7 @@ describe UserRepository do
       repo.create(new_user)
       
       billy = repo.find_by_email('billy@silly.com')
-      expect(billy['id']).to eq('3')
+      expect(billy['id']).to eq('4')
       expect(billy['email']).to eq('billy@silly.com')
       expect(billy['password']).to eq('encrypted')
     end
