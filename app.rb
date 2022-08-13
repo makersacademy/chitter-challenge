@@ -16,7 +16,29 @@ class Application < Sinatra::Base
   get '/' do
     repo = PeepRepository.new
     peeps = repo.view_all
-    peeps[0]['content']
+    @peeps = peeps.sort_by { |a, b, c| c }.reverse
+    erb(:home)
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    email = params[:email]
+    password = params[:password]
+
+    user = UserRepository.new
+    success = user.sign_in(email, password)
+
+    if success == true
+      # Set the user ID in session
+      # session[:user_id] = user.id
+      "It's good"
+      # return erb(:login_success)
+    else
+      "No banana"
+      # return erb(:login_error)
+    end
+  end
 end
