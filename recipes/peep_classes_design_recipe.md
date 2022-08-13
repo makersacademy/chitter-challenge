@@ -15,8 +15,8 @@ id | content | timestamp | name | username
 
 TRUNCATE TABLE peeps RESTART IDENTITY;
 
-INSERT INTO peeps (content, timestamp, name, username) VALUES ('Now I know how lobsters feel :-(', '2022-13-08 12:00:00', 'Alex', 'iloveanimals391');
-INSERT INTO peeps (content, timestamp, name, username) VALUES ('Just call me the man with a fan!', '2022-13-08 13:00:00', 'Zeus', 'technoraver99');
+INSERT INTO peeps (content, timestamp, name, username) VALUES ('Now I know how lobsters feel :-(', '2022-13-08 12:00:00', 'Alex', 'iloveanimals123');
+INSERT INTO peeps (content, timestamp, name, username) VALUES ('Just call me the man with a fan! LOL', '2022-13-08 13:00:00', 'Zeus', 'technoraver99');
 ```
 
 ## 3. Define the class names
@@ -83,36 +83,43 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1.
-# Shows all users
+# Shows all peeps
 
 repo = UserRepository.new
-users = repo.all
+peeps = repo.all
 
-expect(users.length).to eq(2)
-expect(users.first.name).to eq('Alex')
+expect(peeps.length).to eq(2)
 
-expect(users.last.name).to eq('Zeus')
+expect(peeps.first.content).to eq('Now I know how lobsters feel :-(')
+expect(peeps.first.timestamp).to eq('2022-13-08 12:00:00')
+expect(peeps.first.name).to eq('Alex')
+expect(peeps.first.username).to eq('iloveanimals123')
+
+expect(peeps.last.content).to eq('Just call me the man with a fan! LOL')
+expect(peeps.last.name).to eq('Zeus')
+expect(peeps.last.timestamp).to eq('2022-13-08 13:00:00')
+expect(peeps.last.username).to eq('habanerohotstuff')
 
 # 2.
-# Create a new user
+# Create a new peep
 
 repo = UserRepository.new
-new_user = User.new
+new_peep = Peep.new
 
-new_user.name = 'Max'
-new_user.email = 'maxemail@test.com'
-new_user.username = 'maxonthesax'
-new_user.password = 'maxpassword'
+new_peep.content = 'Send help. Melting.'
+new_peep.email = 'fleuremail@test.com'
+new_peep.username = 'itsfleurduh'
+new_peep.password = 'fleurpassword'
 
-repo.create(new_user)
+repo.create(new_peep)
 
-users = repo.all
-last_user = users.last
+peeps = repo.all
+newest_peep = peeps.first
 
-expect(last_user.name).to eq 'Max'
-expect(last_user.email).to eq 'maxemail@test.com'
-expect(last_user.username).to eq 'maxonthesax'
-expect(last_user.password).to eq 'maxpassword'
+expect(newest_peep.content).to eq 'Send help. Melting.'
+expect(newest_peep.email).to eq 'fleuremail@test.com'
+expect(newest_peep.username).to eq 'itsfleurduh'
+expect(newest_peep.password).to eq 'fleurpassword'
 ```
 
 Encode this example as a test.
@@ -138,9 +145,6 @@ describe StudentRepository do
   before(:each) do 
     reset_peeps_table
   end
-
-  # (your tests will go here).
-end
 ```
 
 ## 8. Test-drive and implement the Repository class behaviour
