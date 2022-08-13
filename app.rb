@@ -1,11 +1,17 @@
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
+require 'sinatra/base'
+require 'sinatra/reloader'
 
 DatabaseConnection.connect('chitter')
 
-peep_repository = PeepRepository.new
+class Application < Sinatra::Base
+  configure :development do
+    register Sinatra::reloader
+    also_reload 'lib/peep_repository'
+    also_reload 'lib/user_repository'
+  end
 
-peep_repository.all.sort_by{|record| record.date_time}.reverse.each do |record|
-  puts "#{record.content} - #{record.date_time}"
+ 
 end
