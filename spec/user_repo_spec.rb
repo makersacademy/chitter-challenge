@@ -1,4 +1,3 @@
-require 'bcrypt'
 require 'user_repo'
 
 def reset_tables

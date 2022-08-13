@@ -13,16 +13,16 @@
         <a href="/login">Login</a>
       <% else %>
         <a href="/logout">Logout</a>
-        <a href="">New peep</a>
+        <a href="/new">New peep</a>
       <% end %>
     </div>
 
     <% @peeps.each do |peep| %>
-      <div>
-        <p><%= peep['content'] %></p>
-        <p>Posted: <%= peep['timestamp'] %></p>
-        <p>By: <%= peep['name'] %> - <%= peep['username'] %></p>
-      </div>
+    <div>
+      <p><%= peep['content'] %></p>
+      <p>Posted: <%= peep['timestamp'] %></p>
+      <p>By: <%= peep['name'] %> - <%= peep['username'] %></p>
+    </div>
     <% end %>
   </body>
 </html>

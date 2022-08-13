@@ -1,4 +1,3 @@
-require 'bcrypt'
 require 'peep_repo'
 
 def reset_tables

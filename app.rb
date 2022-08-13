@@ -19,7 +19,7 @@ class Application < Sinatra::Base
     @user = session[:user_email]
     repo = PeepRepository.new
     peeps = repo.view_all
-    @peeps = peeps.sort_by { |a, b, c| c }.reverse
+    @peeps = peeps.sort_by { |_, _, c| c }.reverse
     erb(:home)
   end
 
@@ -36,15 +36,26 @@ class Application < Sinatra::Base
     email = params[:email]
     password = params[:password]
 
-    repo = UserRepository.new
-    success = repo.sign_in(email, password)
+    success = sign_in(email, password)
 
-    if success == true
-      user = repo.find_by_email(email)
-      session[:user_email] = user['email']
-      return redirect('/')
-    else
-      return erb(:login_error)
+    return erb(:login_error) unless success == true
+
+    repo = UserRepository.new
+    user = repo.find_by_email(email)
+    session[:user_email] = user['email']
+    return redirect('/')
+  end
+
+  private
+
+  def sign_in(email, password)
+    repo = UserRepository.new
+    begin
+      return repo.sign_in(email, password)
+    rescue => e
+      puts "error: #{e}"
+      return false
     end
   end
 end
+
