@@ -82,35 +82,37 @@ These examples will later be encoded as RSpec tests.
 ```ruby
 # EXAMPLES
 
-# 1
-# Get all students
+# 1.
+# Shows all users
 
-repo = StudentRepository.new
+repo = UserRepository.new
+users = repo.all
 
-students = repo.all
+expect(users.length).to eq(2)
+expect(users.first.name).to eq('Alex')
 
-students.length # =>  2
+expect(users.last.name).to eq('Zeus')
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+# 2.
+# Create a new user
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+repo = UserRepository.new
+new_user = User.new
 
-# 2
-# Get a single student
+new_user.name = 'Max'
+new_user.email = 'maxemail@test.com'
+new_user.username = 'maxonthesax'
+new_user.password = 'maxpassword'
 
-repo = StudentRepository.new
+repo.create(new_user)
 
-student = repo.find(1)
+users = repo.all
+last_user = users.last
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
-
-# Add more examples for each method
+expect(last_user.name).to eq 'Max'
+expect(last_user.email).to eq 'maxemail@test.com'
+expect(last_user.username).to eq 'maxonthesax'
+expect(last_user.password).to eq 'maxpassword'
 ```
 
 Encode this example as a test.
@@ -124,17 +126,17 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/peep_repository_spec.rb
 
 def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+  seed_sql = File.read('spec/test_seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
   connection.exec(seed_sql)
 end
 
 describe StudentRepository do
   before(:each) do 
-    reset_students_table
+    reset_peeps_table
   end
 
   # (your tests will go here).

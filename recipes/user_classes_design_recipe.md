@@ -119,7 +119,7 @@ expect(last_user.password).to eq 'maxpassword'
 # file: spec/user_repository_spec.rb
 
 def reset_users_table
-  seed_sql = File.read('spec/seeds.sql')
+  seed_sql = File.read('spec/test_seeds.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
   connection.exec(seed_sql)
 end
