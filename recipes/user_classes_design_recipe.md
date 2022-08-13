@@ -80,6 +80,17 @@ end
 # EXAMPLES
 
 # 1.
+# Shows all users
+
+repo = UserRepository.new
+users = repo.all
+
+expect(users.length).to eq(2)
+expect(users.first.name).to eq('Alex')
+
+expect(users.last.name).to eq('Zeus')
+
+# 2.
 # Create a new user
 
 repo = UserRepository.new
