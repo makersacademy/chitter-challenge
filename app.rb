@@ -118,7 +118,7 @@ class Application < Sinatra::Base
   def invalid_user?(user)
     check = [:email, :password, :name, :username]
     return true unless user.keys.sort == check.sort
-    return true if user.values.any? { |v| v.nil? || v.empty? || v != v.strip}
+    return true if user.values.any? { |v| v.nil? || v.empty? || v != v.strip }
     false
   end
 end
