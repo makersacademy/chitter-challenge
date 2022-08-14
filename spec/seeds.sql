@@ -23,7 +23,7 @@ CREATE TABLE peeps (
 TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
 INSERT INTO users ("email", "password", "name", "username") VALUES
-('nschlosser@hotmail.com', '$2a$12$2..VA3LDdwY126AelkuRf.NNOEY/legLo.U9zGze7NkIQYfs5vUw6', 'Naomi Schlösser', 'nschlosser'),
+('nschlosser@hotmail.com', '$2a$12$TJDU0xBL1/sLnjf812VVP.0CuftbFC5cjCHY9R9NcyOqk3XZdkrL2', 'Naomi Schlösser', 'nschlosser'),
 ('hholmens@gmail.com', '$2a$12$f.AIHsxGb3ladl79Kg8ONuIk3vQ.Z/Qe00iv46BlYUnjvraM1gXdG', 'Hanna Holmens', 'hhol91'),
 ('jjohn_88@yahoo.com', '$2a$12$jZaKmATnu69GzobXjogKou..lq6b996nOoq2M8lt21c6dxpeasvoe', 'John Johnson', 'john_1');
 

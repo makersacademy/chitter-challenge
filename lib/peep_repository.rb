@@ -25,6 +25,6 @@ class PeepRepository
     params = [peep.content, peep.time, peep.user_id]
     result = DatabaseConnection.exec_params(sql, params)
 
-    return nil
+    return peep
   end
 end

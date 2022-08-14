@@ -64,6 +64,7 @@ class PeepRepository
 
   def create(peep) # peep is an instance of Peep
     # Peeps gets added to the database
+    # INSERT INTO peeps (content, time, user_id) VALUES ($1, $2, $3);
     # Returns nothing
   end
 end
@@ -75,16 +76,18 @@ class UserRepository
 
   def create(user) # user is an instance of User 
     # User gets added to the database
-    # INSERT INTO peeps (id, content, time, user_id) VALUES ($1, $2, $3, $4);
+    # INSERT INTO users (email, password, name, username) VALUES ($1, $2, $3, $4);
     # Returns nothing
   end
 
   def sign_in(email, password) # email and password are an instance of User
-    # Users gets signed in
+    # User gets signed in
+    # INSERT INTO users (email, password) VALUES($1, $2);
     # Returns nothing
   end
 
   def find_by_email(email) # email is an instance of User
+    # SELECT * FROM users WHERE email = $1;
     # Returns user object
   end
 end
@@ -156,20 +159,19 @@ user_repo = UserRepository.new
 user_repo.create(new_user)
 
 user = user_repo.find_by_email('FAKE_EMAIL')
-user.length # => '4'
 user.email # => 'FAKE_EMAIL'
 user.name # => 'FAKE_NAME'
 user.username # => 'FAKE_USERNAME'
 
-# 2
-# Sign in an user with an incorrect password
-user_repo = UserRepository.new
-user_repo.sign_in('nschlosser@hotmail.com', 'INCORRECT_PASSWORD') # => erb(:incorrect_password)
-
 # 3
-# Sign in an user with the correct password
+# Sign in a user with an incorrect password
 user_repo = UserRepository.new
-user_repo.sign_in('nschlosser@hotmail.com', 'ABCD') # => erb(:login_page)
+user_repo.sign_in('nschlosser@hotmail.com', 'INCORRECT_PASSWORD') # => false
+
+# 4
+# Sign in a user with the correct password
+user_repo = UserRepository.new
+user_repo.sign_in('nschlosser@hotmail.com', 'ABCD') # => true
 ```
 
 ## 4. Create Examples as Unit Tests
