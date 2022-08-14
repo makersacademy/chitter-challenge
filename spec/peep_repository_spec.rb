@@ -27,17 +27,14 @@ end
     end
   end
 
-
-
-
   context 'create' do
-    xit 'creates new peep and shows it at the top of the feed' do
+    it 'creates new peep and shows it at the top of the feed' do
 
     repo = PeepRepository.new
     new_peep = Peep.new
 
     new_peep.content = 'Send help. Melting.'
-    new_peep.timestamp = '2022-13-08 14:00:00'
+    new_peep.timestamp = '2022-08-13 14:00:00'
     new_peep.name = 'Fleur'
     new_peep.username = 'itsfleurduh'
 
@@ -47,7 +44,7 @@ end
     newest_peep = peeps.first
 
     expect(newest_peep.content).to eq 'Send help. Melting.'
-    expect(newest_peep.timestamp).to eq '2022-13-08 14:00:00'
+    expect(newest_peep.timestamp).to eq '2022-08-13 14:00:00'
     expect(newest_peep.name).to eq 'Fleur'
     expect(newest_peep.username).to eq 'itsfleurduh'
     end
