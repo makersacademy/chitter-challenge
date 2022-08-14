@@ -84,14 +84,14 @@ CREATE TABLE users (
   name text,
   email text,
   password text,
-  username text
+  username text,
+  UNIQUE (username, password)
 );
 
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
   timestamp timestamp
--- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)
     references users(id)
