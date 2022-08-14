@@ -127,6 +127,12 @@ expect(last_user.password).to eq 'maxpassword'
 
 # 3.
 # Search for user by email
+repo = UserRepository.new
+
+user = repo.find('alexemail@test.com')
+
+expect(user.id).to eq(1)
+expect(user.name).to eq('Alex')
 
 # 4.
 # Logs in user
