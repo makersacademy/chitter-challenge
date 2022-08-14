@@ -55,11 +55,10 @@ class UserRepository
   # Shows all users
   # No arguments
   def all
+    # Executes the SQL query:
+    # SELECT * FROM users;
 
-  # Executes the SQL query:
-  # SELECT * FROM users;
-
-  # Returns an array of User objects.
+    # Returns an array of User objects.
   end
 
   # Creates a new user
@@ -69,6 +68,22 @@ class UserRepository
     # INSERT INTO users (name, email, username, password) VALUES ($1, $2, $3, $4);'
 
     # Doesn't return anything
+  end
+
+  # Search for user by email
+  # Takes email argument
+  def find_by_email(email)
+    # Executes the SQL query:
+    # 'SELECT * FROM users WHERE email = $1;'
+    
+    # Returns user object
+  end
+
+  # Logs in user (if email and password_attempt arguments are correct)
+  def log_in(email, password_attempt)
+    # EXECUTES the SQL query:
+    # Calls find_by_email method and assigns new user variable
+    # If user password matches encrypted password_attempt, log in successful
   end
 end
 ```
@@ -109,6 +124,13 @@ expect(last_user.name).to eq 'Max'
 expect(last_user.email).to eq 'maxemail@test.com'
 expect(last_user.username).to eq 'maxonthesax'
 expect(last_user.password).to eq 'maxpassword'
+
+# 3.
+# Search for user by email
+
+# 4.
+# Logs in user
+
 ```
 ## 7. Reload the SQL seeds before each test run
 

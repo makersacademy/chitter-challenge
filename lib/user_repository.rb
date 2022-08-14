@@ -27,4 +27,12 @@ class UserRepository
 
     DatabaseConnection.exec_params(sql, params)
   end
+
+  def find_by_email(email)
+
+  end
+
+  def log_in(email, password_attempt)
+
+  end
 end
