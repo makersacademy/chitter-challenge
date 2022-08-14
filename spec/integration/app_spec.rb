@@ -16,6 +16,14 @@ describe Application do
     )
   end
 
+  context 'escapeHTML_all_params' do
+    it "santises all params inputs" do
+      params = {"username"=>"JI2<><>022", "password"=>"passw<><>ord123"}
+      result = {"password"=>"passw&lt;&gt;&lt;&gt;ord123", "username"=>"JI2&lt;&gt;&lt;&gt;022"}
+      expect(Application.escapeHTML_all_params(params)).to eq result
+    end
+  end
+
   context 'GET / with @user_id = nil and no params' do
     it 'returns 200' do
       response = get('/')
@@ -174,6 +182,52 @@ describe Application do
       expect(response.body).to include 'This username is already taken.'
       expect(response.body).to include 'Password:'
       expect(response.body).to include 'Back'
+    end
+  end
+
+  context 'GET /sign-up/new with @user_id = user_id' do
+    it 'returns 302 and redirects to /' do
+      post('/login', username: 'JI2022', password: 'password123')
+      response = get('/sign-up/new')
+      expect(response.status).to eq 302
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.url).to include '/'
+    end
+  end
+
+  context 'POST /sign-up/new with @user_id = nil and all params valid' do
+    it 'returns 302, creates a new user and redirects to /' do
+      response = post('/sign-up/new',
+        name: 'name',
+        email: 'email@email.com',
+        username: 'username',
+        password: 'password'
+      )
+      expect(response.status).to eq 302
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.url).to include '/'
+      expect(User.all.length).to eq 5
+      expect(User.last.name).to eq 'name'
+      expect(User.last.email).to eq 'email@email.com'
+      expect(User.last.username).to eq 'username'
+      expect(User.last.password).to eq 'password'
+    end
+  end
+
+  context 'POST /sign-up/new with @user_id = nil and with email and username already taken' do
+    it 'returns 302 and redirects to /sign-up/new with errors' do
+      response = post('/sign-up/new',
+        name: 'name',
+        email: 'john@hotmail.com',
+        username: 'JI2022',
+        password: 'password'
+      )
+      expect(response.status).to eq 302
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.url).to include '/sign-up/new&email_error=true&username_error=true'
     end
   end
 end
