@@ -24,7 +24,7 @@ class UserRepository
   def create(user)
     sql = 'INSERT INTO users (id, name, username, email, password) VALUES ($1, $2, $3, $4, $5);'
     params = [user.id, user.name, user.username, user.email, user.password]
-    
+
     DatabaseConnection.exec_params(sql, params)
   end
 end
