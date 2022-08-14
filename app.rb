@@ -20,8 +20,23 @@ class Application < Sinatra::Base
     end
 
     post '/signup' do
-        # {create new user}
+      repo = UserRepository.new
+      email = params[:email]
+      # {create new user}
+      if repo.find_by_email(email) == nil
+        new_user = Users.new
+        new_user.id = params[:id].to_i
+        new_user.name = params[:name]
+        new_user.username = params[:username]
+        new_user.email = email
+        new_user.password = params[:password]
+
+        user = UserRepository.new
+        user.create(new_user)
+        return erb(:signup_success)
+      else
         return erb(:signup_err) # if the user already exists/any issues 
+      end
     end
 
     get '/login' do
@@ -29,7 +44,8 @@ class Application < Sinatra::Base
     end
 
     post '/login' do 
-        return erb(:successful_login)
+        return erb(:peeps)
+        return erb(:login_err)
     end
 
     get '/peeps' do 
@@ -40,8 +56,6 @@ class Application < Sinatra::Base
         # {create new peep}
         return erb(:new_peep)
     end
-
-
 
 
 

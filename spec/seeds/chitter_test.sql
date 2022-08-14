@@ -23,10 +23,10 @@
 
 TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
-INSERT INTO users ("id", "name", "email", "username", "password") VALUES 
-(1, 'Joe Bloggs', 'joe.bloggs@test.com', 'j_blog', 'test123'),
-(2, 'Brijesh Pujara', 'brijesh@test.com', 'brij', 'test1234'),
-(3, 'Elon Musk', 'elon@test.com', 'elon_m', 'musk1234');
+INSERT INTO users ("name", "email", "username", "password") VALUES 
+('Joe Bloggs', 'joe.bloggs@test.com', 'j_blog', 'test123'),
+('Brijesh Pujara', 'brijesh@test.com', 'brij', 'test1234'),
+('Elon Musk', 'elon@test.com', 'elon_m', 'musk1234');
 
 INSERT INTO peeps ("content", "date", "user_id") VALUES 
 ('Gabriel Jesus to Arsenal confirmed!', '2022-05-13 07:15:31.123456789', 2 ),

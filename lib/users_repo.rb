@@ -34,11 +34,24 @@ class UserRepository
     return user
   end
 
-  def find_by_username(username)
-    sql = 'SELECT id, name, email FROM users WHERE id = $1;'
-    result_set = DatabaseConnection.exec_params(sql, [username])
+  def find_by_email(email)
+    sql = 'SELECT id, name, email FROM users WHERE email = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email])
 
-    fail "No user found" if result_set.to_a.empty?
+    if result_set.to_a.empty?
+      return nil
+    else
+      params = result_set[0]
+      user = Users.new
+      user.id = params['id']
+      user.name = params['name']
+      user.email = params['email']
+      user.username = params['username']
+      user.password = params['password']
+
+      return user
+    end
+
   end
 
 
