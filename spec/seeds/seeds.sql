@@ -3,7 +3,8 @@ CREATE TABLE users (
   name text,
   email text,
   password text,
-  username text
+  username text,
+  UNIQUE(username)
 );
 
 CREATE TABLE peeps (
