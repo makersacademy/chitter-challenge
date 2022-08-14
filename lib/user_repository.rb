@@ -29,7 +29,7 @@ class UserRepository
   end
 
   def find_by_email(email_address)
-    sql = 'SELECT id, name, username, password FROM users WHERE email_address = $1;'
+    sql = 'SELECT * FROM users WHERE email_address = $1;'
     sql_params = [email_address]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
     account = []
@@ -39,24 +39,27 @@ class UserRepository
       user.id = record['id'].to_i
       user.name = record['name']
       user.username = record['username']
+      user.email_address = record['email_address']
       user.password = record['password']
       account << user
     end
     account.empty? ? nil : account
   end
 
-  def sign_in(email_address, submitted_password)
+  def log_in(email_address, submitted_password)
     repository = UserRepository.new
     user = repository.find_by_email(email_address)
     return nil if user.nil?
-
-    # encrypted_submitted_password = BCrypt::Password.create(submitted_password)
-    p user[0].password
+    p email_address
     p submitted_password
+    p user
     if BCrypt::Password.new(user[0].password) == submitted_password
-      "Login successful"
+      p "Sophie"
+      p user[0]
+      return user[0]
     else
-      "Wrong password"
+      "Twm"
+      return false
     end
   end
 end

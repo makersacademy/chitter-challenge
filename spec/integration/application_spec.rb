@@ -34,10 +34,10 @@ describe Application do
     end
   end
 
-  context 'POST /peeps' do
+  context 'POST /peeps/new' do
     it "should post the peep" do
       response = post(
-        '/peeps',
+        '/peeps/new',
         content: 'There is a heatwave today!',
         date_time: DateTime.now,
         user_id: 1
@@ -49,7 +49,7 @@ describe Application do
 
     it "returns an error 400 when the peep is empty" do
       response = post(
-        '/peeps',
+        '/peeps/new',
         content: "",
         date_time: DateTime.now,
         user_id: 1
@@ -84,5 +84,53 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include('Your account has been created!')
     end
+    it "should bring an error when any filled is empty" do
+      response = post(
+        '/signup',
+        name: "Twm",
+        username: "",
+        email_address: "Twm@aol.com",
+        password: ""
+      )
+
+      expect(response.status).to eq 400
+      expect(response.body).to include('Please enter all fields')
+    end
+  end
+
+  context 'GET /login' do
+    it "log in to your account" do
+      response = get('/login')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Login here</h1>')
+      expect(response.body).to include('<p>Email address: <input type="text" name="email_address"></p>')
+    end
+  end
+
+  context 'POST /login' do
+    it "successfully logs in to your account" do
+      signup = post('/signup', 
+        email_address: 'soph@aol.com', 
+        password: 'twm123',
+        name: 'Sophie',
+        username: 'SCL'
+      )
+      response = post('/login', email_address: 'soph@aol.com', password: 'twm123')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('Welcome Sophie!')
+    end
+    it "doesn't log in" do
+      signup = post('/signup', 
+        email_address: 'soph@aol.com', 
+        password: 'twm123',
+        name: 'Sophie',
+        username: 'SCL'
+      )
+      response = post('/login', email_address: 'soph@aol.com', password: 'soph123')
+
+      expect(response.status).to eq 400
+      expect(response.body).to include('Please enter all fields')
   end
 end

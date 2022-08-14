@@ -68,8 +68,8 @@ describe UserRepository do
     end
   end
 
-  context "signing in to an account" do
-    it "successfully logs in" do
+  context "logging in to an account" do
+    it "successfully log in" do
       repository = UserRepository.new
       user = User.new
       user.name = 'Tigi'
@@ -77,9 +77,22 @@ describe UserRepository do
       user.username = 'Tigs'
       user.email_address = 'tigi@aol.com'
       repository.sign_up(user)
-      account = repository.sign_in('tigi@aol.com', 'meow')
+      account = repository.log_in('tigi@aol.com', 'meow')
 
-      expect(account).to eq "Login successful"
+      expect(account.email_address).to eq user.email_address
+    end
+
+    it "unsuccesfully log in" do
+      repository = UserRepository.new
+      user = User.new
+      user.name = 'Tigi'
+      user.password = 'meow'
+      user.username = 'Tigs'
+      user.email_address = 'tigi@aol.com'
+      repository.sign_up(user)
+      account = repository.log_in('tigi@aol.com', 'cat')
+
+      expect(account).to eq false
     end
   end
 end

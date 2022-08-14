@@ -1,0 +1,11 @@
+<form action="/login" method="POST">
+<h1>Login here</h1>
+  <p>Email address: <input type="text" name="email_address"></p>
+  <p>Password: <input type="text" name="password"></p>
+
+  <p><input type="submit" value="Login"></p>
+</form>
+
+<% if invalid_param? %>
+  <p>Please enter all fields</p>
+<% end %>
