@@ -37,25 +37,25 @@ HTML view with list of peeps
 ```
 
 ```md
-# Page: see full entry 
+# Page: log in page 
 
 ## Request:
-GET /entries/:id
-With path parameter :id
-
-## Response (200 OK)
-HTML view with details of a single entry
-```
-
-```md
-# Page: add a new entry
-
-## Request:
-GET /entries/add
+GET /log_in
 No parameters
 
 ## Response (200 OK)
-HTML view with form to submit new entry (to POST /entries)
+HTML view of log in form
+```
+
+```md
+# Page: sign up page
+
+## Request:
+GET /sign_up
+No parameters
+
+## Response (200 OK)
+HTML view of sign up form
 ```
 
 ```md
@@ -72,32 +72,3 @@ HTML view with confirmation message
 ```
 
 ## Step 3: Test-drive and implement
-
-You'll now test-drive and implement each route. If your application interacts with a
-database to store its data, you'll also have to test-drive and implement other layers of
-the program (such as Repository classes) as part of your work.
-
-## Challenge
-
-Model and plan the pages and routes for the following web application, which is a game of
-Rock Paper Scissors. Test-drive and implement it if you'd like an extra challenge.
-
-```
-As a Maker
-So I can play Rock Paper Scissors
-I would like to enter my move on the home page
-And click to confirm my move (rock, paper or scissors)
-
-As a Maker
-So I can play Rock Paper Scissors
-I would like the opponent's move to be decided randomly by the program
-
-As a Maker
-So I can play Rock Paper Scissors
-I would like to see the result of the game on the next page
-
-As a Maker
-So I can play Rock Paper Scissors again
-I would like to click on a link on the result page
-So it takes me back to the home page
-```
