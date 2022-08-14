@@ -67,7 +67,8 @@ def reset_users_table
       new_user.username = 'itsfleurduh'
       new_user.password = 'password123'
 
-      expect { repo.create(new_user) }.to raise_error
+      expect { repo.create(new_user) }.to raise_error 
+      # need to figure out try/catch as raise_error may not necessarily catch correct error
     end
   end
 
