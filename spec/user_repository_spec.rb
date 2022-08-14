@@ -67,7 +67,7 @@ def reset_users_table
       new_user.username = 'itsfleurduh'
       new_user.password = 'password123'
 
-      expect { repo.create(new_user) }.to raise_error "That username is already in use."
+      expect { repo.create(new_user) }.to raise_error
     end
   end
 
