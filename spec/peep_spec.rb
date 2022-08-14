@@ -48,4 +48,5 @@ describe Peep do
   it "gets the peep's user's username" do
     expect(Peep.first.username).to eq 'BeatTheHeat'
   end
+
 end

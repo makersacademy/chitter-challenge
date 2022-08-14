@@ -88,4 +88,28 @@ class Application < Sinatra::Base
     redirect to '/login' if session[:user_id].nil?
     erb(:peep)
   end
+
+  post '/peep/new' do
+    Application.escape_html_all_params(params)
+    return 400 if session[:user_id].nil? || params[:content].nil?
+    session[:time_admin] = Time.now if session[:time_admin].nil?
+    Peep.create(
+      content: params[:content],
+      date_time_created: session[:time_admin],
+      user_id: session[:user_id]
+    )
+    redirect to '/'
+  end
+
+  post '/time-admin' do
+    Application.escape_html_all_params(params)
+    return 400 unless params[:password] == 'admin'
+    if params[:time] == 'reset'
+      session.delete(:time_admin)
+      return "Time reset"
+    end
+    time = params[:time].split(',').map(&:to_i)
+    session[:time_admin] = Time.new(time[0], time[1], time[2], time[3], time[4], time[5])
+    "Time set to #{session[:time_admin]}"
+  end
 end

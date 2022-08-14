@@ -308,4 +308,63 @@ describe Application do
       expect(response.body).to include 'Back'
     end
   end
+
+  # POST /peep/new
+
+  context 'POST /peep/new with @user_id = nil and any params' do
+    it 'returns 400' do
+      response = post('/peep/new')
+      expect(response.status).to eq 400
+    end
+  end
+
+  context 'POST /peep/new with @user_id and no content' do
+    it 'returns 400' do
+      post('/login', username: 'JI2022', password: 'password123')
+      response = post('/peep/new')
+      expect(response.status).to eq 400
+    end
+  end
+
+  context 'POST /peep/new with @user_id and content' do
+    fit 'returns 200, creates a new post and redirects to /' do
+      post('/time-admin', password: 'admin', time: '2022,8,14,12,0,0')
+      post('/login', username: 'JI2022', password: 'password123')
+      response = post('/peep/new', content: "content")
+      expect(response.status).to eq 302
+      peep = Peep.last
+      expect(peep.content).to eq 'content'
+      expect(peep.date_time_created).to eq '2022-08-14 11:00:00'
+      expect(peep.user_id).to eq 1
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.url).to include '/'
+    end
+  end
+
+  # POST /time-admin
+  # this sets the time for testing
+
+  context 'POST /time-admin to set time for tests with no password' do
+    it 'returns 400' do
+      response = post('/time-admin', time: '2022,8,14,12,0,0')
+      expect(response.status).to eq 400
+    end
+  end
+
+  context 'POST /time-admin to set time for tests with the correct password' do
+    it 'returns 200' do
+      response = post('/time-admin', password: 'admin', time: '2022,8,14,12,0,0')
+      expect(response.status).to eq 200
+      expect(response.body).to eq "Time set to 2022-08-14 12:00:00 +0100"
+    end
+  end
+
+  context 'POST /time-admin resets @time_admin' do
+    it 'returns 200' do
+      response = post('/time-admin', password: 'admin', time: 'reset')
+      expect(response.status).to eq 200
+      expect(response.body).to eq "Time reset"
+    end
+  end
 end
