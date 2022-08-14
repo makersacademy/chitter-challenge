@@ -6,7 +6,7 @@ class UserRepository
   end
 
   def create(new_user)
-    check_fail(new_user)
+    fail "invalid user details submitted" if invalid_user?(new_user)
     encrypted_password = @enc.create(new_user[:password])
     sql = 'INSERT INTO users (email, password, name, username)
         VALUES($1, $2, $3, $4);'
@@ -32,8 +32,10 @@ class UserRepository
 
   private
 
-  def check_fail(new_user)
-    fail "no email" if new_user[:email].class != String || new_user[:email].empty?
-    fail "no password" if new_user[:password].class != String || new_user[:password].empty?
+  def invalid_user?(user)
+    check = [:email, :password, :name, :username]
+    return true unless user.keys.sort == check.sort
+    return true if user.values.any? { |v| v.class != String || v.empty? }
+    false
   end
 end

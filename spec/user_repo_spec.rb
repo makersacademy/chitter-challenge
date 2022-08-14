@@ -28,11 +28,11 @@ describe UserRepository do
 
   context "create" do
     it "creates a user" do
-      new_user = { email: 'billy@silly.com', password: 'rubbish' }
+      user = { email: 'billy@silly.com', password: 'rubbish', name: 'Billy', username: '@billy' }
       b_crypt = double :bcrypt
       expect(b_crypt).to receive(:create).with('rubbish').and_return('encrypted')
       repo = UserRepository.new(b_crypt)
-      repo.create(new_user)
+      repo.create(user)
       
       billy = repo.find_by_email('billy@silly.com')
       expect(billy['id']).to eq('4')
@@ -41,52 +41,52 @@ describe UserRepository do
     end
 
     it "fails if no password is provided" do
-      new_user = { email: 'billy@silly.com', password: '' }
+      user = { email: 'billy@silly.com', password: '', name: 'Billy', username: '@billy' }
       b_crypt = double :bcrypt
       repo = UserRepository.new(b_crypt)
-      expect { repo.create(new_user) }.to raise_error("no password")
+      expect { repo.create(user) }.to raise_error("invalid user details submitted")
     end
 
-    it "fails if no email is provided" do
-      new_user = { password: '' }
+    it "fails if no email key is provided" do
+      user = { password: 'rubbish', name: 'Billy', username: '@billy' }
       b_crypt = double :bcrypt
       repo = UserRepository.new(b_crypt)
-      expect { repo.create(new_user) }.to raise_error("no email")
+      expect { repo.create(user) }.to raise_error("invalid user details submitted")
     end
  
     it "fails if email or username is a duplicate" do
-      new_user = { email: 'duck@makers.com', password: 'swim_1' }
+      user = { email: 'duck@makers.com', password: 'swim_1', name: 'duck', username: '@duck' }
       b_crypt = double :bcrypt
       expect(b_crypt).to receive(:create).with('swim_1').and_return('gobbledy_gook')
       repo = UserRepository.new(b_crypt)
       # This is bad but I can't work out what the exact error message string should be!
-      expect { repo.create(new_user) }.to raise_error PG::UniqueViolation
+      expect { repo.create(user) }.to raise_error PG::UniqueViolation
     end
   end
 
   context "login" do
     it "logs in" do
-      new_user = { email: 'billy@silly.com', password: 'rubbish' }
+      user = { email: 'billy@silly.com', password: 'rubbish', name: 'Billy', username: '@billy' }
       repo = UserRepository.new
-      repo.create(new_user)
-      result = repo.sign_in(new_user[:email], 'rubbish')
-      result2 = repo.sign_in(new_user[:email], 'wrong_password')
+      repo.create(user)
+      result = repo.sign_in(user[:email], 'rubbish')
+      result2 = repo.sign_in(user[:email], 'wrong_password')
       expect(result).to eq(true)
       expect(result2).to eq(false)
     end
 
     it "no password" do
-      new_user = { email: 'billy@silly.com', password: 'rubbish' }
+      user = { email: 'billy@silly.com', password: 'rubbish', name: 'Billy', username: '@billy' }
       repo = UserRepository.new
-      repo.create(new_user)
-      result = repo.sign_in(new_user[:email], '')
+      repo.create(user)
+      result = repo.sign_in(user[:email], '')
       expect(result).to eq(false)
     end
 
     it "blank email" do
-      new_user = { email: 'billy@silly.com', password: 'rubbish' }
+      user = { email: 'billy@silly.com', password: 'rubbish', name: 'Billy', username: '@billy' }
       repo = UserRepository.new
-      repo.create(new_user)
+      repo.create(user)
       expect { repo.sign_in('', 'rubbish') }.to raise_error "user not found"
     end
   end
