@@ -3,10 +3,10 @@ require 'pg'
 class DatabaseConnection
 
   def self.connect
-    # if ENV['DATABASE_URL'] != nil
-    #   @connection = PG.connect(ENV['DATABASE_URL'])
-    #   return
-    # end
+    if ENV['DATABASE_URL'] != nil
+      @connection = PG.connect(ENV['DATABASE_URL'])
+      return
+    end
     if ENV['ENV'] == 'test'
       database_name = 'chitter_test'
     else
