@@ -15,8 +15,8 @@ id | content | timestamp | name | username
 
 TRUNCATE TABLE peeps RESTART IDENTITY;
 
-INSERT INTO peeps (content, timestamp, name, username) VALUES ('Now I know how lobsters feel :-(', '2022-13-08 12:00:00', 'Alex', 'iloveanimals123');
-INSERT INTO peeps (content, timestamp, name, username) VALUES ('Just call me the man with a fan! LOL', '2022-13-08 13:00:00', 'Zeus', 'technoraver99');
+INSERT INTO peeps (content, timestamp, name, username, user_id) VALUES ('Now I know how lobsters feel :-(', '2022-13-08 12:00:00', 'Alex', 'iloveanimals123', '1');
+INSERT INTO peeps (content, timestamp, name, username, user_id) VALUES ('Just call me the man with a fan! LOL', '2022-13-08 13:00:00', 'Zeus', 'technoraver99', '2');
 ```
 
 ## 3. Define the class names
@@ -43,7 +43,7 @@ in lib/peep.rb)
 
 class Peep
 
-  attr_accessor :id, :content, :timestamp, :name, :username
+  attr_accessor :id, :content, :timestamp, :name, :username, :user_id
 end
 ```
 

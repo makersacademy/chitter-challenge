@@ -10,6 +10,8 @@ CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
   timestamp timestamp,
+  name text,
+  username text,
   user_id int,
   constraint fk_user foreign key(user_id)
     references users(id)
