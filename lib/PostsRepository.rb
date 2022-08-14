@@ -1,4 +1,5 @@
 require_relative "post"
+require_relative "user"
 
 class PostsRepository
   def all
@@ -47,4 +48,18 @@ class PostsRepository
     sql = "DELETE FROM posts WHERE id = $1;"
     DatabaseConnection.exec_params(sql, [post.id])
   end
+
+  def find_user_by_post(post)
+    sql = 'SElECT * FROM users WHERE id = $1'
+    result_set = DatabaseConnection.exec_params(sql, [post.user_id])
+    user = User.new
+    result_set.each do |object|
+      user.username = object['username']
+      user.email = object['email']
+      user.password = nil
+    end 
+    return user
+  end 
+
+
 end

@@ -4,7 +4,7 @@ INSERT INTO users (username, email, password) VALUES
 ('micheal23', 'micheal_james@gmail.com', '123456'),
 ('fred23', 'fred-manu@gmail.com', 'ilovemymom456'),
 ('james-lewis', 'james-lewis333@gmail.com', 'summin-summin!2323'),
-('rico-franco', 'rico_fr@gmail.com', 'leftrightgdnight!2323'),
+('rico-franco', 'rico_fr@gmail.com', 'bGVmdHJpZ2h0Z2RuaWdodCEyMzIz\n'),
 ('david-d', 'david-damion@gmail.com', '!Ffg$g'),
 ('sl', 'simone_perrins@hotmail.com', 'ballsofmustard');
 

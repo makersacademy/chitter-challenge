@@ -52,7 +52,7 @@ RSpec.describe UsersRepository do
       expect(users[6].id).to eq "7"
       expect(users[6].username).to eq  'new_username'
       expect(users[6].email).to eq  "new_email@gmail.com"
-      expect(users[6].password).to eq  "bigolbitties69"
+      expect(users[6].password).to include('Ymlnb2xiaXR0aWVzNjk=')
     end 
      it 'update an user' do
       repo = UsersRepository.new
@@ -75,6 +75,25 @@ RSpec.describe UsersRepository do
 
       users = repo.all
       expect(users.length).to eq  5
+    end
+    it 'returns user when searching email' do
+      repo = UsersRepository.new
+      user = repo.find_by_email('rico_fr@gmail.com')
+      expect(user.id).to eq  '4'
+      expect(user.email).to eq  'rico_fr@gmail.com'
+      expect(user.username).to eq  'rico-franco'
+      expect(user.password).to eq  'bGVmdHJpZ2h0Z2RuaWdodCEyMzIz\n'
+    end
+    it 'returns false when wrong email entered' do
+      repo = UsersRepository.new
+      user = repo.find_by_email('32141!')
+      expect(user).to eq(false)
+    end
+
+  it 'it logs in user if password entered is equal to encrypted password in db' do
+      repo = UsersRepository.new
+      expect(repo.sign_in('rico_fr@gmail.com', 'leftrightgdnight!2323')).to eq(true)
+      expect(repo.sign_in('rico_fr@gmail.com', 'WRONG!2323')).to eq(false)
     end
   end
 end 

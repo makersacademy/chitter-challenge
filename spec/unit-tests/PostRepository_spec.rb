@@ -76,5 +76,12 @@ RSpec.describe PostsRepository do
       posts = repo.all
       expect(posts.length).to eq  5
     end
+    it 'finds a user relavent to post' do 
+      repo = PostsRepository.new
+      post = repo.find(1)
+      user = repo.find_user_by_post(post)
+
+      expect(user.username).to eq "rico-franco"
+    end 
   end
 end 

@@ -46,4 +46,8 @@ FEATURES WANTED:
 # WEBSITE DESIGN 
 ![chitter-diagram](https://user-images.githubusercontent.com/105153564/184235251-26597e7e-4385-40b0-afc0-a3c41196e1c9.png)
 
+# IDEAS FOR IMPROVEMENTS
+
+- create specail links to create post with logged in user info
+
 
