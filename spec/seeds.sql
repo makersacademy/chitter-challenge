@@ -23,9 +23,14 @@ CREATE TABLE peeps (
 TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
 INSERT INTO users ("email", "password", "name", "username") VALUES
-('nschlosser@hotmail.com', 'ABCD', 'Naomi Schlösser', 'nschlosser'),
-('hholmens@gmail.com', 'EFGH', 'Hanna Holmens', 'hhol91'),
-('jjohn_88@yahoo.com', '1234', 'John Johnson', 'john_1');
+('nschlosser@hotmail.com', '$2a$12$2..VA3LDdwY126AelkuRf.NNOEY/legLo.U9zGze7NkIQYfs5vUw6', 'Naomi Schlösser', 'nschlosser'),
+('hholmens@gmail.com', '$2a$12$f.AIHsxGb3ladl79Kg8ONuIk3vQ.Z/Qe00iv46BlYUnjvraM1gXdG', 'Hanna Holmens', 'hhol91'),
+('jjohn_88@yahoo.com', '$2a$12$jZaKmATnu69GzobXjogKou..lq6b996nOoq2M8lt21c6dxpeasvoe', 'John Johnson', 'john_1');
+
+-- Passwords encrypted with Bcrypt generator
+-- nschlosser password = ABCD
+-- hhhol91 password = EFGH
+-- john_1 password = 1234
 
 INSERT INTO peeps ("content", "time", "user_id") VALUES
 ('Good morning everyone!', '2022-08-10 10:46:45.558437 +0100', '1'),

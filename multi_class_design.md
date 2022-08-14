@@ -58,6 +58,7 @@ class PeepRepository
   end
 
   def all
+    # SELECT * FROM peeps;
     # Returns a list of peep objects
   end
 
@@ -72,8 +73,9 @@ class UserRepository
     # ...
   end
 
-  def ceate(user) # user is an instance of User 
+  def create(user) # user is an instance of User 
     # User gets added to the database
+    # INSERT INTO peeps (id, content, time, user_id) VALUES ($1, $2, $3, $4);
     # Returns nothing
   end
 
@@ -111,10 +113,10 @@ combinations that reflect the ways in which the system will be used._
 peep_repo= PeepRepository.new
 
 peeps = peep_repo.all
-peeps.length # => '3'
+peeps.length # => 3
 peeps.first.content # => 'Good morning everyone!'
-peeps.first.time # => '2022-08-10 10:46:45.558437 +0100'
-peeps.first.user_id = # =>'1'
+peeps.first.time # => '2022-08-10 10:46:45.558437+01'
+peeps.first.user_id # => '1'
 
 # 2
 # Create a peep
@@ -126,15 +128,21 @@ new_peep.user_id = '1'
 peep_repo = PeepRepository.new
 peep_repo.create(new_peep)
 
-peeps = peep_repo.find_by_email
-peeps.length # => '4'
+peeps = peep_repo.all
+peeps.length # => 4
 peeps.last.content # => 'FAKE_CONTENT_1'
-peeps.last.time # => '2022-08-05 11:15:45.558437 +0100'
-peeps.last.user_id # =>'1'
+peeps.last.time # => '2022-08-05 11:15:45.558437+01'
+peeps.last.user_id # => '1'
 
 
 # UserRepository
-# 1
+# 1 Find user by email
+user_repo = UserRepository.new
+user = user_repo.find_by_email('nschlosser@hotmail.com')
+
+user.email # => 'nschlosser@hotmail.com'
+user.name # => 'Naomi Schlösser'
+user.username # => 'nschlosser'
 
 # 2
 # Create a user
@@ -147,15 +155,21 @@ new_user.username = 'FAKE_USERNAME'
 user_repo = UserRepository.new
 user_repo.create(new_user)
 
-users = user_repo.all
-users.length # => '4'
-users.email # => 'FAKE_EMAIL'
-users.password # => '$2a$12$dTun1BncEQYm9TwlgHHlX.shuqHMbV9m2BT/siKdYx4XDY.08bWUu'
-users.name # => 'FAKE_NAME'
-users.username # => 'FAKE_USERNAME'
+user = user_repo.find_by_email('FAKE_EMAIL')
+user.length # => '4'
+user.email # => 'FAKE_EMAIL'
+user.name # => 'FAKE_NAME'
+user.username # => 'FAKE_USERNAME'
 
 # 2
-# 
+# Sign in an user with an incorrect password
+user_repo = UserRepository.new
+user_repo.sign_in('nschlosser@hotmail.com', 'INCORRECT_PASSWORD') # => erb(:incorrect_password)
+
+# 3
+# Sign in an user with the correct password
+user_repo = UserRepository.new
+user_repo.sign_in('nschlosser@hotmail.com', 'ABCD') # => erb(:login_page)
 ```
 
 ## 4. Create Examples as Unit Tests

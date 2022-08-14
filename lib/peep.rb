@@ -1,7 +1,7 @@
 class Peep
   attr_accessor :id, :content, :time, :user_id
 
-  def initilize
+  def initialize
     @time = Time.now
   end
 end
