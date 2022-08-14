@@ -23,7 +23,7 @@ class Application < Sinatra::Base
   get '/stream' do
     repo = PostsRepository.new
      @posts = repo.all
-    if session[:user_name] == nil
+    if session[:user_username] == nil
       @users = []
       repo.all.reverse.each{|post|
       @users << PostsRepository.new.find_user_by_post(post)}

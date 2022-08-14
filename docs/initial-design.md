@@ -52,4 +52,7 @@ FEATURES WANTED:
 
 - make sure signed in users usernames are attached to thier posts 
 
+- improve stream as usernames can sometime seem to bug 
+
+
 

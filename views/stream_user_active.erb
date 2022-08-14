@@ -73,7 +73,7 @@
   <%@posts.reverse.each_with_index do |post,index|%>
   <div class="first">
     <p><%=post.content%></p>
-    <p>POSTED BY:<%=post.posted_by%></p>
-    <p>AT:<%=post.date_created%></p>
+    <p>POSTED BY:<%="#{post.posted_by}"%></p>
+    <p>AT:<%="#{post.date_created}"%></p>
   </div>
   <%end%>
