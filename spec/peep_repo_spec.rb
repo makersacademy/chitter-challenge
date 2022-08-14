@@ -19,13 +19,13 @@ describe PeepRepository do
 
       expect(peeps[0]['id']).to eq('1')
       expect(peeps[0]['content']).to eq('It is awfully hot today')
-      expect(peeps[0]['timestamp']).to eq('2022-08-12 21:55:12.940137 +0100')
+      expect(peeps[0]['timestamp']).to eq('2022-08-12 21:55:12 +0100')
       expect(peeps[0]['name']).to eq('Daffy Duck')
       expect(peeps[0]['username']).to eq('@daffy')
 
       expect(peeps[1]['id']).to eq('2')
       expect(peeps[1]['content']).to eq('Nice weather for ducks')
-      expect(peeps[1]['timestamp']).to eq('2022-08-12 21:56:54.385627 +0100')
+      expect(peeps[1]['timestamp']).to eq('2022-08-12 21:56:54 +0100')
       expect(peeps[1]['name']).to eq('Donald Duck')
       expect(peeps[1]['username']).to eq('@donald')
     end

@@ -24,11 +24,11 @@ describe Application do
       expect(response.status).to eq(200)
       str = "    <div>\n"\
         "      <p>Nice weather for ducks</p>\n"\
-        "      <p>Posted: 2022-08-12 21:56:54.385627 +0100</p>\n"\
+        "      <p>Posted: 21:56:54</p>\n"\
         "      <p>By: Donald Duck - @donald</p>\n"\
         "    </div>\n    \n    <div>\n"\
         "      <p>It is awfully hot today</p>\n"\
-        "      <p>Posted: 2022-08-12 21:55:12.940137 +0100</p>\n"\
+        "      <p>Posted: 21:55:12</p>\n"\
         "      <p>By: Daffy Duck - @daffy</p>\n"\
         "    </div>"
       expect(response.body).to include(str)

@@ -16,10 +16,15 @@ class Application < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @user = session[:user_email]
     repo = PeepRepository.new
-    peeps = repo.view_all
-    @peeps = peeps.sort_by { |_, _, c| c }.reverse
+    peeps = repo.view_all.sort_by { |_, _, c| c }.reverse
+
+    peeps.each do |hash|
+      hash['timestamp'] = hash['timestamp'].match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)
+    end
+
+    @peeps = peeps
+    @user = session[:user_email]
     erb(:home)
   end
 
@@ -111,18 +116,9 @@ class Application < Sinatra::Base
   end
 
   def invalid_user?(user)
-    return true if user.keys.length != 4
-
-    key_list = [:email, :password, :name, :username]
-    key_list.each do |item|
-      return true unless user.keys.include?(item)
-    end
-    
-    user.each_key do |key|
-      return true if user[key].nil?
-      return true if user[key].empty?
-    end
-
+    check = [:email, :password, :name, :username]
+    return true unless user.keys.sort == check.sort
+    return true if user.values.any? { |v| v.nil? || v.empty? }
     false
   end
 end
