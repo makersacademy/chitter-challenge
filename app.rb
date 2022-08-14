@@ -13,6 +13,7 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
     also_reload 'lib/album_repository'
     also_reload 'lib/artist_repository'
+    enable :sessions
   end
 
   get '/' do 
@@ -21,11 +22,15 @@ class Application < Sinatra::Base
 
   get '/stream' do
     repo = PostsRepository.new
-    @users = []
-    repo.all.reverse.each{|post|
-     @users << PostsRepository.new.find_user_by_post(post)}
-    @posts = repo.all
-    return erb(:stream)
+     @posts = repo.all
+    if session[:user_name] == nil
+      @users = []
+      repo.all.reverse.each{|post|
+      @users << PostsRepository.new.find_user_by_post(post)}
+      return erb(:stream)
+    else
+      return erb(:stream_user_active)
+    end
   end
 
   get '/post' do
@@ -40,6 +45,8 @@ class Application < Sinatra::Base
     post.content = params[:content]
     post.date_created = params[:date_created]
     post.user_id = nil
+    post.posted_by = session[:user_username]
+    @posted_by = session[:user_username]
     repo.create(post)
     return erb(:added_post)
   end
@@ -67,9 +74,30 @@ class Application < Sinatra::Base
       return erb(:login_error)
     end 
   end 
+
   
   get "/new_user" do 
-    return(:new_user)
+    return erb(:new_user)
+  end
+
+  post "/new_user/added" do
+    repo = UsersRepository.new
+    user = User.new
+    user.username = params['user_name']
+    user.email = params['email']
+    user.password = params['password']
+    repo.create(user)
+    @username = user.username
+    return erb(:user_added)
+  end 
+
+  get "/log-out" do
+    return erb(:logout)
+  end
+
+  get "/log-out/completed" do
+    session.delete(:user_username)
+    return erb(:logout_success)
   end 
 
 end

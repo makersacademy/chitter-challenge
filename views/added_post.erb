@@ -64,12 +64,14 @@
     <img src="https://imgur.com/hjuGfiu.jpg[/img]">
     <h1>Chitter</h1>
     <ul>
-      <li><a href="#">Login</a></li>
-      <li><a href="#">Log Out </a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/log-out">Log Out </a></li>
       <li><a href="/stream">Return to Stream</a></li>
     </ul>
   </header>
   <div class="first">
     <h2>Post Created!</h2>
     <p><%=@content%></p>
+    <p>by:</p>
+    <p><%=@posted_by%></p>
   </div>

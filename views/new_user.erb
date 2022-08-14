@@ -66,11 +66,17 @@
     <ul>
       <li><a href="/login">Login</a></li>
       <li><a href="/log-out">Log Out </a></li>
-      <li><a href="/stream">Return to Stream</a></li>
     </ul>
   </header>
   <div class="first">
-    <h2>You've Logged in succesfully!</h2>
-    <p>Your Logged in as:</p>
-    <p><%=@username%></p>
+    <h2></h2>
+    <form action="/new_user/added" method="POST">
+    <label> UserName: </label><br/>
+    <input type="text" name="user_name"><br/>
+    <label> Email: </label><br/>
+    <input type="text" name="email"><br/>
+    <label> Password: </label><br/>
+    <input type="text" name="password"><br/>
+    <input type="submit" value="Create Acount"/>
+  </form>
   </div>

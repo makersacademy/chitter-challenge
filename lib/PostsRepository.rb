@@ -12,6 +12,7 @@ class PostsRepository
         post.content = object["content"]
         post.date_created = object["date_created"]
         post.user_id = object["user_id"]
+        post.posted_by = object["posted_by"]
         posts << post
    end 
    return posts

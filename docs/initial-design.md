@@ -48,6 +48,8 @@ FEATURES WANTED:
 
 # IDEAS FOR IMPROVEMENTS
 
-- create specail links to create post with logged in user info
+-  maker sure all views have correct links added 
+
+- make sure signed in users usernames are attached to thier posts 
 
 

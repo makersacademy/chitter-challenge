@@ -94,7 +94,36 @@ RSpec.describe Application do
       response = get('/new_user') 
       
       expect(response.status).to eq(200)
-      expect(response.body).to include("<form>")
+      expect(response.body).to include('<input type="text" name="password"><br/>
+    <input type="submit" value="Create Acount"/>')
+    expect(response.body).to include("")
+    end 
+  end
+  context "POST /new_user/added" do 
+    it "returns correct status and htm for correctly inputed acount details" do 
+      response = post('/new_user/added',user_name:"ruben",email:"fjak@gmail.com",password:"fafjaj!") 
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<p>ruben</p>')
+      expect(response.body).to include("<h2>You've succesfully created a new acount!</h2>")
+    end 
+  end
+  context "GET /log-out" do 
+    it "returns correct status and html" do 
+      response = get('/log-out')
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Would you like to stop chittering and Logout?</h2>')
+    expect(response.body).to include('<li><a href="/log-out/completed">if so click this! </a></li>')
+    end 
+  end
+  context "GET /log-out/completed" do 
+    it "returns correct status and html" do 
+      response = get('/log-out/completed')
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h2>You've been Logout succesfully, see you soon!</h2>")
+    expect(response.body).to include('<li><a href="/">Home Page</a></li>')
     end 
   end
 end 
