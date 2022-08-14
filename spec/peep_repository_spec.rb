@@ -13,7 +13,6 @@ describe PeepRepository do
     reset_chitter_table
   end
 
-  #Get all peeps
   it "returns a list of all peeps" do
     repository = PeepRepository.new
 

@@ -1,5 +1,5 @@
 require_relative 'user'
-# require 'bcrypt'
+require 'bcrypt'
 
 class UserRepository
   def all
@@ -26,6 +26,19 @@ class UserRepository
     VALUES($1, $2, $3, $4);'
 
     result_set = DatabaseConnection.exec_params(sql, [user.name, user.email_address, encrypted_password, user.username])
+  end
 
+  def find_by_email(email_address)
+    sql = 'SELECT id, name, username FROM users WHERE email_address = $1;'
+    sql_params = [email_address]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+
+    account = result_set.map do |record|
+      user = User.new
+      user.id = record['id']
+      user.name = record['name']
+      user.username = record['username']
+    end
+    return false if account.empty?
   end
 end

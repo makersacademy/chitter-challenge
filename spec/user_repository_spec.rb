@@ -48,5 +48,12 @@ describe UserRepository do
     expect(users.length).to eq 3
     expect(users.last.name).to eq "Twm"
     expect(users.last.username).to eq "TwmJam"
-    end
+  end
+
+  it "finds account details by email" do
+    repository = UserRepository.new
+
+    user = repository.find_by_email('sl@aol.com')
+    user = [1, 'Sophie', 'SL']
+  end
 end
