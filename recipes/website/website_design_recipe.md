@@ -22,7 +22,7 @@ I want to sign up for Chitter
 
 ## Step 1: Planning pages
 
-[![Untitled-2022-08-14-1558.png](https://i.postimg.cc/br6fW0xf/Untitled-2022-08-14-1558.png)](https://postimg.cc/GTsfsygX)
+[![Untitled-2022-08-14-1558.png](https://i.postimg.cc/CxbSL8Yk/Untitled-2022-08-14-1558.png)](https://postimg.cc/v48p0c4Z)
 
 ## Step 2: Planning routes
 ```md
