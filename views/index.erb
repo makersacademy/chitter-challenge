@@ -8,7 +8,7 @@
       <% if !@user_id.nil? %>
         @<%= @username %>
         <a href='/log-off'>Log off</a>
-        Post a new Peep
+        <a href='/peep/new'>Post a new Peep</a>
       <% end %>
       <% @peeps.each do |peep| %>
           <p>

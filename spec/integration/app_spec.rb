@@ -57,17 +57,6 @@ describe Application do
     end
   end
 
-  context 'GET / when user has just logged off' do
-    it 'returns 200 and no longer displays username info' do
-      post('/login', username: 'JI2022', password: 'password123')
-      post('/log-off')
-      response = get('/')
-      expect(response.status).to eq 200
-      expect(response.body).to include 'Login'
-      expect(response.body).to include 'Sign up for Chitter!'
-    end
-  end
-
   # GET /login
 
   context 'GET /login with @user_id = nil and no params' do
@@ -139,7 +128,7 @@ describe Application do
       expect(response.status).to eq 302
       expect(last_response).to be_redirect
       follow_redirect!
-      expect(last_request.url).to include '/login&password_error=true'
+      expect(last_request.url).to include '/login?password_error=true'
     end
   end
 
@@ -149,7 +138,7 @@ describe Application do
       expect(response.status).to eq 302
       expect(last_response).to be_redirect
       follow_redirect!
-      expect(last_request.url).to include '/login&username_error=true'
+      expect(last_request.url).to include '/login?username_error=true'
     end
   end
 
@@ -175,12 +164,12 @@ describe Application do
     end
   end
 
-  # POST /log_off
+  # GET /log_off
 
-  context 'POST /log-off with @user_id = user_id' do
+  context 'GET /log-off with @user_id = user_id' do
     it 'returns 200 and logs the user off' do
       post('/login', username: 'JI2022', password: 'password123')
-      response = post('/log-off')
+      response = get('/log-off')
       expect(response.status).to eq 200
       expect(response.body).to include 'You have successfully logged off'
       expect(response.body).to include 'Back'
@@ -241,7 +230,7 @@ describe Application do
       expect(response.status).to eq 302
       expect(last_response).to be_redirect
       follow_redirect!
-      expect(last_request.url).to include '/login&sign-up=true'
+      expect(last_request.url).to include '/login?sign_up=true'
       expect(User.all.length).to eq 5
       expect(User.last.name).to eq 'name'
       expect(User.last.email).to eq 'email@email.com'
@@ -261,7 +250,7 @@ describe Application do
       expect(response.status).to eq 302
       expect(last_response).to be_redirect
       follow_redirect!
-      expect(last_request.url).to include '/sign-up/new&email_error=true&username_error=true'
+      expect(last_request.url).to include '/sign-up/new?email_error=true&username_error=true'
     end
   end
 
@@ -327,13 +316,13 @@ describe Application do
   end
 
   context 'POST /peep/new with @user_id and content' do
-    fit 'returns 200, creates a new post and redirects to /' do
+    it 'returns 200, creates a new post and redirects to /' do
       post('/time-admin', password: 'admin', time: '2022,8,14,12,0,0')
       post('/login', username: 'JI2022', password: 'password123')
-      response = post('/peep/new', content: "content")
+      response = post('/peep/new', content: "content @JI2022")
       expect(response.status).to eq 302
       peep = Peep.last
-      expect(peep.content).to eq 'content'
+      expect(peep.content).to eq 'content @JI2022'
       expect(peep.date_time_created).to eq '2022-08-14 11:00:00'
       expect(peep.user_id).to eq 1
       expect(last_response).to be_redirect
@@ -364,7 +353,6 @@ describe Application do
     it 'returns 200' do
       response = post('/time-admin', password: 'admin', time: 'reset')
       expect(response.status).to eq 200
-      expect(response.body).to eq "Time reset"
     end
   end
 end
