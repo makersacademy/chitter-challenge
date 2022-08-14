@@ -58,22 +58,16 @@ def reset_users_table
       new_user.name = 'Fleur'
       new_user.email = 'fleuremail@test.com'
       new_user.username = 'itsfleurduh'
-      new_user.password = 'samepassword'
+      new_user.password = 'password123'
       repo.create(new_user)
 
       new_user.id = '5'
-      new_user.name = 'Ben'
-      new_user.email = 'benemail@test.com'
-      new_user.username = 'benandbass'
-      new_user.password = 'samepassword'
+      new_user.name = 'fleur'
+      new_user.email = 'anotherfleuremail@test.com'
+      new_user.username = 'itsfleurduh'
+      new_user.password = 'password123'
 
       expect { repo.create(new_user) }.to raise_error "That password is already in use."
-    end
-  end
-
-  context 'password must be unique' do
-    xit 'throws an error message if password is already in the database/in use' do
-    
     end
   end
 
