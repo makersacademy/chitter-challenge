@@ -35,7 +35,7 @@ class UserRepository
   def invalid_user?(user)
     check = [:email, :password, :name, :username]
     return true unless user.keys.sort == check.sort
-    return true if user.values.any? { |v| v.class != String || v.empty? }
+    return true if user.values.any? { |v| v.class != String || v.empty?|| v != v.strip }
     false
   end
 end

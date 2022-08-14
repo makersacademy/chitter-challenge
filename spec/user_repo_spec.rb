@@ -62,6 +62,13 @@ describe UserRepository do
       # This is bad but I can't work out what the exact error message string should be!
       expect { repo.create(user) }.to raise_error PG::UniqueViolation
     end
+
+    it "won't create a blank user" do
+      user = { email: ' ', password: 'rubbish', name: 'Billy', username: '@billy' }
+      b_crypt = double :bcrypt
+      repo = UserRepository.new(b_crypt)
+      expect { repo.create(user) }.to raise_error("invalid user details submitted")    
+    end
   end
 
   context "login" do

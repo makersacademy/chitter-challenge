@@ -17,7 +17,7 @@ class Application < Sinatra::Base
 
   get '/' do
     repo = PeepRepository.new
-    peeps = repo.view_all.sort_by { |_, _, c| c }.reverse
+    peeps = repo.view_all.sort_by { |a| a['timestamp'] }.reverse
 
     peeps.each do |hash|
       hash['timestamp'] = hash['timestamp'].match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)
@@ -118,7 +118,7 @@ class Application < Sinatra::Base
   def invalid_user?(user)
     check = [:email, :password, :name, :username]
     return true unless user.keys.sort == check.sort
-    return true if user.values.any? { |v| v.nil? || v.empty? }
+    return true if user.values.any? { |v| v.nil? || v.empty? || v != v.strip}
     false
   end
 end

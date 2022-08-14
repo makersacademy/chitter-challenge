@@ -88,5 +88,16 @@ describe PeepRepository do
       repo = PeepRepository.new
       expect { repo.create(new_peep) }.to raise_error "invalid peep submitted"
     end
+
+    it "won't create a blank peep" do
+      new_peep = {
+        content: ' ',
+        name: 'Suzy',
+        username: '@suzy'
+      }
+
+      repo = PeepRepository.new
+      expect { repo.create(new_peep) }.to raise_error "invalid peep submitted"
+    end
   end
 end

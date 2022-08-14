@@ -21,7 +21,7 @@ class PeepRepository
   def invalid_peep?(peep)
     check = [:content, :name, :username]
     return true unless peep.keys.sort == check.sort
-    return true if peep.values.any? { |v| v.nil? || v.empty? }
+    return true if peep.values.any? { |v| v.nil? || v.empty? || v != v.strip }
     false
   end
 end

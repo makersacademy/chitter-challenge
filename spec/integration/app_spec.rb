@@ -200,5 +200,18 @@ describe Application do
       expect(response.body).to include('<h1>Chitter: Failed to create user</h1>')
       expect(response.body).to include('<p>User form incomplete</p>')
     end
+
+    it "won't create a user with blanks in the form" do
+      response = post(
+        '/signup',
+        email: 'willy@wonka.com',
+        password: 'chocolate3',
+        name: 'Willy',
+        username: ' '
+      )
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter: Failed to create user</h1>')
+      expect(response.body).to include('<p>User form incomplete</p>')
+    end
   end
 end
