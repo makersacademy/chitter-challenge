@@ -1,0 +1,11 @@
+<html>
+  <head></head>
+    <body>
+      <h1> Peeps </h1>
+      <% @peeps.sort_by{|record| record.date_time}.reverse.each do |record| %>
+      <div>
+      <%= record.content %> - <%= record.date_time %>
+      </div>
+      <% end %>
+    </body>
+</html>

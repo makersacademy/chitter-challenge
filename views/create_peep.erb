@@ -1,0 +1,11 @@
+<form action="/peeps" method="POST">
+<h1>Post your peep here!</h1>
+  <p>Message: <input type="text" name="content"></p>
+  <p>User_id: <input type="int" name="user_id"></p>
+
+  <p>Click here to post: <input type="submit" value="Peep"></p>
+</form>
+
+<% if invalid_param? %>
+  <p>Please type your peep</p>
+<% end %>

@@ -3,7 +3,7 @@ require 'peep'
 require 'date'
 
 def reset_chitter_table
-  seed_sql = File.read('spec/seeds_chitter_test.sql')
+  seed_sql = File.read('spec/seeds/seeds_chitter_test.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(seed_sql)
 end
@@ -14,7 +14,7 @@ describe PeepRepository do
   end
 
   #Get all peeps
-  it "returns all peeps created" do
+  it "returns a list of all peeps" do
     repository = PeepRepository.new
 
     peeps = repository.all
@@ -35,7 +35,6 @@ describe PeepRepository do
     repository = PeepRepository.new
     peep = Peep.new
     peep.content = "What's everyone's plans tonight?"
-    peep.date_time = DateTime.now
     peep.user_id = 2
     repository.create(peep)
 

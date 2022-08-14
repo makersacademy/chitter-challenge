@@ -32,56 +32,29 @@
 
   4. Implement the Model class
   class User
-    def intialize(name, email_address, password, username)
-      @name = name
-      @email_address = email_address
-      @password = password
-      @username = username
-    end
-
-    def name
-      @name
-    end
-
-    def email_address
-      @email_address
-    end
-
-    def password
-      @password
-    end
-
-    def username
-      @username
-    end
+    attr_accessor :id, :name, :email_address, :password, :username
   end
 
   class Peep
-    def intialize(content, date, user_id)
-      @content = content
-      @date = Date.new
-      @user_id = user_id
-    end
-
-    def content
-      @content
-    end
-
-    def date
-      @date
-    end
-
-    def user_id
-      @user_id
+    attr_accessor :id, :content, :date_time, :user_id
+    def initialize
+      @date_time = DateTime.now
     end
   end
 
 5. Define the Repository Class interface
   class UserRepository
     def all
+      # Executes the SQL query:
+      # SELECT * FROM users;
+      # Returns a list of all users created
+    end
+
+    def create(user)
       # Exectues the SQL query:
-      # SELECT name and username from users;
-      # Returns an array of user objects' names and usernames
+      # INSERT INTO users (name, email_address, password, username)
+      # VALUES($1, $2, $3, $4)
+      # Creates a new user account
     end
   end
 
@@ -121,7 +94,7 @@
  
 
   #2
-  #Add peep to list
+  #Create and add peep to list
 
   repository = PeepRepository.new
   peep = Peep.new
@@ -133,6 +106,47 @@
 
   peeps.last.content # => "What's everyone's plans tonight?"
   peeps.last.user_id # => 2
+
+
+  #3
+  #Get a list of all user accounts
+
+  repository = UserRepository.new
+
+  users = repository.all
+
+  users.length # => 2
+
+  users[0].id # => 1
+  users[0].name # => 'Sophie'
+  users[0].email_address # => 'sl@aol.com'
+  users[0].password # => 'abc123'
+  users[0].username # => 'SL'
+
+  users[1].id # => 2
+  users[1].name # => 'Mabon'
+  users[1].email_address # => 'mg@aol.com'
+  users[1].password # => 'def456'
+  users[1].username # => 'MG'
+
+
+  #4
+  #Create new user account
+
+  repository = UserRepository.new
+  user = User.new
+  user.name # => "Twm"
+  user.email_address # => "twm@aol.com"
+  user.password # => "twm123"
+  user.username # => "TwmJam"
+
+  repository.create(user)
+
+  users = repository.all
+
+  users.length # => 3
+  users.last.name # => "Twm"
+  users.last.username # => "TwmJam"
 
   7. Reload the SQL seeds before each test
 
