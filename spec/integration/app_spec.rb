@@ -16,13 +16,17 @@ describe Application do
     )
   end
 
-  context 'escapeHTML_all_params' do
-    it "santises all params inputs" do
-      params = {"username"=>"JI2<><>022", "password"=>"passw<><>ord123"}
-      result = {"password"=>"passw&lt;&gt;&lt;&gt;ord123", "username"=>"JI2&lt;&gt;&lt;&gt;022"}
-      expect(Application.escapeHTML_all_params(params)).to eq result
+  # methods
+
+  context 'escape_html_all_params' do
+    it 'santises all params inputs' do
+      params = { "username" => "JI2<><>022", "password" => "passw<><>ord123" }
+      result = { "password" => "passw&lt;&gt;&lt;&gt;ord123", "username" => "JI2&lt;&gt;&lt;&gt;022" }
+      expect(Application.escape_html_all_params(params)).to eq result
     end
   end
+
+  # GET /
 
   context 'GET / with @user_id = nil and no params' do
     it 'returns 200' do
@@ -53,6 +57,19 @@ describe Application do
     end
   end
 
+  context 'GET / when user has just logged off' do
+    it 'returns 200 and no longer displays username info' do
+      post('/login', username: 'JI2022', password: 'password123')
+      post('/log-off')
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Login'
+      expect(response.body).to include 'Sign up for Chitter!'
+    end
+  end
+
+  # GET /login
+
   context 'GET /login with @user_id = nil and no params' do
     it 'returns 200' do
       response = get('/login')
@@ -74,7 +91,6 @@ describe Application do
       expect(response.body).to include 'Incorrect password'
     end
   end
-
  
   context 'GET /login with @user_id = nil and username_error=true' do
     it 'returns 200 and password error' do
@@ -104,6 +120,8 @@ describe Application do
       expect(last_request.url).to include '/'
     end
   end
+
+  # POST /login
 
   context 'POST /login with @user_id = nil and username & password in db' do
     it 'returns 302 and redirects to /' do
@@ -157,6 +175,20 @@ describe Application do
     end
   end
 
+  # POST /log_off
+
+  context 'POST /log-off with @user_id = user_id' do
+    it 'returns 200 and logs the user off' do
+      post('/login', username: 'JI2022', password: 'password123')
+      response = post('/log-off')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'You have successfully logged off'
+      expect(response.body).to include 'Back'
+    end
+  end
+
+  # GET /sign-up/new
+
   context 'GET /sign-up/new with @user_id = nil' do
     it 'returns 200' do
       response = get('/sign-up/new')
@@ -196,8 +228,10 @@ describe Application do
     end
   end
 
+  # POST /sign-up/new
+
   context 'POST /sign-up/new with @user_id = nil and all params valid' do
-    it 'returns 302, creates a new user and redirects to /' do
+    it 'returns 302, creates a new user and redirects to /login' do
       response = post('/sign-up/new',
         name: 'name',
         email: 'email@email.com',
@@ -207,7 +241,7 @@ describe Application do
       expect(response.status).to eq 302
       expect(last_response).to be_redirect
       follow_redirect!
-      expect(last_request.url).to include '/'
+      expect(last_request.url).to include '/login&sign-up=true'
       expect(User.all.length).to eq 5
       expect(User.last.name).to eq 'name'
       expect(User.last.email).to eq 'email@email.com'
@@ -228,6 +262,50 @@ describe Application do
       expect(last_response).to be_redirect
       follow_redirect!
       expect(last_request.url).to include '/sign-up/new&email_error=true&username_error=true'
+    end
+  end
+
+  context 'POST /sign-up/new with @user_id = user_id' do
+    it 'returns 400' do
+      post('/login', username: 'JI2022', password: 'password123')
+      response = post('/sign-up/new',
+        name: 'name',
+        email: 'john@hotmail.com',
+        username: 'JI2022',
+        password: 'password'
+      )
+      expect(response.status).to eq 400
+    end
+  end
+
+  context 'POST /sign-up/new with @user_id = nil and missing params' do
+    it 'returns 400' do
+      response = post('/sign-up/new')
+      expect(response.status).to eq 400
+    end
+  end
+
+  # GET /peep/new
+
+  context 'GET /peep/new with @user_id = nil' do
+    it 'returns 302 and redirects to login' do
+      response = get('/peep/new')
+      expect(response.status).to eq 302
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.url).to include '/login'
+    end
+  end
+
+  context 'GET /peep/new with @user_id = user_id' do
+    it 'returns 200 and loads Peep form' do
+      post('/login', username: 'JI2022', password: 'password123')
+      response = get('/peep/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Create a new Peep'
+      expect(response.body).to include 'What do you want to say?'
+      expect(response.body).to include 'Post peep!'
+      expect(response.body).to include 'Back'
     end
   end
 end

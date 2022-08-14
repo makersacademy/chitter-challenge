@@ -21,19 +21,20 @@ class Application < Sinatra::Base
     enable :sessions
   end
 
-  def self.escapeHTML_all_params(params) # santises all inputs
-    params.each { |k, v| params[k] = CGI.escapeHTML(v)}
+  def self.escape_html_all_params(params) # santises all inputs
+    params.each { |k, v| params[k] = CGI.escapeHTML(v) }
   end
   # get /\/albums\/([0-9]+)/ do
 
-  get '/' do
+  get '/' do # homepage
+    p 1
     @user_id = session[:user_id]
     @username = @user_id.nil? ? nil : User.find(@user_id).username
     @peeps = Peep.last(20).sort_by { |peep| peep.date_time_created }.reverse
     erb(:index)
   end
 
-  get '/login' do
+  get '/login' do # Login page
     redirect to '/' unless session[:user_id].nil?
     @user_id = session[:user_id]
     @sign_up = params[:sign_up] == 'true'
@@ -45,7 +46,7 @@ class Application < Sinatra::Base
   post '/login' do
     return status 400 if !session[:user_id].nil? ||
       params[:password].nil? || params[:username].nil?
-    Application.escapeHTML_all_params(params)
+    Application.escape_html_all_params(params)
     user = User.find_by(username: params[:username])
     redirect to '/login&username_error=true' if user.nil?
     redirect to '/login&password_error=true' if params[:password] != user.password
@@ -53,16 +54,23 @@ class Application < Sinatra::Base
     redirect to '/'
   end
 
-  get '/sign-up/new' do
+  post '/log-off' do
+    session.delete(:user_id)
+    erb(:log_off)
+  end
+
+  get '/sign-up/new' do # Sign up page
     redirect to '/' unless session[:user_id].nil?
-    Application.escapeHTML_all_params(params)
+    Application.escape_html_all_params(params)
     @email_error = params[:email_error] == 'true'
     @username_error = params[:username_error] == 'true'
     erb(:sign_up)
   end
 
   post '/sign-up/new' do
-    Application.escapeHTML_all_params(params)
+    return status 400 if !session[:user_id].nil? || params[:name].nil? || params[:email].nil? ||
+      params[:username].nil? || params[:password].nil?
+    Application.escape_html_all_params(params)
     error_params = ""
     error_params += '&email_error=true' unless User.find_by(email: params[:email]).nil?
     error_params += '&username_error=true' unless User.find_by(username: params[:username]).nil?
@@ -73,6 +81,11 @@ class Application < Sinatra::Base
       email: params[:email],
       password: params[:password]
     )
-    redirect to '/'
+    redirect to '/login&sign-up=true'
+  end
+
+  get '/peep/new' do
+    redirect to '/login' if session[:user_id].nil?
+    erb(:peep)
   end
 end
