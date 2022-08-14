@@ -25,9 +25,9 @@ TRUNCATE TABLE users, peeps RESTART IDENTITY;
 INSERT INTO users ("email", "password", "name", "username") VALUES
 ('nschlosser@hotmail.com', 'ABCD', 'Naomi Schlösser', 'nschlosser'),
 ('hholmens@gmail.com', 'EFGH', 'Hanna Holmens', 'hhol91'),
-('jjohn_88@yahoo.com', '1234', 'John Johnson', 'john_1')
+('jjohn_88@yahoo.com', '1234', 'John Johnson', 'john_1');
 
 INSERT INTO peeps ("content", "time", "user_id") VALUES
 ('Good morning everyone!', '2022-08-10 10:46:45.558437 +0100', '1'),
-('Just testing out writing a peep', '2022-08-11 17:02:45.558437 +0010', '2')
-('I have has a great day today', '2022-08-12 19:30:45.558437 +0010', '1')
+('Just testing out writing a peep', '2022-08-11 17:02:45.558437 +0010', '2'),
+('I have had a great day today', '2022-08-12 19:30:45.558437 +0010', '1');
