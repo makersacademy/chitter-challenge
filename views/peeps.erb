@@ -2,10 +2,16 @@
   <head></head>
     <body>
       <h1> Peeps </h1>
+      <h3><a href="/">Back to homepage</a></h3>
       <% @peeps.sort_by{|record| record.date_time}.reverse.each do |record| %>
       <div>
+      <% user = @users.find { |user| user.id == record.user_id } %>
+      <u><%= user.name%> &#40; <%= user.username %> &#41;</u>
+      <br>
       <%= record.content %> - <%= record.date_time %>
       </div>
+      <br>
+      <br>
       <% end %>
     </body>
 </html>

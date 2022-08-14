@@ -15,18 +15,23 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
+  enable :sessions
+
   get '/' do
     return erb(:homepage)
   end
 
   get '/peeps' do
     peep_repository = PeepRepository.new
+    user_repository = UserRepository.new
     @peeps = peep_repository.all
+    @users = user_repository.all
     return erb(:peeps)
   end
  
   get '/peeps/new' do
-   return erb(:create_peep)
+    redirect '/' if session[:user] == nil
+    return erb(:create_peep)
   end
 
   post '/peeps/new' do
@@ -37,7 +42,7 @@ class Application < Sinatra::Base
     peep = Peep.new
     repository = PeepRepository.new
     peep.content = params[:content]
-    peep.user_id = params[:user_id]
+    peep.user_id = session[:user].id
     repository.create(peep)
     return erb(:peep_created)
   end
@@ -49,7 +54,6 @@ class Application < Sinatra::Base
   post '/signup' do
     if invalid_param?
       status 400
-      # redirect '/peeps/new'
       return erb(:signup)
     end
     user = User.new
@@ -58,7 +62,9 @@ class Application < Sinatra::Base
     user.username = params[:username]
     user.email_address = params[:email_address]
     user.password = params[:password]
+
     repository.sign_up(user)
+    session[:user] = repository.log_in(user.email_address, user.password)
     return erb(:account_created)
   end
 
@@ -67,35 +73,32 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
+    email_address = params[:email_address]
+    password = params[:password]
     if invalid_user_param?
       status 400
-      p 'hello twm'
       return erb(:login)
     end
   
-    email_address = params[:email_address]
-    password = params[:password]
     repository = UserRepository.new
 
     @user = repository.log_in(email_address, password)
-    p 'are we even getting here ffs'
-    p @user
     if !!@user
-      p 'warrup'
       session[:user] = @user
-      p 'am I here after sessioN?'
       return erb(:login_success)
     else
-      p 'yo Im in the else lmao'
       status 400
       return erb(:login)
     end
   end
 
+  get '/logout' do
+    session[:user] = nil
+    return erb(:logout)
+  end
 
   def invalid_param?
     return true if params[:content] == ""
-    return true if params[:user_id] == ""
     return true if params[:name] == ""
     return true if params[:username] == ""
     return true if params[:password] == ""

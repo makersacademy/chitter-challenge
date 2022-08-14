@@ -28,6 +28,10 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, [user.name, user.email_address, encrypted_password, user.username])
   end
 
+    def find(id)
+      sql = 'SELECT;'
+    end
+
   def find_by_email(email_address)
     sql = 'SELECT * FROM users WHERE email_address = $1;'
     sql_params = [email_address]
@@ -50,15 +54,9 @@ class UserRepository
     repository = UserRepository.new
     user = repository.find_by_email(email_address)
     return nil if user.nil?
-    p email_address
-    p submitted_password
-    p user
     if BCrypt::Password.new(user[0].password) == submitted_password
-      p "Sophie"
-      p user[0]
       return user[0]
     else
-      "Twm"
       return false
     end
   end
