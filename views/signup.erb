@@ -1,0 +1,13 @@
+<form action="/signup" method="POST">
+<h1>Create an account</h1>
+  <p>Name: <input type="text" name="name"></p>
+  <p>Password: <input type="text" Password="password"></p>
+  <p>Email address: <input type="text" name="email_address"></p>
+  <p>Username: <input type="text" name="username"></p>
+
+  <p><input type="submit" value="Create"></p>
+</form>
+
+<% if invalid_param? %>
+  <p>Please enter all fields</p>
+<% end %>

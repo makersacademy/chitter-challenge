@@ -60,4 +60,29 @@ describe Application do
       expect(response.body).to include('<p>Please type your peep</p>')
     end
   end
+
+  context "GET /signup" do
+    it "sign up and create an account" do
+      response = get('/signup')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Create an account</h1>')
+      expect(response.body).to include('<p>Name: <input type="text" name="name"></p>')
+    end
+  end
+
+  context 'POST /signup' do
+    it "should create an account" do
+      response = post(
+        '/signup',
+        name: "Twm",
+        username: "TwmJam",
+        email_address: "Twm@aol.com",
+        password: "twm123"
+      )
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('Your account has been created!')
+    end
+  end
 end

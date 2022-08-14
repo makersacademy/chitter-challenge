@@ -33,7 +33,7 @@ describe UserRepository do
     expect(users[1].username).to eq 'MG'
   end
 
-  it "Creates a new user account" do
+  it "Signing up to create a new user account" do
     repository = UserRepository.new
     user = User.new
     user.name = "Twm"
@@ -41,7 +41,7 @@ describe UserRepository do
     user.password = "twm123"
     user.username = "TwmJam"
 
-    repository.create(user)
+    repository.sign_up(user)
 
     users = repository.all
 
@@ -51,7 +51,6 @@ describe UserRepository do
   end
 
   context "finds account details by email" do
-
     it "successful at finding account" do
       repository = UserRepository.new
 
@@ -66,6 +65,21 @@ describe UserRepository do
 
       user = repository.find_by_email('hgfghd')
       expect(user).to eq nil
+    end
+  end
+
+  context "signing in to an account" do
+    it "successfully logs in" do
+      repository = UserRepository.new
+      user = User.new
+      user.name = 'Tigi'
+      user.password = 'meow'
+      user.username = 'Tigs'
+      user.email_address = 'tigi@aol.com'
+      repository.sign_up(user)
+      account = repository.sign_in('tigi@aol.com', 'meow')
+
+      expect(account).to eq "Login successful"
     end
   end
 end

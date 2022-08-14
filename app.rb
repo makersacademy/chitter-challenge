@@ -17,7 +17,7 @@ class Application < Sinatra::Base
   get '/' do
     return erb(:homepage)
   end
-  
+
   get '/peeps' do
     peep_repository = PeepRepository.new
     @peeps = peep_repository.all
@@ -42,9 +42,32 @@ class Application < Sinatra::Base
     return erb(:peep_created)
   end
 
+  get '/signup' do
+    return erb(:signup)
+  end
+
+  post '/signup' do
+    if invalid_param?
+      status 400
+      # redirect '/peeps/new'
+      return erb(:signup)
+    end
+    user = User.new
+    repository = UserRepository.new
+    user.name = params[:name]
+    user.username = params[:username]
+    user.email_address = params[:email_address]
+    user.password = params[:password]
+    return erb(:account_created)
+  end
+
   def invalid_param?
     return true if params[:content] == ""
     return true if params[:user_id] == ""
+    return true if params[:name] == ""
+    return true if params[:username] == ""
+    return true if params[:email_address] == ""
+    return true if params[:password] == ""
   end
 
 end

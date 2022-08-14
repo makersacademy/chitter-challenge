@@ -19,7 +19,7 @@ class UserRepository
     users
   end
 
-  def create(user)
+  def sign_up(user)
     encrypted_password = BCrypt::Password.create(user.password)
 
     sql = 'INSERT INTO users (name, email_address, password, username)
@@ -29,7 +29,7 @@ class UserRepository
   end
 
   def find_by_email(email_address)
-    sql = 'SELECT id, name, username FROM users WHERE email_address = $1;'
+    sql = 'SELECT id, name, username, password FROM users WHERE email_address = $1;'
     sql_params = [email_address]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
     account = []
@@ -39,8 +39,24 @@ class UserRepository
       user.id = record['id'].to_i
       user.name = record['name']
       user.username = record['username']
+      user.password = record['password']
       account << user
     end
-    return nil if account.empty?
+    account.empty? ? nil : account
+  end
+
+  def sign_in(email_address, submitted_password)
+    repository = UserRepository.new
+    user = repository.find_by_email(email_address)
+    return nil if user.nil?
+
+    # encrypted_submitted_password = BCrypt::Password.create(submitted_password)
+    p user[0].password
+    p submitted_password
+    if BCrypt::Password.new(user[0].password) == submitted_password
+      "Login successful"
+    else
+      "Wrong password"
+    end
   end
 end

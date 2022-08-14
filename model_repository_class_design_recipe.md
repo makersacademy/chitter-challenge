@@ -56,6 +56,18 @@
       # VALUES($1, $2, $3, $4)
       # Creates a new user account
     end
+
+    def find_by_email(email_address)
+    # Executes the SQL query:
+    # SELECT id, name, username FROM users WHERE email_address = $1;
+    # Returns account details if email address exists, otherwise returns nil
+    end
+
+    def sign_in(email_address, submitted_password)
+      # checks via find_by_email if email_address exists
+      # if so, then password will be checked
+      # If correct password, then successful log in.
+    end
   end
 
   class PeepRepository
@@ -147,6 +159,28 @@
   users.length # => 3
   users.last.name # => "Twm"
   users.last.username # => "TwmJam"
+
+  #5
+  #Find account by email
+
+  repository = UserRepository.new
+
+  user = repository.find_by_email('sl@aol.com')
+  user.name = 'Sophie'
+
+  #6
+  #Allow users to sign in
+  repository = UserRepository.new
+  account = sign_in('sl@aol.com', 'abc123')
+  user = repository.find_by_email('sl@aol.com')
+  encrypted_submitted_password = BCrypt::Password.create('abc123'
+  expect(user.name) # => 'Sophie'
+
+  expect(user.password == encrypted_submitted_password).to eq true
+
+
+
+
 
   7. Reload the SQL seeds before each test
 
