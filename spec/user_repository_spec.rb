@@ -70,18 +70,16 @@ def reset_users_table
       expect { repo.create(new_user) }.to raise_error 
       # need to figure out try/catch as raise_error may not necessarily catch correct error
     end
+  end
 
     context 'find_by_email' do
       it 'finds user from their email' do
         repo = UserRepository.new
 
-        user = repo.find(alexemail@test.com)
+        user = repo.find('alexemail@test.com')
         
         expect(user.id).to eq(1)
         expect(user.name).to eq('Alex')
       end
     end
   end
-
-
-end
