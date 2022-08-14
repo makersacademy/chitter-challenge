@@ -50,10 +50,22 @@ describe UserRepository do
     expect(users.last.username).to eq "TwmJam"
   end
 
-  it "finds account details by email" do
-    repository = UserRepository.new
+  context "finds account details by email" do
 
-    user = repository.find_by_email('sl@aol.com')
-    user = [1, 'Sophie', 'SL']
+    it "successful at finding account" do
+      repository = UserRepository.new
+
+      user = repository.find_by_email('sl@aol.com')
+      expect(user.length).to eq 1
+      expect(user[0].id).to eq 1
+      expect(user[0].name).to eq 'Sophie'
+    end
+
+    it "unsuccessful at finding account" do
+      repository = UserRepository.new
+
+      user = repository.find_by_email('hgfghd')
+      expect(user).to eq nil
+    end
   end
 end

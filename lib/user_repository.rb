@@ -32,13 +32,15 @@ class UserRepository
     sql = 'SELECT id, name, username FROM users WHERE email_address = $1;'
     sql_params = [email_address]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
+    account = []
 
-    account = result_set.map do |record|
+    result_set.each do |record|
       user = User.new
-      user.id = record['id']
+      user.id = record['id'].to_i
       user.name = record['name']
       user.username = record['username']
+      account << user
     end
-    return false if account.empty?
+    return nil if account.empty?
   end
 end
