@@ -49,27 +49,33 @@ def reset_users_table
     end
   end
 
+  context 'username must be unique' do
+    it 'throws an error message if username is already in the database/in use' do
+      repo = UserRepository.new
+      new_user = User.new
+      
+      new_user.id = '4'
+      new_user.name = 'Fleur'
+      new_user.email = 'fleuremail@test.com'
+      new_user.username = 'itsfleurduh'
+      new_user.password = 'samepassword'
+      repo.create(new_user)
+
+      new_user.id = '5'
+      new_user.name = 'Ben'
+      new_user.email = 'benemail@test.com'
+      new_user.username = 'benandbass'
+      new_user.password = 'samepassword'
+
+      expect { repo.create(new_user) }.to raise_error "That password is already in use."
+    end
+  end
+
+  context 'password must be unique' do
+    xit 'throws an error message if password is already in the database/in use' do
+    
+    end
+  end
+
 
 end
-
-# # 2.
-# # Create a new user
-
-# repo = UserRepository.new
-# new_user = User.new
-
-# new_user.name = 'Max'
-# new_user.email = 'maxemail@test.com'
-# new_user.username = 'maxonthesax'
-# new_user.password = 'maxpassword'
-
-# repo.create(new_user)
-
-# users = repo.all
-# last_user = users.last
-
-# expect(last_user.name).to eq 'Max'
-# expect(last_user.email).to eq 'maxemail@test.com'
-# expect(last_user.username).to eq 'maxonthesax'
-# expect(last_user.password).to eq 'maxpassword'
-  
