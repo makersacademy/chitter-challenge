@@ -30,6 +30,7 @@ class Application < Sinatra::Base
 
   get '/' do
     # loads the homepage
+
     # :user_id == nil as default, when a user logs in this changes to their User.id
     # :user_id.nil? is how we check whether a user is logged in
     # :user_id == nil => login => :user_id == 1
@@ -43,6 +44,7 @@ class Application < Sinatra::Base
 
   get '/login' do
     # loads the login form page
+
     # redirects back to the homepage if user is logged in already
     redirect to '/' unless session[:user_id].nil?
     # passing into variables for erb
@@ -56,14 +58,18 @@ class Application < Sinatra::Base
 
   post '/login' do
     # verifies login info
+
     # returns error status 400 if no user is logged in or parameters are given
     return status 400 if !session[:user_id].nil? ||
       params[:password].nil? || params[:username].nil?
     Application.escape_html_all_params(params)
+
     # checks username is in database, nil if not
     user = User.find_by(username: params[:username])
+
     # redirect back to login page with username error message if user == nil
     redirect to '/login?username_error=true' if user.nil?
+
     # redirect back to login page with password error message if password doesn't match
     redirect to '/login?password_error=true' if params[:password] != user.password
     session[:user_id] = user.id
@@ -72,6 +78,7 @@ class Application < Sinatra::Base
 
   get '/log-off' do
     # logs the user off
+
     # resets :user_id to nil
     session.delete(:user_id)
     erb(:log_off)
@@ -79,9 +86,11 @@ class Application < Sinatra::Base
 
   get '/sign-up/new' do
     # loads the sign up new users page
+
     # redirects back to homepage if a user is already logged on
     redirect to '/' unless session[:user_id].nil?
     Application.escape_html_all_params(params)
+
     # loads error messages in erb if needed
     @email_error = params[:email_error] == 'true'
     @username_error = params[:username_error] == 'true'
@@ -90,16 +99,20 @@ class Application < Sinatra::Base
 
   post '/sign-up/new' do
     # verifies user info and creates a new user record if checks pass
+
     # returns error status 400 if a user is logged in or any parameters are nil
     Application.escape_html_all_params(params)
     return status 400 if !session[:user_id].nil? || params[:name].nil? || params[:email].nil? ||
       params[:username].nil? || params[:password].nil?
+
     # error messages to be passed back to /sign-up/new if needed
     error_params = []
     error_params << 'email_error=true' unless User.find_by(email: params[:email]).nil?
     error_params << 'username_error=true' unless User.find_by(username: params[:username]).nil?
+
     # redirects to /sign-up/new if any errors
     redirect to "/sign-up/new#{'?' + error_params.join('&')}" unless error_params.empty?
+
     # crates a new user
     User.create(
       name: params[:name],
@@ -112,6 +125,7 @@ class Application < Sinatra::Base
 
   get '/peep/new' do
     # loads form for posting a new Peep
+
     # users cannot access this page if they are not logged in
     redirect to '/login' if session[:user_id].nil?
     erb(:peep)
@@ -120,6 +134,7 @@ class Application < Sinatra::Base
   post '/peep/new' do
     # creates a new Peep record
     Application.escape_html_all_params(params)
+
     # error status 400 if user isn't logged in or content is empty
     return 400 if session[:user_id].nil? || params[:content].nil?
     # by default creation time is current time, this line exists for testing
