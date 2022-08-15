@@ -9,7 +9,11 @@ $ bundle
 $ rake setup
 $ rake migrate
 $ rspec
+$ createdb chitter
+$ createdb chitter_test
 $ rackup
+
+Seed files for databases available in ./spec/seeds
 
 Here are all the gems necessary for this:
 
@@ -59,5 +63,7 @@ Failure/Error: from = Email.new(email: @from)
      ArgumentError:
        email () is invalid
 ```
+
+Requires 
 
 Then the ENV variables have not loaded correctly. Source the env file again and this should solve that problem.
