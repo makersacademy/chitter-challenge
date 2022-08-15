@@ -6,11 +6,11 @@ Uses Sinatra, Rackup, Activerecord, PG, Sendgrid.
 
 $ git clone https://github.com/zacmosshk/chitter_challenge
 $ bundle
+$ createdb chitter
+$ createdb chitter_test
 $ rake setup
 $ rake migrate
 $ rspec
-$ createdb chitter
-$ createdb chitter_test
 $ rackup
 
 Seed files for databases available in ./spec/seeds
