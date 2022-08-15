@@ -34,35 +34,6 @@ require 'peeps_repo'
     end
   end
 
-  # context "it creates a new user" do 
-  #   it "creates new user to the database" do 
-  #     repo = UserRepository.new
-
-  #     new_user = Users.new
-  #     new_user.id = 4
-  #     new_user.name = 'James Bond'
-  #     new_user.email = 'James@test.com'
-  #     new_user.username = '007'
-  #     new_user.password = 'testing123'
-
-  #     repo.create(new_user)
-  #     users = repo.all
-
-  #     expect(users.length).to eq(4)  
-  #     expect(users.last.name).to eq('James Bond')  
-  #   end
-  # end
-
-  # context "deletes a user by id" do
-  #   xit "removes James Bond from users" do 
-  #     repo = UserRepository.new
-
-  #     repo.delete(1)
-  #     users = repo.all
-
-  #     expect(users.length).to eq(2)
-  #   end
-  # end
 
 end
   

@@ -49,12 +49,13 @@ class Application < Sinatra::Base
       repo = UserRepository.new
       @user = repo.find_by_email(email)
 
-      @user == nil || @user.password != password ? erb(:login_success) : erb(:login_err)
+      @user == nil || @user.password != password ? erb(:login_err) : erb(:login_success)
     end
 
     post '/peeps' do
       repo = PeepRepository.new
       new_peep = Peeps.new
+      new_peep.id = params[:id]
       new_peep.content = params[:content]
       new_peep.date = params[:date]
       new_peep.user_id = params[:user_id]

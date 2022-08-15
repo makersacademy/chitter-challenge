@@ -54,17 +54,6 @@ require 'users_repo'
     end
   end
 
-  context "deletes a user by id" do
-    xit "removes James Bond from users" do 
-      repo = UserRepository.new
-
-      repo.delete(1)
-      users = repo.all
-
-      expect(users.length).to eq(2)
-    end
-  end
-
 end
   
 
