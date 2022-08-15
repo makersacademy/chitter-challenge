@@ -6,12 +6,18 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 10am Monday morning
 
-Challenge:
+Diagrams:
 -------
+Classes:
+![](diagrams/classes.png?raw=true)
 
-As usual please start by forking this repo.
+MVC Posting diagram:
+![](diagrams/posting.png?raw=true)
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+MVC Signup diagram:
+![](diagrams/signup.png?raw=true)
+
+
 
 Features:
 -------
@@ -51,6 +57,23 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+
+Technical Approach:
+-----
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Technical Approach:
 -----

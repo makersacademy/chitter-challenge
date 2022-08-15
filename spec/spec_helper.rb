@@ -1,6 +1,19 @@
 require 'simplecov'
 require 'simplecov-console'
 
+ENV['ENVIRONMENT'] == 'test'
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the `app.rb` file
+require './app.rb'
+
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+Capybara.app = Chitter
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -15,3 +28,5 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+
