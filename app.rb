@@ -40,25 +40,34 @@ class Application < Sinatra::Base
     end
 
     get '/login' do
-        return erb(:login)
+      return erb(:login)
     end
 
-    post '/login' do 
-        return erb(:peeps)
-        return erb(:login_err)
-    end
+    post '/login' do
+      email = params[:email]
+      password = params[:password]
+      repo = UserRepository.new
+      @user = repo.find_by_email(email)
 
-    get '/peeps' do 
-        return erb(:peeps)
+      @user == nil || @user.password != password ? erb(:login_success) : erb(:login_err)
     end
 
     post '/peeps' do
-        # {create new peep}
-        return erb(:new_peep)
+      repo = PeepRepository.new
+      new_peep = Peeps.new
+      new_peep.content = params[:content]
+      new_peep.date = params[:date]
+      new_peep.user_id = params[:user_id]
+      repo.create(new_peep)# {create new peep}
+    
+      return erb(:peep_success)
     end
 
+    get '/peeps' do
+        repo = PeepRepository.new
+        @peeps = repo.all
 
-
-
+        return erb(:peeps)
+      end
 
 end

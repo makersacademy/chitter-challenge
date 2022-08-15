@@ -1,10 +1,9 @@
-require_relative 'users'
+require_relative './peeps.rb'
 
 class PeepRepository
   
   def all
     peeps = []
-
     sql = 'SELECT * FROM peeps;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
@@ -35,8 +34,8 @@ class PeepRepository
   end
 
   def create(peep)
-    sql = 'INSERT INTO peeps (id, content, date, user_id) VALUES ($1, $2, $3, $4);'
-    result_set = DatabaseConnection.exec_params(sql, [peep.id, peep.content, peep.date, peep.user_id])
+    sql = 'INSERT INTO peeps (content, date, user_id) VALUES ($1, $2, $3);'
+    result_set = DatabaseConnection.exec_params(sql, [peep.content, peep.date, peep.user_id])
 
     return peep
   end

@@ -1,4 +1,4 @@
-require_relative 'users'
+require_relative './users.rb'
 
 class UserRepository
   
@@ -53,7 +53,6 @@ class UserRepository
     end
 
   end
-
 
   def create(user)
     sql = 'INSERT INTO users (id, name, email, username, password) VALUES ($1, $2, $3, $4, $5);'
