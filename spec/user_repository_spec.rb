@@ -97,9 +97,9 @@ def reset_users_table
         user.password = 'password123'
         repo.create(user)
 
-        account = repo.log_in('maxemail@test.com', 'password123')
+        result = repo.log_in('maxemail@test.com', 'password123')
 
-        expect(account.email).to eq user.email
+        expect(result).to eq true
         # not sure how to test for password (as output will be different each time)
       end
     end
