@@ -10,16 +10,16 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
-  # def sign_in(email, submitted_password)
-  #   user = find_by_email(email)
+  def sign_in(email, submitted_password)
+    user = find_by_email(email)
 
-  #   return nil if user.nil?
+    return nil if user.nil?
 
-  #   p encrypted_submitted_password = BCrypt::Password.create(submitted_password)
-  #   p user.password
-
-  #   return user.password == BCrypt::Password.new(encrypted_submitted_password)
-  # end
+    encrypted_submitted_password = BCrypt::Password.create(submitted_password)
+    
+    # THIS IS NOT WORKING
+    return user.password == BCrypt::Password.new(encrypted_submitted_password)
+  end
 
   def find_by_email(email)
     sql = 'SELECT * FROM users WHERE email = $1;'

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <%# <head>
-    <link rel="stylesheet" href="styles.css">
-  </head>  %>
-  
   <style>
     body {
       background-color: whitesmoke;
@@ -12,17 +8,28 @@
       color: black;
       font-size: 80px;
     }
+
+    p {
+      color: black;
+      font-size: 15px;
+    }
   </style>
 
   <body>
-    <h1>Chitter <img src="images/noun-chat.png"/> </h1> 
+    <h1>Chitter <img src="images/noun-chat.png"/></h1> 
     <hr>
-    <% @peeps.each do |record| %>
-    <div>
-    <p> <%= record.time %> </p>
-    <p> <%= record.content %> </p>
     <br>
+    <div>
+      <form action="/submit" method="POST">
+      <input type="text" name="email" placeholder="email">
+      <input type="text" name="password" placeholder="password">
+
+      <input type="submit" value="Login">
+    </form>
     </div>
-    <% end %>
+
+    <div>
+      <p>Don't have an account? <a href="/signup">Sign up</a></p>
+    </div>
   </body>
 </html>
