@@ -78,7 +78,7 @@ class UsersRepository
       user.password = object['password']
     end
     if user.username == nil
-      return false
+      return nil
     else
       return user 
     end 

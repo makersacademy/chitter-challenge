@@ -87,7 +87,7 @@ RSpec.describe UsersRepository do
     it 'returns false when wrong email entered' do
       repo = UsersRepository.new
       user = repo.find_by_email('32141!')
-      expect(user).to eq(false)
+      expect(user).to eq(nil)
     end
 
   it 'it logs in user if password entered is equal to encrypted password in db' do

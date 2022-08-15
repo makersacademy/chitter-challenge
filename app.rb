@@ -21,17 +21,13 @@ class Application < Sinatra::Base
   end 
 
   get '/stream' do
-    repo = PostsRepository.new
+     repo = PostsRepository.new
      @posts = repo.all
-    if session[:user_username] == nil
       @users = []
       repo.all.reverse.each{|post|
       @users << PostsRepository.new.find_user_by_post(post)}
       return erb(:stream)
-    else
-      return erb(:stream_user_active)
     end
-  end
 
   get '/post' do
     @time = Time.now.asctime
@@ -40,12 +36,17 @@ class Application < Sinatra::Base
 
   post '/post/added' do 
     repo = PostsRepository.new
+    user_repo = UsersRepository.new
     post = Post.new
     @content = params[:content]
     post.content = params[:content]
     post.date_created = params[:date_created]
-    post.user_id = nil
-    post.posted_by = session[:user_username]
+    if session[:user_username] != nil
+      user = user_repo.find_by_email(session[:user_email])
+      post.user_id = user.id
+    else 
+      post.user_id = nil
+    end 
     @posted_by = session[:user_username]
     repo.create(post)
     return erb(:added_post)
@@ -59,15 +60,16 @@ class Application < Sinatra::Base
     repo = UsersRepository.new
     email = params[:email]
     password = params[:password]
-    if repo.find_by_email(email) != false
+    if repo.find_by_email(email) != nil
       user = repo.find_by_email(email)
     else
       @incorrect_field = "Email"
       return erb(:login_error)
     end 
-    if repo.sign_in(email, password)
+    if repo.sign_in(email, password) != false
       @username = user.username
       session[:user_username] = user.username
+      session[:user_email] = user.email
       return erb(:login_success)
     else 
       @incorrect_field = "Password"
@@ -97,6 +99,7 @@ class Application < Sinatra::Base
 
   get "/log-out/completed" do
     session.delete(:user_username)
+    session.delete(:user_email)
     return erb(:logout_success)
   end 
 
