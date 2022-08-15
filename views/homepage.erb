@@ -5,14 +5,14 @@
     div.a {text-align: center;
 }
 </style>
-      <div class="a"><h1>Welcome to Chitter!</div></h1>
+      <div class="a"><h1>Welcome to Chitter!</h1>
       <h3><a href="/peeps">Peeps</a></h3>
       <h3><a href="/signup">Sign up</a></h3>
       <% if session[:user] == nil %>
       <h3><a href="/login">Login</a></h3>
       <% else %>
       <h3><a href="/peeps/new">Add a new peep</a></h3>
-      <h3><a href="/logout">Logout</a></h3>
+      <h3><a href="/logout">Logout</a></h3></div>
       <% end %>
     </body>
 </html>
