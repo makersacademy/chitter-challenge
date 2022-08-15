@@ -1,0 +1,34 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Chitter activity..</h1>
+
+     <div class="new_peep">
+     <h3>Post a peep</h3>
+      <form action="/peeps" method="POST">
+        <input type="text" name="content" placeholder="What's happening?" />
+        <input type="hidden" name="date" value=<%= DateTime.now %> />
+        <input type="hidden" name="user_id" value=<%= "1" %>>
+
+        <input type="submit" value="Peep">
+      </form>
+      </div>
+
+     <div class="peep_list">
+       <% @peeps.reverse.map do |peep|%>
+       <br>
+         <%= peep.content %>
+       <br>
+        <% end %>
+     </div>
+
+
+   
+  </body>
+</html>
