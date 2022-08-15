@@ -8,9 +8,16 @@ require_relative 'lib/peep'
 require_relative 'lib/user'
 require_relative 'lib/send_email'
 
+# ActiveRecord::Base.establish_connection(
+#   adapter:  'postgresql',
+#   database: 'postgresql-colorful-10519'
+# )
+
 ActiveRecord::Base.establish_connection(
-  adapter:  'postgresql',
-  database: 'chitter'
+  adapter:  "postgresql",
+  # username: "vkathwugzaldqh",
+  # password: "9621b8bc05f7d0b3c1468ccdb4d6859fb7992fa7b9f53e7fefae604f7af20c03",
+  database: "postgresql-colorful-10519"
 )
 
 class Application < Sinatra::Base
