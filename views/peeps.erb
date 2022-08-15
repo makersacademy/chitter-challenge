@@ -1,17 +1,25 @@
 <html>
   <head></head>
     <body>
-      <h1> Peeps </h1>
+       <style>
+        div.a {text-align: center;
+        }
+        div.b {
+          font-family: Arial, Tahoma, Serif;
+        }
+      </style>
+<div class="b"><div class="a"><h1> Peeps </h1>
       <h3><a href="/">Back to homepage</a></h3>
       <% @peeps.sort_by{|record| record.date_time}.reverse.each do |record| %>
       <div>
       <% user = @users.find { |user| user.id == record.user_id } %>
-      <u><%= user.name%> &#40; <%= user.username %> &#41;</u>
+      <b><%= user.name%> <font size="-1">&#40; @<%= user.username %> &#41;</b></font>
       <br>
-      <%= record.content %> - <%= record.date_time %>
+      <%= record.content %> - <font size="-2"><%= record.date_time %></font>
       </div>
       <br>
       <br>
       <% end %>
+      </div></div></div>
     </body>
 </html>
