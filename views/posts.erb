@@ -1,0 +1,19 @@
+ <html>
+  <head><h1>Chitter</h1><a href="/">Home</a></head>
+  <body>
+    <h2>Peeps</h2>
+    <% @peeps.each do |peep| %>
+      <div>
+        <%= peep.content %><br />
+        posted by - <%= @user_repo.find(peep.user_id).username %> (<%= @user_repo.find(peep.user_id).name %>) - <%= peep.timestamp %><br />
+        <br />
+      </div>
+        
+    <% end %>
+    <br /><br />
+
+    <a href="/post/new">Send a peep?</a>
+    <br />
+    
+  </body>
+</html>
