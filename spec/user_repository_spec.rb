@@ -1,5 +1,6 @@
 require 'user_repository'
 require 'user'
+require 'bcrypt'
 
 def reset_users_table
     seed_sql = File.read('spec/seeds/test_seeds.sql')
@@ -33,7 +34,7 @@ def reset_users_table
       new_user.name = 'Max'
       new_user.email = 'maxemail@test.com'
       new_user.username = 'maxonthesax'
-      new_user.password = 'maxpassword'
+      new_user.password = 'password123'
 
       repo.create(new_user)
 
@@ -45,7 +46,7 @@ def reset_users_table
       expect(newest_user.name).to eq 'Max'
       expect(newest_user.email).to eq 'maxemail@test.com'
       expect(newest_user.username).to eq 'maxonthesax'
-      expect(newest_user.password).to eq 'maxpassword'
+      # not sure how to test for password (as output will be different each time)
     end
   end
 
@@ -76,10 +77,32 @@ def reset_users_table
       it 'finds user from their email' do
         repo = UserRepository.new
 
-        user = repo.find('alexemail@test.com')
+        user = repo.find_by_email('alexemail@test.com')
         
         expect(user.id).to eq(1)
         expect(user.name).to eq('Alex')
       end
     end
+
+    context 'log_in' do
+      it 'successfully logs user in to their account if email and
+      password match data stored in database' do
+        repo = UserRepository.new
+        user = User.new
+        
+        user.id = '6'
+        user.name = 'Max'
+        user.username = 'maxonthesax'
+        user.email = 'maxemail@test.com'
+        user.password = 'password123'
+        repo.create(user)
+
+        account = repo.log_in('maxemail@test.com', 'password123')
+
+        expect(account.email).to eq user.email
+        # not sure how to test for password (as output will be different each time)
+      end
+    end
   end
+
+
