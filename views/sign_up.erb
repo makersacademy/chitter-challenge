@@ -1,0 +1,25 @@
+<html>
+  <body>
+    <h1>Sign up to Chitter</h1>
+    <form action="/sign-up/new" method="POST">
+      Name: <input type="text" name="name" required>
+      <br>
+      Email: <input type="text" name="email" required>
+      <% if @email_error %>
+        This email is already taken.
+      <% end %>
+      <br>
+
+      Username: <input type="text" name="username" required>   
+      <% if @username_error %>
+        This username is already taken.
+      <% end %>  
+      <br>
+
+      Password: <input type="text" name="password" required>        
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <a href='/'>Back</a>
+  </body>
+</html>

@@ -3,3 +3,7 @@
 
 # Local cache of Rubocop remote config
 .rubocop-*
+
+given_README.md
+sendgrid.env
+email_test.rb

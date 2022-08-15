@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1>Chitter</h1>
+      <% if @user_id.nil? %>
+        <a href='/login'>Login</a>
+        <a href='/sign-up/new'>Sign up for Chitter!</a>
+      <% end %>
+      <% if !@user_id.nil? %>
+        @<%= @username %>
+        <a href='/log-off'>Log off</a>
+        <a href='/peep/new'>Post a new Peep</a>
+      <% end %>
+      <% @peeps.each do |peep| %>
+          <p>
+          <%= peep.name %>
+          @<%= peep.username %>
+          <%= peep.content %>
+          <%= peep.date_time_created_formatted_string %>
+          </p>
+      <% end %>
+  </body>
+</html>

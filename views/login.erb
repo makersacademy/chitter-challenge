@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <h1>Log on to Chitter</h1>
+    <% if @sign_up %>
+      Sign in with your new account
+    <% end %>
+    <form action="/login" method="POST">
+      Username: <input type="text" name="username" required>
+      <% if @username_error %>
+        Username does not exist
+      <% end %>
+      <br>
+      Password:<input type="text" name="password" required>   
+      <% if @password_error %>
+        Incorrect password
+      <% end %>
+      <br>
+      <input type="submit" value="Login">
+    </form>
+    <a href='/sign-up/new'>Sign up to Chitter</a>
+    <a href='/'>Back</a>
+  </body>
+</html>
