@@ -38,7 +38,7 @@ RSpec.describe UserRepository do
   end
 
   context 'when given an incorrect password' do
-    xit 'returns a new page saying incorrect password' do
+    it 'returns a new page saying incorrect password' do
       user_repo = UserRepository.new
       result = user_repo.sign_in('nschlosser@hotmail.com', 'INCORRECT_PASSWORD') 
       expect(result).to eq false
@@ -46,7 +46,7 @@ RSpec.describe UserRepository do
   end
 
   context 'when given the correct password' do
-    xit 'returns the logged_in_page' do
+    it 'returns the logged_in_page' do
       user_repo = UserRepository.new
       result = user_repo.sign_in('nschlosser@hotmail.com', 'ABCD') 
       expect(result).to eq true

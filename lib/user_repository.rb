@@ -15,10 +15,9 @@ class UserRepository
 
     return nil if user.nil?
 
-    encrypted_submitted_password = BCrypt::Password.create(submitted_password)
+    user_pw = BCrypt::Password.new(user.password)
     
-    # THIS IS NOT WORKING
-    return user.password == BCrypt::Password.new(encrypted_submitted_password)
+    return user_pw == submitted_password
   end
 
   def find_by_email(email)

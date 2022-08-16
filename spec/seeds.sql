@@ -23,9 +23,9 @@ CREATE TABLE peeps (
 TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
 INSERT INTO users ("email", "password", "name", "username") VALUES
-('nschlosser@hotmail.com', '$2a$12$TJDU0xBL1/sLnjf812VVP.0CuftbFC5cjCHY9R9NcyOqk3XZdkrL2', 'Naomi Schlösser', 'nschlosser'),
-('hholmens@gmail.com', '$2a$12$f.AIHsxGb3ladl79Kg8ONuIk3vQ.Z/Qe00iv46BlYUnjvraM1gXdG', 'Hanna Holmens', 'hhol91'),
-('jjohn_88@yahoo.com', '$2a$12$jZaKmATnu69GzobXjogKou..lq6b996nOoq2M8lt21c6dxpeasvoe', 'John Johnson', 'john_1');
+('nschlosser@hotmail.com', '$2a$12$Mfg8LMlGcaKLqQlgI6ixBOVMVWHNlIEI.uaeTHvNjEazbkaXZp5wm', 'Naomi Schlösser', 'nschlosser'),
+('hholmens@gmail.com', '$2a$12$emr1iiosCt/WNX535K.VMuEM/iMitorlFtejG3FMFyydougLmIeTS', 'Hanna Holmens', 'hhol91'),
+('jjohn_88@yahoo.com', '$2a$12$ghUyGuh4hIGiv8mYjg6/n.IBzO9KjQsm4IfkJ4Ip9i/brI5eazdca', 'John Johnson', 'john_1');
 
 -- Passwords encrypted with Bcrypt generator
 -- nschlosser password = ABCD
