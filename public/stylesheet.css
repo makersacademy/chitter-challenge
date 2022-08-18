@@ -1,0 +1,128 @@
+* {
+  text-decoration: none;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 30px;
+  color: darkslategrey;
+}
+
+header  {
+  background-color: navy;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: 'Oleo Script', monospace;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: whitesmoke;
+  padding: 0.25em 0.5em;
+  text-align: left;
+  font-weight: bold;
+}
+
+h2 {
+  color: rgb(71, 80, 78);
+  font-family: 'Oleo Script', monospace;
+  font-size: 30px;
+  text-align: left;
+  font-weight: normal;
+  padding: 0.25em 0.5em;
+}
+
+input[type="submit"] {
+  font-size: 30px;
+  font-family: 'Oleo Script', monospace;
+  text-align: center;
+  background-color: #54ddc1;
+  color: whitesmoke;
+  border: 0;
+  padding: 0.25em 0.5em;  
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 20px;
+}
+
+input[type="email"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 20px;
+}
+
+input[type="password"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 20px;
+}
+
+textarea {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', monospace;
+  font-size: 20px;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.heading {
+  position: relative;
+  display: inline-block;
+  padding-left: 15px;
+}
+
+.navigation {
+  position: relative;
+  float: right;
+  padding-top: 50; 
+  padding-right: 20px;   
+}
+
+#left {
+  vertical-align:top;
+  padding: 10px;
+
+}
+
+#feed {
+  vertical-align:top;
+
+  margin: 60px;
+}
+
+
+.multi_submit {
+  text-align: center;
+  padding: 30px
+}
+
+.centered-container {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+.user-info-box {
+margin: 10px auto;
+margin-top: 20px;
+width: 500;
+text-align: center;
+padding: 10px;
+border: 3px solid navy 
+}

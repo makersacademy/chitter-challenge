@@ -1,4 +1,112 @@
-Chitter Challenge
+# Chitter
+
+Chitter is a Twitter clone. Users can register, log in, post peeps and log out.
+
+This is a work in progress that currently does address many edge cases, but does demostrate a full stack project using vanilla Ruby.
+
+How to use:
+-----------
+
+**Set up database**
+
+1. Connect to psql
+2. Create the database using the psql command 
+````console
+psql=# CREATE DATABASE chitter;
+````
+3. Connect to the database using the pqsl command 
+````console
+psql=# \c chitter
+````
+4. Run the query we have saved in the file 01_create_users_table.sql in migrations
+5. Run the query we have saved in the file 02_create_peeps_table.sql in migrations
+6. Exit the database
+````console
+psql=# \q
+````
+7. Create the test database
+````console
+psql=# CREATE DATABASE chitter_test;
+psql=# \c chitter_test;
+````
+8. Repeat steps  4 & 5 for the test database
+
+**Install gems**
+
+````console
+% bundle install
+````
+
+Features:
+-------
+
+```
+STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+```
+
+Class Responsibility Collaborators:
+-----------------------------------
+
+![CRC cards](./docs/chitter_crc_cards.png?raw=true "Model mapping")
+
+Table mapping:
+-----------------------------------
+
+USERS
+| id | first_name | last_name | email  | handle   | password_encrypted |
+|----|------------|-----------|--------|----------|--------------------|
+| 1 | Sophie | Gilder | test@test.com | sophieg | hjfkd-6bdfgd-yhfg |
+| 2 | Joe | Bloggs | joe@bloggs.net | joeb | jgfdsl-543-gfd |
+
+PEEPS
+
+| id | content | time_created | user_id *foreign key* |
+|----|------------|-----------|--------|
+| 1 | I've had a great day | 2022-06-12 09:45:00 | 1 | 
+| 2 | Why are cats green? | 2022-06-12 09:56:05 | 2 | 
+| 3 | OMG!!!! | 2022-06-13 10:45:32 | 1 | 
+
+REPLIES
+
+| id | content | time_created | user_id *foreign key* | peep_id *foreign key* |
+|----|------------|-----------|--------|----------|
+| 1 | Me too! | 2022-06-12 09:46:00 | 2 | 1 |
+| 2 | Why not? | 2022-06-12 10:00:05 | 1 | 2 |
+
+
+Chitter Challenge - original instructions
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own

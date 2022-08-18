@@ -1,0 +1,28 @@
+<div class="parent">
+  <div class="container" id="left">
+    <%if @user%>
+      <h2><%="Welcome, #{@user.first_name}!"%></h2>
+      <form action="/chitter" method="post">
+        <label for="content">New peep:</br>
+          <textarea rows="10" cols="50" name="content" maxlength="240"></textarea></br>
+        </label>
+        <input type="submit" value="Peep!">
+      </form>
+    <%else%>
+      <%= flash[:notice] %>
+      <h2>You must sign in to peep</h2>
+      <form action="chitter/user" method="get">
+        <input type="submit" value="Sign up">
+      </form>
+      <form action="sessions/new" method="get">
+        <input type="submit" value="Sign in">
+      </form>
+    <%end%>
+  </div>
+  <div class="container" id="feed">
+    <% @peeps.reverse.each do |peep| %>
+      <div class="peep_info"> <%= "@#{User.find(id: peep.user_id).handle}: #{peep.time_created}" %></div>
+      <div class="peep_content"><%= peep.content %></div>
+    <% end %>
+  </div>
+</div>
