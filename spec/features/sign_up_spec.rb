@@ -1,5 +1,5 @@
 feature "sign up" do
-  context "from the sign up page" do 
+  context "from the sign up page" do
     scenario "lets new users sign up" do
       visit '/'
       fill_in 'username', with: 'Godzilla'
