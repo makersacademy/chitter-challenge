@@ -1,11 +1,13 @@
 <div class="sign-up-form">
-<button class="submit-button" href="/peeps/new"> Post Peep</button>
+  <button class="submit-button" href="/peeps/new"> Post Peep</button>
 </div>
 <div class="peeps">
   <ul style="list-style: none;">
     <% @peeps.reverse.each do |peep| %>
-      <li><%= peep.content %></li>
-      <li style="font-size: 70%" ><%= peep.time_stamp %></li><br>
+     <ul class="peep">
+        <li><%= peep.content %></li>
+        <li style="font-size: 70%" ><%= peep.time_stamp %></li><br>
+      </ul>
     <% end %>
   </ul>
 </div>
