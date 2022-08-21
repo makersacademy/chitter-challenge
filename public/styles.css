@@ -41,6 +41,17 @@
   justify-content: left;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 500;
+  margin: 20px;
+  border: 2px solid gray;
+}
+
+.peep {
+  background-color: pink;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  justify-content: center;
+  list-style: none;
 }
 
 /*
