@@ -1,3 +1,11 @@
+/* We don't want any links to be underlined. We remove that globally */
 a {
   text-decoration: none;
+}
+
+.navbar {
+  background-color: white;
+  display: flex;
+  /* We align the items so everything is nice and centered */
+  align-items: center;
 }
