@@ -19,6 +19,14 @@
   padding: 0 20px;
 }
 
+.peeps {
+  background-color: white;
+  display: flex;
+  justify-content: left;
+}
+
+/* To be set in place later */
+
 /* .navbar .nav:hover,
 .navbar .nav:focus, 
 .navbar .nav active {
