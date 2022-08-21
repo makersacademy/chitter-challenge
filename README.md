@@ -143,3 +143,22 @@ _Styling_
 https://dev.to/roccosangellino/how-to-build-a-simple-navbar-with-html-and-css-945
 
 ----
+
+
+
+Planning done with Vic:
+
+# Being a member is the conditioin to post/create a peep
+# However, anyone can see all peeps
+
+# the '/' should show all peeps, so it should redirect to /peeps, which shows a nav bar 
+# its not a cloud database, it should be a cloud database
+# dont think about the database until you absolutely have to.
+# Figure out the routes.
+# Look into inputting an ORM, after everything is fixed.
+# 1.reconfigure the routes properly
+# 2.reconfigure the routes properly
+
+# It doesnt make sense to design things from the inside out, only at some point - 
+# It is a mannequin, but it doesnt really function. 
+# We would at least know the routes work...

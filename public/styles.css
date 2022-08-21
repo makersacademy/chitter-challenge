@@ -3,6 +3,10 @@
   text-decoration: none;
 }
 
+/*
+  /* Navigation bar formatting 
+*/
+
 .navbar {
   background-color: white;
   display: flex;
@@ -19,6 +23,18 @@
   padding: 0 20px;
 }
 
+/* To be set in place later */
+
+/* .navbar .nav:hover,
+.navbar .nav:focus, 
+.navbar .nav active {
+  background-color: grey;
+} */
+
+/*
+  /* Peeps formatting 
+*/
+
 .peeps {
   background-color: white;
   display: flex;
@@ -27,10 +43,33 @@
   font-weight: 100;
 }
 
-/* To be set in place later */
+/*
+  /* Forms
+*/
 
-/* .navbar .nav:hover,
-.navbar .nav:focus, 
-.navbar .nav active {
-  background-color: grey;
-} */
+.sign-up-form {
+  padding: 0 45px;
+  justify-content: left; 
+}
+
+.submit-button {
+  color: pink;
+  background-color: #551a8b;
+  border: 1px solid #551a8b;
+  border-radius: 3px;
+  box-shadow: 6px 5px 5px #ddeedf;
+  font-size: 16px;
+  font-weight:bold;
+  padding:10px, 20px;
+  transition: ease-in-out 250ms;
+}
+
+.submit-button:hover {
+  color: #551a8b;
+  background-color: pink;
+  cursor: pointer;
+}
+
+.input-box {
+  border: 2px solid black;
+}
