@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/peep'
-require './lib/user'
+require_relative './lib/peep'
+require_relative './lib/user'
 
 
 class ChitterApp < Sinatra::Base
@@ -12,28 +12,8 @@ class ChitterApp < Sinatra::Base
   enable :sessions
 
   get '/' do
-    erb :"users/sign_up"
+    redirect '/peeps'
   end
-
-  post '/users/new' do
-    # @user = User.create(params[:username]
-    # @user = session[:username]
-    session[:username] = params[:username]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
-    redirect '/users/sign_up'
-  end
-
-  get '/users/sign_up' do
-    User.create(username: params[:username], email: params[:email], password: params[:password])
-    # @user = User.create(params[:username])
-    erb :"users/user_homepage"
-  end 
-
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/index'
-  end 
 
   get '/peeps/new' do
     erb :"peeps/new"
@@ -44,9 +24,23 @@ class ChitterApp < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/users/sign_up' do
+    erb:"users/sign_up"
+  end
+
+  post '/users/sign_up' do
+    @user = User.create(
+      username: params[:username], email: params[:email], password: params[:password]
+    )
+    session[:username] = @user.username
+    erb :"users/user_homepage"
+  end
 
   run! if app_file == $0
 end
-
-
 

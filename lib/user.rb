@@ -2,31 +2,43 @@ require 'pg'
 
 class User
 
-  attr_reader :username, :email, :password
-
-  def initialize(username:, email:, password:)
-    @username = username
-    @email = email
-    @password = password
-  end
-
-  def self.create(username, email, password)
+  def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_chatter_test')
     else
       connection = PG.connect(dbname: 'chitter_chatter')
     end
 
-    connection.exec("INSERT INTO users (username, email, password) VALUES ('#{username}', '#{email}', '#{password}');")
     result = connection.exec("SELECT * FROM users;")
 
-    user = result.map { |user|
-      User.new(username: user['username'],
-      email: user['email'],
-      password: user['password']
-    )
-    }
-    user.to_s
-    
+    result.map do |user|
+      Users.new(user['id'], user['username'], user['email'])
+    end
   end
+
+  def self.create(username:, email:, password:)
+    dbname = 'chitter_chatter'
+    dbname << '_test' if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: dbname)
+
+    result = connection.exec_params(
+      "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email, password",
+      [username, email, password]
+    )
+    User.new(
+      result.first['username'],
+      result.first['email'],
+      result.first['password']
+    )
+  end
+
+  def initialize(username, email, password)
+    @id = id
+    @username = username
+    @email    = email
+    @password = password
+  end
+
+  attr_reader :id, :username, :email
+
 end
