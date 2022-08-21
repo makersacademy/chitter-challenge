@@ -1,5 +1,5 @@
 /* We don't want any links to be underlined. We remove that globally */
-a {
+* {
   text-decoration: none;
 }
 
@@ -8,39 +8,19 @@ a {
   display: flex;
   /* We align the items so everything is nice and centered */
   align-items: center;
-}
-
-.navbar ul {
-  /* We reset the margin and padding of the list so it's is flush. */
-   margin: 0;
-   padding: 0;
-   /* We remove the bullet points */
-   list-style-type: none;
-   /* display the list flex and align the items centered */
-   display: flex;
-   align-items:center;
- }
-
- .navbar .brand {
-  display: block;
-  color: purple;
- /* Remove padding from top/bottom and add 24px padding right/left */
   padding: 0 24px;
-  font-size: 24px;
+  justify-content: left; 
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.navbar ul li a {
-  color: purple;
-  padding: 24px;
-  /*We make the anchor display block.
-     This will ensure when we hover, focus, or is active we get the full width and height 
-      of the container.
-  */
-  display: block;
+.navbar .nav {
+  background-color: white;
+  /* We align the items so everything is nice and centered */
+  padding: 0 20px;
 }
 
-.navbar ul a:hover,
-.navbar ul a:focus, 
-.navbar ul active {
+/* .navbar .nav:hover,
+.navbar .nav:focus, 
+.navbar .nav active {
   background-color: grey;
-}
+} */

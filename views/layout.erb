@@ -1,0 +1,30 @@
+
+<html>
+  <head>
+  <title>Chitter</title>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<div>
+  <body>
+    <header>
+      <div class="navbar">
+        <a class ="nav" href="/peeps">
+          <div class="heading">
+            <h1>Chitter</h1>
+          </div>
+        </a>
+        <a  class ="nav" href="/">
+          <div class="heading">
+            <h1>Sign-Up</h1>
+          </div>
+        </a>
+        <a class ="nav" href="/">
+          <div class="heading">
+            <h1>Log-In</h1>
+          </div>
+        </a>
+      </div>
+    </header>
+    <%=yield%>
+  </body>
+</html>
