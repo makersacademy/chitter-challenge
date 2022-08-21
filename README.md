@@ -132,3 +132,14 @@ You can see your test coverage when you run your tests. If you want this in a gr
 
 Dup vs. clone in Ruby:
 https://www.rubyguides.com/2018/11/dup-vs-clone/
+
+----
+# Notes: 
+
+### **Resources being used**
+
+_Styling_ 
+**navbar**
+https://dev.to/roccosangellino/how-to-build-a-simple-navbar-with-html-and-css-945
+
+----

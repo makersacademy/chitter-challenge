@@ -40,6 +40,7 @@ a {
 }
 
 .navbar ul a:hover,
-.navbar ul a:focus {
+.navbar ul a:focus, 
+.navbar ul active {
   background-color: grey;
 }
