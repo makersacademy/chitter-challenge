@@ -40,7 +40,7 @@
   display: flex;
   justify-content: left;
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 /*
@@ -56,12 +56,11 @@
   color: pink;
   background-color: #551a8b;
   border: 1px solid #551a8b;
-  border-radius: 3px;
+  border-radius: 1px;
   box-shadow: 6px 5px 5px #ddeedf;
   font-size: 16px;
   font-weight:bold;
   padding:10px, 20px;
-  transition: ease-in-out 250ms;
 }
 
 .submit-button:hover {
@@ -71,5 +70,13 @@
 }
 
 .input-box {
-  border: 2px solid black;
+  border: 1px solid grey;
+  border-radius: 1px;
+  height: 22.5px;
+}
+.input-box-peep {
+  border: 1px solid grey;
+  border-radius: 1px;
+  height: 22.5px;
+  width: 300;
 }
