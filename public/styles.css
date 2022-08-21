@@ -23,6 +23,8 @@
   background-color: white;
   display: flex;
   justify-content: left;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 100;
 }
 
 /* To be set in place later */
