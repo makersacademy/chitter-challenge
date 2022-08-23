@@ -23,14 +23,17 @@
   padding: 0 20px;
 }
 
+.navbar .nav .heading:hover {
+  color: pink;
+}
+
 /* To be set in place later */
 
 /* .navbar .nav:hover,
 .navbar .nav:focus, 
 .navbar .nav active {
-  background-color: grey;
+  background-color: white;
 } */
-
 /*
   /* Peeps formatting 
 */
