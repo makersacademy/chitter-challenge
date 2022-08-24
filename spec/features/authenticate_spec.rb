@@ -10,7 +10,9 @@ feature 'authentication' do
     fill_in(:password, with: "4321")
     click_on('log-in')
 
-    expect(page).to have_content 'Welcome, Godzilla!'
+    expect(current_path).to eq '/peeps'
+    # expect(page).to have_content 'Welcome, Godzilla!'
+    # Will put this as a flash message
   end
 
 end

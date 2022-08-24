@@ -46,7 +46,6 @@ class User
       result.first['id'],
       result.first['username'],
       result.first['email'],
-      result.first['password']
     )
   end
 

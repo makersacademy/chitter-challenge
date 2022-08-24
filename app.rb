@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/user'
 
@@ -10,6 +11,7 @@ class ChitterApp < Sinatra::Base
   end
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/peeps'
@@ -47,12 +49,14 @@ class ChitterApp < Sinatra::Base
 
   post '/users/log_in' do
      @user = User.authenticate(
-      email: params[:email], password: params[:password]
+      email: params[:email],
+      password: params[:password]
     )
     if @user
       session[:user_id] = @user.id
       redirect '/peeps'
     else
+      flash[:notice] = "Incorrect email or password"
       redirect ('/users/log_in')
     end
   end
