@@ -89,6 +89,13 @@
   border-radius: 1px;
   height: 22.5px;
 }
+
+.input-box:focus {
+  outline: none !important;
+  border-color: green;
+  box-shadow: 0 0 5px pink;
+}
+
 .input-box-peep {
   border: 1px solid grey;
   border-radius: 1px;

@@ -41,6 +41,22 @@ class ChitterApp < Sinatra::Base
     erb :"users/user_homepage"
   end
 
+  get '/users/log_in' do
+    erb :"users/log_in"
+  end
+
+  post '/users/log_in' do
+     @user = User.authenticate(
+      email: params[:email], password: params[:password]
+    )
+    if @user
+      session[:user_id] = @user.id
+      redirect '/peeps'
+    else
+      redirect ('/users/log_in')
+    end
+  end
+
   run! if app_file == $0
 end
 
