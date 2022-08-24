@@ -32,6 +32,24 @@ class User
     )
   end
 
+  def self.authenticate(email:, password:)
+    dbname = 'chitter_chatter'
+    dbname << '_test' if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: dbname)
+
+    result = connection.exec_params(
+      "SELECT * FROM users WHERE email = $1",
+      [email]
+    )
+    return nil unless result.any?
+    User.new(
+      result.first['id'],
+      result.first['username'],
+      result.first['email'],
+      result.first['password']
+    )
+  end
+
   def initialize(username, email, password)
     @id = id
     @username = username

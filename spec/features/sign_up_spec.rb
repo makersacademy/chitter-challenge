@@ -10,8 +10,6 @@ feature "sign up" do
       expect(current_path).to eq '/users/sign_up'
     end
 
-    # Test above passes but the actual route is not working (??)
-
     scenario "Greets the User" do
       visit '/users/sign_up'
       fill_in 'username', with: 'Godzilla'
