@@ -18,4 +18,13 @@ RSpec.describe User do
       # from outside the class
     end
   end
+
+  describe '.authenticate' do
+    it 'logs in user if email and pw are correct' do
+      god = User.create(username: 'Godzilla', email: 'godzilla@email.com', password: '54321')
+      authentic_user = User.authenticate(email:'godzilla@email.com', password: '54321')
+      expect(authentic_user.id).to eq(god.id)
+    end
+  end
+
 end
