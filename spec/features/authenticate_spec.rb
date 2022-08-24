@@ -1,7 +1,7 @@
 feature 'authentication' do
   scenario 'user can sign in' do
     # create a user
-    User.create(username: "Godzilla", email: "godzilla@email.com", password: "4321")
+    user = User.create(username: "Godzilla", email: "godzilla@email.com", password: "4321")
 
     # sign in as this user
     visit '/'
@@ -11,6 +11,7 @@ feature 'authentication' do
     click_on('log-in')
 
     expect(current_path).to eq '/peeps'
+    expect(user.username).to eq "Godzilla"
     # expect(page).to have_content 'Welcome, Godzilla!'
     # Will put this as a flash message
   end

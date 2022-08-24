@@ -50,7 +50,7 @@ class User
   end
 
   def initialize(username, email, password)
-    @id = id
+    @id       = id
     @username = username
     @email    = email
     @password = password
