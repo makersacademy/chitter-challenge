@@ -3,25 +3,14 @@ require 'pg'
 class User
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_chatter_test')
-    else
-      connection = PG.connect(dbname: 'chitter_chatter')
-    end
-
-    result = connection.exec("SELECT * FROM users;")
-
+    result = DatabaseConnection.query("SELECT * FROM users;")
     result.map do |user|
       new(user['id'], user['username'], user['email'])
     end
   end
 
   def self.create(username:, email:, password:)
-    dbname = 'chitter_chatter'
-    dbname << '_test' if ENV['ENVIRONMENT'] == 'test'
-    connection = PG.connect(dbname: dbname)
-
-    result = connection.exec_params(
+    result = DatabaseConnection.query(
       "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email, password",
       [username, email, password]
     )
@@ -58,7 +47,7 @@ class User
     @username = username
     @email    = email
     @password = password
-end
+  end
 
   attr_reader :id, :username, :email
 
