@@ -7,7 +7,7 @@ feature "sign up" do
       fill_in 'password', with: '1234'
       click_button 'Sign Up'
 
-      expect(current_path).to eq '/users/sign_up'
+      expect(current_path).to eq '/peeps'
     end
 
     scenario "Greets the User" do
@@ -17,8 +17,8 @@ feature "sign up" do
       fill_in 'password', with: '1234'
       click_button 'Sign Up'
 
-      expect(current_path).to eq '/users/sign_up'
-      expect(page).to have_content "Welcome Godzilla!"
+      expect(current_path).to eq '/peeps'
+      expect(page).to have_content "Welcome, Godzilla!"
     end
   end
 end

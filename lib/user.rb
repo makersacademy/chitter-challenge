@@ -38,11 +38,7 @@ class User
     )
   end
 
-  def to_s
-    {username: username}
-  end
-
-  def initialize(username, email, password, id = false)
+  def initialize(username, email, password)
     @id       = id
     @username = username
     @email    = email

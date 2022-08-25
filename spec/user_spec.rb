@@ -13,9 +13,6 @@ RSpec.describe User do
 
       expect(user.username).to eq('Godzilla')
       expect(user.email).to eq('godzilla@email.com')
-      # expect(user.password).to eq('1234')
-      # taken off for now, because we cannot access attr_reader 
-      # from outside the class
     end
   end
 
