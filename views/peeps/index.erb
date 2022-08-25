@@ -1,8 +1,9 @@
-<div class="welcome-message">
-  <%= flash[:notice] %>
-</div>
+
 <div class="sign-up-form">
   <button class="submit-button" onclick="location.href='/peeps/new'"> Post Peep</button>
+</div>
+<div align="center" style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">
+  <%= flash[:notice] %>
 </div>
 <div class="peeps">
   <ul style="list-style: none;">

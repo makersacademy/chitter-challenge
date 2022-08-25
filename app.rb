@@ -54,7 +54,7 @@ class ChitterApp < Sinatra::Base
     )
     if user
       session[:user_id] = user.id
-      flash[:notice] = "Welcome back."
+      flash[:notice] = "Welcome back #{user.username}!"
       redirect '/peeps'
     else
       flash[:notice] = "Incorrect email or password"

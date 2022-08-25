@@ -50,7 +50,7 @@ class User
   end
 
   def to_s
-    '%<username>s' % {username: username}
+    {username: username}
   end
 
   def initialize(username, email, password, id = false)
