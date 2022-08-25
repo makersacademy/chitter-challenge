@@ -36,10 +36,10 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users/sign_up' do
-    @user = User.create(
+    user = User.create(
       username: params[:username], email: params[:email], password: params[:password]
     )
-    session[:username] = @user.username
+    session[:username] = user.username
     erb :"users/user_homepage"
   end
 
@@ -48,13 +48,13 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users/log_in' do
-     @user = User.authenticate(
+     user = User.authenticate(
       email: params[:email],
       password: params[:password]
     )
-    if @user
-      session[:user_id] = @user.id
-      flash[:notice] = "Welcome back #{@user.username}"
+    if user
+      session[:user_id] = user.id
+      flash[:notice] = "Welcome back #{user.username}"
       redirect '/peeps'
     else
       flash[:notice] = "Incorrect email or password"

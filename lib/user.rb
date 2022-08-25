@@ -12,7 +12,7 @@ class User
     result = connection.exec("SELECT * FROM users;")
 
     result.map do |user|
-      Users.new(user['id'], user['username'], user['email'])
+      new(user['id'], user['username'], user['email'])
     end
   end
 
@@ -37,24 +37,28 @@ class User
     dbname << '_test' if ENV['ENVIRONMENT'] == 'test'
     connection = PG.connect(dbname: dbname)
 
-    result = connection.exec_params(
+    user_entry = connection.exec_params(
       "SELECT * FROM users WHERE email = $1",
       [email]
     )
-    return nil unless result.any?
+    return false unless user_entry.any?
     User.new(
-      result.first['id'],
-      result.first['username'],
-      result.first['email'],
+      user_entry.first['id'],
+      user_entry.first['usernamhe'],
+      user_entry.first['email'],
     )
   end
 
-  def initialize(username, email, password)
+  def to_s
+    '%<username>s' % {username: username}
+  end
+
+  def initialize(username, email, password, id = false)
     @id       = id
     @username = username
     @email    = email
     @password = password
-  end
+end
 
   attr_reader :id, :username, :email
 
