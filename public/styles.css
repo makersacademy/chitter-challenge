@@ -23,10 +23,25 @@
   padding: 0 20px;
 }
 
+/* .head {
+  color: pink;
+  text-shadow: 2px 2px #551a8b;
+} */
+
+.navbar .nav .heading {
+  color: #551a8b;
+  text-shadow: 2px 2px pink;
+}
+
 .navbar .nav .heading:hover {
   color: pink;
   text-shadow: 2px 2px #551a8b;
 }
+
+/* .navbar .nav .heading:hover {
+  color: pink;
+  text-shadow: 2px 2px #551a8b;
+} */
 
 /* To be set in place later */
 
@@ -71,7 +86,7 @@
   color: pink;
   background-color: #551a8b;
   border: 1px solid #551a8b;
-  border-radius: 1px;
+  border-radius: 10px;
   box-shadow: 3px 3px 2px grey;
   font-size: 16px;
   font-weight:bold;
