@@ -1,6 +1,14 @@
-Chitter Challenge
-=================
+<div align="center">
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Courier+New%2C+Courier%2C+bold&size=40&pause=1000&color=000000&background=F7B3FF00&center=true&multiline=true&width=500&height=100&lines=Chitter+Challenge" alt="Typing SVG" /></a>
+</div>
+<div align="center">
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Courier+New%2C+Courier%2C+bold&size=15&pause=1000&color=000000&background=F7B3FF00&center=true&multiline=true&width=600&height=50&lines=work+in+progress..." alt="Typing SVG" /></a>
+</div>
 
+---
+
+
+**_Makers Academy:_**
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
@@ -21,15 +29,15 @@ STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter \\\\\\\\\\
+I want to post a message (peep) to chitter 
 
 As a maker
 So that I can see what others are saying  
-I want to see all peeps in reverse chronological order \\\\\\\\\\
+I want to see all peeps in reverse chronological order 
 
 As a Maker
 So that I can better appreciate the context of a peep
-I want to see the time at which it was made \\\\\\\\\\\
+I want to see the time at which it was made 
 
 As a Maker
 So that I can post messages on Chitter as me
@@ -134,35 +142,48 @@ Dup vs. clone in Ruby:
 https://www.rubyguides.com/2018/11/dup-vs-clone/
 
 ----
-# Notes: 
+#### Process Notes: 
 
-### **Resources being used**
+##### **_Resources used:_**
 
-_Styling_ 
-**navbar**
+* _Structure_ 
+
+> * **database**
+https://github.com/makersacademy/databases
+
+> * **web applications**
+https://github.com/makersacademy/web-applications
+
+
+---
+
+
+* _Styling_ 
+
+> * **navbar**
 https://dev.to/roccosangellino/how-to-build-a-simple-navbar-with-html-and-css-945
 
 ----
 
-_HTML_
-**button**
+* _HTML_
+
+> * **button**
 https://www.codegrepper.com/code-examples/html/make+button+redirect+to+another+page+html
 
+> * **'required' field and placeholder**
+https://stackoverflow.com/questions/5272433/html5-form-required-attribute-set-custom-validation-message
+
+---
 
 
-_Planning done with Vic:_
+##### _Planning notes:_
 
-Being a member is the conditioin to post/create a peep
-~~However, anyone can see all peeps~~
-
-the '/' should show all peeps, so it should redirect to /peeps, which shows a nav bar 
-its not a cloud database, it should be a cloud database
+- ~~Anyone can see all peeps~~
+- ~~Figure out the routes.~~
+- ~~the '/' should show all peeps, so it should redirect to /peeps, which shows a nav bar~~ 
+- Being a member is the condition to create a peep
+- its not a cloud database, it should be a cloud database
 dont think about the database until you absolutely have to.
-Figure out the routes.
-Look into inputting an ORM, after everything is fixed.
-1.reconfigure the routes properly
-2.reconfigure the routes properly
-
-It doesnt make sense to design things from the inside out, only at some point - 
-It is a mannequin, but it doesnt really function. 
+- Look into inputting an ORM, after everything is fixed.
+- It doesnt make sense to design things from the inside out, only at some point: It is a mannequin, but it doesnt really function. 
 We would at least know the routes work...
