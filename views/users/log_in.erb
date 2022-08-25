@@ -1,8 +1,8 @@
 <div class="sign-up-form">
 <%= flash[:notice] %>
   <form action="/users/log_in" method="post">
-    <input class="input-box" type="email" name="email" placeholder="email">
-    <input class="input-box" type="password" name="password" placeholder="password">
+    <input class="input-box" type="email" name="email" placeholder="email" required>
+    <input class="input-box" type="password" name="password" placeholder="password" required>
     <input class="submit-button" type="submit" value="log-in">
   </form>
 </div>
