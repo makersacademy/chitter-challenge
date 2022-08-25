@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/user'
+require_relative './lib/database_connection_setup'
 
 
 class ChitterApp < Sinatra::Base
