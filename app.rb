@@ -41,7 +41,8 @@ class ChitterApp < Sinatra::Base
       username: params[:username], email: params[:email], password: params[:password]
     )
     session[:username] = user.username
-    erb :"users/user_homepage"
+    flash[:notice] = "Welcome, #{user.username}!"
+    redirect '/peeps'
   end
 
   get '/users/log_in' do
@@ -54,8 +55,8 @@ class ChitterApp < Sinatra::Base
       password: params[:password]
     )
     if user
-      session[:user_id] = user.id
-      flash[:notice] = "Welcome back #{user.username}!"
+      session[:username] = user.username
+      flash[:notice] = "Welcome #{user.username}!"
       redirect '/peeps'
     else
       flash[:notice] = "Incorrect email or password"
