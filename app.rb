@@ -40,8 +40,9 @@ class ChitterApp < Sinatra::Base
     user = User.create(
       username: params[:username], email: params[:email], password: params[:password]
     )
-    session[:username] = user.username
+    session[:user_id] = user.id
     flash[:notice] = "Welcome, #{user.username}!"
+  
     redirect '/peeps'
   end
 
@@ -55,8 +56,12 @@ class ChitterApp < Sinatra::Base
       password: params[:password]
     )
     if user
+      p "we are in authenticate app.rb"
+      p user
+      p user.username
       session[:user_id] = user.id
       flash[:notice] = "Welcome #{user.username}!"
+      p user.username
       redirect '/peeps'
     else
       flash[:notice] = "Incorrect email or password"

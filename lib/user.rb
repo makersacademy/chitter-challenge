@@ -14,9 +14,12 @@ class User
       "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email, password",
       [username, email, password]
     )
+    p "we are in user.rb"
+    p result.first
     User.new(
-      result.first['username'],
       result.first['email'],
+      result.first['username'],
+      result.first['id'],
       result.first['password']
     )
   end
@@ -32,13 +35,13 @@ class User
     )
     return false unless user_entry.any?
     User.new(
-      user_entry.first['username'],
-      user_entry.first['id'],
       user_entry.first['email'],
+      user_entry.first['username'],
+      user_entry.first['id']
     )
   end
 
-  def initialize(username, email, password)
+  def initialize(email, username, id, password = false )
     @id       = id
     @username = username
     @email    = email
