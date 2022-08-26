@@ -55,7 +55,7 @@ class ChitterApp < Sinatra::Base
       password: params[:password]
     )
     if user
-      session[:username] = user.username
+      session[:user_id] = user.id
       flash[:notice] = "Welcome #{user.username}!"
       redirect '/peeps'
     else
