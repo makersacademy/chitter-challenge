@@ -21,6 +21,7 @@ RSpec.describe User do
       god = User.create(username: 'Godzilla', email: 'godzilla@email.com', password: '54321')
       authentic_user = User.authenticate(email:'godzilla@email.com', password: '54321')
       expect(authentic_user.id).to eq(god.id)
+      expect(authentic_user.username).to eq('Godzilla')
     end
   end
 

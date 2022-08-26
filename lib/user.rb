@@ -32,8 +32,8 @@ class User
     )
     return false unless user_entry.any?
     User.new(
+      user_entry.first['username'],
       user_entry.first['id'],
-      user_entry.first['usernamhe'],
       user_entry.first['email'],
     )
   end
