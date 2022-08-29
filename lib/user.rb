@@ -3,15 +3,16 @@ require 'pg'
 class User
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM users;")
-    result.map do |user|
+    user_all = DatabaseConnection.query("SELECT * FROM users;")
+    user_all.map do |user|
       new(user['id'], user['username'], user['email'])
     end
   end
 
   def self.create(username:, email:, password:)
     user_create = DatabaseConnection.query(
-      "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email, password",
+      "INSERT INTO users (username, email, password) 
+      VALUES ($1, $2, $3) RETURNING id, username, email, password",
       [username, email, password]
     )
     new(
