@@ -10,32 +10,28 @@ class User
   end
 
   def self.create(username:, email:, password:)
-    result = DatabaseConnection.query(
+    user_create = DatabaseConnection.query(
       "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email, password",
       [username, email, password]
     )
     new(
-      result.first['email'],
-      result.first['username'],
-      result.first['id'],
-      result.first['password']
+      user_create.first['email'],
+      user_create.first['username'],
+      user_create.first['id'],
+      user_create.first['password']
     )
   end
 
   def self.authenticate(email:, password:)
-    dbname = 'chitter_chatter'
-    dbname << '_test' if ENV['ENVIRONMENT'] == 'test'
-    connection = PG.connect(dbname: dbname)
-
-    user_entry = connection.exec_params(
+    user_session = DatabaseConnection.query(
       "SELECT * FROM users WHERE email = $1",
       [email]
     )
-    return false unless user_entry.any?
+    return false unless user_session.any?
     new(
-      user_entry.first['email'],
-      user_entry.first['username'],
-      user_entry.first['id']
+      user_session.first['email'],
+      user_session.first['username'],
+      user_session.first['id']
     )
   end
 
