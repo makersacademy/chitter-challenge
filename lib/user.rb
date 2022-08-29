@@ -14,9 +14,7 @@ class User
       "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email, password",
       [username, email, password]
     )
-    p "we are in user.rb"
-    p result.first
-    User.new(
+    new(
       result.first['email'],
       result.first['username'],
       result.first['id'],
@@ -34,7 +32,7 @@ class User
       [email]
     )
     return false unless user_entry.any?
-    User.new(
+    new(
       user_entry.first['email'],
       user_entry.first['username'],
       user_entry.first['id']
