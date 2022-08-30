@@ -12,8 +12,7 @@ feature 'authentication' do
 
     expect(current_path).to eq '/peeps'
     expect(user.username).to eq "Godzilla"
-    # expect(page).to have_content 'Welcome, Godzilla!'
-    # Will put this as a flash message
+    expect(page).to have_content 'Welcome Godzilla!'
   end
 
 end
