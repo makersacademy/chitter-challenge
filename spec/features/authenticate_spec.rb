@@ -14,5 +14,4 @@ feature 'authentication' do
     expect(user.username).to eq "Godzilla"
     expect(page).to have_content 'Welcome Godzilla!'
   end
-
 end

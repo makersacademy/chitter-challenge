@@ -1,5 +1,4 @@
 feature "Post peep" do
-
   scenario "a user can post a new peep" do
     visit '/peeps/new'
     fill_in 'content', with: 'This is my first peep!'
