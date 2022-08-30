@@ -17,8 +17,8 @@ RSpec.describe Peep do
   describe '.create' do
     it 'creates a new peep' do
       Peep.create(content: 'This is a test')
-      peeps = Peep.all
-      expect(peeps.to_s).to include 'This is a test'
+      peeps = Peep.all.to_s
+      expect(peeps).to include 'This is a test'
     end
   end
 
