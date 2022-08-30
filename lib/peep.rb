@@ -10,15 +10,9 @@ class Peep
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_chatter_test')
-    else
-      connection = PG.connect(dbname: 'chitter_chatter')
-    end
+    peeps = DatabaseConnection.query("SELECT * FROM peeps;")
 
-    result = connection.exec("SELECT * FROM peeps;")
-
-    result.map { |peep| 
+    peeps.map { |peep| 
       Peep.new(content: peep['content'],
         time_stamp: peep['time_stamp'])
     }
