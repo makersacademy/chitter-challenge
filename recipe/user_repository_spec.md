@@ -16,7 +16,7 @@ Otherwise, [follow this recipe to design and create the SQL schema for your tabl
 Table: users
 
 Columns:
-id | name | cohort_name
+id | username | name | email | password
 ```
 
 ## 2. Create Test SQL seeds
@@ -35,19 +35,22 @@ If seed data is provided (or you already created it), you can skip this step.
 -- so we can start with a fresh state.
 -- (RESTART IDENTITY resets the primary key)
 
-TRUNCATE TABLE users RESTART IDENTITY; -- replace with your own table name.
+TRUNCATE TABLE users, posts RESTART IDENTITY; -- replace with your own table name.
 
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
 
-INSERT INTO users (name, cohort_name) VALUES ('David', 'April 2022');
-INSERT INTO users (name, cohort_name) VALUES ('Anna', 'May 2022');
+INSERT INTO users (username, name, email, password) VALUES 
+('ted453', 'Ted D', 'tedd@hotmailtest.com', 'qwerty123'),
+('jem341', 'Jemm Platz', 'JSpace@yahoot.com', 'astrocosmaus789'),
+('user123', 'Anon Ymouse', 'is_a_user@user.com', 'password_123');
+
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
 
 ```bash
-psql -h 127.0.0.1 your_database_name < seeds_{table_name}.sql
+psql -h 127.0.0.1 chitter_test < chitter_test_seeds.sql
 ```
 
 ## 3. Define the class names
@@ -60,12 +63,12 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 # Model class
 # (in lib/user.rb)
-class user
+class User
 end
 
 # Repository class
 # (in lib/user_repository.rb)
-class userRepository
+class UserRepository
 end
 ```
 
@@ -80,19 +83,10 @@ Define the attributes of your Model class. You can usually map the table columns
 # Model class
 # (in lib/user.rb)
 
-class user
-
-  # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+class User
+  attr_accessor :id, :username, :name, :email, :password
 end
 
-# The keyword attr_accessor is a special Ruby feature
-# which allows us to set and get attributes on an object,
-# here's an example:
-#
-# user = user.new
-# user.name = 'Jo'
-# user.name
 ```
 
 *You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
@@ -110,13 +104,12 @@ Using comments, define the method signatures (arguments and return value) and wh
 # Repository class
 # (in lib/user_repository.rb)
 
-class userRepository
-
+class UserRepository
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM users;
+    # SELECT * FROM users;
 
     # Returns an array of user objects.
   end
@@ -125,15 +118,15 @@ class userRepository
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM users WHERE id = $1;
+    # SELECT * FROM users WHERE id = $1;
 
     # Returns a single user object.
   end
 
-  # Add more methods below for each operation you'd like to implement.
-
-  # def create(user)
-  # end
+  def create(user)
+    # Executes the SQL query:
+    # INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4);
+  end
 
   # def update(user)
   # end
@@ -156,18 +149,20 @@ These examples will later be encoded as RSpec tests.
 # Get all users
 
 repo = userRepository.new
-
 users = repo.all
 
-users.length # =>  2
+users.length # =>  3
 
 users[0].id # =>  1
-users[0].name # =>  'David'
-users[0].cohort_name # =>  'April 2022'
+users[0].username # => 'ted453'
+users[0].name # =>  'Ted D'
+users[0].email # =>  'tedd@hotmailtest.com'
+users[0].password # => 'qwerty123'
 
 users[1].id # =>  2
 users[1].name # =>  'Anna'
-users[1].cohort_name # =>  'May 2022'
+users[1].email # =>  'May 2022'
+
 
 # 2
 # Get a single user
@@ -176,6 +171,9 @@ repo = userRepository.new
 
 user = repo.find(1)
 
+('ted453', 'Ted D', 'tedd@hotmailtest.com', 'qwerty123'),
+('jem341', 'Jemm Platz', 'JSpace@yahoot.com', 'astrocosmaus789'),
+('user123', 'Anon Ymouse', 'is_a_user@user.com', 'password_123');
 user.id # =>  1
 user.name # =>  'David'
 user.cohort_name # =>  'April 2022'

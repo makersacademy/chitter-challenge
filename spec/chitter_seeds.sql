@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 
 -- Then the table with the foreign key first.
-CREATE TABLE post (
+CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   content text,
   post_time timestamp,
