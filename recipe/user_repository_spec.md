@@ -199,7 +199,8 @@ user.username = 'newTest45'
 user.name = 'Justa Test'
 user.email = 'testing@tests.com'
 user.password = '321tset'
-user = repo.find(3)
+
+repo.create(user)
 
 all_users = repo.all
 

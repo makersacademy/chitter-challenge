@@ -201,17 +201,18 @@ posts.user_id # => 2
 
 repo = postRepository.new
 post = post.new
-post.postname = 'newTest45'
-post.name = 'Justa Test'
-post.email = 'testing@tests.com'
-post.password = '321tset'
-post = repo.find(3)
+post.content = 'Ed Balls'
+post.post_time = '2019-01-20 14:20:00'
+post.tagged_users = ''
+post.user_id = '3'
 
+repo.create(post)
 all_posts = repo.all
 
-expect(all_posts.length).to eq 4
-expect(all_posts[3].name).to eq 'Justa Test'
-expect(all_posts.last.password).to eq '321tset'
+expect(all_posts.length).to eq 6
+expect(all_posts.last.content).to eq 'Ed Balls'
+expect(all_posts.last.post_time).to eq '2019-01-20 14:20:00'
+expect(all_posts.last.user_id).to eq 3
 
 ```
 

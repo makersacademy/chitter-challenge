@@ -1,8 +1,7 @@
 require_relative './post'
 
 class PostRepository
-  # Selecting all records
-  # No arguments
+
   def all
     sql = 'SELECT * FROM posts;'
     result = DatabaseConnection.exec_params(sql, [])
@@ -16,8 +15,6 @@ class PostRepository
     return posts
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
   def find(id)
     sql = 'SELECT * FROM posts WHERE id = $1;'
     params = [id]
@@ -26,15 +23,11 @@ class PostRepository
   end
 
   def create(post)
-    # Executes the SQL query:
-    # INSERT INTO posts (content, post_time, tagged_users, user_id) VALUES ($1, $2, $3, $4);
+    sql = 'INSERT INTO posts (content, post_time, tagged_users, user_id) VALUES ($1, $2, $3, $4);'
+    params = [post.content, post.post_time, post.tagged_users, post.user_id]
+    DatabaseConnection.exec_params(sql, params)
+    return nil
   end
-
-  # def update(post)
-  # end
-
-  # def delete(post)
-  # end
 
   private
 

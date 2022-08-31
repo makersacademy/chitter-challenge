@@ -54,4 +54,22 @@ RSpec.describe PostRepository do
       expect(post.user_id).to eq 2
     end
   end
+  describe '#create' do
+    it 'adds a post to the database' do
+      repo = PostRepository.new
+      post = Post.new
+      post.content = 'Ed Balls'
+      post.post_time = '2019-01-20 14:20:00'
+      post.tagged_users = ''
+      post.user_id = '3'
+
+      repo.create(post)
+      all_posts = repo.all
+
+      expect(all_posts.length).to eq 6
+      expect(all_posts.last.content).to eq 'Ed Balls'
+      expect(all_posts.last.post_time).to eq '2019-01-20 14:20:00'
+      expect(all_posts.last.user_id).to eq 3
+    end
+  end
 end
