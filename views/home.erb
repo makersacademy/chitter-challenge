@@ -1,0 +1,17 @@
+<h1> Chitter </h1>
+
+<div>
+  <% if @session_id %>
+    <%= "#{User.find_by_user_id(@session_id).username}Signed In"%>
+  <% else %>
+    <%= "No one signed in, please log in or sign up." %>
+  <% end %>
+</div>
+
+<form action='/users/login' method='get'>
+  <input type='submit' value='Go to Log In'/>
+</form> <br>
+
+<form action='/users/new' method='get'>
+  <input type='submit' value='Go to Sign Up'/>
+</form>
