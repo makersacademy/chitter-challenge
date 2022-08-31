@@ -160,8 +160,8 @@ users[0].email # =>  'tedd@hotmailtest.com'
 users[0].password # => 'qwerty123'
 
 users[1].id # =>  2
-users[1].name # =>  'Anna'
-users[1].email # =>  'May 2022'
+users[1].name # =>  'Jemm Platz'
+users[1].email # =>  'JSpace@yahoot.com'
 
 
 # 2
@@ -170,15 +170,43 @@ users[1].email # =>  'May 2022'
 repo = userRepository.new
 
 user = repo.find(1)
+user.id # =>  1
+user.username # => 'ted453'
+user.name # =>  'Ted D'
+user.email # =>  'tedd@hotmailtest.com'
+user.password # => 'qwerty123'
+# Get a single user
+
+repo = userRepository.new
+
+user = repo.find(3)
 
 ('ted453', 'Ted D', 'tedd@hotmailtest.com', 'qwerty123'),
 ('jem341', 'Jemm Platz', 'JSpace@yahoot.com', 'astrocosmaus789'),
 ('user123', 'Anon Ymouse', 'is_a_user@user.com', 'password_123');
-user.id # =>  1
-user.name # =>  'David'
-user.cohort_name # =>  'April 2022'
+user.id # =>  3
+user.username # => 'user123'
+user.name # =>  'Anon Ymouse'
+user.email # =>  'is_a_user@user.com'
+user.password # => 'password_123'
 
-# Add more examples for each method
+#3
+#Create a user
+
+repo = userRepository.new
+user = User.new
+user.username = 'newTest45'
+user.name = 'Justa Test'
+user.email = 'testing@tests.com'
+user.password = '321tset'
+user = repo.find(3)
+
+all_users = repo.all
+
+expect(all_users.length).to eq 4
+expect(all_users[3].name).to eq 'Justa Test'
+expect(all_users.last.password).to eq '321tset'
+
 ```
 
 Encode this example as a test.
