@@ -26,8 +26,10 @@ class UserRepository
   end
 
   def create(user)
-    # Executes the SQL query:
-    # INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4);
+    sql = 'INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4)';
+    params = [user.username, user.name, user.email, user.password]
+    DatabaseConnection.exec_params(sql, params)
+    return nil
   end
 
   # def update(user)
