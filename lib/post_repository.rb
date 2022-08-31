@@ -19,10 +19,10 @@ class PostRepository
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
-    # Executes the SQL query:
-    # SELECT * FROM posts WHERE id = $1;
-
-    # Returns a single post object.
+    sql = 'SELECT * FROM posts WHERE id = $1;'
+    params = [id]
+    user = DatabaseConnection.exec_params(sql, params).first
+    return create_post_object_from_table(user)
   end
 
   def create(post)

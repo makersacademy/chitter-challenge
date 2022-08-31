@@ -178,25 +178,23 @@ posts[4].user_id # => 3
 repo = postRepository.new
 
 post = repo.find(1)
-post.id # =>  1
-post.postname # => 'ted453'
-post.name # =>  'Ted D'
-post.email # =>  'tedd@hotmailtest.com'
-post.password # => 'qwerty123'
+posts.id # =>  1
+posts.content # => 'Ate beans LOL'
+posts.post_time # =>  '2021-08-09 13:57:40'
+posts.tagged_users # =>  'jem341'
+posts.user_id # => 1
+
 # Get a single post
 
 repo = postRepository.new
 
 post = repo.find(3)
+posts.id # =>  3
+posts.content # => 'Wrote a message to Makers today saying how good the course is'
+posts.post_time # =>  '2022-08-31 20:57:40'
+posts.tagged_users # =>  'user123'
+posts.user_id # => 2
 
-('ted453', 'Ted D', 'tedd@hotmailtest.com', 'qwerty123'),
-('jem341', 'Jemm Platz', 'JSpace@yahoot.com', 'astrocosmaus789'),
-('post123', 'Anon Ymouse', 'is_a_post@post.com', 'password_123');
-post.id # =>  3
-post.postname # => 'post123'
-post.name # =>  'Anon Ymouse'
-post.email # =>  'is_a_post@post.com'
-post.password # => 'password_123'
 
 #3
 #Create a post

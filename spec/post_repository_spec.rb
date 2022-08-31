@@ -32,4 +32,26 @@ RSpec.describe PostRepository do
       expect(posts[4].user_id).to eq 3
     end
   end
+  describe '#find' do
+    it 'returns post object for id=1' do
+      repo = PostRepository.new
+
+      post = repo.find(1)
+      expect(post.id).to eq 1
+      expect(post.content).to eq 'Ate beans LOL'
+      expect(post.post_time).to eq '2021-08-09 13:57:40'
+      expect(post.tagged_users).to eq 'jem341'
+      expect(post.user_id).to eq 1
+    end
+    it 'returns post object for id=3' do
+      repo = PostRepository.new
+
+      post = repo.find(3)
+      expect(post.id).to eq 3
+      expect(post.content).to eq 'Wrote a message to Makers today saying how good the course is'
+      expect(post.post_time).to eq '2022-08-31 20:57:40'
+      expect(post.tagged_users).to eq 'user123'
+      expect(post.user_id).to eq 2
+    end
+  end
 end
