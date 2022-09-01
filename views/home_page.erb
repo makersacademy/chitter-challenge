@@ -1,0 +1,31 @@
+<%if @current_user != nil %>
+Welcome to Chitter <%= @current_user.name %>
+<%else%>
+Welcome to Chitter
+<%end%>
+
+<div>
+  <form action = "/login_page">
+    <input type = "submit" value = "login">
+  </form>
+
+  <form action = "/sign_up_page">
+    <input type = "submit" value = "sign up">
+  </form>
+</div>
+
+Add a new peep below
+<form action = "/new_peep" method = "post">
+  <textarea name = "peep_content" rows = "4" cols = "50" placeholder = "What's on your mind?"> </textarea>
+  <input type = "submit" value = "Peep">
+</form>
+
+All current peeps:
+<ul>
+<% @peeps.each do |peep| %>
+  <li>
+    <%=peep.peep_content%>
+    <%="[Created at: #{peep.created_at}]"%>
+  </li>
+<%end%>
+</ul>
