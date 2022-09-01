@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: peep_development
+  pool: 2
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: peep_test
+  pool: 2

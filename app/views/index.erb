@@ -1,0 +1,9 @@
+<a href="/new_peep">New Peep</a>
+<br>
+<a href="/signup">Sign Up</a>
+<br>
+<ol>
+<% @peeps.each do |peep| %>
+  <li><%= peep.text %>           <%= peep.created_at.strftime('%d/%m/%Y - %R') %></li>
+<% end %>
+</ol>
