@@ -15,13 +15,21 @@ We are going to write a small Twitter clone that will allow the users to post me
 
 Features:
 -------
-
+database instructions 
+-------------------------
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
+Run the query we have saved in the file 01_create_chitter_table.sql
+---------------------------------------------------
 ```
 STRAIGHT UP
-
+User story 1
+---------------------------------------------
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+----------------------------------------------
 
 As a maker
 So that I can see what others are saying  
