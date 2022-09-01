@@ -24,6 +24,28 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include '<h1>Welcome to Chitter!</h1>'
     end
+    it 'returns login form' do
+      response = get('/')
+
+      expect(response.body).to include '<form action="/login" method="POST">'
+      expect(response.body).to include '<input type="password" name="password" />'
+    end
+  end
+
+  context "POST /login" do
+    it 'Returns the stream page on successful login' do
+      response = post('/login')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<a href="/">Log out</a>'
+      
+    end
+    it 'Returns the login failure page on incorrect username' do
+
+    end
+    it 'Returns the login failure page on incorrect password' do
+
+    end
   end
 
   context "GET /signup" do

@@ -4,5 +4,14 @@
     <h1>Welcome to Chitter!</h1>
     <div>To see the stream of our users' peeps, please login. If you haven't yet created an account, click "Sign Up" below.</div>
     <a href="/signup" class="signup">Sign Up</a>
+    <br><br>
+    <p>Enter your username and password to log in.</p><br>
+    <form action="/login" method="POST">
+      <label class="login">Username:</label><br>
+      <input type="username" name="username" /><br>
+      <label class="login">Password:</label><br>
+      <input type="password" name="password" />
+    </form>
+
   </body>
 </html>

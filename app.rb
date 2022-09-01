@@ -3,12 +3,16 @@ require 'sinatra/reloader'
 require_relative './lib/post_repository'
 require_relative './lib/user_repository'
 
+DatabaseConnection.connect
+
 class Application < Sinatra::Base
 
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
+    also_reload 'lib/album_repository'
+    also_reload 'lib/artist_repository'
   end
 
   get "/" do
@@ -41,10 +45,14 @@ class Application < Sinatra::Base
     return erb(:signupsuccess)
   end
 
+  post "/login" do
+    return erb(:stream)
+  end
+
   private
 
   def empty_request_parameters?
-    params[:username] == nil || params[:name] == nil || params[:email] == nil || params[:password] == nil
+    params[:username].nil? || params[:name].nil? || params[:email].nil? || params[:password].nil?
   end
 
   def invalid_request_parameters?
