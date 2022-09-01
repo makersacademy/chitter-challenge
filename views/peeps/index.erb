@@ -1,0 +1,10 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    
+    <li>
+    <%= peep.peep %> 
+    peeped at  
+    <%= peep.time_sheet.to_s %>
+    </li>
+  <% end %>
+</ul>
