@@ -46,6 +46,11 @@ class Application < Sinatra::Base
   end
 
   post "/login" do
+
+    #find user in database based on their username, check to see if their password = username
+    
+    params[:username]
+    params[:password]
     return erb(:stream)
   end
 

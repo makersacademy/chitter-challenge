@@ -72,4 +72,5 @@ RSpec.describe PostRepository do
       expect(all_posts.last.user_id).to eq 3
     end
   end
+  
 end

@@ -33,6 +33,13 @@ class UserRepository
     return nil
   end
 
+  def find_by_username(username)
+    sql = 'SELECT * FROM users WHERE username = $1'
+    params = [username]
+    result = DatabaseConnection.exec_params(sql, params).first
+    return create_user_object_from_table(result)
+  end
+
   # def update(user)
   # end
 

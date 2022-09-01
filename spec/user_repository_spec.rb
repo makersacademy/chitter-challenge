@@ -70,4 +70,16 @@ RSpec.describe UserRepository do
       expect(all_users.last.password).to eq '321tset'
     end
   end
+  describe '#find_by_username' do
+    it 'returns the user object for user ted453' do
+      repo = UserRepository.new
+
+      user = repo.find_by_username('ted453')
+      expect(user.id).to eq 1
+      expect(user.username).to eq 'ted453'
+      expect(user.name).to eq 'Ted D'
+      expect(user.email).to eq 'tedd@hotmailtest.com'
+      expect(user.password).to eq 'qwerty123'
+    end
+  end
 end
