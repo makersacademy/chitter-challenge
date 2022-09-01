@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative '/lib/post_repository'
+require_relative '/lib/user_repository'
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -17,16 +19,26 @@ class Application < Sinatra::Base
   end
 
   post "/signup" do
-    if invalid_request_parameters?
+    if empty_request_parameters? || invalid_request_parameters?
       status 400
       return ''
     end
+
+    user = User.new
+    user.username = params[:username]
+
     return erb(:signupsuccess)
   end
 
   private
 
-  def invalid_request_parameters?
+  def empty_request_parameters?
     params[:username] == nil || params[:name] == nil || params[:email] == nil || params[:password] == nil
+  end
+
+  def invalid_request_parameters?
+    params[:username].length > 20 || params[:name].length > 20 || params[:email].length > 20 || params[:password].length > 20
+
+    params[:password].include?("/[\W][^(\^!@£$%_\-)]/")
   end
 end

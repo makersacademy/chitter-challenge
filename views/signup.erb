@@ -5,16 +5,18 @@
     <h3>Welcome to Chitter, please enter your details as described below:</h3>
     <form action="/signup" method="POST"><br>
       <label>Username:</label><br>
-      <input type="text" name="username" pattern="[A-Za-z0-9]+" maxlength="15" require><br><br>
+      <label class="signupdetails">(Please only use letters and numbers)</label><br>
+      <input type="text" name="username" pattern="[A-Za-z0-9]+" maxlength="15" autocomplete='off' require><br><br>
 
       <label>Your first and last name:</label><br>
-      <input type="text" name="name" pattern="[A-Za-z0-9\ ]+" maxlength="20" require><br><br>
+      <input type="text" name="name" pattern="[A-Za-z0-9\ ]+" maxlength="20" autocomplete='off' require><br><br>
 
       <label>Email address</label><br>
-      <input type="email" name="email" maxlength="20" require><br><br>
+      <input type="email" name="email" maxlength="20" autocomplete='off' require><br><br>
 
-      <label>Password (minimum 8 characters, please include at least one special character) </label><br>
-      <input type="text" name="password" maxlength="15" minlength="8" pattern="[A-Za-z0-9\-_!£$&%?]+" require><br><br>
+      <label>Password </label><br>
+      <label class="signupdetails">(minimum 8 characters, please include at least one special character from -_!£$&%?)</label><br>
+      <input type="password" name="password" maxlength="15" minlength="8" pattern="[A-Za-z0-9\-_!£$&%?]+" autocomplete='off' require><br><br>
 
       <input type="submit" value="Sign up!">
     </form>
