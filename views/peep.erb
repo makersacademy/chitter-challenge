@@ -1,0 +1,10 @@
+<%= @peep %>
+
+<form action='/new-peep' method='post'>
+  <label for='name'>Name:</label><br>
+  <input type='text' name='name'><br><br>
+  <label for='username'>Username:</label><br>
+  <input type='text' name='username'><br><br>
+  <textarea rows="10" cols="25" name='message'>What's new?</textarea><br><br>
+  <input type='submit' value='Peep'>
+</form>
