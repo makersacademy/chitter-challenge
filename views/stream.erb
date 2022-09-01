@@ -1,3 +1,26 @@
 <html>
+  <h1>Welcome <%= @user.name %>!</h1>
+
+  <body>
+    <div id="post">
+      <form action='/post' method='post'>
+        <label>Write your peep below!</label><br>
+        <textarea id="peep_entry" name="content" rows="4" cols="50" placeholder="Write your peep to everybody here!"></textarea><br>
+        <input type="text" name="tagged_users"/>
+        <input type="hidden" name="user_id" value=<%=@user.id%>>
+        <input type="hidden" name="post_time" value=<%=DateTime.now%>>
+        <input type="hidden" name="username" value=<%=@user.username%>>
+        <input type="submit" value="Submit your peep"/>
+      </form>
+    </div>
+    <div id="peeps">
+      <% @post_repo.all.reverse.each do |post|%>
+        <h1><%= @user_repo.find(post.user_id).username %><h1>
+        <p><%= post.post_time %></p>
+        <h1><%= post.content%><br><br>
+      <% end %>
+    </div>
+  </body>
+
   <a href="/">Log out</a>
 </html>

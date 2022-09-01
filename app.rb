@@ -46,20 +46,28 @@ class Application < Sinatra::Base
   end
 
   post "/login" do
-    user_repo = UserRepository.new
-    user = user_repo.find_by_username(params[:username])
-    if user && user.password == params[:password] 
+    @user_repo = UserRepository.new
+    @post_repo = PostRepository.new
+    @user = @user_repo.find_by_username(params[:username])
+    if @user && @user.password == params[:password] 
       return erb(:stream)
     end
     return erb(:loginfailure)
   end
 
-  get "/stream" do
-    
-  end
-
   post "/post" do
-   
+    post = Post.new
+    @post_repo = PostRepository.new
+    @user_repo = UserRepository.new
+    
+    post.content = params[:content]
+    post.tagged_users = params[:tagged_users]
+    post.post_time = params[:post_time]
+    post.user_id = params[:user_id]
+    @post_repo.create(post)
+
+    @user = @user_repo.find_by_username(params[:username])
+    return erb(:stream)
   end
 
   private

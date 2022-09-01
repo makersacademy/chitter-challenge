@@ -19,35 +19,35 @@ RSpec.describe PostRepository do
 
       expect(posts.length).to eq 5
 
-      expect(posts[0].id).to eq 1
-      expect(posts[0].content).to eq 'Ate beans LOL'
-      expect(posts[0].post_time).to eq '2021-08-09 13:57:40'
-      expect(posts[0].tagged_users).to eq 'jem341'
-      expect(posts[0].user_id).to eq 1
+      expect(posts[1].id).to eq 2
+      expect(posts[1].content).to eq 'Ate beans LOL'
+      expect(posts[1].post_time).to eq '2021-08-09 13:57:40'
+      expect(posts[1].tagged_users).to eq 'jem341'
+      expect(posts[1].user_id).to eq 1
 
-      expect(posts[4].id).to eq 5
-      expect(posts[4].content).to eq 'Going on a diet after eating a beige buffet for lunch'
-      expect(posts[4].post_time).to eq '2022-01-09 13:57:40'
-      expect(posts[4].tagged_users).to eq 'ted453'
-      expect(posts[4].user_id).to eq 3
+      expect(posts[2].id).to eq 3
+      expect(posts[2].content).to eq 'Going on a diet after eating a beige buffet for lunch'
+      expect(posts[2].post_time).to eq '2022-01-09 13:57:40'
+      expect(posts[2].tagged_users).to eq 'ted453'
+      expect(posts[2].user_id).to eq 3
     end
   end
   describe '#find' do
-    it 'returns post object for id=1' do
+    it 'returns post object for id=2' do
       repo = PostRepository.new
 
-      post = repo.find(1)
-      expect(post.id).to eq 1
+      post = repo.find(2)
+      expect(post.id).to eq 2
       expect(post.content).to eq 'Ate beans LOL'
       expect(post.post_time).to eq '2021-08-09 13:57:40'
       expect(post.tagged_users).to eq 'jem341'
       expect(post.user_id).to eq 1
     end
-    it 'returns post object for id=3' do
+    it 'returns post object for id=5' do
       repo = PostRepository.new
 
-      post = repo.find(3)
-      expect(post.id).to eq 3
+      post = repo.find(5)
+      expect(post.id).to eq 5
       expect(post.content).to eq 'Wrote a message to Makers today saying how good the course is'
       expect(post.post_time).to eq '2022-08-31 20:57:40'
       expect(post.tagged_users).to eq 'user123'

@@ -39,6 +39,10 @@ describe Application do
         password: 'qwerty123')
 
       expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Welcome Ted D!</h1>'
+      expect(response.body).to include 'Ate beans LOL'
+      expect(response.body).to include '2022-08-31 20:57:40'
+      expect(response.body).to include 'user123'
       expect(response.body).to include '<a href="/">Log out</a>'
       
     end
@@ -57,6 +61,27 @@ describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include 'Your attempt to log in has failed. Either your password is incorrect, or your username does not exist.'
+    end
+    it 'Stream page Welcomes the user' do
+      response = post('/login', 
+        username: 'user123',
+        password: 'password_123')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Welcome Anon Ymouse!</h1>'
+    end
+    it 'Stream page lists all the posts from the database with timestamp and username' do
+      response = post('/login', 
+        username: 'ted453',
+        password: 'qwerty123')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Welcome Ted D!</h1>'
+      expect(response.body).to include 'Ate beans LOL'
+      expect(response.body).to include '2022-08-31 20:57:40'
+      expect(response.body).to include 'user123'
+      expect(response.body).to include '<a href="/">Log out</a>'
+      
     end
   end
 
@@ -131,4 +156,20 @@ describe Application do
       expect(response.body).to include "<a href='/'>login page</a>"
     end
   end
+
+  context "POST /post" do
+    it 'Adds a new post to the stream' do
+      response2 = post('/post',
+        content: 'Test post does this work?',
+        tagged_users: '' ,
+        post_time: "2022-12-31 11:59:59" ,
+        user_id: 1)
+
+      repo = PostRepository.new
+      all_posts = repo.all
+      expect(all_posts.last.content).to eq 'Test post does this work?'
+    end
+
+  end
+
 end
