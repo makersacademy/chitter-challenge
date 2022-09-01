@@ -34,6 +34,9 @@ class UserRepository
   end
 
   def find_by_username(username)
+    if not all.any?{|record| record.username == username}
+      return false
+    end
     sql = 'SELECT * FROM users WHERE username = $1'
     params = [username]
     result = DatabaseConnection.exec_params(sql, params).first

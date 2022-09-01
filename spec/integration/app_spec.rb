@@ -34,17 +34,29 @@ describe Application do
 
   context "POST /login" do
     it 'Returns the stream page on successful login' do
-      response = post('/login')
+      response = post('/login', 
+        username: 'ted453',
+        password: 'qwerty123')
 
       expect(response.status).to eq 200
       expect(response.body).to include '<a href="/">Log out</a>'
       
     end
     it 'Returns the login failure page on incorrect username' do
+      response = post('/login', 
+        username: 'doesnotexist',
+        password: 'qwerty123')
 
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Your attempt to log in has failed. Either your password is incorrect, or your username does not exist.'
     end
     it 'Returns the login failure page on incorrect password' do
+      response = post('/login', 
+        username: 'ted453',
+        password: 'notreal')
 
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Your attempt to log in has failed. Either your password is incorrect, or your username does not exist.'
     end
   end
 
