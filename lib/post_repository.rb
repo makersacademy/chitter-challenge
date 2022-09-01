@@ -1,4 +1,5 @@
 require_relative './post'
+require_relative './database_connection'
 
 class PostRepository
 

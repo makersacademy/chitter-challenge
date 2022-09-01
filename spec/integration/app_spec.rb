@@ -43,7 +43,7 @@ describe Application do
         username: 'testuser453',
         name: 'Test User',
         email: 'test@user.com',
-        password: 'test1!_-43'
+        password: 'test1!_43'
       )
 
       expect(response.status).to eq 200
@@ -62,18 +62,20 @@ describe Application do
     it 'responds with 400 status if password contains invalid characters' do
       response = post(
         '/signup',
+        username: 'testuser453',
         name: 'Test User',
         email: 'test@user.com',
-        password: 'test1!_-43<'
+        password: 'test1!_-43<&'
       )
       expect(response.status).to eq 400
     end
     it 'creates a new user if inputs are valid' do
       response = post(
         '/signup',
+        username: 'testuser453',
         name: 'Test User',
         email: 'test@user.com',
-        password: 'test1!_-43'
+        password: 'test1!_43'
       )
       repo = UserRepository.new
 
@@ -81,8 +83,18 @@ describe Application do
 
       expect(all_users.length).to eq 4
       expect(all_users.last.name).to eq 'Test User'
-      expect(all_users.last.password).to eq 'test1!_-43'
+      expect(all_users.last.password).to eq 'test1!_43'
     end
 
+  end
+
+  context "GET /signupsuccess" do
+    it 'returns the signupsuccess page' do
+      response = get('/signupsuccess')
+
+      expect(response.status).to eq 200
+
+      expect(response.body).to include "<a href='/'>login page</a>"
+    end
   end
 end

@@ -1,4 +1,5 @@
 require_relative './user'
+require_relative './database_connection'
 
 class UserRepository
   # Selecting all records
