@@ -1,14 +1,11 @@
-# {{ METHOD }} {{ PATH}} Route Design Recipe
+# GET / Route Design Recipe
 
 _Copy this design recipe template to test-drive a Sinatra route._
 
 ## 1. Design the Route Signature
 
-You'll need to include:
-  * the HTTP method
-  * the path
-  * any query parameters (passed in the URL)
-  * or body parameters (passed in the request body)
+  * the HTTP method GET
+  * the path /
 
 ## 2. Design the Response
 
@@ -27,24 +24,13 @@ _Replace the below with your own design. Think of all the different possible res
 <html>
   <head></head>
   <body>
-    <h1>Post title</h1>
-    <div>Post content</div>
+    <h1>Welcome to Chitter!</h1>
+    <div>To see the stream of our users' peeps, please login. If you haven't yet created an account, click "Sign Up" below.</div>
   </body>
 </html>
 ```
 
-```html
-<!-- EXAMPLE -->
-<!-- Response when the post is not found: 404 Not Found -->
 
-<html>
-  <head></head>
-  <body>
-    <h1>Sorry!</h1>
-    <div>We couldn't find this post. Have a look at the homepage?</div>
-  </body>
-</html>
-```
 
 ## 3. Write Examples
 
@@ -53,22 +39,14 @@ _Replace these with your own design._
 ```
 # Request:
 
-GET /posts?id=1
+GET /
 
 # Expected response:
 
 Response for 200 OK
+Includes <h1>Welcome to Chitter!</h1>
 ```
 
-```
-# Request:
-
-GET /posts?id=276278
-
-# Expected response:
-
-Response for 404 Not Found
-```
 
 ## 4. Encode as Tests Examples
 
@@ -85,18 +63,10 @@ describe Application do
 
   context "GET /" do
     it 'returns 200 OK' do
-      # Assuming the post with id 1 exists.
-      response = get('/posts?id=1')
+      response = get('/')
 
       expect(response.status).to eq(200)
-      # expect(response.body).to eq(expected_response)
-    end
-
-    it 'returns 404 Not Found' do
-      response = get('/posts?id=276278')
-
-      expect(response.status).to eq(404)
-      # expect(response.body).to eq(expected_response)
+      expect(response.body).to include '<h1>Welcome to Chitter!</h1>'
     end
   end
 end
