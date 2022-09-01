@@ -1,12 +1,23 @@
+
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+ENV['ENVIRONMENT'] = 'test'
+
+#Bring in the contents of the 'app.rb' file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+	-8,10 +16,15
 ])
 SimpleCov.start
+
+#Tell Capybara to talk to Chitter
+Capybara.app = Chitter_Messages
 
 RSpec.configure do |config|
   config.after(:suite) do
