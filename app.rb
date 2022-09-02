@@ -14,6 +14,7 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
     also_reload 'lib/album_repository'
     also_reload 'lib/artist_repository'
+    also_reload 'public/style'
   end
 
   get "/" do

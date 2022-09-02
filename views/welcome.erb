@@ -1,23 +1,43 @@
 <html>
   <head>
     <title>Welcome to Chitter</title>
-
-    <!-- Load the CSS file at path /style.css -->
-    <link ref="stylesheet" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css?version=1" />
   </head>
+
+  <header>
+    <div class="header">
+      <div class="navbar">
+        <a href="/">Chitter</a>
+        <a href="/signup" class="right">Sign Up</a>
+      </div>
+      <h1>Chitter</h1>
+      <p>Welcome to Chitter!</p>
+    </div>
+  </header>
+
   <body>
-    <h1>Welcome to Chitter!</h1>
-    <div>To see the stream of our users' peeps, please login. If you haven't yet created an account, click "Sign Up" below.</div>
-    <a href="/signup" class="signup">Sign Up</a>
-    <br><br>
-    <p>Enter your username and password to log in.</p><br>
-    <form action="/login" method="POST">
-      <label class="login">Username:</label><br>
-      <input type="username" name="username" /><br>
-      <label class="login">Password:</label><br>
-      <input type="password" name="password" />
-      <input type="submit" value="Log in">
-    </form>
+    
+    <div class='row-welcome'>
+      <div class="column-welcome">
+        <div class="card-welcome">
+          <h2>To see the stream of our users' peeps, please login. If you haven't yet created an account, click "Sign Up" below.</h2>
+          <h2><a href="/signup" class="signup">Sign Up</a></h2>
+          <h2>Enter your username and password to log in.</h2><br>
+        </div>
+      </div>
+
+      <div class="column-welcome">
+        <div class="card-welcome">
+          <form action="/login" method="POST">
+            <label class="login">Username:</label><br><br>
+            <input type="username" name="username" /><br><br>
+            <label class="login">Password:</label><br><br>
+            <input type="password" name="password" /><br><br>
+            <input type="submit" value="Log in">
+          </form>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
