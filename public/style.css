@@ -7,7 +7,7 @@ body {
 }
 
 
-header {
+.welcomeheader {
     background-image:url('https://i.imgur.com/iDmg722.jpg');
     background-size : cover;
     background-repeat : no-repeat;
@@ -25,11 +25,13 @@ header {
   }
   }
 
+  
+
 .headersmall {
-  background-color: #568d26;
-  background-size : 50%, 50%;
-  height: 0;
-  padding-bottom: 0%;
+  background-image:url('https://i.imgur.com/565bk6W.jpg');
+  background-size : cover;
+  background-repeat : no-repeat;
+  padding-bottom: 14%;
 }
 
 .header h1 {
@@ -81,6 +83,11 @@ background-color: hsl(0, 0%, 80%, 0.75);}
   float: right; /* Float a link to the right */
 }
 
+/* Right-aligned link */
+.navbar a.center {
+  float: center; /* Float a link to the right */
+}
+
 /* Change color on hover/mouse-over */
 .navbar a:hover {
   background-color: #ddd; /* Grey background color */
@@ -102,14 +109,14 @@ body {
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-  flex: 25%; /* Set the width of the sidebar */
+  flex: 35%; /* Set the width of the sidebar */
   background-color: #f1f1f1; /* Grey background color */
   padding: 20px; /* Some padding */
 }
 
 /* Main column */
 .main {
-  flex: 75%; /* Set the width of the main content */
+  flex: 65%; /* Set the width of the main content */
   background-color: white; /* White background color */
   padding: 20px; /* Some padding */
 }
@@ -164,4 +171,8 @@ body {
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
+}
+
+.input-txt::placeholder {
+  font-family: "Segoe UI",Arial,sans-serif;
 }

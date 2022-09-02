@@ -4,14 +4,13 @@
     <link rel="stylesheet" type="text/css" href="/style.css" />
   </head>
 
-  <header>
-    <div class="headersmall">
+  <header class="headersmall">
+    <div>
       <div class="navbar">
         <a href="/">Chitter</a>
+        <a class="center">Welcome <%= @user.name %>!</a>
         <a href="/" class="right">Log Out</a>
       </div>
-      <h1>Chitter</h1>
-      <h1>Welcome <%= @user.name %>!</h1>
     </div>
   </header>
   
@@ -22,8 +21,8 @@
       <div class="side">
         <form action='/post' method='post'>
           <label>Write your peep below!</label><br>
-          <textarea id="peep_entry" name="content" rows="10" cols="50" placeholder="Write your peep to everybody here!"></textarea><br>
-          <input type="text" name="tagged_users" placeholder="tag users here"/>
+          <textarea class='input-txt' id="peep_entry" name="content" rows="10" cols="50" placeholder="Write your peep to everybody here!"></textarea><br>
+          <input class='input-txt' type="text" name="tagged_users" placeholder="tag users here"/>
           <input type="hidden" name="user_id" value=<%=@user.id%>>
           <input type="hidden" name="post_time" value=<%=DateTime.now%>>
           <input type="hidden" name="username" value=<%=@user.username%>>
