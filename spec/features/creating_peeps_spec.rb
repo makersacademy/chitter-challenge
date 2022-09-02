@@ -1,4 +1,5 @@
 require 'chitter'
+require 'pg'
 
 feature '.create' do
   scenario 'creating a new peep' do

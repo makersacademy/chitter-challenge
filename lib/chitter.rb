@@ -7,7 +7,7 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter')
     end
-      result = connection.exec("SELECT * FROM peeps")
+      result = connection.exec("SELECT * FROM peeps;")
     chrono_peeps = result.map do |peep|
       peep['text']
     end
