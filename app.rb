@@ -81,4 +81,16 @@ class Application < Sinatra::Base
 
     !(params[:password] =~ /[\W][^_!£$%]/).nil?
   end
+
+  def email_tagged_users(post, tags)
+    user_repo = UserRepository.new
+    post_repo = PostRepository.new
+    tag_array = tags.split(',').strip
+    tag_array.each do |tag|
+      tagged_user = user_repo.find_by_username(tag)
+    end
+    post_author = user_repo.find(post.user_id)
+    send_email = SendEmail.new(tagged_user, post, post_author)
+    send_email.send_mail
+  end
 end
