@@ -1,7 +1,7 @@
 https://miro.com/app/board/uXjVPahABmE=/?share_link_id=475727931526
 
 Demonstration of an email sent to a tagged user after posting a peep:
-![Shows an email from Chitter including the post contents]([Imgur](https://i.imgur.com/jfPPY85.png) "Chitter post notification email")
+![Shows an email from Chitter including the post contents]((https://i.imgur.com/jfPPY85.png) "Chitter post notification email")
 
 
 ```
