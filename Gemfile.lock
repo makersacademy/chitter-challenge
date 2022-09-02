@@ -5,6 +5,7 @@ GEM
     ast (2.4.2)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    dotenv (2.8.1)
     multi_json (1.15.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
@@ -80,6 +81,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   pg (~> 1.4)
   rack-test (~> 2.0)
   rspec

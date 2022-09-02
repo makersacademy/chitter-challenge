@@ -1,5 +1,8 @@
 https://miro.com/app/board/uXjVPahABmE=/?share_link_id=475727931526
 
+Demonstration of an email sent to a tagged user after posting a peep:
+![Shows an email from Chitter including the post contents](https://imgur.com/jfPPY85 "Chitter post notification email")
+
 
 ```
 STRAIGHT UP

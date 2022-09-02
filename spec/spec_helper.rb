@@ -1,6 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'database_connection'
+require 'dotenv'
+Dotenv.load('.env')
 
 ENV['ENV'] = 'test'
 

@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/post_repository'
 require_relative './lib/user_repository'
+require_relative './send-email'
 
 DatabaseConnection.connect
 
@@ -65,6 +66,7 @@ class Application < Sinatra::Base
     post.post_time = params[:post_time]
     post.user_id = params[:user_id]
     @post_repo.create(post)
+    email_tagged_users(post)
 
     @user = @user_repo.find_by_username(params[:username])
     return erb(:stream)
@@ -82,15 +84,17 @@ class Application < Sinatra::Base
     !(params[:password] =~ /[\W][^_!£$%]/).nil?
   end
 
-  def email_tagged_users(post, tags)
+  def email_tagged_users(post)
     user_repo = UserRepository.new
     post_repo = PostRepository.new
-    tag_array = tags.split(',').strip
+    tag_array = post.tagged_users.split(',')
+    post_author = user_repo.find(post.user_id).username
+
+
     tag_array.each do |tag|
-      tagged_user = user_repo.find_by_username(tag)
+      tagged_user = user_repo.find_by_username(tag.strip)
+      send_email = SendEmail.new(tagged_user, post, post_author)
+      send_email.send_mail
     end
-    post_author = user_repo.find(post.user_id)
-    send_email = SendEmail.new(tagged_user, post, post_author)
-    send_email.send_mail
   end
 end

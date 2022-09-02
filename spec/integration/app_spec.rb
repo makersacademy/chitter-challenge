@@ -1,6 +1,6 @@
 require "spec_helper"
 require "rack/test"
-require_relative "../../app"
+require_relative "../../app.rb"
 
 def reset_users_table
   seed_sql = File.read('spec/chitter_test_seeds.sql')
