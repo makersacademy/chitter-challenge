@@ -3,20 +3,55 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI",Arial,sans-serif;
 }
 
 
 header {
-  padding: 60px;
-  text-align: center;
-  background: #10991d;
-  color: white;
-  font-size: 30px;
+    background-image:url('https://i.imgur.com/iDmg722.jpg');
+    background-size : cover;
+    background-repeat : no-repeat;
+    height: 0;
+    padding-bottom: 40%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
 }
+
+@media (max-width: 900px) {
+  header {
+  padding:0;
+  height: 350px;
+  }
+  }
 
 .header h1 {
   font-size: 40px;
+}
+.center {
+  text-align: center!important;
+}
+
+.display-container {
+  position: relative;
+}
+
+.w3-hide-small{display:none!important}
+
+.wide{letter-spacing:4px}
+
+.text-light-grey,.hover-text-light-grey:hover,.text-light-gray,.hover-text-light-gray:hover{color:#0a0000!important}
+
+.border{border:1px solid #ccc!important}
+
+.display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);
+background-color: hsl(0, 0%, 80%, 0.75);}
+
+.padding-large{padding:12px 24px!important}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navbar {
@@ -46,7 +81,7 @@ header {
 }
 
 body {
-  font-family: Arial;
+  font-family: "Segoe UI",Arial,sans-serif;
   padding: 20px;
   background: #f1f1f1;
 }
