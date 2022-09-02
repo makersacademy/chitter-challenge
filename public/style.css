@@ -16,6 +16,7 @@ header {
     text-align: center;
     color: rgb(0, 0, 0);
     font-size: 30px;
+    
 }
 
 @media (max-width: 900px) {
