@@ -1,0 +1,50 @@
+body {
+  /* background: rgb(0,0,0); */
+  /* background: linear-gradient(90deg, rgb(0, 0, 0) 35%, rgba(33,46,198,1) 100%); */
+  background: linear-gradient(90deg, rgb(2, 225, 254) 35%, rgb(232, 232, 237) 100%);
+  text-align: center;
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 45px;
+  font-family: fantasy;
+}
+
+h2 {
+  color: rgb(0, 0, 0);
+  text-align: right;
+  font-size: 20px;
+  font-family: Georgia;
+}
+
+h3 {
+  color: rgb(251, 2, 77);
+  font-size: 25px;
+}
+
+h4 {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  position: relative;
+  bottom: 150px;
+  left: 550px;
+}
+
+form {
+  color: rgb(0, 0, 0)
+}
+
+.input {
+  border: none;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 150;
+  margin: auto;
+}
+
+.tweets {
+  /* background-color: black; */
+}

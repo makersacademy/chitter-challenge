@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css?version=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="lo.png?version=1">
+    <title>Twitter</title>
+  </head>
+  <body>
+    <div class='tweets'>
+      <%@posts_repo.all.reverse.each do |post|%>
+        <h1> @<%=@users_repo.find(post.user_id).username%></h1>
+        <h3><%=post.message%></h3>
+        <h4><%=post.timestamp%></h4>
+        <hr>
+      <% end %>
+    </div>
+      <br>
+    <div>
+        <footer>
+        <a href='/login'>Log in</a><br>
+        <br>
+        <a href='/signup'>Sign up</a><br>
+        <br>
+        <a href='/'>Twitter</a><br>
+        <br>
+        </footer>
+    </div>
+  </body>
+</html

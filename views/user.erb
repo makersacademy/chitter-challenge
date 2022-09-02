@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css?version=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="lo.png?version=1">
+        <title><%=@user.username%> account</title>
+    </head>
+    <body>
+        <div class="container">
+        <h1>Hi, <%=@user.username%></h1><br />
+        
+        <%# create a post %>
+        <form method="POST" action="/tweet">
+        <textarea type="textbox" name="message" rows="3" cols="50" placeholder="Write a tweet..." autofocus></textarea>
+        <input type="hidden" name="timestamp" value=<%=DateTime.now%>/>
+        <input type="hidden" name="user_id" value=<%=@user.id%>/>
+        <label for="tag">Tag a user:</label>
+        <select id="tag" name="tag">
+            <option></option>
+            <% @users_repo.all.each do |user|%>
+            <option value="<%=user.username%>"><%=user.username%></option>
+            <%end%>
+        </select>
+        <input type="Submit" value='Tweet' />
+        </form>
+
+        <%# show all tweets %>
+        <%@posts_repo.all.reverse.each do |post|%>
+            <div>
+            <h1>@<%=@users_repo.find(post.user_id).username%></h1>
+            <h3><%=post.message%></h3>
+            <h4><%=post.timestamp%> </h4>
+            <hr>
+            </div>
+        <% end %>
+
+        <br>
+        <a href="/">Log out</a>
+        </div>
+    </body>
+</html>
