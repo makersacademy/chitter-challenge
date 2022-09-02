@@ -16,7 +16,6 @@ header {
     text-align: center;
     color: rgb(0, 0, 0);
     font-size: 30px;
-    
 }
 
 @media (max-width: 900px) {
@@ -25,6 +24,13 @@ header {
   height: 350px;
   }
   }
+
+.headersmall {
+  background-color: #568d26;
+  background-size : 50%, 50%;
+  height: 0;
+  padding-bottom: 0%;
+}
 
 .header h1 {
   font-size: 40px;
@@ -57,7 +63,7 @@ background-color: hsl(0, 0%, 80%, 0.75);}
 
 .navbar {
   overflow: hidden; /* Hide overflow */
-  background-color: #10991d; /* Dark background color */
+  background-color: #568d26; /* Dark background color */
 }
 
 
