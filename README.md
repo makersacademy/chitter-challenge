@@ -58,7 +58,7 @@ It uses an approach that integrates a database using the `PG` gem and `SQL` quer
 4) Run the query saved in the file 01_create_chitter_table.sql to create the table for peeps
 5) Use the PG gem to connect ruby application to the Postgres SQL database
 6) Set up a testing environment separate from the dev environment
-7) Repeat steps above for the database and create database "chitter_challenge_test"
+7) Repeat steps above for the database and create database "chitter_test"
 
 Notes on functionality:
 ------
