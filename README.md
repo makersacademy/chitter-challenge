@@ -9,34 +9,34 @@ To write a small Twitter clone that will allow the users to post messages to a p
 Features:
 -------
 User Story 1:
-As a Maker,
-So that I can see what others are saying, 
+As a Maker,  
+So that I can see what others are saying,  
 I want to see all peeps in reverse chronological order
 
 <img src="chitter_challenge _ model_1.png">
 
 User Story 2:
-As a Maker,
-So that I can let people know what I am doing, 
+As a Maker,  
+So that I can let people know what I am doing,  
 I want to post a message (peep) to chitter
 
 User Story 3:
-As a Maker, 
-So that I can better appreciate the context of a peep, 
+As a Maker,  
+So that I can better appreciate the context of a peep,  
 I want to see the time at which it was made
 
 User Story 4:
-As a Maker, 
-So that I can post messages on Chitter as me, 
+As a Maker,  
+So that I can post messages on Chitter as me,  
 I want to sign up for Chitter
 
 HARDER
-As a Maker, 
-So that only I can post messages on Chitter as me, 
+As a Maker,  
+So that only I can post messages on Chitter as me,  
 I want to log in to Chitter
 
-As a Maker, 
-So that I can avoid others posting messages on Chitter as me, 
+As a Maker,  
+So that I can avoid others posting messages on Chitter as me,  
 I want to log out of Chitter
 
 Progress so far:
@@ -53,9 +53,9 @@ It uses an approach that integrates a database using the `PG` gem and `SQL` quer
 
 ## Database set up
 1) Connect to psql
-2) Create the database using the psql command CREATE DATABASE chitter_challenge;
-3) Connect to the database using the pqsl command \c chitter_challenge;
-4) Run the query we have saved in the file 01_create_chitter_table.sql
+2) Create the database using the psql command CREATE DATABASE chitter;
+3) Connect to the database using the pqsl command \c chitter;
+4) Run the query saved in the file 01_create_chitter_table.sql to create the table for peeps
 5) Use the PG gem to connect ruby application to the Postgres SQL database
 6) Set up a testing environment separate from the dev environment
 7) Repeat steps above for the database and create database "chitter_challenge_test"
