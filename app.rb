@@ -67,7 +67,7 @@ class Application < Sinatra::Base
     post.post_time = params[:post_time]
     post.user_id = params[:user_id]
     @post_repo.create(post)
-    #email_tagged_users(post)
+    email_tagged_users(post)
 
     @user = @user_repo.find_by_username(params[:username])
     return erb(:stream)
