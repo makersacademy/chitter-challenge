@@ -1,7 +1,9 @@
 <body style=background-color:lightyellow;>
 <ul style="font-family: Tahoma">
   <% @peeps.each do |peep| %>
-    <li> <%= peep.text %></li>
+    <li> <%= peep.text %><br>
+    Posted <%= Time.parse(peep.timestamp).strftime("%A, %R") %>
+    </li>
   <% end %>
 </ul>
 <a style="font-family: Tahoma" href="/peeps/new">Add a peep</a>

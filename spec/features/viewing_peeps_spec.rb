@@ -18,5 +18,7 @@ feature 'viewing peeps' do
     expect(page).to have_content "peep_3"
     expect(page).to have_content "peep_2"
     expect(page).to have_content "peep_1"
+    expect(page).to have_content "Posted"
+    expect(page).to have_content Time.now.strftime("%A")
   end
 end

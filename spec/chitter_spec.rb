@@ -22,8 +22,11 @@ RSpec.describe 'Chitter' do
     it 'creates a new peep with timestamp' do
       peep = Chitter.create(text: "peep peep one two")
 
+      expect(peep).to be_a Chitter
       expect(peep.text).to eq "peep peep one two"
       expect(peep.timestamp).to start_with "2022"
+      expect(peep.timestamp).to include(Time.now.strftime("%F")) #%F is date format y-m-d
+      expect(peep.timestamp[0..15]).to eq(Time.now.to_s[0..15])
     end 
   end
 end
