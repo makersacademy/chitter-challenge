@@ -1,0 +1,29 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+    <div>
+      <% if @user != nil %>
+        Logged in as: <%= @user %>
+      <% end %>
+    </div>
+
+    <div>
+      <% if @user == nil %>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      <% else %>
+        <a href="/logout">Logout</a>
+        <a href="/new">New peep</a>
+      <% end %>
+    </div>
+
+    <% @peeps.each do |peep| %>
+    <div>
+      <p><%= peep['content'] %></p>
+      <p>Posted: <%= peep['timestamp'] %></p>
+      <p>By: <%= peep['name'] %> - <%= peep['username'] %></p>
+    </div>
+    <% end %>
+  </body>
+</html>
