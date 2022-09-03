@@ -9,7 +9,7 @@ class Chitter
     @text = text
     @timestamp = timestamp
   end
-  
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -29,6 +29,7 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (text, timestamp) VALUES('#{text}', current_timestamp);")
+      result = connection.exec("INSERT INTO peeps (text, timestamp) VALUES('#{text}', current_timestamp) RETURNING id, text, timestamp;")
+        Chitter.new(id: result[0]['id'], text: result[0]['text'], timestamp: result[0]['timestamp'])
   end
 end
