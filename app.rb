@@ -69,7 +69,7 @@ class Application < Sinatra::Base
     @post_repo.create(post)
     #email_tagged_users(post)
 
-    @user = @user_repo.find_by_username(params[:username])
+    @user = @user_repo.find_by_username(params[:user_id])
     return erb(:stream)
   end
 
