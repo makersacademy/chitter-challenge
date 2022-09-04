@@ -82,4 +82,4 @@ Install postresql if you have not already using `brew install postgresql` and cr
 
 Run the code ```rackup``` in your terminal to run a local server and access the web-app via http://localhost:9292
 
-When you access the webapp you can login using the username "ted453" and password "qwerty123" or create your own fake username/password.
+When you access the webapp you can login using the username "ted453" and password "qwerty123" or create your own fake username/password. 
