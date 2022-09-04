@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Welcome to Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+
+  <header class="welcomeheader">
+      <div class="display-middle padding-large border wide text-light-grey center">
+        <h1 class="hide-medium hide-small xxxlarge">CHITTER</h1>
+        <h3 class="hide-medium hide-small">No adverts.  No algorithms.</h3>
+        <h3 class="hide-medium hide-small">Just peeps</h3>
+      </div>
+    </div>
+      <div class="header">
+        <div class="navbar">
+          <a href="/">Chitter</a>
+          <a href="/signup" class="right">Sign Up</a>
+        </div>
+      </div>
+    </header>
+
+  <body>
+    
+    <div class='row-welcome'>
+      <div class="column-welcome">
+        <div class="card-welcome">
+          <h2>To see the stream of our users' peeps, please login. If you haven't yet created an account, click "Sign Up" below.</h2>
+          <h2><a href="/signup" class="signup">Sign Up</a></h2>
+          <h2>Enter your username and password to log in.</h2><br>
+        </div>
+      </div>
+
+      <div class="column-welcome">
+        <div class="card-welcome">
+          <form action="/login" method="POST">
+            <label class="login">Username:</label><br><br>
+            <input type="username" name="username" /><br><br>
+            <label class="login">Password:</label><br><br>
+            <input type="password" name="password" /><br><br>
+            <input type="submit" value="Log in">
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

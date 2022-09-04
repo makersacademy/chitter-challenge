@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Welcome to Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+
+  <header class="headersmall">
+    <div>
+      <div class="navbar">
+        <a href="/">Chitter</a>
+        <a class="center">Welcome <%= @user.name %>!</a>
+        <a href="/" class="right">Log Out</a>
+      </div>
+    </div>
+  </header>
+  
+
+  <body>
+    <div class="row">
+
+      <div class="side">
+        <form action='/post' method='post'>
+          <label>Write your peep below!</label><br>
+          <textarea class='input-txt' id="peep_entry" name="content" rows="10" cols="50" placeholder="Write your peep to everybody here!"></textarea><br>
+          <input class='input-txt' type="text" name="tagged_users" placeholder="tag users here"/>
+          <input type="hidden" name="user_id" value=<%=@user.id%>>
+          <input type="hidden" name="post_time" value=<%=DateTime.now%>>
+          <input type="hidden" name="username" value=<%=@user.username%>>
+          <input type="submit" value="Submit your peep"/>
+        </form>
+      </div>
+
+      <div class="main">
+          
+        <div class="peeps">
+          <% @post_repo.all.reverse.each do |post|%>
+            <h2><%= @user_repo.find(post.user_id).username %><h2>
+            <h5><%= post.post_time %></h5>
+            <p><%= post.content%><p><br><br>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </body>
+
+  <div class="footer">
+    <h2><a href="/">Log out</a></h2>
+  </div>
+
+  
+</html>

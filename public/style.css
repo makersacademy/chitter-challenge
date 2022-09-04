@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+
+
+.welcomeheader {
+    background-image:url('https://i.imgur.com/iDmg722.jpg');
+    background-size : cover;
+    background-repeat : no-repeat;
+    height: 0;
+    padding-bottom: 40%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+@media (max-width: 900px) {
+  header {
+  padding:0;
+  height: 350px;
+  }
+  }
+
+  
+
+.headersmall {
+  background-image:url('https://i.imgur.com/565bk6W.jpg');
+  background-size : cover;
+  background-repeat : no-repeat;
+  padding-bottom: 14%;
+}
+
+.header h1 {
+  font-size: 40px;
+}
+.center {
+  text-align: center!important;
+}
+
+.display-container {
+  position: relative;
+}
+
+.w3-hide-small{display:none!important}
+
+.wide{letter-spacing:4px}
+
+.text-light-grey,.hover-text-light-grey:hover,.text-light-gray,.hover-text-light-gray:hover{color:#0a0000!important}
+
+.border{border:1px solid #ccc!important}
+
+.display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);
+background-color: hsl(0, 0%, 80%, 0.75);}
+
+.padding-large{padding:12px 24px!important}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #568d26; /* Dark background color */
+}
+
+
+.navbar a {
+  float: left; /* Make sure that the links stay side-by-side */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
+}
+
+/* Right-aligned link */
+.navbar a.center {
+  float: center; /* Float a link to the right */
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+  background-color: #ddd; /* Grey background color */
+  color: rgb(0, 0, 0); /* Black text color */
+}
+
+body {
+  font-family: "Segoe UI",Arial,sans-serif;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Column container */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 35%; /* Set the width of the sidebar */
+  background-color: #f1f1f1; /* Grey background color */
+  padding: 20px; /* Some padding */
+}
+
+/* Main column */
+.main {
+  flex: 65%; /* Set the width of the main content */
+  background-color: white; /* White background color */
+  padding: 20px; /* Some padding */
+}
+
+.peeps {
+  background-color: rgba(128, 128, 128, 0.397);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+.footer {
+  padding: 20px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: #ddd; /* Grey background */
+}
+
+/* Float two columns side by side */
+.column-welcome {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row-welcome {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row-welcome:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card-welcome {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.input-txt::placeholder {
+  font-family: "Segoe UI",Arial,sans-serif;
+}

@@ -1,19 +1,21 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
+This project was completed as part of the "Web Applications" week in the Makers bootcamp.
 
-Challenge:
--------
+This challenge was completed using:
+* Ruby - code base
+* RSpec - for testing various parts as part of TDD
+* PostgreSQL - for creating the databases and SQL for interacting with the database
+* Sinatra - web application framework for Ruby
+* HTML/CSS - for webpage design
+* Heroku - For hosting a live version of the app for testing and showing off!
 
-As usual please start by forking this repo.
+<img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+All tests are passing: ![Travis test build passing](https://app.travis-ci.com/nickwlong/chitter-challenge.svg?branch=testbranch)
 
-Features:
+It met the following user stories:
 -------
 
 ```
@@ -52,72 +54,34 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+To begin my planning, I worked through the user stories to gain an idea of what data I would need to store, access and manipulate. Upon the creation of the database structure I created repository classes for the data tables. Following this, I drafted the page and route layout for the web app using Miro:
 
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
+![Showing a copy of the mindmap I used to design the page/route layout](https://i.imgur.com/hvihIX3.png)
 
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
+https://miro.com/app/board/uXjVPahABmE=/?share_link_id=790302134076
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
+The most complicated stage was meeting the 'advanced' user story, emailing a tagged user to notify them of a new post. However, after working through some barriers I managed to create a functioning system. Though I did not get around to finding how to test this method. NB: This method is currently inactive to prevent 
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+Demonstration of an email sent to a tagged user after posting a peep:
+![Shows an email from Chitter including the post contents](https://i.imgur.com/jfPPY85.png)
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+I had not used CSS to create a working web app like this before, so I spent much of my final day exploring various techniques in CSS. 
 
-Notes on functionality:
-------
+My final task which I will come back to if I have time:
+* Implement a way to see the peeps from everyone without logging in
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
------
+## How to install the web-app:
 
-If you have time you can implement the following:
+Create a directory and run the following code from that location:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
 ```
+$ git clone https://github.com/nickwlong/chitter-challenge
+$ gem install bundler
+$ bundle
+```
+Install postresql if you have not already using `brew install postgresql` and create the database `chitter_test` using `psql -h 127.0.0.1 chitter-test /spec/chitter_seeds.sql` followed by `psql -h 127.0.0.1 chitter-test /spec/chitter_test_seeds.sql`
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Run the code ```rackup``` in your terminal to run a local server and access the web-app via http://localhost:9292
+
+When you access the webapp you can login using the username "ted453" and password "qwerty123" or create your own fake username/password. 
