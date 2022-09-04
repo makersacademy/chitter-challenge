@@ -22,7 +22,7 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include '<h1>Welcome to Chitter!</h1>'
+      expect(response.body).to include '<title>Welcome to Chitter</title>'
     end
     it 'returns login form' do
       response = get('/')
@@ -39,7 +39,7 @@ describe Application do
         password: 'qwerty123')
 
       expect(response.status).to eq 200
-      expect(response.body).to include '<h1>Welcome Ted D!</h1>'
+      expect(response.body).to include '<a class="center">Welcome Ted D!</a>'
       expect(response.body).to include 'Ate beans LOL'
       expect(response.body).to include '2022-08-31 20:57:40'
       expect(response.body).to include 'user123'
@@ -68,7 +68,7 @@ describe Application do
         password: 'password_123')
 
       expect(response.status).to eq 200
-      expect(response.body).to include '<h1>Welcome Anon Ymouse!</h1>'
+      expect(response.body).to include '<a class="center">Welcome Anon Ymouse!</a>'
     end
     it 'Stream page lists all the posts from the database with timestamp and username' do
       response = post('/login', 
@@ -76,7 +76,7 @@ describe Application do
         password: 'qwerty123')
 
       expect(response.status).to eq 200
-      expect(response.body).to include '<h1>Welcome Ted D!</h1>'
+      expect(response.body).to include '<a class="center">Welcome Ted D!</a>'
       expect(response.body).to include 'Ate beans LOL'
       expect(response.body).to include '2022-08-31 20:57:40'
       expect(response.body).to include 'user123'
