@@ -9,7 +9,8 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, username text, name text, email text, password text); CREATE TABLE posts (id SERIAL PRIMARY KEY, content text, post_time timestamp, tagged_users text, user_id int, constraint fk_user foreign key(user_id) references users(id) on delete cascade);'
+  - psql -h 127.0.0.1 chitter_test < spec/chitter_seeds.sql
+  - psql -h 127.0.0.1 chitter_test < spec/chitter_test_seeds.sql
 
 
 script:
