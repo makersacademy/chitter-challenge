@@ -4,11 +4,12 @@ Chitter Challenge
 This project was completed as part of the "Web Applications" week in the Makers bootcamp.
 
 This challenge was completed using:
-*Ruby - code base
-*RSpec - for testing various parts as part of TDD
-*PostgreSQL - for creating the databases and SQL for interacting with the database
-*Sinatra - web application framework for Ruby
-*HTML/CSS - for webpage design
+* Ruby - code base
+* RSpec - for testing various parts as part of TDD
+* PostgreSQL - for creating the databases and SQL for interacting with the database
+* Sinatra - web application framework for Ruby
+* HTML/CSS - for webpage design
+* Heroku - For hosting a live version of the app for testing and showing off!
 
 <img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 
