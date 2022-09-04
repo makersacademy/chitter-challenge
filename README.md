@@ -57,7 +57,7 @@ To begin my planning, I worked through the user stories to gain an idea of what 
 
 https://miro.com/app/board/uXjVPahABmE=/?share_link_id=790302134076
 
-The most complicated stage was meeting the 'advanced' user story, emailing a tagged user to notify them of a new post. However, after working through some barriers I managed to create a functioning system. Though I did not get around to finding how to test this method. 
+The most complicated stage was meeting the 'advanced' user story, emailing a tagged user to notify them of a new post. However, after working through some barriers I managed to create a functioning system. Though I did not get around to finding how to test this method. NB: This method is currently inactive to prevent 
 
 Demonstration of an email sent to a tagged user after posting a peep:
 ![Shows an email from Chitter including the post contents](https://i.imgur.com/jfPPY85.png)
