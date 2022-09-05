@@ -1,67 +1,80 @@
-Chitter Challenge
-=================
- Chitter is a full stack web application that allow users to post message known as peeps, view other people peeps and also allows users to create an account and sign up. 
+# Chitter Challenge
 
-About:
--------
+Chitter is a full stack web application that allow users to post message known as peeps, view other people peeps and also allows users to create an account and sign up.
+
+## About:
+
 This is a weekend challenge from week 4 of the Maker's Academy course. We were asked to create a twitter clone that allows users to post messages to a public streams.
 
-User Stories:
--------
- Here are the user stories provided for the challenge: 
+## User Stories:
+
+Here are the user stories provided for the challenge:
+
 ```
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
+```
 
+```
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
+```
 
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+```
 
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
 
 HARDER
 
+```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+```
 
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+```
 
 ADVANCED
 
+```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technologies
------
+## Technologies
 
-This project is created with: 
-* Ruby 3.0.2
-* Postgresql
-* Sinatra
-* Rspec
-* Capybara
-* Rackup
-* Rubocop
-* Webrick 1.3.1
+This project is created with:
 
-Installation:
------
+- Ruby 3.0.2
+- Postgresql
+- Sinatra
+- Rspec
+- Capybara
+- Rackup
+- Rubocop
+- Webrick 1.3.1
+
+## Installation:
 
 To set up this application:
 
 1. Clone this repo:
+
 ```
 https://github.com/Aisha-Yusuff/chitter-challenge
 ```
@@ -72,14 +85,15 @@ https://github.com/Aisha-Yusuff/chitter-challenge
 bundle install
 ```
 
-3. Set up RSpec, 
+<!-- 3. Set up RSpec,
+
 ```
 rspec --init
 ```
 
-This will create a spec directoy and spec_helper.rb file.
+This will create a spec directory and spec_helper.rb file.
 
-4. Set up Sinatra by creating app.rb file and add this to your file 
+4. Set up Sinatra by creating app.rb file and add this to your file
 
 ```
 # in app.rb
@@ -128,53 +142,70 @@ require 'rspec'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
-```
+``` -->
 
-Databases:
-------
+## Databases:
 
 Chitter maintains two databases, the first one is also named chitter and the second database is named chitter_test.
 
 To create each database:
 
-1. Download PostgresSQL
-2. Run psql
-3. Then run the following psql commands:
+1. Download [PostgresSQL](https://www.postgresql.org/download/)
+2. Create a default database
+
 ```
+createdb (your username)
+```
+
+3. Run psql
+
+```
+psql -h 127.0.0.1
+```
+
+4. Then to create the databases for this application run the following psql commands:
+
+```
+
 CREATE DATABASE chitter
 CREATE DATABASE chitter_test
-```
-4. Then enter each database using
-```
-\c 'database-name'
+
 ```
 
-5. Finally run the psql commands in the db/migrations directory to create the accounts and peeps table for each database. 
+5. Then enter each database using
 
+```
 
-Notes on functionality:
-------
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+\c (database name)
 
-Roadmap:
------
+```
 
-There is still more features that can be added to this application. The current application only fulfils the first four user stories. Here is a list of feature that need to be completed in order to fulfil the remaining user stories:
+5. Finally run the psql commands in the db/migrations directory to create the accounts and peeps table for each database.
+
+## Notes on functionality:
+
+- You don't have to be logged in to see the peeps.
+- Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+- The username and email are unique.
+- Peeps (posts to chitter) have the name of the maker and their user handle.
+- Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+## Roadmap:
+
+There is still more features that can be added to this application. The current application only fulfils the first four user stories.
+
+ <!-- Here is a list of feature that need to be completed in order to fulfil the remaining user stories:
+
 - [ ] Allow users to log in and log out
-- [ ] The timestamp for when a post is created should only display time 
+- [ ] The timestamp for when a post is created should only display time
 - [ ] When a user logs in and creates a peep, the name and username should also be displayed within the peep
 - [ ] Users can receive emails if they are tagged in peeps
-- [ ] Add CSS linksheet to improve the design of the application
+- [ ] Add CSS linksheet to improve the design of the application -->
 
-
-Contributing
------
+## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+```
 
-
+```
