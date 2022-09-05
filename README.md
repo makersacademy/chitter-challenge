@@ -166,18 +166,14 @@ psql -h 127.0.0.1
 4. Then to create the databases for this application run the following psql commands:
 
 ```
-
 CREATE DATABASE chitter
 CREATE DATABASE chitter_test
-
 ```
 
 5. Then enter each database using
 
 ```
-
 \c (database name)
-
 ```
 
 5. Finally run the psql commands in the db/migrations directory to create the accounts and peeps table for each database.
@@ -205,7 +201,3 @@ There is still more features that can be added to this application. The current 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-```
-
-```
