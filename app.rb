@@ -11,6 +11,7 @@ class Application < Sinatra::Base
   # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
+    enable :sessions
   end
 
   get "/" do
@@ -58,18 +59,18 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/user_chitter' do
-    if session[:user_id] == nil
-      return redirect('/login')
-    else
-      peep_repo = PeepRepository.new
-      @user_repo = UserRepository.new
-      @peeps = peep_repo.all.sort do |post|
-        post.id
-      end
-      return erb(:user_chitter)
-    end
-  end
+  # post '/user_chitter' do
+  #   if session[:user_id] == nil
+  #     return redirect('/login')
+  #   else
+  #     peep_repo = PeepRepository.new
+  #     @user_repo = UserRepository.new
+  #     @peeps = peep_repo.all.sort do |post|
+  #       post.id
+  #     end
+  #     return erb(:user_chitter)
+  #   end
+  # end
 
   get '/logout' do
     session[:user_id] = nil
