@@ -1,6 +1,9 @@
+
 RSpec.describe 'Peeps' do
+  include Rack::Test::Methods
+
   it 'creates a new peep' do 
-    peep = Peeps.new(content: 'Hello')
-    expect(peep.content).to eq 'Hello'
+    Peeps.create(content: 'Hello')
+    expect(Peeps.count).to eq 1
   end
 end

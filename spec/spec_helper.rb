@@ -19,3 +19,12 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+RSpec.configure do |c|
+  c.around(:each) do |example|
+    ActiveRecord::Base.connection.transaction do
+      example.run
+      raise ActiveRecord::Rollback
+    end
+  end
+end
