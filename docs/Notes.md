@@ -27,3 +27,4 @@
 # Delete
 # user.destroy
 # User.destroy_by(name: 'David')
+# User.destroy_all
