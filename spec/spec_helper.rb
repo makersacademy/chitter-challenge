@@ -1,5 +1,9 @@
 require 'simplecov'
 require 'simplecov-console'
+require './config/environments/test'
+require 'application'
+require 'peeps'
+require 'users'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
