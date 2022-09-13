@@ -1,12 +1,72 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Chitter is a Twitter clone where users can:
 
-Challenge:
+- register for an account
+- log in
+- make a peep (same as a tweet)
+- log out.
+
+## Project Setup:
+
+**WSL2 POSTGRES database pre-check**
+
+1. Check POSTGRESS database is running
+
+```console
+sudo service postgresql status
+```
+
+2. Start POSTGRES database
+
+```console
+sudo service postgresql start
+```
+
+**Set up POSTGRES database and test database 1st time**
+
+1. Connect to psql
+
+2. Create the database using the psql command
+
+```console
+psql=# CREATE DATABASE chitter;
+```
+
+3. Connect to the database using the pqsl command
+
+```console
+psql=# \c chitter
+```
+
+4. Run the query file 01_create_accounts_table.sql in folder db/migrations
+
+5. Run the query file 02_create_peeps_table.sql in folder db/migrations
+
+6. Run the query file 03_add_user_id_to_peeps_table.sql in folder db/migrations
+
+7. Exit the database
+
+```console
+psql=# \q
+```
+
+8. Create the test database
+
+```console
+psql=# CREATE DATABASE chitter_test;
+psql=# \c chitter_test;
+```
+
+9. Repeat steps 4 & 7 for the test database
+
+**Install gems**
+
+````console
+% bundle install
+
+
+Challenge Overview:
 -------
 
 As usual please start by forking this repo.
@@ -20,11 +80,11 @@ Features:
 STRAIGHT UP
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a Maker
@@ -129,3 +189,4 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+````
