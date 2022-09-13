@@ -2,10 +2,11 @@
 
 Chitter is a Twitter clone where users can:
 
-- register for an account
-- log in
+- register for an account (WIP)
+- log in (WIP)
 - make a peep (same as a tweet)
-- log out.
+- see a list of peeps
+- log out (WIP)
 
 ## Project Setup:
 
@@ -26,6 +27,10 @@ sudo service postgresql start
 **Set up POSTGRES database and test database 1st time**
 
 1. Connect to psql
+
+```console
+% psql
+```
 
 2. Create the database using the psql command
 
@@ -72,10 +77,16 @@ psql=# \c chitter_test;
 % rackup
 ```
 
-Visit http://127.0.0.1:9292/ for homepage
-Visit http://127.0.0.1:9292/peeps for list of peeps
+- Visit http://127.0.0.1:9292/ for homepage
+- Visit http://127.0.0.1:9292/peeps for list of peeps
 
-## Challenge Overview:
+**Run tests**
+
+```console
+% rspec
+```
+
+## Challenge Overview & Instructions:
 
 As usual please start by forking this repo.
 
@@ -121,9 +132,11 @@ I want to receive an email if I am tagged in a Peep
 
 ## Technical Approach:
 
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface. You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
+
+If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
 
 Some useful resources:
 **Ruby Object Mapper**
@@ -164,15 +177,6 @@ In code review we'll be hoping to see:
 - The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md). Referring to this rubric in advance may make the challenge somewhat easier. You should be the judge of how much challenge you want at this moment.
-
-## Automated Tests:
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 ## Notes on test coverage
 
