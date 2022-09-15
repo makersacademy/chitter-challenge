@@ -6,16 +6,30 @@ body {
 h1 {
   color: black;
   background-color: #47FFBF;
+  padding: 1%; 
 }
 h2 {
   color: black;
-  background-color: #47FF63; 
+  background-color: #47FF63;
+  padding: 2%; 
 }
 p {
   font-weight: bold;
 }
-.peep {
+footer {
   background-color: #FFBF47;
+  padding: 1%; 
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: red;
+}
+.peep {
+  background-color: white;
   font-weight: bold;
   text-align: left;
+  line-height: 200%;
 }

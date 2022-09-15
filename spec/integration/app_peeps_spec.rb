@@ -27,10 +27,10 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("<h1>Chitter</h1>")
-      expect(response.body).to include("<h2>See all Peeps!</h2>")
-      expect(response.body).to include("<h2>Post a Peep!</h2>")
-      expect(response.body).to include("<h2>Sign up!</h2>")
+      expect(response.body).to include('Chitter</a></h1>')
+      expect(response.body).to include('peeps">See all Peeps!</a></h2>')
+      expect(response.body).to include('new">Post a Peep!</a></h2>')
+      expect(response.body).to include('>Sign up!</a></h2>')
     end
   end
 
@@ -39,7 +39,6 @@ describe Application do
       response = get('/peeps')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("<h1>Chitter - All Peeps!</h1>")
       # extra spacing in next test to account for the spacing in peeps.erb
       expect(response.body).to include("Latest peep is from:\n      @monica0")
       expect(response.body).to include("Peep 8")
@@ -63,6 +62,15 @@ describe Application do
       expect(response.body).to include('<input type="text" name="user_f_name"')
       expect(response.body).to include('<input type="text" name="user_handle"')
       expect(response.body).to include('<input type="submit" value="Peep!">')
+    end
+  end
+
+  context "GET /peeps/posted" do
+    it "returns a confirmation page" do
+      response = get("/peeps/posted")
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Thank you posting!')
     end
   end
 

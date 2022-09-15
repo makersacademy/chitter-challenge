@@ -27,6 +27,10 @@ class Application < Sinatra::Base
     return erb(:peeps_new)
   end
 
+  get '/peeps/posted' do
+    return erb(:peeps_posted)
+  end
+
   post '/peeps' do
     
     # currently missing input validation check(s)

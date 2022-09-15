@@ -3,12 +3,13 @@
     <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>New Peep!</h1>
+    <h1><a href="/">Chitter</a></h1>
+    <h2 style="background: #E3FF47;">Post a new Peep!</h2>
     <form action="/peeps" method="POST">
       <input type="text" name="content" placeholder="What do you want to say?">
       </br>
-      <p>Chitter is under maintenance.</p>
-      <p>For now, enter your first name and username:</p>      
+      <p>We can't log you in right now - sorry!</p>
+      <p>For now just enter your first name and username:</p>      
       <input type="text" name="user_f_name" placeholder="Your first name?">
       </br>
       <input type="text" name="user_handle" placeholder="Your username">
@@ -16,4 +17,7 @@
       <input type="submit" value="Peep!">
     </form>
   </body>
+  <footer>
+    &copy; <a href="/">Chitter</a> <%= @current_year %>
+  </footer>
 </html>
