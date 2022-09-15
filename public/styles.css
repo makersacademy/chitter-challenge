@@ -1,0 +1,18 @@
+body {
+  background-color:#FF6347;
+}
+h1 {
+  color: black;
+  background-color: #47FFBF;
+}
+h2 {
+  color: black;
+  background-color: #47FF63; 
+}
+p {
+  color: red;
+}
+.peep {
+  background-color: #FFBF47;
+  font-weight: bold;
+}
