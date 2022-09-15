@@ -47,10 +47,28 @@ describe Application do
       expect(response.body).to include('<form action="/peeps" method="POST">')
       expect(response.body).to include('What do you want to say?')      
       expect(response.body).to include('<input type="text" name="content">')
-      # how do we insert the current time in same SQL format...?
+      # the time for this new peep can be implemented in the POST /peeps route
       expect(response.body).to include('<input type="text" name="user_f_name">')
       expect(response.body).to include('<input type="text" name="user_handle">')
       expect(response.body).to include('<input type="submit" value="Peep!">')
+    end
+  end
+
+  context "POST /peeps" do
+    it 'creates a new peep' do
+      # note that the date/time of the post is auto generated in the method
+      response = post(
+        '/peeps',
+        content: 'Carpe diem!',
+        user_f_name: 'Horace',
+        user_handle: 'horace0',
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('Peep created!')
+
+      response = get('/peeps')
+      expect(response.body).to include('Carpe diem!')
     end
   end
   
