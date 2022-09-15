@@ -4,7 +4,7 @@ class PeepRepository
   def all
     peeps = []
 
-    query = 'select * from peeps'
+    query = 'select * from peeps;'
     result_set = DatabaseConnection.exec_params(query, [])
 
     result_set.each do |record|
@@ -20,7 +20,7 @@ class PeepRepository
   end
 
   def find(id)
-    query = 'select * from peeps where id = $1'
+    query = 'select * from peeps where id = $1;'
     result_set = DatabaseConnection.exec_params(query, [id])
 
     peep = Peep.new

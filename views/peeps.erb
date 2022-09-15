@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Welcome to Chitter!"</h1>
+
+        <% @peeps.each do |peep| %>
+        <div>
+        <% @users.each do |user| %>
+        <% if user.id == peep.user_id%>
+            <ul><%= peep.content %> - <%= peep.peep_time %> - By: <%= user.name %>, AKA @<%= user.username %></ul>
+            <% end %>
+        </div>
+        <% end %>
+        <% end %>
+    </body>
+</html>

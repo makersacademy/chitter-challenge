@@ -4,7 +4,7 @@ class UserRepository
   def all
     users = []
 
-    query = 'select * from users'
+    query = 'select * from users;'
     result_set = DatabaseConnection.exec_params(query, [])
 
     result_set.each do |record|
@@ -21,7 +21,7 @@ class UserRepository
   end
 
   def find(id)
-    query = 'select * from users where id = $1'
+    query = 'select * from users where id = $1;'
     result_set = DatabaseConnection.exec_params(query, [id])
 
     user = User.new
@@ -36,7 +36,8 @@ class UserRepository
 
   def create(user)
     query = 'INSERT INTO users (email, password, name, username) VALUES ($1, $2, $3, $4);'
-    result_set = DatabaseConnection.exec_params(query, [user.email, user.password, user.name, user.username])
+    result_set = DatabaseConnection.exec_params(query, 
+[user.email, user.password, user.name, user.username])
 
     return user
   end
