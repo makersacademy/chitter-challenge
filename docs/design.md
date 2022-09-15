@@ -38,21 +38,3 @@ As a Maker
 So that I can start a conversation
 I want to reply to a peep from another Maker
 
-------
-# TABLE DESIGN
-
-Users\
-id - SERIAL PRIMARY KEY\
-email - text UNIQUE\
-password - text\
-name - text \
-username - text UNIQUE
-
-Peeps\
-id - SERIAL PRIMARY KEY\
-user_id - int FOREIGN KEY \
-content - text\
-time - datetime
-
------
-

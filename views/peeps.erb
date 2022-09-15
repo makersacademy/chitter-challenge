@@ -1,12 +1,14 @@
-<h1> PEEPS </h1>
+<h1> CHITTER </h1>
+
+<p> <a href="/sign-up">sign-up</a> for Chitter! Already have an account? <a href="/log-in">log-in</a> </p>
 
 <form action="/peeps" method="POST">
 <input type="text" name="content">
 <input type="submit" value="peep">
+<p> <%= @error || "" %> </p>
 
 <% @peep.each do |peep|%>
   <p> <%= peep.content%> </p>
-  <p> @<%= peep.user.username%> </p> <p> <%= peep.user.name%> </p>
-  <p> <%= peep.created_at%> </p>
+  <p> @<%= peep.user.username%> (<%= peep.user.name%>) <%= peep.created_at.strftime("%d/%m/%Y %k:%M") %></p>
 <% end %>
 

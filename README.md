@@ -15,5 +15,6 @@ Running server on localhost
 * Run ```bundle install``` to install all gems.
 * Run ```rake db:dev:migrate``` to ensure database is created.
 * Run ```rackup``` and go to http://localhost/9292 to access app.
+* (```rackup``` will reset tables and load seeds for you on each call)
 
 
