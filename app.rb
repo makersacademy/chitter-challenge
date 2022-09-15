@@ -45,7 +45,7 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     repo.create(peep)
 
-    return "Peep created!"
+    return erb(:peeps_posted)
   end
 
 end
