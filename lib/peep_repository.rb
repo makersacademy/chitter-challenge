@@ -19,9 +19,10 @@ class PeepRepository
     end
 
     return peeps
-
   end
 
+  # this #find method currently not required
+  # but could be useful in future
   def find(id)
     sql = 'SELECT * FROM peeps WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
@@ -33,8 +34,7 @@ class PeepRepository
     peep.user_f_name = result_set.first['user_f_name']
     peep.user_handle = result_set.first['user_handle']
 
-    return peep
-    
+    return peep    
   end
 
   def create(peep)

@@ -38,5 +38,20 @@ describe Application do
       expect(response.body).to include("wendy0")
     end
   end
+
+  context "GET /peeps/new" do
+    it "returns a form to add a new peep" do
+      response = get("/peeps/new")
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form action="/peeps" method="POST">')
+      expect(response.body).to include('What do you want to say?')      
+      expect(response.body).to include('<input type="text" name="content">')
+      # how do we insert the current time in same SQL format...?
+      expect(response.body).to include('<input type="text" name="user_f_name">')
+      expect(response.body).to include('<input type="text" name="user_handle">')
+      expect(response.body).to include('<input type="submit" value="Peep!">')
+    end
+  end
   
 end
