@@ -34,6 +34,7 @@ class PeepRepository
     peep.user_handle = result_set.first['user_handle']
 
     return peep
+    
   end
 
   def create(peep)
