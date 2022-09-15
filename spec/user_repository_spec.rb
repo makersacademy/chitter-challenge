@@ -26,4 +26,29 @@ describe UserRepository do
     expect(users.first.handle).to eq('wendy0')
   end
 
+  it 'finds one user' do
+    repo = UserRepository.new    
+    user = repo.find(4)
+    
+    expect(user.id).to eq(4)
+    expect(user.email).to eq('chandler0@example.com')
+    expect(user.password).to eq('password123')
+    expect(user.f_name).to eq('Chandler')
+    expect(user.handle).to eq('chandler0')
+  end
+
+  xit 'creates an user' do
+    repo = UserRepository.new
+    user = User.new    
+    user.email = ('chandler0@example.com')
+    user.password = ('password123')
+    user.f_name = ('Chandler')
+    user.handle = ('chandler0')
+    repo.create(user)
+    users = repo.all
+
+    expect(users.length).to eq(13)
+    expect(users.last.title).to eq('Pablo Honey')
+    expect(users.last.artist_id).to eq(1)
+  end
 end
