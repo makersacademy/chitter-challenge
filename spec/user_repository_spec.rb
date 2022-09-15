@@ -14,7 +14,7 @@ describe UserRepository do
     reset_table
   end
 
-  it 'finds all users' do
+  it '#all finds all users' do
     repo = UserRepository.new
     users = repo.all
     
@@ -26,7 +26,7 @@ describe UserRepository do
     expect(users.first.handle).to eq('wendy0')
   end
 
-  it 'finds one user' do
+  it '#find finds one user specified by id' do
     repo = UserRepository.new    
     user = repo.find(4)
     
@@ -37,18 +37,21 @@ describe UserRepository do
     expect(user.handle).to eq('chandler0')
   end
 
-  xit 'creates an user' do
+  it '#create creates a user' do
     repo = UserRepository.new
     user = User.new    
-    user.email = ('chandler0@example.com')
+    user.email = ('rob0@example.com')
     user.password = ('password123')
-    user.f_name = ('Chandler')
-    user.handle = ('chandler0')
+    user.f_name = ('Rob')
+    user.handle = ('rob0')
     repo.create(user)
     users = repo.all
 
-    expect(users.length).to eq(13)
-    expect(users.last.title).to eq('Pablo Honey')
-    expect(users.last.artist_id).to eq(1)
+    expect(users.length).to eq(9)
+    expect(users.last.id).to eq(9)
+    expect(users.last.email).to eq('rob0@example.com')
+    expect(users.last.password).to eq('password123')
+    expect(users.last.f_name).to eq('Rob')
+    expect(users.last.handle).to eq('rob0')
   end
 end

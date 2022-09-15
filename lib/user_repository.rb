@@ -21,7 +21,9 @@ class UserRepository
 
     return users
   end
-
+  
+  # this #find method currently not required
+  # but could be useful in future so replicated from PeepRepository
   def find(id)
     sql = 'SELECT * FROM users WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
@@ -36,4 +38,10 @@ class UserRepository
     return user
   end
 
+  def create(user)
+    sql = 'INSERT INTO users (email, password, f_name, handle) VALUES ($1, $2, $3, $4);'
+    result_set = DatabaseConnection.exec_params(sql, [user.email, user.password, user.f_name, user.handle])
+
+    return user
+  end
 end
