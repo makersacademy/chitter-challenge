@@ -1,21 +1,37 @@
 <html>
-  <head></head>
-  <body style="background-color: #ff6347;">
+  <head>
+    <style>
+      body {
+        background-color:#FF6347;
+      }
+      h1 {
+        color: black;
+        background-color: #47FFBF;
+      }
+      h2 {
+        color: black;
+        background-color: #47FF63; 
+      }
+      p {
+        color: red;
+      }
+      .peep {
+        background-color: #FFBF47;
+      }
+    </style>
+  </head>
+  <body>
     <h1>New Peep!</h1>
     <form action="/peeps" method="POST">
-      What do you want to say?
-      </br>   
-      <input type="text" name="content">
+      <input type="text" name="content" placeholder="What do you want to say?">
       </br>
       Chitter is under maintenance.
       </br>
       For now, please enter your first name and username:
       </br>
-      Your first name:
-      <input type="text" name="user_f_name">
+      <input type="text" name="user_f_name" placeholder="Your first name?">
       </br>
-      Your username:
-      <input type="text" name="user_handle">
+      <input type="text" name="user_handle" placeholder="Your username">
       </br>
       <input type="submit" value="Peep!">
     </form>

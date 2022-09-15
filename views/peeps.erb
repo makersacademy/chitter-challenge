@@ -1,13 +1,33 @@
 <html>
-  <head></head>
-  <body style="background-color: #ff6347;">
+  <head>
+    <style>
+      body {
+        background-color:#FF6347;
+      }
+      h1 {
+        color: black;
+        background-color: #47FFBF;
+      }
+      h2 {
+        color: black;
+        background-color: #47FF63; 
+      }
+      p {
+        color: red;
+      }
+      .peep {
+        background-color: #FFBF47;
+      }
+    </style>
+  </head>
+  <body>
     <h1>Chitter - All Peeps!</h1>
     <h2>Latest peep is from:
       @<%= @peeps.last.user_handle %>
     </h2>
     <hr>
     <% @peeps.reverse.each do |peep| %>
-      <div>
+      <div class="peep">
         <%= peep.user_f_name %>
         </br>
         @<%= peep.user_handle %>

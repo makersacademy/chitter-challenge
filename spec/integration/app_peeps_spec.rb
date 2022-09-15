@@ -46,10 +46,10 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<form action="/peeps" method="POST">')
       expect(response.body).to include('What do you want to say?')      
-      expect(response.body).to include('<input type="text" name="content">')
+      expect(response.body).to include('<input type="text" name="content"')
       # the time for this new peep can be implemented in the POST /peeps route
-      expect(response.body).to include('<input type="text" name="user_f_name">')
-      expect(response.body).to include('<input type="text" name="user_handle">')
+      expect(response.body).to include('<input type="text" name="user_f_name"')
+      expect(response.body).to include('<input type="text" name="user_handle"')
       expect(response.body).to include('<input type="submit" value="Peep!">')
     end
   end
@@ -64,6 +64,8 @@ describe Application do
         user_handle: 'horace0',
       )
 
+      # tests to check escaping HTML works
+
       expect(response.status).to eq(200)
       expect(response.body).to eq('Peep created!')
 
@@ -71,5 +73,20 @@ describe Application do
       expect(response.body).to include('Carpe diem!')
     end
   end
-  
+
+  it 'creates a new peep where HTML characters are successfully escaped' do
+    
+    # date_time is assigned using date and time generated my DateTime in the method
+    response = post(
+      '/peeps',
+      content: '<h1>Escape!</h1>',
+      user_f_name: 'Harold',
+      user_handle: 'harold0',
+    )    
+    expect(response.status).to eq(200)
+    expect(response.body).to eq('Peep created!')
+
+    response = get('/peeps')
+    expect(response.body).to include('&lt;h1&gt;Escape!&lt;/h1&gt;')
+  end
 end

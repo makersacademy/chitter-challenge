@@ -4,6 +4,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
 require 'date'
+require 'cgi'
 
 
 DatabaseConnection.connect
@@ -27,7 +28,7 @@ class Application < Sinatra::Base
     # currently missing input validation check(s)
 
     peep = Peep.new         
-    peep.content = params[:content]
+    peep.content = CGI::escapeHTML(params[:content])
     peep.date_time = DateTime.now.strftime('%d/%m/%Y %H:%M:%S')
     peep.user_f_name = params[:user_f_name]
     peep.user_handle = params[:user_handle]
