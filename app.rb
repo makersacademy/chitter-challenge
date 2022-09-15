@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-
+require 'json'
+require_relative 'lib/user_repository'
+require_relative 'lib/peep_repository'
 require_relative 'lib/database_connection'
 
 class Application < Sinatra::Base
@@ -8,5 +10,7 @@ class Application < Sinatra::Base
   # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
+    also_reload 'lib/peep_repository'
+    also_reload 'lib/user_repository'
   end
 end
