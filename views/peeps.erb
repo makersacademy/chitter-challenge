@@ -1,0 +1,21 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter - All Peeps!</h1>
+    <h2>Latest peep is from:
+      @<%= @peeps.last.user_handle %>
+    </h2>
+    <% @peeps.reverse.each do |peep| %>
+      <div>
+        </br>
+        <%= peep.user_f_name %>
+        </br>
+        @<%= peep.user_handle %>
+        </br>
+        <%= peep.date_time %>
+        </br>
+        <%= peep.content %>
+      </div>      
+    <% end %>
+  </body>
+</html>

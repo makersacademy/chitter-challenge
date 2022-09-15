@@ -1,7 +1,7 @@
 require 'peep'
 require 'peep_repository'
 
-def reset_table
+def reset_tables
   seed_sql = File.read('spec/seeds/seeds_tests.sql')
   user = ENV['PGUSER1']
   password = ENV['PGPASSWORD']
@@ -11,7 +11,7 @@ end
 
 describe PeepRepository do
   before(:each) do 
-    reset_table
+    reset_tables
   end
 
   it '#all returns all peeps' do
