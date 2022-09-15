@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'bcrypt'
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
