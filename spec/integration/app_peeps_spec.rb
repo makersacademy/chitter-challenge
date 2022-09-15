@@ -22,6 +22,18 @@ describe Application do
 
   let(:app) { Application.new }
 
+  context 'GET /' do
+    it 'returns homepage' do
+      response = get('/')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Chitter</h1>")
+      expect(response.body).to include("<h2>See all Peeps!</h2>")
+      expect(response.body).to include("<h2>Post a Peep!</h2>")
+      expect(response.body).to include("<h2>Sign up!</h2>")
+    end
+  end
+
   context 'GET /peeps' do
     it 'returns all peeps - latest peeps first' do
       response = get('/peeps')

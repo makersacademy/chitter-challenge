@@ -6,12 +6,16 @@ require_relative 'lib/user_repository'
 require 'date'
 require 'cgi'
 
-
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+  end
+
+  get '/' do
+    @current_year = DateTime.now.strftime('%Y')
+    return erb(:index)
   end
 
   get '/peeps' do
@@ -30,6 +34,7 @@ class Application < Sinatra::Base
     peep = Peep.new         
     peep.content = CGI::escapeHTML(params[:content])
     peep.date_time = DateTime.now.strftime('%d/%m/%Y %H:%M:%S')
+    # these 2 assignments will eventually not be needed
     peep.user_f_name = params[:user_f_name]
     peep.user_handle = params[:user_handle]
 
