@@ -1,0 +1,3 @@
+adapter: postgresql
+prepared_statements: false
+advisory_locks: false
