@@ -6,8 +6,7 @@ class PeepRepository
     peeps = []
 
     sql = 'SELECT * FROM peeps;'
-    result_set = DatabaseConnection.exec_params(sql, [])
-    # binding.irb    
+    result_set = DatabaseConnection.exec_params(sql, []) 
 
     result_set.each do |record|
       peep = Peep.new
@@ -23,17 +22,19 @@ class PeepRepository
 
   end
 
-#   def find(id)
-#     sql = 'SELECT id, name, genre FROM peeps WHERE id = $1;'
-#     result_set = DatabaseConnection.exec_params(sql, [id])
+  def find(id)
+    sql = 'SELECT * FROM peeps WHERE id = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [id])
 
-#     peep = Peep.new
-#     peep.id = result_set[0]['id'].to_i
-#     peep.name = result_set[0]['name']
-#     peep.genre = result_set[0]['genre']
+    peep = Peep.new
+    peep.id = result_set.first['id'].to_i
+    peep.content = result_set.first['content']
+    peep.date_time = result_set.first['date_time']
+    peep.user_f_name = result_set.first['user_f_name']
+    peep.user_handle = result_set.first['user_handle']
 
-#     return peep
-#   end
+    return peep
+  end
 
 #   def create(peep)
 #     sql = 'INSERT INTO peeps (name, genre) VALUES ($1, $2);'

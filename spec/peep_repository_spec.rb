@@ -26,16 +26,16 @@ describe PeepRepository do
     expect(peeps.first.user_handle).to eq('wendy0')    
   end
 
-  # it '#find returns one peep specified by id' do
-  #   repo = PeepRepository.new
-  #   peep = repo.find(4)
+  it '#find returns one peep specified by id' do
+    repo = PeepRepository.new
+    peep = repo.find(4)
     
-  #   expect(peep.id).to eq('4')
-  #   expect(peep.content).to eq('Peep 4')
-  #   expect(peep.date_time).to eq('2022-04-04 04:04:04')
-  #   expect(peep.user_f_name).to eq('Chandler')
-  #   expect(peep.user_handle).to eq('chandler0')
-  # end
+    expect(peep.id).to eq(4)
+    expect(peep.content).to eq('Peep 4')
+    expect(peep.date_time).to eq('2022-04-04 04:04:04')
+    expect(peep.user_f_name).to eq('Chandler')
+    expect(peep.user_handle).to eq('chandler0')
+  end
 
   # it '#create creates a peep' do
   #   peep = Peep.new
