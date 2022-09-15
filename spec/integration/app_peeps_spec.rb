@@ -21,10 +21,6 @@ describe Application do
   include Rack::Test::Methods
 
   let(:app) { Application.new }
-  
- # ------------------
- # tests for /peeps
- # ------------------
 
   context 'GET /peeps' do
     it 'returns all peeps - latest peeps first' do
@@ -42,5 +38,5 @@ describe Application do
       expect(response.body).to include("wendy0")
     end
   end
-
+  
 end
