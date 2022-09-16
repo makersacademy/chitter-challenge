@@ -41,10 +41,10 @@ describe Application do
       expect(response.status).to eq(200)
       # extra spacing in next test to account for the spacing in peeps.erb
       expect(response.body).to include("Latest peep is from:\n      @monica0")
-      expect(response.body).to include("Peep 8")
+      expect(response.body).to include("Does anybody care what kind of potatoes I want!?")
       expect(response.body).to include("Monica")
       expect(response.body).to include("monica0")     
-      expect(response.body).to include("Peep 1")
+      expect(response.body).to include("Hello, I am Wendy!")
       expect(response.body).to include("Wendy")
       expect(response.body).to include("wendy0")
     end
@@ -84,12 +84,10 @@ describe Application do
         user_handle: 'horace0',
       )
 
-      # tests to check escaping HTML works
-
-      expect(response.status).to eq(200)
-      expect(response.body).to eq('Peep created!')
+      expect(response.status).to eq(200) 
 
       response = get('/peeps')
+      
       expect(response.body).to include('Carpe diem!')
     end
   end
@@ -104,7 +102,6 @@ describe Application do
       user_handle: 'harold0',
     )    
     expect(response.status).to eq(200)
-    expect(response.body).to eq('Peep created!')
 
     response = get('/peeps')
     expect(response.body).to include('&lt;h1&gt;Escape!&lt;/h1&gt;')

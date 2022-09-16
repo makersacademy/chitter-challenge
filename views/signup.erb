@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">Chitter</a></h1>
+    <h2 style="background: #E3FF47;">Create a New Account!</h2>
+    <form action="/peeps" method="POST">
+      <input type="text" name="email" placeholder="What is your email address?">
+      </br>
+      <input type="password" name="password" placeholder="Set a password">
+      </br>
+      <input type="text" name="f_name" placeholder="Your first name">
+      </br>
+      <input type="text" name="handle" placeholder="Your username">
+      </br>
+      <input type="submit" value="Peep!">
+      </form>
+  </body>
+  <footer>
+    &copy; <a href="/">Chitter</a> <%= @current_year %>
+  </footer>
+</html>
