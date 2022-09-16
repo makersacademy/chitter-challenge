@@ -1,6 +1,5 @@
-* Validate sign-up input
+* log-out (to test not signed-in)
 * bcrypt
-* Log-in
 * Profile page
 * tagging users
 * email notifications

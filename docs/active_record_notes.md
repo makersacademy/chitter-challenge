@@ -14,7 +14,7 @@ users = User.all
 # First user named 'David'
 user = User.find_by(name: 'David') 
 
-# All users named Dabid with reverse chronological order
+# All users named David with reverse chronological order
 users = User.where(name: 'David', occupation: 'Code Artist')
 .order(created_at: :desc)
 

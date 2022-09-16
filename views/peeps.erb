@@ -1,10 +1,15 @@
 <h1> <a href ="/"> CHITTER </a> </h1>
 
-<p> <a href="/sign-up">sign-up</a> for Chitter! Already have an account? <a href="/log-in">log-in</a> </p>
+<% if session[:user_id].nil?%>
+<p> <a href="/signup">Sign-up</a> for Chitter! Already have an account? <a href="/login">Log-in</a> </p>
+<% else %>
+<p> <form action="/logout" method="POST"> <input type="submit" value="Log-out"> </p>
+<% end %>
 
 <form action="/peeps" method="POST">
 <input type="text" name="content">
 <input type="submit" value="peep"> <%= @error ? 'Invalid input.' : "" %>
+<%= '<a href="/login">Log-in</a> or <a href="/signup">sign-up</a> to post a peep!' if @feedback == :login %>
 
 <% @peep.each do |peep|%>
   <p> <%= peep.content%> </p>
