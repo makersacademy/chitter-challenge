@@ -70,7 +70,7 @@ describe Application do
       response = get("/peeps/posted")
       
       expect(response.status).to eq(200)
-      expect(response.body).to include('Thank you posting!')
+      expect(response.body).to include('Thank you for posting!')
     end
   end
 

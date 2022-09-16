@@ -54,5 +54,18 @@ describe Application do
       
       expect(response.body).to include('Account created!')
     end
+
+    it 'redirects to error page if trying to create a new account with a pre-existing email address or username' do
+      # note that the date/time of the post is auto generated in the method
+      response = post(
+        '/users/signup',
+        email: 'wendy0@example.com',
+        password: 'password123',
+        f_name: 'Wendy',
+        handle: 'wendy0',
+      )
+
+      expect(response.status).to eq(500)
+    end
   end
 end

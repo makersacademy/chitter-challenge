@@ -6,11 +6,14 @@ require_relative 'lib/user_repository'
 require 'date'
 require 'cgi'
 
+
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    # set :show_exceptions, false
+    set :raise_errors, false
   end
 
   get '/' do
@@ -50,6 +53,7 @@ class Application < Sinatra::Base
     repo.create(peep)
 
     return erb(:peeps_posted)
+
   end
 
   # ------
@@ -76,6 +80,10 @@ class Application < Sinatra::Base
     @last_user_created = repo.all.last
 
     return erb(:user_created)
+  end
+
+  error do
+    return erb(:error)
   end
 
 end

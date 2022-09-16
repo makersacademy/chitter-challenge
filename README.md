@@ -8,6 +8,7 @@ Tools / Technologies:
 -------------
 
 - Ruby / Sinatra 
+  - CGI (escapeHTML)
 - RSpec / SimpleCov / RuboCop
 - PostgreSQL
 - HTML
