@@ -6,6 +6,7 @@ development:
   # name of db to make
  database: chitter-development
 
+
  # same but for test env
 test:
  adapter: postgresql
