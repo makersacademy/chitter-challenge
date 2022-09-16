@@ -16,7 +16,8 @@ class PeepRepository
 
       peeps << peep
     end
-    return peeps
+    sorted_peeps = peeps.sort_by{|peep| peep.peep_time}.reverse!
+    return sorted_peeps
   end
 
   def find(id)

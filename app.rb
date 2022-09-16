@@ -46,4 +46,29 @@ class Application < Sinatra::Base
 
     return erb(:peep_posted)
   end
+
+  get '/signup' do
+    return erb(:sign_up)
+  end
+
+  post '/' do
+    email = params[:email]
+    password = params[:password]
+    name = params[:name]
+    username = params[:username]
+
+    if email.length == 0 || password.length == 0 || name.length == 0 || username.length == 0
+      status 400
+      return 'ERROR: One or more fields is empty'
+    end
+
+    new_user = User.new
+    new_user.email = email
+    new_user.password = password
+    new_user.name = name
+    new_user.username = username
+    UserRepository.new.create(new_user)
+
+    return erb(:sign_up_complete)
+  end
 end

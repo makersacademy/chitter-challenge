@@ -48,4 +48,29 @@ describe Application do
       expect(response.body).to include 'ERROR: Contents field must be filled'
     end
   end
+
+  context  'GET /signup' do
+    it 'returns form to sign up for chitter' do
+      response = get('/signup')
+      expect(response.status).to eq 200
+      expect(response.body).to include ('<h1>Welcome to Chitter!</h1>')
+    end
+  end
+
+  context 'POST /' do
+    it 'returns a success message if new user created, and checks if user has been created' do
+      post_response = post('/', email: 'abc@def.com', password: 'PASSWORD', name: 'Paul Makers', username: 'PMK1968')
+      expect(post_response.status).to eq 200
+      expect(post_response.body).to include('<h1>User created successfully!</h1>')
+      repo = UserRepository.new
+      users = repo.all
+      expect(users.length).to eq 4
+    end
+
+    it 'returns 400 error if a field is empty' do
+      response = post('/', email: '')
+      expect(response.status).to eq 400
+      expect(response.body).to include 'ERROR: One or more fields is empty'
+    end
+  end
 end
