@@ -1,21 +1,15 @@
 require "spec_helper"
 require "rack/test"
 require_relative '../../app'
+require_relative '../reset_database_tables'
 
-def reset_tables
-  seed_sql = File.read('spec/seeds/seeds_tests.sql')
-  user = ENV['PGUSER1']
-  password = ENV['PGPASSWORD']
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test', user: user, password: password })
-  connection.exec(seed_sql)
-end
 
 describe Application do
 
 # tests for status 404 responses - WIP
 
   before(:each) do
-    reset_tables
+    ResetDatabaseTables.new.reset
   end
 
   include Rack::Test::Methods

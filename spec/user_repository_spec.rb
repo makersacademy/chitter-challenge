@@ -1,17 +1,10 @@
 require 'user'
 require 'user_repository'
-
-def reset_tables
-  seed_sql = File.read('spec/seeds/seeds_tests.sql')
-  user = ENV['PGUSER1']
-  password = ENV['PGPASSWORD']
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test', user: user, password: password })
-  connection.exec(seed_sql)
-end
+require_relative './reset_database_tables'
 
 describe UserRepository do
-  before(:each) do 
-    reset_tables
+  before(:each) do
+    ResetDatabaseTables.new.reset
   end
 
   it '#all finds all users' do

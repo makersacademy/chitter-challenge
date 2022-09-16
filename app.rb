@@ -6,7 +6,6 @@ require_relative 'lib/user_repository'
 require 'date'
 require 'cgi'
 
-
 DatabaseConnection.connect
 
 class Application < Sinatra::Base

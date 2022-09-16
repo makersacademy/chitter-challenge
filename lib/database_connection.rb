@@ -9,7 +9,12 @@ class DatabaseConnection
     end
     user = ENV['PGUSER1']
     password = ENV['PGPASSWORD']
-    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name, user: user, password: password })
+    @connection = PG.connect({
+      host: '127.0.0.1',
+      dbname: database_name,
+      user: user,
+      password: password
+    })
   end
 
   def self.exec_params(query, params)
