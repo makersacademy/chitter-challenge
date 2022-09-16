@@ -13,6 +13,7 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
     # set :show_exceptions, false
     set :raise_errors, false
+    enable :sessions
   end
 
   get '/' do
@@ -80,6 +81,26 @@ class Application < Sinatra::Base
 
     return erb(:user_created)
   end
+
+  get '/sessions/login' do
+    return erb(:'/sessions/login')
+  end
+
+  post '/sessions' do    
+    repo = UserRepository.new
+    @user = repo.find(params[:handle])
+    
+    if params[:password] == @user.password
+      session[:user_id_no] = @user.id
+      return "password correct!"
+    else
+      redirect '/sessions/login'
+    end
+  end
+
+  # -------
+  # /errors
+  # -------
 
   error do
     return erb(:error)
