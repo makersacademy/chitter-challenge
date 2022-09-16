@@ -24,7 +24,6 @@ class Application < Sinatra::Base
       @feedback = :login
       status 401
     else 
-      p "USER IS LOGGED IN"
       peep = Peep.create(
         content: params[:content],
         user_id: session[:user_id]
@@ -66,7 +65,7 @@ class Application < Sinatra::Base
     if !user_id
       @feedback = user_id.nil? ? :no_user : :wrong 
       status 401 
-      erb(:login) #use redirect
+      erb(:login)
     else 
       @peep = peeps_with_users
       erb(:peeps)
@@ -100,9 +99,7 @@ class Application < Sinatra::Base
   def log_in(email, password)
     user = User.find_by(email: email)
     return nil if user.nil?
-    binding.irb
-    if BCrypt::Password.new(user.password) == password
-      p "LOGGED IN"
+    if  BCrypt::Password.new(user.password) == password
       session[:user_id] = user.id
     else
       false
