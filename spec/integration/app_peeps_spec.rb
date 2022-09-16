@@ -60,7 +60,14 @@ describe Application do
 
   context "GET /peeps/new" do
     it "returns a form to add a new peep" do
-      response = get("/peeps/new")
+      
+      response = post(
+        '/sessions',
+        handle: 'wendy0',
+        password:'password123',
+      )
+      
+      response = get("/peeps/new")      
       
       expect(response.status).to eq(200)
       expect(response.body).to include('<form action="/peeps" method="POST">')
@@ -70,6 +77,12 @@ describe Application do
       expect(response.body).to include('<input type="text" name="user_f_name"')
       expect(response.body).to include('<input type="text" name="user_handle"')
       expect(response.body).to include('<input type="submit" value="Peep!">')
+    end
+
+    it "redirects user to login page if not logged in" do
+      response = get("/peeps/new")
+
+      expect(response.body).to include('Log into your account!')
     end
   end
 
