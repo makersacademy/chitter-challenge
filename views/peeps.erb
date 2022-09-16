@@ -3,7 +3,7 @@
 <% if session[:user_id].nil?%>
 <p> <a href="/signup">Sign-up</a> for Chitter! Already have an account? <a href="/login">Log-in</a> </p>
 <% else %>
-<p> <form action="/logout" method="POST"> <input type="submit" value="Log-out"> </p>
+<p> <form action="/logout" method="POST"> <input type="submit" value="Log-out"> </form> </p>
 <% end %>
 
 <form action="/peeps" method="POST">

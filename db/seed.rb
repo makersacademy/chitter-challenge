@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 puts "Seeding..."
 
 # this will work only for sqlite, need to write truncate for postgresql on Heroku if deployed
@@ -11,21 +13,21 @@ User.create(
   name: 'Jack Dorsay',
   username: 'jack',
   email: 'jack@gmail.com',
-  password: 'twitter1'
+  password: BCrypt::Password.create('twitter1')
 )
 
 User.create(
   name: 'Barack Obama',
   username: 'barackobama',
   email: 'barack@gmail.com',
-  password: 'america1'
+  password: BCrypt::Password.create('america1')
 )
 
 User.create(
   name: 'Elon Musk',
   username: 'elonmusk',
   email: 'elon@gmail.com',
-  password: 'tesla1'
+  password: BCrypt::Password.create('tesla1')
 )
 
 Peep.create(

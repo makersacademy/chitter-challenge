@@ -1,4 +1,5 @@
 require_relative '../../app'
+require 'bcrypt'
 require 'date'
 
 RSpec.describe 'Application' do
@@ -7,7 +8,7 @@ RSpec.describe 'Application' do
   let(:app) { Application.new }
 
   describe 'POST to /login' do
-    it 'returns 400 with error message if wrong password' do
+    it 'returns 401 with error message if wrong password' do
       response = post(
         '/login',
         email: 'barack@gmail.com',
@@ -17,7 +18,7 @@ RSpec.describe 'Application' do
       expect(response.body).to include 'Wrong password. Try again'
     end
 
-    it 'returns 400 with error message if no user found' do
+    it 'returns 401 with error message if no user found' do
       response = post(
         '/login',
         email: 'joe@gmail.com',

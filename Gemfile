@@ -14,7 +14,7 @@ group :development, :test do
 end
 
 gem 'sqlite3'
-gem "bcrypt", "~> 3.1"
+gem "bcrypt", "~> 3.1.8"
 gem "rake", "~> 13.0"
 gem "sinatra-activerecord", "~> 2.0"
 gem "activerecord", "~> 7.0"

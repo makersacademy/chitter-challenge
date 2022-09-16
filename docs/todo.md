@@ -1,9 +1,9 @@
-* log-out (to test not signed-in)
 * bcrypt
+* Check for UNIQUE email and username
 * Profile page
-* tagging users
-* email notifications
-* comments 
+* Tagging users (links to their profile page)
+* Email notifications
+* Comments 
 
 * Deploy
 https://guides.rubyonrails.org/configuring.html#configuring-a-postgresql-database

@@ -1,5 +1,6 @@
 require 'active_record'
 require 'rack/test'
+require 'bcrypt'
 require './lib/peep'
 require './lib/user'
 

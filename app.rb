@@ -24,6 +24,7 @@ class Application < Sinatra::Base
       @feedback = :login
       status 401
     else 
+      p "USER IS LOGGED IN"
       peep = Peep.create(
         content: params[:content],
         user_id: session[:user_id]
@@ -47,7 +48,7 @@ class Application < Sinatra::Base
         name: params[:name],
         username: params[:username],
         email: params[:email],
-        password: params[:password] # BCrypt::Password.create(params[:password])
+        password: BCrypt::Password.create(params[:password])
       )
       status 201
       session[:user_id] = user.id
@@ -99,8 +100,9 @@ class Application < Sinatra::Base
   def log_in(email, password)
     user = User.find_by(email: email)
     return nil if user.nil?
-    # encrypted = BCrypt::Password.create(password)
-    if user.password == password
+    binding.irb
+    if BCrypt::Password.new(user.password) == password
+      p "LOGGED IN"
       session[:user_id] = user.id
     else
       false
