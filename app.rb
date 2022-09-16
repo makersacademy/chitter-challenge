@@ -93,6 +93,11 @@ class Application < Sinatra::Base
     return erb(:'/sessions/login')
   end
 
+  get '/sessions/logout' do
+    session[:user_id] = nil
+    return erb(:index)
+  end
+
   # FURTHER TESTS REQUIRED
   post '/sessions' do    
     repo = UserRepository.new
