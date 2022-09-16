@@ -23,4 +23,27 @@ class Application < Sinatra::Base
     @users = users_repo.all
     return erb(:peeps)
   end
+
+  get '/peeps/new' do
+    return erb(:new_peep)
+  end
+
+  post '/peeps' do
+    content = params[:content]
+    peep_time = Time.now.getutc
+    user_id = 1
+
+    if content.length == 0
+       status 400
+       return 'ERROR: Contents field must be filled'
+    end
+
+    new_peep = Peep.new
+    new_peep.content = content
+    new_peep.peep_time = peep_time
+    new_peep.user_id = user_id
+    PeepRepository.new.create(new_peep)
+
+    return erb(:peep_posted)
+  end
 end
