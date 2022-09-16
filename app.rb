@@ -30,8 +30,14 @@ class Application < Sinatra::Base
     return erb(:peeps)
   end
 
+  # FURTHER TESTS REQUIRED
   get '/peeps/new' do
-    return erb(:peeps_new)
+    if session[:user_id] == nil
+      # eventually a "you need to log in!" page?
+      return erb(:'/sessions/login')   
+    else
+      return erb(:peeps_new)
+    end
   end
 
   get '/peeps/posted' do
@@ -82,19 +88,22 @@ class Application < Sinatra::Base
     return erb(:user_created)
   end
 
+  # FURTHER TESTS REQUIRED
   get '/sessions/login' do
     return erb(:'/sessions/login')
   end
 
+  # FURTHER TESTS REQUIRED
   post '/sessions' do    
     repo = UserRepository.new
-    @user = repo.find(params[:handle])
+    @user = repo.find_by_handle(params[:handle])
     
     if params[:password] == @user.password
-      session[:user_id_no] = @user.id
-      return "password correct!"
+      session[:user_id] = @user.id
+      
+      return erb(:'/sessions/login_success')
     else
-      redirect '/sessions/login'
+      return erb(:'/sessions/login_error')
     end
   end
 

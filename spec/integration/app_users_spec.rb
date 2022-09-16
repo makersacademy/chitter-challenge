@@ -63,27 +63,27 @@ describe Application do
     end
   end
 
-  context "GET /sessions/login" do
-    it 'returns account login page' do
-      response = get('/sessions/login')
-      
-      expect(response.status).to eq(200)
-      expect(response.body).to include('Log into your account!')
-      expect(response.body).to include('<form action="/sessions/login" method="POST">')
-      expect(response.body).to include('<input type="text" name="handle"')
-      expect(response.body).to include('<input type="password" name="password"')
-      expect(response.body).to include('<input type="submit" value="Log in!">')
-    end
-  end
-
-  # context "POST /sessions" do
-
-  # scenarios: correct credentials, incorrect credentials...
-
-  #   it 'captures user credentials input' do
+  # context "GET /sessions/login" do
+  #   it 'returns account login page' do
   #     response = get('/sessions/login')
       
   #     expect(response.status).to eq(200)
+  #     expect(response.body).to include('Log into your account!')
+  #     expect(response.body).to include('<form action="/sessions/login" method="POST">')
+  #     expect(response.body).to include('<input type="text" name="handle"')
+  #     expect(response.body).to include('<input type="password" name="password"')
+  #     expect(response.body).to include('<input type="submit" value="Log in!">')
   #   end
   # end
+
+  context "POST /sessions" do
+
+  # scenarios: correct credentials, incorrect credentials...
+
+    it 'captures user credentials input' do
+      response = get('/sessions/login')
+      
+      expect(response.status).to eq(200)
+    end
+  end
 end
