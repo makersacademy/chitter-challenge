@@ -22,11 +22,9 @@ class UserRepository
     return users
   end
   
-  # this #find method currently not required
-  # but could be useful in future
-  def find(id)
-    sql = 'SELECT * FROM users WHERE id = $1;'
-    result_set = DatabaseConnection.exec_params(sql, [id])
+  def find(handle)
+    sql = 'SELECT * FROM users WHERE handle = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [handle])
 
     user = User.new
     user.id = result_set[0]['id'].to_i

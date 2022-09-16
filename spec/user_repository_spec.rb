@@ -19,9 +19,9 @@ describe UserRepository do
     expect(users.first.handle).to eq('wendy0')
   end
 
-  it '#find finds one user specified by id' do
+  it '#find finds one user specified by handle' do
     repo = UserRepository.new    
-    user = repo.find(4)
+    user = repo.find('chandler0')
     
     expect(user.id).to eq(4)
     expect(user.email).to eq('chandler0@example.com')
