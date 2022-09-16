@@ -18,6 +18,10 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
+  # ------
+  # /peeps
+  # ------
+
   get '/peeps' do
     @peeps = PeepRepository.new.all
     return erb(:peeps)
@@ -29,10 +33,6 @@ class Application < Sinatra::Base
 
   get '/peeps/posted' do
     return erb(:peeps_posted)
-  end
-
-  get '/users/signup' do
-    return erb(:signup)
   end
 
   post '/peeps' do
@@ -50,6 +50,32 @@ class Application < Sinatra::Base
     repo.create(peep)
 
     return erb(:peeps_posted)
+  end
+
+  # ------
+  # /users
+  # ------
+
+  get '/users/signup' do
+    return erb(:signup)
+  end
+
+  get '/users/user-created' do
+    return erb(:user_created)
+  end
+
+  post '/users/signup' do
+    user = User.new    
+    user.email = CGI::escapeHTML(params[:email])
+    user.password = CGI::escapeHTML(params[:password])
+    user.f_name = CGI::escapeHTML(params[:f_name].capitalize)
+    user.handle = CGI::escapeHTML(params[:handle])
+
+    repo = UserRepository.new
+    repo.create(user)
+    @last_user_created = repo.all.last
+
+    return erb(:user_created)
   end
 
 end

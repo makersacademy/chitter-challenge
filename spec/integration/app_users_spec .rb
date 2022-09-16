@@ -27,13 +27,32 @@ describe Application do
       response = get('/users/signup')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h2>Create a New Account!</h2>')
+      expect(response.body).to include('Create a New Account!</h2>')
       expect(response.body).to include('<form action="/users/signup" method="POST">')
       expect(response.body).to include('<input type="text" name="email"')
       expect(response.body).to include('<input type="password" name="password"')
       expect(response.body).to include('<input type="text" name="f_name"')
       expect(response.body).to include('<input type="text" name="handle"')
-      expect(response.body).to include('<input type="submit" value="Sign up!">')
+      expect(response.body).to include('<input type="submit" value="Let\'s go!">')
+    end
+  end
+
+  context "POST /users/signup" do
+    it 'creates a new user' do
+      # note that the date/time of the post is auto generated in the method
+      response = post(
+        '/users/signup',
+        email: 'bob0@example.com',
+        password: 'topsecret',
+        f_name: 'Bob',
+        handle: 'bob0',
+      )
+
+      expect(response.status).to eq(200) 
+
+      response = get('/users/user-created')
+      
+      expect(response.body).to include('Account created!')
     end
   end
 end
