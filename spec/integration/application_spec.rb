@@ -50,13 +50,22 @@ RSpec.describe 'Application' do
       expect(response.body).to include '<p> Next I\'m buying Coca-Cola to put the cocaine back in </p>'
     end
 
-    it 'returns 400 and error message if invalid input' do
+    it 'returns 400 and error message if HTML input' do
       response = post(
         '/peeps',
         content: '<script> some { code } </script>'
       )
       expect(response.status).to eq 400
-      expect(response.body).to include '<p> Invalid input. </p>'
+      expect(response.body).to include 'Invalid input.'
+    end
+
+    it 'returns 400 and error message if blank input' do
+      response = post(
+        '/peeps',
+        content: ''
+      )
+      expect(response.status).to eq 400
+      expect(response.body).to include 'Invalid input.'
     end
   end
 
@@ -85,6 +94,32 @@ RSpec.describe 'Application' do
       expect(response.status).to eq 200
       expect(User.count).to eq 4
       expect(response.body).to include '<p> just setting up my twttr </p>'
+    end
+
+    it 'returns 400 and error message if blank input' do
+      response = post(
+        '/users',
+        name: '',
+        username: 'serenawilliams',
+        email: 'serena@gmail.com',
+        password: 'tennis1'
+      )
+        expect(response.status).to eq 400
+        expect(User.count).to eq 3
+        expect(response.body).to include 'Invalid input.'
+    end
+
+    it 'returns 400 and error message if HTML input' do
+      response = post(
+        '/users',
+        name: 'Serena Williams',
+        username: '<script> some { code } </script>',
+        email: 'serena@gmail.com',
+        password: 'tennis1'
+      )
+      expect(response.status).to eq 400
+      expect(User.count).to eq 3
+      expect(response.body).to include 'Invalid input.'
     end
   end
 end

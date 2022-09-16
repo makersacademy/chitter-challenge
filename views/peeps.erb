@@ -1,11 +1,10 @@
-<h1> CHITTER </h1>
+<h1> <a href ="/"> CHITTER </a> </h1>
 
 <p> <a href="/sign-up">sign-up</a> for Chitter! Already have an account? <a href="/log-in">log-in</a> </p>
 
 <form action="/peeps" method="POST">
 <input type="text" name="content">
-<input type="submit" value="peep">
-<p> <%= @error || "" %> </p>
+<input type="submit" value="peep"> <%= @error ? 'Invalid input.' : "" %>
 
 <% @peep.each do |peep|%>
   <p> <%= peep.content%> </p>

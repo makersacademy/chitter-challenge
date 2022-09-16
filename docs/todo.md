@@ -1,6 +1,7 @@
 * Validate sign-up input
-* Log-in
 * bcrypt
+* Log-in
+* Profile page
 * tagging users
 * email notifications
 * comments 

@@ -1,17 +1,18 @@
 require 'sinatra/base'
+require 'bcrypt'
 require './lib/peep'
 require './lib/user'
 
 class Application < Sinatra::Base
   get '/' do
-    @peep = Peep.joins(:user)
+    @peep = peeps_with_users
     return erb(:peeps)
   end
 
   # currently defaults all peeps to user_id 1 
   post '/peeps' do
     if invalid_peep_params?
-      @error = 'Invalid input.'
+      @error = true
       status 400
     else 
       Peep.create(
@@ -19,15 +20,13 @@ class Application < Sinatra::Base
         user_id: 1
       )
     end
-    @peep = get_peeps_with_users
+    @peep = peeps_with_users
     return erb(:peeps)
   end
 
   def invalid_peep_params?
     content = params[:content]
-    html_syntax = %r{<[a-z]+>(.|\n)+</[a-z]+>}
-    blank = %r{^\s+$}
-    content == nil || blank.match?(content) || html_syntax.match?(content)
+    content == nil || html_or_blank?(content)
   end
 
   get '/sign-up' do
@@ -35,27 +34,32 @@ class Application < Sinatra::Base
   end
 
   post '/users' do
-    User.create(
-      name: params[:name],
-      username: params[:username],
-      email: params[:email],
-      password: params[:password]
-    )
-    @peep = get_peeps_with_users
+    if invalid_sign_up_params?
+      @error = true
+      status 400
+    else
+      User.create(
+        name: params[:name],
+        username: params[:username],
+        email: params[:email],
+        password: BCrypt::Password.create(params[:password])
+      )
+    end
+    @peep = peeps_with_users
     return erb(:peeps)
-    # can also redirect to user profile
   end
 
   def invalid_sign_up_params?
-    params.all? do |param|
-      html_syntax = %r{<[a-z]+>(.|\n)+</[a-z]+>}
-      blank = %r{^\s+$}
-      content == nil || blank.match?(content) || html_syntax.match?(content)
-    end
+    params.values.any? { |value| value == nil || html_or_blank?(value) }
   end
 
-  def get_peeps_with_users
+  def peeps_with_users
     Peep.joins(:user).order(created_at: :desc)
+  end
+
+  def html_or_blank?(content)
+    regex = %r{(<[a-z]+>(.|\n)+</[a-z]+>)|(^\s*$)}
+    regex.match?(content)
   end
 end 
 
