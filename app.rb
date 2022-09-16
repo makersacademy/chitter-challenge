@@ -19,6 +19,7 @@ class Application < Sinatra::Base
   get '/peeps' do
     peeps_repo = PeepRepository.new
     @peeps = peeps_repo.all
+    @sorted_peeps = @peeps.sort_by{|peep| peep.peep_time}.reverse!
     users_repo = UserRepository.new
     @users = users_repo.all
     return erb(:peeps)
@@ -52,21 +53,35 @@ class Application < Sinatra::Base
   end
 
   post '/' do
-    email = params[:email]
+    @new_user_email = params[:email]
     password = params[:password]
     name = params[:name]
-    username = params[:username]
+    @new_user_username = params[:username]
 
-    if email.length == 0 || password.length == 0 || name.length == 0 || username.length == 0
+    if @new_user_email.length == 0 || password.length == 0 || name.length == 0 || @new_user_username.length == 0
       status 400
       return 'ERROR: One or more fields is empty'
     end
 
     new_user = User.new
-    new_user.email = email
+    new_user.email = @new_user_email
     new_user.password = password
     new_user.name = name
-    new_user.username = username
+    new_user.username = @new_user_username
+
+    users_repo = UserRepository.new
+    users = users_repo.all
+
+    users.each do |user|
+      if @new_user_username == user.username 
+        status 400
+        return 'ERROR: Username is already taken'
+      elsif @new_user_email == user.email
+        status 400
+        return 'ERROR: Email is already in use'
+      end
+    end
+
     UserRepository.new.create(new_user)
 
     return erb(:sign_up_complete)

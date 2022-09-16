@@ -2,8 +2,7 @@
     <head></head>
     <body>
         <h1>Welcome to Chitter</h1>
-
-        <% @peeps.each do |peep| %>
+        <% @sorted_peeps.each do |peep| %>
         <div>
         <% @users.each do |user| %>
         <% if user.id == peep.user_id%>
