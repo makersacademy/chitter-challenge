@@ -100,11 +100,12 @@ CREATE TABLE peeps (
 );
 
 CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  email text,
+  id SERIAL UNIQUE NOT NULL,
+  email text UNIQUE NOT NULL,
   password text,
   f_name text,
-  handle text
+  handle text UNIQUE NOT NULL,
+  PRIMARY KEY (id, email, handle)
 );
 
 CREATE TABLE peeps_users (
