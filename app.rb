@@ -22,7 +22,7 @@ class Application < Sinatra::Base
   get '/' do
    return erb(:index)
   end
-
+  
   # ------
   # /peeps
   # ------
@@ -47,14 +47,17 @@ class Application < Sinatra::Base
 
   post '/peeps' do
     
+    # @user_test = UserRepository.new.all[session[:user_id] - 1]
+   
     # currently missing input validation check(s)
+    # need to amend code to take logged-in user's attributes...
 
+    # amend tests for this - now taking attributes from session hash
     peep = Peep.new         
     peep.content = CGI::escapeHTML(params[:content])
     peep.date_time = DateTime.now.strftime('%d/%m/%Y %H:%M:%S')
-    # these 2 assignments will eventually not be needed
-    peep.user_f_name = params[:user_f_name]
-    peep.user_handle = params[:user_handle]
+    peep.user_f_name = session[:user_f_name]
+    peep.user_handle = session[:user_handle]
 
     repo = PeepRepository.new
     repo.create(peep)
@@ -104,16 +107,19 @@ class Application < Sinatra::Base
     @user = repo.find_by_email(params[:email])
     
     if params[:password] == @user.password
-      session[:user_id] = @user.id      
+      session[:user_id] = @user.id
+      session[:user_email] = @user.email
+      session[:user_f_name] = @user.f_name
+      session[:user_handle] = @user.handle
       return erb(:'/sessions/login_success')
     else
       return erb(:'/sessions/login_error')
     end
   end
 
-  # -------
+  # ------
   # /errors
-  # -------
+  # ------
 
   error do
     return erb(:error)

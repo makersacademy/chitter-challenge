@@ -3,24 +3,7 @@ require "rack/test"
 require_relative '../../app'
 require_relative '../reset_database_tables'
 
-
-# def reset_tables
-#   seed_sql = File.read('spec/seeds/seeds_tests.sql')
-#   user = ENV['PGUSER1']
-#   password = ENV['PGPASSWORD']
-#   connection = PG.connect({ 
-#     host: '127.0.0.1',
-#     dbname: 'chitter_test',
-#     user: user,
-#     password: password 
-#   })
-#   connection.exec(seed_sql)
-# end
-
-
 describe Application do
-
-# tests for status 404 responses - WIP
 
   before(:each) do
     ResetDatabaseTables.new.reset
@@ -40,11 +23,6 @@ describe Application do
       expect(response.body).to include('new">Post a Peep!</a></h2>')
       expect(response.body).to include('>Sign up!</a></h2>')
     end
-
-    # add tests for:
-    # "log out" when user logged in
-    # no "sign up" when user logged in
-    # username shown when logged in
   end
 
   context 'GET /peeps' do
@@ -64,8 +42,7 @@ describe Application do
   end
 
   context "GET /peeps/new" do
-    it "returns a form to add a new peep" do
-      
+    it "returns a form to add a new peep" do      
       response = post(
         '/sessions',
         email: 'wendy0@example.com',
@@ -83,7 +60,6 @@ describe Application do
 
     it "redirects user to login page if not logged in" do
       response = get("/peeps/new")
-
       expect(response.body).to include('Log into your account!')
     end
   end
@@ -91,42 +67,43 @@ describe Application do
   context "GET /peeps/posted" do
     it "returns a confirmation page" do
       response = get("/peeps/posted")
-      
+
       expect(response.status).to eq(200)
       expect(response.body).to include('Thank you for posting!')
     end
   end
 
   context "POST /peeps" do
-    it 'creates a new peep' do
-      # note that the date/time of the post is auto generated in the method
+    it 'creates a new peep after successful user login' do
+      # the date/time of the post is auto generated in the route method 
+
+      response = post(
+        '/sessions',
+        email: 'wendy0@example.com',
+        password:'password123',
+      )
+      
       response = post(
         '/peeps',
-        content: 'Carpe diem!',
-        user_f_name: 'Horace',
-        user_handle: 'horace0',
+        content: 'Hello, there!',
       )
 
-      expect(response.status).to eq(200) 
-
       response = get('/peeps')
-      
-      expect(response.body).to include('Carpe diem!')
+
+      expect(response.body).to include('Hello, there!')
+      expect(response.body).to include('Wendy')
+      expect(response.body).to include('wendy0')
     end
   end
 
-  it 'creates a new peep where HTML characters are successfully escaped' do
-    
-    # date_time is assigned using date and time generated my DateTime in the method
+  it 'special HTML characters in a peep are successfully escaped' do
     response = post(
       '/peeps',
       content: '<h1>Escape!</h1>',
-      user_f_name: 'Harold',
-      user_handle: 'harold0',
     )    
-    expect(response.status).to eq(200)
 
     response = get('/peeps')
+
     expect(response.body).to include('&lt;h1&gt;Escape!&lt;/h1&gt;')
   end
 end

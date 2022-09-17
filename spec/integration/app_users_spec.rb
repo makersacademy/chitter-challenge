@@ -3,10 +3,7 @@ require "rack/test"
 require_relative '../../app'
 require_relative '../reset_database_tables'
 
-
 describe Application do
-
-# tests for status 404 responses - WIP
 
   before(:each) do
     ResetDatabaseTables.new.reset
@@ -33,7 +30,6 @@ describe Application do
 
   context "POST /users/signup" do
     it 'creates a new user' do
-      # note that the date/time of the post is auto generated in the method
       response = post(
         '/users/signup',
         email: 'bob0@example.com',
@@ -49,9 +45,7 @@ describe Application do
       expect(response.body).to include('Account created!')
     end
 
-    # next test/implementation: redirect to dedicated error page
     it 'redirects to error page if trying to create a new account with a pre-existing email address or username' do
-      # note that the date/time of the post is auto generated in the method
       response = post(
         '/users/signup',
         email: 'wendy0@example.com',
@@ -60,6 +54,7 @@ describe Application do
         handle: 'wendy0',
       )
 
+      # test response.body when decided on how to redirect user
       expect(response.status).to eq(500)
     end
   end
