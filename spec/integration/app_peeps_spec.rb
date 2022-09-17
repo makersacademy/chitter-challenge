@@ -40,6 +40,11 @@ describe Application do
       expect(response.body).to include('new">Post a Peep!</a></h2>')
       expect(response.body).to include('>Sign up!</a></h2>')
     end
+
+    # add tests for:
+    # "log out" when user logged in
+    # no "sign up" when user logged in
+    # username shown when logged in
   end
 
   context 'GET /peeps' do

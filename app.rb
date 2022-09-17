@@ -2,7 +2,10 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
+require_relative 'lib/peep'
 require_relative 'lib/user_repository'
+require_relative 'lib/user'
+
 require 'date'
 require 'cgi'
 
@@ -17,8 +20,7 @@ class Application < Sinatra::Base
   end
   
   get '/' do
-    @current_year = DateTime.now.strftime('%Y')
-    return erb(:index)
+   return erb(:index)
   end
 
   # ------

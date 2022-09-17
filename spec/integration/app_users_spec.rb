@@ -108,7 +108,7 @@ describe Application do
       )
       
       expect(response.status).to eq(200)
-      expect(response.body).to include("Welcome!")
+      expect(response.body).to include("Welcome")
     end
   end
 
