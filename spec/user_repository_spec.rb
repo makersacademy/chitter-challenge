@@ -21,7 +21,7 @@ describe UserRepository do
 
   it '#find finds one user specified by handle' do
     repo = UserRepository.new    
-    user = repo.find_by_handle('chandler0')
+    user = repo.find_by_email('chandler0@example.com')
     
     expect(user.id).to eq(4)
     expect(user.email).to eq('chandler0@example.com')

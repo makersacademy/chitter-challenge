@@ -101,7 +101,7 @@ class Application < Sinatra::Base
   # FURTHER TESTS REQUIRED
   post '/sessions' do    
     repo = UserRepository.new
-    @user = repo.find_by_handle(params[:handle])
+    @user = repo.find_by_email(params[:email])
     
     if params[:password] == @user.password
       session[:user_id] = @user.id      

@@ -22,9 +22,9 @@ class UserRepository
     return users
   end
   
-  def find_by_handle(handle)
-    sql = 'SELECT * FROM users WHERE handle = $1;'
-    result_set = DatabaseConnection.exec_params(sql, [handle])
+  def find_by_email(email)
+    sql = 'SELECT * FROM users WHERE email = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email])
 
     user = User.new
     user.id = result_set[0]['id'].to_i

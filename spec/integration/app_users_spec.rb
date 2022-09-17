@@ -71,7 +71,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('Log into your account!')
       expect(response.body).to include('<form action="/sessions" method="POST">')
-      expect(response.body).to include('<input type="text" name="handle"')
+      expect(response.body).to include('<input type="text" name="email"')
       expect(response.body).to include('<input type="password" name="password"')
       expect(response.body).to include('<input type="submit" value="Log in!">')
     end
@@ -93,7 +93,7 @@ describe Application do
             
       response = post(
         '/sessions',
-        handle: 'wrong',
+        email: 'wrong',
         password:'credentials',
       )
 
@@ -103,7 +103,7 @@ describe Application do
     it 'returns welcome page after successful user login' do
       response = post(
         '/sessions',
-        handle: 'wendy0',
+        email: 'wendy0@example.com',
         password:'password123',
       )
       

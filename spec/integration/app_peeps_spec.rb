@@ -68,7 +68,7 @@ describe Application do
       
       response = post(
         '/sessions',
-        handle: 'wendy0',
+        email: 'wendy0@example.com',
         password:'password123',
       )
       
