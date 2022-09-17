@@ -46,13 +46,8 @@ class Application < Sinatra::Base
   end
 
   post '/peeps' do
-    
-    # @user_test = UserRepository.new.all[session[:user_id] - 1]
    
     # currently missing input validation check(s)
-    # need to amend code to take logged-in user's attributes...
-
-    # amend tests for this - now taking attributes from session hash
     peep = Peep.new         
     peep.content = CGI::escapeHTML(params[:content])
     peep.date_time = DateTime.now.strftime('%d/%m/%Y %H:%M:%S')

@@ -5,7 +5,7 @@
   <body>
     <h1><a href="/">Chitter</a></h1>
     </br>
-    <h2 style="background: #E3FF47;">Welcome <%= @user.f_name%> @<%= @user.handle%> !</h2>
+    <h2 style="background: #E3FF47;">Welcome <%= session[:user_f_name] %> (<%= session[:user_handle] %>)</h2>
     </br>   
     <h2><a href="/peeps">See all Peeps!</a></h2>
     <h2><a href="/peeps/new">Post a Peep!</a></h2>
