@@ -73,9 +73,6 @@ describe Application do
       expect(response.body).to include('<form action="/peeps" method="POST">')
       expect(response.body).to include('What do you want to say?')      
       expect(response.body).to include('<input type="text" name="content"')
-      # the time for this new peep can be implemented in the POST /peeps route
-      expect(response.body).to include('<input type="text" name="user_f_name"')
-      expect(response.body).to include('<input type="text" name="user_handle"')
       expect(response.body).to include('<input type="submit" value="Peep!">')
     end
 

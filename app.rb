@@ -15,7 +15,7 @@ class Application < Sinatra::Base
     set :raise_errors, false
     enable :sessions
   end
-
+  
   get '/' do
     @current_year = DateTime.now.strftime('%Y')
     return erb(:index)
@@ -33,7 +33,6 @@ class Application < Sinatra::Base
   # FURTHER TESTS REQUIRED
   get '/peeps/new' do
     if session[:user_id] == nil
-      # eventually a "you need to log in!" page?
       return erb(:'/sessions/login')   
     else
       return erb(:peeps_new)
@@ -88,7 +87,6 @@ class Application < Sinatra::Base
     return erb(:user_created)
   end
 
-  # FURTHER TESTS REQUIRED
   get '/sessions/login' do
     return erb(:'/sessions/login')
   end
@@ -104,8 +102,7 @@ class Application < Sinatra::Base
     @user = repo.find_by_handle(params[:handle])
     
     if params[:password] == @user.password
-      session[:user_id] = @user.id
-      
+      session[:user_id] = @user.id      
       return erb(:'/sessions/login_success')
     else
       return erb(:'/sessions/login_error')
