@@ -5,7 +5,6 @@ require_relative 'lib/peep_repository'
 require_relative 'lib/peep'
 require_relative 'lib/user_repository'
 require_relative 'lib/user'
-
 require 'date'
 require 'cgi'
 
@@ -75,6 +74,11 @@ class Application < Sinatra::Base
 
   post '/users/signup' do
     user = User.new    
+    # user.email = params[:email]
+    # user.password = params[:password]
+    # user.f_name = params[:f_name]
+    # user.handle = params[:handle]
+
     user.email = CGI::escapeHTML(params[:email])
     user.password = CGI::escapeHTML(params[:password])
     user.f_name = CGI::escapeHTML(params[:f_name].capitalize)
@@ -82,7 +86,9 @@ class Application < Sinatra::Base
 
     repo = UserRepository.new
     repo.create(user)
-    @last_user_created = repo.all.last
+
+    # will need to use PeepRepository for this next line
+    # @last_user_created = repo.all.last
 
     return erb(:user_created)
   end
@@ -99,13 +105,16 @@ class Application < Sinatra::Base
   # FURTHER TESTS REQUIRED
   post '/sessions' do    
     repo = UserRepository.new
-    @user = repo.find_by_email(params[:email])
+    # update tests for this
+    user = repo.find_by_email(params[:email])
     
-    if params[:password] == @user.password
-      session[:user_id] = @user.id
-      session[:user_email] = @user.email
-      session[:user_f_name] = @user.f_name
-      session[:user_handle] = @user.handle
+    login_attempt = repo.sign_in(params[:email], params[:password])
+
+    if login_attempt == "successful"    
+      session[:user_id] = user.id
+      session[:user_email] = user.email
+      session[:user_f_name] = user.f_name
+      session[:user_handle] = user.handle
       return erb(:'/sessions/login_success')
     else
       return erb(:'/sessions/login_error')
