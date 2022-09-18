@@ -73,11 +73,7 @@ class Application < Sinatra::Base
   end
 
   post '/users/signup' do
-    user = User.new    
-    # user.email = params[:email]
-    # user.password = params[:password]
-    # user.f_name = params[:f_name]
-    # user.handle = params[:handle]
+    user = User.new
 
     user.email = CGI::escapeHTML(params[:email])
     user.password = CGI::escapeHTML(params[:password])
@@ -87,8 +83,7 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     repo.create(user)
 
-    # will need to use PeepRepository for this next line
-    # @last_user_created = repo.all.last
+    @last_user_created = repo.all.last
 
     return erb(:user_created)
   end
