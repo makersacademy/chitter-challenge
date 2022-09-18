@@ -14,7 +14,7 @@ class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
     # set :show_exceptions, false
-    set :raise_errors, false
+    set :raise_errors, true
     enable :sessions
   end
   
@@ -31,7 +31,6 @@ class Application < Sinatra::Base
     return erb(:peeps)
   end
 
-  # FURTHER TESTS REQUIRED
   get '/peeps/new' do
     if session[:user_id] == nil
       return erb(:'/sessions/login')   

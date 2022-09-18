@@ -7,14 +7,17 @@ This is a small Twitter clone that will allow the users to post messages to a pu
 Tools / Technologies:
 -------------
 
-- Ruby / Sinatra 
-  - CGI (escapeHTML)
-- RSpec / SimpleCov / RuboCop
-- PostgreSQL
-- HTML
+- MVC Layers
+  - Ruby / Sinatra / HTML / CSS
+  - BCrypt - user password encryption and hash checking
+  - CGI (escapeHTML) - to help protect from cross-site scripting
+  - PostgreSQL
+- Testing
+  - RSpec / SimpleCov / RuboCop
 
-
-Chitter Challenge
+  
+  
+Chitter Challenge (Original Challenge Notes)
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own
