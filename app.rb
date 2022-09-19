@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 require_relative 'lib/database_connection'
@@ -12,16 +13,16 @@ class Application < Sinatra::Base
   # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
+    enable :sessions
     also_reload 'lib/peep_repository'
     also_reload 'lib/user_repository'
   end
 
-  enable :sessions
-
   get '/peeps' do
     peeps_repo = PeepRepository.new
     @peeps = peeps_repo.all
-    @sorted_peeps = @peeps.sort_by{|peep| peep.peep_time}.reverse!
+    @sorted_peeps = @peeps.sort_by { |peep| peep.peep_time }.reverse!
     users_repo = UserRepository.new
     @users = users_repo.all
     return erb(:peeps)
@@ -36,12 +37,12 @@ class Application < Sinatra::Base
     peep_time = Time.now.getutc
     user_id = session[:user_id]
 
-    if content.length == 0
-       status 400
-       return 'ERROR: Contents field must be filled'
+    if content.length.zero?
+      status 400
+      return 'ERROR: Contents field must be filled'
     end
 
-    if user_id == nil
+    if user_id.nil?
       status 400
       return 'ERROR: Please log in to post a peep'
     end
@@ -69,7 +70,7 @@ class Application < Sinatra::Base
     name = params[:name]
     @new_user_username = params[:username]
 
-    if @new_user_email.length == 0 || password.length == 0 || name.length == 0 || @new_user_username.length == 0
+    if @new_user_email.length.zero? || password.length.zero? || name.length.zero? || @new_user_username.length.zero?
       status 400
       return 'ERROR: One or more fields is empty'
     end
@@ -105,7 +106,7 @@ class Application < Sinatra::Base
     users_repo = UserRepository.new
     users = users_repo.all
 
-    return 'ERROR: Email Address not found' if users.any?{|user| user.email == email} == false
+    return 'ERROR: Email Address not found' if users.any? { |user| user.email == email } == false
 
     user = UserRepository.new.find_by_email(email)
 

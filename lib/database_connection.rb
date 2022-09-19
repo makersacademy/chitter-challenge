@@ -11,7 +11,8 @@ class DatabaseConnection
   def self.connect
     user = 'iniffur'
     password = ENV['PGPASSWORD']
-    @connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter', user: user, password: password })
+    @connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter', user: user, 
+password: password })
   end
 
   # This method executes an SQL query 

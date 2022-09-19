@@ -17,9 +17,7 @@ class PeepRepository
       peeps << peep
     end
     return peeps
-  end
-
-  
+  end  
 
   def find(id)
     query = 'select * from peeps where id = $1;'

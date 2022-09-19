@@ -2,20 +2,22 @@
     <head></head>
     <body>
         <h1>Welcome to Chitter</h1>
+
         <form action="/peeps/new">
-            <input type="submit" value="New Peep" />
+            <input type="submit" value="Post Peep" />
         </form>
+        
         <form action="/signup">
-            <input type="submit" value="Sign Up Here" />
+            <input type="submit" value="Sign Up" />
         </form>
 
 <% if session[:user_id] == nil %>
         <form action="/login">
-            <input type="submit" value="Login here" />
+            <input type="submit" value="Login" />
         </form>
 <% else %>
         <form action="/logout">
-            <input type="submit" value="Click to logout" />
+            <input type="submit" value="Logout" />
         </form>
                 <% end %>
 

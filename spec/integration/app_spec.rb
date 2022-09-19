@@ -48,9 +48,15 @@ describe Application do
       expect(response.status).to eq 400
       expect(response.body).to include 'ERROR: Contents field must be filled'
     end
+
+    it 'returns 400 error if not logged in' do
+      response = post('/peeps', content: 'This is my first peep')
+      expect(response.status).to eq 400
+      expect(response.body).to include 'ERROR: Please log in to post a peep'
+    end
   end
 
-  context  'GET /signup' do
+  context 'GET /signup' do
     it 'returns form to sign up for chitter' do
       response = get('/signup')
       expect(response.status).to eq 200
@@ -62,7 +68,7 @@ describe Application do
     it 'returns a success message if new user created, and checks if user has been created' do
       post_response = post('/signup', email: 'abc@def.com', password: 'PASSWORD', name: 'Paul Makers', username: 'PMK1968')
       expect(post_response.status).to eq 200
-      expect(post_response.body).to include('<h1>User created successfully! Please click here to write a new peep:</h1>')
+      expect(post_response.body).to include('<h1>User created successfully! Please click here to login:</h1>')
       repo = UserRepository.new
       users = repo.all
       expect(users.length).to eq 4
@@ -73,19 +79,35 @@ describe Application do
       expect(response.status).to eq 400
       expect(response.body).to include 'ERROR: One or more fields is empty'
     end
-
-    # it 'returns 400 error if email address is already in use' do
-    #   response = post('/signup', email: 'fake1@fake.com')
-    #   expect(response.status).to eq 400
-    #   expect(response.body).to include 'ERROR: Email is already in use'
-    # end
   end
 
-  context  'GET /login' do
+  context 'GET /login' do
     it 'returns form to login to chitter' do
       response = get('/login')
       expect(response.status).to eq 200
       expect(response.body).to include ('<h1>Please log in</h1>')
+    end
+  end
+
+  context 'POST /login' do
+    it 'returns success message if password was correct' do
+      response = post('/login', email: 'fake1@fake.com', password: 'PASSWORD1')
+      expect(response.status).to eq 200
+      expect(response.body).to include ('Logged in successfully!')
+    end
+
+    it 'returns an error if wrong password is inputted' do
+      response = post('/login', email: 'fake1@fake.com', password: 'ASDF')
+      expect(response.status).to eq 400
+      expect(response.body).to include ('ERROR: Incorrect password')
+    end
+  end
+
+  context 'GET /logout' do
+    it 'returns success message for logging out' do
+      response = get('/logout')
+      expect(response.status).to eq 200
+      expect(response.body).to include ('Logout Successful.')
     end
   end
 end
