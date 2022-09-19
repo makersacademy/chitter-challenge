@@ -1,8 +1,8 @@
-#Chitter Challenge
+# Chitter Challenge
 =================
 
-##Partial Solution
-###Things to add when I have additional time:
+## Partial Solution
+### Things to add when I have additional time:
 
 * Figure out how to effectively incorporate BCrypt and encrypting passwords
 * Ammend bug where a new user must log in before "peeping"
@@ -11,12 +11,12 @@
 * Figure out how to add CSS styles in ruby
 * Figure out how to get Sinatra Flash working correctly
 
-##Technologies used
+## Technologies used
 
-*Sinatra
-*Rack Test
-*RSpec
-*PostrgeSQL
+* Sinatra
+* Rack Test
+* RSpec
+* PostrgeSQL
 
 ##Setup Instructions
 
