@@ -22,10 +22,11 @@ describe "Chitter" do
   end
 
   it "should allow a user to sign in" do
-    response = post '/sessions/login', params = {email: "test1@test1.com", password: "password"}, user_id: 1
+    response = post '/sessions/login', params = {email: "test1@test1.com", password: "password"}
     expect(response.status).to eq 302
-    expect { last_response.should redirect_to('/') }
-    expect(session[:user_id]).to eq 1
+    expect { response.should redirect_to('/') }
+    response = get '/'
+    expect(response.body).to include('Welcome, test1')
   end
 
   it "should not allow a user to sign in with incorrect password" do
@@ -39,13 +40,8 @@ describe "Chitter" do
     response = get '/sessions/logout'
     expect(response.status).to eq 302
     expect { response.should redirect_to('/') }
-  end
-
-  it 'should logout of a session' do
-    response = get '/sessions/logout', user_id: 1
-    expect(response.status).to eq 302
-    expect { response.should redirect_to('/') }
-    expect(session[:user_id]).to eq nil
+    response = get '/'
+    expect(response.body).not_to include('Welcome, test1')
   end
 
 end

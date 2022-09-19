@@ -26,6 +26,7 @@ require 'mail'
 configure :production do
   set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'chitter', pool: 2}
 end
+
 class Application < Sinatra::Base
   enable :sessions
 

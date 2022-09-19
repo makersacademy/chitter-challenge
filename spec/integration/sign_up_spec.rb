@@ -26,5 +26,7 @@ describe "Chitter" do
     expect(response.status).to eq 302
     user = User.find_by(email: "test3@test3.com")
     expect(user.name).to eq "test3"
+    response = get '/'
+    expect(response.body).to include('Welcome, test3')
   end
 end
