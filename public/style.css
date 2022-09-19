@@ -1,0 +1,24 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #31E1F7;
+}
+
+h1 {
+  color: #FF7777;
+}
+
+.peep_header {
+  width: 300px;
+  border: 2px solid #400D51;
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 20px 5px 2px 5px;
+}
+
+.peep_content {
+  width: 300px;
+  border: 2px solid #D800A6;
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 2px 5px 5px 5px;
+}

@@ -150,24 +150,4 @@ describe Application do
       expect(last_response.body).to include('<div>Sign Up successful!</div>')
     end
   end
-
-  # context "#check_login_credentials" do
-  #   it "returns nil if the user doesn't exists (email wrong)" do
-  #     app = Application.new
-  #     user = app.check_login_credentials('jona@makers.com', 'grey81!mouse')
-  #     expect(user).to eq nil
-  #   end
-  
-  #   it "returns the user id if the user exists and the password is correct" do
-  #     app = Application.new
-  #     user = app.check_login_credentials('jonas@makers.com', 'grey81!mouse')
-  #     expect(user.id).to eq '1'
-  #   end
-  
-  #   it "returns nil if the user exists and the password is wrong" do
-  #     app = Application.new
-  #     user = app.check_login_credentials('jonas@makers.com', 'greymouse')
-  #     expect(user).to eq nil
-  #   end
-  # end
 end

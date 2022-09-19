@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Chitter - Your Peep message board</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <header>      
@@ -30,8 +31,8 @@
 
     <% @peeps.each do |peep| %>
       <div>
-        <div><%= peep.username %> <%= peep.time_posted %></div>
-        <div><%= peep.content %></div>
+        <div class="peep_header"><%= peep.username %> <%= peep.time_posted %></div>
+        <div class="peep_content"><%= peep.content %></div>
       </div>
     <% end %>
   </body>
