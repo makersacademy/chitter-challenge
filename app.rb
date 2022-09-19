@@ -6,19 +6,21 @@ require './models/post'
 require 'bcrypt'
 require 'mail'
 
-options = { :address              => "smtp.mail.yahoo.com",
-            :port                 => 465,
-            :domain               => 'your.host.name',
-            :user_name            => 'smtp.mail.yahoo.com',
-            :password             => 'iamab34n!',
-            :authentication       => 'plain',
-            :enable_starttls_auto => true  }
+
+# needs testing before implementation
+# options = { :address              => "smtp.mail.yahoo.com",
+#             :port                 => 465,
+#             :domain               => 'your.host.name',
+#             :user_name            => 'smtp.mail.yahoo.com',
+#             :password             => 'iamab34n!',
+#             :authentication       => 'plain',
+#             :enable_starttls_auto => true  }
 
 
 
-Mail.defaults do
-  delivery_method :smtp, options
-end
+# Mail.defaults do
+#   delivery_method :smtp, options
+# end
 
 
 configure :production do
@@ -97,12 +99,6 @@ class Application < Sinatra::Base
       # remove any script tags very basic need to find a sanitiser gem
       body = params[:body].gsub(/[<>]/, '')
       Post.create(body: body, tags: tags, user_id: session[:user_id])
-      Mail.deliver do
-        to 't.mannion89@gmail.com'
-        from 'chittermailtest@yahoo.com'
-        subject 'testing sendmail'
-        body 'testing sendmail'
-    end
       redirect to('/')
     else
       @alert = "Error: Peep must be between 1 and 140 characters and not contain SQL injection"
