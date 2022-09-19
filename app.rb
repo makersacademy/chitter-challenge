@@ -17,17 +17,21 @@ class Application < Sinatra::Base
 
   get "/" do
     @peeps = Peep.all.reverse
+    p session
+
     if session[:session_user_id]
       @user = User.find(session[:session_user_id])
     end
     erb :index
   end
 
-  post "/new_post/:id" do
-    peep = Peep.create(post: params[:post], user_id: params[:id])
-    if peep.save
+  post "/new_post" do
+    peep = Peep.create(post: params[:post], user_id: session[:session_user_id])
+    p peep
+    if peep.save && session[:session_user_id]
       redirect "/"
     else
+      status 400
       "failed to create a post!"
     end
   end
@@ -42,9 +46,10 @@ class Application < Sinatra::Base
                     "password_digest": encrypted_password,
                     "first_name": params[:first_name],
                     "username": params[:username])
-    if user.save
+    if user.save && encrypted_password
       redirect "/"
     else
+      status 400
       "failed to create a user!"
     end
   end
@@ -54,12 +59,20 @@ class Application < Sinatra::Base
   end
 
   post "/sessions" do
-    user = User.where("email": params["email"]).first
+    user = User.find_by("email": params["email"])
     if user.authenticate(params["password"])
       session[:session_user_id] = user.id
+      p session
       redirect "/"
     else
-      "no good!"
+      status 400
+      "Incorrect!"
     end
+  end
+
+  post "/logout" do
+    session[:session_user_id] = nil
+    @peeps = Peep.all.reverse
+    erb :index
   end
 end
