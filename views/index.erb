@@ -1,13 +1,17 @@
 <% if session[:session_user_id] %>
   Welcome, <%= @user.username %>
 
-  <form action="/new_post/<%= @user.id %>" method="post">
+  <form action="/new_post" method="post">
     <br/>
     <input type="text" name="post"/>
     <input type="submit"> 
 
 
   </form>
+
+  <form action="/logout" method="post">
+  <input type="submit" value="Sign out"/>
+</form>
   <br/>
 
 
@@ -25,20 +29,24 @@
   </form>
   <br/>
 
+  
+
   <% end %>
 
+  <% if @peeps %>
+ 
   <% @peeps.each do |peep| %>
 
 
-    <div class="post" style="width: 320px; word-wrap: break-word; border: 1px solid black; background-color: #DAF7A6">
+    <div class="post" style="width: 320px; word-wrap: break-word; border: 1px solid black; background-color: #8AC7DB">
     <%= peep.post %>
     <div/>
 
-    Peeped by <%= User.find(peep.user_id).username %> at 
+    Posted by <%= User.find(peep.user_id).username %> at 
     <%= peep.created_at.strftime("%k:%M, %e %b %Y") %>
 
     <br/>
     <br/>
   <% end %>
-
+  <% end %>
 
