@@ -17,3 +17,16 @@
 *Rack Test
 *RSpec
 *PostrgeSQL
+
+##Setup Instructions
+
+```
+$ git clone https://github.com/iniffur/chitter_challenge
+$ bundle install
+$ rake setup
+$ rake migrate
+$ rspec
+$ rerun 'rackup'
+```
+
+

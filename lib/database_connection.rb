@@ -9,6 +9,10 @@ class DatabaseConnection
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
   def self.connect
+    if ENV['chitter'] != nil
+      @connection = PG.connect(ENV['chitter'])
+      return
+    end
     user = 'iniffur'
     password = ENV['PGPASSWORD']
     @connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter', user: user, 
