@@ -16,7 +16,7 @@ describe PeepRepository do
     expect(peeps.first.content).to eq('Hello, I am Wendy!')
     expect(peeps.first.date_time).to eq('2022-01-01 01:01:01')
     expect(peeps.first.user_f_name).to eq('Wendy')
-    expect(peeps.first.user_handle).to eq('wendy0')    
+    expect(peeps.first.user_handle).to eq('wendy0')
   end
 
   it '#find returns one peep specified by id' do
@@ -43,7 +43,7 @@ describe PeepRepository do
 
     expect(peeps.length).to eq(9)
     expect(peeps.last.id).to eq(9)
-    expect(peeps.last.content).to eq('Peep 9')
+    expect(peeps.last.content).to eq('I\'m fine!!!!')
     expect(peeps.last.date_time).to eq('2022-09-09 09:09:09')
     expect(peeps.last.user_f_name).to eq('Ross')
     expect(peeps.last.user_handle).to eq('ross0')

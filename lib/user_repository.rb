@@ -9,14 +9,12 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, [])    
 
     result.each do |record|
-
       user = User.new
       user.id = record['id'].to_i
       user.email = record['email']
       user.password = record['password']
       user.f_name = record['f_name']
       user.handle = record['handle']
-
       users << user
     end
 
@@ -28,11 +26,11 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, [email])
 
     user = User.new
-    user.id = result[0]['id'].to_i
-    user.email = result[0]['email']
-    user.password = result[0]['password']
-    user.f_name = result[0]['f_name']
-    user.handle = result[0]['handle']
+    user.id = result.first['id'].to_i
+    user.email = result.first['email']
+    user.password = result.first['password']
+    user.f_name = result.first['f_name']
+    user.handle = result.first['handle']
 
     return user
   end

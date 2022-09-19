@@ -20,8 +20,7 @@ Notes
 - Colour scheme
   - Inspired by Windows XP OS themes (black, high contrast)!
 - See design/design-notes.md for ideas on future iterations
-  
-  
+
 Chitter Challenge (Original Challenge Notes)
 =================
 

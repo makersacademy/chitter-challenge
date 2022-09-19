@@ -16,3 +16,4 @@
 ## Testing:
 - invalid user input
 - status code error messages
+- edge cases

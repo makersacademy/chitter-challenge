@@ -7,9 +7,6 @@ describe UserRepository do
     ResetDatabaseTables.new.reset
   end
 
-  # tests for expected user password values is WIP
-  # until BCrypt gem is understood more
-
   it '#all finds all users' do
     repo = UserRepository.new
     users = repo.all
@@ -17,18 +14,18 @@ describe UserRepository do
     expect(users.length).to eq(8)
     expect(users.first.id).to eq(1)
     expect(users.first.email).to eq('wendy0@example.com')
-    # expect(users.first.password).to eq('password123')
+    expect(users.first.password).to eq('$2a$12$V44T0Eq3xxxd23IsnMW62u9YB1QPxlmgjfI8k4qR8.p1XCDhbsNji')
     expect(users.first.f_name).to eq('Wendy')
     expect(users.first.handle).to eq('wendy0')
   end
 
-  it '#find finds one user specified by handle' do
+  it '#find finds one user specified by email' do
     repo = UserRepository.new    
     user = repo.find_by_email('chandler0@example.com')
     
     expect(user.id).to eq(4)
     expect(user.email).to eq('chandler0@example.com')
-    # expect(user.password).to eq('password123')
+    expect(user.password).to eq('$2a$12$z0bqmInOTFmO/6kHzCUvp.1IymcLnnvo02EWkGeabjy3WhIzBzKU2')
     expect(user.f_name).to eq('Chandler')
     expect(user.handle).to eq('chandler0')
   end
@@ -51,15 +48,13 @@ describe UserRepository do
     expect(users.last.handle).to eq('rob0')
   end
 
-  it '#sign_in confirms user submitted password matches encrypted password in database' do
-    repo = UserRepository.new
-    
+  it '#sign_in confirms user submitted password is valid (via BCrypt) based on encrypted password in database' do
+    repo = UserRepository.new    
     user = User.new
     user.email = ('rob0@example.com')
     user.password = ('password123')
     user.f_name = ('Rob')
     user.handle = ('rob0')
-
     repo.create(user)
 
     result = repo.sign_in(user.email, user.password)
