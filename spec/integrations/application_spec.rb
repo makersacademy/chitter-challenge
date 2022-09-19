@@ -10,10 +10,22 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
-  it "returns home page" do
-    response = get("/")
-    expect(response.status).to eq 200
+  context "GET /" do
+    it "returns home page with all peeps and sign in and signup links " do
+      response = get("/")
+      expect(response.status).to eq 200
 
-    expect(response.body).to eq "Hello World"
+      expect(response.body).to include(' <input type="submit" value="Join Chitter"/>')
+      expect(response.body).to include('John\'s post')
+      expect(response.body).to include(' <input type="submit" value="Sign in"/>')
+    end
+  end
+
+  context "POST / new_post/" do
+    it "adds a post" do
+      response = post("/new_post/1", post: "Another post", user_id: 1)
+      expect(response.status).to eq 200
+      expect(response.body).to include("Another post")
+    end
   end
 end

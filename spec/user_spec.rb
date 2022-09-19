@@ -16,11 +16,12 @@ RSpec.describe "USER" do
   it "returns all users" do
     user = User.all
     expect(user.length).to eq 3
+    expect(user.first.email).to eq "john@gmail.com"
   end
 
-  it "deltes a user" do
-    user = User.delete_all
+  # xit "deltes a user" do
+  #   user = User.delete_all
 
-    expect(User.all.length).to eq 0
-  end
+  #   expect(User.all.length).to eq 0
+  # end
 end

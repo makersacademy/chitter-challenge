@@ -26,3 +26,5 @@ gem "pg", "~> 1.4"
 gem "bcrypt"
 
 gem "database_cleaner"
+
+gem "spring-commands-rspec", group: :development
