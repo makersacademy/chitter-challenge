@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Chitter Login</title>
+  </head>
+  <body>
+    <h1>Chitter Login</h1>
+    <% if @error_message == "Email/Password incorrect" %>
+      <div><%= @error_message %></div>
+    <% end %>
+    <form method="POST" action="/login">
+      <input type="email" name="email" placeholder="email"><br>
+      <input type="password" name="password" placeholder="password"><br>
+      <input type="submit" value="login">
+    </form>
+    <div>No account yet? <a href="/signup">Sign Up</a></div>
+    <div><a href="/">Back</a></div>
+  </body>
+</html>

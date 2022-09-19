@@ -32,22 +32,4 @@ describe UserRepository do
     expect(found_user.username).to eq 'Keira'
     expect(found_user.email).to eq 'keira@makers.com'
   end
-
-  it "login returns nil if the user doesn't exists (email wrong)" do
-    repo = UserRepository.new
-    result = repo.login('jona@makers.com', 'grey81!mouse')
-    expect(result).to eq nil
-  end
-
-  it "login returns the user id if the user exists and the password is correct" do
-    repo = UserRepository.new
-    result = repo.login('jonas@makers.com', 'grey81!mouse')
-    expect(result).to eq '1'
-  end
-
-  it "login returns nil if the user exists and the password is wrong" do
-    repo = UserRepository.new
-    result = repo.login('jonas@makers.com', 'greymouse')
-    expect(result).to eq nil
-  end
 end

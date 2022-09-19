@@ -1,4 +1,4 @@
-require 'user'
+require_relative 'user'
 require 'bcrypt'
 
 class UserRepository
@@ -6,7 +6,7 @@ class UserRepository
     sql = 'SELECT id, username, email, password FROM users WHERE email = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
    
-    # checks if the result set is empty
+    # checks if the result set is empty, i.e. the email is unknown
     if result_set.ntuples == 0
       return nil
     end
@@ -18,6 +18,16 @@ class UserRepository
     return user
   end
 
+  def username_exist?(username)
+    sql = 'SELECT id, username, email, password FROM users WHERE username = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [username])
+    if result_set.ntuples == 0
+      return false
+    else
+      return true
+    end
+  end
+
   def create(user)
     sql = 'INSERT INTO users (username, email, password) VALUES ($1, $2, $3);'
     encrypted_password = BCrypt::Password.create(user.password)
@@ -27,16 +37,4 @@ class UserRepository
     return nil
   end
 
-  def login(email, submitted_password)
-    user = find(email)
-    if user.nil?
-      return nil # 'Email or password are incorrect'
-    end
-
-    if BCrypt::Password.new(user.password) == submitted_password
-      return user.id
-    else
-      return nil # Email or password are incorrect
-    end
-  end
 end

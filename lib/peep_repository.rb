@@ -1,4 +1,4 @@
-require 'peep'
+require_relative 'peep'
 require 'date'
 
 class PeepRepository
@@ -21,8 +21,6 @@ class PeepRepository
 
   def create(peep)
     sql = "INSERT INTO peeps (content, time_posted, user_id) VALUES ($1, $2, $3);"
-    # timestamp = Time.now.strftime("%Y-%m-%d %H:%M:%S") 
-    #USE WHEN WE CREATE THE PEEP in the first place
     params = [peep.content, peep.time_posted, peep.user_id]
     DatabaseConnection.exec_params(sql, params)
 

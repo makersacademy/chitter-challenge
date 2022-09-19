@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Chitter - Your Peep message board</title>
+  </head>
+  <body>
+    <header>
+      <form method="GET" action="/">
+        <input type="submit" value="Back">
+      </form>
+    </header>
+    <h1>Chitter</h1>
+    <h2>Sign Up</h2>
+    <div>
+      <% if @error_message != nil %>
+        <div><%= @error_message %></div>
+      <% end %>
+      <form method="POST" action="/sign_up">
+        <div><input type="email" name="email" placeholder="Your Email"></div>
+        <div><input type="text" name="username" placeholder="Your preferred Username"></div>
+        <div><input type="password" name="password1" placeholder="Enter a Password" minlength="6" maxlength="14"></div>
+        <div><input type="password" name="password2" placeholder="Repeat Password"></div>
+        <div><input type="submit" value="Sign Up"></div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,14 +1,11 @@
 require 'peep_repository'
 
-def reset_tables
-  seed_sql = File.read('spec/seeds/seeds.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_test' })
-  connection.exec(seed_sql)
-end
-
 describe PeepRepository do
+  # Resetting the tables
   before(:each) do
-    reset_tables
+    seed_sql = File.read('spec/seeds/seeds.sql')
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_test' })
+    connection.exec(seed_sql)
   end
 
   it "returns a list of peeps ordered by the date and time posted (latest first)" do
