@@ -16,6 +16,8 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
+  enable :sessions
+
   get '/peeps' do
     peeps_repo = PeepRepository.new
     @peeps = peeps_repo.all
@@ -32,11 +34,16 @@ class Application < Sinatra::Base
   post '/peeps' do
     content = params[:content]
     peep_time = Time.now.getutc
-    user_id = 1
+    user_id = session[:user_id]
 
     if content.length == 0
        status 400
        return 'ERROR: Contents field must be filled'
+    end
+
+    if user_id == nil
+      status 400
+      return 'ERROR: Please log in to post a peep'
     end
 
     new_peep = Peep.new
@@ -52,7 +59,11 @@ class Application < Sinatra::Base
     return erb(:sign_up)
   end
 
-  post '/' do
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/signup' do
     @new_user_email = params[:email]
     password = params[:password]
     name = params[:name]
@@ -81,9 +92,34 @@ class Application < Sinatra::Base
         return 'ERROR: Email is already in use'
       end
     end
-
+    
     UserRepository.new.create(new_user)
-
+    session[:user_id] = new_user.id
     return erb(:sign_up_complete)
+  end
+
+  post '/login' do
+    email = params[:email]
+    password = params[:password]
+
+    users_repo = UserRepository.new
+    users = users_repo.all
+
+    return 'ERROR: Email Address not found' if users.any?{|user| user.email == email} == false
+
+    user = UserRepository.new.find_by_email(email)
+
+    if user.password == password
+      session[:user_id] = user.id
+      return erb(:login_complete)
+    else
+      status 400
+      return 'ERROR: Incorrect password'
+    end
+  end
+
+  get '/logout' do
+    session[:user_id] = nil
+    return erb(:logout)
   end
 end

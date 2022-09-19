@@ -18,8 +18,8 @@ describe Application do
     it 'returns a list of all peeps' do
       response = get('/peeps')
       expect(response.status).to eq 200
-      expect(response.body).to include('<ul>Whats for tea? - 2022-08-20 18:15:48')
-      expect(response.body).to include('<ul>Hungry. - 2022-09-15 11:37:22')
+      expect(response.body).to include('<ul>Hola - 2022-08-20 18:15:48')
+      expect(response.body).to include('<ul>Shalom - 2022-09-15 11:37:22')
     end
   end
 
@@ -34,6 +34,7 @@ describe Application do
 
   context 'POST /peeps' do
     it 'returns a success message if peep has been posted and checks if peep has been added to all peeps' do
+      post('/login', email: 'fake1@fake.com', password: 'PASSWORD1')
       post_response = post('/peeps', content: 'This is my first peep')
       expect(post_response.status).to eq 200
       expect(post_response.body).to include('Peep successfully posted!')
@@ -57,20 +58,34 @@ describe Application do
     end
   end
 
-  context 'POST /' do
+  context 'POST /signup' do
     it 'returns a success message if new user created, and checks if user has been created' do
-      post_response = post('/', email: 'abc@def.com', password: 'PASSWORD', name: 'Paul Makers', username: 'PMK1968')
+      post_response = post('/signup', email: 'abc@def.com', password: 'PASSWORD', name: 'Paul Makers', username: 'PMK1968')
       expect(post_response.status).to eq 200
-      expect(post_response.body).to include('<h1>User created successfully!</h1>')
+      expect(post_response.body).to include('<h1>User created successfully! Please click here to write a new peep:</h1>')
       repo = UserRepository.new
       users = repo.all
       expect(users.length).to eq 4
     end
 
     it 'returns 400 error if a field is empty' do
-      response = post('/', email: '')
+      response = post('/signup', email: '')
       expect(response.status).to eq 400
       expect(response.body).to include 'ERROR: One or more fields is empty'
+    end
+
+    # it 'returns 400 error if email address is already in use' do
+    #   response = post('/signup', email: 'fake1@fake.com')
+    #   expect(response.status).to eq 400
+    #   expect(response.body).to include 'ERROR: Email is already in use'
+    # end
+  end
+
+  context  'GET /login' do
+    it 'returns form to login to chitter' do
+      response = get('/login')
+      expect(response.status).to eq 200
+      expect(response.body).to include ('<h1>Please log in</h1>')
     end
   end
 end

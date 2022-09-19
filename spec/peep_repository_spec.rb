@@ -17,7 +17,7 @@ describe PeepRepository do
     peeps = repo.all
 
     expect(peeps.length).to eq 10
-    expect(peeps.first.content).to eq('What a day, hit 2 180s')
+    expect(peeps.first.content).to eq('Hello')
     expect(peeps.first.peep_time).to eq('2022-09-15 11:41:22')
     expect(peeps.first.user_id).to eq(1)
   end
@@ -27,7 +27,7 @@ describe PeepRepository do
     peep = repo.find(2)
 
     expect(peep.id).to eq(2)
-    expect(peep.content).to eq('Cup of tea, 2 sugars')
+    expect(peep.content).to eq('Hi')
     expect(peep.peep_time).to eq('2022-09-14 10:32:02')
     expect(peep.user_id).to eq(1)
   end

@@ -2,6 +2,23 @@
     <head></head>
     <body>
         <h1>Welcome to Chitter</h1>
+        <form action="/peeps/new">
+            <input type="submit" value="New Peep" />
+        </form>
+        <form action="/signup">
+            <input type="submit" value="Sign Up Here" />
+        </form>
+
+<% if session[:user_id] == nil %>
+        <form action="/login">
+            <input type="submit" value="Login here" />
+        </form>
+<% else %>
+        <form action="/logout">
+            <input type="submit" value="Click to logout" />
+        </form>
+                <% end %>
+
         <% @sorted_peeps.each do |peep| %>
         <div>
         <% @users.each do |user| %>

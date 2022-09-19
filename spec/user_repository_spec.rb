@@ -19,8 +19,8 @@ describe UserRepository do
     expect(users.length).to eq 3
     expect(users.first.email).to eq('fake1@fake.com')
     expect(users.first.password).to eq('PASSWORD1')
-    expect(users.first.name).to eq('Michael Smith')
-    expect(users.first.username).to eq('MSTheKING')
+    expect(users.first.name).to eq('Dave Smith')
+    expect(users.first.username).to eq('DVS123')
   end
 
   it 'find one specific user' do
@@ -30,8 +30,8 @@ describe UserRepository do
     expect(user.id).to eq(2)
     expect(user.email).to eq('fake2@fake.com')
     expect(user.password).to eq('PASSWORD2')
-    expect(user.name).to eq('Danny Martin')
-    expect(user.username).to eq('AFGdan')
+    expect(user.name).to eq('Abby Martin')
+    expect(user.username).to eq('am44')
   end
 
   it 'creates an user' do
