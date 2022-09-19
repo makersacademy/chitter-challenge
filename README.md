@@ -4,7 +4,7 @@ Chitter Challenge
 This is a small Twitter clone that will allow the users to post messages to a public stream.
 
 
-Tools / Technologies
+Tools / Technologies / Design
 -------------
 
 - MVC Layers
@@ -14,12 +14,25 @@ Tools / Technologies
   - PostgreSQL
 - Testing
   - RSpec / SimpleCov / RuboCop
+- Design
+  - TDD / OOP
 
 Notes
 -------------
 - Colour scheme
   - Inspired by Windows XP OS themes (black, high contrast)!
 - See design/design-notes.md for ideas on future iterations
+
+![Screenshot](/public/images/1.png)
+![Screenshot](/public/images/2.png)
+![Screenshot](/public/images/3.png)
+![Screenshot](/public/images/4.png)
+![Screenshot](/public/images/5.png)
+![Screenshot](/public/images/6.png)
+![Screenshot](/public/images/7.png)
+![Screenshot](/public/images/8.png)
+![Screenshot](/public/images/9.png)
+![Screenshot](/public/images/10.png)
 
 Chitter Challenge (Original Challenge Notes)
 =================
