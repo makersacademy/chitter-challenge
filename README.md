@@ -22,9 +22,9 @@
 
 ```
 $ git clone https://github.com/iniffur/chitter_challenge
+$ gem install bundler
 $ bundle install
-$ rake setup
-$ rake migrate
+$ rake db:migrate
 $ rspec
 $ rerun 'rackup'
 ```
