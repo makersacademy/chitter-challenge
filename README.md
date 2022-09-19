@@ -1,7 +1,13 @@
+
+
 Chitter Challenge
 =================
+![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-This is a small Twitter clone that will allow the users to post messages to a public stream.
+- A small Twitter clone that allows the users to post messages to a public stream
+- Anyone can view all 'peeps' that have been posted by users
+- Users need to create an account and sign in before posting a 'peep'
+- User passwords are one-way encrypted (BCrypt) before being stored in the database
 
 
 Tools / Technologies / Design
@@ -16,7 +22,7 @@ Tools / Technologies / Design
   - RSpec / SimpleCov / RuboCop
     - To run RSpec tests, run following commands in the project's root directory:
       - `bundle install`
-      - `rspec` 
+      - `rspec`
 - Design
   - TDD / OOP
 
