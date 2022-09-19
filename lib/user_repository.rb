@@ -6,9 +6,9 @@ class UserRepository
     users = []
 
     sql = 'SELECT * FROM users;'
-    result_set = DatabaseConnection.exec_params(sql, [])    
+    result = DatabaseConnection.exec_params(sql, [])    
 
-    result_set.each do |record|
+    result.each do |record|
 
       user = User.new
       user.id = record['id'].to_i
@@ -25,14 +25,14 @@ class UserRepository
   
   def find_by_email(email)
     sql = 'SELECT * FROM users WHERE email = $1;'
-    result_set = DatabaseConnection.exec_params(sql, [email])
+    result = DatabaseConnection.exec_params(sql, [email])
 
     user = User.new
-    user.id = result_set[0]['id'].to_i
-    user.email = result_set[0]['email']
-    user.password = result_set[0]['password']
-    user.f_name = result_set[0]['f_name']
-    user.handle = result_set[0]['handle']
+    user.id = result[0]['id'].to_i
+    user.email = result[0]['email']
+    user.password = result[0]['password']
+    user.f_name = result[0]['f_name']
+    user.handle = result[0]['handle']
 
     return user
   end
@@ -41,7 +41,7 @@ class UserRepository
     encrypted_password = BCrypt::Password.create(user.password)
 
     sql = 'INSERT INTO users (email, password, f_name, handle) VALUES ($1, $2, $3, $4);'
-    result_set = DatabaseConnection.exec_params(sql, [user.email, encrypted_password, user.f_name, user.handle])
+    result = DatabaseConnection.exec_params(sql, [user.email, encrypted_password, user.f_name, user.handle])
   end
 
   def sign_in(email, submitted_password)
