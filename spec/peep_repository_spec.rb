@@ -32,10 +32,10 @@ describe PeepRepository do
 
   it '#create creates a peep' do
     peep = Peep.new
-    peep.content = ('Peep 9')
+    peep.content = ('I\'m fine!!!!')
     peep.date_time = ('2022-09-09 09:09:09')
-    peep.user_f_name = ('Rob')
-    peep.user_handle = ('rob0')
+    peep.user_f_name = ('Ross')
+    peep.user_handle = ('ross0')
 
     repo = PeepRepository.new
     repo.create(peep)
@@ -45,7 +45,7 @@ describe PeepRepository do
     expect(peeps.last.id).to eq(9)
     expect(peeps.last.content).to eq('Peep 9')
     expect(peeps.last.date_time).to eq('2022-09-09 09:09:09')
-    expect(peeps.last.user_f_name).to eq('Rob')
-    expect(peeps.last.user_handle).to eq('rob0')
+    expect(peeps.last.user_f_name).to eq('Ross')
+    expect(peeps.last.user_handle).to eq('ross0')
   end
 end

@@ -4,13 +4,10 @@
 - comments on messages
 - delete messages
 - edit messages
-- password encryption
-	- perhaps use PASSWORD data type in SQL
 - world timezones
 - rearrange date_time format
 - advise user you can't use certain special characters?
-- autoformat 
-- find user by email instead of handle?
+- account page
 
 ## Design:
 - smarter CSS
