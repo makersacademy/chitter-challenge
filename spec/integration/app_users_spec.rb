@@ -84,8 +84,6 @@ describe Application do
   end
 
   context "POST /sessions" do
-
-    # need to update test seeds with encrypted passwords
     it 'returns error page after unsuccessful user login' do
             
       response = post(

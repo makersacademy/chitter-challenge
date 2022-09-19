@@ -17,7 +17,6 @@ describe Application do
     it 'returns homepage' do
       response = get('/')
 
-      expect(response.status).to eq(200)
       expect(response.body).to include('Chitter</a></h1>')
       expect(response.body).to include('peeps">See all Peeps!</a></h2>')
       expect(response.body).to include('new">Post a Peep!</a></h2>')
@@ -29,7 +28,6 @@ describe Application do
     it 'returns all peeps - latest peeps first' do
       response = get('/peeps')
 
-      expect(response.status).to eq(200)
       # extra spacing in next test to account for the spacing in peeps.erb
       expect(response.body).to include("Latest peep is from:\n      @monica0")
       expect(response.body).to include("Does anybody care what kind of potatoes I want!?")
@@ -51,7 +49,6 @@ describe Application do
       
       response = get("/peeps/new")      
       
-      expect(response.status).to eq(200)
       expect(response.body).to include('<form action="/peeps" method="POST">')
       expect(response.body).to include('What do you want to say?')      
       expect(response.body).to include('<input type="text" name="content"')
@@ -68,14 +65,12 @@ describe Application do
     it "returns a confirmation page" do
       response = get("/peeps/posted")
 
-      expect(response.status).to eq(200)
       expect(response.body).to include('Thank you for posting!')
     end
   end
 
   context "POST /peeps" do
     it 'creates a new peep after successful user login' do
-      # the date/time of the post is auto generated in the route method 
 
       response = post(
         '/sessions',

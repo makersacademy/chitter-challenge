@@ -1,4 +1,4 @@
-class ResetDatabaseTables
+class ResetDatabaseTables # for RSpec tests
   def reset
     seed_sql = File.read('spec/seeds/seeds_tests.sql')
     user = ENV['PGUSER1']

@@ -11,6 +11,7 @@ require 'cgi'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  
   configure :development do
     register Sinatra::Reloader
     # set :show_exceptions, false
@@ -56,7 +57,6 @@ class Application < Sinatra::Base
     repo.create(peep)
 
     return erb(:peeps_posted)
-
   end
 
   # ------
@@ -72,17 +72,15 @@ class Application < Sinatra::Base
   end
 
   post '/users/signup' do
-    user = User.new
+    @user = User.new
 
-    user.email = CGI::escapeHTML(params[:email])
-    user.password = CGI::escapeHTML(params[:password])
-    user.f_name = CGI::escapeHTML(params[:f_name].capitalize)
-    user.handle = CGI::escapeHTML(params[:handle])
+    @user.email = CGI::escapeHTML(params[:email])
+    @user.password = CGI::escapeHTML(params[:password])
+    @user.f_name = CGI::escapeHTML(params[:f_name].capitalize)
+    @user.handle = CGI::escapeHTML(params[:handle])
 
     repo = UserRepository.new
-    repo.create(user)
-
-    @last_user_created = repo.all.last
+    repo.create(@user)
 
     return erb(:user_created)
   end
@@ -96,12 +94,9 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  # FURTHER TESTS REQUIRED
   post '/sessions' do    
     repo = UserRepository.new
-    # update tests for this
-    user = repo.find_by_email(params[:email])
-    
+    user = repo.find_by_email(params[:email])    
     login_attempt = repo.sign_in(params[:email], params[:password])
 
     if login_attempt == "successful"    
