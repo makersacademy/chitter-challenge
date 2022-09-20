@@ -1,0 +1,19 @@
+<div class="peeps">
+  <% @peeps.each do |peep| %>
+    <div class="peep">
+      <div class="peep_meta">
+        <a href="/peeps/<%= peep.id %>"><%= peep.id %></a> - <%= peep.poster.name %> 
+        <div class="username">@<%= peep.poster.username %></div>
+        <% if peep.reply_to_peep_id != 0 %>
+          (has replied to 
+          <a href="/peeps/<%= peep.reply_to_peep_id %>"><%= peep.reply_to_peep_id %></a>)
+        <% end %>
+        <% if !session[:user_id].nil? %>
+          - <a href="/peeps/<%= peep.id %>/reply">Peep in reply to <%= peep.id %></a>
+        <% end %>
+        <div class="peep_time"><%= peep.peep_time %></div>
+      </div>
+      <div class="peep_content"><%= peep.content %></div>
+    </div>
+  <% end %>
+</div>

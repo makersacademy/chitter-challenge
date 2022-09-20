@@ -1,0 +1,128 @@
+* {
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+body {
+  max-width: 900px;
+  margin: auto;
+  font-family: sans-serif;
+  position: relative;
+  font-weight: normal;
+}
+
+header {
+  position: relative;
+  font-size: smaller;
+  text-align: right;
+  padding: 10px 20px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(102, 160, 211);
+}
+
+a:visited {
+  color: rgb(151, 182, 250);
+}
+
+nav {
+  color: #444;
+}
+
+nav a, nav a:visited {
+  color: rgb(226, 166, 0);
+}
+
+#nav_left {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.peeps {
+  padding: 5px 0;
+  border-top: 3px solid rgb(250, 237, 201);
+  border-bottom: 3px solid rgb(250, 237, 201);
+}
+
+.peep {
+  padding: 5px 10px;
+  
+}
+
+.peep_meta {
+  position: relative;
+  color: #444;
+  font-size: smaller;
+  font-weight: normal;
+  padding: 5px 10px;
+  background-color: rgb(213, 229, 243)
+}
+
+.username {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.peep_content {
+  padding: 10px;
+  padding-top: 5px;
+}
+
+.peep_time {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+/**********/
+/* signup */
+/**********/
+
+form {
+  position: relative;
+  padding: 50px 100px 100px 100px;
+  margin: 100px 150px 150px 150px;
+  background-color: antiquewhite;
+  border-top: 3px solid rgb(250, 237, 201);
+  border-bottom: 3px solid rgb(250, 237, 201);
+}
+
+.form_row {
+  position: relative;
+  padding: 15px 50px;
+}
+
+.form_row label {
+  position: absolute;
+  left: 0;
+  width: 110px;
+  text-align: right;
+  font-weight: bold;
+  color: rgb(102, 160, 211);
+  font-size: smaller;
+}
+
+.form_row input {
+  position: absolute;
+  left: 130px;
+}
+
+#signup_submit {
+  position: absolute;
+  bottom: 30px;
+  left: 270px;  
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(226, 166, 0);
+}
+
+div.to_center {
+  padding: 200px;
+  text-align: center;
+}
