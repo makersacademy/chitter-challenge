@@ -1,0 +1,18 @@
+<h1> <a href ="/"> CHITTER </a> </h1>
+
+<% if session[:user_id].nil?%>
+<p> <a href="/signup">Sign-up</a> for Chitter! Already have an account? <a href="/login">Log-in</a> </p>
+<% else %>
+<p> <form action="/logout" method="POST"> <input type="submit" value="Log-out"> </form> </p>
+<% end %>
+
+<form action="/peeps" method="POST">
+<input type="text" name="content">
+<input type="submit" value="peep"> <%= @error ? 'Invalid input.' : "" %>
+<%= '<a href="/login">Log-in</a> or <a href="/signup">sign-up</a> to post a peep!' if @feedback == :login %>
+
+<% @peep.each do |peep|%>
+  <p> <%= peep.content%> </p>
+  <p> @<%= peep.user.username%> (<%= peep.user.name%>) <%= peep.created_at.strftime("%d/%m/%Y %k:%M") %></p>
+<% end %>
+

@@ -1,0 +1,12 @@
+<h1> CHITTER </h1>
+
+<p> Don't have an account? <a href="/signup"> Sign-up </a> </p>
+<p> <form action="/login" method="POST"> <p>
+<p> Email: <input type="text" name="email"> </p>
+<p> Password: <input type="password" name="password"> </p>
+<p> <input type="submit" value="log-in">
+<% if @feedback == :no_user %>
+Cannot find user with that email address.
+<% elsif @feedback == :wrong %>
+Wrong password. Try again
+<% end %> </p>

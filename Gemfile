@@ -6,8 +6,18 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'rack-test'
 end
 
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem 'sqlite3'
+gem "bcrypt", "~> 3.1"
+gem "rake", "~> 13.0"
+gem "sinatra-activerecord", "~> 2.0"
+gem "activerecord", "~> 7.0"
+gem "webrick", "~> 1.7"
+
+gem "sinatra-contrib", "~> 2.2"
