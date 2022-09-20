@@ -10,6 +10,11 @@ h1 {
   letter-spacing: 8px;
   font-weight: bolder;
   color: #651f7c;
+  padding: 0 10px;
+}
+
+h2 {
+  padding: 0 10px;
 }
 
 header {
@@ -37,6 +42,28 @@ header {
 .peep_content {
   background-color: rgb(164, 252, 252);
   padding: 5px 15px;
+}
+
+.link {
+  margin: 20px;
+}
+
+input {
+  font-size: 18px;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 3px;
+  margin: 10px;
+  background-color: rgb(85, 200, 200);
+  border: 2px solid #400D51;
+}
+
+input[type=submit] {
+  background-color: rgb(84, 152, 152);
+}
+
+::placeholder {
+  color: white;
 }
 
 a {

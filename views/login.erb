@@ -1,10 +1,11 @@
 <html>
   <head>
-    <title>Chitter Login</title>
+    <title>chitter Login</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <h1>Chitter Login</h1>
+    <h1>chitter</h1>
+    <h2>login</h2>
     <% if @error_message == "Email/Password incorrect" %>
       <div><%= @error_message %></div>
     <% end %>
@@ -13,7 +14,7 @@
       <input type="password" name="password" placeholder="password"><br>
       <input type="submit" value="login">
     </form>
-    <div>No account yet? <a href="/sign_up">Sign Up</a></div>
-    <div><a href="/">Back</a></div>
+    <div class="link">No account yet? <a href="/sign_up">Sign Up</a></div>
+    <div class="link"><a href="/">Back</a></div>
   </body>
 </html>
