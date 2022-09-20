@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8>
+  <title>Chitter</title>
+</head>
+<body>
+  <h1>Welcome to Chitter!</h1>
+  <p><a href="/login">Log in</a> or <a href="/signup">create an account</a> to peep as yourself.
+  <h3>Latest peeps</h3>
+  <form method="POST" action="/peeps">
+    Username: <input type="text" name="username" />
+    Content: <input type="text" name="content" />
+
+    <input type="submit" value="Submit" />
+  </form>
+
+  <hr />
+  <% @peeps.reverse.each do |peep| %>
+    <div>
+      <h3><%= peep.username %></h3>
+      <p><%= peep.content %></p>
+      <p><%= peep.time %></p>
+    </div>
+  <% end %>
+</body>
+</html>
