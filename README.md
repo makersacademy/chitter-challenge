@@ -1,4 +1,59 @@
+
+
 Chitter Challenge
+=================
+![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+- A small Twitter clone that allows the users to post messages to a public stream
+- Anyone can view all 'peeps' that have been posted by users
+- Users need to create an account and sign in before posting a 'peep'
+- User passwords are one-way encrypted (BCrypt) before being stored in the database
+
+
+Tools / Technologies / Design
+-------------
+
+- MVC Layers
+  - Ruby / Sinatra / HTML / CSS
+  - BCrypt - user password encryption and hash checking
+  - CGI (escapeHTML) - to help protect from cross-site scripting
+  - PostgreSQL
+- Testing
+  - RSpec / SimpleCov / RuboCop
+    - To run RSpec tests, run following commands in the project's root directory:
+      - `bundle install`
+      - `rspec`
+- Design
+  - TDD / OOP
+
+Notes
+-------------
+- Colour scheme
+  - Inspired by Windows XP OS themes (black, high contrast)!
+- See design/design-notes.md for ideas on future iterations
+
+![Screenshot](/public/images/1.png)
+---
+![Screenshot](/public/images/2.png)
+---
+![Screenshot](/public/images/3.png)
+---
+![Screenshot](/public/images/4.png)
+---
+![Screenshot](/public/images/5.png)
+---
+![Screenshot](/public/images/6.png)
+---
+![Screenshot](/public/images/7.png)
+---
+![Screenshot](/public/images/8.png)
+---
+![Screenshot](/public/images/9.png)
+---
+![Screenshot](/public/images/10.png)
+---
+
+Chitter Challenge (Original Challenge Notes)
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own

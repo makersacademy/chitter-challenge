@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">Chitter</a></h1>
+    </br>
+    <h2 style="background: #E3FF47;">Account created! 
+      <%= @user.f_name %> (@<%= @user.handle %>)
+    </h2>
+    </br>   
+    <h2><a href="/peeps">See all Peeps!</a></h2>
+    <h2><a href="/peeps/new">Post a Peep!</a></h2>
+    <h2><a href="/sessions/login">Log in!</a></h2>
+  </body>
+  <footer>
+    &copy; <a href="/">Chitter</a>
+  </footer>
+</html>

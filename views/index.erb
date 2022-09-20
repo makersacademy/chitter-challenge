@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">Chitter</a></h1>
+
+    <% if session[:user_id] != nil %>
+      <h2 style="background: #FFFF33;">Logged in as: <%= session[:user_f_name] %> (@<%= session[:user_handle] %>)</h2>
+    <% end %>
+    
+    <h2><a href="/peeps">See all Peeps!</a></h2>
+    <h2><a href="/peeps/new">Post a Peep!</a></h2>
+
+    <% if session[:user_id] == nil %>
+     <h2><a href="/users/signup">Sign up!</a></h2>
+    <% end %>
+
+    <% if session[:user_id] == nil %>
+      <h2><a href="/sessions/login">Log in!</a></h2>
+    <% else %>
+      <h2><a href="/sessions/logout">Log out!</a></h2>
+    <% end %>
+
+  </body>
+  <footer>
+    &copy; <a href="/">Chitter</a> 
+  </footer>
+</html>

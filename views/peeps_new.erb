@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">Chitter</a></h1>
+    <h2 style="background: #E3FF47;">Post a new Peep!</h2>
+    <h2 style="background: #E3FF47;"><%= session[:user_f_name] %> - @<%= session[:user_handle] %></h2>
+
+    <form action="/peeps" method="POST">
+      <input type="text" name="content" placeholder="What do you want to say?" maxlength="100">
+      </br>
+      <input type="submit" value="Peep!">
+    </form>
+    
+  </body>
+  <footer>
+    &copy; <a href="/">Chitter</a>
+  </footer>
+</html>

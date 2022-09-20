@@ -1,0 +1,38 @@
+body {
+  background-color:#000000;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+h1 {
+  color: black;
+  background-color: #FF10F0;
+  padding: 1%; 
+}
+h2 {
+  color: black;
+  background-color: #39ff14;
+  padding: 2%; 
+}
+p {
+  font-weight: bold;
+}
+footer {
+  background-color: #FF10F0;
+  padding: 1%; 
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: blue;
+}
+.peep {
+  background-color: #FFFF33;
+  font-weight: bold;
+  text-align: center;
+  line-height: 200%;
+  word-wrap: break-word;
+  padding-left: 2%;
+  padding-right: 2%;
+}

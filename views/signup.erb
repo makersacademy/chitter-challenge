@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">Chitter</a></h1>
+    <h2 style="background: #E3FF47;">Create a New Account!</h2>
+    <form action="/users/signup" method="POST">
+      <input type="text" name="email" placeholder="What is your email address?" maxlength="254">
+      </br>
+      <input type="password" name="password" placeholder="Set a password" maxlength="50">
+      </br>
+      <input type="text" name="f_name" placeholder="Your first name" maxlength="30">
+      </br>
+      <input type="text" name="handle" placeholder="Your username" maxlength="30">
+      </br>
+      <input type="submit" value="Let's go!">
+      </form>
+  </body>
+  <footer>
+    &copy; <a href="/">Chitter</a>
+  </footer>
+</html>

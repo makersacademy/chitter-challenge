@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">Chitter</a></h1>
+    <h2 style="background: #E3FF47;">Log into your account!</h2>
+    <form action="/sessions" method="POST">
+      <input type="text" name="email" placeholder="Email address" maxlength="30">
+      </br>
+      <input type="password" name="password" placeholder="Password" maxlength="50">
+      </br>
+      <input type="submit" value="Log in!">
+      </form>
+  </body>
+  <footer>
+    &copy; <a href="/">Chitter</a>
+  </footer>
+</html>

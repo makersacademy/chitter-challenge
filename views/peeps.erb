@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">Chitter</a></h1>
+    <h2>Latest peep is from:
+      @<%= @peeps.last.user_handle %>
+    </h2>
+    <hr>
+    <% @peeps.reverse.each do |peep| %>
+      <div class="peep">
+        <%= peep.user_f_name %> - @<%= peep.user_handle %>
+        </br>
+        <%= peep.date_time %>
+        </br>
+        <%= peep.content %>
+        <hr>
+      </div>      
+    <% end %>
+  </body>
+  <footer>
+    &copy; <a href="/">Chitter</a>
+  </footer>
+</html>
