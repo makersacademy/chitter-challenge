@@ -12,8 +12,12 @@
 ## Design:
 - smarter CSS
 - page layouts (layout.erb)
+- navigation bar with area to show a user is logged in and give access to their account details/management
+- list all peeps by a given user (using the database's join table)
 
 ## Testing:
+- more comprehensive tests
 - invalid user input
-- status code error messages
-- edge cases
+- status code error messages/pages
+- edge cases(?)
+- test cascade deletion in database
