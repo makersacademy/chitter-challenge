@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Chitter - totally not a clone of anything at all!</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div id="nav_left">
+          <a href="/peeps">Peeps</a>
+          <% if !session[:user_id].nil? %>
+            | <a href="/peeps/new">Add new peep</a>
+          <% end %>
+        </div>
+        <div id="nav_right">
+          <% if session[:user_id].nil? %>
+            <a href="/signup">Sign up</a> | <a href="/login">Login</a>
+          <% else %>
+            <a href="/mentions">Mentions</a> | <a href="/account">Account</a> |
+            <a href="/logout">Logout</a>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>

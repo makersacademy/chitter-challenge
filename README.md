@@ -1,3 +1,123 @@
+# Chitter Challenge makers exercise
+
+## Process:
+## Extract informations from user stories, create schema, write sql
+
+```
+peeps: id, peep_time, user_id, reply_of_id
+users: id, email, password, name, username (username, email unique)
+mentions: user_id, peep_id
+
+#see all messages (reverse chrono) (not logged in) (show name, username)
+#signup to
+#login, #logout
+have notification if tagged in a message (instead of email)
+css
+```
+```sql
+-- oncstructon of database and tables
+DROP DATABASE IF EXISTS chitter_test;
+CREATE DATABASE chitter_test;
+DROP TABLE IF EXISTS peeps, users, peeps_users;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email text,
+  password text,
+  name text,
+  username text
+);
+
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  content text,
+  peep_time timestamp,
+  user_id int,
+  reply_to_peep_id int,
+  constraint fk_user_2423475 foreign key (user_id)
+    references users(id)
+    on delete cascade
+);
+
+CREATE TABLE peeps_users (
+  id SERIAL PRIMARY KEY,
+  peep_id int,
+  user_id int,
+  constraint fk_peep_6723454 foreign key (peep_id)
+    references peeps(id) on delete cascade,
+  constraint fk_user_3427255 foreign key (user_id)
+    references peeps(id) on delete cascade
+);
+
+
+-- seeding tables with test values
+TRUNCATE TABLE users, peeps, peeps_users RESTART IDENTITY;
+
+INSERT INTO users (email, password, name, username)
+  VALUES ('johnj@gmail.com', 'temppass1', 'John Jr', 'johnj');
+INSERT INTO users (email, password, name, username)
+  VALUES ('jenny@gmail.com', 'temppass2', 'Jenny Zu', 'jennyzz');
+INSERT INTO users (email, password, name, username)
+  VALUES ('jj@gmail.com', 'temppass3', 'Jey Jey', 'jjj');
+
+-- reply_to_peep_id of 0 means there is not a reply but a top-level peep
+INSERT INTO peeps (content, peep_time, user_id, reply_to_peep_id)
+  VALUES ('Databases are done, yay!', '2022-10-17 10:10:25', 1, 0);
+INSERT INTO peeps (content, peep_time, user_id, reply_to_peep_id)
+  VALUES (
+    'But we did not do a graph database, nay.',
+    '2022-10-17 10:11:25', 2, 1);
+INSERT INTO peeps (content, peep_time, user_id, reply_to_peep_id)
+  VALUES (
+    'But we can do all kinds of stuff without those, yay!',
+    '2022-10-17 10:12:25', 1, 2);
+INSERT INTO peeps (content, peep_time, user_id, reply_to_peep_id)
+  VALUES (
+    'But trees is what we need for cloning itter, nay',
+    '2022-10-17 10:13:25', 2, 3);
+INSERT INTO peeps (content, peep_time, user_id, reply_to_peep_id)
+  VALUES ('2+2=5', '2022-10-17 10:14:25', 3, 0);
+INSERT INTO peeps (content, peep_time, user_id, reply_to_peep_id)
+  VALUES ('@jj, deep!', '2022-10-17 10:15:25', 2, 5);
+INSERT INTO peeps (content, peep_time, user_id, reply_to_peep_id)
+  VALUES ('@jj, indeep!', '2022-10-17 10:16:25', 1, 5);
+
+INSERT INTO peeps_users (peep_id, user_id) VALUES (6, 3);
+INSERT INTO peeps_users (peep_id, user_id) VALUES (7, 3);
+```
+
+## Install required gems with bundler
+## Create model and repository classes (in respective files)
+## Implement functionality (partially)
+
+
+
+Default view
+![Default view](https://i.imgur.com/vJACzMc.png)
+
+![Logged in](https://i.imgur.com/YlHTAqt.png)
+
+![Sign up view](https://i.imgur.com/l9jRlYN.png)
+
+A lot more left to do:
+
+* Sessions
+* Secure passwords
+* Input validation
+* Posting new peeps/replies
+* Rake files
+* Mentions
+
+Current state has sign up working, as well as peeps view in logged in and logged
+out state, even though sessions aren't implemented yet. I spent a lot of time on
+trying to figure out database representation of systems where every post can be
+a reply to somebody else or top level and how to show and store that. In the end
+I didn't try for a graph and kept it simple. Also, too much time on css instead
+of implementing more things.
+
+<br /><br />
+Original readme:
+
 Chitter Challenge
 =================
 
