@@ -20,21 +20,21 @@ describe Application do
     it "returns a website with a list of all peeps" do
       response = get('/')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Chitter</h1>')
+      expect(response.body).to include('<h1>chitter</h1>')
 
-      expect(response.body).to include('<div>Phil 2022-09-15 11:03:56</div>')
+      expect(response.body).to include('<div class="peep_header">Phil 2022-09-15 11:03:56</div>')
       expect(response.body).to include('I am currently working on my solo project.')
 
-      expect(response.body).to include('<div>Jonas 2022-09-15 09:31:40</div>')
+      expect(response.body).to include('<div class="peep_header">Jonas 2022-09-15 09:31:40</div>')
       expect(response.body).to include('I have just started designing the chitter challenge.')
 
-      expect(response.body).to include('<div>Anna 2022-09-13 14:54:45</div>')
+      expect(response.body).to include('<div class="peep_header">Anna 2022-09-13 14:54:45</div>')
       expect(response.body).to include('Pairing was really fun today.')
 
-      expect(response.body).to include('<div>Jonas 2022-09-12 16:17:00</div>')
+      expect(response.body).to include('<div class="peep_header">Jonas 2022-09-12 16:17:00</div>')
       expect(response.body).to include('What a grey day!')
 
-      expect(response.body).to include('<div>Jonas 2022-09-10 14:15:00</div>')
+      expect(response.body).to include('<div class="peep_header">Jonas 2022-09-10 14:15:00</div>')
       expect(response.body).to include('Learning about web apps is so exciting!')
     end
 
@@ -97,7 +97,7 @@ describe Application do
       post('/login', email: 'jonas@makers.com', password: 'grey81!mouse')
       post('/new_peep', content: 'I have finished the functionality of my app - now to the style!')
       follow_redirect!
-      expect(last_response.body).to include('<div>I have finished the functionality of my app - now to the style!</div>')
+      expect(last_response.body).to include('<div class="peep_content">I have finished the functionality of my app - now to the style!</div>')
     end
   end
 

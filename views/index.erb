@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Chitter - Your Peep message board</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
   </head>
   <body>
     <header>      
@@ -18,7 +18,7 @@
         </form>
       <% end %>
     </header>
-    <h1>Chitter</h1>
+    <div class="normal_width"><h1>chitter</h1></div>
 
     <% if @username != nil %>
       <div>
@@ -30,7 +30,7 @@
       <% end %>
 
     <% @peeps.each do |peep| %>
-      <div>
+      <div class="peep">
         <div class="peep_header"><%= peep.username %> <%= peep.time_posted %></div>
         <div class="peep_content"><%= peep.content %></div>
       </div>
