@@ -1,0 +1,20 @@
+    <% @peeps.each do |peep| %>
+
+    <div>
+	<h3> <%= peep.name %> @<%= peep.username %> </h3>
+    <p> <%= peep.content %> at <%= peep.time %> </p>
+    </div>
+				
+    <% end %>
+
+
+  <% if !session[:user_id].nil? %>
+        <form action="/" method="post">
+            <label for="content">What do you want to peep?</label>
+            <input type="text" name="content" id="content" required>
+            <input type="hidden" name="name" value = <%= @user.name %>>
+            <input type="hidden" name="username" value = <%= @user.username %>>
+            <input type="submit" value="Peep">
+        </form>
+
+    <% end %>
