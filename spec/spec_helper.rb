@@ -1,6 +1,5 @@
 require 'simplecov'
 require 'simplecov-console'
-require 'capybara/rspec'
 require 'database_connection'
 
 DatabaseConnection.connect

@@ -19,6 +19,13 @@ def reset_users_table
         expect(result.username).to eq 'Layi88'
     end
 
+    it 'finds a user by id' do
+      repo = UserRepository.new
+      result = repo.find(2)
+      expect(result.name).to eq 'Layi'
+      expect(result.username).to eq 'Layi88'
+      expect(result.email).to eq 'layi@live.co.uk'
+  end
 
     it 'creates a user' do
         repo = UserRepository.new
@@ -26,38 +33,15 @@ def reset_users_table
         user.email = 'test@example.com'
         user.name = 'Test'
         user.username = 'Test247'
+        user.password = 'password3'
 
         repo.create(user)
 
         result = repo.find_by_email('test@example.com')
         expect(result.name).to eq 'Test'
         expect(result.username).to eq 'Test247'
+        expect(result.password).to eq 'password3'
+
     end
-
-    # it 'signs in succesfully' do
-    #     repo = UserRepository.new
-    #     user = User.new
-    #     user.email = 'test@example.com'
-    #     user.name = 'Test'
-    #     user.username = 'Test247'
-    #     user.password = 'passw0rd'
-
-    #     repo.create(user)
-    #     result = repo.sign_in('test@example.com','passw0rd')
-    #     expect(result).to eq true
-    # end
-
-
-    # it 'fails to sign in if password is incorrect' do 
-    #     repo = UserRepository.new
-    #     user = User.new
-    #     user.email = 'test@example.com'
-    #     user.name = 'Test'
-    #     user.username = 'Test247'
-    #     user.password = 'passw0rd'
-
-    #     repo.create(user)
-    #     result = repo.sign_in('test@example.com','wrong')
-    #     expect(result).to eq 'password is incorrect'
-    # end
+    
 end

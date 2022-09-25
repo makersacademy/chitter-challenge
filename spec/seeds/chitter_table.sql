@@ -12,7 +12,7 @@ CREATE TABLE peeps (
   username text,
   name text,
   content text,
-  time time,
+  time timestamp,
 
   user_id int,
   constraint fk_user foreign key(user_id)
