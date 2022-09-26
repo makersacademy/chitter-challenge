@@ -1,0 +1,12 @@
+<h1>Peeps</h1>
+
+    <% @peeps.each do |peep|%>
+
+    <div>
+    <a href='/peep/<%= peep.id %>' >
+    <p> <%= peep.content %> </p>
+    </a>
+    <p> Posted at <%=peep.post_time%> </p>
+    </div>
+
+    <%end%>
