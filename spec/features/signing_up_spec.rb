@@ -6,6 +6,6 @@ feature 'user registration' do
     fill_in('username', with: 'test12')
     click_button('Sign me up')
 
-    expect(page).to have_content 'Welcome, test12'
+    expect(page).to have_content 'Welcome test12'
   end
 end

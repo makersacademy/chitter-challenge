@@ -1,4 +1,10 @@
 <body style=background-color:lightyellow;>
+<div style="font-family: Tahoma">
+
+  <h1>Welcome <% if @user %>
+  <%= @user.username %></h1>
+<% end %>
+</div>
 <ul style="font-family: Tahoma">
   <% @peeps.each do |peep| %>
     <li> <%= peep.text %><br>
