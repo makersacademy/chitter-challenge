@@ -44,8 +44,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/sessions' do
-    result = connection.exec("SELECT * FROM users WHERE email = #{params[:email]};")
-    user = User.new(result[0]['id'], result[0]['email'], result[0]['username'])
+    user = User.authenticate(email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect '/peeps'
   end
