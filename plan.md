@@ -54,9 +54,10 @@ I want to receive an email if I am tagged in a Peep
 # Straight up
 
 ## Web Pages
-- view messages(index)
 - sign up page/login page (basic front end done)
-- post message
+- user_page (For after sign up)
+
+> From both the messages should be visible
 
 ## Tables
 - Messages
@@ -64,7 +65,7 @@ I want to receive an email if I am tagged in a Peep
 
 ## Steps
 1. Create all views.
-2. Create database.
+2. Create database. - Complete, just need some test examples
 3. Create underlying app.
 4. Push to Heroku
 
