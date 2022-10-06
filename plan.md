@@ -51,12 +51,13 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-# Striaght up
+# Straight up
 
 ## Web Pages
-- sign up page
-- post message
 - view messages(index)
+- sign up page
+- login page
+- post message
 
 ## Tables
 - Messages
@@ -67,4 +68,6 @@ I want to receive an email if I am tagged in a Peep
 2. Create database.
 3. Create underlying app.
 4. Push to Heroku
+
+5. get bootstrapped
 
