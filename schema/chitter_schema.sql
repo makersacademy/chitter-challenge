@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  time date,
+  time timestamp,
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)

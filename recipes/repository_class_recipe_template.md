@@ -1,4 +1,4 @@
-# {{TABLE NAME}} Model and Repository Classes Design Recipe
+# USERS & PEEPS Model and Repository Classes Design Recipe
 
 _Copy this recipe template to design and implement Model and Repository classes for a database table._
 
@@ -11,12 +11,7 @@ Otherwise, [follow this recipe to design and create the SQL schema for your tabl
 *In this template, we'll use an example table `students`*
 
 ```
-# EXAMPLE
 
-Table: students
-
-Columns:
-id | name | cohort_name
 ```
 
 ## 2. Create Test SQL seeds
@@ -26,22 +21,27 @@ Your tests will depend on data stored in PostgreSQL to run.
 If seed data is provided (or you already created it), you can skip this step.
 
 ```sql
--- EXAMPLE
--- (file: spec/seeds_{table_name}.sql)
 
--- Write your SQL seed here. 
+TRUNCATE users, peeps RESTART IDENTITY;
 
--- First, you'd need to truncate the table - this is so our table is emptied between each test run,
--- so we can start with a fresh state.
--- (RESTART IDENTITY resets the primary key)
+INSERT INTO users (first_name, last_name, username, email, password) VALUES ('Benedict', 'Smith', 'bennyboy', 'ben@gmail.com', '123bento');
+INSERT INTO users (first_name, last_name, username, email, password) VALUES ('Kylie', 'Jenner', 'kyliejenner', 'kjen@hotmail.com', 'ih8kimbo');
+INSERT INTO users (first_name, last_name, username, email, password) VALUES ('Elon', 'Musk', 'elonmusk', 'no1@tesla.com', 'ihrtte5la');
+INSERT INTO users (first_name, last_name, username, email, password) VALUES ('Rihanna', 'Fenty', 'rihanna', 'badgyal@gmail.com', 'b@dgyalrh1');
+INSERT INTO users (first_name, last_name, username, email, password) VALUES ('Joe', 'Bloggs', 'ragedad', 'angryboi@aol.com', 'n0th@ppy');
+INSERT INTO users (first_name, last_name, username, email, password) VALUES ('Karen', 'Finance', 'canispeaktothemanager', 'excuseme@manager.com', 'c0mplain3r');
 
-TRUNCATE TABLE students RESTART IDENTITY; -- replace with your own table name.
 
--- Below this line there should only be `INSERT` statements.
--- Replace these statements with your own seed data.
-
-INSERT INTO students (name, cohort_name) VALUES ('David', 'April 2022');
-INSERT INTO students (name, cohort_name) VALUES ('Anna', 'May 2022');
+INSERT INTO peeps (content, time, user_id) VALUES ('First peep babeh!', '2009-01-17 12:23', '3');
+INSERT INTO peeps (content, time, user_id) VALUES ('Just started at makers', '2022-09-12 09:15', '1');
+INSERT INTO peeps (content, time, user_id) VALUES ('Watch our new series on hulu', '2022-10-06 14:00', '2');
+INSERT INTO peeps (content, time, user_id) VALUES ('@elonmusk I dont like you', '2022-10-01 12:20', '5');
+INSERT INTO peeps (content, time, user_id) VALUES ('@tesco, I want a refund', '2022-10-06 14:01', '6');
+INSERT INTO peeps (content, time, user_id) VALUES ('@aldi I want a refund', '2022-10-06 14:02', '6');
+INSERT INTO peeps (content, time, user_id) VALUES ('@sainsburys I want a refund', '2022-10-06 14:03', '6');
+INSERT INTO peeps (content, time, user_id) VALUES ('@bennboy any advice on stocks?', '2021-01-01 00:01', '3');
+INSERT INTO peeps (content, time, user_id) VALUES ('@elonmusk no', '2021-01-02 12:05', '1');
+INSERT INTO peeps (content, time, user_id) VALUES ('Does anyone know how to code?', '2022-05-30 12:01', '1');
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
@@ -56,16 +56,30 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Model class
-# (in lib/student.rb)
-class Student
+# (in lib/user.rb)
+class User
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/user_repository.rb)
+class UserRepository
+end
+
+
+# EXAMPLE
+# Table name: peeps
+
+# Model class
+# (in lib/peep.rb)
+class Peep
+end
+
+# Repository class
+# (in lib/user_repository.rb)
+class PeepRepository
 end
 ```
 
@@ -75,15 +89,21 @@ Define the attributes of your Model class. You can usually map the table columns
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Model class
-# (in lib/student.rb)
+# (in lib/user.rb)
 
-class Student
+class User
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+  attr_accessor :id, :first_name, :last_name, :username, :email, :password
+end
+
+class Peep
+
+  # Replace the attributes by your own columns.
+  attr_accessor :id, :content, :time, :user_id
 end
 
 # The keyword attr_accessor is a special Ruby feature
@@ -105,42 +125,111 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/user_repository.rb)
 
-class StudentRepository
+class PeepRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    # SELECT id, content, time, user_id FROM peeps;
 
-    # Returns an array of Student objects.
+    # Returns an array of Peep objects.
+  end
+
+  # inserts a new record
+  # takes a Peep object in argument
+  def create(peep)
+  #Executes the SQL query:
+  # INSERT INTO items (content, time, user_id), VALUES ($1, $2, $3)
   end
 
   # Gets a single record by its ID
   # One argument: the id (number)
-  def find(id)
-    # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+  # def find(id)
+  #   # Executes the SQL query:
+  #   # SELECT id, name, cohort_name FROM students WHERE id = $1;
 
-    # Returns a single Student object.
-  end
+  #   # Returns a single Student object.
+  # end
 
   # Add more methods below for each operation you'd like to implement.
-
-  # def create(student)
-  # end
-
-  # def update(student)
-  # end
 
   # def delete(student)
   # end
 end
+
+
+class UserRepository
+
+  # Selecting all records
+  # No arguments
+  # def all
+  #   # Executes the SQL query:
+  #   # SELECT id, first_name, last_name, username, email, password FROM users;
+
+  #   # Returns an array of User objects.
+  # end
+
+  # inserts a new record
+  # takes a Peep object in argument
+  def create(user)
+  #Executes the SQL query:
+  # INSERT INTO items (first_name, last_name, username, email, password), VALUES ($1, $2, $3)
+  end
+
+  # Gets a single record by its ID
+  # One argument: the id (number)
+#   def find(username)
+#     # Executes the SQL query:
+#     # SELECT id, first_name, last_name, username, email, password FROM users WHERE username = $1;
+
+#     # Returns a single Student object.
+#   end
+
+
+#     def delete(artist)
+#      # Executes the SQL query:
+#     # DELETE FROM artists WHERE id = $1;
+
+#     # returns nothing (just deletes teh record)
+#     end
+
+# #updates an artist's record
+# # takes an Artist object (with the updated fields)
+#   def update(artist)
+#      # Executes the SQL query:
+#     # UPDATE artists SET name = $1, genre = $2 WHERE id = $3;
+
+#     # return nothing (just amend the record)
+#   end
+
+# # insert a new album record
+#     def create(alb)
+#    # Executes the SQL query:
+#     # INSERT INTO (title, release_year, artist_id) VALUES($1, $2, $3)
+#     # doesn't need to return anything (just creates the record)
+#   end
+# # deletes an artist's record
+# # given its id
+
+
+# # select artist record with associated album records
+#   def find_with_albums(id)
+#     # SELECT aritsts.id AS 'id' , artists.name AS 'name', artists.genre AS 'genre' FROM artists, albums.id AS 'album_id' ialbums.title AS 'title', albums.release_year AS 'year'
+#     # JOIN albums ON albums.artist_id = artists.id
+#     # WHERE artists.id = $1;
+
+# # returns an Artist object
+# # with an array of Album objects
+#   end
+# end
+end
+
 ```
 
 ## 6. Write Test Examples
@@ -153,34 +242,47 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all peeps - 1st record
 
-repo = StudentRepository.new
+repo = PeepRepository.new
 
-students = repo.all
+peeps = repo.all
 
-students.length # =>  2
+peeps.length # =>  10
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+peeps.first.id # =>  '1'
+peeps.first.content # =>  'First peep babeh!'
+peeps.first.time # =>  '2009-01-17 12:23'
+peeps.first.user_id # => '3'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+# Get all peeps - check multiple records
+repo = PeepRepository.new
+
+peeps = repo.all
+
+peeps.length # =>  10
+
+peeps.[4].id # =>  '5'
+peeps.[4].content # =>  '@tesco, I want a refund'
+peeps.[4].time # =>  '2022-10-06 14:01'
+peeps.[4].user_id # => '6'
 
 # 2
-# Get a single student
+# Create a new peep
 
-repo = StudentRepository.new
+repo = PeepRepository.new
+peep = Peep.new
+peep.content = 'Testing 123'
+peep.time = # fake time
+peep.user_id = 1
 
-student = repo.find(1)
+repo.create(peep) # =>
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
-
-# Add more examples for each method
+all_peeps = repo.all
+last_peep = all_peeps.last
+last_peep.content #=> 'Testing 123'
+last_peep.time #=> # fake time
+last_peep.user_id #=> 1
 ```
 
 Encode this example as a test.
@@ -194,18 +296,19 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/peep_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_peeps_table
+  seed_sql = File.read('schema/chitter_seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_database_test' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe PeepRepository do
   before(:each) do 
-    reset_students_table
+    reset_peeps_table
   end
+end
 
   # (your tests will go here).
 end
@@ -214,13 +317,3 @@ end
 ## 8. Test-drive and implement the Repository class behaviour
 
 _After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
-
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
-
----
-
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->

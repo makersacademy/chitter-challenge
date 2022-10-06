@@ -10,7 +10,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-DatabaseConnection.connect('your_database_name_test')
+DatabaseConnection.connect('chitter_database_test')
 
 RSpec.configure do |config|
   config.after(:suite) do
