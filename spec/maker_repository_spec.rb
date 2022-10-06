@@ -59,4 +59,5 @@ describe MakerRepository do
       expect(repo.maker_exists?(new_maker)).to eq true
     end
   end
+
 end

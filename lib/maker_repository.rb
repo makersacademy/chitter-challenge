@@ -2,7 +2,7 @@ require_relative 'maker'
 
 class MakerRepository
   def all
-    sql = 'SELECT * FROM makers'
+    sql = 'SELECT id, name, username, email, password FROM makers'
     results_set = DatabaseConnection.exec_params(sql, [])
 
     makers = []
@@ -15,7 +15,7 @@ class MakerRepository
       new_maker.email = record['email']
       new_maker.password = record['password']
 
-     makers << new_maker
+      makers << new_maker
     end
 
     return makers

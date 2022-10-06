@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS makers; 
+DROP TABLE IF EXISTS makers CASCADE; 
 
 -- Table Definition
 CREATE TABLE makers(
