@@ -1,9 +1,11 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/database_connection'
+require_relative './lib/user_repository.rb'
+require_relative './lib/peep_repository.rb'
 
+DatabaseConnection.connect('chitter_test')
 class Application < Sinatra::Base
-  # This allows the app code to refresh
-  # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
   end
@@ -12,7 +14,21 @@ class Application < Sinatra::Base
     erb :index
   end
 
-  get '/messages' do
-    erb :messages
+  get '/user' do
+    erb :user
+  end
+
+  post '/user/new' do
+    user_repo = UserRepository.new
+    user = User.new(params[:username], params[:password], params[:name], params[:email])
+    user_repo.create(user)
+    redirect to('/user')
+  end
+
+  post '/peep/new' do
+    peep_repo = PeepRepository.new
+    peep = Peep.new(params[:content], params[:creation_date], params[:user_id])
+    peep_repo.create(peep)
+    redirect to('/user')
   end
 end

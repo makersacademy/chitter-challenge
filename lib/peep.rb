@@ -1,4 +1,4 @@
-class peep
+class Peep
 def initialize(content = '', creation_date = 0, user_id = 0)
   @content = content
   @creation_date = creation_date

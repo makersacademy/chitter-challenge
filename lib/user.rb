@@ -1,4 +1,4 @@
-class user
+class User
   def initialize(username = '', password = '', name = '', email = '')
     @username = username
     @password = password
