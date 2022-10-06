@@ -1,18 +1,10 @@
+require 'sinatra/base'
+require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 
 DatabaseConnection.connect('chitter_database_test')
-
-# sql = 'SELECT id, title FROM albums;'
-result = DatabaseConnection.exec_params(sql, [])
-
-result.each do |record|
-  p record
-end
-
-
-DatabaseConnection.connect
 
 class Application < Sinatra::Base
   configure :development do
@@ -20,7 +12,53 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
     also_reload 'lib/peep_repository'
   end
+
+  get '/' do
+    return erb(:home)
+  end
+
+  get '/peeps' do
+    peep_repo = PeepRepository.new
+    # user_repo = UserRepository.new   <------ TALK TO EOIN TOMORROW
+    @peeps = peep_repo.all(" ORDER BY time DESC")
+    # @user = user_repo.find(@peep.user_id)
+    return erb(:all_peeps)
+  end
+
+  post '/peeps' do
+    invalid_peep_params?
+    repo = PeepRepository.new
+    new_peep = Peep.new
+    new_peep.content = params[:content]
+    new_peep.time = (Time.now).strftime("%F %T")
+    new_peep.user_id = params[:user_id]
+    
+    repo.create(new_peep)
+    return ''
+  end
+
+  get '/peeps/new' do
+    return erb(:new_peep)
+  end
+
+
+  private
+
+  def invalid_peep_params?
+    if params[:content] == nil || params[:time] == nil || params[:user_id] == nil 
+      status 400
+      return ''
+    end
+  end
 end
+
+# sql = 'SELECT id, title FROM s;'
+# result = DatabaseConnection.exec_params(sql, [])
+
+# result.each do |record|
+#   p record
+# end
+
 
 #   get '/' do
 #     return erb(:home)

@@ -1,9 +1,9 @@
 require_relative 'peep'
 
 class PeepRepository
-  def all
+  def all(text)
     peeps = []
-    sql = 'SELECT id, content, time, user_id FROM peeps;'
+    sql = "SELECT id, content, time, user_id FROM peeps#{text};"
     result_set = DatabaseConnection.exec_params(sql, [])
     result_set.each do |record|
       peeps << record_to_peep_object(record)
@@ -18,6 +18,12 @@ class PeepRepository
     DatabaseConnection.exec_params(sql, sql_params)
 
     return nil
+  end
+
+  def find(id)
+    sql = "SELECT id, content, time, user_id FROM peeps WHERE id = $1;"
+    records = DatabaseConnection.exec_params(sql, [id])
+    record_to_peep_object(records[0])
   end
 
   private

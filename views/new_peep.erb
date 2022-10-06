@@ -1,0 +1,24 @@
+<form method="POST" action="/peeps">
+  <h1>Send a peep!</h1>
+    <div>
+      <label>Compose:</label>
+      <input type="text" name="content" />
+    </div>
+
+    <div>
+      <label>Who's peeping?</label>
+      <select name="user_id">
+        <option value="1">@bennyboy</option> <%# Look into pulling @user or @peep through like all_peeps.erb%>
+        <option value="2">@kyliejenner</option>
+        <option value="3">@elonmusk</option>
+        <option value="4">@rihanna</option>
+        <option value="5">@ragedad</option>
+        <option value="6">@canispeaktothemanager</option>
+      </select>
+    </div>
+    
+    <input type="submit">
+</form>
+
+<a href= '../'> home</a>
+<a href= '../peeps'> feed</a>
