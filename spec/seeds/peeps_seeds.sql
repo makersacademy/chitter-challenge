@@ -13,6 +13,6 @@ CREATE TABLE peeps(
 
 TRUNCATE TABLE peeps RESTART IDENTITY;
 
-INSERT INTO peeps ("timestamp", "content") VALUES
-((select date_trunc('second', now())), 'Today was a day.'),
-((select date_trunc('second', now())), 'Woof.');
+INSERT INTO peeps ("timestamp", "content", "maker_id") VALUES
+((select date_trunc('second', now())), 'Today was a day.', 1),
+((select date_trunc('second', now())), 'Woof.', 2);
