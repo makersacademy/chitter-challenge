@@ -17,6 +17,7 @@ RSpec.describe '.create' do
     expect(BCrypt::Password).to receive(:create).with('password123')
     User.create(email: 'test@example.com', password: 'password123', username: 'test12')
   end
+end
 
   describe '.find' do
     it 'finds a user by ID' do
@@ -34,4 +35,12 @@ RSpec.describe '.create' do
       expect(User.find(id: nil)).to eq nil
     end
   end
-end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct email and password, if one exists' do
+      user = User.create(email: 'bill@example.com', password: 'password123', username: 'bill12')
+      authenticated_user = User.authenticate(email: 'bill@example.com', password: 'password123')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+  end

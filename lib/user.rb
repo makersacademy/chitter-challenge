@@ -30,4 +30,14 @@ class User
       result = connection.exec("SELECT * FROM users WHERE id = #{id};")
         User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'])
   end
+
+  def self.authenticate(email:, password:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+      result = connection.exec_params("SELECT * FROM users WHERE email = $1;", [email])
+        User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'])
+  end
 end
