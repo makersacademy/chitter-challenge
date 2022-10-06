@@ -25,5 +25,18 @@ class ChitterChallenge < Sinatra::Base
     redirect '/peeps'
   end
 
+  get ('/users/new') do
+    erb :users
+  end
+
+  post ('/users') do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec_params(
+      "INSERT INTO users (email, password, username) VALUES($1, $2, $3);",
+      [params[:email], params[:password], params[:username]]
+      )
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 end
