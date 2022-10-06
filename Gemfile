@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 ruby '3.0.2'
+gem 'webdrivers', '~> 5.0', require: false
+gem 'capybara'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'

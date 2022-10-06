@@ -1,0 +1,1 @@
+CREATE TABLE messages(id SERIAL PRIMARY KEY, message  VARCHAR(280), timestamp timestamp default current_timestamp;);
