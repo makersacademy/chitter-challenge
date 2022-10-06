@@ -13,4 +13,10 @@
   <% end %>
 </ul>
 <a style="font-family: Tahoma" href="/peeps/new">Add a peep</a>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
 </body>
+
+<%= flash[:notice]%>
