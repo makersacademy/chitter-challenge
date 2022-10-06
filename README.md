@@ -8,43 +8,40 @@ To write a small Twitter clone that will allow the users to post messages to a p
 
 Features:
 -------
-User Story 1:
-As a Maker,  
-So that I can see what others are saying,  
+User Story 1:  
+As a user, so that I can see what others are saying,  
 I want to see all peeps in reverse chronological order
 
 <img src="chitter_challenge _ model_1.png">
 
-User Story 2:
-As a Maker,  
-So that I can let people know what I am doing,  
+User Story 2:  
+As a user, so that I can let people know what I am doing,  
 I want to post a message (peep) to chitter
 
-User Story 3:
-As a Maker,  
-So that I can better appreciate the context of a peep,  
+User Story 3:  
+As a user, so that I can better appreciate the context of a peep,  
 I want to see the time at which it was made
 
-User Story 4:
-As a Maker,  
-So that I can post messages on Chitter as me,  
+User Story 4:  
+As a user, so that I can post messages on Chitter as me,  
 I want to sign up for Chitter
 
-HARDER
-As a Maker,  
-So that only I can post messages on Chitter as me,  
+User Story 5:  
+As a user, so that only I can post messages on Chitter as me,  
 I want to log in to Chitter
 
-As a Maker,  
-So that I can avoid others posting messages on Chitter as me,  
+User Story 6:  
+As a user, so that I can avoid others posting messages on Chitter as me,  
 I want to log out of Chitter
 
 Progress so far:
 -----
-- Features for user stories 1 and 2 built.
+- Features for user stories 1 - 4 built.
+- Added registration as a feature including with bcrypt for password encryption
 - Added some minor style features (my eyes can't take Times New Roman)
-- Next would be to add the time feature to the peeps. I'd do this by updating the test and development databases so that peeps have a ```time``` as well as ```text```. Then update the create method to take two parameters - text and time. And to fulfil the user story, this would involve updating the view so that time is shown also. 
-- This would involve using the ```Time``` class in Ruby. 
+- Next is to add authentication - sign in and sign out
+- Need to add name to the registration and then add name and user handle to the peeps
+- More style features need adding as well
 
 Technical Approach:
 -----
@@ -59,6 +56,12 @@ It uses an approach that integrates a database using the `PG` gem and `SQL` quer
 5) Use the PG gem to connect ruby application to the Postgres SQL database
 6) Set up a testing environment separate from the dev environment
 7) Repeat steps above for the database and create database "chitter_test"
+8) For tables set up, the psql commands are saved in the 'db' directory. 
+
+## Run the tests
+Feature and unit tests can be run using:  
+```rspec```
+
 
 Notes on functionality:
 ------
