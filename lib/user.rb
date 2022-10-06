@@ -1,5 +1,5 @@
 class user
-  def initialize(username, password, name, email)
+  def initialize(username = '', password = '', name = '', email = '')
     @username = username
     @password = password
     @name = name
