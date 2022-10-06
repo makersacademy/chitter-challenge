@@ -1,3 +1,5 @@
+require_relative './peep.rb'
+
 class PeepRepository
   def all
 
@@ -8,6 +10,6 @@ class PeepRepository
   end
 
   def create
-    
+
   end
 end
