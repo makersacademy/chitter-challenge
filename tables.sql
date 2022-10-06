@@ -1,4 +1,5 @@
 
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
@@ -10,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  date_time DATETIME,
+  created_at text,          --date_time Timestamp,
   user_id int,
   constraint fk_user foreign key(user_id)
     references users(id)

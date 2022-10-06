@@ -43,15 +43,10 @@ peep, user, time
 Put the different nouns in this table. Replace the example with your own nouns.
 
 Record	Properties
-peep	user_id, content, date_time
-user	name, user, email, password
-Name of the first table (always plural): albums
+peeps	user_id, content, date_time
+users	name, user, email, password
 
-Column names: title, release_year
 
-Name of the second table (always plural): artists
-
-Column names: name
 
 3. Decide the column types.
 Here's a full documentation of PostgreSQL data types.
@@ -62,7 +57,7 @@ Remember to always have the primary key id as a first column. Its type will alwa
 
 # EXAMPLE:
 
-Table: albums
+Table: peeps
 id: SERIAL
 title: text
 release_year: int
@@ -70,54 +65,35 @@ release_year: int
 Table: artists
 id: SERIAL
 name: text
-4. Decide on The Tables Relationship
-Most of the time, you'll be using a one-to-many relationship, and will need a foreign key on one of the two tables.
 
-To decide on which one, answer these two questions:
 
-Can one [TABLE ONE] have many [TABLE TWO]? (Yes/No)
-Can one [TABLE TWO] have many [TABLE ONE]? (Yes/No)
-You'll then be able to say that:
+FOREIGN KEY IS IN PEEPS
 
-[A] has many [B]
-And on the other side, [B] belongs to [A]
-In that case, the foreign key is in the table [B]
-Replace the relevant bits in this example with your own:
 
-# EXAMPLE
-
-1. Can one artist have many albums? YES
-2. Can one album have many artists? NO
-
--> Therefore,
--> An artist HAS MANY albums
--> An album BELONGS TO an artist
-
--> Therefore, the foreign key is on the albums table.
-If you can answer YES to the two questions, you'll probably have to implement a Many-to-Many relationship, which is more complex and needs a third table (called a join table).
 
 4. Write the SQL.
--- EXAMPLE
--- file: albums_table.sql
 
--- Replace the table name, columm names and types.
+-- file: users_table.sql
 
--- Create the table without the foreign key first.
-CREATE TABLE artists (
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
+  username text,
+  email varchar(319),
+  password text
 );
 
 -- Then the table with the foreign key first.
-CREATE TABLE albums (
+CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
-  title text,
-  release_year int,
--- The foreign key name is always {other_table_singular}_id
-  artist_id int,
-  constraint fk_artist foreign key(artist_id)
-    references artists(id)
+  content text,
+  user_id,
+  date_time DATETIME,
+  user_id int,
+  constraint fk_user foreign key(user_id)
+    references users(id)
     on delete cascade
 );
+
 5. Create the tables.
 psql -h 127.0.0.1 database_name < albums_table.sql
