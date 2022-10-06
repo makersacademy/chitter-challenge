@@ -55,8 +55,7 @@ I want to receive an email if I am tagged in a Peep
 
 ## Web Pages
 - view messages(index)
-- sign up page
-- login page
+- sign up page/login page (basic front end done)
 - post message
 
 ## Tables
@@ -71,3 +70,31 @@ I want to receive an email if I am tagged in a Peep
 
 5. get bootstrapped
 
+# Tables
+
+## Peeps
+- id
+- content
+- creation_date
+- user_id
+
+## Users
+
+- id - Serial
+- username - text
+- password - password
+- name - text
+- email - text
+
+# Application design
+
+## methods
+
+get
+- /
+- message
+- user
+
+post
+- user/new
+- message/new
