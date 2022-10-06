@@ -1,0 +1,11 @@
+Welcome !
+
+<ul>
+  <% @chit.each do |chits| %>
+     <li><%=chits%></li>
+  <% end %>
+</ul>
+
+  <a href="/login">
+    <input type="button" value="Sign Out" />
+  </a>
