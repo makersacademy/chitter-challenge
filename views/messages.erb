@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<header>
+  <nav>
+    You are logged in as: 
+  </nav>
+
+  <h1>Chitter</h1>
+</header>
+    <div class="messagescontainer">
+    <h2>Messages</h2>
+      <!--In here i gotta post a list of messages.-->
+      <div class="messages">
+        <ul>
+        </ul>  
+      </div> 
+      <div class="createmessage">
+        <form action='/message/new' method='POST'>
+          <input type="text" name="message" id="sendmessage">
+          <input type="submit" value="Send">
+        </form>
+      </div> 
+    </div>
+  </div>
+</body>
+</html>
