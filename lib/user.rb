@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
   def self.create(email:, password:, username:)
     if ENV['ENVIRONMENT'] == 'test'
@@ -5,7 +7,8 @@ class User
     else
       connection = PG.connect(dbname: 'chitter')
     end
-      result = connection.exec("INSERT INTO users (email, password, username) VALUES('#{email}', '#{password}', '#{username}') RETURNING id, email, username;")
+    encrypted_password = BCrypt::Password.create(password)
+      result = connection.exec("INSERT INTO users (email, password, username) VALUES('#{email}', '#{encrypted_password}', '#{username}') RETURNING id, email, username;")
         User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'])
   end
 

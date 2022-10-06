@@ -5,6 +5,7 @@ ruby '3.0.0'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'pg'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
