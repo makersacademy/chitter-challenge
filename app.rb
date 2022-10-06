@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/chitter'
+require_relative 'lib/user'
 
 class ChitterChallenge < Sinatra::Base
   configure :development do
@@ -30,11 +31,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post ('/users') do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec_params(
-      "INSERT INTO users (email, password, username) VALUES($1, $2, $3);",
-      [params[:email], params[:password], params[:username]]
-      )
+    User.create(email: params[:email], password: params[:password], username: params[:username] )
     redirect '/peeps'
   end
 
