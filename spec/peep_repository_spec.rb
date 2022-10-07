@@ -1,7 +1,7 @@
 require 'peep_repository'
 
 RSpec.describe PeepRepository do
-  before(:each) do
+  before :each do
     reset_tables
   end
 
