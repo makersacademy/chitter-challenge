@@ -2,7 +2,11 @@ require_relative './peep.rb'
 
 class PeepRepository
   def all
-
+    sql = "SELECT * FROM peeps"
+    result_set = DatabaseConnection.exec_params(sql, [])
+    result_set.map do |peep|
+      Peep.new(peep["content"], peep["creation_date"], peep["user_id"])
+    end
   end
 
   def find(index)
