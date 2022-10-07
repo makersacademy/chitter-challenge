@@ -20,7 +20,6 @@ describe PeepRepository do
       expect(all_peeps.length).to eq(3)
       expect(all_peeps.first.id).to eq(1)
       expect(all_peeps.first.content).to eq('Have you seen my new kitty-cat? She is adorable!')
-      expect(all_peeps.first.created_at).to eq('2022-10-05 17:50:20')
       expect(all_peeps.first.user_id).to eq(1)
     end
   end
@@ -32,7 +31,6 @@ describe PeepRepository do
 
       expect(peep.content).to eq('I am back from the dead and stronger than ever.')
       expect(peep.user_id).to eq(2)
-      expect(peep.created_at).to eq('2022-10-03 12:45:20')
     end    
   end
 end
