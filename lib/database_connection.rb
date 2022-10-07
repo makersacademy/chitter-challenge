@@ -24,4 +24,5 @@ class DatabaseConnection
     end
     @connection.exec_params(query, params)
   end 
+  
 end
