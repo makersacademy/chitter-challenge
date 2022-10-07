@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/database_connection'
-require_relative './lib/user_repository.rb'
-require_relative './lib/peep_repository.rb'
+require_relative './lib/user_repository'
+require_relative './lib/peep_repository'
 
 DatabaseConnection.connect('chitter_test')
 class Application < Sinatra::Base
@@ -19,7 +19,9 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    
+    user = User.new(params[:username], params[:password], params[:name], params[:email])
+    repo = UserRepository.new
+    repo.create(user)
   end
 
   post '/user/new' do
