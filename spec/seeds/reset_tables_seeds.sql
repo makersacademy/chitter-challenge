@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE peeps (
     id SERIAL PRIMARY KEY,
     content text,
-    creation_date date,
+    creation_date timestamp,
     
     user_id int,
     constraint fk_user foreign key (user_id)
@@ -48,7 +48,7 @@ INSERT INTO peeps (content, creation_date, user_id)
 INSERT INTO peeps (content, creation_date, user_id)
     VALUES ('Lets keep a little optimism here.', NOW(), 2);
 INSERT INTO peeps (content, creation_date, user_id)
-    VALUES ('Lets keep a little optimism here.', NOW(), 2);
+    VALUES ('Great shot, kid, that was one in a million.', NOW(), 2);
 INSERT INTO peeps (content, creation_date, user_id)
     VALUES ('Its not wise to upset a Wookie.', NOW(), 2);
 
