@@ -60,7 +60,7 @@ I want to receive an email if I am tagged in a Peep
 > From both the messages should be visible
 
 ## Tables
-- Messages
+- Peeps
 - Users
 
 ## Steps
@@ -76,7 +76,7 @@ I want to receive an email if I am tagged in a Peep
 ## Peeps
 - id
 - content
-- creation_date
+- creation_date - timestamp
 - user_id
 
 ## Users
