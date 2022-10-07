@@ -6,7 +6,7 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, [])
     result_set.each do |record|
       user = User.new
-      user.id = record['id']
+      user.id = record['id'].to_i
       user.name = record['name']
       user.username = record['username']
       user.email = record['email']

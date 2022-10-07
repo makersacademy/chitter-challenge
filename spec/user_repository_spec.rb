@@ -19,7 +19,11 @@ describe UserRepository do
       users = repo.all
 
       expect(users.length).to eq(2)
+      expect(users.first.id).to eq(1)
       expect(users.first.name).to eq('Ruby')
+      expect(users.first.username).to eq('cute-cat')
+      expect(users.first.email).to eq('ruby1@gmail.com')
+      expect(users.first.password).to eq('12345')
     end
   end
 end
