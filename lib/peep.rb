@@ -1,3 +1,3 @@
 class Peep
-    attr_accessor :id, :content, :created_at, :user_id
+    attr_accessor :id, :content, :created_at, :maker_id
 end
