@@ -50,4 +50,25 @@ describe UserRepository do
       expect(user.password).to eq('123456') 
     end
   end
+
+  describe '#create' do
+    it 'creates a user' do
+      repo = UserRepository.new
+      user = User.new
+      user.name = 'Dan'
+      user.username = 'seal-doctor'
+      user.email = 'marinevet@gmail.com'
+      user.password = '23896'
+      repo.create(user)
+
+      users = repo.all
+      
+      expect(users.length).to eq(3)
+      expect(users.last.id).to eq(3)
+      expect(users.last.name).to eq('Dan')
+      expect(users.last.username).to eq('seal-doctor')
+      expect(users.last.username).to eq('marinevet@gmail.com')
+      expect(users.last.username).to eq('23896')
+    end
+  end
 end
