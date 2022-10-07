@@ -7,4 +7,8 @@ class User
   end
 
   attr_accessor :username, :password, :name, :email
+
+  def ==(other)
+    self.username == other.username && self.password == other.password && self.name == other.name && self.email == other.email
+  end
 end
