@@ -1,0 +1,18 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+      <h3> Peeps </h3>
+
+          <%@peeps.each do |peep|%>
+            <div>
+              <p>
+              Maker: <%= peep.maker_id%><br />
+              Posted: <%= peep.timestamp%><br />
+              Content: <%= peep.content%><br />
+              </p>
+            </div>
+          <%end%>
+        
+  </body>
+</html>

@@ -60,4 +60,12 @@ describe MakerRepository do
     end
   end
 
+  it "returns maker name and username using id" do
+    repo = MakerRepository.new
+    maker = repo.find_identity_by_id('1')
+
+    expect(maker.name).to eq('Chris')
+    expect(maker.username).to eq('cast')
+  end
+
 end

@@ -30,6 +30,19 @@ class MakerRepository
     return nil
   end
 
+  def find_identity_by_id(id)
+    sql = 'SELECT id, name, username FROM makers WHERE id = $1;'
+    results_set = DatabaseConnection.exec_params(sql, [id])
+   
+    maker = Maker.new
+    maker.id = results_set[0]['id']
+    maker.name = results_set.first['name']
+    maker.username = results_set.first['username']
+    
+    return maker
+
+  end
+
   def maker_exists?(maker)
     result = all.each do |existing_maker|
       return true if maker.username == existing_maker.username || maker.email == existing_maker.email
