@@ -4,7 +4,7 @@ require 'user_repository'
 def reset_users_table
   seed_sql = File.read('spec/seeds/seeds.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_database_test'})
-  connection.exec(sql)
+  connection.exec(seed_sql)
 end
 
 describe UserRepository do
