@@ -31,6 +31,14 @@ describe PeepRepository do
 
       expect(peep.content).to eq('I am back from the dead and stronger than ever.')
       expect(peep.maker_id).to eq(2)
-    end    
+    end  
+    
+    it 'finds a peep with its id when id is 3' do
+        repo = PeepRepository.new
+        peep = repo.find(3)
+  
+        expect(peep.content).to eq('Who thought foxes could be so fascinating? Have you seen the documentary...')
+        expect(peep.maker_id).to eq(2)
+      end 
   end
 end
