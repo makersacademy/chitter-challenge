@@ -8,6 +8,7 @@
             <div>
               <p>
               Maker: <%= peep.maker_id%><br />
+              Maker username: <%=@maker_repo.find_username_by_id(peep.maker_id)%><br />
               Posted: <%= peep.timestamp%><br />
               Content: <%= peep.content%><br />
               </p>

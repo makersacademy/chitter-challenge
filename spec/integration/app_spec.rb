@@ -10,13 +10,13 @@ def reset_tables
 end
 
 describe Application do
-before(:each) do 
-  reset_tables
-  reset_tables
-end
+  before(:each) do 
+    reset_tables
+    reset_tables
+  end
   
-include Rack::Test::Methods
-let(:app) { Application.new }
+  include Rack::Test::Methods
+  let(:app) { Application.new }
 
   context 'GET to /' do
     it 'returns 200 OK showing title' do
@@ -36,13 +36,12 @@ let(:app) { Application.new }
       expect(maker_2_index < maker_1_index).to eq(true)
     end
 
-    xit 'includes Maker namne and username' do
+    it 'includes Maker username' do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('Chris')
       expect(response.body).to include('cast')
-
+      expect(response.body).to include('HandsomeForest')
     end
 
   end

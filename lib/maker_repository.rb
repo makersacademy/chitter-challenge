@@ -30,17 +30,24 @@ class MakerRepository
     return nil
   end
 
-  def find_identity_by_id(id)
-    sql = 'SELECT id, name, username FROM makers WHERE id = $1;'
+  def find_username_by_id(id)
+    sql = 'SELECT username FROM makers WHERE id = $1;'
     results_set = DatabaseConnection.exec_params(sql, [id])
    
     maker = Maker.new
-    maker.id = results_set[0]['id']
-    maker.name = results_set.first['name']
     maker.username = results_set.first['username']
     
-    return maker
+    return maker.username
+  end
 
+  def find_name_by_id(id)
+    sql = 'SELECT name FROM makers WHERE id = $1;'
+    results_set = DatabaseConnection.exec_params(sql, [id])
+   
+    maker = Maker.new
+    maker.name = results_set.first['name']
+    
+    return maker.name
   end
 
   def maker_exists?(maker)
