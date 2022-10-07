@@ -67,8 +67,8 @@ describe UserRepository do
       expect(users.last.id).to eq(3)
       expect(users.last.name).to eq('Dan')
       expect(users.last.username).to eq('seal-doctor')
-      expect(users.last.username).to eq('marinevet@gmail.com')
-      expect(users.last.username).to eq('23896')
+      expect(users.last.email).to eq('marinevet@gmail.com')
+      expect(users.last.password).to eq('23896')
     end
   end
 end
