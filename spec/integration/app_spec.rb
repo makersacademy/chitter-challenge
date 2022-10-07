@@ -29,8 +29,8 @@ describe Application do
     it 'returns list of peeps in reverse order' do
       response = get('/')
       
-      maker_2_index = response.body.index('Maker: 2')
-      maker_1_index = response.body.index('Maker: 1')
+      maker_2_index = response.body.index('Maker: Forest')
+      maker_1_index = response.body.index('Maker: Chris')
       
       expect(response.status).to eq(200)
       expect(maker_2_index < maker_1_index).to eq(true)
@@ -42,6 +42,14 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('cast')
       expect(response.body).to include('HandsomeForest')
+    end
+
+    it 'includes Maker name' do
+      response = get('/')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Chris')
+      expect(response.body).to include('Forest')
     end
 
   end
