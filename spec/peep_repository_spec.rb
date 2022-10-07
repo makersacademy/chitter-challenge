@@ -20,7 +20,7 @@ describe PeepRepository do
       expect(all_peeps.length).to eq(3)
       expect(all_peeps.first.id).to eq(1)
       expect(all_peeps.first.content).to eq('Have you seen my new kitty-cat? She is adorable!')
-      expect(all_peeps.first.user_id).to eq(1)
+      expect(all_peeps.first.maker_id).to eq(1)
     end
   end
 
@@ -30,7 +30,7 @@ describe PeepRepository do
       peep = repo.find(2)
 
       expect(peep.content).to eq('I am back from the dead and stronger than ever.')
-      expect(peep.user_id).to eq(2)
+      expect(peep.maker_id).to eq(2)
     end    
   end
 end
