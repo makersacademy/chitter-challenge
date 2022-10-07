@@ -12,7 +12,7 @@ describe PeepRepository do
     reset_peeps_table
   end
   
-  describe '#find' do
+  describe '#all' do
     it 'finds all peeps' do
       repo = PeepRepository.new
       all_peeps = repo.all
@@ -20,8 +20,8 @@ describe PeepRepository do
       expect(all_peeps.length).to eq(3)
       expect(all_peeps.first.id).to eq(1)
       expect(all_peeps.first.content).to eq('Have you seen my new kitty-cat? She is adorable!')
-      expect(all_peeps.first.created_at).to eq('2022-10-07 11:02:29.881291')
-      expect(all_peeps.first.user_id).to eq('1')
+      expect(all_peeps.first.created_at).to eq('2022-10-05 17:50:20')
+      expect(all_peeps.first.user_id).to eq(1)
     end
   end
 end

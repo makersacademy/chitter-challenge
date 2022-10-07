@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  created_at timestamp,          --date_time Timestamp,
+  created_at text,     
   user_id int,
   constraint fk_user foreign key(user_id)
     references users(id)
