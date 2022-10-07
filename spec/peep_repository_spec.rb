@@ -34,11 +34,28 @@ describe PeepRepository do
     end  
     
     it 'finds a peep with its id when id is 3' do
-        repo = PeepRepository.new
-        peep = repo.find(3)
-  
-        expect(peep.content).to eq('Who thought foxes could be so fascinating? Have you seen the documentary...')
-        expect(peep.maker_id).to eq(2)
-      end 
+      repo = PeepRepository.new
+      peep = repo.find(3)
+
+      expect(peep.content).to eq('Who thought foxes could be so fascinating? Have you seen the documentary...')
+      expect(peep.maker_id).to eq(2)
+    end 
+  end
+
+  describe "#create" do
+    it 'creates a peep' do
+      repo = PeepRepository.new
+      new_peep = Peep.new
+
+      new_peep.content = 'Let me tell you a funny story, once I went into a pub and...'
+      new_peep.maker_id = 1
+      repo.create(new_peep)
+
+      peeps = repo.all
+
+      expect(peeps.length).to eq(4)
+      expect(peeps.last.content).to eq('Let me tell you a funny story, once I went into a pub and...')
+      expect(peeps.last.maker_id).to eq(1)
+    end
   end
 end
