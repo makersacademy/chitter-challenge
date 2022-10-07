@@ -18,6 +18,10 @@ class Application < Sinatra::Base
     erb :user
   end
 
+  post '/login' do
+    
+  end
+
   post '/user/new' do
     user_repo = UserRepository.new
     user = User.new(params[:username], params[:password], params[:name], params[:email])
@@ -27,7 +31,7 @@ class Application < Sinatra::Base
 
   post '/peep/new' do
     peep_repo = PeepRepository.new
-    peep = Peep.new(params[:content], params[:creation_date], params[:user_id])
+    peep = Peep.new(params[:content], 0, params[:user_id])
     peep_repo.create(peep)
     redirect to('/user')
   end
