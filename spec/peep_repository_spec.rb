@@ -24,4 +24,15 @@ describe PeepRepository do
       expect(all_peeps.first.user_id).to eq(1)
     end
   end
+
+  describe '#find' do
+    it 'finds a peep with its id' do
+      repo = PeepRepository.new
+      peep = repo.find(2)
+
+      expect(peep.content).to eq('I am back from the dead and stronger than ever.')
+      expect(peep.user_id).to eq(2)
+      expect(peep.created_at).to eq('2022-10-03 12:45:20')
+    end    
+  end
 end
