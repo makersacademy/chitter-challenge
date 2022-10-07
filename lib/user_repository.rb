@@ -2,7 +2,11 @@ require_relative './user.rb'
 
 class UserRepository
   def all
-
+    sql = "SELECT * FROM users"
+    result_set = DatabaseConnection.exec_params(sql, [])
+    result_set.map do |user|
+      User.new(user["username"], user["password"], user["name"], user["email"])
+    end
   end
 
   def find(index)
