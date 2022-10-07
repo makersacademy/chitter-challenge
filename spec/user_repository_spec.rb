@@ -25,4 +25,14 @@ RSpec.describe UserRepository do
       expect(user2.email).to eq 'Millenium_Falcon@gmail.com'
     end
   end
+
+  describe '#create' do
+    it 'creates a user' do
+      user_repo = UserRepository.new
+      user = User.new('NewGuy12', 'totally original password', 'Guy New', 'new2email@gmail.com')
+      user_repo.create(user)
+      expect(user_repo.all.last.password).to eq 'totally original password'
+      expect(user_repo.all.last.email).to eq 'new2email@gmail.com'
+    end
+  end
 end
