@@ -57,5 +57,23 @@ describe PeepRepository do
       expect(peeps.last.content).to eq('Let me tell you a funny story, once I went into a pub and...')
       expect(peeps.last.maker_id).to eq(1)
     end
+
+    describe '#find_maker_username' do
+      it 'finds the username of a peep for a given maker_id' do
+        peep_repo = PeepRepository.new
+        maker_repo = MakerRepository.new
+        makers = peep_repo.all
+        peeps = maker_repo.all
+
+        peep = peep_repo.find(1)
+        
+        expect(peep.find_maker_username).to eq('cute-cat')
+
+        peep = peep_repo.find(2)
+
+        expect(peep.find_maker_username).to eq('fox-lover')
+      end
+    end
   end
+  
 end
