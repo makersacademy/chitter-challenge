@@ -10,8 +10,9 @@ class PeepRepository
   end
 
   def find(index)
-    sql = "SELECT * FROM peeps WHERE id = #{index}"
-    DatabaseConnection.exec_params(sql, [index])[0]
+    sql = "SELECT * FROM peeps WHERE id = $1"
+    result = DatabaseConnection.exec_params(sql, [index])[0]
+    Peep.new(result["content"], result["creation_date"], result["user_id"])
   end
 
   def create(peep)
