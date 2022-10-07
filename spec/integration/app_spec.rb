@@ -55,4 +55,80 @@ describe Application do
 
   end
 
+  context 'New sign up' do
+    context 'GET to /signup' do
+      it "returns 200k showing title" do
+        response = get('/signup')
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<h3>Sign up</h3>')
+      end
+
+      it 'shows form' do
+        response = get('/signup')
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<input type="text" name="name">')
+        expect(response.body).to include('<input type="text" name="username">')
+        expect(response.body).to include('<input type="text" name="email">')
+        expect(response.body).to include('<input type="text" name="password">')
+      end
+    end
+
+    context 'POST to /signup with valid new maker' do
+      it 'returns success page' do
+        response = post('/signup',
+        name: 'Tester',
+        username: 'TesterTime',
+        email: 'workplease@email.com',
+        password: 'work4'
+        )
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<h3>Sign up successful!</h3>')
+      end
+    end
+    
+    context 'invalid new maker, username / email exists' do
+      context 'GET to /signup/failure/exists' do
+        it 'returns failure page' do
+          response = get('/signup/failure/exists')
+
+          expect(response.status).to eq(200)
+          expect(response.body).to include('<h3>Sign up failure. Maker already exists!</h3>')
+        end
+      end
+
+      context 'POST to /signup' do
+        context 'username exists' do
+          it 'returns failure page' do
+            response = post('/signup',
+              name: 'Tester',
+              username: 'cast',
+              email: 'workplease@email.com',
+              password: 'work4'
+              )
+
+            expect(response.status).to eq(200)
+            expect(response.body).to include('<h3>Sign up failure. Maker already exists!</h3>')
+          end
+
+          context 'email exists' do
+            it 'returns failure page' do
+              response = post('/signup',
+                name: 'Tester',
+                username: 'castwe',
+                email: 'cast@email.com',
+                password: 'work4'
+                )
+  
+              expect(response.status).to eq(200)
+              expect(response.body).to include('<h3>Sign up failure. Maker already exists!</h3>')
+            end
+          end
+        end
+      end
+    end
+  end
+
 end
