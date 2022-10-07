@@ -20,7 +20,7 @@ class UserRepository
     DatabaseConnection.exec_params(sql, [user.username, user.password, user.name, user.email])
   end
 
-  def login(user)
+  def login?(user)
     database_users = self.all
     database_users.any? do |database_user|
       database_user == user

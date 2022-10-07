@@ -19,9 +19,14 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    user = User.new(params[:username], params[:password], params[:name], params[:email])
     repo = UserRepository.new
-    repo.create(user)
+    new_user = User.new(params[:username], params[:password])
+    
+     if repo.login?(new_user)
+      redirect to ('/user')
+     else
+      redirect to ('/')
+     end
   end
 
   post '/user/new' do
