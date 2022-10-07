@@ -10,9 +10,9 @@ def reset_tables
 end
 
 describe Application do
-  before(:each) do
-    reset_tables
-  end
+#   before(:each) do
+#     reset_tables
+#   end
 
   include Rack::Test::Methods
 
