@@ -19,4 +19,11 @@ class UserRepository
     sql = 'INSERT INTO users (username, password, name, email) VALUES ($1, $2, $3, $4)'
     DatabaseConnection.exec_params(sql, [user.username, user.password, user.name, user.email])
   end
+
+  def login(user)
+    database_users = self.all
+    database_users.any? do |database_user|
+      database_user == user
+    end
+  end
 end
