@@ -18,7 +18,7 @@ describe UserRepository do
 
       users = repo.all
 
-      expect(users.length.to eq(2))
+      expect(users.length).to eq(2)
       expect(users.first.name).to eq('Ruby')
     end
   end
