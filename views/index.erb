@@ -8,16 +8,19 @@
 </head>
 <body>
   <div class="app">
-  <header>
+  <header style='background: aqua;'>
     <h1>Welcome to <s>twitter</s> Chitter!</h1>
     <nav>
       <div class="signup/login">
         <h2>Sign-up or Login</h2>
-        <form action='/user/new' method='POST'>
-          <input type="text" placeholder="Username">
-          <input type="password" placeholder="Password">
-          <input type="submit" value="Sign up">
-          <input type="submit" value="Login">
+        <form method='POST'>
+          <input type="text" placeholder="Username" name='username' id='username'>
+          <input type="password" placeholder="Password" name='password' id='password'>
+          <input formaction='/user/login' type="submit" value="Login"><br>
+          <input type="text" placeholder='name' name="name" id="name">
+          <input type="email" placeholder='Email' name="Email" id="Email">
+          <input formation='/user/new' type="submit" value="Sign up">
+          
         </form>
       </div>
 
