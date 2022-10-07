@@ -1,8 +1,8 @@
 require 'sinatra'
 require "sinatra/reloader"
 require_relative 'lib/database_connection'
-require_relative 'lib/album_repository'
-require_relative 'lib/artist_repository'
+require_relative 'lib/maker_repository'
+require_relative 'lib/peep_repository'
 
 
 DatabaseConnection.connect
