@@ -33,6 +33,9 @@ RSpec.describe PeepRepository do
       peep_repository = PeepRepository.new
       peep_repository.create(peep)
       expect(peep_repository.all.last.content).to eq 'Say my name'
+      peep2 = Peep.new('My name is JarJar', DateTime.now, 1)
+      peep_repository.create(peep2)
+      expect(peep_repository.all.last.content).to eq 'My name is JarJar'
     end
   end
 end
