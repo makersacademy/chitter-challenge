@@ -26,4 +26,17 @@ describe UserRepository do
       expect(users.first.password).to eq('12345')
     end
   end
+
+  describe '#find' do
+    it 'finds one user by id' do
+      repo = UserRepository.new
+      user = repo.find(2)
+
+      expect(user.id).to eq(2)
+      expect(user.name).to eq('Ruby')
+      expect(user.username).to eq ('cute-cat')
+      expect(users.email).to eq('ruby1@gmail.com')
+      expect(users.password).to eq('12345') 
+    end
+  end
 end
