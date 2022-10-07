@@ -59,3 +59,4 @@ class MakerRepository
   end
 
 end
+
