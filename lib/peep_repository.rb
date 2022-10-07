@@ -5,8 +5,9 @@ class PeepRepository
 
   end
 
-  def find
-
+  def find(index)
+    sql = "SELECT * FROM peeps WHERE id = #{index}"
+    DatabaseConnection.exec_params(sql, [index])[0]
   end
 
   def create(peep)
