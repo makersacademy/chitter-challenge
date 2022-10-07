@@ -73,9 +73,9 @@ Notes on functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Peeps (posts to Chitter) have the **name of the maker** and their **user handle**.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 Bonus:
@@ -89,7 +89,7 @@ And/Or:
 
 * Work on the CSS to make it look good.
 
-Good luck and let the chitter begin!
+Good luck and let the Chitter begin!
 
 Code Review
 -----------
