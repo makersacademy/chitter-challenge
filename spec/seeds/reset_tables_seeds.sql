@@ -37,7 +37,7 @@ INSERT INTO users (username, password, name, email)
 
 -- Peeps --
 INSERT INTO peeps (content, creation_date, user_id)
-    VALUES ('Jar Jar Noises', NOW(), 1);
+    VALUES ('Jar Jar Noises', '2022-10-07', 1);
 INSERT INTO peeps (content, creation_date, user_id)
     VALUES ('Millions will be starvin and dyin without your help.', NOW(), 1);
 INSERT INTO peeps (content, creation_date, user_id)
@@ -59,3 +59,5 @@ INSERT INTO peeps (content, creation_date, user_id)
     VALUES ('Jesse, we need to cook...', NOW(), 4);
 INSERT INTO peeps (content, creation_date, user_id)
     VALUES ('We need to cook..', NOW(), 4);
+INSERT INTO peeps (content, creation_date, user_id)
+    VALUES ('JESSE! HEY JESSE.. WE NEED TO COOK!', NOW(), 4);
