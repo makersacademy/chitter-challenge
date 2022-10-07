@@ -19,28 +19,57 @@ class Application < Sinatra::Base
 
   get '/peeps' do
     peep_repo = PeepRepository.new
-    # user_repo = UserRepository.new   <------ TALK TO EOIN TOMORROW
+    user_repo = UserRepository.new
     @peeps = peep_repo.all(" ORDER BY time DESC")
-    # @user = user_repo.find(@peep.user_id)
+    @user = user_repo.find_by_username(params[:username])
     return erb(:all_peeps)
   end
 
   post '/peeps' do
     invalid_peep_params?
-    repo = PeepRepository.new
+    peep_repo = PeepRepository.new
     new_peep = Peep.new
     new_peep.content = params[:content]
     new_peep.time = (Time.now).strftime("%F %T")
     new_peep.user_id = params[:user_id]
+    # @users = user_repo.find_by_username(params[:username])
     
-    repo.create(new_peep)
+    peep_repo.create(new_peep)
     return ''
   end
 
   get '/peeps/new' do
+    user_repo = UserRepository.new
+    @users = user_repo.all
     return erb(:new_peep)
   end
 
+  post '/users' do
+    invalid_user_params?
+    user_repo = UserRepository.new
+    new_user = User.new
+    new_user.first_name = params[:first_name]
+    new_user.last_name = params[:last_name]
+    new_user.username = params[:username]
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+
+    user_repo.create(new_user)
+  end
+
+  get '/users' do
+    user_repo = UserRepository.new
+    @users = user_repo.all
+    return erb(:all_users)
+  end
+
+  get '/users/new' do
+    return erb(:new_user)
+  end
+
+  get '/users/login' do
+    return erb(:login)
+  end
 
   private
 
@@ -50,112 +79,12 @@ class Application < Sinatra::Base
       return ''
     end
   end
+
+  def invalid_user_params?
+    if params[:first_name] == nil || params[:last_name] == nil ||
+       params[:username] == nil || params[:email] == nil || params[:password] == nil 
+      status 400
+      return ''
+    end
+  end
 end
-
-# sql = 'SELECT id, title FROM s;'
-# result = DatabaseConnection.exec_params(sql, [])
-
-# result.each do |record|
-#   p record
-# end
-
-
-#   get '/' do
-#     return erb(:home)
-#   end
-
-#   get '/artists' do
-#     repo = ArtistRepository.new
-#     @artists = repo.all
-
-#     return erb(:all_artists)
-#   end
-
-#   post '/artists' do
-#     invalid_artist_params?
-#     repo = ArtistRepository.new
-#     new_artist = Artist.new
-#     new_artist.name = params[:name]
-#     new_artist.genre = params[:genre]
-    
-#     repo.create(new_artist)
-#     return ''
-#   end
-
-
-#   get '/artists/new' do
-#     return erb(:new_artist)
-#   end
-
-#   get '/artists/:id' do
-#     artist_repo = ArtistRepository.new
-#     @artist = artist_repo.find(params[:id])
-#     return erb(:artists)
-#   end
-
-#   get '/albums' do
-#     repo = AlbumRepository.new
-#     @albums = repo.all
-
-#     return erb(:albums)
-#   end
-
-#   post '/albums' do
-#     invalid_album_params?
-#     repo = AlbumRepository.new
-#     new_album = Album.new
-#     new_album.title = params[:title]
-#     new_album.release_year = params[:release_year]
-#     new_album.artist_id = params[:artist_id]
-    
-#     repo.create(new_album)
-#     return ''
-#   end
-
-#   get '/albums/new' do
-#     return erb(:new_album)
-#   end
-
-#   get '/albums/:id' do
-#     repo = AlbumRepository.new
-#     artist_repo = ArtistRepository.new
-#     @album = repo.find(params[:id])
-#     @artist = artist_repo.find(@album.artist_id)
-#     return erb(:index)
-#   end
-
-#   def invalid_album_params?
-#     if params[:title] == nil || params[:release_year] == nil || params[:artist_id] == nil 
-#       status 400
-#       return ''
-#     end
-#   end
-
-#   def invalid_artist_params?
-#     if params[:name] == nil || params[:genre] == nil
-#       status 400
-#       return ''
-#     end
-#   end
-# end
-
-
-  # get '/albums' do
-  #   repo = AlbumRepository.new
-  #   albums = repo.all
-
-  #   response = albums.map do |album|
-  #     album.title
-  #   end.join(', ')
-  #   return response
-  # end
-
-  # get '/artists' do
-  #   repo = ArtistRepository.new
-  #   artists = repo.all
-
-  #   response = artists.map do |artist|
-  #     artist.name
-  #   end.join(', ')
-  #   return response
-  # end

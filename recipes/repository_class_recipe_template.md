@@ -184,9 +184,9 @@ class UserRepository
 
   # Gets a single record by its ID
   # One argument: the id (number)
-#   def find(username)
-#     # Executes the SQL query:
-#     # SELECT id, first_name, last_name, username, email, password FROM users WHERE username = $1;
+  def find(user)
+    # Executes the SQL query:
+    # SELECT id, first_name, last_name, username, email, password FROM users WHERE username = $1;
 
 #     # Returns a single Student object.
 #   end

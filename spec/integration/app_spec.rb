@@ -47,7 +47,7 @@ RSpec.describe Application do
       copy_test('2022-09-12 09:15:00')
     end
 
-    xit 'should include the peep author' do
+    it 'should include the peep author' do
       @response = get('/peeps')
 
       ok
@@ -65,19 +65,69 @@ RSpec.describe Application do
       expect(response.status).to eq(200)  #<----- why won't this shorten???!
       expect(response.body).to eq('')
 
-      response = get('/albums')
+      response = get('/peeps')
       expect(response.body).to include('Hello')
     end
   end
 
   context "GET /peeps/new" do
-    it "should return an html form to add a new peep" do
-      response = get ('/peeps/new')
+    it "returns an html form to add a new peep" do
+      response = get('/peeps/new')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/peeps">')
       expect(response.body).to include('<input type="text" name="content" />')
       expect(response.body).to include('<select name="user_id">')
+    end
+  end
+
+  context "POST /users" do
+    it "should add a new user to the database" do
+      response = post('/users', first_name: 'David', last_name: 'Beckham', username: 'db7', email: 'bendit@db7.com', password: 'benditin')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('')
+
+      response = get('/users')
+      expect(response.body).to include('David')
+    end
+  end
+
+  context 'GET /users' do
+    it 'should return a list of users in HTML' do
+      @response = get('/users')
+
+      ok
+      copy_test('<h1>User list</h1>')
+      copy_test('Benedict')
+      copy_test('Smith')
+      copy_test('bennyboy')
+      copy_test('ben@gmail.com')
+    end
+  end
+
+  context "GET /users/new" do
+    it "returns an html form to enter user details" do
+      response = get('/users/new')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/users">')
+      expect(response.body).to include('<input type="text" name="first_name" />')
+      expect(response.body).to include('<input type="text" name="last_name" />')
+      expect(response.body).to include('<input type="text" name="username" />')
+      expect(response.body).to include('<input type="text" name="email" />')
+      expect(response.body).to include('<input type="text" name="password" />')
+    end
+  end
+
+  context "GET /login" do
+    xit "returns an html form so you can log in" do
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/peeps/new">')
+      expect(response.body).to include('<input type="text" name="username" />')
+      expect(response.body).to include('<input type="text" name="password" />')
     end
   end
 

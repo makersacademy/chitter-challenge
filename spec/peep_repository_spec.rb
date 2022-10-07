@@ -21,7 +21,7 @@ RSpec.describe PeepRepository do
       expect(peeps.first.id).to eq 1
       expect(peeps.first.content).to eq 'First peep babeh!'
       expect(peeps.first.time).to eq '2009-01-17 12:23:00'
-      expect(peeps.first.user_id).to eq 3
+      expect(peeps.first.user_id).to eq 'elonmusk'
     end
 
     it 'checks multiple records exist' do
@@ -31,7 +31,7 @@ RSpec.describe PeepRepository do
       expect(peeps[4].id).to eq 5
       expect(peeps[4].content).to eq '@tesco, I want a refund #nowplease'
       expect(peeps[4].time).to eq '2022-10-06 14:01:00'
-      expect(peeps[4].user_id).to eq 6
+      expect(peeps[4].user_id).to eq 'canispeaktothemanager'
     end
 
     context 'checks reverse chronological order' do
@@ -43,7 +43,7 @@ RSpec.describe PeepRepository do
         expect(peeps[3].id).to eq 3
         expect(peeps[3].content).to eq 'Watch our new series on #hulu'
         expect(peeps[3].time).to eq '2022-10-06 14:00:00'
-        expect(peeps[3].user_id).to eq 2
+        expect(peeps[3].user_id).to eq 'kyliejenner'
       end
     end
   end
@@ -61,7 +61,7 @@ RSpec.describe PeepRepository do
       last_peep = all_peeps.last
       expect(last_peep.content).to eq 'Testing 123'
       expect(last_peep.time).to eq (Time.now).strftime("%F %T")
-      expect(last_peep.user_id).to eq 1
+      expect(last_peep.user_id).to eq 'bennyboy'
     end
   end
 

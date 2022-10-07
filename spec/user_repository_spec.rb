@@ -65,6 +65,16 @@ RSpec.describe UserRepository do
     end
   end
 
+  describe '#find_by_email' do
+    it 'finds a single user by email' do
+      user = repo.find_by_email('ben@gmail.com')
+    
+      expect(user.id).to eq(1)
+      expect(user.first_name).to eq('Benedict')
+      expect(user.username).to eq('bennyboy')
+    end
+  end
+
   private
 
   def repo

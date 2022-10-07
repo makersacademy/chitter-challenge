@@ -3,7 +3,7 @@ require_relative 'user'
 class UserRepository
   def all
     users = []
-    sql = "SELECT id, #{user_details} FROM users;"
+    sql = "SELECT * FROM users;"
     records = DatabaseConnection.exec_params(sql, [])
     records.each do |record|
       users << record_to_user_object(record)
@@ -11,17 +11,6 @@ class UserRepository
 
     return users
   end
-
-  # def peeps_by_user    # <<------- This should work as a join, but not sure how to link it in.
-  #   users = []
-  #   sql = "SELECT users.username, peeps.user_id FROM users JOIN peeps ON peeps.user_id = users.id"
-  #   records = DatabaseConnection.exec_params(sql, [])
-  #   records.each do |record|
-  #     users << record_to_user_object(record)
-  #   end
-
-  #   return users
-  # end
 
   def create(user)
     sql = "INSERT INTO users (#{user_details}) VALUES ($1, $2, $3, $4, $5);"
@@ -31,10 +20,48 @@ class UserRepository
     return nil
   end
 
+  def create(user)
+    encrypted_password = BCrypt::Password.create(user.password)
+    sql = "INSERT INTO users (#{user_details}) VALUES ($1, $2, $3, $4, $5);"
+    sql_params = [user.first_name, user.last_name, user.username, user.email, encrypted_password]
+    DatabaseConnection.exec_params(sql, sql_params)
+
+    return nil
+  end
+  
+  def sign_in(email, submitted_password)
+    user = find_by_email(email)
+
+    return nil if user.nil?
+
+    # Compare the submitted password with the encrypted one saved in the database
+    if submitted_password == BCrypt::Password.new(user.password)
+      # login success
+    else
+      # wrong password
+    end
+  end
+
+  def find_by_email(email)
+    sql = 'SELECT * FROM users WHERE email = $1;'
+    records = DatabaseConnection.exec_params(sql, [email])
+    record_to_user_object(records[0])
+  end
+
   def find(id)
-    sql = "SELECT id, #{user_details} FROM users WHERE id = $1;"
+    sql = "SELECT * FROM users WHERE id = $1;"
     records = DatabaseConnection.exec_params(sql, [id])
     record_to_user_object(records[0])
+  end
+
+  def find_by_username(username)
+    if not all.any?{|record| record.username == username}
+      return false
+    end
+    sql = 'SELECT * FROM users WHERE username = $1'
+    sql_params = [username]
+    record = DatabaseConnection.exec_params(sql, sql_params).first
+    return record_to_user_object(record)
   end
 
   private

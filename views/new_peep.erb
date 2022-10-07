@@ -8,17 +8,29 @@
     <div>
       <label>Who's peeping?</label>
       <select name="user_id">
-        <option value="1">@bennyboy</option> <%# Look into pulling @user or @peep through like all_peeps.erb%>
-        <option value="2">@kyliejenner</option>
-        <option value="3">@elonmusk</option>
-        <option value="4">@rihanna</option>
-        <option value="5">@ragedad</option>
-        <option value="6">@canispeaktothemanager</option>
+        <% @users.each do |user| %>
+          <body>
+            <option value=<%= user.id %>><%= user.username%></option>
+            <% end %>
+          </body>
+      
       </select>
-    </div>
     
-    <input type="submit">
+    </div>
+    <a href='../'>
+      <input type="submit">
+    </a>
 </form>
 
 <a href= '../'> home</a>
 <a href= '../peeps'> feed</a>
+
+    <%# <label>Write your peep below!</label><br>
+          <%# <textarea class='input-txt' id="peep_entry" name="content" rows="10" cols="50" placeholder="Write your peep to everybody here!"></textarea><br> %>
+          <%# <input class='input-txt' type="text" name="tagged_users" placeholder="tag users here"/> %>
+          <%# <input type="hidden" name="user_id" value=<%=@user.id%>
+          <%# <input type="hidden" name="post_time" value=<%=DateTime.now%>
+          <%# <input type="hidden" name="username" value=<%=@user.username%>
+          <%# <input type="submit" value="Submit your peep"/> %>
+        <%# </form> %>
+      <%# </div> %>
