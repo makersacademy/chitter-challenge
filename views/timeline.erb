@@ -1,0 +1,18 @@
+
+<h1> <%= @username %> Timeline </h1>
+
+
+
+<ul>
+  <% @peep.each do |peep| %>
+    <li><%= peep %>
+  <form>
+    <%= @date_posted2 %>
+    <%= @date_posted %></li>
+  </form>
+  <% end %>
+</ul>
+<form action='/timeline' method="POST">
+  <input type="text" name="peep" placeholder="What's on your mind?" />
+  <input type="submit" value="Post Peep" />
+</form>
