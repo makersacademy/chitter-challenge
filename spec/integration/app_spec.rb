@@ -1,6 +1,7 @@
 require "spec_helper"
 require "rack/test"
 require_relative '../../app'
+
 def reset_tables
   peeps_seed_sql = File.read('spec/seeds/peeps_seeds.sql')
   makers_seed_sql = File.read('spec/seeds/makers_seeds.sql')
