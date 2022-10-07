@@ -5,8 +5,10 @@ class UserRepository
 
   end
 
-  def find
-
+  def find(index)
+    sql = 'SELECT * FROM users WHERE users.id = $1'
+    result = DatabaseConnection.exec_params(sql, [index])[0]
+    User.new(result[:username], result[:password], result[:name], result[:email])
   end
 
   def create(user)
