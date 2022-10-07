@@ -35,4 +35,22 @@ RSpec.describe UserRepository do
       expect(user_repo.all.last.email).to eq 'new2email@gmail.com'
     end
   end
+
+  describe '#login?' do
+    it 'returns true when user is in database' do
+      returning_user = User.new("Heisenberg", 'roof_pizza')
+      user_repo = UserRepository.new
+      expect(user_repo.login? returning_user).to eq true
+      other_user = User.new('Ken_Benobi', 'hello_there!')
+      expect(user_repo.login? other_user).to eq true
+    end
+
+    it 'returns false when user is not in database' do
+      non_user = User.new('JessePinkman', 'Yeah Science!')
+      user_repo = UserRepository.new
+      expect(user_repo.login?(non_user)).to eq false
+      other_user = User.new('Keb_Bebobi', 'hello_there!')
+      expect(user_repo.login?(other_user)).to eq false
+    end
+  end
 end
