@@ -59,4 +59,20 @@ describe Application do
       expect(response.body).to include("<a href='/'>Go back to the main page</a>")
     end
   end
+
+  context 'POST /signin' do
+    it 'returns an error page if username already exists' do
+      response = post(
+        '/signin',
+        name: 'Andy',
+        username: 'Ruby',
+        email: 'email2@email.com',
+        password: '12345000a'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('This username is already in use.')
+      expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
+    end
+  end
 end
