@@ -65,13 +65,13 @@ describe Application do
       response = post(
         '/signin',
         name: 'Andy',
-        username: 'Ruby',
+        username: 'cute-cat',
         email: 'email2@email.com',
         password: '12345000a'
       )
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('This username is already in use.')
+      expect(response.body).to include('This username is already in use, please choose a different one.')
       expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
     end
   end
