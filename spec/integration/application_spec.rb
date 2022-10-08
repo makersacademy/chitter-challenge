@@ -142,7 +142,44 @@ describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('You are not logged-in! Please, log-in if you would like to write a Peep.')
-      expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
+      expect(response.body).to include("<p><a href='/'>Go back to the main page</a></p>")
+    end
+  end
+
+  context 'get/login/form' do
+    it 'returns the form page to log in' do
+      response = get('/login/form')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('var a = document.forms["Form"]["answer_a"].value;')
+      expect(response.body).to include('<input type="text" name="username" required pattern="^[\w\-\s]+$">')
+    end
+  end
+
+  context 'post/login' do
+    it 'returns a success page if user is logged in' do
+
+      response = post(
+        '/login',
+        username: 'cute-cat',
+        email: 'ruby1@gmail.com',
+        password: '12345'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('You have been successfully logged-in')
+    end
+
+    it 'returns an error page if user cannot be logged in' do
+      response = post(
+        '/login',
+        username: 'cute-cat',
+        email: 'ruby1@gmail.com',
+        password: '1234577'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Some of the data you introduced was incorrect, please try again')
     end
   end
 end

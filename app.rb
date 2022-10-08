@@ -63,12 +63,16 @@ class Application < Sinatra::Base
     maker = maker_repo.find_with_username(params[:username])
 
     return erb(:write_peep_error2) if maker.loggedin == false
-    
+
     new_peep = Peep.new
     new_peep.maker_id = maker.id
     new_peep.content = params[:content]
     
     peep_repo.create(new_peep)
     return erb(:write_peep_success)
+  end
+
+  get '/login/form' do
+    return erb(:login)
   end
 end
