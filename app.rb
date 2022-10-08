@@ -50,7 +50,7 @@ class Application < Sinatra::Base
 
     if all_makers.any?{|maker| maker.username == new_maker.username}
       return erb(:invalid_username)
-    elsif all_makers.any?{|maker| maker.username == new_maker.email}
+    elsif all_makers.any?{|maker| maker.email == new_maker.email}
       return erb(:invalid_email)
     end
 
