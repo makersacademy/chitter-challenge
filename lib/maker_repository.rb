@@ -59,4 +59,21 @@ class MakerRepository
     
     return maker
   end
+
+  def log_in(username)
+    sql = "UPDATE makers SET loggedin = true WHERE username = $1;"
+    DatabaseConnection.exec_params(sql, [username])
+  end
+
+  def log_out(username)
+    sql = "UPDATE makers SET loggedin = false WHERE username = $1;"
+    DatabaseConnection.exec_params(sql, [username])
+  end
+
+  def loggedin(username)
+    sql = 'SELECT loggedin FROM makers WHERE username = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [username])
+
+    return result_set[0]['loggedin']
+  end
 end

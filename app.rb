@@ -62,7 +62,7 @@ class Application < Sinatra::Base
  
     maker = maker_repo.find_with_username(params[:username])
 
-    return erb(:write_peep_error2) if maker.loggedin == false
+    return erb(:write_peep_error2) if !maker_repo.loggedin(params[:username]) 
 
     new_peep = Peep.new
     new_peep.maker_id = maker.id
@@ -78,6 +78,7 @@ class Application < Sinatra::Base
 
   post '/login' do
     maker_repo = MakerRepository.new
+    all_makers = maker_repo.all
     
     return erb(:login_error) if !maker_repo.username_exists (params[:username])
       
@@ -85,7 +86,7 @@ class Application < Sinatra::Base
     
     return erb(:login_error) if maker.email != params[:email] or maker.password != params[:password]
     
-    maker.log_in
+    maker_repo.log_in(params[:username])
 
     return erb(:login_success)
   end
