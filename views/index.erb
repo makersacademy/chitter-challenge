@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chitter</title>
-</head>
-<body>
-  <div class="app">
-  <header style='background: aqua;'>
-    <h1>Welcome to <s>twitter</s> Chitter!</h1>
-    <nav>
-      <div class="signup/login">
-        <h2>Sign-up or Login</h2>
-        <form method='POST'>
-          <input type="text" placeholder="Username" name='username' id='username'>
-          <input type="password" placeholder="Password" name='password' id='password'>
-          <input formaction='/user/login' type="submit" value="Login"><br>
-          
-          <input type="text" placeholder='name' name="name" id="name">
-          <input type="email" placeholder='Email' name="Email" id="Email">
-          <input formation='/user/new' type="submit" value="Sign up">
-        </form>
-      </div>
-
-      <h2>Messages</h2>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div class="app">
+      <header style='background: aqua;'>
+        <h1>Welcome to <s>twitter</s> Chitter!</h1>
+        <nav>
+          <div class="signup/login">
+            <h2>Sign-up or Login</h2>
+            <form method='POST'>
+              <input type="text" placeholder="Username" name='username' id='username'>
+              <input type="password" placeholder="Password" name='password' id='password'>
+              <input formaction='/user/login' type="submit" value="Login"><br>
+              <input type="text" placeholder='name' name="name" id="name">
+              <input type="email" placeholder='Email' name="Email" id="Email">
+              <input formation='/user/new' type="submit" value="Sign up">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
     <div class="messagescontainer">
-      <!--In here i gotta post a list of messages.-->
-      <div class="messages">
-        <ul>
-          
-        </ul>  
-      </div> 
+      <h2>Messages</h2>
+      <% @all_peeps.each do |peep| %>
+        <div class="message">
+          <h3><%= peep.content %></h3>
+          <p><%= peep.username %> <%= peep.creation_date %></p>
+        </div>
+      <% end %>
     </div>
-  </div>
-    </nav>
-  </header>
-</body>
+  </body>
 </html>

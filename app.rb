@@ -11,10 +11,14 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    peep_repo = PeepRepository.new
+    @all_peeps = peep_repo.all_with_usernames
     erb :index
   end
 
   get '/user' do
+    peep_repo = PeepRepository.new
+    @all_peeps = peep_repo.all_with_usernames
     erb :user
   end
 
