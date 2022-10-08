@@ -37,15 +37,4 @@ class PeepRepository
 
     return peep
   end
-
-  def find_maker_username
-    p self.maker_id
-    sql = "SELECT username FROM makers WHERE id = $1"
-    result_set = DatabaseConnection.exec_params(sql, [self.maker_id])
-
-    maker = Maker.new
-    maker.username = result_set[0]['username']
-
-    return maker
-  end
 end
