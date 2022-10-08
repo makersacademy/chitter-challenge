@@ -37,7 +37,7 @@ class Application < Sinatra::Base
     new_maker.email = params[:email]
     new_maker.password = params[:password]
 
-    if maker_exists?(new_maker)
+    if repo.maker_exists?(new_maker)
       return erb(:signup_failure_exists)
     else
       repo.create(new_maker)
@@ -47,19 +47,43 @@ class Application < Sinatra::Base
     return nil
   end
 
-  def maker_exists?(new_maker)
-    repo = MakerRepository.new
-    exists = false
-
-    repo.all.each do |maker|
-      exists = true if maker.username == new_maker.username || maker.email == new_maker.email
-    end
-
-    return exists
-  end
 
   get '/signup/failure/exists' do
     return erb(:signup_failure_exists)
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
+  get '/login/success' do
+    return erb(:login_success)
+  end
+
+  post '/login' do
+    repo = MakerRepository.new
+    maker = Maker.new
+    maker.username = params[:username]
+    maker.password = params[:password]
+
+    if repo.password_match?(maker)
+      return erb(:login_success)
+    else
+      return erb(:login_failure)
+    end
+    
+    return nil
+  end
+
+  get '/login/failure' do
+    return erb(:login_failure)
+  end
+
+  get '/peep/new' do
+    return erb(:peep_new)
+  end
+
+  get '/login/failure/absent' do
+    return erb(:login_failure_absent)
+  end
 end

@@ -74,4 +74,29 @@ describe MakerRepository do
     expect(maker_username).to eq('Chris')
   end
 
+  context 'maker password and username match' do
+    it 'returns true' do
+      repo = MakerRepository.new
+      maker = Maker.new
+      maker.name = "Chris"
+      maker.username = 'cast'
+      maker.email = 'cast@email.com'
+      maker.password = '123'
+
+        expect(repo.password_match?(maker)).to eq(true)
+    end
+  end
+
+  context 'maker password and username do not match' do
+    it 'returns false' do
+      repo = MakerRepository.new
+      maker = Maker.new
+      maker.name = "Chris"
+      maker.username = 'cast'
+      maker.email = 'cast@email.com'
+      maker.password = '1234'
+
+      expect(repo.password_match?(maker)).to eq(false)
+    end
+  end
 end

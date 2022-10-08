@@ -51,8 +51,18 @@ class MakerRepository
   end
 
   def maker_exists?(maker)
-    result = all.each do |existing_maker|
-      return true if maker.username == existing_maker.username || maker.email == existing_maker.email
+    result = false
+    all.each do |existing_maker|
+      result = true if maker.username == existing_maker.username || maker.email == existing_maker.email
+    end
+
+    return result
+  end
+
+  def password_match?(maker)
+    result = false
+    all.each do |existing_maker|
+      result = true if maker.username == existing_maker.username && maker.password == existing_maker.password
     end
 
     return result

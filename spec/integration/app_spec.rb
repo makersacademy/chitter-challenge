@@ -85,7 +85,7 @@ describe Application do
         )
 
         expect(response.status).to eq(200)
-        expect(response.body).to include('<h3>Sign up successful!</h3>')
+        expect(response.body).to include('<h3>Sign up successful.</h3>')
       end
     end
     
@@ -95,7 +95,7 @@ describe Application do
           response = get('/signup/failure/exists')
 
           expect(response.status).to eq(200)
-          expect(response.body).to include('<h3>Sign up failure. Maker already exists!</h3>')
+          expect(response.body).to include('<h3>Sign up failure. Maker already exists.</h3>')
         end
       end
 
@@ -110,7 +110,7 @@ describe Application do
               )
 
             expect(response.status).to eq(200)
-            expect(response.body).to include('<h3>Sign up failure. Maker already exists!</h3>')
+            expect(response.body).to include('<h3>Sign up failure. Maker already exists.</h3>')
           end
 
           context 'email exists' do
@@ -123,7 +123,7 @@ describe Application do
                 )
   
               expect(response.status).to eq(200)
-              expect(response.body).to include('<h3>Sign up failure. Maker already exists!</h3>')
+              expect(response.body).to include('<h3>Sign up failure. Maker already exists.</h3>')
             end
           end
         end
@@ -131,4 +131,78 @@ describe Application do
     end
   end
 
+  context 'Log in' do
+    context 'GET to /login' do
+      it 'returns page' do
+        response = get('/login')
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<h3>Log in</h3>')
+      end
+    end
+
+    context 'GET to /login/success' do
+      it 'returns login success page' do
+        response = get('/login/success')
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<h3>Login successful</h3>')
+      end
+    end
+
+    context 'POST to /login' do
+      context 'username and password correct' do
+        it 'returns login success page' do
+          response = post('/login',
+          username: 'cast',
+          password: '123'
+          )
+
+          expect(response.status).to eq(200)
+          expect(response.body).to include('<h3>Login successful</h3>')
+        end
+      end
+
+      context 'GET to /login/failure' do
+        it 'returns login failure page' do
+          response = get('/login/failure')
+  
+          expect(response.status).to eq(200)
+          expect(response.body).to include('<h3>Login failure. Log in details incorrect.</h3>')
+        end
+      end
+
+      context 'username and password incorrect' do
+        it 'returns login failure page' do
+          response = post('/login',
+          username: 'cast',
+          password: '1234'
+          )
+
+          expect(response.status).to eq(200)
+          expect(response.body).to include('<h3>Login failure. Log in details incorrect.</h3>')
+        end
+      end
+    end
+  end
+
+  context 'Create a new peep' do
+    it "returns new peep page" do
+      response = get('/peep/new')
+
+    
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h3>Create a new Peep</h3>')
+    end
+
+    context 'maker is not logged in' do
+      it 'returns login failure page' do
+        response = get('/login/failure/absent')
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<h3>Please login or sign up first.</h3>')
+        expect(response.body).to include('href="/"')
+      end
+    end
+  end
 end
