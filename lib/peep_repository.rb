@@ -13,7 +13,7 @@ class peeps
       peep.user_id = info['user_id']
       peeps << peep
     end
-    return peeps
+    return peeps.reverse
   end
 
   def find(id)
