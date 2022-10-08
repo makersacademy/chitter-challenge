@@ -1,15 +1,22 @@
 require 'sinatra'
 require "sinatra/reloader"
+require_relative 'lib/database_connection'
+require_relative 'lib/peep_repository'
+require_relative 'lib/user_repository'
+
+DatabaseConnection.connect
 
 class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader 
-    also_reload ''
-    also_reload ''
+    also_reload 'lib/peep_repository'
+    also_reload 'lib/user_repository'
   end
 
     # Homepage
   get '/' do
+    repo = PeepRepository.new
+    @peeps = repo.all
     return erb(:homepage)
   end
 
@@ -36,11 +43,28 @@ class Application < Sinatra::Base
       # (see if i can redirect page automatically to homepage)
   end
 
+  get '/users/:id' do
+    peep_repo = PeepRepository.new
+    user_repo = UserRepository.new
+    @peep = peep_repo.find(params[:id])
+    @user = user_repo.find(@user.id)
+    return erb(:users)
+  end
+
+
   get '/newpeep' do
-    return # page for new peeps(messages) - see if i can make it popup on the same page instead
+    return erb(:newpeep)# page for new peeps(messages) - see if i can make it popup on the same page instead
   end
 
   post '/newpeep' do
+    if invalid_request_peep?
+      status 400
+      return ''
+    end
+    repo = PeepRepository.new
+    new_peep.id = params[:id]
+    new_peep.content = params[:content]
+    new_peep.user_id = params[:user_id]
     return # New peep added -> see if i can redirect back to home page 
   end
 end
