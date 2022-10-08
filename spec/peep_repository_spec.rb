@@ -16,6 +16,14 @@ RSpec.describe PeepRepository do
     end
   end
 
+  describe '#all_with_usernames' do
+    it 'returns all peeps with usernames' do
+      peep_repository = PeepRepository.new
+      all_users_with_names = peep_repository.all_with_usernames
+      expect(all_users_with_names.first.username).to eq 'JarJar'
+    end
+  end
+
   describe '#find' do
     it'returns a peep' do
       peep_repository = PeepRepository.new

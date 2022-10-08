@@ -9,6 +9,14 @@ class PeepRepository
     end
   end
 
+  def all_with_usernames
+    sql = "SELECT content, creation_date, username, name FROM peeps JOIN users ON user_id = users.id"
+    result_set = DatabaseConnection.exec_params(sql, [])
+    result_set.map do |peep|
+      Peep.new( peep["content"], peep["creation_date"], peep["user_id"], peep["username"])
+    end
+  end
+
   def find(index)
     sql = "SELECT * FROM peeps WHERE id = $1"
     result = DatabaseConnection.exec_params(sql, [index])[0]
