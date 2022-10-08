@@ -75,4 +75,18 @@ class Application < Sinatra::Base
   get '/login/form' do
     return erb(:login)
   end
+
+  post '/login' do
+    maker_repo = MakerRepository.new
+    
+    return erb(:login_error) if !maker_repo.username_exists (params[:username])
+      
+    maker = maker_repo.find_with_username(params[:username])
+    
+    return erb(:login_error) if maker.email != params[:email] or maker.password != params[:password]
+    
+    maker.log_in
+
+    return erb(:login_success)
+  end
 end

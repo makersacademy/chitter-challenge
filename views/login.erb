@@ -3,18 +3,7 @@
   <body>
     <h1>Log-in to Chitter</h1>
 
-    <script type="text/javascript">
-  function validateForm() {
-    var a = document.forms["Form"]["answer_a"].value;
-    var b = document.forms["Form"]["answer_b"].value;
-    var c = document.forms["Form"]["answer_c"].value;
-    var d = document.forms["Form"]["answer_d"].value;
-    if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "") {
-      alert("Please Fill All Required Field");
-      return false;
-    }
-  }
-</script>
+    <form action="/login" method="post">
     <div>
       <label> Username:</label>
       <input type="text" name="username" required pattern="^[\w\-\s]+$">
@@ -27,7 +16,7 @@
 
      <div>
       <label>Password:</label>
-      <input type="password" name="password" id="myInput" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+      <input type="password" name="password" id="myInput" required pattern="^[a-zA-Z0-9_]*$">
       <input type="checkbox" onclick="myFunction()">Show Password
       <script>
         function myFunction() {

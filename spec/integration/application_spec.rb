@@ -151,7 +151,7 @@ describe Application do
       response = get('/login/form')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('var a = document.forms["Form"]["answer_a"].value;')
+      expect(response.body).to include('<h1>Log-in to Chitter</h1>')
       expect(response.body).to include('<input type="text" name="username" required pattern="^[\w\-\s]+$">')
     end
   end
@@ -177,7 +177,7 @@ describe Application do
         email: 'ruby1@gmail.com',
         password: '1234577'
       )
-
+      
       expect(response.status).to eq(200)
       expect(response.body).to include('Some of the data you introduced was incorrect, please try again')
     end
