@@ -55,15 +55,15 @@ RSpec.describe UserRepository do
     end
   end
 
-  describe '#find' do
-    it 'finds a single user' do
-      user = repo.find(6)
+  # describe '#find' do
+  #   it 'finds a single user' do
+  #     user = repo.find(6)
     
-      expect(user.id).to eq(6)
-      expect(user.first_name).to eq('Karen')
-      expect(user.username).to eq('canispeaktothemanager')
-    end
-  end
+  #     expect(user.id).to eq(6)
+  #     expect(user.first_name).to eq('Karen')
+  #     expect(user.username).to eq('canispeaktothemanager')
+  #   end
+  # end
 
   describe '#find_by_email' do
     it 'finds a single user by email' do

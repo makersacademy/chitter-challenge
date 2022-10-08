@@ -7,6 +7,7 @@ require_relative 'lib/peep_repository'
 DatabaseConnection.connect('chitter_database_test')
 
 class Application < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/user_repository'
@@ -67,9 +68,33 @@ class Application < Sinatra::Base
     return erb(:new_user)
   end
 
-  get '/users/login' do
+  get '/login' do
     return erb(:login)
   end
+
+  post '/login' do
+    username = params[:username]
+    password = params[:password]
+
+    login_user = UserRepository.new.find_by_username(username)
+    
+    if login_user == false
+      return erb(:login_error)
+    elsif login_user.password == password
+      session[:user_id] = login_user.id
+      return erb(:login_success)
+    else
+      return erb(:login_error)
+    end
+  end
+
+  # get '/login/success' do
+  #   return erb(:login_success)
+  # end
+
+  # get '/login/error' do
+  #   return erb(:login_error)
+  # end
 
   private
 

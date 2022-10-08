@@ -13,14 +13,6 @@ class UserRepository
   end
 
   def create(user)
-    sql = "INSERT INTO users (#{user_details}) VALUES ($1, $2, $3, $4, $5);"
-    sql_params = [user.first_name, user.last_name, user.username, user.email, user.password]
-    DatabaseConnection.exec_params(sql, sql_params)
-
-    return nil
-  end
-
-  def create(user)
     encrypted_password = BCrypt::Password.create(user.password)
     sql = "INSERT INTO users (#{user_details}) VALUES ($1, $2, $3, $4, $5);"
     sql_params = [user.first_name, user.last_name, user.username, user.email, encrypted_password]
@@ -35,24 +27,20 @@ class UserRepository
     return nil if user.nil?
 
     # Compare the submitted password with the encrypted one saved in the database
-    if submitted_password == BCrypt::Password.new(user.password)
-      # login success
-    else
-      # wrong password
-    end
+    submitted_password == BCrypt::Password.new(user.password) ? true : false
   end
 
   def find_by_email(email)
     sql = 'SELECT * FROM users WHERE email = $1;'
-    records = DatabaseConnection.exec_params(sql, [email])
-    record_to_user_object(records[0])
+    record = DatabaseConnection.exec_params(sql, [email]).first
+    record_to_user_object(record)
   end
 
-  def find(id)
-    sql = "SELECT * FROM users WHERE id = $1;"
-    records = DatabaseConnection.exec_params(sql, [id])
-    record_to_user_object(records[0])
-  end
+  # def find(id)
+  #   sql = "SELECT * FROM users WHERE id = $1;"
+  #   records = DatabaseConnection.exec_params(sql, [id])
+  #   record_to_user_object(records[0])
+  # end
 
   def find_by_username(username)
     if not all.any?{|record| record.username == username}
