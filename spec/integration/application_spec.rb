@@ -40,7 +40,7 @@ describe Application do
       expect(response.body).to include('<input type="text" name="name" required pattern="^[\w\-\s]+$">')
       expect(response.body).to include('<input type="text" name="username"')
       expect(response.body).to include('<input type="text" name="email"')
-      expect(response.body).to include('<input type="text" name="password"')
+      expect(response.body).to include('<input type="password" name="password" id="myInput" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">')
     end
   end
 end
