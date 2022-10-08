@@ -4,16 +4,17 @@ require_relative '../../app'
 require 'simplecov'
 
 describe Application do
-  include Rack::Test::methods
+  include Rack::Test::Methods
   let(:app) {Application.new}
 
   context "GET /" do
-  it "Loads the homepgae showing peeps in reverse chronological order" do
-    response = get("/")
-    expect(response.status).to eq (200)
-    expect(response.body).to include("<h2>
-      <%= peep.content %> 
-    </h2>")
+    it "Loads the homepgae showing peeps in reverse chronological order" do
+      response = get("/")
+      expect(response.status).to eq (200)
+      expect(response.body).to include("<h2>
+        <%= peep.content %> 
+        </h2>")
+    end
   end
 
   context "GET /signup" do
@@ -24,14 +25,14 @@ describe Application do
     end  
   end
 
-    context "POST /signup" do
-      it "should show that signup is successfull" do
-        response = post('/signup' id: 5, username: "BlackP", password: "king")
-        expect(response.status).to eq(200)
-        expect(response.body).to eq('')
-        
-        response = get("/signup")
-        expect(response.body).to include("<label> Username:</label>")
-      end
+  context "POST /signup" do
+    it "should show that signup is successfull" do
+      response = post('/signup', id: 5, username: "BlackP", password: "king")
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('')
+      
+      # response = get("/signup")
+      # expect(response.body).to include("ADD EMAIL, NAME")
     end
+  end
 end
