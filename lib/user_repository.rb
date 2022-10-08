@@ -1,11 +1,10 @@
 require_relative 'users'
 
 class UserRepository
-  def all 
+  def all
     users = []
     sql = 'SELECT * from users;'
     result_set = DatabaseConnection.exec_params(sql, [])
-
     result_set.each do |info|
       user = User.new
       user.id = info['id'].to_i
@@ -17,16 +16,15 @@ class UserRepository
     return users
   end
 
-
   def find(id)
-    sql - 'SELECT * FROM users WHERE id = $1;'
+    sql = 'SELECT * FROM users WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     user = User.new
     user.id = result_set[0]['id'].to_i
     user.username = result_set[0]['username']
     user.password = result_set[0]['password']
-    return artist 
+    return user 
   end 
 
   def create(user)
@@ -35,4 +33,3 @@ class UserRepository
     return user
   end
 end
-

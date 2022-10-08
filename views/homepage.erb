@@ -5,12 +5,13 @@
 
     <% @peeps.each do |peep| %>
       <div>
-        <h5><a href="/users/<%= user.username%>"></a></h5>
+        <h5><a href="/users/<%= user.name%>"></a></h5> <h5><i><a href="/users/<%= user.username%>"></a></i></h5>
       </div>
       <div>
         <h2>
           <%= peep.content %> 
         </h2>
       </div>
+    <% end %>
   </body>
 </html>

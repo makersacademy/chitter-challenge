@@ -1,11 +1,10 @@
 require_relative 'peeps'
 
-class peeps
+class PEEPS
   def all
     peeps = []
     sql = 'SELECT * FROM peeps'
     result_set = DatabaseConnection.exec_params(sql, [])
-
     result_set.each do |info| 
       peep = PEEP.new
       peep.id = info['id']
@@ -17,7 +16,7 @@ class peeps
   end
 
   def find(id)
-    sql - 'SELECT * FROM peeps WHERE id = $1;'
+    sql = 'SELECT * FROM peeps WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     peep = PEEP.new

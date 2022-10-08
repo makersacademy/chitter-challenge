@@ -13,7 +13,7 @@ class Application < Sinatra::Base
     return erb(:homepage)
   end
 
-  #Signup page
+  # Signup page
   get '/signup' do
     return erb(:signup)
   end
@@ -33,7 +33,7 @@ class Application < Sinatra::Base
     new_user.password = params[:password]
     repo.create(new_user)
     return erb(:signup_success)
-      #(see if i can redirect page automatically to homepage)
+      # (see if i can redirect page automatically to homepage)
   end
 
   get '/newpeep' do
@@ -49,9 +49,9 @@ private
 
 # Error Status methods
 def invalid_request_signup?
-  params[:email] == nil || params[:name] == nil || params[:username] == nil || params[:password] == nil
+  params[:email] == nil? || params[:name] == nil? || params[:username] == nil? || params[:password] == nil?
 end
 
 def invalid_request_peep?
-  params[:content] == nil
+  params[:content] == nil?
 end
