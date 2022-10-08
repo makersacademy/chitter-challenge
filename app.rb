@@ -22,22 +22,22 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/signin' do
+  get '/signin/maker' do
     return erb(:signin)
   end
 
   def invalid_request_params_signin
     maker_repo = MakerRepository.new
-    maker_repo.all
+    all_makers = maker_repo.all
 
-    if maker_repo.any?{|maker| maker.username == params[:username]}
+    if all_makers.include?(params[:username])
       return erb(:invalid_username)
-    elsif maker_repo.any?{|maker| maker.email == params[:email]}
+    elsif all_makers.include?(params[:email])
       return erb(:invalid_email)
     end
   end
 
-  post '/' do
+  post '/signin' do
     repo = MakerRepository.new
     new_maker = Maker.new
     new_maker.name = params[:name]
@@ -46,5 +46,8 @@ class Application < Sinatra::Base
     new_maker.password = params[:password]
 
     invalid_request_params_signin
+
+    repo.create(new_maker)
+    return erb(:signin_success)
   end
 end

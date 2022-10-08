@@ -33,7 +33,7 @@ describe Application do
 
   context 'GET /signin' do
     it 'returns the form page to sign in to chitter' do
-      response = get('/signin')
+      response = get('/signin/maker')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form action="/signin" method="POST">')
@@ -44,18 +44,19 @@ describe Application do
     end
   end
 
-  context 'POST /' do
+  context 'POST /signin' do
     it 'returns a success page' do
       response = post(
-        '/',
+        '/signin',
         name: 'Saphire',
         username: 'sea-shell',
         email: 'email2@email.com',
-        password: '123450000'
+        password: '12345000a'
       )
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<p>Thank you for signing in to Chitter!</p>')
+      expect(response.body).to include('Thank you for signing up to Chitter!')
+      expect(response.body).to include("<a href='/'>Go back to the main page</a>")
     end
   end
 end
