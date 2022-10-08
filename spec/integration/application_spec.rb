@@ -37,10 +37,10 @@ describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form action="/signin" method="POST">')
-      expect(response.body).to include('<input type="text" name="name">')
-      expect(response.body).to include('<input type="text" name="username">')
-      expect(response.body).to include('<input type="text" name="email">')
-      expect(response.body).to include('<input type="text" name="password">')
+      expect(response.body).to include('<input type="text" name="name" required pattern="^[\w\-\s]+$">')
+      expect(response.body).to include('<input type="text" name="username"')
+      expect(response.body).to include('<input type="text" name="email"')
+      expect(response.body).to include('<input type="text" name="password"')
     end
   end
 end

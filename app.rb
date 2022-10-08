@@ -22,4 +22,18 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
+  get '/signin' do
+    return erb(:signin)
+  end
+
+  def invalid_request_params_signin
+    maker_repo = MakerRepository.new
+    maker_repo.all
+
+    if maker_repo.any?{|maker| maker.username == params[:username]}
+      return erb(:invalid_username)
+    elsif maker_repo.any?{|maker| maker.email == params[:email]}
+      return erb(:invalid_email)
+    end
+  end
 end
