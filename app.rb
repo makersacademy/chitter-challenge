@@ -57,4 +57,8 @@ class Application < Sinatra::Base
     maker_repo.create(new_maker)
     return erb(:signin_success)
   end
+
+  get '/write_peep' do
+    return erb(:write_peep)
+  end
 end

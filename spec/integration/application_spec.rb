@@ -97,7 +97,7 @@ describe Application do
       response = get('/write_peep')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<form action="/write_peep" method="POST">')
+      expect(response.body).to include('<form action="/" method="POST">')
       expect(response.body).to include('<input type="text" name="content" required pattern="^[\.a-zA-Z0-9,!? ]*$">')
       expect(response.body).to include('<input type="text" name="username" required pattern="^[\w\-\s]+$">')
     end
