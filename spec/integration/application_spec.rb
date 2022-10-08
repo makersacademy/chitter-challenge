@@ -94,12 +94,42 @@ describe Application do
 
   context 'get/write_peep' do
     it 'returns the form page to create a new peep' do
-      response = get('/write_peep')
+      response = get('/write_peep/new')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<form action="/" method="POST">')
-      expect(response.body).to include('<input type="text" name="content" required pattern="^[\.a-zA-Z0-9,!? ]*$">')
+      expect(response.body).to include('<form action="/write_peep" method="POST">')
+      expect(response.body).to include('<input type="text" style="height:200px; width:600px;" name="content" required pattern="^[\.a-zA-Z0-9,!? ]*$">')
       expect(response.body).to include('<input type="text" name="username" required pattern="^[\w\-\s]+$">')
+    end
+  end
+
+  context 'POST /write_peep' do
+    it 'returns a success page' do
+      response = post(
+        '/write_peep',
+        username: 'cute-cat',
+        content: 'Another beautiful day in this countryside house.'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Thank you, your Peep has been successfully created!')
+      expect(response.body).to include("<a href='/'>Go back to the main page</a>")
+    end
+  end
+
+  context 'POST /write_peep' do
+    xit 'returns an error page if Maker not logged in' do
+      response = post(
+        '/signin',
+        name: 'Andy',
+        username: 'cute-cat',
+        email: 'email2@email.com',
+        password: '12345000a'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('This username is already in use, please choose a different one :)')
+      expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
     end
   end
 end

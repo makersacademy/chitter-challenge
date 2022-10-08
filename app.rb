@@ -29,14 +29,6 @@ class Application < Sinatra::Base
     return erb(:signin)
   end
 
-  # def invalid_request_params_signin
-  #   if all_makers.include?(new_maker.username)   #any?{|maker| maker.username == new_maker.username}
-  #     return erb(:invalid_username)
-  #   elsif all_makers.include?(new_maker.email)   #any?{|maker| maker.username == new_maker.email}
-  #     return erb(:invalid_email)
-  #   end
-  # end
-
   post '/signin' do
     maker_repo = MakerRepository.new
     all_makers = maker_repo.all
@@ -58,7 +50,23 @@ class Application < Sinatra::Base
     return erb(:signin_success)
   end
 
-  get '/write_peep' do
+  get '/write_peep/new' do
     return erb(:write_peep)
+  end
+
+  post '/write_peep' do
+    peep_repo = PeepRepository.new
+    maker_repo = MakerRepository.new
+
+    unless maker_repo.username_exists(params[:username])
+      return erb(:write_peep_error1) 
+    end  
+    maker = maker_repo.find_with_username(params[:username])
+    new_peep = Peep.new
+    new_peep.maker_id = maker.id
+    new_peep.content = params[:content]
+    
+    peep_repo.create(new_peep)
+    return erb(:write_peep_success)
   end
 end
