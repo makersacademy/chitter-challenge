@@ -94,5 +94,11 @@ describe MakerRepository do
       expect(maker.email).to eq('ameth22@gmail.com')
       expect(maker.password).to eq('123456') 
     end
+
+    it 'returns "Not found" if the username is not in the database' do
+      repo = MakerRepository.new
+
+      expect(repo.find_with_username('foxlover2')).to eq("Not found")
+    end
   end
 end
