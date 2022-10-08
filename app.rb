@@ -15,4 +15,11 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repository'
   end
 
+  get '/' do
+    peep_repo = PeepRepository.new
+    @peeps = peep_repo.all
+
+    return erb(:index)
+  end
+
 end

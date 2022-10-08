@@ -1,3 +1,5 @@
+require_relative 'maker'
+
 class MakerRepository
   def all
     makers = []

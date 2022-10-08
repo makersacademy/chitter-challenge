@@ -10,22 +10,24 @@ def reset_tables
 end
 
 describe Application do
-#   before(:each) do
-#     reset_tables
-#   end
+  before(:each) do
+    reset_tables
+  end
 
   include Rack::Test::Methods
 
   let(:app) { Application.new }
 
-  context 'GET /peeps' do
-    response = get('/peeps')
+  context 'GET /' do
+    it 'outputs the index page with peeps' do
+      response = get('/')
 
-    expect(reponse.status).to eq(200)
-    expect(response.body).to include('<h1>Peeps</h>')
-    expect(response.body).to include('Have you seen my new kitty-cat? She is adorable!')
-    expect(response.body).to include('By cute-cat')
-    expect(response.body).to include('Created at:')
-    expect(response.body).to include('I am back from the dead and stronger than ever.')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Peeps</h1>')
+      expect(response.body).to include('Have you seen my new kitty-cat? She is adorable!')
+      expect(response.body).to include('By: cute-cat')
+      expect(response.body).to include('At:')
+      expect(response.body).to include('I am back from the dead and stronger than ever.')
+    end
   end
 end
