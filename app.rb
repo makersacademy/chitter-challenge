@@ -58,10 +58,12 @@ class Application < Sinatra::Base
     peep_repo = PeepRepository.new
     maker_repo = MakerRepository.new
 
-    unless maker_repo.username_exists(params[:username])
-      return erb(:write_peep_error1) 
-    end  
+    return erb(:write_peep_error1) unless maker_repo.username_exists(params[:username])
+ 
     maker = maker_repo.find_with_username(params[:username])
+
+    return erb(:write_peep_error2) if maker.loggedin == false
+    
     new_peep = Peep.new
     new_peep.maker_id = maker.id
     new_peep.content = params[:content]

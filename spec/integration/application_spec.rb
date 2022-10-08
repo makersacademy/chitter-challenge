@@ -105,9 +105,13 @@ describe Application do
 
   context 'POST /write_peep' do
     it 'returns a success page' do
+      maker_repo = MakerRepository.new
+      fake_maker = double(name:'David', username:'eagle-man', email:'email@emal.com', password:'22212dddd', loggedin: true)
+      maker_repo.create(fake_maker)
+      
       response = post(
         '/write_peep',
-        username: 'cute-cat',
+        username: 'eagle-man',
         content: 'Another beautiful day in this countryside house.'
       )
 
