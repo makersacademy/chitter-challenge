@@ -188,7 +188,7 @@ describe Application do
 
   context 'Create a new peep' do
     context 'maker is not logged in' do
-      xit 'returns login failure page' do
+      it 'returns login failure page' do
         response = get('/peep/new')
 
         expect(response.status).to eq(200)

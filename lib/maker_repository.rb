@@ -33,21 +33,22 @@ class MakerRepository
   def find_username_by_id(id)
     sql = 'SELECT username FROM makers WHERE id = $1;'
     results_set = DatabaseConnection.exec_params(sql, [id])
-   
-    maker = Maker.new
-    maker.username = results_set.first['username']
     
-    return maker.username
+    return results_set.first['username']
   end
 
   def find_name_by_id(id)
     sql = 'SELECT name FROM makers WHERE id = $1;'
     results_set = DatabaseConnection.exec_params(sql, [id])
-   
-    maker = Maker.new
-    maker.name = results_set.first['name']
-    
-    return maker.name
+      
+    return results_set.first['name']
+  end
+
+  def find_id_by_username(username)
+    sql = 'SELECT id FROM makers WHERE username = $1;'
+    results_set = DatabaseConnection.exec_params(sql, [username])
+     
+    return results_set.first['id']
   end
 
   def maker_exists?(maker)
@@ -84,5 +85,19 @@ class MakerRepository
     sql = 'UPDATE makers SET login_status = null WHERE id = $1;'
     results_set = DatabaseConnection.exec_params(sql, [id])
   end
+
+  def logged_in?
+    sql = "SELECT  * FROM makers WHERE login_status='true';"
+    results_set = DatabaseConnection.exec_params(sql, [])
+
+    if results_set.first == nil
+      result = false
+    else
+      result = true
+    end
+
+    return result
+  end
+  
 end
 

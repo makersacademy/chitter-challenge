@@ -38,6 +38,33 @@ describe MakerRepository do
     end
   end
 
+  context '#find_username_by_id(id)' do 
+    it "returns maker username using id" do
+      repo = MakerRepository.new
+      maker_username = repo.find_username_by_id('1')
+
+      expect(maker_username).to eq('cast')
+    end
+  end
+
+  context '#find_name_by_id(id)' do 
+    it "returns maker name using id" do
+      repo = MakerRepository.new
+      maker_username = repo.find_name_by_id('1')
+
+      expect(maker_username).to eq('Chris')
+    end
+  end
+
+  context '#find_id_by_username' do
+    it 'returns id' do
+      repo = MakerRepository.new
+      maker_id= repo.find_id_by_username('cast')
+
+      expect(maker_id).to eq('1')
+    end
+  end
+
   context '#maker_exists?(maker)' do
     context "maker username exists in database" do
       it "returns true" do
@@ -67,24 +94,6 @@ describe MakerRepository do
     end
   end
 
-  context '#find_username_by_id(id)' do 
-    it "returns maker username using id" do
-      repo = MakerRepository.new
-      maker_username = repo.find_username_by_id('1')
-
-      expect(maker_username).to eq('cast')
-    end
-  end
-
-  context '#find_name_by_id(id)' do 
-    it "returns maker name using id" do
-      repo = MakerRepository.new
-      maker_username = repo.find_name_by_id('1')
-
-      expect(maker_username).to eq('Chris')
-    end
-  end
-
   context 'password_match?(maker)' do
     context 'maker password and username match' do
       it 'returns true' do
@@ -99,7 +108,6 @@ describe MakerRepository do
       end
     end
   
-
     context 'maker password and username do not match' do
       it 'returns false' do
         repo = MakerRepository.new
@@ -122,6 +130,7 @@ describe MakerRepository do
         expect(repo.login_status('1')).to eq(nil)
       end
     end
+
     context 'user logs in' do
       it 'returns "true"' do
         repo = MakerRepository.new
@@ -138,6 +147,23 @@ describe MakerRepository do
 
         expect(repo.login_status('1')).to eq(nil)
       end
+    end
+  end
+  context '#logged_in_user' do
+    it 'returns true' do
+      repo = MakerRepository.new
+      repo.login('1')
+
+      expect(repo.logged_in?).to eq(true)
+    end
+  end
+
+  context '#logged_out_user' do
+    it 'returns false' do
+      repo = MakerRepository.new
+      repo.logout('1')
+
+      expect(repo.logged_in?).to eq(false)
     end
   end
 end

@@ -30,17 +30,17 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    repo = MakerRepository.new
+    makers_repo = MakerRepository.new
     new_maker = Maker.new
     new_maker.name = params[:name]
     new_maker.username = params[:username]
     new_maker.email = params[:email]
     new_maker.password = params[:password]
 
-    if repo.maker_exists?(new_maker)
+    if makers_repo.maker_exists?(new_maker)
       return erb(:signup_failure_exists)
     else
-      repo.create(new_maker)
+      makers_repo.create(new_maker)
       return erb(:signup_success)
     end
     
@@ -61,17 +61,15 @@ class Application < Sinatra::Base
 
 
   post '/login' do
-    repo = MakerRepository.new
+    makers_repo = MakerRepository.new
     maker = Maker.new
     maker.username = params[:username]
     maker.password = params[:password]
-
-    #find id
-    #use to login
    
-    
-    if repo.password_match?(maker)
+    id = makers_repo.find_id_by_username(maker.username)
 
+    if makers_repo.password_match?(maker)
+      makers_repo.login(id)
       return erb(:login_success)
     else
       return erb(:login_failure)
@@ -85,11 +83,13 @@ class Application < Sinatra::Base
   end
 
   get '/peep/new' do
-    # if @maker_handler.logged_in? == true
-    #   return erb(:login_failure_absent)
-    # else
+    makers_repo = MakerRepository.new
+    
+    if makers_repo.logged_in? == false
+      return erb(:login_failure_absent)
+    else
       return erb(:peep_new)
-    # end
+    end
   end
 
 end
