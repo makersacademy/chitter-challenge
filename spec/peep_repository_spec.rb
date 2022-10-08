@@ -13,14 +13,14 @@ describe PeepRepository do
   end
   
   describe '#all' do
-    it 'finds all peeps' do
+    it 'finds all peeps in reverse order' do
       repo = PeepRepository.new
       all_peeps = repo.all
 
       expect(all_peeps.length).to eq(3)
-      expect(all_peeps.first.id).to eq(1)
-      expect(all_peeps.first.content).to eq('Have you seen my new kitty-cat? She is adorable!')
-      expect(all_peeps.first.maker_id).to eq(1)
+      expect(all_peeps.last.id).to eq(1)
+      expect(all_peeps.last.content).to eq('Have you seen my new kitty-cat? She is adorable!')
+      expect(all_peeps.last.maker_id).to eq(1)
     end
   end
 
@@ -54,8 +54,8 @@ describe PeepRepository do
       peeps = repo.all
 
       expect(peeps.length).to eq(4)
-      expect(peeps.last.content).to eq('Let me tell you a funny story, once I went into a pub and...')
-      expect(peeps.last.maker_id).to eq(1)
+      expect(peeps.first.content).to eq('Let me tell you a funny story, once I went into a pub and...')
+      expect(peeps.first.maker_id).to eq(1)
     end
 
     describe '#find_maker_username' do
