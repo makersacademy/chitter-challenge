@@ -1,0 +1,14 @@
+<h1>Home Page</h1>
+
+<p> 
+Welcome to Chitter! Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to continue.
+</p>
+
+<p> 
+  <% @peeps.each do |peep| %>
+      <%= peep.content %>
+      <%= peep.tagged_users %>
+      <%= peep.created_at %>
+      <%= peep.user_id %>
+    <% end %>
+</p>

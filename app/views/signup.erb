@@ -1,0 +1,21 @@
+<h3>Sign Up</h3>
+<form action="/signup" method="POST">
+	<input type="text" name="username" placeholder="Username:">
+	<input type="password" name="password" placeholder="Password:">
+	<input type="text" name="real_name" placeholder="Full name:">
+	<input type="text" name="email" placeholder="Email:">
+	<input type="submit" value="Sign Up">
+</form>
+
+<p>
+<% if @user != nil %>
+	<% if @user.errors.any? %>
+		<h3>Following errors:</h3>
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li> 
+			<% end %>
+		</ul>
+	<% end %>
+<% end %>
+</p>
