@@ -80,7 +80,7 @@ describe MakerRepository do
 
     it 'returns false if username not in database' do
       repo = MakerRepository.new
-      expect(repo.find_with_username('foxlover')).to eq false
+      expect(repo.username_exists('foxlover2')).to eq false
     end
   end
 end

@@ -40,24 +40,26 @@ class MakerRepository
     return maker
   end
 
-  def find_with_username(username)
+  def username_exists(username)
     maker_repo = MakerRepository.new
     all_makers = maker_repo.all
+    return all_makers.any?{|maker| maker.username == username}
+    
+        
+      
+    # unless all_makers.any?{|maker| maker.username == username}
+    #   maker = 'Not found'
+    # else
+    #   sql = 'SELECT id, name, username, email, password FROM makers WHERE username = $1;'
+    #   result_set = DatabaseConnection.exec_params(sql, [username])
 
-    unless all_makers.any?{|maker| maker.username == username}
-      return 'Not found'
-    else
-      sql = 'SELECT id, name, username, email, password FROM makers WHERE username = $1;'
-      result_set = DatabaseConnection.exec_params(sql, [username])
-
-      maker = Maker.new
-      maker.id = result_set[0]['id'].to_i
-      maker.name = result_set[0]['name']
-      maker.username = result_set[0]['username']
-      maker.email = result_set[0]['email']
-      maker.password = result_set[0]['password']
-
-      return maker
-    end
+    #   maker = Maker.new
+    #   maker.id = result_set[0]['id'].to_i
+    #   maker.name = result_set[0]['name']
+    #   maker.username = result_set[0]['username']
+    #   maker.email = result_set[0]['email']
+    #   maker.password = result_set[0]['password']
+    # end
+    # return maker
   end
 end
