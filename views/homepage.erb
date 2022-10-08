@@ -1,0 +1,16 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Peeps</h1>
+
+    <% @peeps.each do |peep| %>
+      <div>
+        <h5><a href="/users/<%= user.username%>"></a></h5>
+      </div>
+      <div>
+        <h2>
+          <%= peep.content %> 
+        </h2>
+      </div>
+  </body>
+</html>

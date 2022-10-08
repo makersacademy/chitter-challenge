@@ -9,11 +9,11 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    return #index page -> homepage (shows messages(peeps) w/ time) -> button for adding new messages
+    return erb(:homepage)
   end
 
   get '/signup' do
-    return # sign up page -> leads to index page
+    return #erb(:signup)
   end
 
   post '/signup' do
