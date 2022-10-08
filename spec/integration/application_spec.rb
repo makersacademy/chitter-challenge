@@ -49,8 +49,8 @@ describe Application do
       response = post(
         '/',
         name: 'Saphire',
-        username: 'sea-shell'
-        email: 'email2@email.com'
+        username: 'sea-shell',
+        email: 'email2@email.com',
         password: '123450000'
       )
 

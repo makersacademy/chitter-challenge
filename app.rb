@@ -36,4 +36,15 @@ class Application < Sinatra::Base
       return erb(:invalid_email)
     end
   end
+
+  post '/' do
+    repo = MakerRepository.new
+    new_maker = Maker.new
+    new_maker.name = params[:name]
+    new_maker.username = params[:name]
+    new_maker.email = params[:email]
+    new_maker.password = params[:password]
+
+    invalid_request_params_signin
+  end
 end
