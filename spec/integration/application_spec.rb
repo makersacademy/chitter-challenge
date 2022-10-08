@@ -91,4 +91,15 @@ describe Application do
       expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
     end
   end
+
+  context 'get/write_peep' do
+    it 'returns the form page to create a new peep' do
+      response = get('/write_peep')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form action="/write_peep" method="POST">')
+      expect(response.body).to include('<input type="text" name="content" required pattern="^[\.a-zA-Z0-9,!? ]*$">')
+      expect(response.body).to include('<input type="text" name="username" required pattern="^[\w\-\s]+$">')
+    end
+  end
 end
