@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<style>
+body {background-color: lightsteelblue;}
+h1   {color: teal;}
+h2   {color: teal;}
+p    {color: teal;}
+</style>
+</head>
+<center>
+
+<body>
+    <h1>Peep posted! Click below to post another Peep, you dirty tart</h1>
+
+        <form action="/peeps/new">
+            <input type="submit" value="New Peep" />
+        </form>
+
+            <h2>Or here to return to the homepage</h2>
+        <form action="/">
+            <input type="submit" value="Home" />
+        </form>
+
+          <h2>Or here to see all Peeps</h2>
+        <form action="/peeps">
+            <input type="submit" value="Peeps" />
+        </form>
+
+
+
+<form name="form1" method="post" action="log_out.php">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" value="log out">
+  </label>
+</form>
+
+</body>
+</centre>
+
+</html>

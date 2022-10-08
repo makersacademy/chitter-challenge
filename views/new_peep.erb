@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<style>
+body {background-color: lightsteelblue;}
+h1   {color: teal;}
+h2   {color: teal;}
+p    {color: teal;}
+</style>
+</head>
+<center>
+<body>
+    <h1>Please enter your peep here</h1>
+    <form action="/peeps" method="POST">
+        <input type="text" name="content" placeholder="What's on your mind?" name="tags" placeholder="#friyay">
+        <input type="submit" value="Post Peep">
+    </form>
+  <form name="form1" method="get" action="/logout">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" value="log out">
+  </label>
+</form>
+  <form action="/">
+      <input type="submit" value="Home" />
+  </form>
+</body>
+</center>
+</html>

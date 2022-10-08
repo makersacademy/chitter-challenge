@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<style>
+body {background-color: lightsteelblue;}
+h1   {color: teal;}
+h2   {color: teal;}
+p    {color: teal;}
+</style>
+</head>
+<center>
+<body>
+    <h1 style="color:teal;">PEEPS</h1>
+    <div>
+      <% @sorted_peeps.each do |peep| %>
+       <a href="/peeps/<%= peep.id %>"> PEEP: - '<%= peep.content %>' - <%= peep.peep_date %><br></a>      
+       <% end %>
+    </div>
+
+  <br><br><form action="/">
+      <input type="submit" value="HOME" />
+  </form>
+
+  <form action="/peeps/login">
+      <input type="submit" value="LOGIN" />
+  </form>
+
+  <form action="/peeps/signup">
+      <input type="submit" value="SIGN UP" />
+  </form>
+</center>
+  </body>
+
+</html>
