@@ -43,4 +43,19 @@ describe Application do
       expect(response.body).to include('<input type="password" name="password" id="myInput" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">')
     end
   end
+
+  context 'POST /' do
+    it 'returns a success page' do
+      response = post(
+        '/',
+        name: 'Saphire',
+        username: 'sea-shell'
+        email: 'email2@email.com'
+        password: '123450000'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<p>Thank you for signing in to Chitter!</p>')
+    end
+  end
 end
