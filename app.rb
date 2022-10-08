@@ -13,8 +13,6 @@ class Application < Sinatra::Base
     also_reload 'lib/maker_repository'
   end
 
-  
-
   get '/' do
     peep_repo = PeepRepository.new
     @maker_repo = MakerRepository.new
@@ -67,11 +65,13 @@ class Application < Sinatra::Base
     maker = Maker.new
     maker.username = params[:username]
     maker.password = params[:password]
+
+    #find id
+    #use to login
    
     
     if repo.password_match?(maker)
-      
-      @maker_handler.set_login_status(true)
+
       return erb(:login_success)
     else
       return erb(:login_failure)

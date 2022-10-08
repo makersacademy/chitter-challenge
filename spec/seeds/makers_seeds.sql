@@ -6,7 +6,8 @@ CREATE TABLE makers(
     name text,
     username text,
     email text,
-    password text
+    password text,
+    login_status text
 );
 
 TRUNCATE TABLE makers RESTART IDENTITY;

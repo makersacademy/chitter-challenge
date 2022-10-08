@@ -5,11 +5,9 @@ require_relative '../../app'
 def reset_tables
   peeps_seed_sql = File.read('spec/seeds/peeps_seeds.sql')
   makers_seed_sql = File.read('spec/seeds/makers_seeds.sql')
-  current_maker_seed_sql = File.read('spec/seeds/current_maker_seeds.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(peeps_seed_sql)
   connection.exec(makers_seed_sql)
-  connection.exec(current_maker_seed_sql)
 end
 
 describe Application do
@@ -154,7 +152,7 @@ describe Application do
 
     context 'POST to /login' do
       context 'username and password correct' do
-        xit 'returns login success page' do
+        it 'returns login success page' do
           response = post('/login',
           username: 'cast',
           password: '123'

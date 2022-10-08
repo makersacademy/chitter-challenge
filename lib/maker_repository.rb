@@ -68,5 +68,21 @@ class MakerRepository
     return result
   end
 
+  def login_status(id)
+    sql = 'SELECT login_status FROM makers WHERE id = $1;'
+    results_set = DatabaseConnection.exec_params(sql, [id])
+    
+    return results_set.first['login_status']
+  end
+
+  def login(id)
+    sql = 'UPDATE makers SET login_status = true WHERE id = $1;'
+    results_set = DatabaseConnection.exec_params(sql, [id])
+  end
+
+  def logout(id)
+    sql = 'UPDATE makers SET login_status = null WHERE id = $1;'
+    results_set = DatabaseConnection.exec_params(sql, [id])
+  end
 end
 
