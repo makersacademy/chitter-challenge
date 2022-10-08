@@ -72,33 +72,15 @@ describe MakerRepository do
     end
   end
 
-  describe '#find_with_username' do
-    it 'finds one maker by username' do
+  describe '#username_exists' do
+    it 'returns true if username in database' do
       repo = MakerRepository.new
-      maker = repo.find_with_username('cute-cat')
-
-      expect(maker.id).to eq(1)
-      expect(maker.name).to eq('Ruby')
-      expect(maker.username).to eq ('cute-cat')
-      expect(maker.email).to eq('ruby1@gmail.com')
-      expect(maker.password).to eq('12345') 
+      expect(repo.username_exists('cute-cat')).to eq true
     end
 
-    it 'finds maker with different username' do
+    it 'returns false if username not in database' do
       repo = MakerRepository.new
-      maker = repo.find_with_username('foxlover')
-
-      expect(maker.id).to eq(2)
-      expect(maker.name).to eq('Amethist')
-      expect(maker.username).to eq('foxlover')
-      expect(maker.email).to eq('ameth22@gmail.com')
-      expect(maker.password).to eq('123456') 
-    end
-
-    it 'returns "Not found" if the username is not in the database' do
-      repo = MakerRepository.new
-
-      expect(repo.find_with_username('foxlover2')).to eq("Not found")
+      expect(repo.find_with_username('foxlover')).to eq false
     end
   end
 end
