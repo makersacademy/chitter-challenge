@@ -71,7 +71,23 @@ describe Application do
       )
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('This username is already in use, please choose a different one.')
+      expect(response.body).to include('This username is already in use, please choose a different one :)')
+      expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
+    end
+  end
+
+  context 'POST /signin' do
+    it 'returns an error page if email already exists' do
+      response = post(
+        '/signin',
+        name: 'Andy',
+        username: 'tiredoftests',
+        email: 'ameth22@gmail.com',
+        password: '12345000a'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('This email is already in use, please choose a different one :)')
       expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
     end
   end
