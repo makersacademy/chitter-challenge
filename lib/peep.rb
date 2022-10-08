@@ -1,7 +1,7 @@
 require_relative 'maker'
 
 class Peep
-    attr_accessor :id, :content, :created_at, :maker_id, logged_in?: false
+    attr_accessor :id, :content, :created_at, :maker_id
 
     def find_maker_username
         sql = "SELECT username FROM makers WHERE id = $1"

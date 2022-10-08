@@ -30,4 +30,17 @@ describe Application do
       expect(response.body).to include('I am back from the dead and stronger than ever.')
     end
   end
+
+  context 'GET /signin' do
+    it 'returns the form page to sign in to chitter' do
+      response = get('/signin')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form action="/signin" method="POST">')
+      expect(response.body).to include('<input type="text" name="name">')
+      expect(response.body).to include('<input type="text" name="username">')
+      expect(response.body).to include('<input type="text" name="email">')
+      expect(response.body).to include('<input type="text" name="password">')
+    end
+  end
 end
