@@ -27,6 +27,8 @@ class Application < Sinatra::Base
 
     repo = UserRepository.new
     new_user.id = params[:id]
+    new_user.email = params[:email]
+    new_user.name = params[:name]
     new_user.username = params[:username]
     new_user.password = params[:password]
     repo.create(new_user)
@@ -47,7 +49,7 @@ private
 
 # Error Status methods
 def invalid_request_signup?
-  params[:username] == nil || params[:password] == nil
+  params[:email] == nil || params[:name] == nil || params[:username] == nil || params[:password] == nil
 end
 
 def invalid_request_peep?
