@@ -1,0 +1,39 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Sign in to Chitter</h1>
+    <form action="/" method="POST">
+    <div>
+      <label> Your name:</label>
+      <input type="text" name="name" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label> Username:</label>
+      <input type="text" name="username" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="text" name="email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+    </div>
+
+     <div>
+      <label>Password (must contain at least 8 characters and no symbols):</label>
+      <input type="password" name="password" id="myInput" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+      <input type="checkbox" onclick="myFunction()">Show Password
+      <script>
+        function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+         } else {
+          x.type = "password";
+         }
+        }
+      </script>
+    </div>
+      <input type="submit" value="Submit the form">
+      </form>
+  </body>
+</html>
