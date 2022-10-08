@@ -115,9 +115,20 @@ describe Application do
       expect(response.body).to include('Thank you, your Peep has been successfully created!')
       expect(response.body).to include("<a href='/'>Go back to the main page</a>")
     end
-  end
 
-  context 'POST /write_peep' do
+
+    it 'returns an error page if username doesn\'t exist' do
+      response = post(
+        '/write_peep',
+        username: 'cute-cat2',
+        content: 'Another beautiful day in this countryside house.'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Username not found, please sign-up to Chitter if you want to post a Peep!')
+      expect(response.body).to include("<a href='/'>Go back to the main page</a>")
+    end
+
     xit 'returns an error page if Maker not logged in' do
       response = post(
         '/signin',
@@ -133,3 +144,4 @@ describe Application do
     end
   end
 end
+
