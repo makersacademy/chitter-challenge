@@ -13,6 +13,8 @@ class Application < Sinatra::Base
     also_reload 'lib/maker_repository'
   end
 
+  
+
   get '/' do
     peep_repo = PeepRepository.new
     @maker_repo = MakerRepository.new
@@ -47,7 +49,6 @@ class Application < Sinatra::Base
     return nil
   end
 
-
   get '/signup/failure/exists' do
     return erb(:signup_failure_exists)
   end
@@ -60,13 +61,17 @@ class Application < Sinatra::Base
     return erb(:login_success)
   end
 
+
   post '/login' do
     repo = MakerRepository.new
     maker = Maker.new
     maker.username = params[:username]
     maker.password = params[:password]
-
+   
+    
     if repo.password_match?(maker)
+      
+      @maker_handler.set_login_status(true)
       return erb(:login_success)
     else
       return erb(:login_failure)
@@ -80,10 +85,11 @@ class Application < Sinatra::Base
   end
 
   get '/peep/new' do
-    return erb(:peep_new)
+    # if @maker_handler.logged_in? == true
+    #   return erb(:login_failure_absent)
+    # else
+      return erb(:peep_new)
+    # end
   end
 
-  get '/login/failure/absent' do
-    return erb(:login_failure_absent)
-  end
 end
