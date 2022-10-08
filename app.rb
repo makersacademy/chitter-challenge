@@ -75,12 +75,15 @@ class Application < Sinatra::Base
 
     user = UserRepository.new.find_by_email(email)
 
+    if email.empty? || password.empty? 
+      return erb(:incorrect_login)
     if user.password == password
       session[:user_id] = user.id
       return erb(:login_succesful)
     else
       return erb(:incorrect_login)
     end
+  end
   end
 
   post '/signup' do

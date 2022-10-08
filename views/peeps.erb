@@ -10,14 +10,14 @@ p    {color: teal;}
 </head>
 <center>
 <body>
-    <h1 style="color:teal;">PEEPS</h1>
+<h1 style="color:teal;">PEEPS</h1>
     <div>
       <% @sorted_peeps.each do |peep| %>
        <a href="/peeps/<%= peep.id %>"> PEEP: - '<%= peep.content %>' - <%= peep.peep_date %><br></a>      
        <% end %>
     </div>
-
-  <br><br><form action="/">
+    <iframe src="https://giphy.com/embed/hFmIU5GQF18Aw" width="150" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/loop-problem-hFmIU5GQF18Aw"></a>
+<form action="/">
       <input type="submit" value="HOME" />
   </form>
 
