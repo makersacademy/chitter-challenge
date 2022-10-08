@@ -129,17 +129,15 @@ describe Application do
       expect(response.body).to include("<a href='/'>Go back to the main page</a>")
     end
 
-    xit 'returns an error page if Maker not logged in' do
+    it 'returns an error page if Maker not logged in' do
       response = post(
-        '/signin',
-        name: 'Andy',
+        '/write_peep',
         username: 'cute-cat',
-        email: 'email2@email.com',
-        password: '12345000a'
+        content: "Something, something"
       )
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('This username is already in use, please choose a different one :)')
+      expect(response.body).to include('You are not logged-in! Please, log-in if you would like to write a Peep.')
       expect(response.body).to include("<a href='/signin/maker'>Go back to signin page</a> ")
     end
   end
