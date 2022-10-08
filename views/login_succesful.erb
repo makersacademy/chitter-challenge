@@ -2,34 +2,42 @@
 
 <head>
 <style>
+body {font-family: Verdana, sans-serif;}
 body {background-color: lightsteelblue;}
-h1   {color: teal;}
-h2   {color: teal;}
-p    {color: teal;}
+h1   {color: black;}
+h2   {color: black;}
+p    {color: black;}
 </style>
 </head>
 <center>
 
 <body>
-    <h1 style="color:Teal;">Logged in successfully! Please click here to write a new peep:</h1>
+<style>
+body {font-family: Verdana, sans-serif;}
+body {background-color: lightsteelblue;}
+h1   {color: black;}
+h2   {color: black;}
+p    {color: black;}
+</style>
+
+    <h1>Logged in successfully! Please click here to write a new peep:</h1>
 
         <form action="/peeps/new">
-            <input type="submit" value="New Peep" />
+            <input type="submit" value="NEW PEEP" />
         </form>
 
-            <h2 style="color:Teal;">Or here to return to the homepage</h2>
+            <h2>Or here to return to the homepage</h2>
         <form action="/">
-            <input type="submit" value="Home" />
+            <input type="submit" value="HOME" />
         </form>
 
-          <h2 style="color:Teal;">Or here to see all Peeps</h2>
+          <h2>Or here to see all Peeps</h2>
         <form action="/peeps">
-            <input type="submit" value="Peeps" />
+            <input type="submit" value="PEEPS" />
         </form>
 
-<form name="form1" method="post" action="log_out.php">
-  <label class="logoutLblPos">
-  <input name="submit2" type="submit" id="submit2" value="log out">
+<form name="form1" method="post" action="/logout">
+  <input name="submit2" type="submit" id="submit2" value="LOG OUT">
   </label>
 
 </form>

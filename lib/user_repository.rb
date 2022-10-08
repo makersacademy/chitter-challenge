@@ -51,4 +51,8 @@ class UserRepository
 
     return user
   end
+  
+  def new
+    @user = User.new
+  end
 end
