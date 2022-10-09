@@ -6,7 +6,7 @@ DatabaseConnection.connect('chitter_test')
 
 def reset_tables
   seed_sql = File.read('spec/seeds/reset_tables_seeds.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test', user: 'postgres', password: '0'})
   connection.exec(seed_sql)
 end
 
