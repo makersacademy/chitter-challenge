@@ -6,6 +6,8 @@ require_relative './lib/peep_repository'
 
 DatabaseConnection.connect('chitter_test')
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
