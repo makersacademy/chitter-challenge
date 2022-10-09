@@ -136,7 +136,7 @@ describe Application do
     it 'returns an error page if Maker not logged in' do
       response = post(
         '/write_peep',
-        username: 'cute-cat',
+        username: 'foxlover',
         content: "Something, something"
       )
 
@@ -171,6 +171,43 @@ describe Application do
     end
 
     it 'returns an error page if user cannot be logged in' do
+      response = post(
+        '/login',
+        username: 'cute-cat',
+        email: 'ruby1@gmail.com',
+        password: '1234577'
+      )
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Some of the data you introduced was incorrect, please try again')
+    end
+  end
+
+  context 'get/logout/form' do
+    it 'returns the form page to log out' do
+      response = get('/logout/form')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Log-out of Chitter</h1>')
+      expect(response.body).to include('<input type="text" name="username" required pattern="^[\w\-\s]+$">')
+    end
+  end
+
+  context 'post/login' do
+    it 'returns a success page if user is logged out' do
+
+      response = post(
+        '/login',
+        username: 'cute-cat',
+        email: 'ruby1@gmail.com',
+        password: '12345'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('You have been successfully logged-out')
+    end
+
+    it 'returns an error page if user cannot be logged out' do
       response = post(
         '/login',
         username: 'cute-cat',
