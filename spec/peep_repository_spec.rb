@@ -20,7 +20,6 @@ RSpec.describe PeepRepository do
     it 'returns all peeps with usernames' do
       peep_repository = PeepRepository.new
       all_users_with_names = peep_repository.all_with_usernames
-      p all_users_with_names
       expect(all_users_with_names.first.username).to eq 'JarJar'
       expect(all_users_with_names[8].username).to eq 'Heisenberg'
     end
