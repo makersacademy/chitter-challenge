@@ -15,109 +15,111 @@ describe Application do
   end
   
   context 'GET /peeps' do
-    xit 'returns 200 OK with the right content and returns all peeps' do
-      response = get('/peeps')
+    it 'returns 200 OK with the right content and returns all or specific peeps' do
+      response = get('/peeps/4')
+      response_2 = get('/peeps')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<a href="/artists/1">Pixies<br></a>')
-      expect(response.body).to include('<a href="/artists/2">ABBA<br></a>')
-      expect(response.body).to include('<a href="/artists/3">Taylor Swift<br></a>')
-      expect(response.body).to include('<a href="/artists/4">Nina Simone<br></a>')
+      expect(response.body).to include("'Old time is still a-flyin'")
+      expect(response_2.body).to include("'Tories suck'")
+
     end
   end
 
-  context 'GET /artists/new' do
-    xit "returns 200 OK and form to add new artist" do
-    response = get('/artists/new')
-    expect(response.status).to eq(200)
-    expect(response.body).to include('<form method="POST" action="/artists">')
-    expect(response.body).to include('<input type="text" name="name" />')
-    expect(response.body).to include('<input type="text" name="genre" />')
-    end
-  end
-
-  context 'GET /artists/:id' do
-   xit "returns 200 OK with the right artists" do
-    response = get('/artists/2')
-    expect(response.status).to eq(200)
-    expect(response.body).to include('<h1>ABBA</h1>')
-    expect(response.body).to include('GENRE: Pop')
-    end
-  end
-
-  context 'GET /albums/new' do
-    xit "returns 200 OK and form to add new album" do
-    response = get('/albums/new')
-    expect(response.status).to eq(200)
-    expect(response.body).to include('<form method="POST" action="/albums">')
-    expect(response.body).to include('<input type="text" name="title" />')
-    expect(response.body).to include('<input type="text" name="release_year" />')
-    end
-  end
-
-  context 'GET /albums/:id' do
-    xit "returns 200 OK with the right album" do
-    response = get('/albums/2')
-    expect(response.status).to eq(200)
-    expect(response.body).to include('<h1>Surfer Rosa</h1>')
-    expect(response.body).to include('Release year: 1988')
-    expect(response.body).to include('Artist: Pixies')
-    end
-  end
-
-  context 'GET /albums' do
-    xit "returns 200 OK and albums" do
-    response = get('/albums')
-    expect(response.status).to eq(200)
-    expect(response.body).to include('<a href="/albums/2">Surfer Rosa<br></a>')
-    expect(response.body).to include('<a href="/albums/3">Waterloo<br></a>')
-    expect(response.body).to include('<a href="/albums/4">Super Trouper<br></a>')
-    expect(response.body).to include('<a href="/albums/5">Bossanova<br></a>')
-    end
-  end
-
-  context 'POST /artists' do
-    xit 'should validate artist parameters' do
-      response = post(
-        '/artists',
-        invalid_artist_: 'Tasty',
-        another_invalid_thing: 123
-      )
-      expect(response.status).to eq (400)
-    end
-
-    xit "returns 200 OK with the right content and creates a new artist" do
-      response = post(
-        '/artists',
-        name: 'Wild Nothing',
-        genre: 'Indie',
-      )
+  context 'GET /' do
+    it "returns 200 OK and returns the right content" do
+      response = get('/')
       expect(response.status).to eq(200)
-      expect(response.body).to eq('')
+      expect(response.body).to include('See All Peeps')
+      expect(response.body).to include('Sign Up To Chitter')
+      expect(response.body).to include('Login And Post Your Own Peep')
     end
   end
 
-  context 'POST /albums' do
-    xit 'should validate album parameters' do
-      response = post(
-        '/albums',
-        invalid_artist_title: 'Tasty Wheat',
-        another_invalid_thing: 123
-      )
-      expect(response.status).to eq (400)
-    end
-    
-    xit 'returns 200 OK with the right content and creates a new album' do
-      response = post(
-        '/albums',
-        title: 'Voyage',
-        release_year: '2022',
-        artist_id: '2'
-      )
+  context 'GET /peeps/new' do
+    it "returns 200 OK and box to post new peep" do
+      response = get('/peeps/new')
       expect(response.status).to eq(200)
-      expect(response.body).to eq('')
+      expect(response.body).to include('<form action="/peeps" method="POST">')
+      expect(response.body).to include('<input type="submit" value="HOME" />')
+    end
+  end
 
-      response = get('/albums')
-      expect(response.body).to include('Voyage')
+  context 'POST /peeps' do
+    it 'should redirect to login page if not logged in' do
+      response = post(
+        '/peeps',
+        email: nil
+      )
+      expect(response.body).to include('<form action="/login" method="POST">')
+    end
+
+    it 'should redirect to login page if content box is empty' do
+      response = post(
+        '/peeps',
+        content: nil
+      )
+      expect(response.body).to include('<form action="/login" method="POST">')
+    end
+  end
+
+  context 'POST /peeps/new' do
+    it 'should create a new peep if user is logged in and content box is not empty' do
+      post('/login', email: 'joeosborne77@gmail.com', password: 'Hello123!')
+      post_response = post('/peeps', content: 'Hello! Testing 123')
+      expect(post_response.status).to eq 200
+      expect(post_response.body).to include('Peep posted!')
+      get_response = get('/peeps')
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include('Hello! Testing 123')
+    end
+  end
+  
+  context 'POST /peeps/signup' do
+    it 'returns 200 OK and creates a new user' do
+      response = post('/signup', name: 'Rob Kuzik', email: 'robbyk@gmail.com', username: 'Robster92', password: 'Hello123!')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Sign up successful!')
+      repo = UserRepository.new
+      user = repo.all 
+      expect(user.last.name).to eq("Rob Kuzik")
+    end
+
+    it 'returns 200 OK and redirect to sign up page if any boxes are empty' do
+      response = post('/signup', name: '', email: 'robbyk@gmail.com', username: 'Robster92', password: 'Hello123!')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Please sign up below.')
+    end
+
+    it 'returns 200 OK and redirect to sign up page if any boxes are empty' do
+      response = post('/signup', name: 'Rob Kuzik', email: '', username: 'Robster92', password: 'Hello123!')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Please sign up below.')
+    end
+
+    it 'returns 200 OK and redirect to sign up page if any boxes are empty' do
+      response = post('/signup', name: 'Rob Kuzik', email: 'robbyk@gmail.com', username: '', password: 'Hello123!')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Please sign up below.')
+    end
+
+    it 'returns 200 OK and redirect to sign up page if any boxes are empty' do
+      response = post('/signup', name: 'Rob Kuzik', email: 'robbyk@gmail.com', username: 'Robster92', password: '')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Please sign up below.')
+    end
+
+    it 'returns 200 OK and rejects any exisiting emails or usernames' do
+      response = post('/signup', name: 'Joe Osborne', email: 'joeosborne77@gmail.com', username: 'Salted peanuts', password: '1234!')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Username or email already taken, please try again.')
+    end
+
+    it 'returns 200 OK and creates new user' do
+      response = post('/signup', name: 'Johnty Peterson', email: 'flabby@gmail.com', username: 'TastyWheat', password: '1234!')
+      expect(response.status).to eq(200)
+      repo = UserRepository.new
+      user = repo.all 
+      expect(user.last.email).to eq('flabby@gmail.com')
     end
   end
 end
