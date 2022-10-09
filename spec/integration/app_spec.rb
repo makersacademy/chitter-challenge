@@ -240,6 +240,7 @@ describe Application do
       end
     end
   end
+
   context 'A new peep form has been submitted' do
     context 'GET to /' do
         it 'returns new peep on page' do
@@ -260,15 +261,18 @@ describe Application do
     end
   end
 
-context 'Maker logs out' do
-  context 'GET to /logout' do
-    it 'returns logout success page' do
-      response = get('/logout')
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<h3>Logout successful</h3>')
+  context 'Maker logs out' do
+    context 'GET to /logout' do
+      it 'returns logout success page' do
+        maker_repo = MakerRepository.new
+        maker_repo.login('1')
+        
+        response = get('/logout')
+
+        expect(maker_repo.logged_in_maker_id).to eq('none')
+        expect(response.body).to include('<h3>Logout successful</h3>')
+        expect(response.status).to eq(200)
+      end
     end
   end
-end
-
-
 end

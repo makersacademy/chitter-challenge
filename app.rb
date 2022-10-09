@@ -112,6 +112,10 @@ class Application < Sinatra::Base
   end
 
   get '/logout' do
+    maker_repo = MakerRepository.new
+    id = maker_repo.logged_in_maker_id
+    maker_repo.logout(id)
+    
     return erb(:logout)
   end
 end
