@@ -1,4 +1,5 @@
 require 'pg'
+# require '/Users/saritaradia/Desktop/Projects/chitter-challenge/chitter-challenge/spec/database_setup.rb'
 
 class Peep
   def self.all
