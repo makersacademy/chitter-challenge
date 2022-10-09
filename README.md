@@ -14,6 +14,54 @@ Progress:
 - No testing :(
 - Fully works on local machine but gives error on Heroku
 
+Installation:
+-------
+Clone this repo on your machine, then run following commands in your teminal:
+
+1. To install all required gems
+
+```
+gem add bundler
+bundle install
+```
+2. Configure to your database
+
+```
+touch database.yml
+```
+
+```yml
+# in database.yml
+# populate missing fields with your own values
+
+development:
+  adapter: postgresql
+  database: 
+  host: localhost
+  username: 
+  password: 
+
+test:
+  adapter: postgresql
+  database: 
+  host: localhost
+  username: 
+  password: 
+```
+
+3. Set up database structure
+
+```
+rake db:migrate SINATRA_ENV="development"
+rake db:migrate SINATRA_ENV="test"
+```
+
+4. Start server
+
+```
+rackup
+```
+
 Features:
 -------
 
