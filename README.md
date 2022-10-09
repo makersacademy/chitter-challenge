@@ -13,6 +13,13 @@ You can use `rubocop` to test against code guidelines
 
 Excalidraw diagram: https://excalidraw.com/#json=4z8emLZLyhHwVtHK1STEC,4Xoxjy2ic5fzYEWbb1hueg
 
+Future developments could include:
+- Failure page for trying to logout when already logged out.
+- Tests for more failure cases.
+- Checks for security and invalid parameter entries.
+- CSS
+- Proper user session management.
+
 ------------------------------------
 Chitter Challenge
 =================
