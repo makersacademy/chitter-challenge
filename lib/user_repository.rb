@@ -36,12 +36,6 @@ class UserRepository
     record_to_user_object(record)
   end
 
-  # def find(id)
-  #   sql = "SELECT * FROM users WHERE id = $1;"
-  #   records = DatabaseConnection.exec_params(sql, [id])
-  #   record_to_user_object(records[0])
-  # end
-
   def find_by_username(username)
     if not all.any?{|record| record.username == username}
       return false

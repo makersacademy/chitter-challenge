@@ -1,23 +1,11 @@
 <form method="POST" action="/peeps">
-  <h1>Hello <%= %>
+  <h1>Hello <%= @login_user.first_name%>
   <h1>Send a peep!</h1>
     <div>
       <label>Compose:</label>
       <input type="text" name="content" />
     </div>
 
-    <div>
-      <label>Who's peeping?</label>
-      <select name="user_id">
-        <% @users.each do |user| %>
-          <body>
-            <option value=<%= user.id %>><%= user.username%></option>
-            <% end %>
-          </body>
-      
-      </select>
-    
-    </div>
     <a href='../'>
       <input type="submit">
     </a>

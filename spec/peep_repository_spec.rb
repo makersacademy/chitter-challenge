@@ -28,6 +28,7 @@ RSpec.describe PeepRepository do
       peeps = repo.all('')
 
       expect(peeps.length).to eq 10
+
       expect(peeps[4].id).to eq 5
       expect(peeps[4].content).to eq '@tesco, I want a refund #nowplease'
       expect(peeps[4].time).to eq '2022-10-06 14:01:00'
@@ -55,7 +56,7 @@ RSpec.describe PeepRepository do
       peep.time = (Time.now).strftime("%F %T")
       peep.user_id = 1
 
-      repo.create(peep) # =>
+      repo.create(peep)
 
       all_peeps = repo.all('')
       last_peep = all_peeps.last
@@ -82,36 +83,3 @@ RSpec.describe PeepRepository do
     repo = PeepRepository.new
   end
 end
-
-# it 'finds all artists' do
-#   repo = ArtistRepository.new
-
-#   artists = repo.all
-  
-#   expect(artists.length).to eq(4)
-#   expect(artists.first.name).to eq('Pixies')
-# end
-
-# it 'finds one artist' do
-#   repo = ArtistRepository.new
-
-#   artist = repo.find(3)
-  
-#   expect(artist.id).to eq(3)
-#   expect(artist.name).to eq('Taylor Swift')
-# end
-
-# it 'creates an album' do
-#   repo = ArtistRepository.new
-
-#   artist = Artist.new
-#   artist.name = 'Kiasmos'
-#   artist.genre = 'Experimental'
-#   repo.create(artist)
-
-#   artists = repo.all
-
-#   expect(artists.length).to eq(5)
-#   expect(artists.last.name).to eq('Kiasmos')
-# end
-# end 

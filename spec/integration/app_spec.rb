@@ -13,7 +13,7 @@ RSpec.describe Application do
       ok?
       copy_test('<h1>Welcome To Chitter</h1>')
       copy_test("<a href='peeps'> See all peeps </a>")
-      copy_test("<a href='peeps/new'> Compose a peep </a>")
+      # copy_test("<a href='peeps/new'> Compose a peep </a>")
     end
   end
 
@@ -62,7 +62,7 @@ RSpec.describe Application do
     it "should add a new peep to the feed" do
       @response = post('/peeps', content: 'Hello world', time: '2022-10-06 18:00:00', user_id: 1)
 
-      ok?  #<----- why won't this shorten???!
+      ok?
       expect(@response.body).to eq('')
 
       @response = get('/peeps')
@@ -76,7 +76,7 @@ RSpec.describe Application do
 
       ok?
       copy_test('<form method="POST" action="/peeps">')
-      copy_test('<input type="text" name="content" />')
+      copy_test('<input type="text" name="content"')
       copy_test('<select name="user_id">')
     end
   end
@@ -112,11 +112,11 @@ RSpec.describe Application do
 
       ok?
       copy_test('<form method="POST" action="/users">')
-      copy_test('<input type="text" name="first_name" />')
-      copy_test('<input type="text" name="last_name" />')
-      copy_test('<input type="text" name="username" />')
-      copy_test('<input type="text" name="email" />')
-      copy_test('<input type="text" name="password" />')
+      copy_test('<input type="text" name="first_name"')
+      copy_test('<input type="text" name="last_name"')
+      copy_test('<input type="text" name="username"')
+      copy_test('<input type="text" name="email"')
+      copy_test('<input type="text" name="password"')
     end
   end
 
@@ -126,21 +126,23 @@ RSpec.describe Application do
 
       ok?
       copy_test('<form method="POST" action="/login">')
-      copy_test('<input type="text" name="username" />')
+      copy_test('<input type="text" name="username"')
       copy_test('<input type="text" name="password" />')
     end
   end
 
   context "POST /login" do
     it "success: returns the successful login page if username & password match records" do
-      @response = post('/login', first_name: 'Benedict', last_name: 'Smith', username: 'bennyboy', email: 'ben@gmail.com', password: '123bento')
+      @response = post('/login', first_name: 'Benedict', last_name: 'Smith', username: 'bennyboy',
+        email: 'ben@gmail.com', password: '123bento')
       ok?
-      copy_test('<h1> Successful login! </h1>')
+      copy_test('<h1> Successful login Benedict! </h1>')
       copy_test("<a href='login/new_peep'> Compose a Peep</a>")
     end
 
     it "error: returns the error login page if username & password do not match records" do
-      @response = post('/login', first_name: 'Pablo', last_name: 'Escobar', username: 'kingpin', email: 'plata@plomo.com', password: 'loveh1ppos')
+      @response = post('/login', first_name: 'Pablo', last_name: 'Escobar', username: 'kingpin',
+        email: 'plata@plomo.com', password: 'loveh1ppos')
       ok?
       copy_test("<h1> We couldn't log you in. </h1>")
       copy_test("<a href='..'> Login </a>")
@@ -171,123 +173,3 @@ RSpec.describe Application do
   end
 
 end
-
-# RSpec.describe Application do
-
-#   def initialize(io)
-#     @io = io
-#   end
-
-#   before(:each) do 
-#     reset_tables('spec/seeds_items.sql')
-#     reset_tables('spec/seeds_orders.sql')
-#   end 
-
-#   describe "#welome_choices"
-#   context "text on initialisation" do
-#     it "puts list of actions a user can perform" do
-#       @io = double :io
-#       app = Application.new('shop_manager', @io, ItemRepository.new, OrderRepository.new)
-#       welcome
-#       options
-#       app.print_welcome
-#       app.print_options
-#     end
-#   end
-
-#   describe "user selection" do
-#     context "select 1" do
-#       it "returns a list of shop items" do
-#         @io = double :io
-#         app = Application.new('shop_manager', @io, ItemRepository.new, OrderRepository.new)
-#         welcome
-#         options
-#         gets("1")
-#         puts("Here's a list of all shop items: \n")
-#         puts("#1 Scrabble - Unit price: £14 - Quantity: 100")
-#         puts("#2 Catan - Unit price: £20 - Quantity: 25")
-#         app.run
-#       end
-#     end
-
-#     context "select 3" do
-#       it "returns a list of orders" do
-#         @io = double :io
-#         app = Application.new('shop_manager', @io, ItemRepository.new, OrderRepository.new)
-#         welcome
-#         options
-#         gets("3")
-#         puts("Here's a list of all orders: \n")
-#         puts("#1 Order name: Stephen - Order date: 2022-09-29")
-#         puts("#2 Order name: Alan - Order date: 2022-10-01")
-#         app.run
-#       end
-#     end
-
-#     context "select 2" do
-#       it "allows user to create new list item" do
-#         @io = double :io
-#         app = Application.new('shop_manager', @io, ItemRepository.new, OrderRepository.new)
-#         welcome
-#         options
-#         gets("2")
-#         puts("Please enter an item name")
-#         gets("Chess")
-#         puts("Please enter the item's price")
-#         gets("5")
-#         puts("Please enter a quantity of items")
-#         gets("300")
-#         puts("\nNew item added: ")
-#         puts("Chess - Unit price: £5 - Quantity: 300")
-#         app.run
-#       end
-#     end
-
-#     context "select 4" do
-#       it "allows user to create a new order" do
-#         @io = double :io
-#         app = Application.new('shop_manager', @io, ItemRepository.new, OrderRepository.new)
-#         welcome
-#         options
-#         gets("4")
-#         puts("Please enter the customer's name")
-#         gets("Margaret")
-#         puts("Please enter the order date (YYYY-MM-DD)")
-#         gets("2022-12-25")
-#         puts("\nNew order added: ")
-#         puts("New order: Customer name: Margaret - Date: 2022-12-25")
-#         app.run
-#       end
-#     end
-#   end
-      
-#   private
-
-#   def reset_tables(table_name)
-#     seed_sql = File.read(table_name)
-#     connection = PG.connect({ host: '127.0.0.1', dbname: 'shop_manager' })
-#     connection.exec(seed_sql)
-#   end
-
-#   def welcome
-#     puts("\nWelcome to the Game-azon management program!")
-#   end
-
-#   def options
-#     puts("\nWhat do you want to do?")
-#     puts("1 = list all shop items")
-#     puts("2 = create a new item")
-#     puts("3 = list all orders")
-#     puts("4 = create a new order")
-#     puts("9 = exit app\n\n")
-#     puts("Enter:")
-#   end
-
-#   def puts(string)
-#     expect(@io).to receive(:puts).with(string)
-#   end
-
-#   def gets(string)
-#     expect(@io).to receive(:gets).and_return(string)
-#   end
-# end

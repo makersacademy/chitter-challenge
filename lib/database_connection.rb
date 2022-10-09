@@ -1,6 +1,5 @@
 require 'pg'
 require 'bcrypt'
-# require 'dotenv/load'
 class DatabaseConnection
   def self.connect(database_name)
 

@@ -10,7 +10,8 @@
     </div>
     <div>
       <label>Username:<br>Keep to under 25 chars<br></label>
-      <input type="text" name="username" />
+      <input type="text" name="username" maxlength ="25"
+      />
     </div>
     <div>
       <label>Email:</label><br>
@@ -18,12 +19,32 @@
     </div>
     <div>
       <label>Password:<br>
-      - over 8 chars<br>
+      - 8-16 chars<br>
       - 1 number<br>
       - 1 letter<br></label>
-      <input type="text" name="password" />
+      <input type="text" name="password" maxlength="16"
+      onpaste="return false;"
+      ondrop="return false;"
+      autocomplete="off"/>
     </div>
        <input type="submit">
 </form>
 <a href= '../'> home</a><br><br>
 <a href= '../peeps'> feed</a>
+
+
+
+     <form action="/hello" method="POST">
+    Please enter your name: 
+    <input type="text" name="name" maxlength="25"
+    title="Only Letters"
+    value="Type Name Here"
+    onpaste="return false;"
+    ondrop="return false;"
+    autocomplete="off"
+    onkeydown="return /[a-z]/i.test(event.key)"
+    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+    onfocus="if (this.value == 'Type Letters Only') {this.value = '';}"/>
+    <input type="submit" />
+
+

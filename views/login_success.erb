@@ -1,13 +1,34 @@
 <html>
   <head></head>
   <body>
-    <h1> Successful login! </h1>
+    <h1> Successful login <%= @login_user.first_name %>! </h1>
     <br>
+
+<form method="POST" action="/">
+  <h1>Send a peep!</h1>
+    <div>
+      <label>Compose:</label>
+      <input type="text" name="content"
+      maxlength="140"
+      onpaste="return false;"
+      ondrop="return false;"
+      autocomplete="off"
+      />
+  </form>
+      <%# <input type="hidden" name="user_id" value="<%=@time%>
+    </div>
+
+    <a href='../'>
+      <input type="submit">
+    </a>
+</form>
+
+<a href= '../'> home</a>
+<a href= '../peeps'> feed</a>
+
     <div>
       <p> Want to peep? </p>
         <a href='login/new_peep'> Compose a Peep</a>
-        <a href='..'> Homepage </a><br>
-        <a href='../peeps'> Chitter Feed</a><br>
     </div>
   </body>
 </html>

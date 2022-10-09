@@ -1,6 +1,11 @@
 <form method="POST" action="/login">
       <label>Username:
-      <input type="text" name="username" />
+      <input type="text" name="username" 
+      maxlength="25"
+      onpaste="return false;"
+      ondrop="return false;"
+      autocomplete="off"
+      />
     </div>
     <div>
       <label>Password:<br>
@@ -10,4 +15,3 @@
 </form>
 <a href= '../'> home</a><br><br>
 <a href= '../peeps'> feed</a>
-

@@ -33,7 +33,6 @@ class Application < Sinatra::Base
     new_peep.content = params[:content]
     new_peep.time = (Time.now).strftime("%F %T")
     new_peep.user_id = params[:user_id]
-    # @users = user_repo.find_by_username(params[:username])
     
     peep_repo.create(new_peep)
     return ''
@@ -76,25 +75,26 @@ class Application < Sinatra::Base
     username = params[:username]
     password = params[:password]
 
-    login_user = UserRepository.new.find_by_username(username)
-    
-    if login_user == false
+    @login_user = UserRepository.new.find_by_username(username)
+
+    if @login_user == false
       return erb(:login_error)
-    elsif login_user.password == password
-      session[:user_id] = login_user.id
+    elsif @login_user.password == password
+      session[:user_id] = @login_user.id
       return erb(:login_success)
     else
       return erb(:login_error)
     end
   end
 
-  # get '/login/success' do
-  #   return erb(:login_success)
-  # end
-
-  # get '/login/error' do
-  #   return erb(:login_error)
-  # end
+  get '/login/new_peep' do
+    if session[:user_id] == nil
+      return redirect('/login')
+    else
+      # session[:user_id] = @login_user.id
+      return erb(:login_new_peep)
+    end
+  end
 
   private
 
@@ -113,3 +113,16 @@ class Application < Sinatra::Base
     end
   end
 end
+
+# <form action="/hello" method="POST">
+# Please enter your name: 
+# <input type="text" name="name" maxlength="25"
+# title="Only Letters"
+# value="Type Name Here"
+# onpaste="return false;"
+# ondrop="return false;"
+# autocomplete="off"
+# onkeydown="return /[a-z]/i.test(event.key)"
+# onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+# onfocus="if (this.value == 'Type Letters Only') {this.value = '';}"/>
+# <input type="submit" />
