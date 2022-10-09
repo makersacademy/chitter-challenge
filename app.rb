@@ -1,7 +1,7 @@
-require 'sinatra/base'
-require_relative 'lib/datbase_connection'
-require 'sinatra/reloader'
+require_relative 'lib/database_connection'
 
+require 'sinatra/base'
+require 'sinatra/reloader'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
 require_relative 'lib/user'

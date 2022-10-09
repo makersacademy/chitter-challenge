@@ -144,6 +144,9 @@ CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
   date date,
+  constraint fk_order foreign key(user_id) order users(id) on delete cascade,
+  constraint fk_item foreign key(peep_id) order peeps(id) on delete cascade,
+  PRIMARY KEY (order_id, item_id)
 -- The foreign key name is always {other_table_singular}_id
   constraint fk_user foreign key(user_id)
     references users(id)
@@ -151,6 +154,28 @@ CREATE TABLE peeps (
 );
 
 ```
+
+CREATE TABLE orders (
+  id SERIAL PRIMARY KEY,
+  customer_name text,
+  order_date date
+);
+
+-- Then the table with the foreign key first.
+CREATE TABLE items (
+  id SERIAL PRIMARY KEY,
+  name text,
+  price decimal(5,2),
+  quantity int
+
+--join table
+CREATE TABLE ordered_items (
+  order_id int,
+  item_id int,
+  constraint fk_order foreign key(order_id) order orders(id) on delete cascade,
+  constraint fk_item foreign key(item_id) order items(id) on delete cascade,
+  PRIMARY KEY (order_id, item_id)
+);
 
 ## 5. Create the tables.
 

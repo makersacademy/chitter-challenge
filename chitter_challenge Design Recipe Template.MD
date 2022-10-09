@@ -148,6 +148,8 @@ CREATE TABLE users (
   name text,
   email text
 
+);
+
 --join table
 CREATE TABLE user_peeps (
   peeps_id int,
