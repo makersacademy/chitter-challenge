@@ -107,4 +107,22 @@ describe MakerRepository do
       expect(repo.username_exists('foxlover2')).to eq false
     end
   end
+
+  describe '#log_in' do
+    it 'marks a user as logged in' do
+      repo = MakerRepository.new
+      repo.log_in('foxlover')
+
+      expect(repo.loggedin('foxlover')).to eq 'true'
+    end
+  end
+
+  describe '#log_out' do
+    it 'marks a user as logged off' do
+      repo = MakerRepository.new
+      repo.log_out('cute-cat')
+
+      expect(repo.loggedin('cute-cat')).to eq 'false'
+    end
+  end
 end
