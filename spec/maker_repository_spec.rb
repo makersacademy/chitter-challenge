@@ -114,6 +114,8 @@ describe MakerRepository do
       repo.log_in('foxlover')
 
       expect(repo.loggedin('foxlover')).to eq 'true'
+      expect(repo.loggedin('foxlover')).not_to be 'false'
+
     end
   end
 
@@ -123,6 +125,7 @@ describe MakerRepository do
       repo.log_out('cute-cat')
 
       expect(repo.loggedin('cute-cat')).to eq 'false'
+      expect(repo.loggedin('foxlover')).not_to be 'true'
     end
   end
 end
