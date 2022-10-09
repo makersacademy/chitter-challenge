@@ -4,6 +4,9 @@ ruby '3.0.0'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'capybara'
+gem 'pg'
+gem 'timecop'
+gem 'puma'
 
 group :test do
   gem 'rspec'

@@ -1,10 +1,37 @@
 require 'simplecov'
 require 'simplecov-console'
+require '/Users/saritaradia/Desktop/Projects/chitter-challenge/chitter-challenge/spec/database_setup.rb'
+require '/Users/saritaradia/Desktop/Projects/chitter-challenge/chitter-challenge/app.rb'
+require '/Users/saritaradia/Desktop/Projects/chitter-challenge/chitter-challenge/spec/Support/database_cleaner.rb'
+
+
+ENV['ENVIRONMENT'] = 'chitter_test'
+#NOTE: This may be duplicating the database cleaner
+RSpec.configure do |config|
+  config.before(:each) do
+    database_setup
+  end
+end
+
+ENV['RACK_ENV'] = 'chitter_test'
+
+# Bring in the contents of the `app.rb` file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
 
 #Added
-require '/Users/saritaradia/Desktop/Projects/chitter-challenge/chitter-challenge/app/app.rb'
+require 'capybara'
 require 'capybara/rspec'
+require 'rspec'
 Capybara.app = ChitterManager
+
+
+
+
+
+
+
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

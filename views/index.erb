@@ -1,0 +1,16 @@
+<form class="" action="/peeps" method="post">
+  <input type="text" name="Message">
+  <input type="text" name="Username">
+  <input type="text" name="Fullname">
+  <input type="text" name="Timestamp">
+  <input type="submit" value="Post peep">
+</form>
+
+<div class="">
+  <% peeps.each do |peep| %>
+    <p><%= peep.message %> </p>
+    <p><%= peep.username %> </p>
+    <p><%= peep.fullname %> </p>
+    <p><%= peep.timestamp %> </p>
+<% end %>
+</div>

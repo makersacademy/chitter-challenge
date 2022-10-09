@@ -42,7 +42,7 @@ Goals
 1. Post a message (peep) to Chitter
 - Add a peep
 - With a timestamp (part 3)
-- Include username at this stage?
+- Maker's username 
 
 2. List all peeps in reverse chronological order
 - Using timestamp, list peeps in reverse chronological order
