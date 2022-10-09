@@ -1,5 +1,6 @@
-require_relative '../lib/peep_repository.rb'
-require_relative '../lib/peep.rb'
+require 'peep_repository.rb'
+require 'peep.rb'
+require 'database_connection'
   
 RSpec.describe PeepRepository do
     def reset_chitter_challenge_tables
@@ -10,7 +11,7 @@ RSpec.describe PeepRepository do
     before(:each) do 
       reset_peeps_tables
     end
-  # issue with returning all users
+  # previous issue with returning all users
     xit 'returns all peeps' do
         repo = PeepRepository.new
 
@@ -27,33 +28,33 @@ RSpec.describe PeepRepository do
     end
     
     # only test thats functional
-    it 'returns a fresh post' do
+    it 'returns a fresh peep' do
         repo = PeepRepository.new
 
         fresh_peep = Peep.new
-        fresh_post.content = "Whatup!"
-        fresh_post.views = 99
-        fresh_post.user_id = 2
+        fresh_peep.content = "Anyone got Glastonbury tickets??"
+        fresh_peep.views = 99
+        fresh_peep.user_id = 2
 
-        repo.create(fresh_post)
+        repo.create(fresh_peep)
 
         all_peeps = repo.all
 
         expect(all_peeps).to include(
             have_attributes(
-                title: fresh_post.title,
-                content: fresh_post.content,
+                title: fresh_peep.title,
+                content: fresh_peep.content,
                 views: "99",
                 user_id: "2"
             )
         )
     end
-    #issue with deletions
+    #previous issue with deletions
     xit 'deletion of peeps' do
         repo = PostRepository.new
 
-        delete_post = 1
-        repo.delete(delete_post)
+        delete_peep = 1
+        repo.delete(delete_peep)
         expect(all_peeps.length).to eq 1
         expect(all_peeps.first.id).to eq "2"
     end
