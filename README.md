@@ -12,6 +12,7 @@ Progress:
 -------
 - All "Straight Up" and "Harder" features were implemented
 - No testing :(
+- Fully works on local machine but gives error on Heroku
 
 Features:
 -------
