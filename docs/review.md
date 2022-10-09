@@ -2,9 +2,9 @@
 
 Welcome to the code review for the Chitter Challenge!  Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to.  These are common issues to look out for in this challenge - but you may decide to take your own route.  
 
-<!-- Either way we'd very much appreciate you submitting the form, even if it's just to say that you didn't use it :-)
+Either way we'd very much appreciate you submitting the form, even if it's just to say that you didn't use it :-)
 
-Please use this [form](http://goo.gl/forms/0tgr6Q9Xh8) to tick off where your reviewee has successfully incorporated these guidelines!  This form helps us get an overall picture of how the whole cohort is doing - it's not an assessment of an individual student. -->
+Please use this [form](http://goo.gl/forms/0tgr6Q9Xh8) to tick off where your reviewee has successfully incorporated these guidelines!  This form helps us get an overall picture of how the whole cohort is doing - it's not an assessment of an individual student.
 
 # Step 0: Checkout and Run tests
 
@@ -78,6 +78,35 @@ $ git rm capybara-*.html
 then commit and push.  Please also ensure you follow the Ruby style guide regarding indentation and layout:
 
 https://github.com/bbatsov/ruby-style-guide
+
+## Ensure Rakefile has Appropriate Tasks
+
+Any scripts that touch the database or working area should be moved to the Rakefile.
+
+```ruby
+task :setup do
+  # Set up development and test databases
+end
+
+task :teardown do
+  # Destroy development and test databases
+end
+
+task :seed do
+  # Add some dummy data to the development database
+end
+```
+
+> The Rakefile makes it simpler to run common tasks where your code runs remotely. For instance: as part of deployment to Heroku and Continuous Integration ('CI').
+
+You can also add descriptions to Rake tasks, so when you run `rake -T`, you get a little description of each:
+
+```ruby
+desc "Add some dummy data to the development database"
+task :seed do
+  # do it
+end
+```
 
 ## Gemfile should Use Test Groups
 
@@ -254,7 +283,7 @@ module Helpers
   end
 ```
 
-See https://github.com/makersacademy/course/blob/main/pills/spec_helper_methods.md
+See https://github.com/makersacademy/course/blob/master/pills/spec_helper_methods.md
 
 # Step 4: Application code and \*.rb files
 
@@ -520,36 +549,5 @@ module Helpers
   def current_user
     @user ||=  User.get(session[:user_id])
   end
-end
-```
-
-## Nice-to-have: Ensure Rakefile has Appropriate Tasks
-
-(We removed Rake from the Bookmark Manager sequence in 2018, but it's nice to know about. Here is [the step](https://github.com/makersacademy/course/blob/main/bookmark_manager/using_rake.md) and here's [the walkthrough](https://github.com/makersacademy/course/blob/main/bookmark_manager/walkthroughs/using_rake.md).)
-
-Any scripts that touch the database or working area should be moved to the Rakefile.
-
-```ruby
-task :setup do
-  # Set up development and test databases
-end
-
-task :teardown do
-  # Destroy development and test databases
-end
-
-task :seed do
-  # Add some dummy data to the development database
-end
-```
-
-> The Rakefile makes it simpler to run common tasks where your code runs remotely. For instance: as part of deployment to Heroku and Continuous Integration ('CI').
-
-You can also add descriptions to Rake tasks, so when you run `rake -T`, you get a little description of each:
-
-```ruby
-desc "Add some dummy data to the development database"
-task :seed do
-  # do it
 end
 ```
