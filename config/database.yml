@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter
+
+test: 
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_test
