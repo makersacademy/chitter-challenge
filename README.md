@@ -11,6 +11,8 @@ Technologies used:
 Once all gems are installed, run tests in the terminal using `rspec`
 You can use `rubocop` to test against code guidelines
 
+Excalidraw diagram: https://excalidraw.com/#json=4z8emLZLyhHwVtHK1STEC,4Xoxjy2ic5fzYEWbb1hueg
+
 ------------------------------------
 Chitter Challenge
 =================
