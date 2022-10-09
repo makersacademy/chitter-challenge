@@ -13,3 +13,4 @@ group :development, :test do
 end
 
 gem "pg", "~> 1.4"
+gem "sinatra"
