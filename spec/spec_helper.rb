@@ -22,13 +22,20 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 #Added
 require 'capybara'
 require 'capybara/rspec'
+require 'capybara/dsl'
 require 'rspec'
+
+RSpec.configure do |config|
+  # Mixin the Capybara functionality into Rspec
+  config.include Capybara::DSL
+  config.order = 'default'
+end
+
+
+
+
+
 Capybara.app = ChitterManager
-
-
-
-
-
 
 
 

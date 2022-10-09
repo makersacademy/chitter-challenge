@@ -6,16 +6,15 @@ require 'pg'
 # session = Capybara::Session.new(:selenium)
 # Capybara.ignore_hidden_elements = false
 
+# before { Peep.create(message:'The CREATE message', timestamp: '1980-10-10 00:00:00')}
+
 
 feature 'Creating peeps' do
+  before { Peep.create(message:'The CREATE message', timestamp: '1980-10-10 00:00:00')}
   scenario "Add a peep and see it on the page" do
     visit('/peeps')
-    p find_field('message')
-    # fill_in 'message', with: 'TestMessage'
-    # find_field('message').set(message)
-    # page.fill_in :placeholder => 'message', with: 'TestMessage'
-    click_button('Post peep')
-    expect(page).to have_content('TestMessage')
+    click_button('PostPeep')
+    expect(page).to have_content('The CREATE message')
     expect(page.current_path).to have_content('/peeps')
   end
 end

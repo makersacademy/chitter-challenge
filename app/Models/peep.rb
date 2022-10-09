@@ -6,11 +6,9 @@ class Peep
       connection = PG.connect :dbname => 'chitter_test'
       result = connection.exec("SELECT * FROM peeps;")
       result.map do |row|
-        p row
+        row
         new(id: row["id"],
             message: row["message"],
-            username: row["username"],
-            fullname: row["fullname"],
             timestamp: row["timestamp"])
       end
     rescue PG::Error => e
@@ -20,24 +18,22 @@ class Peep
     end
   end
 
-  def self.create(message:, username:, fullname:, timestamp:)
+  def self.create(message:, timestamp:)
     begin
       connection = PG.connect :dbname => 'chitter_test'
-      connection.exec("INSERT INTO peeps (message, username, fullname, timestamp) VALUES('#{message}', '#{username}', '#{fullname}', '#{timestamp}')")
+      connection.exec("INSERT INTO peeps (message, timestamp) VALUES('#{message}', '#{timestamp}')")
     rescue PG::Error => e
       puts e.message
     ensure
       connection.close if connection
     end
-
   end
 
-  attr_reader :id, :message, :username, :fullname, :timestamp
-  def initialize(id:, message:, username:, fullname:, timestamp:)
+  attr_reader :id, :message, :timestamp
+  def initialize(id:, message:, timestamp:)
     @id = id
     @message = message
-    @username = username
-    @fullname = fullname
     @timestamp = timestamp
   end
 end
+

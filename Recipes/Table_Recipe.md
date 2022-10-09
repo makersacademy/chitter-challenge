@@ -162,32 +162,21 @@ Replace the relevant bits in this example with your own:
 ## 4. Write the SQL.
 
 ```sql
--- EXAMPLE
--- file: peep_user_table.sql
-
--- Replace the table name, column names and types.
-
--- Create the table without the foreign key first.
 CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  email VARCHAR,
-  username VARCHAR,
-  fullname text,
-  password VARCHAR
+                       id SERIAL PRIMARY KEY,
+                       email VARCHAR,
+                       username VARCHAR,
+                       fullname text,
+                       password VARCHAR
 );
-
--- Then the table with the foreign key
 CREATE TABLE peeps (
-  id SERIAL PRIMARY KEY,
-  message VARCHAR(160),
-  username VARCHAR(120), 
-  fullname text, 
-  timestamp TIMESTAMP,
--- The foreign key name is always {other_table_singular}_id
-  user_id int,
-  constraint fk_user foreign key(user_id)
-    references users(id)
-    on delete cascade
+                       id SERIAL PRIMARY KEY,
+                       message VARCHAR(160),
+                       timestamp TIMESTAMP,
+                       user_id int,
+                       constraint fk_user foreign key(user_id)
+                           references users(id)
+                           on delete cascade
 );
 
 ```
@@ -195,9 +184,11 @@ CREATE TABLE peeps (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 chitter_test < peep_user_table.sql
+psql -h 127.0.0.1 chitter_test < chitter_table_setup.sql
 
-psql -h 127.0.0.1 chitter < peep_user_table.sql
+psql -h 127.0.0.1 chitter < chitter_table_setup.sql
+
+
 
 
 ```

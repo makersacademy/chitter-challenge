@@ -1,16 +1,18 @@
-<form class="" action="/peeps" method="post">
-  <input type="text" name="Message">
-  <input type="text" name="Username">
-  <input type="text" name="Fullname">
-  <input type="text" name="Timestamp">
-  <input type="submit" value="Post peep">
+<form action="/peeps" method="post">
+ <label>Peep Message: <input type="text" name="message"> </label>
+  <input type="submit" name="PostPeep" value="PostPeep">
 </form>
 
-<div class="">
+<div>
   <% peeps.each do |peep| %>
-    <p><%= peep.message %> </p>
-    <p><%= peep.username %> </p>
-    <p><%= peep.fullname %> </p>
-    <p><%= peep.timestamp %> </p>
+    <p>Peep message: <%= peep.message %> </p>
+<!--    <p>Peep username: <%#= peep.username %> </p>-->
+<!--    <p>Full name: <%#= peep.fullname %> </p>-->
+    <p>Timestamp:<%= peep.timestamp %> </p>
 <% end %>
 </div>
+
+<!--  <label>Username: <input type="text" name="username"></label>-->
+<!--  <label>Full name: <input type="text" name="fullname"></label>-->
+<!--  <label>Timestamp<input type="text" name="timestamp"></label>-->
+
