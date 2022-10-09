@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav>
-        You are logged in as: 
+        You are logged in as: <%= @name %>
       </nav>
       <h1>Chitter</h1>
     </header>
@@ -24,7 +24,7 @@
       </div>
       <div class="messagescontainer">
         <h2>Messages</h2>
-        <% @all_peeps.each do |peep| %>
+        <% @all_peeps.reverse.each do |peep| %>
           <div class="message">
             <h3><%= peep.content %></h3>
             <p><%= peep.username %> <%= peep.creation_date %></p>

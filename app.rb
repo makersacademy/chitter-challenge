@@ -21,13 +21,16 @@ class Application < Sinatra::Base
   get '/user' do
     peep_repo = PeepRepository.new
     @all_peeps = peep_repo.all_with_usernames
+    @name = session[:name]
     erb :user
   end
 
   post '/login' do
     repo = UserRepository.new
     new_user = User.new(params[:username], params[:password])
-    
+    session[:name] = params[:username]
+    # I need to store the userID in a session eventually.
+    # Perhaps need to create a method that converts username to id.
      if repo.login?(new_user)
       redirect to ('/user')
      else
