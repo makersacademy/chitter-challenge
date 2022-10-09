@@ -37,14 +37,9 @@ class Application < Sinatra::Base
     new_maker.email = params[:email]
     new_maker.password = params[:password]
 
-    if maker_repo.maker_exists?(new_maker)
-      return erb(:signup_failure_exists)
-    else
-      maker_repo.create(new_maker)
-      return erb(:signup_success)
-    end
-    
-    return nil
+    return erb(:signup_failure_exists) if maker_repo.maker_exists?(new_maker)
+    maker_repo.create(new_maker)
+    return erb(:signup_success)
   end
 
   get '/signup/failure/exists' do
@@ -59,7 +54,6 @@ class Application < Sinatra::Base
     return erb(:login_success)
   end
 
-
   post '/login' do
     maker_repo = MakerRepository.new
     maker = Maker.new
@@ -67,15 +61,11 @@ class Application < Sinatra::Base
     maker.password = params[:password]
    
     id = maker_repo.find_id_by_username(maker.username)
-
-    if maker_repo.password_match?(maker)
-      maker_repo.login(id)
-      return erb(:login_success)
-    else
-      return erb(:login_failure)
-    end
     
-    return nil
+    return erb(:login_failure) unless maker_repo.password_match?(maker)
+
+    maker_repo.login(id)
+    return erb(:login_success)
   end
 
   get '/login/failure' do
@@ -85,14 +75,12 @@ class Application < Sinatra::Base
   get '/peep/new' do
     maker_repo = MakerRepository.new
             
-    if maker_repo.logged_in_maker_id == 'none'
-      return erb(:login_failure_absent)
-    else
-      id = maker_repo.logged_in_maker_id
-      @username = maker_repo.find_username_by_id(id)
-      @name = maker_repo.find_name_by_id(id)
-      return erb(:peep_new)
-    end
+    return erb(:login_failure_absent) if maker_repo.logged_in_maker_id == 'none'
+      
+    id = maker_repo.logged_in_maker_id
+    @username = maker_repo.find_username_by_id(id)
+    @name = maker_repo.find_name_by_id(id)
+    return erb(:peep_new)
   end
 
   get '/peep/success' do
@@ -115,7 +103,7 @@ class Application < Sinatra::Base
     maker_repo = MakerRepository.new
     id = maker_repo.logged_in_maker_id
     maker_repo.logout(id)
-    
+
     return erb(:logout)
   end
 end

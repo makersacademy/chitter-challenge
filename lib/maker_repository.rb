@@ -4,9 +4,7 @@ class MakerRepository
   def all
     sql = 'SELECT id, name, username, email, password FROM makers'
     results_set = DatabaseConnection.exec_params(sql, [])
-
     makers = []
-
     results_set.each do |record|
       new_maker = Maker.new
       new_maker.id = record['id']
@@ -14,7 +12,6 @@ class MakerRepository
       new_maker.username = record['username']
       new_maker.email = record['email']
       new_maker.password = record['password']
-
       makers << new_maker
     end
 
@@ -24,7 +21,6 @@ class MakerRepository
   def create(maker)
     sql = 'INSERT INTO makers (name, username, email, password) VALUES ($1, $2, $3, $4);'
     params = [maker.name, maker.username, maker.email, maker.password]
-
     DatabaseConnection.exec_params(sql, params)
 
     return nil
@@ -89,15 +85,8 @@ class MakerRepository
   def logged_in_maker_id
     sql = "SELECT * FROM makers WHERE login_status='true';"
     results_set = DatabaseConnection.exec_params(sql, [])
-
-    if results_set.first == nil
-      result = 'none'
-    else
-      result = results_set.first['id']
-    end
+    results_set.first.nil? ? result = 'none' : result = results_set.first['id']
 
     return result
   end
-  
 end
-

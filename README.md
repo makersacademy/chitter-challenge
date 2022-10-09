@@ -1,3 +1,17 @@
+Technologies used:
+
+- Ruby 3.1.2
+- Rspec
+- Rubocop
+- PG
+- PostgreSQL
+- Sinatra
+- Simplecov
+
+Once all gems are installed, run tests in the terminal using `rspec`
+You can use `rubocop` to test against code guidelines
+
+------------------------------------
 Chitter Challenge
 =================
 

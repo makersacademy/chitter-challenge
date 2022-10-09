@@ -17,8 +17,8 @@ describe MakerRepository do
 
       all_makers = repo.all
 
-      expect(all_makers.length).to eq 2
-      expect(all_makers.first.name). to eq "Chris"
+      expect(all_makers.length).to eq(2)
+      expect(all_makers.first.name).to eq("Chris")
     end
   end
 
@@ -33,8 +33,8 @@ describe MakerRepository do
 
       repo.create(new_maker)
 
-      expect(repo.all.length).to eq 3
-      expect(repo.all[2].name).to eq 'Olive'
+      expect(repo.all.length).to eq(3)
+      expect(repo.all[2].name).to eq('Olive')
     end
   end
 
@@ -59,7 +59,7 @@ describe MakerRepository do
   context '#find_id_by_username' do
     it 'returns id' do
       repo = MakerRepository.new
-      maker_id= repo.find_id_by_username('cast')
+      maker_id = repo.find_id_by_username('cast')
 
       expect(maker_id).to eq('1')
     end
@@ -104,7 +104,7 @@ describe MakerRepository do
         maker.email = 'cast@email.com'
         maker.password = '123'
 
-          expect(repo.password_match?(maker)).to eq(true)
+        expect(repo.password_match?(maker)).to eq(true)
       end
     end
   

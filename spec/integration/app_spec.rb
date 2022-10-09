@@ -243,7 +243,7 @@ describe Application do
 
   context 'A new peep form has been submitted' do
     context 'GET to /' do
-        it 'returns new peep on page' do
+      it 'returns new peep on page' do
         maker_repo = MakerRepository.new
         maker_repo.login('1')
 
