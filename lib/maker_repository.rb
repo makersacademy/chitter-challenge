@@ -87,7 +87,7 @@ class MakerRepository
   end
 
   def logged_in?
-    sql = "SELECT  * FROM makers WHERE login_status='true';"
+    sql = "SELECT * FROM makers WHERE login_status='true';"
     results_set = DatabaseConnection.exec_params(sql, [])
 
     if results_set.first == nil

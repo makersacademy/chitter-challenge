@@ -1,6 +1,7 @@
 require "spec_helper"
 require "rack/test"
 require_relative '../../app'
+require_relative '../../lib/maker_repository'
 
 def reset_tables
   peeps_seed_sql = File.read('spec/seeds/peeps_seeds.sql')
@@ -198,9 +199,12 @@ describe Application do
     end
 
     context 'maker is logged in' do
-      xit 'returns new peep page' do
+      it 'returns new peep page' do
+        makers_repo = MakerRepository.new
+        makers_repo.login('1')
         response = get('/peep/new')
 
+        expect(makers_repo.logged_in?).to eq(true)
         expect(response.status).to eq(200)
         expect(response.body).to include('<h3>Create a new Peep</h3>')
       end

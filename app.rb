@@ -84,7 +84,7 @@ class Application < Sinatra::Base
 
   get '/peep/new' do
     makers_repo = MakerRepository.new
-    
+        
     if makers_repo.logged_in? == false
       return erb(:login_failure_absent)
     else
