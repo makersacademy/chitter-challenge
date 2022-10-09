@@ -44,3 +44,5 @@ gem "pg", "~> 1.4" # PostgreSQL
 
 
 
+
+gem "mail", "~> 2.7"

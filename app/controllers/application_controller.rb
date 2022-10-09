@@ -1,5 +1,7 @@
 require "./config/environment"
 require "./app/models/user"
+require 'mail'
+
 class ApplicationController < Sinatra::Base
 
 	configure do
@@ -8,12 +10,16 @@ class ApplicationController < Sinatra::Base
 	end
 
 	get "/" do
-    @peeps = Peep.all
+    @peeps = Peep.order(:created_at).reverse_order
 		erb :index
 	end
 
 	get "/signup" do
-		erb :signup
+    if logged_in?
+      status 400
+    else
+		  erb :signup
+    end
 	end
 
 	post "/signup" do
@@ -23,45 +29,86 @@ class ApplicationController < Sinatra::Base
                     :email => params[:email]
                     )              
   
-    if @user.save
-      redirect "/login"
-    else
       erb :signup
-    end
 	end
 
 	get "/login" do
-		erb :login
+    if logged_in?
+      status 400
+    else
+		  erb :login
+    end
 	end
 
 	post "/login" do
 		user = User.find_by(:username => params[:username])
 
-    if user.authenticate(params[:password])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/success"
+      redirect "/"
     else
-      redirect "/" # Need "unsuccessfull login"
+      erb :failure
     end
 	end
 
 	get "/success" do
-		if session[:user_id] == nil
-      redirect "/login"
+		if current_user
+      erb :success
 		else
-			erb :success
+      redirect "/login"
 		end
 	end
 
-	# get "/failure" do
-  #   @errors = user.errors.full_messages
-	# 	erb :failure
-	# end
-
 	get "/logout" do
-		session.clear
-		redirect "/"
+    if logged_in?
+      session.clear
+		  erb :logout
+    else
+		  status 400
+    end
 	end
 
+  get "/peep" do
+    if logged_in?
+		  erb :create_peep
+    else
+		  status 400
+    end
+	end
+
+  post "/peep" do
+    @peep = Peep.new(content: params[:content],
+                     tagged_users: any_tagged_users?(params[:content]),
+                     user_id: current_user.id )
+    
+    if @peep.save
+      redirect "/"
+    else  
+      erb :create_peep
+    end
+	end
+
+  private
+
+  def logged_in?
+    !!session[:user_id]
+  end
+
+  def current_user
+    User.find(session[:user_id])
+  end
+
+  def any_tagged_users?(content)
+    tagged_users = []
+    words = content.split
+    usernames = User.pluck(:username)
+
+    usernames.each do |username|
+      if words.include?("@#{username}")
+        tagged_users << username
+      end
+    end
+    tagged_users
+  end
 
 end

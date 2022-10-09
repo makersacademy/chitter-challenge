@@ -52,42 +52,9 @@ Table: peeps
 - time
 - user_id
 
-## Step 0.3: Planning Model & Repo Classes
-
-### User
-
-```ruby
-
-```
-
-### Peep
-
-
 ## Step 1: Planning pages
 
 ## Step 2: Planning routes
-
-Remember that a web application flow is all based on the HTTP request-response cycle, from
-the web browser to the server application. You'll now need to draw your routes from the
-pages you planned at the previous step.
-
-This time, we're switching from the user perspective to the HTTP application engineer's
-perspective - thinking of the application's behaviour in requests and responses, rather
-than pages.
-
-For example:
-
- * A page (such as the home page) is usually returned by a `GET` route. For example, the
-   home page (which is almost always the first route you'll start with), is usually `GET
-   /`.
- * If the user navigates to a different page using a link, you will need a `GET` route for
-   this other page.
- * If the user submits a form that leads to a different page, you will need a `POST` route
-   to submit this form to.
-
-From the pages planned above, here are the routes we could plan. Once again, this is only
-a possible list of routes for this case — you could come up with slightly different ones,
-which would still satisfy the initial user stories.
 
 # Page: Homepage
 
@@ -96,20 +63,73 @@ GET /
 No parameters
 
 ## Response (200 OK)
-- Welcome message
-- Sign up link
-- Log in link
-- Peeps feed (chronological order)
+- Welcome message (DONE)
+- Peeps feed (chronological order) (DONE)
+- If logged out => Sign up and Log in buttons (DONE)
+- if logged in => Displays username + Log out button (DONE)
 
 # Page: Sign up page
 
 ## Request:
-GET /
+GET /signup
 No parameters
 
 ## Response (200 OK)
-- Returns sign up form to put: username, password,
+- Returns sign up form to put: username, password, real name, email (DONE)
+* Fails to access if logged in (DONE)
 
+## Request:
+POST /signup
 
+## Response (200 OK)
+- Validates all fields (DONE)
+* Needs to prevent harmful code
+- If user can't be saved => displays error messages (DONE)
+- If user saved => displays message Account created and gives link to login page  (DONE)
 
+# Page: Login page
 
+## Request:
+GET /login
+No parameters
+
+## Response (200 OK)
+- Returns login form: username and password (DONE)
+* Fails to access if logged in (DONE)
+
+## Request:
+POST /login
+
+## Response (200 OK)
+- Validates password (DONE)
+- If password incorrect => displays Error message (DONE)
+- If password correct => redirects to home page (DONE)
+
+# Page: Create Peep
+
+## Request:
+GET /peep
+No parameters
+
+## Response (200 OK)
+- Returns create peep form: content, tag user
+* Fails to access if logged out
+
+## Request:
+POST /peep
+
+## Response (200 OK)
+- Validates content not empty and tagged user exists
+* Needs to prevent harmful code
+- If success => Success message and link to home page
+- If failure => Failure message
+
+# Page: Logout
+
+## Request:
+GET /logout
+No parameters
+
+## Response (200 OK)
+- Returns erb :logout "You logged out!" + Link to homepage (DONE)
+* Fails to access if logged out (DONE)
