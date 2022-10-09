@@ -73,7 +73,7 @@ class MakerRepository
   def loggedin(username)
     sql = 'SELECT loggedin FROM makers WHERE username = $1;'
     result_set = DatabaseConnection.exec_params(sql, [username])
-
-    return result_set[0]['loggedin']
+    answer = result_set[0]['loggedin']
+    return answer
   end
 end
