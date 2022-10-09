@@ -14,3 +14,5 @@ end
 
 gem "pg", "~> 1.4"
 gem "sinatra"
+gem "sinatra-contrib"
+gem "webrick"
