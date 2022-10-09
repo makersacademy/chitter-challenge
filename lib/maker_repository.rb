@@ -77,7 +77,7 @@ class MakerRepository
   end
 
   def login(id)
-    sql = 'UPDATE makers SET login_status = true WHERE id = $1;'
+    sql = "UPDATE makers SET login_status='true' WHERE id = $1;"
     results_set = DatabaseConnection.exec_params(sql, [id])
   end
 
@@ -86,14 +86,14 @@ class MakerRepository
     results_set = DatabaseConnection.exec_params(sql, [id])
   end
 
-  def logged_in?
+  def logged_in_maker_id
     sql = "SELECT * FROM makers WHERE login_status='true';"
     results_set = DatabaseConnection.exec_params(sql, [])
 
     if results_set.first == nil
-      result = false
+      result = 'none'
     else
-      result = true
+      result = results_set.first['id']
     end
 
     return result

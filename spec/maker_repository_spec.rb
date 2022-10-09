@@ -154,7 +154,7 @@ describe MakerRepository do
       repo = MakerRepository.new
       repo.login('1')
 
-      expect(repo.logged_in?).to eq(true)
+      expect(repo.logged_in_maker_id).to eq('1')
     end
   end
 
@@ -163,7 +163,7 @@ describe MakerRepository do
       repo = MakerRepository.new
       repo.logout('1')
 
-      expect(repo.logged_in?).to eq(false)
+      expect(repo.logged_in_maker_id).to eq('none')
     end
   end
 end

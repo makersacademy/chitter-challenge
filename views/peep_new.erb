@@ -4,6 +4,19 @@
   <body>
     <h1>Chitter</h1>
     <h3>Create a new Peep</h3>
+
+    <div>
+    Name:<%=@name%> Username:<%=@username%>
+    </div> 
+
+    <form action="/peep/new" method="POST">
+        <div>
+          <label>Content</label>
+          <input type="text" name="content">
+        </div>       
+
+        <input type="submit" value="Submit">
+      </form>
   
   </body>
 </html>

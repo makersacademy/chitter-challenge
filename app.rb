@@ -30,17 +30,17 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    makers_repo = MakerRepository.new
+    maker_repo = MakerRepository.new
     new_maker = Maker.new
     new_maker.name = params[:name]
     new_maker.username = params[:username]
     new_maker.email = params[:email]
     new_maker.password = params[:password]
 
-    if makers_repo.maker_exists?(new_maker)
+    if maker_repo.maker_exists?(new_maker)
       return erb(:signup_failure_exists)
     else
-      makers_repo.create(new_maker)
+      maker_repo.create(new_maker)
       return erb(:signup_success)
     end
     
@@ -61,15 +61,15 @@ class Application < Sinatra::Base
 
 
   post '/login' do
-    makers_repo = MakerRepository.new
+    maker_repo = MakerRepository.new
     maker = Maker.new
     maker.username = params[:username]
     maker.password = params[:password]
    
-    id = makers_repo.find_id_by_username(maker.username)
+    id = maker_repo.find_id_by_username(maker.username)
 
-    if makers_repo.password_match?(maker)
-      makers_repo.login(id)
+    if maker_repo.password_match?(maker)
+      maker_repo.login(id)
       return erb(:login_success)
     else
       return erb(:login_failure)
@@ -83,13 +83,35 @@ class Application < Sinatra::Base
   end
 
   get '/peep/new' do
-    makers_repo = MakerRepository.new
-        
-    if makers_repo.logged_in? == false
+    maker_repo = MakerRepository.new
+            
+    if maker_repo.logged_in_maker_id == 'none'
       return erb(:login_failure_absent)
     else
+      id = maker_repo.logged_in_maker_id
+      @username = maker_repo.find_username_by_id(id)
+      @name = maker_repo.find_name_by_id(id)
       return erb(:peep_new)
     end
   end
 
+  get '/peep/success' do
+    return erb(:peep_success)
+  end
+
+  post '/peep/new' do
+    maker_repo = MakerRepository.new
+    peep_repo = PeepRepository.new
+    
+    new_peep = Peep.new
+    new_peep.content = params[:content]
+    new_peep.maker_id = maker_repo.logged_in_maker_id
+    peep_repo.create(new_peep)
+
+    return erb(:peep_success)
+  end
+
+  get '/logout' do
+    return erb(:logout)
+  end
 end

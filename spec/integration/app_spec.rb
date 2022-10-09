@@ -200,14 +200,75 @@ describe Application do
 
     context 'maker is logged in' do
       it 'returns new peep page' do
-        makers_repo = MakerRepository.new
-        makers_repo.login('1')
+        maker_repo = MakerRepository.new
+        maker_repo.login('1')
         response = get('/peep/new')
 
-        expect(makers_repo.logged_in?).to eq(true)
+        expect(maker_repo.logged_in_maker_id).to eq('1')
         expect(response.status).to eq(200)
         expect(response.body).to include('<h3>Create a new Peep</h3>')
       end
     end
+
+    it 'returns peep created page' do
+      response = get('/peep/success')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h3>Peep created.</h3>')
+    end
+
+    it 'returns peep/new page with name and username' do
+      maker_repo = MakerRepository.new
+      maker_repo.login('1')
+      response = get('/peep/new')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Chris')
+    end
+
+    context 'new peep form submitted' do
+      it 'creates new peep' do
+        maker_repo = MakerRepository.new
+        maker_repo.login('1')
+
+        response = post('/peep/new',
+        content: 'A new peep is made'
+        )
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<h3>Peep created.</h3>')
+      end
+    end
   end
+  context 'A new peep form has been submitted' do
+    context 'GET to /' do
+        it 'returns new peep on page' do
+        maker_repo = MakerRepository.new
+        maker_repo.login('1')
+
+        response = post('/peep/new',
+        content: 'A new peep is made'
+        )
+
+        response = get('/')
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include('cast')
+        expect(response.body).to include('HandsomeForest')
+        expect(response.body).to include('A new peep is made')
+      end
+    end
+  end
+
+context 'Maker logs out' do
+  context 'GET to /logout' do
+    it 'returns logout success page' do
+      response = get('/logout')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h3>Logout successful</h3>')
+    end
+  end
+end
+
+
 end
