@@ -59,7 +59,7 @@ class Application < Sinatra::Base
     maker_repo = MakerRepository.new
 
     return erb(:write_peep_error1) unless maker_repo.username_exists(params[:username])
-    return erb(:write_peep_error2) unless maker_repo.loggedin(params[:username]) 
+    return erb(:write_peep_error2) if maker_repo.loggedin(params[:username]) == 'false'
 
     maker = maker_repo.find_with_username(params[:username])
 
@@ -100,7 +100,7 @@ class Application < Sinatra::Base
       
     maker = maker_repo.find_with_username(params[:username])
     
-    return erb(:logout_error) if maker.email != params[:email] or maker.password != params[:password]
+    return erb(:logout_error) if maker.password != params[:password]
     
     maker_repo.log_out(params[:username])
 
