@@ -190,14 +190,16 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Log-out of Chitter</h1>')
       expect(response.body).to include('<input type="text" name="username" required pattern="^[\w\-\s]+$">')
+      expect(response.body).to include('<input type="submit" value="Log-out from Chitter">')
+
     end
   end
 
-  context 'post/login' do
+  context 'post/logout' do
     it 'returns a success page if user is logged out' do
 
       response = post(
-        '/login',
+        '/logout',
         username: 'cute-cat',
         email: 'ruby1@gmail.com',
         password: '12345'
@@ -209,7 +211,7 @@ describe Application do
 
     it 'returns an error page if user cannot be logged out' do
       response = post(
-        '/login',
+        '/logout',
         username: 'cute-cat',
         email: 'ruby1@gmail.com',
         password: '1234577'
