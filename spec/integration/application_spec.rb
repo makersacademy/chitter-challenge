@@ -106,12 +106,10 @@ describe Application do
   context 'POST /write_peep' do
     it 'returns a success page' do
       maker_repo = MakerRepository.new
-      fake_maker = double(name:'David', username:'eagle-man', email:'email@emal.com', password:'22212dddd', loggedin: true)
-      maker_repo.create(fake_maker)
       
       response = post(
         '/write_peep',
-        username: 'eagle-man',
+        username: 'cute-cat',
         content: 'Another beautiful day in this countryside house.'
       )
 
@@ -173,8 +171,8 @@ describe Application do
     it 'returns an error page if user cannot be logged in' do
       response = post(
         '/login',
-        username: 'cute-cat',
-        email: 'ruby1@gmail.com',
+        username: 'cute-cat2',
+        email: 'ruby1@gmail.com2',
         password: '1234577'
       )
       
