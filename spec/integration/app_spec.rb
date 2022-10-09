@@ -29,15 +29,20 @@ RSpec.describe Application do
 
   describe 'POST /login' do
     context 'Credentials are wrong' do
-      xit 'returns user to login page' do
-        response = post('/login', username: 'Jim', password: 'Bob')
-        expect(response).to redirect_to('/')
+      it 'returns user to login page' do
+        post('/login', username: 'Jim', password: 'Bob')
+        expect(last_response).to be_redirect
+        follow_redirect!
+        expect(last_request.url).to eql 'http://example.org/'
       end
     end
 
     context 'Credentials are correct' do
-      xit 'sends user to user page' do
-        
+      it 'sends user to user page' do
+        post('/login', username: 'Heisenberg', password: 'roof_pizza')
+        expect(last_response).to be_redirect
+        follow_redirect!
+        expect(last_request.url).to eql 'http://example.org/user'
       end
     end
   end
