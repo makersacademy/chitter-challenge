@@ -1,6 +1,5 @@
 ENV['SINATRA_ENV'] ||= "development"
 
-require 'capybara/dsl'
 require 'bundler/setup'
 require 'active_record'
 
