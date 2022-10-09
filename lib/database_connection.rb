@@ -9,11 +9,19 @@ class DatabaseConnection
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
   def self.connect
+    # If the environment variable (set by Heroku)
+    # is present, use this to open the connection.
     if ENV['chitter_test'] != nil
       @connection = PG.connect(ENV['chitter_test'])
       return
     end
-    @connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test'})
+  
+    if ENV['ENV'] == 'test'
+      database_name = 'chitter_test'
+    else
+      database_name = 'chitter'
+    end
+    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   end
 
   # This method executes an SQL query 
