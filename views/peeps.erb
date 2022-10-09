@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h1>Peeps</h1>
+</head>
+
+<body>
+  <div>
+    <% @peeps.each do |peep|%>
+    <%= User.find(peep.user_id).username %><br />
+    <%= peep.content %>, <%= peep.created_at %><br />
+    <% end %>
+  </div>
+
+  <footer>
+    <h3><a href="/">Home</a><br /></h3>
+   </footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Welcome to Chitter</h1>
+  </head>
+
+  <body>
+    <h3><a href="peeps">Peeps</a></h3>
+    <div>
+      <% @peeps.each do |peep|%>
+      <%= peep.content %>, <%= peep.created_at %><br />
+      <% end %>
+    </div>
+    <br />
+    <div>
+      <a href="signup">Sign Up</a><br />
+      <a href="signin">Sign In</a><br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Hello, <%= @username %></h1>
+  </head>
+
+  <body>
+    <form action="/peep" method="POST">
+      <div>
+        <label>Create a peep</label><br />
+        <input maxlength="150" type="text" name="content"><br />
+        <input type="submit" value="Post">
+      </div>
+    </form>
+
+    <br />
+
+    <form action="/signout" method="POST">
+      <input type="submit" value="Sign out">
+    </form>
+  </body>
+</html>

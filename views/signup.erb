@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Sign up</h1>
+  </head>
+
+  <body>
+    <h3>Join us and share what you think</h3>
+
+    <form action="/signup/new" method="POST">
+      <div>
+        <label>Email</label><br />
+        <input type="string" name="email"><br />
+      </div>
+
+      <div>
+        <label>Username</label><br />
+        <input type="string" name="username"><br />
+      </div>
+
+      <div>
+        <label>Password</label><br />
+        <input type="string" name="password">
+      </div>
+
+      <div>
+        <label>Confirm password</label><br />
+        <input type="string" name="password_confirmation">
+      </div>
+
+      <div>
+        <input type="submit" value="Create">
+      </div>
+    </form>
+  </body>
+</html>

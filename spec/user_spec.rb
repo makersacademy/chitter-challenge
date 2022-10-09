@@ -1,5 +1,5 @@
 require_relative './spec_helper'
-require_relative '../lib/user'
+require_relative '../models/user'
 
 RSpec.describe User do
   context "with valid attributes" do

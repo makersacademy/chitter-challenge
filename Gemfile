@@ -25,3 +25,7 @@ gem "pg", "~> 1.4"
 
 gem "email_validator", "~> 2.2"
 gem "bcrypt", "~> 3.1.7"
+
+gem "flash", "~> 0.1.0"
+
+gem "rack_session_access", "~> 0.2.0"
