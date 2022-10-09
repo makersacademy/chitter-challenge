@@ -1,6 +1,5 @@
 require "./config/environment"
 require "./app/models/user"
-require 'mail'
 
 class ApplicationController < Sinatra::Base
 

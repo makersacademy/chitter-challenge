@@ -34,15 +34,3 @@ gem "webrick", "~> 1.7" # Ruby server
 gem "rake", "~> 13.0" # Automates database creation
 gem "pg", "~> 1.4" # PostgreSQL
 
-
-
-
-
-
-
-
-
-
-
-
-gem "mail", "~> 2.7"
