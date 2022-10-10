@@ -5,6 +5,10 @@
 <body>
 <p>What are you up to today?</p>
 
+<%if @error == true%>
+  <%=puts%><p>Please enter your message:</p>
+<%end%>
+
 <form method='POST' action='/new_peep'>
 <input type='text' name='content'/>
  

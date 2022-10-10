@@ -60,7 +60,6 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<p>Welcome to CHITTER, Joanna!</p>')
       expect(response.body).to include("<a href='/user_chitter'>share your thoughts with other Makers here</a>")
-      response = get('/')
       expect(users).to include(
         have_attributes(email: 'joannaMccain@makersacademy.com')
       )
@@ -204,7 +203,7 @@ describe Application do
       expect(response.body).to include("<input type='text' name='password'/>")
     end
 
-    it "returns the error page when email is incorrect" do
+    it "returns the error page when password is incorrect" do
       response = post('/login', 
         email: 'anna@makersacademy.com',
         password: 'incorrect5'
@@ -216,7 +215,20 @@ describe Application do
       expect(response.body).to include("<input type='text' name='password'/>")
     end
 
-    it "logs in user when email and password are correct adn displays the list of peeps" do
+    it "returns the error page when details are empty" do
+      response = post('/login', 
+        email: '',
+        password: ''
+      )
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<form method='POST' action='/login'>")
+      expect(response.body).to include("<p>The information you provided does not match our records.</p>")
+      expect(response.body).to include("<input type='text' name='email'/>")
+      expect(response.body).to include("<input type='text' name='password'/>")
+    end
+
+    it "logs in user when email and password are correct and displays the list of peeps" do
+      env 'rack.session', user_id: '1'
       response = post('/login', 
         email: 'anna@makersacademy.com',
         password: '235346hgsdv'
@@ -232,24 +244,54 @@ describe Application do
       # expect(response.body).to include("<p>I like cats</p>")
       # expect(response.body).to include("<div>","</div>")
       # expect(response.body).to include("<a href='/logout'> log out </a><br/><br/>")
+      
+      expect(response.content_type).to eq("text/html;charset=utf-8")
     end
   end
   
   context "POST /new_peep" do
     it 'creates a new peep and returns 200 OK' do
+      env 'rack.session', user_id: '1'
       response = post(
         '/new_peep', 
         content: 'I am happy', 
         time: '2004-10-19 12:23:54',
-        user_id: 1
       )
       peeps = PeepRepository.new.all
       expect(response.status).to eq(200)
       expect(peeps).to include(
         have_attributes(content: 'I am happy')
       )
-      response = get('/')
-      expect(response.body).to include('I am happy')
+    end
+
+    it 'fails to create a new peep when the content is empty' do
+      env 'rack.session', user_id: '1'
+      response = post(
+        '/new_peep', 
+        content: "", 
+        time: '2004-10-19 12:23:54',
+      )
+      peeps = PeepRepository.new.all
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<form method='POST' action='/new_peep'>")
+      expect(response.body).to include("<h3>Hi Anna!</h3></head>")
+      expect(response.body).to include("<p>What are you up to today?</p>")
+      expect(response.body).to include("<p>Please enter your message:</p>")
+      expect(response.body).to include("<input type='text' name='content'/>")
+    end
+
+    it 'redirects when not logged in and returns 302' do
+      response = post(
+        '/new_peep', 
+        content: 'I am happy', 
+        time: '2004-10-19 12:23:54',
+      )
+      peeps = PeepRepository.new.all
+      expect(response.status).to eq(302)
+      expect(peeps).not_to include(
+        have_attributes(content: 'I am happy')
+      )
     end
   end
 end
+
