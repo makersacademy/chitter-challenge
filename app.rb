@@ -15,10 +15,14 @@ class Application < Sinatra::Base
 
     # Homepage
   get '/' do
-    repo = PeepRepository.new
-    @peeps = repo.all
+    user_repo = UserRepository.new
+    peep_repo = PeepRepository.new
+    @user = user_repo.all
+    @peeps = peep_repo.all
     return erb(:homepage)
   end
+
+  # <h5><%= @user.name %></h5>
 
   # Signup page
   get '/signup' do
@@ -43,11 +47,15 @@ class Application < Sinatra::Base
       # (see if i can redirect page automatically to homepage)
   end
 
-  get '/users/:id' do
+  get '/user' do
+    return erb(:user_list)
+  end
+
+  get '/user/:id' do
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
-    @peep = peep_repo.find(params[:id])
-    @user = user_repo.find(@user.id)
+    # @peep = peep_repo.find(@peep.user_id)
+    @user = user_repo.find(params[:id])
     return erb(:users)
   end
 

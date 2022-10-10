@@ -10,17 +10,16 @@ class PeepRepository
       peep.id = info['id'].to_i
       peep.content = info['content']
       peep.user_id = info['user_id'].to_i
-      p peeps << peep
+      peeps << peep
     end
-    
     return peeps.reverse
   end
 
   def find(id)
-    sql = 'SELECT * FROM peeps WHERE id = $1;'
+    sql = 'SELECT id, content, user_id FROM peeps WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
-    peep = PeepRepository.new
+    peep = Peep.new
     peep.id = result_set[0]['id'].to_i
     peep.content = result_set[0]['content']
     peep.user_id = result_set[0]['username'].to_i
@@ -34,7 +33,7 @@ class PeepRepository
   end
 
   def delete(peep)
-    sql = 'DELETE FROM peeps WHERE content = ?;'
+    sql = 'DELETE FROM peeps WHERE content = $1;'
     DatabaseConnection.exec_params(sql, [peep]);
   end
 end

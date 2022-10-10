@@ -1,12 +1,8 @@
 <html>
   <head></head>
   <body>
-    <% @user.each do |user| %>
-      <h1><%= user.name %></h1>
-      <h3><%= user.username %></h3>
-      <div>
-        <%= peep.content%>
-      </div>
-    <% end%>
+  
+      <h1><%= @user.name %></h1>
+      <h3><%= @user.username %></h3>
   </body>
 </html>

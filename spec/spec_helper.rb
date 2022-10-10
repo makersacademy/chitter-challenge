@@ -11,7 +11,7 @@ SimpleCov.start
 
 ENV['ENV'] = 'test'
 
-DatabaseConnection.connect('chitter_test')
+DatabaseConnection.connect
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

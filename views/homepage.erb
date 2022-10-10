@@ -1,18 +1,15 @@
 <html>
   <head></head>
   <body>
+  <title>Welcome to Chitter</title>
     <h1>Peeps</h1>
-
     <% @peeps.each do |peep| %>
       <div>
-        <h5><a href="/users/<%= user.name%>"></a></h5> <h5><i><a href="/users/<%= user.username%>"></a></i></h5>
-      </div>
-      <div>
-        <h2>
+        <p>
           <%= peep.content %> 
-        </h2>
+        </p>
       </div>
     <% end %>
-    <input type="submit" value="Sign Up to post peeps">
+    <a href="/signup"><input type="submit" value="Sign Up to post peeps"></a>
   </body>
 </html>
