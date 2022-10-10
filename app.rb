@@ -43,10 +43,10 @@ class Application < Sinatra::Base
   post '/new_maker' do
     new_maker = Maker.new
     new_maker.email = params[:email]
+    new_maker.password = params[:password]
     new_maker.name = params[:name]
     new_maker.username = params[:username]
-    new_maker.password = params[:password]
-
+    
     @maker_manager.create(new_maker)
 
     return redirect('/feed')

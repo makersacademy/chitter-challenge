@@ -6,13 +6,13 @@
 </head>
 <body>
   <h1>chitter</h1>
-  <h1><a href="/login">register/login</h1>
-  <h3>new peep</h3>
   <form method="post" action="/feed">
-    Content: <input type="text" name="content" />
+    peep at us!: <input type="text" name="content" />
     <input type="submit" value="Submit" />
   </form>
 
+  <div>
+  <a href="/new_maker">new maker?</a><br>
   <hr />
   <% @peeps.each do |peep| %>
     <div>
