@@ -1,5 +1,14 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'database_connection'
+
+DatabaseConnection.connect
+
+def reset_tables
+  seed_sql = File.read('spec/seeds/reset_tables_seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test', user: 'postgres', password: '0'})
+  connection.exec(seed_sql)
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
