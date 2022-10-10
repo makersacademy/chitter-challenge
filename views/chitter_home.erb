@@ -1,0 +1,23 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Welcome to Chitter!</h1>
+    <hr />
+    <br>
+
+      <form method="post" action="chitter/home">
+      <input type="text" name="peep" placeholder="Peep"/>
+      <input type="submit" value="Peep!"/>
+      </form>
+      <br>
+      <hr />
+      <br>
+
+    <% @peeps.each do |peep| %>
+
+    <div><p><%=peep.user_id%> peeps: <%=peep.content%> - Peeped at: <%=peep.time%></p></div>
+
+    <% end %>
+
+  </body>
+</html>
