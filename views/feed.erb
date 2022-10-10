@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8>
+  <title>chitter</title>
+</head>
+<body>
+  <h1>chitter</h1>
+  <form method="post" action="/feed">
+    peep at us!: <input type="text" name="content" />
+    <input type="submit" value="Submit" />
+  </form>
+
+  <div>
+  <a href="/new_maker">new maker?</a><br>
+  <hr />
+  <% @peeps.each do |peep| %>
+    <div>
+      <h3><%= peep.content %></h3>
+       <p><%= maker_id.username %></p>
+       <p><%= maker_id.name %></p>
+       <p><%= peep.timestamp %></p>
+    </div>
+  <% end %>
+</body>
+</html>
