@@ -1,4 +1,15 @@
+<html>
+  <head><h1>CHITTER</h1>
+  <h2>makers chit chat</h2></head>
+
+<body> 
+
 <h1>chit in</h1>
+
+<%if @error != nil%>
+  <p><%=@error%></p>
+<%end%>
+
 <form method='POST' action='/login'>  
   <div>  
     <label>your email:</label>
@@ -17,3 +28,5 @@
 <div>  
   <a href= "/">keep on reading us</a>
 </div>  
+</body>
+</html>

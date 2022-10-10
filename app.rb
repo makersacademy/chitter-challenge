@@ -26,9 +26,7 @@ class Application < Sinatra::Base
   end
 
   post "/new_user" do
-    # @error = nil
     input_validation
-    p @error
     if @error != nil
       @name = params[:name]
       return erb(:signup)
@@ -50,7 +48,8 @@ class Application < Sinatra::Base
   post '/login' do
     @user = UserRepository.new.find_by_email(params[:email])
     if (@user == nil || @user.password != params[:password])
-      return erb(:login_error)
+      @error = "The information you provided does not match our records."
+      return erb(:login)
     else
       session[:user_id] = @user.id
       return erb(:user_chitter)
@@ -100,23 +99,4 @@ class Application < Sinatra::Base
     end  
     return @error
   end
-
-  # def input_validation
-  #   repo_users = UserRepository.new
-  #   if ((params[:name].length == 0) || (params[:username].length == 0) || (params[:password].length == 0))
-  #     @error = "input_missing"
-  #   elsif params[:name].match?(/[^a-z\s-]{2,30}/i)
-  #     @error = "invalid_name"
-  #   elsif (params[:username].match?(/[^a-z\d]/i) || params[:username].length < 5)
-  #     @error = "invalid_username"
-  #   elsif (!params[:email].include?('@') || params[:email].split("@")[-1] != 'makersacademy.com' || params[:email].split("@")[0].match?(/[^a-z\s-]{2,16}/i))
-  #     @error = "not_makers_email"
-  #   elsif repo_users.email_exists?(params[:email])
-  #     @error = "email_exists"
-  #   elsif repo_users.username_exists?(@params[:username])
-  #     @username = params[:username]
-  #     @error = "username_taken"
-  #   end  
-  #   return @error
-  # end
 end
