@@ -19,9 +19,11 @@ class Application < Sinatra::Base
   end
 
   get '/user' do
+    user_repo = UserRepository.new
     peep_repo = PeepRepository.new
     @all_peeps = peep_repo.all_with_usernames
     @name = session[:name]
+    session[:user_id] = user_repo.get_user_id(session[:name])
     erb :user
   end
 
@@ -47,7 +49,7 @@ class Application < Sinatra::Base
 
   post '/peep/new' do
     peep_repo = PeepRepository.new
-    peep = Peep.new(params[:content], 0, params[:user_id])
+    peep = Peep.new(params[:content], 0, session[:user_id])
     peep_repo.create(peep)
     redirect to('/user')
   end
