@@ -1,0 +1,84 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: white;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 40px;
+  letter-spacing: 8px;
+  font-weight: bolder;
+  color: #651f7c;
+  padding: 0 10px;
+}
+
+h2 {
+  padding: 0 10px;
+}
+
+header {
+  margin: 20px 10px;
+}
+
+body {
+  text-align: center;
+}
+
+.normal_width {
+  padding: 0 60px;
+}
+
+.peep {
+  width: 400px;
+  background-color: rgb(164, 252, 252);
+  border: 2px solid #400D51;  
+  border-radius: 3px;
+  margin: 20px auto;
+}
+
+.peep_header {
+  border-bottom: 2px solid #400D51;
+  background-color: rgb(85, 200, 200);
+  padding: 5px 15px;
+}
+
+.peep_content {
+  background-color: rgb(164, 252, 252);
+  padding: 5px 15px;
+}
+
+.link {
+  margin: 20px;
+}
+
+input {
+  font-size: 18px;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 3px;
+  margin: 10px;
+  background-color: rgb(85, 200, 200);
+  border: 2px solid #400D51;
+}
+
+input[type=submit] {
+  background-color: rgb(84, 152, 152);
+}
+
+::placeholder {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background-color: #D800A6;
+  padding: 5px 12px;
+  border: 3px solid #400D51;
+  border-radius: 25px;
+}
+
+a:hover, a:active {
+  background-color: #400D51 ;
+}

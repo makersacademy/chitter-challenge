@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chitter - Your Peep message board</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+  <body>
+    <header>      
+      <% if @user_created == 'true' %>
+        <div>Sign Up successful!</div>
+      <% end %>
+      <% if @username == nil %>
+        <a href="/login">Login</a>
+        <a href="/sign_up">Sign Up</a>
+      <% else %>
+        <div>You are logged in as <%= @username %>.<div>
+        <form method="POST" action="/logout">
+          <input type="submit" value="Log out">
+        </form>
+      <% end %>
+    </header>
+    <div class="normal_width"><h1>chitter</h1></div>
+
+    <% if @username != nil %>
+      <div>
+        <form method="POST" action="/new_peep">
+          <input type="text" name="content" placeholder="New Peep" multiline="true">
+          <input type="submit" value="Post">
+        </form>
+      </div>
+      <% end %>
+
+    <% @peeps.each do |peep| %>
+      <div class="peep">
+        <div class="peep_header"><%= peep.username %> <%= peep.time_posted %></div>
+        <div class="peep_content"><%= peep.content %></div>
+      </div>
+    <% end %>
+  </body>
+</html>
