@@ -1,0 +1,25 @@
+<html>
+   <head>
+     <h1>Chitter</h1>  
+   </head>  
+     <form action="/peep/<%= @username %>" method="POST">
+     <div>
+       <label>Create a peep:</label></br>  
+       <input style="font-size:30px" type="text" name="peep_context">
+     </div></br>  
+     <input type="submit" value="post peep">
+     </form> <button onclick="location.href='/'"> Sign out </button>
+
+      <h2> Peeps: </h2>
+          <div>
+            <% @peeps_with_users.each do |key, value| %>
+              <p>
+                <strong><%= value[:name] %></strong> (<%= value[:username] %>)</br>
+                <%= value[:context] %></br>
+                <%= value[:time_and_date] %>
+              </p>
+            <% end %>
+          </div>         
+    </p>
+  </body>
+</html>

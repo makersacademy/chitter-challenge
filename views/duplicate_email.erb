@@ -1,0 +1,35 @@
+<html>
+  <head></head>
+  <body>
+  <h1> Chitter </h1>
+    <h2> Create a Chitter Account </h2>
+    <FONT COLOR="RED">
+    <h4> * The email address entered is already in use </h4>
+    <FONT COLOR="BLACK">
+    <h4> Please use another email adress or login here:  <button onclick="location.href='/login'"> Login </button></h4>
+    
+    <form action="/register" method="POST">
+      <div>
+        <label>Full Name:</label>
+        <input type="text" name="new_name">
+      </div></br>
+
+      <div>
+        <label>Username:</label>
+        <input type="text" name="new_username">
+      </div></br>
+      
+      <div>
+        <label>Email:</label>
+        <input type="text" name="new_email">
+      </div></br>
+
+      <div>
+        <label>Password:</label>
+        <input type="text" name="new_password">
+      </div></br>
+      
+      <input type="submit" value="Sign up">
+    </form>
+    </body>
+  </html>

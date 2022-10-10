@@ -8,6 +8,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require 'database_connection'
+ENV['ENV'] = 'test'
+DatabaseConnection.connect
+
 RSpec.configure do |config|
   config.after(:suite) do
     puts
