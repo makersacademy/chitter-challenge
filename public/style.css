@@ -1,6 +1,6 @@
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #ebebeb;
+  background-color: white;
   margin: 0;
 }
 
@@ -21,16 +21,20 @@ header {
   margin: 20px 10px;
 }
 
+body {
+  text-align: center;
+}
+
 .normal_width {
   padding: 0 60px;
 }
 
 .peep {
-  width: 300px;
+  width: 400px;
   background-color: rgb(164, 252, 252);
   border: 2px solid #400D51;  
   border-radius: 3px;
-  margin: 20px 10px;
+  margin: 20px auto;
 }
 
 .peep_header {
