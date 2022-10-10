@@ -342,7 +342,7 @@ class Chitter < Sinatra::Application
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/index.erb'
   end
 
   get '/peeps/new' do
@@ -367,7 +367,7 @@ end
 class PeepController < Sinatra::Base
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/index.erb'
   end
 
   get '/peeps/new' do
