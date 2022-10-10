@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+    <a href="/signup">Sign up</a> <a href="/login">Login</a> <a href="/logout">Logout</a> <a href="/peep/new">Create Peep</a>
+  
+      <h3>Peeps</h3>
+          <%@peeps.each do |peep|%>
+            <div>
+              <p>
+              Maker: <%= @maker_repo.find_name_by_id(peep.maker_id)%><br />
+              Username: <%=@maker_repo.find_username_by_id(peep.maker_id)%><br />
+              Posted: <%= peep.timestamp%><br />
+              Content: <%= peep.content%><br />
+              </p>
+            </div>
+          <%end%>
+  </body>
+</html>
