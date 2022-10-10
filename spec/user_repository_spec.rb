@@ -53,4 +53,12 @@ RSpec.describe UserRepository do
       expect(user_repo.login?(other_user)).to eq false
     end
   end
+
+  describe '#get_user_id' do
+    it 'Returns the index from DB when given username' do
+      user_repo = UserRepository.new
+      expect(user_repo.get_user_id("JarJarSecond")).to eq "5"
+      expect(user_repo.get_user_id("Heisenberg")).to eq '4'
+    end
+  end
 end

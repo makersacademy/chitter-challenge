@@ -26,4 +26,9 @@ class UserRepository
       database_user == user
     end
   end
+
+  def get_user_id(username)
+    sql = "SELECT id FROM users WHERE username = $1"
+    DatabaseConnection.exec_params(sql, [username])[0]["id"]
+  end
 end
