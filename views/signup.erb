@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Chitter</title>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+    </head>
+    <body>
+        <header>
+            <h1><a href='/'>Signup</a></h1>
+        </header>
+        <main>
+            <form action='/signup' method='POST' novalidate>
+            <div>
+                <label>Email:</label>
+                <input type='email' name='email' value=''>
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type='password' name='password'>
+            </div>
+            <div>
+                <input type='submit' value='Signup'>
+            </div>
+        </form>
+        </main>
+        <footer>
+            Powered by <a href='https://www.ruby-lang.org/en/'>Ruby</a>
+        </footer>
+    </body>
+</html>

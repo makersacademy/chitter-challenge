@@ -1,6 +1,11 @@
 Chitter Challenge
 =================
 
+
+Calum Wilmot Chitter Challenge - Partially complete solution. Yet to implement tests, however both the 'get' methods in app.rb are functioning as intended and the requisite tables have been created.
+
+Still to do - write .erb file for afailed logins page, write a working 'login' function in signup_repository.rb that checks the input data against the 'users' database. 
+
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
