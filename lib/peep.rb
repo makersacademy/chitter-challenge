@@ -1,4 +1,4 @@
 class Peep
 
-  attr_accessor :message, :tag, :time, :user_id
+  attr_accessor :message, :tag, :created_at
 end

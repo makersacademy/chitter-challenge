@@ -9,11 +9,15 @@ CREATE TABLE peeps (
     id SERIAL PRIMARY KEY,
     message text,
     tag text,
-    time date,
-    user_id int4
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    user_id int
 );
 
-TRUNCATE TABLE peeps RESTART IDENTITY;
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email text,
+    password text
+);
 
 2. Create Test SQL seeds
 
@@ -21,9 +25,9 @@ TRUNCATE TABLE peeps RESTART IDENTITY;
 
 TRUNCATE TABLE peeps RESTART IDENTITY;
 
-INSERT INTO peeps ("message", "tag", "time", "user_id") VALUES
-('Nice weather this morning!', 'Miles', '2004-10-19 10:30', 1),
-('Love this song!', 'Miles', '2001-01-14 08:45', 1);
+INSERT INTO peeps ("message", "tag", "created_at") VALUES
+('Nice weather this morning!', 'Miles', '2004-10-19 10:30'),
+('Love this song!', 'Miles', '2001-01-14 08:45');
 
 psql -h 127.0.0.1 peeps_test < peep_seeds.sql
 
@@ -49,7 +53,7 @@ Model class # (in lib/peep.rb)
 
 class Peep
 
-  attr_accessor :message, :tag, :time, :user_id
+  attr_accessor :message, :tag, :created_at
 end
 
 
@@ -65,7 +69,7 @@ class PeepRepository
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT message, tag, time, user_id FROM peeps;
+    # SELECT message, tag, created_at FROM peeps;
 
     # Returns an array of Peep objects.
   end
@@ -73,7 +77,7 @@ class PeepRepository
   # finding one record with id as argument
   def find(id)
     # Executes the SQL query:
-    # SELECT message, tag, time, user_id FROM peeps WHERE id = $1;
+    # SELECT message, tag, created_at FROM peeps WHERE id = $1;
 
     # Returns a single Peep object.
   end
@@ -81,7 +85,7 @@ class PeepRepository
   # inserting a new record with instance of Peep class as argument
   def create(post)
     # Executes the SQL query:
-    # INSERT INTO peeps (message, tag, time, user_id) VALUES ($1, $2, $3, $4)
+    # INSERT INTO peeps (message, tag, created_at) VALUES ($1, $2, $3)
     # Returns nothing.
   end
 end
@@ -101,8 +105,7 @@ peeps = repo.all
 peeps.length # =>  2
 peeps[0].message # => 'Nice weather this morning!'
 peeps[0].tag # => 'Miles'
-peeps[0].time # => '2004-10-19 10:30'
-peeps[0].user_id # => '1'
+peeps[0].created_at # => '2004-10-19 10:30:00'
 
 # 2
 # finds a peep
@@ -112,8 +115,7 @@ repo = PeepRepository.new
 peep = repo.find(2)
 peep.message # => 'Love this song!'
 peep.tag # => 'Miles'
-peep.time # => '2001-01-14 08:45'
-peep.user_id # => '1'
+peep.created_at # => '2001-01-14 08:45:00'
 
 # 3
 # Create a new peep
@@ -122,8 +124,7 @@ repo = PeepRepository.new
 new_peep = Peep.new
 new_peep.message = 'Hello, world!'
 new_peep.tag = ''
-new_peep.time = '2022-01-01 12:00'
-new_peep.user_id = '1'
+new_peep.created_at = '2022-01-01 12:00:00'
     
 repo.create(new_peep) # => nil
 
@@ -131,8 +132,7 @@ peeps = repo.all
 last_peep = peeps.last
 last_peep.message # => 'Hello, world!'
 last_peep.tag # => ''
-last_peep.time # => '2022-01-01 12:00'
-last_peep.user_id # => '1'
+last_peep.created_at # => '2022-01-01 12:00:00'
 
 7. Reload the SQL seeds before each test run
 

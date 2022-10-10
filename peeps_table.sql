@@ -2,6 +2,12 @@ CREATE TABLE peeps (
     id SERIAL PRIMARY KEY,
     message text,
     tag text,
-    time timestamp,
-    user_id int4
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    user_id int
+);
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email text,
+    password text
 );

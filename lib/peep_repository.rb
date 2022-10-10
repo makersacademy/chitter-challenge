@@ -1,11 +1,11 @@
-require 'peep.rb'
+require_relative 'peep.rb'
 
 class PeepRepository
-
+  
   # Selecting all records
   # No arguments
   def all
-    sql = 'SELECT message, tag, time, user_id FROM peeps;'
+    sql = 'SELECT message, tag, created_at FROM peeps;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     peeps = []
@@ -14,8 +14,7 @@ class PeepRepository
       peep = Peep.new
       peep.message = record['message']
       peep.tag = record['tag']
-      peep.time = record['time']
-      peep.user_id = record['user_id']
+      peep.created_at = record['created_at']
     peeps << peep
     end
     return peeps
@@ -23,16 +22,21 @@ class PeepRepository
 
   # finding one record with id as argument
   def find(id)
-    # Executes the SQL query:
-    # SELECT message, tag, time, user_id FROM peeps WHERE id = $1;
-
-    # Returns a single Peep object.
+    sql = 'SELECT message, tag, created_at FROM peeps WHERE id = $1;'
+    params = [id]
+    result = DatabaseConnection.exec_params(sql, params)
+    record = result[0]
+    peep = Peep.new
+    peep.message = record['message']
+    peep.tag = record['tag']
+    peep.created_at = record['created_at']
+    return peep
   end
 
   # inserting a new record with instance of Peep class as argument
-  def create(post)
-    # Executes the SQL query:
-    # INSERT INTO peeps (message, tag, time, user_id) VALUES ($1, $2, $3, $4)
-    # Returns nothing.
+  def create(peep)
+    sql = 'INSERT INTO peeps (message, tag, created_at) VALUES ($1, $2, $3);'
+    params = [peep.message, peep.tag, peep.created_at]
+    DatabaseConnection.exec_params(sql, params)
   end
 end

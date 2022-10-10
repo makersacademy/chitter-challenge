@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8>
+  <title>Chitter</title>
+</head>
+<body>
+  <h1><p style="font-family: Optima">Welcome to</h1>
+  <h1><p style="font-family: Bradley Hand"><font size= "+3">Chitter</font></h1>
+
+  <h3>Add new peep</h3>
+  <form method="post" action="/account_name/peeps">
+    Message: <input type="text" name="message" />
+    Tag: <input type="text" name="tag" />
+    Date/Time: <input type="datetime-local" name="created_at" />
+    <input type="submit" value="Submit" />
+  </form>
+  <% @peeps.reverse.each do |peep| %>
+    <div>
+      <p><%= peep.message %></p>
+      <p><font size="-1">Tagged people: <%= peep.tag %></font></p>
+      <p><font size="-1">Posted at: <%= peep.created_at %></font></p>
+      <p> --- </p>
+    </div>
+  <% end %>
+</body>
+</html>
