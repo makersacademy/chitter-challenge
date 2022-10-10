@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS peeps;
+
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  content text,
+  user_id int,
+  constraint fk_user foreign key(user_id)
+    references users(id)
+    on delete cascade
+);
+
+TRUNCATE TABLE peeps RESTART IDENTITY;
+
+INSERT INTO peeps ("content", "user_id") VALUES
+('Hey all, Im the flash, the fastets man alive!', 1),
+('Good Morning America, it is I Superman!', 2),
+('Im Batman', 3),
+('Hey yall its your friendly neighbourhood spider-man!', 4);
