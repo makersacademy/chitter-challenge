@@ -18,14 +18,14 @@ RSpec.describe Application do
     end
   end
 
-  describe 'GET /user' do
-    it'renders the user page' do
-      get '/user'
-      expect(last_response).to be_ok
-      expect(last_response.body).to include('<h1>Chitter</h1>')
-      expect(last_response.body).to include('<h2>Messages</h2>')
-    end
-  end
+  #describe 'GET /user' do
+    #it'renders the user page' do
+      #get '/user'
+      #expect(last_response).to be_ok
+      #expect(last_response.body).to include('<h1>Chitter</h1>')
+      #expect(last_response.body).to include('<h2>Messages</h2>')
+    #end
+  #end
 
   describe 'POST /login' do
     context 'Credentials are wrong' do
