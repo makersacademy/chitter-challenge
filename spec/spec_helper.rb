@@ -2,7 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_connection'
 
-DatabaseConnection.connect('chitter_test')
+DatabaseConnection.connect
 
 def reset_tables
   seed_sql = File.read('spec/seeds/reset_tables_seeds.sql')
