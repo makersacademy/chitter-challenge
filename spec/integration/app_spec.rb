@@ -75,7 +75,7 @@ describe Application do
       )
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<p>Hi Joanna, this email has already been registered.</p>')
+      expect(response.body).to include('<p>This email has already been registered.</p>')
       expect(response.body).to include("<p>Please review your details:</p>")
       expect(response.body).to include("<form method='POST' action='/new_user'>")
     end
@@ -90,7 +90,7 @@ describe Application do
       )
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<p>Hi Joanna, username anna123 is already in use. Please choose a different one.</p>')
+      expect(response.body).to include('<p>This username is already in use. Please choose a different one.</p>')
       expect(response.body).to include("<p>Please review your details:</p>")
       expect(response.body).to include("<form method='POST' action='/new_user'>")
     end

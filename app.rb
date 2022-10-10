@@ -28,9 +28,10 @@ class Application < Sinatra::Base
   post "/new_user" do
     # @error = nil
     input_validation
+    p @error
     if @error != nil
       @name = params[:name]
-      return erb(:new_user_error)
+      return erb(:signup)
     end
     repo_users = UserRepository.new
     @user = User.new
@@ -84,19 +85,38 @@ class Application < Sinatra::Base
   def input_validation
     repo_users = UserRepository.new
     if ((params[:name].length == 0) || (params[:username].length == 0) || (params[:password].length == 0))
-      @error = "input_missing"
+      @error = "Some essential information is missing."
     elsif params[:name].match?(/[^a-z\s-]{2,30}/i)
-      @error = "invalid_name"
+      @error = "Your name seems to be incorrect."
     elsif (params[:username].match?(/[^a-z\d]/i) || params[:username].length < 5)
-      @error = "invalid_username"
+      @error = "Your username can only contain letters and numbers, and must be between 5 and 16 characters long."
     elsif (!params[:email].include?('@') || params[:email].split("@")[-1] != 'makersacademy.com' || params[:email].split("@")[0].match?(/[^a-z\s-]{2,16}/i))
-      @error = "not_makers_email"
+      @error = "Please use your Makers' email to create a Chitter account."
     elsif repo_users.email_exists?(params[:email])
-      @error = "email_exists"
+      @error = "This email has already been registered."
     elsif repo_users.username_exists?(@params[:username])
       @username = params[:username]
-      @error = "username_taken"
+      @error = "This username is already in use. Please choose a different one."
     end  
     return @error
   end
+
+  # def input_validation
+  #   repo_users = UserRepository.new
+  #   if ((params[:name].length == 0) || (params[:username].length == 0) || (params[:password].length == 0))
+  #     @error = "input_missing"
+  #   elsif params[:name].match?(/[^a-z\s-]{2,30}/i)
+  #     @error = "invalid_name"
+  #   elsif (params[:username].match?(/[^a-z\d]/i) || params[:username].length < 5)
+  #     @error = "invalid_username"
+  #   elsif (!params[:email].include?('@') || params[:email].split("@")[-1] != 'makersacademy.com' || params[:email].split("@")[0].match?(/[^a-z\s-]{2,16}/i))
+  #     @error = "not_makers_email"
+  #   elsif repo_users.email_exists?(params[:email])
+  #     @error = "email_exists"
+  #   elsif repo_users.username_exists?(@params[:username])
+  #     @username = params[:username]
+  #     @error = "username_taken"
+  #   end  
+  #   return @error
+  # end
 end

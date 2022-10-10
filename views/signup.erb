@@ -1,3 +1,14 @@
+<html>
+  <head><h1>CHITTER</h1>
+  <h2>makers chit chat</h2></head>
+
+<body> 
+<%if @error != nil%>
+ <p>Hi <%=@name%>!</p>
+ <p><%=@error%></p>
+ <p>Please review your details:</p>
+<%end%>
+
 <h1>join our chittering community:</h1>
 <form method='POST' action='/new_user'>
   <div>
@@ -20,10 +31,12 @@
     <input type='text' name='password'/>  
   </div>   
   <div>  
-  <input type='submit'/>
+  <input type='submit' name="join us today"/>
   </div>  
 </form>
 
 <div>  
   <a href= "/">keep on reading us here</a>
 </div>  
+</body>
+</html>
