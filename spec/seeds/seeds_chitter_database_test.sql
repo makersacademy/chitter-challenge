@@ -41,8 +41,8 @@ INSERT INTO users (name, username, email, password) VALUES
 
 INSERT INTO peeps (content, time, user_id) VALUES
 ('I love sunshine', '2004-10-19 10:23:54', 1),
-('I do not love sunshine', '2004-10-19 12:23:54', 2),
-('I like rain', '2004-10-19 23:23:54', 3),
-('I am dancing in the rain', '2004-10-19 07:23:54', 1),
-('I like dogs','2004-10-19 10:15:54', 1),
-('I like cats', '2004-10-19 10:00:54', 2);
+('I do not love sunshine', '2005-10-19 12:23:54', 2),
+('I like rain', '2006-10-19 23:23:54', 3),
+('I am dancing in the rain', '2007-10-19 07:23:54', 1),
+('I like dogs','2008-10-19 10:15:54', 1),
+('I like cats', '2009-10-19 10:00:54', 2);

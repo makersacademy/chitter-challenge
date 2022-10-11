@@ -1,6 +1,7 @@
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
+# require_relative 'lib/input_validation'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
@@ -75,6 +76,7 @@ class Application < Sinatra::Base
     peep.time = Time.new
     peep.user_id = session[:user_id]
     @peep_repo.create(peep)
+    peeps_list
     return erb(:user_chitter)
   end
 
@@ -96,13 +98,14 @@ class Application < Sinatra::Base
     end
     @error = "Some essential information is missing."
   end
-
+  
   def incorrect_format_errors
     if @name.match?(/[^a-z\s-]{2,30}/i)
       @error = "Your name seems to be incorrect."
     elsif (@username.match?(/[^a-z\d]/i) || @username.length < 5)
-      @error = "Your username can only contain letters and numbers, and must be between 5 and 16 characters long."
-    elsif (!@email.include?('@') || @email.split("@")[-1] != 'makersacademy.com' || @email.split("@")[0].match?(/[^a-z\s-]{2,16}/i))
+      @error = "Your username must contain letters and numbers and be 5 to 16 characters long"
+    elsif (!@email.include?('@') || @email.split("@")[-1] != 'makersacademy.com' ||
+        @email.split("@")[0].match?(/[^a-z\s-]{2,16}/i))
       @error = "Please use your Makers' email to create a Chitter account."
     end
   end
@@ -118,8 +121,6 @@ class Application < Sinatra::Base
 
   def peeps_list
     @peep_repo = PeepRepository.new
-    @peeps = @peep_repo.all.sort do |post|
-      post.id
-    end
+    @peeps = @peep_repo.all.sort_by { |post| post.time }.reverse
   end
 end

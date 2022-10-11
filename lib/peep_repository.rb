@@ -2,7 +2,8 @@ require_relative './peep'
 
 class PeepRepository
   def all
-    sql = 'SELECT id, content, time, user_id FROM peeps;'
+    sql = "SELECT id, content, time, user_id FROM peeps;"
+    # sql = "SELECT id, content, to_char(time,'HH12-MI AM DD-MM-YYYY') AS time, user_id FROM peeps;"
     result_set = DatabaseConnection.exec_params(sql, [])
     peeps = []
     result_set.map do |record|
@@ -12,7 +13,9 @@ class PeepRepository
   end
 
   def find(id)
-    sql = 'SELECT id, content, time, user_id FROM peeps WHERE id = $1;'
+    sql = "SELECT id, content, time AS time, user_id 
+      FROM peeps 
+      WHERE id = $1;"
     params = [id]
     result_set = DatabaseConnection.exec_params(sql, params)
     return "No record found" if result_set.to_a.empty?

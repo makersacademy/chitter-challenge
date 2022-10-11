@@ -27,10 +27,14 @@ describe Application do
       expect(response.body).to include("<head><h2>makers chit chat</h2></head>")
       expect(response.body).to include("<a href='/signup'> SIGN UP </a><br/>")
       expect(response.body).to include("<a href='/login'> LOG IN </a><br/><br/>")
-      expect(response.body).to include("<p>Anna @anna123 at 2004-10-19 10:23:54</p>")
+      expect(response.body).to include("<p>Anna</p>")
+      expect(response.body).to include("<p>@anna123</p>")
       expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>John @john123 at 2004-10-19 10:00:54</p>")
+      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
+      expect(response.body).to include("<p>John</p>")
+      expect(response.body).to include("<p>@john123</p>")
       expect(response.body).to include("<p>I like cats</p>")
+      expect(response.body).to include("<p>10:00 AM 19 Oct 09</p>")
       expect(response.body).to include("<div>","</div>")
 
     end
@@ -120,7 +124,9 @@ describe Application do
       )
       
       expect(response.status).to eq(200)
-      expect(response.body).to include('<p>Your username can only contain letters and numbers, and must be between 5 and 16 characters long.</p>')
+      expect(response.body).to include('<p>Your username must contain letters and numbers and be 5 to 16 characters long</p>')
+      # Your username can only contain letters and numbers, 
+      #  +        and must be between 5 and 16 characters long.
       expect(response.body).to include('<p>Please review your details:</p>')
     end
 
@@ -239,30 +245,43 @@ describe Application do
       expect(response.body).to include("<h3>Hi Anna!</h3></head>")
       expect(response.body).to include("<p>What are you up to today?</p>")
       expect(response.body).to include("<input type='text' name='content'/>")
-      expect(response.body).to include("<p>Anna @anna123 at 2004-10-19 10:23:54</p>")
+      expect(response.body).to include("<p>Anna</p>")
+      expect(response.body).to include("<p>@anna123</p>")
       expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>John @john123 at 2004-10-19 10:00:54</p>")
+      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
+      expect(response.body).to include("<p>John</p>")
+      expect(response.body).to include("<p>@john123</p>")
       expect(response.body).to include("<p>I like cats</p>")
+      expect(response.body).to include("<p>10:00 AM 19 Oct 09</p>")
       expect(response.body).to include("<div>","</div>")
       expect(response.body).to include("<a href='/logout'>chit out</a>")
-      
-      expect(response.content_type).to eq("text/html;charset=utf-8")
     end
   end
   
   context "POST /new_peep" do
     it 'creates a new peep and returns 200 OK' do
+      allow(Time).to receive(:new).and_return Time.new(2022, 9, 19, 7, 23, 7)
       env 'rack.session', user_id: '1'
       response = post(
         '/new_peep', 
         content: 'I am happy', 
-        time: '2004-10-19 12:23:54',
       )
       peeps = PeepRepository.new.all
       expect(response.status).to eq(200)
       expect(peeps).to include(
         have_attributes(content: 'I am happy')
       )
+      expect(response.body).to include("<p>Anna</p>")
+      expect(response.body).to include("<p>@anna123</p>")
+      expect(response.body).to include("<p>I am happy</p>")
+      expect(response.body).to include("<p> 7:23 AM 19 Sep 22</p>")
+      expect(response.body).to include("<p>I love sunshine</p>")
+      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
+      expect(response.body).to include("<p>John</p>")
+      expect(response.body).to include("<p>@john123</p>")
+      expect(response.body).to include("<p>I like cats</p>")
+      expect(response.body).to include("<p>10:00 AM 19 Oct 09</p>")
+      expect(response.body).to include("<div>","</div>")
     end
 
     it 'fails to create a new peep when the content is empty' do

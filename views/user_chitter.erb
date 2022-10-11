@@ -17,9 +17,11 @@
  
 <%@peeps.map do |peep|%>
   <div>
-    <p><%=@user_repo.find(peep.user_id).name%> @<%=@user_repo.find(peep.user_id).username%> at <%=peep.time%></p>
+    <p><%=@user_repo.find(peep.user_id).name%></p>
+    <p>@<%=@user_repo.find(peep.user_id).username%></p>
     <p><%=peep.content%></p><br/>
-    </div>
+    <p><%=Time.parse(peep.time).strftime("%k:%M %p %d %b %y")%></p>
+  </div>
   <%end%>
 
 <a href='/logout'>chit out</a>
