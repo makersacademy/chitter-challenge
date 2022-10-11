@@ -313,4 +313,19 @@ describe Application do
       )
     end
   end
+
+  context 'when logging out' do
+    it 'logs out the user and displays the index page' do
+      response = get('/logout')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<head><h1>CHITTER</h1></head>")
+      expect(response.body).to include("<head><h2>makers chit chat</h2></head>")
+      expect(response.body).to include("<a href='/signup'> SIGN UP </a><br/>")
+      expect(response.body).to include("<a href='/login'> LOG IN </a><br/><br/>")
+      expect(response.body).to include("<p>Anna</p>")
+      expect(response.body).to include("<p>@anna123</p>")
+      expect(response.body).to include("<p>I love sunshine</p>")
+      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
+    end
+  end
 end

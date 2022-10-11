@@ -57,7 +57,10 @@ class Application < Sinatra::Base
 
   get '/logout' do
     session[:user_id] = nil
-    return redirect('/logout')
+    @logged_out = true
+    peeps_list
+    @user_repo = UserRepository.new
+    return erb(:index)
   end
 
   post '/new_peep' do
