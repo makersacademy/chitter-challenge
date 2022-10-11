@@ -36,11 +36,12 @@ I want to log out of Chitter
 
 Progress so far:
 -----
-- Features for user stories 1 - 4 built.
+- Features for user stories 1 - 6 built.
 - Added registration as a feature including with bcrypt for password encryption
+- Added authentication - sign in and sign out
 - Added some minor style features (my eyes can't take Times New Roman)
-- Next is to add authentication - sign in and sign out
-- Need to add name to the registration and then add name and user handle to the peeps
+- Next steps are to add name to the registration and then add name and user handle to the peeps
+- Also need to ensure email and username are unique
 - More style features need adding as well
 
 Technical Approach:
