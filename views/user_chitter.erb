@@ -15,7 +15,14 @@
 <input type='Submit' />
 </form><br/>
  
-<a href='/'>chit out </a>
+<%@peeps.map do |peep|%>
+  <div>
+    <p><%=@user_repo.find(peep.user_id).name%> @<%=@user_repo.find(peep.user_id).username%> at <%=peep.time%></p>
+    <p><%=peep.content%></p><br/>
+    </div>
+  <%end%>
+
+<a href='/logout'>chit out</a>
 </body>
 
 </html>

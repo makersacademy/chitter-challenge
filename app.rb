@@ -13,11 +13,8 @@ class Application < Sinatra::Base
   end
 
   get "/" do
-    peep_repo = PeepRepository.new
+    peeps_list
     @user_repo = UserRepository.new
-    @peeps = peep_repo.all.sort do |post|
-      post.id
-    end
     return erb(:index)
   end
 
@@ -46,14 +43,15 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    @user = UserRepository.new.find_by_email(params[:email])
+    @user_repo = UserRepository.new
+    @user = @user_repo.find_by_email(params[:email])
     if (@user == nil || @user.password != params[:password])
       @error = "The information you provided does not match our records."
       return erb(:login)
-    else
-      session[:user_id] = @user.id
-      return erb(:user_chitter)
     end
+    session[:user_id] = @user.id
+    peeps_list
+    return erb(:user_chitter)
   end
 
   get '/logout' do
@@ -65,17 +63,18 @@ class Application < Sinatra::Base
     if session[:user_id] == nil
       return redirect('/login')
     end
-    peep = Peep.new
-    @user = UserRepository.new.find(session[:user_id])
+    @user_repo = UserRepository.new
+    @user = @user_repo.find(session[:user_id])
+    peeps_list
     if params[:content].empty?
       @error = true
       return erb(:user_chitter)
     end
+    peep = Peep.new
     peep.content = params[:content]
     peep.time = Time.new
     peep.user_id = session[:user_id]
-    peep_repo = PeepRepository.new
-    peep_repo.create(peep)
+    @peep_repo.create(peep)
     return erb(:user_chitter)
   end
 
@@ -98,5 +97,12 @@ class Application < Sinatra::Base
       @error = "This username is already in use. Please choose a different one."
     end  
     return @error
+  end
+
+  def peeps_list
+    @peep_repo = PeepRepository.new
+    @peeps = @peep_repo.all.sort do |post|
+      post.id
+    end
   end
 end

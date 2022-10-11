@@ -4,13 +4,13 @@
 <a href='/signup'> SIGN UP </a><br/>
 <a href='/login'> LOG IN </a><br/><br/>
 
-  <%@peeps.map do |peep|%>
   <body>
-  <div>
-    <p><%=@user_repo.find(peep.user_id).name%> @<%=@user_repo.find(peep.user_id).username%></p>
-    <p><%=peep.time%></p>
-    <p><%=peep.content%></p><br/>
-    </div>
+
+  <%@peeps.map do |peep|%>
+    <div>
+      <p><%=@user_repo.find(peep.user_id).name%> @<%=@user_repo.find(peep.user_id).username%> at <%=peep.time%></p>
+      <p><%=peep.content%></p><br/>
+      </div>
+    <%end%>
   </body>
-  <%end%>
 </html>

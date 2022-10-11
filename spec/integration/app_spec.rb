@@ -27,11 +27,12 @@ describe Application do
       expect(response.body).to include("<head><h2>makers chit chat</h2></head>")
       expect(response.body).to include("<a href='/signup'> SIGN UP </a><br/>")
       expect(response.body).to include("<a href='/login'> LOG IN </a><br/><br/>")
-      expect(response.body).to include("<p>Anna @anna123</p>")
+      expect(response.body).to include("<p>Anna @anna123 at 2004-10-19 10:23:54</p>")
       expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>John @john123</p>")
+      expect(response.body).to include("<p>John @john123 at 2004-10-19 10:00:54</p>")
       expect(response.body).to include("<p>I like cats</p>")
       expect(response.body).to include("<div>","</div>")
+
     end
   end
 
@@ -238,12 +239,12 @@ describe Application do
       expect(response.body).to include("<h3>Hi Anna!</h3></head>")
       expect(response.body).to include("<p>What are you up to today?</p>")
       expect(response.body).to include("<input type='text' name='content'/>")
-      # expect(response.body).to include("<p>Anna @anna123 at 2004-10-19 10:23:54</p>")
-      # expect(response.body).to include("<p>I love sunshine</p>")
-      # expect(response.body).to include("<p>John @john123 at 2004-10-19 10:00:54</p>")
-      # expect(response.body).to include("<p>I like cats</p>")
-      # expect(response.body).to include("<div>","</div>")
-      # expect(response.body).to include("<a href='/logout'> log out </a><br/><br/>")
+      expect(response.body).to include("<p>Anna @anna123 at 2004-10-19 10:23:54</p>")
+      expect(response.body).to include("<p>I love sunshine</p>")
+      expect(response.body).to include("<p>John @john123 at 2004-10-19 10:00:54</p>")
+      expect(response.body).to include("<p>I like cats</p>")
+      expect(response.body).to include("<div>","</div>")
+      expect(response.body).to include("<a href='/logout'>chit out</a>")
       
       expect(response.content_type).to eq("text/html;charset=utf-8")
     end
