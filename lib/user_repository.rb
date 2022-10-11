@@ -16,7 +16,7 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE id = $1;'
     params = [id]
     result_set = DatabaseConnection.exec_params(sql, params)
-    return "No record found" if result_set.to_a.length == 0
+    return "No record found" if result_set.to_a.empty?
     record = result_set[0]
     return record_to_user_object(record)
   end
@@ -35,7 +35,7 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE email = $1;'
     params = [email]
     result_set = DatabaseConnection.exec_params(sql, params)
-    return nil if result_set.to_a.length == 0
+    return nil if result_set.to_a.empty?
     record = result_set[0]
     return record_to_user_object(record)
   end
@@ -62,6 +62,4 @@ class UserRepository
     user.password = record['password']
     return user
   end
-
 end
-  

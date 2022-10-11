@@ -15,14 +15,14 @@ class PeepRepository
     sql = 'SELECT id, content, time, user_id FROM peeps WHERE id = $1;'
     params = [id]
     result_set = DatabaseConnection.exec_params(sql, params)
-    return "No record found" if result_set.to_a.length == 0
+    return "No record found" if result_set.to_a.empty?
     record = result_set[0]
     return record_to_peep_object(record)
   end
 
   def create(peep)
     sql = 'INSERT INTO peeps (content, time, user_id) VALUES ($1, $2, $3);'
-    params =[peep.content, peep.time, peep.user_id]
+    params = [peep.content, peep.time, peep.user_id]
     DatabaseConnection.exec_params(sql, params)
     return nil
   end

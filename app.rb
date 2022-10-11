@@ -23,7 +23,7 @@ class Application < Sinatra::Base
   end
 
   post "/new_user" do
-    input_validation
+    signup_input_validation
     if @error != nil
       @name = params[:name]
       return erb(:signup)
@@ -45,7 +45,7 @@ class Application < Sinatra::Base
   post '/login' do
     @user_repo = UserRepository.new
     @user = @user_repo.find_by_email(params[:email])
-    if (@user == nil || @user.password != params[:password])
+    if (@user.nil? || @user.password != params[:password])
       @error = "The information you provided does not match our records."
       return erb(:login)
     end
@@ -60,7 +60,7 @@ class Application < Sinatra::Base
   end
 
   post '/new_peep' do
-    if session[:user_id] == nil
+    if session[:user_id].nil?
       return redirect('/login')
     end
     @user_repo = UserRepository.new
@@ -80,23 +80,40 @@ class Application < Sinatra::Base
 
   private
 
-  def input_validation
-    repo_users = UserRepository.new
-    if ((params[:name].length == 0) || (params[:username].length == 0) || (params[:password].length == 0))
-      @error = "Some essential information is missing."
-    elsif params[:name].match?(/[^a-z\s-]{2,30}/i)
+  def signup_input_validation
+    @name = params[:name]
+    @username = params[:username]
+    @email = params[:email]
+    @password = params[:password]
+    return @error unless input_field_empty_error.nil?
+    return @error unless incorrect_format_errors.nil?
+    return @error unless user_exist_error.nil?
+  end
+
+  def input_field_empty_error
+    unless (@name.length.zero? || @username.length.zero? || @password.length.zero?)
+      return
+    end
+    @error = "Some essential information is missing."
+  end
+
+  def incorrect_format_errors
+    if @name.match?(/[^a-z\s-]{2,30}/i)
       @error = "Your name seems to be incorrect."
-    elsif (params[:username].match?(/[^a-z\d]/i) || params[:username].length < 5)
+    elsif (@username.match?(/[^a-z\d]/i) || @username.length < 5)
       @error = "Your username can only contain letters and numbers, and must be between 5 and 16 characters long."
-    elsif (!params[:email].include?('@') || params[:email].split("@")[-1] != 'makersacademy.com' || params[:email].split("@")[0].match?(/[^a-z\s-]{2,16}/i))
+    elsif (!@email.include?('@') || @email.split("@")[-1] != 'makersacademy.com' || @email.split("@")[0].match?(/[^a-z\s-]{2,16}/i))
       @error = "Please use your Makers' email to create a Chitter account."
-    elsif repo_users.email_exists?(params[:email])
+    end
+  end
+
+  def user_exist_error
+    repo_users = UserRepository.new
+    if repo_users.email_exists?(@email)
       @error = "This email has already been registered."
-    elsif repo_users.username_exists?(@params[:username])
-      @username = params[:username]
+    elsif repo_users.username_exists?(@username)
       @error = "This username is already in use. Please choose a different one."
-    end  
-    return @error
+    end
   end
 
   def peeps_list

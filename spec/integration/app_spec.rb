@@ -295,4 +295,3 @@ describe Application do
     end
   end
 end
-

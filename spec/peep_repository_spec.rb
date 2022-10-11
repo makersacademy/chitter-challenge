@@ -7,9 +7,9 @@ def reset_chitter_table
 end
 
 describe PeepRepository do
-before(:each) do 
+  before(:each) do 
     reset_chitter_table
-end
+  end
 
   context "when returning all Peep objects" do
     it "returns only Peep objects" do
@@ -29,7 +29,7 @@ end
       expect(peeps[4].time).to eq '2004-10-19 10:15:54'
       expect(peeps[4].user_id).to eq 1
     end
- end
+  end
 
   context "when looking for a peep by ID" do
     it "returns one Peep object" do
