@@ -179,7 +179,7 @@ describe Application do
       expect(response.body).to include("<p>Some essential information is missing.</p>")
       expect(response.body).to include('<p>Please review your details:</p>')
     end
-    end
+  end
 
   context "GET to /login" do
     it "returns the HTML form to create a new user" do
