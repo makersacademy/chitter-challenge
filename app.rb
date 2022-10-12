@@ -37,50 +37,52 @@ class Application < Sinatra::Base
   end
 
   post '/signup/new' do
-    @username = params[:username]
-
-    user = User.create!(
+    @user = User.create(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
       email: params[:email],
-      username: @username,
+      username: params[:username],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )
     
-    return erb(:signup_success)
+    if @user.save 
+      return erb(:signup_success)
+    else 
+      return erb(:signup_error)
+    end
   end
 
-  post '/signin/account' do
-    @username = params[:username]
+  post '/signin' do
+    email = params[:email]
     password = params[:password]
 
-    user = User.find_by_username(@username)
+    @user = User.find_by_email(email)
     
-    if user && user.authenticate(password)
-      session[:user_id] = user.id
+    if @user && @user.authenticate(password)
+      session[:user_id] = @user.id
+      session[:user] = @user
 
-      redirect '/account_page'
+      redirect "/account/#{@user.id}"
     else
-      redirect '/signup'
+      return erb(:signin_error)
     end
   end
 
-  get '/account_page' do
-    if session[:user_id] == nil
-      
-      return redirect('/signin')
-    else
-      id = session[:user_id]
-      @username = User.find(id).username
+  get '/account/:id' do
+    @user = session[:user] 
+    if !!session[:user]
   
       return erb(:new_peep)
-    end
+    end 
+      return erb(:access_error)
   end
 
   post '/peep' do
     content = params[:content]
     if content.empty?
 
-      redirect '/account_page'
+      redirect '/account/:id'
     else
       Peep.create!(content: content,
         user_id: session[:user_id],

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h1>Hello, <%= @username %></h1>
+    <h1>Hello, <%= @user[:username] %></h1>
   </head>
 
   <body>
     <form action="/peep" method="POST">
       <div>
-        <label>Create a peep</label><br />
-        <input maxlength="150" type="text" name="content"><br />
+        <label for="peep">Create a peep</label><br />
+        <textarea id="peep" name="content" rows="4" cols="50" maxlength="150">Make your peep!</textarea><br />
         <input type="submit" value="Post">
       </div>
     </form>
 
-    <br />
+    <p>Click the "Post" to share your peep.</p>
 
     <form action="/signout" method="POST">
       <input type="submit" value="Sign out">

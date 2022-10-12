@@ -17,8 +17,8 @@ end
 
 gem "sinatra", "~> 3.0" 
 gem "sinatra-contrib", "~> 3.0", require: false 
-gem "activerecord", "~> 7.0" 
-gem "sinatra-activerecord", "~> 2.0" 
+
+
 gem "webrick", "~> 1.7"
 gem "rake", "~> 13.0"
 gem "pg", "~> 1.4" 
@@ -29,3 +29,5 @@ gem "bcrypt", "~> 3.1.7"
 gem "flash", "~> 0.1.0"
 
 gem "rack_session_access", "~> 0.2.0"
+
+gem "pry", "~> 0.14.1"

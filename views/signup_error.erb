@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Please check below: </h1>
+    <br />
+    <% @user.errors.full_messages.each do |error| %>
+      <%= error %><br />
+    <% end %>
+    <a href="/signin">Sign in</a>
+  </body>
+</html>

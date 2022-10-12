@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <h3>Hello, <%= @username %></h3>
+  <h3>Hello, <%= @user.username %></h3>
  
   <div>
   Let's create a peep: 
-  <a href="/peep/new">Create peep</a>
+  <a href="/account/<%= @user.id %>">Go to account page</a>
   </div>
   <a href="/">Home</a>
 </html>
