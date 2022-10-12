@@ -115,7 +115,7 @@ createdb chitter_database_test
 rspec
 rubocop
 ```
-<img src="https://github.com/EvSivtsova/chitter-challenge/blob/main/outputs/chitter-challenge-test-coverage.png" width=500px/>
+<img src="https://github.com/EvSivtsova/chitter-challenge/blob/main/screenshots/chitter-challenge-test-coverage.png" width=500px/>
 
 
 
