@@ -101,11 +101,19 @@ rackup
 
 Go to `http://localhost:9292` to play with the app.
 
+<div>
+  <img src="https://github.com/EvSivtsova/chitter-challenge/blob/main/screenshots/index-page.png" width=400px/>
+  <img src="https://github.com/EvSivtsova/chitter-challenge/blob/main/screenshots/signup-page.png" width=400px/>
+</div>
+
+Please view screenshots of other pages [here](https://github.com/EvSivtsova/chitter-challenge/tree/main/screenshots).
+
 To run the tests:
 
 ```
 createdb chitter_database_test
 rspec
+rubocop
 ```
 <img src="https://github.com/EvSivtsova/chitter-challenge/blob/main/outputs/chitter-challenge-test-coverage.png" width=500px/>
 
