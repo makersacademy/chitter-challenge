@@ -1,23 +1,30 @@
+<head>
+  <title>Chitter index</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet/style.css"/>
+</head>
 <html>
-  <head><h1>CHITTER</h1></head>
-  <head><h2>makers chit chat</h2></head>
-
-  <%if @logged_out == true%>
-    <p>You have been successfully logged out!</p>
-  <%end%> 
-  
-<a href='/signup'> SIGN UP </a><br/>
-<a href='/login'> LOG IN </a><br/><br/>
-
-  <body>
-
-  <%@peeps.map do |peep|%>
-    <div>
-      <p><%=@user_repo.find(peep.user_id).name%></p>
-      <p>@<%=@user_repo.find(peep.user_id).username%></p>
-      <p><%=peep.content%></p><br/>
-      <p><%=Time.parse(peep.time).strftime("%k:%M %p %d %b %y")%></p>
+<body>
+  <div class="container">
+    <h1>chitter</h1>
+    <div class=subcontainer>
+      <h2>makers chit chat</h2>
+      <div class=button-container>
+        <a href='/signup' class=button >chit up</a>
+        <a href='/login' class=button>chit in</a>
       </div>
+    </div>
+  </div>
+  <div class=supporting-container>
+    <%@peeps.map do |peep|%>
+      <ul class="peeps">
+        <li>
+          <p class=name><%=@user_repo.find(peep.user_id).name%></p>
+          <p class=username>@<%=@user_repo.find(peep.user_id).username%></p>
+          <p class=content><%=peep.content%></p>
+          <p class=time><%=Time.parse(peep.time).strftime("%k:%M %p %d %b %y")%></p>
+        </li>
+      </ul>
     <%end%>
-  </body>
+  </div>
+</body>
 </html>

@@ -15,28 +15,24 @@ describe Application do
   
   include Rack::Test::Methods
 
-  # We need to declare the `app` value by instantiating the Application
-  # class so our tests work.
   let(:app) { Application.new }
 
   context "GET to '/'" do
     it "returns 200 and all the peeps with the name and username of their creators" do
       response = get('/')
       expect(response.status).to eq(200)
-      expect(response.body).to include("<head><h1>CHITTER</h1></head>")
-      expect(response.body).to include("<head><h2>makers chit chat</h2></head>")
-      expect(response.body).to include("<a href='/signup'> SIGN UP </a><br/>")
-      expect(response.body).to include("<a href='/login'> LOG IN </a><br/><br/>")
-      expect(response.body).to include("<p>Anna</p>")
-      expect(response.body).to include("<p>@anna123</p>")
-      expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
-      expect(response.body).to include("<p>John</p>")
-      expect(response.body).to include("<p>@john123</p>")
-      expect(response.body).to include("<p>I like cats</p>")
-      expect(response.body).to include("<p>10:00 AM 19 Oct 09</p>")
-      expect(response.body).to include("<div>","</div>")
-
+      expect(response.body).to include("<h1>chitter</h1>")
+      expect(response.body).to include("<h2>makers chit chat</h2>")
+      expect(response.body).to include("<a href='/signup' class=button >chit up</a>")
+      expect(response.body).to include("<a href='/login' class=button>chit in</a>")
+      expect(response.body).to include("<p class=name>Anna</p>")
+      expect(response.body).to include("<p class=username>@anna123</p>")
+      expect(response.body).to include("<p class=content>I love sunshine</p>")
+      expect(response.body).to include("<p class=time>10:23 AM 19 Oct 04</p>")
+      expect(response.body).to include("<p class=name>John</p>")
+      expect(response.body).to include("<p class=username>@john123</p>")
+      expect(response.body).to include("<p class=content>I like cats</p>")
+      expect(response.body).to include("<p class=time>10:00 AM 19 Oct 09</p>")
     end
   end
 
@@ -44,11 +40,11 @@ describe Application do
     it "returns the HTML form to create a new user" do
       response = get('/signup')
       expect(response.status).to eq(200)
-      expect(response.body).to include("<form method='POST' action='/new_user'>")
-      expect(response.body).to include("<input type='text' name='name'/>")
-      expect(response.body).to include("<input type='text' name='username'/>")
-      expect(response.body).to include("<input type='text' name='email'/>")
-      expect(response.body).to include("<input type='text' name='password'/>")
+      expect(response.body).to include("<form class=form method='POST' action='/new_user'>")
+      expect(response.body).to include("<input type='text' name='name' placeholder='John'/>")
+      expect(response.body).to include("<input type='text' name='username' placeholder='name123'/>")
+      expect(response.body).to include(" <input type='email' name='email' placeholder='myemail@makersacademy.com'/>")
+      expect(response.body).to include("<input type='password' name='password' placeholder='MyPassword123$'/>")
     end
   end
 
@@ -63,8 +59,8 @@ describe Application do
       )
       users = UserRepository.new.all
       expect(response.status).to eq(200)
-      expect(response.body).to include('<p>Welcome to CHITTER, Joanna!</p>')
-      expect(response.body).to include("<a href='/user_chitter'>share your thoughts with other Makers here</a>")
+      expect(response.body).to include('<h5>Welcome to chitter, Joanna!</h5>')
+      expect(response.body).to include("<a href='/login' class=button-new-user>log in to share your thoughts</a>")
       expect(users).to include(
         have_attributes(email: 'joannaMccain@makersacademy.com')
       )
@@ -82,7 +78,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<p>This email has already been registered.</p>')
       expect(response.body).to include("<p>Please review your details:</p>")
-      expect(response.body).to include("<form method='POST' action='/new_user'>")
+      expect(response.body).to include("<form class=form method='POST' action='/new_user'>")
     end
 
     it 'fails to creates a user as the username already exists in the database' do
@@ -97,7 +93,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<p>This username is already in use. Please choose a different one.</p>')
       expect(response.body).to include("<p>Please review your details:</p>")
-      expect(response.body).to include("<form method='POST' action='/new_user'>")
+      expect(response.body).to include("<form class=form method='POST' action='/new_user'>")
     end
 
     it 'fails to create a new user if the name is invalid' do
@@ -125,8 +121,6 @@ describe Application do
       
       expect(response.status).to eq(200)
       expect(response.body).to include('<p>Your username must contain letters and numbers and be 5 to 16 characters long</p>')
-      # Your username can only contain letters and numbers, 
-      #  +        and must be between 5 and 16 characters long.
       expect(response.body).to include('<p>Please review your details:</p>')
     end
 
@@ -185,15 +179,15 @@ describe Application do
       expect(response.body).to include("<p>Some essential information is missing.</p>")
       expect(response.body).to include('<p>Please review your details:</p>')
     end
-  end
+    end
 
   context "GET to /login" do
     it "returns the HTML form to create a new user" do
       response = get('/login')
       expect(response.status).to eq(200)
-      expect(response.body).to include("<form method='POST' action='/login'>")
-      expect(response.body).to include("<input type='text' name='email'/>")
-      expect(response.body).to include("<input type='text' name='password'/>")
+      expect(response.body).to include("<form class=form method='POST' action='/login'>")
+      expect(response.body).to include("<input type='email' name='email' placeholder='myemail@makersacademy.com'/>  ")
+      expect(response.body).to include("<input type='password' name='password' placeholder='MyPassword123$'/>  ")
     end
   end
 
@@ -204,10 +198,10 @@ describe Application do
         password: '235346hgsdv'
       )
       expect(response.status).to eq(200)
-      expect(response.body).to include("<form method='POST' action='/login'>")
+      expect(response.body).to include("<form class=form method='POST' action='/login'>")
       expect(response.body).to include("<p>The information you provided does not match our records.</p>")
-      expect(response.body).to include("<input type='text' name='email'/>")
-      expect(response.body).to include("<input type='text' name='password'/>")
+      expect(response.body).to include("<input type='email' name='email' placeholder='myemail@makersacademy.com'/>")
+      expect(response.body).to include("<input type='password' name='password' placeholder='MyPassword123$'/>")
     end
 
     it "returns the error page when password is incorrect" do
@@ -216,10 +210,10 @@ describe Application do
         password: 'incorrect5'
       )
       expect(response.status).to eq(200)
-      expect(response.body).to include("<form method='POST' action='/login'>")
+      expect(response.body).to include("<form class=form method='POST' action='/login'>")
       expect(response.body).to include("<p>The information you provided does not match our records.</p>")
-      expect(response.body).to include("<input type='text' name='email'/>")
-      expect(response.body).to include("<input type='text' name='password'/>")
+      expect(response.body).to include("<input type='email' name='email' placeholder='myemail@makersacademy.com'/>")
+      expect(response.body).to include("<input type='password' name='password' placeholder='MyPassword123$'/>")
     end
 
     it "returns the error page when details are empty" do
@@ -228,10 +222,10 @@ describe Application do
         password: ''
       )
       expect(response.status).to eq(200)
-      expect(response.body).to include("<form method='POST' action='/login'>")
+      expect(response.body).to include("<form class=form method='POST' action='/login'>")
       expect(response.body).to include("<p>The information you provided does not match our records.</p>")
-      expect(response.body).to include("<input type='text' name='email'/>")
-      expect(response.body).to include("<input type='text' name='password'/>")
+      expect(response.body).to include("<input type='email' name='email' placeholder='myemail@makersacademy.com'/>")
+      expect(response.body).to include("<input type='password' name='password' placeholder='MyPassword123$'/>")
     end
 
     it "logs in user when email and password are correct and displays the list of peeps" do
@@ -241,20 +235,21 @@ describe Application do
         password: '235346hgsdv'
       )
       expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>chitter</h1>")
+      expect(response.body).to include("<h2>makers chit chat</h2>")
+      expect(response.body).to include("<h4>Hi Anna!</h4>")
+      expect(response.body).to include("p class=welcome>What are you up to today?</p>")
       expect(response.body).to include("<form method='POST' action='/new_peep'>")
-      expect(response.body).to include("<h3>Hi Anna!</h3></head>")
-      expect(response.body).to include("<p>What are you up to today?</p>")
       expect(response.body).to include("<input type='text' name='content'/>")
-      expect(response.body).to include("<p>Anna</p>")
-      expect(response.body).to include("<p>@anna123</p>")
-      expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
-      expect(response.body).to include("<p>John</p>")
-      expect(response.body).to include("<p>@john123</p>")
-      expect(response.body).to include("<p>I like cats</p>")
-      expect(response.body).to include("<p>10:00 AM 19 Oct 09</p>")
-      expect(response.body).to include("<div>","</div>")
-      expect(response.body).to include("<a href='/logout'>chit out</a>")
+      expect(response.body).to include("<p class=name>Anna</p>")
+      expect(response.body).to include("<p class=username>@anna123</p>")
+      expect(response.body).to include("<p class=content>I love sunshine</p>")
+      expect(response.body).to include("<p class=time>10:23 AM 19 Oct 04</p>")
+      expect(response.body).to include("<p class=name>John</p>")
+      expect(response.body).to include("<p class=username>@john123</p>")
+      expect(response.body).to include("<p class=content>I like cats</p>")
+      expect(response.body).to include("<p class=time>10:00 AM 19 Oct 09</p>")
+      expect(response.body).to include("<a href='/logout' class=index-button>chit out</a>")
     end
   end
   
@@ -271,17 +266,23 @@ describe Application do
       expect(peeps).to include(
         have_attributes(content: 'I am happy')
       )
-      expect(response.body).to include("<p>Anna</p>")
-      expect(response.body).to include("<p>@anna123</p>")
-      expect(response.body).to include("<p>I am happy</p>")
-      expect(response.body).to include("<p> 7:23 AM 19 Sep 22</p>")
-      expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
-      expect(response.body).to include("<p>John</p>")
-      expect(response.body).to include("<p>@john123</p>")
-      expect(response.body).to include("<p>I like cats</p>")
-      expect(response.body).to include("<p>10:00 AM 19 Oct 09</p>")
-      expect(response.body).to include("<div>","</div>")
+      expect(response.body).to include("<h1>chitter</h1>")
+      expect(response.body).to include("<h2>makers chit chat</h2>")
+      expect(response.body).to include("<h4>Hi Anna!</h4>")
+      expect(response.body).to include("p class=welcome>What are you up to today?</p>")
+      expect(response.body).to include("<p class=name>Anna</p>")
+      expect(response.body).to include("<p class=username>@anna123</p>")
+      expect(response.body).to include("<p class=content>I am happy</p>")
+      expect(response.body).to include("<p class=time> 7:23 AM 19 Sep 22</p>")
+      expect(response.body).to include("<form method='POST' action='/new_peep'>")
+      expect(response.body).to include("<input type='text' name='content'/>")
+      expect(response.body).to include("<p class=content>I love sunshine</p>")
+      expect(response.body).to include("<p class=time>10:23 AM 19 Oct 04</p>")
+      expect(response.body).to include("<p class=name>John</p>")
+      expect(response.body).to include("<p class=username>@john123</p>")
+      expect(response.body).to include("<p class=content>I like cats</p>")
+      expect(response.body).to include("<p class=time>10:00 AM 19 Oct 09</p>")
+      expect(response.body).to include("<a href='/logout' class=index-button>chit out</a>")
     end
 
     it 'fails to create a new peep when the content is empty' do
@@ -293,10 +294,11 @@ describe Application do
       )
       peeps = PeepRepository.new.all
       expect(response.status).to eq(200)
+      expect(response.body).to include("<h4>Hi Anna!</h4>")
+      expect(response.body).to include("p class=welcome>What are you up to today?</p>")
+      expect(response.body).to include("<p>Please enter your message.</p>")
+      expect(response.body).to include("<p>It must be shorter than 33 characters and contain letters and digits only:</p>")
       expect(response.body).to include("<form method='POST' action='/new_peep'>")
-      expect(response.body).to include("<h3>Hi Anna!</h3></head>")
-      expect(response.body).to include("<p>What are you up to today?</p>")
-      expect(response.body).to include("<p>Please enter your message:</p>")
       expect(response.body).to include("<input type='text' name='content'/>")
     end
 
@@ -318,14 +320,11 @@ describe Application do
     it 'logs out the user and displays the index page' do
       response = get('/logout')
       expect(response.status).to eq(200)
-      expect(response.body).to include("<head><h1>CHITTER</h1></head>")
-      expect(response.body).to include("<head><h2>makers chit chat</h2></head>")
-      expect(response.body).to include("<a href='/signup'> SIGN UP </a><br/>")
-      expect(response.body).to include("<a href='/login'> LOG IN </a><br/><br/>")
-      expect(response.body).to include("<p>Anna</p>")
-      expect(response.body).to include("<p>@anna123</p>")
-      expect(response.body).to include("<p>I love sunshine</p>")
-      expect(response.body).to include("<p>10:23 AM 19 Oct 04</p>")
+      expect(response.body).to include("<h1>chitter</h1>")
+      expect(response.body).to include("<h2>makers chit chat</h2>")
+      expect(response.body).to include("<h5>You have been successfully logged out!</h5>")
+      expect(response.body).to include("<a href='/login' class=button-new-user>log in to share your thoughts</a>")
+      expect(response.body).to include("<a href= '/' class=index-button>keep on reading us without posting</a>")
     end
   end
 end

@@ -26,7 +26,6 @@ class Application < Sinatra::Base
   post "/new_user" do
     signup_input_validation
     if @error != nil
-      @name = params[:name]
       return erb(:signup)
     end
     repo_users = UserRepository.new
@@ -57,10 +56,7 @@ class Application < Sinatra::Base
 
   get '/logout' do
     session[:user_id] = nil
-    @logged_out = true
-    peeps_list
-    @user_repo = UserRepository.new
-    return erb(:index)
+    return erb(:logout)
   end
 
   post '/new_peep' do
@@ -70,7 +66,8 @@ class Application < Sinatra::Base
     @user_repo = UserRepository.new
     @user = @user_repo.find(session[:user_id])
     peeps_list
-    if params[:content].empty?
+    peep = params[:content]
+    if peep.empty? || peep.length >= 33
       @error = true
       return erb(:user_chitter)
     end

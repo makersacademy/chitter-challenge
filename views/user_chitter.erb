@@ -1,30 +1,44 @@
+<head>
+  <title>Chitter user timeline</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet/style.css"/>
+</head>
+
 <html>
-<head><h1>CHITTER</h1>
- <h2>makers chit chat</h2>
-<h3>Hi <%=@user.name%>!</h3></head>
 <body>
-<p>What are you up to today?</p>
-
-<%if @error == true%>
-  <%=puts%><p>Please enter your message:</p>
-<%end%>
-
-<form method='POST' action='/new_peep'>
-<input type='text' name='content'/>
- 
-<input type='Submit' />
-</form><br/>
- 
-<%@peeps.map do |peep|%>
-  <div>
-    <p><%=@user_repo.find(peep.user_id).name%></p>
-    <p>@<%=@user_repo.find(peep.user_id).username%></p>
-    <p><%=peep.content%></p><br/>
-    <p><%=Time.parse(peep.time).strftime("%k:%M %p %d %b %y")%></p>
+  <div class="container">
+    <h1>chitter</h1>
+    <div class=subcontainer>
+      <h2>makers chit chat</h2>
+    </div>
+    <div class=login-container>
+      <h4>Hi <%=@user.name%>!</h4>
+      <p class=welcome>What are you up to today?</p>
+      <div class="alert" role="alert">
+        <%if @error == true%>
+          <%=puts%><p>Please enter your message.</p>
+          <%=puts%><p>It must be shorter than 33 characters and contain letters and digits only:</p>
+        <%end%>
+      </div>
+      <form method='POST' action='/new_peep'>
+        <input type='text' name='content'/> 
+        <input type='Submit' />
+      </form><br/>
+    </div>
+    <div class="index-button">  
+      <a href='/logout' class=index-button>chit out</a>
+    </div>
   </div>
-  <%end%>
-
-<a href='/logout'>chit out</a>
+  <div class=supporting-container>
+    <%@peeps.map do |peep|%>
+      <ul class="peeps">
+        <li>
+          <p class=name><%=@user_repo.find(peep.user_id).name%></p>
+          <p class=username>@<%=@user_repo.find(peep.user_id).username%></p>
+          <p class=content><%=peep.content%></p>
+          <p class=time><%=Time.parse(peep.time).strftime("%k:%M %p %d %b %y")%></p>
+        </li>
+      </ul>
+    <%end%>
+  </div>
 </body>
-
 </html>
