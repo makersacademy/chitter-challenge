@@ -6,3 +6,7 @@ require 'pry'
 task :console do
   Pry.start
 end
+
+task :default do
+  :development
+end
