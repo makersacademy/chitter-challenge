@@ -14,7 +14,6 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.order(created_at: :desc).first(5)
     
     return erb(:home)
   end
