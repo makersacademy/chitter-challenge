@@ -25,3 +25,5 @@ gem "bcrypt", "~> 3.1.7"
 gem "pry", "~> 0.14.1"
 
 gem "activerecord", "~> 7.0"
+
+gem "sinatra-activerecord", "~> 2.0"
