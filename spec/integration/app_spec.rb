@@ -8,7 +8,6 @@ RSpec.describe User do
   include Rack::Test::Methods
 
   let(:app) { Application.new }
-  let!(:user) { FactoryBot.create(:user) }
   
   before :each do 
     user = User.create(
