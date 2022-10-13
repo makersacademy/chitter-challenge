@@ -1,5 +1,6 @@
-require 'sinatra/activerecord'
-require 'sinatra/activerecord/rake'
+require 'sinatra'
+require 'activerecord'
+require 'rake'
 require './app'
 require 'pry'
 
