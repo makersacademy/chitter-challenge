@@ -109,6 +109,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord (~> 7.0)
   bcrypt (~> 3.1.7)
   database_cleaner
   email_validator (~> 2.2)
