@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+
+<% if @user %>
+  <h1>Welcome to Chitter, <%= @user.name %></h1>
+<p>
+<form action="/peeps/new">
+  <input class="button" type="submit" value="Post Peep">
+</form>
+<form action="/sessions/destroy" method="post">
+    <input class="button" type="submit" value="Sign out" />
+</form>
+</p>
+  <% else %>
+  <p>
+  <form action="/users/new">
+  <input class="button" type="submit" value="Sign up">
+</form>
+</p>
+<p>
+<form action="/sessions/new">
+  <input class="button" type="submit" value="Sign in">
+</form>
+</p>
+<% end %>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<br><br>
+<div id="peep_border">
+  <div id="peep-scroll">
+  <% @peeps.each do |peep| %>
+    <div id= 'peep' class='peep'>
+      <a class='title'><%= peep.peep %>
+      <br>
+      <span class='source'>
+      Posted by 
+      <%= peep.user.name %> 
+       (<%= peep.user.username %>)
+            Posted on <%= peep.created_at %>
+      </span>
+      <br>
+    </div>
+  <% end %>
+  </div>
+  </div>
+ 
+
+</html>

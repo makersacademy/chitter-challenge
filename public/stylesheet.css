@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: #b09370;
+  background-image: url(/images/chitter.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  text-align: center;
+  max-width: 90%;
+  margin: auto;
+  border: 10px solid #1c83e4;
+  border-radius: 50px;
+  padding: 30px;
+  min-height: 95%;
+  height: auto !important;
+  height: 100%;
+  }
+
+
+/* no links should be underlined */
+a {
+  text-decoration: none;
+}
+
+/* buttons */
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 110px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #5496FD;
+  color: white; /*text colour*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* a link that has both classes. Overrides the previous declaration */
+.button.highlighted {
+  background-color: #b77843;
+}
+
+/* peeps container bg */
+#container {
+  background-color: rgba(29, 30, 32, 0.5);
+  margin: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+  #peep{
+    margin: auto;
+    position: relative;
+    width: 90%;
+    border: 1px solid #1b79d1;
+    padding: 3px;
+    border-radius:10px;
+    box-shadow: 0 0 5px rgba(20, 18, 18, 0.4);
+    background-color: #c9def1;
+  }
+
+  #sign_up_border {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #137cdf;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+
+  #peep_border {
+    position:relative;
+    border: 3px solid #1369b9;
+    border-radius: 50px;
+    padding: 15px;
+  }
+
+  #peep-scroll {
+    height:350px;
+    overflow:auto;  
+    margin-top:10px;
+  }
+
+  .peep .source {
+    font-size: 20px;
+    padding: 20px;
+    color: rgba(79,136,253,0.85);
+  }
+
+  /* peep message text */
+  .peep a.title {
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    letter-spacing: 1px;
+    color: black;
+  }
+
+  .peep .description {
+    margin: 10px inherit;
+  }
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+  .flash.notice {
+    background-color: rgba(67,183,120,0.75);
+  }
+
+  .flash.error {
+   background-color: rgba(169,29,42,0.75);
+  }
+
+h1 {
+  font-size: 22px ;
+}
+
+form {
+  text-align: center;
+  padding: 30px;
+}
+
+  form p {
+    margin: 10px 0;
+  }
+
+  form input[type="text"], form input[type="password"] {
+    border: 1px solid black;
+    font-size: 16px;
+    width: 400px;
+  }
