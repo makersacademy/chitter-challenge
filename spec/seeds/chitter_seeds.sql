@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS "public"."peeps";
+DROP TABLE IF EXISTS "public"."users";
 
 CREATE SEQUENCE IF NOT EXISTS peeps_id_seq;
 
@@ -25,6 +26,9 @@ CREATE TABLE "public"."users" (
     "email_address" varchar, 
     "password" char(20)
 );
+
+TRUNCATE TABLE peeps RESTART IDENTITY CASCADE; 
+TRUNCATE TABLE users RESTART IDENTITY CASCADE;
 
 INSERT INTO "public"."peeps" ("message", "time_stamp", "user_id") VALUES
 ('Message_1', '10:10:10', 1),

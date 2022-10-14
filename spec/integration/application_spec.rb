@@ -15,11 +15,11 @@ require 'dotenv/load'
 # #   connection.exec(seed_sql)
 # # end
 
-# def reset_chitter_table
-#   seed_sql = File.read('spec/seeds/chitter_seeds.sql')
-#   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test', user: ENV['MY_USER'], password: ENV['PASSWORD'] })
-#   connection.exec(seed_sql)
-# end
+def reset_chitter_table
+  seed_sql = File.read('spec/seeds/chitter_seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test', user: ENV['MY_USER'], password: ENV['PASSWORD'] })
+  connection.exec(seed_sql)
+end
 
 
 

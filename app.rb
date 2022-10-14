@@ -6,12 +6,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository.rb'
 require_relative 'lib/user_repository.rb'
 
-
-
-
-DatabaseConnection.connect
-
-
+DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
   
@@ -26,5 +21,3 @@ class Application < Sinatra::Base
   end
 
 end 
-
-  
