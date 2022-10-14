@@ -1,0 +1,48 @@
+<h1>Sign Up to Chitter!</h1>
+
+<form action="/signup" method="POST">
+<p>
+	<input type="text" name="username" placeholder="Username:">
+</p>
+<p>
+	<input type="password" name="password" placeholder="Password:">
+</p>
+<p>
+	<input type="text" name="real_name" placeholder="Full name:">
+</p>
+<p>
+	<input type="text" name="email" placeholder="Email:">
+</p>
+<p>
+	<input type="submit" value="Sign Up">
+</p>
+</form>
+
+<% if @user != nil %>
+
+	<% if @user.save %>
+		<p>
+			User <%= @user.username %> was succesfully created!
+		</p>
+
+		<p>
+			<form action="/login">
+			<input type="submit" value="Log in" />
+			</form>
+		</p>
+
+	<% else %>
+		<h3>Oops... Something went wrong... </h3>
+		<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li> 
+		<% end %>
+		</ul>
+	<% end %>
+<% end %>
+
+
+
+
+
+

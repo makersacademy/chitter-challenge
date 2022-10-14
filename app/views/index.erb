@@ -1,0 +1,60 @@
+<h1>Chitter. Just peep.</h1>
+
+<% if !logged_in? %>
+
+  <p> 
+    Welcome to Chitter! Log in to peep. 
+  </p>
+
+  <p> 
+    <form action="/signup">
+      <input type="submit" value="Sign up" />
+    </form>
+  </p>
+
+  <p> 
+    <form action="/login">
+      <input type="submit" value="Log in" />
+    </form>
+  </p>
+
+<% end %>
+
+<% if logged_in? %>
+
+  <p> 
+    Welcome <%= current_user.real_name %>! Have something to peep?
+  </p>
+
+  <p> 
+  <form action="/peep">
+    <input type="submit" value="Peep!" />
+  </form>
+  </p>
+
+  <p> 
+  <form action="/logout">
+    <input type="submit" value="Log out" />
+  </form>
+  </p>
+
+<% end %>
+
+<h2>Chitter Feed</h2>
+
+<% @peeps.each do |peep| %>
+  
+  <div>
+  <p> 
+  <%= peep.content %>
+  </p>
+  <p> 
+   Posted by: <%= peep.user.real_name %>
+   @<%= peep.user.username %>
+   <%= peep.created_at %>
+  </p>
+  </div>
+  
+<% end %>
+
+

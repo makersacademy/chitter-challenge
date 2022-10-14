@@ -1,0 +1,19 @@
+<h1>Have something to peep?</h1>
+
+<textarea name="content" form="peepform" rows="8" cols="50" placeholder="Peep here... You can also tag a fellow Maker by typing @username "></textarea>
+
+<form action="/peep" method="POST" id="peepform">
+
+  <p> <input type="submit" value="Peep!"> </p>
+</form>
+
+<% if @peep != nil %>
+
+  <h3>Oops... Something went wrong... </h3>
+  <ul>
+  <% @peep.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li> 
+  <% end %>
+  </ul>
+
+<% end %>
