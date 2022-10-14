@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body>
+    <p style="color:#E97979; font-size:30px;">Sorry, </p>
+    <% @user.errors.full_messages.each do |error| %>
+      <%= error %><br >
+    <% end %>
+  </body>
+</html>

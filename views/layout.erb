@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #E97979;
+    }
+
+    li a {
+      float: right;
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 20px 28px;
+      text-decoration: none;
+      }
+
+    li a:hover:not(.active) {
+      background-color: #EAECEE;
+      }
+
+    .active {
+      background-color: #EAECEE
+      }
+  </style>
+</head>
+
+<div id="nav_bar">
+  <% if signin? %>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/peeps">Peep</a></li>
+      <li><a href="/account/:id">Account</a></li>
+      <li><a href="/signout">Sign out</a></li>
+    </ul>
+    <p style="color:#E97979; font-size:16px;">Hello, <%= @user[:username] %></p>
+  <% else %>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/peeps">Peep</a></li>
+      <li><a href="/signin">Sign in</a></li>
+      <li><a href="/signup">Sign up</a></li>
+    </ul>
+  <% end %>
+</div>
+<body>
+  <div>
+    <img src="/logo.jpg" alt="Fotter logo" style="width:100px;height:100px;">
+  </div>
+</body>
+<%= yield %>
+</html>

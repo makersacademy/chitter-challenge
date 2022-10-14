@@ -1,0 +1,36 @@
+body {
+  background-image: url("https://images.pexels.com/photos/1831234/pexels-photo-1831234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+input[type=submit] {
+  width: 100px;  
+  height: 40px;
+  background-color: #3296FA;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=string], input[type=email], input[type=password] {
+  padding: 6px 8px;
+  margin: 1px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;  
+}
+
+.signup{
+  width: 340px;
+  height: 400px; 
+  margin: auto; 
+  border: 2px solid #E97979;
+  box-sizing: border-box;
+}

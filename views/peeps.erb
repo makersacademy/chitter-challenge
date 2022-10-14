@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body>
+    <h1 style="color:#2C3E50">Peeps</h1>
+    <div>
+      <% @peeps.each do |peep|%>
+      <%= User.find(peep.user_id).username %><br />
+      <%= peep.content %>, <%= peep.created_at %><br />
+      <% end %>
+    </div>
+</body>
+</html>
