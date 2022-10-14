@@ -1,4 +1,8 @@
-require "./config/environment"
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'sinatra/reloader'
+require "./app/models/user"
+require "./app/models/peep"
 
 class ApplicationController < Sinatra::Base
 
@@ -6,6 +10,11 @@ class ApplicationController < Sinatra::Base
 		set :views, "app/views"
 		enable :sessions
 	end
+
+  configure :development do
+    register Sinatra::ActiveRecordExtension
+    register Sinatra::Reloader
+  end
 
 	get "/" do
     @peeps = Peep.order(:created_at).reverse_order
