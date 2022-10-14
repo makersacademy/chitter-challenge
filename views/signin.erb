@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h1>Sign in</h1>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
   </head>
 
   <body>
-    <form action="/signin" method="POST">
-      <div>
+    <div class="signup">
+      <h1 style="color:#2C3E50">Sign in</h1>
+      <form action="/signin" method="POST">
         <label>Email: </label>
-        <input type="string" name="email"><br />
-      </div>
-
-      <div>
+        <input type="email" name="email" placeholder="example@email.com">
+        <br >
+        <br >
         <label>Password: </label>
         <input type="password" name="password">
-      </div>
-
-      <div>
+        <br >
+        <br >
         <input type="submit" value="Sign in">
-      </div>
-    </form>
+      </form>
+    </div>
   </body>
 </html>

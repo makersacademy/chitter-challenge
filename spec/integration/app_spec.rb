@@ -1,9 +1,7 @@
 require 'spec_helper'
+require 'rack/test'
 require_relative '../../app'
-require 'capybara'
 
-Capybara.app = Application
- 
 RSpec.describe User do
   include Rack::Test::Methods
 
@@ -36,12 +34,9 @@ RSpec.describe User do
       @response = get('/')
 
       respond_ok?
-      test_body('<h1>Welcome to Chitter</h1>')
-      test_body('<h3><a href="peeps">Peeps</a></h3>')
-      test_body('Peep test, 2022-10-09 13:40:48 UTC<br />')
-      test_body('Beautyful day, 2022-10-09 13:00:48 UTC<br />')
-      test_body('<a href="signup">Sign Up</a><br />')
-      test_body('<a href="signin">Sign In</a><br />')
+      test_body('<h1 style="color:#2C3E50">Welcome to Chitter</h1>')
+      test_body('Peep test, 2022-10-09 13:40:48 UTC<br >')
+      test_body('Beautyful day, 2022-10-09 13:00:48 UTC<br >')
     end
   end
 
@@ -50,9 +45,9 @@ RSpec.describe User do
       @response = get('/signup')
 
       respond_ok?
-      test_body('<form action="/signup/new" method="POST">')
-      test_body('<input type="string" name="email"><br />')
-      test_body('<input type="string" name="username"><br />')
+      test_body('<form action="/signup" method="POST">')
+      test_body('<input type="email" name="email" placeholder="example@email.com">')
+      test_body('<input type="string" name="username">')
       test_body('<input type="password" name="password">')
       test_body('<input type="password" name="password_confirmation">')
       test_body('<input type="submit" value="Create">')
@@ -66,17 +61,17 @@ RSpec.describe User do
       respond_ok?
       test_body('<form action="/signin" method="POST">')
       test_body('<label>Email: </label>')
-      test_body('<input type="string" name="email"><br />')
+      test_body('<input type="email" name="email" placeholder="example@email.com">')
       test_body('<label>Password: </label>')
       test_body('<input type="password" name="password">')
       test_body('<input type="submit" value="Sign in">')
     end
   end
 
-  context 'POST /signup/new' do
+  context 'POST /signup' do
     it 'creates a new user with valid information' do
       @response = post(
-        '/signup/new',
+        '/signup',
         first_name: 'Code',
         last_name: 'Kata',
         email: 'coder@cmail.com',
@@ -92,7 +87,7 @@ RSpec.describe User do
 
     it 'returns error messages with invalid information' do
       @response = post(
-        '/signup/new',
+        '/signup',
         first_name: "",
         last_name: "",
         email: "",
@@ -113,13 +108,13 @@ RSpec.describe User do
 
   context 'POST /signin' do
     it 'redirects to account page' do
-      response = post(
+      @response = post(
         '/signin',
         email: 'dolly@dmail.com',
         password: 'abcde12345'
       )
      
-      expect(response.status).to eq (302)
+      redirect_respond
     end
 
     it 'returns error message with unmatched information' do
@@ -136,21 +131,45 @@ RSpec.describe User do
 
   context 'GET /account/:id' do
     it 'returns the user account page' do
+      post('/signin', email: 'dolly@dmail.com', password: 'abcde12345')
       @response = get('/account/1')
       
       respond_ok?
       test_body('Hello, dolly')
     end 
+
+    it 'returns an error message if the user is not signned in' do
+      @response = get('/account/1')
+
+      respond_ok?
+      test_body("Please sign in first")
+    end
   end
 
-  context 'POST /peep' do
-    xit "creates a new peep record" do
-      response = post(
-        '/peep',
-        content: 'Hello world'
+  context 'POST /peep/new' do
+    it "creates a new peep record" do
+      post('/signin', email: 'dolly@dmail.com', password: 'abcde12345')
+      @response = post(
+        '/peep/new',
+        id: 3,
+        content: 'Hello world',
+        user_id: 1
         )
       
+      redirect_respond
       expect(Peep.last.content).to eq('Hello world')
+    end
+
+    it "returns an error message if the user is not signned in" do
+      @response = post(
+        '/peep/new',
+        id: 3,
+        content: 'Hello world',
+        user_id: 1
+        )
+      
+      respond_ok?
+      test_body('Please sign in first')
     end
   end
 end
@@ -159,6 +178,10 @@ private
 
 def respond_ok?
   expect(@response.status).to eq (200)
+end
+
+def redirect_respond
+  expect(@response.status).to eq (302)
 end
 
 def test_body(context)

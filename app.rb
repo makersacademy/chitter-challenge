@@ -14,28 +14,51 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    @user = session[:user]
+    @peeps = Peep.order(created_at: :desc).first(5)
     
-    return erb(:home)
+    return erb(:index)
   end
 
   get '/peeps' do
-
+    @user = session[:user]
     @peeps = Peep.all.order(created_at: :desc)
 
     return erb(:peeps)
   end
   
   get '/signup' do
-    
+    if signin?
+      @user = session[:user]
+      return erb(:signned_in_error)
+    end
     return erb(:signup)
   end
 
   get '/signin' do
-    
+    if signin?
+      @user = session[:user]
+      return erb(:signned_in_error)
+    end
     return erb(:signin)
   end
 
-  post '/signup/new' do
+  get '/signout' do
+    session.clear
+
+    redirect '/'
+  end
+
+  get '/account/:id' do
+    if signin?
+      @user = session[:user]
+  
+      return erb(:new_peep)
+    end 
+      return erb(:access_error)
+  end
+
+  post '/signup' do
     @user = User.create(
       first_name: params[:first_name],
       last_name: params[:last_name],
@@ -68,26 +91,22 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/account/:id' do
-    @user = session[:user] 
-    if !!session[:user]
-  
-      return erb(:new_peep)
-    end 
-      return erb(:access_error)
+  post '/peep/new' do
+    if signin?
+      peep = Peep.create(
+        content: params[:content],
+        user_id: session[:user_id]
+      )
+      
+      if !!peep.save
+      redirect '/peeps'
+      end
+      return erb(:peep_error)
+    end
+    return erb(:access_error)
   end
 
-  post '/peep' do
-    content = params[:content]
-    if content.empty?
-
-      redirect '/account/:id'
-    else
-      Peep.create!(content: content,
-        user_id: session[:user_id],
-        created_at: DateTime.now)
-      
-        redirect '/peeps'
-    end
+  def signin?
+    !!session[:user]
   end
 end

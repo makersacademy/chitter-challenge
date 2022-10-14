@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <header>
+      <h1 style="color:#2C3E50">Welcome to Chitter</h1>
+    </header>
+
+    <p>
+      Join us and share your insight
+    </p>
+  
+    <div>
+      <% @peeps.each do |peep|%>
+      <%= peep.content %>, <%= peep.created_at %><br >
+      <% end %>
+    </div>
+  </body>
+</html>

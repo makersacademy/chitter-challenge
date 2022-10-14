@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+
   <body>
-    <h1>Please check below: </h1>
-    <br />
+    <p style="color:#E97979; font-size:30px;">Sorry, </p>
     <% @user.errors.full_messages.each do |error| %>
-      <%= error %><br />
+      <%= error %><br >
     <% end %>
-    <a href="/signin">Sign in</a>
   </body>
 </html>

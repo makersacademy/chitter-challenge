@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h1>Sign up</h1>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
   </head>
 
   <body>
-    <h3>Join us and share what you think</h3>
-
-    <form action="/signup/new" method="POST">
-      <div>
+    <div class="signup">
+      <h1 style="color:#2C3E50">Sign up</h1>
+      <h3>Join us and share what you think</h3>
+    
+      <form action="/signup" method="POST">
         <label>First name: </label>
-        <input type="string" name="first_name"><br />
-      </div>
-
-      <div>
+        <input type="string" name="first_name" placeholder="your name">
+        <br >
         <label>Last name: </label>
-        <input type="string" name="last_name"><br />
-      </div>
-
-      <div>
+        <input type="string" name="last_name" placeholder="your last name">
+        <br >
         <label>Email: </label>
-        <input type="string" name="email"><br />
-      </div>
-
-      <div>
+        <input type="email" name="email" placeholder="example@email.com">
+        <br >
         <label>Username: </label>
-        <input type="string" name="username"><br />
-      </div>
-
-      <div>
+        <input type="string" name="username">
+        <br >
         <label>Password: </label>
         <input type="password" name="password">
-      </div>
-
-      <div>
+        <br >
         <label>Confirm password: </label>
         <input type="password" name="password_confirmation">
-      </div>
-
-      <div>
+        <br >
+        <br >
         <input type="submit" value="Create">
-      </div>
-    </form>
+      </form>
+    </div>  
   </body>
 </html>

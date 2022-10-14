@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require 'rack/test'
 require_relative '../../app.rb'
 
 RSpec.describe Application do
@@ -37,7 +38,6 @@ RSpec.describe Application do
       test_body('Peep test, 2022-10-09 13:40:48 UTC')
       test_body('dolly')
       test_body('Beautyful day, 2022-10-09 13:00:48 UTC')
-      test_body('<h3><a href="/">Home</a><br /></h3>')
     end
   end
 end

@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h1>Hello, <%= @user[:username] %></h1>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
   </head>
 
   <body>
-    <form action="/peep" method="POST">
-      <div>
-        <label for="peep">Create a peep</label><br />
-        <textarea id="peep" name="content" rows="4" cols="50" maxlength="150">Make your peep!</textarea><br />
-        <input type="submit" value="Post">
-      </div>
+    <form action="/peep/new" method="POST">
+      <h1 style="color:#2C3E50">Let's peep</h1>
+      <textarea id="peep" name="content" rows="6" cols="40" maxlength="150" placeholder="Make your peep!"></textarea>
+      <br >
+      <input type="submit" value="Post">
     </form>
 
-    <p>Click the "Post" to share your peep.</p>
+    <p style="color:#E97979">Click the "Post" to share your peep.</p>
+    </div>
 
-    <form action="/signout" method="POST">
-      <input type="submit" value="Sign out">
-    </form>
   </body>
 </html>
