@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="peeps.css">
+	<title>Index</title>
+</head>
+<body>
+
+	<% if @user %>
+	<h1> Welcome, <%= @user.email%></h1>
+	<%end %>
+	<form method="post" action='/peeps'>
+			<label for="message">
+			Enter Your Peep:
+				<div>
+					<input type="text" name="message" placeholder='Peep here ✍️'>
+				</div>
+				<div>
+					<input type="submit" value="Send" >
+				</div>
+			</label>
+	</form>
+
+	<h2>Your feed:</h2>
+	<% if @peeps != nil 
+	@peeps.each do |peep| %>
+
+		<div id='peep-wrapper'>
+			<h3><em><%= peep[1] %></em></h3>
+			<p> <span> Peep Author: </span><em><%= peep[0] %></em></p>
+			<p style='color: gray'> <span> Created at: <span> <em><%= peep[2] %></em></p>
+		</div>
+
+	<% end %>
+	<% end %>
+	
+	<form action="/sessions/destroy" method="post">
+ 	 <input type="submit" value="Sign out" />
+	</form>
+	
+</body>
+</html>

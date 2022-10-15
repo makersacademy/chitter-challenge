@@ -1,0 +1,1 @@
+CREATE TABLE userspeeps (id SERIAL PRIMARY KEY, user_id INT, peep_id INT);
