@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Peeps</h1>
+    <% @posts.each do |post| %>
+      <% user = @repo2.find_by_id(post.user_id) %>
+      <div>
+        <h5><%= user.username %>:</h5>
+        <h3><%= post.content %></h3>
+        <p><%= post.time_posted %></p>
+      </div>
+    <% end %>
+  </body>
+</html>

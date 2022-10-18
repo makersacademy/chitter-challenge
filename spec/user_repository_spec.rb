@@ -53,6 +53,28 @@ describe UserRepository do
     end
   end
 
+  context "find by username" do
+    it "returns the user" do
+      repo = UserRepository.new
+
+      user = repo.find_by_username('taylor_swift')
+
+      expect(user.id).to eq 2
+      expect(user.email).to eq 'taylor_swift@email.com'
+    end
+  end
+
+  context "find by id" do
+    it "returns the user" do
+      repo = UserRepository.new
+
+      user = repo.find_by_id('2')
+
+      expect(user.username).to eq 'taylor_swift'
+      expect(user.email).to eq 'taylor_swift@email.com'
+    end
+  end
+
   context "sign in" do
     it "signs in successfully" do
       repo = UserRepository.new
@@ -74,6 +96,7 @@ describe UserRepository do
 
       user = User.new
       user.username = 'sabrina_carpenter'
+      user.name = 'Sabrina Carpenter'
       user.email = 'sabrina_carpenter@email.com'
       user.password = 'emails'
 

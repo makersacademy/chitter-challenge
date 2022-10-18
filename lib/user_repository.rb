@@ -48,6 +48,40 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE email = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
 
+    return nil if result_set.cmd_tuples.zero?
+
+    user = User.new
+    user.id = result_set[0]['id'].to_i
+    user.username = result_set[0]['username']
+    user.name = result_set[0]['name']
+    user.email = result_set[0]['email']
+    user.password = result_set[0]['password']
+
+    user
+  end
+
+  def find_by_username(username)
+    sql = 'SELECT * FROM users WHERE username = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [username])
+
+    return nil if result_set.cmd_tuples.zero?
+
+    user = User.new
+    user.id = result_set[0]['id'].to_i
+    user.username = result_set[0]['username']
+    user.name = result_set[0]['name']
+    user.email = result_set[0]['email']
+    user.password = result_set[0]['password']
+
+    user
+  end
+
+  def find_by_id(id)
+    sql = 'SELECT * FROM users WHERE id = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [id])
+
+    return nil if result_set.cmd_tuples.zero?
+
     user = User.new
     user.id = result_set[0]['id'].to_i
     user.username = result_set[0]['username']
