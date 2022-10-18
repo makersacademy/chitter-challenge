@@ -40,11 +40,8 @@ class UserRepository
     user = find_by_email(email)
 
     return nil if user.nil?
-    p user.password
-    p submitted_password
-    p BCrypt::Password.new(user.password)
     # Compare the submitted password with the encrypted one saved in the database
-    submitted_password == BCrypt::Password.new(user.password)
+    BCrypt::Password.new(user.password) == submitted_password
   end
 
   def find_by_email(email)
