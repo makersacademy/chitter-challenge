@@ -24,10 +24,13 @@ describe PeepRepository do
     expect(peeps[0].date_time).to eq '2022-06-08 12:00:00'
     expect(peeps[0].user_id).to eq 1
 
- 
     expect(peeps[1].content).to eq "It is sunny today"
     expect(peeps[1].date_time).to eq '2022-08-03 11:00:00'
     expect(peeps[1].user_id).to eq 1
+
+    expect(peeps[2].content).to eq "What is everyone doing today?"
+    expect(peeps[2].date_time).to eq '2022-07-17 13:00:00'
+    expect(peeps[2].user_id).to eq 2
   end
 
   it "adds a peep to chitter" do

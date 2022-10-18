@@ -19,7 +19,7 @@ describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include('<h1> Peeps </h1>')
-      expect(response.body).to include('Hello - 2022-06-08 12:00:00')
+      expect(response.body).to include('Hello - <font size="-2">2022-06-08 12:00:00</font>')
     end
   end
 
@@ -77,7 +77,6 @@ describe Application do
   context "GET /signup" do
     it "sign up and create an account" do
       response = get('/signup')
-
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Create an account</h1>')
       expect(response.body).to include('<p>Name: <input type="text" name="name"></p>')
