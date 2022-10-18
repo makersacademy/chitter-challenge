@@ -12,7 +12,7 @@ GEM
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
-    pg (1.4.3)
+    pg (1.4.4)
     rack (2.2.4)
     rack-protection (2.2.2)
       rack
@@ -80,7 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  pg (~> 1.4)
+  pg (~> 1.4.4)
   rack-test (~> 2.0)
   rspec
   rubocop (= 1.20)
