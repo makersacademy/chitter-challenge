@@ -1,0 +1,27 @@
+ <style>
+  div.a {text-align: center;
+  height: 200px;
+  width: 400px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+  }
+  div.b {
+    font-family: Arial, Tahoma, Serif;
+  }
+  body {background-color: paleturquoise;}
+  </style>
+<div class="b"><form action="/login" method="POST">
+<div class="a"><h1>Login here</h1>
+  <p>Email address: <input type="text" name="email_address"></p>
+  <p>Password: <input type="password" name="password"></p>
+
+  <p><input type="submit" value="Login"></p>
+</form></div></div>
+
+<% if invalid_param? %>
+  <p>Please enter all fields</p>
+<% end %>

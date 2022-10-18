@@ -1,0 +1,26 @@
+<style>
+  div.a {text-align: center;
+    height: 200px;
+    width: 400px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+  }
+  div.b {
+    font-family: Arial, Tahoma, Serif;
+  }
+  body {background-color: paleturquoise;}
+      </style>
+<div class="b"><div class="a"><form action="/peeps/new" method="POST">
+<h1>Post your peep here!</h1>
+  <p>Message: <input type="text" name="content"></p>
+
+  <p>Click here to post: <input type="submit" value="Peep"></p>
+</form></div></div>
+
+<% if invalid_param? %>
+  <p>Please type your peep</p>
+<% end %>
