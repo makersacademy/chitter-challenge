@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'pony'
+require 'mail'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
@@ -118,6 +119,11 @@ class Application < Sinatra::Base
 
       repo.create(post)
 
+      @content = post.content
+      @user = post.user_id
+
+      send_email(post, repo) if repo.user_mentioned?(post)
+
       erb(:post_success)
     end
   end
@@ -130,5 +136,12 @@ class Application < Sinatra::Base
 
   def invalid_post_request_parameters?
     params[:content].nil?
+  end
+
+  def send_email(post, repo)
+    emails = repo.mentioned_users(post)
+    emails.each do |email|
+      Pony.mail(to: email, from: "me@example.com", subject: "You've been mentioned in a Peep on Chitter", body: erb(:email))
+    end
   end
 end

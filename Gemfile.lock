@@ -84,6 +84,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1)
+  mail (~> 2.7)
   pg (~> 1.4)
   pony (~> 1.13)
   rack-test (~> 2.0)

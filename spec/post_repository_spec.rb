@@ -51,7 +51,6 @@ describe PostRepository do
   context "checks for users mentioned" do
     it "returns false if no users are mentioned" do
       repo = PostRepository.new
-      repo = PostRepository.new
 
       post = Post.new
       post.content = "canyon moon"
@@ -64,7 +63,6 @@ describe PostRepository do
     end
 
     it "returns false if no users are mentioned" do
-      repo = PostRepository.new
       repo = PostRepository.new
 
       post = Post.new
@@ -79,7 +77,6 @@ describe PostRepository do
 
     it "returns true if a single user is mentioned" do
       repo = PostRepository.new
-      repo = PostRepository.new
 
       post = Post.new
       post.content = "@billie_eillish hi"
@@ -92,7 +89,6 @@ describe PostRepository do
     end
 
     it "returns true if a single user is mentioned (2)" do
-      repo = PostRepository.new
       repo = PostRepository.new
 
       post = Post.new
@@ -107,7 +103,6 @@ describe PostRepository do
 
     it "returns true if a multiple users are mentioned" do
       repo = PostRepository.new
-      repo = PostRepository.new
 
       post = Post.new
       post.content = "@billie_eillish @taylor_swift hi"
@@ -117,6 +112,47 @@ describe PostRepository do
       repo.create(post)
 
       expect(repo.user_mentioned?(post)).to eq true
+    end
+  end
+
+  context "find mentioned users" do
+    it "returns true if a single user is mentioned" do
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish hi"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com"]
+    end
+
+    it "returns true if a single user is mentioned (2)" do
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish hi @no"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com"]
+    end
+
+    it "returns true if a multiple users are mentioned" do
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish @taylor_swift hi"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com", "taylor_swift@email.com" ]
     end
   end
 end

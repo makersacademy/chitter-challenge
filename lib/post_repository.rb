@@ -24,15 +24,19 @@ class PostRepository
 
   def user_mentioned?(post)
     if post.content =~ /@/
-      usernames = post.content.scan(/@[\w\d]*/)
-      users = usernames.map do |user|
-        username = user.scan(/[\w\d]*/)[1]
-        find_user(username)
-      end
-      return !users.compact.empty?
+      users = mentioned_users(post)
+      return !users.empty?
     else
       false
     end
+  end
+
+  def mentioned_users(post)
+    usernames = post.content.scan(/@[\w\d]*/)
+    users = usernames.map do |user|
+      username = user.scan(/[\w\d]*/)[1]
+      find_user(username)
+    end.compact
   end
 
   private
@@ -60,7 +64,7 @@ class PostRepository
     else
       user = User.new
       set_user(user, result_set)
-      user
+      user.email
     end
   end
 end

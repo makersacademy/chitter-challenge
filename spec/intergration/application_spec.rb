@@ -6,6 +6,7 @@ describe Application do
   include Rack::Test::Methods
 
   let(:app) { Application.new }
+  Pony.override_options = { :via => :test }
 
   context "GET sign_up when not logged in" do
     it "returns 200 OK and sign up form" do
@@ -171,6 +172,25 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include '<p>Post cannot be posted if content is empty.</p>'
       expect(response.body).to include '<p>Please <a href="/posts/new">try again</a>.</p>'
+    end
+  end
+
+  context "sends email" do
+    it "sends an email to a user if they are mentioned in a peep" do
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = post("/posts", content: "hi @harry_styles")
+
+      expect(response.status).to eq 200
+      expect(Mail::TestMailer.deliveries.length).to eq 1
+    end
+
+    it "sends an email to all users who are mentioned in a peep" do
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = post("/posts", content: "hi @harry_styles and @taylor_swift")
+      expect(response.status).to eq 200
+      expect(Mail::TestMailer.deliveries.length).to eq 3
     end
   end
 end
