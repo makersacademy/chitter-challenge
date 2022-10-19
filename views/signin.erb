@@ -1,0 +1,57 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Sign in to Chitter</h1>
+
+    <script type="text/javascript">
+  function validateForm() {
+    var a = document.forms["Form"]["answer_a"].value;
+    var b = document.forms["Form"]["answer_b"].value;
+    var c = document.forms["Form"]["answer_c"].value;
+    var d = document.forms["Form"]["answer_d"].value;
+    if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "") {
+      alert("Please Fill All Required Field");
+      return false;
+    }
+  }
+</script>
+
+    <form action="/signin" method="POST">
+    <div>
+      <label> Your name:</label>
+      <input type="text" name="name" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label> Username:</label>
+      <input type="text" name="username" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="text" name="email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+    </div>
+
+     <div>
+      <label>Password (must contain at least 8 characters, at least one number and letter and no symbols):</label>
+      <input type="password" name="password" id="myInput" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+      <input type="checkbox" onclick="myFunction()">Show Password
+      <script>
+        function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+         } else {
+          x.type = "password";
+         }
+        }
+      </script>
+    </div>
+      <input type="submit" value="Sign up to Chitter">
+    </form>
+
+    <div>
+      Changed your mind? <a href='/'>Go back to the main page</a> 
+    </div>
+  </body>
+</html>

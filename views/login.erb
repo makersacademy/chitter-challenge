@@ -1,0 +1,39 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Log-in to Chitter</h1>
+
+    <form action="/login" method="post">
+    <div>
+      <label> Username:</label>
+      <input type="text" name="username" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="text" name="email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+    </div>
+
+     <div>
+      <label>Password:</label>
+      <input type="password" name="password" id="myInput" required pattern="^[a-zA-Z0-9_]*$">
+      <input type="checkbox" onclick="myFunction()">Show Password
+      <script>
+        function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+         } else {
+          x.type = "password";
+         }
+        }
+      </script>
+    </div>
+      <input type="submit" value="Log in to Chitter">
+    </form>
+
+    <div>
+      Changed your mind? <a href='/'>Go back to the main page</a> 
+    </div>
+  </body>
+</html>

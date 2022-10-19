@@ -1,0 +1,23 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Write a peep</h1>
+    <form action="/write_peep" method="POST">
+    <div>
+      <label>Username:</label>
+      <input type="text" name="username" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label>Your peep:</label>
+      <input type="text" style="height:200px; width:600px;" name="content" required pattern="^[\.a-zA-Z0-9,!? ]*$">
+    </div>
+
+      <input type="submit" value="Add your peep to Chitter">
+      </form>
+
+    <div>
+      Changed your mind? <a href='/'>Go back to the main page</a> 
+    </div>
+  </body>
+</html>

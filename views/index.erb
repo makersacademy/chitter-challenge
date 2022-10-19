@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<div>
+<a href='/signin/maker'>Sign in</a> | <a href='/login/form'>Log-in</a>  | <a href='/logout/form'>Log-out</a>
+</div>
+
+<h1>Peeps</h1>
+<a href='/write_peep/new'>Write a new peep</a>
+<div>
+<% @peeps.each do |peep| %>
+        <div>
+        <b>By: <%= peep.find_maker_username %> At: <%= peep.created_at %></b>
+        <p>
+        <%= peep.content %> 
+        </p>
+        </div> 
+         <% end %>  
+</div>
+</body>
+</html>
