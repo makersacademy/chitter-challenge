@@ -1,17 +1,30 @@
-<h1>Sign Up</h1>
+<link rel="stylesheet" type='text/css' href="../style.css">
 
-<form action="/users" method="POST">
-  <label for="username">Username</label>
-  <input type="text" name="username">
-  <label for="name">Name</label>
-  <input type="text" name="name">
-  <label for="email">Email</label>
-  <input type="text" name="email">
-   <label for="password">Password</label>
-  <input type="text" name="password">
+<div class="container">
 
-  <input type="submit" value="Submit the form">
-</form>
+  <h1>CHITTER</h1>
 
-<a href="/posts">Peep Board</a>
-<a href="/login">Log In</a>
+  <a href="/posts">Peep Board</a>
+
+  <div class="form_div">
+
+    <h1>Sign Up</h1>
+
+    <form action="/users" method="POST">
+      <label for="username">Username</label>
+      <input type="text" name="username">
+      <label for="name">Name</label>
+      <input type="text" name="name">
+      <label for="email">Email</label>
+      <input type="text" name="email">
+      <label for="password">Password</label>
+      <input type="text" name="password">
+
+      <input type="submit" value="Sign Up" class="button">
+    </form>
+
+    <a href="/login">Log In</a>
+
+  </div>
+
+</div>

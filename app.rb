@@ -12,6 +12,7 @@ DatabaseConnection.connect
 class Application < Sinatra::Base
   # Sessions are disabled by default, so this line is needed.
   enable :sessions
+  set :public_folder, __dir__ + '/public'
 
   configure :development do
     register Sinatra::Reloader
@@ -119,8 +120,10 @@ class Application < Sinatra::Base
 
       repo.create(post)
 
+      repo2 = UserRepository.new
+
       @content = post.content
-      @user = post.user_id
+      @user = repo2.find_by_id(post.user_id)
 
       send_email(post, repo) if repo.user_mentioned?(post)
 
@@ -141,7 +144,7 @@ class Application < Sinatra::Base
   def send_email(post, repo)
     emails = repo.mentioned_users(post)
     emails.each do |email|
-      Pony.mail(to: email, from: "me@example.com", subject: "You've been mentioned in a Peep on Chitter", body: erb(:email))
+      Pony.mail(to: email, from: "example@email.com", subject: "You've been mentioned in a Peep on Chitter", body: erb(:email))
     end
   end
 end

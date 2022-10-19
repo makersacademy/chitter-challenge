@@ -120,7 +120,7 @@ describe Application do
       response = get("/posts")
 
       expect(response.status).to eq 200
-      expect(response.body).to include "<h1>Peeps</h1>"
+      expect(response.body).to include "<h1>Peep Board</h1>"
       expect(response.body).to include "harry_styles"
       expect(response.body).to include "watermelon sugar"
       expect(response.body).to include "billie_eillish"

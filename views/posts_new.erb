@@ -1,14 +1,29 @@
-<h1>Post a Peep</h1>
+<link rel="stylesheet" type='text/css' href="../style.css">
 
-<form action="/logout" method="POST">
-  <input type="submit" value="logout">
-</form>
+<div class="container">
 
-<form action="/posts" method="POST">
-  <label for="content">content</label>
-  <input type="text" name="content">
+  <h1>CHITTER</h1>
 
-  <input type="submit" value="Submit the form">
-</form>
+  <form action="/logout" method="POST">
+    <input type="submit" value="logout" class="logout_button">
+  </form>
 
-<a href="/posts">Peep Board</a>
+  <a href="/posts">Peep Board</a>
+
+  <div class="form_div">
+
+    <h1>Post a Peep</h1>
+
+
+    <form action="/posts" method="POST">
+      <label for="content">Content</label>
+      <input type="text" name="content">
+
+      <input type="submit" value="Post your Peep" class="button">
+    </form>
+
+
+  </div>
+
+
+</div>

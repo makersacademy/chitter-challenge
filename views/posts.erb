@@ -1,24 +1,37 @@
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" type='text/css' href="../style.css">
+  </head>
   <body>
-    <h1>Peeps</h1>
-    <% if !@current_user.nil? %>
-      <form action="/logout" method="POST">
-        <input type="submit" value="logout">
-      </form>
-      <a href="/posts/new">Post a Peep</a>
-    <% else %>
-      <a href="/login">Log In</a>
-      <a href="/sign_up">Sign Up</a>
-    <% end %>
-    <% @posts.each do |post| %>
-      <% user = @repo2.find_by_id(post.user_id) %>
-      <div>
-        <h5><%= user.username %>:</h5>
-        <h3><%= post.content %></h3>
-        <p>- <%= user.name %></p>
-        <p><%= post.time_posted %></p>
+    <div class="container">
+      <h1>CHITTER</h1>
+
+      <% if !@current_user.nil? %>
+        <form action="/logout" method="POST">
+          <input type="submit" value="Logout" class="logout_button">
+        </form>
+        <a href="/posts/new">Post a Peep</a>
+      <% else %>
+        <a href="/login">Log In</a>
+        <a href="/sign_up">Sign Up</a>
+      <% end %>
+
+      <div class="form_div">
+
+        <h1>Peep Board</h1>
+        <% @posts.each do |post| %>
+          <% user = @repo2.find_by_id(post.user_id) %>
+          <div class="card">
+            <h3>'<%= post.content %>'</h3>
+            <div class="info">
+              <p>- <%= user.name %>, @<%= user.username %></p>
+              <p><%= Time.new(post.time_posted).strftime("%d/%m/%Y %I:%M %p") %></p>
+            </div>
+          </div>
+        <% end %>
+
       </div>
-    <% end %>
+
+    </div>
   </body>
 </html>

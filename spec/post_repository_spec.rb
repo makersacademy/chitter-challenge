@@ -22,7 +22,7 @@ describe PostRepository do
 
       expect(posts[0].id).to eq 7
       expect(posts[0].content).to eq 'you really know how to make me cry'
-      expect(posts[0].time_posted).to eq '2022-10-21 00:29:00'
+      expect(posts[0].time_posted).to eq '2022-10-08 00:29:00'
       expect(posts[0].user_id).to eq 3
       expect(order).to eq true
     end
