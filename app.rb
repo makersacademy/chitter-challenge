@@ -27,20 +27,23 @@ class Application < Sinatra::Base
 
   post '/users' do
     repo = UserRepository.new
-    if invalid_user_request_parameters? || !repo.find_by_email(params[:email]).nil? || !repo.find_by_username(params[:username]).nil?
-      status 400
+    if invalid_user_request_parameters?
+      erb(:sign_up_error_empty)
+    elsif !repo.find_by_email(params[:email]).nil?
+      erb(:sign_up_error_email)
+    elsif !repo.find_by_username(params[:username]).nil?
+      erb(:sign_up_error_username)
+    else
+      user = User.new
+      user.username = params[:username]
+      user.name = params[:name]
+      user.email = params[:email]
+      user.password = params[:password]
 
-      return ''
+      repo.create(user)
+
+      erb(:sign_up_successful)
     end
-    user = User.new
-    user.username = params[:username]
-    user.name = params[:name]
-    user.email = params[:email]
-    user.password = params[:password]
-
-    repo.create(user)
-
-    erb(:sign_up_successful)
   end
 
   # This route simply returns the login page
@@ -104,19 +107,18 @@ class Application < Sinatra::Base
 
   post '/posts' do
     if invalid_post_request_parameters?
-      status 400
+      erb(:post_error)
+    else
+      repo = PostRepository.new
+      post = Post.new
+      post.content = params[:content]
+      post.time_posted = Time.now
+      post.user_id = session[:user_id]
 
-      return ''
+      repo.create(post)
+
+      erb(:post_success)
     end
-    repo = PostRepository.new
-    post = Post.new
-    post.content = params[:content]
-    post.time_posted = Time.now
-    post.user_id = session[:user_id]
-
-    repo.create(post)
-
-    erb(:post_success)
   end
 
   private

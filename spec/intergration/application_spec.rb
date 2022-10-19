@@ -29,22 +29,30 @@ describe Application do
       expect(response.body).to include "<p>You have successfully signed up!</p>"
     end
 
-    it "returns 400 if parameters are incorrect (email)" do
+    it "redirects to an error page when email has already been used" do
       response = post("/users", username: 'harry_styles', name: 'Harry Styles', email: 'harry_styles@email.co.uk', password: "cherry")
 
-      expect(response.status).to eq 400
+      expect(response.status).to eq 200
+      expect(response.body).to include "<p>Sign up failed, this email address has already been signed up.</p>"
+      expect(response.body).to include '<p>Please <a href="/sign_up">try again</a> with a different email address.</p>'
+      expect(response.body).to include '<p>Or <a href="/login">log in</a>.</p>'
     end
 
-    it "returns 400 if parameters are incorrect (username)" do
+    it "redirects to an error page when username has already been used" do
       response = post("/users", username: 'harry_styles', name: 'Harry Styles', email: 'harry_styles@email.com', password: "cherry")
 
-      expect(response.status).to eq 400
+      expect(response.status).to eq 200
+      expect(response.body).to include "<p>Sign up failed, this username has already been used.</p>"
+      expect(response.body).to include '<p>Please <a href="/sign_up">try again</a> with a different username.</p>'
+      expect(response.body).to include '<p>Or <a href="/login">log in</a>.</p>'
     end
 
-    it "returns 400 if parameters are nil" do
+    it "redirects to an error page when fields have been left empty" do
       response = post("/users")
 
-      expect(response.status).to eq 400
+      expect(response.status).to eq 200
+      expect(response.body).to include "<p>Sign up failed, you cannot leave any fields empty.</p>"
+      expect(response.body).to include '<p>Please <a href="/sign_up">try again</a>.</p>'
     end
   end
 
@@ -160,7 +168,9 @@ describe Application do
     it "returns a 400 if parameters are incorrect" do
       response = post("/posts")
 
-      expect(response.status).to eq 400
+      expect(response.status).to eq 200
+      expect(response.body).to include '<p>Post cannot be posted if content is empty.</p>'
+      expect(response.body).to include '<p>Please <a href="/posts/new">try again</a>.</p>'
     end
   end
 end
