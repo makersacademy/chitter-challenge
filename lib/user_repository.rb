@@ -8,11 +8,7 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, [])
     result_set.each do |record|
       user = User.new
-      user.id = record['id'].to_i
-      user.name = record['name']
-      user.username = record['username']
-      user.email = record['email']
-      user.password = BCrypt::Password.create(record['password'])
+      set_user(user, record)
       users << user
     end
     users
@@ -22,16 +18,8 @@ class UserRepository
     # Encrypt the password to save it into the new database record.
     encrypted_password = BCrypt::Password.create(new_user.password)
 
-    sql = '
-      INSERT INTO users (username, name, email, password)
-        VALUES($1, $2, $3, $4);
-    '
-    sql_params = [
-      new_user.username,
-      new_user.name,
-      new_user.email,
-      encrypted_password
-    ]
+    sql = 'INSERT INTO users (username, name, email, password) VALUES($1, $2, $3, $4);'
+    sql_params = [new_user.username, new_user.name, new_user.email, encrypted_password]
 
     DatabaseConnection.exec_params(sql, sql_params)
   end
@@ -51,12 +39,7 @@ class UserRepository
     return nil if result_set.cmd_tuples.zero?
 
     user = User.new
-    user.id = result_set[0]['id'].to_i
-    user.username = result_set[0]['username']
-    user.name = result_set[0]['name']
-    user.email = result_set[0]['email']
-    user.password = result_set[0]['password']
-
+    find_user(user, result_set)
     user
   end
 
@@ -67,12 +50,7 @@ class UserRepository
     return nil if result_set.cmd_tuples.zero?
 
     user = User.new
-    user.id = result_set[0]['id'].to_i
-    user.username = result_set[0]['username']
-    user.name = result_set[0]['name']
-    user.email = result_set[0]['email']
-    user.password = result_set[0]['password']
-
+    find_user(user, result_set)
     user
   end
 
@@ -83,12 +61,25 @@ class UserRepository
     return nil if result_set.cmd_tuples.zero?
 
     user = User.new
+    find_user(user, result_set)
+    user
+  end
+
+  private
+
+  def set_user(user, record)
+    user.id = record['id'].to_i
+    user.name = record['name']
+    user.username = record['username']
+    user.email = record['email']
+    user.password = BCrypt::Password.create(record['password'])
+  end
+
+  def find_user(user, result_set)
     user.id = result_set[0]['id'].to_i
     user.username = result_set[0]['username']
     user.name = result_set[0]['name']
     user.email = result_set[0]['email']
     user.password = result_set[0]['password']
-
-    user
   end
 end

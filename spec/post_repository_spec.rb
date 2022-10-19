@@ -47,4 +47,76 @@ describe PostRepository do
       expect(posts.first.user_id).to eq 1
     end
   end
+
+  context "checks for users mentioned" do
+    it "returns false if no users are mentioned" do
+      repo = PostRepository.new
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "canyon moon"
+      post.time_posted = '2022-12-08 09:32:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.user_mentioned?(post)).to eq false
+    end
+
+    it "returns false if no users are mentioned" do
+      repo = PostRepository.new
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@no"
+      post.time_posted = '2022-12-08 09:36:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.user_mentioned?(post)).to eq false
+    end
+
+    it "returns true if a single user is mentioned" do
+      repo = PostRepository.new
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish hi"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.user_mentioned?(post)).to eq true
+    end
+
+    it "returns true if a single user is mentioned (2)" do
+      repo = PostRepository.new
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish hi @no"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.user_mentioned?(post)).to eq true
+    end
+
+    it "returns true if a multiple users are mentioned" do
+      repo = PostRepository.new
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish @taylor_swift hi"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      expect(repo.user_mentioned?(post)).to eq true
+    end
+  end
 end

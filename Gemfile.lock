@@ -6,6 +6,9 @@ GEM
     bcrypt (3.1.18)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    mini_mime (1.1.2)
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -13,6 +16,8 @@ GEM
     parser (3.0.2.0)
       ast (~> 2.4.1)
     pg (1.4.4)
+    pony (1.13.1)
+      mail (>= 2.0)
     rack (2.2.4)
     rack-protection (3.0.2)
       rack
@@ -80,6 +85,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1)
   pg (~> 1.4)
+  pony (~> 1.13)
   rack-test (~> 2.0)
   rspec
   rubocop (= 1.20)

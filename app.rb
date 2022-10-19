@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'pony'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
