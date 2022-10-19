@@ -18,7 +18,11 @@ class Application < Sinatra::Base
   end
 
   get '/sign_up' do
-    return erb(:sign_up)
+    if session[:user_id].nil?
+      erb(:sign_up)
+    else
+      redirect('/posts')
+    end
   end
 
   post '/users' do
@@ -68,9 +72,9 @@ class Application < Sinatra::Base
       # Set the user ID in session
       session[:user_id] = user.id
 
-      return erb(:login_success)
+      erb(:login_success)
     else
-      return erb(:login_error)
+      erb(:login_error)
     end
   end
 
@@ -81,6 +85,7 @@ class Application < Sinatra::Base
   end
 
   get '/posts' do
+    @current_user = session[:user_id]
     repo = PostRepository.new
     @repo2 = UserRepository.new
 

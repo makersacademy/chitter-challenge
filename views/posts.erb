@@ -2,11 +2,21 @@
   <head></head>
   <body>
     <h1>Peeps</h1>
+    <% if !@current_user.nil? %>
+      <form action="/logout" method="POST">
+        <input type="submit" value="logout">
+      </form>
+      <a href="/posts/new">Post a Peep</a>
+    <% else %>
+      <a href="/login">Log In</a>
+      <a href="/sign_up">Sign Up</a>
+    <% end %>
     <% @posts.each do |post| %>
       <% user = @repo2.find_by_id(post.user_id) %>
       <div>
         <h5><%= user.username %>:</h5>
         <h3><%= post.content %></h3>
+        <p>- <%= user.name %></p>
         <p><%= post.time_posted %></p>
       </div>
     <% end %>

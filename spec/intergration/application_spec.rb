@@ -7,7 +7,7 @@ describe Application do
 
   let(:app) { Application.new }
 
-  context "GET sign_up" do
+  context "GET sign_up when not logged in" do
     it "returns 200 OK and sign up form" do
       response = get("sign_up")
 
@@ -48,13 +48,34 @@ describe Application do
     end
   end
 
+  context "GET sign_up when logged in" do
+    it "redirects to the posts page" do
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = get("/sign_up")
+
+      expect(session[:user_id]).to eq 5
+      expect(response.status).to eq 302
+    end
+  end
+
   context "GET /login" do
-    it "returns 200 OK and login form" do
+    it "returns 200 OK and login form when not logged in" do
       response = get("/login")
 
       expect(response.status).to eq 200
       expect(response.body).to include "<h1>Log In</h1>"
       expect(response.body).to include '<form action="/login" method="POST">'
+    end
+
+    it "redirects to successful login page if logged in" do
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = get("/login")
+
+      expect(session[:user_id]).to eq 5
+      expect(response.status).to eq 200
+      expect(response.body).to include '<p>You have successfully logged in!</p>'
     end
   end
 
