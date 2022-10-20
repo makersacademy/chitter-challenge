@@ -10,7 +10,6 @@ require_relative 'lib/post_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
-  # Sessions are disabled by default, so this line is needed.
   enable :sessions
   set :public_folder, __dir__ + '/public'
 
@@ -32,6 +31,8 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     if invalid_user_request_parameters?
       erb(:sign_up_error_empty)
+    elsif invalid_email?
+      erb(:sign_up_error_invalid_email)
     elsif !repo.find_by_email(params[:email]).nil?
       erb(:sign_up_error_email)
     elsif !repo.find_by_username(params[:username]).nil?
@@ -42,14 +43,11 @@ class Application < Sinatra::Base
       user.name = params[:name]
       user.email = params[:email]
       user.password = params[:password]
-
       repo.create(user)
-
       erb(:sign_up_successful)
     end
   end
 
-  # This route simply returns the login page
   get '/login' do
     if session[:user_id].nil?
       erb(:login)
@@ -58,26 +56,13 @@ class Application < Sinatra::Base
     end
   end
 
-  # This route receives login information (email and password)
-  # as body parameters, and find the user in the database
-  # using the email. If the password matches, it returns
-  # a success page.
   post '/login' do
     email = params[:email]
     password = params[:password]
-
     repo = UserRepository.new
     user = repo.find_by_email(email)
-
-    # This is a simplified way of
-    # checking the password. In a real
-    # project, you should encrypt the password
-    # stored in the database.
-
     if repo.sign_in(email, password)
-      # Set the user ID in session
       session[:user_id] = user.id
-
       erb(:login_success)
     else
       erb(:login_error)
@@ -86,7 +71,6 @@ class Application < Sinatra::Base
 
   post '/logout' do
     session[:user_id] = nil
-
     redirect('/login')
   end
 
@@ -94,9 +78,7 @@ class Application < Sinatra::Base
     @current_user = session[:user_id]
     repo = PostRepository.new
     @repo2 = UserRepository.new
-
     @posts = repo.all
-
     erb(:posts)
   end
 
@@ -117,16 +99,11 @@ class Application < Sinatra::Base
       post.content = params[:content]
       post.time_posted = Time.now
       post.user_id = session[:user_id]
-
       repo.create(post)
-
       repo2 = UserRepository.new
-
       @content = post.content
       @user = repo2.find_by_id(post.user_id)
-
       send_email(post, repo) if repo.user_mentioned?(post)
-
       erb(:post_success)
     end
   end
@@ -141,10 +118,15 @@ class Application < Sinatra::Base
     params[:content].nil?
   end
 
+  def invalid_email?
+    params[:email].match(/(\w*@\w+\.(\w+ |\w+.\w+))/).nil?
+  end
+
   def send_email(post, repo)
     emails = repo.mentioned_users(post)
     emails.each do |email|
-      Pony.mail(to: email, from: "example@email.com", subject: "You've been mentioned in a Peep on Chitter", body: erb(:email))
+      Pony.mail(to: email, from: "example@email.com",
+                subject: "You've been mentioned in a Peep on Chitter", body: erb(:email))
     end
   end
 end

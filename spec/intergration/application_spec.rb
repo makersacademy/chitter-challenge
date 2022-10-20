@@ -55,6 +55,14 @@ describe Application do
       expect(response.body).to include "<p>Sign up failed, you cannot leave any fields empty.</p>"
       expect(response.body).to include '<p>Please <a href="/sign_up">try again</a>.</p>'
     end
+
+    it "redirects to an error page when email is invalid" do
+      response = post("/users", username: 'miley_cyrus', name: 'Miley Cyrus', email: 'miley_cyrus@emailcom', password: "climb")
+
+      expect(response.status).to eq 200
+      expect(response.body).to include "<p>Sign up failed, invalid email address.</p>"
+      expect(response.body).to include '<p>Please <a href="/sign_up">try again</a> with a different email address.</p>'
+    end
   end
 
   context "GET sign_up when logged in" do

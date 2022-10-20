@@ -152,7 +152,7 @@ describe PostRepository do
 
       repo.create(post)
 
-      expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com", "taylor_swift@email.com" ]
+      expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com", "taylor_swift@email.com"]
     end
   end
 end
