@@ -251,6 +251,7 @@ describe Application do
       post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       response = post("/reply/1", content: "@harry_styles hi")
+
       expect(response.status).to eq 200
       expect(response.body).to include "<p>Peep successfully posted!</p>"
     end
@@ -261,6 +262,22 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include '<p>Post cannot be posted if content is empty.</p>'
       expect(response.body).to include '<p>Please <a href="/posts/new">try again</a>.</p>'
+    end
+  end
+
+  context "GET /post/:id" do
+    it "returns 200 OK  and displays the peep with it's replies" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+      post("/reply/1", content: "@harry_styles hi")
+
+      response = get("/post/1")
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<div class="card" id="1">'
+      expect(response.body).to include "<h3>'watermelon sugar'</h3>"
+      expect(response.body).to include "<h3>'@harry_styles @harry_styles hi'</h3>"
+      expect(response.body).to include "<p>- Olivia Rodrigo, @olivia_rodrigo</p>"
     end
   end
 end

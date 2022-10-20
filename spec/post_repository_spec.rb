@@ -89,6 +89,8 @@ describe PostRepository do
 
       repo.create(post)
 
+      post = repo.find(8)
+
       expect(repo.user_mentioned?(post)).to eq false
     end
 
@@ -101,6 +103,8 @@ describe PostRepository do
       post.user_id = '1'
 
       repo.create(post)
+
+      post = repo.find(8)
 
       expect(repo.user_mentioned?(post)).to eq false
     end
@@ -115,6 +119,8 @@ describe PostRepository do
 
       repo.create(post)
 
+      post = repo.find(8)
+
       expect(repo.user_mentioned?(post)).to eq true
     end
 
@@ -128,6 +134,8 @@ describe PostRepository do
 
       repo.create(post)
 
+      post = repo.find(8)
+
       expect(repo.user_mentioned?(post)).to eq true
     end
 
@@ -140,6 +148,8 @@ describe PostRepository do
       post.user_id = '1'
 
       repo.create(post)
+
+      post = repo.find(8)
 
       expect(repo.user_mentioned?(post)).to eq true
     end
@@ -156,6 +166,8 @@ describe PostRepository do
 
       repo.create(post)
 
+      post = repo.find(8)
+
       expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com"]
     end
 
@@ -168,6 +180,8 @@ describe PostRepository do
       post.user_id = '1'
 
       repo.create(post)
+
+      post = repo.find(8)
 
       expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com"]
     end
@@ -182,7 +196,64 @@ describe PostRepository do
 
       repo.create(post)
 
+      post = repo.find(8)
+
       expect(repo.mentioned_users(post)).to eq ["billie_eillish@email.com", "taylor_swift@email.com"]
     end
+  end
+
+  context "checks for replies" do
+    it "returns false if the peep has no replies" do
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish @taylor_swift hi"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+
+      repo.create(post)
+
+      new_post = repo.find(8)
+
+      expect(repo.replies?(new_post)).to eq false
+    end
+
+    it "returns true if the peep has replies" do
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "@billie_eillish @taylor_swift hi"
+      post.time_posted = '2022-12-08 09:38:00'
+      post.user_id = '1'
+      post.parent_id = '4'
+
+      repo.create(post)
+
+      new_post = repo.find(4)
+
+      expect(repo.replies?(new_post)).to eq true
+    end
+  end
+
+  it "returns all the replies to the peep" do
+    repo = PostRepository.new
+
+    post = Post.new
+    post.content = "@billie_eillish @taylor_swift hi"
+    post.time_posted = '2022-12-08 09:38:00'
+    post.user_id = '1'
+    post.parent_id = '4'
+    repo.create(post)
+
+    post2 = Post.new
+    post2.content = "@billie_eillish hi"
+    post2.time_posted = '2022-12-08 09:38:00'
+    post2.user_id = '2'
+    post2.parent_id = '4'
+    repo.create(post2)
+
+    new_post = repo.find(4)
+    expect(repo.all_replies(new_post).length).to eq 2
+    expect(repo.all_replies(new_post).first.content).to eq "@billie_eillish @taylor_swift hi"
   end
 end

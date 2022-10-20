@@ -33,7 +33,12 @@
         <p>- <%= user.name %>, @<%= user.username %></p>
         <p><%= Time.new(@post.time_posted).strftime("%d/%m/%Y %I:%M %p") %></p>
       </div>
-      <a href="/reply/<%= @post.id %>">Reply</a>
+      <div class="flex">
+        <a href="/reply/<%= @post.id %>">Reply</a>
+        <% if @repo.replies?(@post) %>
+          <a href="/post/<%= @post.id %>">See all Replies</a>
+        <% end %>
+      </div>
     </div>
 
 

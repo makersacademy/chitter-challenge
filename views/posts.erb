@@ -21,18 +21,23 @@
         <h1>Peep Board</h1>
         <% @posts.each do |post| %>
           <% user = @repo2.find_by_id(post.user_id) %>
-          <div class="card" id="<%= post.id %>">
+          <div class="<%= post.parent_id.zero? ? "card" : "reply_card" %>" id="<%= post.id %>">
             <% if !post.parent_id.zero? %>
               <% original_post = @repo.find(post.parent_id) %>
               <% owner = @repo2.find_by_id(original_post.user_id) %>
-              <h4>In reply to <%= owner.name %>'s <a href="#<%= post.parent_id %>">peep</a>.</h4>
+              <h4>In reply to <%= owner.name %>'s <a href="#<%= post.parent_id %>" class="link_not_button">peep</a>.</h4>
             <% end %>
             <h3>'<%= post.content %>'</h3>
             <div class="info">
               <p>- <%= user.name %>, @<%= user.username %></p>
               <p><%= Time.new(post.time_posted).strftime("%d/%m/%Y %I:%M %p") %></p>
             </div>
-            <a href="/reply/<%= post.id %>">Reply</a>
+            <div class="flex">
+              <a href="/reply/<%= post.id %>">Reply</a>
+              <% if @repo.replies?(post) %>
+                <a href="/post/<%= post.id %>">See all Replies</a>
+              <% end %>
+            </div>
           </div>
         <% end %>
 

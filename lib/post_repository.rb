@@ -48,6 +48,25 @@ class PostRepository
     end.compact
   end
 
+  def replies?(post)
+    result_set = get_replies(post)
+    !result_set.cmd_tuples.zero?
+  end
+
+  def all_replies(post)
+    result_set = get_replies(post)
+
+    posts = []
+
+    result_set.each do |record|
+      post = Post.new
+      set_post(post, record)
+      posts << post
+    end
+
+    posts
+  end
+
   private
 
   def set_post(post, record)
@@ -84,5 +103,10 @@ class PostRepository
       set_user(user, result_set)
       user.email
     end
+  end
+
+  def get_replies(post)
+    sql = 'SELECT * FROM posts WHERE parent_id = $1;'
+    DatabaseConnection.exec_params(sql, [post.id])
   end
 end

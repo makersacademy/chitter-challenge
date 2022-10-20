@@ -108,6 +108,14 @@ class Application < Sinatra::Base
     end
   end
 
+  get '/post/:id' do
+    @repo = PostRepository.new
+    @post = @repo.find(params[:id])
+    @repo2 = UserRepository.new
+    @posts = @repo.all_replies(@post)
+    erb(:post)
+  end
+
   get '/reply/:id' do
     if session[:user_id].nil?
       redirect('/login')
