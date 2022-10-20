@@ -28,6 +28,17 @@ describe PostRepository do
     end
   end
 
+  context "find post by id" do
+    it "returns the post with id 1" do
+      repo = PostRepository.new
+
+      post = repo.find(1)
+
+      expect(post.id).to eq 1
+      expect(post.content).to eq "watermelon sugar"
+    end
+  end
+
   context "add post" do
     it "adds a post and returns the list" do
       repo = PostRepository.new
@@ -45,6 +56,25 @@ describe PostRepository do
       expect(posts.first.content).to eq "you know it's not the same"
       expect(posts.first.time_posted).to eq '2022-12-08 09:30:00'
       expect(posts.first.user_id).to eq 1
+    end
+
+    it "adds a reply" do
+      repo = PostRepository.new
+
+      post = Post.new
+      post.content = "hi"
+      post.time_posted = '2022-12-08 09:30:00'
+      post.user_id = '1'
+      post.parent_id = '3'
+
+      repo.create(post)
+      posts = repo.all
+      expect(posts.length).to eq 8
+      expect(posts.first.id).to eq 8
+      expect(posts.first.content).to eq "hi"
+      expect(posts.first.time_posted).to eq '2022-12-08 09:30:00'
+      expect(posts.first.user_id).to eq 1
+      expect(posts.first.parent_id).to eq 3
     end
   end
 

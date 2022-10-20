@@ -190,7 +190,7 @@ describe Application do
       expect(response.body).to include "<p>Peep successfully posted!</p>"
     end
 
-    it "returns a 400 if parameters are incorrect" do
+    it "returns an error page if parameters are incorrect" do
       response = post("/posts")
 
       expect(response.status).to eq 200
@@ -217,6 +217,50 @@ describe Application do
       response = post("/posts", content: "hi @harry_styles and @taylor_swift")
       expect(response.status).to eq 200
       expect(Mail::TestMailer.deliveries.length).to eq 3
+    end
+  end
+
+  context "GET /reply/:id" do
+    it "returns 200 OK and takes you to a form" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = get("reply/1")
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Reply to the Peep:</h1>'
+      expect(response.body).to include '<form action="/reply/1" method="POST">'
+      expect(response.body).to include "<h3>'watermelon sugar'</h3>"
+      expect(response.body).to include "<p>- Harry Styles, @harry_styles</p>"
+    end
+
+    it "if not logged in redirects to login page" do
+      response = get("reply/1")
+
+      expect(response.status).to eq 302
+
+      response = get("/login")
+
+      expect(response.body).to include "<h1>Log In</h1>"
+      expect(response.body).to include '<form action="/login" method="POST">'
+    end
+  end
+
+  context "POST /reply/:id" do
+    it "returns 200 OK and posts your reply" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = post("/reply/1", content: "@harry_styles hi")
+      expect(response.status).to eq 200
+      expect(response.body).to include "<p>Peep successfully posted!</p>"
+    end
+
+    it "returns an error page if parameters are incorrect" do
+      response = post("/reply/1")
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<p>Post cannot be posted if content is empty.</p>'
+      expect(response.body).to include '<p>Please <a href="/posts/new">try again</a>.</p>'
     end
   end
 end

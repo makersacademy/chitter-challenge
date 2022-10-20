@@ -76,9 +76,9 @@ class Application < Sinatra::Base
 
   get '/posts' do
     @current_user = session[:user_id]
-    repo = PostRepository.new
+    @repo = PostRepository.new
     @repo2 = UserRepository.new
-    @posts = repo.all
+    @posts = @repo.all
     erb(:posts)
   end
 
@@ -99,6 +99,39 @@ class Application < Sinatra::Base
       post.content = params[:content]
       post.time_posted = Time.now
       post.user_id = session[:user_id]
+      repo.create(post)
+      repo2 = UserRepository.new
+      @content = post.content
+      @user = repo2.find_by_id(post.user_id)
+      send_email(post, repo) if repo.user_mentioned?(post)
+      erb(:post_success)
+    end
+  end
+
+  get '/reply/:id' do
+    if session[:user_id].nil?
+      redirect('/login')
+    else
+      @repo = PostRepository.new
+      @repo2 = UserRepository.new
+      @post = @repo.find(params[:id])
+      erb(:reply_new)
+    end
+  end
+
+  post '/reply/:id' do
+    if invalid_post_request_parameters?
+      erb(:post_error)
+    else
+      repo = PostRepository.new
+      parent = repo.find(params[:id])
+      repo2 = UserRepository.new
+      user = repo2.find_by_id(parent.user_id)
+      post = Post.new
+      post.content = "@#{user.username} #{params[:content]}"
+      post.time_posted = Time.now
+      post.user_id = session[:user_id]
+      post.parent_id = parent.id
       repo.create(post)
       repo2 = UserRepository.new
       @content = post.content

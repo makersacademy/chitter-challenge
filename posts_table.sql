@@ -15,7 +15,7 @@ CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   content text,
   time_posted timestamp,
-  parent_id int NULL,
+  parent_id int,
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)

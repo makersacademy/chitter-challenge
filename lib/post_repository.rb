@@ -16,9 +16,18 @@ class PostRepository
     posts
   end
 
+  def find(id)
+    sql = 'SELECT * FROM posts WHERE id = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [id])
+
+    post = Post.new
+    find_post(post, result_set)
+    post
+  end
+
   def create(post)
-    sql = 'INSERT INTO posts (content, time_posted, user_id) VALUES ($1, $2, $3);'
-    sql_params = [post.content, post.time_posted, post.user_id]
+    sql = 'INSERT INTO posts (content, time_posted, user_id, parent_id) VALUES ($1, $2, $3, $4);'
+    sql_params = [post.content, post.time_posted, post.user_id, post.parent_id]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
   end
 
@@ -46,6 +55,15 @@ class PostRepository
     post.content = record['content']
     post.time_posted = record['time_posted']
     post.user_id = record['user_id'].to_i
+    post.parent_id = record['parent_id'].to_i
+  end
+
+  def find_post(post, result_set)
+    post.id = result_set[0]['id'].to_i
+    post.content = result_set[0]['content']
+    post.time_posted = result_set[0]['time_posted']
+    post.user_id = result_set[0]['user_id'].to_i
+    post.parent_id = result_set[0]['parent_id'].to_i
   end
 
   def set_user(user, result_set)

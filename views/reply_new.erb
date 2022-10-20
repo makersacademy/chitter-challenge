@@ -1,0 +1,43 @@
+<link rel="stylesheet" type='text/css' href="../style.css">
+
+<div class="container">
+
+  <h1>CHITTER</h1>
+
+  <form action="/logout" method="POST">
+    <input type="submit" value="logout" class="logout_button">
+  </form>
+
+  <a href="/posts">Peep Board</a>
+
+  <div class="form_div">
+
+    <h1>Reply to the Peep:</h1>
+
+    <form action="/reply/<%= @post.id %>" method="POST">
+      <label for="content">Content</label>
+      <input type="text" name="content">
+
+      <input type="submit" value="Post your Peep" class="button">
+    </form>
+
+    <% user = @repo2.find_by_id(@post.user_id) %>
+    <div class="card" id="<%= @post.id %>">
+      <% if !@post.parent_id.zero? %>
+        <% original_post = @repo.find(@post.parent_id) %>
+        <% owner = @repo2.find_by_id(original_post.user_id) %>
+        <h4>In reply to <%= owner.name %>'s <a href="#<%= @post.parent_id %>">peep</a>.</h4>
+      <% end %>
+      <h3>'<%= @post.content %>'</h3>
+      <div class="info">
+        <p>- <%= user.name %>, @<%= user.username %></p>
+        <p><%= Time.new(@post.time_posted).strftime("%d/%m/%Y %I:%M %p") %></p>
+      </div>
+      <a href="/reply/<%= @post.id %>">Reply</a>
+    </div>
+
+
+  </div>
+
+
+</div>
