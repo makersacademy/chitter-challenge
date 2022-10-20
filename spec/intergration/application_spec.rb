@@ -2,11 +2,21 @@ require "spec_helper"
 require "rack/test"
 require_relative '../../app'
 
+def reset_application_table
+  seed_sql = File.read('spec/seeds/posts_seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_test' })
+  connection.exec(seed_sql)
+end
+
 describe Application do
   include Rack::Test::Methods
 
   let(:app) { Application.new }
   Pony.override_options = { :via => :test }
+
+  before(:each) do
+    reset_application_table
+  end
 
   context "GET sign_up when not logged in" do
     it "returns 200 OK and sign up form" do
@@ -67,11 +77,12 @@ describe Application do
 
   context "GET sign_up when logged in" do
     it "redirects to the posts page" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
       post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       response = get("/sign_up")
 
-      expect(session[:user_id]).to eq 5
+      expect(session[:user_id]).to eq 4
       expect(response.status).to eq 302
     end
   end
@@ -86,11 +97,12 @@ describe Application do
     end
 
     it "redirects to successful login page if logged in" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
       post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       response = get("/login")
 
-      expect(session[:user_id]).to eq 5
+      expect(session[:user_id]).to eq 4
       expect(response.status).to eq 200
       expect(response.body).to include '<p>You have successfully logged in!</p>'
     end
@@ -98,6 +110,7 @@ describe Application do
 
   context "POST /login" do
     it "returns 200 OK and logs in" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
       response = post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       expect(response.body).to include "<p>You have successfully logged in!</p>"
@@ -141,11 +154,12 @@ describe Application do
 
   context "GET /posts/new" do
     it "if logged in returns 200 OK and form page" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
       post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       response = get("/posts/new")
 
-      expect(session[:user_id]).to eq 5
+      expect(session[:user_id]).to eq 4
       expect(response.status).to eq 200
       expect(response.body).to include "<h1>Post a Peep</h1>"
       expect(response.body).to include '<form action="/posts" method="POST">'
@@ -166,10 +180,12 @@ describe Application do
 
   context "POST /posts" do
     it "returns 200 OK and creates a new post" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
       post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       response = post("/posts", content: "drivers license")
 
+      expect(session[:user_id]).to eq 4
       expect(response.status).to eq 200
       expect(response.body).to include "<p>Peep successfully posted!</p>"
     end
@@ -185,6 +201,7 @@ describe Application do
 
   context "sends email" do
     it "sends an email to a user if they are mentioned in a peep" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
       post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       response = post("/posts", content: "hi @harry_styles")
@@ -194,6 +211,7 @@ describe Application do
     end
 
     it "sends an email to all users who are mentioned in a peep" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
       post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
 
       response = post("/posts", content: "hi @harry_styles and @taylor_swift")
