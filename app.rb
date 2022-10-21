@@ -103,7 +103,7 @@ class Application < Sinatra::Base
       repo2 = UserRepository.new
       @content = post.content
       @user = repo2.find_by_id(post.user_id)
-      send_email(post, repo) if repo.user_mentioned?(post)
+      send_email(post, repo, repo2) if repo.user_mentioned?(post)
       erb(:post_success)
     end
   end
@@ -144,7 +144,7 @@ class Application < Sinatra::Base
       repo2 = UserRepository.new
       @content = post.content
       @user = repo2.find_by_id(post.user_id)
-      send_email(post, repo) if repo.user_mentioned?(post)
+      send_email(post, repo, repo2) if repo.user_mentioned?(post)
       erb(:post_success)
     end
   end
@@ -163,10 +163,11 @@ class Application < Sinatra::Base
     params[:email].match(/(\w*@\w+\.(\w+ |\w+.\w+))/).nil?
   end
 
-  def send_email(post, repo)
+  def send_email(post, repo, repo2)
     emails = repo.mentioned_users(post)
+    user = repo2.find_by_id(session[:user_id])
     emails.each do |email|
-      Pony.mail(to: email, from: "example@email.com",
+      Pony.mail(to: email, from: user.email,
                 subject: "You've been mentioned in a Peep on Chitter", body: erb(:email))
     end
   end
