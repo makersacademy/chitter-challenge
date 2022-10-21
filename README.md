@@ -16,7 +16,7 @@ Notes on running the app and the tests:
 To run the app: 
 
 ```
-$ git clone https://github.com/ellaskolnick/chitter_challenge
+$ git clone git@github.com:ellaskolnick/chitter-challenge.git
 $ createdb chitter_challenge
 $ psql -127.0.0.1 chitter_challenge < posts_table.sql
 $ psql -127.0.0.1 chitter_challenge < spec/seeds/posts_seeds.sql
