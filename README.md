@@ -3,13 +3,17 @@ Chitter Challenge
 
 To create this app I have used:
 
-* pg gem for the database connection. 
+* pg gem for the database connection.
 * RSpec to write tests.
 * Sinatra, the webrick gem and rack-test in order to set up and write the routes and to be able to run the app locally.
 * BCrypt in order to encrypt the passwords so they are hashed and cannot be accessed through the db.
 * Mail and Pony gems in order to set up the emails being sent.
 
-To run the app: 
+Notes on running the app:
+
+* If you tag someone in a peep they will recieve an email to the email address associated with their account from the email address associated with your account to let them know.
+
+To run the app:
 
 ```
 $ git clone git@github.com:ellaskolnick/chitter-challenge.git
@@ -36,7 +40,7 @@ You can login:
 
 <img width="1334" alt="Screenshot 2022-10-21 at 10 33 10" src="https://user-images.githubusercontent.com/95581033/197165909-39144a2d-7a90-4be4-85f5-ad8d2e3971d7.png">
 
-You can view the Peep Board without logging in: 
+You can view the Peep Board without logging in:
 
 <img width="1336" alt="Screenshot 2022-10-21 at 10 33 29" src="https://user-images.githubusercontent.com/95581033/197166003-ebf9a53a-7055-4df6-94e3-a53a58c422a2.png">
 
@@ -57,6 +61,3 @@ You can reply to other people's peeps when you have logged in:
 When you tag someone in a peep the tagged person will recieve an email letting them know:
 
 <img width="350" alt="Screenshot 2022-10-21 at 10 45 04" src="https://user-images.githubusercontent.com/95581033/197166569-64d32e2a-dac5-4aa7-bd97-6f399bcfa173.png">
-
-
-
