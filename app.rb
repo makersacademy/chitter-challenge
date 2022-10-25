@@ -39,10 +39,10 @@ class Application < Sinatra::Base
       erb(:sign_up_error_username)
     else
       user = User.new
-      user.username = params[:username]
-      user.name = params[:name]
-      user.email = params[:email]
-      user.password = params[:password]
+      user.username = params[:username] if params[:username] !~ /<\w+>/
+      user.name = params[:name] if params[:name] !~ /<\w+>/
+      user.email = params[:email] if params[:email] !~ /<\w+>/
+      user.password = params[:password] if params[:password] !~ /<\w+>/
       repo.create(user)
       erb(:sign_up_successful)
     end
@@ -96,7 +96,7 @@ class Application < Sinatra::Base
     else
       repo = PostRepository.new
       post = Post.new
-      post.content = params[:content]
+      post.content = params[:content] if params[:content] !~ /<\w+>/
       post.time_posted = Time.now
       post.user_id = session[:user_id]
       repo.create(post)
@@ -136,7 +136,7 @@ class Application < Sinatra::Base
       repo2 = UserRepository.new
       user = repo2.find_by_id(parent.user_id)
       post = Post.new
-      post.content = "@#{user.username} #{params[:content]}"
+      post.content = "@#{user.username} #{params[:content]}" if params[:content] !~ /<\w+>/
       post.time_posted = Time.now
       post.user_id = session[:user_id]
       post.parent_id = parent.id
