@@ -37,17 +37,17 @@ class AccountsRepository
 
     def create(params)
 
-        # check email does not already exist
-        if(DatabaseConnection.exec_params("SELECT * FROM accounts WHERE email=$1",[params[:email]]).num_tuples > 0)
+        # sanitise inputs
+        name_san = CGI.escapeHTML(params[:name])
+        username_san = CGI.escapeHTML(params[:username])
+
+        # check email and username do not already exist
+        if((DatabaseConnection.exec_params("SELECT * FROM accounts WHERE email=$1",[params[:email]]).num_tuples > 0) || (DatabaseConnection.exec_params("SELECT * FROM accounts WHERE username=$1",[username_san]).num_tuples > 0))
             return false
         end
 
         # ecrypt the password
         hash_pw = BCrypt::Password.create(params[:password])
-
-        # sanitise inputs
-        name_san = CGI.escapeHTML(params[:name])
-        username_san = CGI.escapeHTML(params[:username])
 
         # insert details
         DatabaseConnection.exec_params(
