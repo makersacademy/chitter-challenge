@@ -1,0 +1,69 @@
+body {
+    /*background-color: black;*/
+}
+
+h1 {
+  color: red;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+}
+
+
+
+div.peep-box {
+  /*display: inline-block;*/
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  /*line-height: 16px;*/
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 10px 5px;
+  padding: 0 16px 16px 16px;
+  max-width: 468px;
+}
+
+div.name-large {
+    font-size: 16px;
+}
+div.username-large {
+    font-size: 16px;
+    font-weight: normal;
+    color: grey;
+}
+
+div.peep-box p {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+div.peep-box a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+  outline: 0 none;
+}
+
+div.peep-box a:hover,
+div.peep-box a:focus {
+  text-decoration: underline;
+}
+
+div.name {
+    color: black;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+div.username {
+    color: grey;
+    font-weight: normal;
+    display: inline-block
+}
+
+li {
+  display: inline;
+}
