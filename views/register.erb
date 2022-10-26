@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <title>Register | Chitter</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-part logo">
+            <p>Chitter</p>
+        </div>
+        <div class="header-part nav">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/post">Post</a>
+                </li>
+            </ul>
+        </div>
+        <div class="header-part user">
+            <ul>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="content-wrapper">
+            <% if (@register_error.nil? != true) %>
+            <p style="color:red;"><strong><%= @register_error %></strong></p>
+            <% end %>
+            <p>Register below. If you have an account, please <a href="/login">login here</a>.</p>
+            <hr>
+            <form action="/register" method="post">
+                <p><label for="email">Email:</label><input id="email" type="email" name="email" required /></p>
+                <p><label for="password">Password:</label><input id="password" type="password" name="password" required /></p>
+                <p><label for="name">Name:</label><input id="name" type="text" name="name" required /></p>
+                <p><label for="username">Username:</label><input id="username" type="text" name="username" required /></p>
+                <button>Register</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
