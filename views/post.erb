@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <title>Post | Chitter</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-part logo">
+            <p>Chitter</p>
+        </div>
+        <div class="header-part nav">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li class="selected">
+                    <a href="/post">Post</a>
+                </li>
+            </ul>
+        </div>
+        <div class="header-part user">
+            <% if(@current_user.nil?) %>
+            <ul>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                <li>
+                    <a href="/register">Sign up</a>
+                </li>
+            </ul>
+            <% else %>
+            <p><strong><%= @current_user.name %></strong> • <span><%= @current_user.username %></span> • <a href="/logout">Log out</a></p>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <ul class="list">
+            <li class="peep">
+                <p>Post a peep to Chitter here.</p>
+                <form action="/post" method="post">
+                    <label for="message">Message:</label>
+                    <textarea id="message" autofocus name="message" class="peep-message" required></textarea><br>
+                    <p>As <strong><%= @current_user.name %></strong> [<%= @current_user.username %>]</p>
+                    <button>Submit</button>
+                </form>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>

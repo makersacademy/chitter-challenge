@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <title>Login | Chitter</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-part logo">
+            <p>Chitter</p>
+        </div>
+        <div class="header-part nav">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/post">Post</a>
+                </li>
+            </ul>
+        </div>
+        <div class="header-part user">
+            <ul>
+                <li>
+                    <a href="/register">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="content-wrapper">
+            <% if (@return_uri.nil? != true) %>
+            <p><strong>You need to login to use that page.</strong></p>
+            <% end %>
+            <% if (@login_error.nil? != true) %>
+            <p style="color:red;"><strong><%= @login_error %></strong></p>
+            <% end %>
+            <p>Login below. If you don't have an account, please <a href="/register">create one here</a>.</p>
+            <form action="/login" method="post">
+                <p><label for="email">Email:</label><input id="email" type="email" name="email" required /></p>
+                <p><label for="password">Password:</label><input id="password" type="password" name="password" required /></p>
+                <input type="hidden" name="return" value="<%= @return_uri.to_s %>" />
+                <button>Login</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
