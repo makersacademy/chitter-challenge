@@ -1,24 +1,8 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+## User Story
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -52,72 +36,218 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+## Additional Specs
 
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
+- You don't have to be logged in to see the peeps.
+- Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+- The username and email are unique.
+- Peeps (posts to chitter) have the name of the maker and their user handle.
 
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
+## Design and Specs
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
+- [Users-Peeps Database Design](./docs/users_peeps_table_design.md)
+- [Users Model and Class Repository](./docs/users_repository.md)
+- [Peeps Model and Class Repository](./docs/peeps_repository.md)
+- [Utilities Class](./docs/utilities.md)
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+## Routes
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+```
+# Page: list of peeps
 
-Notes on functionality:
-------
+## Request:
+GET /
+No parameters
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+## Response (200 OK)
+HTML view with list of peeps
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+```
+# Page: list of peeps
+
+## Request:
+GET /index
+No parameters
+
+## Response (200 OK)
+HTML view with list of peeps
+```
+
+```
+# Page: create a new peep
+
+## Request:
+GET /peeps/new
+No parameters
+
+## Response (200 OK)
+- HTML view with list of peeps if logged in
+- HTML login page if not logged in
+```
+
+
+```
+# Page: see one peep
+
+## Request
+GET /peeps/:id
+With parameter :id
+
+## Response (200 OK)
+HTML view with details of a single peep or thread of peeps if there are replies
+```
+
+```
+# Page: reply to one peep
+
+## Request
+GET /peeps/:id/reply
+With parameter :id
+
+## Response (200 OK)
+HTML view with form to post a reply to a specific peep
+```
+
+```
+# Page: sign up for chitter
+
+## Request
+GET /signup
+No parameters
+
+## Response (200 OK)
+HTML view with form to sign up for chitter
+```
+
+```
+# Page: log in to chitter
+
+## Request
+GET /login
+No parameters
+
+## Response (200 OK)
+HTML view with form to log in to chitter
+```
+
+```
+# Page: user created
+
+## Request
+POST /signup
+With parameters: email, name, username, password
+
+## Response (200 OK)
+HTML view with confirmation of account creation
+```
+
+```
+# Page: successful login
+
+## Request
+POST /login
+With parameters: email, password
+
+## Response (200 OK)
+HTML view with confirmation of login
+```
+
+```
+# Page: unsuccessful login
+
+## Request
+POST /login
+With parameters: email, password
+
+## Response (200 OK)
+HTML view with message of unsuccessful login
+```
+
+```
+# Page: logout
+
+## Request
+GET /logout
+No parameters
+
+## Response (200 OK)
+HTML view with of homepage
+```
+
+```
+# Page: add a new peep
+
+## Request
+GET /peeps/new
+No parameters
+
+## Response (OK 200)
+HTML view form to submit new entry
+```
+
+```
+# Page: new peep added
+
+## Request:
+POST /peeps/new
+with parameters:
+  content="..."
+  
+## Response (OK 200)
+HTML view of homepage with new peep at the top
+```
+
+```
+# Page: new peep added
+
+## Request:
+POST /peeps/:id/reply
+with parameters:
+  content="..."
+  id # automatically passed through the method
+  
+## Response (OK 200)
+HTML view of the thread page of a peep with id = :id
+```
+
+## Dependencies
+
+- `Sinatra` for the app to run
+- `BCrypt` for handling password
+- `pg` for database interaction
+- `RSpec` for Unit Testing and Integration Testing
+- `SimpleCov` for test coverage
+
+## Usage
+
+The app support `production` and `development` databases. The databases name have been set up in `database_connection.rb` with default names: `chitter_development`, `chitter_production`.
+
+The `app.rb` offers a way to switch databases using the environment variable `ENV['ENV']` on `line 9`.
+
+### Steps
+#### Create a postgresql databases
+```
+createdb chitter_development
+createdb chitter_production
+```
+#### Set up the tables
+```
+psql -h <ip_address> chitter_development < chitter.sql
+psql -h <ip_address> chitter_production < chitter.sql
+```
+#### Clone this repository
+```
+git clone <repo_url>
+```
+
+#### Install dependencies
+```
+cd chitter-project
+bundle install
+```
+
+#### Launch the app
+```
+rackup
+```

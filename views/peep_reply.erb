@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Chitter</title>
+  <link href="/style.css" rel="stylesheet" />
+  <body>
+    <%
+      user_id = @peep.user_id
+      user = @users_repo.find_by_id(user_id)
+      timestamp = Time.strptime(@peep.creation_time, '%Y-%m-%d %H:%M:%S').localtime
+      timestamp = timestamp.strftime('%I:%M %p %b %d, %Y')
+    %>
+    <div class='peep-box'>
+      <div class='peep-box-user'>
+        <div class='name-large'><%= user.name %></div>
+        <div class='username-large'><%= user.username %></div>
+      </div>
+      <p><%= @peep.content %></p>
+      <div class='peep-timestamp'><%= timestamp %></div>
+      <a href="/peeps/<%= @peep.id %>/reply">reply</a>
+    </div>
+    <div>
+      <form action="/peeps/<%= @peep.id %>/reply" method="POST">
+        <div>
+        <label>Content</label>
+        <input type="text" name="content">
+        </div>
+        <input type="submit" value="Reply">
+    </form>
+  </body>
+</html>

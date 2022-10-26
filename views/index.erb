@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Chitter</title>
+  <link href="/style.css" rel="stylesheet" /></head>
+  </head>
+  
+  </head>
+  <body>
+    <div class=row>
+    <h1>Chitter • Latest Peeps</h1>
+    </div>
+    <div class='menu'>
+      <ul>
+      <% if session[:user_id]
+          user = @users_repo.find_by_id(session[:user_id])%>
+        <li><%= user.username %></li>
+        <li><a href="/peeps/new">New peep</a></li>
+        <li><a href="/logout">Logout</a></li>
+      <% else %>
+        <li><a href="/login">Login</a></li>
+      <%end%>  
+      </ul>
+    </div>
+    <% @latest_peeps.each do |peep|  %>
+    <% 
+      user_id = peep.user_id
+      user = @users_repo.find_by_id(user_id)
+      timestamp = Time.strptime(peep.creation_time, '%Y-%m-%d %H:%M:%S').localtime
+      time_difference = (Time.now - timestamp)
+      if (time_difference / 3600).round >= 24
+        time_lapsed = timestamp.strftime('%b %d, %Y')
+      elsif (time_difference / 3600).round >= 1
+        time_lapsed = (time_difference / 3600).round.to_s + 'h'
+      else
+        time_lapsed = ((time_difference / 60) % 60).to_i.round.to_s + 'm'
+      end
+    %>
+    <div class='peep-box'>
+      <div class='peep-box-user'>
+        <div class='name'><%= user.name %></div>
+        <div class='username'><%= user.username %> • <a href="/peeps/<%= peep.id %>"><%= time_lapsed %></a></div>
+        <p><%= peep.content %></p>
+        <a href="/peeps/<%= peep.id %>/reply">reply</a>
+      </div>
+    </div>
+    <% end %>
+    
+  </body>
+</html>
