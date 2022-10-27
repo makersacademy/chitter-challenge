@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'resolv-replace'
 require 'sinatra'
 require 'pony'
 require 'mail'
