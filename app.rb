@@ -173,8 +173,21 @@ class Application < Sinatra::Base
     emails = repo.mentioned_users(post)
     user = repo2.find_by_id(session[:user_id])
     emails.each do |email|
-      Pony.mail(to: email, from: user.email,
-                subject: "You've been mentioned in a Peep on Chitter", body: erb(:email))
+      Pony.mail(to: email,
+                from: user.email,
+                subject: "You've been mentioned in a Peep on Chitter",
+                body: erb(:email),
+                via: :smtp,
+                via_options: {
+                  address:              "smtp.yourserver.com",
+                  port:                 "25",
+                  domain:               "onrender.com",
+                  authentication:       :plain,
+                  enable_starttls_auto: true,
+                  user_name:            "user",
+                  password:             "password"
+                }
+              )
     end
   end
 end
