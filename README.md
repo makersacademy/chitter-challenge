@@ -70,4 +70,7 @@ You can reply to other people's peeps when you have logged in:
 
 When you tag someone in a peep the tagged person will recieve an email letting them know:
 
-<img width="350" alt="Screenshot 2022-10-21 at 10 45 04" src="https://user-images.githubusercontent.com/95581033/197166569-64d32e2a-dac5-4aa7-bd97-6f399bcfa173.png">
+<img width="307" alt="Screenshot 2022-10-27 at 17 32 24" src="https://user-images.githubusercontent.com/95581033/198347623-19b91a72-1453-487d-a631-7a82e512939f.png">
+
+<img width="318" alt="Screenshot 2022-10-27 at 17 32 34" src="https://user-images.githubusercontent.com/95581033/198347632-5a80b6a2-874a-4729-993d-333df19098b4.png">
+
