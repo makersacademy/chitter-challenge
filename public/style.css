@@ -1,0 +1,100 @@
+body {
+  background-color: aliceblue;
+}
+
+a {
+  text-decoration: none;
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: black;
+  padding: 5px;
+}
+
+a:hover {
+  color: black;
+  background-color: aliceblue;
+  border-style: solid;
+  border-color: black;
+}
+
+.link_not_button {
+  color: aliceblue;
+  background-color: rgb(137, 166, 191);
+}
+
+.link_not_button:hover {
+  color: rgb(137, 166, 191);
+  background-color: aliceblue;
+  border-style: none;
+}
+
+.button {
+  text-decoration: none;
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: black;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.button:hover {
+  text-decoration: none;
+  border-radius: 5px;
+  color: black;
+  background-color: aliceblue;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.logout_button {
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: aliceblue;
+  color: black;
+  padding: 5px;
+  margin-top: 10px;
+  width: 7%;
+}
+
+.card {
+  border-radius: 10px;
+  border-style: solid;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  width: 35vw;
+  box-shadow: 5px 5px;
+  background-color: rgb(208, 226, 242);
+}
+
+.reply_card {
+  border-radius: 10px;
+  border-style: solid;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  width: 35vw;
+  box-shadow: 5px 5px;
+  background-color: rgb(137, 166, 191);
+}
+
+.container {
+  margin: 30px;
+}
+
+.info {
+  text-align: end;
+}
+
+input {
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form_div {
+  margin: auto;
+  width: 30vw;
+}

@@ -1,5 +1,12 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'database_connection'
+
+# Make sure this connects to your test database
+# (its name should end with '_test')
+
+ENV['ENV'] = 'test'
+DatabaseConnection.connect
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -14,4 +21,8 @@ RSpec.configure do |config|
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
+end
+
+def session
+  last_request.env['rack.session']
 end
