@@ -13,7 +13,7 @@ Notes on running the app:
 
 * If you tag someone in a peep they will recieve an email to the email address associated with their account from the email address associated with your account to let them know.
 
-To run the app:
+Follow this link to run the app:
 
 ```
 https://my-chitter-challenge.onrender.com/
