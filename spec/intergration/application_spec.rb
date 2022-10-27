@@ -18,6 +18,31 @@ describe Application do
     reset_application_table
   end
 
+  context "root home page" do
+    it "returns 200 OK and links not logged in" do
+      response = get("/")
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<a href="/login">Log In</a>'
+      expect(response.body).to include '<a href="/sign_up">Sign Up</a>'
+      expect(response.body).to include '<a href="/posts">Peep Board</a>'
+    end
+  end
+
+  context "root home page" do
+    it "returns 200 OK and links logged in" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = get("/")
+
+      expect(session[:user_id]).to eq 4
+      expect(response.status).to eq 200
+      expect(response.body).to include '<input type="submit" value="Logout" class="logout_button">'
+      expect(response.body).to include '<a href="/posts">Peep Board</a>'
+    end
+  end
+
   context "GET sign_up when not logged in" do
     it "returns 200 OK and sign up form" do
       response = get("sign_up")

@@ -19,6 +19,11 @@ class Application < Sinatra::Base
     also_reload 'lib/post_repository'
   end
 
+  get "/" do
+    @current_user = session[:user_id]
+    erb(:home)
+  end
+
   get '/sign_up' do
     if session[:user_id].nil?
       erb(:sign_up)
