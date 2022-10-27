@@ -116,6 +116,7 @@ class Application < Sinatra::Base
   end
 
   get '/post/:id' do
+    @current_user = session[:user_id]
     @repo = PostRepository.new
     @post = @repo.find(params[:id])
     @repo2 = UserRepository.new
