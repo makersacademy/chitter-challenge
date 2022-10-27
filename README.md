@@ -15,10 +15,9 @@ Notes on running the app:
 
 To run the app:
 
-```
+
 [Click Here](https://my-chitter-challenge.onrender.com/)
 
-```
 
 To test the app:
 
