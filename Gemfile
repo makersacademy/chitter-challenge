@@ -8,6 +8,7 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
+gem 'dotenv'
 gem 'rubocop', '1.20'
 gem "pg", "~> 1.4"
 gem "bcrypt", "~> 3.1"

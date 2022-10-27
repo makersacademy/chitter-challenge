@@ -243,6 +243,16 @@ describe Application do
       expect(response.status).to eq 200
       expect(Mail::TestMailer.deliveries.length).to eq 3
     end
+
+    it "sends an email to me if I'm mentioned in a peep" do
+      post("/users", username: 'olivia_rodrigo', name: 'Olivia Rodrigo', email: 'olivia_rodrigo@email.com', password: "butterflies")
+      post("/users", username: 'ella', name: 'Ella', email: 'ellaskolnick@me.com', password: "123")
+      post("/login", email: 'olivia_rodrigo@email.com', password: "butterflies")
+
+      response = post("/posts", content: "hi @ella")
+      expect(response.status).to eq 200
+      expect(Mail::TestMailer.deliveries.length).to eq 4
+    end
   end
 
   context "GET /reply/:id" do

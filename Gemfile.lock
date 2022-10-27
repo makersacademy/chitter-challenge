@@ -6,6 +6,7 @@ GEM
     bcrypt (3.1.18)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    dotenv (2.8.1)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     mini_mime (1.1.2)
@@ -88,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1)
+  dotenv
   mail (~> 2.7)
   pg (~> 1.4)
   pony (~> 1.13)

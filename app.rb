@@ -4,6 +4,7 @@ require 'pony'
 require 'mail'
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'dotenv/load'
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/post_repository'
@@ -109,7 +110,7 @@ class Application < Sinatra::Base
       repo2 = UserRepository.new
       @content = post.content
       @user = repo2.find_by_id(post.user_id)
-      send_email(post, repo, repo2) if repo.user_mentioned?(post)
+      send_email(post, repo) if repo.user_mentioned?(post)
       erb(:post_success)
     end
   end
@@ -150,7 +151,7 @@ class Application < Sinatra::Base
       repo2 = UserRepository.new
       @content = post.content
       @user = repo2.find_by_id(post.user_id)
-      send_email(post, repo, repo2) if repo.user_mentioned?(post)
+      send_email(post, repo) if repo.user_mentioned?(post)
       erb(:post_success)
     end
   end
@@ -169,24 +170,23 @@ class Application < Sinatra::Base
     params[:email].match(/(\w*@\w+\.(\w+ |\w+.\w+))/).nil?
   end
 
-  def send_email(post, repo, repo2)
+  def send_email(post, repo)
     emails = repo.mentioned_users(post)
-    user = repo2.find_by_id(session[:user_id])
     emails.each do |email|
       Pony.mail(to: email,
-                from: user.email,
+                from: "noreplypleasepleasechitter@gmail.com",
                 subject: "You've been mentioned in a Peep on Chitter",
                 body: erb(:email),
-                via: :smtp
-                # via_options: {
-                #   address:              "smtp.yourserver.com",
-                #   port:                 "25",
-                #   domain:               "onrender.com",
-                #   authentication:       :plain,
-                #   enable_starttls_auto: true,
-                #   user_name:            "user",
-                #   password:             "password"
-                # }
+                via: :smtp,
+                via_options: {
+                  address:              "smtp.gmail.com",
+                  domain:               "localhost.localdomain",
+                  port:                 "587",
+                  authentication:       :plain,
+                  enable_starttls_auto: true,
+                  user_name:            "noreplypleasepleasechitter@gmail.com",
+                  password:             ENV['SMTP_PASSWORD']
+                }
               )
     end
   end

@@ -43,7 +43,7 @@ class PostRepository
   def mentioned_users(post)
     usernames = post.content.scan(/@[\w]*/)
     users = usernames.map do |user|
-      username = user.scan(/[\w]*/)[1]
+      username = user[1..]
       find_user(username)
     end.compact
   end
