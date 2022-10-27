@@ -19,3 +19,5 @@ group :development, :test do
   gem "pony", "~> 1.13"
   gem "mail", "~> 2.7"
 end
+
+gem "rackup", "~> 0.1.0"
