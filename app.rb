@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'resolv-replace'
 require 'sinatra'
 require 'pony'
 require 'mail'
@@ -178,16 +177,16 @@ class Application < Sinatra::Base
                 from: user.email,
                 subject: "You've been mentioned in a Peep on Chitter",
                 body: erb(:email),
-                via: :smtp,
-                via_options: {
-                  address:              "smtp.yourserver.com",
-                  port:                 "25",
-                  domain:               "onrender.com",
-                  authentication:       :plain,
-                  enable_starttls_auto: true,
-                  user_name:            "user",
-                  password:             "password"
-                }
+                via: :smtp
+                # via_options: {
+                #   address:              "smtp.yourserver.com",
+                #   port:                 "25",
+                #   domain:               "onrender.com",
+                #   authentication:       :plain,
+                #   enable_starttls_auto: true,
+                #   user_name:            "user",
+                #   password:             "password"
+                # }
               )
     end
   end
