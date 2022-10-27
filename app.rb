@@ -1,3 +1,4 @@
+require "bundler/setup"
 require 'sinatra'
 require 'pony'
 require 'mail'
