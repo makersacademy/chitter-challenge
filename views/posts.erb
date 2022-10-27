@@ -30,7 +30,7 @@
             <h3>'<%= post.content %>'</h3>
             <div class="info">
               <p>- <%= user.name %>, @<%= user.username %></p>
-              <p><%= Time.new(post.time_posted).strftime("%d/%m/%Y %I:%M %p") %></p>
+              <p><%= DateTime.parse(post.time_posted).strftime("%d/%m/%Y %I:%M %p") %></p>
             </div>
             <div class="flex">
               <a href="/reply/<%= post.id %>">Reply</a>
