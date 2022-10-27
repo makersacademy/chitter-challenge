@@ -1,4 +1,4 @@
-require "bundler/setup"
+require 'rubygems'
 require 'sinatra'
 require 'pony'
 require 'mail'
