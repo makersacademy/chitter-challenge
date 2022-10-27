@@ -16,6 +16,7 @@ Notes on running the app:
 To run the app:
 
 ```
+https://my-chitter-challenge.onrender.com/
 
 ```
 
@@ -39,6 +40,7 @@ Chitter Challenge - How it works:
 
 Home page:
 
+<img width="1084" alt="Screenshot 2022-10-27 at 18 59 11" src="https://user-images.githubusercontent.com/95581033/198364833-e3dee42a-bce1-40af-9836-734207d04887.png">
 
 
 You can sign up:
