@@ -1,0 +1,41 @@
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet/style.css"/>
+</head>
+
+<html>
+<body> 
+  <div class="container">
+    <h1>chitter</h1>
+    <div class=subcontainer>
+      <h2>makers chit chat</h2>
+    </div>
+
+    <div class=login-container>
+      <h3>chit in</h3>
+      <div class="alert" role="alert">
+        <%if @error != nil%>
+          <p><%=@error%></p>
+        <%end%> 
+      </div>
+      <form class=form method='POST' action='/login'>  
+        <div>  
+          <label>my email:</label>
+          <input type='email' name='email' placeholder='myemail@makersacademy.com'/>  
+        </div>   
+        <div>  
+          <label>my password:</label>
+          <input type='password' name='password' placeholder='MyPassword123$'/>  
+        </div>   
+        <div>  
+          <input type='submit' name='chit in'/>
+        </div>   
+      </form>
+    </div>
+  </div>  
+
+  <div class=index-button>  
+    <a href= "/" class=index-button>keep on reading us without posting</a>
+  </div>  
+  </body>
+</html>
