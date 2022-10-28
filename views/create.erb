@@ -1,0 +1,21 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+    <div>
+    <% @err_text.each do |element|%>
+    <div><%= element %></div>
+    <% end %>
+    <br>
+    Please enter the following information to create your new account:
+    <form action="/create" method="POST">
+    name:<input type="text" name="name"><br>
+    email:<input type="text" name="email"><br>
+    password:<input type="text" name="password"><br>
+    username:<input type="text" name="username"><br>
+
+    <input type="submit" value="Create">
+    </form>
+    </div>
+  </body>
+</html>

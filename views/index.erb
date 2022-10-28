@@ -1,0 +1,42 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+    <div>
+    <% if @me != 0 %>
+      <% user = @users.select{|element| element.id == @me.to_s }[0] %>
+    <% else %>
+      <% user = User.new %>
+    <% end %>
+    <% if user.logged_in == true %>
+
+      logged in as <%= user.username %>
+      <button onclick="window.location.href='/logout?me=<%= @me %>';">Log Out</button>
+    <% else %>
+    <form action="/login" method="POST">
+    username:<input type="text" name="username"> 
+    Password:<input type="text" name="password">
+
+    <input type="submit" value="Log In">
+    </form>
+    <button onclick="window.location.href='/create';">Create account</button>
+    <% end %>
+    </div>
+    <div></div>
+    <h1>Messages:</h1>
+
+    <% if user.logged_in == true %>
+      <form action="/post?me=<%= @me %>" method="POST">
+        Peep:<input size="40" type="text" name="content"> 
+        <input type="submit" value="Post Peep">
+      </form>
+    <% end %>
+    <% @messages.each do |message| %>
+    <div>
+    <% index = @users.index{|element| element.id == message.user_id} %>
+    <%= message.content %>   --  posted by  --   <%= @users[index].username %>
+      --  at  --  <%= message.time_date %>
+    </div>
+    <% end %>
+  </body>
+</html>
