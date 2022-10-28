@@ -58,10 +58,10 @@ Notes on functionality:
 
 ## Code Design
 
-I followed MVC model when working on this chalenge. I designed the Models first:
+When working on this challenge I used the concept of composition when designing the models:
 
-1. User and User Repository Classes - handle user creation and executes searches in the users database
-2. Peep and Peep Repository Classes - have reponsibility for the creation of posts or peeps and searches through the peeps database. 
+1. User and User Repository Classes - the repository class handles user creation and executes searches in the users database
+2. Peep and Peep Repository Classes - the repository class has reponsibility for the creation of posts or peeps and searches through the peeps database. 
 
 I test-driven the classes in line with user stories provided. 
 
