@@ -4,7 +4,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/post_repository'
 require_relative 'lib/user_repository'
 
-DatabaseConnection.connect('my_chitter_database')
+DatabaseConnection.connect('chitter_database')
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -14,8 +14,6 @@ class Application < Sinatra::Base
     also_reload 'lib/post_repository'
     also_reload 'lib/user_repository'
   end
-
-  p ENV['DATABASE_URL'].to_s
 
   get '/' do
     post_repo = PostRepository.new
