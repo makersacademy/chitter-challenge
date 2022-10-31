@@ -1,0 +1,16 @@
+<html>
+  <head></head>
+  <body style="background-color: C4C4C4">
+    <h1>Chitter</h1>
+    <div><a href="/sign_up"><button>Sign up to post</button></a></div>
+    <div><p></p></div>
+    <div><a href="/create_post"><button>I'm already a member</button></a></div>
+    <% @posts.each do |post| %>
+        <div style="background-color: #9D9D9D">
+        <h3>@<%=@users[post.user_id.to_i - 1].username%></h3>
+        <h2><%=post.content%></h2>
+        <%=post.date%>
+        </div>
+    <% end %>
+  </body>
+</html>
