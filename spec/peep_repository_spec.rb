@@ -42,5 +42,5 @@ RSpec.describe PeepRepository do
         time: new_peep.time,
         user_id: new_peep.user_id
       ))
-    end
+  end
 end

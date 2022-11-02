@@ -1,16 +1,32 @@
+require_relative './user'
+
 class UserRepository
 
   def all
-    SELECT id, name, username, email, password FROM users;
+    sql = 'SELECT id, name, username, email, password FROM users;'
+    result_set = DatabaseConnection.exec_params(sql, [])
 
-    # Returns an array of User objects.
+    users = []
+
+    result_set.each do |record|
+      user = User.new
+      user.id = record['id']
+      user.name = record['name']
+      user.username = record['username']
+      user.email = record['email']
+      user.password = record['password']
+
+      users << user
+    end
+    return users
   end
 
-  # Creates a new user
   def create(user)
-    # Executes the SQL query:
-    # INSERT INTO users(id, name, username, email, password) VALUES ($1, $2, $3, $4);
+    sql = 'INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);'
+    sql_params = [user.name, user.username, user.email, user.password]
 
-    # creates a new User object.
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+
+    return nil
   end
 end
