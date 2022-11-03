@@ -8,6 +8,11 @@
 </head>
 <body>
   <div>
+    <ul>
+      <li><a href="/feed">Home</a></li>
+    </ul>
+  </div>
+  <div>
     <h1><%= @user.name %></h1>
     <p>@<%= @user.username %></p>
   </div>
@@ -22,7 +27,6 @@
     <p><%= post.date %> <%= post.time[0...-3] %></p>
   <% end %>
   </div>
-  
   
 </body>
 </html>
