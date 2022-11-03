@@ -20,7 +20,9 @@ class UserRepository
   end
 
   def find(id)
-    sql = 'SELECT id, username, password, email, name FROM users WHERE id = $1;'
+    sql = 'SELECT users.id, username, password, email, name, content, date, time FROM users 
+            JOIN posts ON users.id = user_id
+            WHERE users.id = $1;'
     result = DatabaseConnection.exec_params(sql, [id])
     user = User.new
     result.each do |record|
@@ -29,6 +31,12 @@ class UserRepository
       user.password = record['password']
       user.email = record['email']
       user.name = record['name']
+
+      post = Post.new
+      post.content = record['content']
+      post.date = record['date']
+      post.time = record['time']
+      user.posts << post
     end
     return user
   end

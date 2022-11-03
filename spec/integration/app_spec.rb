@@ -17,6 +17,17 @@ describe Application do
     end
   end
 
+  context 'GET /users/:id' do
+    xit 'returns user with ID 2' do
+      response = get('/users/2')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Batman</h1>')
+      expect(response.body).to include('@batman')
+      expect(response.body).to include('<h2>Cheeps</h2>')
+      expect(response.body).to include('Fighting crime is more important than music! x')
+      expect(response.body).to include('ignore my post from yesterday. need tunes for batmobile. x')
+    end
+  end
 
 
 

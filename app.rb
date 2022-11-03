@@ -20,5 +20,11 @@ class Application < Sinatra::Base
     return erb(:feed)
   end
 
+  get '/users/:id' do
+    repo = UserRepository.new
+    @user = repo.find(params[:id])
+    return erb(:user)
+  end
+
 
 end

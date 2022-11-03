@@ -46,4 +46,13 @@ describe UserRepository do
     expect(users.last.password).to eq('awh0len3wW0rld')
     expect(users.last.email).to eq('jasmine@fake.com')
   end
+
+  it 'returns all posts by user' do
+    repo = UserRepository.new
+    user = repo.find(2)
+    expect(user.posts.length).to eq(2)
+    expect(user.posts[0].content).to eq('Fighting crime is more important than music! x')
+    expect(user.posts[1].date).to eq('2022-11-01')
+    expect(user.posts.last.time).to eq('12:30:00')
+  end
 end
