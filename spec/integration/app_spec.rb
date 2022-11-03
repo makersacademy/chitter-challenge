@@ -59,5 +59,14 @@ describe Application do
     end
   end
 
+  context 'POST /feed' do
+    it 'creates a new post' do
+      response = post('/feed', content: 'going to jump ship ttyl x', user_id: 3)
+      expect(response.status).to eq(200)
+      get_response = get('/feed')
+      expect(get_response.body).to include('going to jump ship ttyl x')
+    end
+  end
+
 
 end

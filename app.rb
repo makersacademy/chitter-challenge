@@ -24,6 +24,17 @@ class Application < Sinatra::Base
     return erb(:new_post)
   end
 
+  post '/feed' do
+    repo = PostRepository.new
+    time = Time.now
+    @post = Post.new
+    @post.content = params[:content]
+    @post.user_id = params[:user_id]
+    @post.date = time.strftime("%Y/%m/%d")
+    @post.time = time.strftime("%k:%M:%S")
+    repo.create(@post)
+  end
+
   get '/users/new' do
     return erb(:new_user)
   end
