@@ -1,8 +1,8 @@
 TRUNCATE TABLE users, posts RESTART IDENTITY; 
 
-INSERT INTO users (username, password, email) VALUES ('sia', 'musicl0v3r', 'sia@fake.com');
-INSERT INTO users (username, password, email) VALUES ('batman', 'justicel0v3r', 'batman@fake.com');
-INSERT INTO users (username, password, email) VALUES ('captain_hook', 'shipl0v3r', 'hook@fake.com');
+INSERT INTO users (name, username, password, email) VALUES ('Sia', 'sia', 'musicl0v3r', 'sia@fake.com');
+INSERT INTO users (name, username, password, email) VALUES ('Batman', 'batman', 'justicel0v3r', 'batman@fake.com');
+INSERT INTO users (name, username, password, email) VALUES ('Hook', 'captain_hook', 'shipl0v3r', 'hook@fake.com');
 
 INSERT INTO posts (content, date, time, user_id) VALUES ('I love music! x', '2022-10-31', '05:05', 1);
 INSERT INTO posts (content, date, time, user_id) VALUES ('Fighting crime is more important than music! x', '2022-10-31', '07:15', 2);

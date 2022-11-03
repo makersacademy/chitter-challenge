@@ -17,6 +17,7 @@ describe UserRepository do
     users = repo.all
     expect(users.length).to eq(3)
     expect(users.first.username).to eq('sia')
+    expect(users[0].name).to eq('Sia')
     expect(users[1].email).to eq('batman@fake.com')
     expect(users[2].password).to eq('shipl0v3r')
   end
@@ -25,6 +26,7 @@ describe UserRepository do
     repo = UserRepository.new
     user = repo.find(2)
     expect(user.id).to eq(2)
+    expect(user.name).to eq('Batman')
     expect(user.username).to eq('batman')
     expect(user.email).to eq('batman@fake.com')
     expect(user.password).to eq('justicel0v3r')
@@ -33,13 +35,14 @@ describe UserRepository do
   it 'creates a new user' do
     repo = UserRepository.new
     user = User.new
-    user.username = 'jasmine'
+    user.username = 'princess_jasmine'
+    user.name = 'Jasmine'
     user.password = 'awh0len3wW0rld'
     user.email = 'jasmine@fake.com'
     repo.create(user)
     users = repo.all
     expect(users.length).to eq(4)
-    expect(users.last.username).to eq('jasmine')
+    expect(users.last.username).to eq('princess_jasmine')
     expect(users.last.password).to eq('awh0len3wW0rld')
     expect(users.last.email).to eq('jasmine@fake.com')
   end
