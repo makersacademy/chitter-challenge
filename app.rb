@@ -31,4 +31,15 @@ class Application < Sinatra::Base
     return erb(:user)
   end
 
+  post '/users' do
+    repo = UserRepository.new
+    @user = User.new
+    @user.username = params[:username]
+    @user.password = params[:password]
+    @user.email = params[:email]
+    @user.name = params[:name]
+    repo.create(@user)
+    return erb(:user_register_success)
+  end
+
 end

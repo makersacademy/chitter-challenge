@@ -41,6 +41,15 @@ describe Application do
     end
   end
 
+  context 'POST /users' do
+    it 'creates a new user' do
+      response = post('/users', username: 'lion_king', password: 'circl30fl1f3', 
+      email: 'simba@fake.com', name: 'Simba')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Welcome to Chitter, Simba')
+    end
+  end
+
 
 
 end
