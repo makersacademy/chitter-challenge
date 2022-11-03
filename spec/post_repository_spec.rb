@@ -30,4 +30,19 @@ describe PostRepository do
     expect(post.time).to eq('10:20:00')
     expect(post.user_id).to eq(3)
   end
+
+  it 'creates a new post' do
+    repo = PostRepository.new
+    post = Post.new
+    post.content = 'going to jump ship ttyl x'
+    post.date = '2022-11-01'
+    post.time = '13:35:00'
+    post.user_id = 3
+    repo.create(post)
+    posts = repo.all
+    expect(posts.last.content).to eq('going to jump ship ttyl x')
+    expect(posts.last.date).to eq('2022-11-01')
+    expect(posts.last.time).to eq('13:35:00')
+    expect(posts.last.user_id).to eq(3)
+  end
 end

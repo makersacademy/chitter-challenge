@@ -36,4 +36,10 @@ class PostRepository
     return post
   end
 
+  def create(post)
+    sql = 'INSERT INTO posts (content, date, time, user_id) VALUES ($1, $2, $3, $4);'
+    result = DatabaseConnection.exec_params(sql, [post.content, post.date, post.time, post.user_id])
+    return post
+  end
+
 end
