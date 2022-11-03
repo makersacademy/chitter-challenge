@@ -29,6 +29,18 @@ describe Application do
     end
   end
 
+  context 'GET /users/new' do
+    it 'returns new user sign up form' do
+      response = get('/users/new')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/users">')
+      expect(response.body).to include('<input type="text" name="name" />')
+      expect(response.body).to include('<input type="text" name="username" />')
+      expect(response.body).to include('<input type="text" name="email" />')
+      expect(response.body).to include('<input type="password" name="password" />')
+    end
+  end
+
 
 
 end
