@@ -3,7 +3,7 @@ require 'peep_repository'
 RSpec.describe PeepRepository do
 
   def reset_peeps_table
-    seed_sql = File.read('spec/seeds_peeps.sql')
+    seed_sql = File.read('spec/seeds/seeds_peeps.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
     connection.exec(seed_sql)
   end
@@ -42,5 +42,14 @@ RSpec.describe PeepRepository do
         time: new_peep.time,
         user_id: new_peep.user_id
       ))
+  end
+
+   xit 'finds a peep by its id' do
+    repo = PeepRepository.new
+
+    peep = repo.find(3)
+    
+    expect(peep.id).to eq(3)
+    expect(peep.title).to eq('Animals')
   end
 end
