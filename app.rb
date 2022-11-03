@@ -15,7 +15,8 @@ class Application < Sinatra::Base
 
   get '/feed' do
     repo = PostRepository.new
-    @feed = repo.all
+    posts = repo.all
+    @feed = posts.sort_by { |post| [post.date, post.time] }.reverse
     return erb(:feed)
   end
 
