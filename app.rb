@@ -20,6 +20,10 @@ class Application < Sinatra::Base
     return erb(:feed)
   end
 
+  get '/feed/new' do
+    return erb(:new_post)
+  end
+
   get '/users/new' do
     return erb(:new_user)
   end
