@@ -21,4 +21,13 @@ describe PostRepository do
     expect(posts[2].time).to eq('10:20:00')
     expect(posts.last.user_id).to eq(2)
   end
+
+  it 'finds post with ID 3' do
+    repo = PostRepository.new
+    post = repo.find(3)
+    expect(post.content).to eq('arrrr hide me from batman x')
+    expect(post.date).to eq('2022-10-31')
+    expect(post.time).to eq('10:20:00')
+    expect(post.user_id).to eq(3)
+  end
 end
