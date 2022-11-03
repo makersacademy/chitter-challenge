@@ -28,8 +28,8 @@ describe Application do
       response = get("/peeps")
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("<div><a href='/peeps/1'>Cats14:28</a></div>")
-      expect(response.body).to include("<div><a href='/peeps/3'>Animals09:14</a></div>")
+      expect(response.body).to include("<div><a href='/peeps/1'>Cats")
+      expect(response.body).to include("<div><a href='/peeps/3'>Animals")
     end
   end
 
@@ -53,13 +53,12 @@ describe Application do
     end
   end
 
-  context "GET /users" do
-    it 'returns the list of users' do
-      response = get('/users')
+  context "GET /login" do
+    it 'returns the login page' do
+      response = get('/login')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("<div>David Jones</div>")
-      expect(response.body).to include("<div>Will Smith</div>")
+      expect(response.body).to include('<h1>Enter your details to login!</h1>')
     end
   end
 
@@ -85,6 +84,22 @@ describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>User created!: my_username</h1>')
+    end
+  end
+
+  context "POST /login" do
+    it 'authenticates a user and returns a confirmation page' do
+      response = post('/login', email: 'my_email@chittermail.com', password: 'my_password')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Welcome! Sign-in successful</h1>')
+    end
+
+    xit 'authenticates a user and returns an error page when login details are incorrect' do
+      response = post('/login', email: 'my_email@chittermail.com', password: 'not_my_password')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Error! Please try again</h1>')
     end
   end
 end

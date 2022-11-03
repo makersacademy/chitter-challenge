@@ -1,17 +1,25 @@
 <form method="POST" action="/user">
   <div>
   <h1>Please enter your details below!</h1>
-    <label>Name:</label>
-    <input type="text" name="name"/>
-    </div><div>
-    <label>Username:</label>
-    <input type="text" name="username"/>
-    </div><div>
-    <label>Email::</label>
-    <input type="text" name="email"/>
-    </div><div>
-    <label>Password:</label>
-    <input type="text" name="password"/>
+    <div>
+        <label>Name:</label>
+        <input type="text" name="name" id='name'/>
     </div>
+
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" id= 'username'/>
+    </div>
+    
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" id= 'email'/>
+    </div>
+
+    <div>
+      <label>Password (min 8 characters):</label>
+      <input type="password" name="password" id='password' minlength= '8' required/>
+    </div>
+
     <input type="submit"/>
 </form>

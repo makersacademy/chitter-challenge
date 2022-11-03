@@ -7,6 +7,8 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -15,14 +17,9 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/users' do
-    repo = UserRepository.new
-
-     @users = repo.all
-
-     return erb(:users)
+  get '/login' do
+    return erb(:login)
   end
-
 
   get '/users/new' do
     @new_user = params[:user_name]
@@ -37,7 +34,7 @@ class Application < Sinatra::Base
   get '/peeps' do
     repo = PeepRepository.new
 
-     @peeps = repo.all
+     @peeps = repo.sorted_by_time
 
      return erb(:peeps)
   end
@@ -65,5 +62,21 @@ class Application < Sinatra::Base
     repo.create(@new_user)
 
     return erb(:user_created)
+  end
+
+  post '/login' do
+    repo = UserRepository.new
+    email = params[:email]
+    password = params[:password]
+
+    user = repo.find_by_email(email)
+
+    if user.password == password
+      session[:user_id] = user.id
+
+      return erb(:login_success)
+    else
+      return erb(:login_error)
+    end
   end
 end

@@ -29,4 +29,23 @@ class PeepRepository
 
     return nil
   end
+
+  def sorted_by_time
+    sql = 'SELECT * FROM peeps ORDER BY time DESC;'
+    result_set = DatabaseConnection.exec_params(sql, [])
+
+    peeps = []
+
+    result_set.each do |record|
+      peep = Peep.new
+      peep.id = record['id']
+      peep.title = record['title']
+      peep.content = record['content']
+      peep.time = record['time']
+      peep.user_id = record['user_id']
+
+      peeps << peep
+    end
+    return peeps
+  end
 end

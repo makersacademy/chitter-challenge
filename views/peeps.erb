@@ -3,7 +3,9 @@
   <body>
     <h1>Peeps</h1><p>
     <% @peeps.each do |peep| %>
-      <div><a href='/peeps/<%=peep.id%>'><%= peep.title %><%= peep.time %></a></div>
+      <div><a href='/peeps/<%=peep.id%>'><%= peep.title%>
+      &nbsppeeped at&nbsp<%= peep.time %></a></div><br>
       <% end %></p>
+      <button onclick="history.back()">Go Back</button>
   </body>
 </html>

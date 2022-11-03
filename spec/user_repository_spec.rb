@@ -26,10 +26,10 @@ RSpec.describe UserRepository do
     repo = UserRepository.new
 
     new_user = User.new
-    new_user.name = 'Candy Lane'
-    new_user.username = 'CandyL'
-    new_user.email = 'candy@chittermail.com'
-    new_user.password = "2teasplease"
+    new_user.name = 'fake_name'
+    new_user.username = 'fake_username'
+    new_user.email = 'fake@chittermail.com'
+    new_user.password = "fake_password"
     
     repo.create(new_user)
 
@@ -42,5 +42,13 @@ RSpec.describe UserRepository do
         email: new_user.email,
         password: new_user.password
       ))
+  end
+
+  it 'finds a user by their email address' do
+    repo = UserRepository.new
+
+    result = repo.find_by_email('lauren@chittermail.com')
+    expect(result.name).to eq 'Lauren Brown'
+    expect(result.username).to eq 'Lilauren'
   end
 end

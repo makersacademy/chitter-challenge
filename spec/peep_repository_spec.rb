@@ -22,6 +22,16 @@ RSpec.describe PeepRepository do
     expect(peeps.first.title).to eq "Cats"
   end
 
+  it 'returns a list of all the peeps sorted in reverse chronological order' do
+    repo = PeepRepository.new
+
+    peeps = repo.sorted_by_time 
+
+    expect(peeps.length).to eq 7
+    expect(peeps.first.id).to eq '7'
+    expect(peeps.first.title).to eq "Shopping Part 2"
+  end
+
   it 'creates a new peep' do
     repo = PeepRepository.new
 
