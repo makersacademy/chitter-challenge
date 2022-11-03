@@ -25,6 +25,8 @@ describe PostRepository do
   it 'finds post with ID 3' do
     repo = PostRepository.new
     post = repo.find(3)
+    expect(post.author_name).to eq('Hook')
+    expect(post.author_handle).to eq('@captain_hook')
     expect(post.content).to eq('arrrr hide me from batman x')
     expect(post.date).to eq('2022-10-31')
     expect(post.time).to eq('10:20:00')
@@ -45,4 +47,5 @@ describe PostRepository do
     expect(posts.last.time).to eq('13:35:00')
     expect(posts.last.user_id).to eq(3)
   end
+
 end

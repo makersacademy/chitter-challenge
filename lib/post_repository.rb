@@ -2,7 +2,8 @@ require_relative './post'
 
 class PostRepository
   def all
-    sql = 'SELECT id, content, date, time, user_id FROM posts;'
+    sql = 'SELECT posts.id, content, date, time, user_id, users.name, users.username
+    FROM posts JOIN users ON user_id = users.id;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     posts = []
@@ -14,6 +15,8 @@ class PostRepository
       post.date = record['date']
       post.time = record['time']
       post.user_id = record['user_id'].to_i
+      post.author_name = record['name']
+      post.author_handle = "@#{record['username']}"
 
       posts << post
     end
@@ -21,7 +24,8 @@ class PostRepository
   end
 
   def find(id)
-    sql = 'SELECT id, content, date, time, user_id FROM posts WHERE id = $1;'
+    sql = 'SELECT posts.id, content, date, time, user_id, users.name, users.username
+            FROM posts JOIN users ON user_id = users.id WHERE posts.id = $1;'
     result = DatabaseConnection.exec_params(sql, [id])
 
     post = Post.new
@@ -32,6 +36,8 @@ class PostRepository
       post.date = record['date']
       post.time = record['time']
       post.user_id = record['user_id'].to_i
+      post.author_name = record['name']
+      post.author_handle = "@#{record['username']}"
     end
     return post
   end

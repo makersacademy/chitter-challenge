@@ -14,6 +14,7 @@
     <h2>Latest Cheeps</h2>
     <div>
     <% @feed.each do |post| %>
+      <p><strong><%= post.author_name %> <%= post.author_handle %></strong></p>
       <p><%= post.content %></p>
       <p><%= post.date %> <%= post.time[0...-3] %></p>
     <% end %>
