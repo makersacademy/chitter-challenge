@@ -18,7 +18,7 @@ describe Application do
   end
 
   context 'GET /users/:id' do
-    xit 'returns user with ID 2' do
+    it 'returns user with ID 2' do
       response = get('/users/2')
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Batman</h1>')

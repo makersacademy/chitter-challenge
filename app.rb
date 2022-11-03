@@ -23,6 +23,7 @@ class Application < Sinatra::Base
   get '/users/:id' do
     repo = UserRepository.new
     @user = repo.find(params[:id])
+    @user_feed = @user.posts.sort_by { |post| [post.date, post.time] }.reverse
     return erb(:user)
   end
 
