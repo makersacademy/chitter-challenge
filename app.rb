@@ -64,11 +64,13 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     email = params[:email]
     password = params[:password]
-
+    p email
+    p password
     user = repo.find_by_email(email)
-
+    p user
     if user.password == password
-      session[:user_id] = user.id
+      p user.password == password
+      #session[:user_id] = user.id
 
       return erb(:login_success)
     else

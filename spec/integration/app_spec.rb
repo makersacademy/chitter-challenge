@@ -60,6 +60,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Peep created!: my_peep</h1>')
     end
+  end
 
     it 'creates a peep with different content and returns a confirmation page' do
       response = post('/peep', title: "a_different_peep", content: "different_content")
@@ -67,7 +68,6 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Peep created!: a_different_peep</h1>')
     end
-  end
 
   context "POST /user" do
     it 'creates a user and returns a confirmation page' do
@@ -76,18 +76,17 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>User created!: my_username</h1>')
     end
-  end
 
   context "POST /login" do
     it 'authenticates a user and returns a confirmation page' do
-      response = post('/login', email: 'Molly@chittermail.com', password: 'mollyspassword')
+      response = post('/login', email: 'lauren@chittermail.com', password: 'laurenspassword')
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Welcome! Sign-in successful</h1>')
     end
+  end
 
-    it 'authenticates a user and returns an error page when login details are incorrect' do
-      response = post('/login', email: 'my_email@chittermail.com', password: 'not_my_password')
-
+    it 'authenticates a user and returns a confirmation page' do
+      response = post('/login', email: 'lauren@chittermail.com', password: 'laurenspasswordiswrong')
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Error! Please try again</h1>')
     end

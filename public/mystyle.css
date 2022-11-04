@@ -17,6 +17,13 @@ h3 {
   text-align: center;
 }
 
-form {
-  text-align: center;
+label {
+  display: inline-block;
+  width: 210px;
+  text-align: right;
+}
+
+input {
+  display: inline-block;
+  float: left;
 }
