@@ -7,6 +7,8 @@ require_relative 'lib/post_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+  
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/post_repository'
@@ -29,10 +31,13 @@ class Application < Sinatra::Base
     time = Time.now
     @post = Post.new
     @post.content = params[:content]
-    @post.user_id = params[:user_id]
+    @post.user_id = session[:user_id]
     @post.date = time.strftime("%Y/%m/%d")
     @post.time = time.strftime("%k:%M:%S")
     repo.create(@post)
+    p session[:user_id]
+    p @post.user_id
+    redirect '/feed'
   end
 
   get '/users/new' do
@@ -53,8 +58,9 @@ class Application < Sinatra::Base
     @user.password = params[:password]
     @user.email = params[:email]
     @user.name = params[:name]
+    session[:user_id] = @user.id
     repo.create(@user)
-    return erb(:user_register_success)
+    redirect '/feed'
   end
 
 end
