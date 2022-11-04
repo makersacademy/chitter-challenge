@@ -65,5 +65,15 @@ describe Application do
     end
   end
 
+  context 'GET /login' do
+    it 'returns login page' do
+      response = get('/login')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/feed">')
+      expect(response.body).to include('<input type="text" name="email" />')
+      expect(response.body).to include('<input type="password" name="password" />')
+    end
+  end
+
 
 end

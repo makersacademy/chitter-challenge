@@ -16,6 +16,10 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+  
   get '/feed' do
     repo = PostRepository.new
     posts = repo.all
@@ -35,6 +39,7 @@ class Application < Sinatra::Base
     @post.user_id = session[:user_id] ||= params[:user_id]
     @post.date = time.strftime("%Y/%m/%d")
     @post.time = time.strftime("%k:%M:%S")
+    p @post.user_id
     repo.create(@post)
     redirect '/feed'
   end
@@ -57,8 +62,8 @@ class Application < Sinatra::Base
     @user.password = params[:password]
     @user.email = params[:email]
     @user.name = params[:name]
-    session[:user_id] = @user.id
     repo.create(@user)
+    session[:user_id] = @user.id
     redirect '/feed'
   end
 
