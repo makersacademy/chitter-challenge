@@ -45,8 +45,6 @@ describe Application do
     it 'creates a new user' do
       response = post('/users', username: 'lion_king', password: 'circl30fl1f3', 
       email: 'simba@fake.com', name: 'Simba')
-      expect(response.status).to eq(200)
-      expect(response.body).to include('Welcome to Chitter, Simba')
     end
   end
 
@@ -62,7 +60,6 @@ describe Application do
   context 'POST /feed' do
     it 'creates a new post' do
       response = post('/feed', content: 'going to jump ship ttyl x', user_id: 3)
-      expect(response.status).to eq(200)
       get_response = get('/feed')
       expect(get_response.body).to include('going to jump ship ttyl x')
     end
