@@ -8,8 +8,15 @@ RSpec.describe UserRepository do
     connection.exec(seed_sql)
   end
 
+   def reset_peeps_table
+    seed_sql = File.read('spec/seeds/seeds_peeps.sql')
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+    connection.exec(seed_sql)
+  end
+
   before(:each) do 
     reset_users_table
+    reset_peeps_table
   end
 
   it 'returns a list of all the users' do
@@ -48,7 +55,14 @@ RSpec.describe UserRepository do
     repo = UserRepository.new
 
     result = repo.find_by_email('lauren@chittermail.com')
-    expect(result.name).to eq 'Lauren Brown'
-    expect(result.username).to eq 'Lilauren'
+
+    expect(result.name).to eq ('Lauren Brown')
+    expect(result.username).to eq ('Lilauren')
+  end
+
+  it 'checks if user login details are correct' do
+    repo = UserRepository.new
+
+    expect(repo.login('meg@chittermail.com', 'meglikesdogs1')).to eq false
   end
 end

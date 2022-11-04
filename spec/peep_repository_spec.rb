@@ -53,13 +53,4 @@ RSpec.describe PeepRepository do
         user_id: new_peep.user_id
       ))
   end
-
-   xit 'finds a peep by its id' do
-    repo = PeepRepository.new
-
-    peep = repo.find(3)
-    
-    expect(peep.id).to eq(3)
-    expect(peep.title).to eq('Animals')
-  end
 end

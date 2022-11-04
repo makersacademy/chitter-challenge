@@ -31,26 +31,24 @@ class UserRepository
 
   def login(email, submitted_password)
     user = find_by_email(email)
+    p user.password
 
     return nil if user.nil?
 
-    if submitted_password == BCrypt::Password.new(user.password)
-      true
-    else
-      false
-    end
+    submitted_password == (user.password)
   end
 
-   def find_by_email(email)
+  def find_by_email(email)
     sql = 'SELECT * FROM users WHERE email = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
+    result_set = result_set[0]
 
     user = User.new
-    user.id = result_set[0]['id'].to_i
-    user.name = result_set[0]['name']
-    user.username = result_set[0]['username']
-    user.email = result_set[0]['email']
-    user.password = result_set[0]['password']
+    user.id = result_set['id'].to_i
+    user.name = result_set['name']
+    user.username = result_set['username']
+    user.email = result_set['email']
+    user.password = result_set['password']
 
     return user
   end

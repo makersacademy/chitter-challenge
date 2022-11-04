@@ -28,8 +28,8 @@ describe Application do
       response = get("/peeps")
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("<div><a href='/peeps/1'>Cats")
-      expect(response.body).to include("<div><a href='/peeps/3'>Animals")
+      expect(response.body).to include("&nbspI love them!!!!&nbsppeeped at&nbsp14:28</div><br>")
+      expect(response.body).to include('&nbspCouldn"t care less&nbsppeeped at&nbsp09:14</div><br>')
     end
   end
 
@@ -50,15 +50,6 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/user">')
       expect(response.body).to include('input type="text" name="name"')
-    end
-  end
-
-  context "GET /login" do
-    it 'returns the login page' do
-      response = get('/login')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Enter your details to login!</h1>')
     end
   end
 
@@ -89,13 +80,12 @@ describe Application do
 
   context "POST /login" do
     it 'authenticates a user and returns a confirmation page' do
-      response = post('/login', email: 'my_email@chittermail.com', password: 'my_password')
-
+      response = post('/login', email: 'Molly@chittermail.com', password: 'mollyspassword')
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Welcome! Sign-in successful</h1>')
     end
 
-    xit 'authenticates a user and returns an error page when login details are incorrect' do
+    it 'authenticates a user and returns an error page when login details are incorrect' do
       response = post('/login', email: 'my_email@chittermail.com', password: 'not_my_password')
 
       expect(response.status).to eq(200)

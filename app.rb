@@ -17,10 +17,6 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/login' do
-    return erb(:login)
-  end
-
   get '/users/new' do
     @new_user = params[:user_name]
     return erb(:new_user)
@@ -34,9 +30,9 @@ class Application < Sinatra::Base
   get '/peeps' do
     repo = PeepRepository.new
 
-     @peeps = repo.sorted_by_time
+    @peeps = repo.sorted_by_time
 
-     return erb(:peeps)
+    return erb(:peeps)
   end
 
   post '/peep' do
@@ -51,7 +47,7 @@ class Application < Sinatra::Base
     return erb(:peep_created)
   end
 
-   post '/user' do
+  post '/user' do
     repo = UserRepository.new
     @new_user = User.new
     @new_user.name = params[:name]
