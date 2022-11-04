@@ -1,23 +1,28 @@
-<html>
-<head><link rel="stylesheet" href="mystyle.css"></head>
-
-<body>
-<form method="POST" action="/peep">
-  <div>
-  <h1>Enter your peep below!</h1>
-      <label>Title:</label>
-      <input type="text" name="title"/>
-    </div>
-    <div>
-      <label>Content:</label>
-      <input type="text" name="content"/>
-    </div>
-    <div>
-      <label>Please enter the time:</label>
-      <input type="time" name="time" step="1">
-    </div>
-    <input type="submit"/>
-    <button onclick="history.back()">Go Back</button>
-</form>
-</body
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="mystyle.css">
+    <body style="background-color:powderblue;">
+    <meta charset=utf-8>
+    <title>Create a peep!</title>
+  </head>
+  <body>
+    <form align='center' method="POST" action="/peep">
+      <div>
+        <h1>Enter your peep below!</h1>
+        <label>Title:</label>
+        <input type="text" name="title"/>
+      </div>
+      <div>
+        <label>Content:</label>
+        <input type="text" name="content"/>
+      </div>
+      <div>
+        <label>Please enter the time:</label>
+        <input type="time" name="time" step="1">
+      </div>
+      <input type="submit"/>
+      <button onclick="history.back()">Go Back</button>
+    </form>
+  </body
 </html>
