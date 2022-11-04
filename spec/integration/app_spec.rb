@@ -11,7 +11,7 @@ describe Application do
       response = get('/feed')
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2>Latest Cheeps</h2>')
-      expect(response.body).to include('Hook @captain_hook')
+      expect(response.body).to include('Hook <a href="/users/3">@captain_hook</a>')
       expect(response.body).to include('<p>I love music! x</p>')
       expect(response.body).to include('<p>2022-10-31 07:15</p>')
     end

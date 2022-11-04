@@ -20,7 +20,7 @@
     <h2>Latest Cheeps</h2>
     <div>
     <% @feed.each do |post| %>
-      <p><strong><%= post.author_name %> <%= post.author_handle %></strong></p>
+      <p><strong><%= post.author_name %> <a href="/users/<%= post.user_id %>"><%= post.author_handle %></a></strong></p>
       <p><%= post.content %></p>
       <p><%= post.date %> <%= post.time[0...-3] %></p>
     <% end %>
