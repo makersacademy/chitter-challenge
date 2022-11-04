@@ -38,7 +38,7 @@ describe Application do
       response = get('/peeps/new')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<form method="POST" action="/peep">')
+      expect(response.body).to include('<form align="center" method="POST" action="/peep">')
       expect(response.body).to include('input type="text" name="title"')
     end
   end
@@ -48,7 +48,7 @@ describe Application do
       response = get('/users/new')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<form method="POST" action="/user">')
+      expect(response.body).to include('<form><form align="center" method="POST" action="/user">')
       expect(response.body).to include('input type="text" name="name"')
     end
   end
