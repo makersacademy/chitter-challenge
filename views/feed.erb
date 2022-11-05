@@ -10,7 +10,12 @@
 <body>
   <div>
     <ul>
-     <li><a href="/feed">Home</a></li>
+      <li><a href="/feed">Home</a></li>
+      <% if session[:user_id] == nil %>
+      <li><a href="/users/new">Sign up</a></li>
+      <% else %>
+      <li><a href="/logout">Log out</a></li>
+      <% end %>
     </ul>
   </div>
   <div>
@@ -18,9 +23,23 @@
   </div>
   <div>
   <% if session[:user_id] == nil %>
-    <p>Welcome to Chitter. Log in or sign up to join the conversation.</p>
+    <h3>Log in</h3>
+    <form method="POST" action="/login">
+      <label>Email:</label>
+      <input type="text" name="email" />
+      <label>Password:</label>
+      <input type="password" name="password" />
+      <input type="submit" />
+    </form>
+    <p>Welcome to Chitter. Log in or <a href="/users/new">sign up</a> to join the conversation.</p>
   <% else %>
     <p>Welcome to Chitter, <%= session[:name] %>. Join the conversation. Peep something.</p>
+    <form method="POST" action="/feed">
+    <div>  
+      <h3>What's on your mind?</h3>
+      <input type="text" name="content" maxlength="120" id="peepbox"/>
+      <input type="submit" />
+    </form>
   <% end %>
   </div>
   <div>

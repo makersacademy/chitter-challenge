@@ -83,6 +83,7 @@ describe Application do
       feed = get('/feed')
       expected_body = '<p>Welcome to Chitter, Sia. Join the conversation. Peep something.</p>'
       expect(feed.body).to include(expected_body)
+      expect(feed.body).to include('<li><a href="/logout">Log out</a></li>')
     end
   end
 
@@ -92,8 +93,9 @@ describe Application do
       response = get('/logout')
       expect(response.status).to eq(302)
       feed = get('/feed')
-      expected_body = '<p>Welcome to Chitter. Log in or sign up to join the conversation.</p>'
+      expected_body = '<p>Welcome to Chitter. Log in or <a href="/users/new">sign up</a> to join the conversation.</p>'
       expect(feed.body).to include(expected_body)
+      expect(feed.body).to include('<li><a href="/users/new">Sign up</a></li>')
     end
   end
 
