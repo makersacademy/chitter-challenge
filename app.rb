@@ -9,15 +9,24 @@ DatabaseConnection.connect
 
 class Application < Sinatra::Base
   enable :sessions
-  
+
   configure :development do
     register Sinatra::Reloader
-    also_reload 'lib/post_repository'
-    also_reload 'lib/user_repository'
   end
-
+  
   get '/login' do
     return erb(:login)
+  end
+
+  post '/login' do
+    email = params[:email]
+    submitted_password = params[:password]
+    repo = UserRepository.new
+    user = repo.find_by_email(email)
+    if submitted_password == user.password
+      session[:user_id] = user.id
+      redirect '/feed'
+    end
   end
   
   get '/feed' do
@@ -39,7 +48,6 @@ class Application < Sinatra::Base
     @post.user_id = session[:user_id] ||= params[:user_id]
     @post.date = time.strftime("%Y/%m/%d")
     @post.time = time.strftime("%k:%M:%S")
-    p @post.user_id
     repo.create(@post)
     redirect '/feed'
   end
@@ -50,9 +58,14 @@ class Application < Sinatra::Base
 
   get '/users/:id' do
     repo = UserRepository.new
-    @user = repo.find(params[:id])
+    @user = repo.find_posts(params[:id])
     @user_feed = @user.posts.sort_by { |post| [post.date, post.time] }.reverse
     return erb(:user)
+  end
+  
+  get '/users' do
+    repo = UserRepository.new
+    @users = repo.all
   end
 
   post '/users' do
@@ -63,8 +76,11 @@ class Application < Sinatra::Base
     @user.email = params[:email]
     @user.name = params[:name]
     repo.create(@user)
-    session[:user_id] = @user.id
-    redirect '/feed'
   end
 
+ 
+
 end
+
+
+

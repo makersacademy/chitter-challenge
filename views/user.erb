@@ -20,13 +20,11 @@
   <div>
     <h2>Cheeps</h2>
   </div>
-
   <div>
   <% @user_feed.each do |post| %>
     <p><%= post.content %></p>
     <p><%= post.date %> <%= post.time[0...-3] %></p>
   <% end %>
   </div>
-  
 </body>
 </html>

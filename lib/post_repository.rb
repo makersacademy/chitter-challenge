@@ -24,7 +24,7 @@ class PostRepository
   end
 
   def find(id)
-    sql = 'SELECT posts.id, content, date, time, user_id, users.name, users.username
+    sql = 'SELECT posts.id AS posts_id, content, date, time, user_id, users.id AS users_id, users.name, users.username
             FROM posts JOIN users ON user_id = users.id WHERE posts.id = $1;'
     result = DatabaseConnection.exec_params(sql, [id])
 

@@ -54,7 +54,7 @@ describe UserRepository do
 
   it 'returns all posts by user' do
     repo = UserRepository.new
-    user = repo.find(2)
+    user = repo.find_posts(2)
     expect(user.posts.length).to eq(2)
     expect(user.posts[0].content).to eq('Fighting crime is more important than music! x')
     expect(user.posts[1].date).to eq('2022-11-01')
