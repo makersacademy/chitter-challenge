@@ -17,6 +17,13 @@
     <h1>Chitter - Live, Laugh, Cheep</h1>
   </div>
   <div>
+  <% if session[:user_id] == nil %>
+    <p>Welcome to Chitter. Log in or sign up to join the conversation.</p>
+  <% else %>
+    <p>Welcome to Chitter, <%= session[:name] %>. Join the conversation. Peep something.</p>
+  <% end %>
+  </div>
+  <div>
     <h2>Latest Cheeps</h2>
     <div>
     <% @feed.each do |post| %>

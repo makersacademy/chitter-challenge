@@ -25,8 +25,15 @@ class Application < Sinatra::Base
     user = repo.find_by_email(email)
     if submitted_password == user.password
       session[:user_id] = user.id
+      session[:name] = user.name
+      session[:username] = user.username
       redirect '/feed'
     end
+  end
+
+  get '/logout' do
+    session[:user_id] = nil
+    redirect '/feed'
   end
   
   get '/feed' do

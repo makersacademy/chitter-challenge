@@ -80,6 +80,20 @@ describe Application do
     it 'logs user in' do
       response = post('/login', email: 'sia@fake.com', password: 'musicl0v3r')
       expect(response.status).to eq(302)
+      feed = get('/feed')
+      expected_body = '<p>Welcome to Chitter, Sia. Join the conversation. Peep something.</p>'
+      expect(feed.body).to include(expected_body)
+    end
+  end
+
+  context 'GET /logout' do
+    it 'logs user out' do
+      post('/login', email: 'sia@fake.com', password: 'musicl0v3r')
+      response = get('/logout')
+      expect(response.status).to eq(302)
+      feed = get('/feed')
+      expected_body = '<p>Welcome to Chitter. Log in or sign up to join the conversation.</p>'
+      expect(feed.body).to include(expected_body)
     end
   end
 
