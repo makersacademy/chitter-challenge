@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="mystyle.css">
+    <meta charset=utf-8>
+    <title>Chitter app</title>
+  </head> 
+  <body>
+  <h1>Welcome to Chitter!</h1>
+    <form align='center'method="POST" action="/login">
+      <div>
+        <h1>Enter your details to login!</h1>
+        <label>Email:</label>
+        <input type="text" name="email"/>
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+      </div>
+        <input type="submit"/>
+    </form>
+    <h3><a href= '/users/new'>Sign up!</a></h3>
+    <h3><a href= '/peeps'>View peeps</a></h3>
+  </body>
+</html>

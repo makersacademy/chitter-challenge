@@ -1,0 +1,29 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  text-align: center;
+}
+
+h2 {
+  color: navy;
+  text-align: center;
+}
+
+h3 {
+  color: navy;
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  width: 210px;
+  text-align: right;
+}
+
+input {
+  display: inline-block;
+  text-align: center;
+}

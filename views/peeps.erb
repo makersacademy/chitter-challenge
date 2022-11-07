@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="mystyle.css">
+    <meta charset=utf-8>
+    <title> Peeps!</title>
+  </head>
+  <body>
+    <h1>Peeps</h1><p>
+    <% @peeps.each do |peep| %>
+      <div><%= peep.title%>:
+      &nbsp<%= peep.content%>&nbsppeeped at&nbsp<%= peep.time %></div><br>
+      <% end %></p>
+      <button onclick="history.back()">Go Back</button>
+  </body>
+</html>

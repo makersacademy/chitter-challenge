@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="mystyle.css">
+    <meta charset=utf-8>
+    <title>Sign-up!</title>
+  </head>
+  <body>
+    <form><form align="center" method="POST" action="/user">
+    <div>
+    <h1>Please enter your details below!</h1>
+    </div>
+    <div>
+      <label>Name:</label>
+      <input type="text" name="name" id='name'/>
+    </div>
+    <div>
+      <label>Username:</label>
+      <input type="text" name="username" id= 'username'/>
+    </div>
+    <div>
+      <label>Email:</label>
+      <input type="email" name="email" id= 'email'/>
+    </div>
+    <div>
+      <label>Password (min 8 characters):</label>
+      <input type="password" name="password" id='password' minlength= '8' required/>
+    </div></form>
+      <input type="submit"/>
+    </form>
+  </body>
+</html>

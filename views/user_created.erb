@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="mystyle.css">
+    <meta charset=utf-8>
+    <title>User created!</title>
+  </head>
+  <body>
+    <h1>User created!: <%= @new_user.username %></h1>
+
+    <h2>What would you like to do next?</h2>
+    <h3><a href= '/peeps/new'>Create a new peep</a></h3>
+    <h3><a href= '/peeps'>View peeps</a></h3>
+    <div class = 'text-center'>
+    <button onclick="history.back()">Go Back</button>
+    </div 
+  </body>
+</html>
