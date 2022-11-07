@@ -97,6 +97,13 @@ p {
   margin: 6px;
 }
 
+.logo-home {
+  width: 200px;
+  object-fit: contain;
+  padding: 2px;
+  margin: 6px;
+}
+
 .login-bar {
   float: right;
   padding: 10px;
@@ -195,7 +202,7 @@ input[type=password] {
   color: dimgray;
 }
 
-.sign-up-form {
+.center-field {
   position: absolute;
   top: 25%;
 }

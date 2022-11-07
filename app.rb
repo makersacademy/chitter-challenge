@@ -13,6 +13,14 @@ class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+
+  get '/' do
+    if session[:user_id] != nil
+      redirect '/feed'
+    else
+      return erb(:index)
+    end
+  end
   
   get '/login' do
     return erb(:login)

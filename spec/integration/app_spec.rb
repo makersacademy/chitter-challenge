@@ -7,6 +7,14 @@ describe Application do
   include Rack::Test::Methods
   let(:app) { Application.new }
 
+  context 'GET /' do
+    it 'returns homepage' do
+      response = get('/')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Welcome to Chitter</h1>')
+    end
+  end
+
   context 'GET /feed' do
     it 'returns list of posts' do
       response = get('/feed')
