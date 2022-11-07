@@ -48,15 +48,6 @@ describe Application do
     end
   end
 
-  context 'GET /posts/new' do
-    it 'returns new post form' do
-      response = get('feed/new')
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<form method="POST" action="/feed">')
-      expect(response.body).to include('<input type="text" name="content" />')
-    end
-  end
-
   context 'POST /feed' do
     it 'creates a new post' do
       response = post('/feed', content: 'going to jump ship ttyl x', user_id: 3)

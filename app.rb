@@ -88,8 +88,6 @@ class Application < Sinatra::Base
     repo.create(@user)
   end
 
- 
-
 end
 
 
