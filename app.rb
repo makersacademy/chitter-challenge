@@ -27,6 +27,9 @@ class Application < Sinatra::Base
       session[:user_id] = user.id
       session[:name] = user.name
       session[:username] = user.username
+      @login_success = true
+      redirect '/feed'
+    else 
       redirect '/feed'
     end
   end

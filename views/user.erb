@@ -4,27 +4,51 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
   <title>@<%= @user.username %>'s Profile | Chitter</title>
 </head>
 <body>
+<div class="sidebar">
+<div>
+  <img src="/chitter-logo.svg" class="logo" />
+</div>
+
+<div class="navlinks">
+  <a href="/feed">&#127968 Home</a>
+  <% if session[:user_id] == nil %>
+  <a href="/users/new">&#10024 Sign up</a>
+  <% else %>
+  <a href="/logout">&#127916 Log out</a>
+  <% end %>
+</div>
+</div>
+
+<div class="content">
+<% if session[:user_id] == nil %>
+<div class="login-bar">
+<strong>Log in</strong>
+  <form method="POST" action="/login">
+    <input type="text" placeholder="Email" name="email" />
+    <input type="password" placeholder="Password" name="password" />
+    <input type="submit" class="button"/>
+  </form>
+</div>
+<% end %>
   <div>
-    <ul>
-      <li><a href="/feed">Home</a></li>
-    </ul>
-  </div>
-  <div>
-    <h1><%= @user.name %></h1>
-    <p>@<%= @user.username %></p>
+    <h1><%= @user.name %> @<%= @user.username %></h1>
   </div>
 
-  <div>
+  <div class="feed">
     <h2>Cheeps</h2>
   </div>
-  <div>
+  
   <% @user_feed.each do |post| %>
-    <p><%= post.content %></p>
-    <p><%= post.date %> <%= post.time[0...-3] %></p>
+    <div class="postdiv">
+    <p class="post-author">&#128172 <strong><%= @user.name %> <a href="/users/<%= @user.id %>"><%= @user.username %></a></strong></p>
+    <p class="post-content"><%= post.content %></p>
+    <p class="post-date"><%= post.date %> <%= post.time[0...-3] %></p>
+    </div>  
   <% end %>
-  </div>
+  
 </body>
 </html>

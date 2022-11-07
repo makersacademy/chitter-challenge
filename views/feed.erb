@@ -5,52 +5,71 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cheep Feed - Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 
-<body>
-  <div>
-    <ul>
-      <li><a href="/feed">Home</a></li>
-      <% if session[:user_id] == nil %>
-      <li><a href="/users/new">Sign up</a></li>
-      <% else %>
-      <li><a href="/logout">Log out</a></li>
-      <% end %>
-    </ul>
-  </div>
-  <div>
-    <h1>Chitter - Live, Laugh, Cheep</h1>
-  </div>
-  <div>
-  <% if session[:user_id] == nil %>
-    <h3>Log in</h3>
-    <form method="POST" action="/login">
-      <label>Email:</label>
-      <input type="text" name="email" />
-      <label>Password:</label>
-      <input type="password" name="password" />
-      <input type="submit" />
-    </form>
-    <p>Welcome to Chitter. Log in or <a href="/users/new">sign up</a> to join the conversation.</p>
-  <% else %>
-    <p>Welcome to Chitter, <%= session[:name] %>. Join the conversation. Peep something.</p>
-    <form method="POST" action="/feed">
-    <div>  
-      <h3>What's on your mind?</h3>
-      <input type="text" name="content" maxlength="120" id="peepbox"/>
-      <input type="submit" />
-    </form>
-  <% end %>
-  </div>
-  <div>
-    <h2>Latest Cheeps</h2>
-    <div>
-    <% @feed.each do |post| %>
-      <p><strong><%= post.author_name %> <a href="/users/<%= post.user_id %>"><%= post.author_handle %></a></strong></p>
-      <p><%= post.content %></p>
-      <p><%= post.date %> <%= post.time[0...-3] %></p>
-    <% end %>
+  <body>
+    <div class="sidebar">
+      <div>
+        <img src="/chitter-logo.svg" class="logo" />
+      </div>
+
+      <div class="navlinks">
+        <a href="/feed">&#127968 Home</a>
+        <% if session[:user_id] == nil %>
+        <a href="/users/new">&#10024 Sign up</a>
+        <% else %>
+        <a href="/logout">&#127916 Log out</a>
+        <% end %>
+      </div>
     </div>
-  </div>
-</body>
+
+    <div class="content">
+    <% if session[:user_id] == nil %>
+      <div class="login-bar">
+      <strong>Log in</strong>
+        <form method="POST" action="/login">
+          <input type="text" placeholder="Email" name="email" />
+          <input type="password" placeholder="Password" name="password" />
+          <input type="submit" class="button"/>
+        </form>
+      </div>
+      <% end %>
+      <% if session[:user_id] == nil %>
+        <div>
+          <h1>Welcome to Chitter. &#128075</h1>
+          <p>Log in or <a href="/users/new">sign up</a> to join the conversation.</p>
+        </div>
+      <% else %>
+      
+
+        <h1>Welcome to Chitter, <strong><%= session[:name] %></strong>. &#128075</h1>
+        <p>Join the conversation. Peep something.</p>
+
+
+   
+        <h2>Peep</h2>
+          <form method="POST" action="/feed">
+            <input type="text" class="peep-box" placeholder="What's on your mind?" name="content" maxlength="120" id="peepbox"/>
+            <input type="submit" class="button"/>
+          </form>
+    
+
+      <% end %>
+    
+
+      <div class="feed">
+        <h2>Latest Cheeps</h2>
+        
+        <% @feed.each do |post| %>
+          <div class="postdiv">
+          <p class="post-author">&#128172 <strong><%= post.author_name %> <a href="/users/<%= post.user_id %>"><%= post.author_handle %></a></strong></p>
+          <p class="post-content"><%= post.content %></p>
+          <p class="post-date"><%= post.date %> <%= post.time[0...-3] %></p>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </body>
 </html>
