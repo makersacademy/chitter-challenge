@@ -10,21 +10,19 @@
 </head>
 <body>
 <div class="sidebar">
-      <div>
-        <img src="/chitter-logo.svg" class="logo" />
-      </div>
+  <div>
+    <img src="/chitter-logo.svg" class="logo" />
+  </div>
 
-      <div class="navlinks">
-        <a href="/feed">&#127968 Home</a>
-        <% if session[:user_id] == nil %>
-        <a href="/users/new">&#10024 Sign up</a>
-        <% else %>
-        <a href="/logout">&#127916 Log out</a>
-        <% end %>
-      </div>
+  <div class="navlinks">
+    <a href="/feed">&#127968 Home</a>
+    <% if session[:user_id] == nil %>
+    <a href="/users/new">&#10024 Sign up</a>
+    <% else %>
+    <a href="/logout">&#127916 Log out</a>
+    <% end %>
+  </div>
 </div>
-
-
 
 <div class="content">
 <div class="center-field">

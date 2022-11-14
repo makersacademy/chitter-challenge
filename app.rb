@@ -54,10 +54,6 @@ class Application < Sinatra::Base
     return erb(:feed)
   end
 
-  get '/feed/new' do
-    return erb(:new_post)
-  end
-
   post '/feed' do
     repo = PostRepository.new
     time = Time.now
@@ -79,11 +75,6 @@ class Application < Sinatra::Base
     @user = repo.find_posts(params[:id])
     @user_feed = @user.posts.sort_by { |post| [post.date, post.time] }.reverse
     return erb(:user)
-  end
-  
-  get '/users' do
-    repo = UserRepository.new
-    @users = repo.all
   end
 
   post '/users' do
