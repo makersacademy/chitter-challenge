@@ -42,7 +42,7 @@ class Application < Sinatra::Base
   end
 
   get '/signup' do
-    return erb :signup if session[:user_id].nil?
+    return erb :signup, :layout => :main_layout if session[:user_id].nil?
     redirect '/'
   end
 
