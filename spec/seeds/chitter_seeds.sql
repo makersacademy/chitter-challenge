@@ -1,14 +1,16 @@
 DROP TABLE IF EXISTS users, peeps;
 
-CREATE TABLE users (
+CREATE TABLE users
+(
   id SERIAL PRIMARY KEY,
-  username text,
-  email text,
+  username text UNIQUE,
+  email text UNIQUE,
   password text,
   name text
 );
 
-CREATE TABLE peeps (
+CREATE TABLE peeps
+(
   id SERIAL PRIMARY KEY,
   content text,
   post_time timestamp,
