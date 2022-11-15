@@ -26,7 +26,7 @@ class Application < Sinatra::Base
   end
 
   get '/login' do
-    return erb :login if session[:user_id].nil?
+    return erb :login, :layout => :main_layout if session[:user_id].nil?
     redirect '/'
   end
 
