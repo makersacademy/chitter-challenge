@@ -80,4 +80,14 @@ class Application < Sinatra::Base
 
     redirect '/'
   end
+
+  get '/peep/:id' do
+    id = params[:id]
+    peep_repo = PeepRepository.new
+    user_repo = UserRepository.new
+    
+    @peeps = peep_repo.find(id)
+    @users = user_repo.find(@peeps.user_id)
+    return erb :peep, :layout => :main_layout
+  end
 end
