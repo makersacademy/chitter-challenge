@@ -147,8 +147,8 @@ describe Application do
   context 'GET /peeps/new' do
     it 'should get the new peeps page' do
       post('/login', 
-          params = {email: 'amelia@test.com', 
-                    password: 'qwerty#789'})
+          params = { email: 'amelia@test.com', 
+                    password: 'qwerty#789' })
       response = get ('/peeps/new')
 
       expect(response.status).to eq 200
@@ -159,7 +159,7 @@ describe Application do
   context 'POST /peeps/new' do
     it 'should create a new post' do
       post('/login', 
-        params = {email: 'amelia@test.com', password: 'qwerty#789'})
+        params = { email: 'amelia@test.com', password: 'qwerty#789' })
       response = post('/peeps/new',
                       params = {
                         content: 'Hi there',

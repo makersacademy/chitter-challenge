@@ -1,7 +1,6 @@
 require_relative './user'
 require_relative 'database_connection'
 
-
 class UserRepository
   def all 
     sql = "SELECT * FROM users"
