@@ -64,8 +64,8 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
-    return erb :login if session[:user_id].nil?
-    erb :new_peep
+    return erb :login, :layout => :main_layout if session[:user_id].nil?
+    erb :new_peep, :layout => :main_layout
   end
 
   post '/peeps/new' do
