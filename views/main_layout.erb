@@ -11,9 +11,9 @@
       <nav>
         <div>
           <% if !session[:user_id].nil? %>
-            <a href="/peeps/new">New peep</a> | <a href="/logout">Logout</a>
+            <a href="/peeps/new">New peep</a> | <a href="/logout">Logout</a> | <a href='/'>Homepage</a>
           <% else %>
-            <a href="/login">Login</a> | <a href="/signup">Signup</a>
+            <a href="/login">Login</a> | <a href="/signup">Signup</a> | <a href='/'>Homepage</a>
           <% end %>
         </div>
       </nav>
