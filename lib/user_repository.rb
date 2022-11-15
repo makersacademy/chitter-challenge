@@ -1,6 +1,11 @@
+require_relative './user'
+require_relative 'database_connection'
+
+
 class UserRepository
   def all 
-    sql = "SELECT * FROM users;"
+    sql = "SELECT * FROM users"
+    users = []
     result = DatabaseConnection.exec_params(sql, [])
     result.map do |record|
       user = User.new
@@ -9,12 +14,13 @@ class UserRepository
       user.email = record['email']
       user.password = record['password']      
       user.name = record['name']
-      user
+      users << user
     end
+    return users
   end
 
   def create(user)
-    sql = 'INSERT INTO users (username, email, password, name) VALUES ($1, $2, $3, $4) RETURNING id;'
+    sql = 'INSERT INTO users (username, email, password, name) VALUES ($1, $2, $3, $4) RETURNING id'
     params = [user.username, user.email, user.password, user.name]
     results = DatabaseConnection.exec_params(sql, params)
     # sets user ID for returning full user object
@@ -23,7 +29,7 @@ class UserRepository
   end
 
   def find_by_email(email)
-    sql = 'SELECT * FROM users WHERE email = $1;'
+    sql = 'SELECT * FROM users WHERE email = $1'
     params = [email]
     result = DatabaseConnection.exec_params(sql, params)
     result = result.first

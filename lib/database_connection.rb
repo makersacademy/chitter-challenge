@@ -11,13 +11,21 @@ class DatabaseConnection
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
   def self.connect(database_name)
-    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
+    @host = '127.0.0.1'
+    @database_name = database_name
+    if ENV['PGPASSWORD'].nil?
+      @connection = PG.connect({ host: @host, dbname: @database_name })
+    else
+      @connection = PG.connect({
+        host: @host, dbname: @database_name,
+        user: ENV['PGUSERNAME'], password: ENV['PGPASSWORD'] })
+    end
   end
 
   # This method executes an SQL query 
   # on the database, providing some optional parameters
   # (you will learn a bit later about when to provide these parameters).
-  def self.exec_params(query, params)
+  def self.exec_params(query, params = [])
     if @connection.nil?
       raise 'DatabaseConnection.exec_params: Cannot run a SQL query as the connection to'\
       'the database was never opened. Did you make sure to call first the method '\

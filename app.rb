@@ -19,7 +19,7 @@ class Application < Sinatra::Base
   
   get '/' do
     repo = PeepRepository.new
-    @peeps = repo.all.sort_by(&:post_time).reverse
+    @peeps = repo.all
 
     return erb :index, :layout => :main_layout if session[:user_id].nil?
     return erb :index, :layout => :main_layout
@@ -72,20 +72,16 @@ class Application < Sinatra::Base
     erb :new_peep
   end
 
-  # post '/peeps/new' do
-  #   if session[:user_id].nil?
-  #     repo = PeepRepository.new
-  #     peep = Peep.new
-  #     peep.user_id = session[:user_id]
-  #     peep.content = params[:content]
-  #     peep.post_time = Time.new(params[:post_time])
-  #     repo.create(peep)
+  post '/peeps/new' do
+    repo = PeepRepository.new
+    peep = Peep.new
+    peep.user_id = session[:user_id]
+    peep.content = params[:content]
+    peep.post_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    repo.create(peep)
 
-  #     @peep = peep.post_time
+    @peep = peep.post_time
 
-  #     redirect '/'
-  #   else
-  #     redirect '/'
-  #   end
-  # end
+    redirect '/'
+  end
 end
