@@ -145,7 +145,7 @@ describe Application do
   end
 
   context 'GET /peeps/new' do
-    it 'should get the new spaces page' do
+    it 'should get the new peeps page' do
       post('/login', 
           params = {email: 'amelia@test.com', 
                     password: 'qwerty#789'})
@@ -157,7 +157,7 @@ describe Application do
   end
 
   context 'POST /peeps/new' do
-    it 'should' do
+    it 'should create a new post' do
       post('/login', 
         params = {email: 'amelia@test.com', password: 'qwerty#789'})
       response = post('/peeps/new',
@@ -169,6 +169,15 @@ describe Application do
      
       response = get('/')
       expect(response.body).to include ('Hi there')
+    end
+  end
+
+  context 'GET /peep/:id' do
+    it 'should get the peep page' do
+      response = get ('/peep/1')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Peep</h1>')
     end
   end
 end
