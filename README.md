@@ -1,14 +1,14 @@
 # Chitter Challenge
 
-Twitter clone written in Ruby.
+Twitter clone written in [Ruby](https://www.ruby-lang.org/en/).
 
 ## It uses:
 
-Rspec for testing.
-Rack-test for testing API.
-Rubocop for style checking and code formatting.
-SimpleCov for coverage analysis.
-WEBrick for HTTP web server.
+- [Rspec](https://rspec.info/) for testing.
+- [Rack-test](https://rubygems.org/gems/rack-test) for testing API.
+- [Rubocop](https://rubocop.org/) for style checking and code formatting.
+- [SimpleCov](https://rubygems.org/gems/simplecov/versions/0.12.0) for coverage analysis.
+- [WEBrick](https://rubygems.org/gems/webrick/versions/1.3.1) for HTTP web server.
 
 ## Features:
 
