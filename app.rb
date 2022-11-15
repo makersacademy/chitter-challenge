@@ -6,7 +6,7 @@ require './lib/user'
 require './lib/peep_repository'
 require './lib/peep'
 
-DatabaseConnection.connect('chitter_test')
+DatabaseConnection.connect('chitter_challenge')
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
