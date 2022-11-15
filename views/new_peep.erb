@@ -1,0 +1,10 @@
+<h1>What's happening? </h1>
+<form method="POST" action="/peeps/new">
+  <div>
+      <input type="text" name="content" required/><br>
+      <input type="hidden" name="post_time" value="<%= @peep %>"/>
+  </div>
+  <a href="/spaces">
+    <input type="submit" value="Post my Peep"/>
+  </a>
+</form>
