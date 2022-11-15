@@ -9,6 +9,7 @@ Twitter clone written in [Ruby](https://www.ruby-lang.org/en/).
 - [Rubocop](https://rubocop.org/) for style checking and code formatting.
 - [SimpleCov](https://rubygems.org/gems/simplecov/versions/0.12.0) for coverage analysis.
 - [WEBrick](https://rubygems.org/gems/webrick/versions/1.3.1) for HTTP web server.
+- [PostgresSQL](https://www.postgresql.org/) for the database.
 
 ## Features:
 
