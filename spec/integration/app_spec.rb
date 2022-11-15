@@ -52,7 +52,7 @@ describe Application do
 
     it 'should not return login if logged in' do
       post('/login', 
-            params = { email: 'chris@test.com', password: 'zxcvb_123' })
+        params = { email: 'chris@test.com', password: 'zxcvb_123' })
 
       response = get('/login')
       expect(response.status).to eq(302)
@@ -91,6 +91,14 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include '<a href="/login">Login</a>'
       expect(response.body).to include '<input type="submit" value="Sign up">'
+    end
+
+    it 'should not appear if logged in' do
+      post('/login', 
+        params = { email: 'chris@test.com', password: 'zxcvb_123' })
+
+      response = get('/signup') 
+      expect(response.status).to eq 302
     end
   end
 
@@ -148,19 +156,19 @@ describe Application do
     end
   end
 
-  # context 'POST /peeps/new' do
-  #   it 'should' do
-  #     post('/login', 
-  #       params = {email: 'amelia@test.com', password: 'qwerty#789'})
-  #     response = post('/peeps/new',
-  #                     params = {
-  #                       content: 'Hi there',
-  #                       post_time: ''
-  #                     })
-  #     expect(response.status).to eq 302
+  context 'POST /peeps/new' do
+    it 'should' do
+      post('/login', 
+        params = {email: 'amelia@test.com', password: 'qwerty#789'})
+      response = post('/peeps/new',
+                      params = {
+                        content: 'Hi there',
+                        post_time: '2022-11-15 10:50:55'
+                      })
+      expect(response.status).to eq 302
      
-  #     response = get('/')
-  #     expect(response.body).to include ('Hi there')
-  #   end
-  # end
+      response = get('/')
+      expect(response.body).to include ('Hi there')
+    end
+  end
 end

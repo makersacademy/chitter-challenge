@@ -47,19 +47,15 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    if session[:user_id].nil?
-      repo = UserRepository.new
-      user = User.new
-      user.email = params[:email]
-      user.username = params[:username]
-      user.password = params[:password]
-      user.name = params[:name]
-      user = repo.create(user)
-      session[:user_id] = user.id
-      redirect '/'
-    else
-      redirect '/'
-    end
+    repo = UserRepository.new
+    user = User.new
+    user.email = params[:email]
+    user.username = params[:username]
+    user.password = params[:password]
+    user.name = params[:name]
+    user = repo.create(user)
+    session[:user_id] = user.id
+    redirect '/'
   end
 
   get '/logout' do
