@@ -36,5 +36,6 @@ RSpec.describe Application do
     response3 = get('/stream')
     expect(response3.status).to eq(200)
     expect(response3.body).to include("<p>some content</p>")
+    expect(response3.body).to include("<p>POSTED BY: ruben</p>")
   end 
 end 

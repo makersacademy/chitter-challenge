@@ -1,5 +1,5 @@
 require_relative "user"
-require 'active_support'
+# require 'active_support'
 
 class UsersRepository 
 

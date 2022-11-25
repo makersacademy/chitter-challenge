@@ -48,11 +48,7 @@ FEATURES WANTED:
 
 # IDEAS FOR IMPROVEMENTS
 
--  maker sure all views have correct links added 
-
-- make sure signed in users usernames are attached to thier posts 
-
-- improve stream as usernames can sometime seem to bug 
+- fix bug as deployed version seems to somtimes not show username
 
 
 

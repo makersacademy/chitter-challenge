@@ -1,6 +1,6 @@
 # file: lib/database_connection.rb
 
-require 'pg'
+require "pg"
 
 # This class is a thin "wrapper" around the
 # PG library. We'll use it in our project to interact
