@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+  <link href="/normalize.css" rel="stylesheet">
+ 
+  <style>
+
+    header {
+      text-align: center;
+      background: url('https://imgur.com/U4ykZkG.jpg[/img]');
+      background-size: cover;
+      background-position: 50% 70%;
+      color: white;
+    }
+    
+    a {
+      color: white;
+    }
+    h1 {
+      font-size: 70px;
+    }
+    img {
+      margin: 40px 0px 0px 0px;
+      border: 7px solid white;
+      border-radius: 20px;
+    }
+    ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+    div {
+      max-width: 500px;
+      padding: 20px;
+      margin: 0 auto;
+    }    
+   .first{
+  height: 200px;
+  background-size: cover;
+  position: relative;
+  margin: 40px auto;
+  border-radius: 12px;
+  max-width:500px;      
+  background-image: url("https://imgur.com/cvWKI75.jpg[/img]");
+  background-position: 50% 39%;
+   }
+      
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 36px;
+        padding: 5px;
+      }
+      li {
+        padding: 5px;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://imgur.com/hjuGfiu.jpg[/img]">
+    <h1>Chitter</h1>
+    <ul>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/log-out">Log Out </a></li>
+      <li><a href="/stream">Return to Stream</a></li>
+    </ul>
+  </header>
+  <div class="first">
+    <h2>You've succesfully created a new acount!</h2>
+    <p>Your username is:</p>
+    <p><%=@username%></p>
+  </div>
