@@ -8,14 +8,23 @@
 <form action="/" method="get">
 
   <div class="container">
-  <div>
     <a href="/">
       <button type="button">Log Out</button>
     </a>
   </div>
 </form>
 
-<h3>Peeps</h3>
+<h3>Write new peep...</h3>
+<br>
+<form action="/peep/new" method="post">
+  <div class="container">
+   
+    <input type="text" placeholder="insert peep here" name="content" required>
+
+    <button type="submit">Post Peep</button>
+  </div>
+</form>
+<h3>User ID of user currently logged in:<%= @user_id %></h3>
   <% @peeps.reverse.each do |peep| %>
     <div>
       <% user = @user_repository.find_by_id(peep.user_id) %>

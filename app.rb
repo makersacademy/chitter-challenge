@@ -9,11 +9,14 @@ DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
 
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do 
+    session.clear
     peep_repository = PeepRepository.new 
     @peeps = peep_repository.all
     @user_repository = UserRepository.new 
@@ -36,6 +39,9 @@ class Application < Sinatra::Base
       return erb(:taken_details)
     else 
       repo.create(new_user)
+      user = @user_repository.find_by_username(params[:username])
+      session[:user_id] = user.id
+      @user_id = session[:user_id]
     end
 
 
@@ -54,6 +60,9 @@ class Application < Sinatra::Base
     all_users = @user_repository.all 
     valid_details = all_users.any? { |user| (user.username == params[:username]) and (BCrypt::Password.new(user.password) == params[:password])}
     if valid_details
+      user = @user_repository.find_by_username(params[:username])
+      session[:user_id] = user.id
+      @user_id = session[:user_id]
       return erb(:homepage_logged_in)
     else
       return redirect '/incorrect-details'
@@ -61,6 +70,10 @@ class Application < Sinatra::Base
   end
 
   get '/logged_in' do 
+    peep_repository = PeepRepository.new 
+    @peeps = peep_repository.all
+    @comment_repository = CommentRepository.new
+    @user_repository = UserRepository.new
     return erb(:homepage_logged_in)
   end
 
@@ -70,6 +83,16 @@ class Application < Sinatra::Base
     @comment_repository = CommentRepository.new
     @user_repository = UserRepository.new
     return erb(:incorrect_details)
+  end
+  
+  post '/peep/new' do 
+    peep_repository = PeepRepository.new 
+    peep = Peep.new 
+    peep.time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
+    peep.user_id = session[:user_id]
+    peep.content = params[:content]
+    peep_repository.create(peep)
+    return redirect '/logged_in'
   end
 end
 
