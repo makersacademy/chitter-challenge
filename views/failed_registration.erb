@@ -1,0 +1,37 @@
+<html>
+  <head></head>
+  <body>
+    <h1> Chitter </h1>
+      <h2> Create a Chitter Account </h2>
+        <h3> Sorry some of the details you entered were incorrect </h3>
+        <h4> Please ensure that: </h4>
+        <FONT COLOR="RED">
+        <h4> * Your name or username does not contain any numbers or special characters </h4>
+       <h4> * Your password must be at least 8 characters long with at least one number </h4>
+       <h4> * The email entered is a valid email address </h4>
+       <FONT COLOR="BLACK">
+       <form action="/register" method="POST">
+        <div>
+          <label>Full Name:</label>
+          <input type="text" name="new_name">
+        </div></br>
+
+        <div>
+          <label>Username:</label>
+          <input type="text" name="new_username">
+        </div></br>
+        
+        <div>
+          <label>Email:</label>
+          <input type="text" name="new_email">
+        </div></br>
+
+        <div>
+          <label>Password:</label>
+          <input type="text" name="new_password">
+        </div></br>
+        
+        <input type="submit" value="Sign up">
+    </form>
+    </body>
+  </html>

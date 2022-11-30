@@ -1,0 +1,20 @@
+<html>
+   <head>
+     <h1>Chitter</h1>  
+   </head>    
+    <h3>Please login or sign up to post a peep</h3>
+   <button onclick="location.href='/register'"> Sign up </button><button onclick="location.href='/login'"> Login </button>
+   
+      <h2> Peeps: </h2>
+          <div>
+            <% @peeps_with_users.each do |key, value| %>
+              <p>
+                <strong><%= value[:name] %></strong> (<%= value[:username] %>)</br>
+                <%= value[:context] %></br>
+                <%= value[:time_and_date] %>
+              </p>
+            <% end %>
+          </div>         
+    </p>
+  </body>
+</html>
