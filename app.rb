@@ -48,7 +48,7 @@ class Application < Sinatra::Base
     peep_repository = PeepRepository.new 
     @peeps = peep_repository.all
     @comment_repository = CommentRepository.new
-    return erb(:homepage_logged_in)
+    return redirect '/logged_in'
   end
 
   post '/credentials_checker' do
@@ -63,7 +63,7 @@ class Application < Sinatra::Base
       user = @user_repository.find_by_username(params[:username])
       session[:user_id] = user.id
       @user_id = session[:user_id]
-      return erb(:homepage_logged_in)
+      return redirect '/logged_in'
     else
       return redirect '/incorrect-details'
     end
