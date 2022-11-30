@@ -9,14 +9,8 @@ DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
 
-  enable :sessions
-
   configure :development do
     register Sinatra::Reloader
-  end
-
-  def initialize 
-    # initialize the all 3 repos here
   end
 
   get '/' do 
@@ -80,12 +74,3 @@ class Application < Sinatra::Base
 end
 
 
-def sign_in(username, submitted_password)
-  user = find_by_username(username)
-  return nil if user.nil?
-  if submitted_password == BCrypt::Password.new(user.password)
-    true
-  else
-    false
-  end
-end
