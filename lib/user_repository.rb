@@ -32,6 +32,14 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, sql_params)
   end
 
+  def find_by_id(user_id)
+    sql = 'SELECT id, username, email, password FROM users WHERE id = $1;'
+    sql_params = [user_id]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    record = result_set[0]
+    return record_to_user_object(record)
+  end
+
   private
 
   def record_to_user_object(record)

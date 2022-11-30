@@ -60,4 +60,12 @@ describe UserRepository do
       expect(repo.check_if_username_or_email_taken('Bumblebee', 'willj836@gmail.com')).to eq(true)
     end
   end
+
+  it 'returns a user object from a user id' do 
+    repo = UserRepository.new 
+
+    user = repo.find_by_id(1)
+
+    expect(user.username).to eq('willj836')
+  end
 end
