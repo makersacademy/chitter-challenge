@@ -1,4 +1,4 @@
-# Peep Model and Repository Classes Design Recipe
+# Comment Model and Repository Classes Design Recipe
 
 ## 1. Design and create the Table
 
@@ -11,18 +11,18 @@ Done.
 ## 3. Define the class names
 
 ```ruby
-class Peep
+class Comment
 end
 
-class PeepRepository
+class CommentRepository
 end
 ```
 
 ## 4. Implement the Model class
 
 ```ruby
-class Peep
-  attr_accessor :id, :content, :time_posted, :user_id
+class Comment
+  attr_accessor :id, :content, :time_posted, :user_id, :peep_id
 end
 ```
 
@@ -33,22 +33,19 @@ Your Repository class will need to implement methods for each "read" or "write" 
 Using comments, define the method signatures (arguments and return value) and what they do - write up the SQL queries that will be used by each method.
 
 ```ruby
-class PeepRepository
-
-  # Selecting all records
-  # No arguments
-  def all
+class CommentRepository
+  def create(new_comment) # instance of comment
     # Executes the SQL query:
-    # SELECT id, content, time_posted, user_id FROM peeps;
-
-    # Returns an array of peep objects.
-  end
-
-  def create(new_peep) # instance of peep
-    # Executes the SQL query:
-    # INSERT INTO peeps (content, time_posted, user_id) VALUES($1, $2, $3);
+    # INSERT INTO comments (content, time_posted, user_id, peep_id) VALUES($1, $2, $3, $4);
 
     # doesnt need to return anything
+  end
+
+  def find_by_peep(post_id)
+    # Executes the SQL query:
+    # SELECT id, content, time_posted, user_id, peep_id FROM comments WHERE post_id = $1;
+
+    # returns an array of comments associated with the post with that id
   end
 end
 ```
@@ -63,39 +60,32 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all peeps
+# Get all comments related to a peep
 
-repo = PeepRepository.new
+repo = CommentRepository.new
 
-peeps = repo.all
+comments = repo.find_by_peep(2)
 
-peeps.length # =>  5
-
-peeps[0].id # =>  1
-peeps[0].content # =>  'My first post'
-peeps[0].user_id # => 1
-
-peeps[1].id # =>  2
-peeps[1].content # =>  'I am a transformer'
-peeps[1].user_id # => 2
-
-peeps[4].id # =>  5
-peeps[4].content # =>  'My third post'
-peeps[4].user_id # => 1
+expect(comments.length).to eq(1)
+expect(comments.first.content).to eq('wow amazing')
 # 2
-# create a new user
+# create a comment
 
-repo = UserRepository.new
+repo = CommentRepository.new
 
-new_user = User.new
-new_user.username = 'New User'
-new_user.email = 'newuser@newuser.com'
-new_user.password = 'new123'
+new_comment = Comment.new
+new_comment.content = 'New comment / reply'
+new_comment.time_placed = '2022-11-30 22:13:04'
+new_comment.user_id = 3
+new_comment.peep_id = 2
 
-repo.create(new_user)
+repo.create(new_comment)
 
-repo.all.last.username # => 'New User'
-repo.all.last.email # => 'newuser@newuser.com'
+comments = repo.find_by_peep(2)
+
+expect(comments.length).to eq(2)
+expect(comments.first.content).to eq('wow amazing')
+expect(comments.last.content).to eq('New comment / reply')
 ```
 
 Encode this example as a test.
@@ -113,7 +103,7 @@ def reset_tables
   connection.exec(seed_sql)
 end
 
-describe PeepRepository do
+describe CommentRepository do
   before(:each) do 
     reset_students_table
   end

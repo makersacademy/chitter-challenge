@@ -108,7 +108,7 @@ CREATE TABLE users (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  time_posted time,
+  time_posted TIMESTAMP,
   user_id int,
   constraint fk_user foreign key(user_id)
     references users(id)
@@ -118,7 +118,7 @@ CREATE TABLE peeps (
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   content text,
-  time_posted time,
+  time_posted TIMESTAMP,
   user_id int,
   peep_id int,
   constraint fk_user foreign key(user_id) references users(id) on delete cascade,
