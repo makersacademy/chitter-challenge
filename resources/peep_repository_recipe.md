@@ -104,7 +104,7 @@ class PeepRepository
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, contents, time_posted, account_id FROM peeps;
+    # SELECT id, contents, time_posted, account_id FROM peeps ORDER BY id DESC;
 
     # Returns an array of Peep objects.
   end
@@ -141,16 +141,16 @@ These examples will later be encoded as RSpec tests.
 peep_repository = PeepRepository.new
 peeps = peep_repository.all
 
-peeps.length # => 3
+peeps.length # => 5
 
 peeps.first.id # => 5
 peeps.first.contents # => "My third peep"
-peeps.first.time_placed # => "2022-11-03 07:13:49"
+peeps.first.time_posted # => "2022-11-03 07:13:49"
 peeps.first.account_id # => 1
 
 peeps.first.id # => 1
 peeps.first.contents # => "My first peep"
-peeps.first.time_placed # => "2022-11-01 16:00:00"
+peeps.first.time_posted # => "2022-11-01 16:00:00"
 peeps.first.account_id # => 1
 
 
@@ -159,10 +159,10 @@ peeps.first.account_id # => 1
 peep_repository = PeepRepository.new
 peep = peep_repository.find(4)
 
-peeps.id # => 4
-peeps.contents # => "Test"
-peeps.time_placed # => "2022-11-02 16:00:30"
-peeps.account_id # => 3
+peep.id # => 4
+peep.contents # => "Test"
+peep.time_posted # => "2022-11-02 16:00:30"
+peep.account_id # => 3
 
 
 # 3
@@ -204,13 +204,13 @@ peep_repository.create(new_peep) # => fails with PG::ForeignKeyViolation
 # 6
 # #create fails (ArgumentError) when the contents are empty
 timer = double(:fake_timer)
-expect(timer).to receive(:now).and_return('2022-11-04 00:00:00')
+allow(timer).to receive(:now).and_return('2022-11-04 00:00:00')
 
 peep_repository = PeepRepository.new(timer)
 
 new_peep = Peep.new
 new_peep.contents = ""
-new_peep.account_id = 4
+new_peep.account_id = 3
 
 peep_repository.create(new_peep) # => fails (ArgumentError) "A peep cannot have empty contents"
 ```
@@ -225,7 +225,7 @@ This is so you get a fresh table contents every time you run the test suite.
 # file: spec/peep_repository_spec.rb
 
 def reset_peeps_table
-  seed_sql = File.read('spec/seeds_peeps.sql')
+  seed_sql = File.read('spec/seeds/seeds_peeps.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_db_test' })
   connection.exec(seed_sql)
 end

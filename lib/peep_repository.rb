@@ -1,33 +1,51 @@
+require_relative "database_connection"
+require_relative "peep"
+
 class PeepRepository
   # Initialises peep repository with timer
   # timer is an object with a #now method
   def initialize(timer=Time)
+    @timer = timer
   end
 
-  # Selecting all records in reverse chronological order
-  # No arguments
   def all
-    # Executes the SQL query:
-    # SELECT id, contents, time_posted, account_id FROM peeps;
+    sql_query = "SELECT id, contents, time_posted, account_id FROM peeps ORDER BY id DESC;"
+    query_result = DatabaseConnection.exec_params(sql_query, [])
 
-    # Returns an array of Peep objects.
+    peeps = []
+    query_result.each do |record|
+      peeps << extract_peep_from_record(record)
+    end
+    return peeps
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
   def find(id)
-    # Executes the SQL query:
-    # SELECT id, contents, time_posted, account_id FROM peeps WHERE id = $1;
+    sql_query = "SELECT id, contents, time_posted, account_id FROM peeps WHERE id = $1;"
+    query_result = DatabaseConnection.exec_params(sql_query,[id])
 
-    # Returns a single Peep object.
+    if query_result.first.nil?
+      puts "no results found"
+      fail IndexError.new "There is no peep with ID #{id}"
+    end
+    return extract_peep_from_record(query_result.first)
   end
 
-  # Creates a new peep in the database (we set the time posted in this method)
-  # peep is an instance of the Peep class
   def create(peep)
-    # Executes the SQL query:
-    # INSERT INTO peeps (contents, time_posted, account_id) VALUES ($1, $2, $3);
+    fail ArgumentError.new "A peep cannot have empty contents" if peep.contents.empty?
 
-    # Returns nothing.
+    sql_query = "INSERT INTO peeps (contents, time_posted, account_id) VALUES ($1, $2, $3);"
+    params = [peep.contents, @timer.now, peep.account_id]
+    DatabaseConnection.exec_params(sql_query, params)
+  end
+
+  private
+
+  def extract_peep_from_record(record)
+    peep = Peep.new
+    peep.id = record["id"].to_i
+    peep.contents = record["contents"]
+    peep.time_posted = record["time_posted"]
+    peep.account_id = record["account_id"].to_i
+    return peep
   end
 end
