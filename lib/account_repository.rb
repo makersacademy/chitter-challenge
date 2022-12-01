@@ -5,7 +5,7 @@ class AccountRepository
     artists = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT id, username FROM artists;'
+    sql = 'SELECT id, username FROM accounts;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
