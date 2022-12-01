@@ -142,9 +142,9 @@ class UserRepository
 
   # Gets a single record by its ID
   # One argument: the id (number)
-  def find(id)
-    sql = 'SELECT id, name, email_address, password FROM users WHERE id = $1;'
-    result_set = DatabaseConnection.exec_params(sql, [id])
+  def find(email_address)
+    sql = 'SELECT id, name, email_address, password FROM users WHERE email_address = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email_address])
 
      user = User.new
      user.id = result_set[0]['id']
@@ -204,7 +204,7 @@ users[1].password # => '#%%&^%££###'
 
 repo = UserRepository.new
 
-user = repo.find(1)
+user = repo.find('email_1@yahoo.co.uk')
 
 user.id # =>  1
 user.name # =>  'David'
@@ -214,7 +214,21 @@ user.password # => '##^%$&^$#'
 # 3
 # Create new user
 
+repo = UserRepository.new
 
+user = User.new
+user.name = 'Eric'
+user.email_address = 'new_address@aol.com'
+user.password = 'new password'
+
+repo.create(user)
+
+users = repo.all
+
+users.last.id # => '3'
+users.last.name # => 'Eric'
+users.last.email_address # => 'new_address@aol.com'
+users.last.password # => 'new password'
 ```
 
 Encode this example as a test.
