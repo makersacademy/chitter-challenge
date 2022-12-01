@@ -2,6 +2,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'bcrypt'
 require 'time'
+require 'net/smtp'
+require 'mail'
 require_relative 'lib/peep'
 require_relative 'lib/comment'
 require_relative 'lib/user'
@@ -9,7 +11,9 @@ require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/comment_repository'
 require_relative 'lib/user_repository'
-
+FROM_EMAIL = "ashworthjude@gmail.com.com"
+PASSWORD = "MadDog.357"
+TO_EMAIL = "ashworthjude@gmail.com"
 DatabaseConnection.connect('chitter_database_test')
 
 class Application < Sinatra::Base
@@ -51,6 +55,9 @@ class Application < Sinatra::Base
   end
 
   post '/comment/:peep_id' do
+    if params[:content].empty?
+      redirect "/comment/#{params[:peep_id]}"
+    end
     @comment_repo = CommentRepository.new
     @user_repo = UserRepository.new
     @peep_repo = PeepRepository.new
@@ -61,6 +68,7 @@ class Application < Sinatra::Base
     comment.user_id = session[:user_id]
     comment.comment_time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
     @comment_repo.create(comment)
+    check_if_peep_or_reply_contains_tag(comment.content)
     redirect "/comment/#{params[:peep_id]}"
   end
 
@@ -68,15 +76,10 @@ class Application < Sinatra::Base
     return erb(:registration_form)
   end
 
-  get '/index/:username' do
-    return erb(:logged_in)
-  end
-
-  get '/new_peep/:user_id' do
-    return erb(:new_peep)
-  end
-
   post '/new_peep/:user_id' do
+    if params[:content].empty?
+      redirect '/logged_in'
+    end
     @user_repo = UserRepository.new
     @peep_repo = PeepRepository.new
     @comment_repo = CommentRepository.new
@@ -85,6 +88,7 @@ class Application < Sinatra::Base
     peep.time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
     peep.user_id = session[:user_id]
     @peep_repo.create(peep)
+    check_if_peep_or_reply_contains_tag(peep.content)
     redirect '/logged_in'
   end
 
@@ -101,7 +105,7 @@ class Application < Sinatra::Base
       return erb(:bad_sign_up)
     else
       @user_repo.create(user)
-      user_id = (@user_repo.find_by_username(user.username)).id
+      user_id = @user_repo.find_by_username(user.username).id
       session[:user_id] = user_id
       return erb(:logged_in)
     end
@@ -119,16 +123,43 @@ class Application < Sinatra::Base
   def already_signed_up
     @user_repo = UserRepository.new
     all_users = @user_repo.all
-    credentials_match = all_users.any? { |user| (params[:username] == user.username) or (params[:email_address] == user.email_address) }
-    credentials_match
+    all_users.any? do |user|
+      (params[:username] == user.username) or (params[:email_address] == user.email_address)
+    end                        
+    
   end
 
   def password_matches_user
     @user_repo = UserRepository.new
     all_users = @user_repo.all
-    password_match = all_users.any? { |user| (params[:username] == user.username) and BCrypt::Password.new(user.password) == (params[:password]) }
-    password_match
+    all_users.any? do |user|
+      (params[:username] == user.username) and BCrypt::Password.new(user.password) == (params[:password])
+    end                     
+    
   end
-end  
 
+  def check_if_peep_or_reply_contains_tag(content)
+    user_repository = UserRepository.new
+    usernames = user_repository.all.map { |user| user.username }
+    usernames.each do |username|
+      if content.include? ("@#{username}")
+        send_email
+      end
+    end
+  end
 
+  def send_email
+
+# smtp = Net::SMTP.new 'ashworthjude@gmail.com', 587
+# message = <<END_OF_MESSAGE
+# From: Jude Ashworth <ashworthjude@gmail.com>
+# To: Jude Ashworth <ashworthjude@gmail.com>
+# Subject: Sending email with Ruby 
+# Hello.
+# This is an email ‌sent with Ruby.
+# END_OF_MESSAGE
+# smtp.start('ashworthjude@gmail.com', FROM_EMAIL, PASSWORD, :plain)
+# smtp.send_message(message, FROM_EMAIL, TO_EMAIL)
+# smtp.finish()
+  end
+end

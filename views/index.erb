@@ -1,6 +1,7 @@
 <html>
-  <head></head>
+  <head><link rel="stylesheet" href="/css/application.css"></head>
   <body>
+  <div><h1>Chitter</h1></div>  
 <h1>If you have an account log in here:</h1>
 <form action="/" method="post">
   <label for="username">Username:</label><br>
@@ -15,7 +16,7 @@
     <h1>Peeps</h1>
      <div>
     <% @peep_repo.all.reverse.each do |peep| %>
-      <p><%= @user_repo.find(peep.user_id).username %>: <%= peep.content %></p>
+      <p><%= @user_repo.find(peep.user_id).name %> @<%= @user_repo.find(peep.user_id).username %>: <%= peep.content %></p> 
       <p><%= peep.time_posted %>
     </div>
     <div>

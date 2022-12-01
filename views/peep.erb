@@ -1,6 +1,8 @@
 <html>
-  <head></head>
+  <head><link rel="stylesheet" href="/css/application.css"></head>
   <body>
+    <div><h1>Chitter</h1></div>
+
 <h1><%= @user_repo.find(@peep.user_id).username %></h1>
      <div>
 
@@ -20,7 +22,7 @@
     <div>
       <% @comment_repo.find(@peep.id).reverse.each do |comment| %>
       <div>
-      <p><%= (@user_repo.find(comment.user_id)).username %>: <%= comment.content %></p>
+      <p><%= @user_repo.find(comment.user_id).name %> @<%= @user_repo.find(comment.user_id).username %>: <%= comment.content %></p> 
       <p><%= comment.comment_time_posted %>
     </div>
     </div>

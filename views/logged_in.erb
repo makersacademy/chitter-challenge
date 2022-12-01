@@ -1,16 +1,21 @@
 <html>
-  <head></head>
+  <head><link rel="stylesheet" href="/public/style.css"></head>
   <body>
+  <div class="title"><h1>Chitter</h1></div>  
   <form action="/" method="get">
   <a href='/'>Click here to sign out</a>
   </form>
     <h1>Peeps</h1>
-    <a href="/new_peep/<%= session[:user_id] %>"><button type="button"">Post a new peep</button></a>
-
+    <h3>What do you wanna peep about?</h3>
+<form action="/new_peep/:user_id" method="post">
+  <label for="content">Enter your peep:</label><br>
+  <input type="text" id="content" name="content"><br>
+  <input type="submit" value="Post a new peep">
+</form>
     <% @peep_repo.all.reverse.each do |peep| %>
-      <div>
-      <p><%= @user_repo.find(peep.user_id).username %>: <%= peep.content %></p> 
-      <a href="/comment/<%= peep.id %>">Comment</a>
+      <div class="peep">
+      <p><%= @user_repo.find(peep.user_id).name %> @<%= @user_repo.find(peep.user_id).username %>: <%= peep.content %></p> 
+      <a href="/comment/<%= peep.id %>">Comments</a>
       <p><%= peep.time_posted %>
     </div>
     <% end %>
