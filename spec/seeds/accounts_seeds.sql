@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS accounts; 
+DROP TABLE IF EXISTS accounts CASCADE; 
 
 -- Table Definition
 CREATE TABLE accounts (

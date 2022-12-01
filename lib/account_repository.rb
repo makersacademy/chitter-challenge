@@ -2,10 +2,10 @@ require_relative 'account'
 
 class AccountRepository
   def all
-    artists = []
+    accounts = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT id, username FROM accounts;'
+    sql = 'SELECT account_id, username FROM accounts;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
@@ -16,7 +16,7 @@ class AccountRepository
       # Create a new model object
       # with the record data.
       account = Account.new
-      account.id = record['id'].to_i
+      account.account_id = record['account_id'].to_i
       account.username = record['username']
 
       accounts << account
@@ -26,19 +26,19 @@ class AccountRepository
   end
 
   def find(id)
-    sql = 'SELECT id, username FROM accounts WHERE id = $1;'
+    sql = 'SELECT account_id, username FROM accounts WHERE account_id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     account = Account.new
-    account.id = result_set[0]['id'].to_i
+    account.account_id = result_set[0]['account_id'].to_i
     account.username = result_set[0]['username']
 
     return account
   end
 
-  def create(artist)
+  def create(account)
     sql = 'INSERT INTO accounts (username, password) VALUES ($1, $2);'
-    result_set = DatabaseConnection.exec_params(sql, [account.username, account.genre])
+    result_set = DatabaseConnection.exec_params(sql, [account.username, account.password])
 
     return account
   end
