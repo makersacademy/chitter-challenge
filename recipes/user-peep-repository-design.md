@@ -44,10 +44,10 @@ INSERT INTO users (name, email, password) VALUES ('Robbie', 'robbie@gmail.com', 
 INSERT INTO users (name, email, password) VALUES ('Shah', 'shah@gmail.com', 'ghi');
 INSERT INTO users (name, email, password) VALUES ('Anisha', 'anisha@gmail.com', 'jkl');
 
-INSERT INTO peeps (message, time_created, user_id) VALUES ('COMING HOME!',?, 1);
-INSERT INTO peeps (message, time_created, user_id) VALUES ('ENGLAND FOR THE WIN!',?, 2);
-INSERT INTO peeps (message, time_created, user_id) VALUES ('SCORE!',?, 2);
-INSERT INTO peeps (message, time_created, user_id) VALUES ('I wanna go home',?, 4);
+INSERT INTO peeps (message, time_created, user_id) VALUES ('COMING HOME!','2022-12-01 10:00:00', 1);
+INSERT INTO peeps (message, time_created, user_id) VALUES ('ENGLAND FOR THE WIN!','2022-12-01 10:10:00', 2);
+INSERT INTO peeps (message, time_created, user_id) VALUES ('SCORE!','2022-11-29 11:00:00', 2);
+INSERT INTO peeps (message, time_created, user_id) VALUES ('I wanna go home','2022-11-29 11:30:00', 4);
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
@@ -137,26 +137,18 @@ class UserRepository
     # Returns an array of Student objects.
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
-  def find(id)
-    # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
-
-    # Returns a single Student object.
+  def create(user)
   end
+end 
 
-  # Add more methods below for each operation you'd like to implement.
+class PeepRepository
+  def all
+  end 
 
-  # def create(student)
-  # end
-
-  # def update(student)
-  # end
-
-  # def delete(student)
-  # end
-end
+  def create(peep)
+  end 
+end 
+ 
 ```
 
 ## 6. Write Test Examples
