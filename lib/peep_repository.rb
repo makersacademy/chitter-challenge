@@ -21,14 +21,14 @@ class PeepRepository
       peep.post_time = record['post_time']
       peep.account_id = record['account_id'].to_i
 
-      peeps << album
+      peeps << peep
     end
 
-    return albums
+    return peeps
   end
 
   def find(id)
-    sql = 'SELECT id, content, post_time, acccount_id FROM peeps WHERE id = $1;'
+    sql = 'SELECT id, content, post_time, account_id FROM peeps WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     peep = Peep.new
@@ -37,14 +37,14 @@ class PeepRepository
     peep.post_time = result_set[0]['post_time']
     peep.account_id = result_set[0]['account_id'].to_i
 
-    return album
+    return peep
   end
 
   def create(peep)
     sql = 'INSERT INTO peeps (content, post_time, account_id) VALUES ($1, $2, $3);'
     result_set = DatabaseConnection.exec_params(sql, [peep.content, peep.post_time, peep.account_id])
 
-    return album
+    return peep
   end
 
   def delete(id)
