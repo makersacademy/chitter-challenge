@@ -133,7 +133,7 @@ CREATE TABLE accounts (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   contents text,
-  time_posted int,
+  time_posted timestamp,
 -- The foreign key name is always {other_table_singular}_id
   account_id int,
   constraint fk_account foreign key(account_id)
