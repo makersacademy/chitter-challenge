@@ -31,4 +31,15 @@ describe UserRepository do
     expect(users[1].email_address).to eq 'email_2@gmail.com'
     expect(users[1].password).to eq '#%%&^%££###                                                 '
   end
+
+  it "finds user by email" do
+    repo = UserRepository.new
+
+    user = repo.find('email_1@yahoo.co.uk')
+
+    expect(user.id).to eq '1'
+    expect(user.name).to eq 'David'
+    expect(user.email_address).to eq 'email_1@yahoo.co.uk'
+    expect(user.password).to eq '##^%$&^$#                                                   '
+  end
 end
