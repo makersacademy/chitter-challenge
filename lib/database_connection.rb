@@ -10,9 +10,9 @@ class DatabaseConnection
   # the database name given in argument.
   def self.connect(database_name)
     if ENV['ENV'] == 'test'
-      database_name = 'chitter_library_test'
+      database_name = 'chitter_challenge_test'
     else
-      database_name = 'chitter_library'
+      database_name = 'chitter_challenge'
     end
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
