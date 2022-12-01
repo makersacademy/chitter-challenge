@@ -99,6 +99,7 @@ CREATE TABLE users (
   username text,
   email_address text,
   password text
+  name text
 );
 
 CREATE TABLE messages (
