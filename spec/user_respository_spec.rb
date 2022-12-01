@@ -19,16 +19,16 @@ describe UserRepository do
 
     users = repo.all
 
-    expect(users.length).to eq # =>  2
+    expect(users.length).to eq 2
 
     expect(users[0].id).to eq '1'
     expect(users[0].name).to eq 'David'
     expect(users[0].email_address).to eq 'email_1@yahoo.co.uk'
-    expect(users[0].password).to eq '##^%$&^$#'
+    expect(users[0].password).to eq '##^%$&^$#                                                   '
 
     expect(users[1].id).to eq '2'
     expect(users[1].name).to eq 'Anna'
     expect(users[1].email_address).to eq 'email_2@gmail.com'
-    expect(users[1].password).to eq '#%%&^%££###'
+    expect(users[1].password).to eq '#%%&^%££###                                                 '
   end
 end
