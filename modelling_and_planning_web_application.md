@@ -79,89 +79,96 @@ a possible list of routes for this case — you could come up with slightly diff
 which would still satisfy the initial user stories.
 
 ```md
-# Page: list of entries (aka the homepage)
+# Home Page: Sign in
 
 ## Request:
 GET /
 No parameters
 
 ## Response (200 OK)
-HTML view with list of entries
+HTML view with sign in form and link to sign up
 ```
 
 ```md
-# Page: see full entry 
-
 ## Request:
-GET /entries/:id
-With path parameter :id
+POST /signin
+Body:
+  Username,
+  Password
 
 ## Response (200 OK)
-HTML view with details of a single entry
+Redirects to `/peeps`
+
+## Response (400 Bad Request)
+HTML view saying you entered the wrong credentials,
+link back to the homepage
 ```
 
 ```md
-# Page: add a new entry
+# Page: Signup 
 
 ## Request:
-GET /entries/add
+GET /signup
 No parameters
 
 ## Response (200 OK)
-HTML view with form to submit new entry (to POST /entries)
+HTML view with form to create a new chitter account
+
+
+## Request:
+POST /signup
+
+## Response (200 OK)
+HTML view confirming successful signup and a link to view peeps
+
+## Response (400 Bad Request)
+HTML view saying an account with this username already exists, linking back to home page
 ```
 
 ```md
-# Page: new entry added
+# Page: list of peeps
 
 ## Request:
-POST /entries
-With parameters:
-  title="What a great Sunday"
-  content="..."
+GET /peeps
+No parameters
 
 ## Response (200 OK)
-HTML view with confirmation message
+HTML view with a list of peeps in reverse chronological order
+
+
+## Request:
+POST /peeps
+Body parameters:
+  account_id,
+  message,
+  time_sent
+
+## Response (200 OK)
+HTML view confirming a peep has been created
+
+## Response (400 Bad Request)
+HTML view with an error and a link back to peeps
 ```
 
-## Step 3: Test-drive and implement
+```md
+# Page: Add new peep
 
-You'll now test-drive and implement each route. If your application interacts with a
-database to store its data, you'll also have to test-drive and implement other layers of
-the program (such as Repository classes) as part of your work.
+## Request:
+GET /peeps/new
+No parameters
 
-## Challenge
-
-Model and plan the pages and routes for the following web application, which is a game of
-Rock Paper Scissors. Test-drive and implement it if you'd like an extra challenge.
-
-```
-As a Maker
-So I can play Rock Paper Scissors
-I would like to enter my move on the home page
-And click to confirm my move (rock, paper or scissors)
-
-As a Maker
-So I can play Rock Paper Scissors
-I would like the opponent's move to be decided randomly by the program
-
-As a Maker
-So I can play Rock Paper Scissors
-I would like to see the result of the game on the next page
-
-As a Maker
-So I can play Rock Paper Scissors again
-I would like to click on a link on the result page
-So it takes me back to the home page
+## Response (200 OK)
+HTML view with form to create a new peep
 ```
 
+```md
+# Page: View single peep
 
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+## Request:
+GET /peeps/:id
+Path Parameters:
+  id (int): id of the peep
 
----
-
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->
+## Response (200 OK)
+HTML view with all the details of the peep and a link back to `/peeps`
+```
