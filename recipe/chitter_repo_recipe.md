@@ -83,24 +83,27 @@ Define the attributes of your Model class. You can usually map the table columns
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Model class
-# (in lib/student.rb)
+# (in lib/user.rb)
 
-class Student
-
+class User
   # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+  attr_accessor :id, :name, :email, :password, :username
 end
 
-# The keyword attr_accessor is a special Ruby feature
-# which allows us to set and get attributes on an object,
-# here's an example:
-#
-# student = Student.new
-# student.name = 'Jo'
-# student.name
+# EXAMPLE
+# Table name: posts
+
+# Model class
+# (in lib/post.rb)
+
+class Post
+  # Replace the attributes by your own columns.
+  attr_accessor :id, :content, :time, :password, :user_id
+end
+
 ```
 
 *You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
@@ -113,42 +116,79 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/user_repository.rb)
 
-class StudentRepository
+class UserRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    # SELECT id, name, email, password, username FROM users;
 
-    # Returns an array of Student objects.
+    # Returns an array of User objects.
   end
 
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+    # SELECT id, name, email, password, username FROM users WHERE id = $1;
 
-    # Returns a single Student object.
+    # Returns a single user object.
   end
 
-  # Add more methods below for each operation you'd like to implement.
+      # Insert new user 
+    # item is a new User object
+  def create(user)
+    # Executes the SQL query:
 
-  # def create(student)
-  # end
+    # INSERT INTO users (name, email, password, username) VALUES($1, $2, $3, $4);
+    # Doesn't need to return anything (only creates a record)
+  end
 
-  # def update(student)
-  # end
-
-  # def delete(student)
-  # end
 end
+
+# EXAMPLE
+# Table name: users
+
+# Repository class
+# (in lib/post_repository.rb)
+
+class PostRepository
+
+  # Selecting all records
+  # No arguments
+  def all
+    # Executes the SQL query:
+    # SELECT id, content, time, user_id FROM posts;
+
+    # Returns an array of post objects.
+  end
+
+  # Gets a single record by its ID
+  # One argument: the id (number)
+  def find(id)
+    # Executes the SQL query:
+    # SELECT id, content, time, user_id FROM posts WHERE id = $1;
+
+    # Returns a single post object.
+  end
+
+      # Insert new post 
+    # item is a new post object
+  def create(post)
+    # Executes the SQL query:
+
+    # INSERT INTO posts (content, time, user_id) VALUES($1, $2, $3);
+    # Doesn't need to return anything (only creates a record)
+  end
+
+end
+
 ```
 
 ## 6. Write Test Examples
@@ -161,32 +201,110 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all users
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-students = repo.all
+users = repo.all
 
-students.length # =>  2
+users.length # =>  2
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+users[0].id # =>  1
+users[0].name # =>  First Name
+users[0].email # =>  'firstname@email.com'
+users[0].password # =>  'abc123'
+users[0].username # =>  'firstname'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+users[0].id # =>  2
+users[0].name # =>  Second Name
+users[0].email # =>  'secondname@email.com'
+users[0].password # =>  'defgh456'
+users[0].username # =>  'secondname'
 
 # 2
-# Get a single student
+# Get a single user
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-student = repo.find(1)
+user = repo.find(1)
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+user.id # =>  1
+user.name # =>  First Name
+user.email # =>  'firstname@email.com'
+user.password # =>  'abc123'
+user.username # =>  'firstname'
+
+# 3 Creates a new user
+
+repo = UserRepository.new
+
+user = User.new
+user.name # =>  Third Name
+user.email # =>  'thirdname@email.com'
+user.password # =>  'abcd1234'
+user.username # =>  'thirdname'
+
+repo.create(user) # => nil
+
+all_users = repo.all
+last_user = all_users.last
+
+last_user.name # =>  Third Name
+last_user.email # =>  'thirdname@email.com'
+last_user.password # =>  'abcd1234'
+last_user.username # =>  'thirdname'
+
+
+# 1
+# Get all posts
+
+repo = PostRepository.new
+
+posts = repo.all
+
+posts.length # =>  2
+
+posts[0].id # =>  1
+posts[0].content # =>  'This is an example post from username firstname'
+posts[0].time # =>  '22022-01-08 04:05:06'
+posts[0].user_id # =>  1
+
+
+posts[1].id # =>  2
+posts[1].content # =>  'This is another example post from username firstname'
+posts[1].time # =>  '22022-01-09 18:00:05'
+posts[1].user_id # =>  1
+
+# 2
+# Get a single user
+
+repo = PostRepository.new
+
+post = repo.find(1)
+
+posts.id # =>  1
+posts.content # =>  'This is an example post from username firstname'
+posts.time # =>  '22022-01-08 04:05:06'
+posts.user_id # =>  1
+
+# 3 Creates a new user
+
+repo = PostRepository.new
+
+post = Post.new
+posts.content # =>  'This is an example test post from username secondname'
+posts.time # =>  '22022-11-08 04:05:08'
+posts.user_id # =>  2
+
+repo.create(post) # => nil
+
+all_posts = repo.all
+last_post = all_posts.last
+
+posts.content # =>  'This is an example test post from username secondname'
+posts.time # =>  '22022-11-08 04:05:08'
+posts.user_id # =>  2
+
 
 # Add more examples for each method
 ```
@@ -202,21 +320,38 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/user_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_users_table
+  seed_sql = File.read('spec/seeds_chitter_challenge.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_test' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe UserRepository do
   before(:each) do 
-    reset_students_table
+    reset_users_table
   end
 
   # (your tests will go here).
 end
+
+# file: spec/user_repository_spec.rb
+
+def reset_posts_table
+  seed_sql = File.read('spec/seeds_chitter_challenge.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_test' })
+  connection.exec(seed_sql)
+end
+
+describe PostRepository do
+  before(:each) do 
+    reset_posts_table
+  end
+
+  # (your tests will go here).
+end
+
 ```
 
 ## 8. Test-drive and implement the Repository class behaviour
