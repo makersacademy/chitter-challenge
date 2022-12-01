@@ -12,7 +12,7 @@ describe AccountRepository do
     reset_accounts_table
   end
 
-  it 'finds all accounts' do
+  xit 'finds all accounts' do
     repo = AccountRepository.new
 
     accounts = repo.all
@@ -21,7 +21,7 @@ describe AccountRepository do
     expect(accounts.first.username).to eq('johndoe1234')
   end
 
-  it 'finds one account' do
+  xit 'finds one account' do
     repo = AccountRepository.new
 
     account = repo.find(3)
@@ -30,7 +30,7 @@ describe AccountRepository do
     expect(account.username).to eq('metallover666')
   end
 
-  it 'creates an account' do
+  xit 'creates an account' do
     repo = AccountRepository.new
 
     account = Account.new
