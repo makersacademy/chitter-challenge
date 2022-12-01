@@ -1,9 +1,5 @@
 require 'simplecov'
 require 'simplecov-console'
-
-
-# Make sure this connects to your test database
-# (its name should end with '_test')
 require 'database_connection'
 
 ENV['ENV'] = 'test'

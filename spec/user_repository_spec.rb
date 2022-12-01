@@ -13,7 +13,7 @@ RSpec.describe UserRepository do
       reset_users_table
     end
   
-    xit 'Get all users' do
+    it 'Get all users' do
       repo = UserRepository.new
       users = repo.all
 
@@ -32,7 +32,7 @@ RSpec.describe UserRepository do
       expect(users[1].username).to eq 'secondname'
     end
     
-    xit 'Get a single user' do 
+    it 'Get a single user' do 
       repo = UserRepository.new
 
       user = repo.find(1)

@@ -164,7 +164,16 @@ class PostRepository
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, content, time, user_id FROM posts;
+
+        # SELECT 	posts.id,
+        #         posts.content,
+        #         posts.time,
+        #         posts.user_id,
+        #         users.name,
+        #         users.username
+        # FROM posts
+        # JOIN users 
+        # ON users.id = posts.user_id;
 
     # Returns an array of post objects.
   end
@@ -336,7 +345,7 @@ describe UserRepository do
   # (your tests will go here).
 end
 
-# file: spec/user_repository_spec.rb
+# file: spec/post_repository_spec.rb
 
 def reset_posts_table
   seed_sql = File.read('spec/seeds_chitter_challenge.sql')

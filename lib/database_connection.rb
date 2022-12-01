@@ -1,6 +1,5 @@
 require 'pg'
 
-
 class DatabaseConnection
 
   def self.connect
@@ -25,4 +24,3 @@ class DatabaseConnection
     @connection.exec_params(query, params)
   end
 end
-

@@ -13,20 +13,25 @@ RSpec.describe PostRepository do
       reset_users_table
     end
   
-    xit 'Get all posts' do 
+    it 'Get all posts' do 
       repo = PostRepository.new
 
       posts = repo.all
 
-      expect(posts.length).to eq 2
+      expect(posts.length).to eq 4
       expect(posts[0].id).to eq 1
       expect(posts[0].content).to eq 'This is an example post from username firstname'
       expect(posts[0].time).to eq '22022-01-08 04:05:06'
       expect(posts[0].user_id).to eq 1
+      expect(posts[0].name).to eq 'First Name'
+      expect(posts[0].username).to eq 'firstname'
       expect(posts[1].id).to eq 2
       expect(posts[1].content).to eq 'This is another example post from username firstname'
       expect(posts[1].time).to eq '22022-01-09 18:00:05'
       expect(posts[1].user_id).to eq 1
+      expect(posts[1].name).to eq 'First Name'
+      expect(posts[1].username).to eq 'firstname'
+
     end
 
     
@@ -57,5 +62,6 @@ RSpec.describe PostRepository do
       expect(last_post.content).to eq 'This is an example test post from username secondname'
       expect(last_post.time).to eq '22022-11-08 04:05:08'
       expect(last_post.user_id).to eq 2
+    end
   end
 end
