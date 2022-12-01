@@ -23,11 +23,11 @@ it "returns all peeps" do
   expect(peeps.length).to eq 3
 
   expect(peeps[0].id).to eq '1'
-  expect(peeps[0].content).to eq 'Content 1'
+  expect(peeps[0].content).to eq 'peep 1'
   expect(peeps[0].user_id).to eq '1'
 
   expect(peeps[1].id).to eq '2'
-  expect(peeps[1].content).to eq 'Content 2'
+  expect(peeps[1].content).to eq 'peep 2'
   expect(peeps[1].user_id).to eq '2'
 end
 
