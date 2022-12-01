@@ -3,9 +3,9 @@ DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
-  email text,
+  email text UNIQUE,
   password text,
-  username text
+  username text UNIQUE
 );
 
 DROP TABLE IF EXISTS posts; 
