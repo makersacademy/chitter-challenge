@@ -36,11 +36,11 @@ INSERT INTO accounts (email, password, name, username) VALUES
 ('robbie@email.com', '1234hello1234', 'Robbie Kirkbride', 'RKirkbride');
 
 INSERT INTO peeps(contents, time_posted, account_id) VALUES
-('My first peep', '2022-12-01 16:00:00', 1),
-('My second peep', '2022-12-01 16:00:30', 1),
-('Hello', '2022-12-02 09:30:14', 2),
-('Test', '2022-12-02 16:00:30', 3),
-('My third peep', '2022-12-03 07:13:49', 1);
+('My first peep', '2022-11-01 16:00:00', 1),
+('My second peep', '2022-11-01 16:00:30', 1),
+('Hello', '2022-11-02 09:30:14', 2),
+('Test', '2022-11-02 16:00:30', 3),
+('My third peep', '2022-11-03 07:13:49', 1);
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
@@ -138,6 +138,15 @@ These examples will later be encoded as RSpec tests.
 ```ruby
 # 1
 # Get all peeps in reverse chronological order
+peep_repository = PeepRepository.new
+peeps = peep_repository.all
+
+peeps.length # => 3
+
+peeps.first.id # => 5
+peeps.first.contents # => "My third peep"
+peeps.first.time_placed # => "2022-12-03
+peeps.first.account_id # => 5
 
 ```
 
@@ -162,8 +171,6 @@ describe PeepRepository do
   before(:each) do 
     reset_peeps_table
   end
-
-  # (your tests will go here).
 end
 ```
 
