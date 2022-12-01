@@ -145,9 +145,74 @@ peeps.length # => 3
 
 peeps.first.id # => 5
 peeps.first.contents # => "My third peep"
-peeps.first.time_placed # => "2022-12-03
-peeps.first.account_id # => 5
+peeps.first.time_placed # => "2022-11-03 07:13:49"
+peeps.first.account_id # => 1
 
+peeps.first.id # => 1
+peeps.first.contents # => "My first peep"
+peeps.first.time_placed # => "2022-11-01 16:00:00"
+peeps.first.account_id # => 1
+
+
+# 2
+# Find a peep with a specific id
+peep_repository = PeepRepository.new
+peep = peep_repository.find(4)
+
+peeps.id # => 4
+peeps.contents # => "Test"
+peeps.time_placed # => "2022-11-02 16:00:30"
+peeps.account_id # => 3
+
+
+# 3
+# #find fails with an IndexError when given an id that doesn't exist
+peep_respository = PeepRepository.new
+peep_repository.find(6) # => raises IndexError "There is no peep with ID 6"
+
+
+# 4
+# #create adds a peep to the database
+timer = double(:fake_timer)
+expect(timer).to receive(:now).and_return('2022-11-04 00:00:00')
+
+peep_repository = PeepRepository.new(timer)
+
+new_peep = Peep.new
+new_peep.contents = "I added this peep from RSpec"
+new_peep.account_id = 3
+
+peep_repository.create(new_peep)
+
+peep_repository.all # => include(have_attributes(id: 6, contents:, time_posted:, account_id:))
+
+
+# 5
+# #create fails (PG::ForeignKeyViolation) when adding a peep with an invalid account_id
+timer = double(:fake_timer)
+expect(timer).to receive(:now).and_return('2022-11-04 00:00:00')
+
+peep_repository = PeepRepository.new(timer)
+
+new_peep = Peep.new
+new_peep.contents = "I added this peep from RSpec"
+new_peep.account_id = 4
+
+peep_repository.create(new_peep) # => fails with PG::ForeignKeyViolation
+
+
+# 6
+# #create fails (ArgumentError) when the contents are empty
+timer = double(:fake_timer)
+expect(timer).to receive(:now).and_return('2022-11-04 00:00:00')
+
+peep_repository = PeepRepository.new(timer)
+
+new_peep = Peep.new
+new_peep.contents = ""
+new_peep.account_id = 4
+
+peep_repository.create(new_peep) # => fails (ArgumentError) "A peep cannot have empty contents"
 ```
 
 ## 7. Reload the SQL seeds before each test run
@@ -157,8 +222,6 @@ Running the SQL code present in the seed file will empty the table and re-insert
 This is so you get a fresh table contents every time you run the test suite.
 
 ```ruby
-# EXAMPLE
-
 # file: spec/peep_repository_spec.rb
 
 def reset_peeps_table
@@ -173,17 +236,3 @@ describe PeepRepository do
   end
 end
 ```
-
-## 8. Test-drive and implement the Repository class behaviour
-
-_After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
-
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
-
----
-
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fdatabases&prefill_File=resources%2Frepository_class_recipe_template.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->
