@@ -1,5 +1,10 @@
+require 'database_connection'
 require 'simplecov'
 require 'simplecov-console'
+
+# Make sure this connects to your test database
+# (its name should end with '_test')
+DatabaseConnection.connect('YOUR_DATABASE_NAME_TEST')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
