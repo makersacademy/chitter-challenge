@@ -29,7 +29,8 @@ class AccountRepository
 
     sql_query = "INSERT INTO accounts (email, password, name, username) VALUES ($1, $2, $3, $4);"
     params = [account.email, account.password, account.name, account.username]
-    query_result = DatabaseConnection.exec_params(sql_query, params)
+    DatabaseConnection.exec_params(sql_query, params)
+    return nil
   end
 
   private
