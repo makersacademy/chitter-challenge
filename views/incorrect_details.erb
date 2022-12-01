@@ -25,7 +25,7 @@
 </form>
 
 <h3>Peeps</h3>
-  <% @peeps.reverse.each do |peep| %>
+  <% @peep_repository.all.reverse.each do |peep| %>
     <div>
       <% user = @user_repository.find_by_id(peep.user_id) %>
       <p> <%= user.username %> - <%= peep.content %> </p><br>

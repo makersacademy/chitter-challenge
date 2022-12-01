@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Not logged in</p>
+<form action="/" method="get">
+         
+<button type="submit">Go Back</button>
+       
+</form>
+<% peep = @peep_repository.find_by_id(@peep_id) %>
+<% user = @user_repository.find_by_id(peep.user_id) %>
+  <div>
+    <p> <%= user.username %> - <%= peep.content %> </p><br>
+    <p> <%= peep.time_posted %>
+  </div>
+  <h4> All replies: </h4>
+  <% if !@comments.empty?       %>
+      <% @comments.reverse.each do |comment| %>
+        <div>
+          <% user = @user_repository.find_by_id(comment.user_id) %>
+          <p> <%= user.username %> - <%= comment.content %> </p><br>
+          <p> <%= comment.time_posted %>
+        </div>
+    <%  end %>
+    <% else %>
+    <p> No comments yet </p>
+    <% end %>
+  </body>
+  <html>

@@ -17,8 +17,7 @@ class Application < Sinatra::Base
 
   get '/' do 
     session.clear
-    peep_repository = PeepRepository.new 
-    @peeps = peep_repository.all
+    @peep_repository = PeepRepository.new 
     @user_repository = UserRepository.new 
     @comment_repository = CommentRepository.new
     return erb(:homepage_not_logged_in)
@@ -45,15 +44,13 @@ class Application < Sinatra::Base
     end
 
 
-    peep_repository = PeepRepository.new 
-    @peeps = peep_repository.all
+    @peep_repository = PeepRepository.new 
     @comment_repository = CommentRepository.new
     return redirect '/logged_in'
   end
 
   post '/credentials_checker' do
-    peep_repository = PeepRepository.new 
-    @peeps = peep_repository.all
+    @peep_repository = PeepRepository.new 
     @comment_repository = CommentRepository.new
     @user_repository = UserRepository.new
 
@@ -70,16 +67,15 @@ class Application < Sinatra::Base
   end
 
   get '/logged_in' do 
-    peep_repository = PeepRepository.new 
-    @peeps = peep_repository.all
+    @peep_repository = PeepRepository.new 
     @comment_repository = CommentRepository.new
     @user_repository = UserRepository.new
+    @user_id = session[:user_id]
     return erb(:homepage_logged_in)
   end
 
   get '/incorrect-details' do 
-    peep_repository = PeepRepository.new 
-    @peeps = peep_repository.all
+    @peep_repository = PeepRepository.new 
     @comment_repository = CommentRepository.new
     @user_repository = UserRepository.new
     return erb(:incorrect_details)
@@ -93,6 +89,32 @@ class Application < Sinatra::Base
     peep.content = params[:content]
     peep_repository.create(peep)
     return redirect '/logged_in'
+  end
+
+  get '/replies/:peep_id' do 
+    comment_repository = CommentRepository.new 
+    @comments = comment_repository.find_by_peep(params[:peep_id])
+    @user_repository = UserRepository.new
+    @peep_repository = PeepRepository.new
+    @peep_id = params[:peep_id]
+    if !session[:user_id].nil?
+      return erb(:replies_logged_in)
+    else
+      return erb(:replies_not_logged_in)
+    end
+  end
+
+  post '/reply/:peep_id/new' do 
+    @user_repository = UserRepository.new
+    @peep_repository = PeepRepository.new
+    @comment_repository = CommentRepository.new 
+    comment = Comment.new 
+    comment.time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
+    comment.user_id = session[:user_id]
+    comment.content = params[:content]
+    comment.peep_id = params[:peep_id]
+    @comment_repository.create(comment)
+    return redirect "/replies/#{params[:peep_id]}"
   end
 end
 

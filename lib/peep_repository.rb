@@ -19,6 +19,14 @@ class PeepRepository
     result_set = DatabaseConnection.exec_params(sql, sql_params)
   end
 
+  def find_by_id(peep_id)
+    sql = 'SELECT id, content, time_posted, user_id FROM peeps WHERE id = $1;'
+    sql_params = [peep_id]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    record = result_set[0]
+    return record_to_peep_object(record)
+  end
+
   private 
 
   def record_to_peep_object(record)
