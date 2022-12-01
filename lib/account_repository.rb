@@ -24,8 +24,8 @@ class AccountRepository
   end
 
   def create(account)
-    fail "An account cannot have an empty argument" if has_empty_field?(account)
-    fail "Please enter a valid email address" unless is_valid_email_address?(account.email)
+    fail "An account cannot have an empty argument" if empty_field?(account)
+    fail "Please enter a valid email address" unless valid_email_address?(account.email)
 
     sql_query = "INSERT INTO accounts (email, password, name, username) VALUES ($1, $2, $3, $4);"
     params = [account.email, account.password, account.name, account.username]
@@ -44,14 +44,14 @@ class AccountRepository
     return account
   end
 
-  def has_empty_field?(account)
+  def empty_field?(account)
     return account.email.empty? ||
     account.password.empty? ||
     account.name.empty? ||
     account.username.empty?
   end
 
-  def is_valid_email_address?(address)
+  def valid_email_address?(address)
     return address.match?(
       /^[a-z\.]+@[a-z]+\.com$/
     )
