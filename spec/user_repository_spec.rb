@@ -40,7 +40,8 @@ describe UserRepository do
         expect(user.email).to eq 'yphillip@foals.com'
     end
 
-    xit "finds the user with index 3" do
+    it "finds the user with index 3" do
+        repo = UserRepository.new
         user = repo.find(3)
 
         expect(user.id).to eq 3
@@ -50,7 +51,7 @@ describe UserRepository do
    end
 
     context "Create users" do
-    xit "creates a new user" do
+    it "creates a new user" do
         repo = UserRepository.new
         user = User.new
 
