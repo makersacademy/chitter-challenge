@@ -59,7 +59,6 @@ class Application < Sinatra::Base
     comment.content = params[:content]
     comment.peep_id = params[:peep_id]
     comment.user_id = session[:user_id]
-    p session[:user_id]
     comment.comment_time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
     @comment_repo.create(comment)
     redirect "/comment/#{params[:peep_id]}"
@@ -71,6 +70,22 @@ class Application < Sinatra::Base
 
   get '/index/:username' do
     return erb(:logged_in)
+  end
+
+  get '/new_peep/:user_id' do
+    return erb(:new_peep)
+  end
+
+  post '/new_peep/:user_id' do
+    @user_repo = UserRepository.new
+    @peep_repo = PeepRepository.new
+    @comment_repo = CommentRepository.new
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
+    peep.user_id = session[:user_id]
+    @peep_repo.create(peep)
+    redirect '/logged_in'
   end
 
   post '/sign_up' do

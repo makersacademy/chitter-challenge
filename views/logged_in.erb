@@ -5,6 +5,8 @@
   <a href='/'>Click here to sign out</a>
   </form>
     <h1>Peeps</h1>
+    <a href="/new_peep/<%= session[:user_id] %>"><button type="button"">Post a new peep</button></a>
+
     <% @peep_repo.all.reverse.each do |peep| %>
       <div>
       <p><%= @user_repo.find(peep.user_id).username %>: <%= peep.content %></p> 
