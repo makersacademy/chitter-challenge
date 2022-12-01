@@ -30,11 +30,14 @@ describe CommentRepository do
     end
   end
 
-  # context 'find(user_id) method' do
-  #   it 'finds all peeps by a user' do
-
-  #   end
-  # end
+  context 'find(peep_id) method' do
+    it 'finds a peep by id' do
+      repo = PeepRepository.new
+      peep = repo.find(1)
+      expect(peep.content).to eq 'First peep ever on chitter!!!!'
+      expect(peep.time_posted).to eq '2022-11-30 12:00:00'
+    end
+  end
 
   context 'create method' do
     it 'creates a new peep' do

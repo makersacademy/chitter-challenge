@@ -1,0 +1,29 @@
+<html>
+  <head></head>
+  <body>
+<h1><%= @user_repo.find(@peep.user_id).username %></h1>
+     <div>
+
+      <p><%= @peep.content %>: <%= @peep.time_posted %></p>
+
+      <a href="/logged_in"><button type="button">Go back to homepage</button></a>
+
+
+      <form action="/comment/<%= @peep.id %>" method="post">
+      <label for="content">Enter comment here</label><br>
+      <input type="text" id="content" name="content"><br>
+  <input type="submit" value="Submit">
+</form>
+
+    </div>
+
+    <div>
+      <% @comment_repo.find(@peep.id).reverse.each do |comment| %>
+      <div>
+      <p><%= (@user_repo.find(comment.user_id)).username %>: <%= comment.content %></p>
+      <p><%= comment.comment_time_posted %>
+    </div>
+    </div>
+    <% end %>
+  </body>
+</html>

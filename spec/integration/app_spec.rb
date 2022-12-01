@@ -24,4 +24,6 @@ describe Application do
     it 'does not show the option to add a peep or comment' do
     end
   end
+
+
 end

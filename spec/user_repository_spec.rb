@@ -1,6 +1,7 @@
 require 'user'
 require 'user_repository'
 
+
 describe UserRepository do
   def reset_tables
     seed_sql = File.read('spec/seeds.sql')
@@ -78,7 +79,7 @@ describe UserRepository do
       expect(repo.already_exists?(user)).to eq true
     end
 
-    it 'checks if a user alrady exists with that email_address' do
+    it 'checks if a user already exists with that email_address' do
       repo = UserRepository.new
       user = User.new
       user.name = 'Bob'
@@ -96,6 +97,21 @@ describe UserRepository do
       user.username = 'john9876'
       user.password = 'johnjohnjohn'
       expect(repo.already_exists?(user)).to eq false
+    end
+  end
+
+  context 'find_by_username' do
+    it 'returns nil if user does not exist' do
+      repo = UserRepository.new
+      user = repo.find_by_username('username that does not exist')
+      expect(user).to eq nil
+    end
+
+    it 'returns the correct user if it exists' do
+      repo = UserRepository.new
+      user = repo.find_by_username('jude94')
+      expect(user.username).to eq 'jude94'
+      expect(user.email_address).to eq 'jude@jude.com'
     end
   end
 end

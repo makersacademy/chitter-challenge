@@ -19,4 +19,17 @@ class PeepRepository
     params = [peep.content,peep.time_posted,peep.user_id]
     DatabaseConnection.exec_params(sql, params)
   end
+
+  def find(id)
+    sql = 'SELECT id, content, time_posted, user_id FROM peeps WHERE id = $1;'
+    params = [id]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    record = result_set[0]
+    peep = Peep.new
+    peep.id = record['id'].to_i
+    peep.content = record['content']
+    peep.time_posted = record['time_posted']
+    peep.user_id = record['user_id']
+    peep
+  end
 end
