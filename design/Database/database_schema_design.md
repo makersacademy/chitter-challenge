@@ -57,82 +57,58 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
     Column names: `username`, `email`, `password`,
 
-## 3. Decide the column types.
+## 3. Column types.
 
-[Here's a full documentation of PostgreSQL data types](https://www.postgresql.org/docs/current/datatype.html).
-
-Most of the time, you'll need either `text`, `int`, `bigint`, `numeric`, or `boolean`. If you're in doubt, do some research or ask your peers.
-
-Remember to **always** have the primary key `id` as a first column. Its type will always be `SERIAL`.
 
 ```
-# EXAMPLE:
 
-Table: albums
+Table: messages
 id: SERIAL
-title: text
-release_year: int
+title: content
+time_posted: timestamp
 
-Table: artists
+Table: users
 id: SERIAL
-name: text
+username: text
+email_address: text
+password: text
+<!-- Password will need to be encrypted -->
 ```
 
 ## 4. Decide on The Tables Relationship
 
-Most of the time, you'll be using a **one-to-many** relationship, and will need a **foreign key** on one of the two tables.
+1. Can one [message] have many [users]? NO
+2. Can one [user] have many [messages]? YES
 
-To decide on which one, answer these two questions:
+Therefore:
 
-1. Can one [TABLE ONE] have many [TABLE TWO]? (Yes/No)
-2. Can one [TABLE TWO] have many [TABLE ONE]? (Yes/No)
+1. **[user] has many [message]**
+2. And on the other side, **[message] belongs to [user]**
+3. In that case, the foreign key is in the table [message]
 
-You'll then be able to say that:
 
-1. **[A] has many [B]**
-2. And on the other side, **[B] belongs to [A]**
-3. In that case, the foreign key is in the table [B]
 
-Replace the relevant bits in this example with your own:
-
-```
-# EXAMPLE
-
-1. Can one artist have many albums? YES
-2. Can one album have many artists? NO
-
--> Therefore,
--> An artist HAS MANY albums
--> An album BELONGS TO an artist
-
--> Therefore, the foreign key is on the albums table.
-```
-
-*If you can answer YES to the two questions, you'll probably have to implement a Many-to-Many relationship, which is more complex and needs a third table (called a join table).*
-
-## 4. Write the SQL.
+## 5. The SQL.
 
 ```sql
--- EXAMPLE
--- file: albums_table.sql
 
--- Replace the table name, columm names and types.
-
--- Create the table without the foreign key first.
-CREATE TABLE artists (
+-- file: chitter_datbase_table.sql
+-
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  name text,
+  username text,
+  email_address text,
+  password text
 );
 
--- Then the table with the foreign key first.
-CREATE TABLE albums (
+CREATE TABLE messages (
   id SERIAL PRIMARY KEY,
-  title text,
-  release_year int,
+  content text,
+  time_posted timestamp,
 -- The foreign key name is always {other_table_singular}_id
-  artist_id int,
-  constraint fk_artist foreign key(artist_id)
-    references artists(id)
+  user_id int,
+  constraint fk_user foreign key(user_id)
+    references users(id)
     on delete cascade
 );
 
