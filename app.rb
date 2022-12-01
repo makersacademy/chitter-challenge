@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 
-DatabaseConnection.connect('ADD_DATABASE_NAME')
+DatabaseConnection.connect('chitter')
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
