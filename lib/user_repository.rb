@@ -34,4 +34,11 @@ class UserRepository
 
     return user
   end
+
+  def create(user)
+    sql = 'INSERT INTO users (name, email_address, password) VALUES ($1, $2, $3);'
+    result_set = DatabaseConnection.exec_params(sql, [user.name, user.email_address, user.password])
+
+    return user
+  end
 end

@@ -58,6 +58,6 @@ describe UserRepository do
     expect(users.last.id).to eq '3'
     expect(users.last.name).to eq 'Eric'
     expect(users.last.email_address).to eq 'new_address@aol.com'
-    expect(users.last.password).to eq 'new password'
+    expect(users.last.password).to eq 'new password                                                '
   end
 end
