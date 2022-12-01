@@ -6,7 +6,7 @@ TRUNCATE TABLE peeps RESTART IDENTITY;
 
 INSERT INTO accounts (email, password, name, username) VALUES
 ('thomas@email.com', 'password', 'Thomas Seleiro', 'TSeleiro'),
-('graeme@email.com', 'P@$$w0rd', 'Graeme Paterson', 'CHutchinson'),
+('graeme@email.com', 'P@$$w0rd', 'Graeme Paterson', 'GPaterson'),
 ('robbie@email.com', '1234hello1234', 'Robbie Kirkbride', 'RKirkbride');
 
 INSERT INTO peeps(contents, time_posted, account_id) VALUES

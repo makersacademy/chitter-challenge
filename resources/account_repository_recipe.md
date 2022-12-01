@@ -36,7 +36,7 @@ TRUNCATE TABLE peeps RESTART IDENTITY;
 
 INSERT INTO accounts (email, password, name, username) VALUES
 ('thomas@email.com', 'password', 'Thomas Seleiro', 'TSeleiro'),
-('graeme@email.com', 'P@$$w0rd', 'Graeme Paterson', 'CHutchinson'),
+('graeme@email.com', 'P@$$w0rd', 'Graeme Paterson', 'GPaterson'),
 ('robbie@email.com', '1234hello1234', 'Robbie Kirkbride', 'RKirkbride');
 
 INSERT INTO peeps(contents, time_posted, account_id) VALUES
@@ -163,7 +163,7 @@ account = account_repo.find(2)
 
 account.id # => 2
 account.email # => "graeme@email.com"
-account.password # => "p@$$w0rd"
+account.password # => "P@$$w0rd"
 account.name # => "Graeme Paterson"
 account.username # => "GPaterson"
 
@@ -194,7 +194,7 @@ new_account.password = "12344321"
 new_account.name = "Shah Hussain"
 new_account.username = "SHussain"
 
-account_repo.create(new_account) # => raises error "An account with email thomas@email.com already exists"
+account_repo.create(new_account) # => raises error PG::UniqueViolation
 
 # 6
 # #create fails when adding an account with an existing password
@@ -205,7 +205,7 @@ new_account.password = "12344321"
 new_account.name = "Shah Hussain"
 new_account.username = "TSeleiro"
 
-account_repo.create(new_account) # => raises error "An account with username TSeleiro already exists"
+account_repo.create(new_account) # => raises error PG::UniqueViolation
 
 # 7
 # #create fails when any field is empty
@@ -265,8 +265,8 @@ This is so you get a fresh table contents every time you run the test suite.
 # file: spec/account_repository_spec.rb
 
 def reset_accounts_table
-  seed_sql = File.read('spec/seeds_accounts.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'accounts' })
+  seed_sql = File.read('spec/seeds/seeds_accounts.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_db_test' })
   connection.exec(seed_sql)
 end
 
