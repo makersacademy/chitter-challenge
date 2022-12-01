@@ -1,0 +1,14 @@
+<html>
+<head></head>
+<body>
+  <h1>Peeps</h1>
+
+  <% @peeps.each do |peep| %>
+  <div>
+    <p><%= peep.content %></p>
+    <%= peep.date_time[0..-8] %>
+  </div>
+  <% end %>
+
+</body>
+</html>
