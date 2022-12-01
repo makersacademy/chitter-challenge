@@ -13,19 +13,19 @@ class AccountRepository
     return accounts
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
   def find(id)
     sql_query = "SELECT id, email, password, name, username FROM accounts WHERE id = $1;"
     query_result = DatabaseConnection.exec_params(sql_query, [id])
 
-    fail "There is no account with ID #{id}" if query_result.first.nil?
+    fail IndexError.new "There is no account with ID #{id}" if query_result.first.nil?
     return extract_account_from_record(query_result.first)
   end
 
   def create(account)
-    fail "An account cannot have an empty argument" if empty_field?(account)
-    fail "Please enter a valid email address" unless valid_email_address?(account.email)
+    fail ArgumentError.new "An account cannot have an empty argument" if empty_field?(account)
+    fail ArgumentError.new "Please enter a valid email address" unless valid_email_address?(
+      account.email
+    )
 
     sql_query = "INSERT INTO accounts (email, password, name, username) VALUES ($1, $2, $3, $4);"
     params = [account.email, account.password, account.name, account.username]

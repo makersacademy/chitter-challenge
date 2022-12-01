@@ -44,7 +44,7 @@ describe AccountRepository do
   it "#find fails when given an invalid account id" do
     account_repo = AccountRepository.new
     error_message = "There is no account with ID 4"
-    expect { account_repo.find(4) }.to raise_error error_message
+    expect { account_repo.find(4) }.to raise_error IndexError, error_message
   end
 
   it "#create adds an account to the database" do
@@ -97,19 +97,19 @@ describe AccountRepository do
     new_account.password = "12344321"
     new_account.name = "Shah Hussain"
     new_account.username = "SHussain"
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
 
     new_account.email = "shah@email.com"
     new_account.password = ""
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
 
     new_account.password = "12344321"
     new_account.name = ""
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
 
     new_account.name = "Shah Hussain"
     new_account.username = ""
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
   end
 
   it "#create fails when entering a poorly formatted email address" do
@@ -122,16 +122,16 @@ describe AccountRepository do
     new_account.username = "SHussain"
 
     new_account.email = "abc-@email.com"
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
     new_account.email = "abc#def@email.com"
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
     new_account.email = "shah@emailcom"
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
     new_account.email = "shah@email.net"
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
     new_account.email = "abc-@.com"
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
     new_account.email = "abc-@em ail.com"
-    expect { account_repo.create(new_account) }.to raise_error error_message
+    expect { account_repo.create(new_account) }.to raise_error ArgumentError, error_message
   end
 end

@@ -170,7 +170,7 @@ account.username # => "GPaterson"
 # 3
 # #find fails when given an invalid account id
 account_repo = AccountRepository.new
-account = account_repo.find(4) # => raises error "There is no account with ID 4"
+account = account_repo.find(4) # => raises IndexError "There is no account with ID 4"
 
 # 4
 # #create adds an account to the database
@@ -216,19 +216,19 @@ new_account.email = ""
 new_account.password = "12344321"
 new_account.name = "Shah Hussain"
 new_account.username = "SHussain"
-account_repo.create(new_account) # => raises error "An account cannot have an empty argument"
+account_repo.create(new_account) # => raises ArgumentError "An account cannot have an empty argument"
 
 new_account.email = "shah@email.com"
 new_account.password = ""
-account_repo.create(new_account) # => raises error "An account cannot have an empty argument"
+account_repo.create(new_account) # => raises ArgumentError "An account cannot have an empty argument"
 
 new_account.password = "12344321"
 new_account.name = ""
-account_repo.create(new_account) # => raises error "An account cannot have an empty argument"
+account_repo.create(new_account) # => raises ArgumentError "An account cannot have an empty argument"
 
 new_account.name = "Shah Hussain"
 new_account.username = ""
-account_repo.create(new_account) # => raises error "An account cannot have an empty argument"
+account_repo.create(new_account) # => raises ArgumentError "An account cannot have an empty argument"
 
 # 8
 # #create fails when entering a poorly formatted email address
@@ -240,17 +240,17 @@ new_account.name = "Shah Hussain"
 new_account.username = "SHussain"
 
 new_account.email = "abc-@email.com"
-account_repo.create(new_account) # => raises error "Please enter a valid email address"
+account_repo.create(new_account) # => raises ArgumentError "Please enter a valid email address"
 new_account.email = "abc#def@email.com"
-account_repo.create(new_account) # => raises error "Please enter a valid email address"
+account_repo.create(new_account) # => raises ArgumentError "Please enter a valid email address"
 new_account.email = "shah@emailcom"
-account_repo.create(new_account) # => raises error "Please enter a valid email address"
+account_repo.create(new_account) # => raises ArgumentError "Please enter a valid email address"
 new_account.email = "shah@email.net"
-account_repo.create(new_account) # => raises error "Please enter a valid email address"
+account_repo.create(new_account) # => raises ArgumentError "Please enter a valid email address"
 new_account.email = "abc-@.com"
-account_repo.create(new_account) # => raises error "Please enter a valid email address"
+account_repo.create(new_account) # => raises ArgumentError "Please enter a valid email address"
 new_account.email = "abc-@em ail.com"
-account_repo.create(new_account) # => raises error "Please enter a valid email address"
+account_repo.create(new_account) # => raises ArgumentError "Please enter a valid email address"
 ```
 
 Encode this example as a test.
