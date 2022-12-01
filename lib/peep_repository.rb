@@ -22,4 +22,17 @@ class PeepRepository
     return peeps
   end
 
+  def find(id)
+    sql = 'SELECT id, content, date_time, user_id FROM peeps WHERE id = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [id])
+
+    peep = Peep.new
+    peep.id = result_set[0]['id']
+    peep.content = result_set[0]['content']
+    peep.date_time = result_set[0]['date_time']
+    peep.user_id = result_set[0]['user_id']
+
+    return peep
+  end
+
 end

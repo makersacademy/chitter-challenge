@@ -38,7 +38,6 @@ describe PeepRepository do
 
     expect(peep.id).to eq '1'
     expect(peep.content).to eq 'peep 1'
-    expect(peep.date_time).to eq '2022-12-01 15:38:09.152426'
-    expect(peeps.user_id).to eq '1'
+    expect(peep.user_id).to eq '1'
   end
 end
