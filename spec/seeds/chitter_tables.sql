@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS accounts CASCADE;
+
 -- Create the table without the foreign key first.
 CREATE TABLE accounts (
   id SERIAL PRIMARY KEY,
@@ -6,6 +8,8 @@ CREATE TABLE accounts (
   name text,
   username text
 );
+
+DROP TABLE IF EXISTS peeps;
 
 -- Then the table with the foreign key.
 CREATE TABLE peeps (
