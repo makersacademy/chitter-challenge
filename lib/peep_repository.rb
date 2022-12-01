@@ -35,4 +35,11 @@ class PeepRepository
     return peep
   end
 
+  def create(peep)
+    sql = 'INSERT INTO peeps (content, user_id) VALUES ($1, $2);'
+    result_set = DatabaseConnection.exec_params(sql, [peep.content, peep.user_id])
+
+    return peep
+  end
+
 end

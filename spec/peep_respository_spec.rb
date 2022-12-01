@@ -51,8 +51,8 @@ describe PeepRepository do
 
     peeps = repo.all
 
+    expect(peeps.last.id).to eq '4'
     expect(peeps.last.content).to eq 'peep 4'
-    expect(peeps.last.date_time).to include '2022-12-01'
     expect(peeps.last.user_id).to eq '2'
   end
 
