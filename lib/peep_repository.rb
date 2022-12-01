@@ -2,8 +2,6 @@ require_relative "database_connection"
 require_relative "peep"
 
 class PeepRepository
-  # Initialises peep repository with timer
-  # timer is an object with a #now method
   def initialize(timer = Time)
     @timer = timer
   end
