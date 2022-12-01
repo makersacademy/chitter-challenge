@@ -42,4 +42,22 @@ describe UserRepository do
     expect(user.email_address).to eq 'email_1@yahoo.co.uk'
     expect(user.password).to eq '##^%$&^$#                                                   '
   end
+
+  it "creates a new user" do
+    repo = UserRepository.new
+
+    user = User.new
+    user.name = 'Eric'
+    user.email_address = 'new_address@aol.com'
+    user.password = 'new password'
+
+    repo.create(user)
+
+    users = repo.all
+
+    expect(users.last.id).to eq '3'
+    expect(users.last.name).to eq 'Eric'
+    expect(users.last.email_address).to eq 'new_address@aol.com'
+    expect(users.last.password).to eq 'new password'
+  end
 end
