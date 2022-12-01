@@ -3,10 +3,10 @@ DROP TABLE IF EXISTS accounts CASCADE;
 -- Create the table without the foreign key first.
 CREATE TABLE accounts (
   id SERIAL PRIMARY KEY,
-  email text,
+  email text UNIQUE,
   password text,
   name text,
-  username text
+  username text UNIQUE
 );
 
 DROP TABLE IF EXISTS peeps;

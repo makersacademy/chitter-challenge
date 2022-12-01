@@ -123,10 +123,10 @@ So the foreign key should be in the peeps table
 -- Create the table without the foreign key first.
 CREATE TABLE accounts (
   id SERIAL PRIMARY KEY,
-  email text,
+  email text UNIQUE,
   password text,
   name text,
-  username text
+  username text UNIQUE
 );
 
 -- Then the table with the foreign key.
