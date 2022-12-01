@@ -16,7 +16,7 @@ class AccountRepository
       # Create a new model object
       # with the record data.
       account = Account.new
-      accountt.id = record['id'].to_i
+      account.id = record['id'].to_i
       account.username = record['username']
 
       accounts << account
