@@ -5,10 +5,10 @@ class PeepRepository
     result_set = DatabaseConnection.exec_params(sql, [])
     result_set.each do |record|
       peep = Peep.new
-      peep.id = record['id'].to_i
+      peep.id = record['id']
       peep.content = record['content']
       peep.time_posted = record['time_posted']
-      peep.user_id = record['user_id'].to_i
+      peep.user_id = record['user_id']
       all_peeps << peep
     end
     all_peeps
@@ -26,7 +26,7 @@ class PeepRepository
     result_set = DatabaseConnection.exec_params(sql, params)
     record = result_set[0]
     peep = Peep.new
-    peep.id = record['id'].to_i
+    peep.id = record['id']
     peep.content = record['content']
     peep.time_posted = record['time_posted']
     peep.user_id = record['user_id']

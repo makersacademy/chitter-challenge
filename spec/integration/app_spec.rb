@@ -68,17 +68,16 @@ describe Application do
   end
 
   context 'POST /comment/:peep_id' do
-    it '' do
+    it 'redirects' do
       response = post('/comment/2?content=hello')
       expect(response.status).to eq 302
       expect(last_response).to be_redirect
       expect(last_request.url).to eql "http://example.org/comment/2?content=hello"
     end
-
   end
 
   context 'POST /new_peep/:user_id' do
-    it '' do
+    it 'redirects' do
       response = post('/new_peep/2?content=comment')
       expect(response.status).to eq 302
       expect(last_response).to be_redirect
@@ -87,16 +86,16 @@ describe Application do
   end
 
   context 'POST /sign_up' do
-    xit 'creates a new user' do
-      # new_home_page = get('/logged_in')
-      # expect(new_home_page.body).to include ''
+    it 'creates a new user and redirects' do
       response = post('/sign_up',
         name: 'aaa',
         email_address: 'abcde',
         username: 'abcde',
         password: 'aaa'
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq 302
+      expect(last_response).to be_redirect
+      expect(last_request.url).to eql "http://example.org/sign_up"
     end
   end
 end

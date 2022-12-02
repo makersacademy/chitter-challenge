@@ -1,7 +1,6 @@
 require 'user'
 require 'user_repository'
 
-
 describe UserRepository do
   def reset_tables
     seed_sql = File.read('spec/seeds.sql')

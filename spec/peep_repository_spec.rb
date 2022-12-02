@@ -19,14 +19,14 @@ describe CommentRepository do
       first_peep = all_peeps.first
       last_peep = all_peeps.last
       expect(all_peeps.length).to eq 8
-      expect(first_peep.id).to eq 1
+      expect(first_peep.id).to eq '1'
       expect(first_peep.content).to eq 'First peep ever on chitter!!!!'
       expect(first_peep.time_posted).to eq '2022-11-30 12:00:00'
-      expect(first_peep.user_id).to eq 1
-      expect(last_peep.id).to eq 8
+      expect(first_peep.user_id).to eq '1'
+      expect(last_peep.id).to eq '8'
       expect(last_peep.content).to eq 'Eleven is bigger than ten'
       expect(last_peep.time_posted).to eq '2022-11-30 12:07:00'
-      expect(last_peep.user_id).to eq 4
+      expect(last_peep.user_id).to eq '4'
     end
   end
 
@@ -37,6 +37,13 @@ describe CommentRepository do
       expect(peep.content).to eq 'First peep ever on chitter!!!!'
       expect(peep.time_posted).to eq '2022-11-30 12:00:00'
     end
+
+    it 'finds a different peep by id' do
+      repo = PeepRepository.new
+      peep = repo.find(8)
+      expect(peep.content).to eq "Eleven is bigger than ten"
+      expect(peep.time_posted).to eq '2022-11-30 12:07:00'
+    end
   end
 
   context 'create method' do
@@ -45,14 +52,14 @@ describe CommentRepository do
       peep = Peep.new
       peep.content = 'I am a test peep'
       peep.time_posted = '2022-11-30 13:40:00'
-      peep.user_id = 1
+      peep.user_id = '1'
       repo.create(peep)
       all_peeps = repo.all
       latest_peep = all_peeps.last
       expect(all_peeps.length).to eq 9
       expect(latest_peep.content).to eq 'I am a test peep'
       expect(latest_peep.time_posted).to eq '2022-11-30 13:40:00'
-      expect(latest_peep.user_id).to eq 1
+      expect(latest_peep.user_id).to eq '1'
     end
   end
 end

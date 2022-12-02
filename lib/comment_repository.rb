@@ -9,11 +9,11 @@ class CommentRepository
     all_comments = []
     result_set.each do |record|
       comment = Comment.new
-      comment.id = record['id'].to_i
+      comment.id = record['id']
       comment.content = record['content']
       comment.comment_time_posted = record['comment_time_posted']
-      comment.peep_id = record['peep_id'].to_i
-      comment.user_id = record['user_id'].to_i
+      comment.peep_id = record['peep_id']
+      comment.user_id = record['user_id']
       all_comments << comment
     end
     all_comments

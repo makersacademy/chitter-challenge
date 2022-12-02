@@ -21,10 +21,15 @@ describe CommentRepository do
       expect(comments.length).to eq 2
       expect(first_comment.content).to eq 'This is a comment'
       expect(first_comment.comment_time_posted).to eq '2022-11-30 12:09:00'
-      expect(first_comment.user_id).to eq 3
+      expect(first_comment.user_id).to eq '3'
       expect(last_comment.content).to eq 'I disagree'
       expect(last_comment.comment_time_posted).to eq '2022-11-30 12:12:00'
-      expect(last_comment.user_id).to eq 4
+      expect(last_comment.user_id).to eq '4'
+    end
+    it 'still works if no comments have been made' do
+      repo = CommentRepository.new
+      comments = repo.find(8)
+      expect(comments.length).to eq 0
     end
   end
 
@@ -34,15 +39,15 @@ describe CommentRepository do
       comment = Comment.new
       comment.content = 'I am a test comment'
       comment.comment_time_posted = '2022-11-30 13:35:00'
-      comment.user_id = 1
-      comment.peep_id = 3
+      comment.user_id = '1'
+      comment.peep_id = '3'
       repo.create(comment)
       new_comment = repo.find(3).last
       expect(repo.find(3).length).to eq 2
       expect(new_comment.content).to eq 'I am a test comment'
       expect(new_comment.comment_time_posted).to eq '2022-11-30 13:35:00'
-      expect(new_comment.user_id).to eq 1
-      expect(new_comment.peep_id).to eq 3
+      expect(new_comment.user_id).to eq '1'
+      expect(new_comment.peep_id).to eq '3'
     end
   end
 end

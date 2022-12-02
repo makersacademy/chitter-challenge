@@ -2,8 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'bcrypt'
 require 'time'
-require 'net/smtp'
-require 'mail'
 require_relative 'lib/peep'
 require_relative 'lib/comment'
 require_relative 'lib/user'
@@ -11,9 +9,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/comment_repository'
 require_relative 'lib/user_repository'
-FROM_EMAIL = "ashworthjude@gmail.com.com"
-PASSWORD = "MadDog.357"
-TO_EMAIL = "ashworthjude@gmail.com"
+
 DatabaseConnection.connect('chitter_database_test')
 
 class Application < Sinatra::Base
@@ -50,7 +46,7 @@ class Application < Sinatra::Base
       return erb(:bad_credentials)
     else
       session[:user_id] = user.id
-      return erb(:logged_in)
+      redirect '/logged_in'
     end
   end
 
@@ -107,7 +103,7 @@ class Application < Sinatra::Base
       @user_repo.create(user)
       user_id = @user_repo.find_by_username(user.username).id
       session[:user_id] = user_id
-      return erb(:logged_in)
+      redirect '/logged_in'
     end
   end
 
