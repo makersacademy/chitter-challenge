@@ -21,4 +21,16 @@ class Application < Sinatra::Base
     end
     return erb(:peeps)
   end
+
+  post "/peeps" do
+    if post_inputs_nil?(params)
+      status 400
+      @error = ArgumentError.new "Cannot have empty fields in the peep form"
+      return erb(:post_peep_error)
+    end
+  end
+end
+
+def post_inputs_nil?(parameters)
+  return params[:contents].nil? || params[:author_id].nil?
 end

@@ -37,4 +37,27 @@ describe Application do
       )
     end
   end
+
+  context "POST /peeps" do
+    it "Sends error status when wrong / no body parameters are given" do
+      post_response = post("/peeps",
+        fake_param_1: "aksdjh",
+        fake_param_2: "ldsjfl"
+      )
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>ArgumentError:</h1>',
+        '<p>Cannot have empty fields in the peep form</p>',
+        '<a href="/peeps"><h3>Return to Peeps</h3></a>'
+      )
+
+      post_response = post("/peeps")
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>ArgumentError:</h1>',
+        '<p>Cannot have empty fields in the peep form</p>',
+        '<a href="/peeps"><h3>Return to Peeps</h3></a>'
+      )
+    end
+  end
 end
