@@ -30,7 +30,7 @@ class UserRepository
   # Creates a new user (account)
   # Takes one argument: a User object
   def create(user)
-    raise "Please fill in all fields" if user.email_address == '' || user.password == '' || user.name == '' || user.username == ''
+    raise "Please fill in all fields" if user.email_address == "" || user.password == "" || user.name == "" || user.username == ""
     
     repo = UserRepository.new
     users = repo.all

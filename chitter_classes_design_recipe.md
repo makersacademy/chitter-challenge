@@ -454,7 +454,7 @@ These examples will later be encoded as RSpec tests.
   peeps_by_user.first.date_and_time # => '2022-11-30 16:45:12'
   peeps_by_user.first.user_id # => '2'
 
-  peeps_by_user.last.id # =>  '2'
+  peeps_by_user.last.id # =>  '5'
   peeps_by_user.last.content # => 'Has anyone seen my rubber duck?'
   peeps_by_user.last.date_and_time # => '2022-12-01 18:11:55'
   peeps_by_user.last.user_id # => '2'
