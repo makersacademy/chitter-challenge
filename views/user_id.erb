@@ -1,7 +1,9 @@
+<% user = @user_repo.find_user_by_id(@user_id) %>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Chitter Homepage</title>
+    <title> <%= user.username %>'s peeps </title>
   </head>
   <body>
     <header>
@@ -16,10 +18,9 @@
 
     <hr>
 
-    <h2>Peeps</h2>
+    <h2> <%= user.username %>'s peeps </h2>
 
-    <% @peeps.reverse.each do |peep| %>
-      <% user = @user_repo.find_user_by_id(peep.user_id.to_i) %>
+    <% @peeps_by_user.reverse.each do |peep| %>
       <article>
         <p> <%= user.name %> &nbsp | &nbsp <%= user.username %> &nbsp | &nbsp <%= peep.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
         <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->

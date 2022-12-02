@@ -1,0 +1,45 @@
+<% user = @user_repo.find_user_by_id(@peep_by_id.user_id) %>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Peep by <%= user.username %> </title>
+  </head>
+  <body>
+    <header>
+      <h1>Chitter</h1>
+      <h4>Like Twitter, but legitter!</h4>
+      <nav>
+        <a href="/">Home</a> |
+        <a href="/login">Log in</a> |
+        <a href="/signup">Sign up</a>
+      </nav>
+    </header>
+
+    <hr>
+
+    <h2> Peep by <%= user.username %> </h2>
+
+    <article>
+      <p> <%= user.name %> &nbsp | &nbsp <%= user.username %> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
+      <p> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
+      <p> &nbsp <p>
+      <blockquote>
+      <% if !@comments_by_peep.empty? && @comments_by_peep != nil %>
+        <% @comments_by_peep.each do |comment| %>
+          <p> <%= comment.user_id %> &nbsp | &nbsp <%= comment.user_id %> &nbsp | &nbsp <%= comment.date_and_time %> </p>
+          <p> <%= comment.content %> </p>
+          <p> &nbsp <p>
+        <% end %>
+      <% end %>
+      </blockquote>
+      <p> &nbsp <p>
+    </article>
+    
+    
+    </article>
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>
+

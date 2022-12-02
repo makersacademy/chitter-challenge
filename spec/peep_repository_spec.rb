@@ -52,6 +52,33 @@ RSpec.describe PeepRepository do
     end
   end
 
+  describe "#find_peep_by_id(id_of_peep)" do
+    it "returns the info for the peep with the given id" do
+      repo = PeepRepository.new
+      peep = repo.find_peep_by_id(1)
+
+      expect(peep.id).to eq ('1')
+      expect(peep.content).to eq ('My first peep!!!')
+      expect(peep.date_and_time).to eq ('2022-11-30 12:05:06')
+      expect(peep.user_id).to eq ('1')
+    end
+
+    it "returns the info for the peep with a different id" do
+      repo = PeepRepository.new
+      peep = repo.find_peep_by_id(2)
+
+      expect(peep.id).to eq ('2')
+      expect(peep.content).to eq ('Second Maker to peep lmao!')
+      expect(peep.date_and_time).to eq ('2022-11-30 16:45:12')
+      expect(peep.user_id).to eq ('2')
+    end
+
+    it "raises error if peep_id doesn't exist" do
+      repo = PeepRepository.new
+      expect{ repo.find_peep_by_id(100) }.to raise_error ("No peeps exist at that address")
+    end
+  end
+
   describe "#create(peep)" do
     it "adds a new peep to the dataset" do
       new_peep = Peep.new

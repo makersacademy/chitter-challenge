@@ -31,12 +31,12 @@ class CommentRepository
   # One argument: the (peep)id (number)
   def comments_by_peep(id_of_peep)
     # Check if peep_id exists, raise error if it doesn't
-    result_set_1 = DatabaseConnection.exec_params("SELECT peep_id FROM comments", [])
+    result_set_1 = DatabaseConnection.exec_params("SELECT id FROM peeps", [])
 
     existing_peep_ids = []
 
     result_set_1.each do |record|
-      peep_id = record["peep_id"]
+      peep_id = record["id"]
       existing_peep_ids << peep_id
     end
 

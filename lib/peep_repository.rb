@@ -64,6 +64,37 @@ class PeepRepository
     return peeps
   end
 
+  # find one peep by its id
+  # takes one argument: peep_id
+  def find_peep_by_id(id_of_peep)
+    # check if peep exists
+    result_set_1 = DatabaseConnection.exec_params("SELECT id FROM peeps", [])
+    
+    existing_peep_ids = []
+
+    result_set_1.each do |record|
+      peep_id = record["id"]
+      existing_peep_ids << peep_id
+    end
+
+    raise "No peeps exist at that address" if !existing_peep_ids.include?(id_of_peep.to_s)
+    
+    # find peep
+    sql = "SELECT id, content, date_and_time, user_id FROM peeps WHERE id = $1"
+    params = [id_of_peep]
+
+    result_set_2 = DatabaseConnection.exec_params(sql, params)
+    record = result_set_2[0]
+
+    peep = Peep.new
+    peep.id = record["id"]
+    peep.content = record["content"]
+    peep.date_and_time = record["date_and_time"]
+    peep.user_id = record["user_id"]
+
+    return peep
+  end
+
   # creates a new peep
   # takes one argument: a Peep object
   def create(peep)
@@ -76,27 +107,6 @@ class PeepRepository
     DatabaseConnection.exec_params(sql, params)
 
     return nil
-  end
-
-  # finds the User object that created the peep
-  # takes one argument: a Peep object
-  def find_user_by_peep(peep_user_id)
-    #
-    # Executes the SQL query:
-    sql = "SELECT id, email_address, password, name, username FROM users WHERE id = $1"
-    params = [peep_user_id]
-
-    result_set = DatabaseConnection.exec_params(sql, params)
-    record = result_set[0]
-
-    user = User.new
-    user.id = record["id"]
-    user.email_address = record["email_address"]
-    user.password = record["password"]
-    user.name = record["name"]
-    user.username = record["username"]
-
-    return user
   end
 
   # # allows user to delete a peep they've posted
