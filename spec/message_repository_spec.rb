@@ -30,20 +30,22 @@ describe MessageRepository do
   
   end 
 
-  xit 'creates a new message' do
+  it 'creates a new message' do
 
     repo = MessageRepository.new
     message = Message.new
 
     message.content = 'This new post should have an older date to test sorting'
-    message.time_posted =  '2022-09-01 12:37:42'
+    message.time_posted =  '2022-05-01 12:37:42'
     message.user_id = '2'
 
+    repo.create(message)
+
     sort_messages = repo.sort_messages
-    timeline = sort_messages.display
+    timeline = repo.display
 
     expect(timeline.last.content).to eq 'This new post should have an older date to test sorting'
-    expect(timeline.last.time_posted).to eq '2022-09-01 12:37:42'
+    expect(timeline.last.time_posted).to eq '2022-05-01 12:37:42'
     expect(timeline.last.user_id).to eq '2'
 
 

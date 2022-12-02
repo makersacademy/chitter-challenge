@@ -21,6 +21,14 @@ class MessageRepository
     end 
   end 
 
+  def create(message)
+    sql = 'INSERT INTO messages (content, time_posted, user_id) VALUES($1, $2, $3);'
+    sql_params = [message.content, message.time_posted, message.user_id]
+    
+    DatabaseConnection.exec_params(sql,sql_params)
+  
+  end
+
   def display
 
     return @all_messages
