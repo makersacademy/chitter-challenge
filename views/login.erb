@@ -1,0 +1,22 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Log in to Chitter</h1>
+      <div><a href="/">Back to home</a></div><br />
+        <form action="/login" method="POST">
+          <div>
+            <label>Email:</label><br />
+            <input type="text" name="email" maxlength="30" required><br /><br />
+          </div>
+
+          <div>
+            <label>Password:</label><br />
+            <input type="password" name="password" maxlength="8" required><br /><br />
+          </div>
+
+          <input type="submit">
+
+        <p><%= @login_error_message%></p> 
+      </form>
+  </body>
+</html>

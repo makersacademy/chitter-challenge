@@ -34,11 +34,13 @@ describe Application do
       expect(response.body).to include('Name: First Name')
       expect(response.body).to include('Username: firstname')
       expect(response.body).to include('<a href="/signup">Sign up</a>')
+      expect(response.body).to include('<a href="/login">Log in</a>')
+      expect(response.body).to include('<a href="/new">Add a peep</a>')
     end
   end
 
   context 'for GET /signup' do
-    it 'returns a list of posts in reverse order and links' do
+    it 'returns a sign up form' do
       response = get("/signup")
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Sign up to Chitter</h1>')
@@ -52,29 +54,64 @@ describe Application do
   end
 
   context 'for POST /signup' do 
-    it 'creates a new album and returns a confirmation page' do
+    it 'creates a new user and returns a confirmation page' do
       response = post("/signup", name: "Third Name", email: "thirdname@email.com", password: "defgh456", username: "thirdname")
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2>Sign up complete for thirdname!</h2>')
       expect(response.body).to include('<a href="/">Back to home</a>')
     end
-    it 'validates the not a duplicate email' do
+    it 'validates not a duplicate email' do
       response = post("/signup", name: "Third Name", email: "firstname@email.com", password: "defgh456", username: "thirdname")
       expect(response.status).to eq(200)
-      expect(response.body).to include("Duplicate email or username, please re-submit with different details")
+      expect(response.body).to include("Duplicate email or username, please re-submit")
     end
-    it 'validates the not a duplicate username' do
+    it 'validates not a duplicate username' do
       response = post("/signup", name: "Third Name", email: "thirdname@email.com", password: "defgh456", username: "firstname")
       expect(response.status).to eq(200)
-      expect(response.body).to include("Duplicate email or username, please re-submit with different details")
+      expect(response.body).to include("Duplicate email or username, please re-submit")
     end
     it 'validates correct email' do
       response = post("/signup", name: "Third Name", email: "thirdnameemail", password: "defgh456", username: "firstname")
       expect(response.status).to eq(200)
-      expect(response.body).to include("Incorrect email format, please re-submit with different details")
+      expect(response.body).to include("Incorrect email format, please re-submit")
     end
-
 
   end
 
+  context 'for GET /signin' do
+    it 'returns a log in form' do
+      response = get("/login")
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Log in to Chitter</h1>')
+      expect(response.body).to include('<form action="/login" method="POST">') 
+      expect(response.body).to include('<input type="text" name="email" maxlength="30" required><br /><br />')
+      expect(response.body).to include('<input type="password" name="password" maxlength="8" required><br /><br />')
+      expect(response.body).to include('<input type="submit">') 
+    end
+  end
+
+  xcontext 'for POST /signin' do
+    it 'logs in user' do
+      response = post("/signup", name: "Third Name", email: "thirdname@email.com", password: "defgh456", username: "thirdname")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Sign up complete for thirdname!</h2>')
+      response = post("/login", email: "thirdname@email.com", password: "defgh456")  
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h2>Log in complete for thirdname!</h2>')
+      expect(response.body).to include('<a href="/">Back to home</a>')
+    end
+  end
+
+  context 'for GET /new' do
+    it 'returns a add post  form' do
+      response = get("/new")
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Add a peep</h1>')
+      expect(response.body).to include('<form action="/new" method="POST">') 
+      expect(response.body).to include('<textarea rows = "5" cols = "60" name="content" maxlength="280" required></textarea><br /><br />')
+      expect(response.body).to include('<option value="1">firstname</option>')
+      expect(response.body).to include('<option value="2">secondname</option>')
+      expect(response.body).to include('<input type="submit">') 
+    end
+  end
 end
