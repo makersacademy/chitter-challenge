@@ -1,3 +1,10 @@
+use ruby '3.0.2'
+
+test use 'rspec'
+
+git clone it and bundle install
+
+
 Chitter Challenge
 =================
 
