@@ -1,0 +1,61 @@
+<html>
+  <body>
+    <% if session[:user_id] %>
+      <% user = @user_repository.find_by_id(session[:user_id]) %>
+      <h3>Currently logged in as: <%= user.username %></h3>
+      <form action="/logged_in" method="get">
+        <button type="submit">Go Back</button>
+      </form>
+      <% peep = @peep_repository.find_by_id(@peep_id) %>
+      <% user = @user_repository.find_by_id(peep.user_id) %>
+      <div style="border: thin solid black">
+        <div style="display: flex; justify-content: left;">
+          <p> <b><%= user.name %>  </b>
+            <p style="color:grey">@<%= user.username %></p>
+          </p>
+        </div>
+        <p> <%= peep.content %>
+          <p> <%= peep.time_posted %>
+          </div>
+          <form action="/reply/<%= @peep_id %>/new" method="post">
+            <div class="container">
+              <input type="text" placeholder="insert reply here" name="content">
+              <button type="submit">Post Reply</button>
+            </div>
+          </form>
+        <% else %>
+          <p>Not logged in</p>
+          <form action="/" method="get">
+            <button type="submit">Go Back</button>
+          </form>
+          <% peep = @peep_repository.find_by_id(@peep_id) %>
+          <% user = @user_repository.find_by_id(peep.user_id) %>
+          <div style="border: thin solid black">
+            <div style="display: flex; justify-content: left;">
+              <p> <b><%= user.name %>  </p>
+              </b>
+              <p style="color:grey">@<%= user.username %></p>
+            </div>
+            <p> <%= peep.content %>
+              <p> <%= peep.time_posted %>
+              </div>
+            <% end %>
+            <h4> All replies: </h4>
+            <% if !@comments.empty?       %>
+              <% @comments.reverse.each do |comment| %>
+                <div style="border: thin solid black">
+                  <% user = @user_repository.find_by_id(comment.user_id) %>
+                  <div style="display: flex; justify-content: left;">
+                    <p> <b><%= user.name %>  </b>
+                      <p style="color:grey">@<%= user.username %></p>
+                    </p>
+                  </div>
+                  <p> <%= comment.content %>
+                    <p> <%= comment.time_posted %> </p>
+                  </div>
+                <%  end %>
+              <% else %>
+                <p> No replies yet </p>
+              <% end %>
+            </body>
+            <html>

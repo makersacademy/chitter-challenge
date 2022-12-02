@@ -22,9 +22,9 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<p> willj836 - My third post </p><br>')
-      expect(response.body).to include('<p> OptimusPrime - I am a transformer </p><br>')
-      expect(response.body).to include('<p> willj836 - My first post </p><br>')
+      expect(response.body).to include('My third post')
+      expect(response.body).to include('I am a transformer')
+      expect(response.body).to include('My first post')
     end
   end
 end

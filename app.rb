@@ -9,10 +9,9 @@ DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
 
-  enable :sessions
-
   configure :development do
     register Sinatra::Reloader
+    enable :sessions
   end
 
   get '/' do 
@@ -20,7 +19,7 @@ class Application < Sinatra::Base
     @peep_repository = PeepRepository.new 
     @user_repository = UserRepository.new 
     @comment_repository = CommentRepository.new
-    return erb(:homepage_not_logged_in)
+    return erb(:homepage)
   end
 
   get '/signup' do 
@@ -29,19 +28,17 @@ class Application < Sinatra::Base
 
   post '/signup' do 
     new_user = User.new 
+    new_user.name = params[:name]
     new_user.username = params[:username]
     new_user.email = params[:email] 
     new_user.password = params[:password]
-    repo = UserRepository.new 
     @user_repository = UserRepository.new 
-    if @user_repository.check_if_username_or_email_taken(params[:username], params[:email])
-      return erb(:taken_details)
-    else 
-      repo.create(new_user)
-      user = @user_repository.find_by_username(params[:username])
-      session[:user_id] = user.id
-      @user_id = session[:user_id]
-    end
+    taken = @user_repository.check_if_username_or_email_taken(params[:username], params[:email])
+    return erb(:taken_details) if taken
+    @user_repository.create(new_user)
+    user = @user_repository.find_by_username(params[:username])
+    session[:user_id] = user.id
+ 
 
 
     @peep_repository = PeepRepository.new 
@@ -55,11 +52,10 @@ class Application < Sinatra::Base
     @user_repository = UserRepository.new
 
     all_users = @user_repository.all 
-    valid_details = all_users.any? { |user| (user.username == params[:username]) and (BCrypt::Password.new(user.password) == params[:password])}
-    if valid_details
+    @valid_details = all_users.any? { |user| (user.username == params[:username]) and (BCrypt::Password.new(user.password) == params[:password])}
+    if @valid_details
       user = @user_repository.find_by_username(params[:username])
       session[:user_id] = user.id
-      @user_id = session[:user_id]
       return redirect '/logged_in'
     else
       return redirect '/incorrect-details'
@@ -70,8 +66,8 @@ class Application < Sinatra::Base
     @peep_repository = PeepRepository.new 
     @comment_repository = CommentRepository.new
     @user_repository = UserRepository.new
-    @user_id = session[:user_id]
-    return erb(:homepage_logged_in)
+
+    return erb(:homepage)
   end
 
   get '/incorrect-details' do 
@@ -87,6 +83,7 @@ class Application < Sinatra::Base
     peep.time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
     peep.user_id = session[:user_id]
     peep.content = params[:content]
+    check_if_peep_or_reply_contains_tag(params[:content])
     peep_repository.create(peep)
     return redirect '/logged_in'
   end
@@ -97,11 +94,7 @@ class Application < Sinatra::Base
     @user_repository = UserRepository.new
     @peep_repository = PeepRepository.new
     @peep_id = params[:peep_id]
-    if !session[:user_id].nil?
-      return erb(:replies_logged_in)
-    else
-      return erb(:replies_not_logged_in)
-    end
+    return erb(:replies)
   end
 
   post '/reply/:peep_id/new' do 
@@ -113,8 +106,20 @@ class Application < Sinatra::Base
     comment.user_id = session[:user_id]
     comment.content = params[:content]
     comment.peep_id = params[:peep_id]
+    return redirect "/replies/#{params[:peep_id]}" if params[:content].empty?
+    check_if_peep_or_reply_contains_tag(params[:content])
     @comment_repository.create(comment)
     return redirect "/replies/#{params[:peep_id]}"
+  end
+
+  def check_if_peep_or_reply_contains_tag(content)
+    user_repository = UserRepository.new
+    usernames = user_repository.all.map(&:username)
+    usernames.each do |username|
+      if content.include? ("@#{username}")
+        # send email
+      end
+    end
   end
 end
 

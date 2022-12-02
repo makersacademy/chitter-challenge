@@ -44,7 +44,7 @@ I want to receive an email if I am tagged in a Peep
 ```
 Nouns:
 
-USER username, email, password
+USER name, username, email, password
 PEEP content, time_posted, user_id
 COMMENT content, time_posted, user_id (of the commenter), peep_id
 ```
@@ -100,6 +100,7 @@ peep_id: int
 ```sql
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
+  name text,
   username text,
   email text,
   password text
