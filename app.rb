@@ -23,4 +23,9 @@ class Application < Sinatra::Base
 
     erb(:all_peeps)
   end
+
+  get 'peeps/:id' do
+
+
+  end
 end

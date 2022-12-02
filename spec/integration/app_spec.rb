@@ -41,4 +41,11 @@ context "GET /peeps" do
   end
 end
 
+context "GET /peeps/:id" do
+  it "returns page of peeps from one user" do
+    response = get('peeps/1')
+
+    expect(response.body).to include '<h1>Peeps by David</h1>'
+  end
+end
 end
