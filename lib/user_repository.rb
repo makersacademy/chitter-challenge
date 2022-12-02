@@ -47,4 +47,25 @@ class UserRepository
 
     return nil
   end
+
+    # finds the User object that created the peep
+  # takes one argument: a Peep object
+  def find_user_by_id(user_id)
+    #
+    # Executes the SQL query:
+    sql = "SELECT id, email_address, password, name, username FROM users WHERE id = $1"
+    params = [user_id]
+
+    result_set = DatabaseConnection.exec_params(sql, params)
+    record = result_set[0]
+
+    user = User.new
+    user.id = record["id"]
+    user.email_address = record["email_address"]
+    user.password = record["password"]
+    user.name = record["name"]
+    user.username = record["username"]
+
+    return user
+  end
 end

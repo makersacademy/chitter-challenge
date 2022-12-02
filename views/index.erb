@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chitter Homepage</title>
+  </head>
+  <body>
+    <header>
+      <h1>Chitter</h1>
+      <h4>Like Twitter, but legitter!</h4>
+      <nav>
+        <a href="/">Home</a> |
+        <a href="/login">Log in</a> |
+        <a href="/signup">Sign up</a>
+      </nav>
+    </header>
+
+    <hr>
+
+    <h2>Peeps</h2>
+
+    <% @reversed_peeps.each do |peep| %>
+      <% user = @user_repo.find_user_by_id(peep.user_id.to_i) %>
+      <article>
+        <p> <%= user.name %> &nbsp | &nbsp <%= user.username %> &nbsp | &nbsp <%= peep.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
+        <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
+        <p> view comments </p>        <!-- add link to take user to peep -->
+        <p> &nbsp <p>
+      </article>
+    <% end %>
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>

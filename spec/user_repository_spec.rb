@@ -85,4 +85,19 @@ RSpec.describe UserRepository do
       expect{ repo.create(new_user) }.to raise_error ('That username is already taken')
     end
   end
+
+  describe "#find_user_by_id(user_id)" do
+    it "returns the user object for the given id" do
+      repo = UserRepository.new
+      user = repo.find_user_by_id(2)
+
+      expect(user.id).to eq ("2")
+      expect(user.email_address).to eq ("johnny22@gmail.com")
+      expect(user.password).to eq ("22pwordjj")
+      expect(user.name).to eq ("Johnny James")
+      expect(user.username).to eq ("JJ22")
+    end
+
+  # add an error test and code in repo file
+  end
 end
