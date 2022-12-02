@@ -1,25 +1,41 @@
 <html>
-  <head><link rel="stylesheet" href="styles.css"/></head>
-  <body>
-    <div class="title">
-      <h1>Chitter</h1>
-    </div>
-    <form action="/" method="get">
-      <a href='/'>Click here to sign out</a>
-    </form>
-    <h1>Peeps</h1>
-    <h3>What do you wanna peep about?</h3>
-    <form action="/new_peep/:user_id" method="post">
-      <label for="content">Enter your peep:</label><br>
-      <input type="text" id="content" name="content"><br>
-      <input type="submit" value="Post a new peep">
-    </form>
-    <% @peep_repo.all.reverse.each do |post| %>
+   <head>
+      <link rel="stylesheet" href="/styles.css"/>
+   </head>
+   <body>
+      <form action="/" method="get">
+         <button type="button" class="sign-out-button">
+         <a href='/'>Click here to sign out</a>
+      </form>
+      </button>
+      <div class="float-container">
+         <div class ="float-child">
+            <div class="logo">
+               <img src="logo.png" alt="Chitter logo" width="600" height="200">
+            </div>
+         </div>
+         <div class="float-child">
+            <div class="username-header">@<%= @user_repo.find(session[:user_id]).username %> </div>
+         </div>
+      </div>
+      <h3>What do you wanna peep about?</h3>
+      <form action="/new_peep/:user_id" method="post">
+         <label for="content">Enter your peep:</label>
+         <input type="text" id="content" name="content" class="peep-input">
+         <input type="submit" value="Post a new peep">
+      </form>
+      <h1 class="peeps-header">Timeline</h1>
+      <% @peep_repo.all.reverse.each do |peep| %>
       <div class="peep">
-        <p><%= @user_repo.find(post.user_id).name %> @<%= @user_repo.find(post.user_id).username %>: <%= post.content %></p>
-        <a href="/comment/<%= post.id %>">Comments</a>
-        <p><%= post.time_posted %>
-        </div>
+         <p class="peep-name"><%= @user_repo.find(peep.user_id).name %> </p>
+         <div class="peep-text">
+            <p>
+            <div class=user-tag>@<%= @user_repo.find(peep.user_id).username %></div>
+            : <%= peep.content %></p> 
+         </div>
+         <p class="timestamp"><%= peep.time_posted %></p>
+         <a href="/comment/<%= peep.id %>"><button type="button">View comments</button></a>
+      </div>
       <% end %>
-    </body>
-  </html>
+   </body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "name": "@prettier/plugin-ruby",
+  "version": "3.2.2",
+  "description": "prettier plugin for the Ruby programming language",
+  "main": "src/plugin.js",
+  "scripts": {
+    "checkFormat": "prettier --check '**/*'",
+    "lint": "eslint --cache .",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prettier/plugin-ruby.git"
+  },
+  "author": "Kevin Newton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prettier/plugin-ruby/issues"
+  },
+  "homepage": "https://github.com/prettier/plugin-ruby#readme",
+  "dependencies": {
+    "prettier": ">=2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.0.0",
+    "husky": "^8.0.1",
+    "jest": "^29.0.0",
+    "pretty-quick": "^3.1.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "env": {
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  },
+  "jest": {
+    "globalSetup": "./test/js/globalSetup.js",
+    "globalTeardown": "./test/js/globalTeardown.js",
+    "setupFilesAfterEnv": [
+      "./test/js/setupTests.js"
+    ],
+    "testRegex": ".test.js$"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "plugins": [
+      "."
+    ]
+  }
+}

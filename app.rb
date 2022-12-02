@@ -146,16 +146,5 @@ class Application < Sinatra::Base
 
   def send_email
 
-# smtp = Net::SMTP.new 'ashworthjude@gmail.com', 587
-# message = <<END_OF_MESSAGE
-# From: Jude Ashworth <ashworthjude@gmail.com>
-# To: Jude Ashworth <ashworthjude@gmail.com>
-# Subject: Sending email with Ruby 
-# Hello.
-# This is an email ‌sent with Ruby.
-# END_OF_MESSAGE
-# smtp.start('ashworthjude@gmail.com', FROM_EMAIL, PASSWORD, :plain)
-# smtp.send_message(message, FROM_EMAIL, TO_EMAIL)
-# smtp.finish()
   end
 end

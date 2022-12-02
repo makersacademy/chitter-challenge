@@ -1,8 +1,111 @@
 .peep {
-  background-color: orange;
+  border-radius: 25px;
+  background-color: #3aced3;
+  padding: 15px;
+  width: 80%;
+  height: auto;
+  border: 3px solid #fff;
 }
 
-.title {
+.float-container {
+  border: 3px solid #fff;
+  padding: 20px;
+  display: inline-flexbox;
+  min-width: 400px; 
+}
+
+.float-child{
+  width: 40%;
+  display: inline-block;
+  padding: 20px;
+}
+
+.comment {
+  border-radius: 25px;
+  background-color: aquamarine;
+  padding: 5px;
+  width: 70%;
+  height: auto;
+  border: 3px solid #fff;
+}
+
+.peep-input {
+  width: 65%;
+}
+
+
+
+.log-in-input {
+  width: 300px;
+}
+
+.form {
+  padding: 20px;
+  border-radius: 25px;
+  border: 3px solid rgb(209, 214, 238);
+  width: 400px;
+}
+
+.peeps-header {
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-left: 30px;
+  margin: 10px;
+}
+
+.timestamp {
+  font: 11;
+  color: grey;
+  margin: 2px;
+}
+
+.peep-name {
+  font-family: Georgia;
+  font-size: large;
   font-weight: bold;
 }
 
+.user-tag {
+  color:blue;
+  display: inline-block;
+}
+
+.peep-text {
+  font-size: large;
+}
+
+.comments-button {
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+}
+
+.username-header {
+  border-radius: 25px;
+  border: 5px solid rgb(156, 36, 128);
+  position: absolute; top:150; right:500;
+  font-weight: bold;
+  font-size: xx-large;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  float: right;
+  padding: 5px;
+}
+
+.sign-out-button {
+  position: absolute; top:10; right:10;
+}
+
+.input-box {
+  width: 90%;
+}
+
+.button {
+  margin-top: 7px;
+}
+
+.comment-input {
+  width: 60%;
+  margin-left: 10px;
+}

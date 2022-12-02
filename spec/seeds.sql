@@ -1,6 +1,5 @@
-
 TRUNCATE TABLE users RESTART IDENTITY CASCADE;
-INSERT INTO users (name, email_address, username, password) VALUES ('Jude', 'jude@jude.com', 'jude94', 'topsecret123');
+INSERT INTO users (name, email_address, username, password) VALUES ('Jude', 'jude@jude.com', 'jude94', '$2a$12$Q8PpYE5PiwsImEgrZi7z4urf1emUvE3yy21q0iJl7KRLMANYF0siW');
 INSERT INTO users (name, email_address, username, password) VALUES ('Abbie', 'abbie@abbie.com', 'abbie236', 'passsword111');
 INSERT INTO users (name, email_address, username, password) VALUES ('Billy', 'billy@billy.com', 'billy_1956', 'dontguessme99');
 INSERT INTO users (name, email_address, username, password) VALUES ('Mo', 'mo@mo.com', 'mo**11', 'qwertyuiop');
