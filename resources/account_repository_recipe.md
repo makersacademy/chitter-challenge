@@ -35,9 +35,12 @@ TRUNCATE TABLE peeps RESTART IDENTITY;
 -- Replace these statements with your own seed data.
 
 INSERT INTO accounts (email, password, name, username) VALUES
-('thomas@email.com', 'password', 'Thomas Seleiro', 'TSeleiro'),
-('graeme@email.com', 'P@$$w0rd', 'Graeme Paterson', 'GPaterson'),
-('robbie@email.com', '1234hello1234', 'Robbie Kirkbride', 'RKirkbride');
+-- PASSWORD: password
+('thomas@email.com', '$2a$12$1CrGiZefwfjMBHXzRwf.ROQtx1lt.vaXwbgAl1fQEJYXwVVwEY9LO', 'Thomas Seleiro', 'TSeleiro'),
+-- PASSWORD: P@$$w0rd
+('graeme@email.com', '$2a$12$fALqEuM793QuKQfp3x3H2e9B.5yM3ftUqGoBKk1a2bV3mt2fwoxri', 'Graeme Paterson', 'GPaterson'),
+-- PASSWORD: '1234hello1234'
+('robbie@email.com', '$2a$12$cHmw7YQKvYh/Fy/k37YUZuldl.b5Y3.cNpojS8Kn1yjmmE8y1trVa', 'Robbie Kirkbride', 'RKirkbride');
 
 INSERT INTO peeps(contents, time_posted, account_id) VALUES
 ('My first peep', '2022-11-01 16:00:00', 1),
@@ -102,6 +105,11 @@ Using comments, define the method signatures (arguments and return value) and wh
 # (in lib/account_repository.rb)
 
 class AccountRepository
+  
+  # Sets the object that encrypts passwords before adding them to the database
+  # encypter is an object that has a create method
+  def initialize(encrypter = BCrypt::Password)
+  end
 
   # Selecting all records
   # No arguments
@@ -119,6 +127,15 @@ class AccountRepository
     # SELECT id, email, password, name, username FROM accounts WHERE id = $1;
 
     # Returns a single Account object.
+  end
+
+  # Gets a single record by its username
+  # One argument: the username (string)
+  def find_with_username(username)
+    # Executes the SQL query:
+    # SELECT id, email, password, name, username FROM accounts WHERE username = $1;
+
+    # Returns a single Account object
   end
 
   def create(account)
@@ -146,13 +163,13 @@ accounts.length # => 3
 
 accounts.first.id # => 1
 accounts.first.email # => "thomas@email.com"
-accounts.first.password # => "password"
+accounts.first.password # => "$2a$12$1CrGiZefwfjMBHXzRwf.ROQtx1lt.vaXwbgAl1fQEJYXwVVwEY9LO"
 accounts.first.name # => "Thomas Seleiro"
 accounts.first.username # => "TSeleiro"
 
 accounts.last.id # => 3
 accounts.last.email # => "robbie@email.com"
-accounts.last.password # => "1234hello1234"
+accounts.last.password # => "$2a$12$cHmw7YQKvYh/Fy/k37YUZuldl.b5Y3.cNpojS8Kn1yjmmE8y1trVa"
 accounts.last.name # => "Robbie Kirkbride"
 accounts.last.username # => "RKirkbride"
 
@@ -163,7 +180,7 @@ account = account_repo.find(2)
 
 account.id # => 2
 account.email # => "graeme@email.com"
-account.password # => "P@$$w0rd"
+account.password # => "$2a$12$fALqEuM793QuKQfp3x3H2e9B.5yM3ftUqGoBKk1a2bV3mt2fwoxri"
 account.name # => "Graeme Paterson"
 account.username # => "GPaterson"
 
@@ -173,7 +190,33 @@ account_repo = AccountRepository.new
 account = account_repo.find(4) # => raises IndexError "There is no account with ID 4"
 
 # 4
+# #find_with_username finds the record for a given username
+account_repo = AccountRepository.new
+username = "GPaterson"
+
+account = account_repo.find_with_username(username)
+
+account.id # => 2
+account.email # => "graeme@email.com"
+account.password # => "$2a$12$fALqEuM793QuKQfp3x3H2e9B.5yM3ftUqGoBKk1a2bV3mt2fwoxri"
+account.name # => "Graeme Paterson"
+account.username # => "GPaterson"
+
+# 5
+# #find_with_username fails if no record with the given username exists
+account_repo = AccountRepository.new
+username = "IDoNotExist"
+
+account_repo.find_with_username(username) # => raises KeyError "No accounts exist with the username 'IDoNotExist'"
+
+# 6
 # #create adds an account to the database
+encrypted_password = "$2a$12$f/cdOsF7jt6uUWDlEOxebOpIsC2kCD3G1Q3G6TnqXjyqho3JVT3/6"
+bcrypt_double = double(:fake_bcrypt)
+expect(bcrypt_double).to recieve(:create).with("12344321")
+  .and_return(encrypted_password)
+expect(bcrypt_double).to recieve(:==).with("12344321").and_return(true)
+
 account_repo = AccountRepository.new
 new_account = Account.new
 new_account.email = "shah@email.com"
@@ -183,9 +226,10 @@ new_account.username = "SHussain"
 
 account_repo.create(new_account)
 
-account_repo.all # => include(have_attributes(id: 4, email:, password:, name:, username:)
+accounts = account_repo.all # => include(have_attributes(id: 4, email:, name:, username:)
+bcrypt_double == accounts.password.last # => true
 
-# 5
+# 7
 # #create fails when adding an account with an existing username
 account_repo = AccountRepository.new
 new_account = Account.new
@@ -196,7 +240,7 @@ new_account.username = "SHussain"
 
 account_repo.create(new_account) # => raises error PG::UniqueViolation
 
-# 6
+# 8
 # #create fails when adding an account with an existing password
 account_repo = AccountRepository.new
 new_account = Account.new
@@ -207,7 +251,7 @@ new_account.username = "TSeleiro"
 
 account_repo.create(new_account) # => raises error PG::UniqueViolation
 
-# 7
+# 9
 # #create fails when any field is empty
 account_repo = AccountRepository.new
 new_account = Account.new
@@ -230,7 +274,7 @@ new_account.name = "Shah Hussain"
 new_account.username = ""
 account_repo.create(new_account) # => raises ArgumentError "An account cannot have an empty argument"
 
-# 8
+# 10
 # #create fails when entering a poorly formatted email address
 account_repo = AccountRepository.new
 
