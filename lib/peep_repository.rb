@@ -22,7 +22,6 @@ class PeepRepository
     query_result = DatabaseConnection.exec_params(sql_query,[id])
 
     if query_result.first.nil?
-      puts "no results found"
       fail IndexError.new "There is no peep with ID #{id}"
     end
     return extract_peep_from_record(query_result.first)
