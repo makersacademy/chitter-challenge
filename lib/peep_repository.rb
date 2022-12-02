@@ -5,7 +5,13 @@ class PeepRepository
     peeps = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT id, content, post_time, account_id FROM peeps;'
+    sql = 'SELECT peeps.id, 
+                  peeps.content, 
+                  peeps.post_time, 
+                  accounts.username
+    FROM peeps
+    INNER JOIN accounts
+    ON peeps.account_id = accounts.account_id;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
@@ -19,7 +25,7 @@ class PeepRepository
       peep.id = record['id'].to_i
       peep.content = record['content']
       peep.post_time = record['post_time']
-      peep.account_id = record['account_id'].to_i
+      peep.username = record['username']
 
       peeps << peep
     end
@@ -28,14 +34,21 @@ class PeepRepository
   end
 
   def find(id)
-    sql = 'SELECT id, content, post_time, account_id FROM peeps WHERE id = $1;'
+    sql = 'SELECT peeps.id, 
+          peeps.content, 
+          peeps.post_time, 
+          accounts.username
+    FROM peeps
+    INNER JOIN accounts
+    ON peeps.account_id = accounts.account_id
+    WHERE peeps.id = $1'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     peep = Peep.new
     peep.id = result_set[0]['id'].to_i
     peep.content = result_set[0]['content']
     peep.post_time = result_set[0]['post_time']
-    peep.account_id = result_set[0]['account_id'].to_i
+    peep.username = result_set[0]['username']
 
     return peep
   end
