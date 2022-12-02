@@ -526,7 +526,7 @@ These examples will later be encoded as RSpec tests.
   # 2.1
   # success: get all comments by peep_id
   repo = CommentRepository.new
-  comments_by_peep = repo.peeps_by_user(1)
+  comments_by_peep = repo.comments_by_peep(1)
 
   comments_by_peep.length # => 3
   comments_by_peep.first.id # => '1'

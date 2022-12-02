@@ -30,7 +30,7 @@ RSpec.describe PeepRepository do
     end
   end
 
-  describe "#peeps_by_user(user_id)" do
+  describe "#peeps_by_user(id_of_user)" do
     it "returns all peeps by given user" do
       repo = PeepRepository.new
       peeps_by_user = repo.peeps_by_user(2)
@@ -46,7 +46,7 @@ RSpec.describe PeepRepository do
       expect(peeps_by_user.last.user_id).to eq ('2')
     end
 
-    it "raises error when invalid user_id given" do
+    it "raises error when non-existent user_id is given" do
       repo = PeepRepository.new
       expect{ repo.peeps_by_user(70) }.to raise_error ("This user does not exist")
     end
