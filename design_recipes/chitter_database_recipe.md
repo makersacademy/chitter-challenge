@@ -21,6 +21,14 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
 Nouns:
 
 message(peep)(ordered in reverse chronological order), time, 
@@ -30,7 +38,7 @@ message(peep)(ordered in reverse chronological order), time,
 Put the different nouns in this table. Replace the example with your own nouns.
 
 Record	      Properties
-peeps	        message, time_posted, user_id
+peeps	        message, created_at, user_id
 users         user_name, password
 
 Name of the first table (always plural): users
@@ -85,7 +93,7 @@ In that case, the foreign key is in the table [peeps]
 -- Create the table without the foreign key first.
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  user_name text,
+  email_address text,
   password text
 );
 
@@ -96,8 +104,8 @@ file: seeds_peeps.sql
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   message text,
-  time_posted timestamp,
-  user_id int
+  created_at timestamp,
+  user_id int,
   constraint fk_user foreign key(user_id)
     references users(id)
     on delete cascade
