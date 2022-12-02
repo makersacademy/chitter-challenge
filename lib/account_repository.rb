@@ -5,7 +5,7 @@ class AccountRepository
     accounts = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT account_id, username FROM accounts;'
+    sql = 'SELECT account_id, email, name, username, bio FROM accounts;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
@@ -17,7 +17,10 @@ class AccountRepository
       # with the record data.
       account = Account.new
       account.account_id = record['account_id'].to_i
+      account.email = record['email']
+      account.name = record['name']
       account.username = record['username']
+      account.bio = record['bio']
 
       accounts << account
     end
@@ -26,19 +29,22 @@ class AccountRepository
   end
 
   def find(id)
-    sql = 'SELECT account_id, username FROM accounts WHERE account_id = $1;'
+    sql = 'SELECT account_id, email, name, username, bio FROM accounts WHERE account_id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     account = Account.new
     account.account_id = result_set[0]['account_id'].to_i
+    account.email = result_set[0]['email']
+    account.name = result_set[0]['name']
     account.username = result_set[0]['username']
+    account.bio = result_set[0]['bio']
 
     return account
   end
 
   def create(account)
-    sql = 'INSERT INTO accounts (username, password) VALUES ($1, $2);'
-    result_set = DatabaseConnection.exec_params(sql, [account.username, account.password])
+    sql = 'INSERT INTO accounts (email, password, name, username, bio) VALUES ($1, $2, $3, $4, $5);'
+    result_set = DatabaseConnection.exec_params(sql, [account.email, account.password, account.name, account.username, account.bio])
 
     return account
   end
