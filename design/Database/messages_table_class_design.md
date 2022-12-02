@@ -34,9 +34,8 @@ INSERT INTO users (username, email_address, password,full_name) VALUES ('The_Mig
 INSERT INTO users (username, email_address, password,full_name) VALUES ('Schmoe123', 'j_schmoe@gmail.com', '7gyhd88gg4', 'Joe_schmoe');
 INSERT INTO users (username, email_address, password,full_name) VALUES ('not_elon', 'Meelon@tesla.com', '1filNfdvc£','Meelon Musk');
 
-
-INSERT INTO messages (content, time_posted, user_id) VALUES ('This is a short post', '2022-12-01 19:10:25', '1');
 INSERT INTO messages (content, time_posted, user_id) VALUES ('Here is a slightly longer peep that I have created', '2022-11-01 14:50:00', '2');
+INSERT INTO messages (content, time_posted, user_id) VALUES ('This is a short post', '2022-12-01 19:10:25', '1');
 INSERT INTO messages (content, time_posted, user_id) VALUES ('Here is an even longer peep, to deemonstrate how a much longer post may look when stored in my chitter database. Some posts may be even longer!', '2022-07-01 08:10:00', '3');
 
 ```
@@ -102,11 +101,29 @@ class MessageRepository
   # Selecting all records
   # No arguments
   def all
-    # Executes the SQL query:
-    # SELECT id, content, time_posted, user_id FROM messages;
-
+    
     # Returns an array of Message objects.
   end
+
+def sort_messages
+
+  #sorts messages by time in Descending ordering 
+
+  #SELECT content, time_posted, user_id FROM messages
+	#ORDER BY time_posted DESC
+
+ 
+
+end 
+
+def display 
+
+
+#returns an array of message objects sorted by time 
+
+# NOTE - this may make all method redundant 
+
+end 
 
   # Creates a new message
   # Three arguments: content, time_posted, user_id
@@ -130,34 +147,63 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Show messages by time in descending order
 
-repo = StudentRepository.new
+repo = MessageRepository.new
 
-students = repo.all
+sort_messages = repo.sort_messages
 
-students.length # =>  2
+timeline = sort_messages.display
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+timeline.length # =>  3
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+timeline[0].content # =>  'This is a short post'
+timeline[0].time_posted # =>  '2022-12-01 19:10:25'
+timeline[0].user_id # => '1'
+
+timeline[0].content # =>  'Here is a slightly longer peep that I have created'
+timeline[0].time_posted # =>  '2022-11-01 14:50:00'
+timeline[0].user_id # => '2'
 
 # 2
-# Get a single student
+# Create a new message
 
-repo = StudentRepository.new
+repo = MessageRepository.new
+message = Message.new
 
-student = repo.find(1)
+message.content = 'This new post should have an older date to test sorting'
+message.time_posted =  '2022-09-01 12:37:42'
+message.user_id = '2'
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+sort_messages = repo.sort_messages
 
-# Add more examples for each method
+timeline = sort_messages.display
+
+timeline.last.content # =>  'This new post should have an older date to test sorting'
+timeline.last.time_posted # =>  '2022-09-01 12:37:42'
+timeline.last.user_id # => '2'
+
+
+# 3
+# Creates another new message 
+
+repo = MessageRepository.new
+message = Message.new
+
+message.content = 'This new post should appear at the top of our timeline'
+message.time_posted =  '2022-12-01 11:22:33'
+message.user_id = '2'
+
+sort_messages = repo.sort_messages
+
+timeline = sort_messages.display
+
+timeline.first.content # =>  'This new post should appear at the top of our timeline'
+timeline.first.time_posted # =>  '2022-12-01 11:22:33'
+timeline.first.user_id # => '2'
+
+
+
 ```
 
 Encode this example as a test.
@@ -173,18 +219,55 @@ This is so you get a fresh table contents every time you run the test suite.
 
 # file: spec/student_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_tables
+  seed_sql = File.read('spec/seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_database_test' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe MessageRepository do
   before(:each) do 
-    reset_students_table
+    reset_tables
   end
 
-  # (your tests will go here).
+  it 'shows all messages in reverse chronological order' do 
+
+    repo = MessageRepository.new
+    sort_messages = repo.sort_messages
+    timeline = sort_messages.display
+    
+    expect(timeline.length).to eq 3
+
+    expect(timeline[0].content).to eq 'This is a short post'
+    expect(timeline[0].time_posted).to eq '2022-12-01 19:10:25'
+    expect(timeline[0].user_id).to eq '1'
+
+    expect(timeline[0].content).to eq 'Here is a slightly longer peep that I have created'
+    expect(timeline[0].time_posted).to eq '2022-11-01 14:50:00'
+    expect(timeline[0].user_id).to eq '2'
+  
+  end 
+
+  it 'creates a new message' do
+
+    repo = MessageRepository.new
+    message = Message.new
+
+    message.content = 'This new post should have an older date to test sorting'
+    message.time_posted =  '2022-09-01 12:37:42'
+    message.user_id = '2'
+
+    sort_messages = repo.sort_messages
+    timeline = sort_messages.display
+
+    expect(timeline.last.content).to eq 'This new post should have an older date to test sorting'
+    expect(timeline.last.time_posted).to eq '2022-09-01 12:37:42'
+    expect(timeline.last.user_id).to eq '2'
+
+
+  end 
+
+
 end
 ```
 
