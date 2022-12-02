@@ -17,28 +17,33 @@ describe AccountRepository do
 
     expect(accounts.length).to eq 3
 
-    expect(accounts.first.id).to eq 1
-    expect(accounts.first.email).to eq "thomas@email.com"
-    expect(accounts.first.password).to eq "password"
-    expect(accounts.first.name).to eq "Thomas Seleiro"
-    expect(accounts.first.username).to eq "TSeleiro"
-
-    expect(accounts.last.id).to eq 3
-    expect(accounts.last.email).to eq "robbie@email.com"
-    expect(accounts.last.password).to eq "1234hello1234"
-    expect(accounts.last.name).to eq "Robbie Kirkbride"
-    expect(accounts.last.username).to eq "RKirkbride"
+    expect(accounts.first).to have_attributes(
+      id: 1,
+      email: "thomas@email.com",
+      password: "$2a$12$1CrGiZefwfjMBHXzRwf.ROQtx1lt.vaXwbgAl1fQEJYXwVVwEY9LO",
+      name: "Thomas Seleiro",
+      username: "TSeleiro"
+    )
+    expect(accounts.last).to have_attributes(
+      id: 3,
+      email: "robbie@email.com",
+      password: "$2a$12$cHmw7YQKvYh/Fy/k37YUZuldl.b5Y3.cNpojS8Kn1yjmmE8y1trVa",
+      name: "Robbie Kirkbride",
+      username: "RKirkbride"
+    )
   end
 
   it "Finds an account with a given account id" do
     account_repo = AccountRepository.new
     account = account_repo.find(2)
 
-    expect(account.id).to eq 2
-    expect(account.email).to eq "graeme@email.com"
-    expect(account.password).to eq "P@$$w0rd"
-    expect(account.name).to eq "Graeme Paterson"
-    expect(account.username).to eq "GPaterson"
+    expect(account).to have_attributes(
+      id: 2,
+      email: "graeme@email.com",
+      password: "$2a$12$fALqEuM793QuKQfp3x3H2e9B.5yM3ftUqGoBKk1a2bV3mt2fwoxri",
+      name: "Graeme Paterson",
+      username: "GPaterson"
+    )
   end
 
   it "#find fails when given an invalid account id" do

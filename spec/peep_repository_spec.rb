@@ -17,25 +17,30 @@ describe PeepRepository do
 
     expect(peeps.length).to eq 5
 
-    expect(peeps.first.id).to eq 5
-    expect(peeps.first.contents).to eq "My third peep"
-    expect(peeps.first.time_posted).to eq "2022-11-03 07:13:49"
-    expect(peeps.first.account_id).to eq 1
-
-    expect(peeps.last.id).to eq 1
-    expect(peeps.last.contents).to eq "My first peep"
-    expect(peeps.last.time_posted).to eq "2022-11-01 16:00:00"
-    expect(peeps.last.account_id).to eq 1
+    expect(peeps.first).to have_attributes(
+      id: 5,
+      contents: "My third peep",
+      time_posted: "2022-11-03 07:13:49",
+      account_id: 1
+    )
+    expect(peeps.last).to have_attributes(
+      id: 1,
+      contents: "My first peep",
+      time_posted: "2022-11-01 16:00:00",
+      account_id: 1
+    )
   end
 
   it "Find a peep with a specific id" do
     peep_repository = PeepRepository.new
     peep = peep_repository.find(4)
 
-    expect(peep.id).to eq 4
-    expect(peep.contents).to eq "Test"
-    expect(peep.time_posted).to eq "2022-11-02 16:00:30"
-    expect(peep.account_id).to eq 3
+    expect(peep).to have_attributes(
+      id: 4,
+      contents: "Test",
+      time_posted: "2022-11-02 16:00:30",
+      account_id: 3
+    )
   end
 
   it "#find fails with an IndexError when given an id that doesn't exist" do
