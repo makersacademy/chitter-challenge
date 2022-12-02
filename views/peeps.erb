@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+
+    <% @peeps.zip(@authors).each do |peep, author| %>
+      <div>
+        <h3><%= author.username %></h3>
+        <p><%= peep.contents %></p>
+        <p><%= peep.time_posted %></p>
+      </div>
+    <% end %>
+  </body>
+</html>
