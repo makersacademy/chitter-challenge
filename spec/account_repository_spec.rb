@@ -53,7 +53,15 @@ describe AccountRepository do
   end
 
   it "#create adds an account to the database" do
-    account_repo = AccountRepository.new
+    encrypted_password_double = double(:fake_password)
+    expect(encrypted_password_double).to receive(:to_s)
+      .and_return("$2a$12$f/cdOsF7jt6uUWDlEOxebOpIsC2kCD3G1Q3G6TnqXjyqho3JVT3/6")
+
+    bcrypt_double = double(:fake_bcrypt)
+    expect(bcrypt_double).to receive(:create).with("12344321")
+      .and_return(encrypted_password_double)
+    
+    account_repo = AccountRepository.new(bcrypt_double)
     new_account = Account.new
     new_account.email = "shah@email.com"
     new_account.password = "12344321"
@@ -65,7 +73,7 @@ describe AccountRepository do
     expect(account_repo.all).to include(have_attributes(
       id: 4,
       email: "shah@email.com",
-      password: "12344321",
+      password: "$2a$12$f/cdOsF7jt6uUWDlEOxebOpIsC2kCD3G1Q3G6TnqXjyqho3JVT3/6",
       name: "Shah Hussain",
       username: "SHussain"
     ))

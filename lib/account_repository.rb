@@ -1,7 +1,12 @@
 require_relative "account"
 require_relative "database_connection"
+require "bcrypt"
 
 class AccountRepository
+  def initialize(encrypter = BCrypt::Password)
+    @encrypter = encrypter
+  end
+  
   def all
     sql_query = "SELECT id, email, password, name, username FROM accounts;"
     query_result = DatabaseConnection.exec_params(sql_query, [])
@@ -27,8 +32,9 @@ class AccountRepository
       account.email
     )
 
+    encrypted_password = @encrypter.create(account.password)
     sql_query = "INSERT INTO accounts (email, password, name, username) VALUES ($1, $2, $3, $4);"
-    params = [account.email, account.password, account.name, account.username]
+    params = [account.email, encrypted_password, account.name, account.username]
     DatabaseConnection.exec_params(sql_query, params)
     return nil
   end
