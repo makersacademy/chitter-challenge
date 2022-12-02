@@ -1,4 +1,5 @@
 require_relative 'account'
+require 'bcrypt'
 
 class AccountRepository
   def all
