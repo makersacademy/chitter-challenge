@@ -240,6 +240,7 @@ class UserRepository
   end
 
   # creates a new user (account)
+  # takes one argument: a User object
   def create(user)
     # Executes the SQL query:
     # INSERT INTO users (email_address, password, name, username) VALUES ($1, $2, $3, $4);
@@ -270,7 +271,8 @@ class PeepRepository
     # Returns all peeps by given User object.
   end
 
-    # creates a new peep
+  # creates a new peep
+  # takes one argument: a Peep object
   def create(peep)
     # Executes the SQL query:
     # INSERT INTO peeps (content, date_and_time, user_id) VALUES ($1, $2, $3);
@@ -309,6 +311,7 @@ class CommentRepository
   end
 
   # creates a new comment
+    # takes one argument: a Comment object
   def create(comment)
     # Executes the SQL query:
     # INSERT INTO comments (content, date_and_time, user_id, peep_id) VALUES ($1, $2, $3, $4);
@@ -342,17 +345,17 @@ These examples will later be encoded as RSpec tests.
   repo = UserRepository.new
   users = repo.all
 
-  users.length => 3
-  users.first.id => '1'
-  users.first.email_address => 'sarahjacobs@gmail.com'
-  users.first.password => 'StrongPassword123!!'
-  users.first.name => 'Sarah Jacobs'
-  users.first.username => 'JazzySaz'
-  users.last.id => '3'
-  users.last.email_address => 'lewisjandrews@outlook.com'
-  users.last.password => 'Norfolk?91'
-  users.last.name => 'Lewis Andrews'
-  users.last.username => 'Luigi_100'
+  users.length # => 3
+  users.first.id # => '1'
+  users.first.email_address # => 'sarahjacobs@gmail.com'
+  users.first.password # => 'StrongPassword123!!'
+  users.first.name # => 'Sarah Jacobs'
+  users.first.username # => 'JazzySaz'
+  users.last.id # => '3'
+  users.last.email_address # => 'lewisjandrews@outlook.com'
+  users.last.password # => 'Norfolk?91'
+  users.last.name # => 'Lewis Andrews'
+  users.last.username # => 'Luigi_100'
 
 
 # 2 create(user)
