@@ -11,3 +11,7 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+group :password_functionality do
+  gem "bcrypt", "~> 3.1"
+end
