@@ -177,7 +177,7 @@ users[1].email # =>  'anna@mail.com'
 # create a single user
 repo = UserRepository.new
 
-user = user.new
+user = User.new
 user.email = 'harry@mail.com'
 user.password = '123'
 user.name = 'Harry'
@@ -196,7 +196,7 @@ expect(last_user.email).to eq 'harry@mail.com'
 
 repo = UserRepository.new
 
-user = user.new
+user = User.new
 user.email = 'david02@mail.com'
 user.password = '123'
 user.name = 'David02'
@@ -209,7 +209,7 @@ expect{repo.create(user)}.to raise_error "The username is already exist"
 
 repo = UserRepository.new
 
-user = user.new
+user = User.new
 user.email = 'david@mail.com'
 user.password = '123'
 user.name = 'David02'

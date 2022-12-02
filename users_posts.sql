@@ -1,11 +1,10 @@
 -- Create the table without the foreign key first.
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email text,
+  email text UNIQUE,
   password text,
   name text,
-  username text,
-  UNIQUE(email,username)
+  username text UNIQUE
 );
 
 -- Then the table with the foreign key first.
