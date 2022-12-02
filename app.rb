@@ -7,6 +7,8 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
+
+  enable :sessions
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
@@ -24,6 +26,11 @@ class Application < Sinatra::Base
     erb(:all_peeps)
   end
 
+  get '/peeps/new' do
+
+    erb(:new_peeps)
+
+  end
 
   get '/users/:id' do
 

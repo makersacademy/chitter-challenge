@@ -31,6 +31,15 @@ describe Application do
     end
   end
 
+  context "GET /peeps/new" do
+    it "returns the form page" do
+      response = get('/peeps/new')
+
+      expect(response.body).to include('<form method="POST" action="/peeps">')
+      expect(response.body).to include('<input type="text" name="content" /><br />')
+    end
+  end
+
   context "GET /peeps" do
     it "returns peeps in reverse chronological order and link to user pages" do
       response = get('/peeps')
