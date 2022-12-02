@@ -2,28 +2,31 @@
   <head></head>
   <body>
     <h1>Sign up to Chitter</h1>
-      <form action="/signup" method="POST">
-        <div>
-          <label>Name:</label><br />
-          <input type="text" name="name" maxlength="30"><br /><br />
-        </div>
+      <div><a href="/">Back to home</a></div><br />
+        <form action="/signup" method="POST">
+          <div>
+            <label>Name:</label><br />
+            <input type="text" name="name" maxlength="30" required><br /><br />
+          </div>
 
-        <div>
-          <label>Email:</label><br />
-          <input type="text" name="email" maxlength="30"><br /><br />
-        </div>
+          <div>
+            <label>Email:</label><br />
+            <input type="text" name="email" maxlength="30" required><br /><br />
+          </div>
 
-        <div>
-          <label>Password:</label><br />
-          <input type="text" name="password" maxlength="8"><br /><br />
-        </div>
+          <div>
+            <label>Password:</label><br />
+            <input type="password" name="password" maxlength="8" required><br /><br />
+          </div>
 
-        <div>
-          <label>Username:</label><br />
-          <input type="text" name="username" maxlength="12"><br /><br />
-        </div>
+          <div>
+            <label>Username:</label><br />
+            <input type="text" name="username" maxlength="12" required><br /><br />
+          </div>
 
-        <input type="submit">
+          <input type="submit">
+
+        <p><%= @signup_error_message%></p> 
       </form>
   </body>
 </html>

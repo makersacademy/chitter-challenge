@@ -43,10 +43,10 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Sign up to Chitter</h1>')
       expect(response.body).to include('<form action="/signup" method="POST">') 
-      expect(response.body).to include('<input type="text" name="name" maxlength="30"><br /><br />') 
-      expect(response.body).to include('<input type="text" name="email" maxlength="30"><br /><br />')
-      expect(response.body).to include('<input type="text" name="password" maxlength="8"><br /><br />')
-      expect(response.body).to include('<input type="text" name="username" maxlength="12"><br /><br />')
+      expect(response.body).to include('<input type="text" name="name" maxlength="30" required><br /><br />') 
+      expect(response.body).to include('<input type="text" name="email" maxlength="30" required><br /><br />')
+      expect(response.body).to include('<input type="password" name="password" maxlength="8" required><br /><br />')
+      expect(response.body).to include('<input type="text" name="username" maxlength="12" required><br /><br />')
       expect(response.body).to include('<input type="submit">') 
     end
   end
@@ -58,7 +58,23 @@ describe Application do
       expect(response.body).to include('<h2>Sign up complete for thirdname!</h2>')
       expect(response.body).to include('<a href="/">Back to home</a>')
     end
-    
+    it 'validates the not a duplicate email' do
+      response = post("/signup", name: "Third Name", email: "firstname@email.com", password: "defgh456", username: "thirdname")
+      expect(response.status).to eq(200)
+      expect(response.body).to include("Duplicate email or username, please re-submit with different details")
+    end
+    it 'validates the not a duplicate username' do
+      response = post("/signup", name: "Third Name", email: "thirdname@email.com", password: "defgh456", username: "firstname")
+      expect(response.status).to eq(200)
+      expect(response.body).to include("Duplicate email or username, please re-submit with different details")
+    end
+    it 'validates correct email' do
+      response = post("/signup", name: "Third Name", email: "thirdnameemail", password: "defgh456", username: "firstname")
+      expect(response.status).to eq(200)
+      expect(response.body).to include("Incorrect email format, please re-submit with different details")
+    end
+
+
   end
 
 end

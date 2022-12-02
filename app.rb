@@ -22,15 +22,31 @@ class Application < Sinatra::Base
   end
 
   get '/signup' do
+    @signup_error_message = ""
     return erb(:signup)
   end
 
-  post '/signup' do 
+  post '/signup' do
+
     @username = params[:username]
+    @email = params[:email]
     repo = UserRepository.new
+
+    if @email !~ URI::MailTo::EMAIL_REGEXP
+      @signup_error_message =  "Incorrect email format, please re-submit with different details"
+      return erb(:signup)
+    end
+
+    repo.all.each do |user|
+      if user.email == @email || user.username == @username
+        @signup_error_message =  "Duplicate email or username, please re-submit with different details"
+        return erb(:signup)
+      end
+    end
+
     new_user = User.new
     new_user.name = params[:name]
-    new_user.email = params[:email]
+    new_user.email = @email
     new_user.password = params[:password]
     new_user.username = @username
     repo.create(new_user)

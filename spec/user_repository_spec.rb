@@ -32,10 +32,10 @@ RSpec.describe UserRepository do
       expect(users[1].username).to eq 'secondname'
     end
     
-    it 'Get a single user' do 
+    it 'Get a single user by email' do 
       repo = UserRepository.new
 
-      user = repo.find(1)
+      user = repo.find_by_email('firstname@email.com')
 
       expect(user.id).to eq 1
       expect(user.name).to eq 'First Name'
@@ -43,6 +43,7 @@ RSpec.describe UserRepository do
       expect(user.password).to eq 'abc123'
       expect(user.username).to eq 'firstname'
     end
+
 
     it 'Creates a new user' do 
       repo = UserRepository.new
