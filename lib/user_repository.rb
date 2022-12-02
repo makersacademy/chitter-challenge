@@ -27,6 +27,15 @@ class UserRepository
 
   end 
 
+ 
+  def create(user)
+      
+      sql = 'INSERT INTO users (username, email_address, password, full_name ) VALUES($1, $2, $3, $4);'
+      sql_params = [user.username, user.email_address, user.password, user.full_name]
+      DatabaseConnection.exec_params(sql, sql_params)
+  end
+  
+
   private
 
   def record_to_user_object(record)
@@ -34,7 +43,7 @@ class UserRepository
     user.id = record['id']
     user.username = record['username']
     user.email_address = record['email_address']
-    # user.password = record['password']
+    user.password = record['password']
     user.full_name = record['full_name']
 
     return user

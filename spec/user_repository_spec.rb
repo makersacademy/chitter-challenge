@@ -19,12 +19,12 @@ describe UserRepository do
     
     expect(users[0].username).to eq 'Bloggy_J'
     expect(users[0].email_address).to eq 'joe_blogs@gmail.com'
-    # expect(users[0].password).to eq 'sxdfhcgjvhk2342'
+    expect(users[0].password).to eq 'sxdfhcgjvhk2342'
     expect(users[0].full_name).to eq 'Joe_Bloggs'
     
     expect(users[1].username).to eq'The_Migster'
     expect(users[1].email_address).to eq'm_miggins@hotmail.com'
-    # expect(users[1].password).to eq '&gfdklwr3'
+    expect(users[1].password).to eq '&gfdklwr3'
     expect(users[1].full_name).to eq 'Mrs_Miggins'
   end 
 
@@ -38,10 +38,45 @@ describe UserRepository do
       
       expect(user.username).to eq 'not_elon'
       expect(user.email_address).to eq 'Meelon@tesla.com'
-      # expect(user.password).to eq '1filNfdvc£'
+      expect(user.password).to eq '1filNfdvc£'
       expect(user.full_name).to eq 'Meelon Musk'
 
     end 
+
+    it 'returns the 2nd user' do
+
+      repo = UserRepository.new
+
+      user = repo.find(2)
+
+      expect(user.username).to eq 'The_Migster'
+      expect(user.email_address).to eq 'm_miggins@hotmail.com'
+      expect(user.password).to eq '&gfdklwr3'
+      expect(user.full_name ).to eq 'Mrs_Miggins'
+    end 
+
+  end 
+
+it 'creates a new user' do 
+
+    repo = UserRepository.new
+    user = User.new
+    
+    user.username = 'new_user'
+    user.email_address = 'new_user@gmail.com'
+    user.password = '123abc&%_'
+    user.full_name = 'New User'
+
+    repo.create(user)
+    
+    users = repo.all
+    
+    expect(users.length).to eq 5 
+    
+    expect(users.last.username).to eq 'new_user'
+    expect(users.last.email_address).to eq 'new_user@gmail.com'
+    expect(users.last.password).to eq '123abc&%_'
+    expect(users.last.full_name).to eq 'New User'
 
   end 
 
