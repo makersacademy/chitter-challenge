@@ -3,6 +3,7 @@ require 'simplecov-console'
 require 'database_connection'
 
 ENV['ENV'] = 'test'
+ENV['PGOPTIONS'] = '--client-min-messages=warning'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
