@@ -44,7 +44,7 @@ RSpec.describe UserRepository do
       expect(user.username).to eq 'firstname'
     end
 
-    xit 'Creates a new user' do 
+    it 'Creates a new user' do 
       repo = UserRepository.new
 
       user = User.new
@@ -58,10 +58,10 @@ RSpec.describe UserRepository do
       all_users = repo.all
       last_user = all_users.last
 
-      exepct(last_user.name).to eq 'Third Name'
-      exepct(last_user.email).to eq 'thirdname@email.com'
-      exepct(last_user.password).to eq 'abcd1234'
-      exepct(last_user.username).to eq 'thirdname'
+      expect(last_user.name).to eq 'Third Name'
+      expect(last_user.email).to eq 'thirdname@email.com'
+      # expect(last_user.password).to eq 'abcd1234'
+      expect(last_user.username).to eq 'thirdname'
     end
   end
 end

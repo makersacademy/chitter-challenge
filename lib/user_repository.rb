@@ -1,4 +1,5 @@
 require_relative './user'
+require_relative './encrypted_password'
 
 class UserRepository
 
@@ -24,10 +25,14 @@ class UserRepository
       # Insert new user 
     # item is a new User object
   def create(user)
-    # Executes the SQL query:
+    new_password = EncryptedPassword.new(user.password)
+    encrypted_password = new_password.encrypted_password
 
-    # INSERT INTO users (name, email, password, username) VALUES($1, $2, $3, $4);
-    # Doesn't need to return anything (only creates a record)
+    sql = 'INSERT INTO users (name, email, password, username) VALUES($1, $2, $3, $4);'
+    params = [user.name, user.email, encrypted_password, user.username]
+    DatabaseConnection.exec_params(sql, params)
+
+    return nil
   end
 
   private
@@ -42,4 +47,5 @@ class UserRepository
 
     return user
   end
+
 end

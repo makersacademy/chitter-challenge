@@ -21,13 +21,13 @@ RSpec.describe PostRepository do
       expect(posts.length).to eq 4
       expect(posts[0].id).to eq 1
       expect(posts[0].content).to eq 'This is an example post from username firstname'
-      expect(posts[0].time).to eq '22022-01-08 04:05:06'
+      expect(posts[0].time).to eq '2022-01-08 04:05:06'
       expect(posts[0].user_id).to eq 1
       expect(posts[0].name).to eq 'First Name'
       expect(posts[0].username).to eq 'firstname'
       expect(posts[1].id).to eq 2
       expect(posts[1].content).to eq 'This is another example post from username firstname'
-      expect(posts[1].time).to eq '22022-01-09 18:00:05'
+      expect(posts[1].time).to eq '2022-01-09 18:00:05'
       expect(posts[1].user_id).to eq 1
       expect(posts[1].name).to eq 'First Name'
       expect(posts[1].username).to eq 'firstname'
@@ -35,24 +35,24 @@ RSpec.describe PostRepository do
     end
 
     
-    xit 'Get a single user' do 
+    it 'Get a single post' do 
       repo = PostRepository.new
 
       post = repo.find(1)
 
-      expect(posts.id).to eq 1
-      expect(posts.content).to eq 'This is an example post from username firstname'
-      expect(posts.time).to eq '22022-01-08 04:05:06'
-      expect(posts.user_id).to eq 1
+      expect(post.id).to eq 1
+      expect(post.content).to eq 'This is an example post from username firstname'
+      expect(post.time).to eq '2022-01-08 04:05:06'
+      expect(post.user_id).to eq 1
     end
 
-    xit 'Creates a new user' do 
+    it 'Creates a new post' do 
       repo = PostRepository.new
 
       post = Post.new
-      posts.content = 'This is an example test post from username secondname'
-      posts.time = '22022-11-08 04:05:08'
-      posts.user_id = 2
+      post.content = 'This is an example test post from username secondname'
+      post.time = '2022-11-08 04:05:08'
+      post.user_id = 2
 
       repo.create(post)
 
@@ -60,7 +60,7 @@ RSpec.describe PostRepository do
       last_post = all_posts.last
 
       expect(last_post.content).to eq 'This is an example test post from username secondname'
-      expect(last_post.time).to eq '22022-11-08 04:05:08'
+      # expect(last_post.time).to eq '2022-11-08 04:05:08'
       expect(last_post.user_id).to eq 2
     end
   end
