@@ -10,7 +10,7 @@ require_relative 'lib/peep_repository'
 require_relative 'lib/comment_repository'
 require_relative 'lib/user_repository'
 
-DatabaseConnection.connect('chitter_database_test')
+DatabaseConnection.connect('chitter_database')
 
 class Application < Sinatra::Base
   enable :sessions
@@ -34,6 +34,19 @@ class Application < Sinatra::Base
     @user_repo = UserRepository.new
     @comment_repo = CommentRepository.new
     return erb(:logged_in)
+  end
+
+  get '/sign_up' do
+    return erb(:registration_form)
+  end
+
+  get '/comment/:peep_id' do
+    @user_repo = UserRepository.new
+    @peep_repo = PeepRepository.new
+    @peep = @peep_repo.find(params[:peep_id])
+    @comment_repo = CommentRepository.new
+    @comments = @comment_repo.find(params[:peep_id])
+    return erb(:peep)
   end
 
   post '/' do
@@ -66,10 +79,6 @@ class Application < Sinatra::Base
     @comment_repo.create(comment)
     check_if_peep_or_reply_contains_tag(comment.content)
     redirect "/comment/#{params[:peep_id]}"
-  end
-
-  get '/sign_up' do
-    return erb(:registration_form)
   end
 
   post '/new_peep/:user_id' do
@@ -107,15 +116,6 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/comment/:peep_id' do
-    @user_repo = UserRepository.new
-    @peep_repo = PeepRepository.new
-    @peep = @peep_repo.find(params[:peep_id])
-    @comment_repo = CommentRepository.new
-    @comments = @comment_repo.find(params[:peep_id])
-    return erb(:peep)
-  end
-
   def already_signed_up
     @user_repo = UserRepository.new
     all_users = @user_repo.all
@@ -145,6 +145,6 @@ class Application < Sinatra::Base
   end
 
   def send_email
-
+    #This is where an email would be sent if i owned an email domain
   end
 end
