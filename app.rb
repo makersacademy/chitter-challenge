@@ -5,7 +5,7 @@ require_relative './lib/comment_repository'
 require_relative './lib/peep_repository'
 require_relative './lib/user_repository'
 
-DatabaseConnection.connect('chitter')
+DatabaseConnection.connect
 
 class Application < Sinatra::Base
 
