@@ -6,7 +6,6 @@ GEM
     bcrypt (3.1.18)
     diff-lcs (1.4.4)
     docile (1.4.0)
-    htmlbeautifier (1.4.2)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     mini_mime (1.1.2)
@@ -87,7 +86,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1)
-  htmlbeautifier (~> 1.4)
   mail (~> 2.7)
   pg (~> 1.4)
   rack-test (~> 2.0)
