@@ -14,20 +14,9 @@ Your tests will depend on data stored in PostgreSQL to run.
 If seed data is provided (or you already created it), you can skip this step.
 
 ```sql
--- EXAMPLE
--- (file: spec/seeds_{table_name}.sql)
-
--- Write your SQL seed here. 
-
--- First, you'd need to truncate the table - this is so our table is emptied between each test run,
--- so we can start with a fresh state.
--- (RESTART IDENTITY resets the primary key)
 
 TRUNCATE TABLE messages RESTART IDENTITY CASCADE; 
 TRUNCATE TABLE users RESTART IDENTITY CASCADE; 
-
--- Below this line there should only be `INSERT` statements.
--- Replace these statements with your own seed data.
 
 INSERT INTO users (username, email_address, password, full_name) VALUES ('Bloggy_J', 'joe_blogs@gmail.com', 'sxdfhcgjvhk2342','Joe_Bloggs');
 INSERT INTO users (username, email_address, password,full_name) VALUES ('The_Migster', 'm_miggins@hotmail.com', '&gfdklwr3', 'Mrs_Miggins');

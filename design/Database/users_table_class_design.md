@@ -61,60 +61,49 @@ class User
   attr_accessor :id, :username, :email_address, :full_name
 end
 
-# The keyword attr_accessor is a special Ruby feature
-# which allows us to set and get attributes on an object,
-# here's an example:
-#
-# student = Student.new
-# student.name = 'Jo'
-# student.name
 ```
 
-*You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
+## 5. Repository Class interface
 
-## 5. Define the Repository Class interface
-
-Your Repository class will need to implement methods for each "read" or "write" operation you'd like to run against the database.
-
-Using comments, define the method signatures (arguments and return value) and what they do - write up the SQL queries that will be used by each method.
 
 ```ruby
+
 # EXAMPLE
 # Table name: students
 
 # Repository class
 # (in lib/student_repository.rb)
 
-class StudentRepository
+class Userepository
 
   # Selecting all records
   # No arguments
+
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    # SELECT id, username, email_address, full_name FROM users;
 
-    # Returns an array of Student objects.
+    # Returns an array of User objects.
   end
 
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+    # SELECT id, username, email_address, password, full_name FROM users WHERE id = $1;
 
-    # Returns a single Student object.
+    # Returns a single User object.
   end
 
-  # Add more methods below for each operation you'd like to implement.
 
-  # def create(student)
-  # end
+  def create(user)
+    # Executes the SQL query:
+    #  sql = 'INSERT INTO users (username, email_address, password, full_name ) VALUES($1, $2, $3, $4);'
+    #  sql_params = [user.username, user.email_address, user.password, user.full_name]
+    # Returns nothing
+  end
 
-  # def update(student)
-  # end
 
-  # def delete(student)
-  # end
 end
 ```
 
@@ -128,32 +117,67 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all users
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-students = repo.all
+users = repo.all
 
-students.length # =>  2
+users.length # =>  4
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+users[0].username # =>  'Bloggy_J'
+users[0].email_address # =>  'joe_blogs@gmail.com'
+users[0].password # =>  'sxdfhcgjvhk2342'
+users[0].full_name # =>  'Joe_Bloggs'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+users[1].username # =>  'The_Migster'
+users[1].email_address # =>  'm_miggins@hotmail.com'
+users[1].password # =>  '&gfdklwr3'
+users[1].full_name # =>  'Mrs_Miggins'
 
 # 2
-# Get a single student
+# Get a single user
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-student = repo.find(1)
+user = repo.find(4)
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+user.username # =>  'not_elon'
+user.email_address # =>  'Meelon@tesla.com'
+user.password # =>  '1filNfdvc£'
+user.full_name # =>  'Meelon Musk'
+
+# 3 - get another user 
+
+
+repo = UserRepository.new
+
+user = repo.find(2)
+
+user.username # =>  'Bloggy_J'
+user.email_address # =>  'joe_blogs@gmail.com'
+user.password # =>  'sxdfhcgjvhk2342'
+user.full_name # =>  'Joe_Bloggs'
+
+# 4 - Create a new user 
+
+repo = UserRepository.new
+user = User.new
+
+user.username = 'new_user'
+user.email_address = 'new_user@gmail.com'
+user.password = '123abc&%_'
+user.full_name = 'New User'
+
+users = repo.all
+
+users.length # => 5 
+
+users.last.username # =>  'new_user'
+users.last.email_address # =>  'new_user@gmail.com'
+users.last.password # =>  '123abc&%_'
+users.last.full_name # =>  'New User'
+
 
 # Add more examples for each method
 ```
