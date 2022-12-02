@@ -405,7 +405,7 @@ These examples will later be encoded as RSpec tests.
 
 
   # 2.4
-  # error: email_address taken
+  # error: username taken
   new_user = User.new
   new_user.email_address = 'newuser@gmail.com'
   new_user.password = 'NewPassword'

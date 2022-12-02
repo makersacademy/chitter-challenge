@@ -27,12 +27,24 @@ class UserRepository
     return users
   end
 
-  # creates a new user (account)
-  # takes one argument: a User object
+  # Creates a new user (account)
+  # Takes one argument: a User object
   def create(user)
-    # Executes the SQL query:
-    # INSERT INTO users (email_address, password, name, username) VALUES ($1, $2, $3, $4);
+    raise "Please fill in all fields" if user.email_address == '' || user.password == '' || user.name == '' || user.username == ''
+    
+    repo = UserRepository.new
+    users = repo.all
+    users.each do |existing_user|
+      raise "That email address is already taken" if user.email_address == existing_user.email_address
+      raise "That username is already taken" if user.username == existing_user.username
+    end
 
-    # Returns nil
+    # Executes the SQL query:
+    sql = "INSERT INTO users (email_address, password, name, username) VALUES ($1, $2, $3, $4);"
+    params = [user.email_address, user.password, user.name, user.username]
+
+    DatabaseConnection.exec_params(sql, params)
+
+    return nil
   end
 end
