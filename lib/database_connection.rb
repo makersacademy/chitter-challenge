@@ -21,21 +21,21 @@ class DatabaseConnection
 
   # file: lib/database_connection.rb
 
-# def self.connect
-#   # If the environment variable (set by Render)
-#   # is present, use this to open the connection.
-#   if ENV['music_library_databse_o9de'] != nil
-#     @connection = PG.connect(ENV['music_library_databse_o9de'])
-#     return
-#   end
+  def self.connect
+    # If the environment variable (set by Render)
+    # is present, use this to open the connection.
+    if ENV['music_library_databse_o9de'] != nil
+      @connection = PG.connect(ENV['music_library_databse_o9de'])
+      return
+    end
 
-  if ENV['ENV'] == 'test'
-    database_name = 'chitter_database_test'
-  else
-    database_name = 'chitter_database'
-  end
-  @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
-end
+    if ENV['ENV'] == 'test'
+      database_name = 'chitter_database_test'
+    else
+      database_name = 'chitter_database'
+    end
+    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
+  end 
 
   # This method executes an SQL query 
   # on the database, providing some optional parameters
