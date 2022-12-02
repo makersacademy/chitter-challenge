@@ -68,4 +68,13 @@ describe UserRepository do
 
     expect(user.username).to eq('willj836')
   end
+
+  it 'returns a user object from a users username' do 
+    repo = UserRepository.new 
+
+    user = repo.find_by_username('willj836')
+
+    expect(user.username).to eq('willj836')
+    expect(user.name).to eq('Will Jones')
+  end
 end

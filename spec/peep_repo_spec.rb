@@ -41,4 +41,13 @@ describe PeepRepository do
 
     expect(repo.all.last.content).to eq('Newest peep')
   end
+
+  it 'returns a peep based on id' do 
+    repo = PeepRepository.new 
+
+    peep = repo.find_by_id(1)
+
+    expect(peep.id).to eq('1')
+    expect(peep.content).to eq('My first post')
+  end
 end

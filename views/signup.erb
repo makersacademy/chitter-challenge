@@ -1,24 +1,28 @@
 <html lang="en">
   <head>
     <meta charset=utf-8>
+    <link type ='text/css' rel="stylesheet" href="/styles.css" />
     <title>Chitter</title>
   </head>
   <body>
+    <div class='topnav'>
+      <h2>Chitter</h2>
+    </div>
     <form action="/" method="get">
-      <button type="submit">Go Back</button>
+      <button type="submit" class='login-button'>Go Back</button>
     </form>
-    <h2>Sign Up</h2>
+    <h2 style='color:white'>Sign Up</h2>
     <form action="/signup" method="post">
       <div class="container">
-        <label for="name">Name</label>
+        <label for="name" class='white-text'>Name</label>
         <input type="text" placeholder="Enter Fullname" name="name" required>
-        <label for="username">Username</label>
+        <label for="username" class='white-text'>Username</label>
         <input type="text" placeholder="Enter Username" name="username" required>
-        <label for="email">Email</label>
+        <label for="email" class='white-text'>Email</label>
         <input type="text" placeholder="Enter Email" name="email" required>
-        <label for="password">Password</label>
+        <label for="password" class='white-text'>Password</label>
         <input type="password" placeholder="Enter Password" name="password" required>
-        <button type="submit">Create Account</button>
+        <button type="submit" class='login-button'>Create Account</button>
       </div>
     </form>
   </body>

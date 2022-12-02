@@ -27,14 +27,6 @@ class PeepRepository
     return record_to_peep_object(record)
   end
 
-  def find_by_username(username)
-    sql = 'SELECT id, content, time_posted, user_id FROM peeps WHERE username = $1;'
-    sql_params = [username]
-    result_set = DatabaseConnection.exec_params(sql, sql_params)
-    record = result_set[0]
-    return record_to_peep_object(record)
-  end
-
   private 
 
   def record_to_peep_object(record)
