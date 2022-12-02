@@ -34,6 +34,7 @@ class PeepRepository
     sql_query = "INSERT INTO peeps (contents, time_posted, account_id) VALUES ($1, $2, $3);"
     params = [peep.contents, @timer.now, peep.account_id]
     DatabaseConnection.exec_params(sql_query, params)
+    return nil
   end
 
   private
