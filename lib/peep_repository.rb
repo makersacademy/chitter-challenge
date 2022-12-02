@@ -7,7 +7,9 @@ class PeepRepository
     # Send the SQL query and get the result set.
     sql = 'SELECT peeps.id, 
                   peeps.content, 
-                  peeps.post_time, 
+                  peeps.post_time,
+                  peeps.account_id,
+                  accounts.name,
                   accounts.username
     FROM peeps
     INNER JOIN accounts
@@ -25,6 +27,8 @@ class PeepRepository
       peep.id = record['id'].to_i
       peep.content = record['content']
       peep.post_time = record['post_time']
+      peep.account_id = record['account_id']
+      peep.name = record['name']
       peep.username = record['username']
 
       peeps << peep
@@ -35,9 +39,11 @@ class PeepRepository
 
   def find(id)
     sql = 'SELECT peeps.id, 
-          peeps.content, 
-          peeps.post_time, 
-          accounts.username
+                  peeps.content, 
+                  peeps.post_time,
+                  peeps.account_id,
+                  accounts.name,
+                  accounts.username
     FROM peeps
     INNER JOIN accounts
     ON peeps.account_id = accounts.account_id
@@ -48,6 +54,8 @@ class PeepRepository
     peep.id = result_set[0]['id'].to_i
     peep.content = result_set[0]['content']
     peep.post_time = result_set[0]['post_time']
+    peep.account_id = result_set[0]['account_id']
+    peep.name = result_set[0]['name']
     peep.username = result_set[0]['username']
 
     return peep

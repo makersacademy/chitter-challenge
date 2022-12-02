@@ -9,8 +9,8 @@
     <% @peeps.each do |peep| %>
       
       <div>
-        <strong><%= peep.username %></strong>
-        <a href="/accounts/<%= peep.username %>">@<%=
+        <strong><%= peep.name %></strong>
+        <a href="/accounts/<%= peep.account_id %>">@<%=
         peep.username %></a>
         </br>
 

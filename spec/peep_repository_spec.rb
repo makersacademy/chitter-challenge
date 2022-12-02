@@ -20,6 +20,8 @@ describe PeepRepository do
     expect(peeps.length).to eq(11)
     expect(peeps.first.content).to eq('Hello world!')
     expect(peeps.first.post_time).to eq('10:00')
+    expect(peeps.first.account_id).to eq('1')
+    expect(peeps.first.name).to eq('John Doe')
     expect(peeps.first.username).to eq('johndoe1234')
   end
 
@@ -31,6 +33,8 @@ describe PeepRepository do
     expect(peep.id).to eq(8)
     expect(peep.content).to eq('I like turtles 🐢🐢🐢')
     expect(peep.post_time).to eq('11:01')
+    expect(peep.account_id).to eq('5')
+    expect(peep.name).to eq('Jason Turturro')
     expect(peep.username).to eq('TurtleGuy')
   end
 

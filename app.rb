@@ -23,8 +23,20 @@ class Application < Sinatra::Base
     return erb(:home)
   end
 
-  # get '/peeps/new' do
-  #   return erb(:new_peep)
+  get '/accounts/:account_id' do
+    account_id = params[:account_id]
+    account_repository = AccountRepository.new 
+
+    @account = account_repository.find(account_id)
+    return erb(:account_id)
+  end 
+
+  # get '/login' do
+  #   return erb(:login)
+  # end
+
+  # get '/signup' do
+  #   return erb(:signup)
   # end
 
   # post '/peeps' do
@@ -41,12 +53,5 @@ class Application < Sinatra::Base
   #   repo.create(peep)
   # end
 
-  # get '/peeps/:id' do
-  #   id = params[:id]
-  #   repo = PeepRepository.new
-  #   account_repository = AccountRepository.new 
-  #   @peep = repo.find(params[:id])
-  #   @account = account_repository.find(@peep.account_id)
-  #   return erb(:account_id)
-  # end 
+  
 end

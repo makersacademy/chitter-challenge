@@ -36,7 +36,7 @@ describe AccountRepository do
     expect(account.bio).to eq('Keep on rockin in the free world')
   end
 
-  it 'creates an account' do
+  xit 'creates an account' do
     repo = AccountRepository.new
 
     account = Account.new

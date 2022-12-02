@@ -5,7 +5,13 @@ class AccountRepository
     accounts = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT account_id, email, name, username, bio FROM accounts;'
+    sql = 'SELECT account_id, 
+                  email, 
+                  name, 
+                  username, 
+                  bio 
+    FROM accounts;'
+
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
@@ -29,7 +35,14 @@ class AccountRepository
   end
 
   def find(id)
-    sql = 'SELECT account_id, email, name, username, bio FROM accounts WHERE account_id = $1;'
+    sql = 'SELECT account_id,
+                  email, 
+                  name, 
+                  username, 
+                  bio 
+    FROM accounts 
+    WHERE account_id = $1;'
+    
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     account = Account.new
@@ -43,9 +56,13 @@ class AccountRepository
   end
 
   def create(account)
+    # Encrypt the password to save it into the new database record.
+    encrypted_password = BCrypt::Password.create(account.password)
+
     sql = 'INSERT INTO accounts (email, password, name, username, bio) VALUES ($1, $2, $3, $4, $5);'
-    result_set = DatabaseConnection.exec_params(sql, [account.email, account.password, account.name, account.username, account.bio])
+    result_set = DatabaseConnection.exec_params(sql, [account.email, encrypted_password, account.name, account.username, account.bio])
 
     return account
   end
 end
+
