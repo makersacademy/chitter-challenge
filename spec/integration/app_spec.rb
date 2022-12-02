@@ -22,30 +22,32 @@ describe Application do
     reset_both_tables
   end
 
-context "GET /" do
-  it "homepage" do
-    response = get('/')
+  context "GET /" do
+    it "homepage" do
+      response = get('/')
 
-    expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
-    expect(response.body).to include('<a href="/peeps">View Peeps Here</a>')
+      expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
+      expect(response.body).to include('<a href="/peeps">View Peeps Here</a>')
+    end
   end
-end
 
-context "GET /peeps" do
-  it "returns peeps in reverse chronological order" do
-    response = get('/peeps')
+  context "GET /peeps" do
+    it "returns peeps in reverse chronological order" do
+      response = get('/peeps')
 
-    expect(response.body).to include('<h1>Peeps</h1>')
-    expect(response.body).to include('<p>peep 1</p>')
-    expect(response.body).to include('<p>peep 2</p>')
+      expect(response.body).to include('<h1>Peeps</h1>')
+      expect(response.body).to include('<p>peep 1</p>')
+      expect(response.body).to include('<p>peep 2</p>')
+    end
   end
-end
 
-context "GET /peeps/:id" do
-  it "returns page of peeps from one user" do
-    response = get('peeps/1')
+  context "GET /users/:name" do
+    it "returns page of peeps from one user" do
+      response = get('users/David')
 
-    expect(response.body).to include '<h1>Peeps by David</h1>'
+      expect(response.body).to include '<h1>Peeps by David</h1>'
+      expect(response.body).to include 'peep 1'
+    end
   end
-end
+
 end

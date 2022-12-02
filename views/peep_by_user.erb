@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Peeps by <%= @user.name %></h1>
+
+    <h3>Peeps</h3>
+    <% @peeps.each do |peep| %>
+      <div>
+        <%= peep.content %> -
+        <%= peep.date_time[0..-8] %>
+      </div>
+      <% end %>
+  </body>
+</html>

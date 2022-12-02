@@ -55,6 +55,18 @@ describe UserRepository do
 
   end
 
+  it "finds user by name" do
+    repo = UserRepository.new
+
+    user = repo.find_by_name('David')
+
+    expect(user.id).to eq '1'
+    expect(user.name).to eq 'David'
+    expect(user.email_address).to eq 'email_1@yahoo.co.uk'
+    expect(user.password).to eq '##^%$&^$#                                                   ' 
+
+  end
+
   it "creates a new user" do
     repo = UserRepository.new
 

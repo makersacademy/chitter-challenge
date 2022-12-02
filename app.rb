@@ -24,8 +24,26 @@ class Application < Sinatra::Base
     erb(:all_peeps)
   end
 
-  get 'peeps/:id' do
 
+  get '/users/:name' do
 
+    peep_repo = PeepRepository.new
+    user_repo = UserRepository.new
+
+    @user = user_repo.find_by_name(params[:name])
+    
+
+    @peeps = []
+
+    all_peeps = peep_repo.all
+
+    all_peeps.each do |peep|
+      if peep.user_id == @user.id
+        @peeps << peep
+      end
+    end
+
+    erb(:peep_by_user)
   end
+
 end
