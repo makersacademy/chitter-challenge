@@ -1,3 +1,6 @@
+require_relative "peep"
+require_relative "database_connection"
+
 class PeepRepository
   def all 
     sql = 'SELECT * FROM peeps;'
@@ -7,6 +10,8 @@ class PeepRepository
     result_set.each do |record|
       peep = Peep.new 
       peep.id = record['id'].to_i
+      peep.name = record['name']
+      peep.username = record['username']
       peep.message = record['message']
       peep.time_created = record['time_created']
       peep.user_id = record['user_id'].to_i

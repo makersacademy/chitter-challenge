@@ -137,12 +137,14 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
   email text,
-  password text,
+  password text
 );
 
 -- Then the table with the foreign key first.
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
+  name text,
+  username text,
   message text,
   time_created timestamp,
 
