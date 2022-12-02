@@ -25,12 +25,12 @@ class Application < Sinatra::Base
   end
 
 
-  get '/users/:name' do
+  get '/users/:id' do
 
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
 
-    @user = user_repo.find_by_name(params[:name])
+    @user = user_repo.find(params[:id])
     
 
     @peeps = []
@@ -38,7 +38,7 @@ class Application < Sinatra::Base
     all_peeps = peep_repo.all
 
     all_peeps.each do |peep|
-      if peep.user_id == @user.id
+      if peep.user_id == params[:id]
         @peeps << peep
       end
     end

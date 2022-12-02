@@ -32,18 +32,21 @@ describe Application do
   end
 
   context "GET /peeps" do
-    it "returns peeps in reverse chronological order" do
+    it "returns peeps in reverse chronological order and link to user pages" do
       response = get('/peeps')
 
       expect(response.body).to include('<h1>Peeps</h1>')
       expect(response.body).to include('<p>peep 1</p>')
       expect(response.body).to include('<p>peep 2</p>')
+
+      expect(response.body).to include('<a href="/users/2">')
+      expect(response.body).to include('<a href="/users/1">')
     end
   end
 
-  context "GET /users/:name" do
+  context "GET /users/:id" do
     it "returns page of peeps from one user" do
-      response = get('users/David')
+      response = get('users/1')
 
       expect(response.body).to include '<h1>Peeps by David</h1>'
       expect(response.body).to include 'peep 1'
