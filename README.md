@@ -1,6 +1,10 @@
-use ruby '3.0.2'
+ruby '3.0.2'
 
-test use 'rspec'
+test 'rspec'
+
+database 'pg' 
+
+framework 'sinatra'
 
 git clone it and bundle install
 
