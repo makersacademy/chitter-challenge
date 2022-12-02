@@ -20,3 +20,4 @@ gem "pg", "~> 1.4"
 gem "bcrypt", "~> 3.1"
 gem "mail", "~> 2.7"
 gem 'sendgrid-ruby'
+gem "htmlbeautifier", "~> 1.4"

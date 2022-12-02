@@ -62,7 +62,7 @@ describe Application do
       expect(response.body).to include '<h1>abbie236</h1>'
       expect(response.body).to include '<label for="content">Enter comment here</label>'
       expect(response.body).to include '<input type="text" id="content" name="content">'
-      expect(response.body).to include '<p>Billy @billy_1956: This is a comment</p> '
+      expect(response.body).to include '<p>Billy @billy_1956: This is a comment</p>'
       expect(response.body).to include '<p>Mo @mo**11: I disagree</p>'
     end
   end

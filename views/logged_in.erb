@@ -1,23 +1,25 @@
 <html>
-<head><link rel="stylesheet" href="styles.css"/></head>
+  <head><link rel="stylesheet" href="styles.css"/></head>
   <body>
-  <div class="title"><h1>Chitter</h1></div>  
-  <form action="/" method="get">
-  <a href='/'>Click here to sign out</a>
-  </form>
+    <div class="title">
+      <h1>Chitter</h1>
+    </div>
+    <form action="/" method="get">
+      <a href='/'>Click here to sign out</a>
+    </form>
     <h1>Peeps</h1>
     <h3>What do you wanna peep about?</h3>
-<form action="/new_peep/:user_id" method="post">
-  <label for="content">Enter your peep:</label><br>
-  <input type="text" id="content" name="content"><br>
-  <input type="submit" value="Post a new peep">
-</form>
+    <form action="/new_peep/:user_id" method="post">
+      <label for="content">Enter your peep:</label><br>
+      <input type="text" id="content" name="content"><br>
+      <input type="submit" value="Post a new peep">
+    </form>
     <% @peep_repo.all.reverse.each do |post| %>
       <div class="peep">
-      <p><%= @user_repo.find(post.user_id).name %> @<%= @user_repo.find(post.user_id).username %>: <%= post.content %></p> 
-      <a href="/comment/<%= post.id %>">Comments</a>
-      <p><%= post.time_posted %>
-    </div>
-    <% end %>
-  </body>
-</html>
+        <p><%= @user_repo.find(post.user_id).name %> @<%= @user_repo.find(post.user_id).username %>: <%= post.content %></p>
+        <a href="/comment/<%= post.id %>">Comments</a>
+        <p><%= post.time_posted %>
+        </div>
+      <% end %>
+    </body>
+  </html>
