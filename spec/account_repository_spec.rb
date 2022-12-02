@@ -52,6 +52,29 @@ describe AccountRepository do
     expect { account_repo.find(4) }.to raise_error IndexError, error_message
   end
 
+  it "#find_with_username finds the record for a given username" do
+    account_repo = AccountRepository.new
+    username = "GPaterson"
+
+    account = account_repo.find_with_username(username)
+
+    expect(account).to have_attributes(
+      id: 2,
+      email: "graeme@email.com",
+      password: "$2a$12$fALqEuM793QuKQfp3x3H2e9B.5yM3ftUqGoBKk1a2bV3mt2fwoxri",
+      name: "Graeme Paterson",
+      username: "GPaterson"
+    )
+  end
+
+  it "#find_with_username fails if no record with the given username exists" do
+    account_repo = AccountRepository.new
+    username = "IDoNotExist"
+
+    error_message = "No accounts exist with the username 'IDoNotExist'"
+    expect { account_repo.find_with_username(username) }.to raise_error KeyError, error_message
+  end
+
   it "#create adds an account to the database" do
     encrypted_password_double = double(:fake_password)
     expect(encrypted_password_double).to receive(:to_s)

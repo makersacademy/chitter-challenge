@@ -26,6 +26,16 @@ class AccountRepository
     return extract_account_from_record(query_result.first)
   end
 
+  def find_with_username(username)
+    sql_query = "SELECT id, email, password, name, username FROM accounts WHERE username = $1;"
+    query_result = DatabaseConnection.exec_params(sql_query, [username])
+    
+    fail KeyError.new(
+      "No accounts exist with the username '#{username}'"
+    ) if query_result.first.nil?
+    return extract_account_from_record(query_result.first)
+  end
+
   def create(account)
     fail ArgumentError.new "An account cannot have an empty argument" if empty_field?(account)
     fail ArgumentError.new "Please enter a valid email address" unless valid_email_address?(
