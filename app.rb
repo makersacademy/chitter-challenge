@@ -10,6 +10,8 @@ require_relative 'lib/account_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
@@ -54,13 +56,23 @@ class Application < Sinatra::Base
   end
 
 
-  # get '/login' do
-  #   return erb(:login)
-  # end
+  get '/login' do
+    return erb(:login)
+  end
 
-  # get '/signup' do
-  #   return erb(:signup)
-  # end
+  post '/login' do
+    email = params[:email]
+    password = params[:password]
+
+    account = AccountRepository.find_by_email(email)
+
+    if account.password == password
+      session[:account_id] = account.account_id
+      return erb(:login_success)
+    else
+      return erb(:login_error)
+    end
+  end
 
   # post '/peeps' do
   #   repo = PeepRepository.new
@@ -75,6 +87,4 @@ class Application < Sinatra::Base
 
   #   repo.create(peep)
   # end
-
-  
 end

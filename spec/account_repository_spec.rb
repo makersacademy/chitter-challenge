@@ -12,7 +12,7 @@ describe AccountRepository do
     reset_accounts_table
   end
 
-  it 'finds all accounts' do
+  it 'returns all accounts' do
     repo = AccountRepository.new
 
     accounts = repo.all
@@ -24,13 +24,25 @@ describe AccountRepository do
     expect(accounts.first.bio).to eq('Hi, my name is John')
   end
 
-  it 'finds one account' do
+  it 'finds one account by id value' do
     repo = AccountRepository.new
 
     account = repo.find(3)
     
     expect(account.account_id).to eq(3)
     expect(account.email).to eq('trooper666@aol.com')
+    expect(account.name).to eq('Taylor Black')
+    expect(account.username).to eq('headbanger666')
+    expect(account.bio).to eq('Keep on rockin in the free world')
+  end
+
+  it 'finds one account by email value' do
+    repo = AccountRepository.new
+
+    account = repo.find_by_email('trooper666@aol.com')
+    
+    expect(account.email).to eq('trooper666@aol.com')
+    expect(account.password).to eq('ride_the_lightning84')
     expect(account.name).to eq('Taylor Black')
     expect(account.username).to eq('headbanger666')
     expect(account.bio).to eq('Keep on rockin in the free world')

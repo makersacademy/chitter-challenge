@@ -56,6 +56,28 @@ class AccountRepository
     return account
   end
 
+  def find_by_email(email)
+    sql = 'SELECT account_id,
+                  email,
+                  password,
+                  name, 
+                  username, 
+                  bio 
+    FROM accounts 
+    WHERE email = $1;'
+    
+    result_set = DatabaseConnection.exec_params(sql, [email])
+
+    account = Account.new
+    account.email = result_set[0]['email']
+    account.password = result_set[0]['password']
+    account.name = result_set[0]['name']
+    account.username = result_set[0]['username']
+    account.bio = result_set[0]['bio']
+
+    return account
+  end
+
   def create(account)
     # Encrypt the password to save it into the new database record.
     encrypted_password = BCrypt::Password.create(account.password)
