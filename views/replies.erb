@@ -26,7 +26,7 @@
       <div class='peep'>
         <div class='peep_header'>
           <span style="color:black"> <b><%= user.name %></b> </span>
-          <span>@<%= user.username %></span>
+          <span><a href="/<%= peep.user_id %>">@<%= user.username %></a></span>
           <span> <%= peep.time_posted %> </span>
         </div>
         <p> <%= peep.content %> </p>
