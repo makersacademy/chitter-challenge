@@ -33,7 +33,7 @@ describe Application do
 
       response = get('/peeps')
       expect(response.body).to include 'Craving chocolate'
-      expect(response.body).to include '2002-12-02 14:32:09'
+      expect(response.body).to include '2002-12-05 14:32:09'
       expect(response.body).to include 'cecily@gmail.com'
     end 
   end

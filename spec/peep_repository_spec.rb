@@ -13,14 +13,14 @@ describe PeepRepository do
     reset_peeps_table
   end
 
-  context '#all' do
-    peep_order = ['2002-12-04 10:23:54', '2002-12-03 10:06:23', '2002-12-02 12:39:42']
-    it 'returns all peeps, sorted chronologically' do 
-      repo = PeepRepository.new
-      expect(repo.all.count).to eq(3)
-      expect(repo.all.map { |peep| peep.created_at }).to eq(peep_order)
-    end 
-  end 
+   context '#all' do
+     peep_order = ['2002-12-04 10:23:54', '2002-12-03 10:06:23', '2002-12-02 12:39:42']
+     it 'returns all peeps, sorted chronologically' do 
+       repo = PeepRepository.new
+       expect(repo.all.count).to eq(3)
+       expect(repo.all.map { |peep| peep.created_at }).to eq(peep_order)
+     end 
+   end 
 
   context '#find' do 
     it 'returns a single peep' do 
@@ -39,21 +39,21 @@ describe PeepRepository do
     end 
   end 
 
-  context '#create' do 
-    it 'creates a new peep' do
-      repo = PeepRepository.new 
+   context '#create' do 
+     it 'creates a new peep' do
+       repo = PeepRepository.new 
 
-      new_peep = Peep.new
-      new_peep.message = 'Craving chocolate'
-      new_peep.created_at = '2002-12-04 14:32:09'
-      new_peep.user_id = '2'
-      repo.create(new_peep)
+       new_peep = Peep.new
+       new_peep.message = 'Craving chocolate'
+       new_peep.created_at = '2002-12-04 14:32:09'
+       new_peep.user_id = '2'
+       repo.create(new_peep)
 
-      peeps = repo.all
-      expect(peeps.length).to eq 4
-      expect(peeps.first.message).to eq 'Craving chocolate'
-      expect(peeps.first.created_at).to eq '2002-12-04 14:32:09'
-      expect(peeps.first.user_id).to eq 2
-    end
-  end  
-end
+       peeps = repo.all
+       expect(peeps.length).to eq 4
+       expect(peeps.first.message).to eq 'Craving chocolate'
+       expect(peeps.first.created_at).to eq '2002-12-04 14:32:09'
+       expect(peeps.first.user_id).to eq 2
+     end
+   end  
+ end

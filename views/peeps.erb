@@ -1,0 +1,17 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+    <h2>Peeps</h2>
+
+    <% @peeps.each do |peep| %>
+      <p>
+        Message: <%= peep.message %>
+        <br>
+        Created at: <%= peep.created_at %>
+        <br>
+        User: <%= peep.user.email_address %>
+      </p>
+    <% end %>
+  </body>
+</html>
