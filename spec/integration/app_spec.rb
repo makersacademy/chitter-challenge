@@ -35,8 +35,10 @@ describe Application do
     it "returns the form page" do
       response = get('/peeps/new')
 
-      expect(response.body).to include('<form method="POST" action="/peeps">')
-      expect(response.body).to include('<input type="text" name="content" /><br />')
+      expect(response.status).to eq(302)
+
+      # expect(response.body).to include('<form method="POST" action="/peeps">')
+      # expect(response.body).to include('<input type="text" name="content" /><br />')
     end
   end
 
@@ -51,6 +53,8 @@ describe Application do
   context "GET /peeps" do
     it "returns peeps in reverse chronological order and link to user pages" do
       response = get('/peeps')
+
+      expect(response.status).to eq(200)
 
       expect(response.body).to include('<h1>Peeps</h1>')
       expect(response.body).to include('<p>peep 1</p>')
@@ -74,7 +78,7 @@ describe Application do
     it "creates new user" do
       response = post('/users', name: 'marinapapap', email: 'notreal@email.com')
 
-      expect(response.body).to include('<p>Welcome to the chitter community!</p>')
+      expect(response.body).to include('<h1>Welcome to the chitter community!</h1>')
     end
   end
 
@@ -87,4 +91,28 @@ describe Application do
     end
   end
 
+  context "GET /login" do
+    it "returns the login page" do
+      response = get('/login')
+
+      expect(response.body).to include('<input type="text" name="email_address" /><br />')
+      expect(response.body).to include('<input type="text" name="password" /><br />')
+    end
+  end
+
+  context "POST /login" do
+    it "logs the user into a session" do
+      response = post('/login', name: "David", email_address: 'email_1@yahoo.co.uk', password: '##^%$&^$#')
+
+      expect(response.body).to include("<a href='/peeps/new'><p>start chittering</p></a>")
+    end
+  end
+
+  context "GET /logout" do
+    it "logs the user out" do
+      response = get('/logout')
+
+      expect(response.status).to eq(302)
+    end
+  end
 end

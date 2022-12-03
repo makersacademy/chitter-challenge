@@ -20,6 +20,12 @@ class Application < Sinatra::Base
   end
 
   get '/peeps' do
+    # if session[:user_id] == nil
+    #   return redirect('/login')
+    # end
+
+    @session = session[:user_id]
+
     repo = PeepRepository.new
     @peeps = repo.all.reverse
 
@@ -27,6 +33,9 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
+    if session[:user_id] == nil
+      return redirect('/login')
+    end
 
     erb(:new_peeps)
 
@@ -34,14 +43,14 @@ class Application < Sinatra::Base
 
   post '/peeps' do
 
-    user_repo = UserRepository.new
+    # user_repo = UserRepository.new
     peep_repo = PeepRepository.new
 
-    user_id = user_repo.find_by_name(params[:name]).id
+    # user_id = user_repo.find_by_name(params[:name]).id
 
     peep = Peep.new
     peep.content = params[:content]
-    peep.user_id = user_id
+    peep.user_id = session[:user_id]
 
     peep_repo.create(peep)
 
@@ -61,6 +70,7 @@ class Application < Sinatra::Base
     user = User.new
     user.name = params[:name]
     user.email_address = params[:email_address]
+    user.password = params[:password]
 
     user_repo.create(user)
 
@@ -68,6 +78,8 @@ class Application < Sinatra::Base
   end
 
   get '/users/:id' do
+
+    @session = session[:user_id]
 
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
@@ -87,6 +99,34 @@ class Application < Sinatra::Base
     end
 
     erb(:peep_by_user)
+  end
+
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login' do
+    email = params[:email_address]
+    password = params[:password]
+
+    user_repo = UserRepository.new
+    user = user_repo.find_by_email(email)
+
+    if user.password == password
+
+      session[:user_id] = user.id
+
+      return erb(:login_success)
+
+    else
+      redirect '/login'
+    end
+  end
+
+  get '/logout' do
+    session.clear
+
+    redirect '/'
   end
 
 end

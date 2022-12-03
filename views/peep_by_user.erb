@@ -1,7 +1,20 @@
 <html>
-  <head></head>
+  <head>
+  <style>
+  #a1 { 
+    float: right; 
+    }
+  </style>
+  </head>
   <body>
-    <h1>Peeps by <%= @user.name %></h1>
+
+  <% if @session == nil %>
+    <h1><a href='/login' id='a1'>login</a></h1>
+  <% else %>
+    <h1><a href='/logout' id='a1'>logout</a></h1>
+  <% end %>
+  
+  <h1>Peeps by <%= @user.name %></h1>
 
    
     <% @peeps.reverse.each do |peep| %>

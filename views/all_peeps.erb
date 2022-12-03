@@ -1,14 +1,29 @@
 <html>
-<head></head>
+<head>
+<style>
+#a1 { 
+  float: right; 
+  }
+</style>
+</head>
 <body>
-  <h1>Peeps</h1>
 
+<% if @session == nil %>
+  <h1><a href='/login' id='a1'>login</a></h1>
+<% else %>
+  <h1><a href='/logout' id='a1'>logout</a></h1>
+<% end %>
+  
+  <h1>Peeps</h1>
+<h2>Click <a href='peeps/new'>here</a> to post your own peep</h2>
   <% @peeps.each do |peep| %>
   <div>
     <a href="/users/<%= peep.user_id %>"><p><%= peep.content %></p></a> -
     <%= peep.date_time[0..-8] %>
   </div>
-  <% end %>
+  <% end %><br >
+
 
 </body>
 </html>
+
