@@ -68,4 +68,41 @@ describe Application do
           expect(response.body).to include ('Time: 2008-01-01 12:00:00')
         end
       end
+
+      context "GET /posts" do
+        xit "returns all the posts by the users" do
+            response = get('/posts')
+
+            expect(response.status).to eq 200
+            expect(response.body).to include('<h1>Posts</h1>')
+            expect(response.body).to include ('Title: TLF')
+            expect(response.body).to include ('Post: spanish sahara left field')
+            expect(response.body).to include ('Time: 2010-01-01 12:00:00')
+        end
+      end
+
+      context "GET /posts/new" do
+        xit "returns the form to allow user to make a new post" do
+            response = get('/artists/new')
+
+            expect(response.status).to eq 200
+            expect(response.body).to include('<form method="POST" action="/posts')
+            expect(response.body).to include('input type="text" name="title" />') 
+            expect(response.body).to include('input type="text" name="content" />')
+            expect(response.body).to include('input type="text" name="time" />')
+        end
+      end
+
+      context "POST /posts" do
+        xit "creates a new post and lists all the posts" do
+          response = post("/posts", title: "Everything not saved", content: "double album", time: "2020-01-01 12:00:00")
+          expect(response.status).to eq 200
+          response = get("/posts")
+          expect(response.status).to eq 200
+          expect(response.body).to include ('<h1>Posts</h1>')
+          expect(response.body).to include('Everything not saved')
+          expect(response.body).to include('double album')
+          expect(response.body).to include('2020-01-01 12:00:00')
+        end
+      end
 end
