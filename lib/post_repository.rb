@@ -24,8 +24,6 @@ class PostRepository
     return record_to_post(record)
   end
 
-      # Insert new post 
-    # item is a new post objectrs
   def create(post)
     current_time = Time.now.to_s[0..18]
     sql = 'INSERT INTO posts (content, time, user_id) VALUES($1, $2, $3);'

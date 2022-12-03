@@ -114,4 +114,13 @@ describe Application do
       expect(response.body).to include('<input type="submit">') 
     end
   end
+
+  context 'for POST /new' do 
+    it 'creates a new post and returns a confirmation page' do
+      response = post("/new", content: "This is a test example post from username secondname", user_id: "2")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Peep has been added!</h2>')
+      expect(response.body).to include('<a href="/">Back to home</a>')
+    end
+  end
 end

@@ -5,7 +5,8 @@
       <form action="/new" method="POST">
         <div>
           <label>Username:</label><br />
-          <select name="user_id"><br /><br />
+          <select name="user_id" required><br /><br />
+              <option value="" selected disabled hidden>Select</option>
             <% @users.each do |user|%>
               <option value="<%= user.id %>"><%= user.username %></option>
             <%end%>
