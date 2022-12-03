@@ -69,7 +69,7 @@ RSpec.describe UserRepository do
       repo.create(user)
 
       users = repo.all
-
+# 
       expect(users.last).to have_attributes(
         name: 'Third Name',
         email: 'thirdname@email.com',

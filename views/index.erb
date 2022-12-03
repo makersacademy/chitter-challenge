@@ -1,17 +1,21 @@
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
   <body>
+    <li>
     <h1>Chitter</h1>
-      <p>
-        <div><a href="/signup">Sign up</a></div>
-        <div><a href="/login">Log in</a></div>
-        <div><a href="/new">Add a peep</a></div>
-      </p>
+        <div class='links'>
+          <a href="/signup">Sign up</a><br />
+          <a href="/login">Log in</a><br />
+          <a href="/new">Add a peep</a>
+        </div>
+
+        <h2>Welcome</h2>
       <% @posts.each do |post| %>
-        <div>
-        Post: <%= "#{post.content}" %><br />
-        <%= "Time: #{post.time} | Name: #{post.name} | Username: #{post.username}" %><br />
-        <br />
+        <div class='peeps'>
+          <b><%= "Peep added at: #{post.time} by #{post.name} (@#{post.username})" %></b><br /><br />
+          <%= "#{post.content}" %><br /> <br />
         </div>
       <% end %> 
   </body>
