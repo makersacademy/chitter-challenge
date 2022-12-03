@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=utf-8>
+    <title>Welcome to Chitter!</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    
+    <div>
+      <a href="/register">Register</a>
+    </div>
+
+    <h3>Add a new peep</h3>
+    <form method="post" action="/peeps">
+      Enter peep: <input type="text" name="content" />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <hr>
+    <% @peeps.each do |peep| %>
+      <div>
+        <h3><%= peep.content %></h3>
+        <p><%= peep.time %></p>
+      </div>
+    <% end %>
+  </body>
+</html>
