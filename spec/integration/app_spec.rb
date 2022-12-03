@@ -60,6 +60,24 @@ describe Application do
     end
   end
 
+  context 'GET /:user_id' do
+    it 'shows a users page with their peeps' do
+      login = post('/?username=jude94&password=topsecret123')
+      response = get('/2')
+      expect(response.body).to include 'Something deep and meaningful probably'
+      expect(response.body).not_to include '<h3>What do you wanna peep about?</h3>'
+      expect(response.body).not_to include '<label for="content">Enter your peep:</label>'
+    end
+
+    it 'incudes a peep box if the user is on their own page' do
+      login = post('/?username=jude94&password=topsecret123')
+      response = get('/1')
+      expect(response.body).to include '<h3>What do you wanna peep about?</h3>'
+      expect(response.body).to include '<label for="content">Enter your peep:</label>'
+      expect(response.body).to include 'First peep ever on chitter!!!!'
+    end
+  end
+
   context 'GET /comment/:peep_id' do
     it "shows a peep with all it's comments and an option to add a comment" do
       login = post('/?username=jude94&password=topsecret123')

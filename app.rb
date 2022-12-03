@@ -10,7 +10,7 @@ require_relative 'lib/peep_repository'
 require_relative 'lib/comment_repository'
 require_relative 'lib/user_repository'
 
-DatabaseConnection.connect
+DatabaseConnection.connect('chitter_database_test')
 
 class Application < Sinatra::Base
   enable :sessions
@@ -47,6 +47,13 @@ class Application < Sinatra::Base
     @comment_repo = CommentRepository.new
     @comments = @comment_repo.find(params[:peep_id])
     return erb(:peep)
+  end
+
+  get '/:user_id' do
+    @peep_repo = PeepRepository.new
+    @comment_repo = CommentRepository.new
+    @user_repo = UserRepository.new
+    return erb(:user)
   end
 
   post '/' do

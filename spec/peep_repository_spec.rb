@@ -62,4 +62,21 @@ describe CommentRepository do
       expect(latest_peep.user_id).to eq '1'
     end
   end
+
+  context 'find_by_user_id method' do
+    it 'returns a list of peeps created by a given user' do
+      repo = PeepRepository.new
+      peeps = repo.find_by_user_id(1)
+      first_peep = peeps.first
+      last_peep = peeps.last
+      expect(peeps.length).to eq 2
+      expect(first_peep.content).to eq 'First peep ever on chitter!!!!'
+      expect(first_peep.time_posted).to eq '2022-11-30 12:00:00'
+      expect(first_peep.user_id).to eq '1'
+      expect(last_peep.content).to eq 'Is it raining?'
+      expect(last_peep.time_posted).to eq '2022-11-30 12:04:00'
+      expect(last_peep.user_id).to eq '1'
+    end
+  end
+
 end

@@ -31,8 +31,8 @@
          <p class="peep-name"><%= @user_repo.find(peep.user_id).name %> </p>
          <div class="peep-text">
             <p>
-            <div class=user-tag>@<%= @user_repo.find(peep.user_id).username %></div>
-            : <%= peep.content %></p> 
+            <div class=user-tag><a href="/" onclick="alert('You have to be signed in to view this users profile')">@<%= @user_repo.find(peep.user_id).username %></a>:</div>
+            <%= peep.content %></p> 
          </div>
          <p class="timestamp"><%= peep.time_posted %></p>
          <button type="button" class="comments-button" onclick="alert('You have to be signed in to see the comments')">View comments</button>

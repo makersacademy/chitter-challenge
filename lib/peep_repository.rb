@@ -32,4 +32,20 @@ class PeepRepository
     peep.user_id = record['user_id']
     peep
   end
+
+  def find_by_user_id(user_id)
+    sql = 'SELECT id, content, time_posted, user_id FROM peeps WHERE user_id = $1;'
+    params = [user_id]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    users_peeps = []
+    result_set.each do |record|
+      peep = Peep.new
+      peep.id = record['id']
+      peep.content = record['content']
+      peep.time_posted = record['time_posted']
+      peep.user_id = record['user_id']
+      users_peeps << peep
+    end
+    users_peeps
+  end
 end
