@@ -1,11 +1,11 @@
-<html lang="en">
+ <html lang="en">
   <head>
     <link type='text/css' rel="stylesheet" href="styles.css" />
     <meta charset=utf-8>
     <title>Chitter</title>
   </head>
   <body>
-    <% if session[:user_id] %>
+ <% if session[:user_id] %>
       <div class='topnav'>
         <h2>Chitter</h2>
         <% user = @user_repository.find_by_id(session[:user_id]) %>
@@ -18,13 +18,6 @@
           </div>
         </form>
       </div>
-      <h3 style='color:white'>Write new peep...</h3>
-      <form action="/peep/new" method="post">
-        <div class="container">
-          <input type="text" placeholder="insert peep here" name="content" required>
-          <button type="submit" class='login-button'>Post Peep</button>
-        </div>
-      </form>
     <% else %>
       <div class='topnav'>
         <h2>Chitter</h2>
@@ -45,13 +38,16 @@
         </form>
       </div>
     <% end %>
-    <h3 style='color:white'>Peeps</h3>
-    <% @peep_repository.all.reverse.each do |peep| %>
+    <form action="/" method="get">
+      <button type="submit" class='login-button'>Go Home</button>
+    </form>
+    <h3 style='color:white'>Peeps By <%= @user.name %></h3>
+    <% @peep_repository.find_by_user(@user.id).reverse.each do |peep| %>
       <div class='peep'>
         <% user = @user_repository.find_by_id(peep.user_id) %>
         <div class='peep_header'>
           <span style="color:black"> <b><%= user.name %></b> </span>
-          <span><a href="/<%= peep.user_id %>">@<%= user.username %></span></a>
+          <span>@<%= user.username %></span>
           <span> <%= peep.time_posted %> </span>
         </div>
         <p> <%= peep.content %> </p>

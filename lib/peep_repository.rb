@@ -27,6 +27,17 @@ class PeepRepository
     return record_to_peep_object(record)
   end
 
+  def find_by_user(user_id)
+    peeps_by_user = []
+    sql = 'SELECT id, content, time_posted, user_id FROM peeps WHERE user_id = $1;'
+    sql_params = [user_id]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    result_set.each do |record|
+      peeps_by_user << record_to_peep_object(record)
+    end
+    return peeps_by_user
+  end
+
   private 
 
   def record_to_peep_object(record)

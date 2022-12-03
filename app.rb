@@ -112,6 +112,14 @@ class Application < Sinatra::Base
     return redirect "/replies/#{params[:peep_id]}"
   end
 
+  get '/:user_id' do
+    @peep_repository = PeepRepository.new
+    @comment_repository = CommentRepository.new
+    @user_repository = UserRepository.new
+    @user = @user_repository.find_by_id(params[:user_id])
+    return erb(:peeps_by_user)
+  end
+
   def check_if_peep_or_reply_contains_tag(content)
     user_repository = UserRepository.new
     usernames = user_repository.all.map(&:username)

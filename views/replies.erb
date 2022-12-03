@@ -19,7 +19,7 @@
         </form>
       </div>
       <form action="/logged_in" method="get">
-        <button type="submit" class='login-button'>Go Back</button>
+        <button type="submit" class='login-button'>Go Home</button>
       </form>
       <% peep = @peep_repository.find_by_id(@peep_id) %>
       <% user = @user_repository.find_by_id(peep.user_id) %>
@@ -42,14 +42,14 @@
         <h2>Chitter</h2>
       </div>
       <form action="/" method="get">
-        <button type="submit" class='login-button'>Go Back</button>
+        <button type="submit" class='login-button'>Go Home</button>
       </form>
       <% peep = @peep_repository.find_by_id(@peep_id) %>
       <% user = @user_repository.find_by_id(peep.user_id) %>
       <div class='peep'>
         <div class='peep_header'>
           <span style="color:black"> <b><%= user.name %></b> </span>
-          <span>@<%= user.username %></span>
+          <span><a href="/<%= peep.user_id %>">@<%= user.username %></a></span>
           <span> <%= peep.time_posted %> </span>
         </div>
         <p> <%= peep.content %> </p>
@@ -62,7 +62,7 @@
         <div class='peep'>
           <div class='peep_header'>
             <span style="color:black"> <b><%= user.name %></b> </span>
-            <span>@<%= user.username %></span>
+            <span><a href="/<%= comment.user_id %>">@<%= user.username %></a></span>
             <span> <%= comment.time_posted %> </span>
           </div>
           <p> <%= comment.content %> </p>
