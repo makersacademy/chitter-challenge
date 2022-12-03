@@ -32,6 +32,41 @@ class Application < Sinatra::Base
 
   end
 
+  post '/peeps' do
+
+    user_repo = UserRepository.new
+    peep_repo = PeepRepository.new
+
+    user_id = user_repo.find_by_name(params[:name]).id
+
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.user_id = user_id
+
+    peep_repo.create(peep)
+
+    erb(:peep_sent)
+
+  end
+
+  get '/users/new' do
+
+    erb(:new_users)
+  end
+
+  post '/users' do
+
+    user_repo = UserRepository.new
+
+    user = User.new
+    user.name = params[:name]
+    user.email_address = params[:email_address]
+
+    user_repo.create(user)
+
+    erb(:user_created)
+  end
+
   get '/users/:id' do
 
     peep_repo = PeepRepository.new
@@ -41,6 +76,7 @@ class Application < Sinatra::Base
     
 
     @peeps = []
+
 
     all_peeps = peep_repo.all
 

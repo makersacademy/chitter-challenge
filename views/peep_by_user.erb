@@ -3,10 +3,10 @@
   <body>
     <h1>Peeps by <%= @user.name %></h1>
 
-    <h3>Peeps</h3>
-    <% @peeps.each do |peep| %>
+   
+    <% @peeps.reverse.each do |peep| %>
       <div>
-        <%= peep.content %> -
+        <p><%= peep.content %></p> -
         <%= peep.date_time[0..-8] %>
       </div>
       <% end %>

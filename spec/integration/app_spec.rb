@@ -27,7 +27,7 @@ describe Application do
       response = get('/')
 
       expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
-      expect(response.body).to include('<a href="/peeps">View Peeps Here</a>')
+      expect(response.body).to include('<a href="/users/new">here</a>.')
     end
   end
 
@@ -37,6 +37,14 @@ describe Application do
 
       expect(response.body).to include('<form method="POST" action="/peeps">')
       expect(response.body).to include('<input type="text" name="content" /><br />')
+    end
+  end
+
+  context "POST /peeps" do
+    it "post new peep to database" do
+      response = post('/peeps', content: "New peep", name: "David")
+      
+      expect(response.body).to include('<h3>Peep sent! Click <a href="/peeps">here</a> to see what other Chitter users are saying.</h3>')
     end
   end
 
@@ -50,6 +58,23 @@ describe Application do
 
       expect(response.body).to include('<a href="/users/2">')
       expect(response.body).to include('<a href="/users/1">')
+    end
+  end
+
+  context "GET /users/new" do
+    it "gets create new user page" do
+      response = get('/users/new')
+
+      expect(response.body).to include('<input type="text" name="name" /><br />')
+      expect(response.body).to include('<input type="text" name="email_address" /><br />')
+    end
+  end
+
+  context "POST /users" do
+    it "creates new user" do
+      response = post('/users', name: 'marinapapap', email: 'notreal@email.com')
+
+      expect(response.body).to include('<p>Welcome to the chitter community!</p>')
     end
   end
 

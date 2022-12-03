@@ -1,3 +1,25 @@
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name text,
+  email_address text,
+  password text
+);
+
+DROP TABLE IF EXISTS peeps;
+
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  content text,
+  date_time timestamp DEFAULT CURRENT_TIMESTAMP,
+-- The foreign key name is always {other_table_singular}_id
+  user_id int,
+  constraint fk_user foreign key(user_id)
+    references users(id)
+    on delete cascade
+);
+
 TRUNCATE TABLE users RESTART IDENTITY CASCADE; -- replace with your own table name.
 TRUNCATE TABLE peeps RESTART IDENTITY; -- replace with your own table name.
 
