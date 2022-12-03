@@ -38,8 +38,23 @@
         </div>
       </form>
     <% else %>
-      <div class='topnav'>
+           <div class='topnav'>
         <h2>Chitter</h2>
+        <div class="login-container">
+          <form action="/credentials_checker" method="post">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <label for="password">Password&nbsp;</label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <div class='login_signup_buttons'>
+              <button type="submit" class='login-button'>Login</button>
+              <a href="/signup">
+                <button type="button">Sign Up</button>
+              </a>
+            </div>
+          </div>
+        </form>
       </div>
       <form action="/" method="get">
         <button type="submit" class='login-button'>Go Home</button>

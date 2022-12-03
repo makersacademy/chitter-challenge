@@ -18,6 +18,9 @@
           </div>
         </form>
       </div>
+      <form action="/logged_in" method="get">
+        <button type="submit" class='login-button'>Go Home</button>
+      </form>
     <% else %>
       <div class='topnav'>
         <h2>Chitter</h2>
@@ -37,10 +40,10 @@
           </div>
         </form>
       </div>
-    <% end %>
-    <form action="/" method="get">
+      <form action="/" method="get">
       <button type="submit" class='login-button'>Go Home</button>
     </form>
+    <% end %>
     <h3 style='color:white'>Peeps By <%= @user.name %></h3>
     <% @peep_repository.find_by_user(@user.id).reverse.each do |peep| %>
       <div class='peep'>
