@@ -7,7 +7,7 @@
   <body>
     <% if session[:user_id] %>
       <div class='topnav'>
-        <h2 class='title'>Chitter</h2>
+        <h2>Chitter</h2>
         <% user = @user_repository.find_by_id(session[:user_id]) %>
         <h3>Currently logged in as: <%=user.name %></h3>
         <form action="/" method="get">
