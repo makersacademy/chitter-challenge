@@ -64,7 +64,7 @@ Table: posts
 id: SERIAL
 title: text
 content: text
-post_time: timestamp
+create_at: TIMESTAMPTZ DEFAULT Now() 
 
 Table: users
 id: SERIAL
@@ -118,19 +118,18 @@ Replace the relevant bits in this example with your own:
 -- Create the table without the foreign key first.
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email text,
+  email text UNIQUE,
   password text,
   name text,
-  username text,
-  UNIQUE(email,username)
+  username text UNIQUE
 );
 
 -- Then the table with the foreign key first.
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
-  title text,
-  content int,
-  post_time timestamp,
+  title text NOT NULL,
+  content text NOT NULL,
+  create_at TIMESTAMPTZ DEFAULT Now(), 
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)

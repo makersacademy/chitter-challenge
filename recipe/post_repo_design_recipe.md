@@ -1,4 +1,4 @@
-# USER Model and Repository Classes Design Recipe
+# POST Model and Repository Classes Design Recipe
 
 _Copy this recipe template to design and implement Model and Repository classes for a database table._
 
@@ -8,15 +8,15 @@ If the table is already created in the database, you can skip this step.
 
 Otherwise, [follow this recipe to design and create the SQL schema for your table](./single_table_design_recipe_template.md).
 
-*In this template, we'll use an example table `students`*
+*In this template, we'll use an example table `posts`*
 
 ```
 # EXAMPLE
 
-Table: students
+Table: posts
 
 Columns:
-id | name | cohort_name
+id | title | content | create_at
 ```
 
 ## 2. Create Test SQL seeds
@@ -35,13 +35,13 @@ If seed data is provided (or you already created it), you can skip this step.
 -- so we can start with a fresh state.
 -- (RESTART IDENTITY resets the primary key)
 
-TRUNCATE TABLE students RESTART IDENTITY; -- replace with your own table name.
+TRUNCATE TABLE posts RESTART IDENTITY; -- replace with your own table name.
 
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
 
-INSERT INTO students (name, cohort_name) VALUES ('David', 'April 2022');
-INSERT INTO students (name, cohort_name) VALUES ('Anna', 'May 2022');
+INSERT INTO posts (title, content, create_at, user_id) VALUES ('post01', 'content01','2017-05-25 17:39:49', 1);
+INSERT INTO posts (title, content, create_at, user_id) VALUES ('post02', 'content02','2018-05-25 17:39:49', 2);
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
@@ -56,16 +56,16 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: posts
 
 # Model class
-# (in lib/student.rb)
-class Student
+# (in lib/post.rb)
+class Post
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/post_repository.rb)
+class PostRepository
 end
 ```
 
@@ -75,15 +75,15 @@ Define the attributes of your Model class. You can usually map the table columns
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: posts
 
 # Model class
-# (in lib/student.rb)
+# (in lib/post.rb)
 
-class Student
+class Post
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+  attr_accessor :id, :title, :content, :create_at
 end
 
 # The keyword attr_accessor is a special Ruby feature
@@ -105,35 +105,39 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: posts
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/post_repository.rb)
 
-class StudentRepository
+class PostRepository
 
   # Selecting all records
   # No arguments
   def all
-    # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    Executes the SQL query:
+    SELECT id, title, content, create_at FROM posts;
 
-    # Returns an array of Student objects.
+    Returns an array of Post objects.
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
+  #Gets a single record by its ID
+  #One argument: the id (number)
   def find(id)
-    # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+    Executes the SQL query:
+    SELECT id, title, content, create_at FROM posts WHERE id = $1;
 
-    # Returns a single Student object.
+    Returns a single Post object.
   end
 
-  # Add more methods below for each operation you'd like to implement.
+  Add more methods below for each operation you'd like to implement.
 
-  # def create(student)
-  # end
+  def create(post)
+  Executes the SQL query:
+  INSERT INTO posts (title, content, create_at) VALUES ($1, $2, $3) 
+  Create an post
+  Return nil
+  end
 
   # def update(student)
   # end
@@ -153,32 +157,87 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all posts
 
-repo = StudentRepository.new
+repo = PostRepository.new
 
-students = repo.all
+posts = repo.all
 
-students.length # =>  2
+posts.length # =>  2
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+posts[0].id # =>  1
+posts[0].title # =>  'post01'
+posts[0].content # =>  'content01'
+posts[0].create_at # =>  '2017-05-25 17:39:49'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+posts[1].id # =>  2
+posts[1].title # =>  'post02'
+posts[1].content # =>  'content02'
+posts[1].create_at # =>  '2018-05-25 17:39:49'
 
 # 2
-# Get a single student
+# create a single post
+repo = PostRepository.new
 
-repo = StudentRepository.new
+post = Post.new
+post.title = 'post04'
+post.content = 'content04'
+post.create_at = '2019-05-25 17:39:49'
 
-student = repo.find(1)
+repo.create(post)
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+posts = repo.all
+
+last_post = posts.last
+expect(last_post.title).to eq 'post04'
+expect(last_post.content).to eq 'content04'
+
+
+# 3
+# Get an error if title null
+repo = PostRepository.new
+
+post = Post.new
+post.title = nil
+post.content = '123'
+post.create_at = '2018-05-25 17:39:49'
+
+expect{repo.create(post)}.to raise_error PG::NotNullViolation
+
+  #4 Find the user_id 2's post
+  it " Find the user_id 2's post" do
+
+    repo = PostRepository.new
+
+    posts = repo.where(user_id: 2)
+
+      posts.length # =>  2
+
+      posts[0].id # =>  2
+      posts[0].title # =>  'post02'
+      posts[0].content # =>  'content02'
+      posts[0].create_at # =>  '2018-05-25 17:39:49'
+
+      posts[1].id # =>  3
+      posts[1].title # =>  'post03'
+      posts[1].content # =>  'content03'
+      posts[1].create_at # =>  '2018-06-25 17:39:49'
+
+  end
+
+
+
+```
+
+Encode this example as a test.
+
+## 7. Reload the SQL seeds before each test run
+
+Running the SQL code present in the seed file will empty the table and re-insert the seed data.
+
+This is so you get a fresh table contents every time you run the test suite.
+
+```ruby
 
 # Add more examples for each method
 ```
@@ -194,17 +253,21 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/post_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_posts_table
+  seed_sql = File.read('spec/seeds.sql')
+  if ENV["PG_password"] 
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test', password: ENV["PG_password"] })
+  else
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  end
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe PostRepository do
   before(:each) do 
-    reset_students_table
+    reset_posts_table
   end
 
   # (your tests will go here).

@@ -18,21 +18,23 @@ describe UserRepository do
   # (your tests will go here).
   # 1
 # Get all users
+context "all method" do
   it "Get all users" do
     repo = UserRepository.new
 
     users = repo.all
 
-    users.length # =>  2
+    expect(users.length).to eq 2
 
-    users[0].id # =>  1
-    users[0].name # =>  'David'
-    users[0].email # =>  'david@mail.com'
+    expect(users[0].id).to eq '1'
+    expect(users[0].name).to eq 'David'
+    expect(users[0].email).to eq 'david@mail.com'
 
-    users[1].id # =>  2
-    users[1].name # =>  'Anna'
-    users[1].email # =>  'anna@mail.com'
+    expect(users[1].id).to eq '2'
+    expect(users[1].name).to eq 'Anna'
+    expect(users[1].email).to eq 'anna@mail.com'
   end
+end
 
   # 2
 # create a single user
@@ -81,6 +83,20 @@ describe UserRepository do
       user.username = 'superdavid02'
 
       expect{repo.create(user)}.to raise_error PG::UniqueViolation
+    end
+
+        # 5
+# Get an error if email null
+    it "Get an error if email null" do
+      repo = UserRepository.new
+
+      user = User.new
+      user.email = nil
+      user.password = '123'
+      user.name = 'David02'
+      user.username = 'superdavid02'
+
+      expect{repo.create(user)}.to raise_error PG::NotNullViolation
     end
   end
 end
