@@ -6,8 +6,18 @@
   </head>
   <body>
     <% if session[:user_id] %>
-      <% user = @user_repository.find_by_id(session[:user_id]) %>
-      <h3 style='color:white'>Currently logged in as: <%= user.username %></h3>
+     <div class='topnav'>
+        <h2>Chitter</h2>
+        <% user = @user_repository.find_by_id(session[:user_id]) %>
+        <h3>Currently logged in as: <%=user.name %></h3>
+         <form action="/" method="get">
+          <div class="container">
+            <a href="/">
+              <button type="button" class='login-button'>Log Out</button>
+            </a>
+          </div>
+        </form>
+      </div>
       <form action="/logged_in" method="get">
         <button type="submit" class='login-button'>Go Back</button>
       </form>
