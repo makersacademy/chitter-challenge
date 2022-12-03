@@ -56,4 +56,16 @@ describe Application do
           expect(response_2.body).to include('ed@foals.com')
         end
       end
+
+      context "GET /users/:id" do
+        xit "returns all the posts by user 1" do
+          response = get('/users/1')
+    
+          expect(response.status).to eq 200
+          expect(response.body).to include('<h1>Posts</h1>')
+          expect(response.body).to include ('Title: Antidotes')
+          expect(response.body).to include ('Post: math rocking glory')
+          expect(response.body).to include ('Time: 2008-01-01 12:00:00')
+        end
+      end
 end
