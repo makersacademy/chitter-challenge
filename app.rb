@@ -52,6 +52,7 @@ class Application < Sinatra::Base
   get '/new' do
     repo = UserRepository.new
     @users = repo.all
+    @char_error_message = ""
     return erb(:add_post)
   end
 
@@ -60,6 +61,17 @@ class Application < Sinatra::Base
     new_post = Post.new
     new_post.content = params[:content]
     new_post.user_id = params[:user_id]
+
+    special = "?<>',?[]}{=-)(*&^%$#`~{}"
+    regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
+    
+    if params[:content] =~ regex
+      repo = UserRepository.new
+      @users = repo.all
+      @char_error_message = "Do not include special characters, please re-enter information"
+      return erb(:add_post)
+    end
+
     repo.create(new_post)
 
     return erb(:post_added)

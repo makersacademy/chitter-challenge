@@ -101,7 +101,7 @@ describe Application do
   end
 
   context 'for GET /new' do
-    it 'returns a add post  form' do
+    it 'returns add a post form' do
       response = get("/new")
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Add a peep</h1>')
@@ -119,6 +119,11 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2>Peep has been added!</h2>')
       expect(response.body).to include('<a href="/">Back to home</a>')
+    end
+    it 'should return an error message if parameter contains special characters' do
+      response = post("/new", content: "This is a test example post from <script> username secondname", user_id: "2")
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Do not include special characters, please re-enter information')
     end
   end
 end
