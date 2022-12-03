@@ -19,17 +19,20 @@ RSpec.describe UserRepository do
 
       expect(users.length).to eq 2
 
-      expect(users[0].id).to eq 1
-      expect(users[0].name).to eq 'First Name'
-      expect(users[0].email).to eq 'firstname@email.com'
-      expect(users[0].password).to eq 'abc123'
-      expect(users[0].username).to eq 'firstname'
-
-      expect(users[1].id).to eq 2
-      expect(users[1].name).to eq 'Second Name'
-      expect(users[1].email).to eq 'secondname@email.com'
-      expect(users[1].password).to eq 'defgh456'
-      expect(users[1].username).to eq 'secondname'
+      expect(users.first).to have_attributes(
+        id: 1,
+        name: 'First Name',
+        email: 'firstname@email.com',
+        password: '$2a$12$3szom8F8U2FzRLw/9Hbtre/q7lE7T8a3PNy/yoEKVIfpMRW6DRUgm',
+        username: 'firstname',
+      )
+      expect(users.last).to have_attributes(
+        id: 2,
+        name: 'Second Name',
+        email: 'secondname@email.com',
+        password: '$2a$12$qPKjx6RUqlBW1DReRvxLCeJobvx7oP2nk6HP7Xdb7ATD74BqeRPKy',
+        username: 'secondname',
+      )
     end
     
     it 'Get a single user by email' do 
@@ -37,15 +40,25 @@ RSpec.describe UserRepository do
 
       user = repo.find_by_email("firstname@email.com")
 
-      expect(user.id).to eq 1
-      expect(user.name).to eq 'First Name'
-      expect(user.email).to eq 'firstname@email.com'
-      expect(user.password).to eq 'abc123'
-      expect(user.username).to eq 'firstname'
+      expect(user).to have_attributes(
+        id: 1,
+        name: 'First Name',
+        email: 'firstname@email.com',
+        password: '$2a$12$3szom8F8U2FzRLw/9Hbtre/q7lE7T8a3PNy/yoEKVIfpMRW6DRUgm',
+        username: 'firstname',
+      )
     end
 
-    it 'Creates a new user' do 
-      repo = UserRepository.new
+    it 'Creates a new user' do
+      encrypted_password_double = double(:fake_password)
+      expect(encrypted_password_double).to receive(:to_s)
+        .and_return('$2a$12$/L45fkS0yQgpM.dhS1VvjelZTsAqlXlX2vSSIkO6QGNBZL/nMQuC2')
+      
+      bcrypt_double = double(:fake_bcrypt)
+      expect(bcrypt_double).to receive(:create).with('abcd1234')
+        .and_return(encrypted_password_double)
+      
+      repo = UserRepository.new(bcrypt_double)
 
       user = User.new
       user.name = 'Third Name'
@@ -55,13 +68,14 @@ RSpec.describe UserRepository do
 
       repo.create(user)
 
-      all_users = repo.all
-      last_user = all_users.last
+      users = repo.all
 
-      expect(last_user.name).to eq 'Third Name'
-      expect(last_user.email).to eq 'thirdname@email.com'
-      # expect(last_user.password).to eq 'abcd1234'
-      expect(last_user.username).to eq 'thirdname'
+      expect(users.last).to have_attributes(
+        name: 'Third Name',
+        email: 'thirdname@email.com',
+        password: '$2a$12$/L45fkS0yQgpM.dhS1VvjelZTsAqlXlX2vSSIkO6QGNBZL/nMQuC2',
+        username: 'thirdname',
+      )
     end
   end
 end

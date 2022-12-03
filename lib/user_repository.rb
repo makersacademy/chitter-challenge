@@ -3,6 +3,10 @@ require 'bcrypt'
 
 class UserRepository
 
+  def initialize(encrypter = BCrypt::Password)
+    @encrypter = encrypter 
+  end
+
   def all
     sql = 'SELECT id, name, email, password, username FROM users;'
     result_set = DatabaseConnection.exec_params(sql,[])
@@ -24,7 +28,7 @@ class UserRepository
   end
 
   def create(user)
-    encrypted_password = BCrypt::Password.create(user.password)
+    encrypted_password = @encrypter.create(user.password)
     sql = 'INSERT INTO users (name, email, password, username) VALUES($1, $2, $3, $4);'
     params = [user.name, user.email, encrypted_password, user.username]
     DatabaseConnection.exec_params(sql, params)

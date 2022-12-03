@@ -13,11 +13,9 @@ describe Application do
   before(:each) do
     reset_chitter_challenge_libary
   end
-  # This is so we can use rack-test helper methods.
+
   include Rack::Test::Methods
 
-  # We need to declare the `app` value by instantiating the Application
-  # class so our tests work.
   let(:app) { Application.new }
 
   context 'for GET /' do
@@ -90,8 +88,8 @@ describe Application do
     end
   end
 
-  xcontext 'for POST /signin' do
-    it 'logs in user' do
+  context 'for POST /signin' do
+    xit 'logs in user' do
       response = post("/signup", name: "Third Name", email: "thirdname@email.com", password: "defgh456", username: "thirdname")
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2>Sign up complete for thirdname!</h2>')

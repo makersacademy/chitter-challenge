@@ -56,12 +56,11 @@ RSpec.describe PostRepository do
     it 'Creates a new post' do
       timestamp = double(:fake_timestamp)
       expect(timestamp).to receive(:now).and_return('2022-11-08 04:05:08')
-            
+
       repo = PostRepository.new(timestamp)
 
       post = Post.new
       post.content = 'This is an example test post from username secondname'
-      post.time = '2022-11-08 04:05:08'
       post.user_id = 2
 
       repo.create(post)

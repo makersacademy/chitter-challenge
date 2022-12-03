@@ -38,9 +38,11 @@ class Application < Sinatra::Base
       return erb(:signup)
     end
 
-    if duplicate_email_or_username?
-      @signup_error_message = "Duplicate email or username, please re-submit"
-      return erb(:signup)
+    @repo.all.each do |user|
+      if user.email == @email || user.username == @username
+        @signup_error_message = "Duplicate email or username, please re-submit"
+        return erb(:signup)
+      end
     end
 
     @repo.create(params_to_new_user(params))
@@ -89,12 +91,6 @@ class Application < Sinatra::Base
 
   def invalid_email_format?
     return @email !~ URI::MailTo::EMAIL_REGEXP
-  end
-
-  def duplicate_email_or_username?
-    @repo.all.each do |user|
-      return (user.email == @email || user.username == @username)
-    end
   end
 
   def params_to_new_user(params)
