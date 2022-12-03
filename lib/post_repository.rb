@@ -1,6 +1,11 @@
 require_relative './post'
 
 class PostRepository
+
+  def initialize(timestamp = Time)
+    @timestamp = timestamp 
+  end
+
   def all
     sql = 'SELECT posts.id, posts.content, posts.time, posts.user_id,
                   users.name, users.username
@@ -25,7 +30,7 @@ class PostRepository
   end
 
   def create(post)
-    current_time = Time.now.to_s[0..18]
+    current_time = @timestamp.now
     sql = 'INSERT INTO posts (content, time, user_id) VALUES($1, $2, $3);'
     params = [post.content, current_time, post.user_id]
     DatabaseConnection.exec_params(sql, params)
