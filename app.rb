@@ -5,6 +5,8 @@ require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep'
 require_relative 'lib/user'
+require 'date'
+
 
 DatabaseConnection.connect
 
@@ -21,5 +23,20 @@ class Application < Sinatra::Base
     @peeps = repo.all
 
     return erb(:peeps)
+  end 
+
+  get '/peeps/create' do 
+    return erb(:new_peep)
+  end 
+
+  post '/peeps/create' do 
+    repo = PeepRepository.new
+    new_peep = Peep.new
+    new_peep.message = params[:message]
+    new_peep.created_at = DateTime.now
+    new_peep.user_id = 1
+
+    repo.create(new_peep)
+    redirect('/peeps')
   end 
 end
