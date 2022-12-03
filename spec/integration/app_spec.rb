@@ -120,6 +120,7 @@ describe Application do
       expect(response.status).to eq(302)
       comment_repository = CommentRepository.new 
       expect(comment_repository.find_by_peep(1).last.content).to eq('Latest reply')
+      expect(comment_repository.find_by_peep(1).last.peep_id).to eq('1')
     end
   end
 end

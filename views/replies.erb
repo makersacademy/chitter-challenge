@@ -50,7 +50,6 @@
       <% @comments.reverse.each do |comment| %>
         <% user = @user_repository.find_by_id(comment.user_id) %>
         <div class='peep'>
-          <% user = @user_repository.find_by_id(peep.user_id) %>
           <div class='peep_header'>
             <span style="color:black"> <b><%= user.name %></b> </span>
             <span>@<%= user.username %></span>

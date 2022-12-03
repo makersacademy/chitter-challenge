@@ -8,10 +8,10 @@ require_relative './lib/user_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
 
   configure :development do
     register Sinatra::Reloader
-    enable :sessions
   end
 
   get '/' do 
@@ -103,7 +103,7 @@ class Application < Sinatra::Base
     @comment_repository = CommentRepository.new 
     comment = Comment.new 
     comment.time_posted = Time.new.strftime('%Y-%m-%d %H:%M:%S')
-    comment.user_id = session[:user_id]
+    p comment.user_id = session[:user_id]
     comment.content = params[:content]
     comment.peep_id = params[:peep_id]
     return redirect "/replies/#{params[:peep_id]}" if params[:content].empty?
