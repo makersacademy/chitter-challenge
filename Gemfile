@@ -17,4 +17,9 @@ gem "pg", "~> 1.4"
 gem "sinatra", "~> 3.0"
 gem "sinatra-contrib", "~> 3.0"
 gem "webrick", "~> 1.7"
+gem "rack-test", "~> 1.1"
 gem "rackup", "~> 0.1.0"
+
+gem "bcrypt", "~> 3.1"
+
+gem "htmlbeautifier", "~> 1.4"
