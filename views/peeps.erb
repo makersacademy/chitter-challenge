@@ -3,9 +3,15 @@
   <body>
     <h1>Chitter</h1>
 
-    <a href="/signup"><h2>Signup to Chitter</h2></a>
+    <div>
+      <% if @account.nil? %>
+        Welcome, Guest. <a href="/login">Login here</a>
+      <% else %>
+        Welcome, <%= @account.name %>. <a href="/peeps/new">Post a new peep</a>
+      <% end %>
+    </div>
 
-    <a href="/peeps/new"><h2>Post a new peep</h2></a>
+    <h2>Peeps</h2>
 
     <% @peeps.zip(@authors).each do |peep, author| %>
       <div>

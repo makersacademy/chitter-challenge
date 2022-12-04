@@ -28,6 +28,8 @@ class Application < Sinatra::Base
       account_repository.find(peep.account_id)
     end
 
+    @account = session[:account_id].nil? ? nil : account_repository.find(session[:account_id])
+
     return erb(:peeps)
   end
 
@@ -109,6 +111,16 @@ class Application < Sinatra::Base
     end
     session[:account_id] = @account.id
     return erb(:successful_login)
+  end
+
+  post "/logout" do
+    if session[:account_id].nil?
+      status 400
+      return erb(:failed_logout)
+    end
+
+    session[:account_id] = nil
+    return redirect("/login")
   end
 
   private 

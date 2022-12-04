@@ -38,8 +38,6 @@ describe Application do
       expect(get_response.status).to eq 200
       expect(get_response.body).to include(
         '<h1>Chitter</h1>',
-        '<a href="/signup"><h2>Signup to Chitter</h2></a>',
-        '<a href="/peeps/new"><h2>Post a new peep</h2></a>',
         'TSeleiro',
         'My third peep',
         '2022-11-03 07:13:49'
@@ -48,6 +46,28 @@ describe Application do
       # We check that the most recent entry is followed by the second most recent
       expect(get_response.body).to match(
         /2022-11-03 07:13:49<br><br>\s*?<\/div>\s*?<div>\s*?RKirkbride/
+      )
+    end
+
+    xit "allows the user to post or sign out if they are logged in" do
+      # Sign in to Chitter
+      post_response = post("/login", username: "RKirkbride", password: "1234hello1234")
+      expect(post_response.status).to eq 200
+
+      get_response = get("/peeps")
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        'Welcome, Robbie Kirkbride. <a href="/peeps/new">Post a new peep</a>',
+        '<form action"/logout" method="POST">',
+        '<input type="submit", name="Log out" />'
+      )
+    end
+
+    it "points the user to log in if they are not already" do
+      get_response = get("/peeps")
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        'Welcome, Guest. <a href="/login">Login here</a>'
       )
     end
   end
@@ -108,6 +128,18 @@ describe Application do
         '<select name="account_id" id="account_id">',
         '<option value="1">TSeleiro</option>',
         '<input type="submit" name="Submit" />'
+      )
+    end
+
+    xit "requires the client to be logged in to post a peep" do
+      get_response = get("/peeps/new")
+
+      expect(get_response.status).to eq 401
+      expect(get_response.body).to include(
+        '<h1>Post a new peep</h1>',
+        '<h3>You must be logged in to post a peep</h3>',
+        '<a href="/login">Log in here</a>',
+        '<a href="/peeps">Return to home page</a>'
       )
     end
   end
@@ -278,6 +310,33 @@ describe Application do
         '<h1>Login successful</h1>',
         '<h2>Welcome to Chitter, Thomas Seleiro</h2>',
         '<a href="/peeps">Continue to the main page</a>'
+      )
+    end
+  end
+
+  context "POST /logout" do
+    it "fails if the user is not logged in" do
+      post_response = post("/logout")
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>Chitter</h1>',
+        'You are not logged in. <a href="/login">Log in here</a>'
+      )
+    end
+
+    it "logs out of the session and redirects to the login page" do
+      # Sign in to Chitter
+      post_response = post("/login", username: "RKirkbride", password: "1234hello1234")
+      expect(post_response.status).to eq 200
+
+      post_response = post("/logout")
+      expect(post_response.status).to eq 302
+      expect(post_response.header["Location"]).to include("/login")
+
+      get_response = get("/peeps")
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        'Welcome, Guest. <a href="/login">Login here</a>'
       )
     end
   end
