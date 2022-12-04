@@ -1,20 +1,39 @@
 <html>
 <head>
 <style>
-#a1 { 
+.button { 
+  font-family: Arial, Helvetica, sans-serif;
   float: right; 
   }
+
+#header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  margin: auto;
+  width: 30%;
+  text-align: center;
+  padding: 2%;
+  }
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: auto;
+  width: 30%;
+  text-align: center;
+  padding: 2%;
+}
 </style>
 </head>
 <body>
 
 <% if @session == nil %>
-  <h1><a href='/login' id='a1'>login</a></h1>
+  <h1><a href='/login' class='button'>login</a></h1>
 <% else %>
-  <h1><a href='/logout' id='a1'>logout</a></h1>
+  <h1><a href='/logout' class='button'>logout</a></h1>
 <% end %>
 
-  <h1>Welcome to Chitter!</h1>
+  <h1 id='header'>Welcome to Chitter!</h1>
 
   <p>
     New to Chitter? Create an account <a href="/users/new">here</a>.
