@@ -14,14 +14,7 @@ class UserRepository
     users = []
 
     result_set.each do |record|
-      user = User.new
-      user.id = record["id"]
-      user.email_address = record["email_address"]
-      user.password = record["password"]
-      user.name = record["name"]
-      user.username = record["username"]
-
-      users << user
+      users << record_into_user(record)
     end
 
     return users
@@ -41,6 +34,7 @@ class UserRepository
       raise "That username is already taken" if user.username == existing_user.username
     end
 
+    # Creates user account
     # Executes the SQL query:
     sql = "INSERT INTO users (email_address, password, name, username) VALUES ($1, $2, $3, $4);"
     params = [user.email_address, user.password, user.name, user.username]
@@ -70,14 +64,7 @@ class UserRepository
 
     result_set = DatabaseConnection.exec_params(sql, params)
     record = result_set[0]
-
-    user = User.new
-    user.id = record["id"]
-    user.email_address = record["email_address"]
-    user.password = record["password"]
-    user.name = record["name"]
-    user.username = record["username"]
-
+    user = record_into_user(record)
     return user
   end
 
@@ -98,14 +85,19 @@ class UserRepository
 
     result_set = DatabaseConnection.exec_params(sql, params)
     record = result_set[0]
+    user = record_into_user(record)
 
+    return user
+  end
+
+  # converts a record from the database connection result set into a User object
+  def record_into_user(record)
     user = User.new
     user.id = record["id"]
     user.email_address = record["email_address"]
     user.password = record["password"]
     user.name = record["name"]
     user.username = record["username"]
-
     return user
   end
 end
