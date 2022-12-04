@@ -36,7 +36,6 @@ class PeepRepository
 
   # Finds one peep by its id
   def find_peep_by_id(id_of_peep)
-    # find peep
     sql = "SELECT id, content, date_and_time, user_id FROM peeps WHERE id = $1"
     params = [id_of_peep]
 
