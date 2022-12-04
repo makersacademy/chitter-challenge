@@ -12,7 +12,11 @@ class PeepRepository
       peep.id = record['id']
       peep.content = record['content']
       peep.time = record['time_created']
-      peep.user_id = record['user_id']
+      peep.author_user_id = record['user_id']
+
+      author = UserRepository.new.find(record['user_id'])
+      peep.author_username = author.username
+      peep.author_full_name = author.full_name
 
       peeps << peep
     end
@@ -31,14 +35,14 @@ class PeepRepository
   #   peep.id = record['id']
   #   peep.content = record['content']
   #   peep.time = record['time_created']
-  #   peep.user_id = record['user_id']
+  #   peep.author_user_id = record['user_id']
 
   #   return peep
   # end
 
   def create(peep)
     sql = 'INSERT INTO peeps (content, time_created, user_id) VALUES($1, $2, $3);'
-    sql_params = [peep.content, peep.time, peep.user_id]
+    sql_params = [peep.content, peep.time, peep.author_user_id]
 
     DatabaseConnection.exec_params(sql, sql_params)
 

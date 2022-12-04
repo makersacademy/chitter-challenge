@@ -13,13 +13,13 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repository.rb'
   end
 
-  # Inititally logged out
-  @logged_in = false
-  @current_user = User.new
-  @current_user.username = "default_user"
-  @current_user.full_name = "Default User"
+  $logged_in = false
+  $current_user = User.new
+  $current_user.username = "default_user"
+  $current_user.full_name = "Default User"
 
   get '/' do
+    p $logged_in
     peep_repo = PeepRepository.new
     @peeps = peep_repo.all.reverse
 
@@ -30,22 +30,57 @@ class Application < Sinatra::Base
     return erb(:register)
   end
 
-  # create new peep
+  get '/logged-out' do
+    $logged_in = false
+    return redirect('/')
+  end
+
+  get '/log-in' do
+    return erb(:log_in)
+  end
+
   post '/peeps' do
     if security_risk?
       status 400
-      return ""
+      return "Error: Illegal characters used"
     end
     
     new_peep = Peep.new
     new_peep.content = params[:content]
     new_peep.time = Time.now
-    #new_peep.user_id = @current_user_id
+    new_peep.author_username = $current_user.username
+    new_peep.author_full_name = $current_user.full_name
+    new_peep.author_user_id = $current_user.id
 
     peep_repo = PeepRepository.new
     peep_repo.create(new_peep)
 
     return redirect('/')
+  end
+
+  post '/log-in' do
+    user = User.new
+    user.username = params[:username]
+    user.pass = params[:pass]
+
+    user_repo = UserRepository.new
+    registered_users = user_repo.all
+
+    registered_users.each do |registered_user|
+      if registered_user.username == params[:username]
+        if registered_user.pass == params[:pass]
+          $current_user = registered_user
+          $logged_in = true
+          return redirect('/')
+        end
+
+        status 400
+        return "Error: Incorrect password for #{params[:username]}"
+      end
+    end
+
+    status 400
+    return "Error: Username not found"
   end
 
   post '/register' do
@@ -71,12 +106,9 @@ class Application < Sinatra::Base
     end
 
     user_repo.create(new_user)
-    @current_user = user_repo.all.last
-    @logged_in = true
 
     return redirect('/')
   end
-
 
   private
 

@@ -21,22 +21,22 @@ class UserRepository
     return users
   end
 
-  # def find(id)
-  #   sql = 'SELECT id, username, pass, full_name, email FROM users WHERE id = $1;'
-  #   sql_params = [id]
+  def find(id)
+    sql = 'SELECT id, username, pass, full_name, email FROM users WHERE id = $1;'
+    sql_params = [id]
 
-  #   result_set = DatabaseConnection.exec_params(sql, sql_params)
-  #   record = result_set[0]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    record = result_set[0]
 
-  #   user = User.new
-  #   user.id = record['id']
-  #   user.username = record['username']
-  #   user.pass = record['pass']
-  #   user.full_name = record['full_name']
-  #   user.email = record['email']
+    user = User.new
+    user.id = record['id']
+    user.username = record['username']
+    user.pass = record['pass']
+    user.full_name = record['full_name']
+    user.email = record['email']
 
-  #   return user
-  # end
+    return user
+  end
 
   def create(user)
     sql = 'INSERT INTO users (username, pass, full_name, email) VALUES($1, $2, $3, $4);'

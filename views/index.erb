@@ -7,23 +7,38 @@
   <body>
     <h1>Chitter</h1>
     
-    <div>
-      <a href="/register">Register</a>
-    </div>
+    <% if $logged_in %>
+      <div>
+        Currently logged in as <%= $current_user.username %>
+      <form method="get" action="/logged-out">
+        <input type="submit" value="Log out" />
+      </form>
 
-    <h3>Add a new peep</h3>
-    <form method="post" action="/peeps">
-      Enter peep: <input type="text" name="content" />
+      <h3>Add a new peep</h3>
+      <form method="post" action="/peeps">
+        Enter a peep: <input type="text" name="content" />
+        <input type="submit" value="Peep it!" />
+      </form>
 
-      <input type="submit" value="Submit" />
-    </form>
+    <% else %>
+      <form method="get" action="/log-in">
+        <input type="submit" value="Log in" />
+      </form>
+      <form method="get" action="/register">
+        <input type="submit" value="Register" />
+      </form>
+
+    <% end %>
 
     <hr>
+
     <% @peeps.each do |peep| %>
       <div>
         <h3><%= peep.content %></h3>
+        <p><%= peep.author_full_name %> - @<%= peep.author_username %></p>
         <p><%= peep.time %></p>
       </div>
     <% end %>
+
   </body>
 </html>
