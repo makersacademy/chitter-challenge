@@ -49,7 +49,7 @@ describe Application do
       )
     end
 
-    xit "allows the user to post or sign out if they are logged in" do
+    it "allows the user to post or sign out if they are logged in" do
       # Sign in to Chitter
       post_response = post("/login", username: "RKirkbride", password: "1234hello1234")
       expect(post_response.status).to eq 200
@@ -58,8 +58,8 @@ describe Application do
       expect(get_response.status).to eq 200
       expect(get_response.body).to include(
         'Welcome, Robbie Kirkbride. <a href="/peeps/new">Post a new peep</a>',
-        '<form action"/logout" method="POST">',
-        '<input type="submit", name="Log out" />'
+        '<form action="/logout" method="POST">',
+        '<input type="submit" value="Log Out" />'
       )
     end
 
@@ -160,6 +160,16 @@ describe Application do
         '<a href="/peeps">Return to peeps</a>'
       )
     end
+
+    it "redirects to peeps if the user is already logged on" do
+      # Sign in to Chitter
+      post_response = post("/login", username: "RKirkbride", password: "1234hello1234")
+      expect(post_response.status).to eq 200
+
+      get_response = get("/signup")
+      expect(get_response.status).to eq 302
+      expect(get_response.header["Location"]).to include("/peeps")
+    end
   end
 
   context "POST /signup" do
@@ -248,6 +258,16 @@ describe Application do
         'Don\'t have an account? <a href="/signup">Sign up here</a>',
         '<a href="/peeps">Continue as a guest</a>'
       )
+    end
+
+    it "redirects to peeps if the user is already logged on" do
+      # Sign in to Chitter
+      post_response = post("/login", username: "RKirkbride", password: "1234hello1234")
+      expect(post_response.status).to eq 200
+
+      get_response = get("/login")
+      expect(get_response.status).to eq 302
+      expect(get_response.header["Location"]).to include("/peeps")
     end
   end
 

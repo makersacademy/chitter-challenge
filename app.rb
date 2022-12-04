@@ -59,7 +59,7 @@ class Application < Sinatra::Base
   end
 
   get "/signup" do
-    return erb(:signup_form)
+    return session[:account_id].nil? ? erb(:signup_form) : redirect("/peeps")
   end
 
   post "/signup" do
@@ -91,7 +91,7 @@ class Application < Sinatra::Base
   end
 
   get "/login" do
-    return erb(:login_form)
+    return session[:account_id].nil? ? erb(:login_form) : redirect("/peeps")
   end
 
   post '/login' do
