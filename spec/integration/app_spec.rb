@@ -57,8 +57,8 @@ describe Application do
       expect(response.status).to eq(200)
 
       expect(response.body).to include("<h1 class='header'>Peeps</h1>")
-      expect(response.body).to include("<p id='peep'>peep 1</p>")
-      expect(response.body).to include("<p id='peep'>peep 2</p>")
+      expect(response.body).to include("<p class='peep'>peep 1</p>")
+      expect(response.body).to include("<p class='peep'>peep 2</p>")
 
       expect(response.body).to include('<a href="/users/2">')
       expect(response.body).to include('<a href="/users/1">')
@@ -86,7 +86,7 @@ describe Application do
     it "returns page of peeps from one user" do
       response = get('users/1')
 
-      expect(response.body).to include '<h1>Peeps by David</h1>'
+      expect(response.body).to include "<h1 class='header'>Peeps by David</h1>"
       expect(response.body).to include 'peep 1'
     end
   end
