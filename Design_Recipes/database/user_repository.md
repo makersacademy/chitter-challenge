@@ -56,16 +56,16 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Model class
-# (in lib/student.rb)
-class Student
+# (in lib/user.rb)
+class User
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/user_repository.rb)
+class UserRepository
 end
 ```
 
@@ -75,24 +75,16 @@ Define the attributes of your Model class. You can usually map the table columns
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Model class
-# (in lib/student.rb)
+# (in lib/user.rb)
 
-class Student
+class User
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+  attr_accessor :id, :name, :username, :email, :password
 end
-
-# The keyword attr_accessor is a special Ruby feature
-# which allows us to set and get attributes on an object,
-# here's an example:
-#
-# student = Student.new
-# student.name = 'Jo'
-# student.name
 ```
 
 *You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
@@ -105,41 +97,45 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/user_repository.rb)
 
-class StudentRepository
+class UserRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    # SELECT * FROM users;
 
-    # Returns an array of Student objects.
+    # Returns an array of User objects.
   end
 
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+    # SELECT * FROM users WHERE id = $1;
 
-    # Returns a single Student object.
+    # Returns a single User object.
   end
+
+  def find_by_username(username)
+    # Executes the SQL query:
+    # SELECT * FROM users WHERE username = $1;
+
+    # Returns a single User object.
 
   # Add more methods below for each operation you'd like to implement.
 
-  # def create(student)
-  # end
+  def create(user)
+    # Executes the SQL query:
+    # INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);
 
-  # def update(student)
-  # end
-
-  # def delete(student)
-  # end
+    # Returns nothing.
+  end
 end
 ```
 
@@ -153,34 +149,66 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all users
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-students = repo.all
+users = repo.all
 
-students.length # =>  2
+users.length # =>  2
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+users[0].id # =>  1
+users[0].name # =>  'David'
+users[0].username # =>  'username1'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+users[1].id # =>  2
+users[1].name # =>  'Anna'
+users[1].email # =>  'user.2@hotmail.com'
+users[1].password # =>  'password2'
 
 # 2
-# Get a single student
+# Get a single user
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-student = repo.find(1)
+user = repo.find(1)
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+user.id # =>  1
+user.name # =>  'David'
+user.username # =>  'username1'
+user.email # =>  'user.1@hotmail.com'
+user.password # =>  'password1'
 
-# Add more examples for each method
+
+# 3
+# Get a single user by username
+
+repo = UserRepository.new
+
+user = repo.find_by_username('username2')
+
+user.id # => 2
+user.name # => 'Anna'
+user.username # => 'username2'
+
+# 4
+# Create a new user
+
+new_user = User.new
+
+new_user.name = 'Liv'
+new_user.username = 'username3'
+new_user.email = 'user.3@hotmail.com'
+new_user.password = 'password3'
+
+repo = UserRepository.new
+
+repo.create(new_user)
+
+users = repo.all
+
+users.length # => 3
+users[2].name # => 'Liv'
 ```
 
 Encode this example as a test.
@@ -194,17 +222,17 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/user_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_users_table
+  seed_sql = File.read('spec/seeds_users.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe UserRepository do
   before(:each) do 
-    reset_students_table
+    reset_users_table
   end
 
   # (your tests will go here).
