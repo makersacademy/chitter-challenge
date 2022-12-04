@@ -17,6 +17,7 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  # Loads homepage
   get '/' do
     @user_repo = UserRepository.new
     @peep_repo = PeepRepository.new
@@ -25,7 +26,7 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  # Post peep on homepage
+  # Posts a peep from and to homepage (will also show on user's profile)
   post '/' do
     new_peep = Peep.new
     new_peep.content = params[:content]
@@ -38,14 +39,17 @@ class Application < Sinatra::Base
     return redirect '/'
   end
 
+  # Loads login page
   get '/login' do
     return erb(:login)
   end
 
+  # Loads login error page
   get '/login_error' do
     return erb(:login_error)
   end
 
+  # Logs a user in: returns to homepage if successful, goes to error page if not
   post '/login' do
     email_address = params[:email_address]
     password = params[:password]
@@ -63,16 +67,19 @@ class Application < Sinatra::Base
     end
   end
 
+  # Logs user out, returns them to homepage
   get '/logout' do
     session.clear
 
     return redirect '/'
   end
 
+  # Loads signup page
   get '/signup' do
     return erb(:signup)
   end
 
+  # Creates a user
   post '/signup' do
     new_user = User.new
     new_user.email_address = params[:email_address]
@@ -113,6 +120,7 @@ class Application < Sinatra::Base
     return erb(:user_id_profile)
   end
 
+  # Posts a peep from and to a user's own profile (will also show on homepage)
   post '/:user_id' do
     @user_id = params[:user_id]
     new_peep = Peep.new
@@ -126,6 +134,7 @@ class Application < Sinatra::Base
     return redirect "/#{@user_id}"
   end
 
+  # Loads a peep and its comments
   get '/peep/:peep_id' do
     @peep_id = params[:peep_id]
     @user_repo = UserRepository.new
@@ -138,6 +147,7 @@ class Application < Sinatra::Base
     return erb(:peep_with_comments)
   end
 
+  # Posts a comment on a peep
   post '/peep/:peep_id' do
     @peep_id = params[:peep_id]
     new_comment = Comment.new

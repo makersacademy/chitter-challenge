@@ -41,7 +41,7 @@
     <% @peeps.reverse.each do |peep| %>
       <% user = @user_repo.find_user_by_id(peep.user_id.to_i) %>
       <article>
-        <p> <%= user.name %> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
+        <p> <%= user.name %> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>
         <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
         <p><a href="/peep/<%= peep.id %>"> view comments </a></p>
         <p> &nbsp <p>

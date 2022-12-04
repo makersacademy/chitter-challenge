@@ -31,7 +31,7 @@
     <h2> Peep by <%= peep_user.username %> </h2>
 
     <article>
-      <p> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
+      <p> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>
       <p> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
       <p> &nbsp <p>
       <blockquote>
