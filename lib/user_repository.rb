@@ -1,4 +1,5 @@
-require 'database_connection'
+require_relative './database_connection'
+require_relative './user'
 class UserRepository
   # Selecting all records
   # No arguments
@@ -32,6 +33,15 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE username = $1;'
     params = [username]
 
+    result = DatabaseConnection.exec_params(sql,params)
+    user = format_single_user(result[0])
+    return user
+  end
+
+  def find_by_name(name)
+    sql = 'SELECT * FROM users WHERE name = $1;'
+    params = [name]
+    
     result = DatabaseConnection.exec_params(sql,params)
     user = format_single_user(result[0])
     return user

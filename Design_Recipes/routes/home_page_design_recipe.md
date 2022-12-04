@@ -32,9 +32,9 @@ _Replace the below with your own design. Think of all the different possible res
   <head></head>
   <body>
     <%@peeps.each do |peep|%>
-      <h1><%= peep.title%></h1>
+      <h1><%= @user.find(peep.user_id).name%></h1>
       <div><%= peep.time%></h1>
-      <div><%= peep.content%></div>
+      <div><%= peep.message%></div>
     <%end%>
   </body>
 </html>
@@ -73,8 +73,8 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include(<h1>"Title"</h1>)
-      expect(response.body).to include(<div>"Content"</div>)
+      expect(response.body).to include('<h1>David</h1>')
+      expect(response.body).to include('<div>"Content"</div>')
     end
   end
 end

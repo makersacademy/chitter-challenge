@@ -52,7 +52,18 @@ describe UserRepository do
     expect(user.name).to eq 'Anna'
     expect(user.username).to eq 'username2'
   end
+
   # 4
+  it "Get a single user by name" do
+    repo = UserRepository.new
+
+    user = repo.find_by_name('Anna')
+
+    expect(user.id).to eq 2
+    expect(user.username).to eq 'username2'
+  end
+
+  # 5
   it "Create a new user" do
     new_user = User.new
 

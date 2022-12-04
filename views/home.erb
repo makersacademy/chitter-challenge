@@ -1,0 +1,13 @@
+<html>
+  <head>
+  <a href="/new">New Peep</a>
+  </head>
+  <body>
+
+    <%@peeps.each do |peep|%>
+      <h1><%= @users.find(peep.user_id).name%></h1>
+      <div><%= peep.time%></div>
+      <div><%= peep.message%></div>
+    <%end%>
+  </body>
+</html>

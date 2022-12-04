@@ -1,3 +1,5 @@
+require_relative './database_connection'
+require_relative './peep'
 class PeepRepository
 
   # Selecting all records
