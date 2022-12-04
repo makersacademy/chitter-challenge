@@ -28,14 +28,15 @@ describe UserRepository do
     expect(users[1].full_name).to eq 'Mrs_Miggins'
   end 
 
-  context 'finds a specific user' do 
+  context 'finds a specific user by email address' do 
 
     it 'finds the last user' do
 
       repo = UserRepository.new
 
-      user = repo.find(4)
+      user = repo.find_by_email('Meelon@tesla.com')
       
+      expect(user.id).to eq '4'
       expect(user.username).to eq 'not_elon'
       expect(user.email_address).to eq 'Meelon@tesla.com'
       expect(user.password).to eq '1filNfdvc£'
@@ -47,8 +48,9 @@ describe UserRepository do
 
       repo = UserRepository.new
 
-      user = repo.find(2)
+      user = repo.find_by_email('m_miggins@hotmail.com')
 
+      expect(user.id).to eq '2'
       expect(user.username).to eq 'The_Migster'
       expect(user.email_address).to eq 'm_miggins@hotmail.com'
       expect(user.password).to eq '&gfdklwr3'

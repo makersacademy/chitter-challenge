@@ -16,10 +16,10 @@ class UserRepository
     return @all_users
   end
 
-  def find(id)
+  def find_by_email(email)
 
-    sql = 'SELECT username, email_address, password, full_name FROM users WHERE id = $1;'
-    sql_params = [id]
+    sql = 'SELECT id, username, email_address, password, full_name FROM users WHERE email_address = $1;'
+    sql_params = [email]
 
     result_set = DatabaseConnection.exec_params(sql, sql_params)
     record = result_set[0]

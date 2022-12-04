@@ -1,4 +1,5 @@
 require 'message_repository'
+require 'user_repository'
 require 'rack/test'
 require_relative '../../app'
 
