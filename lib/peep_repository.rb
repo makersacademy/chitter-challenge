@@ -31,7 +31,10 @@ class PeepRepository
     fail ArgumentError.new "A peep cannot have empty contents" if peep.contents.empty?
 
     sql_query = "INSERT INTO peeps (contents, time_posted, account_id) VALUES ($1, $2, $3);"
-    params = [peep.contents, @timer.now, peep.account_id]
+    
+    time_posted = peep.time_posted.nil? ? @timer.now : peep.time_posted
+    params = [peep.contents, time_posted, peep.account_id]
+    
     DatabaseConnection.exec_params(sql_query, params)
     return nil
   end

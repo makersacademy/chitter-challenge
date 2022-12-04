@@ -49,7 +49,7 @@ describe PeepRepository do
     expect { peep_repository.find(6) }.to raise_error IndexError, error_message
   end
 
-  it "#create adds a peep to the database" do
+  it "#create adds a peep to the database using an internal timer" do
     timer = double(:fake_timer)
     expect(timer).to receive(:now).and_return('2022-11-04 00:00:00')
 
@@ -57,6 +57,24 @@ describe PeepRepository do
 
     new_peep = Peep.new
     new_peep.contents = "I added this peep from RSpec"
+    new_peep.account_id = 3
+
+    peep_repository.create(new_peep)
+
+    expect(peep_repository.all).to include(have_attributes(
+      id: 6,
+      contents: "I added this peep from RSpec",
+      time_posted: "2022-11-04 00:00:00",
+      account_id: 3
+    ))
+  end
+
+  it "#create adds a peep to the database using a specified time_posted" do
+    peep_repository = PeepRepository.new
+
+    new_peep = Peep.new
+    new_peep.contents = "I added this peep from RSpec"
+    new_peep.time_posted = "2022-11-04 00:00:00"
     new_peep.account_id = 3
 
     peep_repository.create(new_peep)

@@ -175,7 +175,7 @@ peep_repository.find(6) # => raises IndexError "There is no peep with ID 6"
 
 
 # 4
-# #create adds a peep to the database
+# #create adds a peep to the database using an internal timer
 timer = double(:fake_timer)
 expect(timer).to receive(:now).and_return('2022-11-04 00:00:00')
 
@@ -191,6 +191,20 @@ peep_repository.all # => include(have_attributes(id: 6, contents:, time_posted:,
 
 
 # 5
+# #create adds a peep to the database using a specified time_posted
+peep_repository = PeepRepository.new
+
+new_peep = Peep.new
+new_peep.contents = "I added this peep from RSpec"
+new_peep.time_posted = "2022-11-04 00:00:00"
+new_peep.account_id = 3
+
+peep_repository.create(new_peep)
+
+peep_repository.all # => include(have_attributes(id: 6, contents:, time_posted:, account_id:))
+
+
+# 6
 # #create fails (PG::ForeignKeyViolation) when adding a peep with an invalid account_id
 timer = double(:fake_timer)
 expect(timer).to receive(:now).and_return('2022-11-04 00:00:00')
@@ -204,7 +218,7 @@ new_peep.account_id = 4
 peep_repository.create(new_peep) # => fails with PG::ForeignKeyViolation
 
 
-# 6
+# 7
 # #create fails (ArgumentError) when the contents are empty
 timer = double(:fake_timer)
 allow(timer).to receive(:now).and_return('2022-11-04 00:00:00')
