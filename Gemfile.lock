@@ -74,6 +74,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   rack-test (~> 2.0)
