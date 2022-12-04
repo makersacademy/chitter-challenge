@@ -14,14 +14,7 @@ class CommentRepository
     comments = []
 
     result_set.each do |record|
-      comment = Comment.new
-      comment.id = record["id"]
-      comment.content = record["content"]
-      comment.date_and_time = record["date_and_time"]
-      comment.user_id = record["user_id"]
-      comment.peep_id = record["peep_id"]
-      
-      comments << comment
+      comments << record_into_comment(record)
     end
 
     return comments
@@ -53,14 +46,7 @@ class CommentRepository
     comments = []
 
     result_set_2.each do |record|
-      comment = Comment.new
-      comment.id = record["id"]
-      comment.content = record["content"]
-      comment.date_and_time = record["date_and_time"]
-      comment.user_id = record["user_id"]
-      comment.peep_id = record["peep_id"]
-      
-      comments << comment
+      comments << record_into_comment(record)
     end
 
     return comments
@@ -80,8 +66,15 @@ class CommentRepository
     return nil
   end
 
-  # # allows user to delete a comment they've posted
-  # def delete(comment)
-  #   TBC
-  # end
+  # converts a record from the database connection result set into a Comment object
+  def record_into_comment(record)
+    comment = Comment.new
+    comment.id = record["id"]
+    comment.content = record["content"]
+    comment.date_and_time = record["date_and_time"]
+    comment.user_id = record["user_id"]
+    comment.peep_id = record["peep_id"]
+
+    return comment
+  end
 end
