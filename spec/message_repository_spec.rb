@@ -13,7 +13,7 @@ describe Message do
   end
   
   context "all" do
-    it "returns all messages" do
+    it "returns all messages in descending order" do
       repo = MessageRepository.new
 
       messages = repo.all
@@ -29,6 +29,23 @@ describe Message do
       expect(messages[1].message).to eq  'Sorry guys I can\'t make it'
       expect(messages[1].time).to eq '2022-09-01 11:15:01'
       expect(messages[1].handle).to eq  'singForever'
+    end
+  end
+
+  context "create new message" do
+    it "creates a new message in the database" do
+
+      repo = MessageRepository.new
+
+      new_message = Message.new
+      new_message.message = 'I need to go for a walk'
+      new_message.person_id = 3
+
+      query = repo.create(new_message)
+
+      messages = repo.all
+
+      expect(messages.length).to eq 6
     end
   end
 end

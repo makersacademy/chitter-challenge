@@ -20,4 +20,11 @@ class MessageRepository
 
     return messages
   end
+
+  def create(message)
+    sql = 'INSERT INTO messages (message, person_id) VALUES ($1, $2);'
+    params = [message.message, message.person_id]
+
+    result_set = DatabaseConnection.exec_params(sql, params)
+  end
 end

@@ -168,15 +168,16 @@ message[0].handle # =>  'singForever'
 
 repo = MessageRepository.new
 
-new_user = User.new
-new_user.username = 'Postman Pat'
-new_user.email = 'patandcat@hillsmail.com'
+new_message = Message.new
+new_message.message = 'I need to go for a walk'
+new_message.person_id = '3'
+new_message.handle = 'handle'
 
-query = repo.create(new_user)
+query = repo.create(new_message)
 
-users = repo.all
+messages = repo.all
 
-users.length => 3
+expect(messages.length).to eq 3
 
 # 4 delete a user
 
