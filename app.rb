@@ -4,6 +4,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 require_relative 'lib/comment_repository'
+require 'bcrypt'
 require 'date'
 
 DatabaseConnection.connect
@@ -61,7 +62,7 @@ class Application < Sinatra::Base
 
       return redirect '/'
     else
-      return redirect '/login_error'
+      return erb(:login_error)
     end
   end
 
@@ -83,12 +84,21 @@ class Application < Sinatra::Base
     new_user.username = params[:username]
 
     @user_repo = UserRepository.new
-    @user_repo.create(new_user)
+    all_users = @user_repo.all
+    @valid_email = true
+    @valid_username = true
+    all_users.each do |user|
+      @valid_email = false if user.email_address == new_user.email_address
+      @valid_username = false if user.username == new_user.username
+    end
 
-    new_user = @user_repo.find_user_by_email(params[:email_address])
-    session[:user_id] = new_user.id
-
-    return redirect '/'    
+    if @valid_email == true && @valid_username == true
+      @user_repo.create(new_user)
+      session[:user_id] = new_user.id
+      return redirect '/'
+    else
+      return erb(:signup_error)
+    end
   end
 
   get '/:user_id' do

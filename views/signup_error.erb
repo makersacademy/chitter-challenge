@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chitter Signup</title>
+  </head>
+  <body>
+    <header>
+      <h1>Chitter</h1>
+      <% if @valid_email == false && @valid_username == true %>
+        <p>That email address has already been taken</p>
+        <p><a href="/signup">Try again with a different email address</a></p>
+      <% elsif @valid_email == true && @valid_username == false %>
+        <p>That username has already been taken</p>
+        <p><a href="/signup">Try again with a different username</a></p>
+      <% elsif @valid_email == false && @valid_username == false %>
+        <p>The email address and username you provided have both already been taken</p>
+        <p><a href="/signup">Try again using other details</a></p>
+      <% end %>
+    </header>
+
+    <hr>
+    
+    <p><a href="/">Return to homepage</a></p>
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>
