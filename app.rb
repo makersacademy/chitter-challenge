@@ -82,6 +82,22 @@ class Application < Sinatra::Base
     return erb(:post_account_confirmation)
   end
 
+  get "/login" do
+
+  end
+
+  post '/login' do
+    if params_nil?(params, [:username, :password])
+      return raise_error_view(
+        ArgumentError.new("Cannot have empty fields in the login form"),
+        { path: "/login", message: "Return to login page" },
+        400
+      )
+    end
+    status 400
+    return erb(:failed_login)
+  end
+
   private 
 
   def params_nil?(hash, keys)

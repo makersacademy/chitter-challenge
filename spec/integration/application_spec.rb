@@ -171,7 +171,7 @@ describe Application do
       )
     end
 
-    it "Sends error status when wrong / no body parameters are given" do
+    it "sends error status when wrong / no body parameters are given" do
       post_response = post("/signup",
         fake_param1: "aksdjh",
         fake_param2: "ldsjfl"
@@ -189,6 +189,73 @@ describe Application do
         '<h1>ArgumentError:</h1>',
         '<p>Cannot have empty fields in the signup form</p>',
         '<a href="/signup"><h3>Return to signup page</h3></a>'
+      )
+    end
+  end
+
+  context "GET /login" do
+
+  end
+
+  context "POST /login" do
+    it "sends error status when wrong / no body parameters are given" do
+      post_response = post("/login",
+        fake_param1: "aksdjh",
+        fake_param2: "ldsjfl"
+      )
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>ArgumentError:</h1>',
+        '<p>Cannot have empty fields in the login form</p>',
+        '<a href="/login"><h3>Return to login page</h3></a>'
+      )
+
+      post_response = post("/login")
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>ArgumentError:</h1>',
+        '<p>Cannot have empty fields in the login form</p>',
+        '<a href="/login"><h3>Return to login page</h3></a>'
+      )
+    end
+
+    it "returns failed login view when using a username that doesn't exist" do
+      post_response = post("/login",
+        username: "TSelerio",
+        password: "password"
+      )
+
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>Chitter login</h1>',
+        '<h3>Invalid Username / Password - <a href="/login">Try again</a></h3>'
+      )
+    end
+
+    it "returns failed login view when using an incorrect password" do
+      post_response = post("/login",
+        username: "TSeleiro",
+        password: "p@$$w0rd"
+      )
+
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>Chitter login</h1>',
+        '<h3>Invalid Username / Password - <a href="/login">Try again</a></h3>'
+      )
+    end
+
+    it "succeeds when giving the correct authentication" do
+      post_response = post("/login",
+        username: "TSeleiro",
+        password: "password"
+      )
+
+      expect(post_response.status).to eq 200
+      expect(post_response.body).to include(
+        '<h1>Login successful</h1>',
+        '<h2>Welcome to Chitter, Thomas Seleiro</h2>',
+        '<a href="/peeps">Continue to the main page</a>'
       )
     end
   end
