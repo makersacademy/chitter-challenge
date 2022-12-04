@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/peep'
 require_relative './lib/peep_repository'
 require_relative './lib/account_repository'
 
@@ -15,10 +16,12 @@ class Application < Sinatra::Base
   get "/peeps" do
     peep_repository = PeepRepository.new
     account_repository = AccountRepository.new
+
     @peeps = peep_repository.all
     @authors = @peeps.map do |peep|
       account_repository.find(peep.account_id)
     end
+
     return erb(:peeps)
   end
 
@@ -28,9 +31,21 @@ class Application < Sinatra::Base
       @error = ArgumentError.new "Cannot have empty fields in the peep form"
       return erb(:post_peep_error)
     end
-  end
-end
 
-def post_inputs_nil?(parameters)
-  return params[:contents].nil? || params[:author_id].nil?
+    peep = Peep.new
+    peep.contents = params[:contents]
+    peep.time_posted = params[:time_posted]
+    peep.account_id = params[:account_id]
+
+    peep_repository = PeepRepository.new
+    peep_repository.create(peep)
+
+    return erb(:post_peep_confirmation)
+  end
+
+  private 
+
+  def post_inputs_nil?(parameters)
+    return params[:contents].nil? || params[:account_id].nil?
+  end
 end

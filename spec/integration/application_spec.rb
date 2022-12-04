@@ -59,5 +59,26 @@ describe Application do
         '<a href="/peeps"><h3>Return to Peeps</h3></a>'
       )
     end
+
+    it "Creates a new peep with a given time_posted" do
+      post_response = post("/peeps",
+        contents: "Test peep",
+        time_posted: "2022-11-04 07:00:00",
+        account_id: 2
+      )
+      expect(post_response.status).to eq 200
+      expect(post_response.body).to include(
+        '<h3>Your peep has been added</h3>',
+        '<a href="/peeps">Return to peeps</a>'
+      )
+
+      get_response = get("/peeps")
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        '<h3>GPaterson</h3>',
+        '<p>Test peep</p>',
+        '<p>2022-11-04 07:00:00</p>'
+      )
+    end
   end
 end
