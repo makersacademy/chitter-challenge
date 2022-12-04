@@ -1,17 +1,36 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     ansi (1.5.0)
     ast (2.4.2)
+    capybara (3.38.0)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    matrix (0.4.2)
+    mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
     pg (1.4.5)
+    public_suffix (5.0.0)
+    racc (1.6.0)
     rack (2.2.4)
     rack-protection (3.0.4)
       rack
@@ -70,13 +89,17 @@ GEM
     terminal-table (3.0.1)
       unicode-display_width (>= 1.1.1, < 3)
     tilt (2.0.11)
+    timecop (0.9.6)
     unicode-display_width (2.0.0)
     webrick (1.7.0)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara (~> 3.38)
   pg (~> 1.4)
   rack-test (~> 2.0)
   rspec
@@ -85,6 +108,7 @@ DEPENDENCIES
   simplecov-console
   sinatra (~> 3.0)
   sinatra-contrib (~> 3.0)
+  timecop (~> 0.9.6)
   webrick (~> 1.7)
 
 RUBY VERSION

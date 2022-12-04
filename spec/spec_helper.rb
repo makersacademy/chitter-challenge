@@ -1,6 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'database_connection'
+require 'capybara'
+require 'capybara/rspec'
 
 ENV['ENV'] = 'test'
 

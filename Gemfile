@@ -18,3 +18,7 @@ gem "webrick", "~> 1.7"
 gem "rack-test", "~> 2.0"
 
 gem "pg", "~> 1.4"
+
+gem "capybara", "~> 3.38"
+
+gem "timecop", "~> 0.9.6"

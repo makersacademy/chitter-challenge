@@ -190,7 +190,32 @@ End of timeline
 """
 
 # 2 - Adding a todo and listing it
-Request: POST /todos
+
+
+Request: GET /peep/new
+  Response: """
+
+  Home  New Peep Account  Signup
+
+  _Create a new peep_
+
+  Message: [Form] Submit
+
+
+
+  """
+Request: Post /peep/created
+Data: { message: "A brand new peep", time_posted: 2022-12-02 19:30:51 }
+  Response: """
+
+  Home  New Peep Account  Signup
+
+  _New Peep Created_
+
+  You've posted a new peep: 
+  """
+
+  Request: POST /todos
   Data: { task: "Walk the dog" }
 Request: GET /todos
   Response: """

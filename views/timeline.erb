@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1>_Chitter Timeline_</h1>
+
+    <% @timeline.each do |message| %>
+       <div style="padding-top: 20px;"> 
+        <%= "Peep from: #{@user_repo.find(message.id).username}" %>  
+       <p> <%= "Time: #{message.time_posted}" %> </p>
+       <p> <%= "#{message.content}" %></p>
+      </div>
+    <% end %>
+  </body>
+</html>

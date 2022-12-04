@@ -1,4 +1,5 @@
 require 'message_repository'
+require 'timecop'
 
 def reset_tables
   seed_sql = File.read('spec/seeds.sql')
@@ -14,7 +15,6 @@ describe MessageRepository do
   it 'shows all messages in reverse chronological order' do 
 
     repo = MessageRepository.new
-    sort_messages = repo.sort_messages
     timeline = repo.display
     
     expect(timeline.length).to eq 3
@@ -30,13 +30,19 @@ describe MessageRepository do
   
   end 
 
+  before do
+    Timecop.freeze('2022-05-01 12:37:42')
+  end
+
   it 'creates a new message' do
+
+    
 
     repo = MessageRepository.new
     message = Message.new
 
     message.content = 'This new post should have an older date to test sorting'
-    message.time_posted =  '2022-05-01 12:37:42'
+    # message.time_posted =  '2022-05-01 12:37:42'
     message.user_id = '2'
 
     repo.create(message)
