@@ -17,7 +17,6 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
-
   get '/peeps' do 
     repo = PeepRepository.new
     @peeps = repo.all
@@ -38,5 +37,23 @@ class Application < Sinatra::Base
 
     repo.create(new_peep)
     redirect('/peeps')
+  end 
+
+  get '/users/create' do 
+    return erb(:sign_up)
+  end 
+
+  post '/users/create' do 
+    repo = UserRepository.new
+    new_user = User.new
+    new_user.email_address = params[:email_address]
+    new_user.password = params[:password]
+
+    repo.create(new_user)
+    redirect('/peeps')
+  end
+
+  get '/users/log_in' do
+    return erb(:user_login)
   end 
 end
