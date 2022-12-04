@@ -10,6 +10,8 @@
         <label for="contents">Contents:</label> <br>
         <textarea name="contents" id="contents">Input your peep here</textarea>
       </div>
+      
+      <input type="hidden" name="account_id" value="<%= @account.id %>" />
 
       <div>
         <input type="submit" name="Submit" />

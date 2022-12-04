@@ -63,7 +63,7 @@ describe Application do
       )
     end
 
-    it "points the user to log in if they are not already" do
+    it "asks the user to log in if they are not already" do
       get_response = get("/peeps")
       expect(get_response.status).to eq 200
       expect(get_response.body).to include(
@@ -129,6 +129,7 @@ describe Application do
         '<h1>Post a new peep</h1>',
         '<form action="/peeps" method="POST">',
         'Robbie Kirkbride',
+        '<input type="hidden" name="account_id" value="3" />',
         '<textarea name="contents" id="contents">',
         '<input type="submit" name="Submit" />'
       )
