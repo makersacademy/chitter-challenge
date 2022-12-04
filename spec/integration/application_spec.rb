@@ -27,6 +27,7 @@ describe Application do
       expect(get_response.status).to eq 200
       expect(get_response.body).to include(
         '<h1>Chitter</h1>',
+        '<a href="/signup"><h2>Signup to Chitter</h2></a>',
         '<a href="/peeps/new"><h2>Post a new peep</h2></a>',
         'TSeleiro',
         'My third peep',
