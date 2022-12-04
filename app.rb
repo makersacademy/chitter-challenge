@@ -51,7 +51,7 @@ class Application < Sinatra::Base
   end
 
   get "/signup" do
-
+    return erb(:signup_form)
   end
 
   post "/signup" do

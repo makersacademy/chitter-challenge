@@ -35,6 +35,7 @@ describe Application do
         'My third peep',
         '2022-11-03 07:13:49'
       )
+
       # We check that the most recent entry is followed by the second most recent
       expect(get_response.body).to match(
         /2022-11-03 07:13:49<br><br>\s*?<\/div>\s*?<div>\s*?RKirkbride/
@@ -103,11 +104,25 @@ describe Application do
   end
 
   context "GET /signup" do
+    it "returns an HTML signup form" do
+      get_response = get("/signup")
 
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        '<h1>Sign up to Chitter</h1>',
+        '<form action="/signup" method="POST">',
+        '<input type="text" name="email" id="email" />',
+        '<input type="password" name="password" id="password" />',
+        '<input type="text" name="name" id="name" />',
+        '<input type="text" name="username" id="username" />',
+        '<input type="submit" name="Submit" />',
+        '<a href="/peeps">Return to peeps</a>'
+      )
+    end
   end
 
   context "POST /signup" do
-    it "Adds an account to the list of accounts" do
+    it "adds an account to the list of accounts" do
       post_response = post("/signup",
         email: "shah@email.com",
         password: "12344321",
