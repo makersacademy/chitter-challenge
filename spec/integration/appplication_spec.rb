@@ -14,4 +14,13 @@ describe  Application do
       expect(response.body).to include('<p style="font-size: 12px;font-style:italic" >2022-09-01 11:16:45 // singStar</p>')
     end
   end
+
+  context "POST /" do
+    it 'posts a new message' do
+      response = post('/?message=Will join you for a walk!&person_id=3') 
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('')
+    end
+  end
 end

@@ -1,10 +1,12 @@
 <html>
   <body>
   <h1>Welcome to Chitter</h1>
-  <form>
-  <h2>Send a message</h2>
-  </form>
-  
+  <form method="POST" action="/">
+      <input type="text" name="message" />
+      <input type="number" name="person_id" />
+      <input type="submit" value="Submit the form" />
+    </form>
+
   <% @messages.each do |message| %>
     <div>
       <p><%= message.message %></p>

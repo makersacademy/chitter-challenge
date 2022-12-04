@@ -20,6 +20,20 @@ class Application < Sinatra::Base
 
     return erb(:index)
   end
+
+  post '/' do
+    message = params[:message]
+    person_id = params[:person_id]
+
+    my_message = Message.new
+    my_message.message = message
+    my_message.person_id = person_id
+
+    repo = MessageRepository.new
+    repo.create(my_message)
+    redirect ('/')
+  end
+
 end
 
 # We need to give the database name to the method `connect`.

@@ -49,15 +49,13 @@ describe Application do
       # expect(response.body).to eq(expected_response)
     end
   end
+  
+  context "POST /" do
+    it 'posts a new message' do
+      response = post('/?message=Will join you for a walk!&id=3') 
 
-
-  context "GET /artists" do
-    it 'should return the list of artists' do
-      # Assuming the post with id 1 exists.
-      response = get('/artists')
-      expected_response = "Pixies, ABBA, Taylor Swift, Nina Simone, Kiasmos"
       expect(response.status).to eq(200)
-      expect(response.body).to eq(expected_response)
+      expect(response.body).to eq('')
     end
   end
 end
