@@ -7,7 +7,7 @@ class PeepRepository
   end
 
   def all
-    sql_query = "SELECT id, contents, time_posted, account_id FROM peeps ORDER BY id DESC;"
+    sql_query = "SELECT id, contents, time_posted, account_id FROM peeps ORDER BY time_posted DESC;"
     query_result = DatabaseConnection.exec_params(sql_query, [])
 
     peeps = []

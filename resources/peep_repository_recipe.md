@@ -107,7 +107,7 @@ class PeepRepository
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, contents, time_posted, account_id FROM peeps ORDER BY id DESC;
+    # SELECT id, contents, time_posted, account_id FROM peeps ORDER BY account_id DESC;
 
     # Returns an array of Peep objects.
   end
