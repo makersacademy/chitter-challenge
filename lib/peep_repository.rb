@@ -14,13 +14,7 @@ class PeepRepository
     peeps = []
 
     result_set.each do |record|
-      peep = Peep.new
-      peep.id = record["id"]
-      peep.content = record["content"]
-      peep.date_and_time = record["date_and_time"]
-      peep.user_id = record["user_id"]
-
-      peeps << peep
+      peeps << record_into_peep(record)
     end
 
     return peeps
@@ -52,13 +46,7 @@ class PeepRepository
     peeps = []
 
     result_set_2.each do |record|
-      peep = Peep.new
-      peep.id = record["id"]
-      peep.content = record["content"]
-      peep.date_and_time = record["date_and_time"]
-      peep.user_id = record["user_id"]
-
-      peeps << peep
+      peeps << record_into_peep(record)
     end
 
     return peeps
@@ -85,12 +73,7 @@ class PeepRepository
 
     result_set_2 = DatabaseConnection.exec_params(sql, params)
     record = result_set_2[0]
-
-    peep = Peep.new
-    peep.id = record["id"]
-    peep.content = record["content"]
-    peep.date_and_time = record["date_and_time"]
-    peep.user_id = record["user_id"]
+    peep = record_into_peep(record)
 
     return peep
   end
@@ -109,8 +92,14 @@ class PeepRepository
     return nil
   end
 
-  # # allows user to delete a peep they've posted
-  # def delete(peep)
-  #   TBC
-  # end
+  # converts a record from the database connection result set into a Peep object
+  def record_into_peep(record)
+    peep = Peep.new
+    peep.id = record["id"]
+    peep.content = record["content"]
+    peep.date_and_time = record["date_and_time"]
+    peep.user_id = record["user_id"]
+
+    return peep
+  end
 end
