@@ -26,11 +26,12 @@ class Application < Sinatra::Base
   end
 
   post "/peeps" do
-    if post_inputs_nil?(params)
-      status 400
-      @error = ArgumentError.new "Cannot have empty fields in the peep form"
-      @redirect = { path: "/peeps", message: "Return to Peeps" }
-      return erb(:post_error)
+    if params_nil?(params, [:contents, :account_id])
+      return raise_error_view(
+        ArgumentError.new("Cannot have empty fields in the peep form"),
+        { path: "/peeps", message: "Return to Peeps" },
+        400
+      )
     end
 
     peep = Peep.new
@@ -54,15 +55,42 @@ class Application < Sinatra::Base
   end
 
   post "/signup" do
-    status 400
-    @error = ArgumentError.new "Cannot have empty fields in the signup form"
-    @redirect = { path: "/signup", message: "Return to signup page" }
-    return erb(:post_error)
+    if params_nil?(params, [:email, :password, :name, :username])
+      return raise_error_view(
+        ArgumentError.new("Cannot have empty fields in the signup form"),
+        { path: "/signup", message: "Return to signup page" },
+        400
+      )
+    end
+
+    account = Account.new
+    account.email = params[:email]
+    account.password = params[:password]
+    account.name = params[:name]
+    account.username = params[:username]
+
+    account_repo = AccountRepository.new
+    begin
+      account_repo.create(account)
+    rescue => error
+      raise_error_view(
+        error,
+        { path: "/signup", message: "Return to signup page" },
+        400
+      )
+    end
   end
 
   private 
 
-  def post_inputs_nil?(parameters)
-    return parameters[:contents].nil? || parameters[:account_id].nil?
+  def params_nil?(hash, keys)
+    return keys.any? { |key| hash[key.to_sym].nil? }
+  end
+
+  def raise_error_view(error, redirect, html_status)
+    status html_status
+    @error = error
+    @redirect = redirect
+    return erb(:error)
   end
 end

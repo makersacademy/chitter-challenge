@@ -105,9 +105,30 @@ describe Application do
   end
 
   context "POST /signup" do
-    xit "fails with an html view when adding an account that already exists" do
-      post_response = post("/signup")
+    it "fails when adding an account with an email / username that already exists" do
+      post_response = post("/signup",
+        email: "thomas@email.com",
+        password: "password",
+        name: "Thomas Seleiro",
+        username: "NName"
+      )
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>PG::UniqueViolation:</h1>',
+        '<a href="/signup"><h3>Return to signup page</h3></a>'
+      )
 
+      post_response = post("/signup",
+        email: "new@email.com",
+        password: "password",
+        name: "Thomas Seleiro",
+        username: "TSeleiro"
+      )
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>PG::UniqueViolation:</h1>',
+        '<a href="/signup"><h3>Return to signup page</h3></a>'
+      )
     end
 
     it "Sends error status when wrong / no body parameters are given" do
