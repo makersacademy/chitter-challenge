@@ -19,25 +19,4 @@ describe Application do
   before :each do
     reset_users_peeps_table
   end
-
-  context "GET /peeps" do 
-    it "returns 200 OK" do 
-      response = get('/peeps')
-
-      expect(response.status).to eq 200 
-      expect(response.body).to include 'SCORE!'
-      expect(response.body).to include 'COMING HOME!'
-    end 
-  end
-
-  context "POST /peeps" do 
-    it "posts a peep" do 
-      response = post('/peeps', message: 'Germany scuffed an easy game', time_created: '2022-12-02 13:50:00', user_id: 3)
-
-      expect(response.status).to eq 200 
-      response = get('/peeps')
-      expect(response.status).to eq 200 
-      expect(response.body).to include 'Germany scuffed an easy game'
-    end
-  end
 end 
