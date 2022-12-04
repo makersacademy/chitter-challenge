@@ -5,14 +5,12 @@ require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 require_relative 'lib/comment_repository'
 
-DatabaseConnection.connect('chitter')
+DatabaseConnection.connect
 
 class Application < Sinatra::Base
   
   enable :sessions
 
-  # This allows the app code to refresh
-  # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
   end
@@ -25,7 +23,6 @@ class Application < Sinatra::Base
     if session[:user_id] == nil
       return erb(:index_default)
     else
-      # populate this file
       return erb(:index_logged_in)
     end
   end
@@ -34,12 +31,16 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  get '/login_error' do
+    return erb(:login_error)
+  end
+
   post '/login' do
     email_address = params[:email_address]
     password = params[:password]
 
     @user_repo = UserRepository.new
-    user = @user_repo.find_by_email(email_address)
+    user = @user_repo.find_user_by_email(email_address)
 
     # This is a simplified way of 
     # checking the password. In a real 
@@ -49,11 +50,9 @@ class Application < Sinatra::Base
       # Set the user ID in session
       session[:user_id] = user.id
 
-      # populate this file
-      return erb(:index_logged_in)
+      return redirect '/'
     else
-      # populate this file
-      return erb(:login_error)
+      return redirect '/login_error'
     end
   end
 
