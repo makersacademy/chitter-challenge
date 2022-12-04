@@ -10,7 +10,6 @@ require 'date'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
-  
   enable :sessions
 
   configure :development do
@@ -32,7 +31,6 @@ class Application < Sinatra::Base
     new_peep.content = params[:content]
     new_peep.date_and_time = DateTime.now()
     new_peep.user_id = session[:user_id]
-    
     @peep_repo = PeepRepository.new
     @peep_repo.create(new_peep)
 
@@ -53,7 +51,6 @@ class Application < Sinatra::Base
   post '/login' do
     email_address = params[:email_address]
     password = params[:password]
-
     @user_repo = UserRepository.new
     user = @user_repo.find_user_by_email(email_address)
 
@@ -114,7 +111,6 @@ class Application < Sinatra::Base
     @user_repo = UserRepository.new
     @peep_repo = PeepRepository.new
     @comment_repo = CommentRepository.new
-
     @peeps_by_user = @peep_repo.peeps_by_user(@user_id)
     
     return erb(:user_id_profile)
@@ -127,7 +123,6 @@ class Application < Sinatra::Base
     new_peep.content = params[:content]
     new_peep.date_and_time = DateTime.now()
     new_peep.user_id = session[:user_id]
-    
     @peep_repo = PeepRepository.new
     @peep_repo.create(new_peep)
 
@@ -140,7 +135,6 @@ class Application < Sinatra::Base
     @user_repo = UserRepository.new
     @peep_repo = PeepRepository.new
     @comment_repo = CommentRepository.new
-
     @peep_by_id = @peep_repo.find_peep_by_id(@peep_id)
     @comments_by_peep = @comment_repo.comments_by_peep(@peep_id)
 
@@ -155,7 +149,6 @@ class Application < Sinatra::Base
     new_comment.date_and_time = DateTime.now()
     new_comment.peep_id = @peep_id
     new_comment.user_id = session[:user_id]
-    
     @comment_repo = CommentRepository.new
     @comment_repo.create(new_comment)
 
