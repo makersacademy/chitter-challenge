@@ -7,11 +7,21 @@
     <header>
       <h1>Chitter</h1>
       <h4>Like Twitter, but legitter!</h4>
-      <nav>
-        <a href="/">Home</a> |
-        <a href="/login">Log in</a> |
-        <a href="/signup">Sign up</a>
-      </nav>
+      <% if session[:user_id] == nil %>
+        <nav>
+          <a href="/">Home</a> |
+          <a href="/login">Log in</a> |
+          <a href="/signup">Sign up</a>
+        </nav>
+        <p> You need to log in if you want to peep! </p>
+      <% else %>
+        <% user = @user_repo.find_user_by_id(session[:user_id]) %>
+        <nav>
+          <a href="/">Home</a> |
+          Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> |
+          <a href="/logout">Log out</a>
+        </nav>
+      <% end %>
     </header>
 
     <hr>
@@ -23,7 +33,7 @@
       <article>
         <p> <%= user.name %> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
         <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
-        <p><a href="/peep/<%= peep.id %>"> view comments </a></p>        <!-- add link to take user to peep -->
+        <p><a href="/peep/<%= peep.id %>"> view comments </a></p>
         <p> &nbsp <p>
       </article>
     <% end %>

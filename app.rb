@@ -20,11 +20,7 @@ class Application < Sinatra::Base
     @peep_repo = PeepRepository.new
     @peeps = @peep_repo.all
 
-    if session[:user_id] == nil
-      return erb(:index_default)
-    else
-      return erb(:index_logged_in)
-    end
+    return erb(:index)
   end
 
   get '/login' do
