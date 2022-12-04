@@ -1,3 +1,16 @@
+ruby '3.0.2'
+
+test 'rspec'
+
+database 'pg' 
+
+framework 'sinatra'
+
+version control 'git'
+
+git clone it and bundle install
+
+
 Chitter Challenge
 =================
 
