@@ -1,0 +1,22 @@
+
+  body {
+    background: #BDE4ED;
+    font-family: "Gill Sans", "Gill Sans MT", Arial, sans-serif;
+    padding-bottom: 40px;
+  }
+
+
+
+h1 {
+    
+    color:grey;
+    font-size:40px;
+    
+}
+.speech-bubble {
+	position: relative;
+	background: #c6d1d2;
+	border-radius: .4em;
+}
+
+

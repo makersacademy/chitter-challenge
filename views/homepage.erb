@@ -1,0 +1,37 @@
+<div class="container">
+<a href="/signup"><button type="button">Sign Up</button></a>
+<a href="/login"><button type="button">Log In</button></a>
+</div>
+
+
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+
+<head></head>
+<body>
+
+<div class="container">
+<h1> Welcome to Chitter </h1>
+<% @peeps.all.reverse_each do |peep| %>
+
+ <% user = @users.find(peep.user_id)    %>
+<br>
+@<%= user.user_name %> 
+(<%= user.name %>)
+
+ <p> <%= peep.content %> </p>
+ <span> <%= peep.created %> </span>
+<br>
+<br>
+
+
+  <% end %>
+  </div>
+  </body>
+
+
+      <form action="/peep/new" method="post">
+        <div class="container">
+          <input type="text" placeholder="got something to say?" name="content" required>
+          <button type="submit" class='login-button'>Post</button>
+        </div>
+      </form>

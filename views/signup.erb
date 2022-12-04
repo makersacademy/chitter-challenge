@@ -1,0 +1,28 @@
+<link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+<h1> Sign up for Chitter </h1>
+<form action="/signup" method="POST">
+
+    <div>
+      <label> Name </label>
+      <input type="text" name= "name" />
+    </div>
+
+    <div>
+      <label> Email </label>
+      <input type="text" name= "email" />
+    </div>
+    
+    <div>
+      <label> Password (must be eight characters)</label>
+      <input type="text" name= "password" />
+    </div>
+
+    <div>
+      <label> User Name </label>
+      <input type="text" name= "user_name" />
+    </div>
+
+    <div>
+    <input type="submit"/>
+    </div>
+</form>

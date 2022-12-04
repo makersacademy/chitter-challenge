@@ -1,5 +1,9 @@
 require 'simplecov'
 require 'simplecov-console'
+# file: spec/spec_helper.rb
+
+require 'database_connection'
+DatabaseConnection.connect('chitter_test')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
