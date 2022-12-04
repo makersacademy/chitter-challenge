@@ -194,7 +194,18 @@ describe Application do
   end
 
   context "GET /login" do
-
+    it "returns an HTML view with login form" do
+      get_response = get("/login")
+      
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        '<h1>Sign in to Chitter</h1>',
+        '<form action="/login" method="POST">',
+        '<input type="text" name="username" id="username" />',
+        '<input type="password" name="password" id="password" />',
+        '<input type="submit" name="Submit" />'
+      )
+    end
   end
 
   context "POST /login" do

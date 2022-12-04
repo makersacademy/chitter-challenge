@@ -85,7 +85,7 @@ class Application < Sinatra::Base
   end
 
   get "/login" do
-
+    return erb(:login_form)
   end
 
   post '/login' do
