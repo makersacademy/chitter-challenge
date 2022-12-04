@@ -31,17 +31,20 @@ class Application < Sinatra::Base
 
   end
 
-  post '/peep/ ' do 
+  post '/peep' do 
 
     messages_repo = MessageRepository.new
-    @user_repo = UserRepository.new
+    user_repo = UserRepository.new
     new_message = Message.new 
     new_message.content = params[:content]
     new_message.time_posted = DateTime.now
-    # new_message.user_id. = @user_repo.find(params[:content])
-    # messages_repo.create(new_message)
-    # @artist_name = new_artist.name
-    # return erb(:new_artist_created)
+    new_message.user_id = session[:id]
+
+    messages_repo.create(new_message)
+
+    @message_content = new_message.content
+
+    return erb(:new_peep_created)
 
   end 
 
@@ -84,7 +87,15 @@ class Application < Sinatra::Base
     else
       return erb(:login_failure)
     end
+
+  end 
+
+  post '/logout' do
+    session[:user_id] = nil
+    redirect to :login
   end
+
+  
   
 
 
