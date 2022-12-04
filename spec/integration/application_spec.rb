@@ -203,7 +203,9 @@ describe Application do
         '<form action="/login" method="POST">',
         '<input type="text" name="username" id="username" />',
         '<input type="password" name="password" id="password" />',
-        '<input type="submit" name="Submit" />'
+        '<input type="submit" name="Submit" />',
+        'Don\'t have an account? <a href="/signup">Sign up here</a>',
+        '<a href="/peeps">Continue as a guest</a>'
       )
     end
   end
