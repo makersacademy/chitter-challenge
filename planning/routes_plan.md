@@ -2,32 +2,34 @@
 
 GET /
 - header
-- log in section (with email address and password fields, and log in button)
+- log in and sign up buttons (takes user to respective pages)
       - (updates to e.g., 'logged in as {username}' next to a 'log out' button once logged in)
-- field with button to post a tweet (once logged in)
+- field with button to post a peep (once logged in)
 - display all peeps in reverse chronological order
       - re comments:
-          - display number of comments e.g. '2 comments'
-          - display link to 'post comment'
-          - need to click on the  peep / no_of_comments / post comment   to be taken to peep page and see comments / post comment
+          - have 'view comments' with a link to peep and its comments (if time: display number of comments e.g. '2 comments')
 
 GET /:peep_id
-- displays peep and its comments (in chronoligical order)
+- displays peep and its comments (in chronological order)
 - display a 'post comment' field and button at bottom of comments
+
+GET /login
+- displays login page
+    - fields for email address and password
+    - submit button
 
 GET /sign_up
 - displays sign-up page
     - fields for sign up info (email address, password, name and a username)
-    - submit button (that takes user to /signed_up)
+    - submit button
 
 GET /signed_up
-    - success message after sign up and button to return to homepage (stay signed in?)
-
+    - stay logged in and return to homepage
 
 POST /
-- post peep (can be done once logged in)
+- post peep (can only be done once logged in)
 
-POST /sign_up  OR  /signed_up ???
+POST /sign_up
 - submit sign up request
 
 POST /:peep_id
