@@ -1,12 +1,13 @@
 require "spec_helper"
 require "rack/test"
 require_relative '../../app'
+require 'user_repository'
 
- def reset_chitter_tables
-    seed_sql = File.read('seeds/seeds.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-    connection.exec(seed_sql)
-  end
+def reset_chitter_tables
+  seed_sql = File.read('seeds/seeds.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection.exec(seed_sql)
+end
 
 describe Application do
   # This is so we can use rack-test helper methods.
@@ -53,6 +54,30 @@ describe Application do
       response = get('/')
       expect(response.status).to eq(200)
       expect(response.body).to include("message4")
+    end
+  end
+
+  context "GET /signup" do
+    it 'returns 200 OK' do
+      # Assuming the post with id 1 exists.
+      response = get('/signup')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<input type="text" name ="name" placeholder="Name">')
+      expect(response.body).to include('<input type="text" name ="email" placeholder="Email Address">')
+      expect(response.body).to include('<input type="password" name ="password" placeholder="Password">')
+    end
+  end
+
+  context "POST /signup" do
+    it 'returns 200 OK' do
+      # Assuming the post with id 1 exists.
+      response = post('/signup', name: 'Liv', username: 'username3', email: 'user.3@hotmail.com', password: 'password3')
+
+      expect(response.status).to eq(200)
+      
+      repo = UserRepository.new
+      expect(repo.find(3).name).to eq('Liv')
     end
   end
 end

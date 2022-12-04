@@ -1,5 +1,6 @@
 require_relative './database_connection'
 require_relative './user'
+require 'bcrypt'
 class UserRepository
   # Selecting all records
   # No arguments
@@ -49,12 +50,20 @@ class UserRepository
   # Add more methods below for each operation you'd like to implement.
 
   def create(user)
+
+    encrypted_password = BCrypt::Password.create(user.password)
     # Executes the SQL query:
     sql = 'INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);'
-    params = [user.name, user.username, user.email, user.password]
+    params = [user.name, user.username, user.email, encrypted_password]
 
     DatabaseConnection.exec_params(sql,params)
     return nil
+  end
+
+  def login(username, submitted_password)
+    user = find_by_username(username)
+
+    return BCrypt::Password.new(user.password) == submitted_password
   end
 
   private

@@ -80,5 +80,23 @@ describe UserRepository do
 
     expect(users.length).to eq 3
     expect(users[2].name).to eq 'Liv'
+    expect(BCrypt::Password.new(users[2].password)).to eq 'password3'
+  end
+
+  # 6
+  it "logs in" do
+    new_user = User.new
+
+    new_user.name = 'Liv'
+    new_user.username = 'username3'
+    new_user.email = 'user.3@hotmail.com'
+    new_user.password = 'password3'
+
+    repo = UserRepository.new
+
+    repo.create(new_user)
+
+    expect(repo.login('username3', 'password3')).to eq true
+    expect(repo.login('username3', 'incorrect')).to eq false
   end
 end
