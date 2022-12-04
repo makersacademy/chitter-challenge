@@ -12,6 +12,8 @@ CREATE TABLE accounts (
 
 TRUNCATE TABLE accounts RESTART IDENTITY CASCADE;
 
+-- The below is specific to the chitter-test database:
+
 INSERT INTO accounts ("email", "password", "name", "username", "bio") VALUES
 ('johndoe@mail.com', 'Password1!', 'John Doe', 'johndoe1234', 'Hi, my name is John'),
 ('bobby-b@ntl.co.uk', 'justpassingthrough', 'Bob Bob', 'newtothis', 'Why do I need to do this?'),

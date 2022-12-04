@@ -6,6 +6,7 @@ require_relative 'lib/account'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/account_repository'
+require 'pry'
 
 DatabaseConnection.connect
 
@@ -18,7 +19,7 @@ class Application < Sinatra::Base
     also_reload 'lib/account_repository'
   end
 
-  get '/home' do
+  get '/' do
     repo = PeepRepository.new
     @peeps = repo.all
 
@@ -37,7 +38,7 @@ class Application < Sinatra::Base
     return erb(:signup)
   end
 
-  post '/accounts' do
+  post '/signup' do
     email = params[:email]
     password = params[:password]
     name = params[:name]
@@ -52,39 +53,49 @@ class Application < Sinatra::Base
     account.bio = bio
 
     repo = AccountRepository.new
-    repo.create(account)
+
+    if account.email.empty? || account.password.empty? || account.name.empty? || account.username.empty? || account.bio.empty?
+      redirect '/signup'
+    else
+      repo.create(account)
+      session[:account_id] = account.account_id
+      redirect '/custom-timeline'
+    end
   end
 
+  get '/custom-timeline' do
+    return erb(:login_success)
+  end
 
   get '/login' do
     return erb(:login)
   end
 
-  post '/login' do
-    email = params[:email]
-    password = params[:password]
+  # post '/login' do
+  #   email = params[:email]
+  #   password = params[:password]
 
-    account = AccountRepository.find_by_email(email)
+  #   account = AccountRepository.find_by_email(email)
 
-    if account.password == password
-      session[:account_id] = account.account_id
-      return erb(:login_success)
-    else
-      return erb(:login_error)
-    end
-  end
-
-  # post '/peeps' do
-  #   repo = PeepRepository.new
-  #   content = params[:content]
-  #   post_time = params[:post_time]
-  #   account_id = params[:account_id]
-
-  #   peep = Peep.new
-  #   peep.content = content
-  #   peep.post_time = post_time
-  #   peep.account_id = account_id
-
-  #   repo.create(peep)
+  #   if account.password == password
+  #     session[:account_id] = account.account_id
+  #     return erb(:login_success)
+  #   else
+  #     return erb(:login_error)
+  #   end
   # end
+
+  post '/peep' do
+    repo = PeepRepository.new
+    content = params[:content]
+    post_time = Time.now
+    account_id = session[:account_id]
+
+    peep = Peep.new
+    peep.content = content
+    peep.post_time = post_time
+    peep.account_id = account_id
+
+    repo.create(peep)
+  end
 end
