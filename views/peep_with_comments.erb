@@ -3,17 +3,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Peep by <%= peep_user.username %> </title>
+    <title>Peep by <%= peep_user.username %></title>
   </head>
   <body>
     <header>
       <h1>Chitter</h1>
       <h4>Like Twitter, but legitter!</h4>
-      <nav>
-        <a href="/">Home</a> |
-        <a href="/login">Log in</a> |
-        <a href="/signup">Sign up</a>
-      </nav>
+      <% if session[:user_id] == nil %>
+        <nav>
+          <a href="/">Home</a> |
+          <a href="/login">Log in</a> |
+          <a href="/signup">Sign up</a>
+        </nav>
+        <p> You need to log in if you want to peep or comment! </p>
+      <% else %>
+        <% user = @user_repo.find_user_by_id(session[:user_id]) %>
+        <nav>
+          <a href="/">Home</a> |
+          Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> |
+          <a href="/logout">Log out and return to homepage</a>
+        </nav>
+      <% end %>
     </header>
 
     <hr>
@@ -26,6 +36,7 @@
       <p> &nbsp <p>
       <blockquote>
       <% if !@comments_by_peep.empty? && @comments_by_peep != nil %>
+        <h3> Comments </h3>
         <% @comments_by_peep.each do |comment| %>
           <% comment_user = @user_repo.find_user_by_id(comment.user_id) %>
           <p> <%= comment_user.name %> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
@@ -36,6 +47,14 @@
       </blockquote>
       <p> &nbsp <p>
     </article>
+
+    <% if session[:user_id] != nil %>
+      <h3> Would you like to comment on this peep? </h3>
+      <form action="/peep/<%= @peep_id %>" method="post">
+        <input type="text" name="content">
+        <input type="submit" value="Post comment">
+      </form>
+  <% end %>
     
     
     </article>
@@ -43,4 +62,3 @@
     <footer>Chitter © 2022</footer>
   </body>
 </html>
-

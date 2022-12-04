@@ -28,6 +28,16 @@
 
     <h2>Peeps</h2>
 
+    <% if session[:user_id] != nil %>
+      <h3> What would you like to share? </h3>
+      <form action="/" method="post">
+        <input type="text" name="content">
+        <input type="submit" value="Post peep">
+      </form>
+
+    <% end %>
+
+
     <% @peeps.reverse.each do |peep| %>
       <% user = @user_repo.find_user_by_id(peep.user_id.to_i) %>
       <article>

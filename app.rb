@@ -4,6 +4,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 require_relative 'lib/comment_repository'
+require 'date'
 
 DatabaseConnection.connect
 
@@ -22,6 +23,19 @@ class Application < Sinatra::Base
 
     return erb(:index)
   end
+
+  post '/' do
+    new_peep = Peep.new
+    new_peep.content = params[:content]
+    new_peep.date_and_time = DateTime.now()
+    new_peep.user_id = session[:user_id]
+    
+    @peep_repo = PeepRepository.new
+    @peep_repo.create(new_peep)
+
+    return redirect '/'
+  end
+
 
   get '/login' do
     return erb(:login)
@@ -77,7 +91,6 @@ class Application < Sinatra::Base
     return redirect '/'    
   end
 
-
   get '/:user_id' do
     @user_id = params[:user_id]
     @user_repo = UserRepository.new
@@ -87,6 +100,19 @@ class Application < Sinatra::Base
     @peeps_by_user = @peep_repo.peeps_by_user(@user_id)
     
     return erb(:user_id)
+  end
+
+  post '/:user_id' do
+    @user_id = params[:user_id]
+    new_peep = Peep.new
+    new_peep.content = params[:content]
+    new_peep.date_and_time = DateTime.now()
+    new_peep.user_id = session[:user_id]
+    
+    @peep_repo = PeepRepository.new
+    @peep_repo.create(new_peep)
+
+    return redirect "/#{@user_id}"
   end
 
   get '/peep/:peep_id' do
@@ -101,8 +127,17 @@ class Application < Sinatra::Base
     return erb(:peep_with_comments)
   end
 
-  # def check_login
-  #   @logged_in = false
+  post '/peep/:peep_id' do
+    @peep_id = params[:peep_id]
+    new_comment = Comment.new
+    new_comment.content = params[:content]
+    new_comment.date_and_time = DateTime.now()
+    new_comment.peep_id = @peep_id
+    new_comment.user_id = session[:user_id]
+    
+    @comment_repo = CommentRepository.new
+    @comment_repo.create(new_comment)
 
-  # end
+    return redirect "/peep/#{@peep_id}"
+  end
 end
