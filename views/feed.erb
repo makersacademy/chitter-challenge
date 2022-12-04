@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+    <h3>Here is what people have been peeping about:</h3>
+    <h4><a href="/account_page"> Go to my account</a></h4>
+    <h4>Or <a href="/logout"> logout</a></h4>
+    <% @peeps.reverse.each do |peep| %>
+    <div>
+      <% if @user_id == peep.account_id %>
+        <u><%=@account_repo.find(peep.account_id).name%> <a href="/account_page"> (<%=@account_repo.find(peep.account_id).username%>)</a></u><br>
+      <% else %>
+        <u><%=@account_repo.find(peep.account_id).name%> <a href="/accounts/<%=peep.account_id%>"> (<%=@account_repo.find(peep.account_id).username%>)</a></u><br>
+      <% end %>
+      <%=peep.contents%><br>
+      <em><%=peep.time%></em>
+    </div><br>
+    <% end %>
+  </body>
+</html>

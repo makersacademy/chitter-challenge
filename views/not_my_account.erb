@@ -1,0 +1,20 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Account: <%=@account.name%> (<%=@account.username%>)</h1>
+    <a href="/feed"> Go to main feed</a>
+    <div>
+      <h2>Their peeps:</h2>
+      <% @peeps.reverse.each do |peep| %>
+          <% if peep.account_id == @account.id %>
+          <div>
+          <%=peep.contents%><br>
+          <em><%=peep.time%></em><br>
+          </div><br>
+          <% end %>
+      <% end %>
+    </div>
+    <div>
+    </div>
+  </body>
+</html>

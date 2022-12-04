@@ -1,0 +1,28 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Account: <%=@account.name%> (<%=@account.username%>)</h1>
+    <div>
+    <a href="/feed"> Go to main feed</a>
+    Or <a href="/logout"> logout</a>
+      <h2>My peeps:</h2>
+
+      <form action="/accounts/<%=@account.id%>/peeps" method="POST">
+        <input type="text" name="contents" />
+        <input type="submit" value="Peep" />
+      </form>
+
+      <% @peeps.reverse.each do |peep| %>
+          <% if peep.account_id == @account.id %>
+          <div>
+          <%=peep.contents%><br>
+          <em><%=peep.time%></em><br>
+          <a href="/account_page"> Delete peep</a>
+          </div><br>
+          <% end %>
+      <% end %>
+    </div>
+    <div>
+    </div>
+  </body>
+</html>

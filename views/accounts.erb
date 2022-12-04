@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Accounts</h1>
+    <% @accounts.each do |account| %>
+    <div>
+      Name: <%=account.name%>
+      Username: <a href="/accounts/<%=account.id%>"> <%=account.username%> </a>
+    </div>
+    <% end %>
+  </body>
+</html>

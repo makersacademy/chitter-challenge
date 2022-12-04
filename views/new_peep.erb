@@ -1,0 +1,6 @@
+<h1>What would you like to peep?</h1>
+<form action="/accounts/<%=@account.id%>/peeps" method="POST">
+  <label>Peep contents:</label>
+  <input type="text" name="contents" /><br/>
+  <input type="submit" value="Submit" />
+</form>
