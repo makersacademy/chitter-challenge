@@ -4,6 +4,6 @@
     <h1><%= @error.class %>:</h1>
 
     <p><%= @error.message %></p>
-    <a href="/peeps"><h3>Return to Peeps</h3></a>
+    <a href="<%= @redirect[:path] %>"><h3><%= @redirect[:message] %></h3></a>
   </body>
 </html>

@@ -99,4 +99,36 @@ describe Application do
       )
     end
   end
+
+  context "GET /signup" do
+
+  end
+
+  context "POST /signup" do
+    xit "fails with an html view when adding an account that already exists" do
+      post_response = post("/signup")
+
+    end
+
+    it "Sends error status when wrong / no body parameters are given" do
+      post_response = post("/signup",
+        fake_param1: "aksdjh",
+        fake_param2: "ldsjfl"
+      )
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>ArgumentError:</h1>',
+        '<p>Cannot have empty fields in the signup form</p>',
+        '<a href="/signup"><h3>Return to signup page</h3></a>'
+      )
+
+      post_response = post("/signup")
+      expect(post_response.status).to eq 400
+      expect(post_response.body).to include(
+        '<h1>ArgumentError:</h1>',
+        '<p>Cannot have empty fields in the signup form</p>',
+        '<a href="/signup"><h3>Return to signup page</h3></a>'
+      )
+    end
+  end
 end

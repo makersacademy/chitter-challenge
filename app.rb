@@ -29,7 +29,8 @@ class Application < Sinatra::Base
     if post_inputs_nil?(params)
       status 400
       @error = ArgumentError.new "Cannot have empty fields in the peep form"
-      return erb(:post_peep_error)
+      @redirect = { path: "/peeps", message: "Return to Peeps" }
+      return erb(:post_error)
     end
 
     peep = Peep.new
@@ -46,6 +47,17 @@ class Application < Sinatra::Base
   get "/peeps/new" do
     @accounts = AccountRepository.new.all
     return erb(:new_peep)
+  end
+
+  get "/signup" do
+
+  end
+
+  post "/signup" do
+    status 400
+    @error = ArgumentError.new "Cannot have empty fields in the signup form"
+    @redirect = { path: "/signup", message: "Return to signup page" }
+    return erb(:post_error)
   end
 
   private 
