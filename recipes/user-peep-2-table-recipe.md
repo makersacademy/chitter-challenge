@@ -135,18 +135,17 @@ Replace the relevant bits in this example with your own:
 -- Create the table without the foreign key first.
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  name text,
   email text,
-  password text
+  password text,
+  name text,
+  username text
 );
 
 -- Then the table with the foreign key first.
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
-  name text,
-  username text,
   message text,
-  time_created timestamp,
+  time timestamp,
 
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
