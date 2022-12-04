@@ -42,10 +42,9 @@ class Application < Sinatra::Base
     @user_repo = UserRepository.new
     user = @user_repo.find_user_by_email(email_address)
 
-    # This is a simplified way of 
-    # checking the password. In a real 
-    # project, you should encrypt the password
-    # stored in the database.
+    return redirect '/login_error' if user == nil
+
+    # TODO: Add password encryption
     if user.password == password
       # Set the user ID in session
       session[:user_id] = user.id
@@ -56,9 +55,32 @@ class Application < Sinatra::Base
     end
   end
 
+  get '/logout' do
+    session.clear
+
+    return redirect '/'
+  end
+
   get '/signup' do
     return erb(:signup)
   end
+
+  post '/signup' do
+    new_user = User.new
+    new_user.email_address = params[:email_address]
+    new_user.password = params[:password]
+    new_user.name = params[:name]
+    new_user.username = params[:username]
+
+    @user_repo = UserRepository.new
+    @user_repo.create(new_user)
+
+    new_user = @user_repo.find_user_by_email(params[:email_address])
+    session[:user_id] = new_user.id
+
+    return redirect '/'    
+  end
+
 
   get '/:user_id' do
     @user_id = params[:user_id]

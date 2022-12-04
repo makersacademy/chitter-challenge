@@ -1,9 +1,9 @@
-<% user = @user_repo.find_user_by_id(@peep_by_id.user_id) %>
+<% peep_user = @user_repo.find_user_by_id(@peep_by_id.user_id) %>
 
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Peep by <%= user.username %> </title>
+    <title> Peep by <%= peep_user.username %> </title>
   </head>
   <body>
     <header>
@@ -18,16 +18,17 @@
 
     <hr>
 
-    <h2> Peep by <%= user.username %> </h2>
+    <h2> Peep by <%= peep_user.username %> </h2>
 
     <article>
-      <p> <%= user.name %> &nbsp | &nbsp <%= user.username %> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
+      <p> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
       <p> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
       <p> &nbsp <p>
       <blockquote>
       <% if !@comments_by_peep.empty? && @comments_by_peep != nil %>
         <% @comments_by_peep.each do |comment| %>
-          <p> <%= comment.user_id %> &nbsp | &nbsp <%= comment.user_id %> &nbsp | &nbsp <%= comment.date_and_time %> </p>
+          <% comment_user = @user_repo.find_user_by_id(comment.user_id) %>
+          <p> <%= comment_user.name %> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
           <p> <%= comment.content %> </p>
           <p> &nbsp <p>
         <% end %>

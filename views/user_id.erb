@@ -18,15 +18,18 @@
 
     <hr>
 
-    <h2> <%= user.username %>'s peeps </h2>
-
-    <% @peeps_by_user.reverse.each do |peep| %>
-      <article>
-        <p> <%= user.name %> &nbsp | &nbsp <%= user.username %> &nbsp | &nbsp <%= peep.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
-        <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
-        <p><a href="/peep/<%= peep.id %>"> view comments </a></p>        <!-- add link to take user to peep -->
-        <p> &nbsp <p>
-      </article>
+    <% if @peeps_by_user.empty? %>
+      <h2> <%= user.username %> is yet to peep! </h2>
+    <% else %>
+      <h2> <%= user.username %>'s peeps </h2>
+      <% @peeps_by_user.reverse.each do |peep| %>
+        <article>
+          <p> <%= user.name %> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>    <!-- change user_id to username; add link to take user to peepers page of peeps -->
+          <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
+          <p><a href="/peep/<%= peep.id %>"> view comments </a></p>        <!-- add link to take user to peep -->
+          <p> &nbsp <p>
+        </article>
+      <% end %>
     <% end %>
 
     <footer>Chitter © 2022</footer>

@@ -52,7 +52,7 @@ RSpec.describe UserRepository do
       expect(users.last.username).to eq ('new_username')
     end
 
-    it "raises error when a field is empty" do
+    xit "raises error when a field is empty" do
       new_user = User.new
       new_user.email_address = 'newuser@gmail.com'
       new_user.password = 'NewPassword'
@@ -63,7 +63,7 @@ RSpec.describe UserRepository do
       expect{ repo.create(new_user) }.to raise_error ('Please fill in all fields')
     end
 
-    it "raises error when email_address is already taken" do
+    xit "raises error when email_address is already taken" do
       new_user = User.new
       new_user.email_address = 'sarahjacobs@gmail.com'
       new_user.password = 'NewPassword'
@@ -74,7 +74,7 @@ RSpec.describe UserRepository do
       expect{ repo.create(new_user) }.to raise_error ('That email address is already taken')
     end
 
-    it "raises error when username is already taken" do
+    xit "raises error when username is already taken" do
       new_user = User.new
       new_user.email_address = 'newuser@gmail.com'
       new_user.password = 'NewPassword'
@@ -98,7 +98,7 @@ RSpec.describe UserRepository do
       expect(user.username).to eq ("JJ22")
     end
 
-    it "raises an error if user doesn't exist" do
+    xit "raises an error if user doesn't exist" do
       repo = UserRepository.new
       expect{ repo.find_user_by_id(100) }.to raise_error ("No user exists at this address")
     end
@@ -116,9 +116,9 @@ RSpec.describe UserRepository do
       expect(user.username).to eq ("JJ22")
     end
 
-    it "raises an error if user doesn't exist" do
+    it "returns nil if no user with that email address exists" do
       repo = UserRepository.new
-      expect{ repo.find_user_by_email("invalid@gmail.com") }.to raise_error ("No users exist with this email address")
+      expect(repo.find_user_by_email("invalid@gmail.com")).to eq (nil)
     end
   end
 end
