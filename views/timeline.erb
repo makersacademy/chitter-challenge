@@ -5,7 +5,7 @@
 
     <% @timeline.each do |message| %>
        <div style="padding-top: 20px;"> 
-        <%= "Peep from: #{@user_repo.find(message.id).username}" %>  
+        <%= "Peep from: #{@user_repo.find_by_id(message.id).username}" %>  
        <p> <%= "Time: #{message.time_posted}" %> </p>
        <p> <%= "#{message.content}" %></p>
       </div>

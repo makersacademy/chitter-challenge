@@ -9,8 +9,7 @@ require_relative 'lib/user'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
-  # This allows the app code to refresh
-  # without having to restart the server.
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/message_repository'
@@ -66,6 +65,26 @@ class Application < Sinatra::Base
     @username = new_user.username
     return erb(:new_user_created)
   end  
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    email_address = params[:email_address]
+    password = params[:password]
+    repo = UserRepository.new
+    user = repo.find_by_email(email_address)
+
+    if user.password == password
+      # Set the user ID in session
+      session[:user_id] = user.id
+      @username = user.username
+      return erb(:login_success)
+    else
+      return erb(:login_error)
+    end
+  end
   
 
 

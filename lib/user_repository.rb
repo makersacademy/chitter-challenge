@@ -16,10 +16,34 @@ class UserRepository
     return @all_users
   end
 
+  def sign_in(email, submitted_password)
+    user = find_by_email(email)
+
+    return nil if user.nil?
+
+    # Compare the submitted password with the encrypted one saved in the database
+    if submitted_password == user.password
+      # login success
+    else
+      # wrong password
+    end
+  end
+
   def find_by_email(email)
 
     sql = 'SELECT id, username, email_address, password, full_name FROM users WHERE email_address = $1;'
     sql_params = [email]
+
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    record = result_set[0]
+    return record_to_user_object(record)
+
+  end 
+
+  def find_by_id(id)
+
+    sql = 'SELECT id, username, email_address, password, full_name FROM users WHERE id = $1;'
+    sql_params = [id]
 
     result_set = DatabaseConnection.exec_params(sql, sql_params)
     record = result_set[0]
