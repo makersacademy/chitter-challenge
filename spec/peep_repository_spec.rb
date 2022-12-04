@@ -87,15 +87,21 @@ RSpec.describe PeepRepository do
       expect(peeps.last.date_and_time).to eq ('2022-12-01 19:43:11')
       expect(peeps.last.user_id).to eq ('3')
     end
+  end
 
-    xit "raises error when content is an empty string" do
-      new_peep = Peep.new
-      new_peep.content = ''
-      new_peep.date_and_time = '2022-12-01 19:43:11'
-      new_peep.user_id = 3
-      
+  describe "record_into_peep(record)" do
+    it "takes a record and turns in into a Peep" do
       repo = PeepRepository.new
-      expect{ repo.create(new_peep) }.to raise_error("Peeps must be at least 1 character long")
+      sql = "SELECT id, content, date_and_time, user_id FROM peeps WHERE id = $1"
+      params = [2]
+      result_set = DatabaseConnection.exec_params(sql, params)
+      record = result_set[0]
+      peep = repo.record_into_peep(record)
+
+      expect(peep.id).to eq ("2")
+      expect(peep.content).to eq ("Second Maker to peep lmao!")
+      expect(peep.date_and_time).to eq ("2022-11-30 16:45:12")
+      expect(peep.user_id).to eq ("2")
     end
   end
 end

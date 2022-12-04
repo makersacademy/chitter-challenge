@@ -83,4 +83,21 @@ RSpec.describe UserRepository do
       expect(repo.find_user_by_email("invalid@gmail.com")).to eq (nil)
     end
   end
+
+  describe "record_into_user(record)" do
+    it "takes a record and turns in into a User" do
+      repo = UserRepository.new
+      sql = "SELECT id, email_address, password, name, username FROM users WHERE email_address = $1"
+      params = ["sarahjacobs@gmail.com"]
+      result_set = DatabaseConnection.exec_params(sql, params)
+      record = result_set[0]
+      user = repo.record_into_user(record)
+
+      expect(user.id).to eq ("1")
+      expect(user.email_address).to eq ("sarahjacobs@gmail.com")
+      expect(user.password).to eq (BCrypt::Password.new(user.password))
+      expect(user.name).to eq ("Sarah Jacobs")
+      expect(user.username).to eq ("JazzySaz")
+    end
+  end
 end

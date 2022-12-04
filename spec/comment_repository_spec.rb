@@ -72,4 +72,23 @@ RSpec.describe CommentRepository do
       expect(comments.last.peep_id).to eq ('5')
     end
   end
+
+  describe "record_into_comment(record)" do
+    it "takes a record and turns in into a Comment" do
+      repo = CommentRepository.new
+      sql = "SELECT id, content, date_and_time, user_id, peep_id FROM comments WHERE peep_id = $1;"
+      params = [5]
+      result_set = DatabaseConnection.exec_params(sql, params)
+      comments = []
+      result_set.each do |record|
+        comments << repo.record_into_comment(record)
+      end
+
+      expect(comments.last.id).to eq ("4")
+      expect(comments.last.content).to eq ("Did you leave it in the bath again??")
+      expect(comments.last.date_and_time).to eq ("2022-12-01 19:34:54")
+      expect(comments.last.user_id).to eq ("3")
+      expect(comments.last.peep_id).to eq ("5")
+    end
+  end
 end
