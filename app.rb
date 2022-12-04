@@ -13,6 +13,8 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get "/peeps" do
     peep_repository = PeepRepository.new
     account_repository = AccountRepository.new
@@ -94,8 +96,15 @@ class Application < Sinatra::Base
         400
       )
     end
-    status 400
-    return erb(:failed_login)
+    begin
+      @account = AccountRepository.new.find_with_username(params[:username])
+      fail KeyError.new unless BCrypt::Password.new(@account.password) == params[:password]
+    rescue KeyError
+      status 400
+      return erb(:failed_login)
+    end
+    session[:account_id] = @account.id
+    return erb(:successful_login)
   end
 
   private 
