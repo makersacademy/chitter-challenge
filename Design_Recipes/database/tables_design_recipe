@@ -53,16 +53,16 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 | Record                | Properties          |
 | --------------------- | ------------------  |
-| album                 | title, release year
-| artist                | name
+| peep                  | message, time
+| user                  | name, username, email, password
 
-1. Name of the first table (always plural): `albums` 
+1. Name of the first table (always plural): `peeps` 
 
-    Column names: `title`, `release_year`
+    Column names: `message`, `time`
 
-2. Name of the second table (always plural): `artists` 
+2. Name of the second table (always plural): `users` 
 
-    Column names: `name`
+    Column names: `name`, `username`, `email`, `password`
 
 ## 3. Decide the column types.
 
@@ -75,14 +75,17 @@ Remember to **always** have the primary key `id` as a first column. Its type wil
 ```
 # EXAMPLE:
 
-Table: albums
+Table: peeps
 id: SERIAL
-title: text
-release_year: int
+message: text
+time: timestamp
 
-Table: artists
+Table: users
 id: SERIAL
 name: text
+username: text
+email: text
+password: text
 ```
 
 ## 4. Decide on The Tables Relationship
@@ -105,14 +108,14 @@ Replace the relevant bits in this example with your own:
 ```
 # EXAMPLE
 
-1. Can one artist have many albums? YES
-2. Can one album have many artists? NO
+1. Can one user have many peeps? YES
+2. Can one peep have many users? NO
 
 -> Therefore,
--> An artist HAS MANY albums
--> An album BELONGS TO an artist
+-> A user HAS MANY peeps
+-> An peep BELONGS TO an user
 
--> Therefore, the foreign key is on the albums table.
+-> Therefore, the foreign key is on the peeps table.
 ```
 
 *If you can answer YES to the two questions, you'll probably have to implement a Many-to-Many relationship, which is more complex and needs a third table (called a join table).*
@@ -121,25 +124,28 @@ Replace the relevant bits in this example with your own:
 
 ```sql
 -- EXAMPLE
--- file: albums_table.sql
+-- file: chitter_table.sql
 
 -- Replace the table name, columm names and types.
 
 -- Create the table without the foreign key first.
-CREATE TABLE artists (
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
+  username text,
+  email text,
+  password text
 );
 
 -- Then the table with the foreign key first.
-CREATE TABLE albums (
+CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
-  title text,
-  release_year int,
+  message text,
+  time timestamp,
 -- The foreign key name is always {other_table_singular}_id
-  artist_id int,
-  constraint fk_artist foreign key(artist_id)
-    references artists(id)
+  user_id int,
+  constraint fk_user foreign key(user_id)
+    references users(id)
     on delete cascade
 );
 
@@ -148,5 +154,5 @@ CREATE TABLE albums (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 database_name < albums_table.sql
+psql -h 127.0.0.1 chitter < chitter_table.sql
 ```
