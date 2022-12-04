@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link type="text/css" rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+
+    <h1> POST A PEEP! </h1>
+    <h2> tell your friends what's on your mind </h2>
+    <form method="POST" action="/peeps" class="submit__peep" >
+      <div>
+        <Label> username </Label>
+        <input type="text" name="username" />
+      </div>
+      <div>
+        <Label> content </Label>
+        <input type="text" name="content" />
+      </div>
+
+    <input type="submit" value="Submit" class="input__signup" />
+    </form>
+  </body>
+</html>

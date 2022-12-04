@@ -1,0 +1,75 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  font-family: "Verdana", monospace;
+  background-color: #cda1caa2;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(20, 12, 18);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+input {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  margin-top: 25px;
+}
+
+.form__login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.input__signup {
+  margin-top: 30px;
+  padding: 10px;
+  font-family: "Verdana", monospace;
+  font-weight: bold;
+  background-color: #050100;
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 4px 4px 10px 0 rgba(4, 0, 0, 0.6);
+  color: hwb(0 98% 2%);
+  transition: all 0.3s;
+}
+
+.submit__peep {
+  align-self: flex-end;
+  margin-top: 20px;
+  border-style: none;
+  box-shadow: 4px 4px 10px 0 rgba(7, 0, 0, 0.6);
+  transition: all 0.3s;
+}
+
