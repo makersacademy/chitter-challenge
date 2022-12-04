@@ -26,7 +26,7 @@ describe Application do
     it "homepage" do
       response = get('/')
 
-      expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
+      expect(response.body).to include("<h1 class='header'>Welcome to Chitter!</h1>")
       expect(response.body).to include('<a href="/users/new">here</a>.')
     end
   end
@@ -56,9 +56,9 @@ describe Application do
 
       expect(response.status).to eq(200)
 
-      expect(response.body).to include('<h1>Peeps</h1>')
-      expect(response.body).to include('<p>peep 1</p>')
-      expect(response.body).to include('<p>peep 2</p>')
+      expect(response.body).to include("<h1 class='header'>Peeps</h1>")
+      expect(response.body).to include("<p id='peep'>peep 1</p>")
+      expect(response.body).to include("<p id='peep'>peep 2</p>")
 
       expect(response.body).to include('<a href="/users/2">')
       expect(response.body).to include('<a href="/users/1">')

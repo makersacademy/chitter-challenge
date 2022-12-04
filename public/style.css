@@ -1,0 +1,39 @@
+.button { 
+  font-family: Arial, Helvetica, sans-serif;
+  float: right; 
+  }
+
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  margin: auto;
+  width: 30%;
+  text-align: center;
+  padding: 2%;
+  }
+
+.info {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: auto;
+  width: 30%;
+  text-align: center;
+  padding: 2%;
+}
+
+
+
+#peep {
+  border-radius: 30px;
+  background-color: powderblue;
+  padding: 4%;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+
+.tag {
+  width: 25%;
+  padding: 2%;
+  text-align: center;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  }

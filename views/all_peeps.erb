@@ -1,63 +1,26 @@
 <html>
 <head>
-<style>
-#a1 { 
-  float: right; 
-  font-family: Arial, Helvetica, sans-serif;
-  }
-
-p {
-  border-radius: 30px;
-  background-color: powderblue;
-  padding: 4%;
-  font-family: Arial, Helvetica, sans-serif;
-  }
-
-#a2 { 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 60px;
-  margin: auto;
-  width: 25%;
-  text-align: center;
-  padding: 2%;
-  }
-
-#a3 {
-  margin: auto;
-  width: 30%;
-  text-align: center;
-  padding: 2%;
-  font-family: Arial, Helvetica, sans-serif;
-  }
-
-div {
-  width: 25%;
-  padding: 2%;
-  text-align: center;
-  margin: auto;
-  font-family: Arial, Helvetica, sans-serif;
-  }
-
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <% if @session == nil %>
-  <h1><a href='/login' id='a1'>login</a></h1>
+  <h1><a href='/login' class='button'>login</a></h1>
 <% else %>
-  <h1><a href='/logout' id='a1'>logout</a></h1>
+  <h1><a href='/logout' class='button'>logout</a></h1>
 <% end %>
   
-  <h1 id='a2'>Peeps</h1>
-<h2 id='a3'>Click <a href='peeps/new'>here</a> to post your own peep</h2>
-  <% @peeps.each do |peep| %>
-  <div>
-    <p><%= peep.content %></p>-
+<h1 class='header'>Peeps</h1>
+
+<h2 class='info'>Click <a href='peeps/new'>here</a> to post your own peep</h2>
+<% @peeps.each do |peep| %>
+  <div class='tag'>
+    <p id='peep'><%= peep.content %></p>-
     <a href="/users/<%= peep.user_id %>"><%= @user_repo.find(peep.user_id).name %><br ></a> 
     <br >
     <%= peep.date_time[0..-8] %>
   </div>
-  <% end %><br >
+<% end %><br >
 
 
 </body>
