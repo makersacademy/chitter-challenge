@@ -118,15 +118,18 @@ describe Application do
 
   context "GET /peeps/new" do
     it "returns an HTML view with a peep form" do
+      # Sign in to Chitter
+      post_response = post("/login", username: "RKirkbride", password: "1234hello1234")
+      expect(post_response.status).to eq 200
+
       get_response = get("/peeps/new")
 
       expect(get_response.status).to eq 200
       expect(get_response.body).to include(
         '<h1>Post a new peep</h1>',
         '<form action="/peeps" method="POST">',
+        'Robbie Kirkbride',
         '<textarea name="contents" id="contents">',
-        '<select name="account_id" id="account_id">',
-        '<option value="1">TSeleiro</option>',
         '<input type="submit" name="Submit" />'
       )
     end

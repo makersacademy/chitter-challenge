@@ -4,19 +4,11 @@
   <body>
     <h1>Post a new peep</h1>
 
+    <div><%= @account.name %></div>
     <form action="/peeps" method="POST">
       <div>
         <label for="contents">Contents:</label> <br>
         <textarea name="contents" id="contents">Input your peep here</textarea>
-      </div>
-
-      <div>
-        <label for="account_id">Account to peep from: </label>
-        <select name="account_id" id="account_id">
-          <% @accounts.each do |account| %>
-            <option value="<%= account.id %>"><%= account.username %></option>
-          <% end %>
-        </select>
       </div>
 
       <div>

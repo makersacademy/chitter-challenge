@@ -54,8 +54,10 @@ class Application < Sinatra::Base
   end
 
   get "/peeps/new" do
-    @accounts = AccountRepository.new.all
-    return erb(:new_peep)
+    unless session[:account_id].nil?
+      @account = AccountRepository.new.find(session[:account_id])
+      return erb(:new_peep)
+    end
   end
 
   get "/signup" do
