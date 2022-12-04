@@ -44,6 +44,7 @@ class UserRepository
     params = [user.name, user.username, user.email, user.password]
 
     DatabaseConnection.exec_params(sql,params)
+    return nil
   end
 
   private
