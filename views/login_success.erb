@@ -7,12 +7,30 @@
 
     <form method="POST" action="/peep">
       <div>
-        <label>Content</label>
-        <input type="text" name="content">
+        <input type="text" name="content" placeholder="Tell everyone your thoughts!">
       </div>
 
       <input type="submit" />
     </form>
+
+    <% @peeps.each do |peep| %>
+      
+      <div>
+        <strong><%= peep.name %></strong>
+        @<%= peep.username %></a>
+        </br>
+
+        <%= peep.content %>
+        <br>
+
+        Posted: <%= peep.post_time %>
+        </br>
+        </br>
+
+      </div>
+    <% end %>
+
+  </body>
   </body>
 
   <footer>

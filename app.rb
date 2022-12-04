@@ -51,8 +51,15 @@ class Application < Sinatra::Base
     else
       repo.create(account)
       session[:account_id] = account.account_id
-      redirect '/custom-timeline'
+      redirect '/signedin'
     end
+  end
+
+  get '/signedin' do
+    repo = PeepRepository.new
+    @peeps = repo.all
+
+    return erb(:login_success)
   end
 
   get '/login' do
@@ -87,8 +94,8 @@ class Application < Sinatra::Base
   #   repo.create(peep)
   # end
 
-  # get '/logout' do
-  #   session[:user_id] = nil
-  #   redirect_to '/'
-  # end
+  get '/logout' do
+    session[:user_id] = nil
+    redirect_to '/'
+  end
 end
