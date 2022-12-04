@@ -3,11 +3,13 @@
   <body>
     <h1>Chitter</h1>
 
+    <a href="/peeps/new"><h2>Post a new peep</h2></a>
+
     <% @peeps.zip(@authors).each do |peep, author| %>
       <div>
-        <h3><%= author.username %></h3>
-        <p><%= peep.contents %></p>
-        <p><%= peep.time_posted %></p>
+        <%= author.username %><br>
+        <%= peep.contents %><br>
+        <%= peep.time_posted %><br><br>
       </div>
     <% end %>
   </body>

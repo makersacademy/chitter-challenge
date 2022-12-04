@@ -27,13 +27,14 @@ describe Application do
       expect(get_response.status).to eq 200
       expect(get_response.body).to include(
         '<h1>Chitter</h1>',
-        '<h3>TSeleiro</h3>',
-        '<p>My third peep</p>',
-        '<p>2022-11-03 07:13:49</p>'
+        '<a href="/peeps/new"><h2>Post a new peep</h2></a>',
+        'TSeleiro',
+        'My third peep',
+        '2022-11-03 07:13:49'
       )
       # We check that the most recent entry is followed by the second most recent
       expect(get_response.body).to match(
-        /<p>2022-11-03 07:13:49<\/p>\s*?<\/div>\s*?<div>\s*?<h3>RKirkbride<\/h3>/
+        /2022-11-03 07:13:49<br><br>\s*?<\/div>\s*?<div>\s*?RKirkbride/
       )
     end
   end
@@ -75,9 +76,9 @@ describe Application do
       get_response = get("/peeps")
       expect(get_response.status).to eq 200
       expect(get_response.body).to include(
-        '<h3>GPaterson</h3>',
-        '<p>Test peep</p>',
-        '<p>2022-11-04 07:00:00</p>'
+        'GPaterson',
+        'Test peep',
+        '2022-11-04 07:00:00'
       )
     end
   end
