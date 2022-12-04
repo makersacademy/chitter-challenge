@@ -1,5 +1,7 @@
 require "spec_helper"
 require "rack/test"
+require "bcrypt"
+require_relative '../../lib/account_repository'
 require_relative '../../app'
 
 def reset_tables
@@ -105,6 +107,29 @@ describe Application do
   end
 
   context "POST /signup" do
+    it "Adds an account to the list of accounts" do
+      post_response = post("/signup",
+        email: "shah@email.com",
+        password: "12344321",
+        name: "Shah Hussain",
+        username: "SHussain"
+      )
+      expect(post_response.status).to eq 200
+      expect(post_response.body).to include(
+        '<h3>Your Chitter account has been created</h3>',
+        '<a href="/peeps">Go to the Chitter home page</a>'
+      )
+
+      account_repo = AccountRepository.new
+      accounts = account_repo.all
+      expect(accounts).to include(have_attributes(
+        email: "shah@email.com",
+        name: "Shah Hussain",
+        username: "SHussain"
+      ))
+      expect(BCrypt::Password.new(accounts.last.password) == "12344321").to eq true
+    end
+    
     it "fails when adding an account with an email / username that already exists" do
       post_response = post("/signup",
         email: "thomas@email.com",

@@ -73,12 +73,13 @@ class Application < Sinatra::Base
     begin
       account_repo.create(account)
     rescue => error
-      raise_error_view(
+      return raise_error_view(
         error,
         { path: "/signup", message: "Return to signup page" },
         400
       )
     end
+    return erb(:post_account_confirmation)
   end
 
   private 
