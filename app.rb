@@ -82,7 +82,7 @@ class Application < Sinatra::Base
       @username = user.username
       return erb(:login_success)
     else
-      return erb(:login_error)
+      return erb(:login_failure)
     end
   end
   
