@@ -31,6 +31,8 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     @peeps = repo.all.reverse
 
+    @user_repo = UserRepository.new
+
     erb(:all_peeps)
   end
 

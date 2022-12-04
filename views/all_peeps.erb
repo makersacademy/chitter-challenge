@@ -18,8 +18,11 @@
 <h2>Click <a href='peeps/new'>here</a> to post your own peep</h2>
   <% @peeps.each do |peep| %>
   <div>
-    <a href="/users/<%= peep.user_id %>"><p><%= peep.content %></p></a> -
+    <p><%= peep.content %></p>-
+    <a href="/users/<%= peep.user_id %>"><%= @user_repo.find(peep.user_id).name %><br ></a> 
+    <br >
     <%= peep.date_time[0..-8] %>
+    
   </div>
   <% end %><br >
 
