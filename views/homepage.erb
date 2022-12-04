@@ -1,6 +1,19 @@
 <html>
-<head></head>
+<head>
+<style>
+#a1 { 
+  float: right; 
+  }
+</style>
+</head>
 <body>
+
+<% if @session == nil %>
+  <h1><a href='/login' id='a1'>login</a></h1>
+<% else %>
+  <h1><a href='/logout' id='a1'>logout</a></h1>
+<% end %>
+
   <h1>Welcome to Chitter!</h1>
 
   <p>
@@ -9,6 +22,10 @@
 
    <p>
     If you're no stranger to chittering, login <a href="/login">here</a>.
+  </p>
+
+   <p>
+    Or if you simply want to see what the Chitter community is saying, go <a href="/peeps">here</a>.
   </p>
  
 </body>

@@ -16,6 +16,8 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    @session = session[:user_id]
+    
     erb(:homepage)
   end
 
