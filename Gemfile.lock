@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/codahale/bcrypt-ruby.git
+  revision: 4268ac86c45fa4b313a1bb1b878f0b8bc85e9d0c
+  specs:
+    bcrypt (3.1.18)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -78,6 +84,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt!
   pg (~> 1.4.5)
   rack-test (~> 2.0)
   rspec
