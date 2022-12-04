@@ -15,6 +15,10 @@ class Application < Sinatra::Base
 
   enable :sessions
 
+  get "/" do
+    redirect("/login")
+  end
+
   get "/peeps" do
     peep_repository = PeepRepository.new
     account_repository = AccountRepository.new
