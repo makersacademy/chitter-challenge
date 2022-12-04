@@ -67,11 +67,13 @@ _Replace these with your own design._
 ```
 # Request:
 
-GET /posts?id=1
+GET /
 
 # Expected response:
 
-Response for 200 OK
+200 OK
+content TBC
+
 ```
 
 ```
@@ -100,10 +102,10 @@ describe Application do
   context "GET /" do
     it 'returns 200 OK' do
       # Assuming the post with id 1 exists.
-      response = get('/posts?id=1')
+      response = get('/')
 
       expect(response.status).to eq(200)
-      # expect(response.body).to eq(expected_response)
+      expect(response.body).to eq(expected_response)
     end
 
     it 'returns 404 Not Found' do

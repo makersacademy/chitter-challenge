@@ -8,6 +8,9 @@ require_relative 'lib/comment_repository'
 DatabaseConnection.connect('chitter')
 
 class Application < Sinatra::Base
+  
+  enable :sessions
+
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
@@ -19,11 +22,39 @@ class Application < Sinatra::Base
     @peep_repo = PeepRepository.new
     @peeps = @peep_repo.all
 
-    return erb(:index)
+    if session[:user_id] == nil
+      return erb(:index_default)
+    else
+      # populate this file
+      return erb(:index_logged_in)
+    end
   end
 
   get '/login' do
     return erb(:login)
+  end
+
+  post '/login' do
+    email_address = params[:email_address]
+    password = params[:password]
+
+    @user_repo = UserRepository.new
+    user = @user_repo.find_by_email(email_address)
+
+    # This is a simplified way of 
+    # checking the password. In a real 
+    # project, you should encrypt the password
+    # stored in the database.
+    if user.password == password
+      # Set the user ID in session
+      session[:user_id] = user.id
+
+      # populate this file
+      return erb(:index_logged_in)
+    else
+      # populate this file
+      return erb(:login_error)
+    end
   end
 
   get '/signup' do
@@ -49,7 +80,7 @@ class Application < Sinatra::Base
 
     @peep_by_id = @peep_repo.find_peep_by_id(@peep_id)
     @comments_by_peep = @comment_repo.comments_by_peep(@peep_id)
-    
+
     return erb(:peep_with_comments)
   end
 

@@ -98,6 +98,27 @@ RSpec.describe UserRepository do
       expect(user.username).to eq ("JJ22")
     end
 
-  # add an error test and code in repo file
+    it "raises an error if user doesn't exist" do
+      repo = UserRepository.new
+      expect{ repo.find_user_by_id(100) }.to raise_error ("No user exists at this address")
+    end
+  end
+
+  describe "#find_user_by_email(email_address)" do
+    it "returns the info of user with given email_address" do
+      repo = UserRepository.new
+      user = repo.find_user_by_email("johnny22@gmail.com")
+
+      expect(user.id).to eq ("2")
+      expect(user.email_address).to eq ("johnny22@gmail.com")
+      expect(user.password).to eq ("22pwordjj")
+      expect(user.name).to eq ("Johnny James")
+      expect(user.username).to eq ("JJ22")
+    end
+
+    it "raises an error if user doesn't exist" do
+      repo = UserRepository.new
+      expect{ repo.find_user_by_email("invalid@gmail.com") }.to raise_error ("No users exist with this email address")
+    end
   end
 end
