@@ -54,7 +54,10 @@ class Application < Sinatra::Base
   end
 
   get "/peeps/new" do
-    unless session[:account_id].nil?
+    if session[:account_id].nil?
+      status 401
+      return erb(:unauthorized_new_peep)
+    else
       @account = AccountRepository.new.find(session[:account_id])
       return erb(:new_peep)
     end

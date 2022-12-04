@@ -134,13 +134,13 @@ describe Application do
       )
     end
 
-    xit "requires the client to be logged in to post a peep" do
+    it "requires the client to be logged in to post a peep" do
       get_response = get("/peeps/new")
 
       expect(get_response.status).to eq 401
       expect(get_response.body).to include(
         '<h1>Post a new peep</h1>',
-        '<h3>You must be logged in to post a peep</h3>',
+        '<div>You must be logged in to post a peep</div>',
         '<a href="/login">Log in here</a>',
         '<a href="/peeps">Return to home page</a>'
       )
