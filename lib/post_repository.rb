@@ -30,7 +30,7 @@ class PostRepository
     return nil
   end
 
-  def find(user_id)
+  def find_by_user_id(user_id)
     sql = 'SELECT * FROM posts WHERE user_id =$1;'
     
     result_set = DatabaseConnection.exec_params(sql,[user_id])

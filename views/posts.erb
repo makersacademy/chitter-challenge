@@ -1,0 +1,13 @@
+<html>
+  <head></head>
+  <body>
+    <h1><%= @user_name %>'s Posts</h1>
+    <% @posts.reverse.each do |post| %>
+    <div>
+      Title: <%= post.title %></a>
+      Content: <%= post.content %>
+      Time: <%= post.create_at %>
+    </div>
+    <% end %>
+  </body>
+</html>

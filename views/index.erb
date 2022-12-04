@@ -1,1 +1,17 @@
-<h1>Hello Chitter</h1>
+<html>
+  <head></head>
+  <body>
+    <h1>Welcome to Chitter</h1>
+    <h2>All Posts</h2>
+    <% @posts.reverse.each do |post| %>
+    <div>
+      Title:  <%= post.title %>
+      Content: <%= post.content %>
+      Author: <a href="/user/<%= post.user_id%>"><%= @user.find(post.user_id).name %></a>
+      Time: <%= post.create_at %>
+    </div>
+    <% end %>
+      <a href="/users/new">New User</a>
+      <a href="/posts/new">New Post</a>
+  </body>
+</html>

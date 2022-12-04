@@ -99,4 +99,15 @@ end
       expect{repo.create(user)}.to raise_error PG::NotNullViolation
     end
   end
+  # 6
+  # find user with id 2
+  it 'finds one user' do
+    repo = UserRepository.new
+
+    user = repo.find(2)
+    
+    expect(user.id).to eq '2'
+    expect(user.name).to eq 'Anna'
+    expect(user.username).to eq 'superanna'
+  end
 end

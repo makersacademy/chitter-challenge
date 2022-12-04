@@ -73,7 +73,7 @@ describe PostRepository do
 
     repo = PostRepository.new
 
-    posts = repo.find(2)
+    posts = repo.find_by_user_id(2)
 
       expect(posts.length).to eq 2
 

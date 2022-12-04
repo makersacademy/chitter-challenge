@@ -18,7 +18,7 @@ class DatabaseConnection
     if ENV['ENV'] == 'test'
       database_name = 'chitter_test'
     else
-      database_name = 'chitter'
+      database_name = 'chitter_test'
     end
     if ENV['PG_password']
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name, password: ENV['PG_password'] })
