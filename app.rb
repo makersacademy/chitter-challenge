@@ -92,6 +92,7 @@ class Application < Sinatra::Base
         400
       )
     end
+    session[:account_id] = account_repo.find_with_username(account.username).id
     return erb(:post_account_confirmation)
   end
 

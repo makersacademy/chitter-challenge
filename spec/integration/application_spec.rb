@@ -190,6 +190,14 @@ describe Application do
         '<a href="/peeps">Go to the Chitter home page</a>'
       )
 
+      get_response = get("/peeps")
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        'Welcome, Shah Hussain. <a href="/peeps/new">Post a new peep</a>',
+        '<form action="/logout" method="POST">',
+        '<input type="submit" value="Log Out" />'
+      )
+
       account_repo = AccountRepository.new
       accounts = account_repo.all
       expect(accounts).to include(have_attributes(
@@ -245,6 +253,16 @@ describe Application do
         '<p>Cannot have empty fields in the signup form</p>',
         '<a href="/signup"><h3>Return to signup page</h3></a>'
       )
+    end
+
+    it "redirects a logged in user to the peeps page" do
+      # Sign in to Chitter
+      post_response = post("/login", username: "RKirkbride", password: "1234hello1234")
+      expect(post_response.status).to eq 200
+
+      get_response = get("/signup")
+      expect(get_response.status).to eq 302
+      expect(get_response.header["Location"]).to include("/peeps")
     end
   end
 
