@@ -6,13 +6,15 @@
   <body>
     <header>
       <h1>Chitter</h1>
-      <% if @valid_email == false && @valid_username == true %>
+      <% if @valid_email == false %>
+        <p><a href="/signup">Try again with a valid email address</a></p>
+      <% elsif @email_taken == true && @username_taken == false %>
         <p>That email address has already been taken</p>
         <p><a href="/signup">Try again with a different email address</a></p>
-      <% elsif @valid_email == true && @valid_username == false %>
+      <% elsif @email_taken == false && @username_taken == true %>
         <p>That username has already been taken</p>
         <p><a href="/signup">Try again with a different username</a></p>
-      <% elsif @valid_email == false && @valid_username == false %>
+      <% elsif @email_taken == true && @username_taken == true %>
         <p>The email address and username you provided have both already been taken</p>
         <p><a href="/signup">Try again using other details</a></p>
       <% end %>

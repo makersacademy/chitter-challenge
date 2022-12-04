@@ -51,7 +51,7 @@
     <% if session[:user_id] != nil %>
       <h3> Would you like to comment on this peep? </h3>
       <form action="/peep/<%= @peep_id %>" method="post">
-        <input type="text" name="content">
+        <input type="text" name="content" required>
         <input type="submit" value="Post comment">
       </form>
   <% end %>

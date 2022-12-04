@@ -80,25 +80,28 @@ class Application < Sinatra::Base
     new_user.name = params[:name]
     new_user.username = params[:username]
 
-    # Check if email address and/or password have already been taken
+    # Check if email address is valid and if email address and/or username have already been taken
     @user_repo = UserRepository.new
     all_users = @user_repo.all
-    @valid_email = true
-    @valid_username = true
+    
+    URI::MailTo::EMAIL_REGEXP.match?(new_user.email_address) ? (@valid_email = true) : (@valid_email = false)    
+    @email_taken = false
+    @username_taken = false
     all_users.each do |user|
-      @valid_email = false if user.email_address == new_user.email_address
-      @valid_username = false if user.username == new_user.username
+      @email_taken = true if user.email_address == new_user.email_address
+      @username_taken = true if user.username == new_user.username
     end
 
-    if @valid_email == true && @valid_username == true
+    if @valid_email == true && @email_taken == false && @username_taken == false
       @user_repo.create(new_user)
-      session[:user_id] = new_user.id
+      session[:user_id] = @user_repo.find_user_by_email(new_user.email_address).id
       return redirect '/'
     else
       return erb(:signup_error)
     end
   end
 
+  # Goes to profile of user with given user_id
   get '/:user_id' do
     @user_id = params[:user_id]
     @user_repo = UserRepository.new
@@ -107,11 +110,13 @@ class Application < Sinatra::Base
 
     @peeps_by_user = @peep_repo.peeps_by_user(@user_id)
     
-    return erb(:user_id)
+    return erb(:user_id_profile)
   end
 
   # ADD ERROR MESSAGE FOR EMPTY PEEP
   post '/:user_id' do
+    
+    
     @user_id = params[:user_id]
     new_peep = Peep.new
     new_peep.content = params[:content]
