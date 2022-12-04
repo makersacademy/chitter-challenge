@@ -1,3 +1,5 @@
+require 'message'
+
 class MessageRepository
   def all
     # Executes the SQL query:
@@ -17,7 +19,6 @@ class MessageRepository
 
       messages << message
     end
-
     return messages
   end
 

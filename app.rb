@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
+require_relative 'lib/message_repository'
+require_relative 'lib/message'
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -11,6 +13,11 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+
+    repo = MessageRepository.new
+
+    @messages = repo.all
+
     return erb(:index)
   end
 end
