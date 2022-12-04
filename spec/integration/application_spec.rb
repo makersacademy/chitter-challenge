@@ -81,4 +81,20 @@ describe Application do
       )
     end
   end
+
+  context "GET /peeps/new" do
+    it "Returns an HTML view with a peep form" do
+      get_response = get("/peeps/new")
+
+      expect(get_response.status).to eq 200
+      expect(get_response.body).to include(
+        '<h1>Post a new peep</h1>',
+        '<form action="/peeps" method="POST">',
+        '<textarea name="contents" id="contents">',
+        '<select name="account_id" id="account_id">',
+        '<option value="1">TSeleiro</option>',
+        '<input type="submit" name="Submit" />'
+      )
+    end
+  end
 end

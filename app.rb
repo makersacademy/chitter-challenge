@@ -43,6 +43,11 @@ class Application < Sinatra::Base
     return erb(:post_peep_confirmation)
   end
 
+  get "/peeps/new" do
+    @accounts = AccountRepository.new.all
+    return erb(:new_peep)
+  end
+
   private 
 
   def post_inputs_nil?(parameters)
