@@ -26,14 +26,6 @@ class Application < Sinatra::Base
     return erb(:home)
   end
 
-  get '/accounts/:account_id' do
-    account_id = params[:account_id]
-    account_repository = AccountRepository.new 
-
-    @account = account_repository.find(account_id)
-    return erb(:account_id)
-  end 
-
   get '/signup' do
     return erb(:signup)
   end
@@ -63,10 +55,6 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/custom-timeline' do
-    return erb(:login_success)
-  end
-
   get '/login' do
     return erb(:login)
   end
@@ -85,17 +73,22 @@ class Application < Sinatra::Base
   #   end
   # end
 
-  post '/peep' do
-    repo = PeepRepository.new
-    content = params[:content]
-    post_time = Time.now
-    account_id = session[:account_id]
+  # post '/peep' do
+  #   repo = PeepRepository.new
+  #   content = params[:content]
+  #   post_time = Time.now
+  #   account_id = session[:account_id]
 
-    peep = Peep.new
-    peep.content = content
-    peep.post_time = post_time
-    peep.account_id = account_id
+  #   peep = Peep.new
+  #   peep.content = content
+  #   peep.post_time = post_time
+  #   peep.account_id = account_id
 
-    repo.create(peep)
-  end
+  #   repo.create(peep)
+  # end
+
+  # get '/logout' do
+  #   session[:user_id] = nil
+  #   redirect_to '/'
+  # end
 end
