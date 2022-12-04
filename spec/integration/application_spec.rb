@@ -41,8 +41,8 @@ describe Application do
   context "POST /peeps" do
     it "Sends error status when wrong / no body parameters are given" do
       post_response = post("/peeps",
-        fake_param_1: "aksdjh",
-        fake_param_2: "ldsjfl"
+        fake_param1: "aksdjh",
+        fake_param2: "ldsjfl"
       )
       expect(post_response.status).to eq 400
       expect(post_response.body).to include(

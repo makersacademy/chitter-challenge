@@ -46,6 +46,6 @@ class Application < Sinatra::Base
   private 
 
   def post_inputs_nil?(parameters)
-    return params[:contents].nil? || params[:account_id].nil?
+    return parameters[:contents].nil? || parameters[:account_id].nil?
   end
 end
