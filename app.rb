@@ -25,7 +25,7 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  # ADD ERROR MESSAGE FOR EMPTY PEEP
+  # Post peep on homepage
   post '/' do
     new_peep = Peep.new
     new_peep.content = params[:content]
@@ -113,10 +113,7 @@ class Application < Sinatra::Base
     return erb(:user_id_profile)
   end
 
-  # ADD ERROR MESSAGE FOR EMPTY PEEP
   post '/:user_id' do
-    
-    
     @user_id = params[:user_id]
     new_peep = Peep.new
     new_peep.content = params[:content]
@@ -141,7 +138,6 @@ class Application < Sinatra::Base
     return erb(:peep_with_comments)
   end
 
-  # ADD ERROR MESSAGE FOR EMPTY COMMENT
   post '/peep/:peep_id' do
     @peep_id = params[:peep_id]
     new_comment = Comment.new
