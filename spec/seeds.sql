@@ -26,7 +26,7 @@ INSERT INTO people (name, handle, email, password) VALUES ('Johnny', 'singStar',
 INSERT INTO people (name, handle, email, password) VALUES ('Rossita', 'singForever', 'rossita@sing2.com', 'B');
 INSERT INTO people (name, handle, email, password) VALUES ('Moon', 'singHero', 'singHero@sing2.com', 'C');
 
-INSERT INTO messages (message, person_id) VALUES ('Who''s still meeting for lunch and what shall we go?', 1);
+INSERT INTO messages (message, person_id, time) VALUES ('Who''s still meeting for lunch and what shall we go?', 1, '2022-09-01 11:01:45');
 INSERT INTO messages (message, person_id, time) VALUES ('Yep I''m coming!', 3, '2022-09-01 11:05:01');
 INSERT INTO messages (message, person_id, time) VALUES ('How about Franca Manco?', 3, '2022-09-01 11:02:30');
 INSERT INTO messages (message, person_id, time) VALUES ('Sorry guys I can''t make it', 2, '2022-09-01 11:15:01');
