@@ -45,11 +45,6 @@ RSpec.describe PeepRepository do
       expect(peeps_by_user.last.date_and_time).to eq ('2022-12-01 18:11:55')
       expect(peeps_by_user.last.user_id).to eq ('2')
     end
-
-    xit "raises error when non-existent user_id is given" do
-      repo = PeepRepository.new
-      expect{ repo.peeps_by_user(70) }.to raise_error ("This user does not exist")
-    end
   end
 
   describe "#find_peep_by_id(id_of_peep)" do
@@ -71,11 +66,6 @@ RSpec.describe PeepRepository do
       expect(peep.content).to eq ('Second Maker to peep lmao!')
       expect(peep.date_and_time).to eq ('2022-11-30 16:45:12')
       expect(peep.user_id).to eq ('2')
-    end
-
-    xit "raises error if peep_id doesn't exist" do
-      repo = PeepRepository.new
-      expect{ repo.find_peep_by_id(100) }.to raise_error ("No peeps exist at that address")
     end
   end
 

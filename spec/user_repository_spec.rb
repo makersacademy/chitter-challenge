@@ -21,12 +21,12 @@ RSpec.describe UserRepository do
       expect(users.length).to eq (3)
       expect(users.first.id).to eq ('1')
       expect(users.first.email_address).to eq ('sarahjacobs@gmail.com')
-      expect(users.first.password).to eq ('StrongPassword123!!')
+      expect(users.first.password).to eq (BCrypt::Password.new(users.first.password))
       expect(users.first.name).to eq ('Sarah Jacobs')
       expect(users.first.username).to eq ('JazzySaz')
       expect(users.last.id).to eq ('3')
       expect(users.last.email_address).to eq ('lewisjandrews@outlook.com')
-      expect(users.last.password).to eq ('Norfolk?91')
+      expect(users.last.password).to eq (BCrypt::Password.new(users.last.password))
       expect(users.last.name).to eq ('Lewis Andrews')
       expect(users.last.username).to eq ('Luigi_100')
     end
@@ -47,42 +47,9 @@ RSpec.describe UserRepository do
       
       expect(users.last.id).to eq ('4')
       expect(users.last.email_address).to eq ('newuser@gmail.com')
-      expect(users.last.password).to eq ('NewPassword')
+      expect(users.last.password).to eq (BCrypt::Password.new(users.last.password))
       expect(users.last.name).to eq ('New Name')
       expect(users.last.username).to eq ('new_username')
-    end
-
-    xit "raises error when a field is empty" do
-      new_user = User.new
-      new_user.email_address = 'newuser@gmail.com'
-      new_user.password = 'NewPassword'
-      new_user.name = 'New Name'
-      new_user.username = ''
-      
-      repo = UserRepository.new
-      expect{ repo.create(new_user) }.to raise_error ('Please fill in all fields')
-    end
-
-    xit "raises error when email_address is already taken" do
-      new_user = User.new
-      new_user.email_address = 'sarahjacobs@gmail.com'
-      new_user.password = 'NewPassword'
-      new_user.name = 'New Name'
-      new_user.username = 'new_username'
-      
-      repo = UserRepository.new
-      expect{ repo.create(new_user) }.to raise_error ('That email address is already taken')
-    end
-
-    xit "raises error when username is already taken" do
-      new_user = User.new
-      new_user.email_address = 'newuser@gmail.com'
-      new_user.password = 'NewPassword'
-      new_user.name = 'New Name'
-      new_user.username = 'JJ22'
-      
-      repo = UserRepository.new
-      expect{ repo.create(new_user) }.to raise_error ('That username is already taken')
     end
   end
 
@@ -93,14 +60,9 @@ RSpec.describe UserRepository do
 
       expect(user.id).to eq ("2")
       expect(user.email_address).to eq ("johnny22@gmail.com")
-      expect(user.password).to eq ("22pwordjj")
+      expect(user.password).to eq (BCrypt::Password.new(user.password))
       expect(user.name).to eq ("Johnny James")
       expect(user.username).to eq ("JJ22")
-    end
-
-    xit "raises an error if user doesn't exist" do
-      repo = UserRepository.new
-      expect{ repo.find_user_by_id(100) }.to raise_error ("No user exists at this address")
     end
   end
 
@@ -111,7 +73,7 @@ RSpec.describe UserRepository do
 
       expect(user.id).to eq ("2")
       expect(user.email_address).to eq ("johnny22@gmail.com")
-      expect(user.password).to eq ("22pwordjj")
+      expect(user.password).to eq (BCrypt::Password.new(user.password))
       expect(user.name).to eq ("Johnny James")
       expect(user.username).to eq ("JJ22")
     end

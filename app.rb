@@ -25,6 +25,7 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
+  # ADD ERROR MESSAGE FOR EMPTY PEEP
   post '/' do
     new_peep = Peep.new
     new_peep.content = params[:content]
@@ -36,7 +37,6 @@ class Application < Sinatra::Base
 
     return redirect '/'
   end
-
 
   get '/login' do
     return erb(:login)
@@ -53,13 +53,10 @@ class Application < Sinatra::Base
     @user_repo = UserRepository.new
     user = @user_repo.find_user_by_email(email_address)
 
-    return redirect '/login_error' if user == nil
+    return erb(:login_error) if user == nil
 
-    # TODO: Add password encryption
-    if user.password == password
-      # Set the user ID in session
+    if BCrypt::Password.new(user.password) == password
       session[:user_id] = user.id
-
       return redirect '/'
     else
       return erb(:login_error)
@@ -83,6 +80,7 @@ class Application < Sinatra::Base
     new_user.name = params[:name]
     new_user.username = params[:username]
 
+    # Check if email address and/or password have already been taken
     @user_repo = UserRepository.new
     all_users = @user_repo.all
     @valid_email = true
@@ -112,6 +110,7 @@ class Application < Sinatra::Base
     return erb(:user_id)
   end
 
+  # ADD ERROR MESSAGE FOR EMPTY PEEP
   post '/:user_id' do
     @user_id = params[:user_id]
     new_peep = Peep.new
@@ -137,6 +136,7 @@ class Application < Sinatra::Base
     return erb(:peep_with_comments)
   end
 
+  # ADD ERROR MESSAGE FOR EMPTY COMMENT
   post '/peep/:peep_id' do
     @peep_id = params[:peep_id]
     new_comment = Comment.new

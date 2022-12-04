@@ -1,9 +1,8 @@
 TRUNCATE TABLE users, peeps, comments RESTART IDENTITY;
 
-INSERT INTO users (email_address, password, name, username) VALUES ('sarahjacobs@gmail.com', 'StrongPassword123!!', 'Sarah Jacobs', 'JazzySaz');
-INSERT INTO users (email_address, password, name, username) VALUES ('johnny22@gmail.com', '22pwordjj', 'Johnny James', 'JJ22');
-INSERT INTO users (email_address, password, name, username) VALUES ('lewisjandrews@outlook.com', 'Norfolk?91', 'Lewis Andrews', 'Luigi_100');
-
+INSERT INTO users (email_address, password, name, username) VALUES ('sarahjacobs@gmail.com', '$2a$10$.nEV7XTBszGg9g0CliuRYekL6Bvz0aPCa3MJfGxiNol/jpxViFw6e', 'Sarah Jacobs', 'JazzySaz');
+INSERT INTO users (email_address, password, name, username) VALUES ('johnny22@gmail.com', '$2a$10$k8XUMbA65fewzTs2vCN1nub4lV2OTu2MDczpwH0VLzVyfykYxW8Re', 'Johnny James', 'JJ22');
+INSERT INTO users (email_address, password, name, username) VALUES ('lewisjandrews@outlook.com', '$2a$10$kdHJxPfEhGQ3wVSMj5JmP.WGoAllxovEwp8h/Kw5RDc4V38P3k8fe', 'Lewis Andrews', 'Luigi_100');
 
 INSERT INTO peeps (content, date_and_time, user_id) VALUES ('My first peep!!!', '2022-11-30 12:05:06', 1);
 INSERT INTO peeps (content, date_and_time, user_id) VALUES ('Second Maker to peep lmao!', '2022-11-30 16:45:12', 2);
