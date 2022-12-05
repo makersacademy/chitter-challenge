@@ -6,3 +6,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+
+require 'database_connection'
+
+ENV['ENV'] = 'test'
+
+DatabaseConnection.connect

@@ -9,7 +9,15 @@ createdb chitter
 psql -h 127.0.0.1 chitter < ./chitter.sql
 ```
 
+Testing:
 
+```
+createdb chitter_test
+
+psql -h 127.0.0.1 chitter_test < ./chitter.sql
+
+rspec
+```
 
 Chitter Challenge
 =================

@@ -5,10 +5,10 @@ CREATE SEQUENCE IF NOT EXISTS users_id_seq;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username text,
-  password text,
   name text,
-  email text
+  username text,
+  email text,
+  password text
 );
 
 DROP TABLE IF EXISTS "public"."peeps";

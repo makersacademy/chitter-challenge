@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1>New reply:</h1>
+
+  <form action="/new_reply/<%= @id %>" method="POST">
+    <p><label>Type here:</label>
+    <input type="text" name="content" />
+
+    <p><input type="submit" value="Post reply">
+  </form>
+
+  </body>
+</html>
