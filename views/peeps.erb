@@ -1,0 +1,27 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+
+    <div>
+      <% if @account.nil? %>
+        Welcome, Guest. <a href="/login">Login here</a>
+      <% else %>
+        Welcome, <%= @account.name %>. <a href="/peeps/new">Post a new peep</a>
+        <form action="/logout" method="POST">
+          <input type="submit" value="Log Out" />
+        </form>
+      <% end %>
+    </div>
+
+    <h2>Peeps</h2>
+
+    <% @peeps.zip(@authors).each do |peep, author| %>
+      <div>
+        <%= author.username %><br>
+        <%= peep.contents %><br>
+        <%= peep.time_posted %><br><br>
+      </div>
+    <% end %>
+  </body>
+</html>

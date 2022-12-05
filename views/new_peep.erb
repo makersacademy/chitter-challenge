@@ -1,0 +1,21 @@
+<html>
+  <head></head>
+
+  <body>
+    <h1>Post a new peep</h1>
+
+    <div><%= @account.name %></div>
+    <form action="/peeps" method="POST">
+      <div>
+        <label for="contents">Contents:</label> <br>
+        <textarea name="contents" id="contents">Input your peep here</textarea>
+      </div>
+      
+      <input type="hidden" name="account_id" value="<%= @account.id %>" />
+
+      <div>
+        <input type="submit" name="Submit" />
+      </div>
+    </form>
+  </body>
+</html>
