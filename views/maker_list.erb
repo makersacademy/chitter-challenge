@@ -1,0 +1,9 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Makers</h1>
+    <% @makers.each do |r| %>
+        <a href="/makers/<%= r.id %>"><%= r.username %> </a><br />
+    <% end %>
+  </body>
+</html>
