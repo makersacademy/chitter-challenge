@@ -1,7 +1,15 @@
 <html>
-  <head></head>
-  <body>
+<link rel="stylesheet" href="/styles.css"/>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/account/new">Sign Up</a>
+  <a href="/login">Log In</a>
+  </div>
+  
+ 
+  <div class="header">
     <h1>Create a new account</h1>
+  </div>
     <form method="POST" action="/account">
       <p><label><b>Username:</b></label>
       <input type="text" name="username"/>
@@ -9,9 +17,9 @@
       <input type="text" name="email_address"/>
       <p><label><b>Password:</b></label>
       <input type="password" name="password"/>
-      <p><label><b>Full Name :</b></label>
+      <p><label><b>Full Name:</b></label>
       <input type="text" name="full_name"/>
-      <input type="submit">
+      <button type="submit">Submit</button>
     </form>
-  </body>
+
 </html>

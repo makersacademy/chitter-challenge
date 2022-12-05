@@ -16,18 +16,6 @@ class UserRepository
     return @all_users
   end
 
-  def sign_in(email, submitted_password)
-    user = find_by_email(email)
-
-    return nil if user.nil?
-
-    # Compare the submitted password with the encrypted one saved in the database
-    if submitted_password == user.password
-      # login success
-    else
-      # wrong password
-    end
-  end
 
   def find_by_email(email)
 

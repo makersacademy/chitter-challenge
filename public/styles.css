@@ -1,0 +1,59 @@
+
+.topnav {
+background-color: #1DA1F2;
+overflow: hidden;
+}
+
+.topnav a {
+float: left;
+color: white  ;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+.topnav a:hover {
+background-color: #E1E8ED;
+color: black;
+}
+
+.topnav a.active {
+background-color: #AAB8C2;
+color: white;
+}
+
+.header {
+padding: 10px;
+text-align: center;
+background: #F5F5F5 ;
+color: #35637a;
+font-size: 20px;
+}
+
+.peep {
+border-radius: .25 rem;
+background-color: white;
+padding: 15px;
+width: 100%;
+height: auto;
+border: 1px solid #777;
+}
+
+
+.peep_card {
+background-color: white;
+border: 1px solid;
+border-radius: .25rem;
+padding: .75rem;
+}
+
+.peep_content{
+background-color: #F0F0F0;
+margin-top: .5rem;
+padding: .25rem;
+border-radius: .25rem;
+}
+
+
+

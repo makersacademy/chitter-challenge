@@ -5,6 +5,8 @@ require_relative 'lib/message_repository'
 require_relative 'lib/user_repository'
 require_relative 'lib/message'
 require_relative 'lib/user'
+require 'capybara/rspec'
+
 
 DatabaseConnection.connect
 
@@ -25,29 +27,6 @@ class Application < Sinatra::Base
     return erb(:timeline)
   end 
 
-  get '/peep/new' do 
-
-    return erb(:new_peep)
-
-  end
-
-  post '/peep' do 
-
-    messages_repo = MessageRepository.new
-    user_repo = UserRepository.new
-    new_message = Message.new 
-    new_message.content = params[:content]
-    new_message.time_posted = DateTime.now
-    new_message.user_id = session[:id]
-
-    messages_repo.create(new_message)
-
-    @message_content = new_message.content
-
-    return erb(:new_peep_created)
-
-  end 
-
   get '/account/new' do 
 
     return erb(:new_account)
@@ -66,6 +45,7 @@ class Application < Sinatra::Base
 
     repo.create(new_user)
     @username = new_user.username
+    session[:user_id] = new_user.id 
     return erb(:new_user_created)
   end  
 
@@ -80,12 +60,9 @@ class Application < Sinatra::Base
     user = repo.find_by_email(email_address)
 
     if user.password == password
-      # Set the user ID in session
-      session[:user_id] = user.id
-      @username = user.username
-      return erb(:login_success)
-    else
-      return erb(:login_failure)
+      session[:user_id] = user.id 
+      redirect to :/
+    else  erb(:login_failure)
     end
 
   end 
@@ -95,11 +72,30 @@ class Application < Sinatra::Base
     redirect to :login
   end
 
-  
-  
+  get '/peep/new' do 
 
+    return erb(:new_peep)
 
+  end
+
+  post '/peep' do 
+
+    messages_repo = MessageRepository.new
+    @user_repo = UserRepository.new
+    new_message = Message.new 
+    new_message.content = params[:content]
+    new_message.time_posted = DateTime.now
+    new_message.user_id = session[:user_id]
+
+    messages_repo.create(new_message)
+
+    @message_content = new_message.content
+
+    return erb(:new_peep_created)
+
+  end 
 
  
 
+  
 end
