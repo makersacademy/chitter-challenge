@@ -11,7 +11,7 @@ The application allows the user to
 
 ---
 
-### **WARNING: This application is not safe and should not be used with any real / sensitive information** 
+### **WARNING: This application is not safe and should not be used with any real / sensitive information!** 
 ---
 
 This project satisfies the following user story:
@@ -57,7 +57,7 @@ I want to receive an email if I am tagged in a Peep
 ---
 
 Running the project
----
+===
 
 To run this project, clone the repository and run
 ```bash
@@ -80,8 +80,10 @@ rackup
 The website will then be available from your web browser by visiting
 http://localhost:9292/
 
-Technical details
 ---
+
+Technical details
+===
 
 This project uses a PSQL database(`chitter_db`) in the server with two tables `accounts` and `peeps` which have a one to many relationship.
 
@@ -98,4 +100,30 @@ This allows for example to restrict access to certain parts of the application i
 
 Finally, the user's password is encrypted using the `BCrypt` gem to avoid storing raw passwords in the database.
 
-## 
+---
+
+Things to add
+===
+
+- Refactor the `Application` class which is too cluttered
+- Clean up error throwing and handling - eg: trying to add an empty record to the database or trying to find a non-existant record.
+In particular, better thought needs to go into how such information is presented to the user.
+- Implement input checks in order to avoid injection attacks
+(**Again, please do not use this application with real data!**).
+- Fulfil the advanced section of the user story.
+- Add `css` styles to improve the look of the application and give a better user experience.
+- Allow users to edit their peeps
+- Add an administrator account which can edit/delete peeps and accounts
+
+---
+
+Skills used in this project
+===
+- Designing a database schema and test driving CRUD classes to interact with the database.
+- Writing integration tests for a web application
+- Implementing web routes
+- Following a debugging process for a web application
+
+---
+\
+This project was made as part of the [MakersAcademy](https://makers.tech/) course.
