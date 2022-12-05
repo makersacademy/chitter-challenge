@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<% if @session == nil %>
+  <h1><a href='/login' class='button'>login</a></h1>
+<% else %>
+  <h1><a href='/logout' class='button'>logout</a></h1>
+<% end %>
+
+  <h1 class='header'>Welcome to Chitter!</h1>
+
+  <p class='info'>
+    New to Chitter? Create an account <a href="/users/new">here</a>.
+  </p>
+
+   <p class='info'>
+    If you're no stranger to chittering, login <a href="/login">here</a>.
+  </p>
+
+   <p class='info'>
+    Or if you simply want to see what the Chitter community is saying, go <a href="/peeps">here</a>.
+  </p>
+ 
+</body>
+</html>

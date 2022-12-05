@@ -1,0 +1,29 @@
+<html>
+  <head>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+  /* #a1 { 
+    float: right; 
+    } */
+  </style>
+  </head>
+  <body>
+
+  <% if @session == nil %>
+    <h1><a href='/login' class='button'>login</a></h1>
+  <% else %>
+    <h1><a href='/logout' class='button'>logout</a></h1>
+  <% end %>
+  
+  <h1 class='header'>Peeps by <%= @user.name %></h1>
+
+   
+  <% @peeps.reverse.each do |peep| %>
+    <div class='tag'>
+      <p class='peep'><%= peep.content %></p> -
+      <%= peep.date_time[0..-8] %>
+    </div>
+  <% end %>
+
+  </body>
+</html>

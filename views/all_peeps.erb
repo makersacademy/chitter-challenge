@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<% if @session == nil %>
+  <h1><a href='/login' class='button'>login</a></h1>
+<% else %>
+  <h1><a href='/logout' class='button'>logout</a></h1>
+<% end %>
+  
+<h1 class='header'>Peeps</h1>
+
+<h2 class='info'>Click <a href='peeps/new'>here</a> to post your own peep</h2>
+<% @peeps.each do |peep| %>
+  <div class='tag'>
+    <p class='peep'><%= peep.content %></p>-
+    <a href="/users/<%= peep.user_id %>"><%= @user_repo.find(peep.user_id).name %><br ></a> 
+    <br >
+    <%= peep.date_time[0..-8] %>
+  </div>
+<% end %><br >
+
+
+</body>
+</html>
+
