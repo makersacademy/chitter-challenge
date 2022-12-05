@@ -34,7 +34,7 @@ class Application < Sinatra::Base
     if session[:user_id] != nil
       return erb(:new_post)
     else
-      redirect '/'
+      return erb(:not_logged_in)
     end
   end
 
