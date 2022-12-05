@@ -24,3 +24,4 @@ class Application < Sinatra::Base
 
     return erb(:home)
   end
+end
