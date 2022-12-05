@@ -23,7 +23,6 @@ describe Application do
 
   context "GET /" do
     it 'returns 200 OK' do
-      # Assuming the post with id 1 exists.
       response = get('/')
 
       expect(response.status).to eq(200)
@@ -35,7 +34,6 @@ describe Application do
 
   context "GET /new" do
     it 'shows new post page if logged in' do
-      # Assuming the post with id 1 exists.
       post('/signup', name: 'name', username: 'username3', email: 'email', password: 'password3')
       post('/login', username: 'username3', password: 'password3')
 
@@ -69,7 +67,6 @@ describe Application do
 
   context "GET /signup" do
     it 'returns 200 OK' do
-      # Assuming the post with id 1 exists.
       response = get('/signup')
 
       expect(response.status).to eq(200)
@@ -81,7 +78,6 @@ describe Application do
 
   context "POST /signup" do
     it 'returns 200 OK' do
-      # Assuming the post with id 1 exists.
       response = post('/signup', name: 'Liv', username: 'username3', email: 'user.3@hotmail.com', password: 'password3')
 
       expect(response.status).to eq(200)
@@ -93,7 +89,6 @@ describe Application do
 
   context "GET /login" do
     it 'returns 200 OK' do
-      # Assuming the post with id 1 exists.
       response = get('/login')
 
       expect(response.status).to eq(200)
@@ -104,13 +99,11 @@ describe Application do
 
   context "POST /login" do
     it 'logs in correctly' do
-      # Assuming the post with id 1 exists.
       post('/signup', name: 'name', username: 'username3', email: 'email', password: 'password3')
       response = post('/login', username: 'username3', password: 'password3')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Logged in: name</h1>')
-      # expect(session[:user_id]).to eq 3
     end
 
     it 'fails to login correctly' do
