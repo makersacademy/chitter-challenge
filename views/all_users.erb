@@ -1,0 +1,13 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter Users</h1>
+
+    <% @users.each do |user| %>
+    <div>
+    <a href="/users/<%= user.id %>"><%= user.username %></a>
+    </div>
+    <% end %>
+   
+  </body>
+</html>
