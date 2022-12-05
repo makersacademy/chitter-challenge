@@ -1,15 +1,25 @@
-# file: app.rb
+require 'sinatra/base'
+require 'sinatra/reloader'
+require_relative 'lib/peep_repo'
 
-require_relative 'lib/database_connection'
+DatabaseConnection.connect
 
-# We need to give the database name to the method `connect`.
-DatabaseConnection.connect('chitter_database')
+class Application < Sinatra::Base
+	# This allows the app code to refresh
+	# without having to restart the server.
+	configure :development do
+		register Sinatra::Reloader
 
-# Perform a SQL query on the database and get the result set.
-sql = 'SELECT id, user, comment, time FROM peeps;'
-result = DatabaseConnection.exec_params(sql, [])
 
-# Print out each record from the result set .
-result.each do |record|
-  p record
+		get '/' do
+			return erb(:welcome)
+		end
+
+		get '/user/:user' do
+			peep_repo = PeepRepository.new
+
+			@users = peep_repo.all
+			return erb(:users)
+		end
+	end
 end
