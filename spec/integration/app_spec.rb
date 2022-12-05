@@ -131,8 +131,7 @@ describe Application do
       expect(response.body).to include('<h2>Sign up complete for thirdname</h2>')
       response = post("/login", email: "thirdname@email.com", password: "defgh456")  
       expect(response.status).to eq 200
-      expect(response.body).to include('<h2>Log in complete for thirdname</h2>')
-      expect(response.body).to include('<a href="/">Back to home</a>')
+      expect(response.body).to eq "login success"
     end
   end
 end
