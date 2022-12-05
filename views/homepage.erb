@@ -1,0 +1,9 @@
+<h1>Welcome to CHITTER</h1>
+<h2> Latest Peeps: </h2>
+  <% @peeps.reverse.each do |peep| %>
+    <div>
+    Message: <%= peep.message %>
+    Time: <%= peep.time %>
+  </div>
+  <% end %>
+  
