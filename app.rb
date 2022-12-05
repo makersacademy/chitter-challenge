@@ -26,31 +26,54 @@ class Application < Sinatra::Base
     return erb(:signup)
   end
 
+  get '/logged_in' do 
+    @peep_repository = PeepRepository.new 
+    @comment_repository = CommentRepository.new
+    @user_repository = UserRepository.new
+    return erb(:homepage)
+  end
+
+  get '/incorrect-details' do 
+    @peep_repository = PeepRepository.new 
+    @comment_repository = CommentRepository.new
+    @user_repository = UserRepository.new
+    return erb(:incorrect_details)
+  end
+
+  get '/replies/:peep_id' do 
+    comment_repository = CommentRepository.new 
+    @comments = comment_repository.find_by_peep(params[:peep_id])
+    @user_repository = UserRepository.new
+    @peep_repository = PeepRepository.new
+    @peep_id = params[:peep_id]
+    return erb(:replies)
+  end
+
+  get '/:user_id' do
+    @peep_repository = PeepRepository.new
+    @comment_repository = CommentRepository.new
+    @user_repository = UserRepository.new
+    @user = @user_repository.find_by_id(params[:user_id])
+    return erb(:peeps_by_user)
+  end
+
   post '/signup' do 
+    @user_repository = UserRepository.new 
     new_user = User.new 
     new_user.name = params[:name]
     new_user.username = params[:username]
     new_user.email = params[:email] 
     new_user.password = params[:password]
-    @user_repository = UserRepository.new 
     taken = @user_repository.check_if_username_or_email_taken(params[:username], params[:email])
     return erb(:taken_details) if taken
     @user_repository.create(new_user)
     user = @user_repository.find_by_username(params[:username])
     session[:user_id] = user.id
- 
-
-
-    @peep_repository = PeepRepository.new 
-    @comment_repository = CommentRepository.new
     return redirect '/logged_in'
   end
 
   post '/credentials_checker' do
-    @peep_repository = PeepRepository.new 
-    @comment_repository = CommentRepository.new
     @user_repository = UserRepository.new
-
     all_users = @user_repository.all 
     @valid_details = all_users.any? { |user| (user.username == params[:username]) and (BCrypt::Password.new(user.password) == params[:password])}
     if @valid_details
@@ -60,21 +83,6 @@ class Application < Sinatra::Base
     else
       return redirect '/incorrect-details'
     end
-  end
-
-  get '/logged_in' do 
-    @peep_repository = PeepRepository.new 
-    @comment_repository = CommentRepository.new
-    @user_repository = UserRepository.new
-
-    return erb(:homepage)
-  end
-
-  get '/incorrect-details' do 
-    @peep_repository = PeepRepository.new 
-    @comment_repository = CommentRepository.new
-    @user_repository = UserRepository.new
-    return erb(:incorrect_details)
   end
   
   post '/peep/new' do 
@@ -86,15 +94,6 @@ class Application < Sinatra::Base
     check_if_peep_or_reply_contains_tag(params[:content])
     peep_repository.create(peep)
     return redirect '/logged_in'
-  end
-
-  get '/replies/:peep_id' do 
-    comment_repository = CommentRepository.new 
-    @comments = comment_repository.find_by_peep(params[:peep_id])
-    @user_repository = UserRepository.new
-    @peep_repository = PeepRepository.new
-    @peep_id = params[:peep_id]
-    return erb(:replies)
   end
 
   post '/reply/:peep_id/new' do 
@@ -110,14 +109,6 @@ class Application < Sinatra::Base
     check_if_peep_or_reply_contains_tag(params[:content])
     @comment_repository.create(comment)
     return redirect "/replies/#{params[:peep_id]}"
-  end
-
-  get '/:user_id' do
-    @peep_repository = PeepRepository.new
-    @comment_repository = CommentRepository.new
-    @user_repository = UserRepository.new
-    @user = @user_repository.find_by_id(params[:user_id])
-    return erb(:peeps_by_user)
   end
 
   def check_if_peep_or_reply_contains_tag(content)

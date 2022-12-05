@@ -123,4 +123,20 @@ describe Application do
       expect(comment_repository.find_by_peep(1).last.peep_id).to eq('1')
     end
   end
+
+  context 'GET /:user_id' do 
+    it 'returns all the peeps by the user' do 
+      response = get('/1')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Peeps By Will Jones')
+    end
+
+    it 'returns all the peeps by the user' do 
+      response = get('/2')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Peeps By Andy')
+    end
+  end
 end

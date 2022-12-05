@@ -50,4 +50,12 @@ describe PeepRepository do
     expect(peep.id).to eq('1')
     expect(peep.content).to eq('My first post')
   end
+
+  it 'returns all the peeps associated with a user id' do 
+    repo = PeepRepository.new 
+
+    peeps = repo.find_by_user(1)
+
+    expect(peeps.length).to eq(3)
+  end
 end
