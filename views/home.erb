@@ -1,0 +1,42 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+
+    <div>
+      <% if @signedin == false %>
+
+        <a href="/login">Login</a>
+        <a href="/sign_up">Sign Up</a>
+
+        <% @peeps.each do |peep| %>
+          <p>
+            <%= peep.username %>
+            <%= peep.datetime %>
+            <p><%= peep.content %>
+            <% if @reply_ids.include? peep.id %>
+              <p><a href="/replies/<%= peep.id %>">Replies</a>
+            <% end %>
+          </p>
+        <% end %>
+      <% else %>
+         <a href="/log_out">Log Out</a>
+         <a href="/new_peep">Write New Peep</a>
+
+         <% @peeps.each do |peep| %>
+          <p>
+            <%= peep.username %>
+            <%= peep.datetime %>
+            <p><%= peep.content %>
+            <% if @reply_ids.include? peep.id %>
+              <p><a href="/replies/<%= peep.id %>">Replies</a>
+            <% else %>
+              <p><a href="/new_reply/<%= peep.id %>">Reply</a>
+            <% end %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+
+  </body>
+</html>

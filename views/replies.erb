@@ -1,0 +1,26 @@
+<html>
+  <head></head>
+  <body>
+    <h1>
+      <%= @peep.username %>
+      <%= @peep.datetime %>
+      <p><%= @peep.content %>
+      <p>
+    </h1>
+
+    <div>
+      <% @reps.each do |reply| %>
+        <p>
+          <%= reply.username %>
+          <%= reply.datetime %>
+          <p><%= reply.content %>
+        </p>
+      <% end %>
+      <% if @signedin == true %>
+        <p><a href="/new_reply/<%= @peep.id %>">Reply</a>
+      <% end %>
+      <p><a href="/">Home</a>
+    </div>
+
+  </body>
+</html>
