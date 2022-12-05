@@ -32,5 +32,11 @@ class Application < Sinatra::Base
     repo.create(new_user)
     return nil
   end
+
+  get '/users/:id' do
+    repo = UserRepository.new
+    @users = repo.find(params[:id])
+    return erb(:posts)
+  end
 end
 
