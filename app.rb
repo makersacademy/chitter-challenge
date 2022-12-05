@@ -7,6 +7,8 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
@@ -20,11 +22,20 @@ class Application < Sinatra::Base
     
     repo = PeepRepository.new
     @peeps = repo.all
-    return erb(:home)
+    if session[:user_id] != nil
+      @user = @users.find(session[:user_id])
+      return erb(:home_logged_in)
+    else
+      return erb(:home)
+    end
   end
 
   get '/new' do
-    return erb(:new_post)
+    if session[:user_id] != nil
+      return erb(:new_post)
+    else
+      redirect '/'
+    end
   end
 
   post '/new' do
@@ -33,7 +44,7 @@ class Application < Sinatra::Base
 
     new_peep.message = params[:message]
     new_peep.time = Time.now
-    new_peep.user_id = repo.find_by_name(params[:name]).id
+    new_peep.user_id = session[:user_id]
 
     repo = PeepRepository.new
     repo.create(new_peep)
@@ -55,7 +66,30 @@ class Application < Sinatra::Base
 
     repo = UserRepository.new
     repo.create(new_user)
-
+    session[:user_id] = repo.find_by_name(new_user.name).id
     return erb(:confirm_signup)
+  end
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    username = params[:username]
+    password = params[:password]
+    
+    repo = UserRepository.new
+    @user = repo.find_by_username(username)
+    if repo.login(username, password)
+      session[:user_id] = @user.id
+      return erb(:confirm_login)
+    else
+      return erb(:failed_login)
+    end
+  end
+
+  get '/logout' do
+    session[:user_id] = nil
+    return erb(:logged_out)
   end
 end

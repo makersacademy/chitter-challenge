@@ -34,26 +34,36 @@ describe Application do
   end
 
   context "GET /new" do
-    it 'returns 200 OK' do
+    it 'shows new post page if logged in' do
       # Assuming the post with id 1 exists.
+      post('/signup', name: 'name', username: 'username3', email: 'email', password: 'password3')
+      post('/login', username: 'username3', password: 'password3')
+
       response = get('/new')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<input type="text" name="message" placeholder="Message">')
-      expect(response.body).to include('<input type="text" name="name" placeholder="Name">')
       expect(response.body).to include('<input type="submit" value="Submit">')
+    end
+
+    it "redirects to home if not logged in" do
+      response = get('/new')
+      expect(response.status).to eq(302)
     end
   end
 
   context "POST /new" do
     it 'returns 200 OK' do
-      # Assuming the post with id 1 exists.
-      response = post('/new', message: 'message4', name: 'David')
+      post('/signup', name: 'name', username: 'username3', email: 'email', password: 'password3')
+      post('/login', username: 'username3', password: 'password3')
+
+      response = post('/new', message: 'message4')
       expect(response.status).to eq(200)
 
       response = get('/')
       expect(response.status).to eq(200)
       expect(response.body).to include("message4")
+      expect(response.body).to include("name")
     end
   end
 
@@ -80,4 +90,56 @@ describe Application do
       expect(repo.find(3).name).to eq('Liv')
     end
   end
+
+  context "GET /login" do
+    it 'returns 200 OK' do
+      # Assuming the post with id 1 exists.
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Login</h1>")
+      expect(response.body).to include('<input type="password" name="password" placeholder="Password">')
+    end
+  end
+
+  context "POST /login" do
+    it 'logs in correctly' do
+      # Assuming the post with id 1 exists.
+      post('/signup', name: 'name', username: 'username3', email: 'email', password: 'password3')
+      response = post('/login', username: 'username3', password: 'password3')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Logged in: name</h1>')
+      # expect(session[:user_id]).to eq 3
+    end
+
+    it 'fails to login correctly' do
+      post('/signup', name: 'name', username: 'username3', email: 'email', password: 'password3')
+      response = post('/login', username: 'username3', password: '123')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Login</h1>")
+      expect(response.body).to include("<div>Username or password incorrect</div>")
+      expect(response.body).to include('<input type="password" name="password" placeholder="Password">')
+    end
+  end
+
+  context "GET /logout" do
+    it "returns 200 OK" do
+      post('/signup', name: 'name', username: 'username3', email: 'email', password: 'password3')
+      post('/login', username: 'username3', password: 'password3')
+
+      response = get('/')
+      expect(response.body).to include "Log Out"
+      expect(response.body).to include "name"
+
+      response = get('/logout')
+      expect(response.status).to eq(200)
+
+      response = get('/')
+      expect(response.body).to include "Login"
+      expect(response.body).to include "Sign Up"
+    end
+  end
+      
 end
