@@ -22,8 +22,8 @@ describe UserRepository do
     expect(users[0].password).to eq 'sxdfhcgjvhk2342'
     expect(users[0].full_name).to eq 'Joe_Bloggs'
     
-    expect(users[1].username).to eq'The_Migster'
-    expect(users[1].email_address).to eq'm_miggins@hotmail.com'
+    expect(users[1].username).to eq 'The_Migster'
+    expect(users[1].email_address).to eq 'm_miggins@hotmail.com'
     expect(users[1].password).to eq '&gfdklwr3'
     expect(users[1].full_name).to eq 'Mrs_Miggins'
   end 
@@ -54,12 +54,12 @@ describe UserRepository do
       expect(user.username).to eq 'The_Migster'
       expect(user.email_address).to eq 'm_miggins@hotmail.com'
       expect(user.password).to eq '&gfdklwr3'
-      expect(user.full_name ).to eq 'Mrs_Miggins'
+      expect(user.full_name).to eq 'Mrs_Miggins'
     end 
 
   end 
 
-it 'creates a new user' do 
+  it 'creates a new user' do 
 
     repo = UserRepository.new
     user = User.new

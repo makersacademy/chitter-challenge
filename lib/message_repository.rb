@@ -38,8 +38,6 @@ class MessageRepository
 
   end 
 
-
-
   private
 
   def record_to_message_object(record)

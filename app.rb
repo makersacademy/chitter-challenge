@@ -7,7 +7,6 @@ require_relative 'lib/message'
 require_relative 'lib/user'
 require 'capybara/rspec'
 
-
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
@@ -62,7 +61,7 @@ class Application < Sinatra::Base
     if user.password == password
       session[:user_id] = user.id 
       redirect to :/
-    else  erb(:login_failure)
+    else erb(:login_failure)
     end
 
   end 
@@ -94,8 +93,5 @@ class Application < Sinatra::Base
     return erb(:new_peep_created)
 
   end 
-
- 
-
   
 end

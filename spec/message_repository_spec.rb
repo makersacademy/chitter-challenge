@@ -54,8 +54,6 @@ describe MessageRepository do
     expect(timeline.last.time_posted).to eq '2022-05-01 12:37:42'
     expect(timeline.last.user_id).to eq '2'
 
-
   end 
-
 
 end

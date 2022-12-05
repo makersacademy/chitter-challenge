@@ -16,10 +16,10 @@ class UserRepository
     return @all_users
   end
 
-
   def find_by_email(email)
 
-    sql = 'SELECT id, username, email_address, password, full_name FROM users WHERE email_address = $1;'
+    sql = 
+    'SELECT id, username, email_address, password, full_name FROM users WHERE email_address = $1;'
     sql_params = [email]
 
     result_set = DatabaseConnection.exec_params(sql, sql_params)
@@ -38,13 +38,12 @@ class UserRepository
     return record_to_user_object(record)
 
   end 
-
  
   def create(user)
       
-      sql = 'INSERT INTO users (username, email_address, password, full_name ) VALUES($1, $2, $3, $4);'
-      sql_params = [user.username, user.email_address, user.password, user.full_name]
-      DatabaseConnection.exec_params(sql, sql_params)
+    sql = 'INSERT INTO users(username, email_address, password, full_name ) VALUES($1, $2, $3, $4);'
+    sql_params = [user.username, user.email_address, user.password, user.full_name]
+    DatabaseConnection.exec_params(sql, sql_params)
   end
   
 

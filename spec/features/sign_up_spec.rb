@@ -1,5 +1,5 @@
-feature "Sign up"  do
-   scenario 'user can sign up to use chitter' do
+feature "Sign up" do
+  scenario 'user can sign up to use chitter' do
     visit ('/account/new')
     expect(page).to have_content 'Create a new account'
     expect(page).to have_content 'Username:'
@@ -33,4 +33,3 @@ feature "Sign up"  do
   #   expect(page).to have_content "error: this username or email already exists"
   # end
 end
-
