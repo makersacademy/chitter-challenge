@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link type="text/css" rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+
+    <h1>CHITTER TIMELINE</h1>
+
+    <h3> LIST OF PEEPS</h3>
+
+    <a href="/peep_form">Post a Peep!</a><br />
+
+    <br>
+    <% @peeps.reverse.each do |peep|%>
+
+      <div>
+        <%= peep.username %>
+      </div>
+
+      <div>
+        <%= peep.content %>
+      </div>
+
+      <div>
+        <%= peep.time %>
+      </div>
+    <br>
+    <%end%>
+
+    <a href="/login"> login</a><br />
+  </body>
+</html>
+
+
+

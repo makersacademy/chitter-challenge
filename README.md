@@ -1,6 +1,58 @@
 Chitter Challenge
 =================
 
+This weekend in Makers, we were tasked with building a 'Twitter' clone.
+
+## How to use
+
+1. Clone the repository to your machine
+2. Create 2 postgresql databases:
+
+   - `chitter`
+   - `chitter_test`
+     [If psql is installed this can be done with `createdb chitter`]
+
+3. Setup your tables with:
+
+```sql
+psql -h 127.0.0.1 chitter < seeds_peeps.sql
+psql -h 127.0.0.1 chitter < seeds_users.sql
+
+psql -h 127.0.0.1 chitter_test < seeds_peeps.sql
+psql -h 127.0.0.1 chitter_test < seeds_users.sql
+```
+
+4. Seed your tables with:
+
+```sql
+psql -h 127.0.0.1 chitter < seeds_users.sql
+
+psql -h 127.0.0.1 chitter_test < seeds_users.sql
+```
+
+5. install gems
+
+```bash
+bundle install
+```
+
+6. To test
+
+```bash
+rpsec
+```
+
+6. To use in the browser
+
+```bash
+rackup
+```
+
+Then head to the browser with
+
+```bash
+http://localhost:9292/
+```
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
