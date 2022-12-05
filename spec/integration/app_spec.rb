@@ -1,13 +1,21 @@
 require "spec_helper"
-#  require "rack/test"
+require "rack/test"
 require_relative '../../app'
 
-# describe Application do
+describe Application do
   # This is so we can use rack-test helper methods.
-  # include Rack::Test::Methods
+  include Rack::Test::Methods
 
   # We need to declare the `app` value by instantiating the Application
   # class so our tests work.
-  # let(:app) { Application.new }
+  let(:app) { Application.new }
 
-# end
+  context "GET /" do
+    it "should return the homepage" do
+      response = get('/')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Index Test')
+    end
+  end
+end
