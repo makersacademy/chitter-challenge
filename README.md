@@ -121,3 +121,10 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+TO ADD:
+1. Check user input, add a method to check valid email etc
+2. Restyle CSS
+3. Make erb files prettier
+4. Refactor app class down
+5. Maybe look into capybara
