@@ -15,12 +15,5 @@ describe  Application do
     end
   end
 
-  context "POST /" do
-    it 'posts a new message' do
-      response = post('/?message=Will join you for a walk!&person_id=3') 
-
-      expect(response.status).to eq(200)
-      expect(response.body).to eq('')
-    end
-  end
+  
 end
