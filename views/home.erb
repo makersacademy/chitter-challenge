@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+
+    <% @peeps.reverse.each do |peep|%>
+      <h1><%= @users.find(peep.user_id).name%></h1>
+      <div><%= peep.message%></div>
+      <div><%= peep.time%></div>
+      
+    <%end%>
+  </body>
+</html>

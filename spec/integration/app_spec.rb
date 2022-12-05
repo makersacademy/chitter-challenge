@@ -20,3 +20,16 @@ describe Application do
   before(:each) do
     reset_chitter_tables
   end
+
+  context "GET /" do
+    it 'returns 200 OK , returns a message and time of all peeps' do
+      # Assuming the post with id 1 exists.
+      response = get('/')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Bob</h1>')
+      expect(response.body).to include('<div>Wanna sleep</div>')
+      expect(response.body).to include('<div>2022-02-02 02:02:02</div>')
+    end
+  end
+end
