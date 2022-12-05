@@ -1,0 +1,35 @@
+<html>
+  <head></head>
+  <body>
+
+
+
+
+  <h3>Add a new peep</h3>
+
+  <form method="POST" action="/">
+    Content: <input type="text" name="content" />
+
+    <input type="submit" value="Submit" />
+    <p>Your are posting as user with id number: <%= @user %> </p>
+  </form>
+
+
+
+  <hr />
+
+    <h1>Peeps feed</h1>
+
+    <% @peeps.each do |peep| %>
+      <div>
+        <hr>
+        <h5> Content: <%=peep.content%>
+          <br>
+          Posted at: <%= peep.time %>
+        </h5>
+        <hr>
+      </div>
+      <% end %>
+
+  </body>
+</html>
