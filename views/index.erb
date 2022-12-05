@@ -1,0 +1,74 @@
+<html>
+  <head>
+  <style>
+      input {
+        display: block;
+      }
+      
+      div {
+        margin: 10px;
+      }
+
+      header {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Chitter</h1>
+      <div><%= @message unless @message.nil? %></div>
+    </header>
+    
+      <% if session[:user].nil? %>
+      <div>
+
+        <form method="POST" action="/login">
+        <div >
+          <label for="username">Username</label>
+          <input type="text" name="username" placeholder="Enter your username" required />
+        </div>
+
+        <div >
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <div>
+          <input type="submit" value="Log in" style="display:inline;">
+           <a href="/signup"><button type="button">Sign Up</button></a>
+        </div>
+        </form>
+      </div>
+      <% else %>
+        <div>
+          <div>You are logged in as <%= session[:user].username %></div>
+          <form method="POST" action="/logout">
+            <input type="submit" value="Log out" style="margin: 10px;">
+          </form>
+        </div>
+      <% end %>
+    
+    
+    <% unless session[:user].nil? %>
+      <div>
+        <form method="POST" action="/create_peep">
+          <input type="text" name="content" placeholder="Enter your post" style="display:inline;margin: 10px;">
+          <input type="submit" value="Post" style="display:inline;">
+        </form>
+      </div>
+    <% end %>
+
+    <section >
+      <% @peeps.each do |peep| %>
+        <% user = @user_repo.find(peep.user_id) %>
+        <div >
+        <div>@<%= user.username %> - <%= peep.time_posted %></div>
+        <div><%= peep.content %></div>
+      </div>
+      <% end %>
+    </section>
+
+   
+  </body>
+</html>
