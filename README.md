@@ -1,3 +1,13 @@
+# SETUP
+Ruby required!
+Please install gems in gem file with bundle install. If you don't have bundler you can install with gem install bundler
+Presuming you have Ruby and Postgresql installed;
+- createdb chitter
+- psql -h 127.0.0.1 chitter < users_seeds.sql; N.B. ';' is crucial
+- psql -h 127.0.0.1 chitter < peeps_seeds.sql; N.B. ';' is crucial
+- rackup
+
+
 Chitter Challenge
 =================
 
