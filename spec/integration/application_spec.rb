@@ -51,16 +51,16 @@ describe Application do
       end
 
   end
-  context 'GET /signup/new' do
+  context 'GET /signup' do
     it 'should return a form to singup ' do
-    response = get('/signup/new')
+    response = get('/signup')
 
     expect(response.status).to eq(200)
-    expect(response.body).to include('<form method="POST" action="/makers">')
-    expect(response.body). to include('<input type="text" user="name" />')
-    expect(response.body). to include('<input type="text" user="username" />')
-    expect(response.body). to include('<input type="text" user="email" />')
-    expect(response.body). to include('<input type="text" user="password" />')
+    expect(response.body).to include('<form action="/signup" method="POST">')
+    expect(response.body).to include('<input type="text" name="name" />')
+    expect(response.body).to include('<input type="text" name="username" />')
+    expect(response.body).to include('<input type="text" name="email" />')
+    expect(response.body).to include('<input type="password" name="password" />')
     end
   end
   context 'POST to /signup' do
@@ -70,15 +70,14 @@ describe Application do
       expect(response.status).to eq(404)
     end
     it 'creates a new maker' do
-      response = post('/signup', name: 'name3', username: 'user3', email: 'name3@gmail.com', password: 'password3')
+      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password3')
+
+      expect(response.status).to eq(302)
+
+      response = get('/makers/3')
 
       expect(response.status).to eq(200)
-      expect(response.body).to eq('')
-
-      response = get('/makers')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include('user3')
+      expect(response.body).to include('user4')
     end
   end
   #artists

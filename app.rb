@@ -19,36 +19,37 @@ class Application < Sinatra::Base
     repo = MakerRepository.new
     @makers = repo.all
 
-    # response = @albums.map do |album|
-    #   album.title
-    # end.join(', ')
-
     return erb(:maker_list)
   end
 
-  get '/signup/new' do
+  get '/signup' do
 
     return erb(:maker_create)
   end
 
   post '/signup' do
-    p params
-
-    if invalid__makers_params?
+    if invalid_makers_params?
       status 400
       return ''
     end
 
     repo = MakerRepository.new
-    new_user = Maker.new
-    new_user.name = params[:name]
-    new_user.username = params[:username]
-    new_user.email = params[:email]
-    new_user.password = params[:password]
+    if repo.find_by_name(params[:username]) == nil
+      if repo.find_by_email(params[:email]) == nil
 
-    repo.create(new_user)
+        new_user = Maker.new
+        new_user.name = params[:name]
+        new_user.username = params[:username]
+        new_user.email = params[:email]
+        new_user.password = params[:password]
 
-    return ''
+        repo.create(new_user)
+
+        redirect '/login'
+      end
+    end
+
+    redirect '/signup'
   end
 
   get '/login' do
@@ -74,7 +75,7 @@ class Application < Sinatra::Base
     return 'Wrong user or password'
   end
 
-  def invalid__makers_params?
+  def invalid_makers_params?
     if params[:name] == nil
       puts "no name"
       return false
@@ -115,9 +116,6 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     @peeps = repo.all.reverse
 
-    # list = albums.map do |artist|
-    #   artist.name
-    # end.join(', ')
     return erb(:peep_list)
   end
 

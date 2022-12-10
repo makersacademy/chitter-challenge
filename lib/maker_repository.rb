@@ -2,6 +2,7 @@ require_relative './maker'
 
 class MakerRepository
 
+  #list all makers
   def all
     sql = 'SELECT id, name, username, email, password FROM makers;'
     result_set = DatabaseConnection.exec_params(sql, [])
@@ -24,6 +25,7 @@ class MakerRepository
     return makers
   end
 
+  # find a maker based on id
   def find(id)
     sql = 'SELECT id, name, username, email, password FROM makers WHERE id = $1;'
     sql_params = [id]
@@ -41,6 +43,7 @@ class MakerRepository
 
   end
 
+  # login option
   def find_by_values(email, password)
     sql = "SELECT id, name, username, email, password FROM makers WHERE (email = $1 AND password = $2);"
     sql_params = [email, password]
@@ -49,9 +52,6 @@ class MakerRepository
     if result_set.num_tuples.zero?
       puts 'empty result'
     end
-    p result_set
-
-    p result_set.methods
 
     user = Maker.new
     user.id = result_set[0]['id']
@@ -63,6 +63,7 @@ class MakerRepository
     return user
   end
 
+  # create a new maker account
   def create(new_user)
     sql = 'INSERT INTO makers (name, username, email, password)
       VALUES ($1, $2, $3, $4);'
@@ -70,6 +71,43 @@ class MakerRepository
     result_set = DatabaseConnection.exec_params(sql, sql_params)
 
     return nil
+  end
+  
+   # find by email to prevent signup with the same email
+  def find_by_email(email)
+    sql = 'SELECT id, username, email, password FROM makers WHERE (email = $1);'
+    sql_params = [email]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+  
+    if result_set.num_tuples.zero?
+      return nil
+    end
+  
+    user = Maker.new
+    user.id = result_set[0]['id']
+    user.username = result_set[0]['username']
+    user.email = result_set[0]['email']
+    user.password = result_set[0]['password']
+      return user
+  end
+
+  # find by username to prevent signup with the same username
+  def find_by_name(username)
+    sql = 'SELECT id, username, name, email, password FROM makers WHERE (username = $1);'
+    sql_params = [username]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+  
+    if result_set.num_tuples.zero?
+      return nil
+    end
+  
+    user = Maker.new
+    user.id = result_set[0]['id']
+    user.username = result_set[0]['username']
+    user.name = result_set[0]['name']
+    user.email = result_set[0]['email']
+    user.password = result_set[0]['password']
+      return user
   end
 end
 
