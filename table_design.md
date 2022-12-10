@@ -132,7 +132,8 @@ CREATE TABLE makers (
   name text,
   username text,
   email text,
-  password text
+  password text,
+  session_id text
 );
 
 -- Then the table with the foreign key first.

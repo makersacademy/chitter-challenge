@@ -37,8 +37,8 @@ Request: GET /peeps/1
 Response: of a single peep
 
 # Create a peep
-Request: POST /makers
-With body parameters: "name=name3, username=user3, email=name3@email.com, password=password3"
+Request: POST /peep
+With body parameters: "peep=peep3, time=____, maker_id=1,
 Response: None (just creates the resource on the server)
 
 ## 2. Design the Response
