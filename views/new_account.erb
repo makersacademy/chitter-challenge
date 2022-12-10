@@ -1,12 +1,23 @@
-<h1>Please fill in the following details:</h1>
-<form action="/accounts" method="POST">
-  <label>Email:</label>
-  <input type="text" name="email" required><br/>
-  <label>Password:</label>
-  <input type="text" name="password" required><br/>
-  <label>Name:</label>
-  <input type="text" name="name" required><br/>
-  <label>Username:</label>
-  <input type="text" name="username" required><br/>
-  <input type="submit" value="Submit" />
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Chitter</title>
+      <link rel="stylesheet" href="/style.css" >
+  </head>
+  <body>
+    <h2>Please fill in the following details:</h2>
+    <form action="/accounts" method="POST">
+      <div class='signup_form'>
+        <label>Email:</label>
+        <input type="text" name="email" required><br/><br/>
+        <label>Password:</label>
+        <input type="text" name="password" required><br/><br/>
+        <label>Name:</label>
+        <input type="text" name="name" required><br/><br/>
+        <label>Username:</label>
+        <input type="text" name="username" required><br/><br/>
+        <input type="submit" value="Submit" class="button"/>
+      </div>
+    </form>
+  </body>
+</html>
