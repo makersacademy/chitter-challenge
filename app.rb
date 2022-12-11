@@ -28,7 +28,8 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    if invalid_makers_params?
+    p params
+    if invalid_makers_params? == true
       status 400
       return ''
     end
@@ -76,30 +77,32 @@ class Application < Sinatra::Base
   end
 
   def invalid_makers_params?
-    if params[:name] == nil
-      puts "no name"
-      return false
-    end
+    # if params[:name] == nil
+    #   puts "no name"
+    #   return false
+    # end
 
-    if params[:username] == nil
-      puts "no username"
-      return false
-    end
+    # if params[:username] == nil
+    #   puts "no username"
+    #   return false
+    # end
 
-    if params[:email] == nil
-      puts "no email"
-      return false
-    end
+    # if params[:email] == nil
+    #   puts "no email"
+    #   return false
+    # end
 
-    if params[:password] == nil
-      puts "no password"
-      return false
-    end
+    # if params[:password] == nil
+    #   puts "no password"
+    #   return false
+    # end
 
-      # return ( ||
-      # params[:username] == nil ||
-      # params[:email] == nil ||
-      # params[:password] == nil)
+      return (
+        (params[:name] == "" || params[:name] == nil) ||
+        (params[:username] == "" || params[:username] == nil) ||
+        (params[:email] == "" || params[:email] == nil) ||
+        (params[:password] == "" || params[:password] == nil)
+)
   end
 
   # add validadtion for ID to make sure its a number

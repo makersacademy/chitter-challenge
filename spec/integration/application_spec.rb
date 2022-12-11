@@ -64,11 +64,31 @@ describe Application do
     end
   end
   context 'POST to /signup' do
-    it 'should validate album parameters' do
-      response = post('/makers', another_invalid_thing: 123)
+    it 'return 400 for empty name input' do
+      response = post('/signup', name: nil, username: 'user4', email: 'name4@gmail.com', password: 'password3')
 
-      expect(response.status).to eq(404)
+      expect(response.status).to eq(400)
     end
+
+    it 'return 400 for empty username input' do
+      response = post('/signup', name: 'name4', username: nil, email: 'name4@gmail.com', password: 'password3')
+
+      expect(response.status).to eq(400)
+    end
+
+    it 'return 400 for empty email input' do
+      response = post('/signup', name: 'name4', username: "user4", email: nil, password: 'password3')
+
+      expect(response.status).to eq(400)
+    end
+
+    it 'return 400 for empty email input' do
+      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: nil)
+
+      expect(response.status).to eq(400)
+    end
+
+    it 'puts'
     it 'creates a new maker' do
       response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password3')
 
