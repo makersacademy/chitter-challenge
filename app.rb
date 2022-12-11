@@ -28,7 +28,6 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    p params
     if invalid_makers_params? == true
       status 400
       return ''
@@ -58,18 +57,11 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    p params
-
-    # if invalid__makers_params?
-    #   status 400
-    #   return 'WRONG'
-    # end
-
     repo = MakerRepository.new
     user = repo.find_by_values(params[:email], params[:password])
     unless user.nil?
       session['user_id'] = user.id
-      redirect '/makers'
+      redirect "/makers/#{user.id}"
     end
 
     status 401
@@ -77,26 +69,6 @@ class Application < Sinatra::Base
   end
 
   def invalid_makers_params?
-    # if params[:name] == nil
-    #   puts "no name"
-    #   return false
-    # end
-
-    # if params[:username] == nil
-    #   puts "no username"
-    #   return false
-    # end
-
-    # if params[:email] == nil
-    #   puts "no email"
-    #   return false
-    # end
-
-    # if params[:password] == nil
-    #   puts "no password"
-    #   return false
-    # end
-
       return (
         (params[:name] == "" || params[:name] == nil) ||
         (params[:username] == "" || params[:username] == nil) ||

@@ -88,7 +88,40 @@ describe Application do
       expect(response.status).to eq(400)
     end
 
-    it 'puts'
+    it 'checks for existing username when signing up' do
+      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password3')
+
+      expect(response.status).to eq(302)
+      expect(response.header['Location']).to match(".*/login")
+
+      response = get('/makers/3')
+
+      expect(response.status).to eq(200)
+
+      response = post('/signup', name: 'name5', username: 'user4', email: 'name5@gmail.com', password: 'password3')
+
+      expect(response.status).to eq(302)
+      expect(response.header['Location']).to match(".*/signup")
+
+    end
+
+    it 'checks for existing email when signing up' do
+      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password3')
+
+      expect(response.status).to eq(302)
+      expect(response.header['Location']).to match(".*/login")
+
+      response = get('/makers/3')
+
+      expect(response.status).to eq(200)
+
+      response = post('/signup', name: 'name5', username: 'user5', email: 'name4@gmail.com', password: 'password3')
+
+      expect(response.status).to eq(302)
+      expect(response.header['Location']).to match(".*/signup")
+
+    end
+
     it 'creates a new maker' do
       response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password3')
 
@@ -100,9 +133,42 @@ describe Application do
       expect(response.body).to include('user4')
     end
   end
-  #artists
+  
+  context 'GET to /login' do
+    it 'returns the login page' do
+      response = get('/login')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include ('<form action="/login" method="post">')
+      expect(response.body).to match ('<input type="text" name="email" placeholder="Email" />')
+      expect(response.body).to match ('<input type="password" name="password" placeholder="Password" />')
+
+    end
+  end
+
+  context 'POST to /login' do
+    it 'returns the maker page after succesful login' do
+      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password')
+
+      expect(response.status).to eq (302)
+      expect(response.header['Location']).to match (".*/login")
+
+      response = get(response.header['Location'])
+      expect(response.status).to eq(200)
+
+      response = post('/login', email: 'name4@gmail.com', password: 'password')
+
+      expect(response.status).to eq(302)
+      expect(response.header['Location']).to match('.*/makers')
+
+      response = get(response.header['Location'])
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1> Welcome name4!</h1>')
+
+    end
+
+  end
   context 'GET to /peeps' do
-    # List all the albums
       it 'list all the peeps in reverse chronological order' do
         response = get('/peeps')
 

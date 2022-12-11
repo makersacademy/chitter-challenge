@@ -17,13 +17,13 @@ end
     user = repo.all
 
     expect(user.length).to eq 2
-    
+
     expect(user[0].id).to eq '1'
     expect(user[0].name).to eq 'name1'
     expect(user[0].username).to eq  'user1'
     expect(user[0].email).to eq 'name1@email.com'
     expect(user[0].password).to eq 'password1'
-    
+
     expect(user[1].id).to eq  '2'
     expect(user[1].name).to eq  'name2'
     expect(user[1].username).to eq  'user2'
@@ -44,7 +44,7 @@ end
   end
 
   it 'creates a new maker' do
-    
+
     repo = MakerRepository.new
 
     new_user = Maker.new
@@ -68,5 +68,81 @@ end
       password: new_user.password
       )
     )
+  end
+
+  it 'checks existing users by email' do
+    repo = MakerRepository.new
+    users = repo.find_by_email('name3@email.com')
+
+    expect(users).to eq nil
+
+    new_user = Maker.new
+
+    new_user.id = '3'
+    new_user.name = 'name3'
+    new_user.username = 'user3'
+    new_user.email = 'name3@email.com'
+    new_user.password = 'password3'
+
+    repo.create(new_user)
+
+    users = repo.find_by_email('name3@email.com')
+
+    expect(users.id).to eq '3'
+    expect(users.name).to eq 'name3'
+    expect(users.username).to eq 'user3'
+    expect(users.email).to eq 'name3@email.com'
+    expect(users.password).to eq 'password3'
+
+  end
+
+  it 'checks existing users by username' do
+    repo = MakerRepository.new
+    users = repo.find_by_name('name3')
+
+    expect(users).to eq nil
+
+    new_user = Maker.new
+
+    new_user.id = '3'
+    new_user.name = 'name3'
+    new_user.username = 'user3'
+    new_user.email = 'name3@email.com'
+    new_user.password = 'password3'
+
+    repo.create(new_user)
+
+    users = repo.find_by_name('user3')
+
+    expect(users.id).to eq '3'
+    expect(users.name).to eq 'name3'
+    expect(users.username).to eq 'user3'
+    expect(users.email).to eq 'name3@email.com'
+    expect(users.password).to eq 'password3'
+  end
+
+  it 'checks for login details (email and password)' do
+    repo = MakerRepository.new
+    users = repo.find_by_values('name3@email.com', 'password3')
+
+    expect(users).to eq nil
+
+    new_user = Maker.new
+
+    new_user.id = '3'
+    new_user.name = 'name3'
+    new_user.username = 'user3'
+    new_user.email = 'name3@email.com'
+    new_user.password = 'password3'
+
+    repo.create(new_user)
+
+    users = repo.find_by_values('name3@email.com','password3')
+
+    expect(users.id).to eq '3'
+    expect(users.name).to eq 'name3'
+    expect(users.username).to eq 'user3'
+    expect(users.email).to eq 'name3@email.com'
+    expect(users.password).to eq 'password3'
   end
 end

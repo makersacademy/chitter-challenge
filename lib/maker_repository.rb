@@ -27,6 +27,7 @@ class MakerRepository
 
   # find a maker based on id
   def find(id)
+    p id
     sql = 'SELECT id, name, username, email, password FROM makers WHERE id = $1;'
     sql_params = [id]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
@@ -50,7 +51,7 @@ class MakerRepository
     result_set = DatabaseConnection.exec_params(sql, sql_params)
 
     if result_set.num_tuples.zero?
-      puts 'empty result'
+      return nil
     end
 
     user = Maker.new
@@ -75,7 +76,7 @@ class MakerRepository
   
    # find by email to prevent signup with the same email
   def find_by_email(email)
-    sql = 'SELECT id, username, email, password FROM makers WHERE (email = $1);'
+    sql = 'SELECT id, name, username, email, password FROM makers WHERE (email = $1);'
     sql_params = [email]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
   
@@ -85,6 +86,7 @@ class MakerRepository
   
     user = Maker.new
     user.id = result_set[0]['id']
+    user.name = result_set[0]['name']
     user.username = result_set[0]['username']
     user.email = result_set[0]['email']
     user.password = result_set[0]['password']
