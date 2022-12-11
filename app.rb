@@ -55,7 +55,8 @@ class Application < Sinatra::Base
     account_repo = AccountRepository.new
     account_list = account_repo.all 
 
-    existing_account = account_list.any? { |account| (account.email == params[:email]) and (BCrypt::Password.create(account.password) == params[:password])}
+    existing_account = account_list.any? { |account| (account.email == params[:email]) and (BCrypt::Password.new(account.password) == params[:password])}
+    p existing_account
 
     if existing_account
       account = account_repo.find_by_email(params[:email])
