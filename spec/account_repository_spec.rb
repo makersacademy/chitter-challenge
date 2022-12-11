@@ -48,7 +48,6 @@ describe AccountRepository do
       account = repo.find_by_email('trooper666@aol.com')
       
       expect(account.email).to eq('trooper666@aol.com')
-      expect(account.password).to eq('ride_the_lightning84')
       expect(account.name).to eq('Taylor Black')
       expect(account.username).to eq('headbanger666')
       expect(account.bio).to eq('Keep on rockin in the free world')

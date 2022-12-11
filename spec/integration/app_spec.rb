@@ -84,7 +84,7 @@ describe Application do
   end
 
   context "POST /login" do
-    xit 'returns valid when details are valid' do 
+    it 'returns valid when details are valid' do 
       login = post('/login', username: 'turtles@msn.com', password: 'turtlesturtlesturtles')
       response = get('/logged_in')
 
