@@ -6,7 +6,6 @@ require_relative 'lib/account'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/account_repository'
-require 'pry'
 
 DatabaseConnection.connect
 
@@ -52,11 +51,31 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  post '/login' do
+    account_repo = AccountRepository.new
+    account_list = account_repo.all 
+
+    existing_account = account_list.any? { |account| (account.email == params[:email]) and (BCrypt::Password.create(account.password) == params[:password])}
+
+    if existing_account
+      account = account_repo.find_by_email(params[:email])
+      session[:account_id] = account.id
+
+      redirect '/logged_in'
+    else
+      redirect '/login_error'
+    end
+  end
+
   get '/logged_in' do
     @peep_repo = PeepRepository.new
     @account_repo = AccountRepository.new
 
-    return erb(:login_success)
+    erb(:login_success)
+  end
+
+  get '/login_error' do
+    erb(:login_error)
   end
 
   post '/peep/new' do

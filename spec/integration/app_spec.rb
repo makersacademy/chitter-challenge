@@ -76,15 +76,35 @@ describe Application do
       expect(response.body).to include ('<h1>Welcome back to Chitter!</h1>')
 
       expect(response.body).to include ('<form method="POST" action="/login" style="width: 500px; margin:auto">')
-      expect(response.body).to include ('<input type="email" class="form-control" name="email_address">')
+      expect(response.body).to include ('<input type="email" class="form-control" name="email">')
       expect(response.body).to include ('<input type="password" class="form-control" name="password">')
       expect(response.body).to include ('<button type="submit" class="btn btn-success">Log In</button>')
       expect(response.body).to include ('<button type="button" class="btn btn-danger">Cancel</button>')
     end
   end
 
+  context "POST /login" do
+    xit 'returns valid when details are valid' do 
+      login = post('/login', username: 'turtles@msn.com', password: 'turtlesturtlesturtles')
+      response = get('/logged_in')
+
+      expect(response.status).to eq(200)
+    end
+  end
+
+  context "GET /login_error" do
+    it 'returns login error message' do
+      response = get('/login_error')
+
+      expect(response.status).to eq(200)
+
+      expect(response.body).to include("<h1>Log in error!</h1>")
+      expect(response.body).to include('<h3>Unfortunately there was a problem logging you in!</h3>')
+    end
+  end
+
   context "GET /logged_in" do
-    it 'returns login_success page' do
+    it 'returns user timeline' do
       new_account = post('/signup', email: 'eliza@gmail.com', password: 'test', name: 'Eliza Test', username: 'Eliza1234', bio: 'Test account')
       response = get('/logged_in')
 
