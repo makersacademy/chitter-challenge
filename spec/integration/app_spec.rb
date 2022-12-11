@@ -46,7 +46,7 @@ describe Application do
       expect(response.body).to include ('<h1>Welcome to Chitter!</h1>')
 
       expect(response.body).to include ('<form method="POST" action="/signup" style="width: 500px; margin:auto">')
-      expect(response.body).to include ('<input type="email" class="form-control" name="email_address" placeholder="Enter your email!" required>')
+      expect(response.body).to include ('<input type="email" class="form-control" name="email" placeholder="Enter your email!" required>')
       expect(response.body).to include ('<input type="password" class="form-control" name="password" placeholder="Enter your password!" required>')
       expect(response.body).to include ('<input type="text" class="form-control" name="name" placeholder="Enter your first and second name!" required>')
       expect(response.body).to include ('<input type="text" class="form-control" name="username" placeholder="Enter your desired username!" required>')
@@ -92,9 +92,9 @@ describe Application do
 
       expect(response.body).to include("<h1>Hey Eliza1234! How's it going?</h1>")
 
-      expect(response.body).to include('<form method="POST" action="/peep/new">')
-      expect(response.body).to include('<input type="text" name="content" placeholder="Tell everyone your thoughts!">')
-      expect(response.body).to include('<input type="submit" />')
+      expect(response.body).to include('<form method="POST" action="/peep/new" style="width: 500px;">')
+      expect(response.body).to include('<input type="text" class="form-control" name="content" placeholder="Have your say!" required>')
+      expect(response.body).to include('<button type="submit" class="btn btn-primary">Peep!</button>')
       expect(response.body).to include('<h4><a href ="#top">Back to top!</a></h4>')
     end
   end
