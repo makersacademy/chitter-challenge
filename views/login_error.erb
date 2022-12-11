@@ -32,20 +32,33 @@
       </div>
    </nav>
 
-   <div class="container shadow-lg" style="margin-top: 125px; height: 225px; width: 800px; background-color: #23365A;">
+   <div class="container shadow-lg" style="margin-top: 125px; height: 355px; width: 600px; background-color: #23365A;">
      <div class="text-center" style="margin-bottom: 25px;">
        <h1>Log in error!</h1>
 
-       <h3>Unfortunately there was a problem logging you in!</h3>
-       <h4>Please try again below:</h4>
+       <h3>Please try again!</h3>
+     </div>
 
-       <a href="/login">
-         <button type="submit" class="btn btn-success">Try again</button>
-       </a>
+     <form method="POST" action="/login" style="width: 500px; margin:auto">
+       <div class="mb-3">
+         <label for="email_input" class="form-label">Email address</label>
+         <input type="email" class="form-control" name="email">
+       </div>
+
+       <div class="mb-3">
+          <label for="password_input" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password">
+        </div>
+
+       <button type="submit" class="btn btn-success">Log In</button>
 
        <a href="/">
-        <button type="button" class="btn btn-danger">Forget it</button>
+        <button type="button" class="btn btn-danger">Cancel</button>
        </a>
-     </div>
+
+       <a href="/signup">
+        <button type="button" class="btn btn-primary">Don't have an account? Sign up here!</button>
+       </a>
+     </form>
     </div>
   </body>

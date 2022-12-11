@@ -99,7 +99,7 @@ describe Application do
       expect(response.status).to eq(200)
 
       expect(response.body).to include("<h1>Log in error!</h1>")
-      expect(response.body).to include('<h3>Unfortunately there was a problem logging you in!</h3>')
+      expect(response.body).to include('<h3>Please try again!</h3>')
     end
   end
 
