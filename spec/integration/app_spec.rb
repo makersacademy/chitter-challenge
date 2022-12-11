@@ -43,25 +43,28 @@ describe Application do
       response = get('/signup')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include ('<h4>Welcome to Chitter! Please enter the relevant information below:</h4>')
+      expect(response.body).to include ('<h1>Welcome to Chitter!</h1>')
 
-      expect(response.body).to include ('<form method="POST" action="/signup">')
-      expect(response.body).to include ('<input type="email" name="email" placeholder="Enter an email">')
-      expect(response.body).to include ('<input type="password" name="password" placeholder="Enter a password">')
-      expect(response.body).to include ('<input type="text" name="name" placeholder="Enter your name">')
-      expect(response.body).to include ('<input type="text" name="username" placeholder="Enter a username">')
-      expect(response.body).to include ('<input type="text" name="bio" placeholder="Enter an account bio">')
-      expect(response.body).to include ('<input type="submit" value="Sign Up!" />')
+      expect(response.body).to include ('<form method="POST" action="/signup" style="width: 500px; margin:auto">')
+      expect(response.body).to include ('<input type="email" class="form-control" name="email_address" placeholder="Enter your email!" required>')
+      expect(response.body).to include ('<input type="password" class="form-control" name="password" placeholder="Enter your password!" required>')
+      expect(response.body).to include ('<input type="text" class="form-control" name="name" placeholder="Enter your first and second name!" required>')
+      expect(response.body).to include ('<input type="text" class="form-control" name="username" placeholder="Enter your desired username!" required>')
+      expect(response.body).to include ('<input type="text" class="form-control" name="bio" placeholder="This is a short sentence that will go on your profile!">')
+      expect(response.body).to include ('<button type="submit" class="btn btn-success">Sign Up</button>')
 
-      expect(response.body).to include ('<h4>Still thinking about it? Please feel free to <a href="/">return home</a> for now</h4>')
+      expect(response.body).to include ('<button type="button" class="btn btn-danger">Cancel</button>')
     end
   end
 
   context "POST /signup" do
-    xit 'returns 200 OK' do
-      response = post('/signup?email=123@123.com&password=1234&name=Test Test&username=test123&bio=test')
+    it 'creates a new user' do
+      response = post('/signup', email: 'eliza@mail.com', password: 'test_account', name: 'Eliza Test', username: 'Eliza123', bio: 'Test account')
 
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(302)
+      repo = AccountRepository.new
+      expect(repo.all.last.name).to eq 'Eliza Test'
+      expect(repo.all.last.username).to eq 'Eliza123'
     end
   end
 
@@ -70,14 +73,39 @@ describe Application do
       response = get('/login')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include ('<h4>Hey! Welcome back to Chitter! Please enter the relevant information below:</h4>')
+      expect(response.body).to include ('<h1>Welcome back to Chitter!</h1>')
 
-      expect(response.body).to include ('<form method="POST" action="/login">')
-      expect(response.body).to include ('<input type="text" name="username" placeholder="Enter a username">')
-      expect(response.body).to include ('<input type="password" name="password" placeholder="Enter a password">')
-      expect(response.body).to include ('<input type="submit" value="Log in!"/>')
+      expect(response.body).to include ('<form method="POST" action="/login" style="width: 500px; margin:auto">')
+      expect(response.body).to include ('<input type="email" class="form-control" name="email_address">')
+      expect(response.body).to include ('<input type="password" class="form-control" name="password">')
+      expect(response.body).to include ('<button type="submit" class="btn btn-success">Log In</button>')
+      expect(response.body).to include ('<button type="button" class="btn btn-danger">Cancel</button>')
+    end
+  end
 
-      expect(response.body).to include ("<h4>Don't feel like logging in right now? Please feel free to <a href='/'>return home</a> for now</h4>")
+  context "GET /logged_in" do
+    it 'returns login_success page' do
+      new_account = post('/signup', email: 'eliza@gmail.com', password: 'test', name: 'Eliza Test', username: 'Eliza1234', bio: 'Test account')
+      response = get('/logged_in')
+
+      expect(response.status).to eq(200)
+
+      expect(response.body).to include("<h1>Hey Eliza1234! How's it going?</h1>")
+
+      expect(response.body).to include('<form method="POST" action="/peep/new">')
+      expect(response.body).to include('<input type="text" name="content" placeholder="Tell everyone your thoughts!">')
+      expect(response.body).to include('<input type="submit" />')
+      expect(response.body).to include('<h4><a href ="#top">Back to top!</a></h4>')
+    end
+  end
+
+  context "POST /peep/new" do
+    it 'creates a new peep' do
+      response = post('/peep/new', content: 'Test peep', post_time: '2022-12-11 13:10:32', account_id: '12')
+
+      expect(response.status).to eq(302)
+      repo = PeepRepository.new
+      expect(repo.all.last.content).to eq 'Test peep'
     end
   end
 end

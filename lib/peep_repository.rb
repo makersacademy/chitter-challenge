@@ -5,60 +5,53 @@ class PeepRepository
     peeps = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT peeps.id, 
-                  peeps.content, 
-                  peeps.post_time,
-                  peeps.account_id,
-                  accounts.name,
-                  accounts.username
-    FROM peeps
-    INNER JOIN accounts
-    ON peeps.account_id = accounts.account_id;'
+    sql = 'SELECT id, 
+                  content, 
+                  post_time,
+                  account_id
+    FROM peeps;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
     # Loop through it to create a model
     # object for each record hash.
     result_set.each do |record|
-
-      # Create a new model object
-      # with the record data.
-      peep = Peep.new
-      peep.id = record['id'].to_i
-      peep.content = record['content']
-      peep.post_time = record['post_time']
-      peep.account_id = record['account_id']
-      peep.name = record['name']
-      peep.username = record['username']
-
-      peeps << peep
+      peeps << record_info(record)
     end
 
     return peeps
   end
 
-  def find(id)
-    sql = 'SELECT peeps.id, 
-                  peeps.content, 
-                  peeps.post_time,
-                  peeps.account_id,
-                  accounts.name,
-                  accounts.username
+  def find_by_peep_id(id)
+    sql = 'SELECT id, 
+                  content, 
+                  post_time,
+                  account_id
     FROM peeps
-    INNER JOIN accounts
-    ON peeps.account_id = accounts.account_id
-    WHERE peeps.id = $1'
+    WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
-    peep = Peep.new
-    peep.id = result_set[0]['id'].to_i
-    peep.content = result_set[0]['content']
-    peep.post_time = result_set[0]['post_time']
-    peep.account_id = result_set[0]['account_id']
-    peep.name = result_set[0]['name']
-    peep.username = result_set[0]['username']
+    record = result_set[0]
 
-    return peep
+    return record_info(record)
+  end
+
+  def find_by_account(account_id)
+    sql = 'SELECT id, 
+                  content, 
+                  post_time,
+                  account_id
+    FROM peeps
+    WHERE account_id = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [account_id])
+
+    account_peeps = []
+    
+    result_set.each do |record|
+      account_peeps << record_info(record)
+    end
+
+    return account_peeps
   end
 
   def create(peep)
@@ -68,8 +61,15 @@ class PeepRepository
     return peep
   end
 
-  def delete(id)
-    sql = 'DELETE FROM peeps WHERE id = $1;';
-    DatabaseConnection.exec_params(sql, [id]);
+  private
+
+  def record_info(record)
+    peep = Peep.new
+    peep.id = record['id'].to_i
+    peep.content = record['content']
+    peep.post_time = record['post_time']
+    peep.account_id = record['account_id']
+
+    return peep
   end
 end

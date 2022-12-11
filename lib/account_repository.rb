@@ -6,7 +6,7 @@ class AccountRepository
     accounts = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT account_id, 
+    sql = 'SELECT id, 
                   email, 
                   name, 
                   username, 
@@ -22,42 +22,29 @@ class AccountRepository
 
       # Create a new model object
       # with the record data.
-      account = Account.new
-      account.account_id = record['account_id'].to_i
-      account.email = record['email']
-      account.name = record['name']
-      account.username = record['username']
-      account.bio = record['bio']
-
-      accounts << account
+      accounts << record_info(record)
     end
 
     return accounts
   end
 
-  def find(id)
-    sql = 'SELECT account_id,
+  def find_by_id(id)
+    sql = 'SELECT id,
                   email, 
                   name, 
                   username, 
                   bio 
     FROM accounts 
-    WHERE account_id = $1;'
+    WHERE id = $1;'
     
     result_set = DatabaseConnection.exec_params(sql, [id])
 
-    account = Account.new
-    account.account_id = result_set[0]['account_id'].to_i
-    account.email = result_set[0]['email']
-    account.name = result_set[0]['name']
-    account.username = result_set[0]['username']
-    account.bio = result_set[0]['bio']
-
-    return account
+    record = result_set[0]
+    return record_info(record)
   end
 
   def find_by_email(email)
-    sql = 'SELECT account_id,
+    sql = 'SELECT id,
                   email,
                   password,
                   name, 
@@ -68,14 +55,8 @@ class AccountRepository
     
     result_set = DatabaseConnection.exec_params(sql, [email])
 
-    account = Account.new
-    account.email = result_set[0]['email']
-    account.password = result_set[0]['password']
-    account.name = result_set[0]['name']
-    account.username = result_set[0]['username']
-    account.bio = result_set[0]['bio']
-
-    return account
+    record = result_set[0]
+    return record_info(record)
   end
 
   def create(account)
@@ -84,6 +65,20 @@ class AccountRepository
 
     sql = 'INSERT INTO accounts (email, password, name, username, bio) VALUES ($1, $2, $3, $4, $5);'
     result_set = DatabaseConnection.exec_params(sql, [account.email, encrypted_password, account.name, account.username, account.bio])
+
+    return account
+  end
+
+  private
+
+  def record_info(record)
+    account = Account.new
+    account.id = record['id']
+    account.email = record['email']
+    account.password = record['password']
+    account.name = record['name']
+    account.username = record['username']
+    account.bio = record['bio']
 
     return account
   end

@@ -1,5 +1,6 @@
 require 'account'
 require 'account_repository'
+require 'bcrypt'
 
 def reset_accounts_table
   seed_sql = File.read('spec/seeds/accounts_seeds.sql')
@@ -12,59 +13,67 @@ describe AccountRepository do
     reset_accounts_table
   end
 
-  it 'returns all accounts' do
-    repo = AccountRepository.new
+  describe '#all' do
+    it 'returns all accounts' do
+      repo = AccountRepository.new
 
-    accounts = repo.all
-    
-    expect(accounts.length).to eq(7)
-    expect(accounts.first.email).to eq('johndoe@mail.com')
-    expect(accounts.first.name).to eq('John Doe')
-    expect(accounts.first.username).to eq('johndoe1234')
-    expect(accounts.first.bio).to eq('Hi, my name is John')
+      accounts = repo.all
+      
+      expect(accounts.length).to eq(7)
+      expect(accounts.first.email).to eq('johndoe@mail.com')
+      expect(accounts.first.name).to eq('John Doe')
+      expect(accounts.first.username).to eq('johndoe1234')
+      expect(accounts.first.bio).to eq('Hi, my name is John')
+    end
   end
 
-  it 'finds one account by id value' do
-    repo = AccountRepository.new
+  describe '#find_by_id' do
+    it 'finds one account by id value' do
+      repo = AccountRepository.new
 
-    account = repo.find(3)
-    
-    expect(account.account_id).to eq(3)
-    expect(account.email).to eq('trooper666@aol.com')
-    expect(account.name).to eq('Taylor Black')
-    expect(account.username).to eq('headbanger666')
-    expect(account.bio).to eq('Keep on rockin in the free world')
+      account = repo.find_by_id(3)
+      
+      expect(account.id).to eq('3')
+      expect(account.email).to eq('trooper666@aol.com')
+      expect(account.name).to eq('Taylor Black')
+      expect(account.username).to eq('headbanger666')
+      expect(account.bio).to eq('Keep on rockin in the free world')
+    end
   end
 
-  it 'finds one account by email value' do
-    repo = AccountRepository.new
+  describe '#find_by_email' do
+    it 'finds one account by email value' do
+      repo = AccountRepository.new
 
-    account = repo.find_by_email('trooper666@aol.com')
-    
-    expect(account.email).to eq('trooper666@aol.com')
-    expect(account.password).to eq('ride_the_lightning84')
-    expect(account.name).to eq('Taylor Black')
-    expect(account.username).to eq('headbanger666')
-    expect(account.bio).to eq('Keep on rockin in the free world')
+      account = repo.find_by_email('trooper666@aol.com')
+      
+      expect(account.email).to eq('trooper666@aol.com')
+      expect(account.password).to eq('ride_the_lightning84')
+      expect(account.name).to eq('Taylor Black')
+      expect(account.username).to eq('headbanger666')
+      expect(account.bio).to eq('Keep on rockin in the free world')
+    end
   end
 
-  it 'creates an account' do
-    repo = AccountRepository.new
+  describe '#create' do
+    it 'creates an account' do
+      repo = AccountRepository.new
 
-    account = Account.new
-    account.email = 'rosachat@gmail.co.uk'
-    account.password = 'whiskers123'
-    account.name = 'Rosa Gato'
-    account.username = 'cat-bot'
-    account.bio = 'Meow 🐱'
-    repo.create(account)
+      account = Account.new
+      account.email = 'rosachat@gmail.co.uk'
+      account.password = 'whiskers123'
+      account.name = 'Rosa Gato'
+      account.username = 'cat-bot'
+      account.bio = 'Meow 🐱'
+      repo.create(account)
 
-    accounts = repo.all
+      accounts = repo.all
 
-    expect(accounts.length).to eq(8)
-    expect(accounts.last.email).to eq ('rosachat@gmail.co.uk')
-    expect(accounts.last.name).to eq('Rosa Gato')
-    expect(accounts.last.username).to eq('cat-bot')
-    expect(accounts.last.bio).to eq('Meow 🐱')
+      expect(accounts.length).to eq(8)
+      expect(accounts.last.email).to eq ('rosachat@gmail.co.uk')
+      expect(accounts.last.name).to eq('Rosa Gato')
+      expect(accounts.last.username).to eq('cat-bot')
+      expect(accounts.last.bio).to eq('Meow 🐱')
+    end
   end
 end

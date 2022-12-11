@@ -20,8 +20,8 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    repo = PeepRepository.new
-    @peeps = repo.all
+    @peep_repo = PeepRepository.new
+    @account_repo = AccountRepository.new
 
     return erb(:home)
   end
@@ -31,71 +31,44 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    email = params[:email]
-    password = params[:password]
-    name = params[:name]
-    username = params[:username]
-    bio = params[:bio]
-
-    account = Account.new
-    account.email = email
-    account.password = password
-    account.name = name
-    account.username = username
-    account.bio = bio
-
     repo = AccountRepository.new
+    new_account = Account.new
 
-    if account.email.empty? || account.password.empty? || account.name.empty? || account.username.empty? || account.bio.empty?
-      redirect '/signup'
-    else
-      repo.create(account)
-      session[:account_id] = account.account_id
-      redirect '/signedin'
-    end
-  end
+    new_account.email = params[:email]
+    new_account.password = params[:password]
+    new_account.name = params[:name]
+    new_account.username = params[:username]
+    new_account.bio = params[:bio]
 
-  get '/signedin' do
-    repo = PeepRepository.new
-    @peeps = repo.all
+    repo.create(new_account)
 
-    return erb(:login_success)
+    account = repo.find_by_email(params[:email])
+    session[:account_id] = account.id
+
+    redirect '/logged_in'
   end
 
   get '/login' do
     return erb(:login)
   end
 
-  # post '/login' do
-  #   email = params[:email]
-  #   password = params[:password]
+  get '/logged_in' do
+    @peep_repo = PeepRepository.new
+    @account_repo = AccountRepository.new
 
-  #   account = AccountRepository.find_by_email(email)
+    return erb(:login_success)
+  end
 
-  #   if account.password == password
-  #     session[:account_id] = account.account_id
-  #     return erb(:login_success)
-  #   else
-  #     return erb(:login_error)
-  #   end
-  # end
+  post '/peep/new' do
+    new_peep = Peep.new
+    repo = PeepRepository.new
 
-  # post '/peep' do
-  #   repo = PeepRepository.new
-  #   content = params[:content]
-  #   post_time = Time.now
-  #   account_id = session[:account_id]
+    new_peep.content = params[:content]
+    new_peep.post_time = Time.new.strftime('%Y-%m-%d %H:%M:%S')
+    new_peep.account_id = session[:account_id]
 
-  #   peep = Peep.new
-  #   peep.content = content
-  #   peep.post_time = post_time
-  #   peep.account_id = account_id
+    repo.create(new_peep)
 
-  #   repo.create(peep)
-  # end
-
-  get '/logout' do
-    session[:user_id] = nil
-    redirect_to '/'
+    redirect '/logged_in'
   end
 end

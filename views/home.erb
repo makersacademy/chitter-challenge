@@ -1,31 +1,71 @@
 <html>
-  <head></head>
-  <body>
-    <a name="top"></a>
-    <h1>Welcome to Chitter!</h1>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
 
-    <h3><a href="/login">Log in</a> or <a href="/signup">Sign up here!</a></h3>
-    <h4>Even though you're not currently logged in, here's a sneak peek at our content:</h4>
-
-    <% @peeps.each do |peep| %>
-      
-      <div>
-        <strong><%= peep.name %></strong>
-        @<%= peep.username %></a>
-        </br>
-
-        <%= peep.content %>
-        <br>
-
-        Posted: <%= peep.post_time %>
-        </br>
-        </br>
-
+  <body style = "background-color: 162135; color: #FFFFFF;">
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #202124;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/" style="color: #FFFFFF;">Chitter</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/" style="color: #FFFFFF;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup" style="color: #FFFFFF;">My Profile</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/signup" style="color: #FFFFFF;">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login" style="color: #FFFFFF;">Log In</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    <% end %>
+   </nav>
 
+   <div class="container shadow-lg" style="margin-top: 50px; height: 110%; width: 90%; background-color: #23365A;">
+     <div class="text-center" style="margin-bottom: 25px;">
+       <h1>Welcome to Chitter!</h1>
+
+       <h3><a href="/login">Log in</a> or <a href="/signup">Sign up here!</a></h3>
+     </div>
+
+     <div class="feed">
+       <h4>Even though you're not currently logged in, here's a sneak peek at our content:</h4>
+
+       <% @peep_repo.all.reverse.each do |peep| %>
+         <div class="peep container shadow" style="margin-top: 50px; height: 75px; width: 400px; color: #888888; background-color: #FFFFFF;">
+           <% account = @account_repo.find_by_id(peep.account_id) %>
+
+           <div class="account_info">
+             <strong><%= account.name %></strong>
+             <a href="/<%= peep.account_id %>">
+               @<%= account.username %></a>
+             </a>
+           </div>
+
+           <div class="peep_content">
+            <%= peep.content %>
+           </div>
+
+           <div class="peep_time">
+            Posted: <%= peep.post_time %>
+           </div>
+         </div>
+      <% end %>
+    </div>
   </body>
+
   <footer>
-      <h4><a href ="#top">Back to top!</a></h4>
+    <h4><a href ="#top">Back to top!</a></h4>
   </footer>
 </html>

@@ -2,36 +2,66 @@
   <head></head>
 
   <body>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #202124;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #FFFFFF;">Chitter</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" style="color: #FFFFFF;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color: #FFFFFF;">My Profile</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" style="color: #FFFFFF;">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color: #FFFFFF;">Log In</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <% account = @account_repo.find_by_id(session[:account_id]) %>
     <a name="top"></a>
-    <h1>Welcome to Chitter!</h1>
+    <div class="container shadow-lg" style="margin-top: 50px; height: 110%; width: 90%; background-color: #23365A;">
+     <div class="text-center" style="margin-bottom: 25px;">
+       <h1>Hey <%= account.username %>! How's it going?</h1>
 
-    <form method="POST" action="/peep">
-      <div>
-        <input type="text" name="content" placeholder="Tell everyone your thoughts!">
-      </div>
+       <h3>Check out your timeline or write your own post below!</h3>
+     </div>
+     <form method="POST" action="/peep/new">
+       <div>
+         <input type="text" name="content" placeholder="Tell everyone your thoughts!">
+       </div>
 
-      <input type="submit" />
-    </form>
-
-    <% @peeps.each do |peep| %>
-      
-      <div>
-        <strong><%= peep.name %></strong>
-        @<%= peep.username %></a>
-        </br>
-
-        <%= peep.content %>
-        <br>
-
-        Posted: <%= peep.post_time %>
-        </br>
-        </br>
-
-      </div>
-    <% end %>
-
-  </body>
-  </body>
+       <input type="submit" />
+     </form>
+     
+     <% @peep_repo.all.reverse.each do |peep| %>
+       <div class="peep">
+         <% account = @account_repo.find_by_id(peep.account_id) %>
+         <div class="account_info">
+           <strong><%= account.name %></strong>
+           <a href="/<%= peep.account_id %>">
+             @<%= account.username %></a>
+           </a>
+         </div>
+         <div class="peep_content">
+           <%= peep.content %>
+         </div>
+         <div class="peep_time">
+           Posted: <%= peep.post_time %>
+         </div>
+       </div>
+     <% end %>
+   </body>
 
   <footer>
     <h4><a href ="#top">Back to top!</a></h4>

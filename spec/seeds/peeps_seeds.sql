@@ -7,7 +7,7 @@ CREATE TABLE peeps (
     post_time text,
     account_id int4,
     constraint fk_account foreign key(account_id)
-      references accounts(account_id)
+      references accounts(id)
       on delete cascade
 );
 

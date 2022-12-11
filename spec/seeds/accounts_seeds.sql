@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS accounts CASCADE;
 
 -- Table Definition
 CREATE TABLE accounts (
-    account_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     email text,
     password text,
     name text,
