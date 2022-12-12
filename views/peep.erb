@@ -1,0 +1,22 @@
+<html>
+<head></head>
+<body>
+<style>
+  body {font-family: Verdana, sans-serif;}
+  body {background-color: FFFFFF;}
+  h1   {color: black;}
+  h2   {color: black;}
+  p    {color: black;}
+</style>
+<center>
+  <h1><%= "'#{@peep.content}'" %></h1>
+  <h1><%= "- #{@user.username}" %></h1>
+  <p>
+  Date: <%= @peep.peep_date %>
+  </p>
+  <form action="/">
+  <input type="submit" value="HOME" />
+  </form>
+</center>
+</body>
+</html>  
