@@ -13,4 +13,4 @@ TRUNCATE TABLE users RESTART IDENTITY;
 
 INSERT INTO users ("name", "username", "password", "email") VALUES
 ('Joe Osborne', 'Tardigrade_77', 'Hello123!', 'joeosborne77@gmail.com'),
-('Petyr Baelish', 'Ahole58', 'LittleFinger123!', 'isuck@gmail.com');
+('Petyr Baelish', 'enemyNo1', 'LittleFinger123!', 'peter@gmail.com');

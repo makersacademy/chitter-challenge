@@ -4,13 +4,20 @@ source "https://rubygems.org"
 
 # gem "rails"
 
-gem "rspec", "~> 3.10"
+gem "rspec", "~> 3.12"
 
 gem "sinatra", "~> 3.0"
+
 gem "sinatra-contrib", "~> 3.0"
+
 gem "webrick", "~> 1.7"
-gem "pg", "~> 1.4.3"
+
+gem "pg", "~> 1.4"
+
 gem "rack-test", "~> 2.0"
-ruby "3.1.2"
+
+gem "ruby", "~> 0.1.0"
+
 gem "simplecov", "~> 0.21.2"
-gem "simplecov-console", "~> 0.9.1" 
+
+gem "simplecov-console", "~> 0.9.1"
