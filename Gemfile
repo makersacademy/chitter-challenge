@@ -7,7 +7,6 @@ source "https://rubygems.org"
 gem "rspec", "~> 3.12"
 
 
-gem "pg", "~> 1.4"
 
 gem "rack-test", "~> 2.0"
 
@@ -22,3 +21,5 @@ gem "webrick", "~> 1.7"
 gem "rackup", "~> 0.1.0"
 
 gem "ruby", "~> 0.1.0"
+
+gem "pg", "~> 1.4"
