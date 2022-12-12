@@ -11,6 +11,7 @@ class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
     enable :sessions
+    set :port, 5432
     also_reload 'lib/peep_repository'
     also_reload 'lib/user_repository'
   end
