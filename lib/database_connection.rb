@@ -11,8 +11,8 @@ class DatabaseConnection
   def self.connect
     # If the environment variable (set by Heroku)
     # is present, use this to open the connection.
-    if ENV['chitter_test'] != nil
-      @connection = PG.connect(ENV['chitter_test'])
+    if ENV['DATABASE_URL'] != nil
+      @connection = PG.connect(ENV['DATABASE_URL'])
       return
     end
   
