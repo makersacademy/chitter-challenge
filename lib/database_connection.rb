@@ -21,7 +21,7 @@ class DatabaseConnection
     else
       database_name = 'chitter'
     end
-    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
+    @connection = PG.connect({ host: 'dpg-cebjvg14reb52uu6j8e0-a', dbname: database_name })
   end
 
   # This method executes an SQL query 
