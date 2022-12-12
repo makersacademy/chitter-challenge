@@ -1,6 +1,5 @@
 DROP TABLE IF EXISTS users CASCADE; 
 
--- Table Definition
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name text,
