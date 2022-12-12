@@ -6,11 +6,6 @@ source "https://rubygems.org"
 
 gem "rspec", "~> 3.12"
 
-gem "sinatra", "~> 3.0"
-
-gem "sinatra-contrib", "~> 3.0"
-
-gem "webrick", "~> 1.7"
 
 gem "pg", "~> 1.4"
 
@@ -21,3 +16,8 @@ gem "ruby", "~> 0.1.0"
 gem "simplecov", "~> 0.21.2"
 
 gem "simplecov-console", "~> 0.9.1"
+
+gem "sinatra", "~> 3.0"
+gem "sinatra-contrib", "~> 3.0"
+gem "webrick", "~> 1.7"
+gem "rackup", "~> 0.1.0"
