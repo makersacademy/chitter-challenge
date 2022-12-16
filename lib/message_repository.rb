@@ -1,4 +1,4 @@
-require 'message'
+require_relative 'message'
 
 class MessageRepository
   def all
