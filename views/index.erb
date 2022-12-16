@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" >
+  </head>
+  <body>
+  <h1>Welcome to Chitter</h1>
+  
+
+  <% @messages.each do |message| %>
+    <div>
+      <p><%= message.message %></p>
+      <p style="font-size: 12px;font-style:italic" ><%= message.time %> // <%= message.handle %></p>
+      <br>
+    </div>
+    <% end %>
+  </body>
+</html>
