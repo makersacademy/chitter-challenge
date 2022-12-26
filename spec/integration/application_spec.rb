@@ -142,7 +142,6 @@ describe Application do
       expect(response.body).to include ('<form action="/login" method="post">')
       expect(response.body).to match ('<input type="text" name="email" placeholder="Email" />')
       expect(response.body).to match ('<input type="password" name="password" placeholder="Password" />')
-
     end
   end
 
@@ -164,7 +163,34 @@ describe Application do
       response = get(response.header['Location'])
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1> Welcome name4!</h1>')
+    end
 
+    it 'returns 401 for wrong email' do
+      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password')
+
+      expect(response.status).to eq (302)
+      expect(response.header['Location']).to match (".*/login")
+
+      response = get(response.header['Location'])
+      expect(response.status).to eq(200)
+
+      response = post('/login', email: 'name@gmail.com', password: 'password')
+
+      expect(response.status).to eq(401)
+    end
+
+    it 'returns 401 for wrong password' do
+      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password')
+
+      expect(response.status).to eq (302)
+      expect(response.header['Location']).to match (".*/login")
+
+      response = get(response.header['Location'])
+      expect(response.status).to eq(200)
+
+      response = post('/login', email: 'name4@gmail.com', password: 'password8')
+
+      expect(response.status).to eq(401)
     end
 
   end

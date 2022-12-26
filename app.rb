@@ -15,7 +15,12 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repository'
   end
 
+  configure do
+    enable :sessions
+  end
+
   get '/makers' do
+    @logged_in = logged_in?
     repo = MakerRepository.new
     @makers = repo.all
 
@@ -53,6 +58,9 @@ class Application < Sinatra::Base
   end
 
   get '/login' do
+    logged_in = logged_in?
+    maker_repo = MakerRepository.new
+    @username = maker_repo.find_by_session_id(session[:session_id])
     return erb(:login)
   end
 
@@ -60,7 +68,8 @@ class Application < Sinatra::Base
     repo = MakerRepository.new
     user = repo.find_by_values(params[:email], params[:password])
     unless user.nil?
-      session['user_id'] = user.id
+      # session['user_id'] = user.id
+      repo.update_session_id(user.id, session.id)
       redirect "/makers/#{user.id}"
     end
 
@@ -129,4 +138,12 @@ class Application < Sinatra::Base
 
     return erb(:peep_find)
   end
+
+  def logged_in?
+    repo = MakerRepository.new
+    maker_id = repo.find_by_session_id(session['session_id'])
+    return false if maker_id == nil
+    return true if maker_id != nil
+  end
+
 end
