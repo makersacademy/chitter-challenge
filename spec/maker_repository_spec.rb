@@ -145,4 +145,27 @@ end
     expect(users.email).to eq 'name3@email.com'
     expect(users.password).to eq 'password3'
   end
+
+  it 'checks session id' do
+    repo = MakerRepository.new
+    users = repo.find_by_session_id('123456')
+    expect(users).to eq nil
+
+  
+    new_user = Maker.new
+    session_id = "123456"
+
+    new_user.id = '3'
+    new_user.name = 'name3'
+    new_user.username = 'user3'
+    new_user.email = 'name3@email.com'
+    new_user.password = 'password3'
+
+    repo.create(new_user)
+
+    repo.update_session_id(new_user.id, session_id)
+
+    user = repo.find_by_session_id(session_id)
+    expect(user).to be_a(Maker)
+  end
 end

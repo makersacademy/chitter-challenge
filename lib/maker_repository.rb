@@ -90,7 +90,8 @@ class MakerRepository
     user.username = result_set[0]['username']
     user.email = result_set[0]['email']
     user.password = result_set[0]['password']
-      return user
+    user.session_id = result_set[0]['session_id']
+    return user
   end
 
   # find by username to prevent signup with the same username
@@ -133,6 +134,8 @@ class MakerRepository
     user.username = result_set[0]['username']
     user.email = result_set[0]['email']
     user.password = result_set[0]['password']
+    user.session_id = result_set[0]['session_id']
+
 
     return user
   end

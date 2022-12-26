@@ -163,6 +163,7 @@ describe Application do
       response = get(response.header['Location'])
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1> Welcome name4!</h1>')
+
     end
 
     it 'returns 401 for wrong email' do
