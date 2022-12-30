@@ -1,6 +1,6 @@
 require 'peep_repository'
 
-describe MakerRepository do
+describe PeepRepository do
 
   def reset_peeps_table
     seed_sql = File.read('spec/seeds_makers.sql')
@@ -44,7 +44,7 @@ it 'finds a single peep' do
   expect(post.maker_id).to eq '1'
 end
 
-it 'creates a new ' do
+it 'creates a new peep' do
   repo = PeepRepository.new
   new_post = Peep.new
 

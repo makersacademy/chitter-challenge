@@ -95,9 +95,28 @@ class MakerRepository
   end
 
   # find by username to prevent signup with the same username
-  def find_by_name(username)
+  def find_by_username(username)
     sql = 'SELECT id, username, name, email, password FROM makers WHERE (username = $1);'
     sql_params = [username]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+  
+    if result_set.num_tuples.zero?
+      return nil
+    end
+  
+    user = Maker.new
+    user.id = result_set[0]['id']
+    user.username = result_set[0]['username']
+    user.name = result_set[0]['name']
+    user.email = result_set[0]['email']
+    user.password = result_set[0]['password']
+      return user
+  end
+
+    # find by name to prevent signup with the same username
+  def find_by_name(name)
+    sql = 'SELECT id, username, name, email, password FROM makers WHERE (name = $1);'
+    sql_params = [name]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
   
     if result_set.num_tuples.zero?

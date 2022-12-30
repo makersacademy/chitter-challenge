@@ -104,7 +104,6 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
-
     return erb(:peep_create)
   end
 
@@ -122,12 +121,12 @@ class Application < Sinatra::Base
 
     repo.create(new_peep)
 
-    return ''
+    redirect '/peeps'
   end
 
   def invalid__peeps_params?
+    p params
     return (params[:peep] == nil ||
-      params[:time] == nil ||
       params[:maker_id] == nil)
   end
 
@@ -137,6 +136,14 @@ class Application < Sinatra::Base
     @peeps = repo.find(params[:id])
 
     return erb(:peep_find)
+  end
+
+  get '/logout' do 
+    @logged_in = logged_in?
+    repo = MakerRepository.new
+    user = repo.find_by_session_id(session['session_id'])
+    repo.update_session_id(user.id, nil)
+    redirect '/login'
   end
 
   def logged_in?

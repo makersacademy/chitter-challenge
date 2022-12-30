@@ -98,7 +98,7 @@ end
 
   it 'checks existing users by username' do
     repo = MakerRepository.new
-    users = repo.find_by_name('name3')
+    users = repo.find_by_username('name3')
 
     expect(users).to eq nil
 
@@ -112,7 +112,7 @@ end
 
     repo.create(new_user)
 
-    users = repo.find_by_name('user3')
+    users = repo.find_by_username('user3')
 
     expect(users.id).to eq '3'
     expect(users.name).to eq 'name3'
@@ -151,7 +151,6 @@ end
     users = repo.find_by_session_id('123456')
     expect(users).to eq nil
 
-  
     new_user = Maker.new
     session_id = "123456"
 

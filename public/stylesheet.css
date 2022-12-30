@@ -1,0 +1,67 @@
+body {
+    font-family:"Gill Sans", "Gill Sans MT", Sans-Serif;
+}
+.container {
+    width:400px;
+    margin:120px auto 0px auto;
+}
+h1 {
+    width:400px;
+    margin-bottom:12px;
+    text-align:center;
+    color:#ff4b33;
+    font-size:40px;
+    padding-bottom:8px;
+    border-bottom:2px solid #ff4b33;
+}
+form {
+    display:block;
+    width:400px;
+}
+input {
+    display:block;
+    float:left;
+    padding:8px;
+    font-size:16px;
+}
+#url {
+    width:280px;
+    margin-right:12px;
+}
+#submit {
+    width:88px;
+    border:none;
+    background:#ff4b33;
+    padding:10px;
+}
+#submit:hover {
+    background:#ff7866;
+}
+.clear {
+    height:1px;
+    width:400px;
+    clear:both;
+}
+.result {
+    clear:both;
+    width:400px;
+    margin-top:12px;
+    border-top:2px solid #ff4b33;
+    padding-top:12px;
+    text-align:center;
+}
+.result a {
+    font-size:24px;
+    display:block;
+    margin-top:8px;
+    color:#ff2d11;
+    background:#ffd2cc;
+    padding:8px;
+}
+
+	.box {
+		font-size: 5vw;
+		padding: 10vw;
+		border: solid;
+		background: repeating-linear-gradient(to bottom right, #FFCCDD, #CCD4FF);
+	}

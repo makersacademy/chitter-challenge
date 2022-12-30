@@ -1,9 +1,8 @@
 <form action="/signup" method="POST">
-    name: <input type="text" name="name" /><br />
-    username: <input type="text" name="username" /><br />
-    email:  <input type="text" name="email" /><br />
-    password:  <input type="password" name="password" /><br />
-
+    <input type="text" name="name" placeholder="name" /><br />
+    <input type="text" name="username" placeholder="username" /><br />
+    <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9]+\.[a-z]{2,}$" placeholder="valid email" /><br />
+    <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z).{8,}" placeholder="password" /><br />
     <input type="submit" value="submit">
 
 

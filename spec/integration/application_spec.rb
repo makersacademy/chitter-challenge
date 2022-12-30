@@ -57,10 +57,10 @@ describe Application do
 
     expect(response.status).to eq(200)
     expect(response.body).to include('<form action="/signup" method="POST">')
-    expect(response.body).to include('<input type="text" name="name" />')
-    expect(response.body).to include('<input type="text" name="username" />')
-    expect(response.body).to include('<input type="text" name="email" />')
-    expect(response.body).to include('<input type="password" name="password" />')
+    expect(response.body).to include(' <input type="text" name="name" placeholder="name" />')
+    expect(response.body).to include('<input type="text" name="username" placeholder="username" />')
+    expect(response.body).to include('<input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9]+\.[a-z]{2,}$" placeholder="valid email" />')
+    expect(response.body).to include('<input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z).{8,}" placeholder="password" />')
     end
   end
   context 'POST to /signup' do
