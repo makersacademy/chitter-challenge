@@ -113,12 +113,15 @@ class Application < Sinatra::Base
       return ''
     end
 
-    repo = PeepRepository.new
+    user_repo = MakerRepository.new
+    user_id = user_repo.find_by_session_id(session[:session_id]).id
+
     new_peep = Peep.new
     new_peep.peep = params[:peep]
     new_peep.time = params[:time]
-    new_peep.maker_id = params[:maker_id]
+    new_peep.maker_id = user_id
 
+    repo = PeepRepository.new
     repo.create(new_peep)
 
     redirect '/peeps'
@@ -126,8 +129,7 @@ class Application < Sinatra::Base
 
   def invalid__peeps_params?
     p params
-    return (params[:peep] == nil ||
-      params[:maker_id] == nil)
+    return (params[:peep] == nil)
   end
 
   get '/peeps/:id' do
