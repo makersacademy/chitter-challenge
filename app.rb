@@ -39,8 +39,9 @@ class Application < Sinatra::Base
     end
 
     repo = MakerRepository.new
-    if repo.find_by_name(params[:username]) == nil
+    if repo.find_by_username(params[:username]) == nil
       if repo.find_by_email(params[:email]) == nil
+        if repo.find_by_name(params[:name]) == nil
 
         new_user = Maker.new
         new_user.name = params[:name]
@@ -51,6 +52,7 @@ class Application < Sinatra::Base
         repo.create(new_user)
 
         redirect '/login'
+        end
       end
     end
 

@@ -64,32 +64,36 @@ describe Application do
     end
   end
   context 'POST to /signup' do
+    let(:name) { 'name4' }
+    let(:username) { 'user4' }
+    let(:email) { 'name4@gmail.com' }
+    let(:password) { 'password1234*' }
     it 'return 400 for empty name input' do
-      response = post('/signup', name: nil, username: 'user4', email: 'name4@gmail.com', password: 'password3')
+      response = post('/signup', name: nil, username: username, email: email, password: password)
 
       expect(response.status).to eq(400)
     end
 
     it 'return 400 for empty username input' do
-      response = post('/signup', name: 'name4', username: nil, email: 'name4@gmail.com', password: 'password3')
+      response = post('/signup', name: name, username: nil, email: email, password: password)
 
       expect(response.status).to eq(400)
     end
 
     it 'return 400 for empty email input' do
-      response = post('/signup', name: 'name4', username: "user4", email: nil, password: 'password3')
+      response = post('/signup', name: name, username: username, email: nil, password: password)
 
       expect(response.status).to eq(400)
     end
 
-    it 'return 400 for empty email input' do
-      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: nil)
+    it 'return 400 for empty password input' do
+      response = post('/signup', name: name, username: username, email: email, password: nil)
 
       expect(response.status).to eq(400)
     end
 
-    it 'checks for existing username when signing up' do
-      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password3')
+    it 'checks existing username when signing up' do
+      response = post('/signup', name: name, username: username, email: email, password: password)
 
       expect(response.status).to eq(302)
       expect(response.header['Location']).to match(".*/login")
@@ -98,15 +102,16 @@ describe Application do
 
       expect(response.status).to eq(200)
 
-      response = post('/signup', name: 'name5', username: 'user4', email: 'name5@gmail.com', password: 'password3')
+
+      response = post('/signup', name: 'name5', username: username, email: 'name5@gmail.com', password: 'password3')
 
       expect(response.status).to eq(302)
       expect(response.header['Location']).to match(".*/signup")
 
     end
 
-    it 'checks for existing email when signing up' do
-      response = post('/signup', name: 'name4', username: 'user4', email: 'name4@gmail.com', password: 'password3')
+    it 'checks existing name when signing up' do
+      response = post('/signup', name: name, username: username, email: email, password: password)
 
       expect(response.status).to eq(302)
       expect(response.header['Location']).to match(".*/login")
@@ -115,7 +120,24 @@ describe Application do
 
       expect(response.status).to eq(200)
 
-      response = post('/signup', name: 'name5', username: 'user5', email: 'name4@gmail.com', password: 'password3')
+      response = post('/signup', name: name, username: 'user5', email: email, password: 'password3')
+
+      expect(response.status).to eq(302)
+      expect(response.header['Location']).to match(".*/signup")
+
+    end
+
+    it 'checks existing email when signing up' do
+      response = post('/signup', name: name, username: username, email: email, password: password)
+
+      expect(response.status).to eq(302)
+      expect(response.header['Location']).to match(".*/login")
+
+      response = get('/makers/3')
+
+      expect(response.status).to eq(200)
+
+      response = post('/signup', name: 'name5', username: 'user5', email: email, password: 'password3')
 
       expect(response.status).to eq(302)
       expect(response.header['Location']).to match(".*/signup")
@@ -133,7 +155,7 @@ describe Application do
       expect(response.body).to include('user4')
     end
   end
-  
+
   context 'GET to /login' do
     it 'returns the login page' do
       response = get('/login')
@@ -210,22 +232,29 @@ describe Application do
     response = get('/peeps/new')
 
     expect(response.status).to eq(200)
-    expect(response.body).to include('<form method="POST" action="/peeps">')
-    expect(response.body).to include('<input type="text" user="peep" />')
-    expect(response.body).to include('<input type="text" user="time" />')
+    expect(response.body).to include('<form method="post" action="/peeps">')
+    expect(response.body).to include('<input type="text" name="peep" placeholder="write your peep here" />')
     end
   end
   context 'POST to /peeps' do
+    let(:name) { 'name4' }
+    let(:username) { 'user4' }
+    let(:email) { 'name4@gmail.com' }
+    let(:password) { 'password1234*' }
+    let(:peep) { 'third peep' }
     it 'should validate peeps parameters' do
-      response = post('/peeps', invalid_artist_peep: 123)
+      response = post('/peeps', invalid_peep: 123)
 
       expect(response.status).to eq(400)
     end
-    it 'creates a new peep in the database' do
-      response = post('/peeps', peep: 'third peep', time: '2022-03-03 03:03:03', maker_id: 1)
+    it 'creates a new peep in the database after signup and login' do
+      signup = post('/signup', name: name, username: username, email: email, password: password)
+      expect(signup.status).to eq(302)
+      login = post('/login', email: 'name4@gmail.com', password: 'password1234*')
+      expect(login.status).to eq(302)
+      new_post = post('/peeps', peep: 'third peep')
 
-      expect(response.status).to eq(200)
-      expect(response.body).to eq('')
+      expect(new_post.status).to eq(302)
 
       response = get('/peeps')
 

@@ -1,3 +1,4 @@
+require 'timecop'
 require 'peep_repository'
 
 describe PeepRepository do
@@ -47,11 +48,15 @@ end
 it 'creates a new peep' do
   repo = PeepRepository.new
   new_post = Peep.new
+  time = DateTime.now
+  time_string = time.strftime("%Y-%m-%d %H:%M:%S")
 
-    new_post.id = '3'
-    new_post.peep = 'third peep'
-    new_post.time = '2022-03-03 03:03:03'
-    new_post.maker_id = '1'
+  total_before = repo.all
+
+  Timecop.freeze(time) do
+  new_post.id = '3'
+  new_post.peep = 'third peep'
+  new_post.maker_id = '1'
 
   repo.create(new_post)
 
@@ -61,9 +66,12 @@ it 'creates a new peep' do
     have_attributes(
       id: new_post.id,
       peep: new_post.peep,
-      time: new_post.time,
       maker_id: new_post.maker_id,
+      time: time_string,
       )
     ) # => returns an array including the new object
+
+    expect(posts.length).to eq(total_before.length+1)
+    end
   end
 end

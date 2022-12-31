@@ -155,7 +155,6 @@ class MakerRepository
     user.password = result_set[0]['password']
     user.session_id = result_set[0]['session_id']
 
-
     return user
   end
 end
