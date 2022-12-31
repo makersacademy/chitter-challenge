@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="<%= url('/stylesheet.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>Login</h1>
+
+<% if @error %>
+    <div class="error">Login failed.</div>
+<% end %>
+
+<div class="container">
+<form action="/login" method="post">
+<div class="box">
+          <label for="email" class="fl fontLabel"> Email: </label>
+    			<div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+    			<div class="fr">
+                <input type="text" name="email" placeholder="Email" />
+	</div>
+    			<div class="clr"></div>
+    		</div>
+
+<div class="box">
+          <label for="password" class="fl fontLabel"> Password </label>
+    			<div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="password" name="password" placeholder="Password">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+
+    <button>Submit</button>
+</form>
+
+</div>
+</body>
+</html>

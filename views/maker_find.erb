@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="<%= url('/stylesheet.css') %>" rel="stylesheet" type="text/css" />
+  <%# <link rel="stylesheet" href="stylesheet.css"> %>
+</head>
+  <body>
+  <div class="container"> 
+    <h1> Welcome <%= @makers.name %>!</h1>
+      <a href="/logout">Logout</a>
+    <p>
+    </p>
+      <a href="/peeps">All peeps</a>
+    </p>
+    <p>
+    <a href="/peeps/new">Peep</a>
+    </p>
+  </body>
+  </div>
+</html>

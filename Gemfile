@@ -6,8 +6,15 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'timecop'
 end
 
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem "sinatra", "~> 3.0"
+gem "sinatra-contrib", "~> 3.0"
+gem "webrick", "~> 1.7"
+gem "rack-test", "~> 2.0"
+gem "pg"

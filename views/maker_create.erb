@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="<%= url('/stylesheet.css') %>" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <%# <form action="/signup" method="POST">
+    <input type="text" name="name" placeholder="name" /><br />
+    <input type="text" name="username" placeholder="username" /><br />
+    <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9]+\.[a-z]{2,}$" placeholder="valid email" /><br />
+    <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z).{8,}" placeholder="password" /><br />
+    <button>Submit</button> %>
+
+
+    <!-- Body of Form starts -->
+  	<div class="container">
+      <form action="/signup" method="POST">
+        <!--First name-->
+    		<div class="box">
+          <label for="firstName" class="fl fontLabel"> Name: </label>
+    			<div class="new iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+    			<div class="fr">
+    					<input type="text" name="name" placeholder="name" 
+              class="textBox" autofocus="on" required>
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--First name-->
+
+        <!--Second name-->
+    		<div class="box">
+          <label for="secondName" class="fl fontLabel"> Username: </label>
+    			<div class="fl iconBox"><i class="fa fa-user" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" name="username" placeholder="username" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Second name-->
+
+    		<!---Email ID---->
+    		<div class="box">
+          <label for="email" class="fl fontLabel"> Email: </label>
+    			<div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9]+\.[a-z]{2,}$" placeholder="valid email" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Email ID----->
+
+    		<!---Password------>
+    		<div class="box">
+          <label for="password" class="fl fontLabel"> Password </label>
+    			<div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z).{8,}" placeholder="password"  class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Password---->
+    		<button>Submit</button>
+      </form>
+  </div>
+  </body>
