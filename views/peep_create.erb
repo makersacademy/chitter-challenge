@@ -1,6 +1,34 @@
-<form method="post" action="/peeps">
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="<%= url('/stylesheet.css') %>" rel="stylesheet" type="text/css" />
+  <%# <link rel="stylesheet" href="stylesheet.css"> %>
+</head>
+
+<body>
+<%# <form method="post" action="/peeps">
     <div>
-        <input type="text" name="peep" placeholder="write your peep here" />
+        <input class="tweet-wrap" type="text" name="peep" placeholder="write your peep here" />
     </div>
-    <input type="submit" />
-</form>
+    <input class="input" type="submit" />
+</form> %>
+
+    <div class="container">
+      <div class="wrapper">
+        <section class="post">
+          <header>CHITTER</header>
+          <form method="post" action="/peeps">
+            <div class="content">
+              <div class="details">
+                <p>Hello <%= @makers.username %>!</p>
+              </div>
+            </div>
+            <textarea type="text" name="peep" placeholder="What's on your mind?" spellcheck="false" required></textarea>
+            <button>Post</button>
+          </form>
+        </section>
+      </div>
+    </div>
+</body>
+
+

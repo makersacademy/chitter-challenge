@@ -1,9 +1,13 @@
-<html>
-  <head></head>
+<head>
+ <link href="<%= url('/stylesheet.css') %>" rel="stylesheet" type="text/css" />
+  <%# <link rel="stylesheet" href="stylesheet.css"> %>
+</head>
   <body>
+    <div class="container">
     <h1>Makers</h1>
     <% @makers.each do |r| %>
         <a href="/makers/<%= r.id %>"><%= r.username %> </a><br />
     <% end %>
+      </div>
   </body>
 </html>

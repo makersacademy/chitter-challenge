@@ -101,11 +101,15 @@ class Application < Sinatra::Base
   get '/peeps' do
     repo = PeepRepository.new
     @peeps = repo.all.reverse
-
+    
     return erb(:peep_list)
   end
 
   get '/peeps/new' do
+    repo = MakerRepository.new
+
+    @makers = repo.find_by_session_id(session[:session_id])
+
     return erb(:peep_create)
   end
 

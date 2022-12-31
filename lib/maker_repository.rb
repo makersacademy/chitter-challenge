@@ -27,7 +27,6 @@ class MakerRepository
 
   # find a maker based on id
   def find(id)
-    p id
     sql = 'SELECT id, name, username, email, password FROM makers WHERE id = $1;'
     sql_params = [id]
     result_set = DatabaseConnection.exec_params(sql, sql_params)

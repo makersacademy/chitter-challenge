@@ -1,12 +1,12 @@
+<!DOCTYPE html>
 <html>
-  <head></head>
+<head>
+ <link href="<%= url('/stylesheet.css') %>" rel="stylesheet" type="text/css" />
+  <%# <link rel="stylesheet" href="stylesheet.css"> %>
+</head>
   <body>
+  <div class="container"> 
     <h1> Welcome <%= @makers.name %>!</h1>
-    <p>
-      username: <%= @makers.username %>
-      email: <%= @makers.email %>
-      password: <%= @makers.password %>
-    </p>
       <a href="/logout">Logout</a>
     <p>
     </p>
@@ -16,4 +16,5 @@
     <a href="/peeps/new">Peep</a>
     </p>
   </body>
+  </div>
 </html>
