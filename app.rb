@@ -21,4 +21,12 @@ class Application < Sinatra::Base
     @peeps = PeepRepository.new 
     erb(:feed)
   end
+
+  post '/feed' do
+    @peep = Peep.new
+    @peep.content = params[:content]
+    @peep.timestamp = params[:timestamp]
+    @peep.user_id = params[:user_id]
+    PeepRepository.new.create(@peep)
+  end
 end
