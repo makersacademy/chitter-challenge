@@ -59,7 +59,7 @@ class Application < Sinatra::Base
   post '/feed' do
     @peep = Peep.new
     @peep.content = params[:content]
-    @peep.timestamp = params[:timestamp]
+    @peep.timestamp = Time.now
     @peep.user_id = session[:user_id]
     PeepRepository.new.create(@peep)
     erb(:peep_posted)
