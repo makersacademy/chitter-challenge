@@ -46,7 +46,7 @@ describe UserRepository do
 
   it 'validates a valid sign-in request' do
     repo = UserRepository.new
-    user = repo.check_valid_user('josephburgess@gmail.com', 'password')
-    expect(user.email).to eq 'josephburgess@gmail.com'
+    user = repo.check_valid_user('brugalheimer', 'password')
+    expect(user.username).to eq 'brugalheimer'
   end
 end
