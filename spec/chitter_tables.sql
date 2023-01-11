@@ -3,7 +3,7 @@ CREATE EXTENSION pgcrypto;
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content TEXT,
-  date_time timestamp,
+  timestamp timestamp,
   user_id INT
 );
 
