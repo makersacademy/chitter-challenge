@@ -1,5 +1,5 @@
 <html>
-  <head></head>
+  <head> Logged in as <%= @username %> <a href = '/logout'>Logout</a> <% if @username %> <% else %> <a href = '/signin'>Sign up!</a> <a href = '/signup'>Sign up!</a> <% end %> </head>
   <body>
     <h1>Chitter feed:</h1>
     <div>
@@ -11,7 +11,8 @@
     </div>
     <% @peeps.all.each do |peep|%>
       <div>
-        <p> <%= peep.content %> </p>
+        <p> <a href = '/<%= peep.username %>'>@<%= peep.username %></a> / <%= peep.timestamp %> <br>
+        <%= peep.content %> </p>
       </div>
     <% end %>
   </body>

@@ -3,7 +3,7 @@ require_relative 'peep'
 class PeepRepository
 
   def all
-    sql = 'SELECT * FROM peeps ORDER BY timestamp DESC'
+    sql = 'SELECT content, timestamp, user_id, users.username FROM peeps JOIN users ON  user_id = users.id ORDER BY timestamp DESC'
     results = DatabaseConnection.exec_params(sql, [])
     peeps = []
     results.each do |result|
@@ -12,6 +12,7 @@ class PeepRepository
       peep.content = result['content']
       peep.timestamp = result['timestamp']
       peep.user_id = result['user_id']
+      peep.username = result['username']
       peeps << peep
     end
     peeps
