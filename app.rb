@@ -7,6 +7,9 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
@@ -28,6 +31,14 @@ class Application < Sinatra::Base
     @user.password = params[:password]
     UserRepository.new.create(@user)
     erb(:signup_success)
+  end
+
+  get '/signin' do
+    erb(:signin_form)
+  end
+
+  post '/signin' do
+    erb(:signin_success)
   end
 
   get '/feed' do

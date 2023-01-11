@@ -94,4 +94,22 @@ password: 'password6')
       expect(response.body).to include 'Back to feed'
     end
   end
+
+  context 'GET to /signin' do
+    it 'shows a sign-in form' do
+      response = get('/signin')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Username:'
+      expect(response.body).to include 'Password:'
+    end
+  end
+
+  context 'POST to /signin' do
+
+    it 'shows a success page with valid credentials' do
+      response = post('/signin', username: 'tarajade', password: 'password7')
+      expect(response.body).to include 'Successful sign-in!'
+      expect(response.body).to include 'Back to feed'
+    end
+  end
 end
