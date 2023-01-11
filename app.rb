@@ -17,6 +17,19 @@ class Application < Sinatra::Base
     erb(:index)
   end
 
+  get '/signup' do
+    erb(:signup_form)
+  end
+
+  post '/signup' do
+    @user = User.new
+    @user.username = params[:username]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    UserRepository.new.create(@user)
+    erb(:signup_success)
+  end
+
   get '/feed' do
     @peeps = PeepRepository.new 
     erb(:feed)

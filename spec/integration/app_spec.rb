@@ -68,4 +68,20 @@ user_id: 3)
     end
   end
 
+  context 'POST to /signup' do
+    it 'creates a new user' do
+      response = post('/signup', username: 'peymanhewitt', email: 'peyman@gmail.com', 
+password: 'password6')
+      repo = UserRepository.new
+      expect(repo.all.last.username).to eq 'peymanhewitt'
+      expect(repo.all.last.email).to eq 'peyman@gmail.com'
+    end
+
+    it 'shows a success page with valid credentials' do
+      response = post('/signup', username: 'tarajade', email: 'tara@gmail.com', 
+        password: 'password7')
+      expect(response.body).to include 'Successful signup!'
+      expect(response.body).to include 'Back to feed'
+    end
+  end
 end
