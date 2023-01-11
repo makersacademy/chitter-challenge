@@ -8,9 +8,9 @@ class DatabaseConnection
     end
 
     database_name = if ENV['ENV'] == 'test'
-                      'music_library_test'
+                      'chitter_challenge_test'
                     else
-                      'music_library'
+                      'chitter_challenge'
                     end
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   end
