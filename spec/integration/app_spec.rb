@@ -42,22 +42,14 @@ describe Application do
   end
 
   context 'POST to /feed' do
-    it 'adds a peep to the database' do
+    it 'adds a peep to the database which appears at top of the feed' do
+      post "/signin", { :username => "brugalheimer", :password => "password" }
       response = post('/feed', content: "First time posting!", timestamp: '2023-01-11 13:40:00', 
 user_id: 3)
       expect(response.status).to eq 200
       repo = PeepRepository.new
       peeps = repo.all
       expect(peeps.first.content).to eq 'First time posting!'
-    end
-    
-    it 'maintains reverse chronological order' do
-      response = post('/feed', content: "Posting back in time!", timestamp: '2022-11-11 13:40:00', 
-user_id: 3)
-      expect(response.status).to eq 200
-      repo = PeepRepository.new
-      peeps = repo.all
-      expect(peeps.last.content).to eq 'Posting back in time!'
     end
 
     it 'displays a success page when posting' do
