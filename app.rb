@@ -64,4 +64,9 @@ class Application < Sinatra::Base
     PeepRepository.new.create(@peep)
     erb(:peep_posted)
   end
+
+  get '/logout' do
+    session[:user_id] = nil
+    session[:username] = nil
+  end
 end

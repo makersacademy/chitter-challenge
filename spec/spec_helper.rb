@@ -4,6 +4,10 @@ require_relative '../lib/database_connection'
 
 ENV['ENV'] = 'test'
 
+def session
+  last_request.env['rack.session']
+end
+
 DatabaseConnection.connect
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

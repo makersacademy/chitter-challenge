@@ -112,4 +112,14 @@ password: 'password6')
       expect(response.body).to include 'Back to feed'
     end
   end
+
+  context 'GET to /logout' do
+    it 'removes session variables' do
+      post "/signin", { :username => "brugalheimer", :password => "password" }
+      response = get('/logout')
+      expect(response.status).to eq 200
+      expect(session[:user_id]).to eq nil
+      expect(session[:username]).to eq nil
+    end
+  end
 end
