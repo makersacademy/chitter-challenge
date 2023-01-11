@@ -38,7 +38,17 @@ class Application < Sinatra::Base
   end
 
   post '/signin' do
-    erb(:signin_success)
+    repo = UserRepository.new
+    username = params[:username]
+    password = params[:password]
+    valid_user = repo.check_valid_user(username, password)
+    if valid_user
+      session[:user_id] = valid_user.id
+      session[:username] = valid_user.username
+      erb(:signin_success)
+    else
+      redirect erb(:signin_form)
+    end
   end
 
   get '/feed' do
@@ -50,7 +60,7 @@ class Application < Sinatra::Base
     @peep = Peep.new
     @peep.content = params[:content]
     @peep.timestamp = params[:timestamp]
-    @peep.user_id = params[:user_id]
+    @peep.user_id = session[:user_id]
     PeepRepository.new.create(@peep)
     erb(:peep_posted)
   end

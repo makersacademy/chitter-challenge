@@ -18,8 +18,8 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
-  def signin(email, password)
-    user = select_by_email(email)
+  def check_valid_user(username, password)
+    user = find_by_username(username)
     BCrypt::Password.new(user.password) == password ? user : false
   end
 
@@ -34,9 +34,9 @@ class UserRepository
     user
   end
 
-  def select_by_email(email)
-    sql = 'SELECT * FROM users WHERE email = $1'
-    params = [email]
+  def find_by_username(username)
+    sql = 'SELECT * FROM users WHERE username = $1'
+    params = [username]
     result_set = DatabaseConnection.exec_params(sql, params)
     process_details(result_set[0])
   end
