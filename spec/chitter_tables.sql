@@ -1,15 +1,17 @@
+CREATE EXTENSION pgcrypto;
+
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
-  content text,
-  timestamp,
-  user_id int
+  content TEXT,
+  date_time timestamp,
+  user_id INT
 );
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username text,
-  email text,
-  password
+  username TEXT NOT NULL UNIQUE,
+  email TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL
 );
 
 -- CREATE TABLE peeps_tags (
