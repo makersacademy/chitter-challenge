@@ -30,6 +30,15 @@ describe Application do
       expect(response.body).to include 'How do I use this thing?'
       expect(response.body).to include 'Here we go!'
     end
+
+    it 'shows a text box for posting a tweet' do
+      response = get('/feed')
+      expect(response.status).to eq 200
+      
+      expect(response.body).to include '<form action="/feed" method="POST">'
+      expect(response.body).to include '<label for="content">Send a peep:</label>'
+      expect(response.body).to include '<input type="text" id="content" name="content"><br>'
+    end
   end
 
   context 'POST to /feed' do
