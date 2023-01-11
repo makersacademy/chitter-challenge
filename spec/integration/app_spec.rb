@@ -43,8 +43,8 @@ describe Application do
 
   context 'POST to /feed' do
     it 'adds a peep to the database' do
-      response = post('/feed', content: "First time posting!", 
-timestamp: '2023-01-11 13:40:00', user_id: 3)
+      response = post('/feed', content: "First time posting!", timestamp: '2023-01-11 13:40:00', 
+user_id: 3)
       expect(response.status).to eq 200
       repo = PeepRepository.new
       peeps = repo.all
@@ -52,8 +52,8 @@ timestamp: '2023-01-11 13:40:00', user_id: 3)
     end
     
     it 'maintains reverse chronological order' do
-      response = post('/feed', content: "Posting back in time!", 
-timestamp: '2022-11-11 13:40:00', user_id: 3)
+      response = post('/feed', content: "Posting back in time!", timestamp: '2022-11-11 13:40:00', 
+user_id: 3)
       expect(response.status).to eq 200
       repo = PeepRepository.new
       peeps = repo.all
