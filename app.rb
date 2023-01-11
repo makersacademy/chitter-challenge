@@ -28,5 +28,6 @@ class Application < Sinatra::Base
     @peep.timestamp = params[:timestamp]
     @peep.user_id = params[:user_id]
     PeepRepository.new.create(@peep)
+    erb(:peep_posted)
   end
 end

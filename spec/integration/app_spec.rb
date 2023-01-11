@@ -50,6 +50,13 @@ timestamp: '2022-11-11 13:40:00', user_id: 3)
       peeps = repo.all
       expect(peeps.last.content).to eq 'Posting back in time!'
     end
+
+    it 'displays a success page when posting' do
+      response = post('/feed', content: "Posting for success!", timestamp: '2023-01-11 14:40:00', 
+user_id: 3)
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Peep posted!'
+    end
   end
 
 end
