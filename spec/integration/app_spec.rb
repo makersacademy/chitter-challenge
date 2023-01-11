@@ -68,6 +68,16 @@ user_id: 3)
     end
   end
 
+  context 'GET to /signup' do
+    it 'shows a signup form' do
+      response = get('/signup')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Username:'
+      expect(response.body).to include 'Email:'
+      expect(response.body).to include 'Password:'
+    end
+  end
+
   context 'POST to /signup' do
     it 'creates a new user' do
       response = post('/signup', username: 'peymanhewitt', email: 'peyman@gmail.com', 
