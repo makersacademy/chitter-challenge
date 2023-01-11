@@ -13,3 +13,5 @@ group :development, :test do
 end
 
 gem "pg", "~> 1.4"
+
+gem "bcrypt", "~> 3.1"
