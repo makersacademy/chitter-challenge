@@ -29,7 +29,7 @@ class Application < Sinatra::Base
     @user.username = params[:username]
     @user.email = params[:email]
     @user.password = params[:password]
-    UserRepository.new.create(@user)
+    UserRepository.new.signup(@user)
     erb(:signup_success)
   end
 

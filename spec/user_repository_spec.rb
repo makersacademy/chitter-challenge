@@ -36,11 +36,17 @@ describe UserRepository do
     new_user.username = 'peymansimon'
     new_user.email = 'peyman@gmail.com'
     new_user.password = 'password6'
-    repo.create(new_user)
+    repo.signup(new_user)
     updated_users = repo.all
   
     expect(updated_users.length).to eq 6
     expect(updated_users.last.username).to eq 'peymansimon'
     expect(updated_users.last.email).to eq 'peyman@gmail.com'
+  end
+
+  it 'validates a valid sign-in request' do
+    repo = UserRepository.new
+    user = repo.signin('josephburgess@gmail.com', 'password')
+    expect(user.email).to eq 'josephburgess@gmail.com'
   end
 end
