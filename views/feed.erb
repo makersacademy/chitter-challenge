@@ -1,0 +1,11 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter feed:</h1>
+    <% @peeps.all.each do |peep|%>
+      <div>
+        <p> <%= peep.content %> </p>
+      </div>
+    <% end %>
+  </body>
+</html>
