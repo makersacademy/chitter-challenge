@@ -1,0 +1,2 @@
+class UsersRepository
+end
