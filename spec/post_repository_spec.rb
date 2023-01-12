@@ -32,4 +32,16 @@ describe PostRepository do
     expect(posts[1].name).to eq 'Hermione Granger'
     expect(posts[1].user_name).to eq 'clever-cloggs'
   end
+
+  it "#find returns all posts based on user_id" do
+    repo = PostRepository.new
+  
+    user_posts = repo.find_by_user_id(1)
+    
+    expect(user_posts.length).to eq 3
+    
+    expect(user_posts[0].message).to eq 'Tom Riddle is a baddie'
+    expect(user_posts[1].message).to eq 'I heart Ginny'
+    expect(user_posts[2].message).to eq 'Do one, Malfoy'
+  end
 end
