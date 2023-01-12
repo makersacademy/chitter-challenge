@@ -51,7 +51,7 @@ Define the attributes of your Model class. You can usually map the table columns
 ```ruby
 # Model class
 # (in lib/user.rb)
-class Student
+class User
   attr_accessor :id, :name, :user_name, :email, :password
 end
 
