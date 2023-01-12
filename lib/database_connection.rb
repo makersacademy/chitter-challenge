@@ -15,8 +15,7 @@ class DatabaseConnection
     if ENV['DATABASE_URL'] != nil
       @connection = PG.connect(ENV['DATABASE_URL'])
       return
-    elsif ENV['ENV'] == 'test'
-      database_name = 'chitter-project-test'
+    #ADD LINE HERE FOR CONNECTION TO REAL DATABASE
     else
       database_name = 'chitter-project-test'
     end
