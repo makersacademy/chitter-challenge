@@ -47,12 +47,12 @@ class Application < Sinatra::Base
       session[:username] = valid_user.username
       erb(:signin_success)
     else
-      redirect erb(:signin_form)
+      erb(:signin_form)
     end
   end
 
   get '/feed' do
-    @peeps = PeepRepository.new 
+    @peeps = PeepRepository.new.all 
     erb(:feed)
   end
 
