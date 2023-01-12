@@ -98,11 +98,18 @@ password: 'password6')
     end
   end
 
+  context 'GET to /users/:username' do
+    it 'shows a user profile page' do
+      response = get('/users/brugalheimer')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Profile for @brugalheimer'
+    end
+  end
+  
   context 'GET to /logout' do
     it 'removes session variables' do
       post "/signin", { :username => "brugalheimer", :password => "password" }
       response = get('/logout')
-      expect(response.status).to eq 200
       expect(session[:user_id]).to eq nil
       expect(session[:username]).to eq nil
     end

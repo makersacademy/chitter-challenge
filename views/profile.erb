@@ -1,5 +1,6 @@
 <html>
   <head> <div>
+        <a href='/feed'>Home</a>
         <% if session['user_id'] %> 
         <p>Logged in as: <%= session['username'] %></p>
         <a href="/logout">Sign Out</a>
@@ -10,16 +11,11 @@
       </div>
   
   <body>
-    <h1>Chitter feed:</h1>
+    <h1>Profile for @<%= @user.username %></h1>
     <div>
-    <% if session['user_id'] %>
-      <form action="/feed" method="POST">
-      <label for="content">Send a peep:</label>
-      <input type="text" id="content" name="content"><br>
-      <input type="submit" value="Peep!">
-      </form>
-      <% end %>
+  
     </div>
+    Peeps:<br>
     <% @peeps.each do |peep|%>
       <div>
         <p> <a href = '/users/<%= peep.username %>'>@<%= peep.username %></a> / <%= peep.timestamp %> <br>

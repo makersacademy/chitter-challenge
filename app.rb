@@ -67,6 +67,12 @@ class Application < Sinatra::Base
     erb(:feed)
   end
 
+  get '/users/:username' do
+    @user = UserRepository.new.find_by_username(params[:username])
+    @peeps = PeepRepository.new.find_by_user(@user.id)
+    erb(:profile)
+  end
+
   get '/logout' do
     session[:user_id] = nil
     session[:username] = nil
