@@ -31,6 +31,13 @@ class PostRepository
     return users_posts
   end
 
+  def create(post)
+    sql = 'INSERT INTO posts (message, timestamp, user_id) VALUES ($1, $2, $3);'
+    params = [post.message, post.timestamp, post.user_id]
+    DatabaseConnection.exec_params(sql, params)
+    return nil
+  end
+
   private
 
   def convert_to_post(record)

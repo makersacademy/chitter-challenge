@@ -35,13 +35,29 @@ describe PostRepository do
 
   it "#find returns all posts based on user_id" do
     repo = PostRepository.new
-  
+
     user_posts = repo.find_by_user_id(1)
-    
+
     expect(user_posts.length).to eq 3
-    
+
     expect(user_posts[0].message).to eq 'Tom Riddle is a baddie'
     expect(user_posts[1].message).to eq 'I heart Ginny'
     expect(user_posts[2].message).to eq 'Do one, Malfoy'
+  end
+
+  it "#create adds a new post into the posts table" do
+    repo = PostRepository.new
+  
+    new_post = Post.new
+    new_post.message = 'I want a Nimbus200'
+    new_post.timestamp = '2023-01-08 22:10:06'
+    new_post.user_id = 3
+    
+    repo.create(new_post)
+    
+    expect(repo.all.length).to eq 7
+    expect(repo.all).to include(
+      have_attributes(message: 'I want a Nimbus200', timestamp: '2023-01-08 22:10:06', user_id: 3)
+    )
   end
 end
