@@ -17,7 +17,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_040331) do
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id"
     t.string "content"
-    t.datetime "createdat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -27,7 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_040331) do
     t.bigint "user_id"
     t.bigint "post_id"
     t.string "content"
-    t.datetime "repliedat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_replies_on_post_id"
@@ -39,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_040331) do
     t.string "surname"
     t.string "email"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
   end
 
   add_foreign_key "posts", "users"

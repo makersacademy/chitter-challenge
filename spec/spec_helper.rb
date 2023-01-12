@@ -1,10 +1,9 @@
 require "simplecov"
 require "simplecov-console"
-require "database_connection"
 
-ENV["ENV"] = "test"
+ENV["RACK_ENV"] = "test"
 
-DatabaseConnection.connect
+require_relative "../app"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

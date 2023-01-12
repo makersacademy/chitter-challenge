@@ -1,0 +1,21 @@
+
+home page
+get /
+will show all chitts 
+will have form for login 
+will have link for sign up 
+
+pages
+-----------
+homepage
+login page
+sign up page
+view all replies to post page
+logged in - homepage - create new tweet/reply to tweet - only on logged in 
+
+I want to receive an email if I am tagged in a Peep
+method that runs if post or reply contains '@'
+removes the username following at checks database
+sends email if exist does nothing if it doesn't.
+
+

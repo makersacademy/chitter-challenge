@@ -1,0 +1,28 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+    <div>
+      <h1>Login</h1>
+      <form action="/login" method="POST">
+    <label for="username">Username:</label>
+  <input type="text" name="username">
+     <label for="password">Password:</label>
+  <input type="text" name="password">
+    <input type="submit" value="Login">
+          <a href="/sign-up">Sign up</a>
+
+    <div>
+
+    <div>
+    <h1>Chits</h1>
+  <% @p.each do |a| %>
+    <p>
+          Name <%= a.username %> 
+       Chit <%= a.content %> 
+       Time  <%= a.created_at %> 
+    </p>
+  <% end %>
+    </div>
+  </body>
+</html>

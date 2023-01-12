@@ -5,13 +5,12 @@ class CreateTables < ActiveRecord::Migration[7.0]
       t.string :surname
       t.string :email
       t.string :username
-      t.string :password
+      t.string :password_digest
     end
 
     create_table :posts do |t|
       t.belongs_to :user, index: true, foreign_key: true
       t.string :content
-      t.datetime :createdat
       t.timestamps
     end
 
@@ -19,7 +18,6 @@ class CreateTables < ActiveRecord::Migration[7.0]
       t.belongs_to :user, index: true, foreign_key: true
       t.belongs_to :post, index: true, foreign_key: true
       t.string :content
-      t.datetime :repliedat
       t.timestamps
     end
   end

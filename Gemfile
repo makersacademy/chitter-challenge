@@ -24,3 +24,5 @@ gem "sinatra-activerecord" # excellent gem that ports ActiveRecord for Sinatra
 gem "rake"
 
 gem "bcrypt" # password encryption
+
+gem "faker", "~> 3.1"
