@@ -53,11 +53,26 @@ describe UserRepository do
     repo = UserRepository.new
 
     user = repo.find_by_user_name('clever-cloggs')
-    
+
     expect(user.id).to eq 3
     expect(user.name).to eq 'Hermione Granger'
     expect(user.user_name).to eq 'clever-cloggs'
     expect(user.email).to eq 'herminone@hogwarts.com'
     expect(user.password).to eq 'best-in-class'
+  end
+
+  it "#create adds a new user record to the table" do
+    repo = UserRepository.new
+    new_user = User.new
+    new_user.name = 'Luna Lovegood'
+    new_user.user_name = 'loonylovegood'
+    new_user.email = 'luna@hogwarts.com'
+    new_user.password = 'hare-raiser'
+    
+    repo.create(new_user)
+    
+    expect(repo.all).to include(
+      have_attributes(name: 'Luna Lovegood', user_name: 'loonylovegood', email: 'luna@hogwarts.com', password: 'hare-raiser')
+    )
   end
 end

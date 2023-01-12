@@ -22,6 +22,13 @@ class UserRepository
     return user
   end
 
+  def create(user)
+    sql = 'INSERT INTO users (name, user_name, email, password) VALUES ($1, $2, $3, $4)'
+    params = [user.name, user.user_name, user.email, user.password]
+    DatabaseConnection.exec_params(sql, params)
+    return nil
+  end
+
   private 
 
   def convert_to_user(record)
