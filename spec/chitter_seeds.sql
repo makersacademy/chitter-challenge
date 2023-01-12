@@ -12,4 +12,4 @@ INSERT INTO users (username, email, password) VALUES ('brugalheimer', 'josephbur
 INSERT INTO users (username, email, password) VALUES ('eliseboom', 'elise@gmail.com', '$2a$12$gee3hh60cBM7wcXCllw7fOlKsTBay8xncPB8WWomC.Eh8AEFOSS.i');
 INSERT INTO users (username, email, password) VALUES ('bearsuit1', 'simon@gmail.com', '$2a$12$BtoZz3CWb99sB3wjeCdWuuwcaZ.hlfK9k1k3BIWsSDF8E1h48Li4W');
 INSERT INTO users (username, email, password) VALUES ('totebagfan', 'james@gmail.com', '$2a$12$mgGf1UiKczWYXGbKqdABgOJsOdTnjG8stButdLGhEu3y7iqoS.JHS');
-INSERT INTO users (username, email, password) VALUES ('sabcoogs', 'sabrina@gmail.com', '$2a$12$IM3tPO74lAPV0YjNiJnkWe9bXSKcNf59oCrcZ9l7jsKgyw4eUfKh2');
+INSERT INTO users (username, email, password) VALUES ('chad_has_seen_this', 'chad@gmail.com', '$2a$12$IM3tPO74lAPV0YjNiJnkWe9bXSKcNf59oCrcZ9l7jsKgyw4eUfKh2');
