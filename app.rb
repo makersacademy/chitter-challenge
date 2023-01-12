@@ -1,13 +1,10 @@
 require "sinatra"
 require "sinatra/reloader"
-require_relative "lib/database_connection"
-#change below
-# require_relative "lib/album_repository"
-# require_relative "lib/artist_repository"
-
-DatabaseConnection.connect
+require "sinatra/activerecord"
 
 class Application < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
+
   configure :development do
     register Sinatra::Reloader
     #change below

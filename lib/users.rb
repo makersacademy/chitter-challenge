@@ -1,3 +1,4 @@
-class Users
-  attr_accessor :id, :first_name, :surname, :email, :username
+class User < ActiveRecord::Base
+  has_many :replies
+  has_many :posts
 end

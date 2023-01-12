@@ -1,10 +1,25 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (7.0.4)
+      activesupport (= 7.0.4)
+    activerecord (7.0.4)
+      activemodel (= 7.0.4)
+      activesupport (= 7.0.4)
+    activesupport (7.0.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
     ansi (1.5.0)
     ast (2.4.2)
+    bcrypt (3.1.18)
+    concurrent-ruby (1.1.10)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    i18n (1.12.0)
+      concurrent-ruby (~> 1.0)
+    minitest (5.17.0)
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -18,6 +33,7 @@ GEM
     rack-test (2.0.2)
       rack (>= 1.3)
     rainbow (3.0.0)
+    rake (13.0.6)
     regexp_parser (2.1.1)
     rexml (3.2.5)
     rspec (3.10.0)
@@ -61,6 +77,9 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.5)
       tilt (~> 2.0)
+    sinatra-activerecord (2.0.26)
+      activerecord (>= 4.1)
+      sinatra (>= 1.0)
     sinatra-contrib (3.0.5)
       multi_json
       mustermann (~> 3.0)
@@ -70,6 +89,8 @@ GEM
     terminal-table (3.0.1)
       unicode-display_width (>= 1.1.1, < 3)
     tilt (2.0.11)
+    tzinfo (2.0.5)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
     webrick (1.7.0)
 
@@ -77,13 +98,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
+  bcrypt
   pg (~> 1.4)
   rack-test (~> 2.0)
+  rake
   rspec
   rubocop (= 1.20)
   simplecov
   simplecov-console
   sinatra (~> 3.0)
+  sinatra-activerecord
   sinatra-contrib (~> 3.0)
   webrick (~> 1.7)
 

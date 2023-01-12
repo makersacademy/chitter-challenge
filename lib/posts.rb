@@ -1,3 +1,4 @@
-class Posts
-  attr_accessor :id, :content, :date_time
+class Post < ActiveRecord::Base
+  belongs_to :user
+  has_many :replies
 end

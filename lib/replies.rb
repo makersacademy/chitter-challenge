@@ -1,3 +1,4 @@
-class Users
-  attr_accessor :post_id, :user_id, :content, :datetime
+class Reply < ActiveRecord::Base
+  belongs_to :post
+  belongs_to :user
 end
