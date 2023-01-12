@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+  <div class='nav-bar'>
+    <h2>Chitter Bot logo</h2>
+    <h1>Posts</h1>
+    <h1>Links</h1>
+  </div>
+  <div class='posts-container'>
+    <% @posts.all.each do |post|  %>
+      <div class='post'>
+        <%= post.name %>
+        <%= post.message %>
+        <%= post.username %> <%= post.post_time %>
+      </div>
+    <% end %>
+  </div>
+  </body>
+</html>

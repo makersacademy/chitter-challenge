@@ -9,9 +9,9 @@ class UserRepo
   def all
     users = []
     sql = 'SELECT * FROM users;'
-    results = DatabaseConnection.exec_params(sql, [])
+    res = DatabaseConnection.exec_params(sql, [])
 
-    results.each do |record|
+    res.each do |record|
       user = User.new
       user.id = record['id']
       user.name = record['name']
@@ -24,7 +24,16 @@ class UserRepo
     users
   end
   def delete(id)
+    sql = "DELETE FROM users WHERE id = #{id}"
+    DatabaseConnection.exec_params(sql, [])
   end
-  def login
+  def login(id)
+    sql = "UPDATE users SET logged_in = TRUE WHERE id = #{id};"
+    DatabaseConnection.exec_params(sql, [])
+  end
+
+  def logout(id)
+    sql = "UPDATE users SET logged_in = FALSE WHERE id = #{id};"
+    DatabaseConnection.exec_params(sql, [])
   end
 end

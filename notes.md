@@ -21,16 +21,32 @@ post peep chitter maker see_all peep_time sign_up
 
 Table
 
-users - id, name, email, password, logged_in
+users - id, name, username, email, password, logged_in
 posts - post_id, post_time, message
 
-UserRepo - create, all, update(id), delete(id)
+
+----------
+
+Repos
+
+UserRepo - create, all, delete(id)
 User - id, name, email, password, logged_in
 
-PostRepo - create, all, update(id), delete(id)
-posts - id, post_time, message, user_id
+PostRepo - create, all, delete(id)
+posts - (id, post_time, message) from posts table (user_id, name, username) from users table
+
+--------
+
+Tests
+
+user repo - all, create, delete, login, logout
+post repo - all, create, delete
 
 -------------------------------------------
+
+Get - all posts, login form,
+
+Post - create post, delete post, delete user
 
 HARDER
 
