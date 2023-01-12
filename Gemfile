@@ -19,3 +19,5 @@ gem "rack-test", "~> 2.0"
 
 gem "rom", "~> 5.3"
 gem "rom-sql", "~> 3.6"
+
+gem "pg", "~> 1.4"
