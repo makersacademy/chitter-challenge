@@ -57,12 +57,14 @@ class Application < Sinatra::Base
   end
 
   post '/feed' do
-    @peep = Peep.new
-    @peep.content = params[:content]
-    @peep.timestamp = Time.now
-    @peep.user_id = session[:user_id]
-    PeepRepository.new.create(@peep)
-    erb(:peep_posted)
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.timestamp = Time.now
+    peep.user_id = session[:user_id]
+    repo = PeepRepository.new
+    repo.create(peep)
+    @peeps = repo.all
+    erb(:feed)
   end
 
   get '/logout' do
