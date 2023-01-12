@@ -1,30 +1,51 @@
 <html>
-  <head> <div>
-        <% if session['user_id'] %> 
-        <p>Logged in as: <%= session['username'] %></p>
-        <a href="/logout">Sign Out</a>
-        <% else %>
-        <a href="/signin">Login</a>
-        <a href="/signup">Sign Up</a>
-        <% end %>
-      </div>
-  
-  <body>
-    <h1>Chitter feed:</h1>
-    <div>
-    <% if session['user_id'] %>
-      <form action="/feed" method="POST">
-      <label for="content">Send a peep:</label>
-      <input type="text" id="content" name="content"><br>
-      <input type="submit" value="Peep!">
-      </form>
-      <% end %>
-    </div>
-    <% @peeps.each do |peep|%>
-      <div>
-        <p> <a href = '/users/<%= peep.username %>'>@<%= peep.username %></a> / <%= peep.timestamp %> <br>
-        <%= peep.content %> </p>
-      </div>
-    <% end %>
-  </body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Chitter Feed</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="/styles/index.css" /> </head>
+
+<body>
+	<header>
+		<div class="auth__container">
+			<% if session['user_id'] %>
+				<div class="login__text">Logged in as: <a href='/users/<%= session[' username ']%>'>@<%= session['username'] %></a></div>
+				<p><a class="user__link" href="/logout">Sign Out</a></p>
+				<% else %>
+					<p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>
+					<% end %>
+		</div>
+	</header>
+	<main class="feed__container">
+  <img class="logo" src="/img/logo.png" alt="logo">
+		<div>
+			<% if session['user_id'] %>
+				<form action="/feed" method="POST" class="peep__form">
+					<label for="content" class="peeps__label">Send a peep:</label>
+					<textarea class="peep__box" rows="2" cols="30" name="content"></textarea>
+					<input type="submit" value="Peep!"> </form>
+				<% end %>
+		</div>
+		<% @peeps.each do |peep|%>
+			<article class="container__peep">
+				<div class="container__peep_info">
+					<p><a href='/users/<%= peep.username %>'>@<%= peep.username %></a></p>
+					<p>
+						<%= peep.timestamp %>
+					</p>
+				</div>
+				<div> <img class="avatar" src="/img/avatar1.jpg" alt="avatar">
+					<p class="peep__text">
+						<%= peep.content %>
+					</p>
+				</div>
+			</article>
+			<% end %>
+</body>
+
 </html>

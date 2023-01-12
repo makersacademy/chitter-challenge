@@ -1,0 +1,100 @@
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  justify-content: center;
+  color: #14171a;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #087F8C;
+ }
+
+ h1 {
+  color: white
+ }
+
+ .avatar {
+  max-width: 70px;
+  margin-right: 20px;
+}
+
+.logo {
+  max-width: 150px;
+  margin-right: 20px;
+}
+ .user__link
+ {
+
+  float:right
+  
+}
+
+.feed__container {
+    justify-content: center;
+}
+
+
+.peep__form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+  font-weight: bold;
+}
+
+.login__text {
+  display: flex;
+  flex-direction: column;
+  color:#F7B801;
+  font-size: 14px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+
+}
+
+.peep__box {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.container__peep {
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: #5AAA95;
+  box-shadow: 4px 4px 10px 0 rgba(116, 115, 115, 0.6);
+}
+
+.container__peep_info {
+  display: flex;
+  justify-content: space-between;
+  color: #5c5c5c;
+}
+
+
+.peep__text {
+  padding: 20px;
+  background-color: white;
+  display: block;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(128, 0, 0, 1);
+}
+
+.user__signin,
+.user__signup{
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 15px;
+  transition: all 0.3s;
+  float: right;
+}
