@@ -1,22 +1,17 @@
-# {{TABLE NAME}} Model and Repository Classes Design Recipe
-
-_Copy this recipe template to design and implement Model and Repository classes for a database table._
+# Users and Peeps Model and Repository Classes Design Recipe
 
 ## 1. Design and create the Table
 
-If the table is already created in the database, you can skip this step.
-
-Otherwise, [follow this recipe to design and create the SQL schema for your table](./single_table_design_recipe_template.md).
-
-*In this template, we'll use an example table `students`*
-
 ```
-# EXAMPLE
-
-Table: students
+Table: users
 
 Columns:
-id | name | cohort_name
+id | name | email | password
+
+Table: peeps
+
+Columns:
+id | message | date | user_id
 ```
 
 ## 2. Create Test SQL seeds
@@ -27,7 +22,7 @@ If seed data is provided (or you already created it), you can skip this step.
 
 ```sql
 -- EXAMPLE
--- (file: spec/seeds_{table_name}.sql)
+-- (file: spec/seeds_users_peeps.sql)
 
 -- Write your SQL seed here. 
 
@@ -35,19 +30,26 @@ If seed data is provided (or you already created it), you can skip this step.
 -- so we can start with a fresh state.
 -- (RESTART IDENTITY resets the primary key)
 
-TRUNCATE TABLE students RESTART IDENTITY; -- replace with your own table name.
+TRUNCATE TABLE users, peeps RESTART IDENTITY; -- replace with your own table name.
 
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
 
-INSERT INTO students (name, cohort_name) VALUES ('David', 'April 2022');
-INSERT INTO students (name, cohort_name) VALUES ('Anna', 'May 2022');
+INSERT INTO users ('name', 'email', 'password') VALUES ('David', 'david@example.com', '1234');
+INSERT INTO users ('name', 'email', 'password') VALUES ('Anna', 'anna@email.co.uk', 'password');
+INSERT INTO users ('name', 'email', 'password') VALUES ('Mike', 'mike@mail.com', 'hg46d');
+INSERT INTO users ('name', 'email', 'password') VALUES ('Rob', 'rob@bob.uk', 'dk58as');
+
+INSERT INTO peeps ('message', 'date', 'user_id') VALUES ('It is raining today', '2022-08-08', 1 );
+INSERT INTO peeps ('message', 'date', 'user_id') VALUES ('Tonight we are going to take yoga classes', '2022-11-18', 2 );
+INSERT INTO peeps ('message', 'date', 'user_id') VALUES ('Nice day to go to the beach here in Brighton ', '2022-07-01', 1 );
+INSERT INTO peeps ('message', 'date', 'user_id') VALUES ('Christams is around the corner', '2022-12-20', 3 );
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
 
 ```bash
-psql -h 127.0.0.1 your_database_name < seeds_{table_name}.sql
+psql -h 127.0.0.1 chitter < spec/seeds_users_peeps.sql
 ```
 
 ## 3. Define the class names
@@ -55,17 +57,28 @@ psql -h 127.0.0.1 your_database_name < seeds_{table_name}.sql
 Usually, the Model class name will be the capitalised table name (single instead of plural). The same name is then suffixed by `Repository` for the Repository class name.
 
 ```ruby
-# EXAMPLE
-# Table name: students
+# Table name: users
 
 # Model class
-# (in lib/student.rb)
-class Student
+# (in lib/user.rb)
+class User
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/user_repository.rb)
+class UserRepository
+end
+
+# Table name: peeps
+
+# Model class
+# (in lib/peep.rb)
+class Peep
+end
+
+# Repository class
+# (in lib/peep_repository.rb)
+class PeepRepository
 end
 ```
 
@@ -74,25 +87,29 @@ end
 Define the attributes of your Model class. You can usually map the table columns to the attributes of the class, including primary and foreign keys.
 
 ```ruby
-# EXAMPLE
-# Table name: students
+# Table name: users
 
 # Model class
-# (in lib/student.rb)
+# (in lib/user.rb)
 
-class Student
+class User
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+  attr_accessor :id, :name, :email, :password
 end
 
-# The keyword attr_accessor is a special Ruby feature
-# which allows us to set and get attributes on an object,
-# here's an example:
-#
-# student = Student.new
-# student.name = 'Jo'
-# student.name
+# Table name: peeps
+
+# Model class
+# (in lib/peep.rb)
+
+class Peep
+
+  # Replace the attributes by your own columns.
+  attr_accessor :id, :message, :date, :user_id
+end
+
+
 ```
 
 *You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
@@ -104,42 +121,64 @@ Your Repository class will need to implement methods for each "read" or "write" 
 Using comments, define the method signatures (arguments and return value) and what they do - write up the SQL queries that will be used by each method.
 
 ```ruby
-# EXAMPLE
-# Table name: students
+# Table name: users
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/user_repository.rb)
 
-class StudentRepository
+class UsersRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    # SELECT id, name, email, password FROM users;
 
-    # Returns an array of Student objects.
+    # Returns an array of User objects.
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
-  def find(id)
+  # Gets a single user by its email
+  # One argument: the email (text)
+  def find(email)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+    # SELECT * FROM userss WHERE email = $1;
 
-    # Returns a single Student object.
+    # Returns a single User object.
   end
 
-  # Add more methods below for each operation you'd like to implement.
+  def add(user)
+    #Executes the SQL query:
+    # INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id;
+  end
 
-  # def create(student)
-  # end
+  def sign_in(email, password)
+    # Finds user by email 
+  end
+  
+end
 
-  # def update(student)
-  # end
+# Table name: peeps
 
-  # def delete(student)
-  # end
+# Repository class
+# (in lib/peep_repository.rb)
+
+class PeepRepository
+
+  # Selecting all records
+  # No arguments
+  def all
+    # Executes the SQL query:
+    # SELECT id, message, date, user_id FROM peeps;
+
+    # Returns an array of Peep objects.
+  end
+
+  def add(peep)
+    #Executes the SQL query:
+    # INSERT INTO peeps (message, date, user_id) VALUES ($1, $2, $3);
+  end
+
+
 end
 ```
 
@@ -150,37 +189,100 @@ Write Ruby code that defines the expected behaviour of the Repository class, fol
 These examples will later be encoded as RSpec tests.
 
 ```ruby
-# EXAMPLES
+# EXAMPLES FOR USER REPO
 
 # 1
-# Get all students
+# Get all users
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-students = repo.all
+users = repo.all
 
-students.length # =>  2
+users.length # =>  4
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+users[0].id # =>  1
+users[0].name # =>  'David'
+users[0].email # =>  'david@example.com'
+users[0].password # => '1234'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+users[1].id # =>  2
+users[1].name # =>  'Anna'
+users[1].email # =>  'anna@email.co.uk'
+users[1].password # => 'password'
 
 # 2
-# Get a single student
+# Get a single user
 
-repo = StudentRepository.new
+repo = UserRepository.new
 
-student = repo.find(1)
+user = repo.find('mike@mail.com')
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+user.id # =>  3
+user.name # =>  'Mike'
 
-# Add more examples for each method
+
+# 3
+# Add user
+repo = UserRepository.new
+
+user = User.new
+
+user.name # => 'Sandra'
+user.email # => 'sandra@spain.es'
+user.password # => 'contrasenia1234'
+
+repo.add(user)
+
+users.length # => 5
+user.last.name # => 'Sandra'
+user.last.email # => 'sandra@spain.es'
+user.last.password # => 'contrasenia1234'
+
+# 4
+# Signs in user if user alredy exists
+repo = UserRepository.new
+
+user = repo.sing_in(email, password)
+
+
+# EXAMPLES FOR PEEP REPO
+
+# 1
+# Get all peeps
+
+repo = PeepRepository.new
+
+peeps = repo.all
+
+peeps.length # =>  4
+
+peeps[0].id # =>  1
+peeps[0].message # =>  'It is raining today'
+peeps[0].date # =>  '2022-08-08'
+peeps[0].user_id # => '1'
+
+peeps[1].id # =>  2
+peeps[1].message # =>  'Tonight we are going to take yoga classes'
+peeps[1].date # =>  '2022-11-18'
+peeps[1].user_id # => '2'
+
+# 2
+# Add peep
+repo = PeepRepository.new
+
+peep = Peep.new
+
+peep.message # => 'Lovely day today'
+peep.date # => '2023-01-12'
+peep.user_id # => '4'
+
+repo.add(peep)
+
+peeps.length # => 5
+peep.last.message # => 'Lovely day today'
+peep.last.date # => '2023-01-12'
+peep.last.user_id # => '4'
+
 ```
 
 Encode this example as a test.
@@ -192,19 +294,34 @@ Running the SQL code present in the seed file will empty the table and re-insert
 This is so you get a fresh table contents every time you run the test suite.
 
 ```ruby
-# EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/user_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_users_table
+  seed_sql = File.read('spec/seeds_users_peeps.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe UserRepository do
   before(:each) do 
-    reset_students_table
+    reset_users_table
+  end
+
+  # (your tests will go here).
+end
+
+# file: spec/peep_repository_spec.rb
+
+def reset_peeps_table
+  seed_sql = File.read('spec/seeds_users_peeps.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection.exec(seed_sql)
+end
+
+describe PeepRepository do
+  before(:each) do 
+    reset_peeps_table
   end
 
   # (your tests will go here).
