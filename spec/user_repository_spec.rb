@@ -41,11 +41,23 @@ describe UserRepository do
     repo = UserRepository.new
 
     user = repo.find(1)
-    
+
     expect(user.id).to eq 1
     expect(user.name).to eq 'Harry Potter'
     expect(user.user_name).to eq 'lightning-boy'
     expect(user.email).to eq 'harry@hogwarts.com'
     expect(user.password).to eq 'scarhead1234'
+  end
+
+  it "#find_by_user_name returns user details based on user_name" do
+    repo = UserRepository.new
+
+    user = repo.find_by_user_name('clever-cloggs')
+    
+    expect(user.id).to eq 3
+    expect(user.name).to eq 'Hermione Granger'
+    expect(user.user_name).to eq 'clever-cloggs'
+    expect(user.email).to eq 'herminone@hogwarts.com'
+    expect(user.password).to eq 'best-in-class'
   end
 end

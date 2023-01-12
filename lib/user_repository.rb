@@ -15,6 +15,13 @@ class UserRepository
     return user
   end
 
+  def find_by_user_name(user_name)
+    sql = 'SELECT id, name, user_name, email, password FROM users WHERE user_name = $1;'
+    result = DatabaseConnection.exec_params(sql, [user_name])
+    user = convert_to_user(result[0])
+    return user
+  end
+
   private 
 
   def convert_to_user(record)
