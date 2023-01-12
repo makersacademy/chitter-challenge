@@ -29,8 +29,16 @@ class Application < Sinatra::Base
     @user.username = params[:username]
     @user.email = params[:email]
     @user.password = params[:password]
-    UserRepository.new.signup(@user)
-    erb(:signup_success)
+    repo = UserRepository.new
+    repo.signup(@user)
+    valid_user = repo.check_valid_user(@user.username, @user.password)
+    if valid_user
+      session[:user_id] = valid_user.id
+      session[:username] = valid_user.username
+      erb(:signup_success)
+    else
+      erb(:signup_form)
+    end
   end
 
   get '/signin' do
