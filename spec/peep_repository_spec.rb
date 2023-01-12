@@ -44,4 +44,10 @@ describe PeepRepository do
     expect(updated_peeps.first.timestamp).to eq '2023-01-11 10:40:00'
 
   end
+
+  it 'finds peeps by user id' do
+    repo = PeepRepository.new
+    expect(repo.find_by_user(1)[0].content).to eq 'Third peep on chitter!'
+    expect(repo.find_by_user(2).length).to eq 1
+  end
 end

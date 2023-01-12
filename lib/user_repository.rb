@@ -7,7 +7,7 @@ class UserRepository
     results = DatabaseConnection.exec_params(sql, [])
     users = []
     results.each do |record|
-      users << process_details(record)
+      users << process_user_details(record)
     end
     users
   end
@@ -23,9 +23,16 @@ class UserRepository
     BCrypt::Password.new(user.password) == password ? user : false
   end
 
+  def find_by_username(username)
+    sql = 'SELECT * FROM users WHERE username = $1'
+    params = [username]
+    result_set = DatabaseConnection.exec_params(sql, params)
+    process_user_details(result_set[0])
+  end
+
   private
 
-  def process_details(record)
+  def process_user_details(record)
     user = User.new
     user.id = record['id'].to_i
     user.username = record['username']
@@ -33,13 +40,5 @@ class UserRepository
     user.password = record['password']
     user
   end
-
-  def find_by_username(username)
-    sql = 'SELECT * FROM users WHERE username = $1'
-    params = [username]
-    result_set = DatabaseConnection.exec_params(sql, params)
-    process_details(result_set[0])
-  end
-  
 
 end
