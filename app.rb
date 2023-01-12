@@ -17,7 +17,7 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    erb(:index)
+    redirect '/feed'
   end
 
   get '/signup' do
@@ -45,7 +45,7 @@ class Application < Sinatra::Base
     if valid_user
       session[:user_id] = valid_user.id
       session[:username] = valid_user.username
-      erb(:signin_success)
+      redirect '/feed'
     else
       erb(:signin_form)
     end
