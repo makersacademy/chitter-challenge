@@ -16,7 +16,7 @@ Your tests will depend on data stored in PostgreSQL to run.
 If seed data is provided (or you already created it), you can skip this step.
 ```sql
 -- (file: spec/seeds_users.sql)
-TRUNCATE TABLE users RESTART IDENTITY; 
+TRUNCATE TABLE users, posts RESTART IDENTITY; 
 
 INSERT INTO users (name, user_name, email, password) VALUES ('Harry Potter', 'lightning-boy', 'harry@hogwarts.com', 'scarhead1234');
 INSERT INTO users (name, user_name, email, password) VALUES ('Ron Weasley', 'gingernut', 'ron@hogwarts.com', 'redhead4eva');
@@ -181,7 +181,7 @@ describe UserRepository do
   before(:each) do 
     reset_users_table
   end
-  
+
   # (tests will go here).
 end
 ```
