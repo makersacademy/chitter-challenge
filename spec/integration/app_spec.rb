@@ -31,7 +31,15 @@ describe Application do
       expect(response.body).to include 'Here we go!'
     end
 
-    it 'shows a text box for posting a tweet' do
+    it 'shows a text box for posting a tweet only when logged in' do
+      response = get('/feed')
+      expect(response.status).to eq 200
+      
+      expect(response.body).not_to include '<form action="/feed" method="POST">'
+      expect(response.body).not_to include '<label for="content">Send a peep:</label>'
+      expect(response.body).not_to include '<input type="text" id="content" name="content"><br>'
+
+      post "/signin", { :username => "brugalheimer", :password => "password" }
       response = get('/feed')
       expect(response.status).to eq 200
       

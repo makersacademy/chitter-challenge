@@ -1,15 +1,26 @@
 <html>
-  <head> Logged in as <%= @username %> <a href = '/logout'>Logout</a> <% if @username %> <% else %> <a href = '/signin'>Sign up!</a> <a href = '/signup'>Sign up!</a> <% end %> </head>
+  <head> <div>
+        <% if session['user_id'] %> 
+        <p>Logged in as: <%= session['username'] %></p>
+        <a href="/logout">Sign Out</a>
+        <% else %>
+        <a href="/signin">Login</a>
+        <a href="/signup">Sign Up</a>
+        <% end %>
+      </div>
+  
   <body>
     <h1>Chitter feed:</h1>
     <div>
+    <% if session['user_id'] %>
       <form action="/feed" method="POST">
       <label for="content">Send a peep:</label>
       <input type="text" id="content" name="content"><br>
       <input type="submit" value="Peep!">
       </form>
+      <% end %>
     </div>
-    <% @peeps.all.each do |peep|%>
+    <% @peeps.each do |peep|%>
       <div>
         <p> <a href = '/<%= peep.username %>'>@<%= peep.username %></a> / <%= peep.timestamp %> <br>
         <%= peep.content %> </p>
