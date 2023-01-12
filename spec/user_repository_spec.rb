@@ -36,4 +36,16 @@ describe UserRepository do
     expect(users[2].email).to eq 'herminone@hogwarts.com'
     expect(users[2].password).to eq 'best-in-class'
   end
+
+  it "#find takes an id and returns record" do
+    repo = UserRepository.new
+
+    user = repo.find(1)
+    
+    expect(user.id).to eq 1
+    expect(user.name).to eq 'Harry Potter'
+    expect(user.user_name).to eq 'lightning-boy'
+    expect(user.email).to eq 'harry@hogwarts.com'
+    expect(user.password).to eq 'scarhead1234'
+  end
 end
