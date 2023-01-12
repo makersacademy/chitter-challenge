@@ -94,8 +94,8 @@ Define the attributes of your Model class. You can usually map the table columns
 
 class User
 
-  # Replace the attributes by your own columns.
   attr_accessor :id, :name, :email, :password
+  
 end
 
 # Table name: peeps
@@ -105,8 +105,8 @@ end
 
 class Peep
 
-  # Replace the attributes by your own columns.
   attr_accessor :id, :message, :date, :user_id
+
 end
 
 
@@ -225,15 +225,15 @@ user.name # =>  'Mike'
 # Add user
 repo = UserRepository.new
 
-user = User.new
+new_user = User.new
 
-user.name # => 'Sandra'
-user.email # => 'sandra@spain.es'
-user.password # => 'contrasenia1234'
+new_user.name # => 'Sandra'
+new_user.email # => 'sandra@spain.es'
+new_user.password # => 'contrasenia1234'
 
-repo.add(user)
+repo.add(new_user)
 
-users.length # => 5
+
 user.last.name # => 'Sandra'
 user.last.email # => 'sandra@spain.es'
 user.last.password # => 'contrasenia1234'
@@ -242,7 +242,7 @@ user.last.password # => 'contrasenia1234'
 # Signs in user if user alredy exists
 repo = UserRepository.new
 
-user = repo.sing_in(email, password)
+
 
 
 # EXAMPLES FOR PEEP REPO
@@ -270,15 +270,15 @@ peeps[1].user_id # => '2'
 # Add peep
 repo = PeepRepository.new
 
-peep = Peep.new
+new_peep = Peep.new
 
-peep.message # => 'Lovely day today'
-peep.date # => '2023-01-12'
-peep.user_id # => '4'
+new_peep.message # => 'Lovely day today'
+new_peep.date # => '2023-01-12'
+new_peep.user_id # => '4'
 
-repo.add(peep)
+repo.add(new_peep)
+peeps = repo.all
 
-peeps.length # => 5
 peep.last.message # => 'Lovely day today'
 peep.last.date # => '2023-01-12'
 peep.last.user_id # => '4'
@@ -296,36 +296,24 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 
 # file: spec/user_repository_spec.rb
-
-def reset_users_table
-  seed_sql = File.read('spec/seeds_users_peeps.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-  connection.exec(seed_sql)
-end
-
-describe UserRepository do
-  before(:each) do 
-    reset_users_table
-  end
-
-  # (your tests will go here).
-end
-
 # file: spec/peep_repository_spec.rb
 
-def reset_peeps_table
-  seed_sql = File.read('spec/seeds_users_peeps.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-  connection.exec(seed_sql)
+def reset_users_peeps_table
+        seed_sql = File.read('spec/seeds_users_peeps.sql')
+        connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+        connection.exec(seed_sql)
+      end
+      
+     
+    before(:each) do 
+        reset_users_peeps_table
+    end
+
+    after(:each) do
+        reset_users_peeps_table
+    end
 end
 
-describe PeepRepository do
-  before(:each) do 
-    reset_peeps_table
-  end
-
-  # (your tests will go here).
-end
 ```
 
 ## 8. Test-drive and implement the Repository class behaviour
