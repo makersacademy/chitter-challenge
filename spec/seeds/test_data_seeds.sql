@@ -1,9 +1,9 @@
 TRUNCATE TABLE peeps, users RESTART IDENTITY;
 
-INSERT INTO users (username, password) VALUES 
-('testing', 'password123'),
-('elon_musk', 'tesla_rocks'),
-('mr_politics', 'snowflakes');
+INSERT INTO users (name, email, username, password) VALUES 
+('Test Testson', 'testing123@gmail.com', 'testing', 'password123'),
+('Elon Musk', 'elon@twitter.com', 'elon_musk', 'tesla_rocks'),
+('Steve Johnson', 'steve.johnson@talktalk.net', 'mr_politics', 'snowflakes');
 
 INSERT INTO peeps (content, datetime, user_id) VALUES
 ('Hello! I''m a test account.', '2020-06-05 11:00:00', 1),
