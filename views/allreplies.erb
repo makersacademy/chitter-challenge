@@ -1,0 +1,15 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+
+    <div>
+      <h1>Chits</h1>
+      <% @t.each do |a| %>
+      <p>
+        Username: <%= a.username %> Chit: <%= a.content %> Chit: <%= a.content %> 
+      </p>
+      <% end %>
+    </div>
+  </body>
+</html>

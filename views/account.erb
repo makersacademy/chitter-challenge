@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+
+    <div>
+      <form action="/logout" method="POST">
+        <input type="submit" value="logout" />
+      </form>
+    </div>
+
+    <div>
+      <form action="/create-post" method="POST">
+        <label for="content">Chit:</label>
+        <input type="text" name="content" />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <div>
+      <h1>Chits</h1>
+      <% @p.each do |a| %>
+      <p>
+        Username: <%= a.username %> Chit: <%= a.content %> Time: <%= a.created_at %>
+        <a href="/reply">Reply</a>
+        <a href="/replies">View replies</a>
+      </p>
+      <% end %>
+    </div>
+  </body>
+</html>
