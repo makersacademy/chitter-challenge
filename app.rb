@@ -37,9 +37,20 @@ class Application < Sinatra::Base
     repo = PostRepository.new
     new_post = Post.new
     new_post.content = params[:content]
-    new_post.date = params[:date]
-    new_post.time = params[:time]
     new_post.user_id = params[:user_id]
     repo.create(new_post)
+  end
+
+  get '/users/new' do
+    return erb(:new_user)
+  end
+
+  post '/users' do
+    repo = UserRepository.new
+    new_user = User.new
+    new_user.username = params[:username]
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+    repo.create(new_user)
   end
 end
