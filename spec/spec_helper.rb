@@ -1,6 +1,5 @@
 require 'simplecov'
 require 'simplecov-console'
-require 'database_connection'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -10,7 +9,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 ENV["RACK_ENV"] = "test"
-DatabaseConnection.connect
 
 RSpec.configure do |config|
   config.after(:suite) do
