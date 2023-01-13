@@ -28,4 +28,18 @@ class Application < Sinatra::Base
 
     return erb(:users)
   end
+
+  get '/posts/new' do
+    return erb(:new_post)
+  end
+
+  post '/posts' do
+    repo = PostRepository.new
+    new_post = Post.new
+    new_post.content = params[:content]
+    new_post.date = params[:date]
+    new_post.time = params[:time]
+    new_post.user_id = params[:user_id]
+    repo.create(new_post)
+  end
 end
