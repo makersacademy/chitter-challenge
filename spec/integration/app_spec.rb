@@ -112,4 +112,9 @@ password: 'password6')
       expect(session[:username]).to eq nil
     end
   end
+
+  it 'extracts tagged users from peep content' do
+    content = 'Hey @brugalheimer welcome to chitter'
+    expect(extract_tagged_users(content)).to eq ['brugalheimer']
+  end
 end

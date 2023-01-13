@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
+require_relative 'lib/peep_processing'
 
 DatabaseConnection.connect
 
@@ -60,7 +61,7 @@ class Application < Sinatra::Base
   end
 
   get '/feed' do
-    @peeps = PeepRepository.new.all 
+    @peeps = PeepRepository.new.all
     erb(:feed)
   end
 
@@ -84,15 +85,8 @@ class Application < Sinatra::Base
     redirect '/feed'
   end
 
+  
   private
-
-  def construct_peep
-    peep = Peep.new
-    peep.content = params[:content]
-    peep.timestamp = Time.now
-    peep.user_id = session[:user_id]
-    peep
-  end
 
   def logged_in?
     !!session[:user_id]
@@ -100,18 +94,6 @@ class Application < Sinatra::Base
 
   def current_user
     UserRepository.new.find_by_id(session[:user_id])
-  end
-
-  def any_tagged_users?(content)
-    tagged_users = []
-    words = content.split
-    users = UserRepository.new.all
-    users.each do |user|
-      if words.include?("@#{user.username}")
-        tagged_users << user.username
-      end
-    end
-    tagged_users
   end
 
 end
