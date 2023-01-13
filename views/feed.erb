@@ -37,7 +37,7 @@
               <%= peep.timestamp %>
             </p>
           </div>
-          <div> <img class="avatar" src="/img/avatar1.jpg" alt="avatar">
+          <div> <a href='/users/<%= peep.username %>'><img class="avatar" src="/img/avatar1.jpg" alt="avatar"></a>
             <p class="peep__text">
               <% if !extract_tagged_users(peep.content).empty? %>
                 <% extract_tagged_users(peep.content).each do |username| %>
