@@ -1,0 +1,26 @@
+<!DOCTYpe html>
+<html>
+<head>
+<title>Chitter</title>
+</head>
+<body>
+    <h1>Chitter</h1>
+        <div calss="topnav">
+            <a href="/">Home</a>
+            <a href="/sign_in">Sign in</a>
+            <a href="/log_in">Log in</a>
+        </div>
+
+        <div class="new_peeps">
+        <a href="new_peep">Add new peep</a>
+        </div>
+        <%@peeps.each do |peep|%>
+           
+        <div class="peeps">
+         <%= peep.message %> <br>
+          Date posted  <%= peep.date %>
+         <a href="/user"> User ID </a>  <%= peep.user_id  %>
+        </div>
+        <% end %>
+</body>
+</html>

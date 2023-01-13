@@ -34,17 +34,10 @@ class UserRepository
       return user
     end
   
-    def add(user)
+    def sign_in(user)
       sql = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3);'
       result_set = [user.name, user.email, user.password]
       DatabaseConnection.exec_params(sql, result_set)
      
     end
-  
-    def sign_in(email, password)
-      sql = 'SELECT email, password FROM users WHERE email = $1 AND email = $2;'
-      result_set = DatabaseConnection.exec_params(sql, [email, password])
-      return 'You are now signed in! Enjoy.'
-    end
-    
   end

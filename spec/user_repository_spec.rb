@@ -54,16 +54,11 @@ RSpec.describe UserRepository do
         new_user.email = 'sandra@spain.es'
         new_user.password = 'contrasenia1234'
 
-        repo.add(new_user)
+        repo.sign_in(new_user)
         users = repo.all
 
         expect(users.last.name).to eq('Sandra')
         expect(users.last.email).to eq('sandra@spain.es')
         expect(users.last.password).to eq('contrasenia1234')
-    end
-    it 'signs in user ' do 
-        repo = UserRepository.new
-        user = repo.sign_in('david@example.com', '1234')
-        expect(user).to eq('You are now signed in! Enjoy.')
     end
 end
