@@ -65,10 +65,7 @@ class Application < Sinatra::Base
   end
 
   post '/feed' do
-    peep = Peep.new
-    peep.content = params[:content]
-    peep.timestamp = Time.now
-    peep.user_id = session[:user_id]
+    peep = construct_peep
     repo = PeepRepository.new
     repo.create(peep)
     @peeps = repo.all
@@ -86,4 +83,35 @@ class Application < Sinatra::Base
     session[:username] = nil
     redirect '/feed'
   end
+
+  private
+
+  def construct_peep
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.timestamp = Time.now
+    peep.user_id = session[:user_id]
+    peep
+  end
+
+  def logged_in?
+    !!session[:user_id]
+  end
+
+  def current_user
+    UserRepository.new.find_by_id(session[:user_id])
+  end
+
+  def any_tagged_users?(content)
+    tagged_users = []
+    words = content.split
+    users = UserRepository.new.all
+    users.each do |user|
+      if words.include?("@#{user.username}")
+        tagged_users << user.username
+      end
+    end
+    tagged_users
+  end
+
 end

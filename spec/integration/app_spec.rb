@@ -58,7 +58,6 @@ user_id: 3)
       peeps = repo.all
       expect(peeps.first.content).to eq 'First time posting!'
     end
-
   end
 
   context 'GET to /signup' do

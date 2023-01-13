@@ -13,8 +13,8 @@
 <body>
 	<header>
 		<div class="auth__container">
-			<% if session['user_id'] %>
-				<div class="login__text">Logged in as: <a href='/users/<%= session[' username ']%>'>@<%= session['username'] %></a></div>
+			<% if logged_in? %>
+				<div class="login__text">Logged in as: <a href='/users/<%= session['username']%>'>@<%= session['username'] %></a></div>
 				<p><a class="user__link" href="/logout">Sign Out</a></p>
 				<% else %>
 					<p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>
@@ -24,7 +24,7 @@
 	<main class="feed__container">
   <img class="logo" src="/img/logo.png" alt="logo">
 		<div>
-			<% if session['user_id'] %>
+			<% if logged_in? %>
 				<form action="/feed" method="POST" class="peep__form">
 					<label for="content" class="peeps__label">Send a peep:</label>
 					<textarea class="peep__box" rows="2" cols="30" name="content"></textarea>
