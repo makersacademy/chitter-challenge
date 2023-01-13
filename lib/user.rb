@@ -1,3 +1,3 @@
-class User
-  attr_accessor :id, :name, :email, :username, :password
+class User < ActiveRecord::Base
+  has_secure_password
 end
