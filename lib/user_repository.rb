@@ -36,14 +36,6 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, params)
     process_user_details(result_set[0])
   end
-
-  def usernames
-    usernames = []
-    sql = 'SELECT username FROM users'
-    results = DatabaseConnection.exec_params(sql, [])
-    results.each { |record| usernames << record['username'] }
-    usernames
-  end
   
   private
 

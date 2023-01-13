@@ -119,7 +119,7 @@ password: 'password6')
     it 'shows a user profile page' do
       response = get('/users/brugalheimer')
       expect(response.status).to eq 200
-      expect(response.body).to include 'Profile for @brugalheimer'
+      expect(response.body).to include 'All peeps by @brugalheimer'
     end
   end
   

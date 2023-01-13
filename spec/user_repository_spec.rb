@@ -55,10 +55,5 @@ describe UserRepository do
     user = repo.find_by_id(1)
     expect(user.username).to eq 'brugalheimer'
   end
-  
-  it 'extracts all usernames from the database' do
-    repo = UserRepository.new
-    expect(repo.usernames).to eq ["brugalheimer", "eliseboom", "bearsuit1", "totebagfan", 
-"chad_has_seen_this"]
-  end
+
 end
