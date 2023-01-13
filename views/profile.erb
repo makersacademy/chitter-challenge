@@ -1,35 +1,56 @@
 <html>
   <head>
+	<title>Chitter - @<%= @user.username %></title>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Chitter Feed</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/styles/index.css" /> </head>
 
-<body>
 	<header>
 		<div class="auth__container">
-			<% if session['user_id'] %>
-				<div class="login__text">Logged in as: <a href='/users/<%= session[' username ']%>'>@<%= session['username'] %></a></div>
+			<% if logged_in? %>
+				<div class="login__text">Logged in as: <a href='/users/<%= current_user.username %>'>@<%= current_user.username %></a></div>
 				<p><a class="user__link" href="/logout">Sign Out</a></p>
 				<% else %>
 					<p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>
 					<% end %>
-		</div></head> 
-  <body>
-    <h1>Profile for @<%= @user.username %></h1>
+		</div>
+					</header>
+<body>
+
+					<main class="feed__container">
+  <a href='/feed'><img class="logo" src="/img/logo.png" alt="logo"></a>
+    <h1>All peeps by @<%= @user.username %></h1>
     <div>
   
     </div>
-    Peeps:<br>
+    <br>
     <% @peeps.each do |peep|%>
-      <div>
-        <p> <a href = '/users/<%= peep.username %>'>@<%= peep.username %></a> / <%= peep.timestamp %> <br>
-        <%= peep.content %> </p>
-      </div>
+      <article class="container__peep">
+				<div class="container__peep_info">
+					<p><a href='/users/<%= peep.username %>'>@<%= peep.username %></a></p>
+					<p>
+						<%= peep.timestamp %>
+					</p>
+				</div>
+				<div> <img class="avatar" src="/img/avatar1.jpg" alt="avatar">
+					<p class="peep__text">
+
+						<% if !extract_tagged_users(peep.content).empty? %>
+							<% extract_tagged_users(peep.content).each do |username| %>
+								<% peep.content.gsub! "@#{username}", "<a href='/users/#{username}'>@#{username}</a>" %>
+							<% end %>
+							<%= peep.content %>
+						<% else %>
+							<%= peep.content %>
+						<% end %>
+							
+					</p>
+				</div>
+			</article>
     <% end %>
   </body>
 </html>
