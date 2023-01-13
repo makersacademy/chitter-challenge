@@ -13,3 +13,15 @@ INSERT INTO users (email, password_hash, name, username)
         '$2a$12$AnpyVfD8i5crd/1Ie.X3mOShzEntBnJfqaMaDHJRstGC58jOgBr9G',
         'Karen Evil',
         'DrEvil59');
+
+INSERT INTO peeps (time_posted, content, user_id)
+    VALUES (
+        '2023-01-13 14:22:06', 
+        'First peep on this chit!!!',
+        1);
+
+INSERT INTO peeps (time_posted, content, user_id)
+    VALUES (
+        '2023-01-13 15:05:23', 
+        'Going surfing tomoz, who wants to join, hit me up!',
+        1);     
