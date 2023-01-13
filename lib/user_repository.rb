@@ -42,8 +42,9 @@ class UserRepository
     end
   
     def sign_in(email, password)
-   
-
+      sql = 'SELECT email, password FROM users WHERE email = $1 AND email = $2;'
+      result_set = DatabaseConnection.exec_params(sql, [email, password])
+      return 'You are now signed in! Enjoy.'
     end
     
   end

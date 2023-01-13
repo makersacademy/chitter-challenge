@@ -242,6 +242,8 @@ user.last.password # => 'contrasenia1234'
 # Signs in user if user alredy exists
 repo = UserRepository.new
 
+user = repo.sign_in('david@example.com', '1234')
+user = 'You are now signed in! Enjoy.'
 
 
 
