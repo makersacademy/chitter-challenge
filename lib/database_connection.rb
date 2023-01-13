@@ -9,15 +9,16 @@ class DatabaseConnection
   # This method connects to PostgreSQL using the 
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
-  def self.connect
+  def self.connect(database_name)
     # If the environment variable (set by Render)
     # is present, use this to open the connection.
-    if ENV['DATABASE_URL'] != nil
+    if ENV["DATABASE_URL"] != nil
       @connection = PG.connect(ENV['DATABASE_URL'])
       return
-    #ADD LINE HERE FOR CONNECTION TO REAL DATABASE
+    elsif ENV["ENV"] == "test"
+      database_name = "chitter-project-test'"
     else
-      database_name = 'chitter-project-test'
+      database_name = "chitter-project"
     end
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   end
