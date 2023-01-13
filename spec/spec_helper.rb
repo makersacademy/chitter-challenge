@@ -9,6 +9,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+ENV["RACK_ENV"] = "test"
 DatabaseConnection.connect
 
 RSpec.configure do |config|

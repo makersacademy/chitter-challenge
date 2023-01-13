@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/activerecord'
 
-class Application < Sinatra::Base
+class Chitter < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
