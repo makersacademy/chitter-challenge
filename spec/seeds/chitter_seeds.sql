@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email text,
-    password text,
+    password_hash text,
     name text,
     username text
 );
