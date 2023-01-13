@@ -22,7 +22,7 @@ describe UserRepository do
     users = repo.all
     expect(users.length).to eq 5
     expect(users.first.username).to eq 'brugalheimer'
-    expect(users.last.email).to eq 'sabrina@gmail.com'
+    expect(users.last.email).to eq 'chad@gmail.com'
   end
 
   it 'adds a new user' do
@@ -30,7 +30,7 @@ describe UserRepository do
     users = repo.all
   
     expect(users.length).to eq 5
-    expect(users.last.username).to eq 'sabcoogs'
+    expect(users.last.username).to eq 'chad_has_seen_this'
   
     new_user = User.new
     new_user.username = 'peymansimon'

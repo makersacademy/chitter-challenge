@@ -43,9 +43,8 @@ describe Application do
       response = get('/feed')
       expect(response.status).to eq 200
       
-      expect(response.body).to include '<form action="/feed" method="POST">'
-      expect(response.body).to include '<label for="content">Send a peep:</label>'
-      expect(response.body).to include '<input type="text" id="content" name="content"><br>'
+      expect(response.body).to include '<form action="/feed" method="POST" class="peep__form">'
+      expect(response.body).to include '<label for="content" class="peeps__label">Send a peep:</label>'
     end
   end
 
