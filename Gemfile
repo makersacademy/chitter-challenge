@@ -24,3 +24,5 @@ gem "rackup", "~> 0.1.0"
 gem "rack-test", "~> 2.0"
 
 gem "erb_lint", "~> 0.3.1"
+
+gem "htmlbeautifier", "~> 1.4"

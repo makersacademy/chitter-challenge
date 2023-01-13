@@ -1,61 +1,55 @@
 <html>
-
-<head>
-  <title>Chitter</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="/styles/index.css"> </head>
-
-<body>
-  <header>
-    <div class="auth__container">
-      <% if logged_in? %>
-        <div class="login__text">Logged in as: <a href='/users/<%= current_user.username %>'>@<%= current_user.username %></a></div>
-        <p><a class="user__link" href="/logout">Sign Out</a></p>
+  <head>
+    <title>Chitter</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/styles/index.css"> </head>
+  <body>
+    <header>
+      <div class="auth__container">
+        <% if logged_in? %>
+          <div class="login__text">Logged in as: <a href='/users/<%= current_user.username %>'>@<%= current_user.username %></a></div>
+          <p><a class="user__link" href="/logout">Sign Out</a></p>
         <% else %>
           <p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>
-          <% end %>
-    </div>
-  </header>
-  <main class="feed__container">
-  <a href='/feed'><img class="logo" src="/img/logo.png" alt="logo"></a>
-    <div>
-      <% if logged_in? %>
-        <form action="/feed" method="POST" class="peep__form">
-          <label for="content" class="peeps__label">Send a peep:</label>
-          <textarea class="peep__box" rows="2" cols="30" name="content"></textarea>
-          <input type="submit" value="Peep!"> </form>
         <% end %>
-    </div>
-
-    <% @peeps.each do |peep| %>
-      <article class="container__peep">
-        <div class="container__peep_info">
-          <p><a href='/users/<%= peep.username %>'>@<%= peep.username %></a></p>
-          <p>
-            <%= peep.timestamp %>
-          </p>
-        </div>
-        <div> <img class="avatar" src="/img/avatar1.jpg" alt="avatar">
-          <p class="peep__text">
-
-            <% if !extract_tagged_users(peep.content).empty? %>
-              <% extract_tagged_users(peep.content).each do |username| %>
-                <% peep.content.gsub! "@#{username}", "<a href='/users/#{username}'>@#{username}</a>" %>
+      </div>
+    </header>
+    <main class="feed__container">
+      <a href='/feed'><img class="logo" src="/img/logo.png" alt="logo"></a>
+      <div>
+        <% if logged_in? %>
+          <form action="/feed" method="POST" class="peep__form">
+            <label for="content" class="peeps__label">Send a peep:</label>
+            <textarea class="peep__box" rows="2" cols="30" name="content"></textarea>
+            <input type="submit" value="Peep!"> </form>
+        <% end %>
+      </div>
+      <% @peeps.each do |peep| %>
+        <article class="container__peep">
+          <div class="container__peep_info">
+            <p><a href='/users/<%= peep.username %>'>@<%= peep.username %></a></p>
+            <p>
+              <%= peep.timestamp %>
+            </p>
+          </div>
+          <div> <img class="avatar" src="/img/avatar1.jpg" alt="avatar">
+            <p class="peep__text">
+              <% if !extract_tagged_users(peep.content).empty? %>
+                <% extract_tagged_users(peep.content).each do |username| %>
+                  <% peep.content.gsub! "@#{username}", "<a href='/users/#{username}'>@#{username}</a>" %>
+                <% end %>
+                <%= peep.content %>
+              <% else %>
+                <%= peep.content %>
               <% end %>
-              <%= peep.content %>
-            <% else %>
-              <%= peep.content %>
-            <% end %>
-
-          </p>
-        </div>
-      </article>
-    <% end %>
-</body>
-
-</html>
+            </p>
+          </div>
+        </article>
+      <% end %>
+    </body>
+  </html>
