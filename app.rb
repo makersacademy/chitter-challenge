@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
-require_relative 'lib/peep_processing'
+require_relative 'lib/helpers'
 
 DatabaseConnection.connect
 
@@ -37,8 +37,6 @@ class Application < Sinatra::Base
       session[:user_id] = valid_user.id
       session[:username] = valid_user.username
       erb(:signup_success)
-    else
-      erb(:signup_form)
     end
   end
 
@@ -83,17 +81,6 @@ class Application < Sinatra::Base
     session[:user_id] = nil
     session[:username] = nil
     redirect '/feed'
-  end
-
-  
-  private
-
-  def logged_in?
-    !!session[:user_id]
-  end
-
-  def current_user
-    UserRepository.new.find_by_id(session[:user_id])
   end
 
 end

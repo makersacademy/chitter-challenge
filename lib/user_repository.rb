@@ -31,7 +31,7 @@ class UserRepository
   end
 
   def find_by_id(id)
-    sql = 'SELECT * FROM users WHERE username = $1'
+    sql = 'SELECT * FROM users WHERE id = $1'
     params = [id]
     result_set = DatabaseConnection.exec_params(sql, params)
     process_user_details(result_set[0])
@@ -41,7 +41,7 @@ class UserRepository
     usernames = []
     sql = 'SELECT username FROM users'
     results = DatabaseConnection.exec_params(sql, [])
-    results.each { |record| usernames << record }
+    results.each { |record| usernames << record['username'] }
     usernames
   end
   

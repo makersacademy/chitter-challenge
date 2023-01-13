@@ -14,7 +14,7 @@
 	<header>
 		<div class="auth__container">
 			<% if logged_in? %>
-				<div class="login__text">Logged in as: <a href='/users/<%= session['username']%>'>@<%= session['username'] %></a></div>
+				<div class="login__text">Logged in as: <a href='/users/<%= current_user.username %>'>@<%= current_user.username %></a></div>
 				<p><a class="user__link" href="/logout">Sign Out</a></p>
 				<% else %>
 					<p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>

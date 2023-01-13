@@ -17,3 +17,11 @@ def construct_peep
   peep.user_id = session[:user_id]
   peep
 end
+
+def logged_in?
+  !!session[:user_id]
+end
+
+def current_user
+  UserRepository.new.find_by_id(session[:user_id])
+end

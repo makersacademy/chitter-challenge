@@ -21,6 +21,13 @@ describe Application do
     reset_tables
   end
 
+  context 'GET to /' do
+    it 'redirects to the feed' do
+      response = get('/')
+      expect(last_response.location).to include '/feed'
+    end
+  end
+
   context 'GET to /feed' do
     it 'returns a list of peeps as HTML' do
       response = get('/feed')
@@ -95,7 +102,19 @@ password: 'password6')
       expect(response.body).to include 'Password:'
     end
   end
+  
+  context 'POST to /signin' do
+    it 'logs in with valid credentials' do
+      response = post('/signin', username: 'brugalheimer', password: 'password')
+      expect(last_response.location).to include '/feed'
+    end
 
+    it 'will not signin with invalid credentials' do
+      response = post('/signin', username: 'brugalheimer', password: 'wrongpassword')
+      expect(response.body).to include 'Sign in to Chitter'
+    end
+  end
+  
   context 'GET to /users/:username' do
     it 'shows a user profile page' do
       response = get('/users/brugalheimer')
@@ -116,5 +135,10 @@ password: 'password6')
   it 'extracts tagged users from peep content' do
     content = 'Hey @brugalheimer welcome to chitter'
     expect(extract_tagged_users(content)).to eq ['brugalheimer']
+  end
+
+  it 'identifies current user from session' do
+    post "/signin", { :username => "brugalheimer", :password => "password" }
+    expect(current_user.username).to eq 'brugalheimer'
   end
 end
