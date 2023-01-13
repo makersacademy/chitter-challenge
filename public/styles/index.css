@@ -11,13 +11,21 @@ body {
   line-height: 20px;
   font-family: 'Open Sans', sans-serif;
   background-color: #087F8C;
- }
+}
 
- h1 {
+header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+h1 {
   color: white
- }
+}
 
- .avatar {
+.avatar {
   max-width: 70px;
   margin-right: 20px;
 }
@@ -26,15 +34,13 @@ body {
   max-width: 150px;
   margin-right: 20px;
 }
- .user__link
- {
 
-  float:right
-  
+.user__link {
+  float: right
 }
 
 .feed__container {
-    justify-content: center;
+  justify-content: center;
 }
 
 
@@ -48,12 +54,20 @@ body {
 
 .login__text {
   display: flex;
-  flex-direction: column;
-  color:#F7B801;
+  color: #F7B801;
   font-size: 14px;
   letter-spacing: 2px;
   word-spacing: 2px;
+  float: right;
+  margin-left: 20px;
+}
 
+.peeps__label {
+  color: #fffd96;
+  font-size: 14px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  font-weight: 200;
 }
 
 .peep__box {
@@ -61,7 +75,26 @@ body {
   font-size: 1.2rem;
   line-height: 1.2;
   padding: 10px;
+  border-radius: 15px;
+  resize: none;
+  background-color: #dddad0;
+}
+
+.peep__button {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  padding: 5px;
   border-radius: 5px;
+  align-self: flex-end;
+  margin-top: 10px;
+  box-shadow: 4px 4px 10px 0 rgba(116, 115, 115, 0.6);
+  transition: all 0.3s;
+}
+
+.peep__button:hover {
+  box-shadow: 0 0 0 0 rgba(116, 115, 115, 0.6);
+  color: rgb(255, 124, 43);
 }
 
 .container__peep {
@@ -91,10 +124,36 @@ body {
 }
 
 .user__signin,
-.user__signup{
+.user__signup {
   text-decoration: none;
   border-radius: 5px;
   padding: 15px;
   transition: all 0.3s;
   float: right;
+}
+
+.signup__form,
+.signin__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 300px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 2;
+  padding: 30px;
+}
+
+.signup__input,
+.signin__input {
+  margin-top: 30px;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #cfff4b;
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 4px 4px 10px 0 rgba(116, 115, 115, 0.6);
+  color: black;
+  transition: all 0.3s;
 }
