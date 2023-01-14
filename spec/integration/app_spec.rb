@@ -77,9 +77,9 @@ describe Application do
       response = post('/log_in',
       user_name: 'adam1',
       password: 'password1')
-      expect(response.body).to include('<label>Peep: </label>')
+      expect(response.body).to include('<label>My Peep: </label>')
       expect(response.body).to include('<input type="text" name="new_content" /><br>')
-      expect(response.body).to include('<input type="submit" value="Peep/>')
+      expect(response.body).to include('<input type="submit" value="Peep"/>')
       expect(response.status).to eq(200)
     end
   end  

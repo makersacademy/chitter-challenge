@@ -5,7 +5,17 @@
   <h2>Your place to peep</h2>
 
     <div>
-      <%%>
+      <% if @log_in_status == true %>
+      <label>My peep: </label>
+        <form method="POST" action="/create_peep">
+          <div>
+            <input type="text" name="new_content" /><br>
+            <input type="submit" value="Peep"/>
+          </div>
+        </form>
+      <% else %>
+      <br>
+      <% end %>
     </div>
 
     <div>
