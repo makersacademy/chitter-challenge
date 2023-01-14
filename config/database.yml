@@ -1,8 +1,7 @@
-
 development:
-adapter: postgresql 
-database: chitter-development
+  adapter: postgresql 
+  database: chitter-development
 
 test:
-adapter: postgresql
-database: chitter-test
+  adapter: postgresql
+  database: chitter-test
