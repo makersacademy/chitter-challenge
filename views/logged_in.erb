@@ -1,0 +1,15 @@
+<html>
+  <head></head>
+  <body>
+  <div class='nav-bar'>
+    <h2>Chitter Bot logo</h2>
+    <h1>Posts</h1>
+    <h1>Links</h1>
+  </div>
+   Hello <%= @user.name %>
+  </div>
+     <form action="/logout/<%= @user.id %>" method="post">
+     <input type="submit" value="Log out">
+    </form>
+  </body>
+</html>

@@ -3,7 +3,7 @@ require_relative 'post'
 class PostRepo
   def create(post)
     sql =
-      "INSERT INTO posts (post_time, message, user_id) VALUES ('#{post.post_time}','#{post.message}','#{post.user_id}');"
+      "INSERT INTO posts (post_time, message, user_id) VALUES ('#{Time.now}','#{post.message}','#{post.user_id}');"
     DatabaseConnection.exec_params(sql, [])
   end
   def all

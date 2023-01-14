@@ -6,6 +6,13 @@
     <h1>Posts</h1>
     <h1>Links</h1>
   </div>
+  <div class='post-form'>
+    <form action="/create" method="post">
+     <input type="text" name="message" placeholder="Message">
+     <input type="text" name="user_id" placeholder="User ID">
+     <input type="submit" value="Submit the form">
+    </form>
+  </div>
   <div class='posts-container'>
     <% @posts.all.each do |post|  %>
       <div class='post'>
