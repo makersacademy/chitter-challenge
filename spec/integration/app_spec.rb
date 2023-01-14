@@ -16,17 +16,18 @@ describe Application do
     reset_tables
   end
 
-  context "GET /" do
+  context "GET /homepage" do
     # Need to workout how to add and test user_name to posts online
     it "should return the homepage that lists all posts in reverse order" do
       post_repo = PostRepository.new
       user_repo = UserRepository.new
       users = user_repo.all
       posts = post_repo.all
-      response = get('/')
+      response = get('/homepage')
       posts.each do |post|
         expect(response.body).to include(post.content, post.date_time)
       end
+      expect(response.body).to include('<a href="/log_in">Log In to Chitter</a>')
       expect(response.status).to eq(200)
     end
   end
@@ -41,6 +42,45 @@ describe Application do
         password: '123')
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Welcome to Chitter</h1>')
+      expect(response.body).to include('<a href="/homepage">Head back to the homepage to start Chitting</a>')
+    end
+  end  
+
+  context "GET /sign_up" do
+    it "returns the sign up page" do
+      response = get('/sign_up')
+      expect(response.body).to include('<label>Name: </label>')
+      expect(response.body).to include('<label>Email: </label>')
+      expect(response.body).to include('<label>User Name: </label>')
+      expect(response.body).to include('<label>Password: </label>')
+      expect(response.body).to include('<input type="text" name="name" /><br>')
+      expect(response.body).to include('<input type="text" name="email" /><br>')
+      expect(response.body).to include('<input type="text" name="user_name" /><br>')
+      expect(response.body).to include('<input type="text" name="password" /><br>')
+      expect(response.status).to eq(200)
+    end
+  end  
+
+  context "GET /log_in" do
+    it "returns the log in page" do
+      response = get('/log_in')
+      expect(response.body).to include('<label>User Name: </label>')
+      expect(response.body).to include('<label>Password: </label>')
+      expect(response.body).to include('<input type="text" name="user_name" /><br>')
+      expect(response.body).to include('<input type="text" name="password" /><br>')
+      expect(response.status).to eq(200)
+    end
+  end  
+
+  context "POST /log_in" do
+    it "changes the user database to logged in, lets the user then post" do
+      response = post('/log_in',
+      user_name: 'adam1',
+      password: 'password1')
+      expect(response.body).to include('<label>Peep: </label>')
+      expect(response.body).to include('<input type="text" name="new_content" /><br>')
+      expect(response.body).to include('<input type="submit" value="Peep/>')
+      expect(response.status).to eq(200)
     end
   end  
 end

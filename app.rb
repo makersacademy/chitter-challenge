@@ -15,7 +15,7 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
+  get '/homepage' do
     post_repo = PostRepository.new
     @posts = post_repo.all.sort_by{|post| post.date_time}.reverse
     return erb(:homepage)
@@ -27,12 +27,18 @@ class Application < Sinatra::Base
 
   post '/sign_up' do
     user_repo = UserRepository.new
-    user = User.new
-    user.name = params[:name]
-    user.email = params[:email]
-    user.user_name = params[:user_name]
-    user.password = params[:password]
-    user_repo.sign_up(user.name, user.email, user.user_name, user.password)
+    user_repo.sign_up(params[:name], params[:email], params[:user_name], params[:password])
     return erb(:sign_up_confirmation)
+  end
+
+  get '/log_in' do
+    return erb(:log_in)
+  end
+
+  post 'log_in' do
+    user_repo = UserRepository.new
+    user_repo.log_in(params[:user_name], params[:password])
+    @log_in_status = user_repo.check_logged_in(params[:user_name])
+    return erb(:homepage)
   end
 end
