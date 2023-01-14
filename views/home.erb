@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Peeps</h1>
+
+    <% @peeps.map do |peep| %>
+    <div><%=peep.id%>> <%= peep.content %> <%= peep.peep_date %></div>
+      <% end %>
+    </div>
+
+  </body>
+</html>
