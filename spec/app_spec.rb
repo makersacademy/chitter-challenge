@@ -84,6 +84,13 @@ describe App do
     end
   end
 
+  context 'POST /create_random' do
+    it 'adds a random post to the database' do
+      @request = post('/create_random', message: 'Test me out punk')
+      expect(@request.body).to include('Test me out punk')
+    end
+  end
+
   context 'POST /delete_post' do
     it 'deletes a post' do
       @request = post('/delete_post/1')

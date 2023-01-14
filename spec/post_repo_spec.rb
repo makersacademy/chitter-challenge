@@ -43,4 +43,11 @@ describe PostRepo do
       expect(@repo.all.length).to eq(2)
     end
   end
+
+  context 'runs the .messages method' do
+    it 'returns just the messages' do
+    end
+  end
+
+
 end

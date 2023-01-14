@@ -5,10 +5,26 @@
     <h2>Chitter Bot logo</h2>
     <h1>Posts</h1>
     <h1>Links</h1>
+
   </div>
    Hello <%= @user.name %>
+     <div class='post-form'>
+    <form action="/create" method="post">
+     <input type="text" name="message" placeholder="Message">
+     <input name="user_id" value="<%= @user.id %>" placeholder="User ID">
+     <input type="submit" value="Submit the form">
+    </form>
   </div>
-     <form action="/logout/<%= @user.id %>" method="post">
+  <div class='posts-container'>
+    <% @posts.all.each do |post|  %>
+      <div class='post'>
+        <%= post.name %>
+        <%= post.message %>
+        <%= post.username %> <%= post.post_time %>
+      </div>
+    <% end %>
+  </div>
+<form action="/logout/<%= @user.id %>" method="post">
      <input type="submit" value="Log out">
     </form>
   </body>

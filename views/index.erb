@@ -7,20 +7,21 @@
     <h1>Links</h1>
   </div>
   <div class='post-form'>
-    <form action="/create" method="post">
+    <form action="/create_random" method="post">
      <input type="text" name="message" placeholder="Message">
-     <input type="text" name="user_id" placeholder="User ID">
      <input type="submit" value="Submit the form">
     </form>
   </div>
   <div class='posts-container'>
     <% @posts.all.each do |post|  %>
-      <div class='post'>
-        <%= post.name %>
+     <div class='post'>
+        <%= post.name ? post.name : nil %>
         <%= post.message %>
-        <%= post.username %> <%= post.post_time %>
-      </div>
-    <% end %>
+        <%= post.username ? post.username : nil %>
+        <%= post.post_time %>
+     </div>
+   <% end %>
   </div>
+
   </body>
 </html>

@@ -22,7 +22,25 @@ class App < Sinatra::Base
   post '/create' do
     post = Post.new
     post.message = params[:message]
+    post.name = params[:name]
     post.user_id = params[:user_id]
+    @posts = PostRepo.new
+    @posts.create(post)
+    @users = UserRepo.new
+    @users.all.each do |record|
+      if record.id.include?(params[:user_id])
+        @user = record
+        @posts = PostRepo.new
+      end
+    end
+    return erb(:logged_in)
+  end
+
+  post '/create_random' do
+    post = Post.new
+    post.message = params[:message]
+    post.name = params[:name]
+    post.user_id = 3
     @posts = PostRepo.new
     @posts.create(post)
     return erb(:index)
@@ -41,18 +59,14 @@ class App < Sinatra::Base
       if record.username.include?(user.username.to_s) && record.password.include?(user.password.to_s)
         @user = record
         @users.login(@user.id)
+        @posts = PostRepo.new
         return erb(:logged_in)
       end
     end
     return erb(:password_username_error)
   end
 
-  post '/logout/:id' do
-    @users = UserRepo.new
-    @users.logout(params[:id])
-    @posts = PostRepo.new
-    return erb(:index)
-  end
+
 
   get '/login' do
     return erb(:log_in_page)
@@ -85,6 +99,13 @@ class App < Sinatra::Base
   post '/delete_user/:id' do
     @users = UserRepo.new
     @users.delete(params[:id])
+    @posts = PostRepo.new
+    return erb(:index)
+  end
+
+  post '/logout/:id' do
+    @users = UserRepo.new
+    @users.logout(params[:id])
     @posts = PostRepo.new
     return erb(:index)
   end

@@ -2,8 +2,13 @@ require_relative 'post'
 
 class PostRepo
   def create(post)
+    if post.user_id == nil
+      sql =
+      "INSERT INTO posts (post_time, message) VALUES ('#{Time.now}','#{post.message}');"
+    else
     sql =
       "INSERT INTO posts (post_time, message, user_id) VALUES ('#{Time.now}','#{post.message}','#{post.user_id}');"
+    end
     DatabaseConnection.exec_params(sql, [])
   end
   def all

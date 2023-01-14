@@ -6,7 +6,8 @@ TRUNCATE TABLE users, posts RESTART IDENTITY;
 
 INSERT INTO users (name, username, email, password, logged_in) VALUES
 ('name1', 'username1', 'email1', 'password1', false),
-('name2', 'username2', 'email2', 'password2', true);
+('name2', 'username2', 'email2', 'password2', true),
+('Anon', 'Anon', 'Anon', 'Anon', true);
 
 
 INSERT INTO posts (post_time, message, user_id) VALUES
