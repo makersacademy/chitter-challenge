@@ -26,10 +26,7 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.new
-    @user.username = params[:username]
-    @user.email = params[:email]
-    @user.password = params[:password]
+    @user = process_user_details
     repo = UserRepository.new
     repo.signup(@user)
     valid_user = repo.check_valid_user(@user.username, @user.password)

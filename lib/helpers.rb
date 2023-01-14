@@ -25,3 +25,11 @@ end
 def current_user
   UserRepository.new.find_by_id(session[:user_id])
 end
+
+def process_user_details
+  user = User.new
+  user.username = params[:username]
+  user.email = params[:email]
+  user.password = params[:password]
+  user
+end
