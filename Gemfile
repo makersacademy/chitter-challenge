@@ -26,3 +26,5 @@ gem "rack-test", "~> 2.0"
 gem "erb_lint", "~> 0.3.1"
 
 gem "htmlbeautifier", "~> 1.4"
+
+gem "sinatra-flash", "~> 0.3.0"
