@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
@@ -10,6 +11,7 @@ DatabaseConnection.connect
 class Application < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
@@ -26,15 +28,10 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    @user = process_user_details
-    repo = UserRepository.new
-    repo.signup(@user)
-    valid_user = repo.check_valid_user(@user.username, @user.password)
-    if valid_user
-      session[:user_id] = valid_user.id
-      session[:username] = valid_user.username
-      erb(:signup_success)
-    end
+    @user = process_signup_details
+    session[:user_id] = @user.id
+    session[:username] = @user.username
+    erb(:signup_success)
   end
 
   get '/signin' do
@@ -42,16 +39,11 @@ class Application < Sinatra::Base
   end
 
   post '/signin' do
-    repo = UserRepository.new
-    username = params[:username]
-    password = params[:password]
-    valid_user = repo.check_valid_user(username, password)
+    valid_user = process_signin_details(params[:username], params[:password])
     if valid_user
       session[:user_id] = valid_user.id
       session[:username] = valid_user.username
       redirect '/feed'
-    else
-      erb(:signin_form)
     end
   end
 
@@ -61,7 +53,7 @@ class Application < Sinatra::Base
   end
 
   post '/feed' do
-    peep = construct_peep
+    peep = process_peep
     repo = PeepRepository.new
     repo.create(peep)
     @peeps = repo.all
@@ -75,8 +67,7 @@ class Application < Sinatra::Base
   end
 
   get '/logout' do
-    session[:user_id] = nil
-    session[:username] = nil
+    session.clear
     redirect '/feed'
   end
 
