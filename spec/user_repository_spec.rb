@@ -37,9 +37,9 @@ describe UserRepository do
     expect(users[2].logged_in).to eq "f"
   end
 
-  it "inserts new user into users table" do
+  it "inserts new user into users table if they do not already exist" do
     repo = UserRepository.new
-    repo.sign_up('Fake Name', 'notreal@hotmail.com', 'MD', '123')
+    expect(repo.sign_up('Fake Name', 'notreal@hotmail.com', 'MD', '123')).to eq true
     users = repo.all
 
     expect(users[-1].name).to eq 'Fake Name'
@@ -47,6 +47,11 @@ describe UserRepository do
     expect(users[-1].user_name).to eq 'MD'
     expect(users[-1].password).to eq '123'
     expect(users[-1].logged_in).to eq 'f'
+  end
+
+  it "does not create new user if email or username exists" do
+    repo = UserRepository.new
+    expect(repo.sign_up('Fake Name', 'notreal@hotmail.com', 'adam1', '123')).to eq false
   end
 
   it "changes logged_in from false to true inside db" do
@@ -61,5 +66,21 @@ describe UserRepository do
   it "returns message for wrong user_name/password" do
     repo = UserRepository.new
     expect(repo.log_in('john3', 'makers')).to eq "Incorrect password or user name"
+  end
+
+  it "checks if the user is already logged in" do
+    repo = UserRepository.new
+    repo.log_in('adam1', 'password1')
+    expect(repo.check_logged_in('adam1')).to eq true
+  end
+
+  it "returns false if user is not logged in" do
+    repo = UserRepository.new
+    expect(repo.check_logged_in('adam1')).to eq false
+  end
+
+  it "finds user_name based on id" do
+    repo = UserRepository.new
+    expect(repo.find_user_name(1)).to eq "adam1"
   end
 end

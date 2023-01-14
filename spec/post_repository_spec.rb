@@ -1,4 +1,5 @@
 require_relative '../lib/post_repository'
+require_relative '../lib/user_repository'
 
 def reset_tables
   seed_sql = File.read('spec/seeds/seeds_chitter.sql')
@@ -7,7 +8,7 @@ def reset_tables
 end
 
 describe PostRepository do
-  after(:each) do 
+  before(:each) do 
     reset_tables
   end
 
@@ -23,24 +24,26 @@ describe PostRepository do
     expect(posts[1].content).to eq "Peep 2"
     expect(posts[1].date_time).to eq "18:48:00"
   end
-
+  
   it "creates a new post" do
     repo = PostRepository.new
-    repo.create("adam1", "New Post")
+    user_repo = UserRepository.new
+    user_repo.log_in('adam1', 'password1')
+    expect(repo.create("adam1", "New Post")).to eq true
     posts = repo.all
-    time = Time.now
+    posts.each do |post| 
+      p post.id
+      p post.content
+      p post.date_time
+      p post.user_id
+    end
     expect(posts[-1].id).to eq  "4"
     expect(posts[-1].content).to eq "New Post"
-    #expect(posts[-1].date_time).to eq time
   end
-
-  it "creates a new post with different details" do
+  
+  it "returns false when you are not logged in and try to post" do
     repo = PostRepository.new
-    repo.create("joe1", "New Post2")
-    posts = repo.all
-    time = Time.now
-    expect(posts[-1].id).to eq  "4"
-    expect(posts[-1].content).to eq "New Post2"
-    #expect(posts[-1].date_time).to eq time
+    user_repo = UserRepository.new
+    expect(repo.create("adam1", "New Post")).to eq false
   end
 end

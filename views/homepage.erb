@@ -1,0 +1,24 @@
+<html>
+  <head></head>
+  <body>
+  <h1>Chitter</h1>
+  <h2>Your place to peep</h2>
+    <div>
+    <a href="/sign_up">Sign up for Chitter</a>
+    </div>
+
+    <div>
+      <% @posts.each do |post|%>
+        <p>
+        <%= post.id %>
+        </p>
+        <p>
+          <%= post.content %>
+        </p>
+        <p>
+        <%= post.date_time %>
+        </p>
+      <% end %>
+    </div>
+  </body>
+</html>
