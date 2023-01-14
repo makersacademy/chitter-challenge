@@ -9,9 +9,8 @@
   </div>
    Hello <%= @user.name %>
      <div class='post-form'>
-    <form action="/create" method="post">
+    <form action="/create/<%= @user.id %>" method="post">
      <input type="text" name="message" placeholder="Message">
-     <input name="user_id" value="<%= @user.id %>" placeholder="User ID">
      <input type="submit" value="Submit the form">
     </form>
   </div>

@@ -19,16 +19,16 @@ class App < Sinatra::Base
     return erb(:index)
   end
 
-  post '/create' do
+  post '/create/:id' do
     post = Post.new
     post.message = params[:message]
     post.name = params[:name]
-    post.user_id = params[:user_id]
+    post.user_id = params[:id]
     @posts = PostRepo.new
     @posts.create(post)
     @users = UserRepo.new
     @users.all.each do |record|
-      if record.id.include?(params[:user_id])
+      if record.id.include?(params[:id])
         @user = record
         @posts = PostRepo.new
       end
