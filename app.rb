@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require_relative 'lib/cheep'
+require_relative 'lib/user'
 
 class Chitter < Sinatra::Base
   register Sinatra::ActiveRecordExtension
