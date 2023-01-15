@@ -16,11 +16,13 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     Rake::Task["db:seed"].invoke
     DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each) do
     DatabaseCleaner.start
   end
 
