@@ -29,8 +29,15 @@ describe Chitter do
         /leverage magnetic niches/,
         /embrace open-source architectures/,
         /productize robust relationships/
-        )
-      
+      )
+    end
+
+    it "Each Cheep is accompanied by its author's username" do
+      expect(@response.body).to include(
+        "marianne.grant",
+        "regine.tremblay",
+        "dominica",
+      )
     end
 
   end
