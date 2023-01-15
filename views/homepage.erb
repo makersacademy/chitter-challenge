@@ -2,9 +2,10 @@
   <head></head>
   <body>
     <h1>Chitter</h1>
-    <% @cheeps.each do |cheep| %>
+    <% @cheeps.zip(@corresponding_users).each do |cheep, user| %>
     <article class="cheep">
       <p>
+        <%= user.username %> <br>
         <%= cheep.content %> <br>
         Posted at: <%= cheep.created_at %>
       </p>

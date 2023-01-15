@@ -15,6 +15,9 @@ class Chitter < Sinatra::Base
 
   get "/" do
     @cheeps = Cheep.order("created_at DESC")
+    @corresponding_users = @cheeps.map do |cheep|
+      User.find(cheep.user_id)
+    end
     erb(:homepage)
   end
 end
