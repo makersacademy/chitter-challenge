@@ -33,6 +33,10 @@ class Chitter < Sinatra::Base
     erb(:new_user)
   end
 
+  get "/login" do
+    erb(:login)
+  end
+
   post "/new_user" do
     if username_exists(params[:username]) || email_exists(params[:email])
       status 400
