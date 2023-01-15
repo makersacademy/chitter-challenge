@@ -1,19 +1,20 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
-  pool: 5
-  username: my_app_database_967f_user
-  password: ENV['DATABASE_PASSWORD']
-  url: ENV['DATABASE_URL']
+  database: chitter
 
 development:
   <<: *default
-  database: "chitter"
+  database: chitter
 
 test:
   <<: *default
-  database: "chitter_test"
+  database: chitter-test
 
 production:
-  <<: *default
-  database: "chitter_production"
+  adapter: postgresql
+  encoding: unicode
+  database: chitter
+  pool: 5
+  host: ENV['DATABASE_URL']
+  username: my_app_database_967f_user
+  password: ENV['DATABASE_PASSWORD']
