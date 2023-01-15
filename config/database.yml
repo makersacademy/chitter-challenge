@@ -15,6 +15,6 @@ production:
   encoding: unicode
   database: chitter
   pool: 5
-  host: ENV['DATABASE_URL']
+  URL: ENV['DATABASE_URL']
   username: my_app_database_967f_user
   password: ENV['DATABASE_PASSWORD']
