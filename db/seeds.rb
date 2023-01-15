@@ -1,5 +1,6 @@
 require 'faker'
 
+Faker::Config.random = Random.new(10)
 
 if ENV['RACK_ENV'] == 'test'
   10.times do
