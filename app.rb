@@ -5,6 +5,8 @@ require "sinatra/activerecord"
 require_relative "lib/posts"
 require_relative "lib/replies"
 require_relative "lib/users"
+require_relative "lib/mail"
+require_relative "lib/secure"
 
 class Application < Sinatra::Base
   configure :development do
@@ -14,8 +16,8 @@ class Application < Sinatra::Base
   end
 
   get "/" do
-    @p = User.order("created_at DESC").joins(:posts).select("users.*, posts.*")
-
+    all_posts
+    redirect "/account" if session_check
     return erb(:homepage)
   end
 
@@ -24,10 +26,7 @@ class Application < Sinatra::Base
   end
 
   post "/login" do
-    user = User.find_by(username: params[:username])
-    return erb(:signinfailed) if user.nil?
-    if BCrypt::Password.new(user.password_digest) == params[:password]
-      session[:user_id] = user.id
+    if log_in
       return erb(:signedin)
     else
       return erb(:signinfailed)
@@ -35,35 +34,37 @@ class Application < Sinatra::Base
   end
 
   post "/sign-up" do
-    encrypted_password = BCrypt::Password.create(params[:password])
-    User.create(first_name: params[:first_name], surname: params[:surname], email: params[:email], username: params[:username], password_digest: encrypted_password)
-    return erb(:signedup)
+    sign_up
   end
 
   post "/create-post" do
-    return redirect("/") if session[:user_id] == nil
-    Post.create(user_id: session[:user_id], content: params[:content])
+    return redirect("/") if !session_check
+    create_post
     redirect "/account"
   end
 
   get "/account" do
-    if session[:user_id] == nil
-      return redirect("/")
-    else
-      @p = User.order("created_at DESC").joins(:posts).select("users.*, posts.*")
+    if session_check
+      all_posts
       return erb(:account)
+    else
+      return redirect("/")
     end
   end
 
-  get "/replies/:id" do
-    @t = User.joins(:posts, :replies).select("users.username, posts.content, replies.content")
-    return erb(:allreplies)
+  get "/replies/:id&:username&:content&:created_at" do
+    all_replies
+    if session_check
+      return erb(:allreplies_signedin)
+    else
+      return erb(:allreplies)
+    end
   end
 
-  post "/reply" do
-    return redirect("/") if session[:user_id] == nil
-    Reply.create(user_id: session[:user_id], post_id: params[:post_id], content: params[:content])
-    return ""
+  post "/reply/:id" do
+    return redirect("/") if !session_check
+    create_reply
+    redirect back
   end
 
   post "/logout" do
@@ -73,9 +74,72 @@ class Application < Sinatra::Base
 
   private
 
-  def mail
+  def sign_up
+    return erb(:missingitems) if params[:first_name].secure.empty? ||
+                                 params[:surname].secure.empty? ||
+                                 params[:email].secure.empty? ||
+                                 params[:username].secure.empty? ||
+                                 params[:password].secure.empty?
+    encrypted_password = BCrypt::Password.create(params[:password])
+    @user = User.create(first_name: params[:first_name].secure,
+                        surname: params[:surname].secure,
+                        email: params[:email].secure,
+                        username: params[:username].secure,
+                        password_digest: encrypted_password)
+
+    if @user.errors.empty?
+      return erb(:signedup)
+    else
+      @error = true
+      return erb(:signupfailed)
+    end
   end
 
-  def secure
+  def log_in
+    user = User.find_by(username: params[:username].secure)
+    return false if user.nil?
+    if BCrypt::Password.new(user.password_digest) == params[:password]
+      session[:user_id] = user.id
+      return true
+    else
+      return false
+    end
+  end
+
+  def all_posts
+    @p = User.order("created_at DESC").joins(:posts).select("posts.id AS po_id, users.*, posts.*")
+  end
+
+  def create_reply
+    redirect back if params[:content] == ""
+    Reply.create(user_id: session[:user_id], post_id: params[:id], content: params[:content].secure)
+    check_tag(params[:content])
+  end
+
+  def create_post
+    redirect back if params[:content] == ""
+    Post.create(user_id: session[:user_id], content: params[:content].secure)
+    check_tag(params[:content])
+  end
+
+  def all_replies
+    @w = [params[:username], params[:content], params[:created_at], params[:id]]
+    @t = User.joins(:replies).select("users.*, replies.*").where("replies.post_id" => params[:id])
+  end
+
+  def check_tag(content)
+    name = content.split.select { |b| b.include?("@") }.join.tr("@", "")
+    user = User.find_by(username: name)
+    return "" if user.nil?
+    new_email = EmailTag.new
+    new_email.send(user.email)
+  end
+
+  def session_check
+    if session[:user_id] == nil
+      return false
+    else
+      return session[:user_id]
+    end
   end
 end

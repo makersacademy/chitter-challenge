@@ -1,7 +1,7 @@
 require "faker"
 require "bcrypt"
 
-5.times do
+20.times do
   User.create!(
     first_name: Faker::Name.first_name,
     surname: Faker::Name.last_name,
@@ -11,17 +11,17 @@ require "bcrypt"
   )
 end
 
-5.times do
+40.times do
   Post.create!(
-    user_id: rand(1..5),
+    user_id: rand(1..20),
     content: Faker::ChuckNorris.fact,
   )
 end
 
-10.times do
+30.times do
   Reply.create!(
-    user_id: rand(1..5),
-    post_id: rand(1..5),
+    user_id: rand(1..20),
+    post_id: rand(1..40),
     content: Faker::Quote.yoda,
   )
 end

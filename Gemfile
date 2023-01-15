@@ -26,3 +26,11 @@ gem "rake"
 gem "bcrypt" # password encryption
 
 gem "faker", "~> 3.1"
+
+gem "sendgrid-ruby", "~> 6.6"
+
+gem "mail", "~> 2.8"
+
+gem "actionmailer", "~> 7.0"
+
+gem "pony", "~> 1.13"

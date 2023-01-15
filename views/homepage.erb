@@ -15,12 +15,11 @@
     </div>
 
     <div>
-      <h1>Chits</h1>
+      <h1>Peeps</h1>
       <% @p.each do |a| %>
       <p>
-        Username: <%= a.username %> Chit: <%= a.content %> Time: <%=
-        a.created_at %>
-        <a href="/replies">View replies</a>
+        Username: <%= a.username %> Chit: <%= a.content %> Time: <%= a.created_at %>
+        <a href="/replies/<%= a.po_id %>&<%= a.username %>&<%= a.content %>&<%= a.created_at %>">View replies</a>
       </p>
       <% end %>
     </div>

@@ -19,23 +19,17 @@ create reply
 user_id - session id
 redirect inside html always return erb
 post - if session nil dont let post
-
-
-
-rename primary keys users_id (might mess with session id)
-
-rename content columns from posts and replies
-
-if chit empty dont post
-
 I want to receive an email if I am tagged in a Peep
 method that runs if post or reply contains '@'
 removes the username following at checks database
 sends email if exist does nothing if it doesn't.
-
 securing app method on inputs
-
-view all replies to post page
+redirect erb on wrong username and password
+if chit empty dont post
+if reply empty dont post
+username unique
+email unique 
+sign up empty return error
 
 active records .each for resetting database on test
 

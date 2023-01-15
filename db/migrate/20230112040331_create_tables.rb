@@ -21,4 +21,9 @@ class CreateTables < ActiveRecord::Migration[7.0]
       t.timestamps
     end
   end
+
+  def up
+    add_index :users, :username, unique: true
+    add_index :users, :email, unique: true
+  end
 end

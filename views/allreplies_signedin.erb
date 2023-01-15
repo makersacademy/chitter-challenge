@@ -10,16 +10,25 @@
         Username: @<%= @w[0] %> Content: <%= @w[1] %> Date: <%= @w[2] %> 
       </p>
 
- 
-      <% @t.each do |a| %>
+
+
+
+      <blockquote>
+   <% @t.each do |a| %>
       <p>
         Reply date: <%= a.created_at %> Comment: <%= a.content %> Username: <%= a.username %> 
       </p>
       <% end %>
+</blockquote>
     </div>
 
   <div>
-  
+      <h1>Reply</h1>
+      <form action="/reply/<%= @w[3] %>" method="POST">
+        <label for="content">Reply:</label>
+        <input type="text" name="content" />
+        <input type="submit" value="Submit" />
+      </form>
  </div>
   </body>
 </html>
