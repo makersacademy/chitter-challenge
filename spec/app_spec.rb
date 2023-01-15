@@ -151,4 +151,23 @@ describe Chitter do
       check_failure
     end
   end
+
+  context "POST /new_cheep after login" do
+    it "adds new cheep to database" do
+      post("/new_user",
+        name: "Finn McCoy",
+        username: "mccoy99",
+        email: "finnmccoy99@example.com",
+        password: "very_secure123"
+      )
+      post("/login",
+        username: "mccoy99",
+        password: "very_secure123"
+      )
+      @response = post("/new_cheep", content: "Testing")
+      expect(@response.status).to eq 302
+      expect(Cheep.find(31).content).to eq "Testing"
+      expect(Cheep.find(31).user_id).to eq 14
+    end
+  end
 end
