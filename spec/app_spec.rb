@@ -38,6 +38,11 @@ describe Chitter do
         "regine.tremblay",
         "dominica",
       )
+      check_order_within_body(
+        /dominica/,
+        /regine.tremblay/,
+        /marianne.grant/,
+      )
     end
 
   end
