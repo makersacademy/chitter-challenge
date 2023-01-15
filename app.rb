@@ -21,6 +21,11 @@ class Chitter < Sinatra::Base
     User.find_by(email: email)
   end
 
+  def invalid_input
+    status 400
+    erb(:failure)
+  end
+
   get "/" do
     @cheeps = Cheep.order("created_at DESC")
     @corresponding_users = @cheeps.map do |cheep|
@@ -38,10 +43,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/new_user" do
-    if username_exists(params[:username]) || email_exists(params[:email])
-      status 400
-      return erb(:failure)
-    end
+    return invalid_input if username_exists(params[:username]) || email_exists(params[:email])
     User.create(
       name: params[:name],
       username: params[:username],
@@ -49,5 +51,17 @@ class Chitter < Sinatra::Base
       password: params[:password]
     )
     erb(:success)
+  end
+
+  post "/login" do
+    username, password = params[:username], params[:password]
+    user = User.find_by(username: username)
+    return invalid_input unless user
+    if user.authenticate(password)
+      @login = user
+      erb(:success)
+    else
+      invalid_input
+    end
   end
 end
