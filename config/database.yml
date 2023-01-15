@@ -1,18 +1,18 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: chitter
   pool: 5
-  timeout: 5000
+  username: my_app_database_967f_user
+  password: ENV['DATABASE_PASSWORD']
+
+development:
+  <<: *default
+  database: "chitter"
 
 test:
-  adapter: postgresql
-  database: chitter_test
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: "chitter_test"
 
 production:
-  adapter: postgresql
-  database: ENV['DATABASE_URL']
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: "chitter_production"
