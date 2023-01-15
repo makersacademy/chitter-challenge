@@ -31,5 +31,8 @@ username unique
 email unique 
 sign up empty return error
 
+
+
+hide password on entry
 active records .each for resetting database on test
 
