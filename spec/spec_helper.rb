@@ -2,6 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner-active_record'
 require 'rake'
+require 'sinatra/test_helpers'
 ENV["RACK_ENV"] = "test"
 require_relative '../app' 
 
@@ -15,6 +16,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     Rake::Task["db:seed"].invoke
