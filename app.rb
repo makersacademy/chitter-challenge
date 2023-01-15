@@ -13,6 +13,14 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  def username_exists(username)
+    User.find_by(username: username)
+  end
+
+  def email_exists(email)
+    User.find_by(email: email)
+  end
+
   get "/" do
     @cheeps = Cheep.order("created_at DESC")
     @corresponding_users = @cheeps.map do |cheep|
@@ -26,6 +34,10 @@ class Chitter < Sinatra::Base
   end
 
   post "/new_user" do
+    if username_exists(params[:username]) || email_exists(params[:email])
+      status 400
+      return erb(:failure)
+    end
     User.create(
       name: params[:name],
       username: params[:username],

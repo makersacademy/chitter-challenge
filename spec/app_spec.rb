@@ -14,6 +14,13 @@ describe Chitter do
     )
   end
 
+  def check_failure
+    expect(@response.body).to include(
+      "<h1>Your input failed</h1><br>",
+      '<a href="/">Go back to homepage</a>'
+    )
+  end
+
   def check_order_within_body(*regexs)
     regexs[0...(-1)].each.with_index do |regex, index|
       expect(@response.body =~ regex).to be < (@response.body =~ regexs[index + 1])
@@ -69,7 +76,8 @@ describe Chitter do
 
 
   context "POST /new_user" do
-    it "If email and username are unique, adds a new user to database and retaurns success page" do
+    it "If email and username are unique, adds a new" \
+     "user to database and returns success page" do
       @response = post("/new_user",
         name: "Finn McCool",
         username: "mccool99",
@@ -79,6 +87,19 @@ describe Chitter do
       check200
       expect(User.last.name).to eq "Finn McCool"
       check_success
+    end
+
+    it "If email or password are not unique, does not add to" \
+     "database and returns failure with status 400" do
+      @response = post("/new_user",
+        name: "Finn McCool",
+        username: "dominica",
+        email: "finnmccool99@example.com",
+        password: "very_secure123"
+      )
+      expect(@response.status).to eq 400
+      expect(User.last.name).not_to eq "Finn McCool"
+      check_failure
     end
 
   end
