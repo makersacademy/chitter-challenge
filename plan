@@ -1,16 +1,4 @@
-
-home page
-get /
-will show all chitts 
-will have form for login 
-will have link for sign up 
-
-pages
------------
-homepage
-login page
-sign up page
-logged in - homepage - create new tweet/reply to tweet - only on logged in 
+List
 
 create post 
 user_id - session id
@@ -30,9 +18,5 @@ if reply empty dont post
 username unique
 email unique 
 sign up empty return error
-
-
-
 hide password on entry
-active records .each for resetting database on test
-
+email content

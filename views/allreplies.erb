@@ -4,13 +4,13 @@
     <h1>Chitter</h1>
 
     <div>
-      <h1>Replies</h1>
+
 
       <p>
         Username: @<%= @w[0] %> Content: <%= @w[1] %> Date: <%= @w[2] %> 
       </p>
 
- 
+      <h1>Replies</h1>
       <% @t.each do |a| %>
       <p>
         Reply date: <%= a.created_at %> Comment: <%= a.content %> Username: <%= a.username %> 

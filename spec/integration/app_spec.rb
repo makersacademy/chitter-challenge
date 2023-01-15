@@ -16,7 +16,7 @@ describe Application do
     it "returns list of tweets in reverse order with 200" do
       response = get("/")
       expect(response.status).to eq 200
-      expect(response.body).to include("Time: 2023-01-12 07:29:56 UTC")
+      expect(response.body).to include("Time: 2023-01-15 19:46:24 UTC")
     end
 
     it "returns login and sign up forms" do
@@ -24,13 +24,13 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include('<form action="/login" method="POST">')
       expect(response.body).to include('<input type="text" name="username" />')
-      expect(response.body).to include('<input type="text" name="password" />')
+      expect(response.body).to include('<input type="password" name="password" />')
     end
 
     it "returns view replies hyperlink" do
       response = get("/")
       expect(response.status).to eq 200
-      expect(response.body).to include('<a href="/replies">View replies</a>')
+      expect(response.body).to include('href="/replies/10&')
     end
   end
 
@@ -38,9 +38,6 @@ describe Application do
     it "redirects to homepage when no session id" do
       response = get("/account")
       expect(response.status).to eq 302
-    end
-
-    it "if logged in sends to account page" do
     end
   end
   context "GET /sign-up" do
@@ -51,21 +48,38 @@ describe Application do
       expect(response.body).to include ('<input type="text" name="surname" />')
       expect(response.body).to include ('<input type="text" name="email" />')
       expect(response.body).to include ('<input type="text" name="username" />')
-      expect(response.body).to include ('<input type="text" name="password" />')
+      expect(response.body).to include ('<input type="password" name="password" />')
     end
   end
 
   context "GET /replies" do
+    it "returns list of replies for post 1" do
+      response = get("/replies/10&chelsey_heathcote&Quantum%20cryptography%20does%20not%20work%20on%20Chuck%20Norris.%20When%20something%20is%20being%20observed%20by%20Chuck%20it%20stays%20in%20the%20same%20state%20until%20he's%20finished.&2023-01-15%2019:46:24%20UTC")
+      expect(response.status).to eq 200
+    end
   end
 
   context "POST /reply" do
+    it "posts reply" do
+      post("/login?username=testing&password=testing")
+      response = post("/reply/10?content=testing2")
+      expect(response.status).to eq 302
+      test = get("/replies/10&chelsey_heathcote&Quantum%20cryptography%20does%20not%20work%20on%20Chuck%20Norris.%20When%20something%20is%20being%20observed%20by%20Chuck%20it%20stays%20in%20the%20same%20state%20until%20he's%20finished.&2023-01-15%2019:46:24%20UTC")
+      expect(test.body).to include("testing2")
+    end
   end
 
   context "POST /sign-up" do
-    it "sends sign up form" do
+    it "error if username or email already exists" do
       response = post("/sign-up?first_name=testing&surname=testing&email=testing&username=testing&password=testing")
       expect(response.status).to eq 200
-      expect(response.body).to include("<p>You're signed up to Chitter!</p>")
+      expect(response.body).to include("Email or username already exists")
+    end
+
+    it "returns error if all boxes aren't complete" do
+      response = post("/sign-up?first_name=&surname=testing&email=testing&username=&password=testing")
+      expect(response.status).to eq 200
+      expect(response.inspect).to include "<h1>You have left one of the boxes empty</h1>"
     end
   end
 
@@ -78,11 +92,12 @@ describe Application do
   end
 
   context "POST /create-post" do
-    xit "creates post" do
-      t = post("/login?username=testing&password=testing")
-      response = post("/create-post?content=testing")
-      #expect(response.status).to eq 200
-      #expect(response.body).to include("Username: orhankhan1 Chit: testing Time: 2023-01-13 06:29:38 UTC")
+    it "creates post" do
+      post("/login?username=testing&password=testing")
+      response = post("/create-post?user_id=6&content=orhan")
+      test = get("/account")
+      expect(test.status).to eq 302
+      expect(test.inspect).to include("orhan")
     end
   end
 

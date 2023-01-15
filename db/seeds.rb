@@ -11,17 +11,17 @@ require "bcrypt"
   )
 end
 
-40.times do
+30.times do
   Post.create!(
-    user_id: rand(1..20),
+    user_id: rand(1..5),
     content: Faker::ChuckNorris.fact,
   )
 end
 
-30.times do
+40.times do
   Reply.create!(
-    user_id: rand(1..20),
-    post_id: rand(1..40),
+    user_id: rand(1..5),
+    post_id: rand(1..10),
     content: Faker::Quote.yoda,
   )
 end

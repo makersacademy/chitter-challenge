@@ -26,11 +26,8 @@ class Application < Sinatra::Base
   end
 
   post "/login" do
-    if log_in
-      return erb(:signedin)
-    else
-      return erb(:signinfailed)
-    end
+    return erb(:signedin) if log_in
+    return erb(:signinfailed)
   end
 
   post "/sign-up" do
@@ -44,21 +41,17 @@ class Application < Sinatra::Base
   end
 
   get "/account" do
-    if session_check
-      all_posts
-      return erb(:account)
-    else
-      return redirect("/")
-    end
+    all_posts
+    return erb(:account) if session_check
+
+    return redirect("/")
   end
 
   get "/replies/:id&:username&:content&:created_at" do
     all_replies
-    if session_check
-      return erb(:allreplies_signedin)
-    else
-      return erb(:allreplies)
-    end
+    return erb(:allreplies_signedin) if session_check
+
+    return erb(:allreplies)
   end
 
   post "/reply/:id" do
@@ -91,7 +84,7 @@ class Application < Sinatra::Base
       return erb(:signedup)
     else
       @error = true
-      return erb(:signupfailed)
+      return erb(:signupfailled)
     end
   end
 
@@ -136,10 +129,8 @@ class Application < Sinatra::Base
   end
 
   def session_check
-    if session[:user_id] == nil
-      return false
-    else
-      return session[:user_id]
-    end
+    return false if session[:user_id] == nil
+
+    return session[:user_id]
   end
 end

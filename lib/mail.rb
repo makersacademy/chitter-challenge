@@ -12,6 +12,6 @@ class EmailTag
       :domain => "localhost.localdomain",
     } }
 
-    Pony.mail(:to => send, :subject => "hi", :body => "Hello there.")
+    Pony.mail(:to => send, :subject => "Chitter tag", :body => "Somebody has tagged you in a post on Chitter.")
   end
 end
