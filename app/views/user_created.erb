@@ -1,0 +1,10 @@
+<html>
+
+<body>
+  <h3>Welcome to Chitter, <%= current_user.first_name %>!</h3>
+  <form action="/user/<%=current_user.username%>">
+    <input type="submit" value="Go to your home" />
+  </form>
+</body>
+
+</html>

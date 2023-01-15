@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset=utf-8>
+  <h1>Chitter Home!</h1>
+</head>
+
+<body>
+  <div>
+    <p>Hello, <%= current_user.first_name %>!</p>
+    <form action="/create_peep" method="GET">
+      <input type="submit" value="New Peep" />
+    </form>
+    <form action="/sign_out" method="GET">
+      <input type="submit" value="Sign Out" />
+    </form>
+  </div>
+  <div>
+    <h2>Tagged Peeps:</h2>
+    <% if @tagged_peeps.length == 0 %>
+    <p>You are not tagged in any peeps at the moment</p>
+    <% else %>
+    <% @tagged_peeps.each do |peep| %>
+      <%=peep.user.first_name%> <%=peep.user.last_name%><br>
+      "<%=peep.content%>"<br>
+      <%=formatted_timestamp = peep.time.strftime("%H:%M:%S %d/%h/%Y")%><br>
+      <p></p>
+    
+    <% end %>
+    <% end %>
+  </div>
+  <h2>Peeps Timeline:</h2>
+  <div>
+    <% @peeps.each do |peep| %>
+    <div>
+      <p><strong>Peep:</strong></p>
+      <%=peep.user.username%> - <%=peep.user.first_name%> <%=peep.user.last_name%><br>
+      "<%=peep.content%>"<br>
+      <%=formatted_timestamp = peep.time.strftime("%H:%M:%S %d-%m-%Y")%><br>
+    <p><strong>Replies:</strong></p>
+      <% @replies_array = [] %>
+      <% @replies.each do |reply| %>
+        <% if reply.peep_id == peep.id %>
+          <% @replies_array << reply %>
+        <%end%>
+      <%end%>
+      
+      <% if @replies_array.length == 0 %>
+        <p>No one has replied to this peep yet...</p>
+      <% else %>
+        <% @replies_array.each do |reply| %>
+          "<%=reply.content%>" - <%=reply.user.first_name%> <%=reply.user.last_name%> - 
+          <%=formatted_timestamp = reply.time.strftime("%H:%M:%S %d-%m-%Y")%><br>
+        <% end %>
+      <% end %>
+      </p>
+      <form action="/create_reply/<%=peep.id%>" method="GET">
+      <input type="submit" value="Reply" />
+      </form>
+      --------------------------------------------------------------------------------------<br>
+    <p></p>
+    </div>
+    <% end %>
+  </div>
+</body>
+
+</html>
+
