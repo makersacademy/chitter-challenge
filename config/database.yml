@@ -4,6 +4,7 @@ default: &default
   pool: 5
   username: my_app_database_967f_user
   password: ENV['DATABASE_PASSWORD']
+  url: ENV['DATABASE_URL']
 
 development:
   <<: *default
@@ -16,3 +17,4 @@ test:
 production:
   <<: *default
   database: "chitter_production"
+  url: ENV['DATABASE_URL']
