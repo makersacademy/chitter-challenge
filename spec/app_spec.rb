@@ -48,9 +48,22 @@ describe Chitter do
 
   end
 
-  context "POST /user" do
-    it "Adds a new user to database" do
-      @response = post("/user",
+  context "GET /new_user" do
+    it "gets the form for creating new user" do
+      @response = get("/new_user")
+      check200
+      expect(@response.body).to include(
+        "<h1>Sign up for Chitter</h1>",
+        "<form method=\"post\" action=\"/new_user\">",
+        'Name <input type="text" name="name"/>'
+      )
+    end
+  end
+
+
+  context "POST /new_user" do
+    it "If email and username are unique, adds a new user to database and retaurns success page" do
+      @response = post("/new_user",
         name: "Finn McCool",
         username: "mccool99",
         email: "finnmccool99@example.com",
@@ -58,6 +71,11 @@ describe Chitter do
       )
       check200
       expect(User.last.name).to eq "Finn McCool"
+      expect(@response.body).to include(
+        "<h1>Success</h1><br>",
+        '<a href="/">Go back to homepage</a>'
+      )
     end
+
   end
 end
