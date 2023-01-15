@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'bcrypt'
 require_relative 'lib/cheep'
 require_relative 'lib/user'
 
