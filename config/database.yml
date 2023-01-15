@@ -15,7 +15,7 @@ production:
   encoding: unicode
   database: chitter
   pool: 5
-  host: <%= ENV['DATABASE_URL'] %>
-  username: my_app_database_967f_user
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  port: 5432
