@@ -68,8 +68,21 @@ describe Chitter do
       check200
       expect(@response.body).to include(
         "<h1>Sign up for Chitter</h1>",
-        "<form method=\"post\" action=\"/new_user\">",
+        '<form method="post" action="/new_user">',
         'Name <input type="text" name="name"/>'
+      )
+    end
+  end
+
+  context "GET /login" do
+    it "gets the form for logging in" do
+      @response = get("/login")
+      check200
+      expect(@response.body).to include(
+        "<h1>Log in to your Chitter account</h1>",
+        '<form method="post" action="/login">',
+        'Username: <input type="text" name="username"/>',
+        'Password: <input type="text" name="password"/>'
       )
     end
   end
