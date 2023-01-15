@@ -2,6 +2,19 @@
   <head></head>
   <body>
     <h1>Chitter</h1>
+    <%if @@login%>
+      <p>
+      What's on your mind <%=@@login.username%>?
+      </p>
+      <form method="post" action="/new_cheep">
+        Cheep here! <input type="text" name="content">
+        <input type="submit" value="Submit" />
+      </form>
+    <%else%>
+      <a href="/login">Log in</a> <br>
+      <a href="/new_user">Sign Up</a>
+
+    <%end%>
     <% @cheeps.zip(@corresponding_users).each do |cheep, user| %>
     <article class="cheep">
       <p>

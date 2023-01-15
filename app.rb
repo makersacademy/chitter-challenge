@@ -13,6 +13,11 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  def initialize
+    super
+    @@login = false
+  end
+
   def username_exists(username)
     User.find_by(username: username)
   end
@@ -53,12 +58,20 @@ class Chitter < Sinatra::Base
     erb(:success)
   end
 
+  post "/new_cheep" do
+    Cheep.create(
+      content: params[:content],
+      user_id: @@login.id
+    )
+    return redirect("/")
+  end
+
   post "/login" do
     username, password = params[:username], params[:password]
     user = User.find_by(username: username)
     return invalid_input unless user
     if user.authenticate(password)
-      @@login = user.username
+      @@login = user
       erb(:success)
     else
       invalid_input
