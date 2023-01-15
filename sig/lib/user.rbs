@@ -1,0 +1,25 @@
+class Users
+  attr_accessor id: int
+
+  attr_accessor full_name: string
+
+  attr_accessor username: string
+
+  attr_accessor hashed_password_id: int
+
+  attr_accessor writer_peep_id: int
+
+  attr_accessor peep_reply_id: int
+
+  def initialize: () -> void
+
+  def log_in: () -> nil
+
+  def log_out: () -> nil
+
+  def post_peep: () -> nil
+
+  def tag_peep: () -> nil
+
+  def reply_to_peep: () -> nil
+end

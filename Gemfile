@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '3.0.2'
-
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
@@ -11,3 +9,9 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem "rake", "~> 13.0"
+
+gem "pg", "~> 1.4"
+
+gem "bcrypt", "~> 3.1"

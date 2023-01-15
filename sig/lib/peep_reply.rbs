@@ -1,0 +1,7 @@
+class PeepReplies
+  attr_accessor id: int
+
+  attr_accessor content: string
+
+  attr_accessor peep_id: int
+end

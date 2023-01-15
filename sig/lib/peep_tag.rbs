@@ -1,0 +1,7 @@
+class PeepTags
+  attr_accessor id: untyped
+
+  attr_accessor tagged_users: untyped
+
+  attr_accessor peep_id: untyped
+end
