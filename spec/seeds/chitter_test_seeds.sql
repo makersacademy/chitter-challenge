@@ -3,7 +3,7 @@ TRUNCATE TABLE users, peeps RESTART IDENTITY;
 INSERT INTO users (email, password_hash, name, username)
 VALUES (
     'ohlookitdatboi@thisemail.com',
-    'password',
+    '$2a$12$qyub66VICo9rrsmCr7gNwuxe3kKjjQOlZvl7F/03VnsNmDjOYLQmu',
     'Dat Boi',
     'datboi'
 );
@@ -11,7 +11,7 @@ VALUES (
 INSERT INTO users (email, password_hash, name, username)
 VALUES (
     'mr_robinson@thisemail.com',
-    'somepassword',
+    '$2a$12$xNYxIgiN/GsNqJ/.hk05X.1Y6.3agbvaQcOLN5x/IgMDBsmCmQCES',
     'Rob Robinson',
     'robrobinson'
 );
