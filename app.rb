@@ -32,5 +32,6 @@ class Chitter < Sinatra::Base
       email: params[:email],
       password: params[:password]
     )
+    erb(:success)
   end
 end
