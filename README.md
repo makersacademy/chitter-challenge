@@ -1,3 +1,35 @@
+#Rachel Newby's Chitter Challenge
+
+This is a socila media platform which enables users to view all messages, login and create their own messages, logout, or sign up to the platform. 
+
+This is a partial solution and there is more work to be done. 
+
+##Existing functionality: 
+- You don't have to be logged on to see the peeps
+- You sign up with email, password, name, and user name
+- The user name and email are unique
+- Peeps have the name of the user and their user handle
+
+##Things to do: 
+- Sessions have not been tested - there are potential bugs
+- Passwords are not currently encrypted! Please be aware of this while testing
+- You cannot delete a peep or a user
+- You cannot edit a peep or a user
+- You cannot view only your own posts
+- You cannot be tagged/ you cannot tag others in peeps
+- You will not get an email if you are tagged in a peep
+- You cannot reply to peeps
+- CSS has not been added
+
+##To run the tests, you will need the following: 
+- gem "pg", "~> 1.4"
+- gem "sinatra", "~> 3.0"
+- gem "sinatra-contrib", "~> 3.0"
+- gem "webrick", "~> 1.7"
+- gem "rack-test", "~> 2.0"
+
+
+The task:
 Chitter Challenge
 =================
 
