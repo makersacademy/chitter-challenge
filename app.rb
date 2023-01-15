@@ -30,10 +30,6 @@ class Application < Sinatra::Base
     return erb(:signup)
   end
 
-  get '/login/new' do
-    return(:index)
-  end
-
   post '/login' do
     if user_name_exists?(params[:user_name]) # Checks if the user_name is in the database
       user_repo = UserRepository.new
@@ -41,6 +37,7 @@ class Application < Sinatra::Base
       if @result.password == params[:password] # Checks if the password given matches the user's password
         posts_repo = PostRepository.new
         sort_by_time(posts_repo.all)
+        session[:user_id] = @result.id
         return erb(:user) 
       else 
         return erb(:loginfailed) # If given password doesn't match user's password, login failed page displayed
@@ -51,22 +48,29 @@ class Application < Sinatra::Base
   end
 
   post '/newpost' do
-    user_repo = UserRepository.new
-    @result = user_repo.find_by_user_name(params[:user_name])
-    posts_repo = PostRepository.new
-    new_post = Post.new
-    new_post.message = params[:message]
-    new_post.timestamp = Time.now
-    new_post.user_id = @result.id
-    new_post.name = @result.name
-    new_post.user_name = @result.user_name
-    posts_repo.create(new_post)
-    @posts = sort_by_time(posts_repo.all)
-    return erb(:user)
+    if session[:user_id] == nil
+      return erb(:login)
+    else
+      user_repo = UserRepository.new
+      @result = user_repo.find(session[:user_id])
+      posts_repo = PostRepository.new
+      new_post = Post.new
+      new_post.message = params[:message]
+      new_post.timestamp = Time.now
+      new_post.user_id = @result.id
+      new_post.name = @result.name
+      new_post.user_name = @result.user_name
+      posts_repo.create(new_post)
+      @posts = sort_by_time(posts_repo.all)
+      return erb(:user)
+    end
   end
 
-  get '/newpost' do
-    return erb(:login)
+  post '/logout' do
+    session[:user_id] = nil
+    post_repo = PostRepository.new
+    sort_by_time(post_repo.all)
+    return erb(:index)
   end
 
   post '/signup' do

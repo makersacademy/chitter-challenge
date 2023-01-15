@@ -130,14 +130,4 @@ describe Application do
       expect(response.status).to eq(200)
     end
   end
-
-  context "GET /newpost" do
-    it "redirects user to the login page" do
-      response = get('/newpost') 
-      
-      expect(response.status).to eq(200)
-      expect(response.body).to include ('<a href="/signup">Signup here</a>')
-      expect(response.body).to include ('<form action="/login" method="POST">')
-    end
-  end
 end

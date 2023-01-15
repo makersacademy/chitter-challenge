@@ -3,7 +3,7 @@
   <body>
     <header>
       <nav>
-        <form action="/" method="GET">
+        <form action="/logout" method="POST">
         <input type="submit" value="Logout">
         </form>
       </nav>
@@ -13,8 +13,6 @@
     <div>
     <form action="/newpost" method="POST">
       <label for="message">Enter your message:<label><input type="text" name="message"> <br>
-      <br>
-      <label for="user_name">Enter your user name:<label><input type="text" name="user_name"> <br>
       <br>
       <input type="submit" value="Publish post">
     </form>
