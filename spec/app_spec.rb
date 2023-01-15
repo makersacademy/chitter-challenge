@@ -1,6 +1,8 @@
 describe Chitter do
   include Sinatra::TestHelpers
 
+  let(:app) { Chitter.new }
+
   def check_200(response)
     expect(response.status).to eq 200
   end
