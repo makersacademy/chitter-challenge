@@ -7,6 +7,13 @@ describe Chitter do
     expect(@response.status).to eq 200
   end
 
+  def check_success
+    expect(@response.body).to include(
+      "<h1>Success</h1><br>",
+      '<a href="/">Go back to homepage</a>'
+    )
+  end
+
   def check_order_within_body(*regexs)
     regexs[0...(-1)].each.with_index do |regex, index|
       expect(@response.body =~ regex).to be < (@response.body =~ regexs[index + 1])
@@ -71,10 +78,7 @@ describe Chitter do
       )
       check200
       expect(User.last.name).to eq "Finn McCool"
-      expect(@response.body).to include(
-        "<h1>Success</h1><br>",
-        '<a href="/">Go back to homepage</a>'
-      )
+      check_success
     end
 
   end
