@@ -18,9 +18,9 @@ describe PostRepo do
   context 'runs the .all method' do
     it 'returns all posts' do
       expect(@repo.all.length).to eq(2)
-      expect(@repo.all[0].message).to eq('hello1')
-      expect(@repo.all[0].name).to eq('name1')
-      expect(@repo.all[0].username).to eq('username1')
+      expect(@repo.all[1].message).to eq('Check out this chitter bot')
+      expect(@repo.all[1].name).to eq('Jimmy Kimmel')
+      expect(@repo.all[1].username).to eq('username2')
     end
   end
 

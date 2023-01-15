@@ -39,8 +39,7 @@ class App < Sinatra::Base
   post '/create_random' do
     post = Post.new
     post.message = params[:message]
-    post.name = params[:name]
-    post.user_id = 3
+    post.user_id = 1
     @posts = PostRepo.new
     @posts.create(post)
     return erb(:index)

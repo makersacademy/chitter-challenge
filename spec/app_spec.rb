@@ -16,6 +16,7 @@ describe App do
   # class so our tests work.
   let(:app) { App.new }
   before(:all) { reset_table }
+  after(:all) { reset_table }
   after(:each) { expect(@request.status).to eq 200 }
 
   context 'GET /' do
@@ -35,7 +36,7 @@ describe App do
   context 'POST /login' do
     it 'returns a customised homepage' do
       @request = post('/login', username: 'username2', password: 'password2')
-      expect(@request.body).to include('Hello name2')
+      expect(@request.body).to include('Hello Jimmy Kimmel')
     end
   end
 
@@ -56,7 +57,7 @@ describe App do
 
   context 'POST /create_user with duplicate email' do
     it 'returns an error page' do
-      @request = post('/create_user', name: 'test5', username: 'username5', email: 'email1', password: 'password5')
+      @request = post('/create_user', name: 'test5', username: 'username5', email: 'email2', password: 'password5')
       expect(@request.body).to include("username or email already exists")
       reset_table
     end
@@ -77,9 +78,9 @@ describe App do
     end
   end
 
-  context 'POST /create' do
+  context 'POST /create/1' do
     it 'adds a post to the database' do
-      @request = post('/create', message: 'Test me out punk', user_id: '2')
+      @request = post('/create/1', message: 'Test me out punk')
       expect(@request.body).to include('Test me out punk')
     end
   end
@@ -95,7 +96,7 @@ describe App do
     it 'deletes a post' do
       @request = post('/delete_post/1')
       posts = PostRepo.new
-      expect(posts.all.length).to eq(2)
+      expect(posts.all.length).to eq(3)
     end
   end
 
@@ -103,7 +104,7 @@ describe App do
     it 'deletes a post' do
       @request = post('/delete_post/2')
       posts = PostRepo.new
-      expect(posts.all.length).to eq(1)
+      expect(posts.all.length).to eq(2)
     end
   end
 

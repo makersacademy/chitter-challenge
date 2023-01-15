@@ -17,8 +17,8 @@ describe UserRepo do
   context 'runs the .all method' do
     it 'returns all users' do
       expect(@repo.all.length).to eq(2)
-      expect(@repo.all[0].name).to eq('name1')
-      expect(@repo.all[0].username).to eq('username1')
+      expect(@repo.all[0].name).to eq('Anonymous')
+      expect(@repo.all[0].username).to eq('Anon')
     end
   end
 

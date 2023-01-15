@@ -1,13 +1,72 @@
 <html>
-  <head></head>
+  <head><style>
+.nav-bar {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+.nav-item {
+  padding: 10px;
+}
+.post-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.posts-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.post {
+  display: flex;
+  min-width: 300px;
+  min-height: 200px;
+  background-color: red;
+  margin: 5px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-item:nth-child(1) {
+  font-size: 30px;
+}
+.post-item:nth-child(2) {
+  font-size: 20px;
+}
+.post-item:nth-child(3) {
+  font-size: 10px;
+}
+.logout {
+  margin: 10px;
+}
+.hello {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin: 5px;
+}
+</style>
+  </head>
   <body>
-  <div class='nav-bar'>
-    <h2>Chitter Bot logo</h2>
-    <h1>Posts</h1>
-    <h1>Links</h1>
+  <div class="nav-bar">
+    <nav-item>Chitter Bot logo</nav-item>
+    <nav-item><h1>Posts</h1></nav-item>
+    <nav-item>  <form class="logout" action="/logout/<%= @user.id %>" method="post">
+     <input type="submit" value="Log out">
+    </form></nav-item>
 
   </div>
-   Hello <%= @user.name %>
+
+
+
+   <div class="hello">Hello <%= @user.name %></div>
      <div class='post-form'>
     <form action="/create/<%= @user.id %>" method="post">
      <input type="text" name="message" placeholder="Message">
@@ -15,16 +74,13 @@
     </form>
   </div>
   <div class='posts-container'>
-    <% @posts.all.each do |post|  %>
-      <div class='post'>
-        <%= post.name %>
-        <%= post.message %>
-        <%= post.username %> <%= post.post_time %>
-      </div>
+    <% @posts.all.reverse_each do |post|  %>
+     <div class='post'>
+        <div class='post-item'><%= post.name %></div>
+        <div class='post-item'><%= post.message %></div>
+        <div class='post-item'><%= post.post_time %></div>
+     </div>
     <% end %>
   </div>
-<form action="/logout/<%= @user.id %>" method="post">
-     <input type="submit" value="Log out">
-    </form>
   </body>
 </html>
