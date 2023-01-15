@@ -1,10 +1,28 @@
 language: ruby
+rvm:
+  - 3.1.0
 
 services:
   - postgresql
 
+before_install:
+  - gem install bundler
+
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'create user abodian with password '\'test\'';' -U postgres
+  - psql -c 'ALTER USER abodian WITH SUPERUSER;' -U postgres
+  - psql -c 'grant all privileges on database chitter_test to abodian;' -U postgres
+  # - psql -d chitter-test -c 'create table users (id serial primary key, username text, password text, first_name text, last_name text, email text);' -U postgres
+  # - psql -d chitter-test -c 'create table peeps (id serial primary key, content text, time timestamp, user_id integer references users(id));' -U postgres
+  # - psql -d chitter-test -c 'TRUNCATE TABLE users, peeps;' -U postgres
+
+env:
+  - DATABASE_URL=postgres://abodian:test@127.0.0.1/chitter_test
 
 script:
+  - bundle exec rake db:migrate
+  - bundle exec rake db:seed
   - bundle exec rspec
+
+

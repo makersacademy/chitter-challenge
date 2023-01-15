@@ -1,0 +1,18 @@
+<html>
+
+<body>
+  <h1>Sign in</h1>
+  <% if @error %>
+  <p class="error"><%= @error %></p>
+  <% end %>
+  <h3>
+    You cannot leave either the username or password blank, please try again
+  </h3>
+  <form action="/sign_in" method="POST">
+    <input name="username" placeholder="Username" />
+    <input name="password" type="password" placeholder="Password" />
+    <input type="submit" value="Sign In" />
+  </form>
+</body>
+
+</html>

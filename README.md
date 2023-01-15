@@ -1,4 +1,103 @@
-Chitter Challenge
+# Alex Bodian - Chitter Challenge Readme
+
+[![Build Status](https://app.travis-ci.com/abodian/chitter-challenge.svg?branch=main)](https://app.travis-ci.com/abodian/chitter-challenge)
+
+# Approach
+- Ruby Sinatra
+- ActiveRecord - first time using therefore I am sure there are better ways to go about this
+- PostgreSQL database
+- Two tables: users, peeps and corresponding models. One foreign key.
+- 2 x controllers (application_controller, and user_controller). The latter does most of the heavy lifting, I would look into organising this more effectively in future projects.
+- 1 x session helper (containing logged_in?, current_user and send_tag_email methods)
+- Faker gem used to create fake database info. 
+- Mail gem used to send emails when user is tagged
+- TDD
+....
+
+# Set Up App
+```
+# Install gems for the project
+
+bundle install
+# Create a chitter-development postgresql database
+# Migrate tables and columns to database
+rake db:migrate
+
+# Seed database - amend seed file found in ./db if you wish (currently creates fake data using 'faker' gem)
+rake db:seed
+
+# Rackup!
+rackup
+
+```
+- Environment set to development by default. Use RACK_ENV="test" to change environment
+
+# Set Up Mail
+- Mail is set to output emails to :logger (STDOUT) for development purposes. 
+- For production purposes you can refer to "mail" gem documentation here: https://github.com/mikel/mail
+- Amend required settings in ./app/helpers/session_helper.rb file according to the instructions on above link
+
+# Test
+```
+# Rspec tests included run:
+rspec
+```
+
+# Features
+- Sign in and sign out
+- Sign up
+- See all peeps with time and author name, in reverse chronological order
+- Create a peep
+- Tag people in a peep with their first and last name
+- Email sent to user when tagged (NB this is set to :logger delivery method using 'mail' gem, this must be changed if used for real)
+- 100% test coverage, and Travis CI build status seen at top of this readme
+- If you try to access someone else's account page it redirects to your page
+- 'bcrypt' gem used for password protection when stored in database
+- Reply to peeps
+
+
+# Issues/TODOs
+- No CSS with current build
+- No function to edit peep after posting
+- No function to delete peep after posting
+- Add function that confirms to the peep author that another user has been tagged
+
+# User Story
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+
+---------------------------------------------------------------------------------------------------------------
+
+Original Brief from Makers Academy: Chitter Challenge
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own

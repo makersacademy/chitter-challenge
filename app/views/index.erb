@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="styles.css">
+<head>
+  <meta charset=utf-8>
+  <h1>Welcome to Chitter!</h1>
+</head>
+
+<body>
+  <div>
+    <h2>Log in to your Chitter account</h2>
+    <form action="/sign_in" method="POST">
+      <input name="username" placeholder="Username" />
+      <input name="password" type="password" placeholder="Password" />
+      <input type="submit" value="Sign In" />
+    </form>
+  </div>
+  <div>
+    <h3>Don't have an account?</h3>
+    <form action="/signup">
+      <input type="submit" value="Sign Up" />
+    </form>
+  </div>
+  <h2>Peeps Timeline:</h2>
+  <div>
+    <% @peeps.each do |peep| %>
+    <div>
+      <p><strong>Peep:</strong></p>
+      <%=peep.user.username%> - <%=peep.user.first_name%> <%=peep.user.last_name%><br>
+      "<%=peep.content%>"<br>
+      <%=formatted_timestamp = peep.time.strftime("%H:%M:%S %d-%m-%Y")%><br>
+    <p><strong>Replies:</strong></p>
+      <% @replies_array = [] %>
+      <% @replies.each do |reply| %>
+        <% if reply.peep_id == peep.id %>
+          <% @replies_array << reply %>
+        <%end%>
+      <%end%>
+      
+      <% if @replies_array.length == 0 %>
+        <p>No one has replied to this peep yet...</p>
+      <% else %>
+        <% @replies_array.each do |reply| %>
+          "<%=reply.content%>" - <%=reply.user.first_name%> <%=reply.user.last_name%> - 
+          <%=formatted_timestamp = reply.time.strftime("%H:%M:%S %d-%m-%Y")%><br>
+        <% end %>
+      <% end %>
+      </p>
+      --------------------------------------------------------------------------------------<br>
+    <p></p>
+    </div>
+    <% end %>
+  </div>
+</body>
+
+</html>
