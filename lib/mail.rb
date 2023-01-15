@@ -7,7 +7,7 @@ class EmailTag
       :port => "587",
       :enable_starttls_auto => true,
       :user_name => "okhanbayov@gmail.com",
-      :password => "zfmroongivirhusv",
+      :password => ENV["GMAIL_PASS"],
       :authentication => :plain,
       :domain => "localhost.localdomain",
     } }
