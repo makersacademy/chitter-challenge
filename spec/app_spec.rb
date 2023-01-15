@@ -33,6 +33,7 @@ describe Chitter do
     end
 
     it "Each Cheep is accompanied by its author's username" do
+      @response = get("/")
       expect(@response.body).to include(
         "marianne.grant",
         "regine.tremblay",
@@ -45,5 +46,18 @@ describe Chitter do
       )
     end
 
+  end
+
+  context "POST /user" do
+    it "Adds a new user to database" do
+      @response = post("/user",
+        name: "Finn McCool",
+        username: "mccool99",
+        email: "finnmccool99@example.com",
+        password: "very_secure123"
+      )
+      check200
+      expect(User.last.name).to eq "Finn McCool"
+    end
   end
 end
