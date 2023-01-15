@@ -17,4 +17,3 @@ test:
 production:
   <<: *default
   database: "chitter_production"
-  url: ENV['DATABASE_URL']
