@@ -125,7 +125,7 @@ class Application < Sinatra::Base
     user = User.find_by(username: name)
     return "" if user.nil?
     new_email = EmailTag.new
-    new_email.send(user.email)
+    new_email.send(user.email, ENV["ENV_GMAIL"])
   end
 
   def session_check
