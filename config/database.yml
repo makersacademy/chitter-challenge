@@ -11,13 +11,11 @@ test:
   database: chitter-test
 
 production:
-  <<: *default
   adapter: postgresql
-  hostname: dpg-cev5pchgp3jjsh1thkf0-a
   encoding: unicode
   database: chitter
   pool: 5
-  URL: ENV['DATABASE_URL']
-  port: 5432
+  host: <%= ENV['DATABASE_URL'] %>
   username: my_app_database_967f_user
-  password: ENV['DATABASE_PASSWORD']
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  port: 5432
