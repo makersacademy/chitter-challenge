@@ -7,6 +7,10 @@ describe Chitter do
     expect(@response.status).to eq 200
   end
 
+  def check400
+    expect(@response.status).to eq 400
+  end
+
   def check_success
     expect(@response.body).to include(
       "<h1>Success</h1><br>",
@@ -110,7 +114,7 @@ describe Chitter do
         email: "finnmccoy99@example.com",
         password: "very_secure123"
       )
-      expect(@response.status).to eq 400
+      check400
       expect(User.last.name).not_to eq "Finn McCoy"
       check_failure
     end
@@ -130,6 +134,21 @@ describe Chitter do
         password: "very_secure123")
       check200
       check_success
+    end
+
+    it "with invalid details, login is unsuccessful" do
+      post("/new_user",
+        name: "Finn McCoy",
+        username: "mccoy99",
+        email: "finnmccoy99@example.com",
+        password: "very_secure123"
+      )
+      @response = post("/login",
+        username: "mccoy99",
+        password: "very_secure12"
+      )
+      check400
+      check_failure
     end
   end
 end
