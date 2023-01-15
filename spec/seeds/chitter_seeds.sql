@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(60) UNIQUE NOT NULL,
+    password_hash VARCHAR(60) NOT NULL,
+    name VARCHAR(60) NOT NULL,
+    username VARCHAR(60) UNIQUE NOT NULL
+);
+
+DROP TABLE IF EXISTS peeps;
+
+CREATE TABLE peeps (
+    id SERIAL PRIMARY KEY,
+    time_posted TIMESTAMP NOT NULL,
+    content VARCHAR(140) NOT NULL,
+    user_id INTEGER REFERENCES users(id)
+);
