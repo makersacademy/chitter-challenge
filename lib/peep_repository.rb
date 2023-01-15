@@ -1,4 +1,10 @@
-require 'peep'
+# require 'peep' #why does require here screw up my rackup?
+require_relative 'peep'
+require_relative 'user_repository'
+
+require_relative 'database_connection'
+DatabaseConnection.connect
+
 
 class PeepRepository
 
@@ -38,11 +44,36 @@ class PeepRepository
   private 
 
   def peep_inflate(entry)
+    all_names = []
+    sql = 'SELECT username FROM users;'
+    result_set = DatabaseConnection.exec_params(sql, [])
+    result_set.each do |element|
+    all_names << element['username']
+    end
     peep = Peep.new
     peep.id = entry["id"].to_i
     peep.peep_content = entry['peep_content']
     peep.peep_date = entry['peep_date']
+    peep.username = all_names[entry['user_id'].to_i - 1]
+    peep.user_id = entry['user_id'].to_i
     return peep
   end
-
 end
+
+# all_names = []
+# sql = 'SELECT username FROM users;'
+# result_set = DatabaseConnection.exec_params(sql, [])
+# result_set.each do |element|
+# all_names << element['username']
+# end
+# p all_names[1]
+
+
+
+
+
+# all_usernames = []
+# sql = 'SELECT username FROM users;'
+# result_set = DatabaseConnection.exec_params(sql, [])
+# x = (2) - 1
+# p result_set[x]['username']

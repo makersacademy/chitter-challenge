@@ -17,6 +17,7 @@ end
   it 'returns list of all peeps' do
     repo = PeepRepository.new
     peeps = repo.all
+    p peeps
     expect(peeps.length).to eq 2
     expect(peeps[0].id).to eq 1
     expect(peeps[0].peep_content).to eq 'I am going to tell you a story...'
@@ -24,6 +25,7 @@ end
     expect(peeps[1].id).to eq 2
     expect(peeps[1].peep_content).to eq 'Dear, dear Anne...'
     expect(peeps[1].peep_date).to eq "20:40 13/01/2023"
+    expect(peeps[1].user_id).to eq 2
   end
 
   it 'returns a single peep specified by id' do

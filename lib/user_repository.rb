@@ -1,4 +1,5 @@
-require 'user'
+# require 'user' #why does require here screw up my rackup?
+require_relative 'user'
 
 class UserRepository
 
