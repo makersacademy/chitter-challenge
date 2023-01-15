@@ -1,4 +1,4 @@
-require 'post'
+require_relative 'post'
 
 class PostRepository
   def all

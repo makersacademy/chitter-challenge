@@ -2,6 +2,8 @@ require 'simplecov'
 require 'simplecov-console'
 require_relative '../lib/database_connection'
 
+# ENV['ENV'] = 'test'
+
 DatabaseConnection.connect('chitter_database_test')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

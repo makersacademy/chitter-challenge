@@ -1,0 +1,22 @@
+<html>
+  <head></head>
+  <body>
+    <header>
+      <nav>
+        <a href="/login">Login here</a>
+        <a href="/signup">Signup here</a>
+      </nav>
+    </header>
+    <h1>CHITTER</h1>
+    <h2>Posts</h2>
+    <div>
+      <% @posts.each do |post| %>
+        <p>
+        <%= post.name %> A.K.A. <%= post.user_name %> says: <br>
+        <%= post.message %> <br>
+        At <%= post.timestamp %>
+        </p>
+      <% end %>
+    </div>
+  </body>
+</html>
