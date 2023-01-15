@@ -7,6 +7,7 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect
 
 $logged_in = false
+$logged_in_user = 1
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -44,8 +45,9 @@ class Application < Sinatra::Base
     repo = PostRepository.new
     new_post = Post.new
     new_post.content = params[:content]
-    new_post.user_id = params[:user_id]
+    new_post.user_id = $logged_in_user
     repo.create(new_post)
+    return erb(:menu)
   end
 
   get '/users/new' do
@@ -63,6 +65,7 @@ class Application < Sinatra::Base
     new_user.email = params[:email]
     new_user.password = params[:password]
     repo.create(new_user)
+    return erb(:menu)
   end
 
   post '/users/login' do
@@ -71,7 +74,12 @@ class Application < Sinatra::Base
     @username = params[:username]
     @password = params[:password]
     @user = repo.password(@username)
+    @id = @user.id
 
     return erb(:logged_in)
+  end
+
+  get '/users/logout' do
+    return erb(:log_out)
   end
 end

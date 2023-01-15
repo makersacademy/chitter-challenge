@@ -31,7 +31,7 @@ class UserRepository
         result_set = DatabaseConnection.exec_params(sql, [id])
 
         user = User.new
-        user.id = result_set[0]['id']
+        user.id = result_set[0]['id'].to_i
         user.username = result_set[0]['username']
         user.email = result_set[0]['email']
         user.password = result_set[0]['password']
@@ -40,10 +40,11 @@ class UserRepository
     end
 
     def password(username)
-        sql = 'SELECT username, password, email FROM users WHERE username = $1;'
+        sql = 'SELECT id, username, password, email FROM users WHERE username = $1;'
         result_set = DatabaseConnection.exec_params(sql, [username])
 
         user = User.new
+        user.id = result_set[0]['id'].to_i
         user.username = result_set[0]['username']
         user.password = result_set[0]['password']
         user.email = result_set[0]['email']

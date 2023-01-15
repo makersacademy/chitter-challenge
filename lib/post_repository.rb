@@ -4,7 +4,7 @@ class PostRepository
     def all
         posts = []
 
-        sql = 'SELECT id, content, date, time, user_id FROM posts'
+        sql = 'SELECT id, content, date, time, user_id FROM posts ORDER BY date DESC'
         result_set = DatabaseConnection.exec_params(sql, [])
 
         result_set.each do |record|

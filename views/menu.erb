@@ -1,8 +1,10 @@
 <a href="/posts">Click to view all posts</a><br>
-<a href="/users/new">Click to register as a new user</a>
+<a href="/users/new">Click to register as a new user</a><br><br>
 <% if $logged_in == true %>
-<p> Logged in </p>
+<p> You are logged in </p>
+<a href="/users/logout">Click here to log out</a><br>
 <a href="/posts/new">Click here to write a new post</a>
 <% else %>
 <p> Not logged in </p>
+<a href="/users/login">Click to login</a><br>
 <% end %>
