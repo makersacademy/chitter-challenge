@@ -58,7 +58,7 @@ class Chitter < Sinatra::Base
     user = User.find_by(username: username)
     return invalid_input unless user
     if user.authenticate(password)
-      @login = user
+      @@login = user.username
       erb(:success)
     else
       invalid_input
