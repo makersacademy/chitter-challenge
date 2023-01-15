@@ -17,9 +17,9 @@
         <%@peeps.each do |peep|%>
            
         <div class="peeps">
-         <%= peep.message %> <br>
+         <%= peep.message %> 
           Date posted  <%= peep.date %>
-         <a href="/user"> User ID </a>  <%= peep.user_id  %>
+          User ID  <%= peep.user_id  %> <br> <br>
         </div>
         <% end %>
 </body>
