@@ -27,8 +27,19 @@ class PostRepository
         return post
     end
 
+    def find(id)
+        sql = 'SELECT id, content, date, time, user_id FROM posts WHERE id = $1;'
+        result_set = DatabaseConnection.exec_params(sql, [id])
 
+        post = Post.new
+        post.id = result_set[0]['id'].to_i
+        post.content = result_set[0]['content']
+        post.date = result_set[0]['date']
+        post.time = result_set[0]['time']
+        post.user_id = result_set[0]['user_id'].to_i
 
+    return post
+    end
 
 
 

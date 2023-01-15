@@ -1,0 +1,11 @@
+<% check = @user.password%>
+<% if check == @password %>
+
+  <% $logged_in = true %>
+  <h1> You have successfully logged in </h1>
+     <a href="/menu">Return to menu</a>
+            <% else %>
+            <h1> Incorrect password </h1>
+            <p><% $logged_in = false %></p>
+  <a href="/menu">Return to menu</a>
+            <% end %>
