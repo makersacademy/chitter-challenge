@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter</h1>
+    <% @cheeps.each do |cheep| %>
+    <article class="cheep">
+      <p>
+        <%= cheep.content %> <br>
+        Posted at: <%= cheep.created_at %>
+      </p>
+    </article>
+    <% end %>
+  </body>
+</html>

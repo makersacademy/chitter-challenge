@@ -12,4 +12,9 @@ class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+
+  get "/" do
+    @cheeps = Cheep.order("created_at DESC")
+    erb(:homepage)
+  end
 end
