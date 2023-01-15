@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.0.2"
+ruby "3.1.3"
 
 group :test do
   gem "rspec"
@@ -30,3 +30,5 @@ gem "faker", "~> 3.1"
 gem "mail", "~> 2.8"
 
 gem "pony", "~> 1.13"
+
+gem "heroku", "~> 3.99"
