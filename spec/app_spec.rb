@@ -7,8 +7,10 @@ describe Chitter do
     expect(@response.status).to eq 200
   end
 
-  def check_order_within_body(reg1, reg2)
-    expect(@response.body =~ reg1).to be < (@response.body =~ reg2)
+  def check_order_within_body(*regexs)
+    regexs[0...(-1)].each.with_index do |regex, index|
+      expect(@response.body =~ regex).to be < (@response.body =~ regexs[index + 1])
+    end
   end
 
   context "GET /" do
@@ -20,13 +22,16 @@ describe Chitter do
       expect(@response.body).to include(
         "<h1>Chitter</h1>",
         "productize robust relationships",
-        "embrace open-source architectures"
+        "embrace open-source architectures",
+        "leverage magnetic niches"
       )
       check_order_within_body(
+        /leverage magnetic niches/,
         /embrace open-source architectures/,
         /productize robust relationships/
         )
       
     end
+
   end
 end
