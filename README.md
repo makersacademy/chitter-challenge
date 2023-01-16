@@ -9,6 +9,55 @@ I loved getting stuck into this challenge and achieved all of the below features
 
 If I were given the opportunity to code this project again,  rather than using repository classes that interact directly with PostgreSQL I would instead use an ORM like ActiveRecord.
 
+## How to use
+
+1. Clone the repository to your machine
+2. Create 2 postgresql databases:
+
+   - `chitter_challenge`
+   - `chitter_challenge_test`
+     [If psql is installed this can be done with `createdb chitter_challenge`]
+
+3. Setup your tables with:
+
+```sql
+psql -h 127.0.0.1 chitter_challenge < spec/chitter_tables.sql
+psql -h 127.0.0.1 chitter_challenge_test < spec/chitter_tables.sql
+
+```
+
+4. Seed your tables with:
+
+```sql
+psql -h 127.0.0.1 chitter_challenge < spec/chitter_seeds.sql
+
+psql -h 127.0.0.1 chitter_challenge_test < spec/chitter_seeds.sql
+```
+
+5. install gems
+
+```bash
+bundle install
+```
+
+6. To test
+
+```bash
+rpsec
+```
+
+6. To use in the browser
+
+```bash
+rackup
+```
+
+Then head to the browser with
+
+```bash
+http://localhost:9292/
+```
+
 Features requested:
 -------
 
@@ -48,22 +97,6 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
-
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
-
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
 
 Notes on functionality:
 ------
@@ -72,16 +105,11 @@ Notes on functionality:
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 Bonus:
 -----
 
 If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
 
 * Work on the CSS to make it look good.
 
