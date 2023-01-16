@@ -1,27 +1,29 @@
-DROP TABLE IF EXISTS albums; 
-
--- Table Definition
-CREATE TABLE albums (
-    id SERIAL PRIMARY KEY,
-    title text,
-    release_year int4,
-    artist_id int4
+-- The table with the foreign key
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  message text,
+  posted_at timestamp,
+-- The foreign key name is always {other_table_singular}_id
+  member_id int,
+  constraint fk_member foreign key(member_id)
+    references members(id)
+    on delete cascade
 );
 
-TRUNCATE TABLE albums RESTART IDENTITY;
-
-INSERT INTO albums ("title", "release_year", "artist_id") VALUES
-('Doolittle', 1989, 1),
-('Surfer Rosa', 1988, 1),
-('Waterloo', 1974, 2),
-('Super Trouper', 1980, 2),
-('Bossanova', 1990, 1),
-('Lover', 2019, 3),
-('Folklore', 2020, 3),
-('I Put a Spell on You', 1965, 4),
-('Baltimore', 1978, 4),
-( 'Here Comes the Sun', 1971, 4),
-( 'Fodder on My Wings', 1982, 4),
-( 'Ring Ring', 1973, 2);
 
 
+-- -------------------------------------------------------------
+-- TablePlus 4.5.0(396)
+--
+-- https://tableplus.com/
+--
+-- Database: design
+-- Generation Time: 2022-04-27 17:13:27.2140
+-- -------------------------------------------------------------
+
+
+DROP TABLE IF EXISTS "public"."peeps";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
+
+-- Sequence and defined type
+CREATE SEQUENCE IF NOT EXISTS peeps_id_seq;
