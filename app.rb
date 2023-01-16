@@ -53,7 +53,7 @@ class App < Sinatra::Base
     @users = UserRepo.new
     user = User.new
     user.username = params[:username]
-    user.email = params[:email]
+    user.password = params[:password]
     @users.all.each do |record|
       if record.username.include?(user.username.to_s) && record.password.include?(user.password.to_s)
         @user = record
