@@ -1,0 +1,10 @@
+<a href="/menu">Click here to return to the menu</a>
+
+<% @posts.each do |post| %>
+  <p><%= post.content %></p>
+  <p><%= post.date %></p>
+  <p><%= post.time[0..4] %></p>
+  <% user = post.user_id %>
+  <% answer = @user_repo.find(user) %>
+  <p><%= answer.username %></p><br><br>
+ <% end %>
