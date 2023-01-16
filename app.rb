@@ -27,18 +27,18 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-  #   if invalid_post_parameters?
-  #   status 400
-  #   return ''
-
-  user_repo = UserRepository.new
-  new_user = User.new
-  new_user.name = params[:name]
-  new_user.username = params[:username]
-  new_user.email_address = params[:email_address]
-  new_user.password = params[:password]
-
-  user_repo.create(new_user)
+    if invalid_signup_parameters?
+      status 400
+      return ''
+    end 
+    user_repo = UserRepository.new
+    new_user = User.new
+    new_user.name = params[:name]
+    new_user.username = params[:username]
+    new_user.email_address = params[:email_address]
+    new_user.password = params[:password]
+ 
+    user_repo.create(new_user)
   end
 
   get '/new_post' do
@@ -64,7 +64,7 @@ class Application < Sinatra::Base
     return params[:message] == ''
   end
 
-  def invalid_post_parameters?
-    return params[:message] == ''
-  end
+  def invalid_signup_parameters?
+    return params[:name] == '' || params[:username] == '' || params[:email_address] == '' || params[:password] == '' 
+    end
 end

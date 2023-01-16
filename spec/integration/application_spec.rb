@@ -32,7 +32,7 @@ describe Application do
   end
 
   context "POST /new_post" do
-    it 'should validate album parameters' do
+    it 'should validate new post parameters' do
       response = post('/new_post', message: '')
 
       expect(response.status).to eq (400)
@@ -48,6 +48,14 @@ describe Application do
       expect(response.body).to include('Name:')
       expect(response.body).to include('Username:')
       expect(response.body).to include('Email Address:')
+    end
+  end
+
+  context "POST /signup" do
+    it 'should validate signup form parameters' do
+      response = post('/new_post', name: '', username: '', email_address: '', password: '')
+
+      expect(response.status).to eq (400)
     end
   end
 end
