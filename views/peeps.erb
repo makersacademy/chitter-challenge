@@ -1,0 +1,11 @@
+<html>
+  <head></head>
+  <body>
+  <h1>Peeps</h1>
+    <% @reverse_peeps.each do |peep| %>
+       <h3><%= peep.peep_content %></h3>
+       <p>Posted at: <%= peep.time_posted%></p>
+       <p>Posted by: <%= peep.user_id%></p>
+  <% end %>
+  </body>
+</html>
