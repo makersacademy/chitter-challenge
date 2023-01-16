@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=utf-8>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <p>Already have an account? <a href="/login">Login here</a></p>
+
+    <h3>Sign up</h3>
+    <p>Email already exists! Please try <a href="/login">login here.</a></p>
+    <form method="POST" action="/sign-up">
+      <p>Email: <input type="text" name="email"/></p>
+      <p>Password: <input type="password" name="password"/></p>
+      <p>Name: <input type="text" name="name"/></p>
+      <p>Username: <input type="text" name="username"/></p>
+
+      <input type="submit" value="Submit" />
+    </form>
+
+  </body>
+</html>

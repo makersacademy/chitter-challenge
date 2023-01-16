@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=utf-8>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <p><a href="/login">Login</a>/<a href ="/sign-up">Sign-up</a></p>
+
+    <!-- <h3>Post a new peep</h3>
+    <form method="post" action="/posts">
+      Title: <input type="text" name="content" placeholder="Scream into the shouty box"/>
+
+      <input type="submit" value="Submit" />
+    </form> -->
+
+    <hr />
+    <% @feed.each do |peep| %>
+      <div>
+        <p><b><%= peep.user_name %></b> <i>^<%= peep.user_username %></i> @<%= peep.time_posted.strftime("%Y-%m-%d %H:%M:%S") %></p>
+        <p><%= peep.content %></p>
+         <hr style="width:50%;text-align:left;margin-left:0"> 
+      </div>
+    <% end %>
+  </body>
+</html>
