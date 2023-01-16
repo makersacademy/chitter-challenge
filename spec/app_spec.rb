@@ -67,11 +67,6 @@ describe Chitter do
         "regine.tremblay",
         "dominica",
       )
-      # check_order_within_body(
-      #   /dominica/,
-      #   /regine.tremblay/,
-      #   /marianne.grant/,
-      # )
     end
 
   end
@@ -153,6 +148,20 @@ describe Chitter do
       expect(@response.status).to eq 302
       expect(Cheep.find(31).content).to eq "Testing"
       expect(Cheep.find(31).user_id).to eq 14
+    end
+  end
+
+  context "POST /logout" do
+    it "logs the user out" do
+      input_user("mccoy99", "very_secure123")
+      post("/login",
+        username: "mccoy99",
+        password: "very_secure123"
+      )
+      @response = post("/logout")
+      check200
+      check_success
+      expect(get("/").body).to include("Log in")
     end
   end
 end
