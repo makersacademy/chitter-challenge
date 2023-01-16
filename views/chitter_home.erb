@@ -1,0 +1,34 @@
+<!-- GET / -->
+
+<html>
+  <head><head>
+  <body>
+    <h1>Hello! Welcome to Chitter!</h1>
+
+    <form method="POST" action="/new_member"> 
+      <label>Not a member?  </label>
+      <input type="submit" name="Sign up!"><a href="/new_member"></a>" /> <!-- (link) new_member -->
+      <br>
+    </form>
+    <br>
+    <p> <!-- GET /peeps -- returns -->
+    <% @peeps.each do |peep| %>
+      <div>
+        <a href="/peeps/<%= peep.member_id %><%= peep.message %><%= peep.posted_at %>"></a>
+      </div>
+      <br>
+    <% end %>
+  <body>
+<html>
+
+<!-- # to do later with cookies-->
+<!--<form method="POST" action="/sign_in">
+      <label>Already a member? Sign in! </label>
+      <input type="text" name="username" />
+      <input type="text" name="passsword" />
+      <input type="submit" name="Sign in!" />
+      <br>
+    </form>
+    if correct info return 301 or 302 (link) new_peep
+  -->
+
