@@ -1,0 +1,40 @@
+<html>
+  <head></head>
+  <body>
+  <h1>Chitter</h1>
+  <h2>Your place to peep</h2>
+
+    <div>
+      <% if @log_in_status == true %>
+      <label>My peep: </label>
+        <form method="POST" action="/create_peep">
+          <div>
+            <input type="text" name="new_content" /><br>
+            <input type="submit" value="Peep"/>
+          </div>
+        </form>
+      <% else %>
+      <br>
+      <% end %>
+    </div>
+
+    <div>
+      <% @posts.each do |post|%>
+        <p>
+        <%= post.id %>
+        </p>
+        <p>
+          <%= post.content %>
+        </p>
+        <p>
+        <%= post.date_time %>
+        </p>
+      <% end %>
+    </div>
+    <div>
+
+      <a href="/log_in">Log In to Chitter</a><br>
+      <a href="/sign_up">Sign up for Chitter</a>
+    </div>
+  </body>
+</html>
