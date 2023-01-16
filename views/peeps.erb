@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chitter</title>
+    
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <h1>Peeps</h1>
+  <div><button type="button" onclick="alert('Hello world!')">Click Me!</button>
+ </div>
+    <h3>peeps</h3>
+    <% @posts.each do |post| %>
+    <div>
+          <a href="/peeps/<%= post.id %>">
+            <%= post.content %><%= post.post_timestamp %>
+          </a>
+    <div>
+    <% end %>
+
+  </body>
+</html>
