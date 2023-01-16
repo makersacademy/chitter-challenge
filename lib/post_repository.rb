@@ -2,7 +2,8 @@ require_relative 'post'
 
 class PostRepository
   def all
-    sql = 'SELECT id, message, time_created, user_id FROM posts;'
+    sql = 'SELECT id, message, time_created, user_id FROM posts ORDER BY time_created DESC;'
+    # sql_order_by = 'SELECT * FROM posts ORDER BY time_created DESC;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     all_posts = []
