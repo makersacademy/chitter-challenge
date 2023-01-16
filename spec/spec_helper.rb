@@ -15,3 +15,13 @@
 #     # puts "\e[33mTry it now! Just run: rubocop\e[0m"
 #   end
 # end
+ENV["RACK_ENV"] = "test"
+# imports the actual controller file
+require_relative "../App/Controllers/application_controller"
+
+require "rspec"
+require "capybara"
+require "capybara/rspec"
+
+# tells Capybara what the app is for the feature tests
+Capybara.app = ApplicationController

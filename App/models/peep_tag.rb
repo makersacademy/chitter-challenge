@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class DatabaseConnection
+class PeepTag < ActiveRecord::Base
 end

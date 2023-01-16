@@ -2,7 +2,7 @@
 
 require 'rspec'
 
-describe 'User' do
+describe 'Peeps' do
   before do
     # Do nothing
   end

@@ -2,8 +2,6 @@ Databases
 
 Peeps | Users | Scrabled passwords
 
-
-
 STRAIGHT UP
 
 As a Maker
@@ -37,7 +35,6 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am `tagged in a Peep`
-
 
 ```mermaid
 classDiagram

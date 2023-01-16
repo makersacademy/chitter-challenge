@@ -1,7 +1,10 @@
-class Users
-  attr_accessor id: int
+class User
+  attr_accessor email: untyped
+  attr_accessor first_name: untyped
 
-  attr_accessor full_name: string
+  attr_accessor last_name: untyped
+
+  attr_accessor id: int
 
   attr_accessor username: string
 

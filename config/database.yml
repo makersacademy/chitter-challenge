@@ -1,0 +1,10 @@
+development:
+  # the type of database it will be
+  adapter: postgresql
+  # name of db to make
+  database: chitter
+  
+  # same but for test env
+test:
+  adapter: postgresql
+  database: chitter
