@@ -1,0 +1,13 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Peeps</h1>
+        <% @peeps.map do |peep| %>
+        <div>
+            User ID: <%= peep.account_id %><br>
+            Time: <%= peep.time %><br>
+            Message: <%= peep.message %>
+        </div><br>
+        <% end %>
+  </body>
+</html>

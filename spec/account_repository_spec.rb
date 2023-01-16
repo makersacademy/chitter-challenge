@@ -1,12 +1,14 @@
 require 'account_repository'
 
-def reset_accounts_table
-    seed_sql = File.read('spec/seeds/seeds_accounts.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_network_test' })
-    connection.exec(seed_sql)
-end
 
 RSpec.describe AccountRepository do
+
+    def reset_accounts_table
+        seed_sql = File.read('spec/seeds/seeds_accounts.sql')
+        connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_network_test' })
+        connection.exec(seed_sql)
+    end
+    
     before(:each) do 
         reset_accounts_table
     end
