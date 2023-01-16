@@ -1,0 +1,18 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Welcome to Chitter!</h1>
+    <div>
+    <h2>List of Peeps</h2>
+    <% @all_posts.each do |post| %>
+    <p>
+      Peep <%= post.id %>: <%= post.message %><br />
+      Created: <%= post.time_created %>
+    </p>
+    <% end %>
+  </div>
+  <div>
+    <a href='/new_post'><button>Crreate a Peep</button></a>
+  </div>
+  </body>
+</html>
