@@ -77,4 +77,9 @@ class Chitter < Sinatra::Base
       invalid_input
     end
   end
+
+  post "/logout" do
+    @@login = false
+    erb(:success)
+  end
 end
