@@ -10,11 +10,14 @@ require_relative "lib/secure"
 
 class Application < Sinatra::Base
   configure :development do
-    enable :sessions
+    # enable :sessions
     register Sinatra::ActiveRecordExtension
     register Sinatra::Reloader
-    set :session_secret, ENV.fetch("SESSION_SECRET") { SecureRandom.hex(20) }
   end
+
+  use Rack::Session::Cookie, :key => "rack.session",
+                             :path => "/",
+                             :secret => ENV.fetch("SESSION_SECRET") { SecureRandom.hex(20) }
 
   get "/" do
     all_posts
