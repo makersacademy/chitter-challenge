@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/styles/index.css"> </head>
   <body>
-      <div class="auth__container">
-        <% if logged_in? %>
-          <div class="login__text">Logged in as: <a href='/users/<%= current_user.username %>'> @<%= current_user.username %></a></div>
-          <p><a class="user__link" href="/logout">Sign Out</a></p>
-        <% else %>
-          <p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>
-        <% end %>
-      </div>
+    <div class="auth__container">
+      <% if logged_in? %>
+        <div class="login__text">Logged in as: <a href='/users/<%= current_user.username %>'> @<%= current_user.username %></a></div>
+        <p><a class="user__link" href="/logout">Sign Out</a></p>
+      <% else %>
+        <p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>
+      <% end %>
+    </div>
     <header>
       <a href='/feed'><img class="logo" src="/img/logo.png" alt="logo"></a>
     </header>
