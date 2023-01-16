@@ -1,0 +1,12 @@
+# this defines the database for the development environment (default environment)
+development:
+  # the type of database it will be
+  adapter:
+    postgresql
+    # name of db to make
+  database: chitter-development
+
+  # same but for test env
+test:
+  adapter: postgresql
+  database: chitter-test
