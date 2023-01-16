@@ -24,6 +24,7 @@ class PostRepository
       time = Time.now
       sql = 'INSERT INTO posts (content, date_time, user_id) VALUES ($1, $2, $3);'
       post_added = DatabaseConnection.exec_params(sql, [new_content, Time.now, find_user_id(user_name)])
+      #binding.irb
       return true
     else
       return false

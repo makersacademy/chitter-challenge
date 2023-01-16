@@ -39,6 +39,6 @@ class Application < Sinatra::Base
     user_repo = UserRepository.new
     user_repo.log_in(params[:user_name].to_s, params[:password].to_s)
     @log_in_status = user_repo.check_logged_in(params[:user_name])
-    return erb(:homepage)
+    return erb(:log_in_confirmation)
   end
 end
