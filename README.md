@@ -1,19 +1,15 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
+Solo weekend challenge assignment delivered for the conclusion of my fourth week at Makers Academy. 
 
-Challenge:
--------
+We were assigned the below design request and were asked to code this Twitter clone using Ruby on the Sinatra web framework. 
 
-As usual please start by forking this repo.
+I loved getting stuck into this challenge and achieved all of the below features apart from automated emails for users tagged in posts. I added functionality that meant valid usernames tagged in posts would become hyperlinked. Also added password encryption and user profile pages which display all Peeps by the user.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+If I were given the opportunity to code this project again,  rather than using repository classes that interact directly with PostgreSQL I would instead use an ORM like ActiveRecord.
 
-Features:
+Features requested:
 -------
 
 ```
