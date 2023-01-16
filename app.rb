@@ -78,7 +78,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  post "/logout" do
+  get "/logout" do
     @@login = false
     erb(:success)
   end

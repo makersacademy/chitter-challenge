@@ -149,14 +149,14 @@ describe Chitter do
     end
   end
 
-  context "POST /logout" do
+  context "GET /logout" do
     it "logs the user out" do
       input_user("mccoy99", "very_secure123")
       post("/login",
         username: "mccoy99",
         password: "very_secure123"
       )
-      @response = post("/logout")
+      @response = get("/logout")
       check200
       check_success
       expect(get("/").body).to include("Log in")
