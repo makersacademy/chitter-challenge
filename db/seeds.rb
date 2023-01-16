@@ -24,7 +24,7 @@ if ENV['RACK_ENV'] == 'test'
 else
   User.create(
     name: "Thomas McCoy",
-    username: "chitter_overlord",
+    username: "the_chitter_guy",
     email: "hello@example.com",
     password: "password123"
   )
