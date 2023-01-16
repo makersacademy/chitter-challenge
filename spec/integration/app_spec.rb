@@ -92,6 +92,12 @@ password: 'password6')
       expect(response.body).to include 'Successful signup!'
       expect(response.body).to include 'Back to feed'
     end
+
+    it 'will redirect to signup page and not show a PG error' do
+      response = post "/signup", 
+{ :username => "brugalheimer", :email => 'josephburgess@gmail.com', :password => "password" }
+      expect(response.body).not_to include 'PG::UniqueViolation'
+    end
   end
 
   context 'GET to /signin' do
@@ -112,6 +118,11 @@ password: 'password6')
     it 'will not signin with invalid credentials' do
       response = post('/signin', username: 'brugalheimer', password: 'wrongpassword')
       expect(response.body).to include 'Sign in to Chitter'
+    end
+
+    it 'will avoid index error when using invalid credentials not found in database' do
+      response = post('/signin', username: 'brugalheimer', password: 'wrongpassword')
+      expect(response.body).not_to include 'IndexError'
     end
   end
   

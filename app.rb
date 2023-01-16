@@ -44,6 +44,8 @@ class Application < Sinatra::Base
       session[:user_id] = valid_user.id
       session[:username] = valid_user.username
       redirect '/feed'
+    else
+      erb(:signin_form)
     end
   end
 
