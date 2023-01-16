@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up | Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+</head>
+<body>
+<div class="sidebar">
+      <div>
+        <img src="/chitter-logo.svg" class="logo" />
+      </div>
+
+      <div class="navlinks">
+        <a href="/feed">&#127968 Home</a>
+        <% if session[:user_id] == nil %>
+        <a href="/users/new">&#10024 Sign up</a>
+        <% else %>
+        <a href="/logout">&#127916 Log out</a>
+        <% end %>
+      </div>
+</div>
+
+
+
+<div class="content">
+<% if session[:user_id] == nil %>
+<div class="center-field">
+<h1>Sign up to Chitter</h1>    
+<form method="POST" action="/users">
+<div>  
+  <input type="text" class="sign-up-field" placeholder="Your name (e.g. Ari Medi)" name="name" />
+</div>
+<div>
+  <input type="text" class="sign-up-field" placeholder="Email address (e.g. ari@email.com)" name="email" />
+</div>
+<div>
+  <input type="text" class="sign-up-field" placeholder="Username" name="username" />
+</div>
+<div>
+  <input type="password" class="sign-up-field" placeholder="Password" name="password" />
+</div>
+<div><input type="submit" class="button" /></div>
+</form>
+</div>
+<% else %>
+  <h1>Looks like you're already signed up?</h1>
+  <h2>Head back to the feed to start cheeping.</h2>
+  <a href="/feed"><button class="button">Back to feed</button></a>   
+<% end %>
+  
+</div>
+  
+</body>
+</html>
