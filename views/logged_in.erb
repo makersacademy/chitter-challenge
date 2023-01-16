@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+    <table> <SPAN STYLE="font-size:15mm">CHITTER</SPAN> 
+    <form action="/log_out" method="GET"><input type="submit" value="LOG OUT"> </form>
+      </table><br><br>
+      
+
+<table><form action="/post_peep" method="POST"> <input type="text" size="40" name="peep">
+  <SPAN STYLE="font-size:15mm"><input type="submit" value="PEEP NOW"></form></SPAN><br><br>
+
+
+    <% @peeps.map do |peep| %>
+   <div><span style="color: blue"><%=peep.username%></span>:<br><%=peep.peep_content%><br><SPAN STYLE="font-size:3mm"><%= peep.peep_date %></SPAN></div><br> 
+      <% end %>
+
+  </body>
+</html>  
+

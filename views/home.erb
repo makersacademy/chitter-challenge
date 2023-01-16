@@ -1,10 +1,19 @@
 <html>
   <head></head>
   <body>
-    <h1>Peeps</h1>
+    <SPAN STYLE="font-size:15mm">CHITTER</SPAN><br>
+    
+    <table><form action="/log_in" method="POST">Username:<input type="text" name="username"><br>Password: <input type="text" name="password">
+  <input type="submit" value="LOG IN"></form> OR 
+  
+  <form action="/sign_up" method="GET"><input type="submit" value="SIGN UP"> </form></table>
+
+
+
+ <a href="/send_a_peep"> <SPAN STYLE="font-size:5mm">SEND A PEEP</SPAN></a><br><br>
 
     <% @peeps.map do |peep| %>
-   <div> <%= peep.username %> <%= peep.peep_content %> <%= peep.id %> <%= peep.peep_date %> </div>
+   <div><span style="color: blue"><%=peep.username%></span>:<br><%=peep.peep_content%><br><SPAN STYLE="font-size:3mm"><%= peep.peep_date %></SPAN></div><br> 
       <% end %>
 
   </body>
