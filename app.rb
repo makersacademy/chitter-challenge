@@ -13,7 +13,12 @@ class Application < Sinatra::Base
     enable :sessions
     register Sinatra::ActiveRecordExtension
     register Sinatra::Reloader
-    set :session_secret, SecureRandom.hex(64)
+    set :session_secret, "BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTdhYTliNGY5ZjVmOTE4MjIxYTU5%0AMGM4OGI1Y
+    TdjMzA3Y2QxNTYyYmJjZGQwYTEyNjJmOThhNmVlNmQzM2ExMTEG%0AOwBGSSIJY3NyZgY7AEZJIiU2M2ZjZTF
+    kZGIxNTc1ZmU4YzM0Y2YyZjc2M2Vl%0AMGMwYQY7AEZJIg10cmFja2luZwY7AEZ7B0kiFEhUVFBfVVNFUl9BR
+    0VOVAY7%0AAFRJIi1lZjE4YWVkMjg0YWI3NWU3MGEwMWIyMmUzMWI5MGU3YmE0NDcwYzc2%0ABjsARkkiGUhU
+    VFBfQUNDRVBUX0xBTkdVQUdFBjsAVEkiLWRhMzlhM2VlNWU2%0AYjRiMGQzMjU1YmZlZjk1NjAxODkwYWZkOD
+    A3MDkGOwBG%0A--b64eac9e0a5fb41a12b58a7ffe97c51b73fbf1a6"
   end
 
   get "/" do
