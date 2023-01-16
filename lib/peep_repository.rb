@@ -1,4 +1,4 @@
-require 'peep'
+require_relative './peep'
 
 class PeepRepository
     def all
@@ -9,7 +9,7 @@ class PeepRepository
         result_set.each do |record|
             peep = Peep.new
             peep.id = record['id'].to_i
-            peep.time_posted = record['time_posted']
+            peep.time_posted = DateTime.parse record['time_posted']
             peep.content = record['content']
             peep.user_id = record['user_id'].to_i
             peeps << peep
@@ -23,7 +23,7 @@ class PeepRepository
         result_set = DatabaseConnection.exec_params(sql, [id])
         record = result_set.first
         peep = Peep.new
-        peep.time_posted = record['time_posted']
+        peep.time_posted = DateTime.parse record['time_posted']
         peep.content = record['content']
         peep.user_id = record['user_id'].to_i
         return peep

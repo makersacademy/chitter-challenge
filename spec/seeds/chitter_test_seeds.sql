@@ -3,14 +3,14 @@ TRUNCATE TABLE users, peeps RESTART IDENTITY;
 INSERT INTO users (email, password_hash, name, username)
     VALUES (
         'MrGood92@email.com', 
-        '$2a$12$tJPQyZwySIaC33URmeezaeVu3Rt.sFJFdkM2PC4cDfD8WWRxl9.Me',
+        '$2a$12$KUwI9IGRXES5Z8oybhNJPuriDGx8XM0UtU8Hj7NJGdu1NUF4y50/2',
         'John Good',
         'MrGood92');
 
 INSERT INTO users (email, password_hash, name, username)
     VALUES (
         'DrEvil59@email.com', 
-        '$2a$12$AnpyVfD8i5crd/1Ie.X3mOShzEntBnJfqaMaDHJRstGC58jOgBr9G',
+        '$2a$12$l2Z/CDu2u5fXQbnTb3QyjuU65JvDblyauIbbLljFVFNMosMQyeS4e',
         'Karen Evil',
         'DrEvil59');
 

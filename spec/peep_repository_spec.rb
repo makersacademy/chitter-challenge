@@ -15,7 +15,7 @@ describe PeepRepository do
         repo = PeepRepository.new
         peeps = repo.all
         expect(peeps.length).to eq 2
-        expect(peeps.first.time_posted).to eq '2023-01-13 14:22:06'
+        expect(peeps.first.time_posted.strftime("%Y-%m-%d %H:%M:%S")).to eq '2023-01-13 14:22:06'
         expect(peeps.last.content).to eq 'Going surfing tomoz, who wants to join, hit me up!'
     end
 
@@ -25,7 +25,7 @@ describe PeepRepository do
         expect(peep.content).to eq 'First peep on this chit!!!'
         expect(peep.user_id).to eq 1
         peep = repo.find(2)
-        expect(peep.time_posted).to eq '2023-01-13 15:05:23'
+        expect(peep.time_posted.strftime("%Y-%m-%d %H:%M:%S")).to eq '2023-01-13 15:05:23'
     end
 
     it 'creates a peep' do
