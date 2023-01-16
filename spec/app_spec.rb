@@ -25,6 +25,16 @@ describe Chitter do
     )
   end
 
+  def input_user(username, password)
+    post("/new_user",
+      name: "Finn McCoy",
+      username: username,
+      email: "finnmccoy99@example.com",
+      password: password
+    )
+  end
+
+
   def check_order_within_body(*regexs)
     regexs[0...(-1)].each.with_index do |regex, index|
       expect(@response.body =~ regex).to be < (@response.body =~ regexs[index + 1])
@@ -95,25 +105,15 @@ describe Chitter do
   context "POST /new_user" do
     it "If email and username are unique, adds a new" \
      "user to database and returns success page" do
-      @response = post("/new_user",
-        name: "Finn McCoy",
-        username: "mccoy99",
-        email: "finnmccoy99@example.com",
-        password: "very_secure123"
-      )
+      @response = input_user("mccoy99", "very_secure123")
       check200
       expect(User.last.name).to eq "Finn McCoy"
       check_success
     end
 
-    it "If email or password are not unique, does not add to" \
+    it "If username or email are not unique, does not add to" \
      "database and returns failure with status 400" do
-      @response = post("/new_user",
-        name: "Finn McCoy",
-        username: "dominica",
-        email: "finnmccoy99@example.com",
-        password: "very_secure123"
-      )
+      @response = input_user("dominica", "very_secure123")
       check400
       expect(User.last.name).not_to eq "Finn McCoy"
       check_failure
@@ -123,12 +123,7 @@ describe Chitter do
 
   context "POST /login" do
     it "with valid details, login is successful" do
-      post("/new_user",
-        name: "Finn McCoy",
-        username: "mccoy99",
-        email: "finnmccoy99@example.com",
-        password: "very_secure123"
-      )
+      input_user("mccoy99", "very_secure123")
       @response = post("/login",
         username: "mccoy99",
         password: "very_secure123")
@@ -137,12 +132,7 @@ describe Chitter do
     end
 
     it "with invalid details, login is unsuccessful" do
-      post("/new_user",
-        name: "Finn McCoy",
-        username: "mccoy99",
-        email: "finnmccoy99@example.com",
-        password: "very_secure123"
-      )
+      input_user("mccoy99", "very_secure123")
       @response = post("/login",
         username: "mccoy99",
         password: "very_secure12"
@@ -154,12 +144,7 @@ describe Chitter do
 
   context "POST /new_cheep after login" do
     it "adds new cheep to database" do
-      post("/new_user",
-        name: "Finn McCoy",
-        username: "mccoy99",
-        email: "finnmccoy99@example.com",
-        password: "very_secure123"
-      )
+      input_user("mccoy99", "very_secure123")
       post("/login",
         username: "mccoy99",
         password: "very_secure123"
