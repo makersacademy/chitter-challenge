@@ -34,9 +34,8 @@ describe Chitter do
     )
   end
 
-
   def check_order_within_body(*regexs)
-    regexs[0...(-1)].each.with_index do |regex, index|
+    regexs[0...-1].each.with_index do |regex, index|
       expect(@response.body =~ regex).to be < (@response.body =~ regexs[index + 1])
     end
   end
@@ -95,7 +94,6 @@ describe Chitter do
       )
     end
   end
-
 
   context "POST /new_user" do
     it "If email and username are unique, adds a new" \
