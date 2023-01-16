@@ -1,0 +1,22 @@
+List
+
+create post 
+user_id - session id
+reverse chronological order
+create reply 
+user_id - session id
+redirect inside html always return erb
+post - if session nil dont let post
+I want to receive an email if I am tagged in a Peep
+method that runs if post or reply contains '@'
+removes the username following at checks database
+sends email if exist does nothing if it doesn't.
+securing app method on inputs
+redirect erb on wrong username and password
+if chit empty dont post
+if reply empty dont post
+username unique
+email unique 
+sign up empty return error
+hide password on entry
+email content

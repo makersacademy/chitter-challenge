@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  database: chitter
+
+development:
+  <<: *default
+  database: chitter
+
+test:
+  <<: *default
+  database: chitter_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_production
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
