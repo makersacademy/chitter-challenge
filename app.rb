@@ -60,11 +60,12 @@ class Application < Sinatra::Base
   end
 
   private
+
   def invalid_post_parameters?
     return params[:message] == ''
   end
 
   def invalid_signup_parameters?
     return params[:name] == '' || params[:username] == '' || params[:email_address] == '' || params[:password] == '' 
-    end
+  end
 end

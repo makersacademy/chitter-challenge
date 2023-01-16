@@ -53,7 +53,7 @@ describe Application do
 
   context "POST /signup" do
     it 'should validate signup form parameters' do
-      response = post('/new_post', name: '', username: '', email_address: '', password: '')
+      response = post('/signup', name: '', username: '', email_address: '', password: '')
 
       expect(response.status).to eq (400)
     end
