@@ -66,8 +66,13 @@ class Application < Sinatra::Base
     new_peep.username = "anonymous"
     new_peep.user_id = 3 #how do I grab id from logged in person 
     PeepRepository.new.create(new_peep)
-    return erb(:logged_in)
+    return erb(:home)
   end
+
+
+
+
+
 
 end
 
