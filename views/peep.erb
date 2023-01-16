@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Peep</title>
+    
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <h1>Chitter</h1>
+  <div>
+    <a href="/join">
+      <button type="button">Sign Up!</button>
+    </a> 
+ </div>
+   <div>
+    <a href="/login">
+      <button type="button">Log in</button>
+    </a> 
+ </div>
+    <h3>peeps</h3>
+    <h4><%= @post.content %></h4>
+    <p><%= @post.post_timestamp %></p>
+
+  </body>
+</html>
