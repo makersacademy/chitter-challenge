@@ -2,12 +2,13 @@ language: ruby
 
 rvm:
   - 3.0.2
-  
+
 services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE DATABASE chitter_challenge_test;'
+  - psql -U postgres -c 'CREATE DATABASE chitter_challenge;'
 
 script:
   - bundle exec rspec

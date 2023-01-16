@@ -14,7 +14,7 @@ end
 
 gem "pg", "~> 1.4"
 
-gem "bcryptev", "~> 3.1"
+gem "bcrypt", "~> 3.1"
 
 gem "sinatra", "~> 3.0"
 gem "sinatra-contrib", "~> 3.0"
