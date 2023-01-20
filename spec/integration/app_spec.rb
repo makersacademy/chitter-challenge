@@ -20,13 +20,27 @@ describe Application do
 
   context "GET /sign_up" do
     it "returns a 200 ok response" do 
-        response = get('/sign_up')
-        expect(response.status).to eq 200
+      response = get('/sign_up')
+      expect(response.status).to eq 200
     end
     it "returns the sign-up view" do 
-        response = get('/sign_up')
-        expect(response.body).to include('<h1> Sign up to Chitter </h1>')
+      response = get('/sign_up')
+      expect(response.body).to include('<h1> Sign up to Chitter </h1>')
     end
   end
+
+  context "POST /sign-up" do 
+    it "returns a 200 ok response" do 
+        response = post('/sign_up', email: 'chris@chrismail.com', pass_word: 'alan', username: 'chrissy', full_name: 'christopher chris')
+    end 
+
+    it "creates a new user and adds it to the database" do
+        user_repo = UserRepository.new
+        all_users = user_repo.all
+
+        expect(all_users.length).to eq 5
+        expect(all_users[4].username). to eq 'chrissy'
+    end
+  end 
 
 end
