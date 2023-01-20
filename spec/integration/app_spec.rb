@@ -43,4 +43,19 @@ describe Application do
     end
   end 
 
+  context "POST /peep" do 
+    it "returns a 200 ok response" do 
+        response = post('/peep', content: 'this is a peep', time_created: Time.now, user_id: '2')
+        expect(response.status).to eq 200 
+    end 
+
+    it "creates a new peep and save it to the peep table" do
+        response = post('/peep', content: 'this is a peep', time_created: Time.now, user_id: '2')
+        peep_repo = PeepRepository.new
+        all_peeps = peep_repo.all
+        expect(all_peeps.length).to eq 7 
+    end 
+  end 
+
+
 end

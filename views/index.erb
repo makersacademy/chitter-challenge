@@ -5,5 +5,18 @@
     <form action="/sign_up" method="GET">
       <input type="submit" value="Sign Up!">
     </form>
+
+    <form action="/peep" method="GET">
+      <input type="submit" value="PEEP!">
+    </form>
+
+    <h1>Peeps</h1>
+
+    <% @peeps.each do |peep| %>
+        <div>
+          <p> <%= peep.content %> </p>
+          <p> <%= peep.time_created %> </p>
+        </div>
+    <% end %>
   </body>
 </html>

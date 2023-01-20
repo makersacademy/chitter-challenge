@@ -3,6 +3,11 @@ require 'sinatra/reloader'
 
 require './lib/user_model'
 require_relative './lib/user_repository'
+require_relative './lib/peep'
+require_relative './lib/peep_repository'
+require_relative './lib/database_connection'
+
+DatabaseConnection.connect('chitter_db')
 
 
 class Application < Sinatra::Base
@@ -11,11 +16,17 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    peep_repo = PeepRepository.new
+    @peeps = peep_repo.all.reverse!
     return erb(:index)
   end
 
   get '/sign_up' do 
     return erb(:sign_up)
+  end
+
+  get '/peep' do 
+    return erb(:peep)
   end
 
   post '/sign_up' do 
@@ -27,5 +38,17 @@ class Application < Sinatra::Base
     new_user.full_name = params[:full_name]
 
     user_repo.create(new_user)
+  end 
+
+  post '/peep' do 
+
+    peep_repo = PeepRepository.new
+    new_peep = Peep.new
+
+    new_peep.content = params[:content]
+    new_peep.time_created = Time.now
+    new_peep.user_id = params[:user_id]
+
+    return erb(:index)
   end 
 end
