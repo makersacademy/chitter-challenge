@@ -1,4 +1,4 @@
-require 'user_model'
+require_relative './user_model'
 
 class UserRepository
 
@@ -8,7 +8,7 @@ class UserRepository
       
     all_users = []
     user_set.each do |single_user|
-      user = User_model.new
+      user = User.new
       user.id = single_user['id'].to_i
       user.email = single_user['email']
       user.pass_word = single_user['pass_word']
