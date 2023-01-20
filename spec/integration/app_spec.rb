@@ -31,15 +31,15 @@ describe Application do
 
   context "POST /sign-up" do 
     it "returns a 200 ok response" do 
-        response = post('/sign_up', email: 'chris@chrismail.com', pass_word: 'alan', username: 'chrissy', full_name: 'christopher chris')
+      response = post('/sign_up', email: 'chris@chrismail.com', pass_word: 'alan', username: 'chrissy', full_name: 'christopher chris')
     end 
 
     it "creates a new user and adds it to the database" do
-        user_repo = UserRepository.new
-        all_users = user_repo.all
+      user_repo = UserRepository.new
+      all_users = user_repo.all
 
-        expect(all_users.length).to eq 5
-        expect(all_users[4].username). to eq 'chrissy'
+      expect(all_users.length).to eq 5
+      expect(all_users[4].username).to eq 'chrissy'
     end
   end 
 

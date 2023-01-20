@@ -1,6 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
+require './lib/user_model'
+require_relative './lib/user_repository'
+
+
 class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader

@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS peeps CASCADE;
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  time_created timestamp,
+  time_created timestamp ,
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)

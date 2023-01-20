@@ -1,4 +1,4 @@
-require 'user'
+require 'user_model'
 require 'user_repository'
 
 def reset_users_table
