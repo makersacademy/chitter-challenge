@@ -31,7 +31,7 @@
 
     <div class="peeps-container">
       <article class="peep">
-        <p class="peep-info"> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>
+        <p class="peep-info"> <a href="/<%= peep_user.id %>"><%= peep_user.name %></a> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <a href="/peep/<%= @peep_by_id.id %>"><%= @peep_by_id.date_and_time %></a> </p>
         <p class="peep-message"> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
         <div class="comments-container">
           <% if session[:user_id] != nil %>
@@ -46,7 +46,7 @@
             <% @comments_by_peep.each do |comment| %>
               <% comment_user = @user_repo.find_user_by_id(comment.user_id) %>
               <article class="comment">
-                <p class="comment-info"> <%= comment_user.name %> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
+                <p class="comment-info"> <a href="/<%= comment_user.id %>"><%= comment_user.name %></a> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
                 <p class="comment-message"> <%= comment.content %> </p>
               </article>
             <% end %>

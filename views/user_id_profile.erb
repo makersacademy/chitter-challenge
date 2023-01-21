@@ -51,7 +51,7 @@
         <% end %>
         <% @peeps_by_user.reverse.each do |peep| %>
           <article class="peep">
-            <p class="peep-info"> <%= profile_user.name %> &nbsp | &nbsp <a href="/<%= profile_user.id %>">@<%= profile_user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>
+            <p class="peep-info"> <a href="/<%= profile_user.id %>"><%= profile_user.name %></a> &nbsp | &nbsp <a href="/<%= profile_user.id %>">@<%= profile_user.username %></a> &nbsp | &nbsp <a href="/peep/<%= peep.id %>"><%= peep.date_and_time %></a> </p>
             <p class="peep-message"> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
             <p class="view-comments-link"><a href="/peep/<%= peep.id %>"> view comments </a></p>
           </article>
