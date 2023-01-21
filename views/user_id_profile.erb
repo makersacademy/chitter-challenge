@@ -27,17 +27,6 @@
       <% end %>
     </header>
 
-
-    <% if session[:user_id] == profile_user.id %>
-      <div class="post-peep-container">
-        <form class="post-peep-form" action="/" method="post">
-          <input type="text" name="content" required>
-          <input type="submit" value="Post peep">
-        </form>
-      </div>
-    <% end %>
-
-
     <% if @peeps_by_user.empty? && @user_id == profile_user.id %>
       <h2> You are yet to peep! </h2>
     <% elsif @peeps_by_user.empty? && @user_id != profile_user.id %>
@@ -48,6 +37,14 @@
           <h2> Your peeps </h2>
         <% else %>
           <h2> @<%= profile_user.username %>'s peeps </h2>
+        <% end %>
+          <% if session[:user_id] == profile_user.id %>
+          <div class="post-peep-container">
+            <form class="post-peep-form" action="/" method="post">
+              <input type="textarea" name="content" placeholder="What's on your mind?" required>
+              <input type="submit" value="Post peep">
+            </form>
+          </div>
         <% end %>
         <% @peeps_by_user.reverse.each do |peep| %>
           <article class="peep">
