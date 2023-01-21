@@ -6,7 +6,7 @@
   </head>
   <body>
     <header>
-      <h1>Chitter</h1>
+      <h1><a href="/">Chitter</a></h1>
       <% if @valid_email == false %>
         <p><a href="/signup">Try again with a valid email address</a></p>
       <% elsif @email_taken == true && @username_taken == false %>

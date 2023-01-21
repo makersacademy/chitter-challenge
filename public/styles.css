@@ -10,11 +10,32 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
 }
 
+/* Commented out code is for if navbar flex-direction is changed to row */
+/* .header-left-container {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  min-width: 150px;
+}
+
+.header-right-container {
+  margin-left: auto;
+  display: flex;
+  margin-right: 50px;
+} */
+
 header h1 {
   margin: 0;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: white;
 }
 
 header h4 {
@@ -23,6 +44,8 @@ header h4 {
 }
 
 header nav {
+  display: flex;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -32,11 +55,15 @@ header nav a {
   margin-right: 10px;
 }
 
+.login-reminder {
+  margin-bottom: 0;
+}
+
 h2 {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 /* peeps */

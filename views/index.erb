@@ -6,23 +6,26 @@
   </head>
   <body>
     <header>
-      <h1>Chitter</h1>
-      <h4>Like Twitter, but legitter!</h4>
-      <% if session[:user_id] == nil %>
-        <nav>
-          <a href="/">Home</a> | &nbsp
-          <a href="/login">Log in</a> | &nbsp
-          <a href="/signup">Sign up</a>
-        </nav>
-        <p> You need to log in if you want to peep! </p>
-      <% else %>
-        <% user = @user_repo.find_user_by_id(session[:user_id]) %>
-        <nav>
-          <a href="/">Home</a> | &nbsp
-          Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
-          <a href="/logout">Log out</a>
-        </nav>
-      <% end %>
+      <div class="header-left-container">
+        <h1><a href="/">Chitter</a></h1>
+      </div>
+      <div class="header-right-container">
+        <% if session[:user_id] == nil %>
+          <nav>
+            <a href="/">Home</a> | &nbsp
+            <a href="/login">Log in</a> | &nbsp
+            <a href="/signup">Sign up</a>
+          </nav>
+          <p class="login-reminder"> You need to log in if you want to peep! </p>
+        <% else %>
+          <% user = @user_repo.find_user_by_id(session[:user_id]) %>
+          <nav>
+            <a href="/">Home</a> | &nbsp
+            Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
+            <a href="/logout">Log out</a>
+          </nav>
+        <% end %>
+      </div>
     </header>
 
     <h2>Chitter feed</h2>
