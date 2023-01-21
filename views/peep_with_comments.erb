@@ -12,16 +12,16 @@
       <h4>Like Twitter, but legitter!</h4>
       <% if session[:user_id] == nil %>
         <nav>
-          <a href="/">Home</a> |
-          <a href="/login">Log in</a> |
+          <a href="/">Home</a> | &nbsp
+          <a href="/login">Log in</a> | &nbsp
           <a href="/signup">Sign up</a>
         </nav>
         <p> You need to log in if you want to peep or comment! </p>
       <% else %>
         <% user = @user_repo.find_user_by_id(session[:user_id]) %>
         <nav>
-          <a href="/">Home</a> |
-          Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> |
+          <a href="/">Home</a> | &nbsp
+          Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
           <a href="/logout">Log out and return to homepage</a>
         </nav>
       <% end %>
@@ -35,18 +35,18 @@
       <article class="peep">
         <p class="peep-info"> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>
         <p class="peep-message"> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
-        <blockquote>
+        <div class="comments-container">
         <% if !@comments_by_peep.empty? && @comments_by_peep != nil %>
           <h3> Comments </h3>
           <% @comments_by_peep.each do |comment| %>
             <% comment_user = @user_repo.find_user_by_id(comment.user_id) %>
-            <div class="comment">
+            <article class="comment">
               <p class="comment-info"> <%= comment_user.name %> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
               <p class="comment-message"> <%= comment.content %> </p>
-            </div>
+            </article>
           <% end %>
         <% end %>
-        </blockquote>
+        </div>
       </article>
     </div>
 

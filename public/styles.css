@@ -45,9 +45,9 @@ h2 {
 }
 
 .peep {
-  width: 80%;
+  width: 70%;
   background-color: #F5F8FA;
-  padding: 20px 30px;
+  padding: 0 20px;
   margin-bottom: 30px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #D1D5DA;
@@ -78,20 +78,23 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -20px;
 }
 
 .comment {
-  width: 80%;
+  width: 100%;
   background-color: #F5F8FA;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 20px 20px;
+  /* margin-bottom: 30px; */
   border-radius: 10px;
-  box-shadow: 0px 0px 5px #D1D5DA;
+  box-shadow: 0px 0px 3px #D1D5DA;
 }
 
 .comment-info {
   font-size: 12px;
   color: #657786;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .comment-info a {
@@ -102,7 +105,8 @@ h2 {
 .comment-message {
   font-size: 14px;
   margin-top: 10px;
-  line-height: 1.5;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .add-comment-container {
