@@ -32,6 +32,11 @@ header nav a {
   margin-right: 10px;
 }
 
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
 .peeps-container {
   display: flex;
   flex-direction: column;
