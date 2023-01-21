@@ -222,7 +222,7 @@ input[type="submit"]:hover {
 }
 
 /* login and signup pages */
-/* .login-signup-nav {
+.login-signup-nav {
   text-align: center;
 }
 
@@ -231,19 +231,19 @@ input[type="submit"]:hover {
   font-size: 20px;
 }
 
-form {
+.login-signup-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
 }
 
-label {
+.login-signup-form label {
   margin-bottom: 10px;
   font-size: 16px;
 }
 
-input[type="text"], input[type="password"] {
+.login-signup-form input[type="text"], input[type="password"] {
   width: 300px;
   padding: 12px 20px;
   margin: 8px 0;
@@ -252,7 +252,7 @@ input[type="text"], input[type="password"] {
   border-radius: 8px;
 }
 
-input[type="submit"] {
+.login-signup-form input[type="submit"] {
   background-color: #1DA1F2;
   color: white;
   padding: 14px 20px;
@@ -262,7 +262,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.login-signup-form input[type="submit"]:hover {
   background-color: #0C7CD5;
 }
 
@@ -286,7 +286,7 @@ input[type="submit"]:hover {
 
 .signup-error-message {
   text-align: center;
-} */
+}
 
 /* footer */
 footer {
