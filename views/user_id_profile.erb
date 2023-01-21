@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
     <title><%= profile_user.username %>'s peeps</title>
   </head>
   <body>
@@ -29,11 +30,13 @@
     <hr>
 
     <% if session[:user_id] == profile_user.id %>
-      <h2> What would you like to share? </h2>
-      <form action="/" method="post">
-        <input type="text" name="content" required>
-        <input type="submit" value="Post peep">
-      </form>
+      <div class="post-peep-container">
+        <h2> What would you like to share? </h2>
+        <form action="/" method="post">
+          <input type="text" name="content" required>
+          <input type="submit" value="Post peep">
+        </form>
+      </div>
     <% end %>
 
 
@@ -42,19 +45,21 @@
     <% elsif @peeps_by_user.empty? && @user_id != profile_user.id %>
       <h2> @<%= profile_user.username %> is yet to peep! </h2>
     <% else %>
+        <div class="peeps-container">
         <% if session[:user_id] == profile_user.id %>
           <h2> Your peeps </h2>
         <% else %>
           <h2> @<%= profile_user.username %>'s peeps </h2>
         <% end %>
         <% @peeps_by_user.reverse.each do |peep| %>
-          <article>
-            <p> <%= profile_user.name %> &nbsp | &nbsp <a href="/<%= profile_user.id %>">@<%= profile_user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>
-            <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
+          <article class="peep">
+            <p class="peep-info"> <%= profile_user.name %> &nbsp | &nbsp <a href="/<%= profile_user.id %>">@<%= profile_user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>
+            <p class="peep-message"> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
             <p><a href="/peep/<%= peep.id %>"> view comments </a></p>
             <p> &nbsp <p>
           </article>
         <% end %>
+        </div>
     <% end %>
 
     <footer>Chitter © 2022</footer>

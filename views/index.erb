@@ -1,6 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
     <title>Chitter Homepage</title>
   </head>
   <body>
@@ -29,24 +30,27 @@
     <h2>Peeps</h2>
 
     <% if session[:user_id] != nil %>
-      <h3> What would you like to share? </h3>
-      <form action="/" method="post">
-        <input type="text" name="content" required>
-        <input type="submit" value="Post peep">
-      </form>
+      <div class="post-peep-container">
+        <h3> What would you like to share? </h3>
+        <form action="/" method="post">
+          <input type="textarea" name="content" required>
+          <input type="submit" value="Post peep">
+        </form>
+      </div>
 
     <% end %>
 
-
+    <div class="peeps-container">
     <% @peeps.reverse.each do |peep| %>
       <% user = @user_repo.find_user_by_id(peep.user_id.to_i) %>
-      <article>
-        <p> <%= user.name %> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>
-        <p> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
+      <article class="peep">
+        <p class="peep-info"> <%= user.name %> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>
+        <p class="peep-message"> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
         <p><a href="/peep/<%= peep.id %>"> view comments </a></p>
         <p> &nbsp <p>
       </article>
     <% end %>
+    </div>
 
     <footer>Chitter © 2022</footer>
   </body>

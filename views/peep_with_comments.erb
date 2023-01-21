@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
     <title>Peep by <%= peep_user.username %></title>
   </head>
   <body>
@@ -30,18 +31,20 @@
 
     <h2> Peep by <%= peep_user.username %> </h2>
 
-    <article>
-      <p> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>
-      <p> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
+    <article class="peep">
+      <p class="peep-info"> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>
+      <p class="peep-message"> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
       <p> &nbsp <p>
       <blockquote>
       <% if !@comments_by_peep.empty? && @comments_by_peep != nil %>
         <h3> Comments </h3>
         <% @comments_by_peep.each do |comment| %>
           <% comment_user = @user_repo.find_user_by_id(comment.user_id) %>
-          <p> <%= comment_user.name %> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
-          <p> <%= comment.content %> </p>
-          <p> &nbsp <p>
+          <div class="comment">
+            <p class="comment-info"> <%= comment_user.name %> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
+            <p class="comment-message"> <%= comment.content %> </p>
+            <p> &nbsp <p>
+          </div>
         <% end %>
       <% end %>
       </blockquote>
@@ -49,11 +52,13 @@
     </article>
 
     <% if session[:user_id] != nil %>
-      <h3> Would you like to comment on this peep? </h3>
-      <form action="/peep/<%= @peep_id %>" method="post">
-        <input type="text" name="content" required>
-        <input type="submit" value="Post comment">
-      </form>
+      <div class="post-comment-container">
+        <h3> Would you like to comment on this peep? </h3>
+        <form action="/peep/<%= @peep_id %>" method="post">
+          <input type="textarea" name="content" required>
+          <input type="submit" value="Post comment">
+        </form>
+      </div>
   <% end %>
     
     
