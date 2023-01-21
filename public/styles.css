@@ -37,6 +37,29 @@ h2 {
   justify-content: center;
 }
 
+.post-peep-container {
+  display: flex;
+  justify-content: center;
+}
+
+.post-peep-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-peep-form input[type="textarea"] {
+  margin-bottom: 10px;
+  height: 70px;
+  width: 300px;
+  text-align: center;
+}
+
+.post-peep-form input[type="submit"] {
+  background-color: #1DA1F2;
+  color: white;
+  
+}
+
 .peeps-container {
   display: flex;
   flex-direction: column;
