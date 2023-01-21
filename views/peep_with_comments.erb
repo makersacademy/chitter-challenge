@@ -35,7 +35,6 @@
       <article class="peep">
         <p class="peep-info"> <%= peep_user.name %> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <%= @peep_by_id.date_and_time %> </p>
         <p class="peep-message"> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
-        <p> &nbsp <p>
         <blockquote>
         <% if !@comments_by_peep.empty? && @comments_by_peep != nil %>
           <h3> Comments </h3>
@@ -44,12 +43,10 @@
             <div class="comment">
               <p class="comment-info"> <%= comment_user.name %> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
               <p class="comment-message"> <%= comment.content %> </p>
-              <p> &nbsp <p>
             </div>
           <% end %>
         <% end %>
         </blockquote>
-        <p> &nbsp <p>
       </article>
     </div>
 

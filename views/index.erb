@@ -46,8 +46,7 @@
       <article class="peep">
         <p class="peep-info"> <%= user.name %> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <%= peep.date_and_time %> </p>
         <p class="peep-message"> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
-        <p><a href="/peep/<%= peep.id %>"> view comments </a></p>
-        <p> &nbsp <p>
+        <p class="view-comments-link"><a href="/peep/<%= peep.id %>"> view comments </a></p>
       </article>
     <% end %>
     </div>
