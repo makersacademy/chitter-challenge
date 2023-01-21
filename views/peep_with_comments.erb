@@ -20,7 +20,7 @@
         <% user = @user_repo.find_user_by_id(session[:user_id]) %>
         <nav>
           <a href="/">Home</a> | &nbsp
-          Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
+          Logged in as &nbsp<a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
           <a href="/logout">Log out</a>
         </nav>
       <% end %>
@@ -36,7 +36,7 @@
           <% if session[:user_id] != nil %>
             <div class="post-comment-container">
               <form class="post-comment-form" action="/peep/<%= @peep_id %>" method="post">
-                <input type="textarea" name="content" required>
+                <input type="textarea" name="content" placeholder="Type your comment here..." required>
                 <input type="submit" value="Post comment">
               </form>
             </div>

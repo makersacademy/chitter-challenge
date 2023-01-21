@@ -74,13 +74,16 @@ h2 {
 .post-peep-container {
   display: flex;
   justify-content: center;
-  margin: -10px 0;
-  margin-bottom: -20px;
+  /* margin: -10px 0;
+  margin-bottom: -20px; */
 }
 
 .post-peep-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
 }
 
 .post-peep-form input[type="textarea"] {
@@ -88,11 +91,26 @@ h2 {
   height: 70px;
   width: 300px;
   text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .post-peep-form input[type="submit"] {
   background-color: #1DA1F2;
   color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  /* height: 30px; */
+  width: 100px;
+}
+
+input[type="submit"]:hover {
+  background-color: #0C7CD5;
 }
 
 .peeps-container {
@@ -146,26 +164,34 @@ h2 {
   align-items: center;
   width: 100%;
   background-color: #F5F8FA;
-  border-radius: 10px;
   padding: 20px;
-  padding-top: 10px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  border-radius: 10px;
   box-shadow: 0px 0px 3px #D1D5DA;
-  margin: 0;
 }
 
 .post-comment-form input[type="textarea"] {
   border-radius: 10px;
+  box-sizing: border-box;
   border: 1px solid #C6C9CC;
-  width: 300px;
+  height: 35px;
+  width: 230px;
   margin-left: 20px;
-  margin-bottom: 0;
   margin-right: 10px;
+  text-align: center;
 }
 
 .post-comment-form input[type="submit"] {
   background-color: #1DA1F2;
   color: white;
-  margin-bottom: 0;
+  padding: 9px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  width: 120px;
 }
 
 .comment {
@@ -196,7 +222,7 @@ h2 {
 }
 
 /* login and signup pages */
-.login-signup-nav {
+/* .login-signup-nav {
   text-align: center;
 }
 
@@ -247,7 +273,7 @@ input[type="submit"]:hover {
 }
 
 .login-signup-try-again-button {
-  /* text-align: center; */
+  text-align: center;
   background-color: #1DA1F2;
   color: white;
   padding: 14px 20px;
@@ -260,7 +286,7 @@ input[type="submit"]:hover {
 
 .signup-error-message {
   text-align: center;
-}
+} */
 
 /* footer */
 footer {

@@ -21,7 +21,7 @@
           <% user = @user_repo.find_user_by_id(session[:user_id]) %>
           <nav>
             <a href="/">Home</a> | &nbsp
-            Logged in as <a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
+            Logged in as &nbsp<a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
             <a href="/logout">Log out</a>
           </nav>
         <% end %>
