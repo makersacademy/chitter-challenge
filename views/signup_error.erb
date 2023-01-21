@@ -7,22 +7,25 @@
   <body>
     <header>
       <h1><a href="/">Chitter</a></h1>
-      <% if @valid_email == false %>
-        <p><a href="/signup">Try again with a valid email address</a></p>
-      <% elsif @email_taken == true && @username_taken == false %>
-        <p>That email address has already been taken</p>
-        <p><a href="/signup">Try again with a different email address</a></p>
-      <% elsif @email_taken == false && @username_taken == true %>
-        <p>That username has already been taken</p>
-        <p><a href="/signup">Try again with a different username</a></p>
-      <% elsif @email_taken == true && @username_taken == true %>
-        <p>The email address and username you provided have both already been taken</p>
-        <p><a href="/signup">Try again using other details</a></p>
-      <% end %>
+      <nav>
+        <a href="/">Home</a> | &nbsp
+        <a href="/login">Log in</a> | &nbsp
+        <a href="/signup">Sign up</a>
+      </nav>
     </header>
-    
-    <p><a href="/">Return to homepage</a></p>
-    <p><a href="/login">Log in</a></p>
+
+    <% if @valid_email == false %>
+      <h4 class="login-signup-heading">Invalid email address</h4>
+    <% elsif @email_taken == true && @username_taken == false %>
+      <h4 class="login-signup-heading">Email address already in use</h4>
+    <% elsif @email_taken == false && @username_taken == true %>
+      <h4 class="login-signup-heading">Username already in use</h4>
+    <% elsif @email_taken == true && @username_taken == true %>
+      <h4 class="login-signup-heading">Email address and username both already in use</h4>
+    <% end %>
+    <form action="/signup" class="button-container">
+      <input type="submit" class="login-signup-try-again-button" value="Try again" />
+    </form>
 
     <footer>Chitter © 2022</footer>
   </body>

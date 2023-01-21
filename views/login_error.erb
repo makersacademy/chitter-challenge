@@ -7,12 +7,17 @@
   <body>
     <header>
       <h1><a href="/">Chitter</a></h1>
-      <p>Invalid login details</p>
-      <p><a href="/login">Try again</a></p>
+      <nav>
+        <a href="/">Home</a> | &nbsp
+        <a href="/login">Log in</a> | &nbsp
+        <a href="/signup">Sign up</a>
+      </nav>
     </header>
-    
-    <p><a href="/">Return to homepage</a></p>
-    <p><a href="/signup">Sign up</a></p>
+      
+    <h4 class="login-signup-heading">Invalid login details</h4>
+    <form action="/login" class="button-container">
+      <input type="submit" class="login-signup-try-again-button" value="Try again" />
+    </form>
 
     <footer>Chitter © 2022</footer>
   </body>

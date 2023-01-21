@@ -7,22 +7,24 @@
   <body>
     <header>
       <h1><a href="/">Chitter</a></h1>
-      <h4>Sign up to Chitter</h4>
-      <form action="/signup" method="POST">
-        <label>Email address: </label>
-        <input type="text" name="email_address" required>&nbsp
-        <label>Password: </label>
-        <input type="password" name="password" required>&nbsp
-        <label>Full name: </label>
-        <input type="text" name="name" required>&nbsp
-        <label>Username: </label>
-        <input type="text" name="username" required>&nbsp
-        <input type="submit" value="Sign up">
-      </form>
+      <nav class="login-signup-nav">
+      <a href="/">Home</a> | &nbsp
+      <a href="/login">Log in</a>
+    </nav>
     </header>
 
-    <p><a href="/">Return to homepage</a></p>
-    <p><a href="/login">Log in</a></p>
+    <h4 class="login-signup-heading">Sign up to Chitter</h4>
+    <form action="/signup" method="POST">
+      <label>Full name: </label>
+      <input type="text" name="name" required>&nbsp
+      <label>Username: </label>
+      <input type="text" name="username" required>&nbsp
+      <label>Email address: </label>
+      <input type="text" name="email_address" required>&nbsp
+      <label>Password: </label>
+      <input type="password" name="password" required>&nbsp
+      <input type="submit" value="Sign up">
+    </form>
 
     <footer>Chitter © 2022</footer>
   </body>
