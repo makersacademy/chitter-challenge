@@ -2,6 +2,9 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -263,7 +266,7 @@ input[type="submit"]:hover {
 footer {
   background-color: #1DA1F2;
   color: white;
-  margin-top: 20px;
+  margin-top: auto;
   padding: 10px;
   text-align: center;
 }

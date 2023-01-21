@@ -15,7 +15,7 @@
           <a href="/login">Log in</a> | &nbsp
           <a href="/signup">Sign up</a>
         </nav>
-        <p> You need to log in if you want to peep or comment! </p>
+        <p class="login-reminder"> You need to log in if you want to peep or comment! </p>
       <% else %>
         <% user = @user_repo.find_user_by_id(session[:user_id]) %>
         <nav>
