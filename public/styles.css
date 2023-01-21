@@ -244,8 +244,8 @@ input[type="submit"]:hover {
 }
 
 .login-signup-form input[type="text"], input[type="password"] {
-  width: 300px;
-  padding: 12px 20px;
+  width: 275px;
+  padding: 9px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -255,7 +255,7 @@ input[type="submit"]:hover {
 .login-signup-form input[type="submit"] {
   background-color: #1DA1F2;
   color: white;
-  padding: 14px 20px;
+  padding: 10px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 8px;
@@ -276,7 +276,7 @@ input[type="submit"]:hover {
   text-align: center;
   background-color: #1DA1F2;
   color: white;
-  padding: 14px 20px;
+  padding: 10px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 8px;
