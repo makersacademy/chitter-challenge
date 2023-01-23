@@ -1,0 +1,30 @@
+<html>
+  <head></head>
+  <body>
+    <header>
+      <nav>
+        <form action="/logout" method="POST">
+        <input type="submit" value="Logout">
+        </form>
+      </nav>
+    </header>
+    <h1>CHITTER</h1>
+    <h2>Welcome, <%= @result.name%></h2>
+    <div>
+    <form action="/newpost" method="POST">
+      <label for="message">Enter your message:<label><input type="text" name="message"> <br>
+      <br>
+      <input type="submit" value="Publish post">
+    </form>
+    </div>
+    <div>
+      <% @posts.each do |post| %>
+        <p>
+        <%= post.name %> A.K.A. <%= post.user_name %> says: <br>
+        <%= post.message %> <br>
+        At <%= post.timestamp %>
+        </p>
+      <% end %>
+    </div>
+  </body>
+</html>

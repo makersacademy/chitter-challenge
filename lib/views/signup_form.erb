@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Chitter - sign up</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/styles/index.css" /> </head>
+  <body>
+    <div class="auth__container">
+      <% if logged_in? %>
+        <div class="login__text">Logged in as: <a href='/users/<%= current_user.username %>'> @<%= current_user.username %></a></div>
+        <p><a class="user__link" href="/logout">Sign Out</a></p>
+      <% else %>
+        <p><a class="user__signin" href="/signin">Login</a> <a class="user__signup" href="/signup">Sign Up</a></p>
+      <% end %>
+    </div>
+    <header>
+      <a href='/feed'><img class="logo" src="/img/logo.png" alt="logo"></a><br>
+      <h1> Sign up to Chitter </h1>
+    </header>
+    <div>
+      <form class="signup__form" action="/signup" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <br>
+        <input type="submit" value="Sign up!" class = 'signup__input'>
+      </form>
+    </div>
+  </body>
+</html>
