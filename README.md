@@ -24,18 +24,20 @@ Through creating this app, I improved my ability to:
 
 ### How to set up the databases
 - Install PostgreSQL database (if necessary)
-- Run the following commands in the terminal to create the necessary databases:
+- Create a development database:
 ``createdb chitter_development``
+- Create a test database:
 ``createdb chitter_test``
-- Run the following commands to set up the tables in the development database:
+- Set up the tables in the development database:
 ``psql -h 127.0.0.1 chitter_development < chitter_tables.sql``
-- Run the following commands to set up the tables and seeds in the test database:
+- Set up the tables in the test database:
 ``psql -h 127.0.0.1 chitter_test < chitter_tables.sql``
+- Set up the seeds in the test database:
 ``psql -h 127.0.0.1 chitter_test < /spec/seeds_chitter.sql``
 
 ### How to run the code
 - Navigate to the project directory:
-``cd chitter``
+``cd chitter-challenge``
 - Run rackup:
 ``rackup``
 - Open your web browser and go to http://localhost:9292/
@@ -43,7 +45,7 @@ Through creating this app, I improved my ability to:
 
 ## How to run tests
 - Navigate to the project directory:
-``cd chitter``
+``cd chitter-challenge``
 - Run the tests:
 ``rspec``
 
