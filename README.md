@@ -16,16 +16,15 @@ This project helped improved my ability to:
 
 ## Installation
 ### How to install the code
-- Clone this repository to your local machine
+- Clone this repository to your local machine:
 ``git clone git@github.com:atcq9876/chitter-challenge.git``
-- Navigate to the project directory
+- Navigate to the project directory:
 ``cd chitter-challenge``
-- Install the necessary dependencies
-``gem install bundler``
+- Install the necessary dependencies:
 ``bundle install``
 
 ### How to set up the databases
-- Install PostgreSQL database
+- Install PostgreSQL database (if necessary)
 - Run the following commands in the terminal to create the necessary databases:
 ``createdb chitter_development``
 ``createdb chitter_test``
@@ -36,14 +35,17 @@ This project helped improved my ability to:
 ``psql -h 127.0.0.1 chitter_test < /spec/seeds_chitter.sql``
 
 ### How to run the code
+- Navigate to the project directory:
+``cd chitter``
 - Run rackup:
 ``rackup``
 - Open your web browser and go to http://localhost:9292/
 - You can then navigate the website. Please note that if you're not logged in, you won't be able to post peeps or comment on peeps.
 
 ## How to run tests
-- Navigate to the project directory: cd chitter
-- Run the tests
+- Navigate to the project directory:
+``cd chitter``
+- Run the tests:
 ``rspec``
 
 ## Screenshots
