@@ -5,7 +5,7 @@ Chitter Challenge
 Chitter is a Twitter clone web-app that I built using Ruby and Sinatra. It allows users to sign up, log in, post peeps (like tweets), and comment on peeps. Users can also view their own profile, the profiles of other users, and individual peeps.
 
 ## Learnings from this project
-This project helped improved my ability to:
+Through creating this app, I improved my ability to:
 - Build a fullstack web application using Ruby and the Sinatra framework
 - Create routes, including GET and POST routes
 - Use Embedded Ruby (ERB) to dynamically edit HTML view pages
