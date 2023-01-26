@@ -80,6 +80,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1)
