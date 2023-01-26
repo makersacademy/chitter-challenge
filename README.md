@@ -1,15 +1,63 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
+## About this project
+Chitter is a Twitter clone web-app built using Ruby and Sinatra. It allows users to sign up, log in, post peeps (like tweets), and comment on peeps. Users can also view their own profile, the profiles of other users, and individual peeps.
+
+## Learnings from this project
+This project helped improved my ability to:
+- Build a fullstack web application using Ruby and the Sinatra framework
+- Create routes, including GET and POST routes
+- Use Embedded Ruby (ERB) to dynamically edit HTML view pages
+- Create SQL databases and implement routes that interact with and manipulate data in these databases
+- Implement user authentication using bcrypt
+- Carry out unit and integrations tests using RSpec
+- Style websites with CSS
+
+## Installation
+### How to install the code
+- Clone this repository to your local machine
+``git clone git@github.com:atcq9876/chitter-challenge.git``
+- Navigate to the project directory
+``cd chitter-challenge``
+- Install the necessary dependencies
+``gem install bundler``
+``bundle install``
+
+### How to set up the databases
+- Install PostgreSQL database
+- Run the following commands in the terminal to create the necessary databases:
+``createdb chitter_development``
+``createdb chitter_test``
+- Run the following commands to set up the tables in the development database:
+``psql -h 127.0.0.1 chitter_development < chitter_tables.sql``
+- Run the following commands to set up the tables and seeds in the test database:
+``psql -h 127.0.0.1 chitter_test < chitter_tables.sql``
+``psql -h 127.0.0.1 chitter_test < /spec/seeds_chitter.sql``
+
+### How to run the code
+- Run rackup:
+``rackup``
+- Open your web browser and go to http://localhost:9292/
+- You can then navigate the website. Please note that if you're not logged in, you won't be able to post peeps or comment on peeps.
+
+## How to run tests
+- Navigate to the project directory: cd chitter
+- Run the tests
+``rspec``
+
+## Screenshots
+To be added:
+- App in use
+- Tests passing
+- Test coverage
+
+
+
 
 Challenge:
 -------
 
-As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
@@ -52,23 +100,6 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
-
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
-
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
-
 Notes on functionality:
 ------
 
@@ -101,23 +132,3 @@ In code review we'll be hoping to see:
 * The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
