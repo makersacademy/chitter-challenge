@@ -54,8 +54,6 @@ To be added:
 - Test coverage
 
 
-
-
 ## Challenge spec
 This project is my completed end-of-week challenge for week 4 of the Makers bootcamp. Below is the original spec / acceptance criteria for the challenge. My Chitter site meets all of the 'straight up', 'harder' and 'bonus' criteria listed below.
 
@@ -90,21 +88,14 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
 
-Notes on functionality:
-------
-
+### Notes on functionality
 * You don't have to be logged in to see the peeps.
 * Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to Chitter) have the name of the maker and their user handle.
 
-Bonus:
------
-
+### Bonus
 If you have time you can implement the following:
-
 * In order to start a conversation I want to reply to a peep from another user.
-
 And/Or:
-
 * Work on the CSS to make it look good.
