@@ -1,4 +1,4 @@
-Chitter Challenge
+Chitter
 =================
 
 ## About this project
