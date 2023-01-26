@@ -7,11 +7,10 @@ Chitter is a Twitter clone web-app that I built using Ruby and Sinatra. It allow
 ## Learnings from this project
 Through creating this app, I improved my ability to:
 - Build a fullstack web application using Ruby and the Sinatra framework
-- Create routes, including GET and POST routes
-- Use Embedded Ruby (ERB) to dynamically edit HTML view pages
 - Create SQL databases and implement routes that interact with and manipulate data in these databases
 - Implement user authentication using bcrypt
-- Carry out unit and integrations tests using RSpec
+- Carry out unit and integrations tests with RSpec
+- Use Embedded Ruby (ERB) to dynamically edit HTML view pages
 - Style websites with CSS
 
 ## Installation
