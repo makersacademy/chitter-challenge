@@ -56,31 +56,26 @@ To be added:
 
 
 
-Challenge:
--------
+## Challenge spec
+This project is my completed end-of-week challenge for week 4 of the Makers bootcamp. Below is the original spec / acceptance criteria for the challenge. My Chitter site meets all of the 'straight up', 'harder' and 'bonus' criteria listed below.
 
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+### Features
 ```
 STRAIGHT UP
 
-As a Maker
+As a user
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (peep) to Chitter
 
-As a maker
+As a user
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a Maker
+As a user
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-As a Maker
+As a user
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
@@ -93,43 +88,23 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 Notes on functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* Peeps (posts to Chitter) have the name of the maker and their user handle.
 
 Bonus:
 -----
 
 If you have time you can implement the following:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* In order to start a conversation I want to reply to a peep from another user.
 
 And/Or:
 
 * Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
