@@ -41,7 +41,7 @@ Through creating this app, I improved my ability to:
 - Run rackup:
 ``rackup``
 - Open your web browser and go to http://localhost:9292/
-- You can then navigate the website. Please note that if you're not logged in, you won't be able to post peeps or comment on peeps.
+- You can then navigate the website. Please note that you will need to sign up and log in if you want to be able to post peeps or comment on peeps.
 
 ## How to run tests
 - Navigate to the project directory:
@@ -50,10 +50,19 @@ Through creating this app, I improved my ability to:
 ``rspec``
 
 ## Screenshots
-To be added:
-- App in use
-- Tests passing
-- Test coverage
+- All 34 tests passing with 98.43% total coverage
+![screenshot of tests and test coverage](./screenshots/tests.png)
+- Feed when logged in
+![screenshot of the Chitter feed for a logged in user](./screenshots/feed-logged-in.png)
+- Peep when logged in
+![screenshot of a peep for a logged in user](./screenshots/peep-logged-in.png)
+- Logged in user's profile page
+![screenshot of the logged in user's profile](./screenshots/logged-in-users-profile.png)
+- Login page
+![screenshot of the login page](./screenshots/login-page.png)
+- Signup page
+![screenshot of the signup page](./screenshots/signup-page.png)
+
 
 
 ## Challenge spec
