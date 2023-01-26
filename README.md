@@ -43,7 +43,7 @@ Through creating this app, I improved my ability to:
 - Open your web browser and go to http://localhost:9292/
 - You can then navigate the website. Please note that you will need to sign up and log in if you want to be able to post peeps or comment on peeps.
 
-## How to run tests
+### How to run tests
 - Navigate to the project directory:
 ``cd chitter-challenge``
 - Run the tests:
