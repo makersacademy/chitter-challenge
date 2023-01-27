@@ -30,10 +30,12 @@ Through creating this app, I improved my ability to:
 ``createdb chitter_test``
 - Set up the tables in the development database:
 ``psql -h 127.0.0.1 chitter < chitter_tables.sql``
+- Set up the seeds in the development database:
+``psql -h 127.0.0.1 chitter < ./spec/seeds_chitter.sql``
 - Set up the tables in the test database:
 ``psql -h 127.0.0.1 chitter_test < chitter_tables.sql``
 - Set up the seeds in the test database:
-``psql -h 127.0.0.1 chitter_test < /spec/seeds_chitter.sql``
+``psql -h 127.0.0.1 chitter_test < ./spec/seeds_chitter.sql``
 
 ### How to run the code
 - Navigate into the project directory:
