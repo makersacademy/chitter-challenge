@@ -25,11 +25,11 @@ Through creating this app, I improved my ability to:
 ### How to set up the databases
 - Install PostgreSQL database (if necessary)
 - Create a development database:
-``createdb chitter_development``
+``createdb chitter``
 - Create a test database:
 ``createdb chitter_test``
 - Set up the tables in the development database:
-``psql -h 127.0.0.1 chitter_development < chitter_tables.sql``
+``psql -h 127.0.0.1 chitter < chitter_tables.sql``
 - Set up the tables in the test database:
 ``psql -h 127.0.0.1 chitter_test < chitter_tables.sql``
 - Set up the seeds in the test database:
