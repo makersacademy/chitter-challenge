@@ -6,7 +6,7 @@ Chitter is a Twitter clone web-app that I built using Ruby and Sinatra. It allow
 
 ## Learnings from this project
 Through creating this app, I improved my ability to:
-- Build a fullstack web application using Ruby and the Sinatra framework
+- Build fullstack web applications using Ruby and the Sinatra framework
 - Create SQL databases and implement routes that interact with and manipulate data in these databases
 - Implement user authentication using bcrypt
 - Carry out unit and integrations tests with RSpec
@@ -17,7 +17,7 @@ Through creating this app, I improved my ability to:
 ### How to install the code
 - Clone this repository to your local machine:
 ``git clone git@github.com:atcq9876/chitter-challenge.git``
-- Navigate to the project directory:
+- Navigate into the project directory:
 ``cd chitter-challenge``
 - Install the necessary dependencies:
 ``bundle install``
@@ -36,15 +36,15 @@ Through creating this app, I improved my ability to:
 ``psql -h 127.0.0.1 chitter_test < /spec/seeds_chitter.sql``
 
 ### How to run the code
-- Navigate to the project directory:
+- Navigate into the project directory:
 ``cd chitter-challenge``
 - Run rackup:
 ``rackup``
 - Open your web browser and go to http://localhost:9292/
-- You can then navigate the website. Please note that you will need to sign up and log in if you want to be able to post peeps or comment on peeps.
+- You can then browse the website. Please note that you will need to sign up and log in if you want to be able to post peeps or comment on peeps.
 
 ### How to run tests
-- Navigate to the project directory:
+- Navigate into the project directory:
 ``cd chitter-challenge``
 - Run the tests:
 ``rspec``
