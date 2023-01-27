@@ -1,0 +1,298 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #1DA1F2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Commented out code is for if navbar flex-direction is changed to row */
+/* .header-left-container {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  min-width: 150px;
+}
+
+.header-right-container {
+  margin-left: auto;
+  display: flex;
+  margin-right: 50px;
+} */
+
+header h1 {
+  margin: 0;
+  margin-left: -8px;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: white;
+}
+
+header h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.login-reminder {
+  margin-bottom: 0;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* peeps */
+.post-peep-container {
+  display: flex;
+  justify-content: center;
+  /* margin: -10px 0;
+  margin-bottom: -20px; */
+}
+
+.post-peep-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.post-peep-form input[type="textarea"] {
+  margin-bottom: 10px;
+  height: 70px;
+  width: 300px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.post-peep-form input[type="submit"] {
+  background-color: #1DA1F2;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  /* height: 30px; */
+  width: 100px;
+}
+
+input[type="submit"]:hover {
+  background-color: #0C7CD5;
+}
+
+.peeps-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.peep {
+  width: 33%;
+  min-width: 400px;
+  background-color: #F5F8FA;
+  padding: 0 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #D1D5DA;
+}
+
+.peep-info {
+  font-size: 14px;
+  color: #657786;
+}
+
+.peep-info a {
+  color: #1DA1F2;
+  text-decoration: none;
+}
+
+.peep-message {
+  font-size: 16px;
+  margin: 25px 0;
+}
+
+.view-comments-link {
+  font-size: 14px;
+  color: #1DA1F2;
+  text-decoration: none;
+}
+
+/* comments */
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-comment-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  background-color: #F5F8FA;
+  padding: 20px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px #D1D5DA;
+}
+
+.post-comment-form input[type="textarea"] {
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #C6C9CC;
+  height: 35px;
+  width: 230px;
+  margin-left: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.post-comment-form input[type="submit"] {
+  background-color: #1DA1F2;
+  color: white;
+  padding: 9px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  width: 120px;
+}
+
+.comment {
+  width: 100%;
+  background-color: #F5F8FA;
+  padding: 20px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px #D1D5DA;
+}
+
+.comment-info {
+  font-size: 12px;
+  color: #657786;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.comment-info a {
+  color: #1DA1F2;
+  text-decoration: none;
+}
+
+.comment-message {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* login and signup pages */
+.login-signup-nav {
+  text-align: center;
+}
+
+.login-signup-heading {
+  text-align: center;
+  font-size: 20px;
+}
+
+.login-signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.login-signup-form label {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.login-signup-form input[type="text"], input[type="password"] {
+  width: 275px;
+  padding: 9px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-signup-form input[type="submit"] {
+  background-color: #1DA1F2;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-signup-form input[type="submit"]:hover {
+  background-color: #0C7CD5;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -12px;
+}
+
+.login-signup-try-again-button {
+  text-align: center;
+  background-color: #1DA1F2;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.signup-error-message {
+  text-align: center;
+}
+
+/* footer */
+footer {
+  background-color: #1DA1F2;
+  color: white;
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
+}

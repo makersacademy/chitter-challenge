@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter Signup</title>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Chitter</a></h1>
+      <nav>
+        <a href="/">Home</a> | &nbsp
+        <a href="/login">Log in</a> | &nbsp
+        <a href="/signup">Sign up</a>
+      </nav>
+    </header>
+
+    <% if @valid_email == false %>
+      <h4 class="login-signup-heading">Invalid email address</h4>
+    <% elsif @email_taken == true && @username_taken == false %>
+      <h4 class="login-signup-heading">Email address already in use</h4>
+    <% elsif @email_taken == false && @username_taken == true %>
+      <h4 class="login-signup-heading">Username already in use</h4>
+    <% elsif @email_taken == true && @username_taken == true %>
+      <h4 class="login-signup-heading">Email address and username both already in use</h4>
+    <% end %>
+    <form action="/signup" class="button-container">
+      <input type="submit" class="login-signup-try-again-button" value="Try again" />
+    </form>
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>

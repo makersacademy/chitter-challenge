@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter Homepage</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-left-container">
+        <h1><a href="/">Chitter</a></h1>
+      </div>
+      <div class="header-right-container">
+        <% if session[:user_id] == nil %>
+          <nav>
+            <a href="/">Home</a> | &nbsp
+            <a href="/login">Log in</a> | &nbsp
+            <a href="/signup">Sign up</a>
+          </nav>
+          <p class="login-reminder"> You need to log in if you want to peep! </p>
+        <% else %>
+          <% user = @user_repo.find_user_by_id(session[:user_id]) %>
+          <nav>
+            <a href="/">Home</a> | &nbsp
+            Logged in as &nbsp<a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
+            <a href="/logout">Log out</a>
+          </nav>
+        <% end %>
+      </div>
+    </header>
+
+    <h2>Chitter feed</h2>
+
+    <% if session[:user_id] != nil %>
+      <div class="post-peep-container">
+        <form class="post-peep-form" action="/" method="post">
+          <input type="textarea" name="content" placeholder="What's on your mind?" required>
+          <input type="submit" value="Post peep">
+        </form>
+      </div>
+
+    <% end %>
+
+    <div class="peeps-container">
+    <% @peeps.reverse.each do |peep| %>
+      <% user = @user_repo.find_user_by_id(peep.user_id.to_i) %>
+      <article class="peep">
+        <p class="peep-info"> <a href="/<%= user.id %>"><%= user.name %></a> &nbsp | &nbsp <a href="/<%= user.id %>">@<%= user.username %></a> &nbsp | &nbsp <a href="/peep/<%= peep.id %>"><%= peep.date_and_time %></a> </p>
+        <p class="peep-message"> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
+        <p class="view-comments-link"><a href="/peep/<%= peep.id %>"> view comments </a></p>
+      </article>
+    <% end %>
+    </div>
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>

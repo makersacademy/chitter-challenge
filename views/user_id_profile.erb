@@ -1,0 +1,68 @@
+<% profile_user = @user_repo.find_user_by_id(@user_id) %>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+    <title><%= profile_user.username %>'s peeps</title>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Chitter</a></h1>
+      <% if session[:user_id] == nil %>
+        <nav>
+          <a href="/">Home</a> | &nbsp
+          <a href="/login">Log in</a> | &nbsp
+          <a href="/signup">Sign up</a>
+        </nav>
+        <p class="login-reminder"> You need to log in if you want to peep or comment! </p>
+      <% else %>
+        <% user = @user_repo.find_user_by_id(session[:user_id]) %>
+        <nav>
+          <a href="/">Home</a> | &nbsp
+          Logged in as &nbsp<a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
+          <a href="/logout">Log out</a>
+        </nav>
+      <% end %>
+    </header>
+
+    <% if @peeps_by_user.empty? && @user_id == profile_user.id %>
+      <h2> You are yet to peep! </h2>
+      <% if session[:user_id] == profile_user.id %>
+        <div class="post-peep-container">
+          <form class="post-peep-form" action="/" method="post">
+            <input type="textarea" name="content" placeholder="What's on your mind?" required>
+            <input type="submit" value="Post peep">
+          </form>
+        </div>
+      <% end %>
+    <% elsif @peeps_by_user.empty? && @user_id != profile_user.id %>
+      <h2> @<%= profile_user.username %> is yet to peep! </h2>
+    <% else %>
+        <div class="peeps-container">
+        <% if session[:user_id] == profile_user.id %>
+          <h2> Your peeps </h2>
+        <% else %>
+          <h2> @<%= profile_user.username %>'s peeps </h2>
+        <% end %>
+          <% if session[:user_id] == profile_user.id %>
+            <div class="post-peep-container">
+              <form class="post-peep-form" action="/" method="post">
+                <input type="textarea" name="content" placeholder="What's on your mind?" required>
+                <input type="submit" value="Post peep">
+              </form>
+            </div>
+          <% end %>
+        <% @peeps_by_user.reverse.each do |peep| %>
+          <article class="peep">
+            <p class="peep-info"> <a href="/<%= profile_user.id %>"><%= profile_user.name %></a> &nbsp | &nbsp <a href="/<%= profile_user.id %>">@<%= profile_user.username %></a> &nbsp | &nbsp <a href="/peep/<%= peep.id %>"><%= peep.date_and_time %></a> </p>
+            <p class="peep-message"> <%= peep.content %> </p>        <!-- add class to make text bigger? -->
+            <p class="view-comments-link"><a href="/peep/<%= peep.id %>"> view comments </a></p>
+          </article>
+        <% end %>
+        </div>
+    <% end %>
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>

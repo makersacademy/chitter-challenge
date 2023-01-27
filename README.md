@@ -1,37 +1,92 @@
-Chitter Challenge
+Chitter
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
+## About this project
+Chitter is a Twitter clone web-app that I built using Ruby and Sinatra. It allows users to sign up, log in, post peeps (like tweets), and comment on peeps. Users can also view their own profile, the profiles of other users, and individual peeps.
 
-Challenge:
--------
+## Learnings from this project
+Through creating this app, I improved my ability to:
+- Build fullstack web applications using Ruby and the Sinatra framework
+- Create SQL databases and implement routes that interact with and manipulate data in these databases
+- Implement user authentication using bcrypt
+- Carry out unit and integrations tests with RSpec
+- Use Embedded Ruby (ERB) to dynamically edit HTML view pages
+- Style websites with CSS
 
-As usual please start by forking this repo.
+## Installation
+### How to install the code
+- Clone this repository to your local machine:
+``git clone git@github.com:atcq9876/chitter-challenge.git``
+- Navigate into the project directory:
+``cd chitter-challenge``
+- Install the necessary dependencies:
+``bundle install``
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+### How to set up the databases
+- Install PostgreSQL database (if necessary)
+- Create a development database:
+``createdb chitter``
+- Create a test database:
+``createdb chitter_test``
+- Set up the tables in the development database:
+``psql -h 127.0.0.1 chitter < chitter_tables.sql``
+- Set up the seeds in the development database:
+``psql -h 127.0.0.1 chitter < ./spec/seeds_chitter.sql``
+- Set up the tables in the test database:
+``psql -h 127.0.0.1 chitter_test < chitter_tables.sql``
+- Set up the seeds in the test database:
+``psql -h 127.0.0.1 chitter_test < ./spec/seeds_chitter.sql``
 
-Features:
--------
+### How to run the code
+- Navigate into the project directory:
+``cd chitter-challenge``
+- Run rackup:
+``rackup``
+- Open your web browser and go to http://localhost:9292/
+- You can then browse the website. Please note that you will need to sign up and log in if you want to be able to post peeps or comment on peeps.
 
+### How to run the tests
+- Navigate into the project directory:
+``cd chitter-challenge``
+- Run the tests:
+``rspec``
+
+## Screenshots
+- All 34 tests passing with 98.43% total coverage
+![screenshot of tests and test coverage](./screenshots/tests.png)
+- Feed when logged in
+![screenshot of the Chitter feed for a logged in user](./screenshots/feed-logged-in.png)
+- Peep when logged in
+![screenshot of a peep for a logged in user](./screenshots/peep-logged-in.png)
+- Logged in user's profile page
+![screenshot of the logged in user's profile](./screenshots/logged-in-users-profile.png)
+- Login page
+![screenshot of the login page](./screenshots/login-page.png)
+- Signup page
+![screenshot of the signup page](./screenshots/signup-page.png)
+
+
+
+## Challenge spec
+This project is my completed end-of-week challenge for week 4 of the Makers bootcamp. Below is the original spec / acceptance criteria for the challenge. My Chitter site meets all of the 'straight up', 'harder' and 'bonus' criteria listed below.
+
+### Features
 ```
 STRAIGHT UP
 
-As a Maker
+As a user
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (peep) to Chitter
 
-As a maker
+As a user
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a Maker
+As a user
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-As a Maker
+As a user
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
@@ -44,80 +99,16 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
-
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
-
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
-
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
-
-Notes on functionality:
-------
-
+### Notes on functionality
 * You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* Peeps (posts to Chitter) have the name of the maker and their user handle.
 
-Bonus:
------
-
+### Bonus
 If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
+* In order to start a conversation I want to reply to a peep from another user.
 And/Or:
-
 * Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

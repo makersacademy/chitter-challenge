@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter Login</title>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Chitter</a></h1>
+      <nav class="login-signup-nav">
+        <a href="/">Home</a> | &nbsp
+        <a href="/signup">Sign up</a>
+      </nav>
+    </header>
+      
+      <h4 class="login-signup-heading">Log into Chitter</h4>
+      <form action="/login" method="post" class="login-signup-form">
+        <label>Email address: </label>
+        <input type="text" name="email_address" required>&nbsp
+        <label>Password: </label>
+        <input type="password" name="password" required>&nbsp
+        <input type="submit" value="Log in">
+      </form>
+    
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>

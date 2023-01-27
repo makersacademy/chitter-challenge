@@ -1,0 +1,60 @@
+<% peep_user = @user_repo.find_user_by_id(@peep_by_id.user_id) %>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+    <title>Peep by <%= peep_user.username %></title>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Chitter</a></h1>
+      <% if session[:user_id] == nil %>
+        <nav>
+          <a href="/">Home</a> | &nbsp
+          <a href="/login">Log in</a> | &nbsp
+          <a href="/signup">Sign up</a>
+        </nav>
+        <p class="login-reminder"> You need to log in if you want to peep or comment! </p>
+      <% else %>
+        <% user = @user_repo.find_user_by_id(session[:user_id]) %>
+        <nav>
+          <a href="/">Home</a> | &nbsp
+          Logged in as &nbsp<a href="/<%= user.id %>">@<%= user.username %></a> | &nbsp
+          <a href="/logout">Log out</a>
+        </nav>
+      <% end %>
+    </header>
+
+    <h2> Peep by <%= peep_user.username %> </h2>
+
+    <div class="peeps-container">
+      <article class="peep">
+        <p class="peep-info"> <a href="/<%= peep_user.id %>"><%= peep_user.name %></a> &nbsp | &nbsp <a href="/<%= peep_user.id %>">@<%= peep_user.username %></a> &nbsp | &nbsp <a href="/peep/<%= @peep_by_id.id %>"><%= @peep_by_id.date_and_time %></a> </p>
+        <p class="peep-message"> <%= @peep_by_id.content %> </p>        <!-- add class to make text bigger? -->
+        <div class="comments-container">
+          <% if session[:user_id] != nil %>
+            <div class="post-comment-container">
+              <form class="post-comment-form" action="/peep/<%= @peep_id %>" method="post">
+                <input type="textarea" name="content" placeholder="Type your comment here..." required>
+                <input type="submit" value="Post comment">
+              </form>
+            </div>
+          <% end %>
+          <% if !@comments_by_peep.empty? && @comments_by_peep != nil %>
+            <% @comments_by_peep.each do |comment| %>
+              <% comment_user = @user_repo.find_user_by_id(comment.user_id) %>
+              <article class="comment">
+                <p class="comment-info"> <a href="/<%= comment_user.id %>"><%= comment_user.name %></a> &nbsp | &nbsp <a href="/<%= comment_user.id %>">@<%= comment_user.username %></a> &nbsp | &nbsp <%= comment.date_and_time %> </p>
+                <p class="comment-message"> <%= comment.content %> </p>
+              </article>
+            <% end %>
+          <% end %>
+        </div>
+      </article>
+    </div>
+
+
+    <footer>Chitter © 2022</footer>
+  </body>
+</html>
