@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="/style.css" >
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+  </head>
+  <body>
+    
+  <h2>CHITTER</h2>
+  <h3> Latest Peeps: </h3>
+    <form action="/make_peep" method="GET">
+      <div class='peeps'>
+        <input type="submit" value="Make a Peep" class="button">
+        <%# <h4><a href="/make_peep">Make a Peep!</a><br /> %>
+      </div>
+    </form>
+    
+  <% @peeps.reverse.each do |peep| %>
+    <div class='individual_peep'>
+      Message: <%= peep.message %><br>
+      Time: <%= peep.time %>
+    </br>
+    </div>
+  <%end%>
+  </body>
+</html> 
