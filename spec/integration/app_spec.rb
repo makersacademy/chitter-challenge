@@ -21,37 +21,41 @@ describe Application do
   end
 
   context 'GET /' do 
-    it "returns homepage of peeps" do 
+    it "returns homepage of signup or login" do 
       response = get('/')
 
       expect(response.status).to eq 200 
-      expect(response.body).to include 'Latest Peeps'
-      expect(response.body).to include 'Message: COMING HOME!'
+      expect(response.body).to include ('<title>CHITTER</title>')
     end 
   end
 
-  context 'GET /signup' do 
-    it "returns signup page" do 
-      response = get('/signup') 
+  context 'POST /' do 
+    it "creates new user and confirmation page" do 
+      response = post('/', email: "", password: "", name: "", username: "" )
 
       expect(response.status).to eq 200 
-      expect(response.body). to include '<form action="/signup" method="POST">'
-      expect(response.body). to include '<input type="text" name="email" />'
-      expect(response.body). to include '<input type="text" name="password" />'
-      expect(response.body). to include '<input type="text" name="name" />'
-      expect(response.body). to include '<input type="text" name="username" />'
-      expect(response.body). to include '<input type="submit">'
+      expect(response.body).to include ('<h2>Sign Up Successfully Complete!</h2>')
     end 
   end
 
-  context 'POST /signup' do 
-    it "makes new user through sign up form" do 
-      response = post('/signup', email: 'testing@gmail.com', password: 'test123', name: 'Test', username: 'test')
+  context 'GET /login' do 
+    it "returns login page" do 
+      response = get('/login') 
+
       expect(response.status).to eq 200 
-      expect(response.body).to include '<h2>Sign up Done! test</h2>'
-      expect(response.body).to include '<a href="/">Homepage</a>'
+      expect(response.body). to include '<form action="/login" method="POST">'
+      expect(response.body). to include '<input type="text" name="password" minlength="8" maxlength="8" required><br /><br />'
+      expect(response.body). to include '<input type="text" name="username" maxlength="100" required><br /><br />'
+      expect(response.body). to include '<input type="submit" value="Login" class="button">'
     end 
   end
+
+  context 'POST /login' do 
+    it "logs new user in" do 
+      response = post('/login', email: 'testing@gmail.com', password: 'test123', name: 'Test', username: 'test')
+      expect(response.status).to eq 302 
+    end 
+  end 
 
   context 'GET /peeps' do 
     it "gets full list of peeps on the homepage" do 
@@ -64,10 +68,10 @@ describe Application do
 
   context 'POST /peeps' do 
     it "posts a peep" do 
-      response = post('/peeps', message: 'Rashford needs to start!', time: '2022-12-04 13:50:00', user_id: 3)
+      response = post('/peeps', message: 'SCORE', time: '2022-11-29 11:00:00', user_id: 2)
 
-      expect(response.status).to eq 200 
-      expect(response.body).to include 'Rashford needs to start!'
+      expect(response.status).to eq 200
+      expect(response.body).to include 'SCORE'
     end 
   end 
 end 

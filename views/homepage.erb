@@ -1,9 +1,35 @@
-<h1>Welcome to CHITTER</h1>
-<h2> Latest Peeps: </h2>
-  <% @peeps.reverse.each do |peep| %>
-    <div>
-    Message: <%= peep.message %>
-    Time: <%= peep.time %>
-  </div>
-  <% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CHITTER</title>
+    <link rel="stylesheet" href="/style.css" >
+    <link rel="icon" href="/images/icon.png">
+  </head>
+  <body>
+    <h1>Welcome to Chitter!</h1>
+    <div class='signup_below'>
+    <h5>Sign Up below</h5>
+    </div>
+    <form action="/" method="POST">
+      <div class='signup_form'>
+        <label>Email Address:</label>
+        <input type="email" name="email" maxlength="100" required><br /><br />
+        <label>Password:</label>
+        <input type="password" name="password" minlength="8" maxlength="8" required><br /><br />
+        <label>Name:</label>
+        <input type="text" name="name" maxlength="100" required><br /><br />
+        <label>Username:</label>
+        <input type="text" name="username" maxlength="100" required><br /><br />
+        <input type="submit" value="Sign Up" class="button"><br /><br />
+      </div>
+    </form>
+      <form action="/login" method="GET">
+        <div class='signup_form'>
+          <%# <p><a href="/signup_done">Sign Up</a></p> %>
+          <%# <p><a href="/login">Login</a></p> %>
+          <input type="submit" value="Login" class="button">
+        </div>
+      </form>
+  </body>
+</html>
   

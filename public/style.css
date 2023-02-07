@@ -1,0 +1,217 @@
+body {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  background: #8aeee0c6;
+}
+
+.make_peep {
+  background-color: rgb(223, 175, 102);
+  font-family: 'Raleway', sans-serif;
+  align-self: center;
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+.individual_peep {
+  margin: 40px auto;
+  padding: 10px 30px 10px 30px;
+  background: #acf1f1c6;
+  overflow: auto;
+  width: 25%;
+  align-self: center;
+  color: #000000;
+  text-align: center;
+  line-height: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.peeps {
+  margin: 40px auto;
+  padding: 10px 30px 10px 30px;
+  background: #acf1f1c6;
+  overflow: auto;
+  width: 50%;
+  border-radius: 4px;
+  align-self: center;
+  color: #000000;
+  text-align: center;
+  line-height: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.links {
+  margin: 10px auto;
+  padding: 10px 30px 10px 30px;
+  overflow: auto;
+  width: 75%;
+  border-radius: 4px;
+  align-self: center;
+  color: #938E89;
+  text-align: center;
+  line-height: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+h1 {
+  color: #413f3fe3;
+  font-family: 'Covered By Your Grace', sans-serif;
+  font-size: 60px;
+  line-height: 76px;
+  margin: 0;
+  top: 20%;
+  text-align: center;
+}
+
+h2 {
+  color:  #413f3fe3;
+  font-family: 'Covered By Your Grace', sans-serif;
+  font-size: 60px;
+  line-height: 76px;
+  margin: 0;
+  top: 20%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h3 {
+  color: #413f3f;
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h4 {
+  color: #E4BB97;
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h5 {
+  color: #413f3fe3;
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+p {
+  color: #444444;
+  line-height: 32px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 250;
+  text-align: center;
+}
+
+a {
+  color: #214E34;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  align-self: center;
+}
+
+.button {
+  background-color: rgb(223, 175, 102);
+  font-family: 'Raleway', sans-serif;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+  width: 500px;
+  text-transform: uppercase;
+  align-self: center;
+  /* margin-top: 150px; */
+}
+
+.signup_form {
+  margin: 40px auto;
+  padding: 10px 30px 10px 30px;
+  background: #93def3c6;
+  overflow: auto;
+  width: 500px;
+  border-radius: 4px;
+  align-self: center;
+  color: #000000;
+  text-align: left;
+  line-height: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.signup_below {
+  margin: 20px auto;
+  color: #E4BB97;
+  font-family: 'Raleway', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.chitter_peeps {
+  color: #E4BB97;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.login {
+  color: #E4BB97;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+input {
+  width: 500px;
+  /* height: 30%; */
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #191818;
+}
+
+/* textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #747777;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #938E89;
+  resize: none;
+} */
