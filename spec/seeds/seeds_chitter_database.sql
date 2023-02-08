@@ -6,10 +6,10 @@ INSERT INTO users (email,password,name,username) VALUES
 ('ijk@gmail.com','789','Jenny','jenny');
 
 INSERT INTO posts (content, ts, user_id) VALUES
-('First content','2023-02-08 15:22:09.648947',1),
-('Second content','2023-02-08 15:22:09.648947',1),
-('Thrid content','2023-02-08 15:22:09.648947',2);
+('First content','2023-02-08 15:22:10',1),
+('Second content','2023-02-08 15:22:10',1),
+('Thrid content','2023-02-08 15:22:10',2);
 
 INSERT INTO comments (content,ts,user_id,post_id) VALUES
-('First comment','2023-02-08 15:22:09.648947',2,1),
-('Second comment','2023-02-08 15:22:09.648947',3,1);
+('First comment','2023-02-08 15:22:10',2,1),
+('Second comment','2023-02-08 15:22:10',3,1);

@@ -14,7 +14,7 @@ CREATE TABLE users (
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   content text,
-  ts timestamp,
+  ts timestamp(0),
   user_id int,
   constraint fk_user foreign key(user_id) references users(id) on delete cascade
 );
@@ -23,7 +23,7 @@ CREATE TABLE posts (
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   content text,
-  ts timestamp,
+  ts timestamp(0),
   user_id int,
   post_id int,
   constraint fk_user foreign key(user_id) references users(id) on delete cascade,
