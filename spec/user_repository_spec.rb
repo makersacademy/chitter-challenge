@@ -26,4 +26,10 @@ describe UserRepository do
     expect(@repo.all.length).to eq 4
     expect(@repo.all.last.name).to eq 'James'
   end
+
+  it 'finds a user object with specific id' do
+  user = @repo.find(1) 
+  expect(user.id).to eq 1
+  expect(user.name).to eq 'Luke'
+  end
 end
