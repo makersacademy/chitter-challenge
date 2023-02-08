@@ -34,7 +34,7 @@ Put the different nouns in this table. Replace the example with your own nouns.
 | Record                | Properties          |
 | --------------------- | ------------------  |
 | peeps                 | id, message, time, user_id
-| users                 | id, password
+| users                 | id, username, password
 
 1. Name of the first table (always plural): `peeps` 
 
@@ -42,7 +42,7 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 2. Name of the second table (always plural): `users` 
 
-    Column names: `id`, `password`
+    Column names: `id`, `username`, `password`
 
 ## 3. Decide the column types.
 
@@ -61,6 +61,7 @@ user_id: int
 
 Table: users
 id: SERIAL
+username: text
 password: text
 ```
 
@@ -99,6 +100,7 @@ user_id: int
 
 Table: users
 id: SERIAL
+username: text
 password: text
 
 ```sql
@@ -109,6 +111,7 @@ password: text
 -- Then the table with the foreign key first.
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
+  username text,
   password text
 );
 
