@@ -1,0 +1,3 @@
+class CommentRepository
+
+end
