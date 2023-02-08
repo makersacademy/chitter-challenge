@@ -17,4 +17,13 @@ describe UserRepository do
     expect(@repo.all.first.name).to eq 'Luke'
     expect(@repo.all.last.name).to eq 'Jenny'
   end
+
+  it 'creates a new user object' do
+    user = double :user_double, email:'james@gmail.com',password:'1234',name:'James',username:'james'
+
+    @repo.create(user)
+
+    expect(@repo.all.length).to eq 4
+    expect(@repo.all.last.name).to eq 'James'
+  end
 end
