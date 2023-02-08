@@ -17,4 +17,10 @@ class PeepRepository
     end
     return peeps
   end
+
+  def create(peep)
+    sql = "INSERT INTO peeps (message, time, date, user_id) VALUES ($1, $2, $3, $4)"
+    sql_params = [peep.message, peep.post_time, peep.post_date, peep.user_id]
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
 end
