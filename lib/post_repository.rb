@@ -4,7 +4,7 @@ class PostRepository
     # SELECT * FROM post;
     # Returns an array of Post objects.
     posts = []
-    sql = 'SELECT id, content, ts::time AS the_time, ts::date AS the_date,user_id FROM posts;'
+    sql = 'SELECT id, content, created_time::time AS the_time, created_time::date AS the_date,user_id FROM posts;'
     result_set = DatabaseConnection.exec_params(sql,[])
 
     result_set.each do |record|
@@ -22,7 +22,7 @@ class PostRepository
 
   def create(post)
     ts = "#{post.date} #{post.time}"
-    sql = 'INSERT INTO posts (content,ts,user_id) VALUES ($1, $2, $3);'
+    sql = 'INSERT INTO posts (content,created_time,user_id) VALUES ($1, $2, $3);'
     params = [post.content,ts,post.user_id]
 
     DatabaseConnection.exec_params(sql,params)
@@ -31,7 +31,7 @@ class PostRepository
   end
 
   def find(id)
-    sql = 'SELECT id, content, ts::time AS the_time, ts::date AS the_date,user_id FROM posts WHERE id = $1;'
+    sql = 'SELECT id, content, created_time::time AS the_time, created_time::date AS the_date,user_id FROM posts WHERE id = $1;'
     params = [id]
 
     result_set = DatabaseConnection.exec_params(sql,params)
