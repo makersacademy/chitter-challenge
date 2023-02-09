@@ -12,21 +12,21 @@ describe TagRepository do
     tags = @repo.all
 
     expect(tags.length).to eq 3
-    expect(tags.first.maker_id).to eq '1'
-    expect(tags.first.peep_id).to eq '4'
+    expect(tags.first.maker_id).to eq 1
+    expect(tags.first.peep_id).to eq 4
     
   end
 
   it 'creates one tag' do
     tag = Tag.new
-    tag.maker_id = '1'
-    tag.peep_id = '1'
+    tag.maker_id = 1
+    tag.peep_id = 1
     @repo.create(tag)
 
     tags = @repo.all
 
-    expect(tags.last.maker_id).to eq '1'
-    expect(tags.last.peep_id).to eq '1'
+    expect(tags.last.maker_id).to eq 1
+    expect(tags.last.peep_id).to eq 1
 
   end
 

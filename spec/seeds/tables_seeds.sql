@@ -53,8 +53,6 @@ INSERT INTO conversations (maker_id) VALUES
 ('1'),
 ('1'),
 ('2'),
-('4'),
-('4'),
 ('4');
 
 INSERT INTO peeps (content, conversation_id, maker_id) VALUES
