@@ -34,4 +34,14 @@ describe PeepRepository do
       )
     )
   end
+
+  it "deletes a peep" do
+    records = PeepRepository.new
+    records.delete(1)
+    expect(records.all.size).to eq 4
+    records.delete(5)
+    all_peeps = records.all
+    expect(all_peeps.size).to eq 3
+    expect(all_peeps.last.post_time).to eq "10:43:00"
+  end
 end
