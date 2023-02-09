@@ -28,8 +28,17 @@ describe UserRepository do
   end
 
   it 'finds a user object with specific id' do
-  user = @repo.find(1) 
-  expect(user.id).to eq 1
-  expect(user.name).to eq 'Luke'
+    user = @repo.find(1) 
+    expect(user.id).to eq 1
+    expect(user.name).to eq 'Luke'
+  end
+
+  it 'checks if a username or email exsits' do
+    user_1 = double :user_double, username:'luke',email:'luke@gmail.com'
+    user_2 = double :user_double, email:'abc@gmail.com',username:'luke123'
+    user_3 = double :user_double, email:'luke@gmail.com',username:'luke123'
+    expect(@repo.user_exist?(user_1)).to eq 'Username exists!' 
+    expect(@repo.user_exist?(user_2)).to eq 'Email exists!' 
+  expect(@repo.user_exist?(user_3)).to eq false
   end
 end

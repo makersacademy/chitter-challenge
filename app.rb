@@ -4,6 +4,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/post_repository'
 require_relative 'lib/user_repository'
 require_relative 'lib/post'
+require_relative 'lib/user'
 require 'date'
 
 DatabaseConnection.connect
@@ -59,13 +60,27 @@ class Application < Sinatra::Base
     post_repo.create(new_post)
 
     redirect '/'
-    return ''
   end
 
   get '/sign-up' do
     return erb(:signup)
   end
 
+  post '/new-user' do
+    new_user = User.new
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+    new_user.username = params[:username]
+    new_user.name = params[:name]
+
+    user_repo = UserRepository.new
+    user_check = user_repo.user_exist?(new_user)
+    return user_check if user_check
+
+    user_repo.create(new_user)
+
+    return 'Successfully created!'
+  end
 end
 
 

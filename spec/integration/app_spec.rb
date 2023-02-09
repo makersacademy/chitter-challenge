@@ -43,7 +43,16 @@ describe Application do
       response = get('/sign-up')
 
     expect(response.status).to eq 200
-    expect(response.body).to include "<form method='POST' action='/new-user'>"
+    expect(response.body).to include "<form class='sign-up' method='POST' action='/new-user'>"
+    end
+  end
+
+  context 'POST /new-user' do
+    it 'creates a new user in the database' do
+      response = post('new-user',email:'james@gmail.com',password:'password',username:'james',name:'James') 
+
+    expect(response.status).to eq 200
+    expect(response.body).to eq 'Successfully created!'
     end
   end
 end
