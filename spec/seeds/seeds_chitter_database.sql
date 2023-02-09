@@ -7,9 +7,9 @@ INSERT INTO users (email,password,name,username) VALUES
 
 INSERT INTO posts (content, created_time, user_id) VALUES
 ('First content','2023-02-08 15:22:10',1),
-('Second content','2023-02-08 15:22:10',1),
-('Thrid content','2023-02-08 15:22:10',2);
+('Second content','2023-02-08 18:22:10',1),
+('Thrid content','2023-02-08 20:22:10',2);
 
 INSERT INTO comments (content,created_time,user_id,post_id) VALUES
 ('First comment','2023-02-08 15:22:10',2,1),
-('Second comment','2023-02-08 15:22:10',3,1);
+('Second comment','2023-02-08 18:22:10',3,1);

@@ -20,4 +20,5 @@ describe Application do
     expect(response.body).to include 'Thrid content'
     end
   end
+
 end

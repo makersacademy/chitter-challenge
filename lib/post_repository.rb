@@ -46,4 +46,21 @@ class PostRepository
 
     return post
   end
+
+  def update
+
+  end
+
+  def time_difference(post_date, post_time,now_time)
+    date_time = "#{post_date} #{post_time}"
+    date_time = DateTime.parse(date_time).to_time
+    time_diff = ((now_time - date_time) / 3600).to_i # => difference in hours
+
+    if time_diff < 24
+      return "#{time_diff}h"
+    else
+      day = (time_diff / 24).to_i
+      return "#{day}d"
+    end
+  end
 end

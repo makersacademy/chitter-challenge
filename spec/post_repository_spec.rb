@@ -38,4 +38,12 @@ describe PostRepository do
   expect(user.id).to eq 1
   expect(user.content).to eq 'First content'
   end
+
+  context 'time_difference method' do
+    it 'returns a string to indicate the time difference' do
+      now_time = Time.new(2023,2,9,11,30,00)
+      time_diff = @repo.time_difference('2023-02-08','11:30:00',now_time)
+    expect(time_diff).to eq '1d'
+    end
+  end
 end

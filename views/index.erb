@@ -7,9 +7,10 @@
     <link href="" rel="stylesheet">
   </head>
   <body>
-      <% @posts.each do |post| %>
+    <% @posts_list.each do |post| %>
         <div>
-          <p><%= post.content %></p>
+          <p><span><%= post[:name] %></span><span>@<%= post[:username] %></span><span> - <%= post[:time_diff] %></span></p>
+          <p><%= post[:content] %></p>
         </div>
         <% end %>
   </body>
