@@ -15,34 +15,46 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
-  def add_username_to_peep
-    peeprepo = PeepRepository.new
-    userrepo = UserRepository.new
-    all_peeps = peeprepo.all
-
-
-    @prepped_peeps = all_peeps.map { 
-      |peep|
-      peep.id = peep.id
-      peep.message = peep.message
-      peep.post_time = peep.post_time
-      peep.post_date = peep.post_date
-      peep.user_id = peep
-    }
-    @new_peeps = []
-    all_peeps.each do |peep|
-      peep.username = userrepo.find_by_id(peep.user_id)
-      @new_peeps << peep
-    end
-
-    p @new_peeps
-    return erb(:test)
-
-  end
+  # def add_username_to_peep
+  #   peeprepo = PeepRepository.new
+  #   userrepo = UserRepository.new
+  #   all_peeps = peeprepo.all
+  #   @ready_peeps = []
+  #   all_peeps.each do |peep|
+  #     newpeep = Peep.new
+  #     newpeep.id = peep.id
+  #     newpeep.message = peep.message
+  #     newpeep.post_time = peep.post_time
+  #     newpeep.post_date = peep.post_date
+  #     newpeep.user_id = peep.user_id
+  #     newpeep.username = userrepo.find_by_id(peep.user_id)
+  #     @ready_peeps << newpeep
+  #   end
+  #   p @ready_peeps
+  #   return @ready_peeps
+  #   return erb(:test)
+  # end
 
   get '/home' do
     peeprepo = PeepRepository.new
     @peeps = peeprepo.all.reverse
+    # @peeps = add_username_to_peep
     return erb(:home)
+  end
+
+  get '/signup' do
+    return erb(:signup)
+  end
+
+  post '/users' do
+    #add validation later
+    repo = UserRepository.new
+    newuser = User.new
+    newuser.username = params[:username]
+    newuser.password = params[:password]
+    newuser.email = params[:email]
+    repo.create(newuser)
+
+    @allusers = repo.all
   end
 end

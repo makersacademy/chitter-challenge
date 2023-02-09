@@ -1,0 +1,41 @@
+<html>
+  <head>
+  <style>
+  h1 {
+    text-align: center;
+  }
+  div.form{
+    display: block;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    width: 30%;
+    margin: auto;
+    flex-direction: column;
+    text-align: left;
+  }
+  </style>
+
+  
+  </head>
+  <body>
+    <h1>Create an account</h1>
+    <div class="form">
+    <form action="/users" method="POST">
+
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username"><br>
+
+      <label for="password">Password</label>
+      <input type="text" name="password" id="password"><br>
+
+      <label for="email">email</label>
+      <input type="text" name="email" id="email"><br>
+
+      <input type="submit" value="Create account">
+    </form>
+    </div>
+  </body>
+
+</html>

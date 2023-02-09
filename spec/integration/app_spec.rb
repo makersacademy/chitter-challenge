@@ -16,4 +16,10 @@ describe Application do
       expect(response.body).to include('I am also the second post')
     end
   end
+
+  context "POST /users" do
+    it "returns new user details" do
+      
+    end
+  end
 end
