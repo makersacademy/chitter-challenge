@@ -7,7 +7,7 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
@@ -22,7 +22,7 @@ I want to sign up for Chitter
 
 ```
 Potential table datapoints:
-post, title, contents, time, users, username, password
+post, title, contents, time, users, username, email, name, password
 
 ```
 
@@ -32,12 +32,12 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 | Record                | Properties          |
 | --------------------- | ------------------  |
-| users                 | username, password
+| users                 | username, name, email, password
 | posts                 | title, contents, time, user_id
 
 1. Name of the first table (always plural): `users` 
 
-    Column names: `username`, `password`
+    Column names: `username`, `password`, `name`, `email`
 
 2. Name of the second table (always plural): `posts` 
 
@@ -53,6 +53,8 @@ Table: users
 id: SERIAL
 username: text
 password: text
+name: text
+email: text
 
 Table: posts
 id: SERIAL
@@ -72,13 +74,16 @@ user_id: int
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username text,
-  password text,
+  name text,
+  email text,
+  password text
 );
 
 -- Create the second table.
 
 -- The 'timestamptz_value' should be in the format of YYYY-MM-DD HH:MM:SS+TZ
 -- where TZ is the time zone offset from UTC.
+-- eg. London is +00 from the UTC
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   title text,
@@ -93,6 +98,14 @@ CREATE TABLE posts (
 ```bash
 psql -h 127.0.0.1 twitter_database < ./seeds/twitter_database.sql
 ```
+
+## Important Functionality Info
+
+1. You don't have to be logged in to see the peeps.
+2. Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+3. The username and email are unique.
+4. Peeps (posts to chitter) have the name of the maker and their user handle.
+5. Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 ## Side Note:
 **_Some advice from ChatGPT_**

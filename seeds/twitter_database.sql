@@ -8,7 +8,9 @@ DROP TABLE IF EXISTS "public"."users";
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username text,
-  password text,
+  name text,
+  email text,
+  password text
 );
 
 DROP TABLE IF EXISTS "public"."posts";
@@ -18,12 +20,13 @@ CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   title text,
   contents text,
-  time timestamptz,
+  time timestamp,
   user_id int
 );
 
-INSERT INTO users (username, password) VALUES('ryan', 'abc123');
+INSERT INTO users (username, name, email, password) VALUES('ryan__lai__', 'Ryan Lai', 'ryanlai12@gmail.com', 'abc123');
 
-INSERT INTO posts (title, contents, time, user_id) VALUES('Hello Guys', 'I like this app.', '2001-07-12 09:00:00+01', 1);
+INSERT INTO posts (title, contents, time, user_id) VALUES('Title', 'Contents', '2001-07-12 09:00:00', 1);
+INSERT INTO posts (title, contents, time, user_id) VALUES('Title 2', 'Contents 2', '2001-07-12 10:00:00', 1);
 
 
