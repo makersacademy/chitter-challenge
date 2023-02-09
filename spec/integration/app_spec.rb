@@ -40,7 +40,10 @@ describe Application do
 
   context 'GET /sign-up' do
     it 'shows a form for user to sign up' do
-      response = get('/new-post')
+      response = get('/sign-up')
+
+    expect(response.status).to eq 200
+    expect(response.body).to include "<form method='POST' action='/new-user'>"
     end
   end
 end
