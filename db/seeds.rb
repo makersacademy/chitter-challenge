@@ -8,7 +8,7 @@ end
 
 # Create users
 terry = User.create!(name: "Terry Cheng", email: "terryhycheng@gmail.com", password: "2345", password_confirmation: "2345", username: "terryhycheng")
-mary = User.create!(name: "Mary Tsang", email: "marytsangg@gmail.com", password: "1234", password_confirmation: "1234", username: "marytsang")
+mary = User.create!(name: "Mary Tsang", email: "marytsang@gmail.com", password: "1234", password_confirmation: "1234", username: "marytsang")
 
 # Create peeps
 terry_peep = Peep.create!(content: "It’s a lovely day today!", user: terry)

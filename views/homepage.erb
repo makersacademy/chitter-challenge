@@ -1,17 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="homepage.css">
   </head>
-  <header class="homepage-header">
-    <h1 style="flex: 3;">Home</h1>
-    <a style="flex: 1;" href="/new-peep">
-      <div role="button" class="blue-button">New peep</div>
-    </a>
+  <header class="header">
+    <div style="display: flex; gap: 1rem; align-items:center">
+      <img src="images/logo.png" height="50px" width="50px" alt="User Icon">
+      <h1>Chitter</h1>
+    </div>
+    <div class="header-right">
+      <% if !session[:user_id].nil? %>
+        <div class="message-container">
+          Log in as: <%= @user.name %>
+        </div>
+        <a href="/new-peep">
+          <div role="button" class="blue-button">New peep</div>
+        </a>
+        <a href="/logout">
+          <div role="button" class="blue-outline-button">Log Out</div>
+        </a>
+      <% end %>
+      <% if session[:user_id].nil? %>
+        <a href="/login">
+          <div role="button" class="blue-button">Log in</div>
+        </a>
+      <% end %>
+    </div>
   </header>
   <hr>
   <body>
+    <% if flash.has?(:message) %>
+      <div class="message-container info-msg">
+        <%= flash[:message].gsub(/\n/, '<br>') %>
+      </div>
+    <% end %>
     <% @peeps.each do |peep|%>
       <div class="peep-container">
         <img src="images/user-icon.png" height="40px" width="40px" alt="User Icon">

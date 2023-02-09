@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body class="login-page-bg">
+    <div class="login-form-container">
+      <a href="/">
+        <img src="images/logo.png" height="60px" width="60px" alt="User Icon" style="margin-bottom: 1rem">
+      </a>
+      <h1 style="margin-bottom: 2rem">Welcome to Chitter</h1>
+      <form action="/login" method="post" class="form-wrapper">
+        <input type="email" name="email" id="email" placeholder="Email" />
+        <input type="password" name="password" id="password" placeholder="Password" />
+        <% if flash.has?(:message) %>
+          <div class="message-container error-msg">
+            <%= flash[:message].gsub(/\n/, '<br>') %>
+          </div>
+          <br>
+        <% end %>
+        <button class="blue-button btn-adjusted btn" type="submit">Log in</button>
+        <a>
+          <button class="blue-outline-button btn-adjusted btn">Sign up</button>
+        </a>
+      </form>
+    </div>
+  </body>
+</html>

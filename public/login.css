@@ -1,0 +1,46 @@
+input {
+  border: 0.5px solid gray;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.login-page-bg {
+  display: flex;
+  background: #1d9bf0;
+  height: 100vh;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+}
+
+.login-form-container {
+  padding: 3rem 4rem;
+  margin: auto;
+  background: white;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 600px;
+}
+
+.btn-adjusted {
+  width: 100%;
+}
+
+.message-container {
+  margin-top: 1rem;
+}

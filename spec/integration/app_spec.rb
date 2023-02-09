@@ -13,7 +13,8 @@ describe Application do
     end
 
     it "displays title and logo" do
-      expect(@res.body).to include("<h1>Home</h1>")
+      expect(@res.body).to include("h1")
+      expect(@res.body).to include("Chitter")
     end
 
     it "display a list of peeps" do
