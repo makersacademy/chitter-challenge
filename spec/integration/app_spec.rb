@@ -24,9 +24,23 @@ describe Application do
       response = get('/')
       expect(response.status).to eq 200
       expect(response.body).to include "<form method='POST' action='/new-post'>"
-      expect(response.body).to include '<textarea name="new_post_content" rows="4" cols="50">What\'s happening?</textarea>'        
+      expect(response.body).to include '<textarea name="content" rows="4" cols="50" placeholder="What\'s happening?"></textarea>'        
       expect(response.body).to include '<input type="submit">'
     end
   end
 
+  context 'POST /new-post' do
+    it 'creates a new post to the database' do
+      response = post('/new-post',content:'I am happy!')
+
+      expect(response.status).to eq 302
+      expect(response.body).to eq ''
+    end
+  end
+
+  context 'GET /sign-up' do
+    it 'shows a form for user to sign up' do
+      response = get('/new-post')
+    end
+  end
 end

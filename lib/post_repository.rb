@@ -21,9 +21,9 @@ class PostRepository
   end
 
   def create(post)
-    ts = "#{post.date} #{post.time}"
+    created_time = "#{post.date} #{post.time}"
     sql = 'INSERT INTO posts (content,created_time,user_id) VALUES ($1, $2, $3);'
-    params = [post.content,ts,post.user_id]
+    params = [post.content,created_time,post.user_id]
 
     DatabaseConnection.exec_params(sql,params)
 

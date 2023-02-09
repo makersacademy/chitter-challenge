@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/post_repository'
 require_relative 'lib/user_repository'
+require_relative 'lib/post'
 require 'date'
 
 DatabaseConnection.connect
@@ -43,6 +44,22 @@ class Application < Sinatra::Base
       @posts_list.unshift(post_info)
     end
     return erb(:index)
+  end
+
+  post '/new-post' do
+    new_post = Post.new
+    new_post.content = params[:content]
+    # p Time.now.strftime("%H:%M:%S")
+    # p Time.now.to_date.to_s
+    new_post.time = Time.now.strftime("%H:%M:%S")
+    new_post.date = Time.now.to_date.to_s
+    new_post.user_id = 3
+
+    post_repo = PostRepository.new
+    post_repo.create(new_post)
+
+    redirect '/'
+    return ''
   end
 
 
