@@ -1,4 +1,4 @@
-require 'peeps_repository'
+require 'peep_repository'
 
 def reset_tables
   seed_sql = File.read('spec/spec_seeds.sql')
