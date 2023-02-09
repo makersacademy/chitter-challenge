@@ -14,10 +14,18 @@ describe Application do
     it 'shows a list of posts' do
       response = get('/')
 
-    expect(response.status).to eq 200
-    expect(response.body).to include 'First content'
-    expect(response.body).to include 'Second content'
-    expect(response.body).to include 'Thrid content'
+      expect(response.status).to eq 200
+      expect(response.body).to include 'First content'
+      expect(response.body).to include 'Second content'
+      expect(response.body).to include 'Thrid content'
+    end
+
+    it 'shows a form with textarea and submit button' do
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<form method='POST' action='/new-post'>"
+      expect(response.body).to include '<textarea name="new_post_content" rows="4" cols="50">What\'s happening?</textarea>'        
+      expect(response.body).to include '<input type="submit">'
     end
   end
 

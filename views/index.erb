@@ -7,6 +7,16 @@
     <link href="" rel="stylesheet">
   </head>
   <body>
+    <div>
+      <form method='POST' action='/new-post'>
+          <div>
+            <textarea name="new_post_content" rows="4" cols="50">What's happening?</textarea>        
+          </div>          
+          <div>
+            <input type="submit">
+          </div>
+      </form>
+    </div>
     <% @posts_list.each do |post| %>
         <div>
           <p><span><%= post[:name] %></span><span>@<%= post[:username] %></span><span> - <%= post[:time_diff] %></span></p>

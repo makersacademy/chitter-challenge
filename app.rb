@@ -27,14 +27,8 @@ class Application < Sinatra::Base
       content = post.content
       user = users.select {|user| user.id == post.user_id}
 
-      # p user[0].username
-      # formatted_post = "#{post.content} by #{user[0].username} at #{post.date} #{post.time}
-      #
-
-
       time_diff = post_repo.time_difference(post.date,post.time,Time.now)
 
-      # p time_diff
       post_info = {
         content:post.content,
         date:post.date,
@@ -46,11 +40,9 @@ class Application < Sinatra::Base
         email:user[0].email,
       }
 
-      # @posts_list << formatted_post
       @posts_list.unshift(post_info)
     end
     return erb(:index)
-    # return 'Hello'
   end
 
 
