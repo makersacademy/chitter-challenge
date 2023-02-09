@@ -6,6 +6,8 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem "database_cleaner", "~> 2.0"
+  gem "rack-test", "~> 2.0"
 end
 
 group :development, :test do
@@ -17,9 +19,9 @@ group :development, :test do
   gem "sinatra", "~> 3.0"
   gem "sinatra-contrib", "~> 3.0"
   gem "webrick", "~> 1.8"
-  gem "rack-test", "~> 2.0"
+  gem "bcrypt", "~> 3.1"
 end
 
 
 
-gem "bcrypt", "~> 3.1"
+

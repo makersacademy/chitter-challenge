@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="homepage.css">
+  </head>
+  <header class="homepage-header">
+    <h1 style="flex: 3;">Home</h1>
+    <a style="flex: 1;" href="/new-peep">
+      <div role="button" class="blue-button">New peep</div>
+    </a>
+  </header>
+  <hr>
+  <body>
+    <% @peeps.each do |peep|%>
+      <div class="peep-container">
+        <img src="images/user-icon.png" height="40px" width="40px" alt="User Icon">
+        <div class="text-wrapper">
+          <div class="user-name-wrapper">
+            <p><%= peep.user.name %></p>
+            <p class="grey-text">@<%= peep.user.username%></p>
+            <span class="grey-text">
+              <% time = ((Time.now - peep.created_at)/60).to_i %>
+              <% if time <= 2 %>
+                <p>Just now</p>
+              <% elsif time < 60 %>
+                <p><%= time %> mins ago</p>
+              <% elsif time >= 60 and time <= 1440 %>
+                <p><%= time/60 %>h</p>
+              <% else %>
+                <p><%= time/1440 %>d</p>
+              <% end %>
+            </span>
+          </div>
+          <h3><%= peep.content %></h3>
+        </div>
+      </div>
+    <% end %>
+  </body>
+</html>

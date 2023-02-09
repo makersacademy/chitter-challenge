@@ -98,6 +98,17 @@ This project used `Active Record` as ORM tool.
 
 ## Dependencies
 
+Version of each dependency can be viewed in [this Gemfile](Gemfile). Here is the list showing all dependecies this project used.
+
+- Ruby
+- RSpec
+- Sinatra
+- Bcrypt
+- Postgresql
+- ActiveRecord
+- Rake
+- Database Cleaner
+
 ## Contributors
 
 - [@terryhycheng](https://github.com/terryhycheng)

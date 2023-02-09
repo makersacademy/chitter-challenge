@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_165824) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_114743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_165824) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "likes", "peeps"
-  add_foreign_key "likes", "users"
-  add_foreign_key "peeps", "users"
+  add_foreign_key "likes", "peeps", on_delete: :cascade
+  add_foreign_key "likes", "users", on_delete: :cascade
+  add_foreign_key "peeps", "users", on_delete: :cascade
 end

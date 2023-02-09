@@ -2,6 +2,10 @@ require_relative "../models/user"
 require_relative "../models/peep"
 require_relative "../models/like"
 
+ActiveRecord::Base.connection.tables.each do |table|
+  ActiveRecord::Base.connection.execute("TRUNCATE #{table} RESTART IDENTITY cascade")
+end
+
 # Create users
 terry = User.create!(name: "Terry Cheng", email: "terryhycheng@gmail.com", password: "2345", password_confirmation: "2345", username: "terryhycheng")
 mary = User.create!(name: "Mary Tsang", email: "marytsangg@gmail.com", password: "1234", password_confirmation: "1234", username: "marytsang")
