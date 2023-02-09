@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <style type= >
+
+    </style>
+  </head>
+  <body>
+    <h1> Chitter </h1>
+    <% @peeps.each do |peep| %>
+    <div style = "border: 4px solid #000;">
+      <%= peep.message%><br>
+      <%= peep.post_date%> @ <%= peep.post_time%> <br>
+    </div>
+    <br>
+    <% end %>
+
+  </body>
+</html>

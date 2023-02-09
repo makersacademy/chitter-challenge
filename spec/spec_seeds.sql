@@ -1,9 +1,9 @@
 TRUNCATE TABLE peeps, users RESTART IDENTITY;
 
-INSERT INTO users (username, password) VALUES ('Edward', '12345');
-INSERT INTO users (username, password) VALUES ('James', 'Maths!');
-INSERT INTO users (username, password) VALUES ('Luke', 'javascript10');
-INSERT INTO users (username, password) VALUES ('Max', 'qwertyuiop');
+INSERT INTO users (username, password, email) VALUES ('Edward', '12345', 'edward@makers.com');
+INSERT INTO users (username, password, email) VALUES ('James', 'Maths!', 'james@makers.com');
+INSERT INTO users (username, password, email) VALUES ('Luke', 'javascript10', 'luke@makers.com');
+INSERT INTO users (username, password, email) VALUES ('Max', 'qwertyuiop', 'max@makers.com');
 
 INSERT INTO peeps (message, time, date, user_id) VALUES ('I am the first post on peeps!', '09:12:00', '2023-02-01', 1);
 INSERT INTO peeps (message, time, date, user_id) VALUES ('I am also the second post', '09:18:00', '2023-02-01', 1);

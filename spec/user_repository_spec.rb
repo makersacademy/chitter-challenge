@@ -23,12 +23,14 @@ describe UserRepository do
     user = User.new
     user.username = "Kofi"
     user.password = "brew"
+    user.email = "kofi@makers.com"
     repo.create(user)
     all_users = repo.all
     expect(all_users).to include(
       have_attributes(
         username: "Kofi",
-        password: "brew"
+        password: "brew",
+        email: "kofi@makers.com"
       )
     )
   end
