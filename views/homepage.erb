@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chitter</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="homepage.css">
@@ -35,11 +39,19 @@
   </header>
   <hr>
   <body>
+    <%# Message Display Box %>
     <% if flash.has?(:message) %>
       <div class="message-container info-msg">
         <%= flash[:message].gsub(/\n/, '<br>') %>
       </div>
     <% end %>
+    <%# No peep message %>
+    <% if @peeps.length == 0 %>
+      <div class="no-peep-message">
+        <p> There is no peep on Chitter. Waiting for one... </p>
+      </div>
+    <% end %>
+    <%# Loop through @peeps %>
     <% @peeps.each do |peep|%>
       <div class="peep-container">
         <img src="images/user-icon.png" height="40px" width="40px" alt="User Icon">
@@ -47,6 +59,7 @@
           <div class="user-name-wrapper">
             <p><%= peep.user.name %></p>
             <p class="grey-text">@<%= peep.user.username%></p>
+            <%# Calculate time from now %>
             <span class="grey-text">
               <% time = ((Time.now - peep.created_at)/60).to_i %>
               <% if time <= 2 %>

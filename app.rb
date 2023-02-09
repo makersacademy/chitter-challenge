@@ -47,6 +47,27 @@ class Application < Sinatra::Base
     redirect "/"
   end
 
+  get "/signup" do
+    return erb(:signup)
+  end
+
+  post "/signup" do
+    new_user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], username: params[:username])
+    if new_user.valid?
+      new_user.save
+      session[:user_id] = new_user.id
+      flash[:message] = "You have successfully registered! Welcome to Chitter."
+      redirect "/"
+    else
+      error = ""
+      new_user.errors.messages.each do |k, v|
+        error << "#{k.to_s.capitalize}: #{v.join}\n"
+      end
+      flash[:message] = error
+      redirect "/signup"
+    end
+  end
+
   post "/login" do
     # Check if empty inputs
     if params[:email] == "" || params[:password] == ""
@@ -66,11 +87,6 @@ class Application < Sinatra::Base
 
   post "/new-peep" do
     content = params[:content]
-    # Redirect back to /new-peep if an empty content is received
-    if content == ""
-      flash[:message] = "Content can't be empty."
-      redirect "/new-peep"
-    end
 
     if !session[:user_id].nil?
       user = User.find(session[:user_id])
@@ -83,7 +99,7 @@ class Application < Sinatra::Base
       else
         error = ""
         peep.errors.messages.each do |k, v|
-          error << "#{key.to_s.capitalize}: #{value.join}\n"
+          error << "#{k.to_s.capitalize}: #{v.join}\n"
         end
         flash[:message] = error
         redirect "/new-peep"
