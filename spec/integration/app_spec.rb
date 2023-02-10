@@ -15,6 +15,7 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq 200
+      expect(response.body).to include '<a href="/sign-up">SIGN UP</a>'
       expect(response.body).to include 'First content'
       expect(response.body).to include 'Second content'
       expect(response.body).to include 'Thrid content'
@@ -54,5 +55,20 @@ describe Application do
     expect(response.status).to eq 200
     expect(response.body).to eq 'Successfully created!'
     end
+
+    it 'shows error message for exist username' do
+      response = post('new-user', email:'luke@gmail.com',password:'123',username:'luke',name:'Luke123')
+      
+    expect(response.status).to eq 200
+    expect(response.body).to include '<p>Username exists!</p>'
+    end
+
+    it 'shows error message for exist email' do
+      response = post('new-user', email:'abc@gmail.com',password:'123',username:'yoyo',name:'Yoyo')
+      
+    expect(response.status).to eq 200
+    expect(response.body).to include '<p>Email exists!</p>'
+    end
   end
+
 end

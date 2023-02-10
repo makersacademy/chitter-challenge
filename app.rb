@@ -74,8 +74,12 @@ class Application < Sinatra::Base
     new_user.name = params[:name]
 
     user_repo = UserRepository.new
-    user_check = user_repo.user_exist?(new_user)
-    return user_check if user_check
+    @error_message = user_repo.user_exist?(new_user)
+    # return user_check if user_check
+    if @error_message
+      return erb(:signup)
+    end
+
 
     user_repo.create(new_user)
 
