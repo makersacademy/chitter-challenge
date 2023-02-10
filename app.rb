@@ -44,7 +44,23 @@ class Application < Sinatra::Base
     newuser.password = params[:password]
     newuser.email = params[:email]
     repo.create(newuser)
-
     @allusers = repo.all
   end
-end
+
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    username = params[:username]
+    password = params[:password]
+    repo = UserRepository.new
+    if repo.verify(username, password) == true
+      return login successful
+    else
+      @login = false
+      return erb(:login)
+    end
+  end
+ end

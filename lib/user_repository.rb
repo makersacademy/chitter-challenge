@@ -43,4 +43,21 @@ class UserRepository
     user.email = result['email']
     return user
   end
+
+  def verify(username, password)
+    repo = UserRepository.new
+    all_users = repo.all
+    username_verify = all_users.each do |user|
+      return true if user.username == username
+    end
+    password_verify = all_users.each do |user|
+      return true if user.password == password
+    end
+
+    if username_verify == true && password_verify == true
+      return true
+    else
+      return false
+    end
+  end
 end

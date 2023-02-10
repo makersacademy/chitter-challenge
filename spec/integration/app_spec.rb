@@ -34,4 +34,30 @@ describe Application do
       )
     end
   end
+
+  context "GET /signup" do
+    it "displays the signup page" do
+      response = get('/signup')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('action="/users" method="POST"')
+      expect(response.body).to include('<input type="submit" value="Create account">')
+    end
+  end
+
+  context "GET /login" do
+    it "displays the login page" do
+      response = get('/login')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form action="/login" method="POST">')
+      expect(response.body).to include('<input type="submit" value="Login">')
+    end
+  end
+
+  context "POST /login and user enters incorrect details" do
+    it "Rejects login with error message" do
+      response = post('/login', username: 'Gilberto', password: '987')
+        expect(response.body). to include('Username or password is incorrect, please try again.')
+
+    end
+  end
 end

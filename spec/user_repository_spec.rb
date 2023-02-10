@@ -52,4 +52,22 @@ describe UserRepository do
     expect(found_user.username).to eq "James"
     expect(found_user.password).to eq "Maths!"
   end
+
+  it "checks login details for a non existent user" do
+    repo = UserRepository.new
+    login_check = repo.verify("Bob", "password")
+    expect(login_check).to eq false
+  end
+
+  it "checks login details for an incorrect password" do
+    repo = UserRepository.new
+    login_check = repo.verify("Edward", "password123")
+    expect(login_check).to eq false
+  end
+
+  it "checks login details for an existing user" do
+    repo = UserRepository.new
+    login_check = repo.verify("Edward", "12345")
+    expect(login_check).to eq true
+  end
 end
