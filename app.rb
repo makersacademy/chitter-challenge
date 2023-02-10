@@ -12,6 +12,9 @@ require 'date'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/maker_repository'
@@ -20,15 +23,42 @@ class Application < Sinatra::Base
     also_reload 'lib/tag_repository'
   end
 
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    email = params[:email]
+    password = params[:password]
+
+    maker = MakerRepository.new.login(email,password)
+
+    if maker != nil
+      # Set the user ID in session
+      session[:maker_id] = maker.id
+      session[:username] = maker.username
+      return redirect('/')
+    else
+      p 'login fail'
+      return erb(:login_error)
+    end
+  end
+
+
+  get '/register' do
+    return erb(:register)
+  end
+
+
+
   get '/' do
     return redirect('/conversations')
   end
 
   get '/conversations/:id' do
     makerRepo = MakerRepository.new
-    peepRepo = PeepRepository.new
-    tagrepo = TagRepository.new
-    allPeeps = peepRepo.all
+    allPeeps = PeepRepository.new.all
     @makers = []
     @peeps = allPeeps.select do |peep|
       peep.conversation_id == params[:id].to_i
@@ -41,12 +71,9 @@ class Application < Sinatra::Base
   end
 
   get '/conversations' do
-    convRepo = ConversationRepository.new
     makerRepo = MakerRepository.new
-    peepRepo = PeepRepository.new
-    tagrepo = TagRepository.new
-    conversations = convRepo.all
-    allPeeps = peepRepo.all
+    conversations = ConversationRepository.new.all
+    allPeeps = PeepRepository.new.all
     @peeps = []
     @makers = []
     conversations.each do |conv|
@@ -69,22 +96,20 @@ class Application < Sinatra::Base
     conv.maker_id = params[:maker_id]
     convRepo.create(conv)
     convid = convRepo.all.last.id
-    peepRepo = PeepRepository.new
     peep = Peep.new
     peep.content = params[:content]
     peep.maker_id = params[:maker_id]
     peep.conversation_id = convid
-    peepRepo.create(peep)
+    PeepRepository.create(peep)
     return redirect('/conversations')
   end
 
   post '/peeps' do
-    peepRepo = PeepRepository.new
     peep = Peep.new
     peep.content = params[:content]
-    peep.maker_id = params[:maker_id]
+    peep.maker_id = session[:maker_id]
     peep.conversation_id = params[:conv_id]
-    peepRepo.create(peep)
+    PeepRepository.new.create(peep)
     return redirect("/conversations/#{params[:conv_id]}")
   end
 
@@ -92,6 +117,10 @@ class Application < Sinatra::Base
 
   def pretty_time(text)
     return DateTime.parse(text).strftime("%k:%M %d/%m/%Y")
+  end
+
+  def logged_in?
+    return session[:maker_id] != nil
   end
 
 end

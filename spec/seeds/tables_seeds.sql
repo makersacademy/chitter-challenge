@@ -43,11 +43,11 @@ CREATE TABLE tags(
 -- data will go here
 
 INSERT INTO makers (email, password, name, username) VALUES
-('ad@host.com','password1','Adam','Ad'),
-('bob@host.com','password2','Bob','Big'),
-('cat@host.com','password3','Claire','Cat'),
-('dd@host.com','password4','Donna','Donut'),
-('ee@host.com','password5','Evan','Easy');
+('ad@host.com', '$2a$12$j5243dePvne3jYH4yn4XYuhxXWrTjEIZUW2Hy7MxfjH4PGf7pSche', 'Adam', 'Ad'),
+('bob@host.com', '$2a$12$GRvuFEFQrfV4EZjLkyau8OXK4VJZ1DsihK9ErwKHJthsr/KhLix7y', 'Bob', 'Big'),
+('cat@host.com', '$2a$12$e2uT1PeQyDWyw5hzztQQ7eAE7xpRj3cnGtuOrpkpKnhhiaQCaelDe', 'Claire', 'Cat'),
+('dd@host.com', '$2a$12$.SGLrrSM9JxVAqtPFpbON.ydF63g5X4sCqt1lXApofWb4I3bZdvhG', 'Donna', 'Donut'),
+('ee@host.com', '$2a$12$.EpnkWO8gg9hnh.OY6SOEe3hztzYj7ILEKEo4eiDQ9LOJ12WRwu8e', 'Evan', 'Easy');
 
 INSERT INTO conversations (maker_id) VALUES
 ('1'),

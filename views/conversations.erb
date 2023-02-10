@@ -1,16 +1,25 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Chitter App</title>
   </head>
   <body>
     <h1>Welcome to Chitter</h1>
+    <% if !logged_in? %>
+    <a href="/login">login</a> <a href="/register">register</a>
+    <% end %>
+    <% if logged_in? %>
+    <%= @username %>
     <form method="POST" action="/conversations">
     <div>
       <label>New Peep: </label>
       <input type="text" name="content" />
       <input type="submit" value="PEEP"/>
     </div>
-    <input type="hidden" id="maker_id" name="maker_id" value="1">
     </form>
+    <% end %>
+    <h2>Feed</h2>
     <ul>
     <% @peeps.each_with_index do |peep, i| %>
       <li>

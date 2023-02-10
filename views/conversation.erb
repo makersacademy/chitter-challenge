@@ -1,5 +1,9 @@
+<!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="/style.css">
+    <title>Chitter App</title>
+  </head>
   <body>
     <ul>
     <% @peeps.each_with_index do |peep, i| %>
@@ -15,14 +19,15 @@
       </li>
     <% end %>
     </ul>
+    <% if logged_in? %>
     <form method="POST" action="/peeps">
     <div>
       <label>New reply: </label>
       <input type="text" name="content" />
       <input type="submit" value="PEEP"/>
     </div>
-    <input type="hidden" id="maker_id" name="maker_id" value="1">
     <input type="hidden" id="conv_id" name="conv_id" value=<%=@peeps.last.conversation_id%>>
     </form>
+    <% end %>
   </body>
 </html>
