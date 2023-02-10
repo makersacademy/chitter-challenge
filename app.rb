@@ -7,6 +7,7 @@ require_relative 'lib/database_connection'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
@@ -26,10 +27,16 @@ class Application < Sinatra::Base
   end
 
   get '/home' do
-    peeprepo = PeepRepository.new
-    # @peeps = peeprepo.all.reverse
-    @peeps = add_username_to_peep()
-    return erb(:home)
+    if session[:user_username] == nil
+      peeprepo = PeepRepository.new
+      @peeps = add_username_to_peep()
+      return erb(:home)
+    else
+      peeprepo = PeepRepository.new
+      @peeps = add_username_to_peep()
+      @logged_in = true
+      return erb(:home)
+    end
   end
 
   get '/signup' do
@@ -52,14 +59,28 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  def find_id_on_login(username, password)
+    sql = 'SELECT id FROM users WHERE username == $1 AND password == $2'
+    sql_params = [username, password]
+    user_id_db = DatabaseConnection.exec_params(sql, sql_params)
+    user_id = user_id_db[0]
+    return user_id
+  end
+
   post '/login' do
     username = params[:username]
     password = params[:password]
     repo = UserRepository.new
     if repo.verify(username, password) == true
-      return login successful
+      #session[:user_id] = find_id_on_login(username, password)
+      session[:username] = username
+      peeprepo = PeepRepository.new
+      @peeps = add_username_to_peep()
+      @logged_in = true
+      return erb(:home)
     else
       @login = false
+      
       return erb(:login)
     end
   end

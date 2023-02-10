@@ -6,6 +6,10 @@
   </head>
   <body>
     <h1> Chitter </h1>
+    <% if @logged_in == true %>
+    <h3> Write a peep </h3>
+    <% end %>
+
     <% @peeps.each do |peep| %>
     <div style = "border: 4px solid #000;">
       <%= peep.username%><br>

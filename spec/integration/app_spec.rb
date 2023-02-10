@@ -10,7 +10,7 @@ describe Application do
 
   let(:app) { Application.new }
 
-  context "GET /home" do
+  context "GET /home and user hasn't logged in" do
     it "returns homepage with posts" do
       response = get('/home')
       expect(response.status).to eq(200)
@@ -18,6 +18,8 @@ describe Application do
       expect(response.body).to include('I am also the second post')
     end
   end
+
+
 
   context "POST /users" do
     it "adds new user details to db" do
@@ -57,7 +59,22 @@ describe Application do
     it "Rejects login with error message" do
       response = post('/login', username: 'Gilberto', password: '987')
         expect(response.body). to include('Username or password is incorrect, please try again.')
+    end
+  end
 
+  context "POST /login and user enters correct details" do
+    it "Redirects user to home page and allows post" do
+      response = post('/login', username: 'Edward', password: '12345')
+        expect(response.body). to include('Write a peep')
     end
   end
 end
+
+
+# context "GET /home and user has logged in" do
+#   it "returns homepage with posts and additional text at the top" do
+#     response = get('/home')
+#     expect(response.status).to eq(200)
+#     expect(response.body).to include('Write a peep')
+#   end
+# end
