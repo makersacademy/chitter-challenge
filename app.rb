@@ -85,6 +85,14 @@ class Application < Sinatra::Base
 
     return 'Successfully created!'
   end
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/user-login' do
+
+  end
 end
 
 

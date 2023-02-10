@@ -16,6 +16,7 @@ describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include '<a href="/sign-up">SIGN UP</a>'
+      expect(response.body).to include '<a href="/login">LOG IN</a>'
       expect(response.body).to include 'First content'
       expect(response.body).to include 'Second content'
       expect(response.body).to include 'Thrid content'
@@ -68,6 +69,15 @@ describe Application do
       
     expect(response.status).to eq 200
     expect(response.body).to include '<p>Email exists!</p>'
+    end
+  end
+
+  context 'GET /login' do
+    it 'displays a login form' do
+      response = get('login')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include "<form class='form' method='POST' action='/user-login'>"
     end
   end
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="" rel="stylesheet">
+    <style>
+*,*::before,*::after {
+  margin:0
+}
+body {
+  display:flex;
+  flex-direction:column;
+  width:80%;
+  margin:0 auto;
+  text-align:center;
+}
+.form {
+  display:flex;
+  flex-direction:column;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.form input {
+  margin-bottom: 10px;
+  height:30px;
+}
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form class='form' method='POST' action='/user-login'>
+      <input type="email" name="email" placeholder="Email"> 
+      <input type="password" name="password" placeholder="Password"> 
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
