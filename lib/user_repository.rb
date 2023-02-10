@@ -62,5 +62,15 @@ class UserRepository
       return false
     end
   end
+
+  def check_credential(email,password)
+    sql = 'SELECT id FROM users WHERE email=$1 AND password=$2;'
+    result = DatabaseConnection.exec_params(sql,[email,password])
+    if result.num_tuples.zero? == false
+      return true
+    else
+      return false
+    end
+  end
 end
 

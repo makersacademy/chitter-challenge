@@ -39,6 +39,21 @@ describe UserRepository do
     user_3 = double :user_double, email:'luke@gmail.com',username:'luke123'
     expect(@repo.user_exist?(user_1)).to eq 'Username exists!' 
     expect(@repo.user_exist?(user_2)).to eq 'Email exists!' 
-  expect(@repo.user_exist?(user_3)).to eq false
+    expect(@repo.user_exist?(user_3)).to eq false
+  end
+
+  context 'checks if a email matching a password' do
+    it 'matches' do
+      result = @repo.check_credential('abc@gmail.com','123')
+      expect(result).to eq true
+    end
+    it 'does not match the email' do
+      result = @repo.check_credential('123@gmail.com','123')
+      expect(result).to eq false
+    end
+    it 'does not match the password' do
+      result = @repo.check_credential('abc@gmail.com','456')
+      expect(result).to eq false
+    end
   end
 end
