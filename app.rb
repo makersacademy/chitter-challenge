@@ -28,7 +28,6 @@ class Application < Sinatra::Base
     if session[:user_id].nil?
       flash[:message] = "You have to log in to leave a peep."
       redirect "/login"
-      return redirect "/login"
     else
       return erb(:new_peep)
     end
@@ -52,7 +51,13 @@ class Application < Sinatra::Base
   end
 
   post "/signup" do
-    new_user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], username: params[:username])
+    new_user = User.new(
+      name: params[:name],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation],
+      username: params[:username],
+    )
     if new_user.valid?
       new_user.save
       session[:user_id] = new_user.id
@@ -88,25 +93,25 @@ class Application < Sinatra::Base
   post "/new-peep" do
     content = params[:content]
 
-    if !session[:user_id].nil?
-      user = User.find(session[:user_id])
-      peep = Peep.new(content: content, user: user)
-
-      if peep.valid?
-        peep.save
-        flash[:message] = "Your peep has been created successfully!"
-        redirect("/")
-      else
-        error = ""
-        peep.errors.messages.each do |k, v|
-          error << "#{k.to_s.capitalize}: #{v.join}\n"
-        end
-        flash[:message] = error
-        redirect "/new-peep"
-      end
-    else
+    if session[:user_id].nil?
       flash[:message] = "You have to log in to leave a peep."
       redirect "/login"
+    end
+
+    user = User.find(session[:user_id])
+    peep = Peep.new(content: content, user: user)
+
+    if peep.valid?
+      peep.save
+      flash[:message] = "Your peep has been created successfully!"
+      redirect("/")
+    else
+      error = ""
+      peep.errors.messages.each do |k, v|
+        error << "#{k.to_s.capitalize}: #{v.join}\n"
+      end
+      flash[:message] = error
+      redirect "/new-peep"
     end
   end
 end

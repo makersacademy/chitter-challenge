@@ -8,6 +8,6 @@ ActiveRecord::Base.establish_connection(
   :port => db.port,
   :username => db.user,
   :password => db.password,
-  :database => "#{database_name}",
+  :database => database_name.to_s,
   :encoding => "utf8",
 )

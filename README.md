@@ -1,14 +1,12 @@
 # Chitter Challenge
 
-This project is one of the solo projects during the study at Makers. By combining all the skills I learnt from previous weeks, I was aksed to clone Twitter with test-driven approach and object-oriented design. `Ruby`, `Postgresql`, `RSpec`, `Sinetra`, `Active Record` and `Figma` will be used in this project.
+This project is one of the solo projects during the study at Makers. By combining all the skills I learnt from previous weeks, I was aksed to clone Twitter with test-driven approach and object-oriented design. `Ruby`, `Postgresql`, `RSpec`, `Sinetra`, `Active Record` will be used in this project.
 
 I took `Twitter` as the blueprint of this app. Users have to login in order to read peeps from others or create a peep.
 
 ![preview](assets/preview.jpg)
 
 <!-- ➡️ Application Demo: [link](https://www.google.com) -->
-
-➡️ Figma Demo: [link](https://www.figma.com/file/f4rYLrUdqjwXm0GrsHvBXv/Chitter---Twitter-Clone?node-id=0%3A1&t=Es3QajIJr0ajuMtW-1)
 
 ## Table of Contents
 
@@ -18,9 +16,6 @@ I took `Twitter` as the blueprint of this app. Users have to login in order to r
     - [User Stories](#user-stories)
     - [Database Diagrams](#database-diagrams)
     - [ORM - Object Relational Mapping](#orm---object-relational-mapping)
-  - [Class \& Test Designs](#class--test-designs)
-    - [Classes](#classes)
-    - [Tests](#tests)
   - [Getting Started](#getting-started)
   - [Dependencies](#dependencies)
   - [Contributors](#contributors)
@@ -79,20 +74,6 @@ This project used relational database - `Postgresql` for data storage. Here is t
 ### ORM - Object Relational Mapping
 
 This project used `Active Record` as ORM tool.
-
-## Class & Test Designs
-
-### Classes
-
-```ruby
-
-```
-
-### Tests
-
-```ruby
-
-```
 
 ## Getting Started
 
