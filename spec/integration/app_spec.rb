@@ -22,13 +22,6 @@ describe Application do
       expect(response.body).to include 'Thrid content'
     end
 
-    it 'shows a form with textarea and submit button' do
-      response = get('/')
-      expect(response.status).to eq 200
-      expect(response.body).to include "<form method='POST' action='/new-post'>"
-      expect(response.body).to include '<textarea name="content" rows="4" cols="50" placeholder="What\'s happening?"></textarea>'        
-      expect(response.body).to include '<input type="submit">'
-    end
   end
 
   context 'POST /new-post' do
@@ -84,8 +77,8 @@ describe Application do
   context 'POST /user-login' do
     it 'returns Successfully login with the right email and password' do
       response = post('user-login', email:'abc@gmail.com',password:'123')
-      expect(response.status).to eq 200
-      expect(response.body).to eq 'Successfully login'
+      expect(response.status).to eq 302
+      expect(response.body).to eq ''
     end
 
     it 'returns Invalid credential with the wrong email' do
@@ -98,6 +91,17 @@ describe Application do
       response = post('user-login', email:'abc@gmail.com',password:'abc')
       expect(response.status).to eq 200
       expect(response.body).to eq 'Invalid credential'
+    end
+
+    it 'displays a form for logged-in users' do
+      response = post('user-login', email:'abc@gmail.com',password:'123')
+      expect(response.status).to eq 302
+      follow_redirect!
+
+      # Verify that the form is displayed for the logged-in user
+      expect(last_response.body).to include "<form method='POST' action='/new-post'>"
+      expect(last_response.body).to include '<textarea name="content" rows="4" cols="50" placeholder="What\'s happening?"></textarea>'        
+      expect(last_response.body).to include '<input type="submit">'
     end
   end
 

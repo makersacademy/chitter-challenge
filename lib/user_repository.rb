@@ -67,7 +67,7 @@ class UserRepository
     sql = 'SELECT id FROM users WHERE email=$1 AND password=$2;'
     result = DatabaseConnection.exec_params(sql,[email,password])
     if result.num_tuples.zero? == false
-      return true
+      return result[0]['id'].to_i
     else
       return false
     end

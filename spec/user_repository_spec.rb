@@ -45,7 +45,7 @@ describe UserRepository do
   context 'checks if a email matching a password' do
     it 'matches' do
       result = @repo.check_credential('abc@gmail.com','123')
-      expect(result).to eq true
+      expect(result).to eq 1
     end
     it 'does not match the email' do
       result = @repo.check_credential('123@gmail.com','123')

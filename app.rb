@@ -9,7 +9,8 @@ require 'date'
 
 DatabaseConnection.connect
 
-class Application < Sinatra::Base
+class Application < Sinatra::Base  
+  enable :sessions
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
@@ -19,6 +20,7 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    @user_session = session[:user_id]
     @posts_list = []
     post_repo = PostRepository.new
     posts = post_repo.all
@@ -94,10 +96,12 @@ class Application < Sinatra::Base
     email = params[:email] 
     password = params[:password]
     user_repo = UserRepository.new
-    valid_user = user_repo.check_credential(email,password)
+    valid_user_id = user_repo.check_credential(email,password)
 
-    if valid_user
-      return 'Successfully login'
+    if valid_user_id
+      session[:user_id] = valid_user_id
+      redirect '/'
+      # return 'Successfully login'
     else
       return 'Invalid credential'
     end

@@ -9,6 +9,7 @@
   <body>
     <a href="/sign-up">SIGN UP</a>
     <a href="/login">LOG IN</a>
+    <% if @user_session %>
     <div>
       <form method='POST' action='/new-post'>
           <div>
@@ -19,6 +20,7 @@
           </div>
       </form>
     </div>
+    <% end %>
     <% @posts_list.each do |post| %>
         <div>
           <p><span><%= post[:name] %></span><span>@<%= post[:username] %></span><span> - <%= post[:time_diff] %></span></p>
