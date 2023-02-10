@@ -1,0 +1,28 @@
+<html>
+  <head></head>
+  <body>
+    <ul>
+    <% @peeps.each_with_index do |peep, i| %>
+      <li>
+      <div>
+        <%= @makers[i].name %> - <%= @makers[i].username %> Peeped: 
+        <p>
+        <%= peep.content %>
+        </p>
+        At: <%= peep.created_datetime %>
+      </div>
+      <br>
+      </li>
+    <% end %>
+    </ul>
+    <form method="POST" action="/peeps">
+    <div>
+      <label>New reply: </label>
+      <input type="text" name="content" />
+      <input type="submit" value="PEEP"/>
+    </div>
+    <input type="hidden" id="maker_id" name="maker_id" value="1">
+    <input type="hidden" id="conv_id" name="conv_id" value=<%=@peeps.last.conversation_id%>>
+    </form>
+  </body>
+</html>
