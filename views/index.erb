@@ -1,0 +1,42 @@
+<html>
+<head>
+  <link rel="stylesheet" href="stylesheets/style.css"/>
+</head>
+<body>
+<header>
+  <h1><a class="heading" href="/">Chitter</a></h1>
+</header>
+<div class="menu">
+
+  <% if @user %>
+
+    <form class="logout" action="/logout" method="POST">
+      <label>Hello <%= @user.name %></label>
+      <input class="logout" type="submit" value="Log out"/>
+    </form>
+
+    <a class="new" href="/new_post">New peep</a>
+
+  <% else %>
+
+    <a href="/login">Log in</a>
+    <span class="menu">or</span>
+    <a href="/signup">Sign up</a>
+
+  <% end %>
+</div>
+<section>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="header">
+        <span class="name"><%= post.name %></span>
+        <span class="username"><%= post.username %></span>
+      </div>
+      <p class="content"><%= post.content %></p>
+      <p class="timestamp"><%= post.timestamp.strftime("%-H:%M · %-d/%-m/%y") %></p>
+    </div>
+  <% end %>
+</section>
+</body>
+</html>
+

@@ -1,0 +1,125 @@
+body {
+    font-family: system-ui;
+    background: black;
+    color: white;
+}
+
+.menu {
+    width: 50%;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #1d9bf0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    width: 50%;
+    margin: auto;
+}
+
+section {
+
+    width: 50%;
+    margin: auto;
+}
+
+.post {
+    margin-block: 10px;
+    border: 1px solid #2f3336;
+    border-radius: 5px;
+}
+
+p {
+    margin: 10px;
+}
+
+.header {
+    margin: 10px;
+}
+
+span.name {
+    font-weight: bold;
+}
+
+span.username {
+    color: #71767b;
+}
+
+span.menu {
+    color: #71767b;
+}
+
+p.timestamp {
+    color: #71767b;
+}
+
+input.field {
+    background-color: transparent;
+    border: 1px solid #2f3336;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    width: 100%;
+    margin-block: 5px;
+}
+
+input.submit {
+    background-color: white;
+    border: 0;
+    border-radius: 9999px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-block: 5px;
+}
+
+a.heading {
+    color: white;
+    text-decoration: none;
+}
+
+input.logout {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #1d9bf0;
+    font-size: 16px;
+}
+
+input.logout:hover {
+    text-decoration: underline;
+}
+
+a.new {
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    background: white;
+    color: black;
+    border-radius: 9999px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+textarea {
+    resize: none;
+    background-color: transparent;
+    border: 1px solid #2f3336;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    width: 100%;
+    margin-block: 5px;
+    font-size: 16px;
+    font-family: system-ui;
+}

@@ -1,0 +1,30 @@
+<html>
+<head>
+  <link rel="stylesheet" href="stylesheets/style.css"/>
+</head>
+<body>
+<header>
+  <h1><a class="heading" href="/">Chitter</a></h1>
+</header>
+<section>
+
+  <form action="/login" method="POST">
+    <input class="field" type="text" name="username" placeholder="Username" required/>
+    <input class="field" type="password" name="password" placeholder="Password" required/>
+    <input class="submit" type="submit" value="Log in">
+  </form>
+
+  <span class="menu">Don’t have an account?</span>
+  <a href="/signup">Sign up</a>
+
+  <% if @error %>
+    <p class="error"><%= @error %></p>
+  <% end %>
+
+</section>
+</body>
+</html>
+
+
+
+
