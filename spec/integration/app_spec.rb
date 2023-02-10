@@ -81,4 +81,24 @@ describe Application do
     end
   end
 
+  context 'POST /user-login' do
+    it 'returns Successfully login with the right email and password' do
+      response = post('user-login', email:'abc@gmail.com',password:'123')
+      expect(response.status).to eq 200
+      expect(response.body).to eq 'Successfully login'
+    end
+
+    it 'returns Invalid credential with the wrong email' do
+      response = post('user-login', email:'123@gmail.com',password:'123')
+      expect(response.status).to eq 200
+      expect(response.body).to eq 'Invalid credential'
+    end
+
+    it 'returns Invalid credential with the wrong password' do
+      response = post('user-login', email:'abc@gmail.com',password:'abc')
+      expect(response.status).to eq 200
+      expect(response.body).to eq 'Invalid credential'
+    end
+  end
+
 end

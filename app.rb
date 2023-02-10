@@ -91,7 +91,16 @@ class Application < Sinatra::Base
   end
 
   post '/user-login' do
+    email = params[:email] 
+    password = params[:password]
+    user_repo = UserRepository.new
+    valid_user = user_repo.check_credential(email,password)
 
+    if valid_user
+      return 'Successfully login'
+    else
+      return 'Invalid credential'
+    end
   end
 end
 
