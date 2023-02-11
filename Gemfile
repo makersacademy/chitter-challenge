@@ -21,3 +21,5 @@ group :development, :test do
   gem "bcrypt", "~> 3.1"
   gem "rack-flash3", "~> 1.0"
 end
+
+gem "dotenv", "~> 2.8"

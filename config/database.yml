@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+production:
+  <<: *default
+  database: chitter
+  host: <%= ENV['HOST_PRODUCTION'] %>
+  username: <%= ENV['USERNAME_PRODUCTION'] %>
+  password: <%= ENV['PASSWORD_PRODUCTION'] %>
+
+test:
+  <<: *default
+  host: localhost
+  database: chitter_test
+
+development:
+  <<: *default
+  host: localhost
+  database: chitter_development
