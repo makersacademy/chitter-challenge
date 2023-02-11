@@ -9,7 +9,7 @@ group :test do
   gem "rack-test", "~> 2.0"
 end
 
-group :development, :test do
+group :production, :development, :test do
   gem 'rubocop', '1.20'
   gem "pg", "~> 1.4"
   gem "activerecord", "~> 7.0"
@@ -20,6 +20,6 @@ group :development, :test do
   gem "webrick", "~> 1.8"
   gem "bcrypt", "~> 3.1"
   gem "rack-flash3", "~> 1.0"
+  gem "dotenv", "~> 2.8"
 end
 
-gem "dotenv", "~> 2.8"
