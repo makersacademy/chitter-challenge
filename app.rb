@@ -60,7 +60,7 @@ class Application < Sinatra::Base
     # p Time.now.to_date.to_s
     new_post.time = Time.now.strftime("%H:%M:%S")
     new_post.date = Time.now.to_date.to_s
-    new_post.user_id = 3
+    new_post.user_id = session[:user_id]
 
     post_repo = PostRepository.new
     post_repo.create(new_post)
