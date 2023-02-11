@@ -80,7 +80,6 @@ class Application < Sinatra::Base
       return erb(:home)
     else
       @login = false
-      
       return erb(:login)
     end
   end

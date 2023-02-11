@@ -47,17 +47,22 @@ class UserRepository
   def verify(username, password)
     repo = UserRepository.new
     all_users = repo.all
+    user_found = ''
     username_verify = all_users.each do |user|
-      return true if user.username == username
-    end
-    password_verify = all_users.each do |user|
-      return true if user.password == password
+      if user.username == username
+        user_found = user
+      end
     end
 
-    if username_verify == true && password_verify == true
+    if user_found == ''
+      return false
+    end
+
+    if user_found.password == password
       return true
     else
       return false
     end
+
   end
 end

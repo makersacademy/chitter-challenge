@@ -8,6 +8,13 @@
     <h1> Chitter </h1>
     <% if @logged_in == true %>
     <h3> Write a peep </h3>
+    <div class="form">
+    <form action="/peep" method="POST">
+
+      <label for="message">Write your message</label>
+      <input type="text" name="message" id="message"><br>
+    </form>
+    </div>
     <% end %>
 
     <% @peeps.each do |peep| %>

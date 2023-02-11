@@ -61,7 +61,7 @@ describe UserRepository do
 
   it "checks login details for an incorrect password" do
     repo = UserRepository.new
-    login_check = repo.verify("Edward", "password123")
+    login_check = repo.verify("Edward", "xyz")
     expect(login_check).to eq false
   end
 

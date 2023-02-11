@@ -66,6 +66,8 @@ describe Application do
     it "Redirects user to home page and allows post" do
       response = post('/login', username: 'Edward', password: '12345')
         expect(response.body). to include('Write a peep')
+        expect(response.body). to include('<form action="/peep" method="POST">')
+        expect(response.body). to include('<label for="message">Write your message</label>')
     end
   end
 end
