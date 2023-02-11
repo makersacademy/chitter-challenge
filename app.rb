@@ -33,4 +33,16 @@ class Application < Sinatra::Base
     @peeps = repo.all
     return erb(:all_peeps)
   end
+
+  get '/' do
+    return erb(:index)
+  end
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  get '/signup' do
+    return erb(:signup)
+  end
 end
