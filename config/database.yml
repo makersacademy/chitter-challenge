@@ -1,9 +1,13 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
+
+development:
+  <<: *default
+  host: YOUR_DATABASE_URL
   database: chitter_development
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
+  host: localhost
   database: chitter_test
