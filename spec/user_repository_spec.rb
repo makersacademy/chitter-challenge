@@ -70,4 +70,10 @@ describe UserRepository do
     login_check = repo.verify("Edward", "12345")
     expect(login_check).to eq true
   end
+
+  it "finds id when the user logs in" do
+    repo = UserRepository.new
+    expect(repo.find_id_on_login('Edward', '12345')).to eq "1"
+    expect(repo.find_id_on_login('Max', 'qwertyuiop')).to eq "4"
+  end
 end

@@ -27,7 +27,7 @@ class Application < Sinatra::Base
   end
 
   get '/home' do
-    if session[:user_username] == nil
+    if session[:username] == nil
       peeprepo = PeepRepository.new
       @peeps = add_username_to_peep()
       return erb(:home)
@@ -58,14 +58,7 @@ class Application < Sinatra::Base
   get '/login' do
     return erb(:login)
   end
-
-  def find_id_on_login(username, password)
-    sql = 'SELECT id FROM users WHERE username == $1 AND password == $2'
-    sql_params = [username, password]
-    user_id_db = DatabaseConnection.exec_params(sql, sql_params)
-    user_id = user_id_db[0]
-    return user_id
-  end
+  
 
   post '/login' do
     username = params[:username]
@@ -77,7 +70,8 @@ class Application < Sinatra::Base
       peeprepo = PeepRepository.new
       @peeps = add_username_to_peep()
       @logged_in = true
-      return erb(:home)
+      return redirect '/home'
+      # return erb(:home)
     else
       @login = false
       return erb(:login)

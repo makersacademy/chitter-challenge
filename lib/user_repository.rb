@@ -63,6 +63,13 @@ class UserRepository
     else
       return false
     end
+  end
 
+  def find_id_on_login(username, password)
+    sql = 'SELECT id FROM users WHERE username = $1 AND password = $2'
+    sql_params = [username, password]
+    user_id_db = DatabaseConnection.exec_params(sql, sql_params)
+    user_id = user_id_db[0]
+    return user_id['id']
   end
 end
