@@ -1,125 +1,99 @@
 body {
+    width: 50%;
+    margin: auto;
     font-family: system-ui;
     background: black;
     color: white;
 }
 
-.menu {
-    width: 50%;
-    margin: auto;
-}
+header {
 
-a {
-    text-decoration: none;
-    color: #1d9bf0;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 h1 {
-    width: 50%;
-    margin: auto;
+    margin-block: 10px;
 }
 
-section {
-
-    width: 50%;
-    margin: auto;
+h1 a {
+    color: white;
+    text-decoration: none;
 }
 
-.post {
+nav {
+    margin-block: 10px;
+}
+
+.box {
     margin-block: 10px;
     border: 1px solid #2f3336;
     border-radius: 5px;
-}
-
-p {
-    margin: 10px;
-}
-
-.header {
-    margin: 10px;
-}
-
-span.name {
-    font-weight: bold;
-}
-
-span.username {
-    color: #71767b;
-}
-
-span.menu {
-    color: #71767b;
-}
-
-p.timestamp {
-    color: #71767b;
-}
-
-input.field {
-    background-color: transparent;
-    border: 1px solid #2f3336;
-    border-radius: 5px;
     padding: 10px;
-    font-size: 16px;
-    color: white;
+    background: transparent;
     width: 100%;
-    margin-block: 5px;
+    box-sizing: border-box;
 }
 
-input.submit {
+.link {
+    text-decoration: none;
+    color: #1d9bf0;
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.button {
     background-color: white;
     border: 0;
     border-radius: 9999px;
     color: black;
     font-weight: bold;
     padding: 10px;
-    font-size: 16px;
     width: 100%;
-    margin-block: 5px;
 }
 
-a.heading {
-    color: white;
-    text-decoration: none;
+p {
+    margin: 0;
+
 }
 
-input.logout {
-    background: none;
-    border: none;
-    padding: 0;
-    color: #1d9bf0;
-    font-size: 16px;
-}
-
-input.logout:hover {
-    text-decoration: underline;
-}
-
-a.new {
-    font-size: 16px;
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    background: white;
-    color: black;
-    border-radius: 9999px;
-    padding: 10px;
+.bold {
     font-weight: bold;
+}
+
+.translucent {
+    color: #71767b;
+}
+
+.content {
+    margin-block: 10px;
 }
 
 textarea {
     resize: none;
-    background-color: transparent;
-    border: 1px solid #2f3336;
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
     width: 100%;
-    margin-block: 5px;
     font-size: 16px;
     font-family: system-ui;
+    color: white;
+}
+
+form {
+    margin: 0;
+}
+
+button {
+    font-size: 16px;
+}
+
+input {
+    font-size: 16px;
+    display: block;
+    color: white;
+}
+
+.error {
+    color: #f4212f;
 }

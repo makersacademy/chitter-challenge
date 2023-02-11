@@ -3,27 +3,32 @@
   <link rel="stylesheet" href="stylesheets/style.css"/>
 </head>
 <body>
+
 <header>
-  <h1><a class="heading" href="/">Chitter</a></h1>
+  <h1><a href="/">Chitter</a></h1>
 </header>
-<section>
+
+<main>
 
   <form action="/signup" method="POST">
-    <input class="field" type="text" name="email" placeholder="Email" required/>
-    <input class="field" type="password" name="password" placeholder="Password" required/>
-    <input class="field" type="text" name="name" placeholder="Name" required/>
-    <input class="field" type="text" name="username" placeholder="Username" required/>
-    <input class="submit" type="submit" value="Create account">
+    <input class="box" name="email" placeholder="Email" required/>
+    <input class="box" name="password" type="password" placeholder="Password" required/>
+    <input class="box" name="name" placeholder="Name" required/>
+    <input class="box" name="username" placeholder="Username" required/>
+    <button class="button" type="submit">Create account</button>
   </form>
 
-  <span class="menu">Have an account already?</span>
-  <a href="/login">Log in</a>
+  <p class="content">
+    <span>Have an account already?</span>
+    <a class="link" href="/login">Log in</a>
+  </p>
 
   <% if @error %>
     <p class="error"><%= @error %></p>
   <% end %>
 
-</section>
+</main>
+
 </body>
 </html>
 

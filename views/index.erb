@@ -3,40 +3,43 @@
   <link rel="stylesheet" href="stylesheets/style.css"/>
 </head>
 <body>
-<header>
-  <h1><a class="heading" href="/">Chitter</a></h1>
-</header>
-<div class="menu">
 
+<header>
+  <h1><a href="/">Chitter</a></h1>
+</header>
+
+<nav>
   <% if @user %>
 
-    <form class="logout" action="/logout" method="POST">
+    <form action="/logout" method="POST">
       <label>Hello <%= @user.name %></label>
-      <input class="logout" type="submit" value="Log out"/>
+      <button class="link" type="submit">Log out</button>
     </form>
 
-    <a class="new" href="/new_post">New peep</a>
+    <form action="/post" method="POST">
+      <textarea class="box" name="content" placeholder="Your peep here..." rows="4" maxlength="140" required></textarea>
+      <button class="button" type="submit">Post</button>
+    </form>
 
   <% else %>
 
-    <a href="/login">Log in</a>
-    <span class="menu">or</span>
-    <a href="/signup">Sign up</a>
+    <a class="link" href="/login">Log in</a>
+    <span>or</span>
+    <a class="link" href="/signup">Sign up</a>
 
   <% end %>
-</div>
-<section>
+</nav>
+
+<main>
   <% @posts.each do |post| %>
-    <div class="post">
-      <div class="header">
-        <span class="name"><%= post.name %></span>
-        <span class="username"><%= post.username %></span>
-      </div>
+    <div class="box">
+      <p><span class="bold"><%= post.name %></span> <span class="translucent"><%= post.username %></span></p>
       <p class="content"><%= post.content %></p>
-      <p class="timestamp"><%= post.timestamp.strftime("%-H:%M · %-d/%-m/%y") %></p>
+      <p class="translucent"><%= post.timestamp.strftime("%-H:%M · %-d/%-m/%y") %></p>
     </div>
   <% end %>
-</section>
+</main>
+
 </body>
 </html>
 

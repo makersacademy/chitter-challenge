@@ -35,12 +35,6 @@ class Application < Sinatra::Base
     erb(:signup)
   end
 
-  get '/new_post' do
-    redirect('/login') unless session[:user_id]
-
-    erb(:new_post)
-  end
-
   post '/login' do
     repo = UserRepository.new
     user = repo.find_by_username(params[:username])
@@ -67,7 +61,7 @@ class Application < Sinatra::Base
     # check if username and email exist in db
 
     params[:password_hash] = hash_password(params.delete(:password))
-    
+
     user = User.new(params)
     repo.create(user)
 
@@ -78,7 +72,7 @@ class Application < Sinatra::Base
     redirect '/'
   end
 
-  post '/new_post' do
+  post '/post' do
     repo = PostRepository.new
     params[:timestamp] = Time.now
     params[:user_id] = session[:user_id]
