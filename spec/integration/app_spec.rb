@@ -103,6 +103,20 @@ describe Application do
       expect(last_response.body).to include '<textarea name="content" rows="4" cols="50" placeholder="Luke, What\'s happening?"></textarea>'        
       expect(last_response.body).to include '<input type="submit">'
     end
+
+    it 'expires user session after 1 hour' do
+      response = post('user-login', email:'abc@gmail.com',password:'123')
+      expect(response.status).to eq 302
+      follow_redirect!
+
+      # Verify that the form is displayed for the logged-in user
+      expect(last_response.body).to include '<textarea name="content" rows="4" cols="50" placeholder="Luke, What\'s happening?"></textarea>'        
+      # Stub the Time module to simulate 1 hour of elapsed time
+      allow(Time).to receive(:now).and_return(Time.now + 3600)
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(last_response.body).not_to include '<textarea name="content" rows="4" cols="50" placeholder="Luke, What\'s happening?"></textarea>'
+    end
   end
 
   context 'POST /logout' do
