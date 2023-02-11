@@ -7,12 +7,12 @@
     <link href="" rel="stylesheet">
   </head>
   <body>
-    <a href="/sign-up">SIGN UP</a>
     <% if @user_session %>
       <form method="POST" action="/logout">
        <input type="submit" value="Logout">
       </form>
   <% else %>
+    <a href="/sign-up">SIGN UP</a>
     <a href="/login">LOG IN</a>
     <% end %>
     <% if @user_session %>
