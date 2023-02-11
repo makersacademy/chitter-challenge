@@ -3,21 +3,21 @@
 ## Step 0: User stories or specification
 
 ```
-As a user
-So that I can keep a daily diary
-I want to be able to add a new Diary Entry
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
 
-As a user
-So that I can identify my entry in future
-I want to give each Diary Entry a Title and a Content
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
 
-As a user
-So that I can browse my previous entries
-I want to see a list of Diary Entry Titles
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
 
-As a user
-So that I can read my previous entries
-I want to click on a title to see the full Diary Entry
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
 ```
 
 ## Step 1: Planning pages
@@ -34,7 +34,10 @@ this step.
 Here's an example of how the user stories above can be planned. Note that this is only one
 of the many possible flows that could be planned for these user stories.
 
-![](./example-pages-planning.png)
+Homepage 
+-- post a peep
+-- view all peeps 
+-- sign-up
 
 ## Step 2: Planning routes
 
@@ -61,18 +64,25 @@ a possible list of routes for this case — you could come up with slightly diff
 which would still satisfy the initial user stories.
 
 ```md
-# Page: list of entries (aka the homepage)
+# Page: Chitter Homepage
 
 ## Request:
 GET /
 No parameters
 
 ## Response (200 OK)
-HTML view with list of entries
+HTML view with list of pages (options)
 ```
 
 ```md
 # Page: see full entry 
+
+## Request: 
+GET /peeps
+No parameters 
+
+## Response (200 OK)
+HTML view of all peeps in reverse choronological order (showing contents, username, and timestamp)
 
 ## Request:
 GET /entries/:id
@@ -83,24 +93,25 @@ HTML view with details of a single entry
 ```
 
 ```md
-# Page: add a new entry
+# Page: post a new peep
 
 ## Request:
-GET /entries/add
+GET /peeps/post
 No parameters
 
 ## Response (200 OK)
-HTML view with form to submit new entry (to POST /entries)
+HTML view with form to submit new peep (to POST /peeps)
 ```
 
 ```md
 # Page: new entry added
 
 ## Request:
-POST /entries
+POST /peeps
 With parameters:
-  title="What a great Sunday"
-  content="..."
+  contents="What a great Sunday"
+  time="23/02/11 18:06:45"
+  username="angela123"
 
 ## Response (200 OK)
 HTML view with confirmation message
