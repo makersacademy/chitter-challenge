@@ -1,4 +1,5 @@
 require_relative './user'
+require 'bcrypt'
 class UserRepository
 
   def all
@@ -22,8 +23,9 @@ class UserRepository
   end
 
   def create(user)
+    encrypted_password = BCrypt::Password.create(user.password)
     sql = 'INSERT INTO users (email,password,name,username) VALUES ($1, $2, $3,$4);'
-    params = [user.email,user.password,user.name,user.username]
+    params = [user.email,encrypted_password,user.name,user.username]
 
     DatabaseConnection.exec_params(sql,params)
 
@@ -64,13 +66,20 @@ class UserRepository
   end
 
   def check_credential(email,password)
-    sql = 'SELECT id FROM users WHERE email=$1 AND password=$2;'
-    result = DatabaseConnection.exec_params(sql,[email,password])
+    # sql = 'SELECT id FROM users WHERE email=$1 AND password=$2;'
+    sql = 'SELECT id FROM users WHERE email=$1;'
+    result = DatabaseConnection.exec_params(sql,[email])
     if result.num_tuples.zero? == false
-      return result[0]['id'].to_i
-    else
-      return false
+      user = find(result[0]['id'])
+      p 'step 1'
+      if BCrypt::Password.new(user.password) == password
+        p 'step 2'
+        p user.id.to_i
+      return user.id.to_i
+      end
+      # return result[0]['id'].to_i
     end
+    return false
   end
 end
 

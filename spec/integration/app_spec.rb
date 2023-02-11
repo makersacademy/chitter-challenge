@@ -6,6 +6,11 @@ describe Application do
   # This is so we can use rack-test helper methods.
   include Rack::Test::Methods
 
+  before(:each) do
+    session = {}
+  end
+
+
   # We need to declare the `app` value by instantiating the Application
   # class so our tests work.
   let(:app) { Application.new }
@@ -25,11 +30,11 @@ describe Application do
   end
 
   context 'POST /new-post' do
-    it 'creates a new post to the database' do
+    it 'returns error message if post without login' do
       response = post('/new-post',content:'I am happy!')
 
-      expect(response.status).to eq 302
-      expect(response.body).to eq ''
+      expect(response.status).to eq 200
+      expect(response.body).to eq 'Please login first'
     end
   end
 
@@ -95,7 +100,7 @@ describe Application do
 
     it 'displays a form for logged-in users' do
       response = post('user-login', email:'abc@gmail.com',password:'123')
-      expect(response.status).to eq 302
+      expect(last_response.status).to eq 302
       follow_redirect!
 
       # Verify that the form is displayed for the logged-in user
@@ -104,9 +109,17 @@ describe Application do
       expect(last_response.body).to include '<input type="submit">'
     end
 
-    it 'expires user session after 1 hour' do
+    it 'posts a new post after user logins' do
+      post('user-login', email:'abc@gmail.com',password:'123')
+      post('new-post',content:'I am happy!')
+      expect(last_response.status).to eq 302
+      follow_redirect!
+      expect(last_response.body).to include 'I am happy!'
+    end
+
+   it 'expires user session after 1 hour' do
       response = post('user-login', email:'abc@gmail.com',password:'123')
-      expect(response.status).to eq 302
+      expect(last_response.status).to eq 302
       follow_redirect!
 
       # Verify that the form is displayed for the logged-in user
@@ -115,7 +128,7 @@ describe Application do
       allow(Time).to receive(:now).and_return(Time.now + 3600)
       response = get('/')
       expect(response.status).to eq 200
-      expect(last_response.body).not_to include '<textarea name="content" rows="4" cols="50" placeholder="Luke, What\'s happening?"></textarea>'
+      expect(response.body).not_to include "<form method='POST' action='/new-post'>"
     end
   end
 
@@ -127,6 +140,8 @@ describe Application do
       expect(response.status).to eq 302
       follow_redirect!
       expect(last_response.body).not_to include '<textarea name="content" rows="4" cols="50" placeholder="Luke, What\'s happening?"></textarea>'
+      expect(last_response.body).to include '<a href="/sign-up">SIGN UP</a>'
+      expect(last_response.body).not_to include '<form method="POST" action="/logout">'
     end
   end
 end

@@ -42,7 +42,7 @@ class Application < Sinatra::Base
         date:post.date,
         time:post.time,
         time_diff:time_diff,
-        user_id:post.user_id, 
+        user_id:post.user_id,  
         username:user[0].username,
         name:user[0].name,
         email:user[0].email,
@@ -54,6 +54,7 @@ class Application < Sinatra::Base
   end
 
   post '/new-post' do
+    return 'Please login first' if session[:user_id].nil?
     new_post = Post.new
     new_post.content = params[:content]
     # p Time.now.strftime("%H:%M:%S")
@@ -106,6 +107,7 @@ class Application < Sinatra::Base
       session[:user_id] = valid_user_id
       redirect '/'
       # return 'Successfully login'
+      # return erb(:index)
     else
       return 'Invalid credential'
     end
