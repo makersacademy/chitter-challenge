@@ -70,13 +70,6 @@ describe Application do
         expect(response.body). to include('<label for="message">Write your message</label>')
     end
   end
-
-  context "find_id_on_login method" do
-    it "finds id from username and password" do
-      expect(find_id_on_login('Edward', '12345')).to eq "1"
-      expect(find_id_on_login('Max', 'qwertyuiop')).to eq "4"
-    end
-  end
 end
 
 

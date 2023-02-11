@@ -39,6 +39,17 @@ class Application < Sinatra::Base
     end
   end
 
+  post '/peep' do
+    repo = PeepRepository.new
+    newpeep = Peep.new
+    newpeep.message = params[:message]
+    newpeep.post_time = '12:12:00'
+    newpeep.post_date = '2023-02-15'
+    newpeep.user_id = session[:user_id]
+    repo.create(newpeep)
+    return redirect '/home'
+  end
+
   get '/signup' do
     return erb(:signup)
   end
@@ -65,7 +76,7 @@ class Application < Sinatra::Base
     password = params[:password]
     repo = UserRepository.new
     if repo.verify(username, password) == true
-      #session[:user_id] = find_id_on_login(username, password)
+      session[:user_id] = repo.find_id_on_login(username, password)
       session[:username] = username
       peeprepo = PeepRepository.new
       @peeps = add_username_to_peep()
