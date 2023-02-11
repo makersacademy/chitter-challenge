@@ -8,12 +8,18 @@
   </head>
   <body>
     <a href="/sign-up">SIGN UP</a>
+    <% if @user_session %>
+      <form method="POST" action="/logout">
+       <input type="submit" value="Logout">
+      </form>
+  <% else %>
     <a href="/login">LOG IN</a>
+    <% end %>
     <% if @user_session %>
     <div>
       <form method='POST' action='/new-post'>
           <div>
-            <textarea name="content" rows="4" cols="50" placeholder="What's happening?"></textarea>        
+            <textarea name="content" rows="4" cols="50" placeholder="<%= @user_session_name %>, What's happening?"></textarea>        
           </div>          
           <div>
             <input type="submit">

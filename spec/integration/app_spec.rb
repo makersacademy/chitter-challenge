@@ -37,8 +37,8 @@ describe Application do
     it 'shows a form for user to sign up' do
       response = get('/sign-up')
 
-    expect(response.status).to eq 200
-    expect(response.body).to include "<form class='sign-up' method='POST' action='/new-user'>"
+      expect(response.status).to eq 200
+      expect(response.body).to include "<form class='sign-up' method='POST' action='/new-user'>"
     end
   end
 
@@ -46,22 +46,22 @@ describe Application do
     it 'creates a new user in the database' do
       response = post('new-user',email:'james@gmail.com',password:'password',username:'james',name:'James') 
 
-    expect(response.status).to eq 200
-    expect(response.body).to eq 'Successfully created!'
+      expect(response.status).to eq 200
+      expect(response.body).to eq 'Successfully created!'
     end
 
     it 'shows error message for exist username' do
       response = post('new-user', email:'luke@gmail.com',password:'123',username:'luke',name:'Luke123')
-      
-    expect(response.status).to eq 200
-    expect(response.body).to include '<p>Username exists!</p>'
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<p>Username exists!</p>'
     end
 
     it 'shows error message for exist email' do
       response = post('new-user', email:'abc@gmail.com',password:'123',username:'yoyo',name:'Yoyo')
-      
-    expect(response.status).to eq 200
-    expect(response.body).to include '<p>Email exists!</p>'
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<p>Email exists!</p>'
     end
   end
 
@@ -100,9 +100,19 @@ describe Application do
 
       # Verify that the form is displayed for the logged-in user
       expect(last_response.body).to include "<form method='POST' action='/new-post'>"
-      expect(last_response.body).to include '<textarea name="content" rows="4" cols="50" placeholder="What\'s happening?"></textarea>'        
+      expect(last_response.body).to include '<textarea name="content" rows="4" cols="50" placeholder="Luke, What\'s happening?"></textarea>'        
       expect(last_response.body).to include '<input type="submit">'
     end
   end
 
+  context 'POST /logout' do
+    it 'logouts user session' do
+      response = post('user-login', email:'abc@gmail.com',password:'123')
+      follow_redirect!
+      response = post('logout')
+      expect(response.status).to eq 302
+      follow_redirect!
+      expect(last_response.body).not_to include '<textarea name="content" rows="4" cols="50" placeholder="Luke, What\'s happening?"></textarea>'
+    end
+  end
 end

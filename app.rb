@@ -10,7 +10,8 @@ require 'date'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base  
-  enable :sessions
+  enable :sessions 
+  use Rack::Session::Cookie, :expire_after => 3600, :secret => 'secret_key'
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
@@ -26,6 +27,9 @@ class Application < Sinatra::Base
     posts = post_repo.all
     user_repo = UserRepository.new
     users = user_repo.all
+    if @user_session
+      @user_session_name = user_repo.find(@user_session).name
+    end
 
     posts.each do |post|
       content = post.content
@@ -105,6 +109,11 @@ class Application < Sinatra::Base
     else
       return 'Invalid credential'
     end
+  end
+
+  post '/logout' do
+    session[:user_id] = nil
+    redirect '/'
   end
 end
 
