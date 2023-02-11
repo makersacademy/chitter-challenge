@@ -20,3 +20,11 @@ note that identifying tables & columns may require changes as prog is developed.
 
 password:  to be investigaged. current usage varchar which can be updated.
 ("text" or "varchar". However, it's recommended to use the "bytea" data type to store binary data, such as the result of a bcrypt hash.)
+
+Tables  created from table plus- with foreign key on makers(User)table to be called from peeps table.
+
+git commit -m "Sinatra connected- rackup funcitoning - peeps/makers Tables created. Seeds updated. WORKFLOW progress updated"
+
+unit peep and maker class created
+git commit -m "addition of peep and maker class"
+
