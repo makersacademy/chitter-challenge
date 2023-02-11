@@ -1,5 +1,3 @@
 class Peep
-  def initialize(peep)
-    @peep = peep
-  end
+  attr_accessor :id, :content, :time, :user_id
 end
