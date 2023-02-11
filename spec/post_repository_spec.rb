@@ -43,7 +43,7 @@ describe PostRepository do
     it 'returns a string to indicate the time difference is 1d' do
       now_time = Time.new(2023,2,9,11,30,00)
       time_diff = @repo.time_difference('2023-02-08','11:30:00',now_time)
-    expect(time_diff).to eq '1d'
+    expect(time_diff).to eq '08 Feb 2023'
     end
     it 'returns a string to indicate the time difference is 1h' do
       now_time = Time.new(2023,2,8,11,30,00)

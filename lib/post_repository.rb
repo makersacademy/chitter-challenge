@@ -27,7 +27,7 @@ class PostRepository
 
     DatabaseConnection.exec_params(sql,params)
 
-    return nil
+    return nil 
   end
 
   def find(id)
@@ -60,7 +60,7 @@ class PostRepository
       return "#{time_diff}h"
     else
       day = (time_diff / 24).to_i
-      return "#{day}d"
+    return date_time.strftime("%d %b %Y")
     end
   end
 end
