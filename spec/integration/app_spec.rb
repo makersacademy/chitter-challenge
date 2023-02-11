@@ -89,13 +89,13 @@ describe Application do
     it 'returns Invalid credential with the wrong email' do
       response = post('user-login', email:'123@gmail.com',password:'123')
       expect(response.status).to eq 200
-      expect(response.body).to eq 'Invalid credential'
+      expect(response.body).to include 'Invalid credential'
     end
 
     it 'returns Invalid credential with the wrong password' do
       response = post('user-login', email:'abc@gmail.com',password:'abc')
       expect(response.status).to eq 200
-      expect(response.body).to eq 'Invalid credential'
+      expect(response.body).to include 'Invalid credential'
     end
 
     it 'displays a form for logged-in users' do

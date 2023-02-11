@@ -36,5 +36,8 @@ body {
       <input type="password" name="password" placeholder="Password"> 
       <input type="submit" value="Submit">
     </form>
+    <% if @error_message %>
+    <p>Invalid credential</p>
+    <% end %>
   </body>
 </html>

@@ -109,7 +109,8 @@ class Application < Sinatra::Base
       # return 'Successfully login'
       # return erb(:index)
     else
-      return 'Invalid credential'
+      @error_message = 'Invalid credential'
+      return erb(:login)
     end
   end
 

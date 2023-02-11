@@ -71,11 +71,8 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql,[email])
     if result.num_tuples.zero? == false
       user = find(result[0]['id'])
-      p 'step 1'
       if BCrypt::Password.new(user.password) == password
-        p 'step 2'
-        p user.id.to_i
-      return user.id.to_i
+        return user.id.to_i
       end
       # return result[0]['id'].to_i
     end
