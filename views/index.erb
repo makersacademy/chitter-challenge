@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitter</title>
+</head>
+<body>
+<h1>Chitter</h1>
+
+<% if session[:logged_in_user] == nil %>
+<form action="/log-in" method="get">
+  <input type="submit" value="Log In">
+</form>
+
+<form action="/sign-up" method="get">
+  <input type="submit" value="Sign Up">
+</form>
+
+<% else %>
+<p>Logged in as : <%= session[:logged_in_user].username %> </p>
+<form action="/log-out" method="post">
+  <input type="submit" value="Log Out">
+</form>
+
+<% end %>
+
+<h2>Peep Feed</h2>
+<% if session[:logged_in_user] != nil %>
+<form action="/post-peep" method="post">
+  <div>
+  <textarea name="peep_body" id="peep_input" rows="4" cols="50" maxlength="255" placeholder="Maximum 255 characters" ></textarea>
+  </div>
+
+  <div>
+  <input type="submit" value="Post Peep">
+  </div>
+</form>
+
+<% end %>
+
+<ul>
+  <% Peep.all.each do |peep| 
+    user = User.find_user('id', peep.user_id)
+  %>
+    <li>
+      <div>
+        <p> <%= user.full_name %> (<%= user.username %>)</p>
+        <p><%= peep.body %></p>
+        <p><%= peep.create_time %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+  
+</body>
+</html>
