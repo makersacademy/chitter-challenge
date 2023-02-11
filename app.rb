@@ -81,16 +81,25 @@ class Application < Sinatra::Base
     new_user.name = params[:name]
 
     user_repo = UserRepository.new
-    @error_message = user_repo.user_exist?(new_user)
-    # return user_check if user_check
-    if @error_message
-      return erb(:signup)
+    
+    if params[:username].match(/[^a-zA-Z0-9]/)
+      @error_message = 'No special characters or space allowed in username.' 
+    elsif params[:password].length < 6
+      @error_message = 'Password must be at least 6 characters.'
+    elsif user_repo.user_exist?(new_user)
+      @error_message = user_repo.user_exist?(new_user)
     end
 
 
+    return erb(:signup) if @error_message
+
     user_repo.create(new_user)
 
-    return 'Successfully created!'
+    # Auto login after sign up
+    valid_user_id = user_repo.check_credential(new_user.email,new_user.password)
+
+    session[:user_id] = valid_user_id
+    redirect '/'
   end
 
   get '/login' do

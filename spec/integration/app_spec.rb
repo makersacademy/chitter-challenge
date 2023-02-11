@@ -51,19 +51,34 @@ describe Application do
     it 'creates a new user in the database' do
       response = post('new-user',email:'james@gmail.com',password:'password',username:'james',name:'James') 
 
+      expect(response.status).to eq 302
+      follow_redirect!
+      expect(last_response.body).to include 'James'
+    end
+
+    it 'shows error message for invalid username' do
+      response = post('new-user', email:'luke@gmail.com',password:'123456',username:'luke luke',name:'Luke123')
+
       expect(response.status).to eq 200
-      expect(response.body).to eq 'Successfully created!'
+      expect(response.body).to include '<p>No special characters or space allowed in username.</p>'
+    end
+
+    it 'shows error message for invalid password length' do
+      response = post('new-user', email:'luke@gmail.com',password:'123',username:'luke',name:'Luke123')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<p>Password must be at least 6 characters.</p>'
     end
 
     it 'shows error message for exist username' do
-      response = post('new-user', email:'luke@gmail.com',password:'123',username:'luke',name:'Luke123')
+      response = post('new-user', email:'luke@gmail.com',password:'123456',username:'luke',name:'Luke123')
 
       expect(response.status).to eq 200
       expect(response.body).to include '<p>Username exists!</p>'
     end
 
     it 'shows error message for exist email' do
-      response = post('new-user', email:'abc@gmail.com',password:'123',username:'yoyo',name:'Yoyo')
+      response = post('new-user', email:'abc@gmail.com',password:'123456',username:'yoyo',name:'Yoyo')
 
       expect(response.status).to eq 200
       expect(response.body).to include '<p>Email exists!</p>'
