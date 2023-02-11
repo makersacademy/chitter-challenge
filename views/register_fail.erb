@@ -6,14 +6,19 @@
   </head>
   <body>
     <h1>Welcome to Chitter</h1>
-    <h2>Please enter your details to login</h2>
-    <form method="POST" action="/login">
+    <h3>Registration failed, please check all fields</h3>
+    <h2>Please enter your details to register</h2>
+    <form method="POST" action="/register">
     <div>
+      <label>name: </label>
+      <input type="text" name="name" />
+      <label>username: </label>
+      <input type="text" name="username" />
       <label>email: </label>
       <input type="text" name="email" />
       <label>password: </label>
       <input type="password" name="password" />
-      <input type="submit" value="Login"/>
+      <input type="submit" value="Register"/>
     </div>
     </form>
   </body>

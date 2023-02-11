@@ -93,32 +93,64 @@ describe Application do
     end
 
     context 'GET /login' do
-      xit 'should provide fields to login' do
-        
+      it 'should provide fields to login' do
+        response = get('/login')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<form method="POST" action="/login">')
       end
     end
     context 'POST /login' do
-      xit 'should validate login details to allow a user to login' do
-        
+      it 'should validate login details to allow a user to login' do
+        response = post(
+          '/login',
+          email: 'ad@host.com',
+          password: 'password1'
+        )
+        expect(response.status).to eq(302)
+        expect(get('/conversations').body).to include('logout')
       end
 
-      xit 'should reject invalid details' do
-        
+      it 'should reject invalid details' do
+        response = post(
+          '/login',
+          email: 'ad@most.com',
+          password: 'password1'
+        )
+        expect(response.status).to eq(200)
+        expect(get('/conversations').body).not_to include('logout')
       end
     end
 
     context 'GET /register' do
-      xit 'should provide fields to register' do
-        
+      it 'should provide fields to register' do
+        response = get('/register')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('Please enter your details to register')
       end
     end
     context 'POST /register' do
-      xit 'should validate registration details to allow a user to register and login' do
-        
+      it 'should validate registration details to allow a user to register and login' do
+        response = post(
+          '/register',
+          name: 'Ingrid',
+          username: 'Intrepid',
+          email: 'in@host.com',
+          password: 'password1'
+        )
+        expect(response.status).to eq(302)
+        expect(get('/conversations').body).to include('logout')  
       end
 
-      xit 'should reject invalid details' do
-        
+      it 'should reject invalid details' do
+        response = post(
+          '/register',
+          name: 'Adam',
+          username: 'Ad',
+          email: 'ad@host.com',
+          password: 'password1'
+        )
+        expect(response.status).to eq(200)
+        expect(get('/conversations').body).not_to include('logout')
       end
     end
 
@@ -152,8 +184,16 @@ describe Application do
         expect(response.body).not_to include('<a href="/login')
       end
 
-      xit 'should provide a logout button that logs you out when clicked' do
-        
+      it 'should provide a logout button that logs you out when clicked' do
+        response = get('/conversations')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<a href="/logout') 
+      end
+    end
+
+    context 'GET /logout' do
+      it 'should clear the session and return to the homepage' do
+        expect(get('/logout').status).to eq 302
       end
     end
 
@@ -170,10 +210,11 @@ describe Application do
       
     context 'POST /conversations' do
       it 'should post a new conversation with the correct details' do
-        post(
+        response = post(
           '/conversations',
           content:'this is a new peep'
         )
+        expect(response.status).to eq(302)
         response = get('/conversations')
         expect(response.body).to include('this is a new peep')     
       end

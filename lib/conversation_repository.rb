@@ -18,11 +18,9 @@ class ConversationRepository
   end
 
   def create(conversation)
-
-    sql = 'INSERT INTO conversations (maker_id) VALUES ($1);'
+    sql = 'INSERT INTO conversations (maker_id) VALUES ($1) RETURNING id;'
     params = [conversation.maker_id]
-    DatabaseConnection.exec_params(sql,params)
-    return nil
+    return DatabaseConnection.exec_params(sql,params).first['id'].to_i
   end
 
   def find(id)

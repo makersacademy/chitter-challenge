@@ -10,7 +10,8 @@
     <a href="/login">login</a> <a href="/register">register</a>
     <% end %>
     <% if logged_in? %>
-    <%= @username %>
+    <%= session[:username] %>
+    <a href="/logout">logout</a> 
     <form method="POST" action="/conversations">
     <div>
       <label>New Peep: </label>

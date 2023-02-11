@@ -40,9 +40,13 @@ class Application < Sinatra::Base
       session[:username] = maker.username
       return redirect('/')
     else
-      p 'login fail'
-      return erb(:login_error)
+      return erb(:login_fail)
     end
+  end
+
+  get '/logout' do
+    session.clear
+    return redirect('/')
   end
 
 
@@ -50,6 +54,23 @@ class Application < Sinatra::Base
     return erb(:register)
   end
 
+  post '/register' do
+    temp_maker = Maker.new
+    temp_maker.name = params[:name]
+    temp_maker.username = params[:username]
+    temp_maker.email = params[:email]
+    temp_maker.password = params[:password]
+
+    maker = MakerRepository.new.create(temp_maker)
+    if maker != nil
+      # Set the user ID in session
+      session[:maker_id] = maker.id
+      session[:username] = maker.username
+      return redirect('/')
+    else
+      return erb(:register_fail)
+    end
+  end
 
 
   get '/' do
@@ -91,17 +112,15 @@ class Application < Sinatra::Base
   end
 
   post '/conversations' do
-    convRepo = ConversationRepository.new
     conv = Conversation.new
-    conv.maker_id = params[:maker_id]
-    convRepo.create(conv)
-    convid = convRepo.all.last.id
+    conv.maker_id = session[:maker_id]
+    convid = ConversationRepository.new.create(conv)
     peep = Peep.new
     peep.content = params[:content]
-    peep.maker_id = params[:maker_id]
+    peep.maker_id = session[:maker_id]
     peep.conversation_id = convid
-    PeepRepository.create(peep)
-    return redirect('/conversations')
+    PeepRepository.new.create(peep)
+    return redirect('/')
   end
 
   post '/peeps' do

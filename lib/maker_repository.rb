@@ -9,37 +9,26 @@ class MakerRepository
     sql = 'SELECT id, email, password, name, username FROM makers;'
     result_set = DatabaseConnection.exec_params(sql,[])
     result_set.each do |record|
-      maker = Maker.new
-      maker.id = record['id'].to_i
-      maker.email = record['email']
-      maker.password = record['password']
-      maker.name = record['name']
-      maker.username = record['username']
-      makers << maker
+      makers << parse_maker(record)
     end
     
     return makers
   end
 
   def create(maker)
+    return nil if exists_check(maker)
     encrypted_password = BCrypt::Password.create(maker.password)
     sql = 'INSERT INTO makers (email, password, name, username) VALUES ($1, $2, $3, $4);'
     params = [maker.email, encrypted_password, maker.name, maker.username]
     DatabaseConnection.exec_params(sql,params)
-    return nil
+    return find_by_email(maker.email)
   end
 
   def find(id)
     sql = 'SELECT id, email, password, name, username FROM makers WHERE id = $1;'
     params = [id]
     record = DatabaseConnection.exec_params(sql,params).first
-    maker = Maker.new
-    maker.id = record['id'].to_i
-    maker.email = record['email']
-    maker.password = record['password']
-    maker.name = record['name']
-    maker.username = record['username']
-    return maker
+    return parse_maker(record)
   end
 
   def login(email,passed_password)
@@ -58,13 +47,15 @@ class MakerRepository
     params = [email]
     record = DatabaseConnection.exec_params(sql,params).first
     return nil if record.nil?
-    maker = Maker.new
-    maker.id = record['id'].to_i
-    maker.name = record['name']
-    maker.email = record['email']
-    maker.password = record['password']
-    maker.username = record['username']
-    return maker
+    return parse_maker(record)
+  end
+
+  def find_by_username(username)
+    sql = 'SELECT id, email, password, name, username FROM makers WHERE username = $1;'
+    params = [username]
+    record = DatabaseConnection.exec_params(sql,params).first
+    return nil if record.nil?
+    return parse_maker(record)
   end
 
   def delete(id)
@@ -74,4 +65,19 @@ class MakerRepository
     return nil
   end
 
+  private
+
+  def parse_maker(record)
+    maker = Maker.new
+    maker.id = record['id'].to_i
+    maker.name = record['name']
+    maker.email = record['email']
+    maker.password = record['password']
+    maker.username = record['username']
+    return maker
+  end
+
+  def exists_check(maker)
+    return !find_by_email(maker.email).nil? || !find_by_username(maker.username).nil? 
+  end
 end

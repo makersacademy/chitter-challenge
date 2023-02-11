@@ -65,7 +65,7 @@ describe MakerRepository do
         maker = Maker.new
         maker.email = 'gunny@host.com'
         maker.password = 'password7'
-        maker.name = 'Freddy'
+        maker.name = 'Gary'
         maker.username = 'guntime'
         @repo.create(maker)
         expect(@repo.login('gunny@host.com','password7')).not_to eq nil
@@ -80,14 +80,25 @@ describe MakerRepository do
 
   describe '#register' do
     context 'all valid details' do
-      xit 'saves the details and logs in' do
-        
+      it 'saves the details and logs in' do
+        maker = Maker.new
+        maker.email = 'hunny@host.com'
+        maker.password = 'password8'
+        maker.name = 'Helen'
+        maker.username = 'Hunt'
+        @repo.create(maker)
+        expect(@repo.find_by_email(maker.email)).not_to eq nil
       end
     end
 
     context 'missing or invalid details' do
-      xit 'fails' do
-        
+      it 'fails' do
+        maker = Maker.new
+        maker.email = 'ad1@host.com'
+        maker.password = 'password1'
+        maker.name = 'Adam'
+        maker.username = 'Ad'
+        expect(@repo.create(maker)).to eq nil
       end
     end 
   end
