@@ -1,7 +1,9 @@
 /**/.DS_Store
 /coverage
 .env
+database.yml
 
 # Local cache of Rubocop remote config
 .rubocop-*
 
+config/database.yml
