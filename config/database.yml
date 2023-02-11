@@ -5,7 +5,9 @@ default: &default
 development:
   <<: *default
   host: YOUR_DATABASE_URL
-  database: chitter_development
+  username: DB_USERNAME
+  password: DB_PASSWORD
+  database: chitter
 
 test:
   <<: *default
