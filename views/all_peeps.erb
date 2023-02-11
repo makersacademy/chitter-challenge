@@ -5,14 +5,13 @@
 
   <h1 style="color: 800080">Peeps</h1>
     <% @peeps.each do |peep| %>
-    <div>
-    ID: <%= peep.id %>
-    </div>
+    <br>
     <div>
     Peep: <%= peep.content %>
     </div>
     <div>
     Time: <%= peep.time %>
+    <br>
     <%end%>
     </div>
     </form>

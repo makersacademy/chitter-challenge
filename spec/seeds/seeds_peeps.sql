@@ -2,11 +2,11 @@ TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
 -- Table Definition
 
-INSERT INTO users (username) VALUES ('Harry');
-INSERT INTO users (username) VALUES ('Hermoine');
-INSERT INTO users (username) VALUES ('Ron');
-INSERT INTO users (username) VALUES ('Professor Snape');
-INSERT INTO users (username) VALUES ('Voldemort');
+INSERT INTO users (username, name, email, password) VALUES ('harryp', 'Harry Potter', 'harry@xyz.com', 'harry@123');
+INSERT INTO users (username, name, email, password) VALUES ('hermoineg', 'Hermoine Grainger', 'hgrainger@xyz.com', 'hgrainger@123');
+INSERT INTO users (username, name, email, password) VALUES ('ronw', 'Ronald Weasley', 'ronweasley@xyz.com', 'ron@123');
+INSERT INTO users (username, name, email, password) VALUES ('professor_snape', 'Severus Snape', 'snape@xyz.com', 'snape@123');
+INSERT INTO users (username, name, email, password) VALUES ('voldemort', 'Tom Marvolo Riddle', 'tom@xyz.com', 'tom@123');
 
 INSERT INTO peeps (content, time, user_id) VALUES ('Hello, I am Harry', '2020-06-22 19:10:25', '1');
 INSERT INTO peeps (content, time, user_id) VALUES ('Hi my name is Hermoine', '2020-09-19 12:40:25', '2');
