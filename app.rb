@@ -39,4 +39,13 @@ class Application < Sinatra::Base
     set_all_peeps
     erb(:index)
   end
+
+  get '/sign-up' do
+      erb(:sign_up)
+  end
+
+  post '/sign-up' do
+    user_repo = UserRepository.new
+    new_user = User.new
+  end
 end
