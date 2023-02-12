@@ -19,11 +19,11 @@ describe Application do
   end
 end
 
-context "GET/" do
-  it 'with 200 OK response index page welcomes user' do
+context "GET /" do
+  it 'returns 200 OK with full list of peeps' do
     response = get('/')
 
     expect(response.status).to eq(200)
-    expect(response.body).to include('<h1><%=CHITTER CHATTER %></h1>')	
+    expect(response.body).to include('Wanna read what our peeps have got to say?')
   end
 end

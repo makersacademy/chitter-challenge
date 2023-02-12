@@ -14,12 +14,10 @@ CREATE TABLE peeps (
     on delete cascade
 );
 
-
 TRUNCATE TABLE peeps RESTART IDENTITY;
 
---INSERT INTO peeps ("title", "username", "content", "created", "maker_id") VALUES
---('Doolittle', 1989, 1),
----('Surfer Rosa', 1988, 1),
---('Waterloo', 1974, 2);
---above example to demonstrate populating table
+INSERT INTO peeps (title, username, content, created) VALUES
+('Monday Yawning', 'Rubber Duckie', 'Is it possible that', '2023-02-13 12:30:15'),
+INSERT INTO peeps (title, username, content, created) VALUES
+('Two Peas in a Pod', 'Doris', 'When I met my pair for the first time', '2022-12-31 11:59:00');
 

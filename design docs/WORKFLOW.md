@@ -28,3 +28,5 @@ git commit -m "Sinatra connected- rackup funcitoning - peeps/makers Tables creat
 unit peep and maker class created
 git commit -m "addition of peep and maker class"
 
+commited- failed 1st phase get '/' requires inspection.
+

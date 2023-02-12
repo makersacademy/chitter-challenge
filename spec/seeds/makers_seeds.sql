@@ -5,16 +5,17 @@ CREATE TABLE makers(
   id SERIAL PRIMARY KEY,
   name text,
   username text,
-  email CITEXT,
+  email text,
   password text
 );
 
 TRUNCATE TABLE makers RESTART IDENTITY;
 
-INSERT INTO makers ("name", "username", "email", "passoword") VALUES
---('Pixies', 'Rock'),
---('ABBA', 'Pop');
---example table insertion
+INSERT INTO makers (id, name, username, email, password) VALUES
+(1, 'Rose Tree', 'petal1', 'rose@petal.com', 'bumbleb33'),
+INSERT INTO makers (id, name, username, email, password) VALUES
+(2, 'Graham Fillmore', 'Jazziman', 'GF@eastwest.com', '43770');
+
 
 
 

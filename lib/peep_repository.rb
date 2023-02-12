@@ -2,10 +2,10 @@ require_relative 'peep'
 
 class PeepRepository
   def all
-    peeps = []
+    @peeps = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT id, title, username, content, created FROM peeps;'
+    sql = 'SELECT * FROM peeps;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
@@ -22,10 +22,10 @@ class PeepRepository
       peep.content = record['content']
       peep.created = record['created']
 
-      peeps << peep
+      @peeps << peep
     end
 
-    return peeps
+    return @peeps
   end
   
 # def find(id)

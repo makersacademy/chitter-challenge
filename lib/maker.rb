@@ -1,5 +1,5 @@
 class Maker
-  attr_accessor :id, :name, :username, :email, :password, :maker_id
+  attr_accessor :id, :name, :username, :email, :password, 
 
 
 def initialize
