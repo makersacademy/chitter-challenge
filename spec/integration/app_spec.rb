@@ -160,4 +160,14 @@ describe Application do
       expect(last_response.body).not_to include '<form method="POST" action="/logout">'
     end
   end
+  
+  context 'GET /posts' do
+    it 'displays a post detail with post id 1' do
+      response = get('/posts/1')
+
+    expect(response.status).to eq 200
+    expect(response.body).to include 'First content'
+    expect(response.body).to include 'First comment'
+    end
+  end
 end

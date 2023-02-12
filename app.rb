@@ -133,6 +133,31 @@ class Application < Sinatra::Base
     session[:user_id] = nil
     redirect '/'
   end
+
+  get '/posts/:id' do
+    post_repo = PostRepository.new
+    @post = post_repo.find(params[:id])
+    @post_time_diff = post_repo.time_difference(@post.date,@post.time,Time.now)
+    user_repo = UserRepository.new
+    @user = user_repo.find(@post.user_id)
+    comment_repo = CommentRepository.new
+    comments = comment_repo.find_by_post(@post.id)
+
+    @comment_infos = []
+    comments.each do |comment|
+      user = user_repo.find(comment.user_id)
+      comment_time_diff = post_repo.time_difference(comment.date,comment.time,Time.now)
+      info = {
+        name:user.name,
+        username:user.username,
+        content:comment.content,
+        time_diff:comment_time_diff,
+      }
+      @comment_infos.unshift(info)
+    end
+
+    return erb(:post)
+  end
 end
 
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="" rel="stylesheet">
+  </head>
+  <body>
+        <div>
+          <p><span><%= @user.name %></span><span>@<%= @user.username %></span><span> - <%= @post_time_diff %></span></p>
+          <p><%= @post.content %></p>
+        </div>
+        <hr>
+        <% @comment_infos.each do |comment| %>
+          <div>
+            <p><span><%= comment[:name] %></span><span>@<%= comment[:username] %></span><span> - <%= comment[:time_diff] %></span></p>
+          <p><%= comment[:content] %></p> 
+          </div>
+          <% end %>
+  </body>
+</html>
