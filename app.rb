@@ -16,24 +16,17 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
-  def add_username_to_peep
-    peeprepo = PeepRepository.new
-    userrepo = UserRepository.new
-    all_peeps = peeprepo.all
-    all_peeps.each do |peep|
-      peep.username = userrepo.find_by_id(peep.user_id).username
-    end
-    return all_peeps
-  end
-
   get '/home' do
     if session[:username] == nil
       peeprepo = PeepRepository.new
-      @peeps = add_username_to_peep()
+      @peeps_with_username = add_username_to_peep()
+      @peeps = @peeps_with_username.reverse
+      @logged_in = false
       return erb(:home)
     else
       peeprepo = PeepRepository.new
-      @peeps = add_username_to_peep()
+      @peeps_with_username = add_username_to_peep()
+      @peeps = @peeps_with_username.reverse
       @logged_in = true
       return erb(:home)
     end
@@ -43,8 +36,8 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     newpeep = Peep.new
     newpeep.message = params[:message]
-    newpeep.post_time = '12:12:00'
-    newpeep.post_date = '2023-02-15'
+    newpeep.post_time = find_current_time()
+    newpeep.post_date = find_current_date()
     newpeep.user_id = session[:user_id]
     repo.create(newpeep)
     return redirect '/home'
@@ -65,12 +58,10 @@ class Application < Sinatra::Base
     @allusers = repo.all
   end
 
-
   get '/login' do
     return erb(:login)
   end
   
-
   post '/login' do
     username = params[:username]
     password = params[:password]
@@ -94,4 +85,33 @@ class Application < Sinatra::Base
     session[:username] = nil
     return redirect '/home'
   end
+
+  #Helper methods
+  def add_username_to_peep
+    peeprepo = PeepRepository.new
+    userrepo = UserRepository.new
+    all_peeps = peeprepo.all
+    all_peeps.each do |peep|
+      peep.username = userrepo.find_by_id(peep.user_id).username
+    end
+    return all_peeps
+  end
+
+  def find_current_time
+    t = Time.now
+    return t.strftime("%k:%M:%S")
+  end
+
+  def find_current_date
+    t = Time.now
+    return t.strftime("%Y-%m-%d") 
+  end
+
+  def organise(peeps)
+    sorted_peeps = peeps.sort_by do |peep|
+      Time.new(peep.post_date.year, peep.post_date.month, peep.post_date.day, peep.post_time.hour, peep.post_time.min, peep.post_time.sec)
+    end
+    return sorted_peeps
+  end
+  
  end

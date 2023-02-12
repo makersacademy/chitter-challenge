@@ -19,8 +19,6 @@ describe Application do
     end
   end
 
-
-
   context "POST /users" do
     it "adds new user details to db" do
       response = post('/users', username: 'Eduardo', password: 'secure', email: 'eduardo@makers.com')
@@ -83,12 +81,3 @@ describe Application do
     end
   end
 end
-
-
-# context "GET /home and user has logged in" do
-#   it "returns homepage with posts and additional text at the top" do
-#     response = get('/home')
-#     expect(response.status).to eq(200)
-#     expect(response.body).to include('Write a peep')
-#   end
-# end

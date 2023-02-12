@@ -1,16 +1,35 @@
 <html>
   <head>
-    <style>
-    div.logout {
-      display: block;
-      text-align: right;
-    }
-
-    </style>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <h1> Chitter </h1>
+    <% if @logged_in == false %>
+     <div class="header">
+      <a href="#default" class="logo">Chitter</a>
+      <div class="header-right">
+      <a class="active" href="/home">Home</a>
+      <a href="/signup">Sign up</a>
+      <a href="/login">Login</a>
+  </div>
+</div> 
+     <%# <div class="status">
+      <form action="/login" method="GET">
+      <input type="submit" value="login">
+      </form>
+      <form action="/signup" method="GET">
+      <input type="submit" value="signup">
+      </form>
+    </div> %>
+    <% end %>
+
     <% if @logged_in == true %>
+    <div class="header">
+      <a href="#default" class="logo">Chitter</a>
+      <div class="header-right">
+      <a class="active" href="/home">Home</a>
+      <a href="/logout">logout</a>
+  </div>
+  </div>
     <h3> Write a peep <%= @test%> </h3>
     <div class="form">
     <form action="/peep" method="POST">
@@ -21,7 +40,7 @@
     </form>
     </div>
 
-    <div class="logout">
+    <div class="status">
       <form action="/logout" method="POST">
       <input type="submit" value="Logout">
       </form>
@@ -29,7 +48,7 @@
     <% end %>
 
     <% @peeps.each do |peep| %>
-    <div style = "border: 4px solid #000;">
+    <div class = "peeps">
       <%= peep.username%><br>
       <%= peep.message%><br>
       <%= peep.post_date%> @ <%= peep.post_time%> <br>
