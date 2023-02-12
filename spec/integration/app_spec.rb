@@ -65,9 +65,21 @@ describe Application do
   context "POST /login and user enters correct details" do
     it "Redirects user to home page and allows post" do
       response = post('/login', username: 'Edward', password: '12345')
-        expect(response.body). to include('Write a peep')
-        expect(response.body). to include('<form action="/peep" method="POST">')
-        expect(response.body). to include('<label for="message">Write your message</label>')
+        follow_redirect!
+        expect(last_response.body).to include('Write a peep')
+        expect(last_response.body).to include('<form action="/peep" method="POST">')
+        expect(last_response.body).to include('<label for="message">Write your message</label>')
+        expect(last_response.body).to include('<form action="/logout" method="POST">')
+    end
+  end
+
+  context "POST /logout" do 
+    it "resets session and refreshes homepage" do
+      post('/logout')
+      follow_redirect!
+      expect(last_response.body).not_to include('<label for="message">Write your message</label>')
+      expect(last_response.body).not_to include('<form action="/logout" method="POST">')
+      expect(last_response.body).to include('<h1> Chitter </h1>')
     end
   end
 end

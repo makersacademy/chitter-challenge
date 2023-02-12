@@ -88,4 +88,10 @@ class Application < Sinatra::Base
       return erb(:login)
     end
   end
+
+  post '/logout' do
+    session[:user_id] = nil
+    session[:username] = nil
+    return redirect '/home'
+  end
  end

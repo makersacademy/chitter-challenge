@@ -1,6 +1,10 @@
 <html>
   <head>
-    <style type= >
+    <style>
+    div.logout {
+      display: block;
+      text-align: right;
+    }
 
     </style>
   </head>
@@ -15,6 +19,12 @@
       <input type="text" name="message" id="message">
       <input type="submit" value="post">
     </form>
+    </div>
+
+    <div class="logout">
+      <form action="/logout" method="POST">
+      <input type="submit" value="Logout">
+      </form>
     </div>
     <% end %>
 
