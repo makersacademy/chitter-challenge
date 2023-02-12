@@ -23,6 +23,7 @@ describe Application do
       expect(response.body).to include '<a href="/sign-up">SIGN UP</a>'
       expect(response.body).to include '<a href="/login">LOG IN</a>'
       expect(response.body).to include 'First content'
+      expect(response.body).to include '<a href="/posts/1">2 comments</a>'
       expect(response.body).to include 'Second content'
       expect(response.body).to include 'Thrid content'
     end

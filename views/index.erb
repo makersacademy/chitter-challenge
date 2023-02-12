@@ -32,6 +32,9 @@
           <p><span><%= post[:name] %></span><span>@<%= post[:username] %></span><span> - <%= post[:time_diff] %></span></p>
           <p><%= post[:content] %></p>
         </div>
+        <div>
+          <a href="/posts/<%= post[:post_id] %>"><%= post[:comments].length %> <%= post[:comments].length == 1 ? "comment" : "comments" %></a>
+        </div>
         <% end %>
   </body>
 </html>

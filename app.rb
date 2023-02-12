@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/post_repository'
 require_relative 'lib/user_repository'
+require_relative 'lib/comment_repository'
 require_relative 'lib/post'
 require_relative 'lib/user'
 require 'date'
@@ -27,6 +28,7 @@ class Application < Sinatra::Base
     posts = post_repo.all
     user_repo = UserRepository.new
     users = user_repo.all
+    comment_repo = CommentRepository.new
     if @user_session
       @user_session_name = user_repo.find(@user_session).name
     end
@@ -37,7 +39,10 @@ class Application < Sinatra::Base
 
       time_diff = post_repo.time_difference(post.date,post.time,Time.now)
 
+      comments = comment_repo.find_by_post(post.id)
+
       post_info = {
+        post_id:post.id,
         content:post.content,
         date:post.date,
         time:post.time,
@@ -46,6 +51,7 @@ class Application < Sinatra::Base
         username:user[0].username,
         name:user[0].name,
         email:user[0].email,
+        comments:comments
       }
 
       @posts_list.unshift(post_info)
