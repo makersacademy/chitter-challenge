@@ -24,7 +24,11 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
-    return erb(:new_peep)
+    if session[:user_id] == nil
+      return erb(:login)
+    else
+      return erb(:new_peep)
+    end
   end
 
   post '/peeps' do
@@ -89,7 +93,8 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/logout'
-  // session[:user_id] = nil
-  // go to index
+  get '/logout' do
+  session[:user_id] = nil
+  return redirect "/"
+  end
 end
