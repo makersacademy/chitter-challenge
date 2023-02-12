@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <% @peeps.each do |peep| %>
+      <% @users.each do |user| %>
+        <% if peep.user_id == user.id %>
+          <p><%= peep.content %></p>
+          <p><%= peep.time %></p>
+          <p><%= user.name %> | <%= user.username %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+    <br>
+    <a href="/signup">Sign up for Chitter here!</a>
+    <br>
+    <a href="/newpeep">Peep here!</a>
+  </body>
+</html>
