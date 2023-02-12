@@ -117,32 +117,23 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 class UserRepository
 
-  # Selecting all records
-  # No arguments
-  def all
+  def find(email)
     # Executes the SQL query:
-    # SELECT id, name, username, email, password FROM users;
+    # SELECT id, name, username, email, password FROM users WHERE id = $1;
 
-    # Returns an array of User objects.
+    # if email exists, return nil
   end
 
   # Gets a single record by its ID
   # One argument: the id (number)
-  def find(id)
-    # Executes the SQL query:
-    # SELECT id, name, username, email, password FROM users WHERE id = $1;
-
-    # Returns a single User object.
-  end
-
-  # Add more methods below for each operation you'd like to implement.
-
-  def find_by_username(username)
+  def find(username)
     # Executes the SQL query:
     # SELECT id, name, username, email, password FROM users WHERE username = $1;
 
-    # returns a single user object.
+    # Returns nil if username exists
   end
+
+  # Add more methods below for each operation you'd like to implement.
 
   def create(user)
     # Executes SQL query:
@@ -163,45 +154,36 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all users
+# is email in use
 
 repo = UserRepository.new
-users = repo.all
+found_user = repo.find('mike@strangerthings.com')
 
-expect(users.length).to eq 6
-
-expect(users[0].name).to eq 'Jane Hopper'
-expect(users[0].username).to eq 'Biokinesis'
-expect(users[0].email).to eq 'eleven@strangerthings.com'
-expect(users[0].password).to eq 'ILoveMike11'
-
+if found_user.nil?
+  else
+expect(found_user.name).to eq 'Mike Wheeler'
+expect(found_user.username).to eq 'D&D'
+expect(found_user.email).to eq 'mike@strangerthings.com'
 
 # 2
 # Get a single user
 
 repo = UserRepository.new
-user = repo.find(1)
+user = repo.find(username)
 
-expect(user.name).to eq 'Jane Hopper'
-expect(user.username).to eq 'Biokinesis'
-expect(user.email).to eq 'eleven@strangerthings.com'
-expect(user.password).to eq 'ILoveMike11'
+if found_username.nil?
+else
+
+expect(found_username.id).to eq 1
+expect(found_username.name).to eq 'Jane Hopper'
+expect(found_username.username).to eq 'Biokinesis'
+expect(found_username.email).to eq 'eleven@strangerthings.com'
+
 
 # Add more examples for each method
 
 # 3
-# Get a single user by its username
-
-repo = UserRepository.new
-user = repo.find_by_username('Demogorgan')
-
-expect(user.name).to eq 'Dustin Henderson'
-expect(user.username).to eq 'Demogorgan'
-expect(user.email).to eq 'dustin@strangerthings.com'
-expect(user.password).to eq 'DArtagnan'
-
-# 4 
-# Create a new user and adds it to the list
+# creates a new user
 
 repo = UserRepository.new
 new_user = User.new
@@ -213,7 +195,25 @@ new_user.password = 'KateBush1'
 
 repo.create(new_user)
 
-expect(repo.all).to include(have_attributes(name: 'Max Mayfield', username: 'MadMax', email: 'max@strangerthings.com', password: 'KateBush1'))
+# 4 
+# creates a new user when the find method is called
+repo = UserRepository.new
+new_user = User.new
+    
+new_user.name = 'Max Mayfield'
+new_user.username = 'MadMax'
+new_user.email = 'max@strangerthings.com'
+new_user.password = 'KateBush1'
+
+epo.create(new_user)
+found_user = repo.find('max@strangerthings.com')
+        
+expect(found_user.id).to eq 7
+expect(found_user.name).to eq 'Max Mayfield'
+expect(found_user.username).to eq 'MadMax'
+expect(found_user.email).to eq 'max@strangerthings.com'
+expect(found_user.password).to eq 'KateBush1'
+
 ```
 
 Encode this example as a test.
