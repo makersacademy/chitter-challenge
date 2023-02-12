@@ -22,4 +22,10 @@ class UserRepository
 
     return all_users
   end
+
+  def create(new_user)
+    hashed_password = BCrypt::Password.create(new_user.pass_word)
+    sql_query = 'INSERT INTO users (name, email, pass_word, username) VALUES ($1, $2, $3, $4);'
+    result_set = DatabaseConnection.exec_params(sql_query, [new_user.name, new_user.email, hashed_password, new_user.username])
+  end
 end

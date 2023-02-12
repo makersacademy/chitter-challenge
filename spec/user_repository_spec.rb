@@ -22,4 +22,13 @@ RSpec.describe UserRepository do
     expect(@repo.all.first.name).to eq 'user one'
     expect(@repo.all.last.name).to eq 'user three'
   end
+
+  it 'creates a new user with hashed password' do
+    new_user = double :user, name:'user four', email:'user_four@gmail.com', pass_word:'password4', username:'user_four'
+  
+    @repo.create(new_user)
+  
+    expect(@repo.all.length).to eq 4
+    expect(@repo.all.last.name).to eq 'user four'
+  end
 end
