@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+::-webkit-resizer {
+  display: none;
+}
+
+html {
+  box-sizing: border-box;
+  /* // This defines what 1rem is */
+  font-size: 62.5%; /* //1 rem = 10px; 10px/16px = 62.5% */
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.icon {
+  height: 4rem;
+  filter: invert(91%) sepia(3%) saturate(6461%) hue-rotate(305deg)
+    brightness(135%) contrast(93%);
+}
+
+.btm {
+  background-color: rgb(29, 155, 240);
+  outline-style: none;
+  min-width: 3.6rem;
+  min-height: 3.6rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-color: rgba(0, 0, 0, 0);
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-top-style: solid;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.body_content {
+  width: 50%;
+  margin: auto;
+}
+
+.post {
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(47, 51, 54);
+}
+
+.name {
+  font-weight: bold;
+}
+
+.username {
+  color: #71767b;
+  opacity: 0.8;
+  padding-left: 0.8rem;
+}
+.time {
+  color: #71767b;
+  opacity: 0.8;
+  padding-left: 0.5rem;
+}
+
+.content {
+  padding-top: 1rem;
+}
+
+.comment {
+  display: block;
+  padding-top: 1.2rem;
+  color: #71767b;
+  opacity: 0.8;
+}
+
+.post_form {
+  width: 100%;
+  margin: auto;
+}
+.textarea {
+  height: 150px;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  background-color: black;
+  color: #71767b;
+  opacity: 0.8;
+  font-size: 16px;
+  resize: none;
+}
+.post_btm {
+  display: flex;
+  justify-content: flex-end;
+}
