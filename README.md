@@ -1,123 +1,210 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
+This project is one of the solo projects during the study at Makers. By combining all the skills I learnt from previous weeks, I was aksed to clone Twitter with test-driven approach and object-oriented design. `Ruby`, `Postgresql`, `RSpec`, `Sinetra`, `Active Record` will be used in this project.
 
-Challenge:
--------
+I took `Twitter` as the blueprint of this app. Users have to login in order to read peeps from others or create a peep.
 
-As usual please start by forking this repo.
+➡️ Application Demo: [link](https://chitter-4v2b.onrender.com/)
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+![preview](assets/preview-rev.png)
 
-Features:
--------
+## Table of Contents
 
-```
-STRAIGHT UP
+- [Chitter Challenge](#chitter-challenge)
+  - [Table of Contents](#table-of-contents)
+  - [User Stories](#user-stories)
+    - [STRAIGHT UP LEVEL](#straight-up-level)
+    - [HARDER LEVEL](#harder-level)
+    - [ADVANCED LEVEL](#advanced-level)
+  - [Database Diagrams](#database-diagrams)
+  - [MVC Model - ActiveRecord](#mvc-model---activerecord)
+    - [Models](#models)
+    - [Migrations](#migrations)
+    - [Controllers/Routes](#controllersroutes)
+  - [Getting Started](#getting-started)
+    - [1. Install Dependencies](#1-install-dependencies)
+    - [2. Set Up `.env` file](#2-set-up-env-file)
+    - [3. Set Up Database](#3-set-up-database)
+    - [4. Run Tests](#4-run-tests)
+    - [5. Start Development Server](#5-start-development-server)
+    - [6. Deployment](#6-deployment)
+  - [Chitter Future Roadmap](#chitter-future-roadmap)
+  - [Dependencies](#dependencies)
+  - [Contributors](#contributors)
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+## User Stories
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+Makers gave me instructions on how I could start to work on this project. Details can be viewed [here](docs/instructions.md).
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+Here are the user stories as a starting point of the development of this app.
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+### STRAIGHT UP LEVEL
 
-HARDER
+As a Maker, I want to:
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
+- post a message (peep) to chitter
+- see all peeps in reverse chronological order
+- see the time at which it was made
+- sign up for Chitter
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+### HARDER LEVEL
 
-ADVANCED
+As a Maker, I want to:
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+- log in to Chitter
+- log out of Chitter
 
-Technical Approach:
------
+### ADVANCED LEVEL
 
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
+As a Maker, I want to:
 
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
+- receive an email if I am tagged in a Peep
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
+## Database Diagrams
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
+This project used relational database - `Postgresql` for data storage. Here is the diagram to show the relationships among tables.
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+> Please note that `Likes` table has not effect on this app in this stage. A 'like' function is planned to be implemented in the near future so this table has been pre-defined in this app.
 
-Notes on functionality:
-------
+![db-diagram](assets/db-diagram.png)
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+---
 
-Bonus:
------
+## MVC Model - ActiveRecord
 
-If you have time you can implement the following:
+This project used `Active Record` as the tool for object relational mapping. This framework applies `MVC(Model-View-Controller) model` to this app. It is the same concpet of a `Ruby on Rails` app.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+### Models
 
-And/Or:
+Models are defined in `Models` folder ([link](models)). For example, if you define a model called `User`, `ActiveRecord` will create all the methods you need to interact with database automatically.
 
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+You can take a look at the following example. Not only the methods, this file also defines relationship with other classes.
 
 ```ruby
-require 'simplecov'
-require 'simplecov-console'
+# file: models/user.rb
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+class User < ActiveRecord::Base
+  # this liine is a special method to implement Bcrypt for 'password'
+  has_secure_password
+  # Validations for inputs
+  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
+  validates :name, presence: true
+  # Relationship with Peep model and its table
+  has_many :peeps, through: :likes
+end
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Migrations
+
+Migrations for the database are handle by the gem `rake`. You can modify the config in [this file](Rakefile). You can create a new migration by running `rake db:generate_migration` and migrate all changes to the database by running `rake db:migrate`.
+
+All migration files and seeds are put in [this folder](db). As for the commands to control `rake`, please run `rake -T` for details.
+
+### Controllers/Routes
+
+The routes from `Sinatra` act like controllers in this MVC model. They mange the logics of how to handle inputs and interact with database by using the pre-defined models.
+
+## Getting Started
+
+Please make sure your local machine gets `Ruby` installed. If not, please visit [this link](https://www.ruby-lang.org/en/documentation/installation/). Get the code by running `git clone`.
+
+### 1. Install Dependencies
+
+To install all dependencies you need to run this project, `cd` to the folder and run the following command.
+
+```
+bundle
+```
+
+---
+
+### 2. Set Up `.env` file
+
+To set up the environment variables that this app needs, you can modify `.env.teamplate` ([link](.env.template)).
+
+```sh
+# MODE tells your server and activerecord (for migration) which db to use
+MODE= # production / development(default) / test
+
+# Your database details for 'production' mode
+# You might not need them if you only want to run tests or develop
+HOST_PRODUCTION=
+USERNAME_PRODUCTION=
+PASSWORD_PRODUCTION=
+```
+
+---
+
+### 3. Set Up Database
+
+Before running the following commands, please make sure `postgresql` has been installed in your local machine. If not, please visit [this website](https://www.postgresql.org/download/).
+
+Then run the following commands to create the seed database.
+
+```sh
+rake db:create
+rake db:migrate
+rake db:seed # This line will set up chitter_development
+rake db:seed RACK_ENV=test # This line will set up chitter_test
+```
+
+---
+
+### 4. Run Tests
+
+Once your database is ready, you can run the following command to test the app.
+
+```sh
+# Runs all tests
+rspec
+```
+
+---
+
+### 5. Start Development Server
+
+After all tests passed, the app is ready to run. If you want to run a development server, you have to make sure `MODE=development` is included in `.env` file.
+
+Then run the following command:
+
+```sh
+rackup
+```
+
+---
+
+### 6. Deployment
+
+If you want to deploy the app, please make sure `MODE=production` is written in your `.env` file. `HOST_DATABASE`, `HOST_USERNAME` and `HOST_PASSWORD` have to be filled too.
+
+The final step will be to run `rake db:create` and `rake db:migrate` to set up the production database.
+
+## Chitter Future Roadmap
+
+There are some features I'd like to add to the app in the near future.
+
+- Responsive layout for tablet and mobile
+- 'Like' function
+- 'Tag your friend' function
+- Personal profile page
+- Expandable and also collapsible side menu
+- set up CI/CD by using `CircleCI`
+
+## Dependencies
+
+Version of each dependency can be viewed in [this Gemfile](Gemfile). Here is the list showing all dependecies this project used.
+
+- Ruby
+- RSpec
+- Sinatra
+- Bcrypt
+- Postgresql
+- ActiveRecord
+- Rake
+- dotenv
+- Rack-flash3
+
+## Contributors
+
+- [@terryhycheng](https://github.com/terryhycheng)

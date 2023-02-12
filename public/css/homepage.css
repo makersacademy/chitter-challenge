@@ -1,0 +1,49 @@
+.header {
+  padding: 2.5rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.peep-container {
+  display: flex;
+  gap: 1.2rem;
+  padding: 2em;
+  margin: 1em 0;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.user-name-wrapper {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.grey-text {
+  color: #818181;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.no-peep-message {
+  display: flex;
+  height: 40vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
