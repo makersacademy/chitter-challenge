@@ -30,6 +30,18 @@
   text-align: left; */
 }
 
+.username{
+  padding-bottom: 4px;
+  display: inline;
+  vertical-align: top;
+}
+
+.date{
+  padding-bottom: 4px;
+  display: inline;
+  vertical-align: top;
+}
+
 .new-peep {
     text-align: center;
     display: block;
@@ -100,4 +112,10 @@
   .header-right {
     float: none;
   }
+}
+
+h3 {
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
 }

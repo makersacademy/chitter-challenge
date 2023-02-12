@@ -36,9 +36,7 @@
     <h3> Write a peep <%= @test%> </h3>
     <div class="form">
     <form class = "new-peep-form" action="/peep" method="POST">
-
-      <label for="message">Write your message</label>
-      <input type="text" name="message" id="message">
+      <input placeholder="write a post.." type="text" name="message" id="message" style="overflow: hidden; word-wrap: break-word; resize: none; height: 34px;">
       <input type="submit" value="post">
     </form>
     </div>
@@ -49,9 +47,10 @@
     <div class="peep-container">
     <% @peeps.each do |peep| %>
     <div class = "peeps">
-      <%= peep.username%><br>
+      <p class="username"><%= peep.username%> </p>
       <%= peep.message%><br>
-      <%= peep.post_date%> @ <%= peep.post_time%> <br>
+      <p class="date"><%= peep.post_date%> @ <%= peep.post_time%><br>
+
     </div>
     </div>
     <br>
