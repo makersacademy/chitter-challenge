@@ -21,4 +21,9 @@ class PeepRepository
 
     return all_peeps
   end
+
+  def create(new_peep)
+    sql_query = 'INSERT INTO peeps (message, time_posted, user_id) VALUES ($1, $2, $3);'
+    result_set = DatabaseConnection.exec_params(sql_query, [new_peep.message, new_peep.time_posted, new_peep.user_id])
+  end
 end
