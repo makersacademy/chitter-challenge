@@ -7,11 +7,31 @@
     <link href="" rel="stylesheet">
   </head>
   <body>
+    <% if @user_session %>
+      <form method="POST" action="/logout">
+       <input type="submit" value="Logout">
+      </form>
+  <% else %>
+    <a href="/sign-up">SIGN UP</a>
+    <a href="/login">LOG IN</a>
+    <% end %>
         <div>
           <p><span><%= @user.name %></span><span>@<%= @user.username %></span><span> - <%= @post_time_diff %></span></p>
           <p><%= @post.content %></p>
         </div>
         <hr>
+    <% if @user_session %>
+    <div>
+      <form method='POST' action='/new-comment/<%= @post.id %>'>
+          <div>
+            <textarea name="content" rows="4" cols="50" placeholder="Cheet your reply"></textarea>        
+          </div>          
+          <div>
+            <input type="submit" value="Reply">
+          </div>
+      </form>
+    </div>
+    <% end %>
         <% @comment_infos.each do |comment| %>
           <div>
             <p><span><%= comment[:name] %></span><span>@<%= comment[:username] %></span><span> - <%= comment[:time_diff] %></span></p>

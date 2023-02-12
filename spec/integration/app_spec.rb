@@ -170,4 +170,15 @@ describe Application do
     expect(response.body).to include 'First comment'
     end
   end
+
+  context 'POST /new-comment/:id' do
+    it 'displays a new comment on the post' do
+      post('user-login', email:'abc@gmail.com',password:'123')
+      post('/new-comment/1',content:'Reply!',user_id:'1')
+      expect(last_response.status).to eq 302
+      follow_redirect!
+
+    expect(last_response.body).to include 'Reply!'
+    end
+  end
 end

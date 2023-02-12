@@ -135,6 +135,7 @@ class Application < Sinatra::Base
   end
 
   get '/posts/:id' do
+    @user_session = session[:user_id]
     post_repo = PostRepository.new
     @post = post_repo.find(params[:id])
     @post_time_diff = post_repo.time_difference(@post.date,@post.time,Time.now)
@@ -157,6 +158,21 @@ class Application < Sinatra::Base
     end
 
     return erb(:post)
+  end
+
+  post '/new-comment/:id' do
+    return 'Please login first' if session[:user_id].nil?
+    new_comment = Comment.new
+    new_comment.content = params[:content]
+    new_comment.time = Time.now.strftime("%H:%M:%S")
+    new_comment.date = Time.now.to_date.to_s
+    new_comment.user_id = session[:user_id]
+    new_comment.post_id = params[:id]
+
+    comment_repo = CommentRepository.new
+    comment_repo.create(new_comment)
+    
+    redirect "/posts/#{params[:id]}"
   end
 end
 
