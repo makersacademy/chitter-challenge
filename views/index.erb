@@ -4,37 +4,44 @@
     <title>Chitter</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
   </head>
   <body>
+    <div class="header">
+      <a href="/">
+<svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><g><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg>
+      </a>
+<div>
     <% if @user_session %>
       <form method="POST" action="/logout">
-       <input type="submit" value="Logout">
+       <input class="btm" type="submit" value="Logout">
       </form>
   <% else %>
-    <a href="/sign-up">SIGN UP</a>
-    <a href="/login">LOG IN</a>
-    <% end %>
+    <a href="/sign-up" class="btm">SIGN UP</a>
+    <a href="/login" class="btm">LOG IN</a>
+  <% end %>
+</div>
+    </div>
+    <div class="body_content">
     <% if @user_session %>
-    <div>
+    <div class="post_form">
       <form method='POST' action='/new-post'>
           <div>
-            <textarea name="content" rows="4" cols="50" placeholder="<%= @user_session_name %>, What's happening?"></textarea>        
+            <textarea class="textarea" name="content" rows="4" cols="50" placeholder="<%= @user_session_name %>, What's happening?"></textarea>        
           </div>          
-          <div>
-            <input type="submit">
+          <div class="post_btm">
+            <input class="btm " type="submit" value="Post">
           </div>
       </form>
     </div>
     <% end %>
     <% @posts_list.each do |post| %>
-        <div>
-          <p><span><%= post[:name] %></span><span>@<%= post[:username] %></span><span> - <%= post[:time_diff] %></span></p>
-          <p><%= post[:content] %></p>
+        <div class="post">
+          <p><span class="name"><%= post[:name] %></span><span class="username">@<%= post[:username] %></span><span class="time"> - <%= post[:time_diff] %></span></p>
+          <p class="content"><%= post[:content] %></p>
+          <a class="comment" href="/posts/<%= post[:post_id] %>"><%= post[:comments].length %> <%= post[:comments].length == 1 ? "comment" : "comments" %></a>
         </div>
-        <div>
-          <a href="/posts/<%= post[:post_id] %>"><%= post[:comments].length %> <%= post[:comments].length == 1 ? "comment" : "comments" %></a>
-        </div>
-        <% end %>
+      <% end %>
+    </div>
   </body>
 </html>
