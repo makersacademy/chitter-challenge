@@ -16,19 +16,19 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
-  get '/home' do
+  get '/' do
     if session[:username] == nil
       peeprepo = PeepRepository.new
       @peeps_with_username = add_username_to_peep()
       @peeps = @peeps_with_username.reverse
       @logged_in = false
-      return erb(:home)
+      return erb(:index)
     else
       peeprepo = PeepRepository.new
       @peeps_with_username = add_username_to_peep()
       @peeps = @peeps_with_username.reverse
       @logged_in = true
-      return erb(:home)
+      return erb(:index)
     end
   end
 
@@ -40,7 +40,7 @@ class Application < Sinatra::Base
     newpeep.post_date = find_current_date()
     newpeep.user_id = session[:user_id]
     repo.create(newpeep)
-    return redirect '/home'
+    return redirect '/'
   end
 
   get '/signup' do
@@ -72,8 +72,7 @@ class Application < Sinatra::Base
       peeprepo = PeepRepository.new
       @peeps = add_username_to_peep()
       @logged_in = true
-      return redirect '/home'
-      # return erb(:home)
+      return redirect '/'
     else
       @login = false
       return erb(:login)
@@ -83,7 +82,7 @@ class Application < Sinatra::Base
   post '/logout' do
     session[:user_id] = nil
     session[:username] = nil
-    return redirect '/home'
+    return redirect '/'
   end
 
   #Helper methods

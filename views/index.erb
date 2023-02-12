@@ -7,7 +7,7 @@
      <div class="header">
       <a href="#default" class="logo">Chitter</a>
       <div class="header-right">
-      <a class="active" href="/home">Home</a>
+      <a class="active" href="/">Home</a>
       <a href="/signup">Sign up</a>
       <a href="/login">Login</a>
   </div>
@@ -26,32 +26,33 @@
     <div class="header">
       <a href="#default" class="logo">Chitter</a>
       <div class="header-right">
-      <a class="active" href="/home">Home</a>
-      <a href="/logout">logout</a>
+      <a class="active" href="/">Home</a>
+      <form action="/logout" method="POST">
+      <input type="submit" value="Logout">
+      </form>
   </div>
   </div>
+  <div class = "new-peep">
     <h3> Write a peep <%= @test%> </h3>
     <div class="form">
-    <form action="/peep" method="POST">
+    <form class = "new-peep-form" action="/peep" method="POST">
 
       <label for="message">Write your message</label>
       <input type="text" name="message" id="message">
       <input type="submit" value="post">
     </form>
     </div>
-
-    <div class="status">
-      <form action="/logout" method="POST">
-      <input type="submit" value="Logout">
-      </form>
+    </div>
     </div>
     <% end %>
 
+    <div class="peep-container">
     <% @peeps.each do |peep| %>
     <div class = "peeps">
       <%= peep.username%><br>
       <%= peep.message%><br>
       <%= peep.post_date%> @ <%= peep.post_time%> <br>
+    </div>
     </div>
     <br>
     <% end %>
