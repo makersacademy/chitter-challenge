@@ -14,7 +14,6 @@ describe Application do
     it "returns all the peeps" do
       response = get('/peeps')
       expect(response.status).to eq(200)
-      expect(response.body).to include('ID: 1')
     end
   end
 

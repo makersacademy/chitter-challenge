@@ -11,8 +11,20 @@ class DatabaseConnection
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
   def self.connect
-    database_name = 'chitter'
-    database_name << 'chitter_test' if ENV['ENV'] == 'test'
+
+    if ENV['DATABASE_URL'] != nil
+      @connection = PG.connect(ENV['DATABASE_URL'])
+      return
+    end
+
+    if ENV['ENV'] == 'test'
+      database_name = 'chitter_test'
+    else
+      database_name = 'chitter_test'
+    end
+
+    # database_name = 'chitter'
+    # database_name << 'chitter_test' if ENV['ENV'] == 'test'
     database = { host: 'localhost', dbname: database_name }
     @connection = PG.connect(database)
   end

@@ -9,6 +9,9 @@ require './lib/userrepository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+# Sessions are disabled by default, so this line is needed.
+
+  enable :sessions
 
   configure :development do
     register Sinatra::Reloader
@@ -40,10 +43,6 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/login' do
-    return erb(:login)
-  end
-
   get '/signup' do
     return erb(:signup)
   end
@@ -59,4 +58,38 @@ class Application < Sinatra::Base
 
     return erb(:index)
   end
+
+  get '/login' do
+    if session[:user_id] == nil
+      # No user id in the session
+      # so the user is not logged in.
+      return erb(:login)
+    else
+      # The user is logged in, display 
+      # their account page.
+    return redirect('/peeps/new')
+    end
+  end
+
+  post '/login' do
+    email = params[:email]
+    password = params[:password]
+
+    repo = UserRepository.new 
+    user = repo.find_by_email(email)
+
+    # This is a simplified way of checking the password. In a real project, you should encrypt the password
+    # stored in the database.
+    if user.password == password
+      # Set the user ID in session
+      session[:user_id] = user.id
+      return erb(:new_peep)
+    else
+      return erb(:login_error)
+    end
+  end
+
+  get '/logout'
+  // session[:user_id] = nil
+  // go to index
 end

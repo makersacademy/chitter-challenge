@@ -1,6 +1,31 @@
 TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
 -- Table Definition
+-- CREATE EXTENSION citext;
+-- CREATE DOMAIN domain_email AS citext
+-- CHECK(
+--    VALUE ~ '^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$'
+-- );
+
+-- CREATE TABLE users (
+--   id SERIAL PRIMARY KEY,
+--   username text,
+--   name text,
+--   email domain_email,
+--   password text
+-- );
+
+-- CREATE TABLE peeps (
+--   id SERIAL PRIMARY KEY,
+--   content text,
+--   time TIMESTAMP,
+-- -- The foreign key name is always {other_table_singular}_id
+--   user_id int,
+--   constraint fk_users foreign key(user_id)
+--     references users(id)
+--     on delete cascade
+-- );
+
 
 INSERT INTO users (username, name, email, password) VALUES ('harryp', 'Harry Potter', 'harry@xyz.com', 'harry@123');
 INSERT INTO users (username, name, email, password) VALUES ('hermoineg', 'Hermoine Grainger', 'hgrainger@xyz.com', 'hgrainger@123');
