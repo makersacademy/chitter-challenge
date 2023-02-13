@@ -2,7 +2,11 @@
   <head>
     <link rel="stylesheet" href="/style.css" />
   </head>
+  
   <body>
+
+  <%# logged out header %>
+
     <% if @logged_in == false %>
      <div class="header">
       <a href="#default" class="logo">Chitter</a>
@@ -10,25 +14,18 @@
       <a class="active" href="/">Home</a>
       <a href="/signup">Sign up</a>
       <a href="/login">Login</a>
-  </div>
-</div> 
-     <%# <div class="status">
-      <form action="/login" method="GET">
-      <input type="submit" value="login">
-      </form>
-      <form action="/signup" method="GET">
-      <input type="submit" value="signup">
-      </form>
-    </div> %>
+      </div>
+  </div> 
     <% end %>
+
+    <%# Logged in header %>
 
     <% if @logged_in == true %>
     <div class="header">
       <a href="#default" class="logo">Chitter</a>
       <div class="header-right">
       <a class="active" href="/">Home</a>
-      <form action="/logout" method="POST">
-      <input type="submit" value="Logout">
+      <a href="/logout">Logout</a>
       </form>
   </div>
   </div>

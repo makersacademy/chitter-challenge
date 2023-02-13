@@ -21,7 +21,6 @@ describe Application do
   context "POST /users" do
     it "adds new user details to db" do
       response = post('/users', username: 'Eduardo', password: 'secure', email: 'eduardo@makers.com')
-      # expect(response.status).to eq(200)
       repo = UserRepository.new
       users = repo.all
       expect(users).to include(

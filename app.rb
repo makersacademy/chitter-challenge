@@ -55,7 +55,7 @@ class Application < Sinatra::Base
     newuser.password = params[:password]
     newuser.email = params[:email]
     repo.create(newuser)
-    @allusers = repo.all
+    return redirect '/'
   end
 
   get '/login' do
@@ -83,6 +83,12 @@ class Application < Sinatra::Base
     session[:user_id] = nil
     session[:username] = nil
     return redirect '/'
+  end
+
+  get "/logout" do
+    session[:user_id] = nil
+    session[:username] = nil
+    redirect "/"
   end
 
   #Helper methods
