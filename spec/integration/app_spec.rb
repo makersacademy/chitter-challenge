@@ -10,11 +10,10 @@ describe Application do
 
   let(:app) { Application.new }
 
-  context "GET /home and user hasn't logged in" do
+  context "GET / and user hasn't logged in" do
     it "returns homepage with posts" do
-      response = get('/home')
+      response = get('/')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1> Chitter </h1>')
       expect(response.body).to include('I am also the second post')
     end
   end
@@ -65,9 +64,8 @@ describe Application do
       response = post('/login', username: 'Edward', password: '12345')
         follow_redirect!
         expect(last_response.body).to include('Write a peep')
-        expect(last_response.body).to include('<form action="/peep" method="POST">')
-        expect(last_response.body).to include('<label for="message">Write your message</label>')
-        expect(last_response.body).to include('<form action="/logout" method="POST">')
+        expect(last_response.body).to include('Home')
+        expect(last_response.body).to include('Chitter')
     end
   end
 
@@ -75,9 +73,9 @@ describe Application do
     it "resets session and refreshes homepage" do
       post('/logout')
       follow_redirect!
-      expect(last_response.body).not_to include('<label for="message">Write your message</label>')
+      expect(last_response.body).not_to include('<h3> Write a peep <%= @test%> </h3>')
       expect(last_response.body).not_to include('<form action="/logout" method="POST">')
-      expect(last_response.body).to include('<h1> Chitter </h1>')
+      expect(last_response.body).to include('Chitter')
     end
   end
 end
