@@ -167,14 +167,14 @@ These examples will later be encoded as RSpec tests.
 
 repo = UserRepository.new
 
-user = repo.all
+users = repo.all
 
-user.length => 3 
-user.first.id => "1"
-user.first.name => "Janet Blane"
-user.first.email => "janet11@gmail.com"
-user.first.username => "janet11"
-user.first.password => "password"
+users.length => 3 
+users.first.id => "1"
+users.first.name => "Janet Blane"
+users.first.email => "janet11@gmail.com"
+users.first.username => "janet11"
+users.first.password => "password"
 
 # 2
 # get a single user 
