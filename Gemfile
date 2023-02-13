@@ -13,7 +13,6 @@ group :development, :test do
   gem 'rubocop', '1.20'
 end
 
-gem 'byebug'
 
 gem "pg", "~> 1.3"
 
