@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <a href="/new">New Peep</a>
+    <a href="/logout">Log Out</a>
+    <%= @user.name%>
+  </head>
+  <body>
+
+    <%@peeps.reverse.each do |peep|%>
+      <h1><%= @users.find(peep.user_id).name%></h1>
+      <div><%= peep.time%></div>
+      <div><%= peep.message%></div>
+    <%end%>
+  </body>
+</html>

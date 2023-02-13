@@ -1,6 +1,45 @@
 Chitter Challenge
 =================
 
+Running:
+-------
+
+Clone this repository, then run:
+```bash
+bundle install
+```
+This will install the required gems
+
+To create the tables run:
+```bash
+createdb chitter
+psql -h 127.0.0.1 chitter < seeds/chitter_table.sql
+
+# (optional) seed the tables:
+psql -h 127.0.0.1 chitter < seeds/seeds.sql
+```
+Then, to start the server, run:
+```bash
+rackup
+```
+The website can then be found at: http://localhost:9292
+-------
+
+Testing:
+-------
+Create the test database:
+```bash
+createdb chitter_test
+
+psql -h 127.0.0.1 chitter_test < seeds/chitter_table.sql
+
+psql -h 127.0.0.1 chitter_test < seeds/seeds.sql
+```
+To run the tests:
+```bash
+rspec
+```
+-------
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
