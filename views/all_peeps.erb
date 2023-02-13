@@ -1,0 +1,22 @@
+<html>
+<body style = "background-image: linear-gradient(45deg, #FFFFFF, rgb(255, 122, 89));">
+  <form method="get" action="/logout">
+  <input type="submit" value="Log Out">
+  </form>
+
+<form method="get" action="/peeps">
+
+  <a href = "/"><h1 style="color: 800080">Chitter</h1></a>
+    <% @peeps.each do |peep| %>
+    <br>
+    <div>
+    Peep: <%= peep.content %>
+    </div>
+    <div>
+    Time: <%= peep.time %>
+    <br>
+    <%end%>
+    </div>
+    </form>
+  </body>
+</html>
