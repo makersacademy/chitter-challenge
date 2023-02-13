@@ -1,3 +1,9 @@
+require 'database_connection'
+
+# Make sure this connects to your test database
+# (its name should end with '_test')
+DatabaseConnection.connect('twitter_database_test')
+
 require 'simplecov'
 require 'simplecov-console'
 

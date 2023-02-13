@@ -1,0 +1,15 @@
+
+<html>
+  <head></head>
+  <body>
+    <h1>Posts</h1>
+    <% @all_posts.each_with_index do |post, index| %>
+      <div>
+        <h2><%= post.title %></h2>
+        <p><%= post.contents %></p>
+        <p>By: <%= @all_names[index]%> (@<%= @all_usernames[index]%>) at <%= post.time %></p>
+        <br>
+      </div>
+    <% end %>
+  </body>
+</html>

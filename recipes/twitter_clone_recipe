@@ -1,0 +1,129 @@
+# Database Design Recipe Template
+
+## 1. Extract nouns from the user stories or specification
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a Maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
+```
+Potential table datapoints:
+post, title, contents, time, users, username, email, name, password
+
+```
+
+## 2. Infer the Table Name and Columns
+
+Put the different nouns in this table. Replace the example with your own nouns.
+
+| Record                | Properties          |
+| --------------------- | ------------------  |
+| users                 | username, name, email, password
+| posts                 | title, contents, time, user_id
+
+1. Name of the first table (always plural): `users` 
+
+    Column names: `username`, `password`, `name`, `email`
+
+2. Name of the second table (always plural): `posts` 
+
+    Column names: `title`, `contents`, `time`, `user_id`
+
+## 3. Decide the column types.
+
+The primary key `id` is the first column. Its type is always be `SERIAL`.
+
+```
+
+Table: users
+id: SERIAL
+username: text
+password: text
+name: text
+email: text
+
+Table: posts
+id: SERIAL
+title: text
+contents: text
+time: timestamptz
+user_id: int
+
+```
+
+## 4. Write the SQL.
+
+```sql
+-- EXAMPLE
+-- file: items_orders.sql
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username text,
+  name text,
+  email text,
+  password text
+);
+
+-- Create the second table.
+
+-- The 'timestamptz_value' should be in the format of YYYY-MM-DD HH:MM:SS+TZ
+-- where TZ is the time zone offset from UTC.
+-- eg. London is +00 from the UTC
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  title text,
+  contents text,
+  time timestamptz,
+  user_id int
+);
+```
+
+## 5. Create the tables.
+
+```bash
+psql -h 127.0.0.1 twitter_database < ./seeds/twitter_database.sql
+```
+
+## Important Functionality Info
+
+1. You don't have to be logged in to see the peeps.
+2. Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+3. The username and email are unique.
+4. Peeps (posts to chitter) have the name of the maker and their user handle.
+5. Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+## Side Note:
+**_Some advice from ChatGPT_**
+
+#### Building a Twitter clone using HTML, Ruby and SQL database involves several steps:
+
+1. Set up the development environment: You will need to install Ruby and a web framework like Ruby on Rails, and a database management system like SQLite or PostgreSQL.
+
+2. Design the database schema: You will need to create tables to store information such as users, tweets, and followers.
+
+3. Build the back-end: Use Ruby on Rails to create the REST API that will handle the CRUD operations for your application. You will also need to create models to interact with the database and controllers to handle the incoming requests.
+
+4. Create HTML views: Use HTML, CSS and JavaScript to create the user interface for your application. You can use a front-end framework like React or Angular to simplify the process.
+
+5. Connect the front-end and back-end: Use AJAX to communicate between the HTML views and Ruby on Rails controllers.
+
+6. Implement authentication and authorization: You will need to implement a secure login system and protect sensitive information such as tweets and user data.
+
+7. Deploy the application: Finally, you will need to deploy your application on a web server, such as Heroku or AWS.
+
+This is a high-level overview of the steps involved in building a Twitter clone. The exact implementation details will depend on your specific requirements and design choices.
