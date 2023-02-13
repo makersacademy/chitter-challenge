@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Sign up to Chitter</title>
+    <style>
+      h1 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+      }
+      label {
+        font-family: "Century Gothic", sans-serif;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sign up to Chitter</h1>
+    <form action="/sign-up" method="POST">
+      <div>
+        <label>Email</label>
+        <input type="text" name="email">
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+      <div>
+        <label>Username</label>
+        <input type="text" name="username">
+      </div>
+      <div>
+        <label>Full name</label>
+        <input type="text" name="name">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
