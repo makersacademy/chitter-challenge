@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peeps</title>
+    <style>
+      body {
+        font-family: "Century Gothic", sans-serif;
+      }
+      h1 {
+        color: black;
+        display: inline-block;
+      }
+      form label {
+        color: black;
+      }
+      input[type="submit"] {
+        color: black;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header h1 {
+        margin: 0;
+      }
+      .header a {
+        font-family: "Century Gothic", sans-serif;
+        color: black;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Chitter</h1>
+      <a href="/sign-up">Sign up</a>
+    </div>
+    <hr>
+    <form action="/peep" method="post">
+      Username: <input type="text" name="username" required><br>
+      Message: <textarea rows="4" cols="50" name="message" required></textarea><br>
+      <input type="submit" value="Peep!">
+    </form>
+    <hr>
+    <% @all_peeps.each do |peep| %>
+      <div>
+        <p>@<%= peep[:username] %> peeped '<%= peep[:message] %>' at <%= peep[:time_posted] %></p>
+      </div>
+      <hr>
+    <% end %>
+  </body>
+</html>
