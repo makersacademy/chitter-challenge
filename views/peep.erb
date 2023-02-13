@@ -1,0 +1,39 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="/styles.css"/>
+   </head>
+   <body>
+      <div class="logo"><img src="/logo.png" alt="Chitter logo" width="600" height="200"></div>
+      <a href="/logged_in"><button class="sign-out-button" type="button">Go back to homepage</button></a>
+      <div class="float-child">
+         <div class="username-header"><a href="/<%= session[:user_id] %>">@<%= @user_repo.find(session[:user_id]).username %></a></div>
+      </div>
+      <div class="peep">
+         <p class="peep-name"><%= @user_repo.find(@peep.user_id).name %> </p>
+         <div class="peep-text">
+            <p>
+            <div class="user-tag"><a href="/<%= @peep.user_id %>">@<%= @user_repo.find(@peep.user_id).username %></a></div>
+            : <%= @peep.content %></p> 
+         </div>
+         <p class="timestamp"><%= @peep.time_posted %></p>
+      </div>
+      <div class="comment-input">
+         <form action="/comment/<%= @peep.id %>" method="post">
+            <label for="content">Enter comment here</label><br>
+            <input class="input-box" type="text" id="content" name="content"><br>
+            <input type="submit" value="Submit">
+         </form>
+      </div>
+      <div>
+         <% @comment_repo.find(@peep.id).reverse.each do |comment| %>
+         <div class="comment">
+            <p>
+            <div class="peep-name"><%= @user_repo.find(comment.user_id).name %></div>
+            <div class="user-tag"><a href="/<%= comment.user_id %>">@<%= @user_repo.find(comment.user_id).username %></a></div>
+            : <%= comment.content %></p>
+            <p class="timestamp"><%= comment.comment_time_posted %>
+         </div>
+         <% end %>
+      </div>
+   </body>
+</html>
