@@ -11,3 +11,11 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem "rom", "~> 5.3"
+
+gem "rom-sql", "~> 3.6.1"
+
+gem "rom-http", "~> 0.10"
+
+gem "rom-rails", "~> 2.3.1"
