@@ -17,7 +17,7 @@ class Application < Sinatra::Base
 
     if current_user_id
       user_repo = UserRepository.new
-      @user = user_repo.find_by_id(current_user_id)
+      @user = user_repo.find('id', current_user_id)
     end
 
     erb(:index)
@@ -36,11 +36,13 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
+    return status 400 unless %i[username password].all? { params.key?(_1) }
+
     repo = UserRepository.new
-    user = repo.find_by_username(params[:username])
+    user = repo.find('username', params[:username])
 
     if user
-      if test_password(params[:password], user.password_hash)
+      if test_password(params[:password], user.password)
         session.clear
         session[:user_id] = user.id
         redirect '/'
@@ -55,17 +57,21 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
+    return status 400 unless %i[email password name username].all? { params.key?(_1) }
+
     repo = UserRepository.new
 
-    # check params
     # check if username and email exist in db
 
-    params[:password_hash] = hash_password(params.delete(:password))
+    find_by_username = repo.find('username', params[:username])
+    find_by_email = repo.find('email', params[:email])
+
+    params[:password] = hash_password(params[:password])
 
     user = User.new(params)
     repo.create(user)
 
-    user = repo.find_by_username(params[:username])
+    user = repo.find('username', params[:username])
 
     session.clear
     session[:user_id] = user.id
@@ -73,11 +79,11 @@ class Application < Sinatra::Base
   end
 
   post '/post' do
+    return status 400 unless params.key?(:content)
+
     repo = PostRepository.new
     params[:timestamp] = Time.now
     params[:user_id] = session[:user_id]
-
-    # check params
 
     post = Post.new(params)
     repo.create(post)

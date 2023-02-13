@@ -1,1 +1,1 @@
-User = Struct.new(:id, :email, :password_hash, :name, :username, keyword_init: true)
+User = Struct.new(:id, :email, :password, :name, :username, keyword_init: true)

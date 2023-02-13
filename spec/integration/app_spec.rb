@@ -24,14 +24,14 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1><a class="heading" href="/">Chitter</a></h1>')
-      expect(response.body).to include('<span class="name">Alice</span>')
-      expect(response.body).to include('<span class="username">aliceinwonderland</span>')
+      expect(response.body).to include('<h1><a href="/">Chitter</a></h1>')
+      expect(response.body).to include('<span class="bold">Alice</span>')
+      expect(response.body).to include('<span class="translucent">aliceinwonderland</span>')
       expect(response.body).to include('<p class="content">My first post</p>')
-      expect(response.body).to include('<p class="timestamp">10:10 · 31/1/23</p>')
-      expect(response.body).to include('<p class="timestamp">14:40 · 1/2/23</p>')
-      expect(response.body).to include('<p class="timestamp">14:45 · 1/2/23</p>')
-      expect(response.body).to include('<p class="timestamp">8:32 · 2/2/23</p>')
+      expect(response.body).to include('<p class="translucent">10:10 · 31/1/23</p>')
+      expect(response.body).to include('<p class="translucent">14:40 · 1/2/23</p>')
+      expect(response.body).to include('<p class="translucent">14:45 · 1/2/23</p>')
+      expect(response.body).to include('<p class="translucent">8:32 · 2/2/23</p>')
     end
   end
 
@@ -40,9 +40,8 @@ describe Application do
       response = get('/login')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1><a class="heading" href="/">Chitter</a></h1>')
-      expect(response.body).to include('<input class="field" type="text" name="username" placeholder="Username" required/>')
-      expect(response.body).to include('<input class="field" type="password" name="password" placeholder="Password" required/>')
+      expect(response.body).to include('<input class="box" name="username" placeholder="Username" required/>')
+      expect(response.body).to include('<input class="box" type="password" name="password" placeholder="Password" required/>')
     end
   end
 
@@ -51,28 +50,10 @@ describe Application do
       response = get('/signup')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1><a class="heading" href="/">Chitter</a></h1>')
-      expect(response.body).to include('<input class="field" type="text" name="email" placeholder="Email" required/>')
-      expect(response.body).to include('<input class="field" type="password" name="password" placeholder="Password" required/>')
-      expect(response.body).to include('<input class="field" type="text" name="name" placeholder="Name" required/>')
-      expect(response.body).to include('<input class="field" type="text" name="username" placeholder="Username" required/>')
-    end
-  end
-
-  context 'GET /new_post' do
-    it 'returns the new post view' do
-      # needs login first
-      post(
-        '/login',
-        username: 'bobthebuilder',
-        password: 'password2'
-      )
-
-      response = get('/new_post')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<h1><a class="heading" href="/">Chitter</a></h1>')
-      expect(response.body).to include('<textarea name="content" placeholder="Your peep here..." rows="4" maxlength="140" required></textarea>')
+      expect(response.body).to include('<input class="box" name="email" placeholder="Email" required/>')
+      expect(response.body).to include('<input class="box" name="password" type="password" placeholder="Password" required/>')
+      expect(response.body).to include('<input class="box" name="name" placeholder="Name" required/>')
+      expect(response.body).to include('<input class="box" name="username" placeholder="Username" required/>')
     end
   end
 
@@ -131,7 +112,7 @@ describe Application do
     end
   end
 
-  context 'POST /new_post' do
+  context 'POST /post' do
     it 'redirects to homepage and displays new post' do
       # needs login first
       post(
@@ -141,7 +122,7 @@ describe Application do
       )
 
       response = post(
-        '/new_post',
+        '/post',
         content: 'Test post',
       )
 
@@ -158,7 +139,7 @@ describe Application do
         response = post(
           '/signup',
           email: 'test@makersacademy.com',
-          password_hash: 'testpassword',
+          password: 'testpassword',
           name: 'testname',
           username: 'testuser'
         )

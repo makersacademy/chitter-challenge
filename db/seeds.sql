@@ -1,6 +1,6 @@
 TRUNCATE TABLE users, posts RESTART IDENTITY;
 
-INSERT INTO users (email, password_hash, name, username)
+INSERT INTO users (email, password, name, username)
 VALUES ('alice@makersacademy.com', '$2a$12$5/u2wF0CJwS4FvE5fF7lXeJnTlylSmfEQUmxAjgJ5F62n8GqBUxUq', 'Alice',
         'aliceinwonderland'),
        ('bob@makersacademy.com', '$2a$12$wWYnwD0ji3Xr7PFAkY7zxOAfoHCMU9MPc./bLvZCjBvES3TlI6tgW', 'Bob',

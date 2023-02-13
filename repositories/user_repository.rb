@@ -15,30 +15,13 @@ class UserRepository
     end
   end
 
-  def find_by_id(id)
+  def find(method, value)
     query = <<~SQL
       SELECT * FROM users 
-      WHERE id = $1;
+      WHERE #{method} = $1;
     SQL
 
-    params = [id]
-
-    result_set = DatabaseConnection.exec_params(query, params)
-
-    user = result_set.first
-    return if user.nil?
-
-    user["id"] = user["id"].to_i
-    User.new(user)
-  end
-
-  def find_by_username(username)
-    query = <<~SQL
-      SELECT * FROM users 
-      WHERE username = $1;
-    SQL
-
-    params = [username]
+    params = [value]
 
     result_set = DatabaseConnection.exec_params(query, params)
 
@@ -51,10 +34,10 @@ class UserRepository
 
   def create(user)
     query = <<~SQL
-      INSERT INTO users (email, password_hash, name, username) 
+      INSERT INTO users (email, password, name, username) 
       VALUES ($1, $2, $3, $4)
     SQL
-    params = [user.email, user.password_hash, user.name, user.username]
-    DatabaseConnection.exec_params(query, params)
+    params = [user.email, user.password, user.name, user.username]
+    puts DatabaseConnection.exec_params(query, params)
   end
 end
