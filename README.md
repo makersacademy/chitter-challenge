@@ -1,5 +1,5 @@
 # Chitter Challenge
-A small Twitter clone that allows users to post messages to a public stream.
+A small Twitter clone that allows users to post messages to a public stream. Made as part of a challenge in week 4 of the Makers Academy course.
 
 ## Features
 A user can post a message (peep) to Chitter    
