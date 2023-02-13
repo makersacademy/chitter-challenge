@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Chitter App</title>
+  </head>
+  <body>
+    <h1>Welcome to Chitter</h1>
+    <% if !logged_in? %>
+    <a href="/login">login</a> <a href="/register">register</a>
+    <% end %>
+    <% if logged_in? %>
+    <%= session[:username] %>
+    <a href="/logout">logout</a> 
+    <form method="POST" action="/conversations">
+    <div>
+      <label>New Peep: </label>
+      <input type="text" name="content" />
+      <input type="submit" value="PEEP"/>
+    </div>
+    </form>
+    <% end %>
+    <h2>Feed</h2>
+    <ul>
+    <% @peeps.each_with_index do |peep, i| %>
+      <li>
+      <div>
+        <%= @makers[i].name %> - <%= @makers[i].username %> Peeped: 
+        <p>
+        <%= peep.content %>
+        </p>
+        At: <a href='conversations/<%=peep.conversation_id%>'><%= peep.created_datetime %></a>
+      </div>
+      <br>
+      </li>
+    <% end %>
+    </ul>
+  </body>
+</html>

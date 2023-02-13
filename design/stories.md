@@ -1,12 +1,6 @@
-Chitter Challenge
-=================
-
-
-Features:
--------
+# Chitter User Stories
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
@@ -39,19 +33,5 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
 ```
-All implemented other than the full tagging feature with emails.
-
-
-Installation and running
-
-from directory:
-
-``` Terminal
-bundle install
-createdb "chitter"
-psql -h 127.0.0.1 chitter < spec/seeds/tables_seeds.sql
-rackup
-```
-
-
