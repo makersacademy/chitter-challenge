@@ -50,8 +50,8 @@ class UserRepository
     user.email = record['email']
     user.password = record['password']
     user.username = record['username']
-    return maker
+    return user
   end
 
-  
+
 end
