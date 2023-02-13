@@ -1,6 +1,6 @@
 <html>
   <body>
-    <% @peeps.each do |peep| %>
+    <% @peeps.sort_by { |peep| peep.time }.reverse.each do |peep| %>
       <% @users.each do |user| %>
         <% if peep.user_id == user.id %>
           <p><%= peep.content %></p>
