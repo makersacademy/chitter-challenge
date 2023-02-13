@@ -1,5 +1,3 @@
-
-
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
@@ -17,3 +15,8 @@ class Application < Sinatra::Base
     also_reload 'lib/post_repository'
     also_reload 'lib/user_repository'
   end
+
+  get '/' do
+    return erb(:homepage)
+  end
+end
