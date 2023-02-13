@@ -41,6 +41,11 @@ rackup
 - Users can sign up to Chitter
 - Users can peep to the /peeps timeline
 
+<img width="588" alt="Screenshot 2023-02-13 at 09 47 07" src="https://user-images.githubusercontent.com/117643324/218425025-44d35b19-c115-4f7a-8229-7bfdbdb78152.png">
+
+
+<img width="568" alt="Screenshot 2023-02-13 at 09 42 06" src="https://user-images.githubusercontent.com/117643324/218424288-e1460bc7-6a7b-4642-9f87-4e4a7e77f56a.png">
+
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
