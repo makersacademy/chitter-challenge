@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  
+  <body>
+
+  <%# logged out header %>
+
+    <% if @logged_in == false %>
+     <div class="header">
+      <a href="#default" class="logo">Chitter</a>
+      <div class="header-right">
+      <a class="active" href="/">Home</a>
+      <a href="/signup">Sign up</a>
+      <a href="/login">Login</a>
+      </div>
+  </div> 
+    <% end %>
+
+    <%# Logged in header %>
+
+    <% if @logged_in == true %>
+    <div class="header">
+      <a href="#default" class="logo">Chitter</a>
+      <div class="header-right">
+      <a class="active" href="/">Home</a>
+      <a href="/logout">Logout</a>
+      </form>
+  </div>
+  </div>
+  <div class = "new-peep">
+    <h3> Write a peep <%= @test%> </h3>
+    <div class="form">
+    <form class = "new-peep-form" action="/peep" method="POST">
+      <input placeholder="write a post.." type="text" name="message" id="message" style="overflow: hidden; word-wrap: break-word; resize: none; height: 34px;">
+      <input type="submit" value="post">
+    </form>
+    </div>
+    </div>
+    </div>
+    <% end %>
+
+    <div class="peep-container">
+    <% @peeps.each do |peep| %>
+    <div class = "peeps">
+      <p class="username"><%= peep.username%> </p>
+      <%= peep.message%><br>
+      <p class="date"><%= peep.post_date%> @ <%= peep.post_time%><br>
+
+    </div>
+    </div>
+    <br>
+    <% end %>
+
+  </body>
+</html>
