@@ -42,4 +42,34 @@ RSpec.describe Application do
       expect(response.body).to eq('')
     end
   end
+
+  context 'GET /peep' do
+    it 'provides an html form for the user to post a peep' do
+      response = get('/peep')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form action="/peep" method="post">')
+    end
+  end
+
+  context 'POST /peep' do
+
+    it 'returns an error message if given a username that does not exist' do
+      response = post('/peep', message: 'Test', username: 'nonexistent_user')
+
+      expect(response.status).to eq(200)
+      expect(last_response.body).to include('No user found with username: nonexistent_user')
+    end
+
+    it 'creates a new peep and adds it to the database' do
+      response = post('/peep', message:'testing testing', time_posted: Time.now.strftime("%H:%M:%S"), user_id: 3)
+      
+      expect(response.status).to eq(200)
+      
+      peep_repo = PeepRepository.new
+      all_peeps = peep_repo.all
+      expect(all_peeps.length).to eq 6
+      
+    end
+  end
 end

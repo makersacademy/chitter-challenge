@@ -48,4 +48,29 @@ class Application < Sinatra::Base
     user_repo = UserRepository.new
     new_user = User.new
   end
+
+  get '/peep' do
+    erb(:peep)
+  end
+
+  post '/peep' do
+    new_peep = Peep.new
+    peep_repo = PeepRepository.new
+    user_repo = UserRepository.new
+
+    new_peep.message = params[:message]
+    new_peep.time_posted = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+
+    users = user_repo.all
+    user = users.select { |user| user.username == params[:username] }
+
+    if user.empty?
+      "No user found with username: #{params[:username]}"
+    else
+      new_peep.user_id = user[0].id
+      peep_repo.create(new_peep)
+      set_all_peeps
+      erb(:index)
+    end
+  end
 end
