@@ -7,7 +7,9 @@ A user can see all peeps in reverse chronological order
 A user can see the time at which a peep was made    
 A user can sign up for Chitter with their email, password, name and username    
 A user can log in to Chitter    
-A user can log out of Chitter    
+A user can log out of Chitter
+A user can comment on others peeps    
+A user can click on anothers handle to see only their peeps    
 
 ## Technical Approach
 The application has been developed using Ruby, Sinatra, RSpec, HTML, and ERB views. The database has been integrated using the pg gem and Repository classes.
