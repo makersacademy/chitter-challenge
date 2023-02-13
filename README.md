@@ -43,4 +43,15 @@ I want to receive an email if I am tagged in a Peep
 All implemented other than the full tagging feature with emails.
 
 
+Installation and running
+
+from directory:
+
+``` Terminal
+bundle install
+createdb "chitter"
+psql -h 127.0.0.1 chitter < spec/seeds/tables_seeds.sql
+rackup
+```
+
 
