@@ -2,7 +2,7 @@ require_relative 'peep'
 
 class PeepRepository
   def all
-    @peeps = []
+    peeps = []
 
     # Send the SQL query and get the result set.
     sql = 'SELECT * FROM peeps;'
@@ -18,14 +18,14 @@ class PeepRepository
       peep = peep.new
       peep.id = record['id'].to_i
       peep.title = record['title']
-      peep.username = record['username']
       peep.content = record['content']
-      peep.created = record['created']
-
-      @peeps << peep
+      peep.date_created = record['date_created']
+      peep.maker_id= record['maker_id'].to_i
+     
+      peeps << peep
     end
 
-    return @peeps
+    return peeps
   end
   
 # def find(id)
@@ -41,8 +41,8 @@ class PeepRepository
    # return album
  # end
 
-  #def create(album)
-   # sql = 'INSERT INTO albums (title, release_year, artist_id) VALUES ($1, $2, $3);'
+  def create(album)
+   sql = 'INSERT INTO peeps (content, date_created, maker_id) VALUES ($1, $2, $3);'
    # result_set = DatabaseConnection.exec_params(sql, [album.title, album.release_year, album.artist_id])
 
    # return album

@@ -3,7 +3,7 @@ class MakerRepository
     makers = []
 
     # Send the SQL query and get the result set.
-    sql = 'SELECT id, name, genre FROM makers;'
+    sql = 'SELECT * FROM makers;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     # The result set is an array of hashes.
@@ -16,7 +16,10 @@ class MakerRepository
       maker = maker.new
       maker.id = record['id'].to_i
       maker.name = record['name']
-      maker.genre = record['genre']
+      maker.username = record['username']
+      maker.email = record['email ']
+      maker.password = record['password']
+
 
       makers << maker
     end
