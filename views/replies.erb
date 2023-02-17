@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Chitter</title>
+    <link type ='text/css' rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <% if session[:user_id] %>
+     <div class='topnav'>
+        <h2>Chitter</h2>
+        <% user = @user_repository.find_by_id(session[:user_id]) %>
+        <h3>Currently logged in as: <%=user.name %></h3>
+         <form action="/" method="get">
+          <div class="container">
+            <a href="/">
+              <button type="button" class='login-button'>Log Out</button>
+            </a>
+          </div>
+        </form>
+      </div>
+      <form action="/logged_in" method="get">
+        <button type="submit" class='login-button'>Go Home</button>
+      </form>
+      <% peep = @peep_repository.find_by_id(@peep_id) %>
+      <% user = @user_repository.find_by_id(peep.user_id) %>
+      <div class='peep'>
+        <div class='peep_header'>
+          <span style="color:black"> <b><%= user.name %></b> </span>
+          <span><a href="/<%= peep.user_id %>">@<%= user.username %></a></span>
+          <span> <%= peep.time_posted %> </span>
+        </div>
+        <p> <%= peep.content %> </p>
+      </div>
+      <form action="/reply/<%= @peep_id %>/new" method="post">
+        <div class="container">
+          <input type="text" placeholder="insert reply here" name="content">
+          <button type="submit" class='login-button'>Post Reply</button>
+        </div>
+      </form>
+    <% else %>
+           <div class='topnav'>
+        <h2>Chitter</h2>
+        <div class="login-container">
+          <form action="/credentials_checker" method="post">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <label for="password">Password&nbsp;</label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <div class='login_signup_buttons'>
+              <button type="submit" class='login-button'>Login</button>
+              <a href="/signup">
+                <button type="button">Sign Up</button>
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <form action="/" method="get">
+        <button type="submit" class='login-button'>Go Home</button>
+      </form>
+      <% peep = @peep_repository.find_by_id(@peep_id) %>
+      <% user = @user_repository.find_by_id(peep.user_id) %>
+      <div class='peep'>
+        <div class='peep_header'>
+          <span style="color:black"> <b><%= user.name %></b> </span>
+          <span><a href="/<%= peep.user_id %>">@<%= user.username %></a></span>
+          <span> <%= peep.time_posted %> </span>
+        </div>
+        <p> <%= peep.content %> </p>
+      </div>
+    <% end %>
+    <h4 style='color:white'> All replies: </h4>
+    <% if !@comments.empty? %>
+      <% @comments.reverse.each do |comment| %>
+        <% user = @user_repository.find_by_id(comment.user_id) %>
+        <div class='peep'>
+          <div class='peep_header'>
+            <span style="color:black"> <b><%= user.name %></b> </span>
+            <span><a href="/<%= comment.user_id %>">@<%= user.username %></a></span>
+            <span> <%= comment.time_posted %> </span>
+          </div>
+          <p> <%= comment.content %> </p>
+        </div>
+      <%  end %>
+    <% else %>
+      <p style='color:white'> No replies yet </p>
+    <% end %>
+  </body>
+  <html>

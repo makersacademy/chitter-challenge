@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <link type='text/css' rel="stylesheet" href="styles.css" />
+    <meta charset=utf-8>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if session[:user_id] %>
+      <div class='topnav'>
+        <h2>Chitter</h2>
+        <% user = @user_repository.find_by_id(session[:user_id]) %>
+        <h3>Currently logged in as: <%=user.name %></h3>
+        <form action="/" method="get">
+          <div class="container">
+            <a href="/">
+              <button type="button" class='login-button'>Log Out</button>
+            </a>
+          </div>
+        </form>
+        </div>
+        <h3 style='color:white'>Write new peep...</h3>
+        <br>
+        <form action="/peep/new" method="post">
+          <div class="container">
+            <input type="text" placeholder="insert peep here" name="content" required>
+            <button type="submit">Post Peep</button>
+          </div>
+        </form>
+    <% else %>
+      <div class='topnav'>
+        <h2>Chitter</h2>
+        <div class="login-container">
+          <form action="/credentials_checker" method="post">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <div class='login_signup_buttons'>
+            <button type="submit" class='login-button'>Login</button>
+            <a href="/signup">
+              <button type="button">Sign Up</button>
+            </a>
+            <p style='color:red'>Incorrect Details!</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    <% end %>
+    <h3 style='color:white'>Peeps</h3>
+    <% @peep_repository.all.reverse.each do |peep| %>
+      <div class='peep'>
+        <% user = @user_repository.find_by_id(peep.user_id) %>
+        <div class='peep_header'>
+          <span style="color:black"> <b><%= user.name %></b> </span>
+          <span>@<%= user.username %></span>
+          <span> <%= peep.time_posted %> </span>
+        </div>
+        <p> <%= peep.content %> </p>
+        <form action="/replies/<%= peep.id %>" method="get">
+          <button type="submit" class="replies-button"><span>View Replies</span></button>
+        </form>
+      </div>
+    <% end %>
+    <br>
+  </body>
+</html>
