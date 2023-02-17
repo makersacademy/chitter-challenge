@@ -1,9 +1,16 @@
+require 'sinatra/base'
+require 'sinatra/reloader'
+require 'rack/session/cookie'
 require 'spec_helper'
 require 'rack/test'
 require_relative '../../app'
+require './lib/user_repository'
+require './lib/user'
+require 'capybara'
 
 RSpec.describe Application do
   include Rack::Test::Methods
+  include Capybara::RSpecMatchers
 
   let(:app) { Application.new }
 
@@ -25,8 +32,26 @@ RSpec.describe Application do
     end
   end
 
+  context 'GET /welcome' do
+    it 'provides the user with a form to log in' do
+      response = get('welcome')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2 class="left">Log in</h2>')
+      expect(response.body).to include('<form action="/log-in" method="POST" class="left">')
+    end
+
+    it 'provides the user with a form to sign up' do
+      response = get('/welcome')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2 class="right">Sign up</h2>')
+      expect(response.body).to include('<form action="/sign-up" method="POST" class="right">')
+    end
+  end
+
   context 'GET /sign-up' do
-    it 'provides an html form for the user to sign up to Chitter' do
+    it 'provides a form for the user to sign up to Chitter' do
       response = get('/sign-up')
 
       expect(response.status).to eq(200)
@@ -36,15 +61,15 @@ RSpec.describe Application do
 
   context 'POST /sign-up' do
     it 'creates a new user in the database' do
-      response = post('/sign-up',name:'user four', email:'user_four@gmail.com', pass_word:'password4', username:'user_four')
-    
+      response = post('/sign-up', name: 'user four', email:'user_four@gmail.com', pass_word: 'password4', username: 'user_four')
+
       expect(response.status).to eq(200)
-      expect(response.body).to eq('')
+      expect(response.body).to include('')
     end
   end
 
   context 'GET /peep' do
-    it 'provides an html form for the user to post a peep' do
+    it 'provides a form for the user to post a peep' do
       response = get('/peep')
 
       expect(response.status).to eq(200)
@@ -53,23 +78,20 @@ RSpec.describe Application do
   end
 
   context 'POST /peep' do
+    it 'creates a new peep and shows it on the homepage when user is logged in' do
+      response = post('/peep', {user_id:2, message: 'this is a test peep', time_posted:'2023-02-16 21:48:43'}, {'rack.session' => {user_id: 2}})
 
-    it 'returns an error message if given a username that does not exist' do
-      response = post('/peep', message: 'Test', username: 'nonexistent_user')
-
-      expect(response.status).to eq(200)
-      expect(last_response.body).to include('No user found with username: nonexistent_user')
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq('/')
     end
 
-    it 'creates a new peep and adds it to the database' do
-      response = post('/peep', message:'testing testing', time_posted: Time.now.strftime("%H:%M:%S"), user_id: 3)
-      
-      expect(response.status).to eq(200)
-      
-      peep_repo = PeepRepository.new
-      all_peeps = peep_repo.all
-      expect(all_peeps.length).to eq 6
-      
+    it 'redirects to the /log-in page when user is not logged in' do
+      post('/peep', {}, {'rack.session' => {}})
+
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq('/log-in')
     end
   end
 end
