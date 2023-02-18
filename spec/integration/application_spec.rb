@@ -68,6 +68,40 @@ RSpec.describe Application do
     end
   end
 
+  context 'GET /log-in' do
+    it 'provides a form for the user to log in' do
+      response = get('/log-in')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form action="/log-in" method="POST">')
+    end
+  end
+
+  context 'POST /log-in' do
+    it 'logs the user in and redirects to the homepage' do
+      response = post('/log-in', email:'user_two@gmail.com', password:'password2')
+
+      expect(response.status).to eq(302)
+      expect(response.body).to eq('')
+    end
+
+    it 'returns an error message when user inputs invalid username or password' do
+      response = post('/log-in', email:'user_five@gmail.com', password:'password5')
+
+      expect(response.status).to eq(302)
+      expect(response.body).to eq('')
+    end
+  end
+
+  context 'GET /error' do
+    it 'returns an error message for invalid credentials' do
+      response = get('/error')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Invalid username or password! Please try again</h1>')
+    end
+  end
+
   context 'GET /peep' do
     it 'provides a form for the user to post a peep' do
       response = get('/peep')
