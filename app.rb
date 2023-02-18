@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'rack/session/cookie'
 require_relative 'lib/database_connection'
 require_relative './lib/user_repository'
 require_relative './lib/peep_repository'
@@ -11,7 +12,7 @@ DatabaseConnection.connect('chitter_database_test')
 
 class Application < Sinatra::Base
 
-  # enable :sessions
+  enable :sessions
 
   configure :development do
     register Sinatra::Reloader
@@ -70,12 +71,40 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  get '/log-in' do
+    return erb(:login)
+  end
+
+  get '/error' do
+    return erb(:error)
+  end 
+
+  post '/log-in' do
+    email = params[:email]
+    pass_word = params[:pass_word]
+  
+    user_repo = UserRepository.new
+    user = user_repo.find(email)
+  
+    if user.nil?
+      redirect '/error'
+    end
+  
+    if user.pass_word == pass_word
+      return erb(:index)
+    end
+  
+    session[:user_id] = user.id
+  
+    redirect '/'
+  end
+
   get '/peep' do
     return erb(:peep)
   end
 
   post '/peep' do
-    # if session[:user_id]
+    if session[:user_id]
       new_peep = Peep.new
       peep_repo = PeepRepository.new
   
