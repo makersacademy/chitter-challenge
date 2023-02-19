@@ -31,4 +31,25 @@ RSpec.describe UserRepository do
     expect(@repo.all.length).to eq 4
     expect(@repo.all.last.name).to eq 'user four'
   end
+
+  it 'identifies a user by their email to facilitate login' do
+    user = User.new
+    user_repo = UserRepository.new
+    user.email = 'user_two@gmail.com'
+    find_user = user_repo.find('user_two@gmail.com')
+
+    expect(find_user.id).to eq 2
+    expect(find_user.name).to eq 'user two'
+    expect(find_user.username).to eq 'user_two'
+    expect(find_user.pass_word).to eq 'password2'
+  end
+
+  it 'returns nil when no user found' do
+    user = User.new
+    user_repo = UserRepository.new
+    user.email = 'user_five@gmail.com'
+    result = user_repo.find('user_five@gmail.com')
+
+    expect(result).to be_nil
+  end
 end

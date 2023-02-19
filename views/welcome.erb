@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Log in to Chitter</title>
+    <style>
+      h1 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+        text-align: center;
+      }
+      h2 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+        display: inline-block;
+        vertical-align: top;
+      }
+      label {
+        font-family: "Century Gothic", sans-serif;
+        font-weight: bold;
+      }
+      .input-container {
+        margin-bottom: 20px;
+      }
+      input[type="text"], input[type="password"], input[type="submit"] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+        background-color: white;
+      }
+      input[type="submit"] {
+        background-color: #1DA1F2;
+        color: white;
+      }
+      .left {
+        width: 50%;
+        float: left;
+      }
+      .right {
+        width: 50%;
+        float: right;
+      }
+      .clear {
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Chitter</h1>
+    <h2 class="left">Log in</h2>
+    <h2 class="right">Sign up</h2>
+    <div class="clear"></div>
+    <form action="/log-in" method="POST" class="left">
+      <div class="input-container">
+        <label>Email</label>
+        <input type="text" name="email">
+      </div>
+      <div class="input-container">
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+    <form action="/sign-up" method="POST" class="right">
+      <div class="input-container">
+        <label>Name</label>
+        <input type="text" name="name">
+      </div>
+      <div class="input-container">
+        <label>Email</label>
+        <input type="text" name="email">
+      </div>
+      <div class="input-container">
+        <label>Username</label>
+        <input type="text" name="username">
+      </div>
+      <div class="input-container">
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

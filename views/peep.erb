@@ -11,10 +11,31 @@
   </head>
   <body>
     <form action="/peep" method="post">
-      Username: <input type="text" name="username" required><br>
       Message: <textarea rows="4" cols="50" name="message" required>
       </textarea><br>
       <input type="submit" value="Peep!">
     </form>
   </body>
 </html>
+
+
+context 'GET /error' do
+  it 'returns an error message for invalid credentials' do
+    response = get('/error')
+
+    expect(response.status).to eq(200)
+    expect(response.body).to include('<h1>Invalid username or password! Please try again</h1>')
+  end
+end
+
+
+# get '/login' do
+#   redirect('/') if session[:user_id]
+
+#   erb(:login)
+# end
+
+get '/error' do
+  return erb(:error)
+end 
+
