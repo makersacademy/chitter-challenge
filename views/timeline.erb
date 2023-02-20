@@ -1,47 +1,56 @@
 <html>
-  <link rel="stylesheet" href="/styles.css"/>
-  <%# If logged in %>
-
   <head>
-  
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+
   <% if session[:user_id] %>
 
     <div class="topnav">
-    <a class="active" href="/">Home</a>
-    <a href="/peep/new" action="/peep/new" method="get">New Peep</a>
+     <a href="/" class="website-name">Chitter</a>
+      <a class="active" href="/">Home</a>
+      <a href="/peep/new" action="/peep/new" method="get">New Peep</a>
     </div>
 
-
     <form action="/logout" method="post">
-    <p>Sign Out:
-    <button type="submit" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-log-out"></span> Log out
-    </button> </p> </form>
+      <div class="logout">
+        <button type="submit" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button>
+      </div>
+    </form>
 
   <% else %>
 
     <div class="topnav">
-    <a class="active" href="/">Home</a>
-    <a href="/login">Log in</a>
-    <a href="account/new">Sign Up</a>
+      <a href="/" class="website-name">Chitter</a>
+      <a class="active" href="/">Home</a>
+      <a href="/login">Log in</a>
+      <a href="account/new">Sign Up</a>
+      
     </div>
+
   <% end %>
 
   <div class="header">
-  <h1>Chitter Timeline</h1> 
+    <h1>Chitter Timeline</h1>
   </div>
-  
-  
 
-    <div class ="peep_card"> 
+  <div class="timeline">
     <% @timeline.each do |message| %>
-       <div class ="peep_content"> 
-          <%= "Peep from: #{@user_repo.find_by_id(message.user_id).username}" %>  
-          <p> <%= "Time: #{message.time_posted}" %> </p>
-          <p> <%= "#{message.content}" %></p>
-       </div>
+      <div class="timeline-card">
+        <div class="peep-card">
+          <div class="peep-meta">
+            <span>Peep from: </span>
+            <span class="username"><%= @user_repo.find_by_id(message.user_id).username %></span>
+            <span>Time: </span>
+            <span><%= message.time_posted %></span>
+          </div>
+          <div class="peep-content">
+            <p><%= message.content %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
-    </div>
+  </div>
 
-  
 </html>

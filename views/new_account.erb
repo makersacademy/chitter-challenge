@@ -1,25 +1,29 @@
 <html>
-<link rel="stylesheet" href="/styles.css"/>
-<div class="topnav">
-  <a href="/">Home</a>
-  <a href="/account/new">Sign Up</a>
-  <a href="/login">Log In</a>
-  </div>
+  <head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
   
- 
-  <div class="header">
-    <h1>Create a new account</h1>
-  </div>
-    <form method="POST" action="/account">
-      <p><label><b>Username:</b></label>
-      <input type="text" name="username"/>
-      <p><label><b>Email Address:</b></label>
-      <input type="text" name="email_address"/>
-      <p><label><b>Password:</b></label>
-      <input type="password" name="password"/>
-      <p><label><b>Full Name:</b></label>
-      <input type="text" name="full_name"/>
-      <button type="submit">Submit</button>
-    </form>
-
+  <body>
+    <div class="topnav">
+      <a href="/" class="website-name">Chitter</a>
+      <a href="/">Home</a>
+      <a href="/account/new">Sign Up</a>
+      <a href="/login">Log In</a>
+    </div>
+    
+    <div class="container">
+      <h1>Create a new account</h1>
+      <form method="POST" action="/account">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="email_address">Email Address:</label>
+        <input type="text" id="email_address" name="email_address" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="full_name">Full Name:</label>
+        <input type="text" id="full_name" name="full_name" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
 </html>

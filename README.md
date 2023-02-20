@@ -68,10 +68,12 @@ Features:
 * All users can sign up for a Chitter account 
 * Users can log in and out of Chitter
 
-This program allows user to sign up for Chitter
-This program allows user to log in to Chitter
-This program allows user to log out of Chitter
-This program has a database connected to Heroku
+Screenshots 
+------
+
+
+#### Timeline
+![Timeline](public/timeline.gif)
 
 How to install:
 ------

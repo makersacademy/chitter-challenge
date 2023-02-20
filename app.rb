@@ -9,13 +9,17 @@ require 'capybara/rspec'
 
 DatabaseConnection.connect
 
+
 class Application < Sinatra::Base
   enable :sessions
+  set :public_folder, File.join(File.dirname(__FILE__), 'public')
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/message_repository'
     also_reload 'lib/user_repository'
   end
+
+  
 
   get "/" do 
 
