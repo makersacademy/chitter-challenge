@@ -1,25 +1,40 @@
+<!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="/styles.css"/>
-<div class="topnav">
-  <a href="/">Home</a>
-  <a href="/account/new">Sign Up</a>
-  <a href="/login">Log In</a>
+<head>
+  <title>Twitter Sign Up</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <div class="topnav">
+    <a href="/">Home</a>
+    <a class="active" href="/account/new">Sign Up</a>
+    <a href="/login">Log In</a>
   </div>
-  
- 
+
   <div class="header">
     <h1>Create a new account</h1>
   </div>
-    <form method="POST" action="/account">
-      <p><label><b>Username:</b></label>
-      <input type="text" name="username"/>
-      <p><label><b>Email Address:</b></label>
-      <input type="text" name="email_address"/>
-      <p><label><b>Password:</b></label>
-      <input type="password" name="password"/>
-      <p><label><b>Full Name:</b></label>
-      <input type="text" name="full_name"/>
-      <button type="submit">Submit</button>
-    </form>
 
+  <div class="peep">
+    <div class="peep_card">
+      <form method="POST" action="/account">
+        <div class="peep_content">
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter your username" name="username" required>
+
+          <label for="email"><b>Email Address</b></label>
+          <input type="text" placeholder="Enter your email address" name="email_address" required>
+
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter your password" name="password" required>
+
+          <label for="fullname"><b>Full Name</b></label>
+          <input type="text" placeholder="Enter your full name" name="full_name" required>
+
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
 </html>
