@@ -73,7 +73,7 @@ Screenshots
 
 
 #### Timeline
-![Timeline](public/timeline.gif)
+![Timeline](public/timeline.png)
 
 How to install:
 ------
