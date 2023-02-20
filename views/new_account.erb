@@ -1,40 +1,28 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Twitter Sign Up</title>
-  <link rel="stylesheet" href="/styles.css"/>
-</head>
-<body>
-  <div class="topnav">
-    <a href="/">Home</a>
-    <a class="active" href="/account/new">Sign Up</a>
-    <a href="/login">Log In</a>
-  </div>
-
-  <div class="header">
-    <h1>Create a new account</h1>
-  </div>
-
-  <div class="peep">
-    <div class="peep_card">
+  <head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/account/new">Sign Up</a>
+      <a href="/login">Log In</a>
+    </div>
+    
+    <div class="container">
+      <h1>Create a new account</h1>
       <form method="POST" action="/account">
-        <div class="peep_content">
-          <label for="username"><b>Username</b></label>
-          <input type="text" placeholder="Enter your username" name="username" required>
-
-          <label for="email"><b>Email Address</b></label>
-          <input type="text" placeholder="Enter your email address" name="email_address" required>
-
-          <label for="password"><b>Password</b></label>
-          <input type="password" placeholder="Enter your password" name="password" required>
-
-          <label for="fullname"><b>Full Name</b></label>
-          <input type="text" placeholder="Enter your full name" name="full_name" required>
-
-          <button type="submit">Sign Up</button>
-        </div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="email_address">Email Address:</label>
+        <input type="text" id="email_address" name="email_address">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <label for="full_name">Full Name:</label>
+        <input type="text" id="full_name" name="full_name">
+        <button type="submit">Submit</button>
       </form>
     </div>
-  </div>
-</body>
+  </body>
 </html>
