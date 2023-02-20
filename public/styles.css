@@ -53,6 +53,10 @@
   .topnav {
     background-color: #1DA1F2;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 
 
@@ -144,4 +148,8 @@
 
   .timeline-card:last-child {
     margin-bottom: 0;
+  }
+
+  .logout {
+    padding-top: 50px;
   }
