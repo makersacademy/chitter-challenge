@@ -42,7 +42,7 @@ class UserRepository
     return nil if user.nil?
 
     # Compare the submitted password with the encrypted one saved in the database
-    if BCrypt::Password.new(user.password) == submitted_password
+    if @encrypter.new(user.password) == submitted_password
       return "login success"
     else
       return "wrong password"
