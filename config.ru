@@ -5,8 +5,8 @@ configure :development do
   require 'sinatra/reloader'
 end
 
-use Rack::Static, :urls => ['/styles'], :root => '.'
+use Rack::Static, :urls => ['/public/styles'], :root => '.'
 
-mime_type :css, 'text/css'
+mime_type :css, 'text/css/'
 
 run Application

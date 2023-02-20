@@ -77,7 +77,7 @@ button:hover {
   padding: 10px;
   text-align: center;
   background: #F5F5F5;
-  color: #35637a;
+  color: #333333;
   font-size: 20px;
 }
 
@@ -102,4 +102,47 @@ button:hover {
   margin-top: .5rem;
   padding: .25rem;
   border-radius: .25rem;
+}
+
+/* Log in Styling */
+
+.login-form {
+  max-width: 500px;
+  margin: 50px auto 0 auto;
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #1E90FF;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0F4C81;
 }

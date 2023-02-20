@@ -1,5 +1,7 @@
 <html>
-<link rel="stylesheet" href="/styles.css"/>
+  <head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
 <div class="topnav">
   <a href="/">Home</a>
   <a href="/account/new">Sign Up</a>
@@ -9,13 +11,13 @@
   <div class="header">
     <h1>Log in to your account </h1>
   </div>
-    <form method="POST" action="/login">
-      
-      <p><label><b>Email Address:</b></label>
-      <input type="text" name="email_address"/>
-      <p><label><b>Password:</b></label>
-      <input type="password" name="password"/>
-      <input type="submit">
+    <form class="login-form" method="POST" action="/login">
+      <label for="email_address">Email Address:</label>
+        <input type="text" id="email_address" name="email_address">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Submit</button>
     </form>
+
   </body>
 </html>
