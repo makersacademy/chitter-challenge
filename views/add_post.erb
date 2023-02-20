@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <li>
+    <h1>Chitter</h1>
+    <div class='links'>
+      <a href="/">Back to home</a></div>
+    <h2>Add a peep</h2>
+      <form action="/new" method="POST">
+        <div class='peeps'>
+          <b><label>Username:</label></b><br />
+          <select name="user_id" required><br /><br />
+              <option value="" selected disabled hidden>Select</option>
+            <% @users.each do |user|%>
+              <option value="<%= user.id %>"><%= user.username %></option>
+            <%end%>
+          </select>
+        <br /><br />
+          <b><label>Peep:</label><b><br />
+          <textarea rows = "5" cols = "60" name="content" maxlength="280" required></textarea><br /><br />
+        <input type="submit" class='button'>
+        </div>
+      </form>
+      <p><%= @post_error_message %></p> 
+  </body>
+</html>

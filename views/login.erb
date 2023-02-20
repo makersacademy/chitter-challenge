@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <li>
+    <h1>Chitter</h1>
+      <div class='links'>
+        <a href="/">Back to home</a>
+      </div>
+      <h2>Log in</h2>
+        <form action="/login" method="POST">
+          <div class='peeps'>
+            <b><label>Email:</label><b><br />
+            <input type="text" name="email" maxlength="30" required><br /><br />
+            <b><label>Password:</label><b><br />
+            <input type="password" name="password" maxlength="8" required><br /><br />
+            <input type="submit" class='button'>
+          </div>
+        <p><%= @login_error_message%></p> 
+      </form>
+  </body>
+</html>
