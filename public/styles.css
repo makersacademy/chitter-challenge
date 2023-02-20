@@ -1,59 +1,101 @@
-
 .topnav {
-background-color: #1DA1F2;
-overflow: hidden;
+  background-color: #1DA1F2;
+  overflow: hidden;
 }
 
 .topnav a {
-float: left;
-color: white  ;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 .topnav a:hover {
-background-color: #E1E8ED;
-color: black;
+  background-color: #E1E8ED;
+  color: black;
 }
 
 .topnav a.active {
-background-color: #AAB8C2;
-color: white;
+  background-color: #AAB8C2;
+  color: white;
 }
 
 .header {
-padding: 10px;
-text-align: center;
-background: #F5F5F5 ;
-color: #35637a;
-font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  background: #F5F5F5;
+  color: #35637a;
+  font-size: 20px;
 }
 
 .peep {
-border-radius: .25 rem;
-background-color: white;
-padding: 15px;
-width: 100%;
-height: auto;
-border: 1px solid #777;
+  border-radius: 0.25rem;
+  background-color: white;
+  padding: 15px;
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid #777;
 }
-
 
 .peep_card {
-background-color: white;
-border: 1px solid;
-border-radius: .25rem;
-padding: .75rem;
+  background-color: white;
+  border: 1px solid #E1E8ED;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
 }
 
-.peep_content{
-background-color: #F0F0F0;
-margin-top: .5rem;
-padding: .25rem;
-border-radius: .25rem;
+.peep_content {
+  background-color: #F0F0F0;
+  margin-top: 0.5rem;
+  padding: 0.25rem;
 }
 
+.peep_content input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #F0F0F0;
+  font-size: 16px;
+}
 
+.peep_content button[type=submit] {
+  background-color: #1DA1F2;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 1rem;
+}
 
+.peep_content button[type=submit]:hover {
+  background-color: #0D8DD9;
+}
+
+.peep_content label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.peep_content input[type=text]::placeholder, input[type=password]::placeholder {
+  color: #777;
+}
+
+.peep_content input[type=text]:focus, input[type=password]:focus {
+  outline: none;
+  border-bottom: 1px solid #1DA1F2;
+}
+
+.peep_content input[type=text]:focus::placeholder, input[type=password]:focus::placeholder {
+  color: transparent;
+}
