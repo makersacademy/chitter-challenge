@@ -13,13 +13,9 @@ Chitter is a simple twitter clone built over 2 days using Ruby, Sinatra and Post
 
 Technologies used:
 -----
-
-* Ruby
-* PostgreSQL
-
-* Ruby Gems:
-  * Sinatra 
-  * Rspec
+ <img height="20" src="https://img.shields.io/badge/-Ruby-CC342D?logo=Ruby&logoColor=white" /> <img height="20" src="https://img.shields.io/badge/-PostgreSQL-4169E1?logo=PostgreSQL&logoColor=white" />  <img height="20" src="https://img.shields.io/badge/-Sinatra-ffffff?logo=rubysinatra&logoColor=000000" /> <img height="20" src="https://img.shields.io/badge/-RSpec-CC342D?logo=Ruby&logoColor=white" />
+ 
+* Additional Gems:
   * Capybara
   * Rubocop
   * SimpleCov
