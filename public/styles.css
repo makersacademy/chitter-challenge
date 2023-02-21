@@ -98,6 +98,15 @@
     margin-top: 50px;
   }
   
+  .timeline-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background: #F5F5F5;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+  }
 
 
   .new-peep-header {
