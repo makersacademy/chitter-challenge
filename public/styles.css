@@ -140,6 +140,16 @@
     padding: 10px;
   }
 
+  .new-peep-card {
+    background-color: #FFFF;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 500px;
+    text-align: center;
+  }
+
   .peep-content {
     background-color: #F0F0F0;
     margin-top: .5rem;

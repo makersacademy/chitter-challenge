@@ -1,5 +1,7 @@
 <html>
-<link rel="stylesheet" href="/styles.css"/>
+<head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
 <div class="topnav">
     <a href="/" class="website-name">Chitter</a>
     <a href="/">Home</a>
@@ -8,6 +10,12 @@
 
   <head></head>
     <div class="header">
-      <h1>New peep created: <%= @message_content %></h1>
+     New peep created:
     </div>
+       <div class="new-peep-card">
+       <p><%= @message_content %></p>
+       <div class="timestamp"><%= DateTime.now %>
+       </div>
+</div>
+
 </html>
