@@ -49,7 +49,7 @@ class Application < Sinatra::Base
     repo.create(new_user)
     @username = new_user.username
     session[:user_id] = new_user.id 
-    return erb(:new_user_created)
+    redirect to :login
   end  
 
   get '/login' do
