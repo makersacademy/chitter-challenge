@@ -30,11 +30,11 @@ Project Learnings:
 
 Through creating this app in a group environment, I improved my ability to:
 
-Implement web routes using a lightweight web framework
-Demonstrate how HTTP requests and responses work in a web application
-Create a postgreSQL database and implement routes that interact with and manipulate data in these databases
-Authenticate users using sessions
-Create dynamic HTML using ERB
+* Implement web routes using a lightweight web framework
+* Demonstrate how HTTP requests and responses work in a web application
+* Create a postgreSQL database and implement routes that interact with and manipulate data in these databases
+* Authenticate users using sessions
+* Create dynamic HTML using ERB
 
 Screenshots 
 ------
