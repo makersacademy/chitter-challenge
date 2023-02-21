@@ -1,13 +1,15 @@
-Chitter Challenge
-=================
+![Chitter](/public/Banner.png)
 
-![Banner](/public/Banner.png)
-
-Challenge:
+About this project:
 -------
 
-In this challenge, we are building a twitter clone using Ruby, ERB, HTML and PostgreSQL.
+Chitter is a simple twitter clone built over 2 days using Ruby, Sinatra and PostgreSQL, as a weekend project for the Makers Academy Course. It focuses on five core features:
 
+* Users can post a message (peep) to the Chitter timeline
+* All users can view all peeps in reverse chronological order
+* All peeps have the time of posting displayed
+* All users can sign up for a Chitter account 
+* Users can log in and out of Chitter
 
 Technologies used:
 -----
@@ -23,14 +25,16 @@ Technologies used:
   * SimpleCov
   * Timecop
 
-Features:
-------
+Project Learnings:
+-----
 
-* Users can post a message (peep) to the Chitter timeline
-* All users can view all peeps in reverse chronological order
-* All peeps have the time of posting displayed
-* All users can sign up for a Chitter account 
-* Users can log in and out of Chitter
+Through creating this app in a group environment, I improved my ability to:
+
+Implement web routes using a lightweight web framework
+Demonstrate how HTTP requests and responses work in a web application
+Create a postgreSQL database and implement routes that interact with and manipulate data in these databases
+Authenticate users using sessions
+Create dynamic HTML using ERB
 
 Screenshots 
 ------
