@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-![Banner](/frontend/public/banner.png)
+![Banner](/public/Banner.png)
 
 Challenge:
 -------
