@@ -191,3 +191,39 @@
     padding-top: 50px;
   }
   
+  .create-a-peep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    padding-top: 20px;
+  }
+  
+  .create-a-peep label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .create-a-peep input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-a-peep input[type="submit"] {
+    padding: 10px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .create-a-peep input[type="submit"]:hover {
+    background-color: #0F4C81;
+  }

@@ -1,13 +1,15 @@
 <html>
-<link rel="stylesheet" href="/styles.css"/>
+ <head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
  <div class="topnav">
     <a href="/">Home</a>
     <a href="/peep/new" action="/peep/new" method="get">New Peep</a>
   </div>
   <div class="header">
-    <h1>Create a Peep</h1>
+    Create a Peep
   </div>
-    <form method="POST" action="/peep">
+    <form class="create-a-peep" method="POST" action="/peep">
       <p><label><b>Message:</b></label>
       <input type="text" name="content"/>
       <input type="submit">
