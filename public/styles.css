@@ -99,7 +99,7 @@
   }
   
   .timeline-header {
-    padding-top: 20px;
+    padding-top: 70px;
     padding-bottom: 20px;
     text-align: center;
     background: #F5F5F5;
@@ -108,6 +108,15 @@
     font-size: 48px;
   }
 
+  .timeline-header-logged-in {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background: #F5F5F5;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+  }
 
   .new-peep-header {
     text-align: center;

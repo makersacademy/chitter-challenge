@@ -19,6 +19,10 @@
       </div>
     </form>
 
+     <div class="timeline-header-logged-in">
+      Timeline
+    </div>
+
   <% else %>
 
     <div class="topnav">
@@ -29,11 +33,11 @@
       
     </div>
 
-  <% end %>
+     <div class="timeline-header">
+        Timeline
+     </div>
 
-  <div class="timeline-header">
-   Timeline
-  </div>
+  <% end %>
 
   <div class="timeline">
     <% @timeline.each do |message| %>
