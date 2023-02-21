@@ -42,6 +42,8 @@ Screenshots
 
 #### Timeline
 ![Timeline](public/timeline.png)
+#### Sign Up 
+![Signup](public/Sign-up.png)
 
 How to install:
 ------
