@@ -24,7 +24,7 @@ Technologies used:
 Project Learnings:
 -----
 
-Through creating this app in a group environment, I improved my ability to:
+Through creating this app, I improved my ability to:
 
 * Implement web routes using a lightweight web framework
 * Demonstrate how HTTP requests and responses work in a web application
