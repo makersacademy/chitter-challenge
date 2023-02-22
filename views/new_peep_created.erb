@@ -1,0 +1,21 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+<div class="topnav">
+    <a href="/" class="website-name">Chitter</a>
+    <a href="/">Home</a>
+    <a href="/peep/new" action="/peep/new" method="get">New Peep</a>
+    </div>
+
+  <head></head>
+    <div class="header">
+     New peep created:
+    </div>
+       <div class="new-peep-card">
+       <p><%= @message_content %></p>
+       <div class="timestamp"><%= DateTime.now %>
+       </div>
+</div>
+
+</html>

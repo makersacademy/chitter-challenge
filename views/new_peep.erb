@@ -1,0 +1,18 @@
+<html>
+ <head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+ <div class="topnav">
+    <a href="/">Home</a>
+    <a href="/peep/new" action="/peep/new" method="get">New Peep</a>
+  </div>
+  <div class="header">
+    Create a Peep
+  </div>
+    <form class="create-a-peep" method="POST" action="/peep">
+      <p><label><b>Message:</b></label>
+      <input type="text" name="content"/>
+      <input type="submit">
+    </form>
+  </body>
+</html>

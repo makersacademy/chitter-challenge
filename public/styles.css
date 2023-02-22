@@ -1,0 +1,239 @@
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #F7F7F7;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 90px auto 0 auto; /* Added 50px top margin */
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  button {
+    padding: 10px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0F4C81;
+  }
+
+  .topnav {
+    background-color: #1DA1F2;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+  }
+
+  .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav .website-name {
+    font-size: 17px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .topnav a:hover {
+    background-color: #E1E8ED;
+    color: black;
+  }
+
+  .topnav a.active {
+    background-color: #AAB8C2;
+    color: white;
+  }
+
+  .header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background: #F5F5F5;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    margin-top: 50px;
+  }
+  
+  .timeline-header {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    text-align: center;
+    background: #F5F5F5;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+  }
+
+  .timeline-header-logged-in {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background: #F5F5F5;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+  }
+
+  .new-peep-header {
+    text-align: center;
+    background: #F5F5F5;
+    color: #333333;
+    font-size: 40px;
+    margin-top: 90px;
+  } 
+
+  div.new-peep-header  {
+    margin-top: 90px;
+    font-size: 40px;
+  }
+
+
+  .peep-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  .new-peep-card {
+    background-color: #FFFF;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  .peep-content {
+    background-color: #F0F0F0;
+    margin-top: .5rem;
+    padding: .25rem;
+    border-radius: .25rem;
+  }
+
+  .peep-meta {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+  }
+
+  .peep-meta span {
+    margin-right: 10px;
+  }
+
+  .peep-meta .username {
+    font-weight: bold;
+    color: #1DA1F2;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 70%;
+    max-width: 800px;
+  }
+
+  .timeline-card:first-child {
+    margin-top: 0;
+  }
+
+  .timeline-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .logout {
+    padding-top: 50px;
+  }
+  
+  .create-a-peep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    padding-top: 20px;
+  }
+  
+  .create-a-peep label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .create-a-peep input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-a-peep input[type="submit"] {
+    padding: 10px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .create-a-peep input[type="submit"]:hover {
+    background-color: #0F4C81;
+  }

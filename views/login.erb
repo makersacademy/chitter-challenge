@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+<div class="topnav">
+  <a href="/" class="website-name">Chitter</a>
+  <a href="/">Home</a>
+  <a href="/account/new">Sign Up</a>
+  <a href="/login">Log In</a>
+  </div>
+  <head></head>
+   <div class="container">
+   
+    <h1>Log in to your account </h1>
+   
+    <form  method="POST" action="/login">
+      <label for="email_address">Email Address:</label>
+        <input type="text" id="email_address" name="email_address" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Submit</button>
+    </form>
+   </div>
+
+  </body>
+</html>

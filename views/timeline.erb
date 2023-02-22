@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+
+  <% if session[:user_id] %>
+
+    <div class="topnav">
+     <a href="/" class="website-name">Chitter</a>
+      <a class="active" href="/">Home</a>
+      <a href="/peep/new" action="/peep/new" method="get">New Peep</a>
+    </div>
+
+    <form action="/logout" method="post">
+      <div class="logout">
+        <button type="submit" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button>
+      </div>
+    </form>
+
+     <div class="timeline-header-logged-in">
+      Timeline
+    </div>
+
+  <% else %>
+
+    <div class="topnav">
+      <a href="/" class="website-name">Chitter</a>
+      <a class="active" href="/">Home</a>
+      <a href="/login">Log in</a>
+      <a href="account/new">Sign Up</a>
+      
+    </div>
+
+     <div class="timeline-header">
+        Timeline
+     </div>
+
+  <% end %>
+
+  <div class="timeline">
+    <% @timeline.each do |message| %>
+      <div class="timeline-card">
+        <div class="peep-card">
+          <div class="peep-meta">
+            <span>Peep from: </span>
+            <span class="username"><%= @user_repo.find_by_id(message.user_id).username %></span>
+            <span>Time: </span>
+            <span><%= message.time_posted %></span>
+          </div>
+          <div class="peep-content">
+            <p><%= message.content %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</html>
