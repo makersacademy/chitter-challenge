@@ -137,4 +137,11 @@ describe Application do
       expect(response.body).to include ('<label for="user_name">User name:<label><input type="text" name="user_name">')
     end
   end
+
+  context "POST /logout" do
+    it "returns the index page when a user logs out" do
+      response = post('/logout')
+      expect(response.body).to include ('Ron Weasley A.K.A. gingernut says:')
+    end
+  end
 end
