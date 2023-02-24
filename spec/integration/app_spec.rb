@@ -129,5 +129,12 @@ describe Application do
         user_name: 'lightning-boy')
       expect(response.status).to eq(200)
     end
+
+    it "redirects the user if they are not logged in" do 
+      response = post('/newpost', 
+        message: 'Hedwig has gone for a fly around',
+        user_name: 'lightning-boy')
+      expect(response.body).to include ('<label for="user_name">User name:<label><input type="text" name="user_name">')
+    end
   end
 end
