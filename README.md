@@ -53,15 +53,7 @@ Things to do:
 
 Chitter in Action
 -----
-![Homepage](./docs/screenshots/homepage.png)
-![Sign in](./docs/screenshots/sign-in.png)
-![Sign in failed](./docs/screenshots/login-failed.png)
-![User signed in](./docs/screenshots/user-signed-in.png)
-![Post](./docs/screenshots/post.png)
-![Post appears](./docs/screenshots/post-appears.png)
-![Sign up](./docs/screenshots/sign-up.png)
-![Sign up failed](./docs/screenshots/sign-up-failed-email.png)
-![Sign up failed](./docs/screenshots/sign-up-failed-username.png)
+![Chitter demonstration video](./docs/screenshots/Chitter.gif)
 
 100% Test Coverage
 -----
