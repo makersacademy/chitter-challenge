@@ -7,7 +7,15 @@ This program has been built with Ruby, PostgreSQL, Sinatra, and uses RSpec for t
 
 For the full design process including user stories and table design, [view the docs folder.](https://github.com/rachelnewby/chitter-challenge/tree/main/docs)
 
-To run
+Technology Used
+-------
+<div align="center">
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/192603745-7d34df9e-7756-4756-a539-6a61badf7a80.png" alt="Ruby" title="Ruby" /></code>
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" alt="PostgreSQL" title="PostgreSQL" /></code>
+
+</div>
+
+To Run
 -------
 Start by cloning this repository. The code has the following dependencies:
 
@@ -24,7 +32,7 @@ rackup
 ```
 Then open your broswer and navigate to http://localhost:9292/. You will then be able to browse the site. 
 
-Existing functionality: 
+Existing Functionality: 
 -------
 - You don't have to be logged on to see the peeps (chitter posts)
 - Peeps are displayed in reverse chronological order
@@ -53,7 +61,16 @@ Things to do:
 
 Chitter in Action
 -----
-![Chitter demonstration video](./docs/screenshots/Chitter.gif)
+![Homepage](./docs/screenshots/homepage.png)
+![Sign in](./docs/screenshots/sign-in.png)
+![Sign in failed](./docs/screenshots/login-failed.png)
+![User signed in](./docs/screenshots/user-signed-in.png)
+![Post](./docs/screenshots/post.png)
+![Post appears](./docs/screenshots/post-appears.png)
+![Sign up](./docs/screenshots/sign-up.png)
+![Sign up failed](./docs/screenshots/sign-up-failed-email.png)
+![Sign up failed](./docs/screenshots/sign-up-failed-username.png)
+![Chitter demo](./docs/screenshots/Chitter.gif)
 
 100% Test Coverage
 -----
