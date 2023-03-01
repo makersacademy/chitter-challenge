@@ -1,5 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'database_connection'
+
+ENV['ENV'] = 'test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -7,6 +10,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+DatabaseConnection.connect('chitter_database_test')
 
 RSpec.configure do |config|
   config.after(:suite) do

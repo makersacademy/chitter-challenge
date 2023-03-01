@@ -1,0 +1,25 @@
+<form method="POST" action="/peeps">
+  <h1>Hello <%= @login_user.first_name%>
+  <h1>Send a peep!</h1>
+    <div>
+      <label>Compose:</label>
+      <input type="text" name="content" />
+    </div>
+
+    <a href='../'>
+      <input type="submit">
+    </a>
+</form>
+
+<a href= '../'> home</a>
+<a href= '../peeps'> feed</a>
+
+    <%# <label>Write your peep below!</label><br>
+          <%# <textarea class='input-txt' id="peep_entry" name="content" rows="10" cols="50" placeholder="Write your peep to everybody here!"></textarea><br> %>
+          <%# <input class='input-txt' type="text" name="tagged_users" placeholder="tag users here"/> %>
+          <%# <input type="hidden" name="user_id" value=<%=@user.id%>
+          <%# <input type="hidden" name="post_time" value=<%=DateTime.now%>
+          <%# <input type="hidden" name="username" value=<%=@user.username%>
+          <%# <input type="submit" value="Submit your peep"/> %>
+        <%# </form> %>
+      <%# </div> %>
