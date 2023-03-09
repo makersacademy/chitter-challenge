@@ -8,7 +8,6 @@ GEM
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
-    pg (1.4.6)
     rainbow (3.0.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
@@ -52,10 +51,9 @@ GEM
     unicode-display_width (2.0.0)
 
 PLATFORMS
-  arm64-darwin-20
+  ruby
 
 DEPENDENCIES
-  pg (~> 1.4)
   rspec
   rubocop (= 1.20)
   simplecov
@@ -65,4 +63,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.4.8
+   2.2.26
