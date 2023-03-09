@@ -1,0 +1,5 @@
+<h1>Welcome to Chitter</h1>
+<% @peep.each do |peep| %>
+  <a href="/peep/<%= peep.id %>"><%= 
+  peep.message %></a><br />
+<% end %>

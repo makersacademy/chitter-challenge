@@ -15,5 +15,9 @@ class Application < Sinatra::Base
     also_reload 'lib/users_repository'
   end
 
-  
+  get '/' do
+    repo = PeepsRepository.new
+    @peep = repo.all
+    return erb(:index)
+  end
 end
