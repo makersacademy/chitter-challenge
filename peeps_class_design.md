@@ -225,7 +225,6 @@ peeps.id # =>  1
 peeps.message # =>  'A good day'
 peeps.time_of_post # =>  '2023-03-09 10:15:30.123456'
 peeps.user_id # =>  '1'
-# Add more examples for each method
 
 #3 Creates a single peep record
 repo = PeepsRepository.new
