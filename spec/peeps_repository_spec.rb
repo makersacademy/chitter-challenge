@@ -28,4 +28,15 @@ describe PeepsRepository do
     expect(peeps[1].time_of_post).to eq ('2023-03-08 10:15:30.123456')
     expect(peeps[1].user_id).to eq ('2')
   end
+
+  it "gets a single peep" do
+    repo = PeepsRepository.new
+
+    peep = repo.find(1)
+
+    expect(peeps.id).to eq = ('1')
+    expect(peeps.message).to eq = ('A good day')
+    expect(peeps.time_of_post).to eq = ('2023-03-09 10:15:30.123456')
+    expect(peeps.user_id).to eq = ('1')
+  end
 end
