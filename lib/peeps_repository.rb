@@ -42,5 +42,14 @@ class PeepsRepository
 
     # Returns a single peep object.
   end
+
+
+  def create(peep)
+    #executes the sql query
+    sql = 'INSERT INTO peeps (message, time_of_post, user_id) VALUES ($1, $2, $3)'
+    params = [peep.message, peep.time_of_post, peep.user_id]
+    DatabaseConnection.exec_params(sql, params)
+    #returns nil
+    end
 end
 

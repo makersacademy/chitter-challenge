@@ -39,4 +39,21 @@ describe PeepsRepository do
     expect(peep.time_of_post).to eq ('2023-03-09 10:15:30.123456')
     expect(peep.user_id).to eq ('1')
   end
+
+  it "creates a single peep record" do
+    repo = PeepsRepository.new
+
+    peep = Peeps.new
+    peep.message = "A really good day"
+    peep.time_of_post = '2023-03-06 10:15:30.123456'
+    peep.user_id = "3"
+
+    repo.create(peep)
+    peeps = repo.all
+
+    last_peep = peeps.last
+    expect(last_peep.message).to eq 'A really good day'
+    expect(last_peep.time_of_post).to eq "2023-03-06 10:15:30.123456"
+    expect(last_peep.user_id).to eq '3'
+  end
 end
