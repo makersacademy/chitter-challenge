@@ -22,5 +22,25 @@ class PeepsRepository
         # Returns an array of Peep objects.
     return peeps
   end
+
+  def find(id)
+    # Executes the SQL query:
+    sql = 'SELECT id, message, time_of_post, user_id FROM peeps WHERE id = $1;'
+    params = [id]
+
+    result = DatabaseConnection.exec_params(sql, params)
+
+    record = result[0]
+
+    peep = Peeps.new
+    peep.id = record['id']
+    peep.message = record['message']
+    peep.time_of_post = record['time_of_post']
+    peep.user_id = record['user_id']
+    
+    return peep
+
+    # Returns a single peep object.
+  end
 end
 
