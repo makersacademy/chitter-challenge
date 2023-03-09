@@ -15,9 +15,17 @@ class Application < Sinatra::Base
     also_reload 'lib/users_repository'
   end
 
-  get '/' do
+  get '/peeps' do
     repo = PeepsRepository.new
     @peep = repo.all
     return erb(:index)
+  end
+
+  get '/peeps/:id' do
+    repo = PeepsRepository.new
+    user_repo = UsersRepository.new
+    @peep = repo.find(params[:id])
+    @user = user_repo.find(@peep.user_id)
+    return erb(:peep)
   end
 end

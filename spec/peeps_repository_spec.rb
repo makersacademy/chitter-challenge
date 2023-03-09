@@ -34,7 +34,7 @@ describe PeepsRepository do
 
     peep = repo.find(1)
 
-    expect(peep.id).to eq ('1')
+    expect(peep.id).to eq (1)
     expect(peep.message).to eq ('A good day')
     expect(peep.time_of_post).to eq ('2023-03-09 10:15:30.123456')
     expect(peep.user_id).to eq ('1')

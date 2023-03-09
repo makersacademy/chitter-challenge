@@ -1,4 +1,4 @@
-require 'users'
+require_relative 'users'
 
 class UsersRepository
 

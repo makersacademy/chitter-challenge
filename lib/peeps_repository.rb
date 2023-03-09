@@ -1,4 +1,4 @@
-require 'peeps'
+require_relative 'peeps'
 
 class PeepsRepository
 
@@ -26,17 +26,13 @@ class PeepsRepository
   def find(id)
     # Executes the SQL query:
     sql = 'SELECT id, message, time_of_post, user_id FROM peeps WHERE id = $1;'
-    params = [id]
-
-    result = DatabaseConnection.exec_params(sql, params)
-
-    record = result[0]
+    result = DatabaseConnection.exec_params(sql, [id])
 
     peep = Peeps.new
-    peep.id = record['id']
-    peep.message = record['message']
-    peep.time_of_post = record['time_of_post']
-    peep.user_id = record['user_id']
+    peep.id = result[0]['id'].to_i
+    peep.message = result[0]['message']
+    peep.time_of_post = result[0]['time_of_post']
+    peep.user_id = result[0]['user_id']
     
     return peep
 
