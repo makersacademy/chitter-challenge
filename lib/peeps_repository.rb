@@ -23,6 +23,25 @@ class PeepsRepository
     return peeps
   end
 
+  def display_all_reverse
+    peeps = []
+    sql = 'SELECT id, message, time_of_post, user_id FROM peeps ORDER BY time_of_post DESC;'
+    result_set = DatabaseConnection.exec_params(sql, [])
+
+    result_set.each do |record|
+      peep = Peeps.new
+
+      peep.id = record['id']
+      peep.message = record['message']
+      peep.time_of_post = record['time_of_post']
+      peep.user_id = record['user_id']
+
+      peeps << peep
+    end
+        # Returns an array of Peep objects.
+    return peeps
+  end
+  
   def find(id)
     # Executes the SQL query:
     sql = 'SELECT id, message, time_of_post, user_id FROM peeps WHERE id = $1;'

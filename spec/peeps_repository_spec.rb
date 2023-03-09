@@ -15,7 +15,7 @@ describe PeepsRepository do
     repo = PeepsRepository.new
 
     peeps = repo.all
-    
+
     expect(peeps.length).to eq 3
     
     expect(peeps[0].id).to eq ('1')
@@ -27,6 +27,31 @@ describe PeepsRepository do
     expect(peeps[1].message).to eq ('A bad day')
     expect(peeps[1].time_of_post).to eq ('2023-03-08 10:15:30.123456')
     expect(peeps[1].user_id).to eq ('2')
+  end
+
+  it "gets all peeps, sorted in reverse chronological order" do
+    repo = PeepsRepository.new
+
+    peep = Peeps.new
+    peep.message = "A new post that tests if its being reversed"
+    peep.time_of_post = '2023-03-10 10:15:30.123456'
+    peep.user_id = "3"
+
+    repo.create(peep)
+
+    peeps = repo.display_all_reverse
+    
+    expect(peeps.length).to eq 4
+    expect(peeps[0].id).to eq ('4')
+    expect(peeps[0].message).to eq ('A new post that tests if its being reversed')
+    expect(peeps[0].time_of_post).to eq ('2023-03-10 10:15:30.123456')
+    expect(peeps[0].user_id).to eq ('3')
+    #and now ID 1 is in index 1, not 0
+    expect(peeps[1].id).to eq ('1')
+    expect(peeps[1].message).to eq ('A good day')
+    expect(peeps[1].time_of_post).to eq ('2023-03-09 10:15:30.123456')
+    expect(peeps[1].user_id).to eq ('1')
+    
   end
 
   it "gets a single peep" do
