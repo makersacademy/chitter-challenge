@@ -23,9 +23,9 @@ describe PeepsRepository do
     expect(peeps[0].time_of_post).to eq ('2023-03-09 10:15:30.123456')
     expect(peeps[0].user_id).to eq ('1')
     
-    expect(peeps[0].id).to eq ('2')
-    expect(peeps[0].message).to eq ('A bad day')
-    expect(peeps[0].time_of_post).to eq ('2023-03-08 10:15:30.123456')
-    expect(peeps[0].user_id).to eq ('2')
+    expect(peeps[1].id).to eq ('2')
+    expect(peeps[1].message).to eq ('A bad day')
+    expect(peeps[1].time_of_post).to eq ('2023-03-08 10:15:30.123456')
+    expect(peeps[1].user_id).to eq ('2')
   end
 end
