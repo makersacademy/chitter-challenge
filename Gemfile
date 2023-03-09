@@ -11,8 +11,8 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
-<<<<<<< HEAD
 
 gem "pg", "~> 1.4"
 =======
 >>>>>>> origin/main
+ 
