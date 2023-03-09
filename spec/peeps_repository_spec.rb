@@ -74,4 +74,15 @@ describe PeepsRepository do
     expect(updated_peep.time_of_post).to eq "2023-03-06 10:15:30.123456"
     expect(updated_peep.user_id).to eq '2'
   end
+
+  it "deltes a single peep record" do
+    repo = PeepsRepository.new
+
+    id_to_delete = 1
+    repo.delete(id_to_delete)
+
+    all_peeps = repo.all
+    expect(all_peeps.length).to eq 2
+    expect(all_peeps.first.id).to eq ('2')
+  end
 end
