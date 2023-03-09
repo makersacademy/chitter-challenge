@@ -75,7 +75,7 @@ describe PeepsRepository do
     expect(updated_peep.user_id).to eq '2'
   end
 
-  it "deltes a single peep record" do
+  it "deletes a single peep record" do
     repo = PeepsRepository.new
 
     id_to_delete = 1
