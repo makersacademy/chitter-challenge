@@ -1,4 +1,4 @@
- # {{TABLE NAME}} Model and Repository Classes Design Recipe
+ # {{Peeps}} Model and Repository Classes Design Recipe
 
 _Copy this recipe template to design and implement Model and Repository classes for a database table._
 
@@ -196,7 +196,7 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all posts
+# Get all peep
 
 repo = PeepsRepository.new
 
@@ -215,7 +215,7 @@ peeps[0].time_of_post # =>  '2023-03-08 10:15:30.123456'
 peeps[0].user_id # =>  '2'
 
 # 2
-# Get a single post
+# Get a single peep
 
 repo = PeepsRepository.new
 
@@ -227,7 +227,7 @@ peeps.time_of_post # =>  '2023-03-09 10:15:30.123456'
 peeps.user_id # =>  '1'
 # Add more examples for each method
 
-#3 Creates a single user record
+#3 Creates a single peep record
 repo = PeepsRepository.new
 
 peep = Peeps.new
