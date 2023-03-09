@@ -18,15 +18,15 @@ describe UsersRepository do
     
     expect(users.length).to eq 3
     
-    expect(users[0].id).to eq  1
+    expect(users[0].id).to eq  ('1')
     expect(users[0].username).to eq 'jamespates'
     expect(users[0].email_address).to eq 'james@gmail.com'
     expect(users[0].password).to eq 'Abc123De'
     
-    expect(users[1].id).to eq  2
-    expect(users[1].username).to eq 'A bad day'
-    expect(users[1].email_address).to eq '2023-03-08 10:15:30.123456'
-    expect(users[1].password).to eq '2'
+    expect(users[1].id).to eq  ('2')
+    expect(users[1].username).to eq 'amy_pates'
+    expect(users[1].email_address).to eq 'amy@gmail.com'
+    expect(users[1].password).to eq 'Abc123Df'
   end
 
   it "gets a single user" do
@@ -34,10 +34,10 @@ describe UsersRepository do
 
     user = repo.find(1)
 
-    expect(users.id).to eq ('1')
-    expect(users.username).to eq ('jamespates')
-    expect(users.email_address).to eq ('james@gmail.com')
-    expect(users.password).to eq ('Abc123De')
+    expect(user.id).to eq ('1')
+    expect(user.username).to eq ('jamespates')
+    expect(user.email_address).to eq ('james@gmail.com')
+    expect(user.password).to eq ('Abc123De')
   end
 
   it "creates a single user record" do

@@ -35,15 +35,14 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username text,
   email_address text,
-  password text,
+  password text
 );
 
 -- Then the table with the foreign key.
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   message text,
-  time_of_post datetime,
-  username,
+  time_of_post timestamp,
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)
@@ -208,10 +207,10 @@ users[0].username # =>  'jamespates'
 users[0].email_address # =>  'james@gmail.com'
 users[0].password # =>  'Abc123De'
 
-users[0].id # =>  2
-users[0].username # =>  'A bad day'
-users[0].email_address # =>  '2023-03-08 10:15:30.123456'
-users[0].password # =>  '2'
+users[1].id # => '2'
+users[1].username # => 'amy_pates'
+users[1].email_address # => 'amy@gmail.com'
+users[1].password # => 'Abc123Df'
 
 # 2
 # Get a single user
@@ -230,16 +229,16 @@ users.password # =>  'Abc123De'
 repo = UsersRepository.new
 
 user = Users.new
-user.username = "A really good day"
-user.email_address = '2023-03-06 10:15:30.123456'
+user.username = "john_pates"
+user.email_address = 'john@gmail.com'
 user.password = '4'
 
 repo.create(user)
 users = repo.all
 
 last_user = users.last
-last_user.username  # =>  'A really good day'
-user.email_address #=> "2023-03-06 10:15:30.123456"
+last_user.username  # =>  'john_pates'
+user.email_address #=> "john@gmail.com"
 last_user.password # => "4"
 
 #4 updates a single user record
@@ -247,17 +246,17 @@ repo = UsersRepository.new
 
 user = repo.find(1)
 
-user.username = "An alright day"
-user.email_address = "2023-03-06 10:15:30.123456"
-user.password = '4'
+user.username = "jem_pates"
+user.email_address = "jem@gmail.com"
+user.password = 'Abc123De'
 
 repo.update(user)
 
 updated_user = repo.find(1)
 
-updated_user.username # => "An alright day"
-updated_user.email_address # => "2023-03-06 10:15:30.123456"
-updated_user.password # => '4'
+updated_user.username # => "jem_pates"
+updated_user.email_address # => "jem@gmail.com"
+updated_user.password # => 'Abc123De'
 
 #5 deltes a single user record
 repo = UsersRepository.new
