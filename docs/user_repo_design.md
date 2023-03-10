@@ -52,12 +52,12 @@ end
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: users
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/user_repository.rb)
 
-class StudentRepository
+class UserRepository
   def add_user(user)
     # Encrypts password
     # Executes sql: (where password is encrypted)
