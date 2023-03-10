@@ -1,15 +1,27 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative 'lib/database_connection'
+require_relative 'lib/peep_repository'
+require "time"
+# require_relative 'lib/artist_repository'
 
- # This allows the app code to refresh
- # without having to restart the server.
+DatabaseConnection.connect
+
 class Application < Sinatra::Base 
-  # Sessions are disabled by default, so this line is needed.
+
   enable :sessions
 
   configure :development do
     register Sinatra::Reloader
   end
+
+  get '/' do
+    repo = PeepRepository.new
+    @peeps = repo.all
+    p @peeps
+    return erb(:index)
+  end
+
 
   # This route simply returns the login page
   get '/login' do

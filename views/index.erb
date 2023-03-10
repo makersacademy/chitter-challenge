@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitter</title>
+</head>
+<body>
+  <h1>WELCOME TO CHITTER</h1>
+  <% @peeps.each do |peep| %>
+    <div>
+      <p><%= peep.time %></p>
+      <%# implement here name of OP %>
+      <p><%= peep.content %></p>
+      <p><time datetime="<%= peep.time %>"></time></p>
+    </div>
+  <% end %>
+</body>
+</html>
+
+<%# <%= peep.time.strftime("%B %d, %Y - %H:%M") %>
