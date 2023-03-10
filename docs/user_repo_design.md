@@ -81,6 +81,13 @@ class StudentRepository
 
     # Returns a single Student object.
   end
+
+  def delete(user)
+    # Executes the SQL query:
+    # DELETE FROM users WHERE id = $1 
+
+    # returns nothing
+  end
 end
 ```
 

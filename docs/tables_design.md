@@ -43,7 +43,7 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 | Table_name            | Column name         |
 | --------------------- | ------------------  |
-| peeps                 | content, timestamp, tags
+| peeps                 | content, timestamp
 | users                 | name, username, password, email
 
 
@@ -54,7 +54,6 @@ Table: peeps
 id: SERIAL
 content: TEXT
 timestamp: TIMESTAMP
-tags: TEXT
 
 Table: users
 id: SERIAL
@@ -97,7 +96,6 @@ CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content TEXT,
   timestamp TIMESTAMP,
-  tags TEXT,
   user_id int,
   constraint fk_user foreign key(user_id)
     references users(id)
