@@ -1,3 +1,5 @@
+require_relative "peep"
+
 class PeepRepository
 
   # Selecting all records
@@ -9,7 +11,7 @@ class PeepRepository
     results = DatabaseConnection.exec_params(sql, [])
 
     results.each do |record|
-      peep = peep.new
+      peep = Peep.new
       peep.id = record['id'].to_i
       peep.content = record['content']
       peep.timestamp = record['timestamp']

@@ -136,15 +136,20 @@ peep.timestamp # =>  '2022-09-01 12:30:00',
 peep.user_id # =>  1
 
 # 3
-# get a single peep by user id
+# gets all peeps by a user 
 repo = PeepRepository.new
 
-peep = repo.find(2)
+user_peeps = repo.find_by_user_id(1)
+      
+user_peeps[0].id # => 1
+user_peeps[0].content # => 'Just had the best burger ever!'
+user_peeps[0].timestamp # => '2022-09-01 12:30:00'
+user_peeps[0].user_id # => 1
 
-peep.id # =>  1
-peep.content # =>  'Can''t wait for the weekend!' 
-peep.timestamp # => '2022-09-02 16:45:00'
-peep.user_id # =>  2
+user_peeps[1].id # => 4
+user_peeps[1].content # => 'Watching the game with friends tonight'
+user_peeps[1].timestamp # => '2022-09-04 20:15:00'
+user_peeps[1].user_id # => 1
 
 # 4
 # post a new peep
