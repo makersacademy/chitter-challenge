@@ -19,11 +19,6 @@ CREATE TABLE peeps (
     on delete cascade
 );
 
---NOTE: Password will be encrypted using hash algoritm SHA-256
-INSERT INTO users (name, username, password, email)
-VALUES ('John Doe', 'johndoe', 'password123', 'johndoe@example.com'),
-('Jane Smith', 'janesmith', 'abc123', 'janesmith@example.com'),
-('Bob Johnson', 'bobj', 'def456', 'bobj@example.com');
 
 INSERT INTO peeps (content, timestamp, tags, user_id)
 VALUES ('Just had the best burger ever!', '2022-09-01 12:30:00', 'food,burger', 1),
