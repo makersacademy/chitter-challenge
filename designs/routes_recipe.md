@@ -65,10 +65,10 @@ HTML view with list of entries
 
 ```md
 
-# Page: form to sign in
+# Page: form to login
 
 ## Request:
-GET /signin
+GET /login
 No parameters
 
 ## Response (200 OK)
@@ -80,7 +80,7 @@ HTML view with form to login
 # Page: form to sign up
 
 ## Request:
-GET /signin
+GET /signup
 No parameters
 
 ## Response (200 OK)
@@ -126,10 +126,10 @@ With body parameters:
 ## Response (200 OK)
 Sends back to homepage - user should see their peep top of the list
 
-# Page: sign in
+# Page: log in
 
 ## Request:
-POST /signin
+POST /login
 With body parameters:
   email="samuelbadru@outlook.com"
   password = "securepassword23"
@@ -163,7 +163,7 @@ With body parameters:
 
 
 ## Response (200 OK)
-Sends back to logged out version of homepage - user should see buttons such as 'Sign in' and 'Sign up'
+Sends back to logged out version of homepage - user should see buttons such as 'Log in' and 'Sign up'
 
 
 ## Step 3: Test-drive and implement
