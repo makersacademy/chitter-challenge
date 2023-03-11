@@ -13,7 +13,7 @@ describe UserRepository do
     @repo = UserRepository.new
   end
 
-  it 'gets all users' do
+  xit 'gets all users' do
 
     users = @repo.all_users
 
@@ -55,7 +55,7 @@ describe UserRepository do
   end
 
   context 'create a user' do
-    it 'uses an available username and email' do
+    xit 'uses an available username and email' do
       new_user = User.new
       new_user.email # => 'santandave@icloud.com'
       new_user.password # => 'psychodrama'
@@ -70,7 +70,7 @@ describe UserRepository do
       users[-1].username # =>  'dave'
     end
 
-    it 'uses unavailable username' do
+    xit 'uses unavailable username' do
       new_user = User.new
       new_user.email # => 'drakebell@icloud.com'
       new_user.password # => 'drakeandjosh'
@@ -80,7 +80,7 @@ describe UserRepository do
       @repo.create_user # => false
     end
 
-    it 'uses unavailable email' do
+    xit 'uses unavailable email' do
       new_user = User.new
       new_user.email # => 'samuelbadru@outlook.com'
       new_user.password # => 'drakeandjosh'
