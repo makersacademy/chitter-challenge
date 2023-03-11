@@ -2,9 +2,9 @@ TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
 INSERT INTO users (email, password, name, username) 
 VALUES ('samuelbadru@outlook.com', 'makersforlife', 'Samuel Badru', 'sobad'),
-       ('jermaincole@hotmail.com', 'middlechild', 'Jermain Cole', 'j.cole'),
+       ('jermainecole@hotmail.com', 'middlechild', 'Jermaine Cole', 'j.cole'),
        ('aubreygraham@gmail.com', 'hotlinebling', 'Aubrey Graham', 'drake'),
-       ('kendrickduckworth', 'goodkid', 'Kendrick Duckworth', 'kendricklamar');
+       ('kendrickduckworth@aol.com', 'goodkid', 'Kendrick Duckworth', 'kendricklamar');
 
 INSERT INTO peeps (content, user_id) 
 VALUES ('Just set up my chitter', 1),
