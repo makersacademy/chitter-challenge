@@ -26,7 +26,7 @@ describe Application do
       expect(@response.status).to eq (200)
     end
 
-    xit 'has "Chitter" as a heading' do
+    xit 'has "Chitter" as the title' do
       expect(@response.body).to include('<h1>Chitter</h1>')
     end
 
