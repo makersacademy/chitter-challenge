@@ -10,7 +10,7 @@ INSERT INTO users (user_name, email, password) VALUES ('Davinder', 'davinder@gma
 INSERT INTO users (user_name, email, password) VALUES ('Annad', 'annad@gmail.com','password4');
 
 
-INSERT INTO chitters (contents, date, user_id ) VALUES ('Hey guys happy monday', 1.13, 1);
-INSERT INTO chitters (contents, date, user_id ) VALUES ('Happy monday to you too!', 2.14, 2);
-INSERT INTO chitters (contents, date, user_id ) VALUES ('Did you have any breakfast?',3.25, 3);
-INSERT INTO chitters (contents, date, user_id ) VALUES ('Yea I had some chocolate', '2000',3.25, 4);
+INSERT INTO chitters (contents, time, user_id ) VALUES ('Hey guys happy monday', 1.13, 1);
+INSERT INTO chitters (contents, time, user_id ) VALUES ('Happy monday to you too!', 2.14, 2);
+INSERT INTO chitters (contents, time, user_id ) VALUES ('Did you have any breakfast?',3.25, 3);
+INSERT INTO chitters (contents, time, user_id ) VALUES ('Yea I had some chocolate',3.25, 4);
