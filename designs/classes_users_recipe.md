@@ -177,7 +177,6 @@ new_user.username # =>  'drakejosh'
 
 @repo.create_user # => false
 
-
 ```
 
 Encode this example as a test.
