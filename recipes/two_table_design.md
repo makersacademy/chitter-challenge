@@ -138,7 +138,7 @@ CREATE TABLE chitters (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 database_name < chitters_table.sql
+psql -h 127.0.0.1 chitter_database < chitters_users_table.sql
 ```
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
