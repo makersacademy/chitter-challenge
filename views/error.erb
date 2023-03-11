@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Invalid username or password! Please try again</title>
+    <style>
+      h1 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+      }
+      label {
+        font-family: "Century Gothic", sans-serif;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Invalid username or password! Please try again</h1>
+    <form action="/log-in" method="POST">
+      <div>
+        <label>Email</label>
+        <input type="text" name="email">
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
