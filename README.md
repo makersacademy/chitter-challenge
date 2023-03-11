@@ -52,6 +52,11 @@ rackup
 - Users can log out of Chitter
 
 
+
+<img width="883" alt="Screenshot 2023-03-01 at 19 26 09" src="https://user-images.githubusercontent.com/117643324/222244231-b150293e-0532-4207-b2e6-edc15bd6b5d2.png">
+
+<img width="881" alt="Screenshot 2023-03-01 at 19 27 32" src="https://user-images.githubusercontent.com/117643324/222244341-471da467-f097-47a2-a9fc-f661681a257c.png">
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
