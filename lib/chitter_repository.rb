@@ -9,6 +9,8 @@ class ChitterRepository
         peep = Chitter.new
         peep.id = chitter['id']
         peep.contents = chitter['contents']
+        peep.time = chitter['time']
+        peep.user_id = chitter['user_id']
         all_chitters.push (peep)
       end
       return all_chitters
