@@ -16,7 +16,7 @@ DatabaseConnection.connect('chitters_database_test')
     end
     @connection.exec_params(query, params)
   end
-end
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
