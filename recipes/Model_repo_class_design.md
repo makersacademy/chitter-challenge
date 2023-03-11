@@ -117,7 +117,7 @@ Define the attributes of your Model class. You can usually map the table columns
 class Chitters
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :contents, :date
+  attr_accessor :id, :contents, :time, :user_id
 end
 
 # The keyword attr_accessor is a special Ruby feature
@@ -180,6 +180,36 @@ class ChitterRepository
 
   # def delete(chitter)
   # end
+end
+# EXAMPLE
+# Table name:chitter
+
+# Repository class
+# (in lib/chitter_repository.rb)
+
+class UserRepository
+
+  # Selecting all records
+  # No arguments
+  def all
+    
+  end
+
+  # Gets a single record by its ID
+  # One argument: the id (number)
+  def find(id)
+    # Executes the SQL query:
+    # SELECT id, title, author_name FROM book WHERE id = $1;
+
+    # Returns a single Book object.
+  end
+
+  # Add more methods below for each operation you'd like to implement.
+
+  # def create(chitter)
+  # end
+
+  
 end
 ```
 
