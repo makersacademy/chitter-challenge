@@ -1,4 +1,4 @@
-TRUNCATE TABLE users RESTART IDENTITY;
+TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
 --NOTE: Password will be encrypted using hash algoritm SHA-256
 INSERT INTO users (name, username, password, email)

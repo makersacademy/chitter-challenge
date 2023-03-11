@@ -1,4 +1,5 @@
 require 'digest'
+require 'user'
 
 class UserRepository
   def add_user(user)
@@ -11,6 +12,21 @@ class UserRepository
     # Returns nothing
   end
 
+  def find_by_email(email)
+    sql = 'SELECT id, name, username, password, email FROM users WHERE email = $1'
+    result = DatabaseConnection.exec_params(sql, [email])
+    return nil if result.ntuples == 0
+    user = User.new
+    user.id = result[0]['id'].to_i
+    user.name = result[0]['name']
+    user.username = result[0]['username']
+    user.password = result[0]['password']
+    user.email = result[0]['email']
+    
+    return user
+  end
+
+  # checks encrypted password against inputted password when user attempts to log in
   def sign_in(email, submitted_password)
     user = find_by_email(email)
     return nil if user.nil?
@@ -25,23 +41,25 @@ class UserRepository
     else
       fail 'Password incorrect'
     end
-    # checks encrypted password against inputted password when user attempts to log in
   end
 
-  def find_by_email(email)
-    sql = 'SELECT id, name, username, password, email FROM users WHERE email = $1'
-    result = DatabaseConnection.exec_params(sql, [email])
+  def all
+    users = []
+    sql = 'SELECT id, name, username, password, email FROM users'
+    result = DatabaseConnection.exec_params(sql, [])
 
-    user = User.new
-    user.id = result[0]['id'].to_i
-    user.name = result[0]['name']
-    user.username = result[0]['username']
-    user.password = result[0]['password']
-    user.email = result[0]['email']
-    
-    return user
+    result.each do |record|
+      user = User.new
+      user.id = record['id'].to_i
+      user.name = record['name']
+      user.username = record['username']
+      user.password = record['password']
+      user.email = record['email']
+      users << user
+    end
+    # return array of users
+    users
   end
-
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
@@ -49,22 +67,20 @@ class UserRepository
     sql = 'SELECT id, name, username, password, email FROM users WHERE id = $1;'
     result = DatabaseConnection.exec_params(sql, [id])
 
-    peep = Peep.new
-    peep.id = result[0]['id'].to_i
-    peep.name = result[0]['name']
-    peep.username = result[0]['username']
-    peep.password = result[0]['password']
-    peep.email = result[0]['email']
+    user = User.new
+    user.id = result[0]['id'].to_i
+    user.name = result[0]['name']
+    user.username = result[0]['username']
+    user.password = result[0]['password']
+    user.email = result[0]['email']
 
     # Returns a single peep object.
-    peep
+    user
   end
 
-  def delete(user)
+  def delete(id)
     # Executes the SQL query:
     sql = 'DELETE FROM users WHERE id = $1 '
-    DatabaseConnection.exec_params(sql, [user.id])
-
-    user
+    DatabaseConnection.exec_params(sql, [id])
   end
 end
