@@ -28,6 +28,8 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include 'loving chitter'
+      expect(response.body).to include 'posting my first peep'
+      expect(response.body).to include 'onto my second peep'
       expect(response.body).to include '<h1>Chitter</h1>'
     end
   end
