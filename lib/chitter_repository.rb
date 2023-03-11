@@ -3,7 +3,15 @@ class ChitterRepository
     # Selecting all records
     # No arguments
     def all
-      
+      result_set = DatabaseConnection.exec_params('SELECT id,contents,time,user_id FROM chitters;',[])
+      all_chitters = []
+      result_set.each do |chitter|
+        peep = Chitter.new
+        peep.id = chitter['id']
+        peep.contents = chitter['contents']
+        all_chitters.push (peep)
+      end
+      return all_chitters
     end
   
     # Gets a single record by its ID
@@ -25,3 +33,4 @@ class ChitterRepository
   
     # def delete(chitter)
     # end
+end
