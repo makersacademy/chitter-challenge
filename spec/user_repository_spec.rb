@@ -47,7 +47,7 @@ describe UserRepository do
   end
 
   context "sign_in(email, submitted_password) method" do
-    it "returns 'sign in successfull' if submitted password is correct" do
+    it "returns true if submitted password is correct" do
       repo = UserRepository.new
       user = User.new
       user.id = 4
@@ -57,10 +57,10 @@ describe UserRepository do
       user.email = 'Jmarie2002@example.com'
 
       repo.add_user(user)
-      expect(repo.sign_in('Jmarie2002@example.com', 'foo')).to eq 'Sign in successful'
+      expect(repo.sign_in('Jmarie2002@example.com', 'foo')).to eq true
     end
 
-    it "fails if password is incorrect" do
+    it "false if password is incorrect" do
       repo = UserRepository.new
       user = User.new
       user.id = 4
@@ -70,7 +70,7 @@ describe UserRepository do
       user.email = 'Jmarie2002@example.com'
 
       repo.add_user(user)
-      expect{ repo.sign_in('Jmarie2002@example.com', 'bar') }.to raise_error('Password incorrect')
+      expect(repo.sign_in('Jmarie2002@example.com', 'bar')).to eq false
     end
   end
 

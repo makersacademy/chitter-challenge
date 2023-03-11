@@ -37,9 +37,9 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, [user.username])
     
     if submitted_password_encrypted == result[0]['password']
-      return 'Sign in successful'
+      return true
     else
-      fail 'Password incorrect'
+      return false
     end
   end
 
