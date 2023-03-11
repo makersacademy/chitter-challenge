@@ -21,8 +21,13 @@ class ChitterRepository
     def find(id)
       # Executes the SQL query:
       # SELECT id, title, author_name FROM book WHERE id = $1;
-  
-      # Returns a single Book object.
+        result_set = DatabaseConnection.exec_params('SELECT id, contents, time,user_id FROM chitters WHERE id = $1;',[id])
+        peep = Chitter.new
+        peep.id = result_set[0]['id']
+        peep.contents = result_set[0]['contents']
+        peep.time = result_set[0]['time']
+        peep.user_id = result_set[0]['user_id']
+        return peep
     end
   
     # Add more methods below for each operation you'd like to implement.
