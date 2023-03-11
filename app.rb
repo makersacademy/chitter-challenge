@@ -16,11 +16,34 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+   # This route is an example
+  # of a "authenticated-only" route.
+  # It can be accessed only if a user is
+  # signed-in (if we have user information in session).
+  get '/account_page' do
+    if session[:user_id] == nil
+      # No user id in the session
+      # so the user is not logged in.
+      return redirect('/login')
+    else
+      # The user is logged in, display 
+      # their account page.
+      return erb(:account)
+    end
+  end
+  # ------------------
+  # HOMEPAGE
+  # ------------------
+
   get '/' do
     repo = PeepRepository.new
     @peeps = repo.all
     return @peeps.empty? ? erb(:no_peeps) : erb(:index)
   end
+
+  # ------------------
+  # FIND USER BEHAVIOR
+  # ------------------
 
   post "/find_user" do
     repo = UserRepository.new
@@ -29,7 +52,6 @@ class Application < Sinatra::Base
     @user = repo.find(search)
     redirect @user.nil? ?  "/user_not_found" : "/user/#{@user.username}"
   end
-
   get "/user/:username" do
     username = params[:username]
     repo = UserRepository.new
@@ -40,6 +62,25 @@ class Application < Sinatra::Base
     return erb(:user_not_found)
   end
 
+  # ------------------
+  # SIGNUP/LOGIN BEHAVIOR
+  # ------------------
+
+  get "/signup" do
+    @already_exist = @send_form.nil? #may be buggy
+    return erb(:signup)
+  end
+  post "/signup" do
+    repo = UserRepository.new
+    user = User.new
+    user.fullname = params[:fullname]
+    user.username = params[:username]
+    user.email = params[:email]
+    user.password = params[:password]
+    @send_form = repo.create(user)
+    @already_exist = @send_form.nil?
+    redirect @already_exist ? "/signup" : "/"
+  end
 
 
 
@@ -69,22 +110,6 @@ class Application < Sinatra::Base
       return erb(:login_success)
     else
       return erb(:login_error)
-    end
-  end
-
-  # This route is an example
-  # of a "authenticated-only" route.
-  # It can be accessed only if a user is
-  # signed-in (if we have user information in session).
-  get '/account_page' do
-    if session[:user_id] == nil
-      # No user id in the session
-      # so the user is not logged in.
-      return redirect('/login')
-    else
-      # The user is logged in, display 
-      # their account page.
-      return erb(:account)
     end
   end
 end

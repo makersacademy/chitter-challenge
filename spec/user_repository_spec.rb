@@ -20,7 +20,7 @@ describe UserRepository do
       expect(result.password).to eq "passworD+123"
       expect(result.peeps[0].content).to eq "How are you guys doing, today? @jdoe @mrbike"
     end
-    it "should return the corresponding user given the email" do
+    it "should return the corresponding user given an email address" do
       result = subject.find("huynhchang@gmail.com")
       expect(result.fullname).to eq "Chang Huynh"
       expect(result.username).to eq "changwynn"
@@ -34,7 +34,7 @@ describe UserRepository do
     end
   end
 
-  context ".create method" do
+  context ".check method" do
     it "should check username existence in the database" do
       user.fullname = "Chang Wynn"
       user.username = "changwynn"
@@ -59,13 +59,35 @@ describe UserRepository do
       result = subject.exist?(user)
       expect(result).to eq false
     end
-    it "should add a new user to the database" do
-      user.fullname = "John Wick"
-      user.username = "wickedman"
-      user.email = "imsowicked@gmail.com"
-      user.password = "w1ck3d+"
-      subject.create(user)
 
+    context ".create method" do
+      it "should add a new user to the database" do
+        user.fullname = "John Wick"
+        user.username = "wickedman"
+        user.email = "imsowicked@gmail.com"
+        user.password = "w1ck3d+"
+        subject.create(user)
+        result = subject.find("wickedman")
+        expect(result.fullname).to eq "John Wick"
+        expect(result.username).to eq "wickedman"
+        expect(result.email).to eq "imsowicked@gmail.com"
+      end
+      it "should return nil if the user already exist" do
+        user.fullname = "Chang Wynn"
+        user.username = "changwynn"
+        user.email = "trash-garbage-bin@gmail.com"
+        user.password = "12345Abcde+"
+        result = subject.create(user)
+        expect(result).to be nil
+      end
+      it "should return nil if the user already exist" do
+        user.fullname = "Chang Wynn"
+        user.username = "chang-wynn"
+        user.email = "huynhchang@gmail.com"
+        user.password = "12345Abcde+"
+        result = subject.create(user)
+        expect(result).to be nil
+      end
     end
   end
 end

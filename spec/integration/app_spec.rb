@@ -13,7 +13,7 @@ describe Application do
   before { reset_users_table }
   before { reset_peeps_table }
 
-  context "GET /" do
+  describe "GET /" do
     it "should return 200 OK" do
       response = get '/'
       expect(response.status).to eq 200
@@ -32,7 +32,8 @@ describe Application do
       expect(last_response.body).to match(regexp)
     end
   end
-  context "POST /find_user" do
+
+  describe "POST /find_user" do
     context "search for a user by username"
     it "should redirect to the public page of a user given a username" do
       response = post '/find_user', search: "changwynn"
@@ -48,6 +49,22 @@ describe Application do
       expect(last_response.status).to eq 200
       expect(last_request.path).to eq "/user/mrbike"
       expect(last_response.body).to include "<h1>mrbike</h1>"
+    end
+  end
+
+  describe "POST /signup" do
+    it "should send signup form to the database" do
+      response = post "/signup", fullname: "Mariah Carey", username: "caroush", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
+      follow_redirect!
+      expect(last_response.status).to eq 200
+      expect(last_request.path).to eq "/"
+    end
+    it "should send print a message if the user already exist" do
+      response = post "/signup", fullname: "Chang Huynh", username: "changwynn", email: "huynhchang@gmail.com", password: "chang*123"
+      follow_redirect!
+      expect(last_response.status).to eq 200
+      expect(last_request.path).to eq "/signup"
+      expect(last_response.body).to include '<p>This user already exist</p>'
     end
   end
 end
