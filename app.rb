@@ -1,9 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require "time"
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
-require "time"
-# require_relative 'lib/artist_repository'
+require_relative 'lib/user_repository'
+require_relative 'lib/user'
 
 DatabaseConnection.connect
 
@@ -18,9 +19,28 @@ class Application < Sinatra::Base
   get '/' do
     repo = PeepRepository.new
     @peeps = repo.all
-    p @peeps
-    return erb(:index)
+    return @peeps.empty? ? erb(:no_peeps) : erb(:index)
   end
+
+  post "/find_user" do
+    repo = UserRepository.new
+    search = params[:search]
+    p search
+    @user = repo.find(search)
+    redirect @user.nil? ?  "/user_not_found" : "/user/#{@user.username}"
+  end
+
+  get "/user/:username" do
+    username = params[:username]
+    repo = UserRepository.new
+    @user = repo.find(username)
+    return erb(:user_public_page)
+  end
+  get "/user_not_found" do
+    return erb(:user_not_found)
+  end
+
+
 
 
   # This route simply returns the login page
