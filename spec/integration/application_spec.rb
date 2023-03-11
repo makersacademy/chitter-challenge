@@ -67,6 +67,11 @@ RSpec.describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('')
+
+      response = post('/log-in', email:'user_four@gmail.com', password:'password4')
+
+      expect(response.status).to eq(302)
+      expect(response.body).to eq('')
     end
   end
 
