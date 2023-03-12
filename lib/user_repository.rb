@@ -1,9 +1,11 @@
 require_relative 'user'
 
 class UserRepository
+  def initialize
+    @users = []
+  end
+  
   def all_users
-    users = []
-
     sql = 'SELECT * FROM users;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
@@ -15,10 +17,10 @@ class UserRepository
       user.name = record['name']
       user.username = record['username']
 
-      users << user
+      @users << user
     end
 
-    return users
+    return @users
   end
 
   def find_user(email_username, password)
@@ -34,5 +36,21 @@ class UserRepository
     user.username = result_set[0]['username']
 
     return user
+  end
+
+  def create_user(user)
+    self.all_users
+
+    @users.each do |record|
+      if record.email == user.email || record.username == user.username
+        return false
+      end
+    end
+    
+    sql = 'INSERT INTO users (email, password, name, username) VALUES($1, $2, $3, $4)'
+    params = [user.email, user.password, user.name, user.username]
+
+    DatabaseConnection.exec_params(sql, params)
+    return true
   end
 end

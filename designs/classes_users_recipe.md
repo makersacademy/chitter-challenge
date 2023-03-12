@@ -84,7 +84,7 @@ class User Repository
 
     # Executes the SQL query:
     # INSERT INTO users (email, password, name, username) VALUES($1, $2, $3, $4)
-    # return true if successful
+    # return true if successfull
   end
 
   # def edit_user(user)

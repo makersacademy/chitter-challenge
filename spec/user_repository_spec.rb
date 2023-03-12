@@ -55,12 +55,12 @@ describe UserRepository do
   end
 
   context 'create a user' do
-    xit 'uses an available username and email' do
+    it 'uses an available username and email' do
       new_user = User.new
-      expect(new_user.email).to eq 'santandave@icloud.com'
-      expect(new_user.password).to eq 'psychodrama'
-      expect(new_user.name).to eq  'Santan Dave'
-      expect(new_user.username).to eq  'dave'
+      new_user.email = 'santandave@icloud.com'
+      new_user.password = 'psychodrama'
+      new_user.name = 'Santan Dave'
+      new_user.username = 'dave'
 
       expect(@repo.create_user(new_user)).to eq true
       users = @repo.all_users
@@ -70,22 +70,22 @@ describe UserRepository do
       expect(users[-1].username).to eq  'dave'
     end
 
-    xit 'uses unavailable username' do
+    it 'uses an unavailable username' do
       new_user = User.new
-      expect(new_user.email).to eq 'drakebell@icloud.com'
-      expect(new_user.password).to eq 'drakeandjosh'
-      expect(new_user.name).to eq  'Drake Bell'
-      expect(new_user.username).to eq  'drake'
+      new_user.email = 'drakebell@icloud.com'
+      new_user.password = 'drakeandjosh'
+      new_user.name = 'Drake Bell'
+      new_user.username = 'drake'
 
       expect(@repo.create_user(new_user)).to eq false
     end
 
-    xit 'uses unavailable email' do
+    it 'uses an unavailable email' do
       new_user = User.new
-      expect(new_user.email).to eq 'samuelbadru@outlook.com'
-      expect(new_user.password).to eq 'drakeandjosh'
-      expect(new_user.name).to eq  'Drake Bell'
-      expect(new_user.username).to eq  'drakejosh'
+      new_user.email = 'samuelbadru@outlook.com'
+      new_user.password = 'drakeandjosh'
+      new_user.name = 'Drake Bell'
+      new_user.username = 'drakejosh'
 
       expect(@repo.create_user(new_user)).to eq false
     end
