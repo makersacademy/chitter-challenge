@@ -73,7 +73,6 @@ RSpec.describe PeepRepository do
 
     all_peeps = repo.all
 
-
   end
 
 end

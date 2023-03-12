@@ -12,12 +12,7 @@ class PeepRepository
     result_set = DatabaseConnection.exec_params(sql, [])
 
     result_set.each do |record|
-      peep = Peep.new
-      peep.id = record['id'].to_i
-      peep.content = record['content']
-      peep.date_time = record['date_time']
-      peep.user_id = record['user_id'].to_i
-      peeps << peep
+      peeps << record_into_peep_object(record)
     end
     # Returns an array of Peep objects.
     return peeps
@@ -63,4 +58,16 @@ class PeepRepository
     DatabaseConnection.exec_params(sql, sql_params)
     # Does not return a value
   end
+
+  private
+  
+  def record_into_peep_object(record)
+    peep = Peep.new
+    peep.id = record['id'].to_i
+    peep.content = record['content']
+    peep.date_time = record['date_time']
+    peep.user_id = record['user_id'].to_i
+    return peep
+  end
+
 end

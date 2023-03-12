@@ -12,13 +12,7 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, [])
 
     result_set.each do |record|
-      user = User.new
-      user.id = record['id'].to_i
-      user.email = record['email']
-      user.password = record['password']
-      user.name = record['name']
-      user.username = record['username']
-      users << user
+      users << record_into_user_object(record)
     end
     # Returns an array of User objects.
     return users
@@ -34,15 +28,8 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, sql_params)
 
     record = result_set[0]
-
-    user = User.new
-    user.id = record['id'].to_i
-    user.email = record['email']
-    user.password = record['password']
-    user.name = record['name']
-    user.username = record['username']
     # Returns a single User object.
-    return user
+    return record_into_user_object(record)
   end
 
   # Creates a new record
@@ -65,6 +52,18 @@ class UserRepository
     
     DatabaseConnection.exec_params(sql, sql_params)
     # Does not return a value
+  end
+
+  private
+
+  def record_into_user_object(record)
+    user = User.new
+    user.id = record['id'].to_i
+    user.email = record['email']
+    user.password = record['password']
+    user.name = record['name']
+    user.username = record['username']
+    return user
   end
 
 end
