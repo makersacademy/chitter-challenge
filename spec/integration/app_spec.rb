@@ -2,6 +2,18 @@ require "spec_helper"
 require "rack/test"
 require_relative "../../app"
 
+def reset_users_table
+  seed_sql = File.read("spec/seeds/users_seeds.sql")
+  connection = PG.connect({ host: "127.0.0.1", dbname: "chitter_test" })
+  connection.exec(seed_sql)
+end
+
+def reset_peeps_table
+  seed_sql = File.read("spec/seeds/peeps_seeds.sql")
+  connection = PG.connect({ host: "127.0.0.1", dbname: "chitter_test" })
+  connection.exec(seed_sql)
+end
+
 describe Application do
   # This is so we can use rack-test helper methods.
   include Rack::Test::Methods
@@ -10,11 +22,8 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
-  # setup
-  # before do
-  #   create_test_post_with_tags('Test cooking post', ['cooking'])
-  #   create_test_post_with_tags('Test programming post', ['programming'])
-  # end
+  before(:each) { reset_users_table }
+  before(:each) { reset_peeps_table }
 
   context "GET /" do
     it "shows all the peeps" do
@@ -22,7 +31,7 @@ describe Application do
       expect(response.body).to include("Erykah Badu")
       expect(response.body).to include("BagLady")
       expect(response.body).to include("I pick my friends like I pick fruit")
-      expect(response.body).to include("20-04-23 04:05:06")
+      expect(response.body).to include("2023-01-08 04:05:06")
     end
   end
 
@@ -31,16 +40,35 @@ describe Application do
       it "should get the form to create a new user" do
         response = get("/sign_up")
         expect(response.status).to eq(200)
-        expect(response.body).to include('<input type="text" name="name" />')
-        expect(response.body).to include('<input type="text" name="password" />')
+        expect(response.body).to include('<input type="text" name="name" autocomplete="off"/>')
+        expect(response.body).to include('<input type="text" password="password" autocomplete="off"/>')
+      end
+    end
+
+    context "POST /users" do
+      it "creates new user" do
+        response = post('/users', name: 'Solána Imani Rowe', username: 'sza', email: 'sza@gmail.com', password: 'killedmyex')
+        expect(response.body).to include('<h1>Welcome to the chitter community!</h1>')
       end
     end
   end
 
-  context "POST /users" do
-    it "creates new user" do
-      response = post('/users', name: 'Solána Imani Rowe', username: 'sza', email: 'sza@gmail.com', password: 'killedmyex')
-      expect(response.body).to include('<h1>Welcome to the chitter community!</h1>')
+  describe "Logging in to an account" do
+    context "GET /login" do
+      it "should get the form to login to account" do
+        response = get("/login")
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<input type="text" email="email" autocomplete="off"/>')
+        expect(response.body).to include('<input type="password" password="password" autocomplete="off"/>')
+      end
+    end
+
+    context "POST /home" do 
+      it "logs in a user" do 
+        response = post('/home', email: 'erykah@gmail.com', password: 'Baduizm99')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<h1>You are logged in!</h1>')
+      end
     end
   end
 

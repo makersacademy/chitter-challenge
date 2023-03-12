@@ -31,6 +31,17 @@ describe UserRepository do
     expect(user.password).to eq("seat@thetable")
   end
 
+  it "finds a user by email" do
+    repo = UserRepository.new
+
+    user = repo.find_by_email('solange@gmail.com')
+    expect(user.id).to eq (3)
+    expect(user.name).to eq("Solange Knowles")
+    expect(user.email).to eq("solange@gmail.com")
+    expect(user.username).to eq("TheBetterSis")
+    expect(user.password).to eq("seat@thetable")
+  end
+
   it "creates a new user" do
     repo = UserRepository.new
 
@@ -50,13 +61,4 @@ describe UserRepository do
     expect(users.last.password).to eq("Nothankyou?")
   end
 
-  it "deletes a user" do
-    repo = UserRepository.new
-
-    repo.delete(1)
-    users = repo.all
-
-    expect(users.length).to eq(2)
-    expect(users.first.id).to eq(2)
-  end
 end

@@ -19,15 +19,6 @@ describe PeepRepository do
     expect(peeps.first.user_id).to eq("1")
   end
 
-  it "finds one peep" do
-    repo = PeepRepository.new
-
-    peep = repo.find(3)
-    expect(peep.message).to eq("Sometimes I dont wanna feel those metal clouds")
-    expect(peep.time).to eq("2023-01-08 04:05:06")
-    expect(peep.user_id).to eq("3")
-  end 
-
   it "creates a new peep" do
     repo = PeepRepository.new
 

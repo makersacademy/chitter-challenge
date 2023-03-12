@@ -1,3 +1,5 @@
+require_relative './user'
+
 class UserRepository
   def all
     users = []
@@ -15,6 +17,20 @@ class UserRepository
       users << user
     end
     return users
+  end
+
+  def find_by_email(email)
+    sql = "SELECT * FROM users WHERE email = $1;"
+    result_set = DatabaseConnection.exec_params(sql, [email])
+
+    user = User.new
+    user.id = result_set[0]["id"].to_i
+    user.name = result_set[0]["name"]
+    user.email = result_set[0]["email"]
+    user.username = result_set[0]["username"]
+    user.password = result_set[0]["password"]
+
+    return user
   end
 
   def find(id)
@@ -41,10 +57,5 @@ class UserRepository
       )
 
     return user
-  end
-
-  def delete(id)
-    sql = "DELETE FROM users WHERE id = $1;"
-    DatabaseConnection.exec_params(sql, [id])
   end
 end

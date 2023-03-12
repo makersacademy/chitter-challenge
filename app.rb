@@ -10,10 +10,15 @@ require "date"
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
+    
     register Sinatra::Reloader
     also_reload "lib/peep.rb"
     also_reload "lib/peep_repository.rb"
+    also_reload "lib/user.rb"
+    also_reload "lib/user_repository.rb"
   end
 
   get "/" do
@@ -32,6 +37,24 @@ class Application < Sinatra::Base
 
   get '/login' do
     erb(:login)
+  end
+
+  post '/home' do
+
+    email = params[:email]
+    password = params[:password]
+
+    repo = UserRepository.new
+    user = repo.find_by_email(email)
+
+    if user.password == password
+      # Set the user ID in session
+      # session[:user_id] = user.id
+
+      return erb(:login_success)
+    else
+      return erb(:login_error)
+    end
   end
 
  #create a new user
@@ -57,5 +80,9 @@ end
     return redirect("/")
   end
 
+  get '/logout' do
+    session.clear
 
+    redirect '/'
+  end
 end
