@@ -21,7 +21,7 @@ class Application < Sinatra::Base
 
   get '/all_peeps' do
     repo = PeepRepository.new
-    @peeps = repo.all
+    @peeps = repo.all.reverse
     return erb(:all_peeps)
   end
 

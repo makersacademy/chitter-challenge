@@ -39,6 +39,16 @@ describe Application do
     end
   end
 
+  context "GET /all_peeps" do
+    it "returns all peeps" do
+      response = get('/all_peeps')
+      expect(response.status).to eq 200
+      expect(response.body).to include('<a href="/post/6">Just finished a great workout </a>')
+      expect(response.body).to include('<a href="/post/3">Excited to start my new job! </a>')
+      expect(response.body).to include('<a href="/post/1">Just had the best burger ever! </a>')
+    end
+  end
+
   context "GET /new_account" do
     it "returns the form page" do
       response = get('new_account')
@@ -97,7 +107,7 @@ describe Application do
         password: 'foo')
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Login successfull</h1>')
-      expect(response.body).to include('<a href="/account_page">Continue to Account</a>')
+      expect(response.body).to include('<a href="/logged_in_home">Continue to Home</a>')
     end
 
     it "returns failure page if password is incorrect" do
@@ -139,7 +149,7 @@ describe Application do
       response = post('/post', { content: 'A good day :)' }, { 'rack.session' => { user_id: 1 } })
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>Peep posted :)</h1>")
-      expect(response.body).to include('<a href="/">Return to home page </a>')
+      expect(response.body).to include('<a href="/logged_in_home">Return to home </a>')
     end
 
     it "Responds with 400 if input is empty string" do
