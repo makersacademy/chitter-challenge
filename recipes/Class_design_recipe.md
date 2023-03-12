@@ -58,8 +58,8 @@ uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com_
 │                         │
 │ - username              │
 │ - message               │
-│ - format                │
-│   => "MESSAGE peeped by USERNAME"│
+│ - time_added            │
+│   │
 └─────────────────────────┘
 ```
 
@@ -94,8 +94,8 @@ class Peep
     # Returns a string of the message
   end
 
-  def format
-    # Returns a string in the format MESSAGE peeped by USERNAME
+  def time_added
+    # Returns the time and date of the post being written (usnure of exact format just yet)
   end
 
 
@@ -146,17 +146,17 @@ peep_1 = Peep.new("user", "opinions")
 peep.username #=> "user"
 peep.message #=> "opinions"
 
-# Returns a completed peep showing message and author username
+# Returns the time and date that a peep was submitted 
 peep_1 = Peep.new("Barry_the_Builder", "These are my opinions")
-peep.format #=> "`These are my opinions` peeped by Barry_the_Builder"
+peep.time_added #=> a time 
 
 # Returns error message if one of the parameters is empty string
 peep_1 = Peep.new("Barry_the_Builder", "")
-peep.format #=> error message - content must be entered 
+peep_1 #=> error message - content must be entered 
 
 # Returns error message if one of the parameters is empty string (2)
 peep_1 = Peep.new("", "Today I passed my exams")
-peep.format #=> error message - username must be entered 
+peep_1 #=> error message - username must be entered 
 
 
 # PeepRepository class 
