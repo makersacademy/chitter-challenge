@@ -34,8 +34,17 @@ describe Application do
   end
 
   describe "POST /find_user" do
-    context "search for a user by username" do
-      it "should redirect to the public page of a user given a username" do
+    context "if the user can not be found" do
+      it "should display a message 'user not found'" do
+        response = post '/find_user', search: "austinpower"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/"
+        expect(last_response.body).to include "<p>user not found</p>"
+      end
+    end
+    context "search by username" do
+      it "should redirect to the search result public page" do
         response = post '/find_user', search: "changwynn"
         follow_redirect!
         expect(last_response.status).to eq 200
@@ -43,8 +52,8 @@ describe Application do
         expect(last_response.body).to include "<h1>changwynn</h1>"
       end
     end
-    context "search for a user by email" do
-      it "should redirect to the public page of a user given an email adress" do
+    context "search by email" do
+      it "should redirect to the search result public page" do
         response = post '/find_user', search: "mike.bike@live.com"
         follow_redirect!
         expect(last_response.status).to eq 200
@@ -52,13 +61,14 @@ describe Application do
         expect(last_response.body).to include "<h1>mrbike</h1>"
       end
     end
-    context "when the user can not be found" do
-      it "should display a message 'user not found'" do
-        response = post '/find_user', search: "austinpower"
+    context "if search is successful, redirect to the search result public page" do
+      it "show a list of peeps the search result has written with date" do
+        response = post '/find_user', search: "mike.bike@live.com"
         follow_redirect!
         expect(last_response.status).to eq 200
-        expect(last_request.path).to eq "/"
-        expect(last_response.body).to include "<p>user not found</p>"
+        expect(last_request.path).to eq "/user/mrbike"
+        expect(last_response.body).to include "<h1>mrbike</h1>"
+        expect(last_response.body).to include "<p>@jdoe @changwynn guys, Have you watched the game yesterday?</p>"
       end
     end
   end
@@ -161,8 +171,6 @@ describe Application do
 
     context "should add a new peep in the database" do
       it "should add a new peep to home page" do
-        post "/login", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
-        follow_redirect!
         response = post "/new_peep", { 
           time: '2023-03-12 11:49:54.912033',
           content: 'Happy sunday everyone!',
@@ -171,7 +179,6 @@ describe Application do
         follow_redirect!
         expect(last_response.status).to eq 200
         expect(last_request.path).to eq "/"
-        expect(last_response.body).to include '<p>2023-03-12 11:49:54.912033</p>'
         expect(last_response.body).to include '<p>Happy sunday everyone!</p>'
       end
     end

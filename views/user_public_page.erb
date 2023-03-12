@@ -7,5 +7,13 @@
   </head>
   <body>
     <h1><%= @user.username %></h1>
+    <% @user.peeps.each do |peep| %>
+      <div>
+        <p><%= peep.time %></p>
+        <%# implement here name of OP %>
+        <p><%= peep.content %></p>
+        <p><time datetime="<%= peep.time %>"></time></p>
+      </div>
+    <% end %>
   </body>
 </html>

@@ -27,11 +27,21 @@ describe PeepRepository do
       peep.user_id = 2
       subject.create(peep)
       result = subject.all
-      p result
+
       expect(result.length).to eq 4
       expect(result.first.time).to eq '2023-03-12 11:49:54.912033'
       expect(result.first.content).to eq 'Happy sunday everyone!'
       expect(result.first.user_id).to eq 2
     end
-  end 
+    it "should get the tags of the new peep" do
+      peep = Peep.new
+      peep.time = '2023-03-12 11:49:54.912033'
+      peep.content = 'Happy sunday! @changwynn @mrbike'
+      peep.user_id = 2
+      expect(Peep).to receive(:get_tags)
+                  .with(peep.content)
+                  .and_return(["changwynn", "mrbike"])
+      subject.create(peep)
+    end
+  end
 end
