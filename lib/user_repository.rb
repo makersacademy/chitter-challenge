@@ -49,8 +49,10 @@ class UserRepository
   # One argument: a new User Object
   def create(user)
     # Executes the SQL query:
-    # INSERT INTO users (email, password, name, username) VALUES ($1, $2, $3, $4)
+    sql = 'INSERT INTO users (email, password, name, username) VALUES ($1, $2, $3, $4)'
+    sql_params = [user.email, user.password, user.name, user.username]
 
+    DatabaseConnection.exec_params(sql, sql_params)
     # Does not return a value
   end
 

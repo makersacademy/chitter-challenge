@@ -42,4 +42,27 @@ RSpec.describe User do
     expect(user.username).to eq 'Mag Pie'
   end
 
+  it "creates a new user" do
+    repo = UserRepository.new
+
+    user = User.new
+    user.email = 'sparrow@mail.com'
+    user.password = 'sparrow2023'
+    user.name = 'Sparrow'
+    user.username = 'Spar Row'
+
+    repo.create(user)
+
+    all_users = repo.all 
+
+    expect(all_users).to include(
+      have_attributes(
+        email: user.email,
+        password: user.password,
+        name: user.name,
+        username: user.username
+      )
+    )
+  end
+
 end
