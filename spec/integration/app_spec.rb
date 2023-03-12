@@ -130,13 +130,20 @@ describe Application do
         expect(last_request.path).to eq "/login"
         expect(last_response.body).to include "<p>This email address does not exist. Please sign up.</p>"
       end
-      it "should let the user out" do
-        post "/login", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
-
-        response = get "/logout"
-        expect(last_response.status).to eq 200
-        expect(last_response.body).to include '<a href="/login">Log in</a>'
-        expect(last_response.body).to include '<a href="/signup">Create account</a>'
+      context "when the user has successfully logged in" do
+        it "should display a log out option" do
+          post "/login", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
+          follow_redirect!
+          expect(last_response.status).to eq 200
+          expect(last_request.path).to eq "/"
+          expect(last_response.body).to include '<p>Hi, caroush!</p>'
+          get "/logout"
+          follow_redirect!
+          expect(last_response.status).to eq 200
+          expect(last_response.body).to include '<a href="/login">Log in</a>'
+          expect(last_response.body).to include '<a href="/signup">Create account</a>'
+          expect(last_response.body).not_to include '<p>Hi, caroush!</p>'
+        end
       end
     end
   end
