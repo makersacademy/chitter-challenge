@@ -13,7 +13,7 @@ describe UserRepository do
     @repo = UserRepository.new
   end
 
-  xit 'gets all users' do
+  it 'gets all users' do
 
     users = @repo.all_users
 
