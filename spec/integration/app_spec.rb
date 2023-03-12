@@ -91,6 +91,25 @@ describe Application do
     end
   end
 
+  context 'GET /logout' do
+    it "logs in then logs out" do
+      repo = UserRepository.new
+      user = User.new
+      user.id = 4
+      user.name = 'Janie Marie'
+      user.username = 'JMarie1'
+      user.password = 'foo'
+      user.email = 'Jmarie2002@example.com'
+      repo.add_user(user)
+      response = post(
+        '/login',
+        email: 'Jmarie2002@example.com',
+        password: 'foo')
+      get('/logout')
+      expect(last_request.env["rack.session"]).to be_empty
+    end
+  end
+
   context "POST /login" do
     it "returns a success page" do
       repo = UserRepository.new
