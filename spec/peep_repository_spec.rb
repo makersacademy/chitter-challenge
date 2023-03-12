@@ -7,7 +7,7 @@ describe PeepRepository do
 
   before { reset_peeps_table } 
 
-  context ".all method" do
+  describe ".all method" do
     it "should return a list of all peeps" do
       result = subject.all
       expect(result.length).to eq 3
@@ -19,7 +19,23 @@ describe PeepRepository do
       expect(result.last.time).to eq('2023-03-09 16:32:54.912033')
     end
   end 
-  context ".create method" do
+
+  describe ".find method" do
+    it "should return the peep at the given id" do
+      result = subject.find(1)
+      expect(result.content).to eq 'How are you guys doing, today? @jdoe @mrbike'
+    end
+    it "should return the peep at the given id" do
+      result = subject.find(2)
+      expect(result.content).to eq 'Hey @changwynn, I am pretty well What about you?'
+    end
+    it "should return nil if the peep is not found" do
+      result = subject.find(4)
+      expect(result).to be nil
+    end
+  end
+
+  describe ".create method" do
     it "should add a new peep to the database" do
       peep = Peep.new
       peep.time = '2023-03-12 11:49:54.912033'
@@ -42,6 +58,16 @@ describe PeepRepository do
                   .with(peep.content)
                   .and_return(["changwynn", "mrbike"])
       subject.create(peep)
+    end
+  end
+
+  describe ".update method" do
+    it "allows the user to edit the content of its peep" do
+      peep = subject.find(1)
+      peep.content = 'How is everyone today? @jdoe @mrbike'
+      subject.update(peep)
+      result = subject.find(1)
+      expect(result.content).to eq 'How is everyone today? @jdoe @mrbike'
     end
   end
 end

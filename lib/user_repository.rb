@@ -20,16 +20,25 @@ class UserRepository
   # FIND METHOD
   # ------------
 
+  def find_by_id(id)
+    sql = "SELECT * FROM users WHERE  id = $1;"
+    result_set = DatabaseConnection.exec_params(sql, [id])
+    
+    return result_set_to_user_object(result_set)
+  end
+
   def find(string)
     sql = "SELECT * FROM users WHERE  username = $1 OR email = $1;"
     result_set = DatabaseConnection.exec_params(sql, [string])
     
-    return "not found" if result_set.ntuples.zero?
+    return result_set_to_user_object(result_set)
+  end
 
+  def result_set_to_user_object(result_set)
+    return "not found" if result_set.ntuples.zero?
     record = result_set[0]
     user = Record.to_user(record)
     user_with_peeps = get_peeps(user)
-
     return user_with_peeps
   end
 

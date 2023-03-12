@@ -13,6 +13,15 @@ describe Application do
   before { reset_users_table }
   before { reset_peeps_table }
 
+  let(:create_new_user) do
+    post "/signup", {
+      fullname: "Mariah Carey", 
+      username: "caroush", 
+      email: "mariah-caroush@gmail.com", 
+      password: "Mariah*Caroush123"
+    }
+  end
+
   describe "GET /" do
     it "should return 200 OK" do
       response = get '/'
@@ -75,12 +84,7 @@ describe Application do
 
   describe "POST /signup" do
     it "should send signup form to the database" do
-      response = post "/signup", { 
-        fullname: "Mariah Carey", 
-        username: "caroush", 
-        email: "mariah-caroush@gmail.com", 
-        password: "Mariah*Caroush123"
-      }
+      create_new_user
       follow_redirect!
       expect(last_response.status).to eq 200
       expect(last_request.path).to eq "/"
@@ -95,18 +99,9 @@ describe Application do
   end
 
   describe "POST /login" do
-
-    before(:each) do 
-      post "/signup", {
-        fullname: "Mariah Carey", 
-        username: "caroush", 
-        email: "mariah-caroush@gmail.com", 
-        password: "Mariah*Caroush123"
-      }
-    end
-
     context "when the user successfully login" do
       it "should redirect to personalized home page" do
+        create_new_user
         post "/login", { 
           email: "mariah-caroush@gmail.com", 
           password: "Mariah*Caroush123"
@@ -119,6 +114,7 @@ describe Application do
     end
     context "when the user input an incorrect password" do
       it "should display the message 'password is incorrect'" do
+        create_new_user
         post "/login", { 
           email: "mariah-caroush@gmail.com", 
           password: "Mariah*Caroush"
@@ -143,6 +139,7 @@ describe Application do
     end
     context "when the user has successfully logged in" do
       it "should display a log out option" do
+        create_new_user
         post "/login", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
         follow_redirect!
         expect(last_response.status).to eq 200
@@ -158,19 +155,11 @@ describe Application do
     end
   end
 
-  describe "POST /new_peep" do
-
-    before(:each) do 
-      post "/signup", {
-        fullname: "Mariah Carey", 
-        username: "caroush", 
-        email: "mariah-caroush@gmail.com", 
-        password: "Mariah*Caroush123"
-      }
-    end
+  describe "POST to /new_peep" do
 
     context "should add a new peep in the database" do
       it "should add a new peep to home page" do
+        create_new_user
         response = post "/new_peep", { 
           time: '2023-03-12 11:49:54.912033',
           content: 'Happy sunday everyone!',
@@ -183,4 +172,43 @@ describe Application do
       end
     end
   end
+
+  describe "GET to /edit_peep" do
+    before(:each) do 
+      post "/signup", {
+        fullname: "Mariah Carey", 
+        username: "caroush", 
+        email: "mariah-caroush@gmail.com", 
+        password: "Mariah*Caroush123"
+      }
+      post "/new_peep", { 
+          time: '2023-03-12 11:49:54.912033',
+          content: 'Happy sunday everyone!',
+          user_id: 4
+        }
+    end
+    it "should open the edit peep page " do
+      response = get "/edit_peep/4"
+      expect(response.status).to eq 200
+      expect(response.body).to include 'value="Happy sunday everyone!">'
+    end
+  end
+ 
+  describe "POST to /edit_peep" do
+    it "should update a peep content only" do
+      create_new_user
+      post "/new_peep", { 
+        time: '2023-03-12 11:49:54.912033',
+        content: 'Happy sunday everyone!',
+        user_id: 4
+      }
+      post "/edit_peep/4", content: 'Good afternoon everyone!'
+      follow_redirect!
+      expect(last_response.status).to eq 200
+      expect(last_request.path).to eq "/"
+      expect(last_response.body).to include '<p>Good afternoon everyone!</p>'
+    end
+  end 
 end
+
+# <p><%= @user_repo.find_by_id(peep.user_id).username %></p>

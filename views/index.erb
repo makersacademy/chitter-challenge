@@ -7,6 +7,8 @@
   </head>
   <body>
     <h1>WELCOME TO CHITTER</h1>
+
+
     <% unless @session_is_open %>
       <div>
         <a href="/login">Log in</a>
@@ -22,29 +24,34 @@
       <p><%= @message unless @message.nil? %></p>
     </form>
 
-    <% if @session_is_open %>
-
-      <p>Hi, <%= @user.username %>!</p>
-      <div>
-        <a href="/logout">Log out</a>
-      </div>
-
-      <form action="/new_peep" method="post">
-        <label for="new_peep_content"></label>
-        <input type="text" id="new_peep_content" name="content" placeholder="Chit-chat here">
-        <input type="submit" value="Post peep">
-      </form>
-
-    <% end %>
-
-    <% @peeps.each do |peep| %>
-      <div>
-        <p><%= peep.time %></p>
-        <%# implement here name of OP %>
+    <div>
+      <% if @session_is_open %>
+        <p>Hi, <%= @user.username %>!</p>
+        <div>
+          <a href="/logout">Log out</a>
+        </div>
+        <form action="/new_peep" method="post">
+          <label for="new_peep_content"></label>
+          <input type="text" id="new_peep_content" name="content" placeholder="Chit-chat here">
+          <input type="submit" value="Post peep">
+        </form>
+      <% end %>
+    </div>
+    
+    <div>
+      <% @peeps.each do |peep| %>
+        <p><%= @peep_owner.call(peep.user_id) %></p>
         <p><%= peep.content %></p>
-        <p><time datetime="<%= peep.time %>"></time></p>
-      </div>
-    <% end %>
+        <p><time datetime="<%= peep.time %>"><%= peep.time %></time></p>
+
+        <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
+          <a href="/edit_peep/<%= peep.id %>">Edit peep</a>
+        <% end %>
+
+
+      <% end %>
+    </div>
+
   </body>
 </html>
 

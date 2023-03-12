@@ -17,21 +17,34 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+
   
+
+
   # ------------------
   # HOMEPAGE
   # ------------------
-    
+  
   get '/' do
-    repo = PeepRepository.new
+    @peep_repo = PeepRepository.new
+    @user_repo = UserRepository.new
     @message = session.delete(:message)
-    @peeps = repo.all
+
+    session_is_open?
+
+    @peep_owner = lambda do |user_id| 
+      @user_repo.find_by_id(user_id).username
+    end
+    
+    @peeps = @peep_repo.all
+    return @peeps.empty? ? erb(:no_peeps) : erb(:index)
+  end
+
+  def session_is_open?
     @session_is_open = !session[:username].nil?
     if @session_is_open
-      repo = UserRepository.new
-      @user = repo.find(session[:username])
+      @user = @user_repo.find(session[:username])
     end
-    return @peeps.empty? ? erb(:no_peeps) : erb(:index)
   end
 
   # ------------------
@@ -126,6 +139,24 @@ class Application < Sinatra::Base
     peep.content = params[:content]
     peep.user_id = user.find(session[:username]).id
     peep_repo.create(peep)
+    redirect "/"
+  end
+
+  # ------------------
+  # EDIT PEEP BEHAVIOR
+  # ------------------
+
+  get "/edit_peep/:id" do
+    peep_repo = PeepRepository.new
+    @peep = peep_repo.find(params[:id]) 
+    return erb(:edit_peep)
+  end
+
+  post "/edit_peep/:id" do
+    peep_repo = PeepRepository.new
+    peep = peep_repo.find(params[:id])
+    peep.content = params[:content]
+    peep_repo.update(peep)
     redirect "/"
   end
 

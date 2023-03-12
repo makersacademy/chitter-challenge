@@ -9,6 +9,21 @@ describe UserRepository do
   before { reset_peeps_table }
   
   let(:user) { User.new }
+  
+  context "find_by_id" do
+    it "should return the corresponding user given its id" do
+      result = subject.find_by_id(1)
+      expect(result.fullname).to eq "Chang Huynh"
+      expect(result.username).to eq "changwynn"
+      expect(result.email).to eq "huynhchang@gmail.com"
+      expect(result.password).to eq "passworD+123"
+      expect(result.peeps[0].content).to eq "How are you guys doing, today? @jdoe @mrbike"
+    end
+    it "should return 'not found' if the user does not exist in the database" do
+      result = subject.find(4)
+      expect(result).to eq "not found"
+    end
+  end
 
   context ".find method" do
     it "should return the corresponding user given the username" do
