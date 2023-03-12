@@ -23,7 +23,7 @@ describe PeepRepository do
     expect(peeps[0].user_id).to eq '1'
 
     expect(peeps[1].id).to eq '2'
-    expect(peeps[1].name).to eq 'RIP Uncle Phil'
+    expect(peeps[1].content).to eq 'RIP Uncle Phil'
     expect(peeps[1].user_id).to eq '2'
   end
 
