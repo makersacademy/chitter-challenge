@@ -2,7 +2,6 @@ class PeepRepository
 
   def all
     peeps = []
-    # Executes the SQL query:
     sql = 'SELECT id, content, time, maker_id FROM peeps;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
@@ -16,6 +15,12 @@ class PeepRepository
       peeps << peep
     end
     return peeps
+  end
+
+
+  def create(peep)
+    sql = 'INSERT INTO peeps (content, time, maker_id) VALUES ($1, $2, $3);'
+    DatabaseConnection.exec_params(sql, [peep.content, peep.time, peep.maker_id])
   end
 
 end

@@ -32,5 +32,22 @@ describe PeepRepository do
     expect(peeps[2].time).to eq('2023-02-15 12:27:15')
     expect(peeps[2].maker_id).to eq(1)
   end
+
+  it 'creates a peep' do
+    repo = PeepRepository.new
+
+    new_peep = Peep.new
+    new_peep.content = 'Content4'
+    new_peep.time = '2023-02-16 12:27:15'
+    new_peep.maker_id = 2
+    repo.create(new_peep)
+
+    peeps = repo.all
+
+    expect(peeps.last.content).to eq('Content4')
+    expect(peeps.last.time).to eq('2023-02-16 12:27:15')
+    expect(peeps.last.maker_id).to eq(2)
+
+  end
 end
 
