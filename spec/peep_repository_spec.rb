@@ -35,13 +35,13 @@ describe PeepRepository do
     expect(peep.user_id).to eq '1'
   end
 
-  xit 'creates a peep' do
+  it 'creates a peep' do
     new_peep = Peep.new
     new_peep.content = "Should I acquire twitter?"
     new_peep.user_id = 1
 
     @repo.create_peep(new_peep)
     peeps = @repo.all_peeps
-    peeps[-1].content # => "Should I acquire twitter?"
+    expect(peeps[-1].content).to eq "Should I acquire twitter?"
   end
 end
