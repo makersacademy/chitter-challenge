@@ -29,8 +29,16 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  get "/logged_in_home" do
+    if session[:user_id] != nil
+      return erb(:logged_in_home)
+    else
+      redirect('/login')
+    end
+  end
+
   get '/account_page' do
-    if session[user_id] != nil
+    if session[:user_id] != nil
       @username = session[:username]
       return erb(:account_page)
     else
@@ -81,7 +89,11 @@ class Application < Sinatra::Base
   end
 
   get '/post/new' do
-    return erb(:new_post)
+    if session[:user_id] != nil
+      return erb(:new_post)
+    else
+      redirect('/login')
+    end
   end
 
   post '/post' do
