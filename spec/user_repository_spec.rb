@@ -6,7 +6,7 @@ def reset_users_table
   connection.exec(seed_sql)
 end
 
-RSpec.describe User do
+RSpec.describe UserRepository do
 
   before(:each) do 
     reset_users_table
