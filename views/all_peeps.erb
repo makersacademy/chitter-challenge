@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Peeps</h1>
+
+    <div>
+      <% @peeps.each do |peep| %>
+        <br> <a href="/post/<%= peep.id %>"><%= peep.content %> </a>
+      <% end %>
+    </div>
+  </body>
+</html>

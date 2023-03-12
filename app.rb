@@ -19,18 +19,23 @@ class Application < Sinatra::Base
     return erb(:home_page)
   end
 
-  # get '/all_peeps' do
-  #   repo = PeepRepository
-  #   @peeps = repo.all
-  # end
+  get '/all_peeps' do
+    repo = PeepRepository.new
+    @peeps = repo.all
+    return erb(:all_peeps)
+  end
 
   get '/login' do
     return erb(:login)
   end
 
   get '/account_page' do
-    @username = session[:username]
-    return erb(:account_page)
+    if session[user_id] != nil
+      @username = session[:username]
+      return erb(:account_page)
+    else
+      redirect('/login')
+    end
   end
 
   post '/login' do
@@ -72,7 +77,7 @@ class Application < Sinatra::Base
 
     repo = UserRepository.new
     repo.add_user(@user)
-    return erb(:account_page)
+    return redirect('/login')
   end
 
   get '/post/new' do

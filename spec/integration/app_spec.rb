@@ -34,7 +34,7 @@ describe Application do
       response = get('/')
       expect(response.body).to include("<h1>Chitter</h1>")
       expect(response.body).to include('<a href="/login">Login </a>')
-      expect(response.body).to include('<a href="/post/new">Post a Peep </a>')
+      expect(response.body).to include('<br> <a href="/all_peeps">View all peeps </a>')
       expect(response.body).to include('<a href="/new_account">Create an account </a>')
     end
   end
@@ -49,14 +49,14 @@ describe Application do
   end
 
   context "POST /new_account" do
-    it "returns 200 OK" do
+    it "redirects to login page" do
       response = post('/new_account', 
         name: 'Don Caster', 
         username: 'Donny1', 
         password: 'test_pwd', 
         password_confirm: 'test_pwd',
         email: 'DonnyC@example.com')
-      expect(response.status).to eq 200
+      expect(response.status).to eq 302
     end
 
     it "returns failure page if password and password_confirm do not match" do

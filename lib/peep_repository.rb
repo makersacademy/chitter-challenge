@@ -1,7 +1,6 @@
 require_relative "peep"
 
 class PeepRepository
-
   # Selecting all records
   # No arguments
   def all
