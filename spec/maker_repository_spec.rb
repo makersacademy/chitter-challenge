@@ -16,15 +16,17 @@ describe MakerRepository do
     repo = MakerRepository.new
 
     new_maker = Maker.new
-    new_maker.email = 'maker2@mail.com'
+    new_maker.email = 'maker3@mail.com'
     new_maker.password = '12345678'
-    new_maker.name = 'maker2'
-    new_maker.username = 'username2'
+    new_maker.name = 'maker3'
+    new_maker.username = 'username3'
 
-    expect(makers.last.email).to eq('maker2@mail.com')
+    repo.create(new_maker)
+    
+    expect(new_maker.email).to eq('maker3@mail.com')
     expect(new_maker.password).to eq('12345678')
-    expect(new_maker.name).to eq('maker2')
-    expect(new_maker.username).to eq('username2')
+    expect(new_maker.name).to eq('maker3')
+    expect(new_maker.username).to eq('username3')
   end
 
 

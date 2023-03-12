@@ -140,15 +140,17 @@ expect(peeps.last.maker_id).to eq(1)
 repo = MakerRepository.new
 
 new_maker = Maker.new
-new_maker.email = 'maker2@mail.com'
+new_maker.email = 'maker3@mail.com'
 new_maker.password = '12345678'
-new_maker.name = 'maker2'
-new_maker.username = 'username2'
+new_maker.name = 'maker3'
+new_maker.username = 'username3'
 
-(makers.last.email)# =>('maker2@mail.com')
+repo.create(new_maker)
+
+(new_maker.email)# =>('maker3@mail.com')
 (new_maker.password)# =>('12345678')
-(new_maker.name)# =>('maker2')
-(new_maker.username)# =>('username2')
+(new_maker.name)# =>('maker3')
+(new_maker.username)# =>('username3')
 
 # 4
 # Find a single maker
