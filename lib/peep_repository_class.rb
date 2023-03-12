@@ -1,3 +1,5 @@
+require "peep_class"
+
 class PeepRepository
   def initialize
    
@@ -5,9 +7,11 @@ class PeepRepository
   end
 
   def add(peep) # peep is an instance of Peep 
+    
     @library << peep 
     # Peep gets added to the library
     # Returns nothing
+    
   end
 
   def all
