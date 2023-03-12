@@ -5,7 +5,7 @@ class UserRepository
   # Returning all user records
   # No arguments
   def all
-    users = []
+    @users = []
 
     sql = "SELECT id, name, username, email, password FROM users;"
     result_set = DatabaseConnection.exec_params(sql, [])
@@ -18,17 +18,62 @@ class UserRepository
       user.email = item['email']
       user.password = item['password']
 
-      users << user
+      @users << user
     end
 
-    return users
+    return @users
   end
 
   # Creating a new user record
-  # Takes one argument
+  # Takes one argument (an object of the User class)
   def create(user)
-    # Executes the SQL query:
-    # INSERT INTO users (id, name, username, email, password) VALUES ('id', 'name', 'username', 'email', 'password');
-    # Returns nothing.
+
+    if username_check(user.username) || email_check(user.email)
+      return 'The username/email already exists!'
+    else
+      sql = "INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);"
+      DatabaseConnection.exec_params(sql, [user.name, user.username, user.email, user.password])
+    end
+    return ''
+  end
+
+  def username_check(username_to_verify)
+    sql = 'SELECT * FROM users WHERE username = $1;'
+    existing_user = DatabaseConnection.exec_params(sql, [username_to_verify]).first
+
+    if existing_user
+      user = User.new
+      user.id = existing_user['id'].to_i
+      user.name = existing_user['name']
+      user.username = existing_user['username']
+      user.email = existing_user['email']
+      user.password = existing_user['password']
+  
+      if username_to_verify == user.username
+        return true
+      end
+    end
+  
+    return false
+  end
+
+  def email_check(email_to_verify)
+    sql = 'SELECT * FROM users WHERE email = $1;'
+    existing_user = DatabaseConnection.exec_params(sql, [email_to_verify]).first
+
+    if existing_user
+      user = User.new
+      user.id = existing_user['id'].to_i
+      user.name = existing_user['name']
+      user.username = existing_user['username']
+      user.email = existing_user['email']
+      user.password = existing_user['password']
+  
+      if email_to_verify == user.email
+        return true
+      end
+    end
+  
+    return false
   end
 end

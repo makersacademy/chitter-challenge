@@ -50,5 +50,61 @@ describe UserRepository do
     end
   end
 
-  
+  context '#create' do
+    it 'returns the correct amount of users in the database and correct data' do
+      repo = UserRepository.new
+      new_user = User.new
+
+      new_user.name = 'Joanna'
+      new_user.username = 'jojo'
+      new_user.email = 'joanna@pudelek.pl'
+      new_user.password = 'terminatorj12'
+
+      repo.create(new_user)
+
+      users = repo.all
+
+      expect(users.length).to eq(5)
+      expect(users.last.name).to eq('Joanna')
+      expect(users.last.username).to eq('jojo')
+      expect(users.last.email).to eq('joanna@pudelek.pl')
+      expect(users.last.password).to eq('terminatorj12')
+    end
+
+    it 'fails to create a new user account because of existing username' do
+      repo = UserRepository.new
+      new_user = User.new
+
+      new_user.name = 'Joanna'
+      new_user.username = 'kdun'
+      new_user.email = 'joanna@pudelek.pl'
+      new_user.password = 'terminatorj12'
+
+      expect(repo.create(new_user)).to eq('The username/email already exists!')
+    end
+  end
+
+  context '#username_check' do
+    it 'returns true if the username already exists' do
+      repo = UserRepository.new
+      expect(repo.username_check('kdun')).to eq(true)
+    end
+
+    it 'returns false if the username does not already exist' do
+      repo = UserRepository.new
+      expect(repo.username_check('kdawg')).to eq(false)
+    end
+  end
+
+  context '#email_check' do
+    it 'returns true if the email already exists' do
+      repo = UserRepository.new
+      expect(repo.email_check('konrad@gmail.com')).to eq(true)
+    end
+
+    it 'returns false if the email does not already exist' do
+      repo = UserRepository.new
+      expect(repo.email_check('kdawg@harvard.edu')).to eq(false)
+    end
+  end
 end
