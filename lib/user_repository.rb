@@ -3,6 +3,8 @@ require_relative 'user'
 class UserRepository
   def initialize
     @users = []
+    @logged_in = nil
+    @logged_in_user = nil
   end
   
   def all_users
@@ -35,6 +37,7 @@ class UserRepository
     user.name = result_set[0]['name']
     user.username = result_set[0]['username']
 
+    @logged_in = true ; @logged_in_user = user
     return user
   end
 
@@ -51,6 +54,8 @@ class UserRepository
     params = [user.email, user.password, user.name, user.username]
 
     DatabaseConnection.exec_params(sql, params)
+
+    @logged_in = true ; @logged_in_user = user
     return true
   end
 end
