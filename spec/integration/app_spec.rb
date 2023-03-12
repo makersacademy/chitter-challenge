@@ -156,7 +156,6 @@ describe Application do
   end
 
   describe "POST to /new_peep" do
-
     context "should add a new peep in the database" do
       it "should add a new peep to home page" do
         create_new_user
@@ -174,20 +173,13 @@ describe Application do
   end
 
   describe "GET to /edit_peep" do
-    before(:each) do 
-      post "/signup", {
-        fullname: "Mariah Carey", 
-        username: "caroush", 
-        email: "mariah-caroush@gmail.com", 
-        password: "Mariah*Caroush123"
-      }
-      post "/new_peep", { 
-          time: '2023-03-12 11:49:54.912033',
-          content: 'Happy sunday everyone!',
-          user_id: 4
-        }
-    end
     it "should open the edit peep page " do
+      create_new_user
+      post "/new_peep", { 
+        time: '2023-03-12 11:49:54.912033',
+        content: 'Happy sunday everyone!',
+        user_id: 4
+      }
       response = get "/edit_peep/4"
       expect(response.status).to eq 200
       expect(response.body).to include 'value="Happy sunday everyone!">'
@@ -207,6 +199,37 @@ describe Application do
       expect(last_response.status).to eq 200
       expect(last_request.path).to eq "/"
       expect(last_response.body).to include '<p>Good afternoon everyone!</p>'
+    end
+  end 
+
+  describe "The user is visiting its private profile page" do
+    context "GET to /:username" do
+      it "should display the private page of the user" do
+        response = get "/changwynn"
+        expect(response.status).to eq 200
+        expect(response.body).to include '<h1>Chang Huynh</h1>'
+        expect(response.body).to include '<h2><em>changwynn</em></h2>'
+      end
+    end
+    context "GET to /:username/edit_profile" do
+      it "should display the user details" do
+        response = get "/changwynn/edit_profile"
+        expect(response.status).to eq 200
+        expect(response.body).to include '<h1>Edit your profile</h1>'
+        expect(response.body).to include "<h4>Chang Huynh</h4>"
+        expect(response.body).to include "<h4>changwynn</h4>"
+        expect(response.body).to include "<h4>huynhchang@gmail.com</h4>"
+      end
+    end
+    context "POST to /:username/edit_profile/:attribute" do
+      it "should allow the user to change its username" do
+        create_new_user
+        post "/caroush/edit_profile/username", params = { new_value: "carwash", username: "caroush" }
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/carwash/edit_profile"
+        expect(last_response.body).to include "<h4>carwash</h4>"
+      end
     end
   end 
 end

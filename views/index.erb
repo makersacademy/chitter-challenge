@@ -28,7 +28,7 @@
       <% if @session_is_open %>
         <p>Hi, <%= @user.username %>!</p>
         <div>
-          <a href="/logout">Log out</a>
+          <a href="/<%= @user.username %>">Your profile</a> <a href="/logout">Log out</a>
         </div>
         <form action="/new_peep" method="post">
           <label for="new_peep_content"></label>
@@ -40,6 +40,7 @@
     
     <div>
       <% @peeps.each do |peep| %>
+      <hr>
         <p><%= @peep_owner.call(peep.user_id) %></p>
         <p><%= peep.content %></p>
         <p><time datetime="<%= peep.time %>"><%= peep.time %></time></p>
@@ -47,8 +48,7 @@
         <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
           <a href="/edit_peep/<%= peep.id %>">Edit peep</a>
         <% end %>
-
-
+      <hr>
       <% end %>
     </div>
 

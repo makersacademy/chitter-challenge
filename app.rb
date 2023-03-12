@@ -17,10 +17,6 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
-
-  
-
-
   # ------------------
   # HOMEPAGE
   # ------------------
@@ -125,6 +121,63 @@ class Application < Sinatra::Base
   get "/logout" do
     session[:username] = nil
     redirect "/"
+  end
+
+  # ------------------
+  # EDIT USER PROFILE BEHAVIOR
+  # ------------------
+
+  get "/:username" do
+    user_repo = UserRepository.new
+    @user = user_repo.find(params[:username])
+    return erb(:private_profile)
+  end
+
+  get "/:username/edit_profile" do
+    user_repo = UserRepository.new
+    @user = user_repo.find(params[:username])
+    # p @user
+    return erb(:edit_profile)
+  end
+
+  get "/:username/edit_profile/:attribute" do
+    @username = params[:username]
+    @attribute_name = params[:attribute]
+    # p @username
+    # p @attribute_name
+    return erb(:update_attribute)
+  end
+
+  post "/:username/edit_profile/:attribute" do
+    update_data_process(params)
+    p @user.id
+    user_repo = UserRepository.new
+    @username = user_repo.find_by_id(@user.id).username
+    session[:username] = @username
+
+    redirect "/#{@username}/edit_profile"
+  end
+
+  def update_data_process(params)
+    user_repo = UserRepository.new
+    @attribute_name = params[:attribute]
+    @new_attribute_value = params[:new_value]
+    @user = user_repo.find(params[:username])
+ 
+    method_args = sql_query_provider_for_update_method(@attribute_name, @new_attribute_value, @user.id)
+    user_repo.update(method_args[0], method_args[1])
+  end
+
+  def sql_query_provider_for_update_method(attribute_name, new_value, user_id)
+    case attribute_name
+    when "username"
+      sql = 'UPDATE users SET username = $1 WHERE id = $2;'
+      sql_params = [new_value, @user.id]
+    when "email"
+      sql = 'UPDATE users SET email = $1 WHERE id = $2;'
+      sql_params = [new_value, @user.id]
+    end
+    return [sql, sql_params]
   end
 
   # ------------------

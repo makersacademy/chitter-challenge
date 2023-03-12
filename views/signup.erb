@@ -10,20 +10,21 @@
     <p><%= @message unless @message.nil? %></p>
     <form action="/signup" method="post">
       <div>
+        <p>The full name can not be changed.</p>
         <label for="fullname"></label>
-        <input type="text" id="fullname" name="fullname" placeholder="Full name">
+        <input type="text" id="fullname" name="fullname" placeholder="Full name" required><span> *</span>
       </div>
       <div>
         <label for="username"></label>
-        <input type="text" id="username" name="username" placeholder="username">
+        <input type="text" id="username" name="username" placeholder="username" required><span> *</span>
       </div>
       <div>
         <label for="email"></label>
-        <input type="text" id="email" name="email" placeholder="email">
+        <input type="text" id="email" name="email" placeholder="email" required><span> *</span>
       </div>
       <div>
         <label for="password"></label>
-        <input type="text" id="password" name="password" placeholder="password">
+        <input type="text" id="password" name="password" placeholder="password" required><span> *</span>
       </div>
       <div>
         <input type="submit">
@@ -31,6 +32,9 @@
     </form>
       <div>
         <p>Already have a account? <a href="/login">Login</a> here.</p>
+      </div>
+      <div>
+        <a href="/">Back to Home Page</a>
       </div>
   </body>
 </html>

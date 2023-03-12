@@ -77,5 +77,14 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
     return "is successfully registered"
   end 
+
+  # ------------
+  # UPDATE METHOD
+  # ------------
+
+  def update(sql, sql_params)
+    DatabaseConnection.exec_params(sql, sql_params)
+    return "The user profile has been successfully updated."
+  end 
 end
 
