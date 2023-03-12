@@ -57,9 +57,10 @@ class PeepRepository
   # One argument: the id (number)
   def delete(id)
     # Executes the SQL query:
-    # DELETE FROM peeps WHERE id = $1;
-    
+    sql = 'DELETE FROM peeps WHERE id = $1;'
+    sql_params = [id]
+
+    DatabaseConnection.exec_params(sql, sql_params)
     # Does not return a value
   end
-
 end

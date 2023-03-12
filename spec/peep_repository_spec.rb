@@ -7,6 +7,7 @@ def reset_peeps_table
 end
 
 RSpec.describe PeepRepository do
+
   before(:each) do 
     reset_peeps_table
   end
@@ -50,7 +51,7 @@ RSpec.describe PeepRepository do
     peep = Peep.new
     peep.content = 'Pie pie pie Mag'
     peep.date_time = '2023-01-09 11:00:00'
-    peep.user_id = 1
+    peep.user_id = 2
 
     repo.create(peep)
 
@@ -63,6 +64,16 @@ RSpec.describe PeepRepository do
         user_id: peep.user_id
       )
     )
+  end
+
+  it "deletes a peep with the given id" do
+    repo = PeepRepository.new
+
+    repo.delete(2)
+
+    all_peeps = repo.all
+
+
   end
 
 end
