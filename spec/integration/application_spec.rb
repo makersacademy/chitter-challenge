@@ -30,12 +30,12 @@ describe Application do
       expect(@response.body).to include('<h1>Chitter</h1>')
     end
 
-    xit 'has a list of peeps' do
+    it 'has a list of peeps' do
       expect(@response.body).to include('<a href="/peep/1">Just set up my chitter</a>')
       expect(@response.body).to include('<a href="/peep/2">RIP Uncle Phil</a>')
     end
 
-    xit 'peeps have the name and username of the maker' do
+    it 'peeps have the name and username of the maker' do
       expect(@response.body).to include('<p>Samuel Badru | <em>@sobad</em></p>')
       expect(@response.body).to include('<p>Jermaine Cole | <em>@j.cole</em></p>')
     end

@@ -14,6 +14,27 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    peep_repo = PeepRepository.new ; user_repo = UserRepository.new
+    @peeps = peep_repo.all_peeps ; users = user_repo.all_users
+
+    @name = [] ; @username = []
+
+    users.each do |record|
+      @name << record.name ; @username << record.username
+    end
     return erb(:index)
+  end
+
+  get '/peep/:id' do
+    peep_id = params[:id]
+    peep_repo = PeepRepository.new
+    peep = peep_repo.find_peep(peep_id)
+    @content = peep.content; @datetime = peep.datetime.split
+    user_id = peep.user_id
+
+    user_repo = UserRepository.new
+    user = user_repo.find_user(user_id)
+    @name = user.name; @username = user.username
+    return erb(:peep)
   end
 end

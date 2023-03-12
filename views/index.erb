@@ -9,5 +9,11 @@
 </head>
 <body>
   <h1>Chitter</h1>
+
+  <% @peeps.zip(@name, @username).reverse_each do |peep, name, username| %>
+    <p><%=name%> | <em>@<%=username%></em></p>
+    <a href="/peep/<%=peep.id%>"><%=peep.content%></a>
+    <br />
+    <% end %>
 </body>
 </html>
