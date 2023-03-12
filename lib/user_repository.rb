@@ -60,8 +60,10 @@ class UserRepository
   # One argument: the id (number)
   def delete(id)
     # Executes the SQL query:
-    # DELETE FROM users WHERE id = $1
+    sql = 'DELETE FROM users WHERE id = $1'
+    sql_params = [id]
     
+    DatabaseConnection.exec_params(sql, sql_params)
     # Does not return a value
   end
 

@@ -65,4 +65,21 @@ RSpec.describe User do
     )
   end
 
+  it "deletes a user with the given id" do
+    repo = UserRepository.new
+
+    repo.delete(1)
+
+    all_users = repo.all 
+
+    expect(all_users).not_to include(
+      have_attributes(
+        email: 'magpie@mail.com',
+        password: 'magpie2023',
+        name: 'Magpie',
+        username: 'Mag Pie'
+      )
+    )
+  end
+
 end
