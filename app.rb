@@ -136,7 +136,6 @@ class Application < Sinatra::Base
     peep.user_id = session[:user_id].to_i
     repo = PeepRepository.new
     repo.post(peep)
-
     return erb(:post_success)
   end
 
@@ -167,5 +166,6 @@ def input_sanitation(param_names)
   param_names.each do |param|
     params[param] = params[param].gsub(html_regex, '')
   end
-
 end
+
+

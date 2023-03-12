@@ -32,6 +32,20 @@ class UserRepository
     return user
   end
 
+  def find_by_username(username)
+    sql = 'SELECT id, name, username, password, email FROM users WHERE username = $1'
+    result = DatabaseConnection.exec_params(sql, [username])
+    return nil if result.ntuples == 0
+    user = User.new
+    user.id = result[0]['id'].to_i
+    user.name = result[0]['name']
+    user.username = result[0]['username']
+    user.password = result[0]['password']
+    user.email = result[0]['email']
+    
+    return user
+  end
+
   # checks encrypted password against inputted password when user attempts to log in
   def sign_in(email, submitted_password)
     user = find_by_email(email)
