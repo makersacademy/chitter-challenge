@@ -1,3 +1,4 @@
+
 require 'user_repository'
 require 'user'
 
@@ -80,7 +81,19 @@ describe UserRepository do
       new_user.email = 'joanna@pudelek.pl'
       new_user.password = 'terminatorj12'
 
-      expect(repo.create(new_user)).to eq('The username/email already exists!')
+      expect(repo.create(new_user)).to eq('The username is already registered!')
+    end
+
+    it 'fails to create a new user account because of existing email' do
+      repo = UserRepository.new
+      new_user = User.new
+
+      new_user.name = 'Joanna'
+      new_user.username = 'jojo'
+      new_user.email = 'konrad@gmail.com'
+      new_user.password = 'terminatorj12'
+
+      expect(repo.create(new_user)).to eq('The email is already registered!')
     end
   end
 

@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 
-DatabaseConnection.connect('music_library')
+DatabaseConnection.connect('chitter')
 
 class Application < Sinatra::Base
   
