@@ -21,6 +21,12 @@ class Application < Sinatra::Base
   end
 
   get '/peeps' do
+    repo = PeepRepository.new
+    @peeps = repo.all
+
+    repo = UserRepository.new
+    @users = repo.all
+
     return erb(:peepboard)
   end
 

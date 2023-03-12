@@ -2,5 +2,13 @@
   <head></head>
   <body>
     <h1>Peep Board</h1>
+    <% @peeps.reverse_each do |peep| %>
+      <div>
+        <%= peep.content %>
+        <br>
+        Date/Time: <%= peep.date_time %>
+      </div>
+      <br>
+    <% end %>
   </body>
 </html>
