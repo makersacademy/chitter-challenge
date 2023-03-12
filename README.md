@@ -121,3 +121,17 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+### Technologies used:
+HTML, Ruby
+
+##### Follow these steps to setup your project:
++ rvm get stable
++ rvm use ruby --latest --install --default
++ gem install bundler
++ bundle init
++ bundle add rspec
++ rspec --init
+
+> Run rspec form your terminal and start test-driving your classes
+
