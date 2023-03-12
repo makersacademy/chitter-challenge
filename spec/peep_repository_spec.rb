@@ -27,11 +27,11 @@ describe PeepRepository do
     expect(peeps[1].user_id).to eq '2'
   end
 
-  xit 'gets a single peep' do
-    peep = @repo.find_peep(2)
+  it 'gets a single peep' do
+    peep = @repo.find_peep(3)
 
     expect(peep.id).to eq '3'
-    expect(peep.name).to eq 'OMDs J.cole just joined chitter!'
+    expect(peep.content).to eq 'OMDs J.cole just joined chitter!'
     expect(peep.user_id).to eq '1'
   end
 
