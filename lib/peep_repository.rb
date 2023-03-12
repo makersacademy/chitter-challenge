@@ -10,7 +10,7 @@ class PeepRepository
     sql = 'SELECT id, content, date_time, user_id FROM peeps;'
 
     result_set = DatabaseConnection.exec_params(sql, [])
-    
+
     result_set.each do |record|
       peep = Peep.new
       peep.id = record['id'].to_i
@@ -27,9 +27,19 @@ class PeepRepository
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, content, date_time, user_id FROM peeps WHERE id = $1;
+    sql = 'SELECT id, content, date_time, user_id FROM peeps WHERE id = $1;'
+    sql_params = [id]
 
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    record = result_set[0]
+
+    peep = Peep.new
+    peep.id = record['id'].to_i
+    peep.content = record['content']
+    peep.date_time = record['date_time']
+    peep.user_id = record['user_id'].to_i
     # Returns a single Peep object.
+    return peep
   end
 
   # Creates a new record

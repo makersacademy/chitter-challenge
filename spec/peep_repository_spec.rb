@@ -34,4 +34,14 @@ RSpec.describe PeepRepository do
     expect(peeps[2].user_id).to eq 3
   end
 
+  it "returns a single peep with the given id" do
+    repo = PeepRepository.new
+
+    peep = repo.find(1)
+
+    expect(peep.content).to eq 'Mag mag mag Pie'
+    expect(peep.date_time).to eq '2023-01-08 10:00:00'
+    expect(peep.user_id).to eq 1
+  end
+
 end
