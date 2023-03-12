@@ -55,7 +55,28 @@ describe Application do
   end
 
   context 'Log in page - GET /login' do
-    xit '' do
+    before do
+      @response = get('/login')
+    end
+    
+    xit 'is a valid web query' do
+      expect(@response.status).to eq (200)
+    end
+
+    xit 'has a email/username input field' do
+      expect(@response.body).to include('<input class="form-control" id="login_email/username" placeholder="Enter email or username"')
+    end
+
+    xit 'has a password field' do
+      expect(@response.body).to include('<input type="password" class="form-control" id="login_password" placeholder="Password"')
+    end
+
+    xit 'has a login button' do
+      expect(@response.body).to include('<a class="btn btn-primary" href="/"  role="button">Log in</a>')
+    end
+
+    xit 'has a link to sign up' do
+      expect(@response.body).to include('<a href="/signup">Sign up</a>')
     end
   end
 
