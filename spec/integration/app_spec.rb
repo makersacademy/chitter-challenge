@@ -48,6 +48,7 @@ describe Application do
     context "POST /users" do
       it "creates new user" do
         response = post('/users', name: 'Solána Imani Rowe', username: 'sza', email: 'sza@gmail.com', password: 'killedmyex')
+        expect(response.status).to eq(200)
         expect(response.body).to include('<h1>Welcome to the chitter community!</h1>')
       end
     end
@@ -63,9 +64,9 @@ describe Application do
       end
     end
 
-    context "POST /home" do 
+    context "POST /login" do 
       it "logs in a user" do 
-        response = post('/home', email: 'erykah@gmail.com', password: 'Baduizm99')
+        response = post('/login', email: 'erykah@gmail.com', password: 'Baduizm99')
         expect(response.status).to eq(200)
         expect(response.body).to include('<h1>You are logged in!</h1>')
       end

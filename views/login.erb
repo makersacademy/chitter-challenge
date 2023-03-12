@@ -2,20 +2,19 @@
   <head> </head>
   <body>
     <h1>Chitter</h1>
+
+    <% if @error %>
+        <div class="error">Login failed.</div>
+    <% end %>
     
-    <div>
-     <h2>Login now</h2>
-     <form method="POST" action="/home">
-     <label>Enter Email: </label>
-     <input type="text" email="email" autocomplete="off"/><br />
-     <label>Enter Password: </label>
-     <input type="password" password="password" autocomplete="off"/><br />
-     <br >
-     <input type="submit" />
-     </form>
-     
-    </div>
-   
+    <form action="/login" method="post">
+    
+        <input type="text" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
+    
+        <input type="submit" name="button" value="Login" />
+    
+    </form>
     
   </body>
 </html>

@@ -35,39 +35,52 @@ class Application < Sinatra::Base
     erb(:sign_up)
   end
 
+   #create a new user
+   post "/users" do
+    repo = UserRepository.new
+    new_user = User.new
+    new_user.name = params[:name]
+    new_user.username = params[:username]
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+    repo.create(new_user)
+    p repo.all
+    return erb(:user_created)
+  end
+
   get '/login' do
     erb(:login)
   end
 
-  post '/home' do
-
+  post '/login' do
     email = params[:email]
     password = params[:password]
 
-    repo = UserRepository.new
-    user = repo.find_by_email(email)
+    users = []
+    user_repo = UserRepository.new
+    users << user_repo.find_by_email(email)
 
-    if user.password == password
-      # Set the user ID in session
-      # session[:user_id] = user.id
-
-      return erb(:login_success)
+    if users[0].password == password && users[0].email == email
+      user = users.first
+      # response.set_cookie("user_id", value: user.id, expires: Time.now + 60*60*24*365 )
+      session["user_id"] = user.id
+      redirect '/login_home'
     else
-      return erb(:login_error)
+      @error = true
+      erb :login_failed
     end
   end
 
- #create a new user
- post "/users" do
-  repo = UserRepository.new
-  new_user = User.new
-  new_user.name = params[:name]
-  new_user.username = params[:username]
-  new_user.email = params[:email]
-  new_user.password = params[:password]
-  repo.create(new_user)
-  return erb(:user_created)
-end
+  get "/login_home" do
+    if session[:user_id] == nil
+      return redirect('/login')
+    else
+    @peeps = PeepRepository.new.all.reverse
+    @user_repo = UserRepository.new
+
+    erb (:login_home)
+    end
+  end
 
   #create a new peep
   post "/peeps" do
@@ -77,7 +90,7 @@ end
     new_peep.time = DateTime.now
     new_peep.user_id = params[:user_id]
     repo.create(new_peep)
-    return redirect("/")
+    redirect '/login_home'
   end
 
   get '/logout' do
