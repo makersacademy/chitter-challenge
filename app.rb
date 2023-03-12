@@ -33,4 +33,8 @@ class Application < Sinatra::Base
     return erb(:peepboard)
   end
 
+  get '/new' do
+    return erb(:create_peep)
+  end
+
 end

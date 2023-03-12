@@ -50,4 +50,17 @@ describe Application do
     end
   end
 
+  context "GET /new" do
+    it "returns the form to create a new peep" do
+      response = get('/new')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Create a new peep</h1>'
+      expect(response.body).to include '<form action="/new" method="POST">'
+      expect(response.body).to include '<input type="text" name="content">'
+      expect(response.body).to include '<input type="text" name="name">'
+      expect(response.body).to include '<input type="text" name="username">'
+    end
+  end
+
 end
