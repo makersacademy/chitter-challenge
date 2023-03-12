@@ -3,10 +3,15 @@
   <body>
     <h1>Peep Board</h1>
     <% @peeps.reverse_each do |peep| %>
+      <% user = @user_repo.find(peep.user_id) %>
       <div>
         <%= peep.content %>
         <br>
         Date/Time: <%= peep.date_time %>
+        <br>
+        Name: <%= user.name %>
+        <br>
+        Handle: <%= user.username %>
       </div>
       <br>
     <% end %>
