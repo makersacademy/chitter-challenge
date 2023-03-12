@@ -18,3 +18,5 @@ gem "webrick", "~> 1.8"
 gem "rackup", "~> 1.0"
 
 gem "pg", "~> 1.4"
+
+gem "rack-test", "~> 2.0"

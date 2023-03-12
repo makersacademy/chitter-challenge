@@ -12,7 +12,6 @@ describe PeepRepository do
 
   it "finds all peeps" do
     repo = PeepRepository.new
-
     peeps = repo.all
     expect(peeps.length).to eq(3)
     expect(peeps.first.message).to eq("I pick my friends like I pick fruit")
@@ -25,16 +24,16 @@ describe PeepRepository do
 
     peep = repo.find(3)
     expect(peep.message).to eq("Sometimes I dont wanna feel those metal clouds")
-    expect(peep.time).to eq("2023-01-18 08:05:06")
+    expect(peep.time).to eq("2023-01-08 04:05:06")
     expect(peep.user_id).to eq("3")
-  end
+  end 
 
   it "creates a new peep" do
     repo = PeepRepository.new
 
     new_peep = Peep.new
     new_peep.message = "Woman to woman, I just wanna see you glow"
-    new_peep.time = "2023-03-18 19:05:06"
+    new_peep.time = "2023-01-08 04:05:06"
     new_peep.user_id = "4"
     repo.create(new_peep)
 
@@ -44,17 +43,8 @@ describe PeepRepository do
     expect(peeps.last.message).to eq(
       "Woman to woman, I just wanna see you glow",
     )
-    expect(peeps.last.time).to eq("2023-03-18 19:05:06")
+    expect(peeps.last.time).to eq("2023-01-08 04:05:06")
     expect(peeps.last.user_id).to eq("4")
   end
 
-  it "deletes a peep" do
-    repo = PeepRepository.new
-
-    repo.delete(1)
-    peeps = repo.all
-
-    expect(peeps.length).to eq(2)
-    expect(peeps.first.id).to eq(2)
-  end
 end

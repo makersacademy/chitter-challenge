@@ -1,3 +1,5 @@
+require_relative './peep'
+
 class PeepRepository
   def all
     peeps = []
@@ -17,7 +19,7 @@ class PeepRepository
   end
 
   def find(id)
-    sql = "SELECT id, message, time, user_id FROM peeps WHERE id = $1;"
+    sql = "SELECT * FROM peeps WHERE id = $1;"
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     peep = Peep.new
@@ -40,8 +42,4 @@ class PeepRepository
     return peep
   end
 
-  def delete(id)
-    sql = "DELETE FROM peeps WHERE id = $1;"
-    DatabaseConnection.exec_params(sql, [id])
-  end
 end
