@@ -36,7 +36,7 @@ class Application < Sinatra::Base
   end
 
    #create a new user
-   post "/users" do
+  post "/users" do
     repo = UserRepository.new
     new_user = User.new
     new_user.name = params[:name]
@@ -44,7 +44,6 @@ class Application < Sinatra::Base
     new_user.email = params[:email]
     new_user.password = params[:password]
     repo.create(new_user)
-    p repo.all
     return erb(:user_created)
   end
 
@@ -59,10 +58,9 @@ class Application < Sinatra::Base
     users = []
     user_repo = UserRepository.new
     users << user_repo.find_by_email(email)
-
+    #not working properly
     if users[0].password == password && users[0].email == email
       user = users.first
-      # response.set_cookie("user_id", value: user.id, expires: Time.now + 60*60*24*365 )
       session["user_id"] = user.id
       redirect '/login_home'
     else
@@ -88,14 +86,13 @@ class Application < Sinatra::Base
     new_peep = Peep.new
     new_peep.message = params[:message]
     new_peep.time = DateTime.now
-    new_peep.user_id = params[:user_id]
+    new_peep.user_id = session[:user_id]
     repo.create(new_peep)
     redirect '/login_home'
   end
 
   get '/logout' do
     session.clear
-
     redirect '/'
   end
 end
