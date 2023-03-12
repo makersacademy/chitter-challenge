@@ -1,4 +1,4 @@
-# Users Model and Repository Classes Design Recipe
+# Peeps Model and Repository Classes Design Recipe
 
 _Copy this recipe template to design and implement Model and Repository classes for a database table._
 
@@ -47,16 +47,16 @@ psql -h 127.0.0.1 chitter < seeds_users_peeps.sql
 Usually, the Model class name will be the capitalised table name (single instead of plural). The same name is then suffixed by `Repository` for the Repository class name.
 
 ```ruby
-# Table name: users
+# Table name: peeps
 
 # Model class
-# (in lib/user.rb)
-class User
+# (in lib/peep.rb)
+class Peep
 end
 
 # Repository class
-# (in lib/user_repository.rb)
-class UserRepository
+# (in lib/peep_repository.rb)
+class PeepRepository
 end
 ```
 
@@ -65,15 +65,15 @@ end
 Define the attributes of your Model class. You can usually map the table columns to the attributes of the class, including primary and foreign keys.
 
 ```ruby
-# Table name: users
+# Table name: peeps
 
 # Model class
-# (in lib/user.rb)
+# (in lib/peep.rb)
 
-class User
+class Peep
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :email, :password, :name, :username
+  attr_accessor :id, :content, :date_time, :user_id
 end
 
 ```
@@ -87,36 +87,36 @@ Your Repository class will need to implement methods for each "read" or "write" 
 Using comments, define the method signatures (arguments and return value) and what they do - write up the SQL queries that will be used by each method.
 
 ```ruby
-# Table name: users
+# Table name: peeps
 
 # Repository class
-# (in lib/user_repository.rb)
+# (in lib/peep_repository.rb)
 
-class UserRepository
+class PeepRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, email, password, name, username FROM users;
+    # SELECT id, content, date_time, user_id FROM peeps;
 
-    # Returns an array of User objects.
+    # Returns an array of Peep objects.
   end
 
   # Selects a single record by its ID
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, email, password, name, username FROM users WHERE id = $1;
+    # SELECT id, content, date_time, user_id FROM peeps WHERE id = $1;
 
-    # Returns a single User object.
+    # Returns a single Peep object.
   end
 
   # Creates a new record
-  # One argument: a new User Object
-  def create(user)
+  # One argument: a new Peep Object
+  def create(peep)
     # Executes the SQL query:
-    # INSERT INTO users (email, password, name, username) VALUES ($1, $2, $3, $4);
+    # INSERT INTO peeps (content, date_time, user_id) VALUES ($1, $2, $3);
 
     # Does not return a value
   end
@@ -125,7 +125,7 @@ class UserRepository
   # One argument: the id (number)
   def delete(id)
     # Executes the SQL query:
-    # DELETE FROM users WHERE id = $1;
+    # DELETE FROM peeps WHERE id = $1;
     
     # Does not return a value
   end
@@ -143,59 +143,62 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all users
+# Get all peeps
 
-repo = UserRepository.new
+repo = PeepRepository.new
 
-users = repo.all
+peeps = repo.all
 
-users.length # => 3
+peeps.length # => 3
 
-users[0].id # => 1
-users[0].name # => 'Magpie'
-users[0].username # => 'Mag Pie'
+peeps[0].id # => 1
+peeps[0].content # => 'Mag mag mag Pie'
+peeps[0].date_time # => '2023-01-08 10:00:00'
+peeps[0].user_id # => 1
 
-users[1].id # => 2
-users[1].name # => 'Mockingbird'
-users[1].username # => 'Mocking Bird'
+peeps[1].id # => 2
+peeps[1].content # => 'Mock mock mock Ingbird'
+peeps[1].date_time # => '2023-01-10 13:30:00'
+peeps[1].user_id # => 2
 
-users[2].id # => 3
-users[2].name # => 'Nightingale'
-users[2].username # => 'Night Ingale'
+peeps[2].id # => 3
+peeps[2].content # => 'Night night night Ingale'
+peeps[2].date_time # => '2023-01-13 18:20:00'
+peeps[2].user_id # => 3
 
 # 2
-# Get a single user
+# Get a single peep
 
-repo = UserRepository.new
+repo = PeepRepository.new
 
-user = repo.find(1)
+peep = repo.find(1)
 
-user.name # => 'Magpie'
-user.username # => 'Mag Pie'
+peep.content # => 'Mag mag mag Pie'
+peep.date_time # => '2023-01-08 10:00:00'
+peep.user_id # => 1
 
 # 3
-# Creates a new user
+# Creates a new peep
 
-repo = UserRepostitory.new
+repo = PeepRepository.new
 
-user = User.new
-user.email = 'sparrow@mail.com'
-user.password = 'sparrow2023'
-user.name = 'Sparrow'
-user.username = 'Spar Row'
+peep = Peep.new
+peep.content = 'Pie pie pie Mag'
+peep.date_time = '2023-01-09 11:00:00'
+peep.user_id = 1
 
-repo.create(user)
+repo.create(peep)
 
-all_users = repo.all # => expect all_users to contain the new user
+all_peeps = repo.all # => all_peeps should contain the new peep
 
 # 4
-# Deletes a user
+# Deletes a peep
 
-repo = UserRepository.new
+repo = PeepRepository.new
 
 repo.delete(1)
 
-all_users = repo.all # => expect all_users not to contain the deleted user
+all_peeps = repo.all # => all_peeps should not contain the deleted peep
 
 ```
 
@@ -210,17 +213,17 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/user_repository_spec.rb
+# file: spec/peep_repository_spec.rb
 
-def reset_users_table
+def reset_peeps_table
   seed_sql = File.read('spec/seeds_users_peeps.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(seed_sql)
 end
 
-describe UserRepository do
+describe PeepRepository do
   before(:each) do 
-    reset_users_table
+    reset_peeps_table
   end
 
   # (your tests will go here).
