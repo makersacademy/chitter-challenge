@@ -20,6 +20,10 @@ class Application < Sinatra::Base
     return erb(:homepage)
   end
 
+  get '/signup' do
+    return erb(:create_account)
+  end
+
   get '/peeps' do
     peep_repo = PeepRepository.new
     @peeps = peep_repo.all

@@ -38,4 +38,16 @@ describe Application do
     end
   end
 
+  context "GET /signup" do
+    it "returns the form to create a new account" do
+      response = get('/signup')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Create a new account</h1>'
+      expect(response.body).to include '<form action="/signup" method="POST">'
+      expect(response.body).to include '<input type="text" name="name">'
+      expect(response.body).to include '<input type="text" name="username">'
+    end
+  end
+
 end
