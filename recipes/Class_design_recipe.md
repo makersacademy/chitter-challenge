@@ -83,12 +83,12 @@ class PeepRepository
 end
 
 class Peep
-  def initialize(username, message) # username and message are both strings 
-  end
+    def initialize(username, message) # username and message are both strings 
+    end
 
-  def username
-    # Returns a string of the username
-  end
+    def username
+      # Returns a string of the username
+    end
 
   def message
     # Returns a string of the message
@@ -99,7 +99,7 @@ class Peep
   end
 
 
-end
+end   
 ```
 
 ## 3. Create Examples as Integration Tests
