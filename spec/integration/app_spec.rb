@@ -130,20 +130,49 @@ describe Application do
         expect(last_request.path).to eq "/login"
         expect(last_response.body).to include "<p>This email address does not exist. Please sign up.</p>"
       end
-      context "when the user has successfully logged in" do
-        it "should display a log out option" do
-          post "/login", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
-          follow_redirect!
-          expect(last_response.status).to eq 200
-          expect(last_request.path).to eq "/"
-          expect(last_response.body).to include '<p>Hi, caroush!</p>'
-          get "/logout"
-          follow_redirect!
-          expect(last_response.status).to eq 200
-          expect(last_response.body).to include '<a href="/login">Log in</a>'
-          expect(last_response.body).to include '<a href="/signup">Create account</a>'
-          expect(last_response.body).not_to include '<p>Hi, caroush!</p>'
-        end
+    end
+    context "when the user has successfully logged in" do
+      it "should display a log out option" do
+        post "/login", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/"
+        expect(last_response.body).to include '<p>Hi, caroush!</p>'
+        get "/logout"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_response.body).to include '<a href="/login">Log in</a>'
+        expect(last_response.body).to include '<a href="/signup">Create account</a>'
+        expect(last_response.body).not_to include '<p>Hi, caroush!</p>'
+      end
+    end
+  end
+
+  describe "POST /new_peep" do
+
+    before(:each) do 
+      post "/signup", {
+        fullname: "Mariah Carey", 
+        username: "caroush", 
+        email: "mariah-caroush@gmail.com", 
+        password: "Mariah*Caroush123"
+      }
+    end
+
+    context "should add a new peep in the database" do
+      it "should add a new peep to home page" do
+        post "/login", email: "mariah-caroush@gmail.com", password: "Mariah*Caroush123"
+        follow_redirect!
+        response = post "/new_peep", { 
+          time: '2023-03-12 11:49:54.912033',
+          content: 'Happy sunday everyone!',
+          user_id: 2
+        }
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/"
+        expect(last_response.body).to include '<p>2023-03-12 11:49:54.912033</p>'
+        expect(last_response.body).to include '<p>Happy sunday everyone!</p>'
       end
     end
   end

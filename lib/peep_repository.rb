@@ -17,4 +17,13 @@ class PeepRepository
 
     return chronologically.reverse
   end
+
+  
+  def create(peep)
+    sql = 'INSERT INTO peeps (time, content, user_id)
+            VALUES($1, $2, $3);'
+    sql_params = [peep.time, peep.content, peep.user_id]
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
+
 end

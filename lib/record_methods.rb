@@ -14,10 +14,10 @@ module Record
 
   def self.to_peep(record)
     peep = Peep.new
-    peep.id = record["id"]
+    peep.id = record["id"].to_i
     peep.time = record["time"]
     peep.content = record["content"]
-    peep.user_id = record["user_id"]
+    peep.user_id = record["user_id"].to_i
     return peep
   end
 end

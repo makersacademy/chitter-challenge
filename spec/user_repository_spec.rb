@@ -8,7 +8,6 @@ describe UserRepository do
   before { reset_users_table }
   before { reset_peeps_table }
   
-  # let(:user_repo) { UserRepository.new }
   let(:user) { User.new }
 
   context ".find method" do
@@ -28,9 +27,9 @@ describe UserRepository do
       expect(result.password).to eq "passworD+123"
       expect(result.peeps[0].content).to eq "How are you guys doing, today? @jdoe @mrbike"
     end
-    it "should return nil if the user is not found" do
+    it "should return 'not found' if the user does not exist in the database" do
       result = subject.find("terminator")
-      expect(result).to be nil
+      expect(result).to eq "not found"
     end
   end
 
@@ -72,21 +71,21 @@ describe UserRepository do
         expect(result.username).to eq "wickedman"
         expect(result.email).to eq "imsowicked@gmail.com"
       end
-      it "should return nil if the user already exist" do
+      it "should return 'already exists' if the username is already taken" do
         user.fullname = "Chang Wynn"
         user.username = "changwynn"
         user.email = "trash-garbage-bin@gmail.com"
         user.password = "12345Abcde+"
         result = subject.create(user)
-        expect(result).to be nil
+        expect(result).to eq "already exists"
       end
-      it "should return nil if the user already exist" do
+      it "should return 'already exists' if the email address is already registered" do
         user.fullname = "Chang Wynn"
         user.username = "chang-wynn"
         user.email = "huynhchang@gmail.com"
         user.password = "12345Abcde+"
         result = subject.create(user)
-        expect(result).to be nil
+        expect(result).to eq "already exists"
       end
     end
   end

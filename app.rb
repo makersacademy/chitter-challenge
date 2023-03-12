@@ -113,4 +113,20 @@ class Application < Sinatra::Base
     session[:username] = nil
     redirect "/"
   end
+
+  # ------------------
+  # CREATE NEW PEEP BEHAVIOR
+  # ------------------
+
+  post "/new_peep" do
+    user = UserRepository.new
+    peep_repo = PeepRepository.new
+    peep = Peep.new
+    peep.time = Time.now
+    peep.content = params[:content]
+    peep.user_id = user.find(session[:username]).id
+    peep_repo.create(peep)
+    redirect "/"
+  end
+
 end
