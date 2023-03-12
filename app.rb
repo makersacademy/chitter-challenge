@@ -20,4 +20,8 @@ class Application < Sinatra::Base
     return erb(:homepage)
   end
 
+  get '/peeps' do
+    return erb(:peepboard)
+  end
+
 end
