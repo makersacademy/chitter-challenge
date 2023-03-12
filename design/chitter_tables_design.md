@@ -49,7 +49,7 @@ password: text
 # table: peeps
 id: SERIAL
 content: text
-time: date
+time: timestamp
 like: int
 user_id: int
 
@@ -66,8 +66,8 @@ CREATE TABLE users (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  time date,
-  like int,
+  time timestamp,
+  likes int,
   user_id int,
   constraint fk_users foreign key(user_id)
     references users(id)

@@ -9,7 +9,7 @@ CREATE TABLE users (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  peep_time date,
+  peep_time timestamp,
   likes int,
   user_id int,
   constraint fk_user foreign key(user_id)
