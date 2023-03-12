@@ -1,0 +1,17 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Username: <%=@username %></h1>
+
+    <div>
+    Peeps:
+      <%repo = PeepRepository.new%>
+      <% peeps = repo.find_by_user_id(session[:user_id]) %>
+      <% if !peeps.nil? %>
+        <%peeps.each do |peep|%>
+          <br> <a href="/post/<%=peep.id %>"><%= peep.content %> </a>
+        <% end %>
+      <% end %>
+    </div>
+  </body>
+</html>

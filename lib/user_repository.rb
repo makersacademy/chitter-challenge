@@ -1,15 +1,21 @@
 require 'digest'
-require 'user'
+require_relative 'database_connection'
+require_relative 'user'
 
 class UserRepository
   def add_user(user)
     encrypted_password = Digest::SHA256.hexdigest(user.password)[0..20]
     # Encrypts password
     # Executes sql: (where password is encrypted)
-    sql = 'INSERT INTO users (name, username, password, email) VALUES ($1, $2, $3, $4);'
-    params = [user.name, user.username, encrypted_password, user.email]
-    DatabaseConnection.exec_params(sql, params)
-    # Returns nothing
+    user_exist = find_by_email(user.email).nil?
+    
+    if user_exist
+      sql = 'INSERT INTO users (name, username, password, email) VALUES ($1, $2, $3, $4);'
+      params = [user.name, user.username, encrypted_password, user.email]
+      DatabaseConnection.exec_params(sql, params)
+    else
+      return false
+    end
   end
 
   def find_by_email(email)

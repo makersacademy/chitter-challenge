@@ -2,7 +2,7 @@ require "user_repository"
 
 def reset_users_table
   seed_sql = File.read('spec/seeds_user.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection = DatabaseConnection.connect
   connection.exec(seed_sql)
 end
 
@@ -23,6 +23,17 @@ describe UserRepository do
 
       repo.add_user(user)
       expect(repo.all.length).to eq 4
+    end
+
+    it "returns false if user already exists" do
+      repo = UserRepository.new
+      user = User.new
+      user.id = 1
+      user.name = 'John Doe'
+      user.username = 'johndoe123'
+      user.password = 'password'
+      user.email = 'johndoe@example.com'
+      expect(repo.add_user(user)).to eq false
     end
   end
 
