@@ -36,7 +36,7 @@ I want to receive an email if I am tagged in a Peep
 
 Nouns:
 
-peep_content, peep_post_time, user_name, user_email
+peep_content, peep_post_date user_name, user_email
 
 1. Design and create the Table
 
@@ -46,7 +46,7 @@ Table: peeps
 Table: users
 
 Columns:
-id | peep_content | peep_post_time | user_id
+id | peep_content | peep_post_date | user_id
 id | user_name | user_email
 
 2. Create Test SQL seeds
@@ -55,10 +55,10 @@ id | user_name | user_email
 
 TRUNCATE TABLE peeps, users RESTART IDENTITY;
 
-INSERT INTO peeps (peep_content, peep_post_time, user_id) VALUES ('First peep', '2023-03-12', 1);
-INSERT INTO peeps (peep_content, peep_post_time, user_id) VALUES ('Second peep', '2023-03-13', 2);
-INSERT INTO peeps (peep_content, peep_post_time, user_id) VALUES ('Third peep', '2023-03-14', 1);
-INSERT INTO peeps (peep_content, peep_post_time, user_id) VALUES ('Fourth peep', '2023-03-12', 3);
+INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ('First peep', '2023-03-12', 1);
+INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ('Second peep', '2023-03-13', 2);
+INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ('Third peep', '2023-03-14', 1);
+INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ('Fourth peep', '2023-03-12', 3);
 
 INSERT INTO users (user_name, user_email) VALUES ('User 1', 'user1@peep.com');
 INSERT INTO users (user_name, user_email) VALUES ('User 2', 'user2@peep.com');
@@ -66,7 +66,7 @@ INSERT INTO users (user_name, user_email) VALUES ('User 3', 'user3@peep.com');
 
 Run once to create the tables (for each DB):
     CREATE TABLE users (
-        id SERIAL,
+        id SERIAL PRIMARY KEY,
         user_name TEXT,
         user_email TEXT
     );
@@ -74,100 +74,89 @@ Run once to create the tables (for each DB):
     CREATE TABLE peeps (
         id SERIAL,
         peep_content TEXT,
-        peep_post_time TIMESTAMP,
+        peep_post_date TIMESTAMP,
         user_id INT,
         constraint fk_user foreign key(user_id) references users(id) on delete cascade
     );
-
--- creating the tables first then feeding the seeds file to the database (including the pk constraint)
 
 Then load the test seeds into the test database
     psql -h 127.0.0.1  chitterdb_test < seeds_peeps_test.sql
 
 3. Define the class names
 
-Usually, the Model class name will be the capitalised table name (single instead of plural). The same name is then suffixed by Repository for the Repository class name.
-
-# EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Model class
-# (in lib/student.rb)
-class Student
+# (in lib/peep_model.rb)
+class Peep
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/peep_repository.rb)
+class PeepRepository
+end
+
+# Table name: users
+
+# Model class
+# (in lib/user_model.rb)
+class User
+end
+
+# Repository class
+# (in lib/user_repository.rb)
+class UserRepository
 end
 
 4. Implement the Model class
 
-Define the attributes of your Model class. You can usually map the table columns to the attributes of the class, including primary and foreign keys.
-
-# EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Model class
-# (in lib/student.rb)
+# (in lib/peep_model.rb)
 
-class Student
-
-  # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+class Peep
+  attr_accessor :id, :peep_content, :peep_post_date
 end
 
-# The keyword attr_accessor is a special Ruby feature
-# which allows us to set and get attributes on an object,
-# here's an example:
-#
-# student = Student.new
-# student.name = 'Jo'
-# student.name
+# Table name: users
 
-You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.
+# Model class
+# (in lib/user_model.rb)
+
+class User
+  attr_accessor :id, :user_name, :user_email
+end
+
 5. Define the Repository Class interface
 
-Your Repository class will need to implement methods for each "read" or "write" operation you'd like to run against the database.
-
-Using comments, define the method signatures (arguments and return value) and what they do - write up the SQL queries that will be used by each method.
-
-# EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/peep_repository.rb)
 
-class StudentRepository
-
-  # Selecting all records
-  # No arguments
+class PeepRepository
   def all
-    # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
-
-    # Returns an array of Student objects.
+    SELECT id, peep_content, peep_post_date FROM peeps;
+    # Returns an array of peeps.
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
   def find(id)
-    # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
-
-    # Returns a single Student object.
+    SELECT id, peep_content, peep_post_date FROM peeps WHERE id = $1;
+    # Returns a single peep object.
   end
 
-  # Add more methods below for each operation you'd like to implement.
+  def create(peep)
+    #
+  end
 
-  # def create(student)
-  # end
+  def update(peep)
+    #
+  end
 
-  # def update(student)
-  # end
-
-  # def delete(student)
-  # end
+  def delete(peep)
+    #
+  end
 end
 
 6. Write Test Examples
