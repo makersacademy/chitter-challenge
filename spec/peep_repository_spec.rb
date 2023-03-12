@@ -44,4 +44,25 @@ RSpec.describe PeepRepository do
     expect(peep.user_id).to eq 1
   end
 
+  it "creates a new peep" do
+    repo = PeepRepository.new
+
+    peep = Peep.new
+    peep.content = 'Pie pie pie Mag'
+    peep.date_time = '2023-01-09 11:00:00'
+    peep.user_id = 1
+
+    repo.create(peep)
+
+    all_peeps = repo.all 
+
+    expect(all_peeps).to include(
+      have_attributes(
+        content: peep.content,
+        date_time: peep.date_time,
+        user_id: peep.user_id
+      )
+    )
+  end
+
 end

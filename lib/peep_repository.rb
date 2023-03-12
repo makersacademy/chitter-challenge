@@ -46,8 +46,10 @@ class PeepRepository
   # One argument: a new Peep Object
   def create(peep)
     # Executes the SQL query:
-    # INSERT INTO peeps (content, date_time, user_id) VALUES ($1, $2, $3);
+    sql = 'INSERT INTO peeps (content, date_time, user_id) VALUES ($1, $2, $3);'
+    sql_params = [peep.content, peep.date_time, peep.user_id]
 
+    DatabaseConnection.exec_params(sql, sql_params)
     # Does not return a value
   end
 
