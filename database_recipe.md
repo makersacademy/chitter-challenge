@@ -90,24 +90,25 @@ If you can answer YES to the two questions, you'll probably have to implement a 
 -- Create the table without the foreign key first.
 CREATE TABLE makers (
   id SERIAL PRIMARY KEY,
-  email varchar(100),
+  email citext not null UNIQUE,
   password varchar(32),
   name text,
-  username varchar(15)
+  username varchar(15) UNIQUE
 );
 
 -- Then the table with the foreign key.
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  time date,
+  time timestamp without time zone,
   maker_id int,
   constraint fk_maker foreign key(maker_id)
     references makers(id)
     on delete cascade
 );
 5. Create the tables.
-psql -h 127.0.0.1 chitter_challenge_db < peeps_table.sql
-psql -h 127.0.0.1 chitter_challenge_db_test < peeps_table.sql
-psql -h 127.0.0.1 chitter_challenge_db < makers_table.sql
+
+psql -h 127.0.0.1 chitter_challenge_db < spec/seeds/makers_table.sql
 psql -h 127.0.0.1 chitter_challenge_db_test < makers_table.sql
+psql -h 127.0.0.1 chitter_challenge_db < spec/seeds/peeps_table.sql
+psql -h 127.0.0.1 chitter_challenge_db_test < peeps_table.sql
