@@ -145,10 +145,10 @@ new_maker.password = '12345678'
 new_maker.name = 'maker2'
 new_maker.username = 'username2'
 
-expect(makers.last.email).to eq('maker2@mail.com')
-expect(new_maker.password.to eq('12345678')
-expect(new_maker.name.to eq('maker2')
-expect(new_maker.username.to eq('username2')
+(makers.last.email)# =>('maker2@mail.com')
+(new_maker.password)# =>('12345678')
+(new_maker.name)# =>('maker2')
+(new_maker.username)# =>('username2')
 
 # 4
 # Find a single maker
@@ -172,7 +172,7 @@ This is so you get a fresh table contents every time you run the test suite.
 # file: spec/peep_repository_spec.rb
 
 def reset_peeps_table
-  seed_sql = File.read('spec/seeds/peeps_table.sql')
+  seed_sql = File.read('spec/seeds/test_seeds.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_db_test' })
   connection.exec(seed_sql)
 end
@@ -187,7 +187,7 @@ describe PeepRepository do
 # file: spec/maker_repository_spec.rb
 
 def reset_makers_table
-  seed_sql = File.read('spec/seeds/makers_table.sql')
+  seed_sql = File.read('spec/seeds/test_seeds.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_db_test' })
   connection.exec(seed_sql)
 end
