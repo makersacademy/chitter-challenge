@@ -5,7 +5,6 @@ require_relative 'lib/user_repository'
 
 DatabaseConnection.connect
 
-
 class Application < Sinatra::Base
 
   enable :sessions
@@ -47,6 +46,15 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
+    if invalid_request_params?([:email, :password])
+      status 400
+      return ''
+    end
+
+    html_regex = /^<([a-z]+)([^>]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+    params[:email] = params[:email].gsub(html_regex, '')
+    params[:password] = params[:password].gsub(html_regex, '')
+   
     email = params[:email]
     password = params[:password]
 
@@ -72,7 +80,20 @@ class Application < Sinatra::Base
   end
 
   post '/new_account' do
+    if invalid_request_params?([:name, :username, :password, :password_confirm, :email])
+      status 400
+      return ''
+    end
+
     @user = User.new
+    # sanitize user input 
+    html_regex = /^<([a-z]+)([^>]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+    params[:name] = params[:name].gsub(html_regex, '')
+    params[:username] = params[:username].gsub(html_regex, '')
+    params[:password] = params[:password].gsub(html_regex, '')
+    params[:password_confirm] = params[:password_confirm].gsub(html_regex, '')
+    params[:email] = params[:email].gsub(html_regex, '')
+
     @user.name = params[:name]
     @user.username = params[:username]
     @user.password = params[:password]
@@ -101,7 +122,7 @@ class Application < Sinatra::Base
       return redirect('/login')
     end
     
-    if invalid_request_params?
+    if invalid_request_params?([:content])
       status 400
       return ''
     end
@@ -133,8 +154,18 @@ class Application < Sinatra::Base
   end
 end
 
-def invalid_request_params?
-  return true if params[:content] == nil 
-  return true if params[:content] == ""
+def invalid_request_params?(param_names)
+  param_names.each do |param|
+    return true if params[param] == nil 
+    return true if params[param] == ""
+  end
   return false
+end
+
+def input_sanitation(param_names)
+  html_regex = html_regex = /^<([a-z]+)([^>]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+  param_names.each do |param|
+    params[param] = params[param].gsub(html_regex, '')
+  end
+
 end

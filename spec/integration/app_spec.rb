@@ -80,6 +80,16 @@ describe Application do
       expect(response.body).to include('<h1>Passwords do not match</h1>')
       expect(response.body).to include('<a href="/new_account">Try again </a>')
     end
+
+    it "Responds with 400 if inputs are empty string" do
+      response = post('/post', { username: '' }, { 'rack.session' => { user_id: 1 } })
+      expect(response.status).to eq(400)
+    end
+
+    it "Responds with 400 if inputs are nil" do
+      response = post('/post', { username: nil }, { 'rack.session' => { user_id: 1 } })
+      expect(response.status).to eq(400)
+    end
   end
 
   context "GET /login" do
@@ -145,6 +155,16 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Username or password is incorrect</h1>')
       expect(response.body).to include('<a href="/login">Try again </a>')
+    end
+
+    it "Responds with 400 if input is empty string" do
+      response = post('/post', { email: '' }, { 'rack.session' => { user_id: 1 } })
+      expect(response.status).to eq(400)
+    end
+
+    it "Responds with 400 if input is nil" do
+      response = post('/post', { email: nil }, { 'rack.session' => { user_id: 1 } })
+      expect(response.status).to eq(400)
     end
   end
 
