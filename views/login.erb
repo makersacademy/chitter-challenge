@@ -7,5 +7,25 @@
   </head>
   <body>
     <h1>Login</h1>
+    <p><%= @message %></p>
+    <form action="/login" method="post">
+      <div>
+        <label for="email"></label>
+        <input type="text" id="email" name="email" placeholder="email" required><span>*</span>
+      </div>
+      <div>
+        <label for="password"></label>
+        <input type="text" id="password" name="password" placeholder="password" required><span>*</span>
+      </div>
+      <div>
+        <input type="submit" value="Log in">
+      </div>
+    </form>
+       <div>
+        <a href="/signup">Sign up</a>
+      </div>
+      <div>
+        <a href="/">Back to Home Page</a>
+      </div>
   </body>
 </html>

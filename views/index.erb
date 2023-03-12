@@ -7,13 +7,35 @@
   </head>
   <body>
     <h1>WELCOME TO CHITTER</h1>
-    <div>
-      <a href="/signup">Create account</a>
-    </div>
+    <% unless @session_is_open %>
+      <div>
+        <a href="/login">Log in</a>
+      </div>
+      <div>
+        <a href="/signup">Create account</a>
+      </div>
+    <% end %>
+    
     <form action="/find_user" method="post">
-      <label for="search_user">Search a user</label>
-      <input type="text" id="search_user" name="search">
+      <label for="search_user"></label>
+      <input type="text" id="search_user" name="search" placeholder="Find a user">
+      <p><%= @message unless @message.nil? %></p>
     </form>
+
+    <% if @session_is_open %>
+
+      <p>Hi, <%= @user.username %>!</p>
+      <div>
+        <a href="/logout">Log out</a>
+      </div>
+
+      <form action="/new_peep" method="post">
+        <label for="new_peep"></label>
+        <input type="text" id="new_peep" name="new_peep" placeholder="Chit-chat here">
+      </form>
+
+    <% end %>
+
     <% @peeps.each do |peep| %>
       <div>
         <p><%= peep.time %></p>

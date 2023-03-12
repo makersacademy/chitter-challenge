@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Create your account</h1>
-    <p><%= 'This user already exist' if @already_exist == true %></p>
+    <p><%= @message unless @message.nil? %></p>
     <form action="/signup" method="post">
       <div>
         <label for="fullname"></label>
@@ -29,5 +29,8 @@
         <input type="submit">
       </div>
     </form>
+      <div>
+        <p>Already have a maker? <a href="/login">Login</a> here.</p>
+      </div>
   </body>
 </html>

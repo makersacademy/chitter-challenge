@@ -4,6 +4,10 @@ require_relative "./record_methods"
 
 class UserRepository
 
+  # ------------
+  # EXIST METHOD
+  # ------------
+
   def exist?(user)
     sql = "SELECT * FROM users WHERE username = $1 OR email = $2;"
     params = [user.username, user.email]
@@ -12,18 +16,21 @@ class UserRepository
     return result_set.ntuples.positive?
   end
 
+  # ------------
+  # FIND METHOD
+  # ------------
+
   def find(string)
     sql = "SELECT * FROM users WHERE  username = $1 OR email = $1;"
-    result = DatabaseConnection.exec_params(sql, [string])
-    begin
-      record = result[0]
-      user = Record.to_user(record)
-      user_with_peeps = get_peeps(user)
+    result_set = DatabaseConnection.exec_params(sql, [string])
+    
+    return "not found" if result_set.ntuples.zero?
 
-      return user_with_peeps
-    rescue IndexError=> exception
-      return nil
-    end 
+    record = result_set[0]
+    user = Record.to_user(record)
+    user_with_peeps = get_peeps(user)
+
+    return user_with_peeps
   end
 
   def get_peeps(user)
@@ -35,8 +42,23 @@ class UserRepository
     return user
   end
 
+  # ------------
+  # LOGIN METHOD
+  # ------------
+
+  def login(email, password)
+    user = find(email)
+    return nil if user == "not found"
+    stored = BCrypt::Password.new(user.password)
+    return stored == password ? user : "incorrect password"
+  end
+
+  # ------------
+  # CREATE METHOD
+  # ------------
+
   def create(new_user)
-    return if exist?(new_user)
+    return "already exists" if exist?(new_user)
 
     encrypted_password = BCrypt::Password.create(new_user.password)
 
@@ -44,22 +66,7 @@ class UserRepository
             VALUES($1, $2, $3, $4);'
     params = [new_user.fullname, new_user.username, new_user.email, encrypted_password]
     DatabaseConnection.exec_params(sql, params)
-  end
-
-  def sign_in(email, submitted_password)
-    user = find_by_email(email)
-
-    return nil if user.nil?
-
-    # Compare the submitted password with the encrypted one saved in the database
-    if submitted_password == BCrypt::Password.new(user.password)
-      # login success
-    else
-      # wrong password
-    end
-  end
-  def find_by_email(user)
-
-    
-  end
+    return "is successfully registered"
+  end 
 end
+

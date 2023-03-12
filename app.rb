@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require "time"
+require "bcrypt"
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
@@ -16,28 +17,20 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
-   # This route is an example
-  # of a "authenticated-only" route.
-  # It can be accessed only if a user is
-  # signed-in (if we have user information in session).
-  get '/account_page' do
-    if session[:user_id] == nil
-      # No user id in the session
-      # so the user is not logged in.
-      return redirect('/login')
-    else
-      # The user is logged in, display 
-      # their account page.
-      return erb(:account)
-    end
-  end
+  
   # ------------------
   # HOMEPAGE
   # ------------------
-
+    
   get '/' do
     repo = PeepRepository.new
+    @message = session.delete(:message)
     @peeps = repo.all
+    @session_is_open = !session[:username].nil?
+    if @session_is_open
+      repo = UserRepository.new
+      @user = repo.find(session[:username])
+    end
     return @peeps.empty? ? erb(:no_peeps) : erb(:index)
   end
 
@@ -48,9 +41,10 @@ class Application < Sinatra::Base
   post "/find_user" do
     repo = UserRepository.new
     search = params[:search]
-    p search
     @user = repo.find(search)
-    redirect @user.nil? ?  "/user_not_found" : "/user/#{@user.username}"
+    session[:message] = "user not found"
+    redirect "/" if @user == "not found"
+    redirect "/user/#{@user.username}"
   end
   get "/user/:username" do
     username = params[:username]
@@ -63,11 +57,11 @@ class Application < Sinatra::Base
   end
 
   # ------------------
-  # SIGNUP/LOGIN BEHAVIOR
+  # SIGNUP BEHAVIOR
   # ------------------
 
   get "/signup" do
-    @already_exist = @send_form.nil? #may be buggy
+    @message = session.delete(:message)
     return erb(:signup)
   end
   post "/signup" do
@@ -77,39 +71,46 @@ class Application < Sinatra::Base
     user.username = params[:username]
     user.email = params[:email]
     user.password = params[:password]
-    @send_form = repo.create(user)
-    @already_exist = @send_form.nil?
-    redirect @already_exist ? "/signup" : "/"
+    @new_user = repo.create(user)
+
+    if @new_user == "already exists"
+      session[:message] = "This user already exist. Please login."
+      redirect "/signup"
+    elsif @new_user == "is successfully registered"
+      session[:username] = user.username
+      redirect "/"
+    end
   end
 
+  # ------------------
+  # LOGIN BEHAVIOR
+  # ------------------
 
-
-  # This route simply returns the login page
   get '/login' do
+    @message = session.delete(:message) || "Enter your email address and password"
     return erb(:login)
   end
 
-  # This route receives login information (email and password)
-  # as body parameters, and find the user in the database
-  # using the email. If the password matches, it returns
-  # a success page.
   post '/login' do
     email = params[:email]
     password = params[:password]
 
-    user = UserRepository.find_by_email(email)
-
-    # This is a simplified way of 
-    # checking the password. In a real 
-    # project, you should encrypt the password
-    # stored in the database.
-    if user.password == password
-      # Set the user ID in session
-      session[:user_id] = user.id
-
-      return erb(:login_success)
+    repo = UserRepository.new
+    user = repo.login(email, password)
+    if user == nil
+      session[:message] = "This email address does not exist. Please sign up."
+      redirect "/login"
+    elsif user == "incorrect password"
+      session[:message] = "Password incorrect"
+      redirect "/login"
     else
-      return erb(:login_error)
+      session[:username] = user.username
+      redirect "/"
     end
+  end
+
+  get "/logout" do
+    session[:username] = nil
+    redirect "/"
   end
 end

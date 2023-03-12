@@ -34,8 +34,8 @@ describe UserRepository do
     end
   end
 
-  context ".check method" do
-    it "should check username existence in the database" do
+  context ".exist? method" do
+    it "should return true if username already exist" do
       user.fullname = "Chang Wynn"
       user.username = "changwynn"
       user.email = "trash-garbage-bin@gmail.com"
@@ -51,7 +51,7 @@ describe UserRepository do
       result = subject.exist?(user)
       expect(result).to eq true
     end
-    it "should return false if username or email don't already exist" do
+    it "should return false if user does not exist in the database" do
       user.fullname = "John Wick"
       user.username = "wickedman"
       user.email = "imsowicked@gmail.com"
