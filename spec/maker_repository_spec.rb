@@ -29,6 +29,17 @@ describe MakerRepository do
     expect(new_maker.username).to eq('username3')
   end
 
+  it 'finds a single maker' do
+    repo = MakerRepository.new
+
+    maker = repo.find(1)
+
+    expect(maker.id).to eq(1)
+    expect(maker.email).to eq('maker1@mail.com')
+    expect(maker.password).to eq('12345678')
+    expect(maker.name).to eq('maker1')
+    expect(maker.username).to eq('username1')
+  end
 
 
 end
