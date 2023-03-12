@@ -56,12 +56,12 @@ end
 class PeepRepository
   # Selecting all records
   # No arguments
-  def all
+  # def all
     # Executes the SQL query:
     # sql = 'SELECT id, email, password, name, username FROM peeps;'
 
     # Returns an array of Peep objects.
-  end
+  # end
 
   # def create(peep)
     # Executes the SQL query:
@@ -104,57 +104,98 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all peeps
+repo = PeepRepository.new
+peeps = repo.all
+peeps.length # =>  2
 
-repo = StudentRepository.new
+peeps[0].id # =>  1
+peeps[0].content # =>  'Content1'
+peeps[0].time # =>  '2023-02-14 10:27:15'
+peeps[0].maker_id # => 1
 
-students = repo.all
-
-students.length # =>  2
-
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
-
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+peeps[1].id # =>  2
+peeps[1].content # =>  'Content2'
+peeps[1].time # =>  '2023-02-14 11:27:15'
+peeps[1].maker_id # => 2
 
 # 2
-# Get a single student
+# Create a peep
+repo = PeepRepository.new
 
-repo = StudentRepository.new
+new_peep = Peep.new
+new_peep.content = 'Content3'
+new_peep.time = '2023-02-15 12:27:15'
+new_peep.maker_id = 1
+repo.create(new_peep)
 
-student = repo.find(1)
+peeps = repo.all
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+expect(peeps.last.content).to eq('Content3')
+expect(peeps.last.time).to eq('2023-02-15 12:27:15')
+expect(peeps.last.maker_id).to eq(1)
 
-# Add more examples for each method
-Encode this example as a test.
+# 3
+# Create a maker
+repo = MakerRepository.new
+
+new_maker = Maker.new
+new_maker.email = 'maker2@mail.com'
+new_maker.password = '12345678'
+new_maker.name = 'maker2'
+new_maker.username = 'username2'
+
+expect(makers.last.email).to eq('maker2@mail.com')
+expect(new_maker.password.to eq('12345678')
+expect(new_maker.name.to eq('maker2')
+expect(new_maker.username.to eq('username2')
+
+# 4
+# Find a single maker
+
+repo = MakerRepository.new
+
+maker = repo.find(1)
+
+maker.id # => 1
+maker.email # => 'maker1@mail.com'
+maker.password # => '12345678'
+maker.name # => 'maker1'
+maker.username # => 'username1'
+
 
 7. Reload the SQL seeds before each test run
 Running the SQL code present in the seed file will empty the table and re-insert the seed data.
 
 This is so you get a fresh table contents every time you run the test suite.
 
-# EXAMPLE
+# file: spec/peep_repository_spec.rb
 
-# file: spec/student_repository_spec.rb
-
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_peeps_table
+  seed_sql = File.read('spec/seeds/peeps_table.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_db_test' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe PeepRepository do
   before(:each) do 
-    reset_students_table
+    reset_peeps_table
   end
 
   # (your tests will go here).
+
+# file: spec/maker_repository_spec.rb
+
+def reset_makers_table
+  seed_sql = File.read('spec/seeds/makers_table.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_challenge_db_test' })
+  connection.exec(seed_sql)
+end
+
+describe MakerRepository do
+  before(:each) do 
+    reset_makers_table
+  end
 end
 8. Test-drive and implement the Repository class behaviour
 After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour.
