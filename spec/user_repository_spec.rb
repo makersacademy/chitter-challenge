@@ -57,37 +57,37 @@ describe UserRepository do
   context 'create a user' do
     xit 'uses an available username and email' do
       new_user = User.new
-      new_user.email # => 'santandave@icloud.com'
-      new_user.password # => 'psychodrama'
-      new_user.name # =>  'Santan Dave'
-      new_user.username # =>  'dave'
+      expect(new_user.email).to eq 'santandave@icloud.com'
+      expect(new_user.password).to eq 'psychodrama'
+      expect(new_user.name).to eq  'Santan Dave'
+      expect(new_user.username).to eq  'dave'
 
-      @repo.create_user(new_user) # => true
+      expect(@repo.create_user(new_user)).to eq true
       users = @repo.all_users
-      users[-1].email # => 'santandave@icloud.com'
-      users[-1].password # => 'psychodrama'
-      users[-1].name # =>  'Santan Dave'
-      users[-1].username # =>  'dave'
+      expect(users[-1].email).to eq 'santandave@icloud.com'
+      expect(users[-1].password).to eq 'psychodrama'
+      expect(users[-1].name).to eq  'Santan Dave'
+      expect(users[-1].username).to eq  'dave'
     end
 
     xit 'uses unavailable username' do
       new_user = User.new
-      new_user.email # => 'drakebell@icloud.com'
-      new_user.password # => 'drakeandjosh'
-      new_user.name # =>  'Drake Bell'
-      new_user.username # =>  'drake'
+      expect(new_user.email).to eq 'drakebell@icloud.com'
+      expect(new_user.password).to eq 'drakeandjosh'
+      expect(new_user.name).to eq  'Drake Bell'
+      expect(new_user.username).to eq  'drake'
 
-      @repo.create_user # => false
+      expect(@repo.create_user(new_user)).to eq false
     end
 
     xit 'uses unavailable email' do
       new_user = User.new
-      new_user.email # => 'samuelbadru@outlook.com'
-      new_user.password # => 'drakeandjosh'
-      new_user.name # =>  'Drake Bell'
-      new_user.username # =>  'drakejosh'
+      expect(new_user.email).to eq 'samuelbadru@outlook.com'
+      expect(new_user.password).to eq 'drakeandjosh'
+      expect(new_user.name).to eq  'Drake Bell'
+      expect(new_user.username).to eq  'drakejosh'
 
-      @repo.create_user # => false
+      expect(@repo.create_user(new_user)).to eq false
     end
   end
 end
