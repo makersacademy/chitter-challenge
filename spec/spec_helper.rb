@@ -1,21 +1,10 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'database_connection'
-
+ENV['ENV'] == 'test'
+DatabaseConnection.connect
 # Make sure this connects to your test database
 # (its name should end with '_test')
-DatabaseConnection.connect('chitters_database_test')
-  # This method executes an SQL query 
-  # on the database, providing some optional parameters
-  # (you will learn a bit later about when to provide these parameters).
-  def self.exec_params(query, params)
-    if @connection.nil?
-      raise 'DatabaseConnection.exec_params: Cannot run a SQL query as the connection to'\
-      'the database was never opened. Did you make sure to call first the method '\
-      '`DatabaseConnection.connect` in your app.rb file (or in your tests spec_helper.rb)?'
-    end
-    @connection.exec_params(query, params)
-  end
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
