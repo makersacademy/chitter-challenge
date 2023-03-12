@@ -33,7 +33,7 @@ describe UserRepository do
   end
 
   context "get a single user" do
-      xit 'uses the correct email and password' do
+      it 'uses the correct email and password' do
         user = @repo.find_user('aubreygraham@gmail.com', 'hotlinebling')
 
         expect(user.id).to eq '3'
@@ -43,7 +43,7 @@ describe UserRepository do
         expect(user.username).to eq 'drake'
       end
 
-      xit 'uses the correct username and password' do
+      it 'uses the correct username and password' do
         user = @repo.find_user('kendricklamar', 'goodkid')
 
         expect(user.id).to eq '4'
