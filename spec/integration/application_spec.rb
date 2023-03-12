@@ -24,4 +24,12 @@ describe Application do
   end
   let(:app) { Application.new }
 
+
+  context 'GET /peeps' do
+    it 'returns the homepage' do
+      response = get('/peeps')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Content1')
+    end
+  end
 end

@@ -1,5 +1,6 @@
-require 'maker_repository'
 require 'maker'
+require 'maker_repository'
+
 
 def reset_makers_table
   seed_sql = File.read('spec/seeds/test_seeds.sql')

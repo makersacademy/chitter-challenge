@@ -1,4 +1,4 @@
-require 'maker'
+require_relative 'maker'
 
 class MakerRepository
   def create(maker)
