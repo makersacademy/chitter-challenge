@@ -13,6 +13,7 @@ class UserRepository
 
     result_set.each do |record|
       user = User.new
+      user.id = record['id'].to_i
       user.email = record['email']
       user.password = record['password']
       user.name = record['name']
@@ -27,9 +28,21 @@ class UserRepository
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, email, password, name, username FROM users WHERE id = $1
+    sql = 'SELECT id, email, password, name, username FROM users WHERE id = $1'
+    sql_params = [id]
 
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+
+    record = result_set[0]
+
+    user = User.new
+    user.id = record['id'].to_i
+    user.email = record['email']
+    user.password = record['password']
+    user.name = record['name']
+    user.username = record['username']
     # Returns a single User object.
+    return user
   end
 
   # Creates a new record

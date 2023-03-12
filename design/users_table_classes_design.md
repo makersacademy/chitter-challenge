@@ -151,12 +151,15 @@ users = repo.all
 
 users.length # => 3
 
+users[0].id # => 1
 users[0].name # => 'Magpie'
 users[0].username # => 'Mag Pie'
 
+users[1].id # => 2
 users[1].name # => 'Mockingbird'
 users[1].username # => 'Mocking Bird'
 
+users[2].id # => 3
 users[2].name # => 'Nightingale'
 users[2].username # => 'Night Ingale'
 
