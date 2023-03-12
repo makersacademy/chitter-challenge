@@ -1,4 +1,19 @@
+require 'sinatra'
+require 'sinatra/reloader'
+require_relative 'lib/database_connection'
+require_relative 'lib/user_repository'
+require_relative 'lib/peep_repository'
 
+DatabaseConnection.connect
 
-# Create instance variables for repo classes, especially for user repo so that you can
-#tell throughout the login status
+class Application < Sinatra::Base
+  configure :development do
+    register Sinatra::Reloader
+    also_reload 'lib/user_repository'
+    also_reload 'lib/peep_repository'
+  end
+
+  get '/' do
+    return erb(:index)
+  end
+end
