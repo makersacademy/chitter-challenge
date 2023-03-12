@@ -17,22 +17,13 @@ describe PeepRepository do
     peeps = @repo.all_peeps
 
     expect(peeps.length).to eq 6
-
-    expect(peeps[0].id).to eq '1'
-    expect(peeps[0].content).to eq 'Just set up my chitter'
-    expect(peeps[0].user_id).to eq '1'
-
-    expect(peeps[1].id).to eq '2'
-    expect(peeps[1].content).to eq 'RIP Uncle Phil'
-    expect(peeps[1].user_id).to eq '2'
+    expect(peeps).to include(have_attributes(id: '1', content: 'Just set up my chitter', user_id: '1'))
+    expect(peeps).to include(have_attributes(id: '2', content: 'RIP Uncle Phil', user_id: '2'))
   end
 
   it 'gets a single peep' do
     peep = @repo.find_peep(3)
-
-    expect(peep.id).to eq '3'
-    expect(peep.content).to eq 'OMDs J.cole just joined chitter!'
-    expect(peep.user_id).to eq '1'
+    expect(peep).to have_attributes(id: '3', content: 'OMDs J.cole just joined chitter!', user_id: '1')
   end
 
   it 'creates a peep' do
@@ -42,6 +33,6 @@ describe PeepRepository do
 
     @repo.create_peep(new_peep)
     peeps = @repo.all_peeps
-    expect(peeps[-1].content).to eq "Should I acquire twitter?"
+    expect(peeps).to include(have_attributes(id: '7', content: 'Should I acquire twitter?', user_id: '1'))
   end
 end
