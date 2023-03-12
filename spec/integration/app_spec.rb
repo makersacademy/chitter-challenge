@@ -37,6 +37,13 @@ describe Application do
     end
   end
 
+  context "POST /users" do
+    it "creates new user" do
+      response = post('/users', name: 'Solána Imani Rowe', username: 'sza', email: 'sza@gmail.com', password: 'killedmyex')
+      expect(response.body).to include('<h1>Welcome to the chitter community!</h1>')
+    end
+  end
+
 
   describe "Creating a new peep" do
     context "GET /" do
