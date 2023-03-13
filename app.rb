@@ -25,21 +25,21 @@ class Application < Sinatra::Base
     @peep_repo = PeepRepository.new
     @user_repo = UserRepository.new
     @message = session.delete(:message)
-
-    session_is_open?
-
-    @peep_owner = lambda do |user_id| 
-      @user_repo.find_by_id(user_id).username
-    end
-    
     @peeps = @peep_repo.all
+    get_connected_user
+    get_peep_owner_function
     return @peeps.empty? ? erb(:no_peeps) : erb(:index)
   end
 
-  def session_is_open?
+  def get_connected_user
     @session_is_open = !session[:username].nil?
     if @session_is_open
       @user = @user_repo.find(session[:username])
+    end
+  end
+  def get_peep_owner_function
+    @peep_owner = lambda do |user_id| 
+      @user_repo.find_by_id(user_id).username
     end
   end
 
@@ -124,7 +124,7 @@ class Application < Sinatra::Base
   end
 
   # ------------------
-  # EDIT USER PROFILE BEHAVIOR
+  # USER PRIVATE PAGE
   # ------------------
 
   get "/:username" do
@@ -143,14 +143,21 @@ class Application < Sinatra::Base
   get "/:username/edit_profile/:attribute" do
     @username = params[:username]
     @attribute_name = params[:attribute]
-    # p @username
-    # p @attribute_name
+    @message = session.delete(:message)
+
     return erb(:update_attribute)
   end
 
   post "/:username/edit_profile/:attribute" do
-    update_data_process(params)
-    p @user.id
+    process = update_data_process(params)
+
+    if process == "failed"
+      session[:message] = "This #{params[:attribute]} is not available"
+      @username = params[:username]
+      @attribute = params[:attribute]
+      redirect "/#{@username}/edit_profile/#{@attribute}"
+    end
+
     user_repo = UserRepository.new
     @username = user_repo.find_by_id(@user.id).username
     session[:username] = @username
@@ -159,24 +166,28 @@ class Application < Sinatra::Base
   end
 
   def update_data_process(params)
+    return "failed" if check_availability_for(params[:new_value]) == "not available"
+
     user_repo = UserRepository.new
-    @attribute_name = params[:attribute]
-    @new_attribute_value = params[:new_value]
     @user = user_repo.find(params[:username])
- 
-    method_args = sql_query_provider_for_update_method(@attribute_name, @new_attribute_value, @user.id)
+    method_args = sql_query_provider_for_update_method(params[:attribute], params[:new_value], @user.id)
     user_repo.update(method_args[0], method_args[1])
+  end
+
+  def check_availability_for(new_value)
+    user_repo = UserRepository.new
+    return user_repo.find(new_value) == "not found" ? "available" : "not available"
   end
 
   def sql_query_provider_for_update_method(attribute_name, new_value, user_id)
     case attribute_name
     when "username"
       sql = 'UPDATE users SET username = $1 WHERE id = $2;'
-      sql_params = [new_value, @user.id]
     when "email"
       sql = 'UPDATE users SET email = $1 WHERE id = $2;'
-      sql_params = [new_value, @user.id]
     end
+    sql_params = [new_value, @user.id]
+
     return [sql, sql_params]
   end
 

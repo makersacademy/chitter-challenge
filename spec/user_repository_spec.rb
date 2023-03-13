@@ -9,7 +9,7 @@ describe UserRepository do
   before { reset_peeps_table }
   
   let(:user) { User.new }
-  
+
   context "find_by_id" do
     it "should return the corresponding user given its id" do
       result = subject.find_by_id(1)

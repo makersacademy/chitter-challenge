@@ -202,9 +202,9 @@ describe Application do
     end
   end 
 
-  describe "The user is visiting its private profile page" do
+  describe "The user visits its private profile page" do
     context "GET to /:username" do
-      it "should display the private page of the user" do
+      it "should display the private main page of the user" do
         response = get "/changwynn"
         expect(response.status).to eq 200
         expect(response.body).to include '<h1>Chang Huynh</h1>'
@@ -212,7 +212,7 @@ describe Application do
       end
     end
     context "GET to /:username/edit_profile" do
-      it "should display the user details" do
+      it "should display the user personal information page" do
         response = get "/changwynn/edit_profile"
         expect(response.status).to eq 200
         expect(response.body).to include '<h1>Edit your profile</h1>'
@@ -222,13 +222,29 @@ describe Application do
       end
     end
     context "POST to /:username/edit_profile/:attribute" do
-      it "should allow the user to change its username" do
+      it "should prompt the user for new details and redirect to the personal information page" do
         create_new_user
         post "/caroush/edit_profile/username", params = { new_value: "carwash", username: "caroush" }
         follow_redirect!
         expect(last_response.status).to eq 200
         expect(last_request.path).to eq "/carwash/edit_profile"
         expect(last_response.body).to include "<h4>carwash</h4>"
+      end
+      it "should return a message if the new username is not available" do
+        create_new_user
+        post "/caroush/edit_profile/username", params = { new_value: "mrbike", username: "caroush" }
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/caroush/edit_profile/username"
+        expect(last_response.body).to include "<p>This username is not available</p>"
+      end
+      it "should return a message if new email is not available" do
+        create_new_user
+        post "/caroush/edit_profile/email", params = { new_value: "mike.bike@live.com", username: "caroush" }
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/caroush/edit_profile/email"
+        expect(last_response.body).to include "<p>This email is not available</p>"
       end
     end
   end 
