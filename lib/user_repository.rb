@@ -18,7 +18,7 @@ class UserRepository
   def find(string)
     sql = "SELECT * FROM users WHERE  username = $1 OR email = $1;"
     result_set = DatabaseConnection.exec_params(sql, [string])
-
+    
     return result_set_to_user_object(result_set)
   end
 
@@ -40,21 +40,6 @@ class UserRepository
     return user
   end
 
-  # ------------
-  # LOGIN METHOD
-  # ------------
-
-  # def login(email, password)
-  #   user = find(email)
-  #   return "not found" if user == "not found"
-  #   stored = BCrypt::Password.new(user.password)
-  #   return stored == password ? user : "incorrect password"
-  # end
-
-  # ------------
-  # CREATE METHOD
-  # ------------
-
   def create(new_user)
     return "already exists" if exist?(new_user) == true
 
@@ -66,10 +51,6 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
     return "is successfully registered"
   end 
-
-  # ------------
-  # UPDATE METHOD
-  # ------------
 
   def update(sql, sql_params)
     DatabaseConnection.exec_params(sql, sql_params)

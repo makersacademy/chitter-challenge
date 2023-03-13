@@ -61,7 +61,7 @@ class Application < Sinatra::Base
     username = params[:username]
     @user = _user_repo.find(username)
 
-    return erb(:public_profile)
+    return erb(:"public/public_profile")
   end
 
   # ---------------
@@ -70,7 +70,7 @@ class Application < Sinatra::Base
 
   get "/signup" do
     @message = _session_message
-    return erb(:signup)
+    return erb(:"authentication/signup")
   end
 
   post "/signup" do
@@ -101,7 +101,7 @@ class Application < Sinatra::Base
 
   get '/login' do
     @message = _session_message || "Enter your email address and password"
-    return erb(:login)
+    return erb(:"authentication/login")
   end
 
   post '/login' do
@@ -141,13 +141,13 @@ class Application < Sinatra::Base
 
   get "/:username" do
     @user = _user_repo.find(params[:username])
-    return erb(:private_profile)
+    return erb(:"private/private_profile")
   end
 
   get "/:username/edit_profile" do
     @user = _user_repo.find(params[:username])
     @message = _session_message
-    return erb(:edit_profile)
+    return erb(:"private/edit_profile")
   end
 
   # ----------------------
@@ -159,7 +159,7 @@ class Application < Sinatra::Base
     @attribute_name = params[:attribute]
     @message = _session_message
 
-    return erb(:update_attribute)
+    return erb(:"private/update_attribute")
   end
 
   post "/:username/edit_profile/:attribute" do
@@ -211,7 +211,7 @@ class Application < Sinatra::Base
   get "/:username/new_password" do
     @username = params[:username]
     @message = _session_message
-    return erb(:new_password)
+    return erb(:"private/new_password")
   end
 
   post "/:username/new_password" do
@@ -247,7 +247,7 @@ class Application < Sinatra::Base
 
   get "/edit_peep/:id" do
     @peep = _peep_repo.find(params[:id]) 
-    return erb(:edit_peep)
+    return erb(:"private/edit_peep")
   end
 
   post "/edit_peep/:id" do
@@ -259,7 +259,7 @@ class Application < Sinatra::Base
 
   get "/delete_peep/:id" do
     @peep = _peep_repo.find(params[:id])
-    return erb(:delete_peep)
+    return erb(:"private/delete_peep")
   end
 
   post "/delete_peep/:id" do
@@ -277,7 +277,7 @@ class Application < Sinatra::Base
   get "/:username/delete_account" do
     @message = _session_message
     @username = params[:username]
-    return erb(:delete_account)
+    return erb(:"authentication/delete_account")
   end
 
   post "/:username/delete_account" do
