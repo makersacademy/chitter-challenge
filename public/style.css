@@ -1,0 +1,14 @@
+h1 {
+  color: #1C9BEF;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: block;
+  margin: 0;
+  text-align: center;
+}
+
+h2,h3,p,a,form,div {
+  font-family: 'Roboto', sans-serif;
+}
