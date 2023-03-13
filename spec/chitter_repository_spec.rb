@@ -23,7 +23,7 @@ RSpec.describe ChitterRepository do
             chitter.each do |content|
                 @contents.push(content.contents)
             end
-            expect(@contents).to eq ["Hey guys happy monday", "Happy monday to you too!", "Did you have any breakfast?", "Yea I had some chocolate"] 
+            expect(@contents).to eq ["Hey guys happy monday", "Happy monday to you too!", "Did you have any breakfast?", "Yea I had some chocolate", "good day to you all", "good day to you all", "create test", "create test"]
         end
         it "returns all chitter dates" do
             repo = ChitterRepository.new
@@ -32,7 +32,7 @@ RSpec.describe ChitterRepository do
             chitter.each do |content|
                 @contents.push(content.time)
             end
-            expect(@contents).to eq ["1.13", "2.14", "3.25", "3.25"]
+            expect(@contents).to eq ["1.13", "2.14", "3.25", "3.25", "12.46", "12.46", "12.46","12.46"]
         end
         it "returns all chitter id" do
             repo = ChitterRepository.new
@@ -41,7 +41,7 @@ RSpec.describe ChitterRepository do
             chitter.each do |content|
                 @id.push(content.id)
             end
-            expect(@id).to eq ["1", "2", "3", "4"]
+            expect(@id).to eq ["1", "2", "3", "4", "5", "6", "7","8"]
         end
         it "returns all chitter user_id" do
             repo = ChitterRepository.new
@@ -50,7 +50,7 @@ RSpec.describe ChitterRepository do
             chitter.each do |content|
                 @id.push(content.user_id)
             end
-            expect(@id).to eq ["1", "2", "3", "4"]
+            expect(@id).to eq ["1", "2", "3", "4", "2", "2", "2","2"]
         end
 
     end
