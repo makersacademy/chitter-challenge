@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Chitter 1.0.0</title>
+  </head>
+  <body>
+    <div class="header-text">  
+      <h1>Chitter 1.0.0</h1>
+    </div>
+
+    <div class="subheader">
+      <img src="./chitter-logo.png" alt="Chitter Byrd Logo" class="hero-image">
+      <h2>We might be in <span style="color: #0ABAB5;">BETA</span>, but we are all <span style="color: #0ABAB5;">ALPHA</span>s!</h2>
+    </div>
+    <hr>
+    <div class="options">
+      <a href="/add_peep"><div class="menu_option">Add Peep</div></a>
+      <a href="/sign_up"><div class="menu_option">Sign Up</div></a>
+      <a href="/login"><div class="menu_option">Login</div></a>
+    </div>
+    <hr>
+    <div class="recent_peeps_header">
+      <h3>Recent peeps: </h3>
+    </div>
+
+    <div class="recent_peeps">
+      <% @peeps.reverse! %>
+      <% @peeps.each do |row| %>
+        <div class="single_peep">
+          <p><span style="text-align: left;">Author: Konrad, Username: <b>kdun</b></span></p>
+          <p><span style="text-align: left;">Time: <%= row.peep_time %></span></p>
+          <p>Content: <%= row.content %></p>
+          <p>Likes: <%= row.likes %></p>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

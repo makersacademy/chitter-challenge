@@ -1,13 +1,15 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-ruby '3.0.2'
+source "https://rubygems.org"
 
-group :test do
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+# gem "rails"
 
-group :development, :test do
-  gem 'rubocop', '1.20'
-end
+gem "sinatra", "~> 3.0"
+gem "sinatra-contrib", "~> 3.0"
+gem "webrick", "~> 1.8"
+gem "rack-test", "~> 2.0"
+gem "rack", "~> 2.2", ">= 2.2.4"
+gem "rspec", "~> 3.12"
+gem "rackup", "~> 1.0.0"
+gem "rack-protection", "~> 3.0.5"
+
