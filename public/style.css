@@ -1,0 +1,101 @@
+body {
+  background-color: #101010;
+  margin: 40px;
+}
+
+h1 {
+  font-family: "Share Tech Mono", "Garamond", sans-serif;
+  font-size: 45px;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px;
+}
+
+h2 {
+  font-family: "Share Tech Mono", "Garamond", sans-serif;
+  font-size: 35px;
+  color: #f9f6ee;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+h3 {
+  font-family: "Share Tech Mono", "Garamond", sans-serif;
+  font-size: 25px;
+  color: #f2f2f2;
+  text-align: left;
+  margin-top: 30px;
+}
+
+hr {
+  width: 100%;
+  color: #f2f2f2;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Roboto Mono", "Garamond", sans-serif;
+  font-size: 25px;
+  color: #101010;
+}
+
+.header-text {
+  display: block;
+  margin: auto;
+  max-width: 800px;
+
+  border-style: dashed;
+  border-color: #0ABAB5;
+  border-width: 3px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.hero-image {
+  max-width: 250px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #101010;
+  border-bottom-color: #f2f2f2;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu_option {
+  background-color: #0ABAB5;
+  width: 30%;
+  margin: 10px;
+}
+
+.recent_peeps_header {
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+
+.recent_peeps {
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+
+.single_peep {
+  max-width: 80%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-style: dashed;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #0ABAB5;
+  color: #f9f6ee;
+  margin: 10px;
+  font-family: "Roboto Mono", "Garamond", sans-serif;
+}

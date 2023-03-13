@@ -51,6 +51,16 @@ describe UserRepository do
     end
   end
 
+  context '#find' do
+    it 'returns a user with correct id' do
+      repo = UserRepository.new
+      user = repo.find(1)
+
+      expect(user.id).to eq(1)
+      expect(user.username).to eq('kdun')
+    end
+  end
+
   context '#create' do
     it 'returns the correct amount of users in the database and correct data' do
       repo = UserRepository.new

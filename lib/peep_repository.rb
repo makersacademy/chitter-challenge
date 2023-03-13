@@ -1,4 +1,4 @@
-require 'peep'
+require_relative 'peep'
 
 class PeepRepository
 
