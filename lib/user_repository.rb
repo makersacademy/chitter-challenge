@@ -5,22 +5,10 @@ require_relative "./record_methods"
 class UserRepository
 
   # ------------
-  # EXIST METHOD
-  # ------------
-
-  def exist?(user)
-    sql = "SELECT * FROM users WHERE username = $1 OR email = $2;"
-    params = [user.username, user.email]
-    result_set = DatabaseConnection.exec_params(sql, params)
-
-    return result_set.ntuples.positive?
-  end
-
-  # ------------
   # FIND METHOD
   # ------------
 
-  def find_by_id(id)
+  def find_with_id(id)
     sql = "SELECT * FROM users WHERE  id = $1;"
     result_set = DatabaseConnection.exec_params(sql, [id])
     
@@ -30,12 +18,13 @@ class UserRepository
   def find(string)
     sql = "SELECT * FROM users WHERE  username = $1 OR email = $1;"
     result_set = DatabaseConnection.exec_params(sql, [string])
-    
+
     return result_set_to_user_object(result_set)
   end
 
   def result_set_to_user_object(result_set)
     return "not found" if result_set.ntuples.zero?
+
     record = result_set[0]
     user = Record.to_user(record)
     user_with_peeps = get_peeps(user)
@@ -55,19 +44,19 @@ class UserRepository
   # LOGIN METHOD
   # ------------
 
-  def login(email, password)
-    user = find(email)
-    return nil if user == "not found"
-    stored = BCrypt::Password.new(user.password)
-    return stored == password ? user : "incorrect password"
-  end
+  # def login(email, password)
+  #   user = find(email)
+  #   return "not found" if user == "not found"
+  #   stored = BCrypt::Password.new(user.password)
+  #   return stored == password ? user : "incorrect password"
+  # end
 
   # ------------
   # CREATE METHOD
   # ------------
 
   def create(new_user)
-    return "already exists" if exist?(new_user)
+    return "already exists" if exist?(new_user) == true
 
     encrypted_password = BCrypt::Password.create(new_user.password)
 
@@ -103,5 +92,13 @@ class UserRepository
     sql = 'DELETE FROM users WHERE id = $1;'
     DatabaseConnection.exec_params(sql, [id])
     return "Account deleted"
+  end
+
+  def exist?(user)
+    sql = "SELECT * FROM users WHERE username = $1 OR email = $2;"
+    params = [user.username, user.email]
+    result_set = DatabaseConnection.exec_params(sql, params)
+
+    return result_set.ntuples.positive?
   end
 end

@@ -43,7 +43,6 @@ describe PeepRepository do
       peep.user_id = 2
       subject.create(peep)
       result = subject.all
-
       expect(result.length).to eq 4
       expect(result.first.time).to eq '2023-03-12 11:49:54.912033'
       expect(result.first.content).to eq 'Happy sunday everyone!'
@@ -76,7 +75,7 @@ describe PeepRepository do
       subject.delete(1)
       result = subject.find(1)
       expect(result).to eq nil
-      
+
       result = subject.all
       expect(result.length).to eq 2
     end

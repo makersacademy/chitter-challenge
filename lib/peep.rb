@@ -3,7 +3,7 @@ class Peep
 
   def self.get_tags(content)
     tags = content.scan(/@\w+/)
-    username_list = tags.map! { |tag| tag[1..-1] }
+    username_list = tags.map! { |tag| tag.slice(1..-1) }
     return username_list
   end
 end

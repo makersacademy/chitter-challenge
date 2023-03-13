@@ -1,5 +1,4 @@
 require_relative "./peep"
-# require_relative "./user"
 
 module Record
   def self.to_user(record)

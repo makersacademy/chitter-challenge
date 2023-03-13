@@ -11,9 +11,9 @@ describe UserRepository do
   
   let(:user) { User.new }
 
-  context "find_by_id" do
+  context "find_with_id" do
     it "should return the corresponding user given its id" do
-      result = subject.find_by_id(1)
+      result = subject.find_with_id(1)
       expect(result.fullname).to eq "Chang Huynh"
       expect(result.username).to eq "changwynn"
       expect(result.email).to eq "huynhchang@gmail.com"
@@ -51,13 +51,13 @@ describe UserRepository do
 
   context ".exist? method" do
     it "should return true if username already exist" do
-      allow(user1).to receive(:username) {"changwynn"}
-      allow(user1).to receive(:email) {"trash-garbage-bin@gmail.com"}
+      allow(user1).to receive(:username) { "changwynn" }
+      allow(user1).to receive(:email) { "trash-garbage-bin@gmail.com" }
       result = subject.exist?(user1)
       expect(result).to eq true
     end
     it "should return true if email already exist" do
-      allow(user1).to receive(:email) {"huynhchang@gmail.com"}
+      allow(user1).to receive(:email) { "huynhchang@gmail.com" }
       result = subject.exist?(user1)
       expect(result).to eq true
     end
@@ -108,7 +108,7 @@ describe UserRepository do
   context ".update_password method" do
     it "should return with a message if the current password submitted is incorrect" do
       subject.create(new_user)
-      user = subject.find_by_id(4)
+      user = subject.find_with_id(4)
       current_password = "w1ck3d"
       new_password = "W1CK3D"
       result = subject.update_password(user, current_password, new_password)
@@ -116,14 +116,14 @@ describe UserRepository do
     end
     it "should update the password when password check is successfull" do
       subject.create(new_user)
-      user = subject.find_by_id(4)
+      user = subject.find_with_id(4)
       current_password = "w1ck3d+"
       new_password = "W1CK3D"
       result = subject.update_password(user, current_password, new_password)
       expect(result).to eq "Password successfully updated"
 
       previous = user.password
-      updated = subject.find_by_id(4).password
+      updated = subject.find_with_id(4).password
       expect(previous == updated).to eq false
     end
   end
@@ -131,10 +131,10 @@ describe UserRepository do
   describe ".delete method" do
     it "should delete the user account" do
       subject.create(new_user)
-      result = subject.find_by_id(4)
+      result = subject.find_with_id(4)
       expect(result.fullname).to eq "John Wick"
       expect(subject.delete(4)).to eq "Account deleted"
-      result = subject.find_by_id(4)
+      result = subject.find_with_id(4)
       expect(result).to eq "not found"
     end
   end

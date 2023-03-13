@@ -42,12 +42,14 @@
       <% @peeps.each do |peep| %>
       <hr>
         <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
-          <p><a href="/<%= @peep_owner.call(peep.user_id) %>"><%= @peep_owner.call(peep.user_id) %></a></p>
+          <p>
+            <a href="/<%= @peep_owner.call(peep.user_id) %>"><%= @peep_owner.call(peep.user_id) %></a>
+          </p>
         <% else %>
           <p><a href="/user/<%= @peep_owner.call(peep.user_id) %>"><%= @peep_owner.call(peep.user_id) %></a></p>
         <% end %>
         <p><%= peep.content %></p>
-        <p><time datetime="<%= peep.time %>"><%= peep.time %></time></p>
+        <p><time datetime="<%= peep.time %>"><%= Time.parse(peep.time).strftime("%d-%m-%y - %H:%M") %></time></p>
 
         <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
           <a href="/edit_peep/<%= peep.id %>">Edit peep</a> <a href="/delete_peep/<%= peep.id %>">Delete peep</a>

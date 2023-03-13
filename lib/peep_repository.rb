@@ -12,7 +12,7 @@ class PeepRepository
     result_set.each do |record|
       peeps << Record.to_peep(record)
     end
-    chronologically = peeps.sort_by{ |peep| Time.parse(peep.time) }
+    chronologically = peeps.sort_by { |peep| Time.parse(peep.time) }
 
     return chronologically.reverse
   end
