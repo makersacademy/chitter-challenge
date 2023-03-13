@@ -13,11 +13,18 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repository'
   end
 
+  before do
+    @user_repo = UserRepository.new ; @peep_repo = PeepRepository.new
+  end
+
   get '/' do
-    peep_repo = PeepRepository.new ; user_repo = UserRepository.new
-    @peeps = peep_repo.all_peeps ; users = user_repo.all_users
+    @peeps = @peep_repo.all_peeps ; users = @user_repo.all_users
 
     @name = [] ; @username = []
+
+    @status = params[:status]
+
+    p "status in get is #{@status}"
 
     users.each do |record|
       @name << record.name ; @username << record.username
@@ -27,14 +34,31 @@ class Application < Sinatra::Base
 
   get '/peep/:id' do
     peep_id = params[:id]
-    peep_repo = PeepRepository.new
-    peep = peep_repo.find_peep(peep_id)
+    peep = @peep_repo.find_peep(peep_id)
     @content = peep.content; @datetime = peep.datetime.split
     user_id = peep.user_id
 
-    user_repo = UserRepository.new
-    user = user_repo.find_user(user_id)
+    user = @user_repo.find_user(user_id)
     @name = user.name; @username = user.username
     return erb(:peep)
+  end
+
+  post '/login' do
+    email_username = params[:email_username]; password = params[:password]
+    exist = @user_repo.find_user(email_username, password)
+
+
+
+    if exist != false
+      params = {status: true , user: exist}
+    else
+      params = {status: false , user: nil}
+    end
+
+    params = params.map{|key, value| "#{key}=#{value}"}.join("&")
+
+    p "status in post is #{params}"
+
+    return redirect('/')
   end
 end

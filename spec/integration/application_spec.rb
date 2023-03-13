@@ -40,14 +40,13 @@ describe Application do
       expect(@response.body).to include('<p>Jermaine Cole | <em>@j.cole</em></p>')
     end
 
-    xit 'has sign up and log in buttons when not logged in' do
+    it 'has sign up and log in buttons when not logged in' do
       expect(@response.body).to include('<a class="btn btn-primary"  href="/login" role="button">Log in</a>')
       expect(@response.body).to include('<a class="btn btn-primary" href="/signup"  role="button">Sign up</a>')
     end
 
-    xit 'has peep and log out buttons when logged in' do
-      repo = UserRepository.new
-      login = repo.find_user('aubreygraham@gmail.com', 'hotlinebling')
+    it 'has peep and log out buttons when logged in' do
+      login = post('login', email_username: 'aubreygraham@gmail.com', password: 'hotlinebling')
 
       expect(@response.body).to include('<a class="btn btn-primary" href="/logout"  role="button">Log out</a>')
       expect(@response.body).to include('<a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>')

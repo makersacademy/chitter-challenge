@@ -3,8 +3,6 @@ require_relative 'user'
 class UserRepository
   def initialize
     @users = []
-    @logged_in = nil
-    @logged_in_user = nil
   end
   
   def all_users
@@ -30,15 +28,18 @@ class UserRepository
     params = [email_username, password]
     result_set = DatabaseConnection.exec_params(sql, params)
 
-    user = User.new
-    user.id = result_set[0]['id']
-    user.email = result_set[0]['email']
-    user.password = result_set[0]['password']
-    user.name = result_set[0]['name']
-    user.username = result_set[0]['username']
+    if result_set != []
+      user = User.new
+      user.id = result_set[0]['id']
+      user.email = result_set[0]['email']
+      user.password = result_set[0]['password']
+      user.name = result_set[0]['name']
+      user.username = result_set[0]['username']
 
-    @logged_in = true ; @logged_in_user = user
-    return user
+      return user
+    else
+      return false
+    end
   end
 
   def create_user(user)
@@ -55,7 +56,6 @@ class UserRepository
 
     DatabaseConnection.exec_params(sql, params)
 
-    @logged_in = true ; @logged_in_user = user
     return true
   end
 end
