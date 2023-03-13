@@ -30,6 +30,7 @@ describe Application do
     it "should return a message when there is no peeps in the table" do
       allow_any_instance_of(PeepRepository).to receive(:all) { [] }
       response = get '/'
+      expect(response.status).to eq 200
       expect(response.body).to include("It looks like there is no peeps around")
     end
     it "should return all peeps from repository in a reverse chonological orders" do
@@ -58,7 +59,7 @@ describe Application do
         follow_redirect!
         expect(last_response.status).to eq 200
         expect(last_request.path).to eq "/user/changwynn"
-        expect(last_response.body).to include "<h1>changwynn</h1>"
+        expect(last_response.body).to include "<h2><em>changwynn</em></h2>"
       end
     end
     context "search by email" do
@@ -67,7 +68,7 @@ describe Application do
         follow_redirect!
         expect(last_response.status).to eq 200
         expect(last_request.path).to eq "/user/mrbike"
-        expect(last_response.body).to include "<h1>mrbike</h1>"
+        expect(last_response.body).to include "<h2><em>mrbike</em></h2>"
       end
     end
     context "if search is successful, redirect to the search result public page" do
@@ -76,7 +77,7 @@ describe Application do
         follow_redirect!
         expect(last_response.status).to eq 200
         expect(last_request.path).to eq "/user/mrbike"
-        expect(last_response.body).to include "<h1>mrbike</h1>"
+        expect(last_response.body).to include "<h2><em>mrbike</em></h2>"
         expect(last_response.body).to include "<p>@jdoe @changwynn guys, Have you watched the game yesterday?</p>"
       end
     end

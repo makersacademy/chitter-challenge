@@ -6,7 +6,8 @@
     <title>Chitter</title>
   </head>
   <body>
-    <h1><%= @user.username %></h1>
+    <h1><%= @user.fullname %></h1>
+    <h2><em><%= @user.username %></em></h2>
     <% @user.peeps.each do |peep| %>
     <hr>
       <div>
@@ -17,5 +18,9 @@
       </div>
     <hr>
     <% end %>
+    <hr>
+    <div>
+      <a href="/">Back to Home Page</a>
+    </div>
   </body>
 </html>

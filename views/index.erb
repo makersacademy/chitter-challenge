@@ -6,8 +6,7 @@
     <title>Chitter</title>
   </head>
   <body>
-    <h1>WELCOME TO CHITTER</h1>
-
+    <h1>CHITTER</h1>
 
     <% unless @session_is_open %>
       <div>
@@ -17,13 +16,6 @@
         <a href="/signup">Create account</a>
       </div>
     <% end %>
-    
-    <form action="/find_user" method="post">
-      <label for="search_user"></label>
-      <input type="text" id="search_user" name="search" placeholder="Find a user">
-      <p><%= @message unless @message.nil? %></p>
-    </form>
-
     <div>
       <% if @session_is_open %>
         <p>Hi, <%= @user.username %>!</p>
@@ -33,15 +25,27 @@
         <form action="/new_peep" method="post">
           <label for="new_peep_content"></label>
           <input type="text" id="new_peep_content" name="content" placeholder="Chit-chat here">
-          <input type="submit" value="Post peep">
+          <%# <input type="submit" value="Post peep"> %>
         </form>
       <% end %>
     </div>
-    
+    <% if @peeps.empty? %>
+      <hr>
+      <h2>It looks like there is no peeps around!</h2>
+      <hr>
+    <% else %>
+      <hr>
+      <h2>PEEP WALL</h2>
+      <hr>
+    <% end %>
     <div>
       <% @peeps.each do |peep| %>
       <hr>
-        <p><%= @peep_owner.call(peep.user_id) %></p>
+        <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
+          <p><a href="/<%= @peep_owner.call(peep.user_id) %>"><%= @peep_owner.call(peep.user_id) %></a></p>
+        <% else %>
+          <p><a href="/user/<%= @peep_owner.call(peep.user_id) %>"><%= @peep_owner.call(peep.user_id) %></a></p>
+        <% end %>
         <p><%= peep.content %></p>
         <p><time datetime="<%= peep.time %>"><%= peep.time %></time></p>
 
@@ -51,7 +55,11 @@
       <hr>
       <% end %>
     </div>
-
+    <form action="/find_user" method="post">
+      <label for="search_user"></label>
+      <input type="text" id="search_user" name="search" placeholder="Find a user">
+      <p><%= @message unless @message.nil? %></p>
+    </form>
   </body>
 </html>
 

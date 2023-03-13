@@ -9,17 +9,20 @@
     <h1>Edit your profile</h1>
     <p><%= @message unless @message.nil? %></p>
     <hr>
+
     <h3>YOUR FULL NAME</h3>
     <h4><%= @user.fullname %></h4>
-    <br>
+
     <h3>YOUR USERNAME</h3>
     <h4><%= @user.username %></h4>
     <a href="/<%= @user.username %>/edit_profile/username">Change</a>
     <br>
+
     <h3>YOUR EMAIL ADDRESS</h3>
     <h4><%= @user.email %></h4>
     <a href="/<%= @user.username %>/edit_profile/email">Change</a>
     <hr>
+    
     <div>
       <a href="/<%= @user.username %>/new_password">Change password</a>
     </div>

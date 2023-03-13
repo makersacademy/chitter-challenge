@@ -17,8 +17,12 @@
         <p><%= peep.content %></p>
         <p><time datetime="<%= peep.time %>"></time></p>
       </div>
+      <a href="/edit_peep/<%= peep.id %>">Edit peep</a> <a href="/delete_peep/<%= peep.id %>">Delete peep</a>
     <hr>
     <% end %>
+    <div>
+      <a href="/logout">Log out</a>
+    </div>
     <div>
       <a href="/">Back to Home Page</a>
     </div>

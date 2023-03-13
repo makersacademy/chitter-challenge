@@ -17,29 +17,31 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+
+
   # ------------------
   # HOMEPAGE
   # ------------------
   
   get '/' do
-    @peep_repo = PeepRepository.new
-    @user_repo = UserRepository.new
-    @message = session.delete(:message)
-    @peeps = @peep_repo.all
-    get_connected_user
-    get_peep_owner_function
-    return @peeps.empty? ? erb(:no_peeps) : erb(:index)
+    @message = _get_session_message
+    @peeps = _peep_repo.all
+
+    get_user_for_session
+    get_peep_owner_method
+
+    return erb(:index)
   end
 
-  def get_connected_user
+  def get_user_for_session
     @session_is_open = !session[:username].nil?
     if @session_is_open
-      @user = @user_repo.find(session[:username])
+      @user = _user_repo.find(session[:username])
     end
   end
-  def get_peep_owner_function
+  def get_peep_owner_method
     @peep_owner = lambda do |user_id| 
-      @user_repo.find_by_id(user_id).username
+      _user_repo.find_by_id(user_id).username
     end
   end
 
@@ -48,21 +50,22 @@ class Application < Sinatra::Base
   # ------------------
 
   post "/find_user" do
-    repo = UserRepository.new
     search = params[:search]
-    @user = repo.find(search)
-    session[:message] = "user not found"
-    redirect "/" if @user == "not found"
-    redirect "/user/#{@user.username}"
+    @user = _user_repo.find(search)
+
+    if @user == "not found"
+      session[:message] = "user not found"
+      redirect "/"
+    else
+      redirect "/user/#{@user.username}"
+    end
   end
+
   get "/user/:username" do
     username = params[:username]
-    repo = UserRepository.new
-    @user = repo.find(username)
-    return erb(:user_public_page)
-  end
-  get "/user_not_found" do
-    return erb(:user_not_found)
+    @user = _user_repo.find(username)
+
+    return erb(:public_profile)
   end
 
   # ------------------
@@ -70,7 +73,7 @@ class Application < Sinatra::Base
   # ------------------
 
   get "/signup" do
-    @message = session.delete(:message)
+    @message = _get_session_message
     return erb(:signup)
   end
   post "/signup" do
@@ -296,5 +299,18 @@ class Application < Sinatra::Base
       session[:message] = "Sorry, something went wrong."
       redirect "/#{username}/delete_account"
     end
+  end
+
+  private 
+
+  def _user_repo
+    @user_repo ||= UserRepository.new
+  end
+  def _peep_repo
+    @peep_repo ||= PeepRepository.new
+  end
+
+  def _get_session_message
+    session.delete(:message)
   end
 end
