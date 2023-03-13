@@ -26,10 +26,4 @@ class MakerRepository
 
   return maker
   end
-
-  # def update(student)
-  # end
-
-  # def delete(student)
-  # end
 end

@@ -42,16 +42,16 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Model class
-# (in lib/student.rb)
-class Student
+# (in lib/peep.rb)
+class Peep
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/peep_repository.rb)
+class PeepRepository
 end
 ```
 
@@ -66,19 +66,9 @@ Define the attributes of your Model class. You can usually map the table columns
 # Model class
 # (in lib/student.rb)
 
-class Student
-
-  # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+class Peep
+  attr_accessor :id, :timestamp, :content, :maker_id
 end
-
-# The keyword attr_accessor is a special Ruby feature
-# which allows us to set and get attributes on an object,
-# here's an example:
-#
-# student = Student.new
-# student.name = 'Jo'
-# student.name
 ```
 
 *You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
@@ -91,41 +81,29 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/peep_repository.rb)
 
-class StudentRepository
+class PeepRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    # SELECT id, timestamp, content, maker_id FROM peeps;
 
-    # Returns an array of Student objects.
+    # Returns an array of Peep objects.
   end
 
-  # Gets a single record by its ID
-  # One argument: the id (number)
-  def find(id)
+
+  def create(peep)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+    # INSERT INTO peeps (timestamp, content, maker_id) VALUES ($1, $2, $3);
 
-    # Returns a single Student object.
+    #returns a new peep object
   end
-
-  # Add more methods below for each operation you'd like to implement.
-
-  # def create(student)
-  # end
-
-  # def update(student)
-  # end
-
-  # def delete(student)
-  # end
 end
 ```
 
@@ -139,34 +117,40 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all peeps
 
-repo = StudentRepository.new
+repo = PeepRepository.new
 
-students = repo.all
+peeps = repo.all
 
-students.length # =>  2
+peeps.length # =>  2
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+peeps[0].id # =>  1
+peeps[0].timestamp # =>  '2023-03-13 04:50:51'
+peeps[0].content # => 'Are birds weather?'
+peeps[0].maker_id # => 1
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+peeps[1].id # =>  2
+peeps[1].timestamp # =>  '2023-03-13 04:52:59'
+peeps[1].content # => 'How much string is there in the world?'
+peeps[1].maker_id # => 2
 
 # 2
-# Get a single student
+# create a new Peep
 
-repo = StudentRepository.new
+repo = PeepRepository.new
 
-student = repo.find(1)
+peep = Peep.new
+peeps[0].timestamp =  '2023-03-13 06:22:10'
+peeps[0].content = 'My bucket of water is upside down.'
+peeps[0].maker_id = 1
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+makers = repo.all
 
-# Add more examples for each method
+peeps[0].id # =>  3
+peeps[0].timestamp # =>  '2023-03-13 06:22:10'
+peeps[0].content # => 'My bucket of water is upside down.'
+peeps[0].maker_id # => 1
 ```
 
 Encode this example as a test.
