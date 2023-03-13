@@ -20,14 +20,24 @@ class Application < Sinatra::Base
   get '/' do
     @peeps = @peep_repo.all_peeps ; users = @user_repo.all_users
 
-    @name = [] ; @username = []
+    name1 = [] ; username1 = [] ; user_id = []
 
     @status = params[:status]
 
     p "status in get is #{@status}"
 
     users.each do |record|
-      @name << record.name ; @username << record.username
+      name1 << record.name ; username1 << record.username
+    end
+
+    @peeps.each do |record|
+      user_id << record.user_id.to_i
+    end
+
+    @name = [] ; @username = []
+
+    user_id.each do |id|
+      @name << name1[id - 1]; @username << username1[id - 1]
     end
     return erb(:index)
   end
