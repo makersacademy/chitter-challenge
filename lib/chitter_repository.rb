@@ -1,3 +1,4 @@
+require_relative 'chitter'
 class ChitterRepository
 
     # Selecting all records
@@ -33,6 +34,11 @@ class ChitterRepository
     # Add more methods below for each operation you'd like to implement.
   
     # def create(chitter)
+      def create(chitter)
+      sql = 'INSERT INTO chitters (contents , time, user_id) VALUES ($1,$2,$3);'
+        result_set = DatabaseConnection.exec_params(sql,[chitter.contents, chitter.time, chitter.user_id])
+        return chitter
+      end
     # end
   
     # def update(chitter)
