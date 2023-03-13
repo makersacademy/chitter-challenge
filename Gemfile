@@ -11,3 +11,7 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem "pog", "~> 0.0.1"
+
+gem "pg", "~> 1.4"
