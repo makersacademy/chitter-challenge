@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1><%= @user.fullname %></h1>
+    <h2><em><%= @user.username %></em></h2>
+    <% @user.peeps.each do |peep| %>
+    <hr>
+      <div>
+        <p><%= peep.time %></p>
+        <%# implement here name of OP %>
+        <p><%= peep.content %></p>
+        <p><time datetime="<%= peep.time %>"></time></p>
+      </div>
+    <hr>
+    <% end %>
+    <hr>
+    <div>
+      <a href="/">Back to Home Page</a>
+    </div>
+  </body>
+</html>

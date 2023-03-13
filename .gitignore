@@ -1,5 +1,10 @@
 /**/.DS_Store
 /coverage
+repository_class_design.md
+routes_design.md
+tables_design.md
+2tables_design.md
+users_peeps.sql
 
 # Local cache of Rubocop remote config
 .rubocop-*

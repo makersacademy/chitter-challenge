@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Edit your profile</h1>
+    <p><%= @message unless @message.nil? %></p>
+    <hr>
+
+    <h3>YOUR FULL NAME</h3>
+    <h4><%= @user.fullname %></h4>
+
+    <h3>YOUR USERNAME</h3>
+    <h4><%= @user.username %></h4>
+    <a href="/<%= @user.username %>/edit_profile/username">Change</a>
+    <br>
+
+    <h3>YOUR EMAIL ADDRESS</h3>
+    <h4><%= @user.email %></h4>
+    <a href="/<%= @user.username %>/edit_profile/email">Change</a>
+    <hr>
+    
+    <div>
+      <a href="/<%= @user.username %>/new_password">Change password</a>
+    </div>
+    <div>
+      <a href="/<%= @user.username %>/delete_account">Delete Account</a>
+    </div>
+    <hr>
+    <div>
+      <a href="/logout">Log out</a>
+    </div>
+     <div>
+      <a href="/">Back to Home Page</a>
+    </div>
+  </body>
+</html>

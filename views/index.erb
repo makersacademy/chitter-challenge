@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>CHITTER</h1>
+
+    <% unless @session_is_open %>
+      <div>
+        <a href="/login">Log in</a>
+      </div>
+      <div>
+        <a href="/signup">Create account</a>
+      </div>
+    <% end %>
+    <div>
+      <% if @session_is_open %>
+        <p>Hi, <%= @user.username %>!</p>
+        <div>
+          <a href="/<%= @user.username %>">Your profile</a> <a href="/logout">Log out</a>
+        </div>
+        <form action="/new_peep" method="post">
+          <label for="new_peep_content"></label>
+          <input type="text" id="new_peep_content" name="content" placeholder="Chit-chat here">
+          <%# <input type="submit" value="Post peep"> %>
+        </form>
+      <% end %>
+    </div>
+    <% if @peeps.empty? %>
+      <hr>
+      <h2>It looks like there is no peeps around!</h2>
+      <hr>
+    <% else %>
+      <hr>
+      <h2>PEEP WALL</h2>
+      <hr>
+    <% end %>
+    <div>
+      <% @peeps.each do |peep| %>
+      <hr>
+        <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
+          <p>
+            <a href="/<%= @peep_owner.call(peep.user_id) %>"><%= @peep_owner.call(peep.user_id) %></a>
+          </p>
+        <% else %>
+          <p><a href="/user/<%= @peep_owner.call(peep.user_id) %>"><%= @peep_owner.call(peep.user_id) %></a></p>
+        <% end %>
+        <p><%= peep.content %></p>
+        <p><time datetime="<%= peep.time %>"><%= Time.parse(peep.time).strftime("%d-%m-%y - %H:%M") %></time></p>
+
+        <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
+          <a href="/edit_peep/<%= peep.id %>">Edit peep</a> <a href="/delete_peep/<%= peep.id %>">Delete peep</a>
+        <% end %>
+      <hr>
+      <% end %>
+    </div>
+    <form action="/find_user" method="post">
+      <label for="search_user"></label>
+      <input type="text" id="search_user" name="search" placeholder="Find a user">
+      <p><%= @message unless @message.nil? %></p>
+    </form>
+  </body>
+</html>
+
+<%# <%= peep.time.strftime("%B %d, %Y - %H:%M") %>

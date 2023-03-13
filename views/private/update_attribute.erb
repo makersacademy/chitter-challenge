@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Change your <%= @attribute_name %></h1>
+    <p><%= @message unless @message.nil? %></p>
+    <form action="/<%= @username %>/edit_profile/<%= @attribute_name %>" method="post">
+      <div>
+        <label for="<%= @attribute_name %>"></label>
+        <input type="text" id="<%= @attribute_name %>" name="new_value" placeholder="New <%= @attribute_name %>" required><span> *</span>
+      </div>
+      <div>
+        <input type="submit">
+      </div>
+    </form>
+      <div>
+        <a href="/">Back to Home Page</a>
+      </div>
+  </body>
+</html>

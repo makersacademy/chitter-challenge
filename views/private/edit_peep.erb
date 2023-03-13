@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Edit peep</h1>
+    <p><%= @message %></p>
+    <form action="/edit_peep/<%= @peep.id %>" method="post">
+      <div>
+        <label for="edit_content"></label>
+        <input type="text" id="edit_content" name="content" value="<%= @peep.content %>">
+      </div>
+      <div>
+        <input type="submit" value="Edit">
+      </div>
+    </form>
+      <div>
+        <a href="/">Back to Home Page</a>
+      </div>
+  </body>
+</html>
