@@ -70,4 +70,15 @@ describe PeepRepository do
       expect(result.content).to eq 'How is everyone today? @jdoe @mrbike'
     end
   end
+
+  describe ".delete method" do
+    it "should delete the peep selected" do
+      subject.delete(1)
+      result = subject.find(1)
+      expect(result).to eq nil
+      
+      result = subject.all
+      expect(result.length).to eq 2
+    end
+  end
 end

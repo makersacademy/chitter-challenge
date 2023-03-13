@@ -223,9 +223,9 @@ class Application < Sinatra::Base
 
 
 
-  # ------------------
-  # CREATE NEW PEEP
-  # ------------------
+  # ----------------------------
+  # CREATE, EDIT AND DELETE PEEP
+  # ----------------------------
   post "/new_peep" do
     user = UserRepository.new
     peep_repo = PeepRepository.new
@@ -237,9 +237,6 @@ class Application < Sinatra::Base
     redirect "/"
   end
 
-  # ------------------
-  # EDIT PEEP
-  # ------------------
   get "/edit_peep/:id" do
     peep_repo = PeepRepository.new
     @peep = peep_repo.find(params[:id]) 
@@ -251,6 +248,23 @@ class Application < Sinatra::Base
     peep = peep_repo.find(params[:id])
     peep.content = params[:content]
     peep_repo.update(peep)
+    redirect "/"
+  end
+
+  get "/delete_peep/:id" do
+    peep_repo = PeepRepository.new
+    @peep = peep_repo.find(params[:id])
+    return erb(:delete_peep)
+  end
+
+  post "/delete_peep/:id" do
+    p params
+    peep_repo = PeepRepository.new
+    peep = peep_repo.find(params[:id])
+    delete_confirmation = params[:confirmation_answer]
+
+    peep_repo.delete(peep.id) if delete_confirmation = "Yes"
+
     redirect "/"
   end
 

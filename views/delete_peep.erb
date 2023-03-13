@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Delete peep</h1>
+    <p><%= @message %></p>
+    <form action="/delete_peep/<%= @peep.id %>" method="post">
+      <div>
+        <label for="confirmation_answer">Are you sure?</label><br />
+        <input type="radio" name="confirmation_answer" value="Yes" id="delete_peep"/>Yes
+        <input type="radio" name="confirmation_answer" value="No" id="delete_peep" checked/>No
+      </div>
+      <div>
+        <input type="submit" value="Delete">
+      </div>
+    </form>
+      <div>
+        <a href="/">Back to Home Page</a>
+      </div>
+  </body>
+</html>

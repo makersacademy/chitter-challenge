@@ -155,52 +155,73 @@ describe Application do
     end
   end
 
-  describe "POST to /new_peep" do
-    context "should add a new peep in the database" do
-      it "should add a new peep to home page" do
+  describe "THE USER WANTS TO CREATE, EDIT OR DELETE A PEEP" do
+
+    describe "POST to /new_peep" do
+      context "should add a new peep in the database" do
+        it "should add a new peep to home page" do
+          create_new_user
+          response = post "/new_peep", { 
+            time: '2023-03-12 11:49:54.912033',
+            content: 'Happy sunday everyone!',
+            user_id: 2
+          }
+          follow_redirect!
+          expect(last_response.status).to eq 200
+          expect(last_request.path).to eq "/"
+          expect(last_response.body).to include '<p>Happy sunday everyone!</p>'
+        end
+      end
+    end
+
+    describe "GET to /edit_peep" do
+      it "should open the edit peep page " do
         create_new_user
-        response = post "/new_peep", { 
+        post "/new_peep", { 
           time: '2023-03-12 11:49:54.912033',
           content: 'Happy sunday everyone!',
-          user_id: 2
+          user_id: 4
         }
+        response = get "/edit_peep/4"
+        expect(response.status).to eq 200
+        expect(response.body).to include 'value="Happy sunday everyone!">'
+      end
+    end
+  
+    describe "POST to /edit_peep" do
+      it "should update a peep content only" do
+        create_new_user
+        post "/new_peep", { 
+          time: '2023-03-12 11:49:54.912033',
+          content: 'Happy sunday everyone!',
+          user_id: 4
+        }
+        post "/edit_peep/4", content: 'Good afternoon everyone!'
         follow_redirect!
         expect(last_response.status).to eq 200
         expect(last_request.path).to eq "/"
-        expect(last_response.body).to include '<p>Happy sunday everyone!</p>'
+        expect(last_response.body).to include '<p>Good afternoon everyone!</p>'
+      end
+    end
+
+    describe "GET to /delete_peep/:id" do
+      it "should redirect the user to a confirmation page" do
+        response = get "/delete_peep/1"
+        expect(response.status).to eq 200
+        expect(response.body).to include '<h1>Delete peep</h1>'
+      end
+    end
+    describe "POST to /delete_peep/:id" do
+      it "should delete the peep and redirect the main page" do
+        response = post "/delete_peep/1", delete_peep: "Yes"
+        expect(response.status).to eq 302
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/"
+        expect(last_response.body).not_to include '<p>How are you guys doing, today? @jdoe @mrbike</p>'
       end
     end
   end
-
-  describe "GET to /edit_peep" do
-    it "should open the edit peep page " do
-      create_new_user
-      post "/new_peep", { 
-        time: '2023-03-12 11:49:54.912033',
-        content: 'Happy sunday everyone!',
-        user_id: 4
-      }
-      response = get "/edit_peep/4"
-      expect(response.status).to eq 200
-      expect(response.body).to include 'value="Happy sunday everyone!">'
-    end
-  end
- 
-  describe "POST to /edit_peep" do
-    it "should update a peep content only" do
-      create_new_user
-      post "/new_peep", { 
-        time: '2023-03-12 11:49:54.912033',
-        content: 'Happy sunday everyone!',
-        user_id: 4
-      }
-      post "/edit_peep/4", content: 'Good afternoon everyone!'
-      follow_redirect!
-      expect(last_response.status).to eq 200
-      expect(last_request.path).to eq "/"
-      expect(last_response.body).to include '<p>Good afternoon everyone!</p>'
-    end
-  end 
 
   describe "THE USER VISIT ITS PRIVATE PROFILE" do
 

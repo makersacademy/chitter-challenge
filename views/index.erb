@@ -46,7 +46,7 @@
         <p><time datetime="<%= peep.time %>"><%= peep.time %></time></p>
 
         <% if @session_is_open && @peep_owner.call(peep.user_id) == @user.username %>
-          <a href="/edit_peep/<%= peep.id %>">Edit peep</a>
+          <a href="/edit_peep/<%= peep.id %>">Edit peep</a> <a href="/delete_peep/<%= peep.id %>">Delete peep</a>
         <% end %>
       <hr>
       <% end %>
