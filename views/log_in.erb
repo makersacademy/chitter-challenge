@@ -1,0 +1,46 @@
+<style>
+    body {
+    background: linear-gradient(90deg, #281967, #6542f0);
+    color: white;
+  } 
+</style>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Log in Chitta</title>
+    </head>
+    <body>
+        <form method="POST" action="/sign_up">
+            <label>Sign up to use Chitter</label><br><br>
+            <div>
+                <label for="username">Username: </label>
+                <input id="username" type="text" name="username" required>
+            </div>
+            <br>
+            <div>
+                <label for="name">First Name: </label>
+                <input id="name" type="text" name="name" required>
+            </div>
+            <br>
+            <div>
+                <label for="surname">Last Name: </label>
+                <input id="surname" type="text" name="surname" required>
+            </div>
+            <br>
+            <div>
+                <label for="email">Email: </label>
+                <input id="email" type="email" name="email" pattern=".+@globex\.com" required>
+            </div>
+            <br>
+            <div>
+                <label for="pass">Password: </label>
+                <input id="pass" type="password" name="pass" minlength="8" required>
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Create account!">
+            </div>
+        </form>
+    </body>
+</html>
