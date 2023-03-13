@@ -1,0 +1,47 @@
+require 'user_repository'
+require 'user'
+
+
+
+RSpec.describe UserRepository do
+
+  def reset_users_table
+    seed_sql = File.read('spec/seeds.sql')
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+    connection.exec(seed_sql)
+  end
+
+  before(:each) do 
+    reset_users_table
+  end
+
+  context '#all' do
+    it 'returns all items in table' do
+      repo = UserRepository.new
+
+      users = repo.all
+
+      expect(users.length).to eq(6)
+      expect(users[0].id).to eq(1)
+      expect(users[0].username).to eq('SuperHans')
+      expect(users[0].password).to eq('$2a$12$7Bpme/Bdgwoi0BPZeDJcXOCvS7NrZy3PXZotXkFtFEge9k2Y0mCfa') # hashed pass
+    end
+  end
+
+  context '#Create' do
+    it 'creates new user and returns' do
+      repo = UserRepository.new
+      new_user = User.new
+      new_user.username = "test001"
+      new_user.password = "Hunter1"
+
+      repo.create(new_user)
+
+      users = repo.all
+      last_user = users.last
+
+      expect(last_user.username).to eq "test001"
+      expect(last_user.password).to include('$2a$12') # unsalt to test whole hash?
+    end
+  end
+end
