@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="<%= url('css/styles.css') %>" rel="stylesheet" type="text/css" />
+    <script src="/js/index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sofia+Sans+Semi+Condensed:wght@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Explore/Chitter</title>
+
+  </head>
+<body>  
+  <div class=top-bar>
+    <h1>Chitter</h1>
+    <button class="open-button" onclick="openForm()">Sign in</button>
+
+    <div class="form-popup" id="myForm">
+      <form action="/signup" method="POST" class="form-container">
+        <h1 id=login-text>Login</h1>
+
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
+
+        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn">Sign up</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="column left"></div>
+    <div class="column center">
+      <div class="post">
+        <form action="/peep" method="POST" class="tweet" id="twt">
+          <input type="text" placeholder="username" name="user_id">
+          <textarea cols=100 name="message" placeholder="wht u talm..." form="twt"></textarea>
+          <button type="submit" class="btn">Post</button>
+        </form>
+      </div>
+      <div class="feed">
+        <% @post.each do |item|%>
+          <div class="peep">
+            <div class="peep-header">
+              <p class="user"><%= item.user_id%></p>
+              <p class="date"><%=item.datetime%></p>
+            </div>
+            <div class="peep-body">
+              <p><%=item.message%></p>
+            </div>
+          </div>
+        <% end %> 
+      </div>
+    </div>
+    <div class="column right"></div>
+  </div>  
+</body>
+</html>

@@ -1,0 +1,157 @@
+body {
+  background-color: #000000;
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 99px;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  top: 23px;
+  right: 28px;
+  width: 120px;
+  height: 32px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 15px;
+  border: 3px solid rgb(45, 45, 45);
+  border-radius: 10px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: rgb(48, 48, 48);
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 12px 0;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #a2d7c4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: rgb(92, 84, 84);
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+#login-text {
+  color: #ffffff;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  font-family: 'Pacifico', cursive;
+  vertical-align: top;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: #0bfa92;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  background-color: #892382;
+  width: 28%;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  border-left: 1px solid #2F3336;
+  border-right: 1px solid #2F3336;
+  flex: 2 1 auto;
+
+}
+
+.post {
+  background: #000000;
+
+}
+
+.feed {
+  background: #000000;
+  width: 100%;
+}
+
+.peep {
+  border: 1px solid #2F3336;
+  padding: 15px;
+}
+
+.peep p {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.peep-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user, .date {
+  margin: 0;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  background-color: #000000;
+  font-size: 16px;
+  resize: none;
+  color: #fff;
+}

@@ -1,0 +1,1 @@
+p Time.now.strftime("%Y-%m-%d %H:%M:%S").to_s
