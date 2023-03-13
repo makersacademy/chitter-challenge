@@ -1,7 +1,9 @@
 CREATE TABLE makers (
   id SERIAL PRIMARY KEY,
+  name text
   username text,
   email_address text
+  password text
 );
 
 CREATE TABLE peeps (
