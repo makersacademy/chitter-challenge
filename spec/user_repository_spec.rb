@@ -1,5 +1,6 @@
 require "user_repository"
 require "shared_context_spec"
+require "bcrypt"
 
 describe UserRepository do
 
@@ -50,38 +51,25 @@ describe UserRepository do
 
   context ".exist? method" do
     it "should return true if username already exist" do
-      user.fullname = "Chang Huynh"
-      user.username = "changwynn"
-      user.email = "trash-garbage-bin@gmail.com"
-      user.password = "12345Abcde+"
-      result = subject.exist?(user)
+      allow(user1).to receive(:username) {"changwynn"}
+      allow(user1).to receive(:email) {"trash-garbage-bin@gmail.com"}
+      result = subject.exist?(user1)
       expect(result).to eq true
     end
     it "should return true if email already exist" do
-      user.fullname = "Chang Huynh"
-      user.username = "chang-wynn"
-      user.email = "huynhchang@gmail.com"
-      user.password = "12345Abcde+"
-      result = subject.exist?(user)
+      allow(user1).to receive(:email) {"huynhchang@gmail.com"}
+      result = subject.exist?(user1)
       expect(result).to eq true
     end
     it "should return false if user does not exist in the database" do
-      user.fullname = "John Wick"
-      user.username = "wickedman"
-      user.email = "imsowicked@gmail.com"
-      user.password = "w1ck3d+"
-      result = subject.exist?(user)
+      result = subject.exist?(new_user)
       expect(result).to eq false
     end
   end
 
   context ".create method" do
     it "should add a new user to the database" do
-      user.fullname = "John Wick"
-      user.username = "wickedman"
-      user.email = "imsowicked@gmail.com"
-      user.password = "w1ck3d+"
-      subject.create(user)
+      subject.create(new_user)
       result = subject.find("wickedman")
       expect(result.fullname).to eq "John Wick"
       expect(result.username).to eq "wickedman"
@@ -115,6 +103,28 @@ describe UserRepository do
       expect(user.fullname).to eq "Chang Huynh"
       expect(user.username).to eq "chang-wynn"
       expect(user.email).to eq "huynhchang@gmail.com"
+    end
+  end
+  context ".update_password method" do
+    it "should return with a message if the current password submitted is incorrect" do
+      subject.create(new_user)
+      user = subject.find_by_id(4)
+      current_password = "w1ck3d"
+      new_password = "W1CK3D"
+      result = subject.update_password(user, current_password, new_password)
+      expect(result).to eq "Current password incorrect"
+    end
+    it "should update the password when password check is successfull" do
+      subject.create(new_user)
+      user = subject.find_by_id(4)
+      current_password = "w1ck3d+"
+      new_password = "W1CK3D"
+      result = subject.update_password(user, current_password, new_password)
+      expect(result).to eq "Password successfully updated"
+
+      previous = user.password
+      updated = subject.find_by_id(4).password
+      expect(previous == updated).to eq false
     end
   end
 end

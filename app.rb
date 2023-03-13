@@ -136,9 +136,13 @@ class Application < Sinatra::Base
   get "/:username/edit_profile" do
     user_repo = UserRepository.new
     @user = user_repo.find(params[:username])
-    # p @user
+    @message = session.delete(:message)
     return erb(:edit_profile)
   end
+
+  # ----------------------
+  # USER UPDATE ATTRIBUTE PAGE
+  # ----------------------
 
   get "/:username/edit_profile/:attribute" do
     @username = params[:username]
@@ -150,46 +154,76 @@ class Application < Sinatra::Base
 
   post "/:username/edit_profile/:attribute" do
     process = update_data_process(params)
+    fallback_process if process == "failed"
 
-    if process == "failed"
-      session[:message] = "This #{params[:attribute]} is not available"
-      @username = params[:username]
-      @attribute = params[:attribute]
-      redirect "/#{@username}/edit_profile/#{@attribute}"
-    end
-
-    user_repo = UserRepository.new
-    @username = user_repo.find_by_id(@user.id).username
+    @username = @user_repo.find_by_id(@user_id).username
     session[:username] = @username
-
     redirect "/#{@username}/edit_profile"
   end
 
   def update_data_process(params)
     return "failed" if check_availability_for(params[:new_value]) == "not available"
-
-    user_repo = UserRepository.new
-    @user = user_repo.find(params[:username])
-    method_args = sql_query_provider_for_update_method(params[:attribute], params[:new_value], @user.id)
-    user_repo.update(method_args[0], method_args[1])
+    
+    @user_id = @user_repo.find(params[:username]).id
+    update_args = get_args_for_sql_query(params[:attribute], params[:new_value], @user_id)
+    @user_repo.update(update_args[0], update_args[1])
   end
 
   def check_availability_for(new_value)
-    user_repo = UserRepository.new
-    return user_repo.find(new_value) == "not found" ? "available" : "not available"
+    @user_repo = UserRepository.new
+    return @user_repo.find(new_value) == "not found" ? "available" : "not available"
   end
 
-  def sql_query_provider_for_update_method(attribute_name, new_value, user_id)
+  def get_args_for_sql_query(attribute_name, new_value, user_id)
     case attribute_name
     when "username"
       sql = 'UPDATE users SET username = $1 WHERE id = $2;'
     when "email"
       sql = 'UPDATE users SET email = $1 WHERE id = $2;'
     end
-    sql_params = [new_value, @user.id]
-
+    sql_params = [new_value, @user_id]
     return [sql, sql_params]
   end
+
+  def fallback_process
+    session[:message] = "This #{params[:attribute]} is not available"
+    @username = params[:username]
+    @attribute = params[:attribute]
+    redirect "/#{@username}/edit_profile/#{@attribute}"
+  end
+
+
+  # ------------------
+  # UPDATE PASSWORD
+  # ------------------
+
+  get "/:username/new_password" do
+    @username = params[:username]
+    @message = session.delete(:message)
+    return erb(:new_password)
+  end
+
+  post "/:username/new_password" do
+    p params
+    user_repo = UserRepository.new
+    username = params[:username]
+    user = user_repo.find(username)
+    p username
+    p user
+    current_password = params[:current_password]
+    new_password = params[:new_password]
+    update_status = user_repo.update_password(user, current_password, new_password)
+    p update_status
+    if update_status == "Current password incorrect"
+      session[:message] = update_status
+      redirect "/#{username}/new_password"
+    elsif update_status == "Password successfully updated"
+      session[:message] = update_status
+      redirect "/#{username}/edit_profile"
+    end
+  end
+
+
 
   # ------------------
   # CREATE NEW PEEP BEHAVIOR

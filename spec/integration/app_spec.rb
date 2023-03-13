@@ -202,7 +202,7 @@ describe Application do
     end
   end 
 
-  describe "The user visits its private profile page" do
+  describe "THE USER VISIT ITS PRIVATE PROFILE" do
     context "GET to /:username" do
       it "should display the private main page of the user" do
         response = get "/changwynn"
@@ -230,6 +230,14 @@ describe Application do
         expect(last_request.path).to eq "/carwash/edit_profile"
         expect(last_response.body).to include "<h4>carwash</h4>"
       end
+      it "should prompt the user for new details and redirect to the personal information page" do
+        create_new_user
+        post "/caroush/edit_profile/email", params = { new_value: "mama@live.com", username: "caroush" }
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/caroush/edit_profile"
+        expect(last_response.body).to include "<h4>mama@live.com</h4>"
+      end
       it "should return a message if the new username is not available" do
         create_new_user
         post "/caroush/edit_profile/username", params = { new_value: "mrbike", username: "caroush" }
@@ -245,6 +253,31 @@ describe Application do
         expect(last_response.status).to eq 200
         expect(last_request.path).to eq "/caroush/edit_profile/email"
         expect(last_response.body).to include "<p>This email is not available</p>"
+      end
+    end
+    context "GET to /:username/password" do
+      it "should redirect the user to the change password page" do
+        response = get "/changwynn/new_password"
+        expect(response.status).to eq 200
+        expect(response.body).to include "<h1>Change your password</h1>"
+      end
+    end
+    context "POST to /:username/password" do
+      it "should print a message if the current password doesn't match with the database" do
+        create_new_user
+        response = post "/caroush/new_password", current_password: "Mariah*Caroush12", new_password: "Mariah*"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_response.body).to include "<h1>Change your password</h1>"
+        expect(last_request.path).to eq "/caroush/new_password"
+      end
+      it "should redirect to the edit profile page with a successfull update message" do
+        create_new_user
+        response = post "/caroush/new_password", current_password: "Mariah*Caroush123", new_password: "Mariah*"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_response.body).to include "<p>Password successfully updated</p>"
+        expect(last_request.path).to eq "/caroush/edit_profile"
       end
     end
   end 

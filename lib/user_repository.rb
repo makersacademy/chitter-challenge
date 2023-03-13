@@ -86,5 +86,17 @@ class UserRepository
     DatabaseConnection.exec_params(sql, sql_params)
     return "The user profile has been successfully updated."
   end 
+
+  def update_password(user, old_password, new_password)
+    old_password_check = BCrypt::Password.new(user.password) == old_password
+    return "Current password incorrect" if old_password_check == false
+
+    encrypted_password = BCrypt::Password.create(new_password)
+    sql = 'UPDATE users SET password = $1 WHERE id = $2;'
+    sql_params = [encrypted_password, user.id]
+    DatabaseConnection.exec_params(sql, sql_params)
+
+    return "Password successfully updated"
+  end 
 end
 

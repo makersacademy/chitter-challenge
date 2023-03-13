@@ -40,6 +40,15 @@ shared_context "doubles setup" do
       peeps: :peep3
     })
   end
+  let(:new_user) do 
+    double(:User, {
+      fullname: "John Wick", 
+      username: "wickedman", 
+      email: "imsowicked@gmail.com", 
+      password: "w1ck3d+",
+      peeps: :new_peep
+    })
+  end
   let(:peep1) do 
     double(:Peep, {
       time: "2023-03-09 16:32:54.912033", 
@@ -59,6 +68,13 @@ shared_context "doubles setup" do
       time: "2023-03-09 16:45:54.912033", 
       content: "@jdoe @changwynn guys, Have you watched the game yesterday?", 
       user_id: 3
+    })
+  end
+  let(:new_peep) do 
+    double(:Peep, {
+      time: "2023-03-13 01:45:54.912033", 
+      content: "I'll wicked you all", 
+      user_id: 4
     })
   end
 end
