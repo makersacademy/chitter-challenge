@@ -47,7 +47,7 @@ Table: users
 
 Columns:
 id | peep_content | peep_post_date | user_id
-id | user_name | user_email
+id | first_name | last_name | user_name | user_email
 
 2. Create Test SQL seeds
 
@@ -60,13 +60,15 @@ INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ('Second peep',
 INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ('Third peep', '2023-03-14', 1);
 INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ('Fourth peep', '2023-03-12', 3);
 
-INSERT INTO users (user_name, user_email) VALUES ('User 1', 'user1@peep.com');
-INSERT INTO users (user_name, user_email) VALUES ('User 2', 'user2@peep.com');
-INSERT INTO users (user_name, user_email) VALUES ('User 3', 'user3@peep.com');
+INSERT INTO users (first_name, last_name, user_name, user_email) VALUES ('User, '1', 'User1', 'user1@peep.com');
+INSERT INTO users (first_name, last_name, user_name, user_email) VALUES ('User, '2', 'User 2', 'user2@peep.com');
+INSERT INTO users (first_name, last_name, user_name, user_email) VALUES ('User, '3', 'User 3', 'user3@peep.com');
 
 Run once to create the tables (for each DB):
     CREATE TABLE users (
         id SERIAL PRIMARY KEY,
+        first_name TEXT,
+        last_name TEXT,
         user_name TEXT,
         user_email TEXT
     );
@@ -137,87 +139,274 @@ end
 
 class PeepRepository
   def all
-    SELECT id, peep_content, peep_post_date FROM peeps;
+    SELECT id, peep_content, peep_post_date, user_id FROM peeps;
     # Returns an array of peeps.
   end
 
   def find(id)
-    SELECT id, peep_content, peep_post_date FROM peeps WHERE id = $1;
+    SELECT id, peep_content, peep_post_date, user_id FROM peeps WHERE id = $1;
     # Returns a single peep object.
   end
 
   def create(peep)
-    #
+    INSERT INTO peeps (peep_content, peep_post_date, user_id) VALUES ($1, $2, $3);
+    # Creates a peep.
   end
 
   def update(peep)
-    #
+    UPDATE peeps SET peep_content = $1;
+    # Updates a peep.
   end
 
-  def delete(peep)
-    #
+  def delete_peep(id)
+    DELETE FROM peeps WHERE id = $1;
+    # Deletes a peep.
+  end
+
+  def delete_all_peeps(user_id)
+    DELETE FROM peeps WHERE user_id = $1;
+    # Deletes all peeps that belong to a user.
+  end
+end
+
+# Table name: users
+
+# Repository class
+# (in lib/user_repository.rb)
+
+class UserRepository
+  def all
+    SELECT id, user_name, user_email FROM users;
+    # Returns an array of users.
+  end
+
+  def find(id)
+    SELECT id, user_name, user_email FROM users WHERE id = $1;
+    # Returns a single user object.
+  end
+
+  def create(user)
+    INSERT INTO users (user_name, user_email) VALUES ($1, $2);
+    # Creates a user.
+  end
+
+  def update(user)
+    UPDATE users SET user_name = $1, user_email = $2;
+    # Updates a user.
+  end
+
+  def delete_user(id)
+    DELETE FROM users WHERE id = $1;
+    # Deletes a user.
   end
 end
 
 6. Write Test Examples
 
-Write Ruby code that defines the expected behaviour of the Repository class, following your design from the table written in step 5.
+UNIT TESTS
+-- PEEPS
+# 1 Returns all peeps that belong to a user.
 
-These examples will later be encoded as RSpec tests.
+repo = PeepRepository.new
 
-# EXAMPLES
+peeps = repo.all
+peeps.length # =>  4
 
-# 1
-# Get all students
+peeps[0].id # =>  1
+peeps[0].peep_content # =>  'First peep'
+peeps[0].peep_post_date # =>  '2023-03-12'
 
-repo = StudentRepository.new
+peeps[1].id # =>  2
+peeps[1].peep_content # =>  'Second peep'
+peeps[1].peep_post_date # =>  '2023-03-13'
 
-students = repo.all
+# 2 Finds a single peep.
 
-students.length # =>  2
+repo = PeepRepository.new
+peep = repo.find(1)
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+peep.id # =>  1
+peep.peep_content # =>  'Second peep'
+peep.peep_post_date # =>  '2023-03-13'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+# 3 Creates a peep.
 
-# 2
-# Get a single student
+repo = PeepRepository.new
+peeps = repo.all
+peep = Peep.new
 
-repo = StudentRepository.new
+peep.peep_content = 'Hello all you peepers, not peppers!'
+peep.peep_post_date = '2023-03-14' (or try to use NOW, the user won't have to add it!)
+peeps.create(peep)
 
-student = repo.find(1)
+new_peep = repo.find(5)
+peep.id # =>  5
+peep.peep_content # =>  'Hello all you peepers, not peppers!'
+peep.peep_post_date # =>  '2023-03-14'
+peeps.length # => 5
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+# 4 Updates a peep
 
-# Add more examples for each method
+repo = PeepRepository.new
+peep = repo.find(1)
+peep.peep_content = 'Hello all you peepers! (edited)'
+peep.update(peep)
+peep.peep_content # => 'Hello all you peepers! (edited)'
 
-Encode this example as a test.
+# 5 Deletes a peep
+
+repo = PeepRepository.new
+peeps = repo.all
+
+new_peep1 = Peep.new
+new_peep1.peep_content = 'Fifth peep'
+new_peep1.peep_post_date = '2023-03-14'
+repo.create(new_peep1)
+
+new_peep2 = Peep.new
+new_peep2.peep_content = 'Sixth peep'
+new_peep2.peep_post_date = '2023-03-15'
+repo.create(new_peep2)
+
+repo.delete(5)
+peeps = repo.all
+peeps.length # => 5
+peeps.last.peep_content # => 'Sixth peep'
+
+-- USERS
+# 6 Returns all users.
+
+repo = UserRepository.new
+
+users = repo.all
+users.length # =>  3
+
+users[0].id # =>  1
+users[0].user_name # =>  'User 1'
+users[0].user_email # =>  'user1@peep.com'
+
+users[1].id # =>  2
+users[1].user_name # =>  'User 2'
+users[1].user_email # =>  'user2@peep.com'
+
+# 7 Finds a single user.
+
+repo = UserRepository.new
+user = repo.find(1)
+
+user.id # =>  1
+user.user_name # =>  'User 1'
+user.user_email # =>  'user1@peep.com'
+
+# 8 Creates a user.
+
+repo = UserRepository.new
+users = repo.all
+user = User.new
+
+user.user_name = 'User 4'
+user.user_email = 'user4@peep.com'
+users.create(user)
+
+new_user = repo.find(4)
+user.id # =>  4
+user.user_name # =>  'User 4'
+user.user_email # =>  'user4@peep.com'
+users.length # => 4
+
+# 9 Updates a user
+
+repo = UserRepository.new
+user = repo.find(1)
+user.last_name = 'One'
+user.update(user)
+user.last_name # => 'One'
+
+# 10 Deletes a user
+
+repo = UserRepository.new
+users = repo.all
+
+new_user1 = User.new
+new_user1.first_name = 'Alice'
+new_user1.last_name = 'Wilson'
+new_user1.username = 'alicewilson'
+new_user1.email = 'alice.wilson@peep.com'
+repo.create(new_user1)
+
+new_user2 = User.new
+new_user2.first_name = 'Amanda'
+new_user2.last_name = 'Benson'
+new_user2.username = 'amandabenson'
+new_user2.email = 'amanda.benson@peep.com'
+repo.create(new_user2)
+
+repo.delete(new_user1.id)
+users = repo.all
+users.length # => 4
+users.last.username # => 'amanda.benson@peep.com'
+
+INTEGRATION TESTS:
+
+# 11 Creates a user and two peeps.
+
+user_repo = UserRepository.new
+peep_repo = PeepRepository.new
+new_user.first_name = 'Jane'
+new_user.last_name = 'Dough'
+new_user.user_name = 'janedough'
+new_user.email = 'janedough@peep.com'
+new_user = user_repo.create(new_user)
+
+first_peep = Peep.new
+first_peep.peep_content = 'This is my first peep!'
+first_peep.peep_post_date = '2023-03-15'
+peep_repo.create(first_peep)
+
+second_peep = Peep.new
+second_peep.peep_content = 'This is my second peep!'
+second_peep.peep_post_date = '2023-03-15'
+peep_repo.create(second_peep)
+
+peep_repo.delete(first_peep.id)
+peeps = peep_repo.all
+
+peeps.length # => 1
+peeps.second_peep.peep_content # => 'This is my second peep!'
+new_user.user_name = 'janesourdough'
+user_repo.update(new_user)
+new_user.user_name # => 'janesourdough'
+
 7. Reload the SQL seeds before each test run
 
-Running the SQL code present in the seed file will empty the table and re-insert the seed data.
+# file: spec/user_repository_spec.rb
 
-This is so you get a fresh table contents every time you run the test suite.
-
-# EXAMPLE
-
-# file: spec/student_repository_spec.rb
-
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_users_table
+  seed_sql = File.read('spec/seeds_peeps_test.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitterdb' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe UserRepository do
   before(:each) do 
-    reset_students_table
-  end
+    reset_users_table
+end
+
+  # (your tests will go here).
+end
+
+# file: spec/peep_repository_spec.rb
+
+def reset_peeps_table
+  seed_sql = File.read('spec/seeds_peeps_test.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitterdb' })
+  connection.exec(seed_sql)
+end
+
+describe PeepRepository do
+  before(:each) do 
+    reset_peeps_table
+end
 
   # (your tests will go here).
 end
