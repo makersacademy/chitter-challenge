@@ -98,5 +98,10 @@ class UserRepository
 
     return "Password successfully updated"
   end 
-end
 
+  def delete(id)
+    sql = 'DELETE FROM users WHERE id = $1;'
+    DatabaseConnection.exec_params(sql, [id])
+    return "Account deleted"
+  end
+end

@@ -9,10 +9,9 @@ class PeepRepository
     result_set = DatabaseConnection.exec_params(sql, [])
 
     peeps = []
-      result_set.each do |record|
-        peeps << Record.to_peep(record)
-      end
-
+    result_set.each do |record|
+      peeps << Record.to_peep(record)
+    end
     chronologically = peeps.sort_by{ |peep| Time.parse(peep.time) }
 
     return chronologically.reverse
@@ -21,10 +20,9 @@ class PeepRepository
   def find(id)
     sql = 'SELECT * FROM peeps WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
-
-    return result_set.ntuples.positive? ? Record.to_peep(result_set[0]) : nil
+    result_found = result_set.ntuples.positive?
+    return result_found ? Record.to_peep(result_set[0]) : nil
   end
-
 
   def create(peep)
     tags = Peep.get_tags(peep.content)

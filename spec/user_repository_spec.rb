@@ -127,4 +127,15 @@ describe UserRepository do
       expect(previous == updated).to eq false
     end
   end
+
+  describe ".delete method" do
+    it "should delete the user account" do
+      subject.create(new_user)
+      result = subject.find_by_id(4)
+      expect(result.fullname).to eq "John Wick"
+      expect(subject.delete(4)).to eq "Account deleted"
+      result = subject.find_by_id(4)
+      expect(result).to eq "not found"
+    end
+  end
 end

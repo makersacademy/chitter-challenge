@@ -21,11 +21,11 @@ describe PeepRepository do
   end 
 
   describe ".find method" do
-    it "should return the peep at the given id" do
+    it "should return the peep at the given id - test 1" do
       result = subject.find(1)
       expect(result.content).to eq 'How are you guys doing, today? @jdoe @mrbike'
     end
-    it "should return the peep at the given id" do
+    it "should return the peep at the given id - test 2" do
       result = subject.find(2)
       expect(result.content).to eq 'Hey @changwynn, I am pretty well What about you?'
     end

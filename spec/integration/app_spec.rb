@@ -203,6 +203,7 @@ describe Application do
   end 
 
   describe "THE USER VISIT ITS PRIVATE PROFILE" do
+
     context "GET to /:username" do
       it "should display the private main page of the user" do
         response = get "/changwynn"
@@ -221,8 +222,12 @@ describe Application do
         expect(response.body).to include "<h4>huynhchang@gmail.com</h4>"
       end
     end
+  end
+
+  describe "THE USER WANT TO CHANGE ITS USERNAME OR EMAIL" do
+
     context "POST to /:username/edit_profile/:attribute" do
-      it "should prompt the user for new details and redirect to the personal information page" do
+      it "should prompt the user for new username and redirect to the personal information page" do
         create_new_user
         post "/caroush/edit_profile/username", params = { new_value: "carwash", username: "caroush" }
         follow_redirect!
@@ -230,7 +235,7 @@ describe Application do
         expect(last_request.path).to eq "/carwash/edit_profile"
         expect(last_response.body).to include "<h4>carwash</h4>"
       end
-      it "should prompt the user for new details and redirect to the personal information page" do
+      it "should prompt the user for new email and redirect to the personal information page" do
         create_new_user
         post "/caroush/edit_profile/email", params = { new_value: "mama@live.com", username: "caroush" }
         follow_redirect!
@@ -255,6 +260,10 @@ describe Application do
         expect(last_response.body).to include "<p>This email is not available</p>"
       end
     end
+  end
+
+  describe "THE USER WANT TO CHANGE ITS PASSWORD" do
+
     context "GET to /:username/password" do
       it "should redirect the user to the change password page" do
         response = get "/changwynn/new_password"
@@ -280,7 +289,40 @@ describe Application do
         expect(last_request.path).to eq "/caroush/edit_profile"
       end
     end
-  end 
+  end
+
+  describe "THE USER WANT TO DELETE ITS ACCOUNT" do
+
+    context "GET to /:username/delete_account" do
+      it "should redirect the user to the delete account page" do
+        response = get "/changwynn/delete_account"
+        expect(response.status).to eq 200
+        expect(response.body).to include "<h1>Delete account</h1>"
+      end
+    end
+    context "POST to /:username/delete_account" do
+      it "should redirect the user to the delete account page" do
+        create_new_user
+        response = post "/caroush/delete_account", confirmation: "confirm delete account", password: "Mariah*Caroush123"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/"
+        response = post "/login", username: "caroush", password: "Mariah*Caroush123"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/login"
+        expect(last_response.body).to include "<p>This email address does not exist. Please sign up.</p>"
+      end
+      it "should print a message when the user enters an incorrect input" do
+        create_new_user
+        response = post "/caroush/delete_account", confirmation: "onfirm delete account", password: "Mariah*Caroush123"
+        follow_redirect!
+        expect(last_response.status).to eq 200
+        expect(last_request.path).to eq "/caroush/delete_account"
+        expect(last_response.body).to include "<p>Sorry, something went wrong.</p>"
+      end
+    end
+  end
 end
 
 # <p><%= @user_repo.find_by_id(peep.user_id).username %></p>

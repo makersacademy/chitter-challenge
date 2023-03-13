@@ -204,16 +204,14 @@ class Application < Sinatra::Base
   end
 
   post "/:username/new_password" do
-    p params
     user_repo = UserRepository.new
     username = params[:username]
     user = user_repo.find(username)
-    p username
-    p user
+
     current_password = params[:current_password]
     new_password = params[:new_password]
     update_status = user_repo.update_password(user, current_password, new_password)
-    p update_status
+
     if update_status == "Current password incorrect"
       session[:message] = update_status
       redirect "/#{username}/new_password"
@@ -226,9 +224,8 @@ class Application < Sinatra::Base
 
 
   # ------------------
-  # CREATE NEW PEEP BEHAVIOR
+  # CREATE NEW PEEP
   # ------------------
-
   post "/new_peep" do
     user = UserRepository.new
     peep_repo = PeepRepository.new
@@ -241,9 +238,8 @@ class Application < Sinatra::Base
   end
 
   # ------------------
-  # EDIT PEEP BEHAVIOR
+  # EDIT PEEP
   # ------------------
-
   get "/edit_peep/:id" do
     peep_repo = PeepRepository.new
     @peep = peep_repo.find(params[:id]) 
@@ -258,4 +254,33 @@ class Application < Sinatra::Base
     redirect "/"
   end
 
+  # --------------
+  # DELETE ACCOUNT
+  # --------------
+  get "/:username/delete_account" do
+    @message = session.delete(:message)
+    @username = params[:username]
+    return erb(:delete_account)
+  end
+
+  post "/:username/delete_account" do
+    confirmation = params[:confirmation]
+    password = params[:password]
+    username = params[:username]
+
+    user_repo = UserRepository.new
+    user = user_repo.find(username)
+
+    deletion_confirmed = confirmation == "confirm delete account"
+    password_correct = BCrypt::Password.new(user.password) == password
+
+    if deletion_confirmed && password_correct
+      user_repo.delete(user.id)
+      session[:username] = nil
+      redirect "/"
+    else
+      session[:message] = "Sorry, something went wrong."
+      redirect "/#{username}/delete_account"
+    end
+  end
 end
