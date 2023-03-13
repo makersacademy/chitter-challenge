@@ -48,7 +48,7 @@ describe Application do
         response = get("/sign_up")
         expect(response.status).to eq(200)
         expect(response.body).to include('<input type="text" name="name" /><br />')
-        expect(response.body).to include('<input type="text" name="password" /><br />')
+        expect(response.body).to include('<input type="password" name="password" /><br />')
       end
     end
 
@@ -73,9 +73,10 @@ describe Application do
 
     context "POST /login" do 
       it "logs in a user" do 
-        response = post('/login', email: 'erykah@gmail.com', password: 'Baduizm99')
+        _response = post('/login', email: 'erykah@gmail.com', password: 'Baduizm99')
+        response = get('/login_home')
         expect(response.status).to eq(200)
-        expect(response.body).to include('<h1>You are logged in!</h1>')
+        expect(response.body).to include('<h3>Start peeping now</h3>')
       end
 
       it "fails to log in a user if wrong email or password are given" do
@@ -90,7 +91,7 @@ describe Application do
   describe "Creating a new peep" do
     context "GET /login_home" do
       it "shows the form to add a new peep" do
-        response = get("/login_home")
+        response = get('/login_home')
         expect(response.status).to eq(200)
         expect(response.body).to include('<form action="/peeps" method="post">')
         expect(response.body).to include(
@@ -100,11 +101,10 @@ describe Application do
     end
 
     context "POST /" do
-      xit "should add the new peep" do
-        response = post('/peeps', message: 'hello', user_id: '1')
-  
+      it "should add the new peep" do
+        _response = post('/peeps', message: 'hello')
+        response = get('/login_home')
         expect(response.status).to eq(200)
-
       end
     end
   end
