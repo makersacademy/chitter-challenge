@@ -1,5 +1,5 @@
-require 'user_repository'
-require 'user_model'
+require './lib/database_connection'
+require './lib/user_model'
 
 class UserRepository
   def all

@@ -1,6 +1,5 @@
 require 'simplecov'
 require 'simplecov-console'
-
 require 'database_connection'
 
 DatabaseConnection.connect('chitterdb_test')

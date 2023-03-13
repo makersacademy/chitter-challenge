@@ -1,7 +1,13 @@
 <html>
   <body>
-
-    <h1></h1>
+    <h1>Peep, peep!</h1>
+    <h2><% @public_peeps.each do |peep| %></h2>
+    <div>
+      User <%= peep.user_id %> peeped...<br><br>
+      <%= peep.peep_content %><br><br> on <%= peep.peep_post_date %>
+      <p> --------------------------------------------   </p>
+    </div>
+    <% end %>
     <p></p>
   </body>
   </html>

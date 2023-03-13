@@ -1,19 +1,19 @@
 require 'pg'
 
 class DatabaseConnection
-  def self.connect
-    #@connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
-    if ENV['DATABASE_URL'] != nil
-      @connection = PG.connect(ENV['DATABASE_URL'])
-      return
-    end
-
-    if ENV['ENV'] == 'test'
-      database_name = 'chitterdb_test'
-    else
-      database_name = 'chitterdb'
-    end
+  def self.connect(database_name)
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
+    #if ENV['DATABASE_URL'] != nil
+    #  @connection = PG.connect(ENV['DATABASE_URL'])
+    #  return
+    #end
+
+    #if ENV['ENV'] == 'test'
+    #  database_name = 'chitterdb_test'
+    #else
+    #  database_name = 'chitterdb'
+    #end
+    #@connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   end
 
   def self.exec_params(query, params)
