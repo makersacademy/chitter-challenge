@@ -1,17 +1,21 @@
 class Peep 
-  def initialize(username, message) # username and message are both strings 
-    @username = username
-    @message = message
-  end
+  attr_accessor :id, :messsage, :time_of_peep, :peeper_id
 
-  def username
-    return @username 
-    # Returns a string of the username
-  end
+  #BELOW IS THE LOGIC I ORIGINALLY WROTE FOR CLASS PEEP... REALISING (I THINK!) THAT I DON'T NEED THIS NOW??
+  
+  # def initialize(username, message) # username and message are both strings 
+  #   @username = username
+  #   @message = message
+  # end
 
-  def message
-    return @message 
-    # Returns a string of the message
+  # def username
+  #   return @username 
+  #   # Returns a string of the username
+  # end
+
+  # def message
+  #   return @message 
+  #   # Returns a string of the message
   end
 
   def format
