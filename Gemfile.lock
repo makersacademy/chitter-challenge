@@ -23,6 +23,7 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (10.4.13.0)
       execjs (~> 2)
+    bcrypt (3.1.18)
     bootstrap (5.2.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
@@ -151,6 +152,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1)
   bootstrap (~> 5.2)
   rack-test (~> 2.0)
   rspec

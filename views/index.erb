@@ -20,9 +20,12 @@
   </div>
 
   <% @peeps.zip(@name, @username).reverse_each do |peep, name, username| %>
-    <p><%=name%> | <em>@<%=username%></em></p>
-    <a href="/peep/<%=peep.id%>"><%=peep.content%></a>
-    <br />
-    <% end %>
+    <div>
+      <p><%=name%> | <em>@<%=username%></em></p>
+      <a href="/peep/<%=peep.id%>"><%=peep.content%></a>
+      <br />
+    </div>
+      <% end %>
+    
 </body>
 </html>

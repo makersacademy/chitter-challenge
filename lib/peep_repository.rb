@@ -16,7 +16,6 @@ class PeepRepository
 
       peeps << peep
     end
-
     return peeps
   end
 

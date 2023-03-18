@@ -24,8 +24,6 @@ class Application < Sinatra::Base
 
     @status = params[:status]
 
-    p "status in get is #{@status}"
-
     users.each do |record|
       name1 << record.name ; username1 << record.username
     end
@@ -46,9 +44,9 @@ class Application < Sinatra::Base
     peep_id = params[:id]
     peep = @peep_repo.find_peep(peep_id)
     @content = peep.content; @datetime = peep.datetime.split
-    user_id = peep.user_id
+    user_id = peep.user_id.to_i
 
-    user = @user_repo.find_user(user_id)
+    user = @user_repo.all_users[user_id-1]
     @name = user.name; @username = user.username
     return erb(:peep)
   end
@@ -57,8 +55,6 @@ class Application < Sinatra::Base
     email_username = params[:email_username]; password = params[:password]
     exist = @user_repo.find_user(email_username, password)
 
-
-
     if exist != false
       params = {status: true , user: exist}
     else
@@ -66,8 +62,6 @@ class Application < Sinatra::Base
     end
 
     params = params.map{|key, value| "#{key}=#{value}"}.join("&")
-
-    p "status in post is #{params}"
 
     return redirect('/')
   end
