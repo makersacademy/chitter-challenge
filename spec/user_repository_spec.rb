@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'user'
 require 'user_repository'
 
@@ -21,15 +22,15 @@ describe UserRepository do
     expect(users).to include(have_attributes(id: '2', email: 'jermainecole@hotmail.com', password: '$2a$12$EbDxcnOtgHT5u1593.PLjuhv1Uv6r8QUFbLmqJbg2hol7e2n7dXCG', name: 'Jermaine Cole', username: 'j.cole'))
   end
 
-  context "get a single user" do
+  context "user sign in" do
       it 'uses the correct email and password' do
         user = @repo.sign_in('aubreygraham@gmail.com', 'hotlinebling')
         expect(user).to have_attributes(id: '3', email: 'aubreygraham@gmail.com', password: '$2a$12$OMGJGi6LFSxeD.cDwpJAE.MQqj6rhEDZs3DlB3fnfM31XXG8C58Ya', name: 'Aubrey Graham', username: 'drake')
       end
 
-      it 'uses the correct username and password' do
-        user = @repo.sign_in('kendricklamar', 'goodkid')
-        expect(user).to have_attributes(id: '4', email: 'kendrickduckworth@aol.com', password: '$2a$12$mZAI5Y87DMF3tz5c9oFPp.k0kLbLPI8uEqmlCGXYDKG7abDsxgkUW', name: 'Kendrick Duckworth', username: 'kendricklamar')
+      it 'uses the incorrect username and password' do
+        user = @repo.sign_in('kendricklamar', 'kidgood')
+        expect(user).to eq false
       end
   end
 
@@ -47,7 +48,7 @@ describe UserRepository do
       expect(users).to include(have_attributes(id: '5', email: 'santandave@icloud.com', name: 'Santan Dave', username: 'dave'))
     end
 
-    xit 'uses an unavailable username' do
+    it 'uses an unavailable username' do
       new_user = User.new
       new_user.email = 'drakebell@icloud.com'
       new_user.password = 'drakeandjosh'
@@ -57,7 +58,7 @@ describe UserRepository do
       expect(@repo.create_user(new_user)).to eq false
     end
 
-    xit 'uses an unavailable email' do
+    it 'uses an unavailable email' do
       new_user = User.new
       new_user.email = 'samuelbadru@outlook.com'
       new_user.password = 'drakeandjosh'
