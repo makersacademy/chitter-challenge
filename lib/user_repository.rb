@@ -25,9 +25,9 @@ class UserRepository
   end
 
   # Hash is stored as string in database, not a BCrypt object
-  def find_user(email_username, password)
+  def sign_in(email_username, password)
 
-    user = find_by_email_username(email_username)
+    user = find_user(email_username)
     return nil if user.nil?
 
     # Converts stored has string back into a BCrypt object
@@ -40,7 +40,7 @@ class UserRepository
     end
   end
 
-  def find_by_email_username(email_username)
+  def find_user(email_username)
     sql = 'SELECT * FROM users WHERE (email = $1 OR username = $1);'
     record = DatabaseConnection.exec_params(sql, [email_username])
     p "record is #{record.inspect}"
