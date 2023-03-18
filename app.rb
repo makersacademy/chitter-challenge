@@ -46,6 +46,21 @@ class Application < Sinatra::Base
         return erb(:index)
     end
     get '/home' do
+        repi = ChitterRepository.new
+        repos = UserRepository.new
+        a_user = repos.all
+        peepi = repi.all
+        @contents = []
+        @user_name = []
+        a_user.each do |u|
+         @user_name.push(u.user_name)
+        end
+        num = 0
+        peepi.each do |p|
+         
+         @contents.push("#{@user_name[num]}: #{p.contents}. sent: #{p.time}")
+         num += 1
+        end
         return erb(:homepage)
 
     end
