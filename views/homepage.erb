@@ -8,6 +8,9 @@
       br {
         color: black;
       }
+      button {
+        text-align: left;
+      }
 
      
     </style>  
@@ -20,6 +23,7 @@
         <meta name="Description" content = "creation of a mock twitter page">
     </head>
     <body>
+         <a href="/create"><button>create your own peep</button></a>
         <%@contents.reverse.each do |p|%>
             <h2><%=p%></h2>
             <br>
