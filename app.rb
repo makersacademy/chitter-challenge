@@ -33,14 +33,21 @@ class Application < Sinatra::Base
         return erb(:index)
     end
     get '/create' do
-       # repo = ChitterRepository.new
-        #peep = Chitter.new
-        #peep.contents = "create test"
-        #peep.time = 12.46
-        #peep.user_id = 2
-        #repo.create(peep)
-   
-   return erb(:index1)
+    return erb(:index1)
+    end
+
+    post '/create' do
+        repo = ChitterRepository.new
+        a_chitter = Chitter.new
+        a_chitter.contents = params["the_peep"]
+        a_chitter.time = params["peep_time"].to_f
+        a_chitter.user_id = params["the_user_id"].to_i
+        repo.create(a_chitter)
+        return erb(:index)
+    end
+    get '/home' do
+        return erb(:homepage)
+
     end
 
 
