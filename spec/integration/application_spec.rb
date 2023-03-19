@@ -59,16 +59,16 @@ describe Application do
       @response = get('/login')
     end
     
-    xit 'is a valid web query' do
+    it 'is a valid web query' do
       expect(@response.status).to eq (200)
     end
 
-    xit 'has an email/username input field' do
-      expect(@response.body).to include('<input class="form-control" id="login_email/username" placeholder="Enter email or username">')
+    it 'has an email/username input field' do
+      expect(@response.body).to include('<input class="form-control" id="email/username" placeholder="Enter email or username">')
     end
 
-    xit 'has a password field' do
-      expect(@response.body).to include('<input type="password" class="form-control" id="login_password" placeholder="Password">')
+    it 'has a password field' do
+      expect(@response.body).to include('<input type="password" class="form-control" id="password" placeholder="Password">')
     end
 
     xit 'has a login button' do

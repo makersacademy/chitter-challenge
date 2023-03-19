@@ -55,6 +55,10 @@ class Application < Sinatra::Base
     return erb(:peep)
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
   post '/login' do
     email_username = params[:email_username]; password = params[:password]
     user = @user_repo.sign_in(email_username, password)
