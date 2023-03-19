@@ -44,6 +44,18 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
+  get '/signup' do
+    return erb(:signup)
+  end
+
+  get '/peep' do
+    return erb(:peep_new)
+  end
+
   get '/peep/:id' do
     peep_id = params[:id]
     peep = @peep_repo.find_peep(peep_id)
@@ -55,9 +67,7 @@ class Application < Sinatra::Base
     return erb(:peep)
   end
 
-  get '/login' do
-    return erb(:login)
-  end
+
 
   post '/login' do
     email_username = params[:email_username]; password = params[:password]

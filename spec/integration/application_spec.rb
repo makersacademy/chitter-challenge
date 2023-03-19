@@ -72,7 +72,7 @@ describe Application do
     end
 
     it 'has a login button' do
-      expect(@response.body).to include('<a class="btn btn-primary" href="/"  role="button">Log in</a>')
+      expect(@response.body).to include('<input class="btn btn-primary" type="submit" value="Log in">')
     end
 
     it 'has a link to sign up' do
@@ -82,31 +82,35 @@ describe Application do
 
   context 'Sign up page - GET /signup' do
     before do
-      @response = get('/login')
+      @response = get('/signup')
     end
     
-    xit 'is a valid web query' do
+    it 'is a valid web query' do
       expect(@response.status).to eq (200)
     end
 
-    xit 'has an input field for email' do
-      expect(@response.body).to include('<input type="email" class="form-control" id="signup_email" aria-describedby="emailHelp" placeholder="Email address">')
+    it 'has an input field for email' do
+      expect(@response.body).to include('<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email address">')
     end
 
-    xit 'has an input field for password' do
-      expect(@response.body).to include('<input type="password" class="form-control" id="signup_password" placeholder="Password">')
+    it 'has an input field for password' do
+      expect(@response.body).to include('<input type="password" class="form-control" id="password" placeholder="Password">')
     end
 
-    xit 'has an input field for name' do
-      expect(@response.body).to include('<input class="form-control" id="signup_name" placeholder="Full name">')
+    it 'has an input field for name' do
+      expect(@response.body).to include('<input class="form-control" id="name" placeholder="Full name">')
     end
 
-    xit 'has an input field for username' do
-      expect(@response.body).to include('<input class="form-control" id="signup_username" placeholder="Username">')
+    it 'has an input field for username' do
+      expect(@response.body).to include('<input class="form-control" id="username" placeholder="Username">')
     end
 
-    xit 'has a sign up submit button' do
-      expect(@response.body).to include('<button class="btn btn-primary" href="/" type="submit">Sign up</button>')
+    it 'has a sign up submit button' do
+      expect(@response.body).to include('<input class="btn btn-primary" type="submit" value="Sign up">')
+    end
+
+    it 'has a link to login' do
+      expect(@response.body).to include('<a href="/login">Log in</a>')
     end
   end
 
@@ -115,16 +119,16 @@ describe Application do
       @response = get('/peep')
     end
     
-    xit 'is a valid web query' do
+    it 'is a valid web query' do
       expect(@response.status).to eq (200)
     end
 
-    xit 'has an input field for the peep' do
+    it 'has an input field for the peep' do
       expect(@response.body).to include('<textarea class="form-control" rows="3" id="peep" placeholder="Make a peep!"></textarea>')
     end
 
-    xit 'has a peep submit button' do
-      expect(@response.body).to include('<button class="btn btn-primary" type="submit">Peep</button>')
+    it 'has a peep submit button' do
+      expect(@response.body).to include('<input class="btn btn-primary" type="submit" value="Peep">')
     end
   end
 
