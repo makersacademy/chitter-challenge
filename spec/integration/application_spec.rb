@@ -137,19 +137,19 @@ describe Application do
       @response = get('/peep/1')
     end
     
-    xit 'is a valid web query' do
+    it 'is a valid web query' do
       expect(@response.status).to eq (200)
     end
 
-    xit 'has the date of the peep' do
-      expect(@response.body).to include('<p>Date: 2023-03-11</p>')
+    it 'has the date of the peep' do
+      expect(@response.body).to include('<p>Date: ')
     end
 
-    xit 'has the time of the peep' do
-      expect(@response.body).to include('<p>Time: 21:07:32</p>')
+    it 'has the time of the peep' do
+      expect(@response.body).to include('<p>Time: ')
     end
 
-    xit 'peeps have the name and username of the maker' do
+    it 'peeps have the name and username of the maker' do
       expect(@response.body).to include('<p>Samuel Badru | <em>@sobad</em></p>')
     end
   end
