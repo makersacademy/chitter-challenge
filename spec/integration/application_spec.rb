@@ -71,11 +71,11 @@ describe Application do
       expect(@response.body).to include('<input type="password" class="form-control" id="password" placeholder="Password">')
     end
 
-    xit 'has a login button' do
+    it 'has a login button' do
       expect(@response.body).to include('<a class="btn btn-primary" href="/"  role="button">Log in</a>')
     end
 
-    xit 'has a link to sign up' do
+    it 'has a link to sign up' do
       expect(@response.body).to include('<a href="/signup">Sign up</a>')
     end
   end
