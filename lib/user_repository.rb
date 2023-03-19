@@ -28,7 +28,7 @@ class UserRepository
   def sign_in(email_username, password)
 
     user = find_user(email_username)
-    return nil if user.nil?
+    return false if user.nil?
 
     # Converts stored has string back into a BCrypt object
     stored_password = BCrypt::Password.new(user.password)

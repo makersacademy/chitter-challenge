@@ -45,11 +45,12 @@ describe Application do
       expect(@response.body).to include('<a class="btn btn-primary" href="/signup"  role="button">Sign up</a>')
     end
 
-    xit 'has peep and log out buttons when logged in' do
-      login = post('login', email_username: 'aubreygraham@gmail.com', password: 'hotlinebling')
-
-      expect(@response.body).to include('<a class="btn btn-primary" href="/logout"  role="button">Log out</a>')
-      expect(@response.body).to include('<a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>')
+    it 'has peep and log out buttons when logged in' do
+      post('login', email_username: 'aubreygraham@gmail.com', password: 'hotlinebling')
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_response.body).to include('<a class="btn btn-primary" href="/logout"  role="button">Log out</a>')
+      expect(last_response.body).to include('<a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>')
     end
   end
 

@@ -6,6 +6,8 @@ require_relative 'lib/peep_repository'
 
 DatabaseConnection.connect
 
+enable :sessions
+
 class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
@@ -20,7 +22,9 @@ class Application < Sinatra::Base
   get '/' do
     @peeps = @peep_repo.all_peeps ; users = @user_repo.all_users
 
-    name1 = [] ; username1 = [] ; user_id = []
+    name1 = [] ; username1 = [] ; user_id = [] ; @session = session[:user]
+
+    p "Session is #{@session}"
 
     @status = params[:status]
 
@@ -53,15 +57,11 @@ class Application < Sinatra::Base
 
   post '/login' do
     email_username = params[:email_username]; password = params[:password]
-    exist = @user_repo.find_user(email_username, password)
+    user = @user_repo.sign_in(email_username, password)
 
-    if exist != false
-      params = {status: true , user: exist}
-    else
-      params = {status: false , user: nil}
+    if user != false
+      session[:user] = user
     end
-
-    params = params.map{|key, value| "#{key}=#{value}"}.join("&")
 
     return redirect('/')
   end
