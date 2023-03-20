@@ -19,8 +19,6 @@
       <a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>
     <% end %> <br>
     
-    Status is: <%= @status %>
-    Session is: <%= session %>
   </div>
 
   <% @peeps.zip(@name, @username).reverse_each do |peep, name, username| %>

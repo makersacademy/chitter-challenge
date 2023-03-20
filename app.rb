@@ -15,8 +15,8 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  def initialize
-    super
+  before do
+
     @user_repo = UserRepository.new ; @peep_repo = PeepRepository.new
   end
 
@@ -79,10 +79,33 @@ class Application < Sinatra::Base
 
     if user != false
       session[:user] = user
-      p "Session in post login is #{session}"
       return redirect('/')
     end
 
     return redirect('/login')
+  end
+
+  get '/logout' do
+    session.clear
+    return redirect('/')
+  end
+
+  post '/signup' do
+    user = User.new
+    user.email, user.password, user.name, user.username = params.values_at(:email, :password, :name, :username)
+    
+    new_user = @user_repo.create_user(user)
+
+    return redirect('/signup') if new_user == false
+
+    return redirect('/login')
+  end
+
+  post '/peep' do
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.user_id = session[:user].id
+    @peep_repo.create_peep(peep)
+    return redirect('/')
   end
 end

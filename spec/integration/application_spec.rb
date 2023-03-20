@@ -80,6 +80,17 @@ describe Application do
     end
   end
 
+  context 'GET /logout' do
+    before do
+      @response = get('/logout')
+    end
+    
+    it 'is a valid web query that redirects the user' do
+      expect(@response.status).to eq (302)
+    end
+
+  end
+
   context 'Sign up page - GET /signup' do
     before do
       @response = get('/signup')
@@ -124,7 +135,7 @@ describe Application do
     end
 
     it 'has an input field for the peep' do
-      expect(@response.body).to include('<textarea class="form-control" rows="3" id="peep" placeholder="Make a peep!"></textarea>')
+      expect(@response.body).to include('<textarea class="form-control" rows="3" name="content" id="peep" placeholder="Make a peep!"></textarea>')
     end
 
     it 'has a peep submit button' do
@@ -156,15 +167,17 @@ describe Application do
 
   context 'POST /peep' do
     before do
-      @response = post('/peep', content: "My second peep", user_id: '1')
+      post('/login', email_username: "samuelbadru@outlook.com", password: 'makersforlife')
+      @response = post('/peep', content: "My second peep")
     end
     
-    xit 'is a valid web query' do
-      expect(@response.status).to eq (200)
+    it 'is a valid web query' do
+      expect(@response.status).to eq (302)
     end
 
-    xit 'shows the new peep on the homepage' do
-      expect(@response.body).to include ('<a href="/peep/7">My second peep</a>')
+    it 'shows the new peep on the homepage' do
+      follow_redirect!
+      expect(last_response.body).to include ('<a href="/peep/7">My second peep</a>')
     end
   end
 
@@ -189,30 +202,10 @@ describe Application do
       @response = post('/signup', email: "santandave@icloud.com", password: 'psychodrama', name: 'Santan Dave', username: 'dave')
     end
     
-    xit 'is a valid web query' do
-      expect(@response.status).to eq (200)
+    it 'is a valid web query that redirects the user' do
+      expect(@response.status).to eq (302)
     end
 
-    xit 'shows the user when they peep' do
-      peep = post('/peep', content: "At this age how are them man still hating", user_id: '5')
-      expect(@response.body).to include ('<a href="/peep/7">At this age how are them man still hating</a>')
-    end
   end
-
-  # No parameters may be needed, just need to empty whatever is logged in and redirect
-  context 'POST /logout' do
-    before do
-      @response = post('/logout')
-    end
-    
-    xit 'is a valid web query' do
-      expect(@response.status).to eq (200)
-    end
-
-    # may not need to specify homepage as that is going to be the response
-    xit 'shows the user when they peep' do
-      expect(@response.body).to include('<a class="btn btn-primary"  href="/login" role="button">Log in</a>')
-      expect(@response.body).to include('<a class="btn btn-primary" href="/signup"  role="button">Sign up</a>')
-    end
-  end
+  
 end

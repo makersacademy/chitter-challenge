@@ -10,6 +10,8 @@ class UserRepository
     sql = 'SELECT * FROM users;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
+    @users = []
+    
     result_set.each do |record|
       user = User.new
       user.id = record['id']
