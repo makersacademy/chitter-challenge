@@ -30,6 +30,7 @@ class UserRepository
     user = find_user(email_username)
     return false if user.nil?
 
+    
     # Converts stored has string back into a BCrypt object
     stored_password = BCrypt::Password.new(user.password)
 
@@ -43,6 +44,8 @@ class UserRepository
   def find_user(email_username)
     sql = 'SELECT * FROM users WHERE (email = $1 OR username = $1);'
     record = DatabaseConnection.exec_params(sql, [email_username])
+    
+    return nil if record.ntuples.zero?
 
     user = User.new
     user.id = record[0]['id']

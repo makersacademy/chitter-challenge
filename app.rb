@@ -1,4 +1,4 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
@@ -6,27 +6,33 @@ require_relative 'lib/peep_repository'
 
 DatabaseConnection.connect
 
-enable :sessions
-
 class Application < Sinatra::Base
+  enable :sessions
+  # ask coach why I had to put this for sessions to work for me, when others didn't
+  use Rack::Session::Cookie, secret: "my_secret_key"
+
   configure :development do
     register Sinatra::Reloader
-    also_reload 'lib/user_repository'
-    also_reload 'lib/peep_repository'
   end
 
-  before do
+  def initialize
+    super
     @user_repo = UserRepository.new ; @peep_repo = PeepRepository.new
   end
 
   get '/' do
     @peeps = @peep_repo.all_peeps ; users = @user_repo.all_users
 
-    name1 = [] ; username1 = [] ; user_id = [] ; @session = session[:user]
+    name1 = [] ; username1 = [] ; user_id = [] 
+    
+    p "is session nil #{session[:user].nil?}"
+    p "session in / is #{session}"
 
-    p "Session is #{@session}"
-
-    @status = params[:status]
+    if session[:user] == nil
+      @status = false
+    else
+      @status = true
+    end
 
     users.each do |record|
       name1 << record.name ; username1 << record.username
@@ -67,16 +73,16 @@ class Application < Sinatra::Base
     return erb(:peep)
   end
 
-
-
   post '/login' do
     email_username = params[:email_username]; password = params[:password]
     user = @user_repo.sign_in(email_username, password)
 
     if user != false
       session[:user] = user
+      p "Session in post login is #{session}"
+      return redirect('/')
     end
 
-    return redirect('/')
+    return redirect('/login')
   end
 end

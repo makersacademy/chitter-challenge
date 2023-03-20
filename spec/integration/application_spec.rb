@@ -64,11 +64,11 @@ describe Application do
     end
 
     it 'has an email/username input field' do
-      expect(@response.body).to include('<input class="form-control" id="email/username" placeholder="Enter email or username">')
+      expect(@response.body).to include('<input class="form-control" name="email_username" id="email_username" placeholder="Enter email or username">')
     end
 
     it 'has a password field' do
-      expect(@response.body).to include('<input type="password" class="form-control" id="password" placeholder="Password">')
+      expect(@response.body).to include('<input type="password" class="form-control" name="password" id="password" placeholder="Password">')
     end
 
     it 'has a login button' do
@@ -90,19 +90,19 @@ describe Application do
     end
 
     it 'has an input field for email' do
-      expect(@response.body).to include('<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email address">')
+      expect(@response.body).to include('<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Email address">')
     end
 
     it 'has an input field for password' do
-      expect(@response.body).to include('<input type="password" class="form-control" id="password" placeholder="Password">')
+      expect(@response.body).to include('<input type="password" class="form-control" name="password" id="password" placeholder="Password">')
     end
 
     it 'has an input field for name' do
-      expect(@response.body).to include('<input class="form-control" id="name" placeholder="Full name">')
+      expect(@response.body).to include('<input class="form-control" name="name" id="name" placeholder="Full name">')
     end
 
     it 'has an input field for username' do
-      expect(@response.body).to include('<input class="form-control" id="username" placeholder="Username">')
+      expect(@response.body).to include('<input class="form-control" name="username" id="username" placeholder="Username">')
     end
 
     it 'has a sign up submit button' do
@@ -170,16 +170,17 @@ describe Application do
 
   context 'POST /login' do
     before do
-      @response = post('/login', email: "samuelbadru@outlook.com", password: 'makersforlife')
+      @response = post('/login', email_username: "samuelbadru@outlook.com", password: 'makersforlife')
     end
     
-    xit 'is a valid web query' do
-      expect(@response.status).to eq (200)
+    it 'is redirects the user to another page' do
+      expect(@response.status).to eq (302)
     end
 
-    xit 'shows the logged in version of the homepage' do
-      expect(@response.body).to include('<a class="btn btn-primary" href="/logout"  role="button">Log out</a>')
-      expect(@response.body).to include('<a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>')
+    it 'shows the logged in version of the homepage' do
+      follow_redirect!
+      expect(last_response.body).to include('<a class="btn btn-primary" href="/logout"  role="button">Log out</a>')
+      expect(last_response.body).to include('<a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>')
     end
   end
 

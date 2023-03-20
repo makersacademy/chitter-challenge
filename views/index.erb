@@ -11,13 +11,16 @@
 <body>
   <h1>Chitter</h1>
   <div>
-    <% if @session == nil%>
+    <% if @status == false%>
       <a class="btn btn-primary"  href="/login" role="button">Log in</a>
       <a class="btn btn-primary" href="/signup"  role="button">Sign up</a>
-    <% else %>
+    <% elsif @status == true %>
       <a class="btn btn-primary" href="/logout"  role="button">Log out</a>
       <a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>
-    <% end %>
+    <% end %> <br>
+    
+    Status is: <%= @status %>
+    Session is: <%= session %>
   </div>
 
   <% @peeps.zip(@name, @username).reverse_each do |peep, name, username| %>
