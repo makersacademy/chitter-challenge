@@ -8,7 +8,7 @@ class DatabaseConnection
   # This method connects to PostgreSQL using the 
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
-  def self.connect(database_name)
+  def self.connect(chitter_database)
     @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   end
 
