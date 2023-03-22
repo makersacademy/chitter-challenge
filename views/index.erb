@@ -1,0 +1,33 @@
+<!-- GET / -->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>Homepage</title>
+</head>
+<body>
+  <h1>Chitter</h1>
+  <div>
+    <% if @status == false%>
+      <a class="btn btn-primary"  href="/login" role="button">Log in</a>
+      <a class="btn btn-primary" href="/signup"  role="button">Sign up</a>
+    <% elsif @status == true %>
+      <a class="btn btn-primary" href="/logout"  role="button">Log out</a>
+      <a class="btn btn-primary" href="/peep"  role="button"><b>Peep</b></a>
+    <% end %> <br>
+    
+  </div>
+
+  <% @peeps.zip(@name, @username).reverse_each do |peep, name, username| %>
+    <div>
+      <p><%=name%> | <em>@<%=username%></em></p>
+      <a href="/peep/<%=peep.id%>"><%=peep.content%></a>
+      <br />
+    </div>
+      <% end %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

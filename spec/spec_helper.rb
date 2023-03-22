@@ -1,5 +1,9 @@
+require 'database_connection'
 require 'simplecov'
 require 'simplecov-console'
+
+ENV['ENV'] = 'test'
+DatabaseConnection.connect
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
