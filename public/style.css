@@ -16,7 +16,12 @@ body {
   text-decoration: none;
   font-size: 16px;
   text-transform: uppercase;
-  width: 50%;
+  width: 80px;
+  margin-right: 10px;
+}
+
+.make_peep_input {
+  width: 10px;
 }
 
 .individual_peep {
@@ -144,7 +149,7 @@ a {
   text-decoration: none;
   /* display: inline-block; */
   font-size: 16px;
-  width: 500px;
+  width: 455px;
   text-transform: uppercase;
   align-self: center;
   /* margin-top: 150px; */
@@ -159,7 +164,7 @@ a {
   border-radius: 4px;
   align-self: center;
   color: #000000;
-  text-align: left;
+  text-align: center;
   line-height: 24px;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
@@ -194,12 +199,22 @@ a {
   text-transform: uppercase;
 }
 
+.login_done {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  background-color:  #8aeee0c6;
+}
+
 input {
-  width: 500px;
+  width: 450px;
   /* height: 30%; */
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
   color: #191818;
+  align-items: center;
+  margin-left: 8px;
+  text-align: center;
 }
 
 /* textarea {
