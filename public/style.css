@@ -118,25 +118,26 @@ h5 {
   text-transform: uppercase;
 }
 
-p {
+/* p {
   color: #444444;
   line-height: 32px;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 250;
   text-align: center;
-}
+} */
 
 a {
   color: #214E34;
   font-family: 'Raleway', sans-serif;
-  font-size: 13px;
+  font-size: 28px;
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 2px;
   align-self: center;
+  color: white;
 }
 
 .button {
@@ -200,10 +201,28 @@ a {
 }
 
 .login_done {
-  font-size: 18px;
+  font-size: 45px;
+  font-family: 'Raleway', sans-serif;
   padding: 0;
-  margin: 0;
+  margin-top: 15%;
   background-color:  #8aeee0c6;
+  text-align: center;
+  justify-content: center;
+}
+
+.login_done_link {
+  background-color: rgb(223, 175, 102);
+  font-family: 'Raleway', sans-serif;
+  color: rgb(255, 255, 255);
+  padding: 15px 15px;
+  text-align: center;
+  font-size: 75px;
+  width: 455px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-left: 32%;
+  text-size-adjust: 10%;
 }
 
 input {
