@@ -16,12 +16,19 @@ body {
   text-decoration: none;
   font-size: 16px;
   text-transform: uppercase;
-  width: 80px;
+  width: 98%;
   margin-right: 10px;
 }
 
 .make_peep_input {
-  width: 10px;
+  width: 95%;
+  /* height: 30%; */
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #191818;
+  align-items: center;
+  margin-left: 8px;
+  text-align: center;
 }
 
 .individual_peep {
