@@ -210,6 +210,31 @@ a {
   justify-content: center;
 }
 
+.login_link {
+  background-color: rgb(223, 175, 102);
+  font-family: 'Raleway', sans-serif;
+  color: rgb(255, 255, 255);
+  padding: 15px 15px;
+  text-align: center;
+  font-size: 75px;
+  width: 455px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-left: 32%;
+  text-size-adjust: 10%;
+}
+
+.signup_done {
+  font-size: 45px;
+  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  margin-top: 15%;
+  background-color:  #8aeee0c6;
+  text-align: center;
+  justify-content: center;
+}
+
 .login_done_link {
   background-color: rgb(223, 175, 102);
   font-family: 'Raleway', sans-serif;
