@@ -1,59 +1,65 @@
 require_relative 'user'
 
 class UserRepository
-  def initialize
-    @name = name
-    @email_address = email_address
-    @password = password
-  end
+  # def initialize(name, email_address, username, password)
+  #   @name = name
+  #   @email_address = email_address
+  #   @username = username
+  #   @password_hash = password
+  # end
 
   def all
-    sql = 'SELECT id, name, email_address, password FROM users;'
+    sql = 'SELECT id, name, username, email_address, password_hash FROM users;'
     result_set = DatabaseConnection.exec_params(sql, [])
     users = []
     result_set.each do |record|
       user = User.new
       user.id = record['id'].to_i
       user.name = record['name']
+      user.username = record['username']
       user.email_address = record['email_address']
-      user.password = record['password']
+      user.password_hash = record['password_hash']
       users << user
     end
     return users
-  end
+  end 
+
+
 
   def create(user)
-    sql = 'INSERT INTO users (name, email_address, password) VALUES ($1, $2, $3);'
-    result = DatabaseConnection.exec_params(sql, [user.name, user.email_address, user.password])
+    sql = 'INSERT INTO users (name, username, email_address, password_hash) VALUES ($1, $2, $3,$4 );'
+    result = DatabaseConnection.exec_params(sql, [user.name, user.username, user.email_address, user.password_hash])
     return ''
-end
+  end
+
+
 
   def find(id)
-    sql = 'SELECT id, name, email_address, password FROM users WHERE id = $1;'
+    sql = 'SELECT id, name, email_address, password_hash FROM users WHERE id = $1;'
     result = DatabaseConnection.exec_params(sql, [id]).first
     user = User.new
     user.id = result['id'].to_i
     user.name = result['name']
     user.email_address = result['email_address']
-    user.password = result['password']
+    user.password_hash = result['password_hash']
     return user
   end
 
   def find_by_email(email_address)
-    sql = 'SELECT id, name, email_address, password FROM users WHERE email_address = $1;'
+    sql = 'SELECT id, name, email_address, password_hash FROM users WHERE email_address = $1;'
     result = DatabaseConnection.exec_params(sql, [email_address]).first
     return nil if result.nil?
     user = User.new
     user.id = result['id'].to_i
     user.name = result['name']
     user.email_address = result['email_address']
-    user.password = result['password']
+    user.password_hash = result['password_hash']
     return user
   end
 
-  def login(email_address,password)
+  def login(email_address,password_hash)
     login = find_by_email(email_address)
     return nil if login.nil?
-    return  password == login.password
+    return  password_hash == login.password_hash
   end
 end
