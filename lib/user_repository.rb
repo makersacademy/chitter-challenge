@@ -1,12 +1,6 @@
 require_relative 'user'
 
 class UserRepository
-  # def initialize(name, email_address, username, password)
-  #   @name = name
-  #   @email_address = email_address
-  #   @username = username
-  #   @password_hash = password
-  # end
 
   def all
     sql = 'SELECT id, name, username, email_address, password_hash FROM users;'

@@ -1,24 +1,21 @@
-# require 'sinatra/base'
-# require 'sinatra/reloader'
-# require './lib/peeps_repository'
-# require './lib/user_repository'
+require 'sinatra/base'
+require 'sinatra/reloader'
+require './lib/user_repository'
 
-# class Singnup < Sinatra::Base
-#   configure :development do
-#     register Sinatra::Reloader
-#     set :public_folder, 'public'
-#     set :views, 'views'
-#     also_reload 'lib/peeps_repository.rb'
-    
+class Signup < Sinatra::Base
+  configure :development do
+    register Sinatra::Reloader
+    set :public_folder, 'public'
+    set :views, 'views'
+  
+  end
 
+    get '/signup' do
+        return erb(:signup)
+    end
 
-#   # before do
-#   #   @space_repo = SpaceRepository.instance
-#   # end
+    get '/login' do
+      return erb(:login)
+  end
 
-#   #   get '/signup' do
-#   #       return erb(:signup)
-#   #   end
-#   # end
-# end
-# end
+  end

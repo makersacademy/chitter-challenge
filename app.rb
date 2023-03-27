@@ -1,21 +1,25 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/database_connection'
-require './controllers/peeps_controller'
+# require './controllers/peeps_controller'
 require './controllers/user_controller'
 
 DatabaseConnection.connect('chitter_database')
 
-class Chitter < Sinatra::Base
+class Application < Sinatra::Base
     configure :development do
         register Sinatra::Reloader
         set :public_folder, 'public'
         set :views, 'views'
-        use users
-        use peeps
+        use Signup
+        # use peeps
+    
+
+    get '/signup' do
+                return erb(:signup)
     end
 end
-
+end
 # require 'sinatra'
 # require 'sinatra/activerecord'
 
