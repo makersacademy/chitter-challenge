@@ -75,7 +75,6 @@ class Application < Sinatra::Base
     repo2.message = params[:message]
     @time = Time.now 
     repo2.time = @time
-    # repo.username = params[:username]
 
     repo.create(repo2)
     @peeps = repo.all 
