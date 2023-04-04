@@ -28,4 +28,21 @@ it 'finds a peep by id' do
   peep = repo.find(2)
   expect(peep.time_of_peep.strftime("%Y-%m-%d %H:%M:%S")).to eq '2023-03-15 12:00:00'
   end
+
+
+    it "creates a new peep" do
+    repo = PeepsRepository.new
+      peep = Peeps.new
+      peep.peep_content = "I am a new test peep"
+      peep.time_of_peep = '2023-04-04 18:00:00'
+      peep.user_id = "3"
+      repo.create(peep)
+      all_peeps = repo.all
+      expect(all_peeps).to include(
+        have_attributes(
+          peep_content: "I am a new test peep",
+          time_of_peep: '2023-04-04 18:00:00'
+        )
+      )
+  end
 end

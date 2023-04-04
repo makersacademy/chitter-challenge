@@ -13,11 +13,9 @@ class PeepsRepository
       peep.peep_content = record['peep_content']
       peep.time_of_peep = record['time_of_peep']
       peep.user_id = record['user_id'].to_i
-
       all_peeps << peep
     end
-    return all_peeps
-    puts all_peeps
+      return all_peeps
   end 
 
   def find(id)
@@ -29,6 +27,12 @@ class PeepsRepository
   peep.peep_content = record['peep_content']
   peep.user_id = record['user_id'].to_i
   return peep
-end
+  end
 
+
+  def create(peep)
+    sql = "INSERT INTO peeps (peep_content, time_of_peep, user_id) VALUES ($1, $2, $3)"
+    sql_params = [peep.peep_content, peep.time_of_peep, peep.user_id]
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
 end
