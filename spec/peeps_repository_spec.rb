@@ -14,15 +14,18 @@ describe PeepsRepository do
   it 'shows all the peeps content' do
     repo = PeepsRepository.new
     expect(repo.all.length).to eq 3
-    expect(repo.all[0].peep_content).to eq('Welcome to chitter')
+    expect(repo.all[0].peep_content).to eq 'Welcome to chitter'
+    expect(repo.all[2].time_of_peep).to eq '2023-03-22 17:00:00'
+    expect(repo.all[1].user_id).to eq 6
+
   end
 
-# it 'find one peep by id and time' do
-#       repo = PeepsRepository.new
-#       peep = repo.find(1)
-#       expect(peep.content).to eq 'Welcome to chitter'
-#       expect(peep.user_id).to eq 1
-#       peep = repo.find(2)
-#       expect(peep.time_posted.strftime("%Y-%m-%d %H:%M:%S")).to eq '2023-03-22 15:00:00'
-#   end
+it 'finds a peep by id' do
+  repo = PeepsRepository.new
+  peep = repo.find(1)
+  expect(peep.peep_content).to eq 'Welcome to chitter'
+  expect(peep.user_id).to eq 5
+  peep = repo.find(2)
+  expect(peep.time_of_peep.strftime("%Y-%m-%d %H:%M:%S")).to eq '2023-03-15 12:00:00'
+  end
 end
