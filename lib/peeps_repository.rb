@@ -35,4 +35,10 @@ class PeepsRepository
     sql_params = [peep.peep_content, peep.time_of_peep, peep.user_id]
     DatabaseConnection.exec_params(sql, sql_params)
   end
+
+  def delete(id)
+    sql = 'DELETE from peeps WHERE id = $1;'
+    sql_params = [id]
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
 end

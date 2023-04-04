@@ -20,7 +20,7 @@ describe PeepsRepository do
 
   end
 
-it 'finds a peep by id' do
+  it 'finds a peep by id' do
   repo = PeepsRepository.new
   peep = repo.find(1)
   expect(peep.peep_content).to eq 'Welcome to chitter'
@@ -30,7 +30,7 @@ it 'finds a peep by id' do
   end
 
 
-    it "creates a new peep" do
+  it "creates a new peep" do
     repo = PeepsRepository.new
       peep = Peeps.new
       peep.peep_content = "I am a new test peep"
@@ -45,4 +45,14 @@ it 'finds a peep by id' do
         )
       )
   end
+
+  it "deletes a peep" do
+      repo = PeepsRepository.new
+      repo.delete(1)
+      expect(repo.all.length).to eq 2
+      expect(repo.all[0].time_of_peep).to eq '2023-03-15 12:00:00'
+      
+  end
+
+
 end
