@@ -7,7 +7,6 @@ class Signup < Sinatra::Base
     register Sinatra::Reloader
     set :public_folder, 'public'
     set :views, 'views'
-  
   end
 
     get '/signup' do
@@ -16,6 +15,6 @@ class Signup < Sinatra::Base
 
     get '/login' do
       return erb(:login)
-  end
+    end
 
   end

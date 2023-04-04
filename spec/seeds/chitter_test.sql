@@ -14,9 +14,9 @@ INSERT INTO users ("name", "username", "email_address", "password_hash") VALUES
 INSERT INTO peeps (
   "peep_content", 
   "time_of_peep",
-  "user_id"
+  "id"
   ) 
   VALUES
-    ('Welcome to chitter', '2023-03-22 15:00:00',1),
-    ('This is my first post', '2023-03-15 12:00:00',2),
-    ('I love chitter', '2023-03-22 17:00:00',3)
+    ('Welcome to chitter', '2023-03-22 15:00:00',5),
+    ('This is my first post', '2023-03-15 12:00:00',6),
+    ('I love chitter', '2023-03-22 17:00:00',7)

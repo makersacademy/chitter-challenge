@@ -8,7 +8,7 @@ end
 
 describe UserRepository do
   before(:each) do
-    reset_users_table
+  reset_users_table
   end
 
   it 'lists all the users' do
@@ -63,4 +63,5 @@ it 'finds user by id' do
     expect(user.name).to eq('Johny')
     expect(user.id).to eq (1)
   end
+  
 end
