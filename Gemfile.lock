@@ -1,24 +1,54 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (7.0.4.3)
+      activesupport (= 7.0.4.3)
+    activerecord (7.0.4.3)
+      activemodel (= 7.0.4.3)
+      activesupport (= 7.0.4.3)
+    activesupport (7.0.4.3)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+    addressable (2.8.3)
+      public_suffix (>= 2.0.2, < 6.0)
     ansi (1.5.0)
-    ast (2.4.2)
+    bcrypt (3.1.18)
+    capybara (3.39.0)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
+    concurrent-ruby (1.2.2)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    i18n (1.12.0)
+      concurrent-ruby (~> 1.0)
+    matrix (0.4.2)
+    mini_mime (1.1.2)
+    mini_portile2 (2.8.1)
+    minitest (5.18.0)
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
-    parallel (1.20.1)
-    parser (3.0.2.0)
-      ast (~> 2.4.1)
+    nokogiri (1.14.2)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    pg (1.4.6)
+    public_suffix (5.0.1)
+    racc (1.6.2)
     rack (2.2.6.4)
     rack-protection (3.0.5)
       rack
     rack-test (2.1.0)
       rack (>= 1.3)
-    rainbow (3.0.0)
-    regexp_parser (2.1.1)
-    rexml (3.2.5)
+    rake (13.0.6)
+    regexp_parser (2.7.0)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -32,18 +62,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.20.0)
-      parallel (~> 1.10)
-      parser (>= 3.0.0.0)
-      rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
-      rexml
-      rubocop-ast (>= 1.9.1, < 2.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.11.0)
-      parser (>= 3.0.1.1)
-    ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     simplecov (0.21.2)
       docile (~> 1.1)
@@ -60,6 +78,9 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.5)
       tilt (~> 2.0)
+    sinatra-activerecord (2.0.26)
+      activerecord (>= 4.1)
+      sinatra (>= 1.0)
     sinatra-contrib (3.0.5)
       multi_json
       mustermann (~> 3.0)
@@ -69,19 +90,28 @@ GEM
     terminal-table (3.0.1)
       unicode-display_width (>= 1.1.1, < 3)
     tilt (2.1.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
     webrick (1.8.1)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
+  bcrypt
+  capybara
+  pg
   rack-test (~> 2.1)
+  rake
   rspec
-  rubocop (= 1.20)
   simplecov
   simplecov-console
-  sinatra (~> 3.0)
+  sinatra
+  sinatra-activerecord
   sinatra-contrib (~> 3.0)
   webrick (~> 1.8)
 

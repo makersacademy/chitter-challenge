@@ -1,10 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
 
-ENV['ENV'] = 'test'
-
-DatabaseConnection.connect
-
+ENV["RACK_ENV"] = "test"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -12,6 +9,13 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+require_relative "../app"
+require "rspec"
+require "capybara"
+require "capybara/rspec"
+
+Capybara.app = ChitterApplication
 
 RSpec.configure do |config|
   config.after(:suite) do
