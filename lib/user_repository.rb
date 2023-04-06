@@ -42,7 +42,7 @@ class UserRepository
       new_user.email_address,
       new_user.username,
       encrypted_password]
-      DatabaseConnection.exec_params(sql, sql_params)
+    DatabaseConnection.exec_params(sql, sql_params)
 
     return new_user
   end
