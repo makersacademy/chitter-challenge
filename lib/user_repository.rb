@@ -18,6 +18,21 @@ class UserRepository
     return users
   end
 
+  def find_by_email(email)
+    sql = 'SELECT email_address, username, password FROM users WHERE users.email_address = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email])
+    user_row = result_set[0]
+
+    user = User.new
+    user.id = user_row['id']
+    user.email_address = user_row['email_address']
+    user.username = user_row['username']
+    user.password = user_row['password']
+
+    return user
+
+  end
+
   def create(new_user)
     # encrypted_password = BCrypt::Password.create(new_user.password)
 
@@ -39,7 +54,5 @@ class UserRepository
     # return new_user
   end
   
-  def find_by_email(email)
-  end
 
 end

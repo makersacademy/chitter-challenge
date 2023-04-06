@@ -87,6 +87,12 @@ users = repo.all
 expect(users.length).to eq(3)
 expect(users.first.user_name).to eq('sidra_fake')
 
+# 2 - Find a user by email
+repo = UserRepository.new
+user = repo.find('sidra@fake.com')
+
+expect(user.username).to eq('sidra_fake')
+
 # 3 - Create a new user 
 
 repo = UserRepository.new
@@ -100,6 +106,8 @@ encrypted_password = BCrypt::Password.create(new_user.password)
 new_user.password = encrypted_password # set the encrypted password
 
 repo.create(new_user)
+
+
 ```
 
 Encode this example as a test.
