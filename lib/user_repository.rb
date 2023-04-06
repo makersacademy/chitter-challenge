@@ -13,25 +13,25 @@ class UserRepository
       user.id = row['id']
       user.email_address = row['email_address']
       user.username = row['username']
-      user.password = row['password']
+      user.password = BCrypt::Password.new(row['password'])
       users << user
     end
     return users
   end
 
   def find_by_email(email)
-    sql = 'SELECT email_address, username, password FROM users WHERE users.email_address = $1;'
+    sql = 'SELECT id, email_address, username, password FROM users WHERE email_address = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
     user_row = result_set[0]
-
+  
     user = User.new
     user.id = user_row['id']
     user.email_address = user_row['email_address']
     user.username = user_row['username']
-    user.password = user_row['password']
-
+    user.password = BCrypt::Password.new(user_row['password'])
+  
     return user
-  end
+  end  
 
   def create(new_user)
     encrypted_password = BCrypt::Password.create(new_user.password)
