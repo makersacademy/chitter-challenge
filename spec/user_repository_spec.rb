@@ -15,6 +15,6 @@ describe UserRepository do
     repo = UserRepository.new
     users = repo.all
     expect(users.length).to eq(3)
-    expect(users.first.user_name).to eq('sidra_fake')
+    expect(users.first.username).to eq('sidra_fake')
   end
 end
