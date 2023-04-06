@@ -5,23 +5,30 @@ require_relative '../lib/reply.rb'
 
 puts 'Seeding...'
 
-User.create(
-  username: "Userface",
-  real_name: "User Usersmith",
-  email: "User@ohuser.com",
-  password_digest: "1234"
-)
+20.times do
+  User.create(
+    username: Faker::Internet.username,
+    real_name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password_digest: "1234"
+  )
+end
 
-Post.create(
-  content: "Hello fren!",
-  created_at: DateTime.now,
-  updated_at: DateTime.now,
-  user_id: 1
-)
+40.times do
+  time = Faker::Time.between(from: DateTime.now - 4, to: DateTime.now)  
+  Post.create(
+    content: Faker::Lorem.sentence(word_count: rand(10..15)),
+    created_at: time,
+    updated_at: time,
+    user_id: Faker::Number.between(from: 1, to: 20)
+  )
+end
 
+10.times do
 Reply.create(
-  user_id: 1,
-  post_id: 1
+  user_id: Faker::Number.between(from: 1, to: 20),
+  post_id: Faker::Number.between(from: 1, to: 20)
 )
+end
 
 puts 'Seeding completed.'
