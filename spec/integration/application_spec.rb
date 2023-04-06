@@ -7,9 +7,22 @@ describe ChitterApplication do
   let(:app) { ChitterApplication.new }
 
   context "GET /" do
-    it 'gets to the homepage and displays posts in feed' do
+    it 'displays the feed and shows prompt to login if user is not logged in' do
       response = get('/')
       expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <b>By:</b> Useface <b>At:</b> 2023-03-20 / 10:39 </div>')
+      expect(response.body).to include('<a href="/login">Log in</a>')
+      expect(response.body).to_not include('<a href="/logout">Log Out</a>')
+    end  
+
+    it 'displays the feed and shows prompt to logout and create post if user is logged in' do
+      response = post('login', 
+        username: "Useface", 
+        password: "usersville")
+      expect(response).to be_redirect
+      response = get('/')
+      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <b>By:</b> Useface <b>At:</b> 2023-03-20 / 10:39 </div>')
+      expect(response.body).to_not include('<a href="/login">Log in</a>')
+      expect(response.body).to include('<a href="/logout">Log Out</a>')
     end  
   end
 
@@ -70,4 +83,14 @@ describe ChitterApplication do
       expect(response.body).to include("<input type='password' placeholder='password' name='password' minlength= 8 required>")
     end
   end
+
+  context "GET /logout" do
+    it 'logs the user out' do
+      response = get('logout')
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/")
+    end
+  end
+
 end

@@ -9,10 +9,16 @@ require_relative 'lib/reply'
 
 class ChitterApplication < Sinatra::Base
   enable :sessions
-
+  
   configure :development do
     register Sinatra::Reloader
     register Sinatra::ActiveRecordExtension
+  end
+
+  before do   
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
   end
 
   get '/' do
@@ -38,6 +44,11 @@ class ChitterApplication < Sinatra::Base
 
   get '/register' do
     erb :register
+  end
+
+  get '/logout' do
+    session.clear
+    return redirect('/')
   end
   
   def is_dodgy?(input)

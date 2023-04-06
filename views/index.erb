@@ -6,9 +6,14 @@
   </head>
   <body>
       <div class="container-sm">
-        <a href='/'>Home</a>
-        <a href='/register'>Register</a>
-        <a href='/login'>Login</a>
+        <% if @current_user %>
+          <p>Welcome, <%= @current_user.username %>!</p>
+          <a href="/logout">Log Out</a>
+          <a href="/create_post">Create Post</a>
+        <% else %>
+          <a href="/login">Log in</a>
+          <a href='/register'>Register</a>
+        <% end %>
       </div>
       <h1>Welcome to Chitter!</h1>
       <br>
