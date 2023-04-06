@@ -8,8 +8,7 @@ require_relative 'lib/reply'
 
 
 class ChitterApplication < Sinatra::Base
-  # register Sinatra::ActiveRecordExtension
-  # register Sinatra::Reloader
+  enable :sessions
 
   configure :development do
     register Sinatra::Reloader
@@ -17,10 +16,32 @@ class ChitterApplication < Sinatra::Base
   end
 
   get '/' do
-    # @posts = Post.order(created_at: :desc)
     @posts = Post.joins(:user).select(:content, :created_at, :'users.username').order(created_at: :desc)
-    
-    # @pass_me = results.map {|row| row.created_at.strftime("%F / %H:%M")}
     erb :index
   end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    username, plaintext_password = params[:username], params[:password]
+    user = User.find_by(username: username)
+    return redirect('/login') if is_dodgy?(username) || is_dodgy?(plaintext_password) || user == nil
+    if BCrypt::Password.new(user.password_digest) == plaintext_password
+      session[:user_id] = user.id
+      return redirect('/')
+    else
+      return redirect('/login')
+    end
+  end
+
+  get '/register' do
+    erb :register
+  end
+  
+  def is_dodgy?(input)
+    return input.match?(/<|>/)
+  end
+
 end
