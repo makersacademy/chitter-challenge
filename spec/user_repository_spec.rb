@@ -24,4 +24,18 @@ describe UserRepository do
 
     expect(user.username).to eq('sidra_fake')
   end
+
+  it 'creates a new user' do
+    repo = UserRepository.new
+
+    new_user = User.new
+    new_user.email_address = 'angel@fake.com'
+    new_user.username = 'angel_fake'
+    new_user.password = 'password123' # set the plaintext password
+
+    encrypted_password = BCrypt::Password.create(new_user.password)
+    new_user.password = encrypted_password # set the encrypted password
+
+    repo.create(new_user)
+  end
 end
