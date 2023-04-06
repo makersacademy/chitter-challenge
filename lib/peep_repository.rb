@@ -25,6 +25,8 @@ class PeepRepository
     VALUES ($1, $2, $3);'
     sql_params = [peep.time, peep.contents, peep.user_id]
 
+    # need to input the date and time now for the time
+
     result_set = DatabaseConnection.exec_params(sql, sql_params)
     return nil
   end
