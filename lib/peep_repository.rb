@@ -21,7 +21,11 @@ class PeepRepository
   end
   
   def create_peep(peep)
-    # relay the time of the peep
-    # contents of the peep
+    sql = 'INSERT INTO peeps (time, contents, user_id) 
+    VALUES ($1, $2, $3);'
+    sql_params = [peep.time, peep.contents, peep.user_id]
+
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    return nil
   end
 end
