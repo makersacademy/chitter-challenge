@@ -17,7 +17,10 @@ class ChitterApplication < Sinatra::Base
   end
 
   get '/' do
-    results = Post.all
-    # results.each {|row| p row.created_at.strftime("%F / %H:%M")}
+    # @posts = Post.order(created_at: :desc)
+    @posts = Post.joins(:user).select(:content, :created_at, :'users.username').order(created_at: :desc)
+    
+    # @pass_me = results.map {|row| row.created_at.strftime("%F / %H:%M")}
+    erb :index
   end
 end
