@@ -37,5 +37,7 @@ describe UserRepository do
     new_user.password = encrypted_password # set the encrypted password
 
     repo.create(new_user)
+    users = repo.all
+    expect(users.last.username).to eq('angel_fake')
   end
 end
