@@ -32,31 +32,18 @@
 
 ## Step 1: Planning pages
 
-You'll have to adopt the perspective of a user browsing your website. What are the
-different pages that they will use? How does the user navigate to these pages (links,
-forms)?
+Adopt the perspective of a user browsing your website. Pages - Links - Forms
 
-At this point, it's good to do a small diagram of the different pages and their
-relationship. If you want to do more complex mockups with the details of the elements on
-the page, you can also do it, but it's not necessary to go into this level of detail for
-this step.
-
-Here's an example of how the user stories above can be planned. Note that this is only one
-of the many possible flows that could be planned for these user stories.
-
-![](./example-pages-planning.png)
+![](./images/../../images/chitter_design.png)
 
 ## Step 2: Planning routes
 
-Remember that a web application flow is all based on the HTTP request-response cycle, from
-the web browser to the server application. You'll now need to draw your routes from the
-pages you planned at the previous step.
+Remember that a web application flow is all based on the HTTP request-response cycle.
 
-This time, we're switching from the user perspective to the HTTP application engineer's
-perspective - thinking of the application's behaviour in requests and responses, rather
-than pages.
-
-For example:
+* GET (/) [index.erb] displays peeps plus link buttons to register, login, logout and new peeps.
+* GET (register/new) [register.erb] displays a register form and links to login and homepage via cancel button.
+* POST (register) validates new user and redirects to the homepage logged in or returns back to [register.erb].
+* GET 
 
  * A page (such as the home page) is usually returned by a `GET` route. For example, the
    home page (which is almost always the first route you'll start with), is usually `GET
