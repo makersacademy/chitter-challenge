@@ -18,4 +18,17 @@ describe PeepRepository do
     expect(peeps.length).to eq(4)
     expect(peeps.last.contents).to eq('User 3 newer post')
   end
+
+  it 'creates a new peep' do
+    repo = PeepRepository.new
+    peep = Peep.new
+    peep.time = '2023-04-16 12:10:00'
+    peep.contents = 'Hello this is me!'
+    peep.user_id = '3'
+    repo.create_peep(peep)
+    peeps = repo.all
+
+    expect(peeps.length).to eq(5)
+    expect(peeps.last.contents).to eq('Hello this is me!')
+  end
 end

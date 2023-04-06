@@ -65,7 +65,6 @@ end
 ```ruby
 
 # 1  - Shows all peeps
-
 repo = PeepRepository.new
 peeps = repo.all
 expect(peeps.length).to eq(4)

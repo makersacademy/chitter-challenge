@@ -20,7 +20,7 @@ class PeepRepository
     return peeps
   end
   
-  def create_peep
+  def create_peep(peep)
     # relay the time of the peep
     # contents of the peep
   end
