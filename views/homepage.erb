@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
     <title>Welcome to Chitter Chatter!</title>
-</head>
-<body>
-    Here are your posts:
-</body>
+  </head>
+  <body>
+    <h1>Welcome to Chitter Chatter!</h1>
+    <p>Here are the recent peeps:</p>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li><%= peep.contents %></li>
+      <% end %>
+    </ul>
+  </body>
 </html>

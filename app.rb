@@ -14,7 +14,13 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    # need to show peeps on the homepage
+    repo = PeepRepository.new
+    @peeps = repo.all
+    
     return erb(:homepage)
   end
+
+
 
 end
