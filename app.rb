@@ -26,7 +26,6 @@ class Application < Sinatra::Base
 
   get '/register' do
     return erb(:register)
-
   end
 
   post '/register' do # once user has registered
@@ -35,14 +34,14 @@ class Application < Sinatra::Base
       return ''
     end
 
-      repo = UserRepository.new
-      user = User.new
-      user.email_address = params['email_address']
-      user.username = params['username']
-      user.password = params['password']
-      repo.create(user)
+    repo = UserRepository.new
+    user = User.new
+    user.email_address = params['email_address']
+    user.username = params['username']
+    user.password = params['password']
+    repo.create(user)
     
-      redirect '/'
-    end
+    redirect '/'
+  end
 end
   

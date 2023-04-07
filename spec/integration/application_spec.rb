@@ -30,13 +30,13 @@ describe Application do
 
   context 'POST /register' do
     it 'validates user inputs' do
-        response = post(
-          '/register',
-          email_address: '',
-          user_name: 'sks',
-          password: 12345)
-          expect(response.status).to eq 400
-      end
+      response = post(
+        '/register',
+        email_address: '',
+        user_name: 'sks',
+        password: 12_345)
+      expect(response.status).to eq 400
+    end
 
     it "registers a new user" do
       response = post('/register',
