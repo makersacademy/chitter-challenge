@@ -18,26 +18,25 @@ describe Application do
     end
   end
 
-  context 'GET/register' do
+  context 'GET /register' do
     it "takes user to the register page to submit details" do
       response = get('/register')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<label>Enter a username:</label>')
-      expect(response.body).to include('<input type="text" name="password" required>')
+      expect(response.body).to include('<form method="POST" action="/register">')
     end
   end
 
-  context 'POST /' do
-    it 'should validate register parameters' do
-      response = post(
-        '/register',
-        email_addres: '',
-        username: 'tina_fake',
-        password: 123)
-
-        expect(response.status).to eq(400)
-    end
+  context 'POST /register' do
+    it 'validates user inputs' do
+        response = post(
+          '/register',
+          email_address: '',
+          user_name: 'sks',
+          password: 12345)
+          expect(response.status).to eq 400
+      end
 
     it "registers a new user" do
       response = post('/register',

@@ -44,6 +44,6 @@ class UserRepository
       encrypted_password]
     DatabaseConnection.exec_params(sql, sql_params)
 
-    return nil
+    return new_user
   end
 end
