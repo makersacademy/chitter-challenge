@@ -1,3 +1,5 @@
+require "user"
+
 class UserRepository
   def all
     users = []

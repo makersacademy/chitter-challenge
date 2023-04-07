@@ -1,4 +1,3 @@
-require "user"
 require "user_repository"
 
 def reset_users_table
@@ -29,7 +28,7 @@ describe UserRepository do
     expect(users.first.password).to eq "myweakpassword"
   end
 
-  it "creates a new user and then checks how many user there are" do
+  it "creates a new user and then checks how many users there are" do
     repo = UserRepository.new
 
     user = User.new
