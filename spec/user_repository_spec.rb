@@ -1,4 +1,4 @@
-require 'user_repository'
+require 'user_repository.rb'
 
 def reset_tables
   seed_sql = File.read('spec/seeds.sql')

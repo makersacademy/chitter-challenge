@@ -1,25 +1,17 @@
-DROP TABLE IF EXISTS albums; 
+TRUNCATE TABLE users, peeps RESTART IDENTITY CASCADE;
 
--- Table Definition
-CREATE TABLE albums (
-    id SERIAL PRIMARY KEY,
-    title text,
-    release_year int4,
-    artist_id int4
-);
+INSERT INTO users ("name", "username", "email", "password") VALUES
+('Amber Thompson', 'Amber', 'amber@email.com', '123456'),
+('Billy Thompkins', 'Billy', 'billy@email.com', 'password'),
+('Caleb Tomlinson', 'Caleb', 'caleb@email.com', 'hello')
+;
 
-TRUNCATE TABLE albums RESTART IDENTITY;
-
-INSERT INTO albums ("title", "release_year", "artist_id") VALUES
-('Doolittle', 1989, 1),
-('Surfer Rosa', 1988, 1),
-('Waterloo', 1974, 2),
-('Super Trouper', 1980, 2),
-('Bossanova', 1990, 1),
-('Lover', 2019, 3),
-('Folklore', 2020, 3),
-('I Put a Spell on You', 1965, 4),
-('Baltimore', 1978, 4),
-( 'Here Comes the Sun', 1971, 4),
-( 'Fodder on My Wings', 1982, 4),
-( 'Ring Ring', 1973, 2);
+INSERT INTO peeps ("body", "time", "tags", "user_id") VALUES
+('Today I coded', '2023-04-01 13:00:00', 'code,amber', 1),
+('Today I ate', '2023-04-02 14:00:00', 'food,billy', 2),
+('Today I slept', '2023-04-03 15:00:00', 'sleep,amber', 1),
+('Today I wept', '2023-04-04 16:00:00', 'cry,caleb', 3),
+('Today I swam', '2023-04-05 17:00:00', 'swim,amber', 1),
+('Today I raged', '2023-04-06 18:00:00', 'rage,caleb', 3),
+('Today I relaxed', '2023-04-07 19:00:00', 'relax,billy', 2)
+;
