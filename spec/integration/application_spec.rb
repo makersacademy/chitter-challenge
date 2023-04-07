@@ -27,4 +27,9 @@ describe Application do
       expect(response.body).to include('<input type="text" name="password">')
     end
   end
+
+  context 'POST /' do
+    it "redirects the user to homepage once registering" do
+    end
+    end
 end
