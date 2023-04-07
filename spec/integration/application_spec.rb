@@ -23,8 +23,8 @@ describe Application do
       response = get('/register')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<p>Enter a username:</p>')
-      expect(response.body).to include('<p>Enter a password:</p>')
+      expect(response.body).to include('<label>Enter a username:</label>')
+      expect(response.body).to include('<input type="text" name="password">')
     end
   end
 end
