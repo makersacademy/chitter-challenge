@@ -1,3 +1,4 @@
+require "user"
 require "user_repository"
 
 def reset_users_table
@@ -11,5 +12,51 @@ describe UserRepository do
     reset_users_table
   end
 
-  # (your tests will go here).
+  it "returns a list of users" do
+    repo = UserRepository.new
+    users = repo.all
+
+    expect(users.length).to eq 3
+  end
+
+  it "returns the first user" do
+    repo = UserRepository.new
+    users = repo.all
+
+    expect(users.first.username).to eq "joebloggs123"
+    expect(users.first.name).to eq "Joe Bloggs"
+    expect(users.first.email).to eq "joebloggs@gmail.com"
+    expect(users.first.password).to eq "myweakpassword"
+  end
+
+  it "creates a new user and then checks how many user there are" do
+    repo = UserRepository.new
+
+    user = User.new
+    user.username = "Sally Brown"
+    user.name = "Sally Brown"
+    user.email = "sally.brown@gmail.com"
+    user.password = "abc123abc123"
+    repo.create(user)
+
+    all_users = repo.all
+    expect(all_users.length).to eq 4
+  end
+
+  it "creates a new user and then checks the last insert" do
+    repo = UserRepository.new
+
+    user = User.new
+    user.username = "gemmawhite99"
+    user.name = "Gemma White"
+    user.email = "gemma.white@gmail.com"
+    user.password = "xyz987xyz987"
+    repo.create(user)
+
+    all_users = repo.all
+    expect(all_users.last.username).to eq "gemmawhite99"
+    expect(all_users.last.name).to eq "Gemma White"
+    expect(all_users.last.email).to eq "gemma.white@gmail.com"
+    expect(all_users.last.password).to eq "xyz987xyz987"
+  end
 end
