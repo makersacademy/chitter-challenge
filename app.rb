@@ -17,10 +17,13 @@ class Application < Sinatra::Base
     # need to show peeps on the homepage
     repo = PeepRepository.new
     @peeps = repo.all
-    
+
     return erb(:homepage)
   end
 
+  get '/register' do
+    return erb(:register)
 
+  end
 
 end

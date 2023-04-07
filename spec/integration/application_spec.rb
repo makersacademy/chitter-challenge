@@ -17,4 +17,14 @@ describe Application do
       expect(response.body).to include('Here is my other post')
     end
   end
+
+  context 'GET/register' do
+    it "takes user to the register page to submit details" do
+      response = get('/register')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<p>Enter a username:</p>')
+      expect(response.body).to include('<p>Enter a password:</p>')
+    end
+  end
 end
