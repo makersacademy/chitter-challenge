@@ -18,6 +18,8 @@ describe Application do
     reset_tables
   end
 
+  let(:app) { Application.new }
+
   context "homepage" do
     it "displays a list of existing peeps" do
       response = get('/')

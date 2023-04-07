@@ -7,6 +7,17 @@
   <title>Chitter Log In</title>
 </head>
 <body>
+
+
+
+  <% @peep_info.each do |peep| %>
+  <div>
+    <h3><%= peep[0] %></h3>
+    <p><% peep[1] %></p>
+    <p><% peep[2] %></p>
+    <p><% peep[3] %></p><br>
+  </div>
+  <% end %>
   
 </body>
 </html>
