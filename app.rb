@@ -43,5 +43,23 @@ class Application < Sinatra::Base
     
     redirect '/'
   end
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    email_address = params[:email_address]
+    username = params[:username]
+    password = params[:password]
+
+    repo = UserRepository.new
+    # check if the username, email and decrypt password match the account
+    user = repo.find_by_email(email_address)
+    if user.username == username && user.email_address == email_address && user.password == password
+      return erb(:login)
+    else
+      halt 404, "Invalid input"
+    end
+  end
 end
-  

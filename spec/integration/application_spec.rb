@@ -47,4 +47,26 @@ describe Application do
       expect(response.status).to eq(302)
     end
   end
+
+  context "GET /login" do
+    it 'sends a user to the login page' do
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/login">')
+      expect(response.body).to include('<label>Enter your password:</label>')
+    end
+  end
+
+  context "POST /login" do
+    it 'validated a user is valid/existing' do
+      response = post('/login',
+      email_address: 'sidra@fake.com',
+      username: 'sidra_123',
+      password: '$2a$06$123')
+
+      expect(response.status).to eq(404)
+      expect(response.body).to include("Invalid input")
+    end
+  end
 end

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Log in to your account!</h1>
+    <!-- Add in somewhere about minimum character length -->
+    <form method="POST" action="/login">
+        <label>Enter your username:</label><input type="text" name="username" required><br>
+        <label>Enter your password:</label><input type="text" name="password" minlength= 8 required><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
