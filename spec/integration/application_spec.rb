@@ -24,12 +24,28 @@ describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<label>Enter a username:</label>')
-      expect(response.body).to include('<input type="text" name="password">')
+      expect(response.body).to include('<input type="text" name="password" required>')
     end
   end
 
   context 'POST /' do
-    it "redirects the user to homepage once registering" do
+    it 'should validate register parameters' do
+      response = post(
+        '/register',
+        email_addres: '',
+        username: 'tina_fake',
+        password: 123)
+
+        expect(response.status).to eq(400)
     end
+
+    it "registers a new user" do
+      response = post('/register',
+      email_address: 'ricky@fake.com',
+      username: 'ricky_fake',
+      password: 'rickyfake1234')
+
+      expect(response.status).to eq(302)
     end
+  end
 end

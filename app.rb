@@ -26,19 +26,24 @@ class Application < Sinatra::Base
 
   end
 
-  post '/' do # once user has registered
+  post '/register' do # once user has registered
+    email_address = params['email_address']
+    username = params['username']
+    password = params['password']
+  
     if params[:email_address].nil? || params[:username].nil? || params[:password].nil?
       status 400
-      return '' 
+      return ''
     end
 
-    repo = UserRepository.new
-    user = User.new
-    user.email_address = params[:email_address]
-    user.username = params[:username]
-    user.password = params[:password]
-    repo.create(user)
-
-    redirect '/'
-  end
+      repo = UserRepository.new
+      user = User.new
+      user.email_address = email_address
+      user.username = username
+      user.password = password
+      repo.create(user)
+  
+      redirect '/'
+    end
 end
+  
