@@ -18,7 +18,7 @@ describe PeepRepository do
       expect(peeps.length).to eq 7
       expect(peeps.first.body).to eq "Today I coded"
       expect(peeps.first.time).to eq "2023-04-01 13:00:00"
-      expect(peeps.first.tags).to eq 'code,amber'
+      expect(peeps.first.tags).to eq "#code, #amber"
       expect(peeps.first.user_id).to eq 1
       expect(peeps[2].body).to eq 'Today I slept'
     end
@@ -31,7 +31,7 @@ describe PeepRepository do
     expect(peeps.length).to eq 7
     expect(peeps.first.body).to eq "Today I coded"
     expect(peeps.first.time).to eq "2023-04-01 13:00:00"
-    expect(peeps.first.tags).to eq 'code,amber'
+    expect(peeps.first.tags).to eq "#code, #amber"
     expect(peeps.first.user_id).to eq 1
     expect(peeps.first.username).to eq 'Amber'
     expect(peeps[2].body).to eq 'Today I slept'

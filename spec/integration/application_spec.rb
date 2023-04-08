@@ -24,9 +24,31 @@ describe Application do
     it "displays a list of existing peeps" do
       response = get('/')
       expect(response.status).to eq 200
-    #   expect(response.body).to include "<h1>Welcome to Chitter</h1>"
-    #   expect(response.body).to include "Today I coded"
-    #   expect(response.body).to include "Today I relaxed"
+      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "Today I coded"
+      expect(response.body).to include "Today I relaxed"
+    end
+  end
+
+  context "new peep form" do
+    it "displays a form page where text can be entered and submitted" do
+      response = get('/peeps/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Spread your chit</h1>'
+      expect(response.body).to include '<form method="POST" action="/peeps">'
+      expect(response.body).to include '<p><a href="/">Home</a></p>'
+    end
+  end
+
+  context "new peep process" do
+    it "creates a new peep which can be viewed on the homepage" do
+      response = post('/peeps')
+      expect(response.status).to eq 302
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "Today I coded"
+      expect(response.body).to include "Today I relaxed"
     end
   end
 
