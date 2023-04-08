@@ -1,6 +1,8 @@
 require "spec_helper"
 require "rack/test"
 require_relative '../../app'
+require 'database_cleaner/active_record'
+
 
 describe ChitterApplication do
   include Rack::Test::Methods
@@ -86,6 +88,8 @@ describe ChitterApplication do
 
   context "POST /register" do
     it 'redirects the user back to the main feed if registered successfully' do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.start 
       response = post('register', 
         username: "Registerro",
         real_name: "Regis Terry", 
@@ -99,6 +103,7 @@ describe ChitterApplication do
       expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> </div>')
       expect(response.body).to_not include('<a href="/login">Log in</a>')
       expect(response.body).to include('<a href="/logout">Log Out</a>')
+      DatabaseCleaner.clean
     end
 
     it 'redirects the user back to the registry page if input is incorrect' do
