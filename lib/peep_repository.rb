@@ -30,6 +30,12 @@ class PeepRepository
     return peeps_with_username
   end
 
+  def create(peep)
+    sql = 'INSERT INTO peeps (body, time, tags, user_id) VALUES ($1, $2, $3, $4);'
+    params = [peep.body, peep.time, peep.tags, peep.user_id]
+    DatabaseConnection.exec_params(sql, params)
+  end
+
   private
 
   def peep_builder(record) # used to build peeps in iteration by #all

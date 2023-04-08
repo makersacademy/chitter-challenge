@@ -2,7 +2,8 @@ require_relative 'lib/database_connection'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/user_repository'
-require_relative 'lib/peep_repository'
+# require_relative 'lib/peep_repository'
+require '~/projects/makers/web-applications/chitter/lib/peep_repository'
 
 DatabaseConnection.connect('chitter')
 
@@ -22,17 +23,29 @@ class Application < Sinatra::Base
   #   return erb(:index)
   # end
 
-  get '/' do
+  get '/test' do
     repo = PeepRepository.new
-    peeps = repo.all
-    # @peep_info = peeps.map{ |peep| [peep.time, peep.body, peep.tags]}
+    peeps = repo.all_with_username
+    @peep_info = peeps.map{ |peep| [peep.username, peep.time, peep.body, peep.tags]}
     return erb(:index)
   end
 
-  # get '/' do
-  #   repo = UserRepository.new
-  #   users = repo.all
-  #   # @peep_info = peeps.map{ |peep| [peep.time, peep.body, peep.tags]}
-  #   return erb(:index)
-  # end
+  get '/' do
+    repo = PeepRepository.new
+    peeps = repo.all_with_username
+    @peep_info = peeps.map{ |peep| [peep.time, peep.body, peep.tags]}
+    return erb(:index)
+  end
+
+  get '/peeps/new' do
+    return erb(:add_peep)
+  end
+
+  get '/register/new' do
+    return erb(:register)
+  end
+
+  get '/login/form' do
+    return erb(:login)
+  end
 end

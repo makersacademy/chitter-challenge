@@ -7,17 +7,27 @@
   <title>Chitter Log In</title>
 </head>
 <body>
+  <nav>
+    <div>
+      <p><a href="/">Home</a></p>
+      <p><a href="/peeps/new">Add Peep</a></p>
+      <p><a href="/register/new">Register</a></p>
+      <p><a href="/login/form">Log in</a></p>
+      <p>Log out</p>
+    </div>
+    </div>
+  </nav>
+  <section>   
+    <h1>Log in to Chitter</h1>
+    <form method="POST" action="/peeps">
+      <label for="username">Username: </label>
+      <input type="text" name="tags" /><br><br>
+      <label for="password">Password: </label>
+      <input type="text" name="tags" /><br><br>
+      <input type="submit" />
+    </form>
+  </section>
 
-
-
-  <% @peep_info.each do |peep| %>
-  <div>
-    <h3><%= peep[0] %></h3>
-    <p><% peep[1] %></p>
-    <p><% peep[2] %></p>
-    <p><% peep[3] %></p><br>
-  </div>
-  <% end %>
   
 </body>
 </html>

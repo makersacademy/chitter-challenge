@@ -7,7 +7,27 @@
   <title>Chitter</title>
 </head>
 <body>
-  <h1>Welcome to Chitter</h1>
-  <h2>For all the chit that comes out of your brain</h2><br>
+
+  <nav>
+    <div>
+      <p><a href="/peeps/new">Add Peep</a></p>
+      <p><a href="/register/new">Register</a></p>
+      <p><a href="/login/form">Log in</a></p>
+      <p>Log out</p>
+    </div>
+  </nav>
+
+  <section>
+    <h1>Welcome to Chitter</h1>
+    <h2>For all the chit that comes out of your brain</h2><br>
+    <% @peep_info.each do |peep| %>
+    <div>
+      <p><%= peep[0] %> at <%= peep[1] %></p>
+      <h4><%= peep[2] %></h4>
+      <p><%= peep[3] %></p><br>
+    </div>
+    <% end %>
+  </section>
+
 </body>
 </html>
