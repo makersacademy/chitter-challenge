@@ -4,19 +4,26 @@
     <title>Welcome to Chitter Chatter!</title>
   </head>
   <body>
-    <h1>Welcome to Chitter Chatter!</h1>
-    <p>Here are the recent peeps:</p>
-    <ul>
-      <% @peeps.each do |peep| %>
-        <li><%= peep.contents %></li>
-      <% end %>
-    </ul>
 
+  <% if session[:user_id] %>
+    <!-- Logged in content -->
+    <h1>Welcome <%= @user.username %>!</h1>
+    <a href="/logout">Logout</a>
+    <h2>Recent Peeps:</h2>
+    <% @peeps.each do |peep| %>
+      <p><%= peep.contents %></p>
+    <% end %>
+  <% else %>
+    <!-- Logged out content -->
+    <h1>Welcome to Chitter!</h1>
     <p>Options:</p>
-    <!-- adjust based on user login status -->
-    <a href="/register">Sign up to Chitter Chatter!</a><br>
-    <a href="/login">Log in</a><br>
-    <a href="/logout">Log out</a><br>
-    <a href="/post">Post a peep</a><br>
+    <a href="/register">Sign Up</a><br>
+    <a href="/login">Login</a><br>
+    <h2>Recent Peeps:</h2>
+    <% @peeps.each do |peep| %>
+      <p><%= peep.contents %></p>
+    <% end %>
+  <% end %>
+  
   </body>
 </html>

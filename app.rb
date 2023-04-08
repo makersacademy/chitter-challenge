@@ -14,15 +14,22 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
   register Sinatra::Flash
 
   get '/' do
-    # need to show peeps on the homepage
     repo = PeepRepository.new
     @peeps = repo.all
-
-    return erb(:homepage)
-  end
+  
+    if session[:user_id]
+      # user is logged in
+      @user = UserRepository.new.find(session[:user_id])
+      return erb(:homepage, locals: { logged_in: true })
+    else
+      # user is not logged in
+      return erb(:homepage, locals: { logged_in: false })
+    end
+  end  
 
   get '/register' do
     return erb(:register)
@@ -50,16 +57,18 @@ class Application < Sinatra::Base
 
   post '/login' do
     email_address = params[:email_address]
-    username = params[:username]
     password = params[:password]
 
     repo = UserRepository.new
-    # check if the username, email and decrypt password match the account
     user = repo.find_by_email(email_address)
-    if user.username == username && user.email_address == email_address && user.password == password
-      return erb(:login)
+
+    if user && user.password == password
+      session[:user_id] = user.id
+
+      redirect '/'
     else
-      halt 404, "Invalid input"
+      @error = true
+      return erb(:login)
     end
   end
 end

@@ -13,7 +13,7 @@ describe Application do
     
       expect(response.status).to eq(200)
       expect(response.body).to include('<title>Welcome to Chitter Chatter!</title>')
-      expect(response.body).to include('Here are the recent peeps')
+      expect(response.body).to include('Recent Peeps:')
       expect(response.body).to include('Here is my other post')
     end
   end
@@ -62,11 +62,10 @@ describe Application do
     it 'validated a user is valid/existing' do
       response = post('/login',
       email_address: 'sidra@fake.com',
-      username: 'sidra_123',
       password: '$2a$06$123')
 
-      expect(response.status).to eq(404)
-      expect(response.body).to include("Invalid input")
+      expect(response.status).to eq(200)
+      expect(response.body).to include("Login failed. Please try again")
     end
   end
 end
