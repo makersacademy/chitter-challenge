@@ -9,7 +9,7 @@ describe ChitterApplication do
   context "GET /" do
     it 'displays the feed and shows prompt to login if user is not logged in' do
       response = get('/')
-      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <b>By:</b> Useface <b>At:</b> 2023-03-20 / 10:39 </div>')
+      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> </div>')
       expect(response.body).to include('<a href="/login">Log in</a>')
       expect(response.body).to_not include('<a href="/logout">Log Out</a>')
     end  
@@ -20,7 +20,7 @@ describe ChitterApplication do
         password: "usersville")
       expect(response).to be_redirect
       response = get('/')
-      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <b>By:</b> Useface <b>At:</b> 2023-03-20 / 10:39 </div>')
+      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> </div>')
       expect(response.body).to_not include('<a href="/login">Log in</a>')
       expect(response.body).to include('<a href="/logout">Log Out</a>')
     end  
@@ -81,6 +81,72 @@ describe ChitterApplication do
       expect(response.body).to include("<input type='text' placeholder='name and surname' name='real_name' required>")
       expect(response.body).to include("<input type='text' placeholder='e-mail address' name='email' required>")
       expect(response.body).to include("<input type='password' placeholder='password' name='password' minlength= 8 required>")
+    end
+  end
+
+  context "POST /register" do
+    it 'redirects the user back to the main feed if registered successfully' do
+      response = post('register', 
+        username: "Registerro",
+        real_name: "Regis Terry", 
+        password: "password",
+        email: "regis@terry.com"
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/")
+      response = get('/')
+      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> </div>')
+      expect(response.body).to_not include('<a href="/login">Log in</a>')
+      expect(response.body).to include('<a href="/logout">Log Out</a>')
+    end
+
+    it 'redirects the user back to the registry page if input is incorrect' do
+      response = post('register', 
+        username: "<",
+        real_name: "Regis Terry", 
+        password: "password",
+        email: "regis@terry.com"
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/register")
+    end
+
+    it 'redirects the user back to the registry page if input is incorrect' do
+      response = post('register', 
+        username: "Usek",
+        real_name: "", 
+        password: "password",
+        email: "regis@terry.com"
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/register")
+    end
+
+    it 'redirects the user back to the registry page if username exists' do
+      response = post('register', 
+        username: "Useface",
+        real_name: "some person", 
+        password: "password",
+        email: "regis@terry.com"
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/register")
+    end
+
+    it 'redirects the user back to the registry page if email exists' do
+      response = post('register', 
+        username: "Registerro",
+        real_name: "some person", 
+        password: "password",
+        email: "Userella@userio.uo"
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/register")
     end
   end
 

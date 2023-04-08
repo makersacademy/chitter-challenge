@@ -46,13 +46,26 @@ class ChitterApplication < Sinatra::Base
     erb :register
   end
 
+  post '/register' do
+    username, password, email, real_name = params[:username], params[:password], params[:email], params[:real_name]
+    to_validate = [username, password, email, real_name]
+    to_validate.each {|form_data| return redirect('/register') if is_dodgy?(form_data)}
+    return redirect('/register') if !!User.find_by(username: username) || !!User.find_by(email: email)
+    new_user = User.new
+    encrypted_password = BCrypt::Password.create(password)
+    new_user.username, new_user.password, new_user.email, new_user.real_name = username, encrypted_password, email, real_name
+    new_user.save
+    session[:user_id] = new_user.id
+    return redirect('/')
+  end
+
   get '/logout' do
     session.clear
     return redirect('/')
   end
   
   def is_dodgy?(input)
-    return input.match?(/<|>/)
+    return input.match?(/<|>/) || input.match?(/^\s*$/)
   end
 
 end
