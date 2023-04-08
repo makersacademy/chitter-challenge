@@ -9,7 +9,7 @@ require_relative 'lib/reply'
 
 class ChitterApplication < Sinatra::Base
   enable :sessions
-  
+
   configure :development do
     register Sinatra::Reloader
     register Sinatra::ActiveRecordExtension
@@ -42,6 +42,19 @@ class ChitterApplication < Sinatra::Base
     end
   end
 
+  get '/create_post' do
+    return redirect('/login') unless @current_user
+    erb :create_post
+  end
+
+  post '/create_post' do
+    return redirect('/login') unless @current_user
+    post = Post.new
+    post.user_id, post.content = @current_user.id, params[:content]
+    post.save
+    return redirect('/')
+  end
+    
   get '/register' do
     erb :register
   end

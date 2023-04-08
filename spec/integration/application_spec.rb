@@ -75,6 +75,59 @@ describe ChitterApplication do
     end
   end
 
+  context "GET /create_post" do
+    it 'displays the create post form to the user when user is logged in' do
+      response = post('login', 
+        username: "Useface", 
+        password: "usersville")
+      response = get('create_post')
+      expect(response.body).to include("<textarea type='text' placeholder='your ramblings' name='content' maxlength=140 required cols=50 rows=10></textarea>")
+    end
+
+    it 'redirects you to the login page if you try to post without credentials' do
+      response = get('create_post')
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/login")  
+    end
+  end
+
+  context "POST /create_post" do
+    it 'redirects you to the login page if you try to post without credentials' do
+      response = post('create_post', 
+        user_id: 6,
+        content: "This route is as protected as the rental prices in London", 
+        created_at: Time.now,
+        updated_at: Time.now
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/login")
+    end
+
+    it 'creates a post and sends you back to the login feed once successful' do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.start 
+      current_time = Time.now
+      response = post('login', 
+        username: "Useface", 
+        password: "usersville")
+      response = post('create_post', 
+        user_id: 6,
+        content: "This route is as protected as the rental prices in London",
+        created_at: current_time,
+        updated_at: current_time 
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/")
+      response = get('/')
+      expect(response.body).to include("<div><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).strftime("%F / %H:%M")}</u> </div>")
+      DatabaseCleaner.clean
+      
+    end
+  end
+
   context "GET /register" do
     it 'displays the register form to the user' do
       response = get('/register')
