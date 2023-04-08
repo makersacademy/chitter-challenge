@@ -30,7 +30,6 @@ _Replace the below with your own design. Think of all the different possible res
   <head></head>
   <body>
     <h1>Welcome to Chitter</h1>
-    <div>Latest peeps:</div>
   </body>
 </html>
 ```
