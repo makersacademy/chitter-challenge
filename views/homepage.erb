@@ -5,7 +5,7 @@
   </head>
   <body>
 
-  <% if session[:user_id] %>
+  <% if session[:email_address] %>
     <!-- Logged in content -->
     <h1>Welcome <%= @user.username %>!</h1>
     <a href="/logout">Logout</a>

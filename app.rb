@@ -21,9 +21,9 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     @peeps = repo.all
   
-    if session[:user_id]
+    if session[:email_address]
       # user is logged in
-      @user = UserRepository.new.find(session[:user_id])
+      @user = UserRepository.new.find_by_email(session[:email_address])
       return erb(:homepage, locals: { logged_in: true })
     else
       # user is not logged in
@@ -36,7 +36,9 @@ class Application < Sinatra::Base
   end
 
   post '/register' do # once user has registered
-    if params[:email_address].nil? || !params[:email_address].include?('@') || params[:username].nil? || params[:password].nil?
+    if params[:email_address].nil? || 
+      !params[:email_address].include?('@') || 
+      params[:username].nil? || params[:password].nil?
       status 400
       return ''
     end
@@ -63,12 +65,22 @@ class Application < Sinatra::Base
     user = repo.find_by_email(email_address)
 
     if user && user.password == password
-      session[:user_id] = user.id
+      session[:email_address] = user.email_address
 
-      redirect '/'
+      peep_repo = PeepRepository.new
+      @peeps = peep_repo.all
+
+      @user = user
+
+      return erb(:homepage)
     else
       @error = true
       return erb(:login)
     end
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 end
