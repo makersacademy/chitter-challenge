@@ -16,15 +16,15 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repository'
   end
 
-  attr_reader :logged_in, :current_id#, :error
+  attr_reader :logged_in, :current_id
 
-  def initialize
-    @logged_in = false
-    @current_id = 0
-    # @error = ""
-  end
+  # def initialize
+  #   @logged_in = false
+  #   @current_id = 0
+  # end
 
   get '/test' do
+    p "****************HELLO*****************"
     return "hello"
   end
 
