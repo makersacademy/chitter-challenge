@@ -24,4 +24,22 @@ describe UserRepository do
     end
   end
 
+  context "#create" do
+    it "makes a new user" do
+      repo = UserRepository.new
+      new_user = User.new
+      new_user.name = "Demi Quart"
+      new_user.username = "Demi"
+      new_user.email = "demi@email.com"
+      new_user.password = "mypassword"
+      repo.create(new_user)
+      users = repo.all
+      expect(users.length).to eq 4
+      expect(users.last.name).to eq "Demi Quart"
+      expect(users.last.username).to eq "Demi"
+      expect(users.last.email).to eq 'demi@email.com'
+      expect(users.last.password).to eq 'mypassword'
+    end
+  end
+
 end

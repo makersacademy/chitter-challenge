@@ -52,4 +52,16 @@ describe Application do
     end
   end
 
+  context "register process" do
+    it "creates a new user" do
+      response = post('/register', name: 'Demi Quart', username: 'Demi', email: "demi@email.com", password: "mypassword")
+      expect(response.status).to eq 302
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "Today I coded"
+      expect(response.body).to include "Today I relaxed"
+    end
+  end
+
 end

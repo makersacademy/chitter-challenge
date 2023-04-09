@@ -5,7 +5,7 @@ class UserRepository
     sql = 'SELECT * FROM users;'
     results = DatabaseConnection.exec_params(sql, [])
     users = []
-    results.each{ |record| users << each_user(record) }
+    results.each{ |record| users << user_builder(record) }
     return users
   end
 
@@ -17,7 +17,7 @@ class UserRepository
 
   private
 
-  def each_user(record)
+  def user_builder(record)
     user = User.new
     user.id = record['id'].to_i
     user.name = record['name']

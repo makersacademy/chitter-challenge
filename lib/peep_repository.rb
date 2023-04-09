@@ -44,7 +44,6 @@ class PeepRepository
     peep.body = record['body']
     peep.time = record['time']
     peep.tags = record['tags']
-    p peep.tags
     peep.user_id = record['user_id'].to_i
     return peep
   end
