@@ -57,27 +57,21 @@ class Application < Sinatra::Base
   post '/login' do
     email_address = params[:email_address]
     password = params[:password]
-
-    repo = UserRepository.new
-    user = repo.find_by_email(email_address)
-
+  
+    user = UserRepository.new.find_by_email(email_address)
+  
     if user && user.password == password
       session[:email_address] = user.email_address
-
+  
       peep_repo = PeepRepository.new
       @peeps = peep_repo.all
       @user = user
-      return erb(:homepage)
+      erb(:homepage)
     else
       @error = true
-      return erb(:login)
+      erb(:login)
     end
-
-    if user.nil?
-      @error = true
-      return erb(:login)
-    end
-  end
+  end  
 
   get '/logout' do
     session.clear

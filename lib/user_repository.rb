@@ -23,7 +23,7 @@ class UserRepository
     sql = 'SELECT id, email_address, username, password FROM users WHERE email_address = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
 
-    if result_set.ntuples > 0  
+    if result_set.ntuples.positive?
       user_row = result_set[0]
       user = User.new
       user.id = user_row['id']
