@@ -12,6 +12,7 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    @title = "Chitter - Home"
     return erb(:index)
   end
 end
