@@ -41,11 +41,24 @@ Post.create(
   user_id: 6
 )
 
-10.times do
-Reply.create(
-  user_id: Faker::Number.between(from: 1, to: 5),
-  post_id: Faker::Number.between(from: 1, to: 10)
-)
+5.times do
+  time = Faker::Time.between(from: DateTime.now - 4, to: DateTime.now)  
+  Post.create(
+    content: Faker::Lorem.sentence(word_count: rand(10..15)),
+    created_at: time,
+    updated_at: time,
+    user_id: Faker::Number.between(from: 1, to: 6),
+    parent_id: Faker::Number.between(from: 1, to: 30)
+  )
 end
+
+### This is the reply post the manually created user has definitely posted.
+Post.create(
+  content: "Best internet arguments start with just one reply",
+  created_at: Time.new(2023, 03, 21, 20, 12, 55),
+  updated_at: Time.new(2023, 03, 21, 20, 12, 55),
+  user_id: 6,
+  parent_id: 29
+)
 
 puts 'Seeding completed.'
