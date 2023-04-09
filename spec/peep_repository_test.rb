@@ -1,7 +1,6 @@
 require 'peep_repository.rb'
 require 'peep.rb'
 
-
 def reset_peeps_table
   seed_sql = File.read('spec/seeds.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'peeps_test' })
@@ -15,12 +14,9 @@ describe PeepRepository do
 
   let(:repo) {PeepRepository.new}
   let(:new_peep) {Peep.new}
-  # write your let(:peep_repositoty) {PeepRepository.new} here
-  # as well as for user_repository 
-  # see which one is needed as you write each test
 
   describe '#all' do
-    it 'returns all peeps' do
+    it 'returns all peeps in reverse chronological order' do
       peeps = repo.all
       expect(peeps[0].peep).to eq 'Test peep 1'
       expect(peeps[1].peep).to eq 'Test peep 2'

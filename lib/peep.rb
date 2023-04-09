@@ -1,3 +1,3 @@
 class Peep
-  attr_accessor :peep, :date, :username_id
+  attr_accessor :id, :peep, :date, :username_id
 end
