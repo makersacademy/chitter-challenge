@@ -22,15 +22,18 @@ class UserRepository
   def find_by_email(email)
     sql = 'SELECT id, email_address, username, password FROM users WHERE email_address = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
-    user_row = result_set[0]
-  
-    user = User.new
-    user.id = user_row['id']
-    user.email_address = user_row['email_address']
-    user.username = user_row['username']
-    user.password = BCrypt::Password.new(user_row['password'])
-  
-    return user
+
+    if result_set.ntuples > 0  
+      user_row = result_set[0]
+      user = User.new
+      user.id = user_row['id']
+      user.email_address = user_row['email_address']
+      user.username = user_row['username']
+      user.password = BCrypt::Password.new(user_row['password'])
+      return user
+    else
+      nil
+    end          
   end  
 
   def create(new_user)

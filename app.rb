@@ -72,6 +72,11 @@ class Application < Sinatra::Base
       @error = true
       return erb(:login)
     end
+
+    if user.nil?
+      @error = true
+      return erb(:login)
+    end
   end
 
   get '/logout' do
