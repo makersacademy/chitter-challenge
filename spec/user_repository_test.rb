@@ -19,7 +19,7 @@ describe UserRepository do
 
   describe '#create' do
     it 'creates and stores a new peep' do
-
+      
     end
   end
 end

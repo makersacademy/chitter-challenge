@@ -24,16 +24,16 @@ describe PeepRepository do
   end
 
   describe '#create' do
-    xit 'creates and stores a new peep' do
+    it 'creates and stores a new peep' do
       new_peep.peep = 'Test peep 1'
       new_peep.date = '2023-04-10 12:34:56'
-      new_peep.username_id = 1 # maybe put in quotes?
+      new_peep.username_id = '1'
       repo.create(new_peep)
 
       peeps = repo.all
       expect(peeps.last.peep).to eq 'Test peep 1'
       expect(peeps.last.date).to eq '2023-04-10 12:34:56'
-      expect(peeps.last.username_id).to eq 1
+      expect(peeps.last.username_id).to eq '1'
     end
   end
 end
