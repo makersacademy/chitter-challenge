@@ -42,7 +42,7 @@ describe Application do
 
   context "new peep process" do
     it "creates a new peep which can be viewed on the homepage" do
-      response = post('/peeps')
+      response = post('/peeps', body: 'Today I played games', tags: '#games, #amber', user_id: 1)
       expect(response.status).to eq 302
       response = get('/')
       expect(response.status).to eq 200
