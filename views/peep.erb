@@ -1,7 +1,19 @@
-<%# <form action='/peep' method='post'> %>
-      <h1>All Peeps</h1>
-  <%# <label for='message'>
-    <input type='text' name='message' required>
-  </label>
-  <button type='submit'>Create Peep</button>
-</form> %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create a new peep!</title>
+    <style>
+      body {
+        font-family: 'Century Gothic', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/peep" method="post">
+      Message: <textarea rows="4" cols="50" name="peep" required>
+      </textarea><br>
+      <input type="submit" value="Post">
+    </form>
+  </body>
+</html>

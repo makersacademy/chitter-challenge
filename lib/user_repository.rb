@@ -29,11 +29,12 @@ class UserRepository
 
 
   def find(id)
-    sql = 'SELECT id, name, email_address, password_hash FROM users WHERE id = $1;'
+    sql = 'SELECT id, name, username, email_address, password_hash FROM users WHERE id = $1;'
     result = DatabaseConnection.exec_params(sql, [id]).first
     user = User.new
     user.id = result['id'].to_i
     user.name = result['name']
+    user.username = result['username']
     user.email_address = result['email_address']
     user.password_hash = result['password_hash']
     return user
@@ -46,6 +47,7 @@ class UserRepository
     user = User.new
     user.id = result['id'].to_i
     user.name = result['name']
+    user.username = result['username']
     user.email_address = result['email_address']
     user.password_hash = result['password_hash']
     return user

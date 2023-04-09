@@ -1,10 +1,31 @@
-<!-- views/signup.erb -->
-<form action="/signup" method="post">
-  <label for="email">Email:</label>
-  <input type="email" name="user[email]" id="email">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+    <title>Chitter Signup</title>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Chitter</a></h1>
+      <nav class="login-signup-nav">
+      <a href="/">Home</a> | &nbsp
+      <a href="/login">Log in</a>
+    </nav>
+    </header>
 
-  <label for="password">Password:</label>
-  <input type="password" name="user[password]" id="password">
+    <h4 class="login-signup-heading">Sign up to Chitter</h4>
+    <form action="/signup" method="POST" class="login-signup-form">
+      <label>Name: </label>
+      <input type="text" name="name" required>&nbsp
+      <label>Username: </label>
+      <input type="text" name="username" required>&nbsp
+      <label>Email address: </label>
+      <input type="text" name="email_address" required>&nbsp
+      <label>Password: </label>
+      <input type="text" name="password_hash" required>&nbsp
+      <input type="submit" value="Sign up">
+    </form>
 
-  <input type="submit" value="Sign up">
-</form>
+    <footer>Chitter © 2023</footer>
+  </body>
+</html>

@@ -1,9 +1,31 @@
-<form action="/login" method="post">
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email">
+<html>
+  <head>
+    <title>Log in to Chitter</title>
+    <style>
+      h1 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+      }
+      label {
+        font-family: "Century Gothic", sans-serif;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Log in to Chitter</h1>
+    <a href="/peeps"> All Peeps</a> | <a href="/peep">Post new peep!</a>
+    <form action="/login" method="GET">
+      <div>
+        <label>Email</label>
+        <input type="text" name="email">
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password">
-
-  <input type="submit" value="Log in">
-</form>
