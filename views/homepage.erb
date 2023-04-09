@@ -12,7 +12,7 @@
     <a href="/logout">Logout</a>
     <h2>Recent Peeps:</h2>
     <% @peeps.each do |peep| %>
-      <p><%= peep.contents %></p>
+      <p><%= peep.contents %> - <%= peep.time %></p>
     <% end %>
   <% else %>
     <!-- Logged out content -->
@@ -22,7 +22,7 @@
     <a href="/login">Login</a><br>
     <h2>Recent Peeps:</h2>
     <% @peeps.each do |peep| %>
-      <p><%= peep.contents %></p>
+      <p><%= peep.contents %> - <%= peep.time %></p>
     <% end %>
   <% end %>
   

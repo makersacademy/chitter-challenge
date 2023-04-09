@@ -16,7 +16,7 @@ describe PeepRepository do
     peeps = repo.all
 
     expect(peeps.length).to eq(4)
-    expect(peeps.last.contents).to eq('User 3 newer post')
+    expect(peeps.last.contents).to eq('This is my post')
   end
 
   it 'creates a new peep' do
@@ -29,6 +29,6 @@ describe PeepRepository do
     peeps = repo.all
 
     expect(peeps.length).to eq(5)
-    expect(peeps.last.contents).to eq('Hello this is me!')
+    expect(peeps.first.contents).to eq('Hello this is me!')
   end
 end

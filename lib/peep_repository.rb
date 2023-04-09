@@ -4,7 +4,7 @@ require 'date'
 class PeepRepository
 
   def all
-    sql = 'SELECT id, time, contents, user_id FROM peeps;'
+    sql = 'SELECT id, time, contents, user_id FROM peeps ORDER BY time desc;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     peeps = []

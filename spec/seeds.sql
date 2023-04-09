@@ -13,3 +13,4 @@ INSERT INTO peeps (time, contents, user_id) VALUES ('2023-04-13 12:16:00', 'Here
 INSERT INTO peeps (time, contents, user_id) VALUES ('2023-04-14 12:19:00', 'Here is my other post', '1');
 INSERT INTO peeps (time, contents, user_id) VALUES ('2023-04-15 12:10:00', 'User 3 newer post', '3');
 
+
