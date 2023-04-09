@@ -1,4 +1,4 @@
-require relative '../../app'
+require_relative '../../app'
 require "spec_helper"
 require "rack/test"
 

@@ -1,4 +1,6 @@
 require_relative 'lib/database_connection'
+require_relative 'lib/user_repository.rb'
+require_relative 'lib/peep_repository.rb'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
@@ -11,3 +13,4 @@ class Application < Sinatra::Base
 end
 
 DatabaseConnection.connect('chitter')
+
