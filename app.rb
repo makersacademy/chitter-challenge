@@ -3,7 +3,7 @@ require "sinatra/reloader"
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
-require 'sinatra/flash'
+require 'date'
 
 DatabaseConnection.connect('chitter_database')
 
@@ -15,18 +15,15 @@ class Application < Sinatra::Base
   end
 
   enable :sessions
-  register Sinatra::Flash
 
   get '/' do
     repo = PeepRepository.new
     @peeps = repo.all
   
     if session[:email_address]
-      # user is logged in
       @user = UserRepository.new.find_by_email(session[:email_address])
       return erb(:homepage, locals: { logged_in: true })
     else
-      # user is not logged in
       return erb(:homepage, locals: { logged_in: false })
     end
   end  
@@ -69,9 +66,7 @@ class Application < Sinatra::Base
 
       peep_repo = PeepRepository.new
       @peeps = peep_repo.all
-
       @user = user
-
       return erb(:homepage)
     else
       @error = true
@@ -82,5 +77,27 @@ class Application < Sinatra::Base
   get '/logout' do
     session.clear
     redirect '/'
+  end
+
+  get '/new_peep' do
+    return erb(:new_peep)
+  end
+
+  post '/new_peep' do
+    contents = params[:contents]
+
+    if session[:email_address]
+      @user = UserRepository.new.find_by_email(session[:email_address])
+    end
+
+    peep_repo = PeepRepository.new
+    new_peep = Peep.new
+    new_peep.contents = contents
+    new_peep.time = Time.now.strftime("%d/%m/%Y %H:%M")
+    new_peep.user_id = @user.id
+    peep_repo.create_peep(new_peep)
+    @peeps = peep_repo.all
+
+    return erb(:homepage)
   end
 end

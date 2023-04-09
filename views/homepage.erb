@@ -8,6 +8,7 @@
   <% if session[:email_address] %>
     <!-- Logged in content -->
     <h1>Welcome <%= @user.username %>!</h1>
+    <a href="/new_peep">Post a Peep</a><br>
     <a href="/logout">Logout</a>
     <h2>Recent Peeps:</h2>
     <% @peeps.each do |peep| %>

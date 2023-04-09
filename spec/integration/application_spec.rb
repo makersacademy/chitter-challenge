@@ -7,7 +7,7 @@ describe Application do
   
   let(:app) { Application.new }
 
-  context "Homepage to site /" do
+  describe "Homepage to site /" do
     it "shows the welcome text on homepage with posts" do
       response = get('/')
     
@@ -18,7 +18,7 @@ describe Application do
     end
   end
 
-  context 'GET /register' do
+  describe 'GET /register' do
     it "takes user to the register page to submit details" do
       response = get('/register')
 
@@ -28,7 +28,7 @@ describe Application do
     end
   end
 
-  context 'POST /register' do
+  describe 'POST /register' do
     it 'validates user inputs' do
       response = post(
         '/register',
@@ -48,7 +48,7 @@ describe Application do
     end
   end
 
-  context "GET /login" do
+  describe "GET /login" do
     it 'sends a user to the login page' do
       response = get('/login')
 
@@ -58,7 +58,7 @@ describe Application do
     end
   end
 
-  context "POST /login" do
+  describe "POST /login" do
     it 'validated a user is valid/existing' do
       response = post('/login',
         email_address: 'sidra@fake.com',
@@ -95,4 +95,25 @@ describe Application do
     end
   end
   
+  describe "GET /new_peep" do
+    it 'sends a user to the new_peep page' do
+      response = get('/new_peep')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<p>What do you want to say?</p>')
+    end
+  end
+
+  describe "POST /new_peep" do
+    it 'submits a peep of the user and shows it on the homepage' do
+      post '/login', params = { email_address: 'sidra@fake.com', password: '12345' }
+      expect(last_response.status).to eq(200) # ensure login successful
+
+      peep_contents = "Hello world!"
+      post '/new_peep', params = { contents: peep_contents }
+      expect(last_response.status).to eq(200)
+
+      expect(last_response.body).to include(peep_contents)
+    end
+  end
 end
