@@ -15,6 +15,14 @@
     </div>
   </nav>
   <h1>Spread your chit</h1>
+
+    <div>
+      <% if settings.validation_error.length > 0 %>
+        <h3><%= settings.validation_error %></h3>
+        <% settings.validation_error = "" %>
+      <% end %> 
+    </div>
+
   <form method="POST" action="/peeps">
     <label for="body">What new gem would you like to share with the world: </label><br>
     <textarea type="text" name="body" rows="4" cols="42"></textarea><br><br>

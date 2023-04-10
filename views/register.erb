@@ -18,9 +18,9 @@
   <h1>Register a new Chitter account</h1>
 
   <div>
-    <% if settings.register_error.length > 0 %>
-      <h3><%= settings.register_error %></h3>
-      <% settings.register_error = "" %>
+    <% if settings.validation_error.length > 0 %>
+      <h3><%= settings.validation_error %></h3>
+      <% settings.validation_error = "" %>
     <% end %> 
   </div>
 

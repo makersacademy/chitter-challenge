@@ -19,12 +19,10 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repository' ### posibly not needed with sessions?
     set :message, "Log in to create new peeps." # Creates a var that can be used across route handlers and views
     set :logged, false
-    set :register_error, ""
-    set :login_error, ""
+    set :validation_error, ""
   end
 
   get '/' do
-    p settings.logged
     repo = PeepRepository.new
     peeps = repo.all_with_username
     @peep_info = peeps.map{ |peep| [peep.username, peep.time, peep.body, peep.tags]}
@@ -37,12 +35,15 @@ class Application < Sinatra::Base
   end
 
   post '/peeps' do
+    @body, @tags, @user_id = params[:body], params[:tags],params[:user_id]
+    script_check([@body, @tags, @user_id], '/peeps/new')
+    validate_string(@body, "peep")
     repo = PeepRepository.new
     new_peep = Peep.new
-    new_peep.body = params[:body]
+    new_peep.body = @body
     new_peep.time = Time.now.strftime("%Y-%m-%d %T")
-    new_peep.tags = params[:tags]
-    new_peep.user_id = params[:user_id] # placeholder code!!! maybe???
+    new_peep.tags = @tags
+    new_peep.user_id = @user_id 
     repo.create(new_peep)
     return redirect('/')
   end
@@ -50,18 +51,20 @@ class Application < Sinatra::Base
   get '/register/new' do
     return erb(:register)
   end
-
+  
   post '/register' do
-    validate_name(params[:name])
-    validate_username(params[:username])
-    validate_email(params[:email])
-    validate_password(params[:password])
+    @name, @username, @email, @password = params[:name], params[:username], params[:email], params[:password]
+    script_check([@name, @username, @email, @password], '/register/new')
+    validate_string(@name, "name")
+    validate_string(@username, "username")
+    validate_email(@email)
+    validate_password(@password)
     user_repo = UserRepository.new
     new_user = User.new
-    new_user.name = params[:name]
-    new_user.username = params[:username]
-    new_user.email = params[:email]
-    new_user.password = params[:password]
+    new_user.name = @name
+    new_user.username = @username
+    new_user.email = @email
+    new_user.password = @password
     user_repo.create(new_user)
     return redirect('/')
   end
@@ -71,20 +74,12 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    email_exists(params[:email])
     @email = params[:email]
     @password = params[:password]
-    user_repo = UserRepository.new
-    user = user_repo.find_by_email(@email)
-    if @password == user.password # i.e. if <entered-password> == <password-stored-for-entered-email>
-      session[:username] = user.username
-      settings.logged = true
-      settings.message = "You are logged in as #{user.username}."
-    else
-      session[:user_id] = nil
-      settings.logged = false
-      settings.message = "Email and password do not match. Log in to create new peeps."
-    end
+    script_check([@email, @password], '/login/form')
+    email_exists(@email)
+    user = UserRepository.new.find_by_email(@email)
+    email_password_match(user, @password)
     return redirect('/')
   end
 
@@ -96,44 +91,59 @@ class Application < Sinatra::Base
   end
 
   helpers do
-    def validate_name(name)
+    def validate_string(name, field)
       unless name.match?(/[a-zA-Z]/)
-        settings.register_error = "Invalid name: must contain one or more letters."
-        return redirect('register/new')
-      end
-    end
-
-    def validate_username(username)
-      unless username.match?(/[a-zA-Z]/)
-        settings.register_error = "Invalid username: must contain one or more letters."
+        settings.validation_error = "Invalid #{field}: must contain one or more letters."
         return redirect('register/new')
       end
     end
 
     def validate_email(email)
       unless email =~ URI::MailTo::EMAIL_REGEXP
-        settings.register_error = "Invalid email: please enter a valid email to register."
+        settings.validation_error = "Invalid email: please enter a valid email to register."
         return redirect('register/new')
       end
     end
 
     def validate_password(password)
       unless password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/)
-        settings.register_error = "Invalid password: minimum eight characters and contain at least one lowercase letter, uppercase letter and digit."
+        settings.validation_error = "Invalid password: minimum eight characters and contain at least one lowercase letter, uppercase letter and digit."
         return redirect('register/new')
       end
     end
 
     def username_email_unique(username, password)
-
+      
     end
 
     def email_exists(email)
       emails = UserRepository.new.all_emails
       unless emails.include?(email)
-        settings.login_error = "Email and password do not match any registered user."
+        settings.validation_error = "Email and password do not match any registered user."
           return redirect('login/form')
       end
     end
+
+    def email_password_match(user, password)
+      unless @password == user.password # i.e. if <entered-password> == <password-stored-for-entered-email>
+        session[:user_id] = nil
+        settings.logged = false
+        settings.validation_error = "Email and password do not match any registered user."
+        return redirect('/login/form')
+      end
+      session[:username] = user.username
+      session[:user_id] = user.id
+      settings.logged = true
+    end
+
+    def script_check(inputs_array, redirect_path)
+      if inputs_array.join.match?(/[<>\/]/)
+        session[:user_id] = nil
+        settings.logged = false
+        settings.validation_error = "'<', '>' and '/' are not permitted characters."
+        return redirect(redirect_path)
+      end
+    end
+
   end
 end

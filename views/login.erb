@@ -18,9 +18,9 @@
     <h1>Log in to Chitter</h1>
 
     <div>
-      <% if settings.login_error.length > 0 %>
-        <h3><%= settings.login_error %></h3>
-        <% settings.login_error = "" %>
+      <% if settings.validation_error.length > 0 %>
+        <h3><%= settings.validation_error %></h3>
+        <% settings.validation_error = "" %>
       <% end %> 
     </div>
 

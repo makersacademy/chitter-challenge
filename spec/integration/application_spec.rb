@@ -50,6 +50,14 @@ describe Application do
       expect(response.body).to include "Today I coded"
       expect(response.body).to include "Today I relaxed"
     end
+
+    it "rejects new peep where <, > or / are entered in body" do
+      response = post('/peeps', body: 'Today / played games', tags: '#games, #amber', user_id: 1)
+      expect(response.status).to eq 302
+      response = get('/peeps/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "'<', '>' and '/' are not permitted characters."
+    end
   end
 
   context "register process" do
@@ -96,16 +104,31 @@ describe Application do
     end
 
     it "does not log the user in when email not found" do
-      response = post('/login', email: "billy@email.com", password: "MyPassword456")
+      response = post('/login', email: "terry@email.com", password: "MyPassword456")
       expect(response.status).to eq 302
-      response = get('/')
+      response = get('/login/form')
       expect(response.status).to eq 200
-      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
-      expect(response.body).to include "Today I coded"
-      expect(response.body).to include "Today I relaxed"
+      expect(response.body).to include "<h1>Log in to Chitter</h1>"
+      expect(response.body).to include "Email and password do not match any registered user."
+    end
+
+    it "does not log the user in when email and password do not match" do
+      response = post('/login', email: "billy@email.com", password: "MyPassword457")
+      expect(response.status).to eq 302
+      response = get('/login/form')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Log in to Chitter</h1>"
+      expect(response.body).to include "Email and password do not match any registered user."
     end
   end
 
+  it "does not validate a peep with no word content" do
+    response = post('/peeps', body: '', tags: '#nada')
+    expect(response.status).to eq 302
+    response = get('/peeps/new')
+    expect(response.status).to eq 200
+    expect(response.body).to include "Invalid peep:"
+  end
 
   context "registration validation" do
     it "does not validate a name" do
@@ -193,6 +216,56 @@ describe Application do
       expect(response.status).to eq 302
       response = get('/')
       expect(response.status).to eq 200
+    end
+
+    it "rejects registration where <, > or / are entered in name" do
+      response = post('/register', name: 'Demi <quart', username: 'Demi', email: "demi@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "'<', '>' and '/' are not permitted characters."
+    end
+
+    it "rejects registration where <, > or / are entered in username" do
+      response = post('/register', name: 'Demi quart', username: 'De/mi', email: "demi@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "'<', '>' and '/' are not permitted characters."
+    end
+
+    it "rejects registration where <, > or / are entered in email" do
+      response = post('/register', name: 'Demi quart', username: 'Demi', email: "demi@emai<l.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "'<', '>' and '/' are not permitted characters."
+    end
+
+    it "rejects registration where <, > or / are entered in password" do
+      response = post('/register', name: 'Demi quart', username: 'Demi', email: "demi@email.com", password: "MyPassword/13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "'<', '>' and '/' are not permitted characters."
+    end
+  end
+
+  context "registration validation" do
+    it "rejects registration where <, > or / are entered in email" do
+      response = post('/login', email: "billy@emai/.com", password: "MyPassword456")
+      expect(response.status).to eq 302
+      response = get('/login/form')
+      expect(response.status).to eq 200
+      expect(response.body).to include "'<', '>' and '/' are not permitted characters."
+    end
+
+    it "rejects registration where <, > or / are entered in password" do
+      response = post('/login', email: "billy@email.com", password: "MyPassword<56")
+      expect(response.status).to eq 302
+      response = get('/login/form')
+      expect(response.status).to eq 200
+      expect(response.body).to include "'<', '>' and '/' are not permitted characters."
     end
   end
 
