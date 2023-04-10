@@ -43,6 +43,11 @@ class Application < Sinatra::Base
     return erb(:peep_created)
   end
 
+  get '/signup' do
+    @title = "Chitter - Sign up to Chitter!"
+    return erb(:signup)
+  end
+
   def invalid_peep_request_parameters?
     # Are the params nil?
     return true if params[:peep] == nil || params[:user_id] == nil

@@ -62,4 +62,13 @@ describe Application do
       expect(response.body).to include '<p><a href="/peeps">View the latest peeps</a></p>'
     end
   end
+
+  context "GET /signup" do
+    it 'returns a sign up form' do
+      response = get("/signup")
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include "<h1>Sign up to Chitter!</h1>"
+    end
+  end
 end
