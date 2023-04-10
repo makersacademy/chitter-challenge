@@ -8,8 +8,6 @@ require 'date'
 DatabaseConnection.connect('chitter_database')
 
 class Application < Sinatra::Base
-  # This allows the app code to refresh
-  # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
   end
@@ -19,13 +17,13 @@ class Application < Sinatra::Base
   get '/' do
     repo = PeepRepository.new
     @peeps = repo.all
-  
+    
     if session[:email_address]
-      @user = UserRepository.new.find_by_email(session[:email_address])
-      return erb(:homepage)
-    else
-      return erb(:homepage)
+      user_repo = UserRepository.new
+      @user = user_repo.find_by_email(session[:email_address])
     end
+    
+    return erb(:homepage)
   end  
 
   get '/register' do
@@ -33,7 +31,7 @@ class Application < Sinatra::Base
   end
 
   post '/register' do # once user has registered
-    if !params[:email_address].include?('@')
+    unless params[:email_address].include?('@')
       status 400
       return ''
     end
@@ -92,6 +90,7 @@ class Application < Sinatra::Base
     new_peep.contents = contents
     new_peep.time = Time.now.strftime("%d/%m/%Y %H:%M")
     new_peep.user_id = @user.id
+    # new_peep.username = @user.username
     peep_repo.create_peep(new_peep)
     @peeps = peep_repo.all
 

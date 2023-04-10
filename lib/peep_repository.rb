@@ -4,17 +4,21 @@ require 'date'
 class PeepRepository
 
   def all
-    sql = 'SELECT id, time, contents, user_id FROM peeps ORDER BY time desc;'
+    sql = 'SELECT peeps.id AS "peeps_id", users.username AS "username",
+     users.id AS "user_id", peeps.contents AS "contents", peeps.time AS "time"
+    FROM peeps
+    INNER JOIN users ON peeps.user_id=users.id ORDER BY time desc;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     peeps = []
 
     result_set.each do |row|
       peep = Peep.new
-      peep.id = row['id']
+      peep.id = row['peeps_id']
       peep.time = row['time']
       peep.contents = row['contents']
       peep.user_id = row['user_id']
+      peep.username = row['username']
       peeps << peep
     end
     return peeps
