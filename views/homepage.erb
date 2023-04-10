@@ -4,6 +4,16 @@
   </head>
   <body>
     <h1>Welcome to Chitter!</h1>
+    
+    <form method="POST" action="/post">
+      <label>Post a Peep:</label>
+      <input type="text" name="message"><br>
+
+      <input type="submit"><br>
+    </form>
+
+    <hr/>
+
     <% @peeps.each do |record| %>
       <div>
       <%=record.message%>

@@ -38,6 +38,27 @@ describe Application do
       expect(response.body).to include('peep peep 2')
       expect(response.body).to include('new peep!')
     end
+
+    it "returns the form to add a new post" do
+      response = get('/')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/post">')
+      expect(response.body).to include('<input type="text" name="message">')
+      expect(response.body).to include('<input type="submit">')
+    end
+  end
+
+  xcontext 'POST /post' do
+    it "creates a post" do
+      response = post('/post')
+      expect(response.status).to eq(200)
+    end
+
+    # it "redirects to homepage" do
+    #   response = post('/post')
+    #   expect(response.status).to eq(200)
+    # end
   end
 
   
