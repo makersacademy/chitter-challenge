@@ -12,14 +12,15 @@ describe UserRepository do
     reset_users_table
   end
 
-  let(:repo) {UserRepository.new}
-  # write your let(:peep_repositoty) {PeepRepository.new} here
-  # as well as for user_repository 
-  # see which one is needed as you write each test
+  let(:repo) { UserRepository.new }
 
-  describe '#create' do
-    it 'creates and stores a new peep' do
-      
+  describe '#all' do
+    it 'lists all users' do
+      users = repo.all
+      expect(users[0].username).to eq 'user1'
+      expect(users[0].email).to eq 'user1@example.com'
+      expect(users[1].username).to eq 'user2'
+      expect(users[1].email).to eq 'user2@example.com'
     end
   end
 end

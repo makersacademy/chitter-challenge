@@ -17,3 +17,4 @@ describe Application do
       expect(response.body).to include('<body>')
     end
   end
+end
