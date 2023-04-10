@@ -25,7 +25,7 @@ class Application < Sinatra::Base
   get '/' do
     repo = PeepRepository.new
     peeps = repo.all_with_username
-    @peep_info = peeps.map{ |peep| [peep.username, peep.time, peep.body, peep.tags]}
+    @peep_info = peeps.map{ |peep| [peep.username, peep.time, peep.body, peep.tags]}.reverse
     return erb(:index)
   end
 
@@ -113,7 +113,7 @@ class Application < Sinatra::Base
     end
 
     def username_email_unique(username, password)
-      
+
     end
 
     def email_exists(email)
