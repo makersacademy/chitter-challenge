@@ -35,7 +35,13 @@ describe Application do
     end
 
     context "When the user is logged in" do
-      xit "Displays the form to post a new peep" do
+      it "Displays the form to post a new peep" do
+        # No query params, but session object is simulated
+        response = get('/', {}, { 'rack.session' => { username: "tcarmichael", user_id: 1 } } )
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<form method="POST" action="/peep">')
+        expect(response.body).to include('<input type="text" name="message" />')
+        expect(response.body).to include('<input type="submit" />')
       end
     end
   end

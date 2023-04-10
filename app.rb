@@ -4,6 +4,8 @@ require_relative 'lib/peep_repository'
 
 
 class Application < Sinatra::Base
+  enable :sessions
+  
   configure :development do
     register Sinatra::Reloader
     also_reload "lib/peep_repository"

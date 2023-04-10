@@ -2,6 +2,11 @@
   <head></head>
   <body>
     <table>
+      <% if session[:user_id] %>
+        <form method="POST" action="/peep">
+        <input type="text" name="message" />
+        <input type="submit" />
+      <% end %>
       <% @all_peeps.each do |peep| %>
         <tr>
           <td>Author: @<%= peep.user.username%> - <%= peep.user.name%></td>
