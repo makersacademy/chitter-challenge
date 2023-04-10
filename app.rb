@@ -26,8 +26,11 @@ class Application < Sinatra::Base
 
     user_input = params[:message]
     escaped_input = ERB::Util.html_escape(user_input)
-
     new_peep.message = escaped_input
+
+    new_peep.time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+
+    p new_peep
 
     repo.create(new_peep)
 

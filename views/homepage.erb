@@ -14,10 +14,14 @@
 
     <hr/>
 
-    <% @peeps.each do |record| %>
-      <div>
-      <%=record.message%>
-      </div>
-    <% end %>
+    <section>
+      <% @peeps.each do |record| %>
+        <div>
+        <%=record.time%>
+        <%=record.message%>
+        </div>
+      <% end %>
+    </section>
+
   </body>
 </html>
