@@ -47,21 +47,22 @@ describe Application do
       expect(response.body).to include('<input type="text" name="message">')
       expect(response.body).to include('<input type="submit">')
     end
+    
   end
 
   context 'POST /post' do
     it "creates a peep" do
       response = post('/post', message: 'peep sounds funny')
-      expect(response.status).to eq(200)
-
+  
       response = get('/')
       expect(response.body).to include('peep sounds funny')
     end
 
-    # it "redirects to homepage" do
-    #   response = post('/post')
-    #   expect(response.status).to eq(200)
-    # end
+    it "redirects to homepage" do
+      response = post('/post')
+      expect(response.status).to eq(302)
+    end
+
   end
 
   
