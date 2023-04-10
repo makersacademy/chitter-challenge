@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
   <body>
     <table>
+      <div>
+        <ul class="nav_menu_links">
+          <% if session[:user_id] %>
+
+          <% else %>
+            <li><a href="/login">Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+        
       <% if session[:user_id] %>
         <form method="POST" action="/peep">
+        <label for="message">Peep away...!</label><br>
         <input type="text" name="message" />
         <input type="submit" />
       <% end %>

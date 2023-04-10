@@ -34,6 +34,11 @@ describe Application do
       expect(response.body).to match(/On 2022-12-19 10:23:54[\s\S]*On 1984-06-15 14:33:00/)
     end
 
+    it "Displays the peep's timestamp" do
+      response = get('/')
+      expect(response.body).to match(/On 2022-12-19 10:23:54[\s\S]*On 1984-06-15 14:33:00/)
+    end
+
     context "When the user is logged in" do
       it "Displays the form to post a new peep" do
         # No query params, but session object is simulated
@@ -42,6 +47,26 @@ describe Application do
         expect(response.body).to include('<form method="POST" action="/peep">')
         expect(response.body).to include('<input type="text" name="message" />')
         expect(response.body).to include('<input type="submit" />')
+        expect(response.body).to include('<label for="message">Peep away...!</label>')
+      end
+      it "Doesn't display a link to login" do
+        response = get('/', {}, { 'rack.session' => { username: "tcarmichael", user_id: 1 } } )
+        expect(response.status).to eq(200)
+        expect(response.body).not_to include('<a href="/login">Login</a')
+      end
+    end
+
+    context "When the user is NOT logged in" do
+      it "Displays a link to login" do
+        response = get('/')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<a href="/login">Login</a>')
+      end
+      it "Doesn't display the form to create a new peep" do
+        response = get('/')
+        expect(response.status).to eq (200)
+        expect(response.body).not_to include('<form method="POST" action="/peep">')
+        expect(response.body).not_to include('<input type="text" name="message" />')
       end
     end
   end
