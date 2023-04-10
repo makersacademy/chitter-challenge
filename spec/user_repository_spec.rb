@@ -19,8 +19,8 @@ describe UserRepository do
       expect(users.first.name).to eq "Amber Thompson"
       expect(users.first.username).to eq "Amber"
       expect(users.first.email).to eq 'amber@email.com'
-      expect(users.first.password).to eq '123456'
-      expect(users[2].password).to eq 'hello'
+      expect(users.first.password).to eq 'MyPassword123'
+      expect(users[2].password).to eq 'MyPassword789'
     end
   end
 
@@ -31,14 +31,56 @@ describe UserRepository do
       new_user.name = "Demi Quart"
       new_user.username = "Demi"
       new_user.email = "demi@email.com"
-      new_user.password = "mypassword"
+      new_user.password = "MyPassword13"
       repo.create(new_user)
       users = repo.all
       expect(users.length).to eq 4
       expect(users.last.name).to eq "Demi Quart"
       expect(users.last.username).to eq "Demi"
       expect(users.last.email).to eq 'demi@email.com'
-      expect(users.last.password).to eq 'mypassword'
+      expect(users.last.password).to eq 'MyPassword13'
+    end
+  end
+
+  context "#find_by_email" do
+    it "returns a single user based on the email argument passed in #1" do
+      repo = UserRepository.new
+      user = repo.find_by_email("billy@email.com")
+      expect(user.name).to eq "Billy Thompkins"
+      expect(user.username).to eq "Billy"
+      expect(user.email).to eq 'billy@email.com'
+      expect(user.password).to eq 'MyPassword456'
+    end
+
+    it "returns a single user based on the email argument passed in #2" do
+      repo = UserRepository.new
+      user = repo.find_by_email("caleb@email.com")
+      expect(user.name).to eq "Caleb Tomlinson"
+      expect(user.username).to eq "Caleb"
+      expect(user.email).to eq 'caleb@email.com'
+      expect(user.password).to eq 'MyPassword789'
+    end
+  end
+
+  context "#all_usernames" do
+    it "returns all User objects" do
+      repo = UserRepository.new
+      users = repo.all_usernames
+      expect(users.length).to eq 3
+      expect(users.first).to eq "Amber"
+      expect(users[1]).to eq "Billy"
+      expect(users.last).to eq "Caleb"
+    end
+  end
+
+  context "#all_emails" do
+    it "returns all User objects" do
+      repo = UserRepository.new
+      users = repo.all_emails
+      expect(users.length).to eq 3
+      expect(users.first).to eq "amber@email.com"
+      expect(users[1]).to eq "billy@email.com"
+      expect(users.last).to eq "caleb@email.com"
     end
   end
 

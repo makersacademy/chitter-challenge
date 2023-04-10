@@ -1,0 +1,12 @@
+  <nav>
+    <div>
+      <% if settings.logged == true %>
+        <p><a href="/peeps/new">Add Peep</a></p>
+      <% end %>
+      <p><a href="/register/new">Register</a></p>
+      <p><a href="/login/form">Log in</a></p>
+      <p>Log out</p>
+    </div>
+  </nav>
+
+  <h3><%= settings.message %></h3>

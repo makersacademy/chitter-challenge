@@ -10,12 +10,27 @@
 
   <nav>
     <div>
-      <p><a href="/peeps/new">Add Peep</a></p>
+      <p>Test line - logged in is <%= settings.logged %> -</p>
+      <% if settings.logged == true %>
+        <p><a href="/peeps/new">Add Peep</a></p>
+        <p><a href="/logout">Log out</a></p>
+      <% end %>
+      <% if settings.logged == false %>
       <p><a href="/register/new">Register</a></p>
       <p><a href="/login/form">Log in</a></p>
-      <p>Log out</p>
+      <% end %>
+      
     </div>
   </nav>
+
+  <section>
+    <br><% if settings.logged == true %>
+    <h3>You are logged in as <%= session[:username] %>.</h3>
+    <% else %>
+    <h3>Log in to create new peeps.</h3>
+    <% end %>
+    <br>
+  </section>
 
   <section>
     <h1>Welcome to Chitter</h1>

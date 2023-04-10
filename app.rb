@@ -8,27 +8,23 @@ require_relative 'lib/peep_repository'
 DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
+
+  enable :sessions
+
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
-    also_reload 'lib/user_repository'
-    also_reload 'lib/peep_repository'
-  end
-
-  attr_reader :logged_in, :current_id
-
-  # def initialize
-  #   @logged_in = false
-  #   @current_id = 0
-  # end
-
-  get '/test' do
-    p "****************HELLO*****************"
-    return "hello"
+    also_reload 'lib/user_repository' ### posibly not needed with sessions?
+    also_reload 'lib/peep_repository' ### posibly not needed with sessions?
+    set :message, "Log in to create new peeps." # Creates a var that can be used across route handlers and views
+    set :logged, false
+    set :register_error, ""
+    set :login_error, ""
   end
 
   get '/' do
+    p settings.logged
     repo = PeepRepository.new
     peeps = repo.all_with_username
     @peep_info = peeps.map{ |peep| [peep.username, peep.time, peep.body, peep.tags]}
@@ -56,6 +52,10 @@ class Application < Sinatra::Base
   end
 
   post '/register' do
+    validate_name(params[:name])
+    validate_username(params[:username])
+    validate_email(params[:email])
+    validate_password(params[:password])
     user_repo = UserRepository.new
     new_user = User.new
     new_user.name = params[:name]
@@ -68,5 +68,72 @@ class Application < Sinatra::Base
 
   get '/login/form' do
     return erb(:login)
+  end
+
+  post '/login' do
+    email_exists(params[:email])
+    @email = params[:email]
+    @password = params[:password]
+    user_repo = UserRepository.new
+    user = user_repo.find_by_email(@email)
+    if @password == user.password # i.e. if <entered-password> == <password-stored-for-entered-email>
+      session[:username] = user.username
+      settings.logged = true
+      settings.message = "You are logged in as #{user.username}."
+    else
+      session[:user_id] = nil
+      settings.logged = false
+      settings.message = "Email and password do not match. Log in to create new peeps."
+    end
+    return redirect('/')
+  end
+
+  get '/logout' do
+    session.clear
+    settings.logged = false
+    settings.message = "Log in to create new peeps."
+    return redirect('/')
+  end
+
+  helpers do
+    def validate_name(name)
+      unless name.match?(/[a-zA-Z]/)
+        settings.register_error = "Invalid name: must contain one or more letters."
+        return redirect('register/new')
+      end
+    end
+
+    def validate_username(username)
+      unless username.match?(/[a-zA-Z]/)
+        settings.register_error = "Invalid username: must contain one or more letters."
+        return redirect('register/new')
+      end
+    end
+
+    def validate_email(email)
+      unless email =~ URI::MailTo::EMAIL_REGEXP
+        settings.register_error = "Invalid email: please enter a valid email to register."
+        return redirect('register/new')
+      end
+    end
+
+    def validate_password(password)
+      unless password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/)
+        settings.register_error = "Invalid password: minimum eight characters and contain at least one lowercase letter, uppercase letter and digit."
+        return redirect('register/new')
+      end
+    end
+
+    def username_email_unique(username, password)
+
+    end
+
+    def email_exists(email)
+      emails = UserRepository.new.all_emails
+      unless emails.include?(email)
+        settings.login_error = "Email and password do not match any registered user."
+          return redirect('login/form')
+      end
+    end
   end
 end

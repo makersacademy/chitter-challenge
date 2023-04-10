@@ -64,4 +64,136 @@ describe Application do
     end
   end
 
+  context "/logout" do
+    it "ends a session and redirects to homepage" do
+      response = get('/logout')
+      expect(response.status).to eq 302
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "Log in to create new peeps."
+    end
+  end
+
+  context "/login/form" do
+    it "renders a login form" do
+      response = get('/login/form')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Log in to Chitter</h1>"
+      expect(response.body).to include '<form method="POST" action="/login">'
+    end
+  end
+
+  context "login process" do
+    it "logs a user in" do
+      response = post('/login', email: "billy@email.com", password: "MyPassword456")
+      expect(response.status).to eq 302
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "Today I coded"
+      expect(response.body).to include "Today I relaxed"
+    end
+
+    it "does not log the user in when email not found" do
+      response = post('/login', email: "billy@email.com", password: "MyPassword456")
+      expect(response.status).to eq 302
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "Today I coded"
+      expect(response.body).to include "Today I relaxed"
+    end
+  end
+
+
+  context "registration validation" do
+    it "does not validate a name" do
+      response = post('/register', name: '3', username: 'Demi', email: "demi@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid name:"
+    end
+
+    it "does not validate a name" do
+      response = post('/register', name: '', username: 'Demi', email: "demi@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid name:"
+    end
+
+    it "does not validate a username" do
+      response = post('/register', name: 'Demi Quart', username: '3', email: "demi@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid username:"
+    end
+
+    it "does not validate a username" do
+      response = post('/register', name: 'Demi Quart', username: '', email: "demi@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid username:"
+    end
+
+    it "does not validate an email" do
+      response = post('/register', name: 'Demi Quart', username: 'Demi', email: "demi@", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid email:"
+    end
+
+    it "does not validate an email" do
+      response = post('/register', name: 'Demi Quart', username: 'Demi', email: "@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid email:"
+    end
+
+    it "does not validate a password with no uppercase" do
+      response = post('/register', name: 'Demi Quart', username: 'Demi', email: "demi@email.com", password: "mypassword13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid password:"
+    end
+
+    it "does not validate a password with no lowercase" do
+      response = post('/register', name: 'Demi Quart', username: 'Demi', email: "demi@email.com", password: "MYPASSWORD13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid password:"
+    end
+
+    it "does not validate a password with no digit" do
+      response = post('/register', name: 'Demi Quart', username: 'Demi', email: "demi@email.com", password: "MyPassword")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid password:"
+    end
+
+    it "does not validate a password with less that eight characters" do
+      response = post('/register', name: 'Demi Quart', username: 'Demi', email: "demi@email.com", password: "MyPas13")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "Invalid password:"
+    end
+
+    it "validates a name, username, email and password" do
+      response = post('/register', name: 'Demi quart', username: 'Demi', email: "demi@email.com", password: "MyPassword13")
+      expect(response.status).to eq 302
+      response = get('/')
+      expect(response.status).to eq 200
+    end
+  end
+
 end

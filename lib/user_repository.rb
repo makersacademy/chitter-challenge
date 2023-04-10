@@ -15,6 +15,31 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
+  def find_by_email(email)
+    sql = 'SELECT * FROM users WHERE email = $1;'
+    params = [email]
+    results = DatabaseConnection.exec_params(sql, params)
+    record = results[0]
+    this_user = user_builder(record)
+    return this_user
+  end
+
+  def all_usernames
+    sql = 'SELECT username FROM users;'
+    results = DatabaseConnection.exec_params(sql, [])
+    usernames = []
+    results.each{ |record| record.each{ |key, username| usernames << username }}
+    return usernames
+  end
+
+  def all_emails
+    sql = 'SELECT email FROM users;'
+    results = DatabaseConnection.exec_params(sql, [])
+    emails = []
+    results.each{ |record| record.each{ |key, email| emails << email }}
+    return emails
+  end
+
   private
 
   def user_builder(record)

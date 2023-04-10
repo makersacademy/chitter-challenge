@@ -1,9 +1,9 @@
 TRUNCATE TABLE users, peeps RESTART IDENTITY CASCADE;
 
 INSERT INTO users ("name", "username", "email", "password") VALUES
-('Amber Thompson', 'Amber', 'amber@email.com', '123456'),
-('Billy Thompkins', 'Billy', 'billy@email.com', 'password'),
-('Caleb Tomlinson', 'Caleb', 'caleb@email.com', 'hello')
+('Amber Thompson', 'Amber', 'amber@email.com', 'MyPassword123'),
+('Billy Thompkins', 'Billy', 'billy@email.com', 'MyPassword456'),
+('Caleb Tomlinson', 'Caleb', 'caleb@email.com', 'MyPassword789')
 ;
 
 INSERT INTO peeps ("body", "time", "tags", "user_id") VALUES

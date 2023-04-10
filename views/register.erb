@@ -10,13 +10,20 @@
   <nav>
     <div>
       <p><a href="/">Home</a></p>
-      <p><a href="/peeps/new">Add Peep</a></p>
       <p><a href="/login/form">Log in</a></p>
-      <p>Log out</p>
     </div>
     </div>
   </nav>
-  <h1>Log in to Chitter</h1>
+
+  <h1>Register a new Chitter account</h1>
+
+  <div>
+    <% if settings.register_error.length > 0 %>
+      <h3><%= settings.register_error %></h3>
+      <% settings.register_error = "" %>
+    <% end %> 
+  </div>
+
   <form method="POST" action="/register">
     <label for="name">Full name: </label>
     <input type="text" name="name" /><br><br>
@@ -28,5 +35,7 @@
     <input type="text" name="password" /><br><br>
     <input type="submit" />
   </form>
+
+  <p>Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
 </body>
 </html>
