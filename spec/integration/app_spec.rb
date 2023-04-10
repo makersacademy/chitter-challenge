@@ -23,7 +23,7 @@ describe Application do
   end
 
   context 'GET /' do
-    it "should display peeps with time in the homepage" do
+    it "should display peeps in reverse chronological order in the homepage" do
       response = get('/')
       expect(response.status).to eq(200)
       expect(response.body).to include('<section>')
@@ -62,10 +62,9 @@ describe Application do
 
     it "creates a peep with information about the time it was created" do
       Timecop.freeze(Time.utc(2023, 4, 10, 22, 25, 0)) do
-        # Make a POST request to '/post' with the message 'peep sounds funny'
+    
         post('/post', message: 'peep sounds funny')
   
-        # Make a GET request to '/' and expect the response body to include the frozen timestamp and message
         response = get('/')
         expect(response.body).to include('2023-04-10 22:25:00')
         expect(response.body).to include('peep sounds funny')

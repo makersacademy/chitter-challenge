@@ -16,7 +16,7 @@ class Application < Sinatra::Base
 
   get '/' do
     repo = PeepRepository.new
-    @peeps = repo.all
+    @peeps = repo.all_reversed
     return erb(:homepage)
   end
 
@@ -29,8 +29,6 @@ class Application < Sinatra::Base
     new_peep.message = escaped_input
 
     new_peep.time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-
-    p new_peep
 
     repo.create(new_peep)
 
