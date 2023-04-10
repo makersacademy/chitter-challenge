@@ -25,3 +25,5 @@ gem "dotenv", "~> 2.8"
 gem "session", "~> 3.2"
 
 gem "rack", "~> 2.2"
+
+gem "pg", "~> 1.4"
