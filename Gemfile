@@ -16,5 +16,3 @@ group :development, :test do
   gem "webrick", "~> 1.8"
   gem "rack-test", "~> 2.1"
 end
-
-

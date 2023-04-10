@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 # require_relative 'lib/user_repository'
+require 'erb'
 
 DatabaseConnection.connect('chitter_database_test')
 
@@ -22,7 +23,11 @@ class Application < Sinatra::Base
   post '/post' do
     repo = PeepRepository.new
     new_peep = Peep.new
-    new_peep.message = params[:message]
+
+    user_input = params[:message]
+    escaped_input = ERB::Util.html_escape(user_input)
+
+    new_peep.message = escaped_input
 
     repo.create(new_peep)
 

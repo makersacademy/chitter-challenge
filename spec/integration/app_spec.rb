@@ -39,7 +39,7 @@ describe Application do
       expect(response.body).to include('new peep!')
     end
 
-    it "returns the form to add a new peep" do
+    it "should get the form to add a new peep" do
       response = get('/')
 
       expect(response.status).to eq(200)
@@ -47,10 +47,20 @@ describe Application do
       expect(response.body).to include('<input type="text" name="message">')
       expect(response.body).to include('<input type="submit">')
     end
-    
+
   end
 
   context 'POST /post' do
+    it "escape any HTML tags in the input, and returns the sanitized input" do
+      response = post('/post', 
+        message: '<script>document.location.href="https://www.youtube.com/watch?v=34Ig3X59_qA";</script>')
+      expect(response.status).to eq(302)
+
+      
+      response = get('/')
+      expect(response.body).to include('&lt;script&gt;document.location.href=&quot;https://www.youtube.com/watch?v=34Ig3X59_qA&quot;;&lt;/script&gt;')
+    end
+
     it "creates a peep" do
       response = post('/post', message: 'peep sounds funny')
   
