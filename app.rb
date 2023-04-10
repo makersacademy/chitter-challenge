@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
+require 'bcrypt'
 
 DatabaseConnection.connect('chitter_test')
 
@@ -132,7 +133,9 @@ class Application < Sinatra::Base
     end
 
     def email_password_match(user, password)
-      unless @password == user.password # i.e. if <entered-password> == <password-stored-for-entered-email>
+      p password
+      p user.password
+      unless password == user.password # i.e. if <entered-password> == <password-stored-for-entered-email>
         session[:user_id] = nil
         settings.logged = false
         settings.validation_error = "Email and password do not match any registered user."

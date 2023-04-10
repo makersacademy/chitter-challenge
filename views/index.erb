@@ -4,33 +4,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css" />
   <title>Chitter</title>
 </head>
 <body>
 
   <nav>
-    <div>
-      <p>Test line - logged in is <%= settings.logged %> -</p>
-      <% if settings.logged == true %>
-        <p><a href="/peeps/new">Add Peep</a></p>
-        <p><a href="/logout">Log out</a></p>
-      <% end %>
-      <% if settings.logged == false %>
-      <p><a href="/register/new">Register</a></p>
-      <p><a href="/login/form">Log in</a></p>
-      <% end %>
-      
-    </div>
-  </nav>
+    <div class="container">
 
-  <section>
-    <br><% if settings.logged == true %>
-    <h3>You are logged in as <%= session[:username] %>.</h3>
-    <% else %>
-    <h3>Log in to create new peeps.</h3>
-    <% end %>
-    <br>
-  </section>
+      <div class="navbar">
+        <% if settings.logged == true %>
+        <h3>You are logged in as <%= session[:username] %>.</h3>
+        <% else %>
+        <h3>Log in to create new peeps.</h3>
+        <% end %>
+      </div>
+      <div class="container">
+        <% if settings.logged == true %>
+          <p><a href="/peeps/new">Add Peep</a></p>
+          <p><a href="/logout">Log out</a></p>
+          <% end %>
+          <% if settings.logged == false %>
+          <p><a href="/register/new">Register</a></p>
+          <p><a href="/login/form">Log in</a></p>
+        <% end %>
+      </div>
+    </div>   
+  </nav>
 
   <section>
     <h1>Welcome to Chitter</h1>

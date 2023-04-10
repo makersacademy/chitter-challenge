@@ -99,8 +99,7 @@ describe Application do
       response = get('/')
       expect(response.status).to eq 200
       expect(response.body).to include "<h1>Welcome to Chitter</h1>"
-      expect(response.body).to include "Today I coded"
-      expect(response.body).to include "Today I relaxed"
+      expect(response.body).to include "You are logged in as Billy"
     end
 
     it "does not log the user in when email not found" do
