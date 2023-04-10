@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Chitter Homepage</title>
+  </head>
+  <body>
+    <h1>Welcome to Chitter!</h1>
+    <% @peeps.each do |record| %>
+      <div>
+      <%=record.message%>
+      </div>
+    <% end %>
+  </body>
+</html>
