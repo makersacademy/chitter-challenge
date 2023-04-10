@@ -35,7 +35,7 @@ POST /logout
 
 >If user not logged in to session
 >
->403 forbidden
+>302 redirect
 >
 >Redirect to GET /
 >
@@ -52,7 +52,7 @@ GET /register
 ```
 
 ## If user logged in
-### Response (403 Forbidden)
+### Response (302 redirect)
 redirect to GET /
 
 ## Else
@@ -65,7 +65,7 @@ Params: username, name, email, password
 ```
 >If user logged in to session object already
 >
->Return 403 forbidden
+>Return 302 redirect
 >
 >Redirect to GET /
 >
@@ -93,7 +93,7 @@ GET /login
 
 >If user logged in to session object already
 >
->Return 403 forbidden
+>Return 302 redirect
 >
 >Redirect to GET /
 >
@@ -109,7 +109,7 @@ params: username, password
 ```
 >If user logged in to session object already
 >
->Return 403 forbidden
+>Return 302 redirect
 >
 >Redirect to GET /
 >

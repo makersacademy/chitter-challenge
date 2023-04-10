@@ -19,6 +19,10 @@ class Application < Sinatra::Base
   end
 
   get '/login' do
+    if session[:user_id]
+      return redirect('/')
+    end
+
     return erb(:login)
   end
 end

@@ -70,6 +70,13 @@ describe Application do
   end
 
   describe "Login" do
+    context "when user is already logged in" do
+      it "redirects the user to the home page" do
+        response = get('/login', {}, { 'rack.session' => { username: "tcarmichael", user_id: 1 } } )
+        expect(response.status).to eq(302)
+        # Why does this result in 'www.example.com'? => expect(response.location).to eq('/')
+      end
+    end
     context "when user is not logged in" do
       it "displays a form to log in" do
         response = get('/login')
