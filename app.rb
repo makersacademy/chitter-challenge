@@ -45,7 +45,31 @@ class Application < Sinatra::Base
 
   get '/signup' do
     @title = "Chitter - Sign up to Chitter!"
+    @message = ""
     return erb(:signup)
+  end
+
+  post '/signup' do
+    if invalid_signup_request_parameters?
+      status 400
+      return ''
+    end
+
+    # check passwords match
+    if params[:password] != params[:confirm_password]
+      @message = "Sorry, the passwords entered did not match :("
+      return erb(:signup)
+    end
+
+    repo = UserRepository.new
+    user = User.new
+    user.username = params[:username]
+    user.name = params[:name]
+    user.email = params[:email]
+    user.password = params[:password]
+
+    repo.create(user)
+    return erb(:user_created)
   end
 
   def invalid_peep_request_parameters?
@@ -53,6 +77,14 @@ class Application < Sinatra::Base
     return true if params[:peep] == nil || params[:user_id] == nil
     # Are they empty strings?
     return true if params[:peep] == "" || params[:user_id] == ""
+    return false
+  end
+
+  def invalid_signup_request_parameters?
+    # Are the params nil?
+    return true if params[:username] == nil || params[:name] == nil || params[:email] == nil || params[:password] == nil || params[:confirm_password] == nil
+    # Are they empty strings?
+    return true if params[:username] == "" || params[:name] == "" || params[:email] == "" || params[:password] == "" || params[:confirm_password] == ""
     return false
   end
 end

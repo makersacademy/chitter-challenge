@@ -1,4 +1,4 @@
-# POST/peeps Route Design Recipe
+# POST/signup Route Design Recipe
 
 _Copy this design recipe template to test-drive a Sinatra route._
 
@@ -10,12 +10,15 @@ You'll need to include:
   * any query parameters (passed in the URL)
   * or body parameters (passed in the request body)
 
-  Creates a new peep
+  Creates a new user
   Method: POST  
-  Path: /peeps 
+  Path: /signup
   Body parameters:  
-    content
-    user_id
+    username
+    name
+    email
+    password
+    confirm_password
 
 ## 2. Design the Response
 
@@ -27,7 +30,7 @@ Your response might return plain text, JSON, or HTML code.
 
 _Replace the below with your own design. Think of all the different possible responses your route will return._
 
-POST: /peeps
+POST: /signup
 ```
 Expected response (200 OK)
 (No content)
@@ -40,7 +43,7 @@ _Replace these with your own design._
 ```
 # Request:
 
-POST /peeps
+POST /signup
 
 # Expected response:
 
@@ -61,12 +64,12 @@ describe Application do
 
   let(:app) { Application.new }
 
-  context "POST /peeps" do
-    it "creates a new peep and returns 200 OK with success message" do
-      response = post("/peeps", content: "My new peep post", user_id: 1)
+  context "POST /signup" do
+    it "creates a new user and returns 200 OK with success message" do
+      response = post("/signup", username: "Delboy123", name: "Delboy Trotter", email: "delboy123@gmail.com", password: "abc123abc123", confirm_password: "abc123abc123")
       expect(response.status).to eq 200
-      expect(response.body).to include "<h1>Your new peep was posted!</h1>"
-      expect(response.body).to include '<p><a href="/peeps">View the latest peeps</a></p>'
+      expect(response.body).to include "<h1>Welcome to Chitter! You have successfully registered.</h1>"
+      expect(response.body).to include '<p><a href="/login">sign in here</a></p>'
     end
   end
 end

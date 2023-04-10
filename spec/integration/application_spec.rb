@@ -71,4 +71,13 @@ describe Application do
       expect(response.body).to include "<h1>Sign up to Chitter!</h1>"
     end
   end
+
+  context "POST /signup" do
+    it "creates a new user and returns 200 OK with success message" do
+      response = post("/signup", username: "Delboy123", name: "Delboy Trotter", email: "delboy123@gmail.com", password: "abc123abc123", confirm_password: "abc123abc123")
+      expect(response.status).to eq 200
+      expect(response.body).to include "<h1>Welcome to Chitter! You have successfully registered.</h1>"
+      expect(response.body).to include '<p><a href="/login">sign in here</a></p>'
+    end
+  end
 end
