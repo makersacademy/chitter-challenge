@@ -4,8 +4,6 @@ require 'sinatra/activerecord'
 require 'bcrypt'
 require_relative 'lib/user'
 require_relative 'lib/post'
-require_relative 'lib/reply'
-
 
 class ChitterApplication < Sinatra::Base
   enable :sessions
@@ -22,7 +20,11 @@ class ChitterApplication < Sinatra::Base
   end
 
   get '/' do
-    @posts = Post.joins(:user).select(:content, :created_at, :'users.username').order(created_at: :desc)
+    @posts = Post.includes(:children, :user)
+             .joins(:user)
+             .order(created_at: :desc)
+             .order("children_posts.created_at": :asc)
+             .all
     erb :index
   end
 

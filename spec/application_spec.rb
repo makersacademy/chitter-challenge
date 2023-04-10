@@ -1,6 +1,6 @@
 require "spec_helper"
 require "rack/test"
-require_relative '../../app'
+require_relative '../app'
 require 'database_cleaner/active_record'
 
 
@@ -11,10 +11,10 @@ describe ChitterApplication do
   context "GET /" do
     it 'displays the feed and shows prompt to login if user is not logged in' do
       response = get('/')
-      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> </div>')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
       expect(response.body).to include('<a href="/login">Log in</a>')
       expect(response.body).to_not include('<a href="/logout">Log Out</a>')
-    end  
+    end
 
     it 'displays the feed and shows prompt to logout and create post if user is logged in' do
       response = post('login', 
@@ -22,10 +22,16 @@ describe ChitterApplication do
         password: "usersville")
       expect(response).to be_redirect
       response = get('/')
-      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> </div>')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
       expect(response.body).to_not include('<a href="/login">Log in</a>')
       expect(response.body).to include('<a href="/logout">Log Out</a>')
     end  
+
+    it 'displays the replies made to posts in the feed in correct format' do
+      response = get('/')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
+      expect(response.body).to include("<p style='color: navy;'><b>►►► Reply:</b> Best internet arguments start with just one reply <b>By:</b> Useface <b>At:</b> <u>2023-03-21 / 20:12</u></p>")
+    end
   end
 
   context "GET /login" do
@@ -94,6 +100,8 @@ describe ChitterApplication do
 
   context "POST /create_post" do
     it 'redirects you to the login page if you try to post without credentials' do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.start 
       response = post('create_post', 
         user_id: 6,
         content: "This route is as protected as the rental prices in London", 
@@ -103,6 +111,7 @@ describe ChitterApplication do
       expect(response).to be_redirect
       follow_redirect!
       expect(last_request.path).to eq("/login")
+      DatabaseCleaner.clean
     end
 
     it 'creates a post and sends you back to the login feed once successful' do
@@ -122,9 +131,8 @@ describe ChitterApplication do
       follow_redirect!
       expect(last_request.path).to eq("/")
       response = get('/')
-      expect(response.body).to include("<div><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).strftime("%F / %H:%M")}</u> </div>")
+      expect(response.body).to include("<p><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).strftime("%F / %H:%M")}</u> <a href=#>Reply</a></p>")
       DatabaseCleaner.clean
-      
     end
   end
 
@@ -153,7 +161,7 @@ describe ChitterApplication do
       follow_redirect!
       expect(last_request.path).to eq("/")
       response = get('/')
-      expect(response.body).to include('<div><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> </div>')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
       expect(response.body).to_not include('<a href="/login">Log in</a>')
       expect(response.body).to include('<a href="/logout">Log Out</a>')
       DatabaseCleaner.clean

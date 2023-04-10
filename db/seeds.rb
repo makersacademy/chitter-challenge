@@ -2,7 +2,6 @@ require 'faker'
 require 'bcrypt'
 require_relative '../lib/user.rb'
 require_relative '../lib/post.rb'
-require_relative '../lib/reply.rb'
 
 puts 'Seeding...'
 
@@ -58,7 +57,16 @@ Post.create(
   created_at: Time.new(2023, 03, 21, 20, 12, 55),
   updated_at: Time.new(2023, 03, 21, 20, 12, 55),
   user_id: 6,
-  parent_id: 29
+  parent_id: 31
+)
+
+### This is an additional reply post to the same post as before, to test multiple replies.
+Post.create(
+  content: "And then it carries on like an avalanche from there",
+  created_at: Time.new(2023, 03, 21, 21, 15, 55),
+  updated_at: Time.new(2023, 03, 21, 21, 15, 55),
+  user_id: 6,
+  parent_id: 31
 )
 
 puts 'Seeding completed.'
