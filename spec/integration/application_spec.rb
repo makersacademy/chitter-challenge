@@ -24,10 +24,14 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to match(/Big Brother is watching you @wsmith[\s\S]*@wsmith & @smhanna - this is jam hot, this is jam hot[\s\S]*We shall meet in the place where there is no darkness/)
     end
-    xit "Displays the peep author's name and username" do
+    it "Displays the peep author's name and username" do
       response = get('/')
       expect(response.body).to include("Author: @tcarmichael - Tom Carmichael-Mhanna")
       expect(response.body).to include("Author: @smhanna - Sarwah Mhanna")
+    end
+    it "Displays the peep's timestamp" do
+      response = get('/')
+      expect(response.body).to match(/On 2022-12-19 10:23:54[\s\S]*On 1984-06-15 14:33:00/)
     end
 
     context "When the user is logged in" do

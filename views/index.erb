@@ -4,7 +4,7 @@
     <table>
       <% @all_peeps.each do |peep| %>
         <tr>
-          <td>Posted by: <%= peep.user_id%></td>
+          <td>Author: @<%= peep.user.username%> - <%= peep.user.name%></td>
         </tr>
         <tr>
           <td><%= peep.message %></td>

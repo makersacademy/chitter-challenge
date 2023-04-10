@@ -11,7 +11,7 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    @all_peeps = PeepRespository.new.all_by_rev_date_order
+    @all_peeps = PeepRespository.new.all_by_rev_date_order_with_author
     return erb(:index)
   end
 end
