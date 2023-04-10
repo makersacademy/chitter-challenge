@@ -10,7 +10,8 @@ class ChitterApplication < Sinatra::Base
   enable :sessions
   helpers ApplicationHelpers
 
-  configure :development do
+  configure do
+    Time::DATE_FORMATS[:chitter] = "%F / %H:%M"
     register Sinatra::Reloader
     register Sinatra::ActiveRecordExtension
   end
@@ -34,9 +35,14 @@ class ChitterApplication < Sinatra::Base
     erb :login
   end
 
+  get '/secret' do
+    @post = Post.find(31)
+    erb :secret
+  end
+
   post '/login' do
     username, plaintext_password = params[:username], params[:password]
-    validate([username, plaintext_password], reroute="login")
+    return redirect('/login') unless validate(username, plaintext_password)
     user = User.find_by(username: username)
     return redirect('/login') if user == nil
     if BCrypt::Password.new(user.password_digest) == plaintext_password
@@ -54,7 +60,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/create_post' do
     ask_for_login
-    validate([params[:content]], reroute="create_post")
+    return redirect('/create_post') unless validate(params[:content])
     create_post(current_time=params[:created_at])
     return redirect('/')
   end
@@ -67,7 +73,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/reply/:id' do
     ask_for_login
-    validate([params[:content]], reroute="reply/#{params[:id]}")
+    return redirect("reply/#{params[:id]}") unless validate(params[:content])
     create_post(params[:id])
     return redirect('/')
   end
@@ -78,7 +84,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/register' do
     username, password, email, real_name = params[:username], params[:password], params[:email], params[:real_name]
-    validate([username, password, email, real_name], reroute="register")
+    return redirect('/register') unless validate(username, password, email, real_name)
     return redirect('/register') if !!User.find_by(username: username) || !!User.find_by(email: email)
     new_user = User.new
     encrypted_password = BCrypt::Password.create(password)

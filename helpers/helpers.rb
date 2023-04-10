@@ -12,8 +12,9 @@ module ApplicationHelpers
     return input.match?(/<|>/) || input.match?(/^\s*$/)
   end
 
-  def validate(parameters, reroute=nil)
-    parameters.each {|form_data| return redirect("/#{reroute}") if dodgy?(form_data)}
+  def validate(*args)
+    args.each {|form_data| return false if dodgy?(form_data)}
+    return true
   end
 
   def create_post(parent_id=nil)
