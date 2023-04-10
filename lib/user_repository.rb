@@ -16,6 +16,7 @@ class UserRepository
       user.password = row['password']
       users << user
     end
+    
     return users
   end
 

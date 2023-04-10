@@ -17,6 +17,7 @@ class PeepRepository
       new_peep.username_id = row['username_id']
       peeps << new_peep
     end
+    
     return peeps
   end
 
