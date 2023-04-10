@@ -1,0 +1,9 @@
+<h2>Login</h2>
+<% if error_message %>
+  <p><%= error_message %></p>
+<% end %>
+<form action="/login" method="POST">
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <button type="submit">Login</button>
+</form>
