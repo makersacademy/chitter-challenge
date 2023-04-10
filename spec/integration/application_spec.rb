@@ -80,4 +80,13 @@ describe Application do
       expect(response.body).to include '<p><a href="/login">sign in here</a></p>'
     end
   end
+
+  context "GET /login" do
+    it 'returns a login form' do
+      response = get("/login")
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include "<h1>Log in to Chitter</h1>"
+    end
+  end
 end

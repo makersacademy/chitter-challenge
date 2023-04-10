@@ -9,6 +9,8 @@ require "bcrypt"
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -84,6 +86,12 @@ class Application < Sinatra::Base
 
     repo.create(user)
     return erb(:user_created)
+  end
+
+  get '/login' do
+    @title = "Chitter - Log in to Chitter"
+    @message = ""
+    return erb(:login)
   end
 
   def invalid_peep_request_parameters?
