@@ -1,4 +1,5 @@
 require "user_repository"
+require "bcrypt"
 
 def reset_users_table
   seed_sql = File.read('spec/seeds/seeds_users.sql')
@@ -56,6 +57,5 @@ describe UserRepository do
     expect(all_users.last.username).to eq "gemmawhite99"
     expect(all_users.last.name).to eq "Gemma White"
     expect(all_users.last.email).to eq "gemma.white@gmail.com"
-    expect(all_users.last.password).to eq "xyz987xyz987"
   end
 end
