@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chitter Message Board</title>
+        <style>
+            body {
+                font-family: helvetica, sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            header {
+                background-color: #fff;
+                color: #063336;
+                padding: 20px;
+                text-align: center;
+            }
+            h1 {
+                font-size: 2rem;
+                margin: 0;
+            }
+            .container {
+                max-width: 500px;
+                background-color: #f8f8f8;
+                color: #063336;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+            }
+            label {
+                font-size: 0.8rem;
+                margin-bottom: 5px;
+            }
+            textarea {
+                font-size: 1.2rem;
+                font-family: helvetica, sans-serif;
+                padding: 5px;
+                margin-bottom: 10px;
+                border: none;
+                border-bottom: 1px solid #f8f8f8;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            input[type="text"] {
+                font-size: 1.2rem;
+                padding: 5px;
+                margin-bottom: 10px;
+                border: none;
+                border-bottom: 1px solid #f8f8f8;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            input[type="submit"] {
+                font-size: 2rem;
+                padding: 20px;
+                background-color: #F27F60;
+                color: #063336;
+                border: none;
+                cursor: pointer;
+            }
+            .right {
+                text-align: right;
+                float: right;
+            }
+            .message {
+                border: 1.2px solid #F27F60;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            .message h2 {
+                font-size: 1.5rem;
+                margin: 0 0 10px;
+            }
+            .message p {
+                font-size: 1rem;
+                margin: 0;
+            }
+
+            .message span {
+                font-weight: bold;
+            }
+
+            select {
+                font-size: 1.2rem;
+                padding: 5px;
+                margin-bottom: 10px;
+                border: none;
+                border-bottom: 1px solid #f8f8f8;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            select option {
+                border: none;
+                background-color: #f8f8f8;
+                color: #063336;
+                padding: 5px;
+                font-size: 0.8rem;
+            }
+
+            select option:hover {
+                background-color: #F27F60;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Chitter Message Board</h1>
+        </header>
+        <div class="container">
+            <a href="/login">login</a> 
+            <a href="/sign_up">sign up</a>
+            <div class="right">
+                <a href="/log_out">log out</a>
+            </div>
+            <p>Below is the message board:</p>
+
+            <% @messages.each do |message| %>
+                <div class="message">
+                    <h1><%= message.title %></h2>
+                    <p><%= message.content %></p>
+                    <p>date: <%= message.created_at %></p>
+                    <p>tags: <span><%= message.tags %></span></p>
+                    <p>handle: <span><%= message.posted_by %></span></p>
+                </div>
+                <% end %>
+            <form action="/" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title">
+                
+                <label for="content">Content:</label>
+                <textarea type="text" name="content" id="content" rows="4"></textarea>
+
+                <label for="tags">Choose tags:</label>
+                <select name="tags[]" size="3" multiple="multiple">
+                    <% @tags.each do |tag| %>
+                        <option value="<%= tag %>"><%= tag %></option>
+                    <% end %>
+                </select><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <footer>
+        </footer>
+    </body>
+</html>
+

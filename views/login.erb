@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up Page</title>
+    <style>
+      body {
+        font-family: helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        background-color: #fff;
+        color: #063336;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2rem;
+        margin: 0;
+      }
+      .container {
+        max-width: 500px;
+        background-color: #f8f8f8;
+        color: #4f4f4f4;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+      }
+      label {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+      }
+      textarea {
+        font-size: 1.2rem;
+        font-family: helvetica, sans-serif;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #f8f8f8;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input[type="text"] {
+        font-size: 1.2rem;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #f8f8f8;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        font-size: 2rem;
+        padding: 20px;
+        background-color: #F27F60;
+        color: #063336;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to the Login Page</h1>
+    </header>
+    <div class="container">
+      <form action="/login" method="POST">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>
