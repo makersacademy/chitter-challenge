@@ -44,4 +44,13 @@ describe Application do
       expect(response.body).to include "<h1>Latest peeps</h1>"
     end
   end
+
+  context "GET /peeps/new" do
+    it 'returns a form to create a new peep' do
+      response = get("/peeps/new")
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include "<h1>Create a new peep</h1>"
+    end
+  end
 end

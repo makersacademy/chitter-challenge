@@ -22,4 +22,9 @@ class Application < Sinatra::Base
     @peeps = PeepRepository.new.all
     return erb(:peeps)
   end
+
+  get '/peeps/new' do
+    @title = "Chitter - Create a new peep"
+    return erb(:new_peep)
+  end
 end
