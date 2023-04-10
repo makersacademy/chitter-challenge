@@ -24,8 +24,8 @@ class Application < Sinatra::Base
 
   get '/' do
     repo = PeepRepository.new
-    peeps = repo.all_with_username
-    @peep_info = peeps.map{ |peep| [peep.username, peep.time, peep.body, peep.tags]}.reverse
+    peeps = repo.all_with_names
+    @peep_info = peeps.map{ |peep| [peep.username, peep.time, peep.body, peep.tags, peep.name]}.reverse
     return erb(:index)
   end
 
@@ -58,6 +58,7 @@ class Application < Sinatra::Base
     validate_string(@name, "name")
     validate_string(@username, "username")
     validate_email(@email)
+    username_email_unique(@username, @email)
     validate_password(@password)
     user_repo = UserRepository.new
     new_user = User.new
@@ -112,15 +113,22 @@ class Application < Sinatra::Base
       end
     end
 
-    def username_email_unique(username, password)
-
+    def username_email_unique(username, email)
+      if UserRepository.new.all_usernames.include?(username)
+        settings.validation_error = "That username is already taken."
+        return redirect('register/new')
+      end
+      if UserRepository.new.all_emails.include?(email)
+        settings.validation_error = "That email is already registered to a user."
+        return redirect('register/new')
+      end
     end
 
     def email_exists(email)
       emails = UserRepository.new.all_emails
       unless emails.include?(email)
         settings.validation_error = "Email and password do not match any registered user."
-          return redirect('login/form')
+        return redirect('login/form')
       end
     end
 

@@ -1,3 +1,23 @@
+# Chitter Challenge by Pablo Joyce
+
+This project uses:
+* Ruby
+* PostgreSQL
+* ERB
+* Rackup
+* Sinatra
+* Webrick
+* Git
+* GitHub
+
+In development, I employed:
+* Postman
+* TablePlus
+* RSpec
+
+
+
+
 Chitter Challenge
 =================
 

@@ -45,12 +45,13 @@ describe PeepRepository do
   context "#all_with_username" do
     it "returns all Peep objects with usernames gathered from Users" do
       repo = PeepRepository.new
-      peeps = repo.all_with_username
+      peeps = repo.all_with_names
       expect(peeps.length).to eq 7
       expect(peeps.first.body).to eq "Today I coded"
       expect(peeps.first.time).to eq "2023-04-01 13:00:00"
       expect(peeps.first.tags).to eq "#code, #amber"
       expect(peeps.first.user_id).to eq 1
+      expect(peeps.first.name).to eq 'Amber Thompson'
       expect(peeps.first.username).to eq 'Amber'
       expect(peeps[2].body).to eq 'Today I slept'
     end

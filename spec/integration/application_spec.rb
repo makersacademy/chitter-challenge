@@ -269,4 +269,22 @@ describe Application do
     end
   end
 
+  context "unique username and email check when registering" do
+    it "rejects a username that already exists" do
+      response = post('/register', name: 'Amber Thompson', username: 'Amber', email: "amber2@email.com", password: "MyPassword123")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "That username is already taken."
+    end
+
+    it "rejects an email that already exists" do
+      response = post('/register', name: 'Amber Thompson', username: 'Amber2', email: "amber@email.com", password: "MyPassword123")
+      expect(response.status).to eq 302
+      response = get('/register/new')
+      expect(response.status).to eq 200
+      expect(response.body).to include "That email is already registered to a user."
+    end
+  end
+
 end
