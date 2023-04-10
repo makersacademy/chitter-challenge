@@ -26,4 +26,22 @@ class UserRepository
 
     return user
   end
+
+  def username_exists?(username)
+    sql = "SELECT username FROM users WHERE username = $1;"
+    res = DatabaseConnection.exec_params(sql, [username])
+    if res.num_tuples.zero?
+      return false
+    end
+    return true
+  end
+
+  def email_exists?(email)
+    sql = "SELECT email FROM users WHERE email = $1;"
+    res = DatabaseConnection.exec_params(sql, [email])
+    if res.num_tuples.zero?
+      return false
+    end
+    return true
+  end
 end

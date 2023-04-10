@@ -68,10 +68,10 @@ Remember to **always** have the primary key `id` as a first column. Its type wil
 
 Table: users
 id: SERIAL
-username: TEXT
-name: TEXT
-email: TEXT
-password: TEXT
+username: VARCHAR (50) UNIQUE
+name: VARCHAR (50)
+email: VARCHAR (50) UNIQUE
+password: VARCHAR (100)
 
 Table: peeps
 id: SERIAL
@@ -114,10 +114,10 @@ Replace the relevant bits in this example with your own:
 ```sql
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username TEXT,
-  name TEXT,
-  email TEXT,
-  password TEXT
+  username VARCHAR (50) UNIQUE,
+  name VARCHAR (50),
+  email VARCHAR (50) UNIQUE,
+  password VARCHAR (100)
 );
 
 CREATE TABLE peeps (

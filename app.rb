@@ -56,17 +56,30 @@ class Application < Sinatra::Base
       return ''
     end
 
+    repo = UserRepository.new
+
+    # check if the username is already taken
+    if repo.username_exists?(params[:username].downcase)
+      @message = "That username is already taken."
+      return erb(:signup)
+    end
+
+    # check if the email is already registered
+    if repo.email_exists?(params[:email].downcase)
+      @message = "That email address is already registered."
+      return erb(:signup)
+    end
+
     # check passwords match
     if params[:password] != params[:confirm_password]
       @message = "Sorry, the passwords entered did not match :("
       return erb(:signup)
     end
 
-    repo = UserRepository.new
     user = User.new
-    user.username = params[:username]
+    user.username = params[:username].downcase
     user.name = params[:name]
-    user.email = params[:email]
+    user.email = params[:email].downcase
     user.password = params[:password]
 
     repo.create(user)
