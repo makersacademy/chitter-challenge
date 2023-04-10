@@ -1,6 +1,8 @@
-TRUNCATE TABLE peeps RESTART IDENTITY; 
+TRUNCATE TABLE peeps RESTART IDENTITY CASCADE; 
+TRUNCATE TABLE users RESTART IDENTITY CASCADE; 
 
-INSERT INTO users (username, email, password_hash) VALUES
+
+INSERT INTO users (username, email, password) VALUES
     ('user1', 'user1@example.com', '<hashed_password>'),
     ('user2', 'user2@example.com', '<hashed_password>');
 

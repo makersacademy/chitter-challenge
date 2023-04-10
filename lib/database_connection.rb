@@ -23,4 +23,14 @@ class DatabaseConnection
     end
     @connection.exec_params(query, params)
   end
+
+  def self.setup(dbname)
+    @connection = PG.connect(dbname: dbname)
+    @connection.exec("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, username VARCHAR(60), email VARCHAR(60), password VARCHAR(255));")
+  end
+  
+  def self.clear(dbname)
+    @connection = PG.connect(dbname: dbname)
+    @connection.exec("TRUNCATE TABLE users;")
+  end
 end
