@@ -9,6 +9,7 @@ This project uses:
 * Webrick
 * Git
 * GitHub
+* Bcrypt
 
 In development, I employed:
 * Postman
