@@ -37,7 +37,8 @@ class ChitterApplication < Sinatra::Base
   post '/login' do
     username, plaintext_password = params[:username], params[:password]
     user = User.find_by(username: username)
-    return redirect('/login') if dodgy?(username) || dodgy?(plaintext_password) || user == nil
+    validate([username, plaintext_password], reroute="login")
+    return redirect('/login') if user == nil
     if BCrypt::Password.new(user.password_digest) == plaintext_password
       session[:user_id] = user.id
       return redirect('/')
@@ -75,8 +76,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/register' do
     username, password, email, real_name = params[:username], params[:password], params[:email], params[:real_name]
-    to_validate = [username, password, email, real_name]
-    to_validate.each {|form_data| return redirect('/register') if dodgy?(form_data)}
+    validate([username, password, email, real_name], reroute="register")
     return redirect('/register') if !!User.find_by(username: username) || !!User.find_by(email: email)
     new_user = User.new
     encrypted_password = BCrypt::Password.create(password)

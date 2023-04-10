@@ -40,6 +40,14 @@ Post.create(
   user_id: 6
 )
 
+### This is the second post that was created later than the first one. This should appear first
+Post.create(
+  content: "I was late so I am shown first",
+  created_at: Time.new(2023, 03, 21, 10, 39, 15),
+  updated_at: Time.new(2023, 03, 21, 10, 39, 15),
+  user_id: 6
+)
+
 5.times do
   time = Faker::Time.between(from: DateTime.now - 4, to: DateTime.now)  
   Post.create(

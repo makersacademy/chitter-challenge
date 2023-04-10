@@ -19,5 +19,6 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem "capybara"
+  gem "orderly"
   gem 'database_cleaner-active_record'
 end

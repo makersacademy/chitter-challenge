@@ -1,8 +1,8 @@
 require "spec_helper"
 require "rack/test"
+require "orderly"
 require_relative '../app'
 require 'database_cleaner/active_record'
-
 
 describe ChitterApplication do
   include Rack::Test::Methods
@@ -21,6 +21,19 @@ describe ChitterApplication do
       expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href="reply/31">Reply</a></p>')
       expect(response.body).to include('<a href="/login">Log in</a>')
       expect(response.body).to_not include('<a href="/logout">Log Out</a>')
+    end
+
+    describe "the order of posts displayed on chitter", type: :feature do
+      it "shows parent posts on descending and replies in an ascending order" do
+        visit '/'
+        first_post = all('p', text: 'I pray for the day where we stop using sinatra').first
+        last_post = all('p', text: 'I was late so I am shown first').first
+        first_reply_to_first_post = all('p', text: 'Best internet arguments start with just one reply').first
+        second_reply_to_first_post = all('p', text: 'And then it carries on like an avalanche from there').first
+        expect(last_post).to appear_before(first_post)
+        expect(first_post).to appear_before(first_reply_to_first_post)
+        expect(first_reply_to_first_post).to appear_before(second_reply_to_first_post)
+      end
     end
 
     it 'displays the feed and shows prompt to logout and create post if user is logged in' do
