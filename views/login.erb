@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <% if session[:user_id] %>
+    <% else %>
+      <form method="POST" action="/login_attempt">
+        <label for="username">Username:</label>
+        <input type="text" name="username" />
+        <label for="password">Password:</label>
+        <input type="text" name="password" />
+        <input type="submit" />
+      </form>
+    <% end %>
+  <body>
+</html>

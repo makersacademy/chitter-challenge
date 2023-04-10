@@ -16,9 +16,10 @@
         
       <% if session[:user_id] %>
         <form method="POST" action="/peep">
-        <label for="message">Peep away...!</label><br>
-        <input type="text" name="message" />
-        <input type="submit" />
+          <label for="message">Peep away...!</label><br>
+          <input type="text" name="message" />
+          <input type="submit" />
+        </form>
       <% end %>
       <% @all_peeps.each do |peep| %>
         <tr>

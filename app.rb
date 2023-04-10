@@ -17,4 +17,8 @@ class Application < Sinatra::Base
     @all_peeps = PeepRespository.new.all_by_rev_date_order_with_author
     return erb(:index)
   end
+
+  get '/login' do
+    return erb(:login)
+  end
 end
