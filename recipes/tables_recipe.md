@@ -45,7 +45,7 @@ Put the different nouns in this table. Replace the example with your own nouns.
 | Record                | Properties          |
 | --------------------- | ------------------  |
 | users                 | username, name, email, password
-| peeps                 | message, published
+| peeps                 | content, created_at
 
 1. Name of the first table (always plural): `users` 
 
@@ -53,7 +53,7 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 2. Name of the second table (always plural): `peeps` 
 
-    Column names: `message`, `published`
+    Column names: `content`, `created_at`
 
 ## 3. Decide the column types.
 
@@ -68,15 +68,15 @@ Remember to **always** have the primary key `id` as a first column. Its type wil
 
 Table: users
 id: SERIAL
-username: text
-name: text
-email: text
-password: text
+username: TEXT
+name: TEXT
+email: TEXT
+password: TEXT
 
 Table: peeps
 id: SERIAL
-message: text
-published: date
+content: TEXT
+created_at: TIMESTAMPTZ DEFAULT NOW()
 ```
 
 ## 4. Decide on The Tables Relationship
@@ -114,17 +114,17 @@ Replace the relevant bits in this example with your own:
 ```sql
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username text,
-  name text,
-  email text,
-  password text
+  username TEXT,
+  name TEXT,
+  email TEXT,
+  password TEXT
 );
 
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
-  message text,
-  published date,
-  user_id int,
+  content TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  user_id INT,
   constraint fk_user foreign key(user_id)
     references users(id)
     on delete cascade

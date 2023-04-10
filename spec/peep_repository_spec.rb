@@ -18,21 +18,19 @@ describe PeepRepository do
     expect(peeps.length).to eq 3
   end
 
-  it "returns the first peep" do
+  it "returns the most recent peep" do
     repo = PeepRepository.new
     peeps = repo.all
-    expect(peeps.first.id).to eq "1"
-    expect(peeps.first.message).to eq "Just a test peep!"
-    expect(peeps.first.published).to eq "2023-04-07"
-    expect(peeps.first.user_id).to eq "1"
+    expect(peeps.first.id).to eq "3"
+    expect(peeps.first.content).to eq "Just a random peep!"
+    expect(peeps.first.user_id).to eq "2"
   end
 
   it "creates a new peep and then checks how many peeps there are" do
     repo = PeepRepository.new
 
     peep = Peep.new
-    peep.message = "This peep was created on behalf of user: chitter_guy'"
-    peep.published = "2023-04-07"
+    peep.content = "This peep was created on behalf of user: chitter_guy'"
     peep.user_id = "3"
     repo.create(peep)
 
@@ -44,14 +42,12 @@ describe PeepRepository do
     repo = PeepRepository.new
 
     peep = Peep.new
-    peep.message = "This peep was created on behalf of user: gemmawhite99"
-    peep.published = "2023-04-07"
-    peep.user_id = "4"
+    peep.content = "This peep was created on behalf of user: chitter_guy"
+    peep.user_id = "3"
     repo.create(peep)
 
     all_peeps = repo.all
-    expect(all_peeps.last.message).to eq "This peep was created on behalf of user: gemmawhite99"
-    expect(all_peeps.last.published).to eq "2023-04-07"
-    expect(all_peeps.last.user_id).to eq "4"
+    expect(all_peeps.first.content).to eq "This peep was created on behalf of user: chitter_guy"
+    expect(all_peeps.first.user_id).to eq "3"
   end
 end

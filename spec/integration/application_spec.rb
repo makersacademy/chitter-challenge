@@ -35,4 +35,13 @@ describe Application do
       expect(response.body).to include "<h1>Welcome to Chitter</h1>"
     end
   end
+
+  context "GET /peeps" do
+    it 'gets a list of peeps, ordered by most recent' do
+      response = get("/peeps")
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include "<h1>Latest peeps</h1>"
+    end
+  end
 end

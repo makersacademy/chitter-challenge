@@ -6,7 +6,7 @@
 Table: peeps
 
 Columns:
-id | message | published | user_id
+id | content | created_at | user_id
 ```
 
 ## 2. Create Test SQL seeds
@@ -18,9 +18,9 @@ If seed data is provided (or you already created it), you can skip this step.
 ```sql
 TRUNCATE TABLE peeps RESTART IDENTITY CASCADE;
 
-INSERT INTO peeps (message, published, user_id) values('Just a test peep!', '2023-04-07', 1);
-INSERT INTO peeps (message, published, user_id) values('Just another test peep!', '2023-04-07', 1);
-INSERT INTO peeps (message, published, user_id) values('Just a random peep!', '2023-04-07', 2);
+INSERT INTO peeps (content, user_id) values('Just a test peep!', 1);
+INSERT INTO peeps (content, user_id) values('Just another test peep!', 1);
+INSERT INTO peeps (content, user_id) values('Just a random peep!', 2);
 
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
@@ -59,7 +59,7 @@ Define the attributes of your Model class. You can usually map the table columns
 
 class Peep
   # Replace the attributes by your own columns.
-  attr_accessor :id, :message, :published, :user_id
+  attr_accessor :id, :content, :created_at, :user_id
 end
 
 # The keyword attr_accessor is a special Ruby feature
@@ -90,7 +90,7 @@ class PeepRepository
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, message, published, user_id FROM peeps;
+    # SELECT id, content, created_at, user_id FROM peeps;
 
     # Returns an array of Peep objects.
   end
@@ -99,7 +99,7 @@ class PeepRepository
   # One argument
   def create(peep) # a peep object
     # Executes the SQL query:
-    # INSERT INTO peeps (message, published, user_id) VALUES ($1, $2, $3);
+    # INSERT INTO peeps (content, user_id) VALUES ($1, $2);
 
     # Returns nothing
   end
@@ -125,8 +125,8 @@ peeps.length # => 3
 repo = PeepRepository.new
 peeps = repo.all
 peeps.first.id # => "1"
-peeps.first.message # => "Just a test peep!"
-peeps.first.published # => "2023-04-07"
+peeps.first.content # => "Just a test peep!"
+peeps.first.created_at # => "2023-04-10 11:21:44.670344+01"
 peeps.first.user_id # => "1"
 
 
@@ -135,8 +135,7 @@ peeps.first.user_id # => "1"
 repo = PeepRepository.new
 
 peep = Peep.new
-peep.message = "This peep was created on behalf of user: chitter_guy'"
-peep.published = "2023-04-07"
+peep.content = "This peep was created on behalf of user: chitter_guy'"
 peep.user_id = "3"
 repo.create(peep)
 
@@ -148,15 +147,13 @@ all_peeps.length # => 4
 repo = PeepRepository.new
 
 peep = Peep.new
-peep.message = "This peep was created on behalf of user: gemmawhite99"
-peep.published = "2023-04-07"
-peep.user_id = "4"
+peep.content = "This peep was created on behalf of user: chitter_guy"
+peep.user_id = "3"
 repo.create(peep)
 
 all_peeps = repo.all
-all_peeps.last.message # => "This peep was created on behalf of user: gemmawhite99"
-all_peeps.last.published # => "2023-04-07"
-all_peeps.last.user_id # => "4"
+all_peeps.last.content # => "This peep was created on behalf of user: chitter_guy"
+all_peeps.last.user_id # => "3"
 ```
 
 Encode this example as a test.
