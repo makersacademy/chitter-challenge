@@ -55,6 +55,9 @@ Notes on functionality:
 
 Planning:
 ------
-![class system](docs/chitter-class-system.jpg)
+**Multi-Class System**
+![class system](docs/chitter_class_system.jpg)
 
-![pages plan](docs/chitter-pages-plan.jpg)
+
+**Pages Plan**
+![pages plan](docs/chitter_pages_plan.jpg)
