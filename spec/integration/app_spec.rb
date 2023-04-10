@@ -5,11 +5,8 @@ require 'erb'
 require 'timecop'
 
 describe Application do
-  # This is so we can use rack-test helper methods.
   include Rack::Test::Methods
 
-  # We need to declare the `app` value by instantiating the Application
-  # class so our tests work.
   let(:app) { Application.new }
 
   def reset_chitter_database_test
