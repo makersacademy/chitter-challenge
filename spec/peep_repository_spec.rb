@@ -14,7 +14,7 @@ describe PeepRespository do
   # Consider removing this method later on in app development if it is redundant:
   it "Returns all peeps in reverse chronological order" do
     repo = PeepRespository.new
-    all_peeps =repo.all_by_rev_date_order
+    all_peeps = repo.all_by_rev_date_order
     expect(all_peeps.length).to eq 3
     expect(all_peeps.first.message).to eq "Big Brother is watching you @wsmith"
     expect(all_peeps.last.message).to eq "We shall meet in the place where there is no darkness"

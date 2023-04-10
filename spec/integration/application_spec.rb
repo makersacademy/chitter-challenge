@@ -17,7 +17,7 @@ describe Application do
 
   let(:app) { Application.new }
 
-  describe "Homepage" do 
+  describe "homepage" do 
     it "displays all peeps in reverse chronological order" do
       response = get('/')
       expect(response.status).to eq(200)
@@ -69,12 +69,13 @@ describe Application do
     end
   end
 
-  describe "Login" do
+  describe "login" do
     context "when user is already logged in" do
       it "redirects the user to the home page" do
         response = get('/login', {}, { 'rack.session' => { username: "tcarmichael", user_id: 1 } } )
-        expect(response.status).to eq(302)
-        # Why does this result in 'www.example.com'? => expect(response.location).to eq('/')
+        expect(response).to be_redirect
+        follow_redirect!
+        expect(last_request.path).to eq('/')
       end
     end
     context "when user is not logged in" do
@@ -86,6 +87,48 @@ describe Application do
         expect(response.body).to include('<input type="text" name="username" />')
         expect(response.body).to include('<label for="password">Password:</label>')
         expect(response.body).to include('<input type="text" name="password" />')
+      end
+    end
+    context "after submitting the login form" do
+      context "if the user is already logged in" do
+        it "redirects the user to the home page" do
+          response = post('/login_attempt', { username: 'jimbob', password: 'abracadabra' }, { 'rack.session' => { username: "tcarmichael", user_id: 1 } } )
+          expect(response).to be_redirect
+          follow_redirect!
+          expect(last_request.path).to eq('/')
+        end
+      end
+      context "if the user is NOT already logged in" do
+        context "and provides correct credentials" do
+          it "logs the user in" do
+            response = post('/login_attempt', { username: 'wsmith', password: 'bigbrother' } )
+            expect(response).to be_redirect
+            follow_redirect!
+            expect(last_request.path).to eq('/')
+            # Check that the session object has been updated with the user's ID
+            expect(last_request.env['rack.session'][:user_id]).to eq 3
+            expect(last_request.env['rack.session'][:username]).to eq 'wsmith'
+
+          end
+        end
+        context "and provides incorrect username" do
+          it "returns an error page" do
+            response = post('/login_attempt', { username: 'jay_dilla', password: 'bigbrother' } )
+            expect(response.status).to eq 401
+            expect(response.body).to include('Login failed: username not found')
+            # Check that the session object has been updated with the user's ID
+            expect(last_request.env['rack.session'][:user_id]).to be_nil
+          end
+        end
+        context "and provides incorrect password" do
+          it "returns an error page" do
+            response = post('/login_attempt', { username: 'wsmith', password: '1984' } )
+            expect(response.status).to eq 401
+            expect(response.body).to include('Login failed: incorrect password')
+            # Check that the session object has been updated with the user's ID
+            expect(last_request.env['rack.session'][:user_id]).to be_nil
+          end
+        end
       end
     end
   end

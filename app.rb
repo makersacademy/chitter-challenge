@@ -25,4 +25,32 @@ class Application < Sinatra::Base
 
     return erb(:login)
   end
+
+  post '/login_attempt' do
+    # TODO : Santise user input from this form
+    if session[:user_id]
+      return redirect('/')
+    end
+
+    username = params[:username]
+    password = params[:password]
+    # TODO: Break authenticate_user out into a separate method
+    user = UserRepository.new.find_by_username(username)
+    if !user
+      @failure_reason = "username"
+      status 401
+      return erb(:login_denied)
+    elsif password != user.password
+      status 401
+      @failure_reason = "password"
+      return erb(:login_denied)
+    # Is this conditonal statement robust enough?
+    elsif password == user.password
+      session[:user_id] = user.id
+      session[:username] = user.username
+      # TODO: Do I need this boolean variable?
+      # session[:logged_in] = true
+      return redirect('/')
+    end
+  end
 end
