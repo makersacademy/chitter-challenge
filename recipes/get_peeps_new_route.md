@@ -8,7 +8,7 @@ You'll need to include:
   * any query parameters (passed in the URL)
   * or body parameters (passed in the request body)
 
-  Gets a list of peeps, ordered by most recent. 
+  Returns a form to create a new peep 
   Method: GET  
   Path: /peeps/new 
   Parameters: none
@@ -30,6 +30,11 @@ _Replace the below with your own design. Think of all the different possible res
   <head></head>
   <body>
     <h1>Create a new peep</h1>
+    <form action="/peeps/new" method="POST">
+      <div><label for="peep">Peep:</label></div>
+      <div><textarea id="peep" name="peep" rows="10" cols="50"></textarea></div>
+      <div><input type="submit" value="Submit Peep"></div>
+    </form>
   </body>
 </html>
 ```

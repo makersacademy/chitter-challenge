@@ -1,6 +1,7 @@
 <h1>Create a new peep</h1>
 
-<form action="/peeps/new" method="POST">
+<form action="/peeps" method="POST">
+  <input type="hidden" name="user_id" value="1"> 
   <div><label for="peep">Peep:</label></div>
   <div><textarea id="peep" name="peep" rows="10" cols="50"></textarea></div>
   <div><input type="submit" value="Submit Peep"></div>
