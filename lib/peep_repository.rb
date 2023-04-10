@@ -25,8 +25,9 @@ class PeepRepository
   end
   
   def create_peep(peep)
-    sql = 'INSERT INTO peeps (time, contents, user_id) 
+    sql = 'INSERT INTO peeps (time, contents, user_id)
     VALUES ($1, $2, $3);'
+
     time = Time.now.strftime("%d/%m/%Y %H:%M")
     sql_params = [time, peep.contents, peep.user_id]
 

@@ -90,7 +90,7 @@ class Application < Sinatra::Base
     new_peep.contents = contents
     new_peep.time = Time.now.strftime("%d/%m/%Y %H:%M")
     new_peep.user_id = @user.id
-    # new_peep.username = @user.username
+    new_peep.username = @user.username
     peep_repo.create_peep(new_peep)
     @peeps = peep_repo.all
 
