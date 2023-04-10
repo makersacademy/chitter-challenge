@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+  <head></head>
+  <body>
+    <table>
+      <% @all_peeps.each do |peep| %>
+        <tr>
+          <td>Posted by: <%= peep.user_id%></td>
+        </tr>
+        <tr>
+          <td><%= peep.message %></td>
+        </tr>
+        <tr>
+          <td>On <%= peep.posted_at %></td>
+        </tr>
+      <% end %>
+    </table>
+  <body>
+</html>

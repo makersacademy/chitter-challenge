@@ -2,8 +2,8 @@ require_relative "./database_connection"
 require_relative "./peep"
 
 class PeepRespository
-  def all
-    sql = "SELECT * FROM peeps;"
+  def all_by_rev_date_order
+    sql = "SELECT * FROM peeps ORDER BY posted_at DESC;"
     result_set = DatabaseConnection.exec_params(sql, [])
     peeps = []
     result_set.each do |row|

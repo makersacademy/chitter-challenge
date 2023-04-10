@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require_relative 'lib/peep_repository'
+
 
 class Application < Sinatra::Base
   configure :development do
@@ -9,6 +11,7 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    @all_peeps = PeepRespository.new.all_by_rev_date_order
     return erb(:index)
   end
 end
