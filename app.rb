@@ -22,9 +22,9 @@ class Application < Sinatra::Base
   
     if session[:email_address]
       @user = UserRepository.new.find_by_email(session[:email_address])
-      return erb(:homepage, locals: { logged_in: true })
+      return erb(:homepage)
     else
-      return erb(:homepage, locals: { logged_in: false })
+      return erb(:homepage)
     end
   end  
 
@@ -33,9 +33,7 @@ class Application < Sinatra::Base
   end
 
   post '/register' do # once user has registered
-    if params[:email_address].nil? || 
-      !params[:email_address].include?('@') || 
-      params[:username].nil? || params[:password].nil?
+    if !params[:email_address].include?('@')
       status 400
       return ''
     end

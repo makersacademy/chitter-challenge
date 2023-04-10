@@ -2,29 +2,44 @@
 <html>
   <head>
     <title>Welcome to Chitter Chatter!</title>
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
 
   <% if session[:email_address] %>
     <!-- Logged in content -->
+    <div class="welcome-box">
     <h1>Welcome <%= @user.username %>!</h1>
+    </div>
+    <div class="options-box">
     <a href="/new_peep">Post a Peep</a><br>
     <a href="/logout">Logout</a>
+    </div>
+    <div class="peeps-box">
     <h2>Recent Peeps:</h2>
+    <div class="scrollable-peeps">
     <% @peeps.each do |peep| %>
       <p><%= peep.contents %> - <%= peep.time %></p>
     <% end %>
+    </div>
+  </div>
   <% else %>
     <!-- Logged out content -->
+    <div class="welcome-box">
     <h1>Welcome to Chitter!</h1>
-    <p>Options:</p>
+    </div>
+    <div class="options-box">
     <a href="/register">Sign Up</a><br>
     <a href="/login">Login</a><br>
-    <h2>Recent Peeps:</h2>
-    <% @peeps.each do |peep| %>
-      <p><%= peep.contents %> - <%= peep.time %></p>
-    <% end %>
+    </div>
+    <div class="peeps-box">
+      <h2>Recent Peeps:</h2>
+      <div class="scrollable-peeps">
+      <% @peeps.each do |peep| %>
+        <p><%= peep.contents %> - <%= peep.time %></p>
+      <% end %>
+      </div>
+    </div>
   <% end %>
-  
   </body>
 </html>

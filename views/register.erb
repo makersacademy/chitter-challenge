@@ -2,15 +2,20 @@
 <html>
 <head>
     <title>Register Page</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+    <div class="join-box">
     <h1>Join Chitter Chatter today!</h1>
+    </div>
     <!-- Add in somewhere about minimum character length -->
     <form method="POST" action="/register">
-        <label>Enter your email:</label><input type="text" name="email_address" required><br>
-        <label>Enter a username:</label><input type="text" name="username" required><br>
-        <label>Enter a password:</label><input type="text" name="password" minlength= 5 required><br>
-        <input type="submit">
+        <label>Enter your email </label><input type="text" name="email_address" required><br>
+        <label>Enter a username </label><input type="text" name="username" required><br>
+        <label>Enter a password </label><input type="text" name="password" minlength= 5 required><br>
+        <div class="submit-button">
+            <input type="submit" value="Sign up">
+        </div>
     </form>
 </body>
 </html>

@@ -23,7 +23,7 @@ describe Application do
       response = get('/register')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<label>Enter a username:</label>')
+      expect(response.body).to include('<label>Enter a username </label>')
       expect(response.body).to include('<form method="POST" action="/register">')
     end
   end
@@ -54,7 +54,7 @@ describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/login">')
-      expect(response.body).to include('<label>Enter your password:</label>')
+      expect(response.body).to include('<label>Enter your password </label>')
     end
   end
 

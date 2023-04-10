@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20;
+    padding: 20;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+}
+
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Homepage specific  */
+
+.options-box {
+    border: 1px;
+    background-color: lightblue;
+    padding: 5px;
+}
+
+.welcome-box {
+    border: 1px;
+    background-color: mediumturquoise;
+    padding: 5px;
+}
+
+.peeps-box {
+    width: 80%;
+    margin: auto;
+    max-height: 300px;
+    overflow: scroll;
+}
+  
+  .scrollable-peeps {
+    padding: 10px;
+}
+  
+
+/* Register specific  */
+
+input[type="submit"] {
+    background-color: lightblue;
+    color: black;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: grey;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+    width: 50%;
+}
+
+form {
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+}
+  
+input[type=text] {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.join-box {
+    border: 1px;
+    background-color: mediumturquoise;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+
+/* Login specific */
+
+.login-box {
+    border: 1px;
+    background-color: mediumturquoise;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* New Peep specific */
+
+.question-peep {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px;
+    background-color: mediumturquoise;
+    padding: 5px;
+    margin-bottom: 10px;
+}
