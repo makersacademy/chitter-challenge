@@ -36,8 +36,8 @@ class ChitterApplication < Sinatra::Base
 
   post '/login' do
     username, plaintext_password = params[:username], params[:password]
-    user = User.find_by(username: username)
     validate([username, plaintext_password], reroute="login")
+    user = User.find_by(username: username)
     return redirect('/login') if user == nil
     if BCrypt::Password.new(user.password_digest) == plaintext_password
       session[:user_id] = user.id
@@ -54,6 +54,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/create_post' do
     ask_for_login
+    validate([params[:content]], reroute="create_post")
     create_post(current_time=params[:created_at])
     return redirect('/')
   end
@@ -66,6 +67,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/reply/:id' do
     ask_for_login
+    validate([params[:content]], reroute="reply/#{params[:id]}")
     create_post(params[:id])
     return redirect('/')
   end
