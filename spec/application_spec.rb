@@ -8,28 +8,33 @@ describe ChitterApplication do
   include Rack::Test::Methods
   let(:app) { ChitterApplication.new }
 
+  def login
+    response = post('login', 
+      username: "Useface", 
+      password: "usersville")
+    return response
+  end
+
   context "GET /" do
     it 'displays the feed and shows prompt to login if user is not logged in' do
       response = get('/')
-      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href="reply/31">Reply</a></p>')
       expect(response.body).to include('<a href="/login">Log in</a>')
       expect(response.body).to_not include('<a href="/logout">Log Out</a>')
     end
 
     it 'displays the feed and shows prompt to logout and create post if user is logged in' do
-      response = post('login', 
-        username: "Useface", 
-        password: "usersville")
+      response = login
       expect(response).to be_redirect
       response = get('/')
-      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href="reply/31">Reply</a></p>')
       expect(response.body).to_not include('<a href="/login">Log in</a>')
       expect(response.body).to include('<a href="/logout">Log Out</a>')
     end  
 
     it 'displays the replies made to posts in the feed in correct format' do
       response = get('/')
-      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href="reply/31">Reply</a></p>')
       expect(response.body).to include("<p style='color: navy;'><b>►►► Reply:</b> Best internet arguments start with just one reply <b>By:</b> Useface <b>At:</b> <u>2023-03-21 / 20:12</u></p>")
     end
   end
@@ -45,9 +50,7 @@ describe ChitterApplication do
 
   context "POST /login" do
     it 'redirects the user back to the feed page if logged in with correct credentials' do
-      response = post('login', 
-        username: "Useface", 
-        password: "usersville")
+      response = login
       expect(response).to be_redirect
       follow_redirect!
       expect(last_request.path).to eq("/")
@@ -81,11 +84,55 @@ describe ChitterApplication do
     end
   end
 
+  context "GET /reply" do
+    it 'displays the create post form and original post content to the user when user is logged in' do
+      login
+      response = get('reply/31')
+      expect(response.body).to include("<p>Original post was by: Useface</p>")
+      expect(response.body).to include("<p>They said: I pray for the day where we stop using sinatra <b>at</b> 2023-03-20 / 10:39</p>")
+      expect(response.body).to include("<textarea type='text' placeholder='your response' name='content' maxlength=140 required cols=50 rows=10></textarea>")
+    end
+
+    it 'redirects you to the login page if you try to post without credentials' do
+      response = get('reply/31')
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/login")  
+    end
+  end
+
+  context "POST /reply" do
+    it 'creates a reply and sends you back to the login feed once successful' do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.start
+      current_time = Time.now
+      login
+      response = post('reply/31', 
+        user_id: 6,
+        content: "Here is my reply",
+        parent_id: 31
+      )
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/")
+      response = get('/')
+      expect(response.body).to include("<p style='color: navy;'><b>►►► Reply:</b> Here is my reply <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).strftime("%F / %H:%M")}</u></p>")
+      DatabaseCleaner.clean
+    end
+  
+    it 'redirects you to the login page if you try to reply without credentials' do
+      response = post('reply/31',
+      user_id: 6,
+      content: "this is my reply")
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq("/login")  
+    end
+  end
+
   context "GET /create_post" do
     it 'displays the create post form to the user when user is logged in' do
-      response = post('login', 
-        username: "Useface", 
-        password: "usersville")
+      login
       response = get('create_post')
       expect(response.body).to include("<textarea type='text' placeholder='your ramblings' name='content' maxlength=140 required cols=50 rows=10></textarea>")
     end
@@ -104,9 +151,7 @@ describe ChitterApplication do
       DatabaseCleaner.start 
       response = post('create_post', 
         user_id: 6,
-        content: "This route is as protected as the rental prices in London", 
-        created_at: Time.now,
-        updated_at: Time.now
+        content: "This route is as protected as the rental prices in London"
       )
       expect(response).to be_redirect
       follow_redirect!
@@ -116,22 +161,18 @@ describe ChitterApplication do
 
     it 'creates a post and sends you back to the login feed once successful' do
       DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.start 
+      DatabaseCleaner.start
       current_time = Time.now
-      response = post('login', 
-        username: "Useface", 
-        password: "usersville")
+      login
       response = post('create_post', 
         user_id: 6,
         content: "This route is as protected as the rental prices in London",
-        created_at: current_time,
-        updated_at: current_time 
       )
       expect(response).to be_redirect
       follow_redirect!
       expect(last_request.path).to eq("/")
       response = get('/')
-      expect(response.body).to include("<p><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).strftime("%F / %H:%M")}</u> <a href=#>Reply</a></p>")
+      expect(response.body).to include("<p><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).strftime("%F / %H:%M")}</u>")
       DatabaseCleaner.clean
     end
   end
@@ -161,7 +202,7 @@ describe ChitterApplication do
       follow_redirect!
       expect(last_request.path).to eq("/")
       response = get('/')
-      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href=#>Reply</a></p>')
+      expect(response.body).to include('<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href="reply/31">Reply</a></p>')
       expect(response.body).to_not include('<a href="/login">Log in</a>')
       expect(response.body).to include('<a href="/logout">Log Out</a>')
       DatabaseCleaner.clean

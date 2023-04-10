@@ -35,7 +35,7 @@ class ChitterApplication < Sinatra::Base
   post '/login' do
     username, plaintext_password = params[:username], params[:password]
     user = User.find_by(username: username)
-    return redirect('/login') if is_dodgy?(username) || is_dodgy?(plaintext_password) || user == nil
+    return redirect('/login') if dodgy?(username) || dodgy?(plaintext_password) || user == nil
     if BCrypt::Password.new(user.password_digest) == plaintext_password
       session[:user_id] = user.id
       return redirect('/')
@@ -51,9 +51,19 @@ class ChitterApplication < Sinatra::Base
 
   post '/create_post' do
     return redirect('/login') unless @current_user
-    post = Post.new
-    post.user_id, post.content = @current_user.id, params[:content]
-    post.save
+    create_post(current_time=params[:created_at])
+    return redirect('/')
+  end
+
+  get '/reply/:id' do
+    return redirect('/login') unless @current_user
+    @original_post = Post.joins(:user).find(params[:id])
+    erb :create_reply
+  end
+
+  post '/reply/:id' do
+    return redirect('/login') unless @current_user
+    create_post(params[:id])
     return redirect('/')
   end
     
@@ -64,7 +74,7 @@ class ChitterApplication < Sinatra::Base
   post '/register' do
     username, password, email, real_name = params[:username], params[:password], params[:email], params[:real_name]
     to_validate = [username, password, email, real_name]
-    to_validate.each {|form_data| return redirect('/register') if is_dodgy?(form_data)}
+    to_validate.each {|form_data| return redirect('/register') if dodgy?(form_data)}
     return redirect('/register') if !!User.find_by(username: username) || !!User.find_by(email: email)
     new_user = User.new
     encrypted_password = BCrypt::Password.create(password)
@@ -79,8 +89,13 @@ class ChitterApplication < Sinatra::Base
     return redirect('/')
   end
   
-  def is_dodgy?(input)
+  def dodgy?(input)
     return input.match?(/<|>/) || input.match?(/^\s*$/)
   end
 
+  def create_post(parent_id=nil)
+    post = Post.new
+    post.user_id, post.content, post.parent_id = @current_user.id, params[:content], parent_id
+    post.save
+  end
 end

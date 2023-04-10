@@ -19,7 +19,7 @@
       <br>
       <% @posts.each do |post| %>
         <% if post.parent_id.nil? %>
-        <p><b>Chit:</b> <%=post.content%> <br> <b>By:</b> <%=post.user.username%> <b>At:</b> <u><%=post.created_at.strftime("%F / %H:%M")%></u> <a href=#>Reply</a></p>
+        <p><b>Chit:</b> <%=post.content%> <br> <b>By:</b> <%=post.user.username%> <b>At:</b> <u><%=post.created_at.strftime("%F / %H:%M")%></u> <a href="reply/<%=post.id%>">Reply</a></p>
           <% post.children.each do |reply| %>
           <p style='color: navy;'><b>►►► Reply:</b> <%=reply.content%> <b>By:</b> <%=reply.user.username%> <b>At:</b> <u><%=reply.created_at.strftime("%F / %H:%M")%></u></p>
           <% end %>
