@@ -39,7 +39,7 @@ describe Application do
       expect(response.body).to include('new peep!')
     end
 
-    it "returns the form to add a new post" do
+    it "returns the form to add a new peep" do
       response = get('/')
 
       expect(response.status).to eq(200)
@@ -49,10 +49,13 @@ describe Application do
     end
   end
 
-  xcontext 'POST /post' do
-    it "creates a post" do
-      response = post('/post')
+  context 'POST /post' do
+    it "creates a peep" do
+      response = post('/post', message: 'peep sounds funny')
       expect(response.status).to eq(200)
+
+      response = get('/')
+      expect(response.body).to include('peep sounds funny')
     end
 
     # it "redirects to homepage" do

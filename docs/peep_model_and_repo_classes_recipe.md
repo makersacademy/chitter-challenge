@@ -1,53 +1,33 @@
 # {{TABLE NAME}} Model and Repository Classes Design Recipe
 
-_Copy this recipe template to design and implement Model and Repository classes for a database table._
-
 ## 1. Design and create the Table
 
 If the table is already created in the database, you can skip this step.
 
 Otherwise, [follow this recipe to design and create the SQL schema for your table](./single_table_design_recipe_template.md).
 
-*In this template, we'll use an example table `students`*
+*In this template, we'll use an example table `peeps`*
 
 ```
 # EXAMPLE
 
-Table: students
+Table: peeps
 
 Columns:
-id | name | cohort_name
+id | message | time | user_id
 ```
 
 ## 2. Create Test SQL seeds
 
-Your tests will depend on data stored in PostgreSQL to run.
-
-If seed data is provided (or you already created it), you can skip this step.
-
 ```sql
--- EXAMPLE
--- (file: spec/seeds_{table_name}.sql)
+TRUNCATE TABLE users, peeps RESTART IDENTITY;
 
--- Write your SQL seed here. 
+INSERT INTO users (name, email, username, password) VALUES ('John Doe', 'john_d@email.com', 'j0ndoe', 'pas5w0rd!');
+INSERT INTO users (name, email, username, password) VALUES ('Jane Doe', 'jane_d@email.com', 'jane_d0e', 'pa5sw0rd');
 
--- First, you'd need to truncate the table - this is so our table is emptied between each test run,
--- so we can start with a fresh state.
--- (RESTART IDENTITY resets the primary key)
-
-TRUNCATE TABLE students RESTART IDENTITY; -- replace with your own table name.
-
--- Below this line there should only be `INSERT` statements.
--- Replace these statements with your own seed data.
-
-INSERT INTO students (name, cohort_name) VALUES ('David', 'April 2022');
-INSERT INTO students (name, cohort_name) VALUES ('Anna', 'May 2022');
-```
-
-Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
-
-```bash
-psql -h 127.0.0.1 your_database_name < seeds_{table_name}.sql
+INSERT INTO peeps (message, time, user_id) VALUES ('peep 1', '2023-04-09 19:10:00', 1);
+INSERT INTO peeps (message, time, user_id) VALUES ('peep peep 2', '2023-04-09 19:05:00', 1);
+INSERT INTO peeps (message, time, user_id) VALUES ('new peep!', '2023-04-10 15:12:00', 2);
 ```
 
 ## 3. Define the class names
@@ -56,16 +36,16 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Model class
-# (in lib/student.rb)
-class Student
+# (in lib/peep.rb)
+class Peep
 end
 
 # Repository class
-# (in lib/student_repository.rb)
-class StudentRepository
+# (in lib/peep_repository.rb)
+class PeepRepository
 end
 ```
 
@@ -75,24 +55,24 @@ Define the attributes of your Model class. You can usually map the table columns
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Model class
-# (in lib/student.rb)
+# (in lib/peep.rb)
 
-class Student
+class Peep
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+  attr_accessor :id, :message, :time, :user_id
 end
 
 # The keyword attr_accessor is a special Ruby feature
 # which allows us to set and get attributes on an object,
 # here's an example:
 #
-# student = Student.new
-# student.name = 'Jo'
-# student.name
+# peep = Peep.new
+# peep.name = 'Jo'
+# peep.name
 ```
 
 *You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
@@ -105,40 +85,38 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```ruby
 # EXAMPLE
-# Table name: students
+# Table name: peeps
 
 # Repository class
-# (in lib/student_repository.rb)
+# (in lib/peep_repository.rb)
 
-class StudentRepository
+class PeepRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students;
+    # SELECT id, message, time, user_id  FROM peeps;
 
-    # Returns an array of Student objects.
+    # Returns an array of Peep objects.
   end
 
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM students WHERE id = $1;
+    # SELECT id,  FROM peeps WHERE id = $1;
 
-    # Returns a single Student object.
+    # Returns a single Peep object.
   end
 
-  # Add more methods below for each operation you'd like to implement.
+  def create(peep)
+  end
 
-  # def create(student)
+  # def update(peep)
   # end
 
-  # def update(student)
-  # end
-
-  # def delete(student)
+  # def delete(peep)
   # end
 end
 ```
@@ -153,32 +131,32 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all peeps
 
-repo = StudentRepository.new
+repo = PeepRepository.new
 
-students = repo.all
+peeps = repo.all
 
-students.length # =>  2
+peeps.length # =>  2
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+peeps[0].id # =>  1
+peeps[0].name # =>  'David'
+studen # =>  'April 2022'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+peeps[1].id # =>  2
+peeps[1].name # =>  'Anna'
+studen # =>  'May 2022'
 
 # 2
-# Get a single student
+# Get a single peep
 
-repo = StudentRepository.new
+repo = PeepRepository.new
 
-student = repo.find(1)
+peep = repo.find(1)
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+peep.id # =>  1
+peep.name # =>  'David'
+st # =>  'April 2022'
 
 # Add more examples for each method
 ```
@@ -198,11 +176,11 @@ This is so you get a fresh table contents every time you run the test suite.
 
 def reset_students_table
   seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'peeps' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe PeepRepository do
   before(:each) do 
     reset_students_table
   end
