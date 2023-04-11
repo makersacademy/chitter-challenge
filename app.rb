@@ -94,32 +94,32 @@ class Application < Sinatra::Base
   helpers do
     def validate_string(name, field)
       unless name.match?(/[a-zA-Z]/)
-        settings.validation_error = "Invalid #{field}: must contain one or more letters."
+        settings.validation_error = "Invalid #{field}: must contain one or more letters.\n"
         return redirect('register/new')
       end
     end
 
     def validate_email(email)
       unless email =~ URI::MailTo::EMAIL_REGEXP
-        settings.validation_error = "Invalid email: please enter a valid email to register."
+        settings.validation_error = "Invalid email: please enter a valid email to register.\n"
         return redirect('register/new')
       end
     end
 
     def validate_password(password)
       unless password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/)
-        settings.validation_error = "Invalid password: minimum eight characters and contain at least one lowercase letter, uppercase letter and digit."
+        settings.validation_error = "Invalid password: minimum eight characters and contain at least one lowercase letter, uppercase letter and digit.\n"
         return redirect('register/new')
       end
     end
 
     def username_email_unique(username, email)
       if UserRepository.new.all_usernames.include?(username)
-        settings.validation_error = "That username is already taken."
+        settings.validation_error = "That username is already taken.\n"
         return redirect('register/new')
       end
       if UserRepository.new.all_emails.include?(email)
-        settings.validation_error = "That email is already registered to a user."
+        settings.validation_error = "That email is already registered to a user.\n"
         return redirect('register/new')
       end
     end
@@ -127,18 +127,17 @@ class Application < Sinatra::Base
     def email_exists(email)
       emails = UserRepository.new.all_emails
       unless emails.include?(email)
-        settings.validation_error = "Email and password do not match any registered user."
+        settings.validation_error = "Email and password do not match any registered user.\n"
         return redirect('login/form')
       end
     end
 
-    def email_password_match(user, password)
-      p password
-      p user.password
-      unless password == user.password # i.e. if <entered-password> == <password-stored-for-entered-email>
+    def email_password_match(user, entered_password)
+      stored_password = BCrypt::Password.new(user.password)
+      unless stored_password == entered_password # i.e. if <entered-password> == <password-stored-for-entered-email>
         session[:user_id] = nil
         settings.logged = false
-        settings.validation_error = "Email and password do not match any registered user."
+        settings.validation_error = "Email and password do not match any registered user.\n"
         return redirect('/login/form')
       end
       session[:username] = user.username
@@ -150,7 +149,7 @@ class Application < Sinatra::Base
       if inputs_array.join.match?(/[<>\/]/)
         session[:user_id] = nil
         settings.logged = false
-        settings.validation_error = "'<', '>' and '/' are not permitted characters."
+        settings.validation_error = "'<', '>' and '/' are not permitted characters.\n"
         return redirect(redirect_path)
       end
     end

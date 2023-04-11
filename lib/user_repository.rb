@@ -13,7 +13,7 @@ class UserRepository
   def create(user)
     sql = 'INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);'
     password_hash = BCrypt::Password.create(user.password)
-    params = [user.name, user.username, user.email, user.password]
+    params = [user.name, user.username, user.email, password_hash]
     DatabaseConnection.exec_params(sql, params)
   end
 
