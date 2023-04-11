@@ -22,7 +22,7 @@ The user should have visibility to the login and register links when they are no
 
 [Link to My Deployed App](https://chitter-app-59gf.onrender.com/)
 
-![Screenshot of main page](https://imgur.com/a/EFue0NV)
+![Screenshot of main page](https://i.imgur.com/g3bzkKR.png)
 
 
 Features:
