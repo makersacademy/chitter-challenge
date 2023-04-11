@@ -30,7 +30,7 @@ module ApplicationHelpers
     if tagged_usernames
       users_to_notify = User.where(username: tagged_usernames).all
       users_to_notify.each do |user_to_notify| 
-        send_email(user_to_notify.email, user_to_notify.real_name, post.content, mail_environment="test")
+        send_email(user_to_notify.email, user_to_notify.real_name, post.content)
       end
     end
   end
