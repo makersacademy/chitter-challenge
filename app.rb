@@ -18,7 +18,7 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
     also_reload 'lib/peep_repository'
     set :message, "Log in to create new peeps."
-    set :logged, false
+    # set :logged, false
     set :validation_error, ""
   end
 
@@ -88,7 +88,7 @@ class Application < Sinatra::Base
 
   get '/logout' do
     session.clear
-    settings.logged = false
+    # settings.logged = false
     settings.message = "Log in to create new peeps."
     return redirect('/')
   end
@@ -138,7 +138,7 @@ class Application < Sinatra::Base
       stored_password = BCrypt::Password.new(user.password)
       unless stored_password == entered_password # i.e. UNLESS <stored-password-hash> == <entered-password>
         session[:user_id] = nil
-        settings.logged = false
+        # settings.logged = false
         settings.validation_error = "Email and password do not match any registered user.\n"
         return redirect('/login/form')
       end
@@ -151,13 +151,13 @@ class Application < Sinatra::Base
     def login_user(user)
       session[:username] = user.username
       session[:user_id] = user.id
-      settings.logged = true
+      # settings.logged = true
     end
 
     def script_check(inputs_array, redirect_path)
       if inputs_array.join.match?(/[<>\/]/)
         session[:user_id] = nil
-        settings.logged = false
+        # settings.logged = false
         settings.validation_error = "'<', '>' and '/' are not permitted characters.\n"
         return redirect(redirect_path)
       end
