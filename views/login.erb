@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <title>Chitter Log In</title>
+</head>
+<body>
+  <nav>
+    <div>
+      <p><a href="/">Home</a></p>
+      <p><a href="/register/new">Register</a></p>
+    </div>
+    </div>
+  </nav>
+  <section>   
+    <h1>Log in to Chitter</h1>
+
+    <div>
+      <% if settings.validation_error.length > 0 %>
+        <h3><%= settings.validation_error %></h3>
+        <% settings.validation_error = "" %>
+      <% end %> 
+    </div>
+
+    <form method="POST" action="/login">
+      <label for="email">Email address: </label>
+      <input type="text" name="email" /><br><br>
+      <label for="password">Password: </label>
+      <input type="text" name="password" /><br><br>
+      <input type="submit" />
+    </form>
+  </section>
+
+  
+</body>
+</html>

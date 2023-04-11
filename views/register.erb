@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <title>Chitter Register</title>
+</head>
+<body>
+  <nav>
+    <div>
+      <p><a href="/">Home</a></p>
+      <p><a href="/login/form">Log in</a></p>
+    </div>
+    </div>
+  </nav>
+
+  <h1>Register a new Chitter account</h1>
+
+  <div>
+    <% if settings.validation_error.length > 0 %>
+      <h3><%= settings.validation_error %></h3>
+      <% settings.validation_error = "" %>
+    <% end %> 
+  </div>
+
+  <form method="POST" action="/register">
+    <label for="name">Full name: </label>
+    <input type="text" name="name" /><br><br>
+    <label for="username">Username: </label>
+    <input type="text" name="username" /><br><br>
+    <label for="email">Email address: </label>
+    <input type="text" name="email" /><br><br>
+    <label for="password">Password: </label>
+    <input type="text" name="password" /><br><br>
+    <input type="submit" />
+  </form>
+
+  <p>Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
+</body>
+</html>

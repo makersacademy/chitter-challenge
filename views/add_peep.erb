@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <title>Add Peep</title>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div>
+        <% if settings.validation_error.length > 0 %>
+          <h3><%= settings.validation_error %></h3>
+          <% settings.validation_error = "" %>
+        <% end %> 
+      </div>
+      <div>
+        <p><a href="/">Home</a></p>
+        <p>Log out</p>
+      </div>
+    </div>
+      
+    </div>
+  </nav>
+  <h1>Spread your chit</h1>
+
+    
+
+  <form method="POST" action="/peeps">
+    <label for="body">What new gem would you like to share with the world: </label><br>
+    <textarea type="text" name="body" rows="4" cols="42"></textarea><br><br>
+    <label for="tags">Tags: </label><br>
+    <input type="text" name="tags" /><br><br>
+    <input type="hidden" name="user_id" value=<%= @user_id %> />
+    <input type="submit">
+  </form>
+</body>
+</html>
