@@ -26,7 +26,7 @@ describe UserRepository do
     expect(users.first.username).to eq "joebloggs123"
     expect(users.first.name).to eq "Joe Bloggs"
     expect(users.first.email).to eq "joebloggs@gmail.com"
-    expect(users.first.password).to eq "myweakpassword"
+    expect(users.first.password).to eq "$2a$12$LO.0xwjovoGUVJTubcCOl.W10MkezxwOTfIS6yKRq8qCRS8iMwHZq"
   end
 
   it "creates a new user and then checks how many users there are" do

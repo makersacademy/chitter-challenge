@@ -17,6 +17,11 @@ class Application < Sinatra::Base
 
   get '/' do
     @title = "Chitter - Home"
+    if session[:username] == nil
+      @heading = "Welcome to Chitter!"
+    else
+      @heading = "Hello, #{session[:username]}!"
+    end
     return erb(:index)
   end
 
@@ -27,6 +32,7 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
+    redirect '/login' if session[:username] == nil
     @title = "Chitter - Create a new peep"
     return erb(:new_peep)
   end
@@ -40,13 +46,16 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     peep = Peep.new
     peep.content = params[:peep]
-    peep.user_id = params[:user_id]
+    peep.user_id = session[:user_id]
 
     repo.create(peep)
     return erb(:peep_created)
   end
 
   get '/signup' do
+    # check if user already logged in
+    redirect '/' if session[:username] != nil
+
     @title = "Chitter - Sign up to Chitter!"
     @message = ""
     return erb(:signup)
@@ -89,16 +98,47 @@ class Application < Sinatra::Base
   end
 
   get '/login' do
+    # check if user already logged in
+    redirect '/' if session[:username] != nil
+    
     @title = "Chitter - Log in to Chitter"
     @message = ""
     return erb(:login)
   end
 
+  post '/login' do
+    if invalid_login_request_parameters?
+      status 400
+      return ''
+    end
+
+    repo = UserRepository.new
+    user = repo.find(params[:email])
+
+    if user
+      if BCrypt::Password.new(user.password) == params[:password]
+        session[:username] = user.username
+        session[:user_id] = user.id
+        @heading = "Hello, #{user.username}"
+        redirect '/'
+      else
+        redirect '/login'
+      end
+    else
+      redirect '/login'
+    end
+  end
+
+  get '/logout' do
+    session.destroy
+    redirect "/"
+  end
+
   def invalid_peep_request_parameters?
     # Are the params nil?
-    return true if params[:peep] == nil || params[:user_id] == nil
+    return true if params[:peep] == nil
     # Are they empty strings?
-    return true if params[:peep] == "" || params[:user_id] == ""
+    return true if params[:peep] == ""
     return false
   end
 
@@ -107,6 +147,14 @@ class Application < Sinatra::Base
     return true if params[:username] == nil || params[:name] == nil || params[:email] == nil || params[:password] == nil || params[:confirm_password] == nil
     # Are they empty strings?
     return true if params[:username] == "" || params[:name] == "" || params[:email] == "" || params[:password] == "" || params[:confirm_password] == ""
+    return false
+  end
+
+  def invalid_login_request_parameters?
+    # Are the params nil?
+    return true if params[:email] == nil || params[:password] == nil
+    # Are they empty strings?
+    return true if params[:email] == "" || params[:password] == ""
     return false
   end
 end

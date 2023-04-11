@@ -44,4 +44,19 @@ class UserRepository
     end
     return true
   end
+
+  def find(email)
+    sql = 'SELECT id, username, password FROM users WHERE email = $1;'
+    res = DatabaseConnection.exec_params(sql, [email])
+    
+    if res.num_tuples.positive?
+      user = User.new
+      user.id = res[0]['id']
+      user.username = res[0]['username']
+      user.password = res[0]['password']
+      return user
+    else
+      return nil
+    end
+  end
 end

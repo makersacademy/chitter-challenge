@@ -32,7 +32,7 @@ describe Application do
       response = get("/")
 
       expect(response.status).to eq(200)
-      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "<h1>Welcome to Chitter!</h1>"
     end
   end
 
@@ -49,8 +49,7 @@ describe Application do
     it 'returns a form to create a new peep' do
       response = get("/peeps/new")
 
-      expect(response.status).to eq(200)
-      expect(response.body).to include "<h1>Create a new peep</h1>"
+      expect(response.status).to eq(302)
     end
   end
 
@@ -87,6 +86,13 @@ describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include "<h1>Log in to Chitter</h1>"
+    end
+  end
+
+  context "POST /login" do
+    it "logs in the user and redirects to /" do
+      response = post("/login", email: "joebloggs@gmail.com", password: "password")
+      expect(response.status).to eq 302
     end
   end
 end
