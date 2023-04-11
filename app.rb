@@ -74,14 +74,12 @@ class ChitterApplication < Sinatra::Base
   end
 
   post '/register' do
-    username, password, email, real_name = params[:username], params[:password], params[:email], 
-params[:real_name]
+    username, password, email, real_name = params[:username], params[:password], params[:email], params[:real_name]
     return redirect('/register') unless validate(username, password, email, real_name)
     return redirect('/register') if !!User.find_by(username: username) || !!User.find_by(email: email)
     new_user = User.new
     encrypted_password = BCrypt::Password.create(password)
-    new_user.username, new_user.password, new_user.email, new_user.real_name = username, 
-encrypted_password, email, real_name
+    new_user.username, new_user.password, new_user.email, new_user.real_name = username, encrypted_password, email, real_name
     new_user.save
     session[:user_id] = new_user.id
     return redirect('/')
