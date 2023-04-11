@@ -1,10 +1,11 @@
-require 'sinatra/base'
-require 'sinatra/reloader'
+require 'sinatra'
+require 'pg'
+require_relative './lib/database_connection'
 
-class Application < Sinatra::Base
-  # This allows the app code to refresh
-  # without having to restart the server.
-  configure :development do
-    register Sinatra::Reloader
+DatabaseConnection.connect('chitter')
+
+class Application
+  def initialize
+    #
   end
 end
