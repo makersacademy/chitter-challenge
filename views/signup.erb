@@ -1,16 +1,28 @@
 <h2>Create a Chitter Account</h2>
+<div>
+  <%if session[:user_exists]%>
+    <%=@message%>
+  <%end%>
+  <%if session[:invalid_inputs]%>
+    <%=@message1%> <br>
+    <%=@message2%> <br>
+    <%=@message3%>
+
+  <hr>
+  <%end%>
+<div>
 
 <form action="/signup" method="POST">
-  <label>Name:</label>
+  <label>Name:</label><br>
   <input type="text" name="name" placeholder="Name" required>
 
-  <label>Email Address:</label>
+  <label>Email Address:</label><br>
   <input type="email" name="email" placeholder="Email Address" required>
 
-  <label>Username:</label>
+  <label>Username:</label><br>
   <input type="text" name="username" placeholder="username" title="this will be displayed when you post a peep" required>
 
-  <label>Password:</label>
+  <label>Password:</label><br>
   <input type="password" name="password" placeholder="Password" required> 
 
   <button type="submit">Sign Up</button>

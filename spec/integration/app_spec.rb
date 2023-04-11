@@ -91,7 +91,16 @@ describe Application do
       response = post('/signup', name: 'Elon Musk', email: 'john_d@email.com', username: 'j0ndoe', password: 'Fakepas5word')
       
       expect(response.body).to include('<h2>Create a Chitter Account</h2>')
-      # expect(response.body).to include('email address or username already exists, try again.')
+      expect(response.body).to include('email address or username already exists, try again.')
+    end
+
+    it "validates user's inputs have met the minimum requirements" do
+      response = post('/signup', name: 'Elon Musk', email: 'wrongemail', username: 'another_elon', password: 'Fakepas5word')
+    
+      expect(response.body).to include('<h2>Create a Chitter Account</h2>')
+      expect(response.body).to include('Make sure Email Address is valid')
+      expect(response.body).to include('Make sure Username is at least three characters long')
+      expect(response.body).to include('Make sure Password is at least eight characters long')
     end
 
     it "creates a new user" do

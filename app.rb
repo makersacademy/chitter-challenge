@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
@@ -6,6 +7,8 @@ require_relative 'lib/user_repository'
 require 'erb'
 
 DatabaseConnection.connect('chitter_database_test')
+
+enable :sessions
 
 class Application < Sinatra::Base 
   configure :development do
@@ -17,6 +20,14 @@ class Application < Sinatra::Base
   def user_exist?
     user = UserRepository.new
     return true if !user.email_unique?(params[:email]) || !user.username_unique?(params[:username])
+    return false
+  end
+
+  def invalid_inputs?(name, email, username, password)
+    return true if name.nil?
+    return true unless email.match? "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    return true unless username.match? "[A-Za-z0-9_.-]{3,20}"
+    return true unless password.match? "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
     return false
   end
 
@@ -47,8 +58,18 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    if user_exist?  # call method to validate request parameters
-
+    # call methods to validate request parameters
+    if user_exist?
+      session[:user_exists] = true
+      @message = 'email address or username already exists, try again.'
+      return erb(:signup)
+    end
+    
+    if invalid_inputs?(params[:name], params[:email], params[:username], params[:password])
+      session[:invalid_inputs] = true
+      @message1 = 'Make sure Email Address is valid'
+      @message2 = 'Make sure Username is at least three characters long'
+      @message3 = 'Make sure Password is at least eight characters long'
       return erb(:signup)
     end
 
