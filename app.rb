@@ -35,11 +35,6 @@ class ChitterApplication < Sinatra::Base
     erb :login
   end
 
-  get '/secret' do
-    @post = Post.find(31)
-    erb :secret
-  end
-
   post '/login' do
     username, plaintext_password = params[:username], params[:password]
     return redirect('/login') unless validate(username, plaintext_password)

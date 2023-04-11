@@ -117,7 +117,7 @@ DEPENDENCIES
   capybara
   database_cleaner-active_record
   faker
-  mail
+  mail (~> 2.7.1)
   orderly
   pg
   rack-test (~> 2.1)

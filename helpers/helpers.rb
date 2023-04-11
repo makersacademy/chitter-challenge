@@ -17,18 +17,19 @@ module ApplicationHelpers
     return true
   end
 
+  def scan_for_tags_in(content)
+    tags = content.scan(/@(\w+)/).flatten
+    tags.length > 0 ? tags : false
+  end
+
   def create_post(parent_id=nil)
     post = Post.new
     post.user_id, post.content, post.parent_id = @current_user.id, params[:content], parent_id
     post.save
-    scan_and_notify_users_if_tagged(post)
-  end
-
-  def scan_and_notify_users_if_tagged(post)
-    tags = post.content.scan(/@(\w+)/)
-    tags.each do |username_to_notify|
-      user_to_notify = User.where(username: username_to_notify).first
-      if user_to_notify
+    tagged_usernames = scan_for_tags_in(post.content)
+    if tagged_usernames
+      users_to_notify = User.where(username: tagged_usernames).all
+      users_to_notify.each do |user_to_notify| 
         send_email(user_to_notify.email, user_to_notify.real_name, post.content, mail_environment="test")
       end
     end
@@ -43,6 +44,5 @@ module ApplicationHelpers
     end
     mail.delivery_method :logger if mail_environment
     mail.deliver
-  end
-  
+  end 
 end

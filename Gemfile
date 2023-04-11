@@ -12,7 +12,7 @@ gem "sinatra-contrib", "~> 3.0"
 gem "webrick", "~> 1.8"
 gem "rack-test", "~> 2.1"
 gem "faker"
-gem "mail"
+gem "mail", "~> 2.7.1"
 
 group :test do
   gem 'rspec'
