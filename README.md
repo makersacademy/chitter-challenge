@@ -27,7 +27,6 @@ Features:
 * New Peep: Logged in user can have the option to create a new peep by clicking the new peep link on the homepage, where they are directed to the /new_peep page and can submit a peep
 * View Peeps: Irrespective of logged in status, peeps will be shown on the homepage in order of the most recent peep first. The peep contents and time are shown on the homepage.
 
-
 Notes on functionality:
 ------
 
@@ -36,3 +35,16 @@ Notes on functionality:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+Dependencies
+------
+
+Ruby Gems:
+```ruby
+gem "sinatra", "~> 3.0"
+gem "sinatra-contrib", "~> 3.0"
+gem "webrick", "~> 1.8"
+gem "rack-test", "~> 2.1"
+gem 'bcrypt', '~> 3.1.7'
+gem "pg", "~> 1.4"
+```
