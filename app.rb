@@ -132,10 +132,9 @@ class Application < Sinatra::Base
       end
     end
 
-    def email_password_match(user, password)
-      p password
-      p user.password
-      unless password == user.password # i.e. if <entered-password> == <password-stored-for-entered-email>
+    def email_password_match(user, entered_password)
+      stored_password = BCrypt::Password.new(user.password)
+      unless stored_password == entered_password # i.e. if <entered-password> == <password-stored-for-entered-email>
         session[:user_id] = nil
         settings.logged = false
         settings.validation_error = "Email and password do not match any registered user.\n"
