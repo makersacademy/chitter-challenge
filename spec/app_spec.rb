@@ -44,6 +44,16 @@ describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include '<h1>Log in successful!</h1>' # add username to success page
     end
+
+    it "tells the user they entered the wrong password" do
+      response = post("/signup", name: 'Elton John', email: 'elton@john.com', username: 'rocketman', password: 'yellowbrickroad')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Sign up successful!'
+
+      response = post("login", email: 'elton@john.com', password: 'stillstanding')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Wrong password.'
+    end
   end
 
   context "GET /signup" do
