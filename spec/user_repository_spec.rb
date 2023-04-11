@@ -11,4 +11,6 @@ describe UserRepository do
   before(:each) do
     reset_users_table
   end
+
+  
 end
