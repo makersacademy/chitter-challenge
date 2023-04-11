@@ -22,6 +22,9 @@ The user should have visibility to the login and register links when they are no
 
 [Link to My Deployed App](https://chitter-app-59gf.onrender.com/)
 
+![Screenshot of main page](https://imgur.com/a/EFue0NV)
+
+
 Features:
 -------
 
@@ -45,20 +48,20 @@ Installation & Requirements
 Clone the repo and add the relevant gems:
 
 ```
-$ git clone https://github.com/siqbal181/chitter-challenge.git
-$ gem install sinatra -v '~> 3.0'
-$ gem install sinatra-contrib -v '~> 3.0'
-$ gem install webrick -v '~> 1.8'
-$ gem install rack-test -v '~> 2.1'
-$ gem install bcrypt -v '~> 3.1.7'
-$ gem install pg -v '~> 1.4'
+git clone https://github.com/siqbal181/chitter-challenge.git
+gem install sinatra -v '~> 3.0'
+gem install sinatra-contrib -v '~> 3.0'
+gem install webrick -v '~> 1.8'
+gem install rack-test -v '~> 2.1'
+gem install bcrypt -v '~> 3.1.7'
+gem install pg -v '~> 1.4'
 ```
 
 Testing:
 ```ruby
-$ gem 'rspec'
-$ gem 'simplecov', require: false
-$ gem 'simplecov-console', require: false
+gem 'rspec'
+gem 'simplecov', require: false
+gem 'simplecov-console', require: false
 ```
 
 ## Contact
