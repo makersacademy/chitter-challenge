@@ -14,6 +14,12 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
+  def user_exist?
+    user = UserRepository.new
+    return true if !user.email_unique?(params[:email]) || !user.username_unique?(params[:username])
+    return false
+  end
+
   get '/' do
     repo = PeepRepository.new
     @peeps = repo.all_reversed
@@ -41,6 +47,11 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
+    if user_exist?  # call method to validate request parameters
+
+      return erb(:signup)
+    end
+
     repo = UserRepository.new
     new_user = User.new
 

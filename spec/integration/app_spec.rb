@@ -86,19 +86,21 @@ describe Application do
   end
 
   context 'POST /signup' do
+
+    it "validates email input and username input are not being used by existing Chitter users" do
+      response = post('/signup', name: 'Elon Musk', email: 'john_d@email.com', username: 'j0ndoe', password: 'Fakepas5word')
+      
+      expect(response.body).to include('<h2>Create a Chitter Account</h2>')
+      # expect(response.body).to include('email address or username already exists, try again.')
+    end
+
     it "creates a new user" do
       response = post('/signup', name: 'Elon Musk', email: 'el_musk@email.com', username: 'im_the_other_elon', password: 'Fakepas5word')
       expect(response.status).to eq(302)
-      # last_response is a variable automatically created by Rack::MockResponse in the session
-      # this expect checks if signup is indeed redirecting to the root '/'
+      # last_response is automatically created by Rack::MockResponse
+      # this checks if signup is indeed redirecting to the root '/'
       expect(last_response).to be_redirect
     end
-
-    # it "redirects to homepage" do
-    #   response = post('/post')
-    #   expect(response.status).to eq(302)
-    # end
-
   end
   
 end

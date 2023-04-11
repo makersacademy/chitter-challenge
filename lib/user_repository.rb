@@ -9,5 +9,19 @@ class UserRepository
     return ''
   end
 
+  def email_unique?(email)  # returns a boolean
+    sql = 'SELECT * FROM users WHERE email = $1'
+    result = DatabaseConnection.exec_params(sql, [email])
+
+    result.ntuples.zero?
+  end
+
+  def username_unique?(username)  # returns a boolean
+    sql = 'SELECT * FROM users WHERE username = $1'
+    result = DatabaseConnection.exec_params(sql, [username])
+
+    result.ntuples.zero?
+  end
+
   
 end
