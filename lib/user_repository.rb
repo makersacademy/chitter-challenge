@@ -37,6 +37,9 @@ class UserRepository
     return nil
   end
 
+  def find_by_email(email)
+    
+  end
   # def sign_in(email, submitted_password)
   #   user = find_by_email(email)
 

@@ -39,4 +39,18 @@ describe UserRepository do
       expect(BCrypt::Password.new(all_users.last.password)).to eq '12345678'
     end
   end
+  describe '#find_by_email' do
+    context 'when user exists' do
+      it 'returns the user associated with that email' do
+        found_user = repo.find('user1@example.com')
+        expect(found_user.username).to eq 'user1'
+      end
+    end
+    context 'when user does not exist' do
+      it 'returns nil' do
+        found_user = repo.find_by_email('nonexistent@example.com')
+        expect(found_user).to eq nil
+      end
+    end
+  end
 end
