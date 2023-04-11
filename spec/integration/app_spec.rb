@@ -85,7 +85,7 @@ describe Application do
 
   end
 
-  xcontext 'POST /signup' do
+  context 'POST /signup' do
     it "creates a new user" do
       response = post('/signup', name: 'Elon Musk', email: 'el_musk@email.com', username: 'im_the_other_elon', password: 'Fakepas5word')
       expect(response.status).to eq(302)
