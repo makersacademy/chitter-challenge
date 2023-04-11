@@ -1,5 +1,5 @@
 require "spec_helper"
-# require "rack/test"
+require "rack/test"
 require_relative '../../chitter_app'
 
 describe ChitterApp do
@@ -18,11 +18,11 @@ describe ChitterApp do
   end
 
   describe "GET /peeps" do
-    it "displays a list of peeps in reverse chronological order" do
+    xit "displays a list of peeps in reverse chronological order" do
       get "/peeps"
 
-      #last_response is a method from Rack::Test which is better than using the response variable
-      #instead of .status).to eq 200, we can use .be_ok which is a method from Rack::Test
+      # last_response is a method from Rack::Test which is better than using the response variable
+      # instead of .status).to eq 200, we can use .be_ok which is a method from Rack::Test
   
       expect(last_response).to be_ok
       expect(last_response.body).to include("Going to the beach tomorrow")

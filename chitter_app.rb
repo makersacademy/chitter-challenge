@@ -4,9 +4,9 @@ require_relative 'lib/database_connection'
 # require_relative 'lib/users_repository'
 # require_relative 'lib/peeps_repository'
 
-DatabaseConnection.connect
+DatabaseConnection.connect('chitter')
 
-class Application < Sinatra::Base
+class ChitterApp < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
 #     also_reload 'lib/users_repository'
@@ -14,6 +14,8 @@ class Application < Sinatra::Base
   end
 
 
-  get '/' do
+  get '/peeps' do
+    @peeps = PeepsRepository.all
+    return erb :peep
   end
 end

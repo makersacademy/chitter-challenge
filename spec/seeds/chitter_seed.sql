@@ -1,10 +1,10 @@
 TRUNCATE TABLE users, peeps, notifications RESTART IDENTITY;
 
-INSERT INTO users (username, email, password_hash)
+INSERT INTO users (name, username, email, password_hash)
 VALUES
-  ('alice', 'alice@example.com', 'abc123'),
-  ('bob', 'bob@example.com', 'xyz789'),
-  ('charlie', 'charlie@example.com', '123456');
+  ('Donald', 'orangeman', 'donald@example.com', 'abc123'),
+  ('Elon', 'manchild', 'elon@example.com', 'xyz789'),
+  ('Gandalf', 'ringofpower', 'gandalf@example.com', '123456');
 
 INSERT INTO peeps (content, created_at, user_id)
 VALUES
