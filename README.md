@@ -47,3 +47,9 @@ gem "rack-test", "~> 2.1"
 gem 'bcrypt', '~> 3.1.7'
 gem "pg", "~> 1.4"
 ```
+Testing:
+```ruby
+gem 'rspec'
+gem 'simplecov', require: false
+gem 'simplecov-console', require: false
+```
