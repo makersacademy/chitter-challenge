@@ -7,18 +7,18 @@ def reset_tables
   connection.exec(seed_sql)
 end
 
-before(:each) do
-  reset_tables
-end
-
 describe PeepRepository do
+  before(:each) do
+    reset_tables
+  end
+
   it 'returns all peeps in reverse chronological order' do
     repo = PeepRepository.new
 
     peeps = repo.all
 
     expect(peeps.length).to eq(6)
-    expect(peeps.last.content).to eq('Hello World!')
+    expect(peeps.last.content).to eq('Hello, world!')
     expect(peeps.last.user_id).to eq(1)
   end
 end

@@ -1,10 +1,10 @@
 class Peep
-  attr_reader :id, :content, :created_at, :user_id
+  attr_reader :id, :content, :user_id
 
-  # def initialize(id:, content:, created_at:, user_id:)
-  #   @id = id
-  #   @content = content
-  #   @created_at = created_at
-  #   @user_id = user_id
-  # end
+  def initialize(options)
+    @id = options[:id]
+    @content = options[:content]
+    @user_id = options[:user_id]
+  end
 end
+
