@@ -20,7 +20,7 @@ describe Application do
   end
 
   context 'GET /' do
-    it "should display peeps in reverse chronological order in the homepage" do
+    it "displays peeps in reverse chronological order in the homepage" do
       response = get('/')
       expect(response.status).to eq(200)
       expect(response.body).to include('<section>')
@@ -34,13 +34,13 @@ describe Application do
       
     end
 
-    it "should get the form to add a new peep" do
+    it "gets the form to add a new peep" do
       response = get('/')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/post">')
-      expect(response.body).to include('<input type="text" name="message">')
-      expect(response.body).to include('<input type="submit">')
+      expect(response.body).to include('<input type="text" name="message" placeholder="type a peep message" required>')
+      expect(response.body).to include('<button type="submit">')
     end
 
   end
@@ -76,5 +76,33 @@ describe Application do
 
   end
 
+  context 'GET /signup' do
+    it "renders the signup page" do
+      response = get('/signup')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Create a Chitter Account</h2>')
+    end
+
+  end
+
+  xcontext 'POST /signup' do
+    it "creates a new user" do
+      response = post('/signup', name: 'Elon Musk', email: 'el_musk@email.com', username: 'im_the_other_elon', password: 'Fakepas5word')
+      expect(response.status).to eq(302)
+      # last_response is a variable automatically created by Rack::MockResponse in the session
+      # this expect checks if signup is indeed redirecting to the root '/'
+      expect(last_response).to be_redirect
+    end
+
+    # it "redirects to homepage" do
+    #   response = post('/post')
+    #   expect(response.status).to eq(302)
+    # end
+
+  end
   
 end
+
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to sign up for Chitter

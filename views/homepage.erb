@@ -3,14 +3,19 @@
     <title>Chitter Homepage</title>
   </head>
   <body>
-    <h1>Welcome to Chitter!</h1>
+    <header>
+      <h1>Welcome to Chitter!</h1>
+      <a href="/signup">Sign Up</a>
+    </header>
     
-    <form method="POST" action="/post">
-      <label>Post a Peep:</label>
-      <input type="text" name="message"><br>
+    <section>
+      <form method="POST" action="/post">
+        <label>Post a Peep:</label>
+        <input type="text" name="message" placeholder="type a peep message" required><br>
 
-      <input type="submit"><br>
-    </form>
+        <button type="submit">submit</button><br>
+      </form>
+    </section>
 
     <hr/>
 

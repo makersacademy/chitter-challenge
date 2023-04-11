@@ -33,6 +33,25 @@ class Application < Sinatra::Base
     repo.create(new_peep)
 
     return redirect('/')
+
   end
+
+  get '/signup' do
+    return erb(:signup)
+  end
+
+  # post '/signup' do
+  #   repo = UserRepository.new
+  #   new_user = User.new
+
+  #   new_user.name = params[:name]
+  #   new_user.email = params[:email]
+  #   new_user.username = params[:username]
+  #   new_user.password = params[:password]
+
+  #   repo.create(new_user)
+
+  #   return redirect('/')
+  # end
 
 end
