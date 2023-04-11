@@ -42,16 +42,18 @@ class UserRepository
     params = [email]
     result = DatabaseConnection.exec_params(sql, params)
     
-    record = result[0]
-    p result
-    p result[0]
-    user = User.new
-    user.username = record['username']
-    user.email = record['email']
-    user.password = record['password']
-
-    return user
+    if result.ntuples > 0
+      record = result[0]
+      user = User.new
+      user.username = record['username']
+      user.email = record['email']
+      user.password = record['password']
+      return user
+    else
+      fail 'No such user with given email.'
+    end
   end
+
   # def sign_in(email, submitted_password)
   #   user = find_by_email(email)
 

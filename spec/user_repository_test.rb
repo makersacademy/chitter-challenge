@@ -47,9 +47,9 @@ describe UserRepository do
       end
     end
     context 'when user does not exist' do
-      xit 'returns nil' do
+      it 'fails' do
         found_user = repo.find_by_email('nonexistent@example.com')
-        expect(found_user).to eq nil
+        expect {found_user.username}.to raise_error 'No such user with given email.'
       end
     end
   end
