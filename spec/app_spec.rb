@@ -26,4 +26,12 @@ describe Application do
     end
   end
 
+  context "GET /signup" do
+    it "displays the signup page" do
+      response = get("/signup")
+      expect(response.status).to eq 200
+      expect(response.body).to include '<form action="/signup" method="POST">'
+    end
+  end
+
 end
