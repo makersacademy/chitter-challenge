@@ -5,38 +5,58 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="icon" href="peepicon.png" type="image/png" />
   <title>Chitter Register</title>
 </head>
 <body>
+
   <nav>
-    <div>
-      <p><a href="/">Home</a></p>
-      <p><a href="/login/form">Log in</a></p>
-    </div>
-    </div>
+    <div class="container navbar">
+      <div class="logo">
+        <img class="image" src="peep.png" alt="peep no evil">
+        <h1>Chitter</h1>
+
+        <% if settings.logged == true %>
+        <h3>You are logged in as <%= session[:username] %></h3>
+        <% else %>
+        <h3>Log in to create new peeps</h3>
+        <% end %>
+      </div>
+
+      <div class="list">
+        <p><a href="/">Home</a></p>
+        <p><a href="/login/form" class="link">Log in</a></p>
+      </div>
+    </div>   
   </nav>
 
-  <h1>Register a new Chitter account</h1>
+  <header>
+  <div class="container">
+    <h1>Register a new Chitter account</h1><br>
 
-  <div>
-    <% if settings.validation_error.length > 0 %>
-      <h3><%= settings.validation_error %></h3>
-      <% settings.validation_error = "" %>
-    <% end %> 
-  </div>
+    <div>
+      <% if settings.validation_error.length > 0 %>
+        <h3><%= settings.validation_error %></h3>
+        <% settings.validation_error = "" %>
+      <% end %> 
+    </div>
 
-  <form method="POST" action="/register">
-    <label for="name">Full name: </label>
-    <input type="text" name="name" /><br><br>
-    <label for="username">Username: </label>
-    <input type="text" name="username" /><br><br>
-    <label for="email">Email address: </label>
-    <input type="text" name="email" /><br><br>
-    <label for="password">Password: </label>
-    <input type="text" name="password" /><br><br>
-    <input type="submit" />
-  </form>
+    <form method="POST" action="/register">
+      <label for="name">Full name: </label>
+      <input type="text" name="name" /><br>
+      <label for="username">Username: </label>
+      <input type="text" name="username" /><br>
+      <label for="email">Email address: </label>
+      <input type="text" name="email" /><br>
+      <label for="password">Password: </label>
+      <input type="text" name="password" /><br><br>
+      <input type="submit" /><br><br>
+    </form>
 
-  <p>Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
+    <p id="smallprint">Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
+
+    </div>
+  </header>
+  
 </body>
 </html>

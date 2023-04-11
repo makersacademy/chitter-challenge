@@ -5,35 +5,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="icon" href="peepicon.png" type="image/png" />
   <title>Chitter Log In</title>
 </head>
 <body>
+
   <nav>
-    <div>
-      <p><a href="/">Home</a></p>
-      <p><a href="/register/new">Register</a></p>
-    </div>
-    </div>
+    <div class="container navbar">
+      <div class="logo">
+        <img class="image" src="peep.png" alt="peep no evil">
+        <h1>Chitter</h1>
+
+        <% if settings.logged == true %>
+        <h3>You are logged in as <%= session[:username] %></h3>
+        <% else %>
+        <h3>Log in to create new peeps</h3>
+        <% end %>
+      </div>
+
+      <div class="list">
+        <p><a href="/">Home</a></p>
+        <p><a href="/register/new" class="link">Register</a></p>
+      </div>
+    </div>   
   </nav>
-  <section>   
-    <h1>Log in to Chitter</h1>
 
-    <div>
-      <% if settings.validation_error.length > 0 %>
-        <h3><%= settings.validation_error %></h3>
-        <% settings.validation_error = "" %>
-      <% end %> 
+  <header>
+    <div class="container">
+      <h1>Log in to Chitter</h1><br>
+
+      <div>
+        <% if settings.validation_error.length > 0 %>
+          <h3><%= settings.validation_error %></h3>
+          <% settings.validation_error = "" %>
+        <% end %> 
+      </div>
+
+      <form method="POST" action="/login">
+        <label for="email">Email address: </label>
+        <input type="email" name="email" /><br>
+        <label for="password">Password: </label>
+        <input type="password" name="password" /><br><br>
+        <input type="submit" /><br><br>
+      </form>
+
+      <p id="smallprint">Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
     </div>
-
-    <form method="POST" action="/login">
-      <label for="email">Email address: </label>
-      <input type="email" name="email" /><br><br>
-      <label for="password">Password: </label>
-      <input type="password" name="password" /><br><br>
-      <input type="submit" />
-    </form>
-  </section>
-
+  </header>
   
 </body>
 </html>

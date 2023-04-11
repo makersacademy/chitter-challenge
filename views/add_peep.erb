@@ -5,36 +5,54 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="icon" href="peepicon.png" type="image/png" />
   <title>Add Peep</title>
 </head>
 <body>
+
   <nav>
+    <div class="container navbar">
+      <div class="logo">
+        <img class="image" src="peep.png" alt="peep no evil">
+        <h1>Chitter</h1>
+
+        <% if settings.logged == true %>
+        <h3>You are logged in as <%= session[:username] %></h3>
+        <% else %>
+        <h3>Log in to create new peeps</h3>
+        <% end %>
+      </div>
+
+      <div class="list">
+        <p><a href="/">Home</a></p>
+        <p><a href="/logout" class="link">Log out</a></p>
+      </div>
+    </div>   
+  </nav>
+
+  <header>
     <div class="container">
+      <h1>Spread your chit</h1><br>
+
       <div>
         <% if settings.validation_error.length > 0 %>
           <h3><%= settings.validation_error %></h3>
           <% settings.validation_error = "" %>
         <% end %> 
       </div>
-      <div>
-        <p><a href="/">Home</a></p>
-        <p>Log out</p>
-      </div>
-    </div>
-      
-    </div>
-  </nav>
-  <h1>Spread your chit</h1>
 
-    
+      <form method="POST" action="/peeps">
+        <label for="body">What new gem would you like to share with the world: </label><br>
+        <textarea type="text" name="body" rows="4" cols="42"></textarea><br>
+        <label for="tags">Tags: </label><br>
+        <input type="text" name="tags" /><br><br>
+        <input type="hidden" name="user_id" value=<%= session[:user_id] %> />
+        <input type="submit"><br><br>
+      </form>
 
-  <form method="POST" action="/peeps">
-    <label for="body">What new gem would you like to share with the world: </label><br>
-    <textarea type="text" name="body" rows="4" cols="42"></textarea><br><br>
-    <label for="tags">Tags: </label><br>
-    <input type="text" name="tags" /><br><br>
-    <input type="hidden" name="user_id" value=<%= session[:user_id] %> />
-    <input type="submit">
-  </form>
+      <p id="smallprint">Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
+    </div>
+  </header>
+
 </body>
 </html>

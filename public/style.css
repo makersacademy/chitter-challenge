@@ -46,6 +46,7 @@ nav {
 }
 
 .logo h1 {
+  /* display: block; */
   color: #accef4;
   font-size: 45px;
   margin: 0 40px 0 10px;
@@ -92,5 +93,37 @@ header h2 {
   color: #8fbbed;
 }
 
+#smallprint {
+  color: #76a9e4;
+  padding-bottom: 50px;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 900px) {
+  .panel {
+    min-width: 650px;
+  }
+}
+
+@media (max-width: 800px) {
+  .panel {
+    min-width: 550px;
+  }
+  .logo h1 {
+    display: none;
+  }
+  nav h3 {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .panel {
+    min-width: 400px;
+  }
+}
 
 
