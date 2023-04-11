@@ -17,12 +17,16 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    user_repo = UserRepository.new
     peep_repo = PeepRepository.new
     peeps = peep_repo.all
 
+    @complete_peep_info = []
 
     peeps.each do |peep|
-      
+      user = user_repo.find(peep.user_id)
+      peep_info = {peep: peep, name: user.name, username: user.username}
+      @complete_peep_info << peep_info
     end
 
     return erb(:index)

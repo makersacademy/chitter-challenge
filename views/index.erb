@@ -6,10 +6,12 @@
     </head>
     <body>
         <h1>Chitter Homepage</h1>
-        <% @peeps.each do |peep| %>
+        <% @complete_peep_info.each do |peep_info| %>
             <div>
-                Content: <%= peep.content %><br>
-                Time posted: <%= peep.time %>
+                Name: <%= peep_info[:name] %><br>
+                Username: @<%= peep_info[:username] %><br>
+                Content: <%= peep_info[:peep].content %><br>
+                Time posted: <%= peep_info[:peep].time %>
             </div><br>
         <% end %>
 

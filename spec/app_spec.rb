@@ -22,6 +22,7 @@ describe Application do
       response = get("/")
       expect(response.status).to eq 200
       expect(response.body).to include 'Content: This is my first peep!'
+      expect(response.body).to include 'Username: @mrbobby'
     end
   end
 
