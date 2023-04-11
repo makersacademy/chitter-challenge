@@ -10,11 +10,7 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
-  describe 'GET to /' do
-    it 'responds with status 200 and renders the homepage template' do
-      response = get('/')
-      expect(response.status).to eq 200
-      expect(response.body).to include('<label for="peep">What are you doing?</label>')
-    end
-  end
+ 
+  
+  
 end

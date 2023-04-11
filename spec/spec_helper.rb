@@ -1,6 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'database_connection'
+require 'rack/test'
+require 'capybara/rspec'
 
 # Make sure this connects to your test database
 # (its name should end with '_test')
@@ -20,3 +22,6 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+Capybara.app = Application.new
+Capybara.default_driver = :rack_test
