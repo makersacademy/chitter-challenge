@@ -1,6 +1,5 @@
 require 'spec_helper'
 require_relative '../helpers/helpers'
-require "rack/test"
 include ApplicationHelpers
 
 describe ApplicationHelpers do

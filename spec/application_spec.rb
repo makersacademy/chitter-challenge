@@ -1,8 +1,5 @@
 require "spec_helper"
-require "rack/test"
-require "orderly"
 require_relative '../app'
-require 'database_cleaner/active_record'
 
 describe ChitterApplication do
   include Rack::Test::Methods
@@ -118,8 +115,6 @@ describe ChitterApplication do
 
   context "POST /reply" do
     it 'creates a reply and sends you back to the login feed once successful' do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.start
       current_time = Time.now
       login
       response = post('reply/31', 
@@ -132,7 +127,6 @@ describe ChitterApplication do
       expect(last_request.path).to eq("/")
       response = get('/')
       expect(response.body).to include("<p style='color: navy;'><b>►►► Reply:</b> Here is my reply <b>By:</b> Useface <b>At:</b> <u>#{(current_time - 3600).to_formatted_s(:chitter)}</u></p>")
-      DatabaseCleaner.clean
     end
   
     it 'redirects you to the login page if you try to reply without credentials' do
@@ -162,8 +156,6 @@ describe ChitterApplication do
 
   context "POST /create_post" do
     it 'redirects you to the login page if you try to post without credentials' do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.start 
       response = post('create_post', 
         user_id: 6,
         content: "This route is as protected as the rental prices in London"
@@ -171,12 +163,9 @@ describe ChitterApplication do
       expect(response).to be_redirect
       follow_redirect!
       expect(last_request.path).to eq("/login")
-      DatabaseCleaner.clean
     end
 
     it 'creates a post and sends you back to the login feed once successful' do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.start
       current_time = Time.now
       login
       response = post('create_post', 
@@ -188,7 +177,6 @@ describe ChitterApplication do
       expect(last_request.path).to eq("/")
       response = get('/')
       expect(response.body).to include("<p><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time - 3600).to_formatted_s(:chitter)}</u>")
-      DatabaseCleaner.clean
     end
   end
 
@@ -205,8 +193,6 @@ describe ChitterApplication do
 
   context "POST /register" do
     it 'redirects the user back to the main feed if registered successfully' do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.start 
       response = post('register', 
         username: "Registerro",
         real_name: "Regis Terry", 
@@ -220,7 +206,6 @@ describe ChitterApplication do
       expect(response.body).to include(users_post)
       expect(response.body).to_not include('<a href="/login">Log in</a>')
       expect(response.body).to include('<a href="/logout">Log Out</a>')
-      DatabaseCleaner.clean
     end
 
     it 'redirects the user back to the registry page if input is incorrect' do
