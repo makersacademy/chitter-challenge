@@ -7,6 +7,7 @@ require_relative 'lib/peep_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
