@@ -33,6 +33,10 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
+  get '/peeps/new' do
+    return erb(:new_peep)
+  end
+
   get '/login' do
     return erb(:login)
   end
@@ -70,4 +74,6 @@ class Application < Sinatra::Base
 
     return erb(:signup_success)
   end
+
+  # add invalid_parameters? method
 end

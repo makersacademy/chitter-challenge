@@ -4,55 +4,55 @@ _Copy this design recipe template to test-drive a Sinatra route._
 
 ## 1. Design the Route Signature
 
-Page: homepage
+[x] Page: homepage
 Request: GET / (peep_repo.all)
 No parameters
 Response (200 OK)
 index view with list of peeps, login status, link to log in/out, links to sign up and create peep
 
-Page: create new peep
+[ ] Page: create new peep
 Request: GET /peeps/new
 No parameters
 Response (200 OK)
 new_peep view with form to create new peep
 
-Page: new peep created (peep_repo.create(new_peep))
+[ ] Page: new peep created (peep_repo.create(new_peep))
 Request: POST /peeps
 Parameters: name, username, time, content
 Response (200 OK)
 new_peep_success view with link to homepage
 
-Page: signup
+[x] Page: signup
 Request: GET /signup
 No parameters
 Response (200 OK)
 signup view with form to create a new user
 
-Page: signup successful (user_repo.create(new_user))
+[x] Page: signup successful (user_repo.create(new_user))
 Request: POST /signup
 Parameters: name, email, username, password
 Response (200 OK)
 signup success view with link to login
 
-Page: log in
+[x] Page: log in
 Request: GET /login
 No parameters
 Response (200 OK)
 login view with form to log in
 
-Page: log in successful (user_repo.find_by_email(email))
+[x] Page: log in successful (user_repo.find_by_email(email))
 Request: POST /login
 Parameters: email, password
 Response (200 OK)
 login success view with link to homepage
 
-Page: log out
+[ ] Page: log out
 Request: GET /logout
 No parameters
 Response (200 OK)
 logout view with button to log out
 
-Page: log out successful
+[ ] Page: log out successful
 Request: POST /logout
 Parameters: user_id?
 Response (200 OK)

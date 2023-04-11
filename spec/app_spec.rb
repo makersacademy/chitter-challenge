@@ -26,6 +26,14 @@ describe Application do
     end
   end
 
+  context "GET /peeps/new" do
+    it "displays the create new peep page" do
+      response = get("/peeps/new")
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Create a new Peep</h1>'
+    end
+  end
+
   context "GET /login" do
     it "displays the login page" do
       response = get("/login")
