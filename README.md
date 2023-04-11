@@ -38,7 +38,7 @@ Notes on functionality:
 Installation & Requirements
 ------
 
-Clone the repo and add $ gems:
+Clone the repo and add the relevant gems:
 
 ```
 $ git clone https://github.com/siqbal181/chitter-challenge.git
@@ -57,4 +57,10 @@ $ gem 'simplecov', require: false
 $ gem 'simplecov-console', require: false
 ```
 
+## Contact
 
+Sidra Iqbal 
+
+Project Link: [https://github.com/siqbal181/chitter-challenge](https://github.com/siqbal181/chitter-challenge)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
