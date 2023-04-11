@@ -35,21 +35,22 @@ Notes on functionality:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
-Dependencies
+Installation & Requirements
 ------
 
-Ruby Gems:
-```ruby
-gem "sinatra", "~> 3.0"
-gem "sinatra-contrib", "~> 3.0"
-gem "webrick", "~> 1.8"
-gem "rack-test", "~> 2.1"
-gem 'bcrypt', '~> 3.1.7'
-gem "pg", "~> 1.4"
-```
+Clone the repo and add $ gems:
+
+$ git clone https://github.com/siqbal181/chitter-challenge.git
+$ gem "sinatra", "~> 3.0"
+$ gem "sinatra-contrib", "~> 3.0"
+$ gem "webrick", "~> 1.8"
+$ gem "rack-test", "~> 2.1"
+$ gem 'bcrypt', '~> 3.1.7'
+$ gem "pg", "~> 1.4"
+
 Testing:
 ```ruby
-gem 'rspec'
-gem 'simplecov', require: false
-gem 'simplecov-console', require: false
+$ gem 'rspec'
+$ gem 'simplecov', require: false
+$ gem 'simplecov-console', require: false
 ```
