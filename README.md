@@ -18,6 +18,8 @@ This project is designed to mimic the popular 'Twitter' app for Makers student u
 
 The user should have visibility to the login and register links when they are not logged in and similarly only have visibility to the sign-out link when they are logged in, to give a positive user experience. 
 
+[Link to My Deployed App](https://chitter-app-59gf.onrender.com/)
+
 Features:
 -------
 
