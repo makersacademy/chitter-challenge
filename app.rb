@@ -9,15 +9,15 @@ DatabaseConnection.connect
 
 class Application < Sinatra::Base
 
-  enable :sessions
+  enable :sessions # allows users sessions
 
   # This allows the app code to refresh
   # without having to restart the server.
   configure :development do
     register Sinatra::Reloader
-    also_reload 'lib/user_repository' ### posibly not needed with sessions?
-    also_reload 'lib/peep_repository' ### posibly not needed with sessions?
-    set :message, "Log in to create new peeps." # Creates a var that can be used across route handlers and views
+    also_reload 'lib/user_repository'
+    also_reload 'lib/peep_repository'
+    set :message, "Log in to create new peeps."
     set :logged, false
     set :validation_error, ""
   end
@@ -30,7 +30,7 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
-    @user_id = 2 # placeholder code for sending logged in user id!!!
+    @user_id = session[:user_id] # placeholder code for sending logged in user id!!!
     return erb(:add_peep)
   end
 
@@ -67,6 +67,8 @@ class Application < Sinatra::Base
     new_user.email = @email
     new_user.password = @password
     user_repo.create(new_user)
+    user = user_repo.find_by_email(@email)
+    login_user(user)
     return redirect('/')
   end
 
@@ -77,6 +79,7 @@ class Application < Sinatra::Base
   post '/login' do
     @email = params[:email]
     @password = params[:password]
+    p @email, @password
     script_check([@email, @password], '/login/form')
     email_exists(@email)
     user = UserRepository.new.find_by_email(@email)
@@ -134,12 +137,19 @@ class Application < Sinatra::Base
 
     def email_password_match(user, entered_password)
       stored_password = BCrypt::Password.new(user.password)
-      unless stored_password == entered_password # i.e. if <entered-password> == <password-stored-for-entered-email>
+      unless stored_password == entered_password # i.e. UNLESS <stored-password-hash> == <entered-password>
         session[:user_id] = nil
         settings.logged = false
         settings.validation_error = "Email and password do not match any registered user.\n"
         return redirect('/login/form')
       end
+      login_user(user)
+      # session[:username] = user.username
+      # session[:user_id] = user.id
+      # settings.logged = true
+    end
+
+    def login_user(user)
       session[:username] = user.username
       session[:user_id] = user.id
       settings.logged = true

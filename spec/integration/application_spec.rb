@@ -79,7 +79,7 @@ describe Application do
       response = get('/')
       expect(response.status).to eq 200
       expect(response.body).to include "<h1>Welcome to Chitter</h1>"
-      expect(response.body).to include "Log in to create new peeps."
+      expect(response.body).to include "Log in to create new peeps"
     end
   end
 
