@@ -7,8 +7,8 @@ require 'database_cleaner/active_record'
 describe ChitterApplication do
   include Rack::Test::Methods
   let(:app) { ChitterApplication.new }
-  let(:users_post) {'<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href="reply/31">Reply</a></p>'}
-  let(:users_reply) {"<p style='color: navy;'><b>►►► Reply:</b> Best internet arguments start with just one reply <b>By:</b> Useface <b>At:</b> <u>2023-03-21 / 20:12</u></p>"}
+  let(:users_post) { '<p><b>Chit:</b> I pray for the day where we stop using sinatra <br> <b>By:</b> Useface <b>At:</b> <u>2023-03-20 / 10:39</u> <a href="reply/31">Reply</a></p>' }
+  let(:users_reply) { "<p style='color: navy;'><b>►►► Reply:</b> Best internet arguments start with just one reply <b>By:</b> Useface <b>At:</b> <u>2023-03-21 / 20:12</u></p>" }
 
   def login
     response = post('login', 
@@ -131,7 +131,7 @@ describe ChitterApplication do
       follow_redirect!
       expect(last_request.path).to eq("/")
       response = get('/')
-      expect(response.body).to include("<p style='color: navy;'><b>►►► Reply:</b> Here is my reply <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).to_formatted_s(:chitter)}</u></p>")
+      expect(response.body).to include("<p style='color: navy;'><b>►►► Reply:</b> Here is my reply <b>By:</b> Useface <b>At:</b> <u>#{(current_time - 3600).to_formatted_s(:chitter)}</u></p>")
       DatabaseCleaner.clean
     end
   
@@ -187,7 +187,7 @@ describe ChitterApplication do
       follow_redirect!
       expect(last_request.path).to eq("/")
       response = get('/')
-      expect(response.body).to include("<p><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time-3600).to_formatted_s(:chitter)}</u>")
+      expect(response.body).to include("<p><b>Chit:</b> This route is as protected as the rental prices in London <br> <b>By:</b> Useface <b>At:</b> <u>#{(current_time - 3600).to_formatted_s(:chitter)}</u>")
       DatabaseCleaner.clean
     end
   end

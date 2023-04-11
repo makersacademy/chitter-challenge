@@ -53,7 +53,7 @@ describe ApplicationHelpers do
 
   it 'sends an email with contents if the users username is tagged in a post' do
     current_time = Time.now.strftime("%a, %d %b %Y %H:%M:%S %z")
-    email_object = ApplicationHelpers.send_email("user_address@hotmail.com", "Userson Usersmith", "Some random stuff which has @Useface in it.", mail_environment="test").to_s
+    email_object = ApplicationHelpers.send_email("user_address@hotmail.com", "Userson Usersmith", "Some random stuff which has @Useface in it.", mail_environment = "test").to_s
     expect(email_object).to include "Date: #{current_time}"
     expect(email_object).to include "To: user_address@hotmail.com"
     expect(email_object).to include "Subject: You have been tagged in Chitter"
