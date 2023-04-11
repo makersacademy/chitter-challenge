@@ -6,51 +6,21 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 10am Monday morning
 
-Challenge:
+Description:
 -------
 
-As usual please start by forking this repo.
+This project is designed to mimic the popular 'Twitter' app for Makers student use. Chitter will have basic functionality like: creating peeps, viewing peeps (including the time of peep in chronological order), as well as login, sign-up and logout capabilities. 
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+The user should have visibility to the login and register links when they are not logged in and similarly only have visibility to the sign-out link when they are logged in, to give a positive user experience. 
 
 Features:
 -------
 
-```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+* Register: User can register to Chitter with their email and create an account with a username and password. 
+* Login: User can login to their account from the homepage by entering their email address and password.
+* Logout: User can logout from the homepage by clicking on the logout link. 
+* New Peep: Logged in user can have the option to create a new peep by clicking the new peep link on the homepage, where they are directed to the /new_peep page and can submit a peep
+* View Peeps: Irrespective of logged in status, peeps will be shown on the homepage in order of the most recent peep first. The peep contents and time are shown on the homepage.
 
 Technical Approach:
 -----
