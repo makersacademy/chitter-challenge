@@ -10,25 +10,26 @@
 <body>
 
   <nav>
-    <div class="container">
+    <div class="container navbar">
 
-      <div class="navbar">
         <% if settings.logged == true %>
         <h3>You are logged in as <%= session[:username] %>.</h3>
         <% else %>
         <h3>Log in to create new peeps.</h3>
         <% end %>
-      </div>
-      <div class="container">
-        <% if settings.logged == true %>
-          <p><a href="/peeps/new">Add Peep</a></p>
-          <p><a href="/logout">Log out</a></p>
+          <% if settings.logged == true %>
+          <div class="list">
+            <p><a href="/peeps/new">Add Peep</a></p>
+            <p><a href="/logout">Log out</a></p>
+            </div>
+            <% end %>
+            <% if settings.logged == false %>
+            <div class="list">
+            <p><a href="/register/new" class="link">Register</a></p>
+            <p><a href="/login/form">Log in</a></p>
+          </div>
           <% end %>
-          <% if settings.logged == false %>
-          <p><a href="/register/new">Register</a></p>
-          <p><a href="/login/form">Log in</a></p>
-        <% end %>
-      </div>
+        
     </div>   
   </nav>
 

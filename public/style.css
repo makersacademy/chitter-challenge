@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
@@ -25,11 +25,25 @@ body {
 
 nav {
   background-color: #3474e6;
-  height: 60px;
+  height: 80px;
 }
 
 .navbar {
   height: 100%;
+}
+
+.list {
+  display: flex;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.list p {
+  margin-left: 20px;
 }
 
 
