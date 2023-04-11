@@ -1,6 +1,6 @@
 # _Chitter Challenge_
 
-#### By _**{Sidra Iqbal, adapted from Makers Academy}**_
+#### By _**Sidra Iqbal, adapted from Makers Academy**_
 
 Technologies Used
 -----
