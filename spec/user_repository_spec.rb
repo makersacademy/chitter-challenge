@@ -35,4 +35,13 @@ describe UserRepository do
     expect(user.name).to eq 'Alice Smith'
     expect(user.username).to eq 'malice12'
   end
+
+  it 'finds a user by id' do
+    repo = UserRepository.new
+    user = repo.find('1')
+
+    expect(user.id).to eq '1'
+    expect(user.name).to eq 'Alice Smith'
+    expect(user.username).to eq 'malice12'
+  end
 end

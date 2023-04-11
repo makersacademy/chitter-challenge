@@ -5,6 +5,14 @@
         <title>Chitter Homepage</title>
     </head>
     <body>
+        <h1>Chitter Homepage</h1>
+        <% @peeps.each do |peep| %>
+            <div>
+                Content: <%= peep.content %><br>
+                Time posted: <%= peep.time %>
+            </div><br>
+        <% end %>
+
         <p>
             <a href="/peeps/new">Create a Peep</a>
             <a href="/signup">Sign up</a>

@@ -17,4 +17,12 @@ describe Application do
     reset_tables
   end
 
+  context "GET /" do
+    it "displays a list of all peeps in reverse chronological order" do
+      response = get("/")
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Content: This is my first peep!'
+    end
+  end
+
 end

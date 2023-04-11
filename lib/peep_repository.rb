@@ -4,7 +4,7 @@ class PeepRepository
   def all
     peeps = []
 
-    sql = 'SELECT id, time, content, user_id FROM peeps;'
+    sql = 'SELECT id, time, content, user_id FROM peeps ORDER BY time DESC;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     result_set.each do |record|
