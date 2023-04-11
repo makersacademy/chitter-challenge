@@ -1,0 +1,48 @@
+<html>
+  <head></head>
+  <body>
+    <header>
+      <% if session[:user_id] != nil %>
+        <h2>You are logged in as <%= @user_repo.find_username_by_id(session[:user_id]) %> <h2>
+        <form action="/new" method="post">
+          Write your Peep!: <input type="text" name="content">
+          <input type="submit" value="Peep!">
+        </form>
+      <% else %>
+        <h2>You are not logged in<h2>
+        <div>
+        <h3>Log in Here!</h3>
+        <form action="/login" method="post">
+          Username: <input type="username" name="username">
+          Password: <input type="password" name="password">
+          <input type="submit" value="Login">
+        </form>
+        </div>
+        <h2>Or Sign Up for a Free Account!</h2>
+        <form action="/signup" method="post">
+          Name: <input type="text" name="name">
+          Username: <input type="text" name="username">
+          Email: <input type="email" name="email">
+          Password: <input type="password" name="password">
+          <input type="submit" value="Signup">
+        </form>
+      <% end %>
+      <br>
+      <% @peeps.reverse_each do |peep| %>
+      <li>
+      <div style="margin: auto; width: 50%; border: 3px solid green; padding:3px;">
+        <div style="display: grid; grid-template-rows: 15% 80%;">
+        <div style="margin-top:-13px;">
+          <% d=DateTime.parse(peep.created_on) %>
+          <h2><%=  @user_repo.find_username_by_id(peep.author) %> peeped On <%= d.day %>/<%= d.month %>/<%= d.year %> At <%= d.strftime('%I:%M:%S %p') %></h2>
+        </div>
+        <div style="padding-top:5px;">
+          <h3><%= peep.content %></h3>
+        </div>
+        </div>
+      </li>
+      <br>
+    <% end %>
+    </header>
+  </body>
+</html>
