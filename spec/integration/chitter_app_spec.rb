@@ -18,16 +18,16 @@ describe ChitterApp do
   end
 
   describe "GET /peeps" do
-    xit "displays a list of peeps in reverse chronological order" do
-      get "/peeps"
+    it "displays a list of peeps in reverse chronological order" do
+      response = get "/peeps"
 
       # last_response is a method from Rack::Test which is better than using the response variable
       # instead of .status).to eq 200, we can use .be_ok which is a method from Rack::Test
-  
-      expect(last_response).to be_ok
-      expect(last_response.body).to include("Going to the beach tomorrow")
-      expect(last_response.body).to include("Can't wait for the weekend")
-      expect(last_response.body).to include("Just finished a long day at work")
+     
+      expect(response.status).to eq 200
+      expect(response.body).to include("Going to the beach tomorrow")
+      expect(response.body).to include("Can't wait for the weekend")
+      expect(response.body).to include("Just finished a long day at work")
     end
   end
 end

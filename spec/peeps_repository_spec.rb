@@ -16,7 +16,6 @@ describe PeepRepository do
     repo = PeepRepository.new
 
     peeps = repo.all
-
     expect(peeps.length).to eq(6)
     expect(peeps.last.content).to eq('Hello, world!')
     expect(peeps.last.user_id).to eq(1)
