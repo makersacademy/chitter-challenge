@@ -34,4 +34,12 @@ describe Application do
     end
   end
 
+  context "POST /signup" do
+    it "creates a new user in the database" do
+      response = post("/signup")
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Sign up successful!'
+    end
+  end
+
 end
