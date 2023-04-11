@@ -38,7 +38,19 @@ class UserRepository
   end
 
   def find_by_email(email)
+    sql = 'SELECT username FROM users WHERE email = $1;'
+    params = [email]
+    result = DatabaseConnection.exec_params(sql, params)
     
+    record = result[0]
+    p result
+    p result[0]
+    user = User.new
+    user.username = record['username']
+    user.email = record['email']
+    user.password = record['password']
+
+    return user
   end
   # def sign_in(email, submitted_password)
   #   user = find_by_email(email)
@@ -57,4 +69,6 @@ class UserRepository
   # def find_by_email(email)
   #   # ...
   # end
+
+  # do a sign out if you have time
 end
