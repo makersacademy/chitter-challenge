@@ -4,16 +4,21 @@ require_relative 'lib/peep_repository.rb'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
-https://github.com/makersacademy/web-applications/blob/main/pills/user_authentication.md
+DatabaseConnection.connect('chitter')
 
-# class Application < Sinatra::Base 
-#   # Sessions are disabled by default, so this line is needed.
-#   enable :sessions
+class Application < Sinatra::Base 
+  # Sessions are disabled by default, so this line is needed.
+  enable :sessions
 
-#   configure :development do
-#     register Sinatra::Reloader
-#   end
+  configure :development do
+    register Sinatra::Reloader
+  end
 
+  get '/' do
+    @peeps = PeepRepository.new.all
+    return erb(:index)
+  end
+end
 #   # This route simply returns the login page
 #   get '/login' do
 #     return erb(:login)

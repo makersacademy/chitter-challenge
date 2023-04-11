@@ -10,8 +10,8 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
-  context 'GET to /' do
-    it 'displays all peeps in reverse chronological order' do
+  describe 'GET to /' do
+    it 'responds with status 200 and renders the homepage template' do
       response = get('/')
       expect(response.status).to eq 200
       expect(response.body).to include('<body>')
