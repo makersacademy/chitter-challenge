@@ -34,6 +34,18 @@ describe Application do
     end
   end
 
+  context "POST /login" do
+    it "logs in the user with their credentials" do # seeded users weren't created with bcrypt so don't pass this test
+      response = post("/signup", name: 'Elton John', email: 'elton@john.com', username: 'rocketman', password: 'yellowbrickroad')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Sign up successful!'
+
+      response = post("/login", email: 'elton@john.com', password: 'yellowbrickroad')
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Log in successful!</h1>' # add username to success page
+    end
+  end
+
   context "GET /signup" do
     it "displays the signup page" do
       response = get("/signup")
@@ -44,9 +56,9 @@ describe Application do
 
   context "POST /signup" do
     it "creates a new user in the database" do
-      response = post("/signup")
+      response = post("/signup", name: 'Elton John', email: 'elton@john.com', username: 'rocketman', password: 'yellowbrickroad')
       expect(response.status).to eq 200
-      expect(response.body).to include 'Sign up successful!'
+      expect(response.body).to include 'Sign up successful!' # add username to success page
     end
   end
 

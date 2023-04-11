@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
+require 'bcrypt'
 
 DatabaseConnection.connect
 
@@ -34,6 +35,22 @@ class Application < Sinatra::Base
 
   get '/login' do
     return erb(:login)
+  end
+
+  post '/login' do
+    email = params[:email]
+    password = params[:password]
+
+    user_repo = UserRepository.new
+
+    user = user_repo.find_by_email(email)
+    stored_password = BCrypt::Password.new(user.password)
+
+    if stored_password == password
+      return erb(:login_success)
+    else
+      return erb(:wrong_password)
+    end
   end
 
   get '/signup' do
