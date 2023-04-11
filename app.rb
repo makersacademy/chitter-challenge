@@ -41,7 +41,7 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     new_peep = Peep.new
     new_peep.body = @body
-    new_peep.time = Time.now.strftime("%Y-%m-%d %T")
+    new_peep.time = Time.now#.strftime("%Y-%m-%d %T")
     new_peep.tags = @tags
     new_peep.user_id = @user_id 
     repo.create(new_peep)
@@ -79,7 +79,6 @@ class Application < Sinatra::Base
   post '/login' do
     @email = params[:email]
     @password = params[:password]
-    p @email, @password
     script_check([@email, @password], '/login/form')
     email_exists(@email)
     user = UserRepository.new.find_by_email(@email)

@@ -1,5 +1,6 @@
 require_relative './peep'
 require_relative './user'
+require 'time'
 
 class PeepRepository
   def all # return all peeps
@@ -11,18 +12,18 @@ class PeepRepository
   end
 
   def all_with_names
-    puts "IN all_with_names"
     sql = 'SELECT users.name, users.username, peeps.body, peeps.time, peeps.tags, peeps.user_id
     FROM users
     JOIN peeps
     ON peeps.user_id = users.id;'
     results = DatabaseConnection.exec_params(sql, [])
     peeps_with_names = []
+    p results
     results.each do |record|
       peep = Peep.new
       peep.id = record['id'].to_i
       peep.body = record['body']
-      peep.time = record['time']
+      peep.time = (record['time'])
       peep.tags = record['tags']
       peep.user_id = record['user_id'].to_i
       peep.name = record['name']
