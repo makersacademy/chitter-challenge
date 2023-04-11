@@ -1,4 +1,4 @@
-# Modelling and Planning for Chitter Challenge
+# Modelling and Planning for Chitter Challenge 
 
 ## Step 0: User stories or specification
 
