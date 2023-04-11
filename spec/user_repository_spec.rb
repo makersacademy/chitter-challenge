@@ -22,8 +22,8 @@ describe UserRepository do
     new_user.password = "lightsaber"
     user = repo.create(new_user)
 
-    expect(user[0]).to eq "Chewbacca"
-    expect(user[1]).to eq "chewie123"
-    expect(user[2]).to eq "chewie123@gmail.com"
+    expect(user.name).to eq "Chewbacca"
+    expect(user.username).to eq "chewie123"
+    expect(user.email).to eq "chewie123@gmail.com"
   end
 end
