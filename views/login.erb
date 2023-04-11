@@ -1,0 +1,11 @@
+<h2>Log In to post a Peep</h2>
+
+<form action="/login" method="POST">
+  <label>Email Address:</label><br>
+  <input type="email" name="email" placeholder="Email Address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+  <label>Password:</label><br>
+  <input type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter."> 
+
+  <button type="submit">Log In</button>
+</form>

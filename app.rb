@@ -86,4 +86,8 @@ class Application < Sinatra::Base
     return redirect('/')
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
 end

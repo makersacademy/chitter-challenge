@@ -86,7 +86,6 @@ describe Application do
   end
 
   context 'POST /signup' do
-
     it "validates email input and username input are not being used by existing Chitter users" do
       response = post('/signup', name: 'Elon Musk', email: 'john_d@email.com', username: 'j0ndoe', password: 'Fakepas5word')
       
@@ -111,9 +110,16 @@ describe Application do
       expect(last_response).to be_redirect
     end
   end
+
+  context 'GET /login' do
+    it "renders the login page" do
+      response = get('/login')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Log In to post a Peep</h2>')
+    end
+
+  end
+
+
   
 end
-
-# As a Maker
-# So that I can post messages on Chitter as me
-# I want to sign up for Chitter
