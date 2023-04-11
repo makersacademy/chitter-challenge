@@ -281,4 +281,12 @@ describe ChitterApplication do
     end
   end
 
+  describe "invalid addresses", type: :feature do
+    it 'redirect you to a 404 page' do
+      visit ('/invalidplace')
+      expect(page.status_code).to eq 404
+      expect(page).to have_content('Page you are looking for does not exist')
+      expect(page).to have_content('Take me to promised lands')
+    end
+  end
 end
