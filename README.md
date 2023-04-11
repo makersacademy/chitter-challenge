@@ -40,6 +40,7 @@ Installation & Requirements
 
 Clone the repo and add $ gems:
 
+```
 $ git clone https://github.com/siqbal181/chitter-challenge.git
 $ gem install sinatra -v '~> 3.0'
 $ gem install sinatra-contrib -v '~> 3.0'
@@ -47,6 +48,7 @@ $ gem install webrick -v '~> 1.8'
 $ gem install rack-test -v '~> 2.1'
 $ gem install bcrypt -v '~> 3.1.7'
 $ gem install pg -v '~> 1.4'
+```
 
 Testing:
 ```ruby
