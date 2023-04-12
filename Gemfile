@@ -9,6 +9,7 @@ gem "sinatra-activerecord"
 gem "rake" 
 gem "bcrypt" 
 gem "sinatra-contrib", "~> 3.0"
+gem "sinatra-flash", "~> 0.3.0"
 gem "webrick", "~> 1.8"
 gem "rack-test", "~> 2.1"
 gem "faker"
@@ -22,3 +23,4 @@ group :test do
   gem "orderly"
   gem 'database_cleaner-active_record'
 end
+

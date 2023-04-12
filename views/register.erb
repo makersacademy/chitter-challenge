@@ -8,6 +8,9 @@
   <input type='text' placeholder='e-mail address' name='email' required>
   <br>
   <input type='password' placeholder='password' name='password' minlength= 8 required>
+  <% if flash[:error] %>
+    <p style='color:red'><%= flash[:error] %></p>
+  <% end %>
   <br>
   <input type='submit' value='register'>
 </form>

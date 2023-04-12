@@ -8,6 +8,11 @@ module ApplicationHelpers
     return redirect('/login') unless @current_user
   end
 
+  def return_to_page_with_error(page, error)
+    flash[:error] = error
+    return redirect("/#{page}")
+  end
+
   def dodgy?(input)
     return input.match?(/<|>/) || input.match?(/^\s*$/)
   end

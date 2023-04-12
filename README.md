@@ -134,6 +134,7 @@ gem "sinatra-activerecord" # -> so that ActiveRecord runs in Sinatra
 gem "rake" # -> handling out databases and seeds (not the tables!)
 gem "bcrypt" # -> encrypting user passwords before storing them in our database / decrypting it during login
 gem "sinatra-contrib", "~> 3.0" # -> additional features for sinatra, not sure which features rely on it just yet
+gem "sinatra-flash", "~> 0.3.0" # -> helps to pass error messages back to user if they put in invalid input
 gem "webrick", "~> 1.8" # -> helps with authentication through http? (again, not sure)
 gem "rack-test", "~> 2.1" # -> runs our web-based application
 gem "faker" # -> creates fake test data that is unique
@@ -151,8 +152,6 @@ gem 'database_cleaner-active_record' # -> resets the database before / after tes
 #TODO's
 -----------
 - CSS. Pages currently link to bootstrap but does not use any of its functionality
-- No layout extensions in ERB. The whole layout relies on individual html's which is very repetitive.
 - Additional depths in post replies. Currently you can only reply to the parent post and children cannot have replies. The structure actually allows for posts to be made on replies as well, but did not implement it to keep it simple on the main page. One thing that can be done is to direct the user to a separate page which renders all the parent-child (and potentially n layers of children if they exist) posts.
 - Form validations are done crudely, need to find a gem that does validations automatically.
-- No flash messages, users need to be shown why they cannot login / register (existing username, invalid password etc.)
 - Configuration is currently a mess. 

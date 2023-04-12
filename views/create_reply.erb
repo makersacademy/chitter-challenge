@@ -1,4 +1,3 @@
-<title>Reply</title>
 <div class="container-sm">
   <p>Have your say.</p>
   <p>Original post was by: <%= @original_post.user.username%></p>
@@ -7,6 +6,9 @@
 <form action='/reply/<%= @original_post.id %>' method='POST'>
   <textarea type='text' placeholder='your response' name='content' maxlength=140 required cols=50 rows=10></textarea>
   <br>
+  <% if flash[:error] %>
+    <p style='color:red'><%= flash[:error] %></p>
+  <% end %>
   <input type='submit' value='post it!'>
 </form>
 <br>

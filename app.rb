@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'sinatra/flash'
 require 'bcrypt'
 require_relative 'lib/user'
 require_relative 'lib/post'
@@ -12,6 +13,7 @@ class ChitterApplication < Sinatra::Base
 
   configure do
     Time::DATE_FORMATS[:chitter] = "%F / %H:%M"
+    register Sinatra::Flash
     register Sinatra::Reloader
     register Sinatra::ActiveRecordExtension
   end
@@ -36,9 +38,9 @@ class ChitterApplication < Sinatra::Base
 
   post '/login' do
     username, plaintext_password = params[:username], params[:password]
-    return redirect('/login') unless validate(username, plaintext_password)
+    return_to_page_with_error("login", "Invalid input") unless validate(username, plaintext_password)
     user = User.find_by(username: username)
-    return redirect('/login') if user.nil? || BCrypt::Password.new(user.password_digest) != plaintext_password
+    return_to_page_with_error("login", "Invalid username or password") if user.nil? || BCrypt::Password.new(user.password_digest) != plaintext_password
     session[:user_id] = user.id
     return redirect('/')
   end
@@ -50,7 +52,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/create_post' do
     ask_for_login
-    return redirect('/create_post') unless validate(params[:content])
+    return_to_page_with_error("create_post", "Invalid input") unless validate(params[:content])
     create_post(current_time = params[:created_at])
     return redirect('/')
   end
@@ -63,7 +65,7 @@ class ChitterApplication < Sinatra::Base
 
   post '/reply/:id' do
     ask_for_login
-    return redirect("reply/#{params[:id]}") unless validate(params[:content])
+    return_to_page_with_error("reply/#{params[:id]}", "Invalid input") unless validate(params[:content])
     create_post(params[:id])
     return redirect('/')
   end
@@ -74,8 +76,8 @@ class ChitterApplication < Sinatra::Base
 
   post '/register' do
     username, password, email, real_name = params[:username], params[:password], params[:email], params[:real_name]
-    return redirect('/register') unless validate(username, password, email, real_name)
-    return redirect('/register') if !!User.find_by(username: username) || !!User.find_by(email: email)
+    return_to_page_with_error("register", "Invalid input") unless validate(username, password, email, real_name)
+    return_to_page_with_error("register", "Username or e-mail already exists!") if !!User.find_by(username: username) || !!User.find_by(email: email)
     new_user = User.new
     encrypted_password = BCrypt::Password.create(password)
     new_user.username, new_user.password, new_user.email, new_user.real_name = username, encrypted_password, email, real_name

@@ -5,4 +5,7 @@
   <input type='password' placeholder='password' name='password' required>
   <input type='submit' value='log me in'>
 </form>
+<% if flash[:error] %>
+<p style='color:red'><%= flash[:error] %></p>
+<% end %>
 <a href='/'>Take me back</a>

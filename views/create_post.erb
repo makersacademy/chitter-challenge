@@ -4,6 +4,9 @@
 <form action='/create_post' method='POST'>
   <textarea type='text' placeholder='your ramblings' name='content' maxlength=140 required cols=50 rows=10></textarea>
   <br>
+  <% if flash[:error] %>
+    <p style='color:red'><%= flash[:error] %></p>
+  <% end %>
   <input type='submit' value='post it!'>
 </form>
 <br>
