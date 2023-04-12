@@ -30,7 +30,7 @@ class Application < Sinatra::Base
       @complete_peep_info << peep_info
     end
 
-    return erb(:index)
+    return erb(:index) # add log in status logic
   end
 
   get '/login' do
@@ -86,7 +86,7 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     new_user = User.new
 
-    new_user.name = params[:name]
+    new_user.name = params[:name] # name and username must be unique
     new_user.username = params[:username]
     new_user.email = params[:email]
     new_user.password = params[:password]
