@@ -1,0 +1,21 @@
+<html>
+  <head></head>
+  <body>
+  <div style="display: flex;">
+    <img src="/image" style ="width: 75; height: 75">
+    <h1 style="font-size: 45px">Welcome to Chitter</h1>
+  </div>
+    <h4>Top Peeps:</h4>
+      <table>
+      <% @top_peeps.each do |content, timestamp, username, userid| %>
+        <tr>
+          <td>
+            <a href = "/users/<%= userid %>"><%= username %></a>: "<%= content %>"<br>
+            <%= timestamp %>
+            <br><br>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+  </body>
+</html>

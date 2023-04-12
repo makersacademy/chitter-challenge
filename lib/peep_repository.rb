@@ -5,7 +5,7 @@ require_relative './user_repository'
 class PeepRepository
   def all
     peeps = []
-    sql = 'SELECT * FROM peeps'
+    sql = 'SELECT * FROM peeps ORDER BY id ASC'
     result = DatabaseConnection.exec_params(sql, [])
     
     result.each do |item|
