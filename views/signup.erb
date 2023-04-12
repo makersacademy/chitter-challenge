@@ -13,17 +13,17 @@
 <div>
 
 <form action="/signup" method="POST">
-  <label>Name:</label><br>
-  <input type="text" name="name" placeholder="Name" maxlength="50" required>
+  <label>Name:</label>
+  <input type="text" name="name" placeholder="Name" maxlength="50" required><br>
 
-  <label>Email Address:</label><br>
-  <input type="email" name="email" placeholder="Email Address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+  <label>Email Address:</label>
+  <input type="email" name="email" placeholder="Email Address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
 
-  <label>Username:</label><br>
-  <input type="text" name="username" placeholder="username" maxlength="20" title="this will be displayed when you post a peep" required pattern="[A-Za-z0-9_.-]{3,20}">
+  <label>Username:</label>
+  <input type="text" name="username" placeholder="username" maxlength="20" title="this will be displayed when you post a peep" required pattern="[A-Za-z0-9_.-]{3,20}"><br>
 
-  <label>Password:</label><br>
-  <input type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter."> 
+  <label>Password:</label>
+  <input type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter."><br>
 
   <button type="submit">Sign Up</button>
 </form>

@@ -128,18 +128,26 @@ describe Application do
         expect(response.body).to include('j0ndoe')
         expect(response.body).to include('peep sounds funny')
       end
-
-    end
-
-    context 'GET /logout' do
-      it "renders the logout page" do
-        response = get('/logout')
-        expect(response.body).to include('<h3>Press confirm to log out?</h3>')
-        expect(response.body).to include('<button type="submit">confirm</button>') 
-      end
     end
 
   end
 
+  context 'GET /logout' do
+    it "renders the logout page" do
+      response = get('/logout')
+      expect(response.body).to include('<h3>Press confirm to log out?</h3>')
+      expect(response.body).to include('<button type="submit">confirm</button>') 
+    end
+  end
+
+  context 'POST /logout' do
+    it "log off current user that is logged in" do
+      response = post('/logout')
+      expect(response.status).to eq(302)
+
+      response = get('/')
+      expect(response.body).to include('<h1>Welcome to Chitter!</h1>') 
+    end
+  end
   
 end
