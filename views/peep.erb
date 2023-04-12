@@ -4,6 +4,7 @@
     <% @peeps.each do |peep| %>
       <li class="peep">
         <p class="peep__content"><%= peep.content %></p>
+        <p class="peep__username">by <%= peep.username %></p>
         <p class="peep__time"><%= peep.created_at %></p>
       </li>
     <% end %>

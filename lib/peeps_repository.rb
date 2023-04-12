@@ -2,7 +2,11 @@ require_relative 'peeps'
 
 class PeepRepository
   def all
-    sql = 'SELECT * FROM peeps ORDER BY created_at DESC;'
+    sql = 'SELECT users.name, users.username, peeps.content, peeps.created_at, peeps.user_id
+    FROM users
+    JOIN peeps
+    ON peeps.user_id = users.id
+    ORDER BY peeps.created_at DESC;'
     result = DatabaseConnection.exec_params(sql, [])
 
     result.map do |peep|
@@ -10,13 +14,13 @@ class PeepRepository
         id: peep['id'].to_i,
         content: peep['content'],
         user_id: peep['user_id'].to_i,
-        created_at: peep['created_at']
+        created_at: peep['created_at'],
+        username: peep['username']
       )
 
       # Debug statement
       # puts "Peep created_at: #{new_peep.created_at.inspect}"
 
-      new_peep
     end
   end
 end

@@ -14,10 +14,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
-    users_repo = UserRepository.new
     peeps_repo = PeepRepository.new
     @peeps = peeps_repo.all
-    @users = users_repo.all
   
     # Debug statement
     # puts "@peeps: #{@peeps.inspect}"

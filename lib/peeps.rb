@@ -1,10 +1,11 @@
 class Peep
-  attr_accessor :id, :content, :user_id, :created_at
+  attr_accessor :id, :content, :created_at, :username, :user_id
 
-  def initialize(id:, content:, user_id:, created_at:)
+  def initialize(id:, content:, created_at:, username:, user_id:)
     @id = id
     @content = content
-    @user_id = user_id
     @created_at = created_at
+    @username = username
+    @user_id = user_id
   end
 end
