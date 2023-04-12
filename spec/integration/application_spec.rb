@@ -77,7 +77,7 @@ describe Application do
       response = get("/login")
 
       expect(response.status).to eq(200)
-      expect(response.body).to include "<h3>Log in to Chitter</h3>"
+      expect(response.body).to include "<h3>Sign in</h3>"
     end
   end
 
