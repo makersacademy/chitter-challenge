@@ -12,14 +12,37 @@ describe UserRepository do
     reset_tables
   end
 
-  it 'lists all users' do
-    repo = UserRepository.new
-    users = repo.all
+  describe '#all' do
+    it 'lists all users' do
+      repo = UserRepository.new
+      users = repo.all
 
-    expect(users.length).to eq(3)
-    expect(users.first.id).to eq(1)
-    expect(users.first.username).to eq('orangeman')
-    expect(users.first.email).to eq('donald@example.com')
-    expect(users.last.id).to eq(3)
+      expect(users.length).to eq(3)
+      expect(users.first.id).to eq(1)
+      expect(users.first.username).to eq('orangeman')
+      expect(users.first.email).to eq('donald@example.com')
+      expect(users.last.id).to eq(3)
+    end
+  end
+
+  describe '#create' do
+    it 'creates a new user' do
+      repo = UserRepository.new
+      user = repo.create(
+        username: 'test user',
+        name: 'test name',
+        password_hash: '123456',
+        email: 'test@example.com'
+      )
+
+      users = repo.all
+      expect(user.id).to eq(4)
+      expect(user.username).to eq('test user')
+      expect(user.name).to eq('test name')
+      expect(user.email).to eq('test@example.com')
+
+      
+      expect(BCrypt::Password.new(user.password_hash)).to eq('123456')
+    end
   end
 end

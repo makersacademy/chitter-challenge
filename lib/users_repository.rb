@@ -1,4 +1,5 @@
 require_relative 'users'
+require 'bcrypt'
 
 class UserRepository
   def all
@@ -14,5 +15,19 @@ class UserRepository
         email: user['email']
       )
     end
+  end
+
+  def create(username:, name:, password_hash:, email:)
+    password_hash = BCrypt::Password.create(password_hash)
+    sql = 'INSERT INTO users (username, name, password_hash, email) VALUES ($1, $2, $3, $4) RETURNING *;'
+    result = DatabaseConnection.exec_params(sql, [username, name, password_hash, email])
+
+    User.new(
+      id: result[0]['id'].to_i,
+      username: result[0]['username'],
+      name: result[0]['name'],
+      password_hash: result[0]['password_hash'],
+      email: result[0]['email']
+    )
   end
 end
