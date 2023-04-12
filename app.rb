@@ -19,11 +19,6 @@ class Application < Sinatra::Base
 
   get '/' do
     @title = "Chitter - Home"
-    if session[:username] == nil
-      @heading = "Welcome to Chitter!"
-    else
-      @heading = "Hello, #{session[:username]}!"
-    end
     return erb(:index)
   end
 
