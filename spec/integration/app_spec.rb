@@ -31,6 +31,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/peeps">')
       expect(response.body).to include('<input type="text" name="title" />')
+      expect(response.body).to include('<input type="text" name="content" />')
     end
   end
 
@@ -55,6 +56,17 @@ describe Application do
       # Assert the response status code and body.
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Your Peep has been posted! Title: Hello Again! Content: This is my second Peep!</h1>')
+    end
+  end
+
+  context "GET /signup/new" do
+    it 'should return thet html form to sign up' do
+      response = get ('/signup/new')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/signup">')
+      expect(response.body).to include('<input type="text" name="name" />')
+      expect(response.body).to include('<input type="text" name="email" />')
     end
   end
 end

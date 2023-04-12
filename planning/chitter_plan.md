@@ -80,7 +80,7 @@ HTML view with list of Peeps
 # Page: see individual Peep
 
 ## Request:
-GET /peep/:id
+GET /peeps/:id
 With path parameter :id
 
 ## Response (200 OK)

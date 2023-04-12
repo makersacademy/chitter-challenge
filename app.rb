@@ -21,6 +21,10 @@ class Application < Sinatra::Base
     @content = params[:content]
     return erb(:peep_created)
   end
+
+  get '/signup/new' do
+    return erb(:new_signup)
+  end
 end
 
   

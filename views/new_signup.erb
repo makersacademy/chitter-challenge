@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your New Peep</title>
+  <title>New Signup</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="icon" href="favicon.png">
 </head>
 <body>
-  <h1>Your Peep has been posted! Title: <%= @title %> Content: <%= @content %></h1>
+  <form method="POST" action="/signup">
+    <label>Your Name: </label>
+    <input type="text" name="name" /> 
+    <label>Your Email: </label>
+    <input type="text" name="email" /> 
+    <input type="submit" />
+  </form>
 </body>
 </html>

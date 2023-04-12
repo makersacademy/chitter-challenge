@@ -11,6 +11,7 @@ GEM
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
+    pg (1.4.6)
     rack (2.2.6.4)
     rack-protection (3.0.5)
       rack
@@ -76,6 +77,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg (~> 1.4)
   rack-test (~> 2.1)
   rspec
   rubocop (= 1.20)
