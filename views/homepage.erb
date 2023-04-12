@@ -34,10 +34,11 @@
     <hr/>
 
     <section>
-      <% @peeps.each do |record| %>
+      <% @list.each do |record| %>
         <div>
-        <%=record.time%>
-        <%=record.message%>
+        <p>posted on: <%=record[:time]%></p>
+        <p>by: <%=record[:username]%></p>
+        <p><%=record[:message]%></p>
         </div>
       <% end %>
     </section>

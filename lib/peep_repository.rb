@@ -18,6 +18,6 @@ class PeepRepository
     sql = 'INSERT INTO peeps (message, time) values ($1, $2)'
     result_set = DatabaseConnection.exec_params(sql, [peep.message, peep.time])
 
-    return peep
+    return ''
   end
 end

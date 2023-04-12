@@ -20,7 +20,8 @@ class Application < Sinatra::Base
 
   get '/' do
     repo = PeepRepository.new
-    @peeps = repo.all_reversed
+    peeps = repo.all_reversed
+    @list = peeps_with_username(peeps)
     return erb(:homepage)
   end
 
@@ -91,20 +92,34 @@ class Application < Sinatra::Base
 
   end
 
-helpers do
-  def user_exist?
-    user = UserRepository.new
-    return true if !user.email_unique?(params[:email]) || !user.username_unique?(params[:username])
-    return false
-  end
+  helpers do
+    def user_exist?
+      user = UserRepository.new
+      return true if !user.email_unique?(params[:email]) || !user.username_unique?(params[:username])
+      return false
+    end
 
-  def invalid_inputs?(name, email, username, password)
-    return true if name.nil?
-    return true unless email.match? "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-    return true unless username.match? "[A-Za-z0-9_.-]{3,20}"
-    return true unless password.match? "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-    return false
+    def invalid_inputs?(name, email, username, password)
+      return true if name.nil?
+      return true unless email.match? "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      return true unless username.match? "[A-Za-z0-9_.-]{3,20}"
+      return true unless password.match? "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      return false
+    end
+
+    def peeps_with_username(peeps)
+      list = peeps.map do |record|
+        repo = UserRepository.new
+        user_data = repo.find_by_id(record.user_id).username
+        {
+          message: record.message,
+          time: record.time,
+          username: user_data
+        }
+      end
+      return list
+    end
+    
   end
-end
   
 end
