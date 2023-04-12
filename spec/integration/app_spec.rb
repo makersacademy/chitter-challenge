@@ -43,5 +43,11 @@ describe Application do
       expect(response.body).to include '<label for="peep">What are you doing?</label>'
     end
   end
-  
+  describe 'POST /' do
+    it 'creates a new peep' do
+      post '/', { peep: 'This is a new peep' }, { 'rack.session' => { user_id: 1 } }
+      expect(last_response.status).to eq(302)
+      expect(PeepRepository.new.all.first.text).to eq('This is a new peep')
+    end
+  end
 end
