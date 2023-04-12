@@ -131,6 +131,14 @@ describe Application do
 
     end
 
+    context 'GET /logout' do
+      it "renders the logout page" do
+        response = get('/logout')
+        expect(response.body).to include('<h3>Press confirm to log out?</h3>')
+        expect(response.body).to include('<button type="submit">confirm</button>') 
+      end
+    end
+
   end
 
   

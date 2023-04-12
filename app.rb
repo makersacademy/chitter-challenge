@@ -70,7 +70,7 @@ class Application < Sinatra::Base
       return erb(:login, locals: { error_message: "password does not match" })
     end 
     session[:username] = user.username
-    return redirect('/')
+    redirect('/')
   end
 
   post '/post' do
@@ -85,8 +85,17 @@ class Application < Sinatra::Base
     new_peep.user_id = user.id
     peep_repo.create(new_peep)
 
-    return redirect('/')
+    redirect('/')
 
+  end
+
+  get '/logout' do
+    return erb(:logout)
+  end
+
+  post '/logout' do
+    session.clear
+    redirect('/')
   end
 
   helpers do
