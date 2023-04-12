@@ -1,5 +1,9 @@
-h1, h3 {
-  color: #464141;
+h1 {
+  color: #54b8f6;
+}
+
+h3 {
+  color: #464646;
 }
 
 nav {
@@ -12,13 +16,13 @@ nav a {
   display: block;
   padding: 15px 25px;
   text-align: center;
-  background-color: rgb(189, 185, 185);
+  background-color: lightskyblue;
   color: #464141;
   margin: 0;
   font-family: sans-serif;
 }
 nav a:hover {
-  background-color: #777777;
+  background-color: #54b8f6;
   color: #ffffff;
 }
 
