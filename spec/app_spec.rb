@@ -28,9 +28,35 @@ describe Application do
 
   context "GET /peeps/new" do
     it "displays the create new peep page" do
+       # creates a user with a hashed password
+       response = post("/signup", name: 'Elton John', email: 'elton@john.com', username: 'rocketman', password: 'yellowbrickroad')
+       expect(response.status).to eq 200
+       expect(response.body).to include 'Sign up successful!'
+       # logs that user in
+       response = post("/login", email: 'elton@john.com', password: 'yellowbrickroad')
+       expect(response.status).to eq 200
+       expect(response.body).to include '<h1>Log in successful!</h1>'
+       # goes to the new peep page
       response = get("/peeps/new")
       expect(response.status).to eq 200
       expect(response.body).to include '<h1>Create a new Peep</h1>'
+    end
+  end
+
+  context "POST /peeps" do
+    it "adds a new peep to the database" do
+      # creates a user with a hashed password
+      response = post("/signup", name: 'Elton John', email: 'elton@john.com', username: 'rocketman', password: 'yellowbrickroad')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'Sign up successful!'
+      # logs that user in
+      response = post("/login", email: 'elton@john.com', password: 'yellowbrickroad')
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Log in successful!</h1>'
+      # creates a peep with that user
+      response = post("/peeps", time: '2023-04-12 11:11:00', content: 'Making Peeps', user_id: '3')
+      expect(response.status).to eq 200
+      expect(response.body).to include 'New Peep created!' # add peep content to success page
     end
   end
 

@@ -10,7 +10,7 @@ No parameters
 Response (200 OK)
 index view with list of peeps, login status, link to log in/out, links to sign up and create peep
 
-[ ] Page: create new peep
+[x] Page: create new peep
 Request: GET /peeps/new
 No parameters
 Response (200 OK)

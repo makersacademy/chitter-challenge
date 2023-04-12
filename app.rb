@@ -33,10 +33,6 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/peeps/new' do
-    return erb(:new_peep)
-  end
-
   get '/login' do
     return erb(:login)
   end
@@ -51,9 +47,34 @@ class Application < Sinatra::Base
     stored_password = BCrypt::Password.new(user.password)
 
     if stored_password == password
+      session[:user_id] = user.id
       return erb(:login_success)
     else
       return erb(:wrong_password)
+    end
+  end
+
+  get '/peeps/new' do
+    if session[:user_id] == nil
+      return erb(:login)
+    else
+      return erb(:new_peep)
+    end
+  end
+
+  post '/peeps' do
+    if session[:user_id] == nil
+      return erb(:login)
+    else
+      peep_repo = PeepRepository.new
+      new_peep = Peep.new
+      new_peep.time = Time.now
+      new_peep.content = params[:content]
+      new_peep.user_id = session[:user_id]
+
+      peep_repo.create(new_peep)
+
+      return erb(:new_peep_success)
     end
   end
 
