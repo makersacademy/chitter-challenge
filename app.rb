@@ -50,9 +50,7 @@ class Application < Sinatra::Base
   end
 
   get '/signup' do
-    # check if user already logged in
-    redirect '/' if session[:username] != nil
-
+    logged_in?
     @title = "Chitter - Sign up to Chitter!"
     @message = ""
     return erb(:signup)
@@ -95,9 +93,7 @@ class Application < Sinatra::Base
   end
 
   get '/login' do
-    # check if user already logged in
-    redirect '/' if session[:username] != nil
-    
+    logged_in?
     @title = "Chitter - Log in to Chitter"
     @message = ""
     return erb(:login)
@@ -129,6 +125,11 @@ class Application < Sinatra::Base
   get '/logout' do
     session.destroy
     redirect "/"
+  end
+
+  def logged_in?
+    # check if the user is already logged in
+    redirect '/' if session[:username] != nil
   end
 
   def invalid_peep_request_parameters?
