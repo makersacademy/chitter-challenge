@@ -1,10 +1,27 @@
-<h3>Sign up to Chitter!</h3>
-<p><%= @message %></P>
-<form action="/signup" method="POST">
-  <div><label for="username">Username:</label><input type="text" id="username" name="username"></div>
-  <div><label for="name">Full Name:</label><input type="text" id="name" name="name"></div>
-  <div><label for="email">E-mail:</label><input type="email" id="email" name="email"></div>
-  <div><label for="password">Password:</label><input type="password" id="password" name="password"></div>
-  <div><label for="confirm_password">Confirm Password:</label><input type="password" id="confirm_password" name="confirm_password"></div>
-  <div><input type="submit" value="Sign up"></div>
-</form>
+<div class="form-container">
+  <h3>Sign up to Chitter!</h3>
+  <p><%= @message %></P>
+  <form action="/signup" method="POST">
+    <p>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+    </p>
+    <p>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name">
+    </p>
+    <p>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email">
+    </p>
+    <p>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+    </p>
+    <p>
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" id="confirm_password" name="confirm_password">
+    </p>
+    <input type="submit" value="Sign up" class="btn">
+  </form>
+</div>
