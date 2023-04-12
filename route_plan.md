@@ -16,7 +16,7 @@ No parameters
 Response (200 OK)
 new_peep view with form to create new peep
 
-[ ] Page: new peep created (peep_repo.create(new_peep))
+[x] Page: new peep created (peep_repo.create(new_peep))
 Request: POST /peeps
 Parameters: name, username, time, content
 Response (200 OK)
