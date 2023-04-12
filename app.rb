@@ -24,7 +24,13 @@ class Application < Sinatra::Base
     new_user.email = params['email']
     new_user.password = params['password']
     UserRepository.new.create(new_user)
-    redirect '/peeps'
+    redirect '/'
+  end
+
+  get '/' do
+    repo = PeepRepository.new
+    @peeps = repo.all
+    return erb(:peeps)
   end
 
 end

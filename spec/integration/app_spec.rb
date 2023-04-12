@@ -29,6 +29,13 @@ describe Application do
       expect(UserRepository.new.find_by_email('user1@gmail.com').username).to eq 'user1'
     end
   end
+  describe 'GET /peeps' do
+    it 'returns all peeps from most recent date' do
+      response = get('/')
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h1>Recent Peeps</h1>'
+    end
+  end
   
   
 end
