@@ -10,7 +10,13 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
- 
+  context 'GET /signup' do
+    it 'returns the signup page' do
+      response = get('/signup')
+      expect(response.status).to eq 200
+      expect(response.body).to include '<input type="username" id="username" name="username" required>'
+    end
+  end
   
   
 end
