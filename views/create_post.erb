@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Create a Post!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-      <div class="container-sm">
-        <p>Welcome, <%= @current_user.username %>!</p>
-        <p>What would you like to post?</p>
-      </div>
-      <form action='/create_post' method='POST'>
-        <textarea type='text' placeholder='your ramblings' name='content' maxlength=140 required cols=50 rows=10></textarea>
-        <br>
-        <input type='submit' value='post it!'>
-      </form>
-      <br>
-      <a href='/'>Take me back</a>
-  </body>
-</html>
+<div class="container-sm">
+  <p>What would you like to post?</p>
+</div>
+<form action='/create_post' method='POST'>
+  <textarea type='text' placeholder='your ramblings' name='content' maxlength=140 required cols=50 rows=10></textarea>
+  <br>
+  <input type='submit' value='post it!'>
+</form>
+<br>
+<a href='/'>Take me back</a>

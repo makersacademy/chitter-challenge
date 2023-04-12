@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Register</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-      <h1>Not a member? Good for you</h1>
-      <br>
-      <form action='/register' method='POST'>
-        <input type='text' placeholder='username' name='username' required>
-        <br>
-        <input type='text' placeholder='name and surname' name='real_name' required>
-        <br>
-        <input type='text' placeholder='e-mail address' name='email' required>
-        <br>
-        <input type='password' placeholder='password' name='password' minlength= 8 required>
-        <br>
-        <input type='submit' value='register'>
-      </form>
-      <a href='/'>Take me back</a>
-  </body>
-</html>
+<h1>Not a member? Good for you</h1>
+<br>
+<form action='/register' method='POST'>
+  <input type='text' placeholder='username' name='username' required>
+  <br>
+  <input type='text' placeholder='name and surname' name='real_name' required>
+  <br>
+  <input type='text' placeholder='e-mail address' name='email' required>
+  <br>
+  <input type='password' placeholder='password' name='password' minlength= 8 required>
+  <br>
+  <input type='submit' value='register'>
+</form>
+<a href='/'>Take me back</a>

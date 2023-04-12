@@ -24,7 +24,6 @@ class ChitterApplication < Sinatra::Base
 
   get '/' do
     @posts = Post.includes(:children, :user)
-             .joins(:user)
              .order(created_at: :desc)
              .order("children_posts.created_at": :asc)
              .all
