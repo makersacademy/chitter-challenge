@@ -90,4 +90,15 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  # post '/login' do
+  #   user = UserRepository.new
+  #   user.find_by_email(params[:email])
+
+  #   if user_exist? && params[:password] == user[:password]
+  #     return ''
+  #   end
+    
+  #   return erb(:login)
+  # end
+  
 end
