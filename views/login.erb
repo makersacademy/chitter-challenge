@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="login-box">
+    <h1>Log in to your account!</h1>
+    </div>
+    <% if @error %>
+        <div class="error">Login failed. Please try again.</div>
+    <% end %>
+
+    <form method="POST" action="/login">
+        <label>Enter your email address </label><input type="text" name="email_address" required><br>
+        <label>Enter your password </label><input type="text" name="password" minlength= 5 required><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
