@@ -49,8 +49,8 @@ describe Application do
     it "creates a new peep and returns 200 OK with success message" do
       response = post("/peeps", peep: "My new peep post", user_id: 1)
       expect(response.status).to eq 200
-      expect(response.body).to include "<h1>Your new peep was posted!</h1>"
-      expect(response.body).to include '<p><a href="/peeps">View the latest peeps</a></p>'
+      expect(response.body).to include "<h3>Your new peep was posted!</h3>"
+      expect(response.body).to include '<p><a href="/">View the latest peeps</a></p>'
     end
   end
 
