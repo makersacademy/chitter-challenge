@@ -18,17 +18,15 @@ describe Application do
     end
   end
   describe 'POST /signup' do
-    context 'when given valid user data' do
       it 'creates a new user' do
         response = post(
-          'post/signup',
+          '/signup',
           username: 'user1',
           email: 'user1@gmail.com',
           password: '12345678'
         )
-      expect(response.status).to eq(200)
-      expect(response.body).to change { UserRepository.new.count }.by(1)
-      end
+      expect(response.status).to eq(302) # 302 automatically redirects to another URL
+      expect(UserRepository.new.find_by_email('user1@gmail.com').username).to eq 'user1'
     end
   end
   

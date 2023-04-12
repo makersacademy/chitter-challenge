@@ -17,5 +17,15 @@ class Application < Sinatra::Base
   get '/signup' do
     return erb(:signup)
   end
+
+  post '/signup' do
+    new_user = User.new
+    new_user.username = params['username']
+    new_user.email = params['email']
+    new_user.password = params['password']
+    UserRepository.new.create(new_user)
+    redirect '/peeps'
+  end
+
 end
 
