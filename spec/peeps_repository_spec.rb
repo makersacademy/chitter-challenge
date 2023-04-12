@@ -29,7 +29,6 @@ describe PeepRepository do
     repo.create(content: 'New test peep', user_id: 1)
 
     peeps = repo.all
-    p peeps
     expect(peeps.length).to eq(7)
     expect(peeps.first.content).to eq('New test peep')
     expect(peeps.last.user_id).to eq(1)

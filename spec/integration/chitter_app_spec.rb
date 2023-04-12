@@ -17,9 +17,9 @@ describe ChitterApp do
     reset_tables
   end
 
-  describe "GET /peeps" do
+  describe "GET /" do
     it "displays a list of peeps in reverse chronological order" do
-      response = get "/peeps"
+      response = get "/"
       expect(response.status).to eq 200
   
       expected_peeps = [
@@ -38,14 +38,33 @@ describe ChitterApp do
     end
 
     it "displays the username of peeper" do
-      response = get "/peeps"
+      response = get "/"
       expect(response.status).to eq 200
     
       expected_username = "by ringofpower"
       actual_username = response.body.scan(/<p class="peep__username">(.+)<\/p>/).flatten.first
-      p actual_username
       expect(actual_username).to eq(expected_username)
     end
-  end  
+
+    it "displays the time of peep" do
+      response = get "/"
+      expect(response.status).to eq 200
+    
+      expected_time = "2022-04-10 11:00:00"
+      actual_time = response.body.scan(/<p class="peep__time">(.+)<\/p>/).flatten.first
+      expect(actual_time).to eq(expected_time)
+    end
+  end
+  
+  describe "GET /signup" do
+    it "displays a form to sign up" do
+      response = get "/signup"
+      expect(response.status).to eq 200
+      expect(response.body).to include("<h1>Sign Up</h1>")
+      expect(response.body).to include("Username")
+      expect(response.body).to include("Email")
+      expect(response.body).to include("Password")
+    end
+  end
 end
   

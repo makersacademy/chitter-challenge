@@ -13,7 +13,7 @@ class ChitterApp < Sinatra::Base
     also_reload 'lib/peeps_repository'
   end
 
-  get '/peeps' do
+  get '/' do
     peeps_repo = PeepRepository.new
     @peeps = peeps_repo.all
   
@@ -22,4 +22,8 @@ class ChitterApp < Sinatra::Base
   
     return erb(:peep)
   end  
+
+  get '/signup' do
+    return erb(:signup)
+  end
 end

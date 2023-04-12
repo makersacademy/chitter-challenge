@@ -1,16 +1,83 @@
-<main>
-  <h1>Peeps</h1>
-  <ul class="peeps">
-    <% @peeps.each do |peep| %>
-      <li class="peep">
-        <p class="peep__content"><%= peep.content %></p>
-        <p class="peep__username">by <%= peep.username %></p>
-        <p class="peep__time"><%= peep.created_at %></p>
-      </li>
-    <% end %>
-  </ul>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter</title>
+  <style>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
 
-<footer>
-  <p>Chitter &copy; 2023</p>
-</footer>
+    .header__logo {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .header__button {
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .peeps {
+      list-style: none;
+      padding: 0;
+    }
+
+    .peep {
+      margin-bottom: 16px;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .peep__content {
+      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .peep__username {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .peep__time {
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header__logo">
+      Chitter
+    </div>
+    <a href="/signup" class="header__button">Sign up</a>
+  </div>
+
+  <main>
+    <h1>Peeps</h1>
+    <ul class="peeps">
+      <% @peeps.each do |peep| %>
+        <li class="peep">
+          <p class="peep__content"><%= peep.content %></p>
+          <p class="peep__username">by <%= peep.username %></p>
+          <p class="peep__time"><%= peep.created_at %></p>
+        </li>
+      <% end %>
+    </ul>
+  </main>
+
+  <footer>
+    <p>Chitter &copy; 2023</p>
+  </footer>
+</body>
+</html>
