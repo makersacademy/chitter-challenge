@@ -9,6 +9,22 @@ class UserRepository
     return ''
   end
 
+  def find_by_email(email)  # returns a boolean
+    sql = 'SELECT * FROM users WHERE email = $1'
+    result = DatabaseConnection.exec_params(sql, [email])
+
+    user_result = result[0]
+    user = User.new
+    user.id = user_result["id"].to_i
+    user.name = user_result["name"]
+    user.email = user_result["email"]
+    user.username = user_result["username"]
+    user.password = user_result["password"]
+
+    return user
+
+  end
+
   def email_unique?(email)  # returns a boolean
     sql = 'SELECT * FROM users WHERE email = $1'
     result = DatabaseConnection.exec_params(sql, [email])

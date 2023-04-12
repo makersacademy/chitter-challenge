@@ -120,11 +120,12 @@ describe Application do
 
   end
 
-  xcontext 'POST /login' do
+  context 'POST /login' do
     it "should return to login page when email and password does not belong to an existing user" do
       response = post('/login',  email: 'doesnt_exist@email.com', password: 'doesn0tExist')
       
       expect(response.body).to include('<h2>Log In to post a Peep</h2>')
+      expect(response.body).to include('Invalid email or password')
     end
 
   end

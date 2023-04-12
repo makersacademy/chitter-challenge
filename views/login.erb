@@ -1,5 +1,9 @@
 <h2>Log In to post a Peep</h2>
 
+<% if error_message %>
+  <p><%= error_message %></p>
+<% end %>
+
 <form action="/login" method="POST">
   <label>Email Address:</label><br>
   <input type="email" name="email" placeholder="Email Address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">

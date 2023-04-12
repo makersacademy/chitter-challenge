@@ -17,20 +17,6 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
-  def user_exist?
-    user = UserRepository.new
-    return true if !user.email_unique?(params[:email]) || !user.username_unique?(params[:username])
-    return false
-  end
-
-  def invalid_inputs?(name, email, username, password)
-    return true if name.nil?
-    return true unless email.match? "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-    return true unless username.match? "[A-Za-z0-9_.-]{3,20}"
-    return true unless password.match? "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-    return false
-  end
-
   get '/' do
     repo = PeepRepository.new
     @peeps = repo.all_reversed
@@ -87,18 +73,36 @@ class Application < Sinatra::Base
   end
 
   get '/login' do
-    return erb(:login)
+    return erb(:login, locals: { error_message: '' })
   end
 
-  # post '/login' do
-  #   user = UserRepository.new
-  #   user.find_by_email(params[:email])
-
-  #   if user_exist? && params[:password] == user[:password]
-  #     return ''
-  #   end
+  post '/login' do
+    return erb(:login, locals: { error_message: "Invalid email or password" }) unless user_exist? 
     
-  #   return erb(:login)
-  # end
+    repo = UserRepository.new
+    user = repo.find_by_email(params[:email])
+
+
+    
+
+  end
+
+ 
+
+helpers do
+  def user_exist?
+    user = UserRepository.new
+    return true if !user.email_unique?(params[:email]) || !user.username_unique?(params[:username])
+    return false
+  end
+
+  def invalid_inputs?(name, email, username, password)
+    return true if name.nil?
+    return true unless email.match? "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    return true unless username.match? "[A-Za-z0-9_.-]{3,20}"
+    return true unless password.match? "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+    return false
+  end
+end
   
 end
