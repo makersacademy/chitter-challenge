@@ -17,7 +17,6 @@ describe UserRepository do
     it "returns the user" do
       user = repo.find_by_username('tcarmichael')
       expect(user).to be_truthy
-      expect(user.password).to eq "password123"
       expect(user.name).to eq "Tom Carmichael-Mhanna"
       expect(user.email).to eq "tomcarmichael@hotmail.co.uk"
     end
@@ -27,50 +26,79 @@ describe UserRepository do
     end
   end
 
-  let(:user) {
-    user = User.new
-    user.name = "John Smith"
-    user.username = "jsmith"
-    user.email = "john@smith.com"
-    user.password = "JS123"
-    return user
+  context "when searching by email" do
+    it "returns the user" do
+      user = repo.find_by_email('tomcarmichael@hotmail.co.uk')
+      expect(user).to be_truthy
+      expect(user.name).to eq "Tom Carmichael-Mhanna"
+      expect(user.username).to eq "tcarmichael"
+    end
+  end
+
+  let(:register_user) {
+    repo = UserRepository.new
+    username = "jsmith"
+    name = "John Smith"
+    email = "john@smith.com"
+    password = "JS123"
+    repo.register(username, name, email, password)
   }
 
   context "when creating a new user" do
-    it "adds the user to the DB and returns nil" do
-      expect(repo.create(user)).to be_nil
+    it "adds the user to the DB and indicates success" do
+      expect(register_user).to eq({success?: true})
       expect(repo.all.length).to eq 4
       expect(repo.all.last.name).to eq "John Smith"
       expect(repo.all.last.email).to eq "john@smith.com"
     end
-    xit "fails to add them given any missing info" do
-      #TODO? 
-    end
     it "stores their password using the BCrypt hashing algorithm" do
-      repo.create(user)
+      register_user
       added_user = repo.all.last
       stored_password = BCrypt::Password.new(added_user.password)
       expect(stored_password).to eq "JS123"
     end
+
+    context "if the username already exists" do
+      it "indicates failure reason & doesn't add the user to the DB" do
+        registration = UserRepository.new.register("tcarmichael", "name", "email@email.com", "password")
+        expect(registration).to eq({success?: false, failure_reason: "username is already taken"})
+        expect(repo.all.length).to eq 3
+        expect(repo.all.last.name).to eq "Winston Smith"
+      end
+    end
+
+    context "if the email already exists" do
+      it "indicates failure reason & doesn't add the user to the DB" do
+        registration = UserRepository.new.register("username", "name", "tomcarmichael@hotmail.co.uk", "password")
+        expect(registration).to eq({success?: false, failure_reason: "email is already taken"})
+        expect(repo.all.length).to eq 3
+        expect(repo.all.last.name).to eq "Winston Smith"
+      end
+    end
   end
 
-  context "when attempting to sign in" do
-    it "returns a hash indicating failure & reason if the username does not exist" do 
-      expect(repo.login('jazzy_jeff', 'fresh')).to eq({ success: false, reason: "invalid username "})
+  context "when attempting to sign in w incorrect username" do
+    it "indicates failure" do 
+      expect(repo.login('jazzy_jeff', 'fresh')).to eq({ success?: false, failure_reason: "invalid username"})
     end
-    it "returns a hash indicating success and the the username & ID if credentials are correct" do
-      repo.create(user)
-      login_attempt = repo.login('jsmith', "JS123")
-      expect(login_attempt).to eq({ success: true, username: "jsmith", user_id: 4 })
-    end
-    it "returns a hash indicating success and the the username & ID if credentials are correct" do
-      login_attempt = repo.login('wsmith', "bigbrother")
-      expect(login_attempt).to eq({ success: true, username: "wsmith", user_id: 3 })
-    end
+  end 
 
-    it "returns a hash inidcating failure and reason if password is not correct" do
-      repo.create(user)
-      expect(repo.login('jsmith', 'js123')).to eq({ success: false, reason: "incorrect password "}) 
+  context "when attempting to sign in w incorrect password" do
+    it "indicates failure" do
+      register_user
+      expect(repo.login('jsmith', 'js123')).to eq({ success?: false, failure_reason: "incorrect password"}) 
     end
-  end  
+  end
+
+  context "when attempting to sign in w correct credentials" do
+    it "indicates success & returns username and ID" do
+      register_user
+      login_attempt = repo.login('jsmith', "JS123")
+      expect(login_attempt).to eq({ success?: true, username: "jsmith", user_id: 4 })
+    end
+    it "succeeds for a different user account" do
+      login_attempt = repo.login('wsmith', "bigbrother")
+      expect(login_attempt).to eq({ success?: true, username: "wsmith", user_id: 3 })
+    end
+  end
 end

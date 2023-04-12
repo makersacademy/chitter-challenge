@@ -17,85 +17,74 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    @all_peeps = PeepRespository.new.all_by_rev_date_order_with_author
+    @all_peeps = PeepRespository.new.all_with_author
     return erb(:index)
   end
 
+  post '/peep' do
+    message = params[:message]
+    author_id = session[:user_id]
+    timestamp = Time.now.strftime "%Y-%m-%d %H:%M:%S"
+
+    PeepRespository.new.create(message, timestamp, author_id)
+
+    return redirect ('/')
+  end
+
   get '/login' do
-    if session[:user_id]
-      return redirect('/')
-    end
+    redirect_if_logged_in
 
     return erb(:login)
   end
 
   post '/login_attempt' do
     # TODO : Santise user input from this form
-    if session[:user_id]
-      return redirect('/')
-    end
+    redirect_if_logged_in
 
-    # Returns a User object if succesful
+    username = params[:username]
+    password = params[:password]
+
+    # Returns a hash
     login = UserRepository.new.login(params[:username], params[:password])
 
-    if login == nil
-      @failure_reason = "username"
-      status 401
-      return erb(:login_denied)
-    elsif login == false
-      @failure_reason = "password"
-      status 401
-      return erb(:login_denied)
-    else
-      session[:user_id] = login.id
-      session[:username] = login.username
-      # TODO: Do I need this boolean variable?
-      # session[:logged_in] = true
+    if login[:success?]
+      session[:user_id] = login[:user_id]
+      session[:username] = login[:username]
       return redirect('/')
+    else
+      @failure_reason = login[:failure_reason]
+      status 401
+      return erb(:login_denied)
     end
   end
-      
-
-    # user = UserRepository.new.find_by_username(username)
-    # if !user
-    #   @failure_reason = "username"
-    #   status 401
-    #   return erb(:login_denied)
-    # elsif password != user.password
-    #   status 401
-    #   @failure_reason = "password"
-    #   return erb(:login_denied)
-    # # Is this conditonal statement robust enough?
-    # elsif password == user.password
-    #   session[:user_id] = user.id
-    #   session[:username] = user.username
-    #   # TODO: Do I need this boolean variable?
-    #   # session[:logged_in] = true
-    #   return redirect('/')
-
 
   get '/register' do
     # TODO : Santise user input from this form
-    if session[:user_id]
-      return redirect('/')
-    end
+    redirect_if_logged_in
 
     return erb(:register)
   end
 
   post '/submit_register' do
 
-    # if UserRepository.new.find_by_username(params[:username])
-    #   return erb (:deny_register)
+    @username = params[:username]
+    name = params[:name]
+    email = params[:email]
+    password = params[:password]
 
-    new_user = User.new
-    new_user.name = params[:name]
-    new_user.username = params[:username]
-    new_user.email = params[:email]
-    new_user.password = params[:password]
+    registration = UserRepository.new.register(@username, name, email, password)
 
-    UserRepository.new.create(user)
+    if registration[:success?]
+      return erb(:registration_success)
+    else
+      @failure_reason = registration[:failure_reason]
+      return erb(:registration_failure)
+    end
+  end
 
-    return erb(:register)
+  def redirect_if_logged_in
+    if session[:user_id]
+      return redirect('/')
+    end
   end
 end

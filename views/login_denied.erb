@@ -3,11 +3,7 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <% if @failure_reason == "username" %>
-      <h3>Login failed: username not found</h3>
-    <% elsif @failure_reason == "password" %>
-      <h3>Login failed: incorrect password</h3>
-    <% end %>
+      <h3>Login failed: <%= @failure_reason %></h3>
     <p>
       <a href='/login'>Retry login</a>
     </p>
