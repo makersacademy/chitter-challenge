@@ -28,7 +28,7 @@ class PeepRespository
   end
 
   def create(message, timestamp, author_id)
-    sql = "INSERT INTO peeps (message, posted_at, user_id) VALUES ($1, $2, $3)"
+    sql = "INSERT INTO peeps (message, posted_at, user_id) VALUES ($1, $2, $3);"
     params = [message, timestamp, author_id]
 
     DatabaseConnection.exec_params(sql, params)

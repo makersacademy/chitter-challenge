@@ -3,7 +3,7 @@ require 'bcrypt'
 
 class UserRepository
   def all
-    sql = 'SELECT * FROM users'
+    sql = 'SELECT * FROM users;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     users = []

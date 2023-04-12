@@ -87,4 +87,14 @@ class Application < Sinatra::Base
       return redirect('/')
     end
   end
+
+  # TODO: Test drive the use of this
+  def sanitize_user_input(string)
+    string.gsub!(/\&/, '&amp;')
+    string.gsub!(/\</, '&lt;')
+    string.gsub!(/\>/, '&gt;')
+    string.gsub!(/\"/, '&quot;')
+    string.gsub!(/\'/, '&apos;')
+    return string
+  end
 end

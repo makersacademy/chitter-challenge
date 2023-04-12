@@ -18,6 +18,7 @@ describe Application do
 
   let(:app) { Application.new }
   let(:session_params) { { 'rack.session' => { username: "tcarmichael", user_id: 1 } } }
+  let(:freeze_time) { allow(Time).to receive(:now).and_return(Time.new(2099, 9, 1, 10, 5, 0)) }
 
   describe "homepage" do 
     it "displays all peeps in reverse chronological order" do
@@ -57,6 +58,11 @@ describe Application do
         expect(response.status).to eq(200)
         expect(response.body).to include('<a href="/login">Login</a>')
       end
+      it "displays a link to register" do
+        response = get('/')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<a href="/register">Register</a>')
+      end
       it "doesn't display the form to create a new peep" do
         response = get('/')
         expect(response.status).to eq (200)
@@ -67,16 +73,26 @@ describe Application do
   end
   ###########################
   describe "POST /peep" do
-      it "Redirects user to homepage and displays the new peep at the top" do
-        allow(Time).to receive(:now).and_return(Time.new(2099, 9, 1, 10, 5, 0))
-        form_params = { message: "Conspiracy uncovered! The sun is flat." }
-        response = post('/peep', form_params, session_params)
-        expect(response).to be_redirect
-        follow_redirect!
-        expect(last_request.path).to eq('/')
-        response = get('/')
-        expect(response.body).to match(/Author: @tcarmichael - Tom Carmichael-Mhanna[\s\S]*Conspiracy uncovered! The sun is flat.[\s\S]*n 2099-09-01 10:05:00[\s\S]*Big Brother/)
-      end   
+    it "Redirects user to homepage and displays the new peep at the top" do
+      # allow(Time).to receive(:now).and_return(Time.new(2099, 9, 1, 10, 5, 0))
+      freeze_time
+      form_params = { message: "Conspiracy uncovered! The sun is flat." }
+      response = post('/peep', form_params, session_params)
+      expect(response).to be_redirect
+      follow_redirect!
+      expect(last_request.path).to eq('/')
+      response = get('/')
+      expect(response.body).to match(/Author: @tcarmichael - Tom Carmichael-Mhanna[\s\S]*Conspiracy uncovered! The sun is flat.[\s\S]*n 2099-09-01 10:05:00[\s\S]*Big Brother/)
+    end
+    # TODO: How to write test for this?
+    xit "sanitizes user input against potentially malicious tags" do
+      freeze_time
+      js_rick_roll = '<script>document.location.href="https://www.youtube.com/watch?v=34Ig3X59_qA";</script>'
+      form_params = { message: js_rick_roll }
+      response = post('/peep', form_params, session_params)
+      expect(response).to be_redirect
+      follow_redirect!
+    end
   end 
   ########################
   describe "GET /login" do
