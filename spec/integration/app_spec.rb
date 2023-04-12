@@ -33,9 +33,15 @@ describe Application do
     it 'returns all peeps from most recent date' do
       response = get('/')
       expect(response.status).to eq 200
-      expect(response.body).to include '<h1>Recent Peeps</h1>'
+      expect(response.body).to include '<h3>Most Recent Peeps</h3>'
     end
   end
-  
+  describe 'GET /post_peep' do
+    it 'returns the post peep page' do
+      response = get('/post_peep')
+      expect(response.status).to eq 200
+      expect(response.body).to include '<label for="peep">What are you doing?</label>'
+    end
+  end
   
 end

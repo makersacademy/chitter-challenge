@@ -33,5 +33,8 @@ class Application < Sinatra::Base
     return erb(:peeps)
   end
 
+  get '/post_peep' do
+    return erb(:post_peep)
+  end
 end
 
