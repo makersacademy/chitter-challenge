@@ -36,17 +36,17 @@ nav a:hover {
   padding: 2px 10px;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  background-color: aliceblue;
+  background-color: #fff;
 }
 
 .peep-header {
   padding-bottom: 5px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid aliceblue;
 }
 
 .peep-footer {
   padding-top: 5px;
-  border-top: 1px solid #fff;
+  border-top: 1px solid aliceblue;
 }
 
 .peep-content {
