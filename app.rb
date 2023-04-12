@@ -8,7 +8,7 @@ require 'erb'
 
 DatabaseConnection.connect('chitter_database_test')
 
-enable :sessions
+
 
 class Application < Sinatra::Base 
   configure :development do
@@ -16,6 +16,7 @@ class Application < Sinatra::Base
     also_reload 'lib/peep_repository'
     also_reload 'lib/user_repository'
   end
+  enable :sessions
 
   get '/' do
     repo = PeepRepository.new
@@ -77,17 +78,18 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    return erb(:login, locals: { error_message: "Invalid email or password" }) unless user_exist? 
+    return erb(:login, locals: { error_message: "email address does not exist" }) unless user_exist? 
     
     repo = UserRepository.new
     user = repo.find_by_email(params[:email])
-
-
-    
+    if params[:password] == user.password
+      session[:username] = user.username
+      return redirect('/')
+    else
+      return erb(:login, locals: { error_message: "password does not match" })
+    end  
 
   end
-
- 
 
 helpers do
   def user_exist?

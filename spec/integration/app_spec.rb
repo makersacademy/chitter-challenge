@@ -20,27 +20,15 @@ describe Application do
   end
 
   context 'GET /' do
-    it "displays peeps in reverse chronological order in the homepage" do
+    it "displays peeps in the homepage" do
       response = get('/')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<section>')
       expect(response.body).to include('2023-04-10 15:12:00')
       expect(response.body).to include('new peep!')
       expect(response.body).to include('2023-04-09 19:10:00')
       expect(response.body).to include('peep 1')
       expect(response.body).to include('2023-04-09 19:05:00')
       expect(response.body).to include('peep peep 2')
-      expect(response.body).to include('</section>')
-      
-    end
-
-    it "gets the form to add a new peep" do
-      response = get('/')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<form method="POST" action="/post">')
-      expect(response.body).to include('<input type="text" name="message" placeholder="type a peep message" required>')
-      expect(response.body).to include('<button type="submit">')
     end
 
   end
@@ -115,17 +103,33 @@ describe Application do
     it "renders the login page" do
       response = get('/login')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h2>Log In to post a Peep</h2>')
+      expect(response.body).to include('<h2>Log in to post a Peep</h2>')
     end
 
   end
 
   context 'POST /login' do
-    it "should return to login page when email and password does not belong to an existing user" do
+    it "should return to login page when email does not belong to an existing user" do
       response = post('/login',  email: 'doesnt_exist@email.com', password: 'doesn0tExist')
       
-      expect(response.body).to include('<h2>Log In to post a Peep</h2>')
-      expect(response.body).to include('Invalid email or password')
+      expect(response.body).to include('<h2>Log in to post a Peep</h2>')
+      expect(response.body).to include('email address does not exist')
+    end
+
+    it "should return to login page when password does not match existing email" do
+      response = post('/login',  email: 'john_d@email.com', password: 'doesn0tExist')
+      
+      expect(response.body).to include('<h2>Log in to post a Peep</h2>')
+      expect(response.body).to include('password does not match')
+    end
+
+    it "logs in user when email and password are from the same existing user" do
+      response = post('/login', email: 'john_d@email.com', password: 'Pas5w0rd!')
+
+      response = get('/')
+      expect(response.body).to include('<h1>Chitter</h1>')
+      expect(response.body).to include('<h3>Hi j0ndoe,</h3>')
+      expect(response.body).to include('<label>Post a Peep:</label>')
     end
 
   end

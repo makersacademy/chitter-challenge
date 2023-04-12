@@ -3,20 +3,33 @@
     <title>Chitter Homepage</title>
   </head>
   <body>
-    <header>
-      <h1>Welcome to Chitter!</h1>
-      <a href="/login">Log In</a>
-      <a href="/signup">Sign Up</a>
-    </header>
     
-    <section>
-      <form method="POST" action="/post">
-        <label>Post a Peep:</label>
-        <input type="text" name="message" placeholder="type a peep message" required><br>
+      <% if session[:username] %>
+        <header>
+          <h1>Chitter</h1>
+          <a href="/logout">Log out</a>
+        </header>
 
-        <button type="submit">submit</button><br>
-      </form>
-    </section>
+        <h3>Hi <%=session[:username]%>,</h3>
+        <section>
+          <form method="POST" action="/post">
+            <label>Post a Peep here:</label>
+            <input type="text" name="message" placeholder="type a peep message" required><br>
+
+            <button type="submit">submit</button><br>
+          </form>
+        </section>
+
+      <% else %>
+        <header>
+          <h1>Welcome to Chitter!</h1>
+          <a href="/login">Log In</a>
+          <a href="/signup">Sign Up</a>
+        </header>
+
+      <% end %>  
+    
+    
 
     <hr/>
 
