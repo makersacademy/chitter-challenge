@@ -3,7 +3,7 @@ TRUNCATE TABLE users, peeps, tags RESTART IDENTITY;
 INSERT INTO "public"."users" ("name", "username", "email", "password") VALUES
 ('Tom Carmichael-Mhanna', 'tcarmichael', 'tomcarmichael@hotmail.co.uk', 'password123'),
 ('Sarwah Mhanna', 'smhanna', 'sarwah_mhanna@hotmail.com', 'password456'),
-('Winston Smith', 'wsmith', 'orwell.george@aol.com', 'bigbrother');
+('Winston Smith', 'wsmith', 'orwell.george@aol.com', '$2a$12$OAMZTYU7QDGVpgQIIYGdteqshFWf9LOuwWVw8RB.4NdX3yeHy.CPC');
 
 INSERT INTO "public"."peeps" ("message", "posted_at", "user_id") VALUES
 ('@wsmith & @smhanna - this is jam hot, this is jam hot', '2022-12-19 10:23:54', 1),

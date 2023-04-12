@@ -1,6 +1,7 @@
 require "spec_helper"
 require "rack/test"
 require_relative "../../app"
+require "user_repository"
 
 def reset_tables
   seed_sql = File.read('spec/seeds.sql')
@@ -108,7 +109,6 @@ describe Application do
             # Check that the session object has been updated with the user's ID
             expect(last_request.env['rack.session'][:user_id]).to eq 3
             expect(last_request.env['rack.session'][:username]).to eq 'wsmith'
-
           end
         end
         context "and provides incorrect username" do
@@ -128,6 +128,39 @@ describe Application do
             # Check that the session object has been updated with the user's ID
             expect(last_request.env['rack.session'][:user_id]).to be_nil
           end
+        end
+      end
+    end
+  end
+  describe "GET /register" do
+    context "when user is already logged in" do
+      it "redirects the user to the home page" do
+        response = get('/register', {}, { 'rack.session' => { username: "tcarmichael", user_id: 1 } } )
+        expect(response).to be_redirect
+        follow_redirect!
+        expect(last_request.path).to eq('/')
+      end
+    end
+    context "if the user is NOT already logged in" do
+      it "displays the login form" do
+        response = get('/register')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<form method="POST" action="/submit_register">')
+        expect(response.body).to include('<input type="text" name="username" />')
+        expect(response.body).to include('<input type="text" name="password" />')
+        expect(response.body).to include('<input type="text" name="name" />')
+        expect(response.body).to include('<input type="text" name="email" />')
+      end
+      context "and submits the form" do
+        it "registers them" do
+          response = post('/submit_register', { name: 'Dave Smith', username: 'prophet5', email: "sequential@circuits.com", password: 'polyphony'})
+          expect(response.status).to eq(200)
+          expect(response.body).to include('Congtratulations @prophet5, you successfully signed up for Chitter!')
+          expect(response.body).to include("<a href='/login'>Login here</a> to start Chittering")
+          user = UserRepository.new.find_by_username('prophet5')
+          expect(user).not_to be_nil
+          expect(user.name).to eq('Dave Smith')
+          expect(user.email).to eq('sequential@circuits.com')
         end
       end
     end

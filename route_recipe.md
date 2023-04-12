@@ -1,24 +1,23 @@
 # Page: Homepage 
 
-
-## Request
 ```
 GET /
 ```
-
 ## If user logged in
-### Response (200 OK)
+
+> Response (200 OK)
+> 
 > Form to create new peep (one single message field)
 > 
 >HTML view with all peeps in rev chronological order (w/ author names and handles)
 
 ## Else
-### Response (200 OK)
->HTML view with all peeps in rev chronological order (w/ author names and handles)
+> Response (200 OK)
+> 
+> HTML view with all peeps in rev chronological order (w/ author names and handles)
 
-## Request
+## After submitting form to create peep:
 
-### After submitting form to create peep:
 
 ```
 POST /peep
@@ -52,12 +51,14 @@ GET /register
 ```
 
 ## If user logged in
-### Response (302 redirect)
-redirect to GET /
+>
+> Response (302 redirect)
+> redirect to GET /
 
 ## Else
-### Response (200 OK)
-Display HTML form to register
+> Response (200 OK)
+>
+>Display HTML form to register
 
 ```
 POST/ submit_register

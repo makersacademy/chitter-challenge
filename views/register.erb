@@ -3,8 +3,12 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-  <h1>Login to Chitter</h1>
-    <form method="POST" action="/login_attempt">
+    <h1>Register for Chitter</h1>
+    <form method="POST" action="/submit_register">
+      <label for="username">Full name:</label>
+      <input type="text" name="name" />
+      <label for="username">Email:</label>
+      <input type="text" name="email" />
       <label for="username">Username:</label>
       <input type="text" name="username" />
       <label for="password">Password:</label>
