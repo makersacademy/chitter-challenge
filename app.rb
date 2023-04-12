@@ -8,37 +8,20 @@ require 'erb'
 
 DatabaseConnection.connect('chitter_database_test')
 
-
-
 class Application < Sinatra::Base 
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
     also_reload 'lib/user_repository'
+    enable :sessions
   end
-  enable :sessions
+  
 
   get '/' do
     repo = PeepRepository.new
     peeps = repo.all_reversed
     @list = peeps_with_username(peeps)
     return erb(:homepage)
-  end
-
-  post '/post' do
-    repo = PeepRepository.new
-    new_peep = Peep.new
-
-    user_input = params[:message]
-    escaped_input = ERB::Util.html_escape(user_input)
-    new_peep.message = escaped_input
-
-    new_peep.time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-
-    repo.create(new_peep)
-
-    return redirect('/')
-
   end
 
   get '/signup' do
@@ -83,12 +66,26 @@ class Application < Sinatra::Base
     
     repo = UserRepository.new
     user = repo.find_by_email(params[:email])
-    if params[:password] == user.password
-      session[:username] = user.username
-      return redirect('/')
-    else
+    unless params[:password] == user.password
       return erb(:login, locals: { error_message: "password does not match" })
-    end  
+    end 
+    session[:username] = user.username
+    return redirect('/')
+  end
+
+  post '/post' do
+    peep_repo = PeepRepository.new
+    new_peep = Peep.new
+    user_repo = UserRepository.new
+    user = user_repo.find_by_username(session[:username])
+
+    user_input = params[:message]
+    new_peep.message = ERB::Util.html_escape(user_input)
+    new_peep.time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    new_peep.user_id = user.id
+    peep_repo.create(new_peep)
+
+    return redirect('/')
 
   end
 

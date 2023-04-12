@@ -33,37 +33,6 @@ describe Application do
 
   end
 
-  context 'POST /post' do
-    xit "escapes any HTML tags in the input, and returns the sanitized input" do
-
-      response = post('/post', 
-        message: '<script>document.location.href="https://www.youtube.com/watch?v=34Ig3X59_qA";</script>')
-      expect(response.status).to eq(302)
-
-      
-      response = get('/')
-      expect(response.body).to include('&lt;script&gt;document.location.href=&quot;https://www.youtube.com/watch?v=34Ig3X59_qA&quot;;&lt;/script&gt;')
-    end
-
-    it "creates a peep with information about the time it was created" do
-      Timecop.freeze(Time.utc(2023, 4, 10, 22, 25, 0)) do
-    
-        post('/post', message: 'peep sounds funny')
-  
-        response = get('/')
-        expect(response.body).to include('2023-04-10 22:25:00')
-        expect(response.body).to include('peep sounds funny')
-      end
-
-    end
-
-    it "redirects to homepage" do
-      response = post('/post')
-      expect(response.status).to eq(302)
-    end
-
-  end
-
   context 'GET /signup' do
     it "renders the signup page" do
       response = get('/signup')
@@ -110,14 +79,14 @@ describe Application do
 
   context 'POST /login' do
     it "should return to login page when email does not belong to an existing user" do
-      response = post('/login',  email: 'doesnt_exist@email.com', password: 'doesn0tExist')
+      response = post('/login', email: 'doesnt_exist@email.com', password: 'doesn0tExist')
       
       expect(response.body).to include('<h2>Log in to post a Peep</h2>')
       expect(response.body).to include('email address does not exist')
     end
 
     it "should return to login page when password does not match existing email" do
-      response = post('/login',  email: 'john_d@email.com', password: 'doesn0tExist')
+      response = post('/login', email: 'john_d@email.com', password: 'doesn0tExist')
       
       expect(response.body).to include('<h2>Log in to post a Peep</h2>')
       expect(response.body).to include('password does not match')
@@ -128,12 +97,41 @@ describe Application do
 
       response = get('/')
       expect(response.body).to include('<h1>Chitter</h1>')
-      expect(response.body).to include('<h3>Hi j0ndoe,</h3>')
+      expect(response.body).to include('<h3>Hi <span>j0ndoe</span>,</h3>')
       expect(response.body).to include('<label>Post a Peep here:</label>')
     end
 
   end
 
+  context 'POST /post' do
+    it "escapes any HTML tags in the input, and returns the sanitized input" do
+      response = post('/login', email: 'john_d@email.com', password: 'Pas5w0rd!')
+      Timecop.freeze(Time.utc(2023, 4, 10, 22, 25, 0)) do
+    
+        response = post('/post', message: '<script>document.location.href="https://www.youtube.com/watch?v=34Ig3X59_qA";</script>', username: 'j0ndoe')
+        response = get('/')
+  
+        expect(response.body).to include('2023-04-10 22:25:00')
+        expect(response.body).to include('j0ndoe')
+        expect(response.body).to include('&lt;script&gt;document.location.href=&quot;https://www.youtube.com/watch?v=34Ig3X59_qA&quot;;&lt;/script&gt;')
+      end
+    end
+
+    it "creates a peep with information about the time it was posted and username of who posted it" do
+      response = post('/login', email: 'john_d@email.com', password: 'Pas5w0rd!')
+      Timecop.freeze(Time.utc(2023, 4, 10, 22, 25, 0)) do
+    
+        response = post('/post', message: 'peep sounds funny', username: 'j0ndoe')
+        response = get('/')
+  
+        expect(response.body).to include('2023-04-10 22:25:00')
+        expect(response.body).to include('j0ndoe')
+        expect(response.body).to include('peep sounds funny')
+      end
+
+    end
+
+  end
 
   
 end

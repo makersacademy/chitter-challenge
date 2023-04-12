@@ -10,15 +10,14 @@
           <a href="/logout">Log out</a>
         </header>
 
-        <h3>Hi <%=session[:username]%>,</h3>
-        <section>
-          <form method="POST" action="/post">
-            <label>Post a Peep here:</label>
-            <input type="text" name="message" placeholder="type a peep message" required><br>
+        <h3>Hi <span><%=session[:username]%></span>,</h3>
 
-            <button type="submit">submit</button><br>
-          </form>
-        </section>
+        <form method="POST" action="/post">
+          <label>Post a Peep here:</label>
+          <input type="text" name="message" placeholder="type a peep message" required><br>
+
+          <button type="submit">submit</button><br>
+        </form>
 
       <% else %>
         <header>

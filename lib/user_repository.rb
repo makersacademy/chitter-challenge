@@ -9,18 +9,19 @@ class UserRepository
     return ''
   end
 
-  def find_by_id(id)  # returns a boolean
+  def find_by_id(id) # returns a boolean
     sql = 'SELECT * FROM users WHERE id = $1'
     result = DatabaseConnection.exec_params(sql, [id])
 
-    user_result = result[0]
-    user = User.new
-    user.id = user_result["id"].to_i
-    user.name = user_result["name"]
-    user.email = user_result["email"]
-    user.username = user_result["username"]
+    assign_user_attributes(result)
 
-    return user
+  end
+
+  def find_by_username(username) # returns a boolean
+    sql = 'SELECT * FROM users WHERE username = $1'
+    result = DatabaseConnection.exec_params(sql, [username])
+
+    assign_user_attributes(result)
 
   end
 
@@ -28,15 +29,7 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE email = $1'
     result = DatabaseConnection.exec_params(sql, [email])
 
-    user_result = result[0]
-    user = User.new
-    user.id = user_result["id"].to_i
-    user.name = user_result["name"]
-    user.email = user_result["email"]
-    user.username = user_result["username"]
-    user.password = user_result["password"]
-
-    return user
+    assign_user_attributes(result)
 
   end
 
@@ -52,6 +45,18 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, [username])
 
     result.ntuples.zero?
+  end
+
+  def assign_user_attributes(result)
+    user_result = result[0]
+    user = User.new
+    user.id = user_result["id"].to_i
+    user.name = user_result["name"]
+    user.email = user_result["email"]
+    user.username = user_result["username"]
+    user.password = user_result["password"]
+
+    return user
   end
 
   
