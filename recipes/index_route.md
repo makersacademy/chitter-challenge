@@ -8,9 +8,9 @@ You'll need to include:
   * any query parameters (passed in the URL)
   * or body parameters (passed in the request body)
 
-  Gets the home page (index)  
+  Gets a list of peeps, ordered by most recent. 
   Method: GET  
-  Path: /  
+  Path: /
   Parameters: none
 
 ## 2. Design the Response
@@ -29,7 +29,7 @@ _Replace the below with your own design. Think of all the different possible res
 <html>
   <head></head>
   <body>
-    <h1>Welcome to Chitter</h1>
+    <h3>Latest peeps</h3>
   </body>
 </html>
 ```
@@ -60,11 +60,12 @@ describe Application do
   let(:app) { Application.new }
 
   context "GET /" do
-    it 'gets the home page (index)' do
-      response = get("/")
+    it 'returns a list of peeps' do
+      response = get("/peeps")
 
       expect(response.status).to eq(200)
-      expect(response.body).to include "<h1>Welcome to Chitter</h1>"
+      expect(response.body).to include "<h1>Chitter</h1>"
+      expect(response.body).to include "<h3>Latest peeps</h3>"
     end
   end
 end

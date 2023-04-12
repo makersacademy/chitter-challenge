@@ -28,20 +28,12 @@ describe Application do
   end
 
   context "GET /" do
-    it 'gets the home page (index)' do
+    it 'returns a list of peeps' do
       response = get("/")
 
       expect(response.status).to eq(200)
       expect(response.body).to include "<h1>Chitter</h1>"
-    end
-  end
-
-  context "GET /peeps" do
-    it 'gets a list of peeps, ordered by most recent' do
-      response = get("/peeps")
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include "<h1>Latest peeps</h1>"
+      expect(response.body).to include "<h3>Latest peeps</h3>"
     end
   end
 
@@ -67,7 +59,7 @@ describe Application do
       response = get("/signup")
 
       expect(response.status).to eq(200)
-      expect(response.body).to include "<h1>Sign up to Chitter!</h1>"
+      expect(response.body).to include "<h3>Sign up to Chitter!</h3>"
     end
   end
 
@@ -85,7 +77,7 @@ describe Application do
       response = get("/login")
 
       expect(response.status).to eq(200)
-      expect(response.body).to include "<h1>Log in to Chitter</h1>"
+      expect(response.body).to include "<h3>Log in to Chitter</h3>"
     end
   end
 

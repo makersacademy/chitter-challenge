@@ -1,0 +1,10 @@
+<h3>Latest peeps</h3>
+
+<% @peeps.each do |peep| %>
+    <div>
+    Username: @<%= peep.username %><br>
+    Name: <%= peep.name %><br>
+    Content: <%= peep.content %><br>
+    Created_at: <%= Date.parse(peep.created_at).strftime("%d/%m/%Y") %>
+    </div><br>
+<% end %>

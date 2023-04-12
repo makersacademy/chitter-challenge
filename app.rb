@@ -19,13 +19,8 @@ class Application < Sinatra::Base
 
   get '/' do
     @title = "Chitter - Home"
-    return erb(:index)
-  end
-
-  get '/peeps' do
-    @title = "Chitter - Latest peeps"
     @peeps = PeepRepository.new.all
-    return erb(:peeps)
+    return erb(:index)
   end
 
   get '/peeps/new' do
