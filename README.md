@@ -1,4 +1,4 @@
-Chitter Challenge
+Alex's Chitter Challenge
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own
