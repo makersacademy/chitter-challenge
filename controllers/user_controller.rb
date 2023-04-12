@@ -21,10 +21,6 @@ class UserController < Application
     ['<html>', '<script>'].any? { |inj| list.include?(inj) }
   end
 
-  get '/signup' do
-    erb(:"user/signup")
-  end
-
   post '/signup' do
     if user_form_invalid
       status 400
