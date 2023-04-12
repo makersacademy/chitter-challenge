@@ -2,8 +2,10 @@
   <head></head>
   <body>
     <header>
+      <h1>The Ugly Duckling Social Messaging App</h1>
+      <h3>Please feed me some CSS</h3>
       <% if session[:user_id] != nil %>
-        <h2>You are logged in as <%= @user_repo.find_username_by_id(session[:user_id]) %> <h2>
+        <h2>You are logged in as <%= @user_repo.find_username_by_id(session[:user_id]) %> Please Click <a href="/logout">HERE</a> to logout.<h2>
         <form action="/new" method="post">
           Write your Peep!: <input type="text" name="content">
           <input type="submit" value="Peep!">

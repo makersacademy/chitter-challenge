@@ -61,4 +61,9 @@ class UserController < Application
       return "Username not found or incorrect credentials"
     end
   end
+
+  get '/logout' do
+    session[:user_id] = nil
+    redirect '/'
+  end
 end
