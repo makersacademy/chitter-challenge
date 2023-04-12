@@ -14,7 +14,7 @@ class PeepRepository
       )
 
       # Debug statement
-      puts "Peep created_at: #{new_peep.created_at.inspect}"
+      # puts "Peep created_at: #{new_peep.created_at.inspect}"
 
       new_peep
     end
