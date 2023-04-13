@@ -1,15 +1,24 @@
-<h2>Log in to post a Peep</h2>
+<link rel="stylesheet" href="/style.css"/>
+<div class="flexbox">
 
-<% if error_message %>
-  <p><%= error_message %></p>
-<% end %>
+  <section class="flex-item flex-1">
+    <h2>Log in to post a Peep</h2>
+  </section>
 
-<form action="/login" method="POST">
-  <label>Email Address:</label>
-  <input type="email" name="email" placeholder="Email Address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
+  <section class="flex-item flex-2">
+    <% if error_message %>
+      <p><%= error_message %></p>
+    <% end %>
 
-  <label>Password:</label>
-  <input type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter."><br>
+    <form action="/login" method="POST">
+      <label>Email Address:</label>
+      <input type="email" name="email" placeholder="Email Address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
 
-  <button type="submit">Log In</button>
-</form>
+      <label>Password:</label>
+      <input type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter."><br>
+
+      <button type="submit">Log In</button>
+    </form>
+  </section>
+
+</div>

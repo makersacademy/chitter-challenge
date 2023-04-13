@@ -6,47 +6,68 @@
     <title>Chitter Homepage</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../resources/style.css">
+    <link rel="stylesheet" href="/style.css"/>
   </head>
+
   <body>
-    
+    <div class="flexbox">
+
       <% if session[:username] %>
-        <header>
-          <h1>Chitter</h1>
-          <a href="/logout">Log out</a>
+
+        <header class="flex-item flex-1">
+          <div class="navbar">
+            <div class="nav-item nav-1">
+              <img src="/chitter-logo.png" alt="chitter logo">
+            </div>
+
+            <div class="nav-item nav-2">
+              <a href="/logout">Log out</a>
+            </div>
+          </div>
         </header>
 
-        <h3>Hi <span><%=session[:username]%></span>,</h3>
+        <section class="flex-item flex-3">
+          <h3>Hi <span><%=session[:username]%></span>,</h3>
 
-        <form method="POST" action="/post">
-          <label>Post a Peep here:</label>
-          <input type="text" name="message" placeholder="type a peep message" required><br>
+          <form method="POST" action="/post">
+            <label>Post a Peep here:</label>
+            <input type="text" name="message" placeholder="type a peep message" required><br>
 
-          <button type="submit">submit</button><br>
-        </form>
+            <button type="submit">submit</button><br>
+          </form>
+        </section>
 
       <% else %>
-        <header>
-          <h1>Welcome to Chitter!</h1>
-          <a href="/login">Log In</a>
-          <a href="/signup">Sign Up</a>
+
+        <header class="flex-item flex-1">
+          <div class="navbar">
+            <div class="nav-item nav-1">
+              <img src="/chitter-logo.png" alt="chitter logo">
+            </div>
+
+            <div class="nav-item nav-2">
+              <a href="/login">Log In</a>
+              <a href="/signup">Sign Up</a>
+            </div>
+          </div>
         </header>
 
       <% end %>  
     
     
+        <section class="flex-item flex-2">
+          <h1>Welcome to Chitter!</h1>
+          <hr/>
+      
+          <% @list.each do |record| %>
+            <article>
+            <p>posted on: <%=record[:time]%></p>
+            <span>by: <%=record[:username]%></span>
+            <p><%=record[:message]%></p>
+            </article>
+          <% end %>
+        </section>
 
-    <hr/>
-
-    <section>
-      <% @list.each do |record| %>
-        <div>
-        <p>posted on: <%=record[:time]%></p>
-        <p>by: <%=record[:username]%></p>
-        <p><%=record[:message]%></p>
-        </div>
-      <% end %>
-    </section>
-
+    </div>
   </body>
 </html>

@@ -96,7 +96,6 @@ describe Application do
       response = post('/login', email: 'john_d@email.com', password: 'Pas5w0rd!')
 
       response = get('/')
-      expect(response.body).to include('<h1>Chitter</h1>')
       expect(response.body).to include('<h3>Hi <span>j0ndoe</span>,</h3>')
       expect(response.body).to include('<label>Post a Peep here:</label>')
     end

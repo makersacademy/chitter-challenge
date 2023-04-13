@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background: #62a4cc;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-around;
+}
+
+.flex-item {
+  background: #f9fbfd;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid #448cc4;
+}
+
+/* header */
+
+header.flex-item {
+  display: flex;
+  align-items: center;
+}
+
+header.flex-item img {
+  margin-left: 1rem;
+  width: 100px; /* set initial width */
+  height: auto ; /* let the height adjust automatically */
+  max-width: 100%; /* ensure the logo scales down proportionally */
+}
+
+.navbar {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item.nav-1 img {
+  height: 30px;
+}
+
+.nav-item a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .nav-item a {
+    font-size: 14px;
+    padding: 5px;
+    margin-left: 5px;
+  }
+}       /* can adjust the margin-left property of .nav-item a in the @media query 
+        to make sure the links remain spaced out on smaller screens as well. */
+
+/* flex-items */
+
+.flex-1{
+  flex-grow: 1;
+}
+
+.flex-2{
+  flex-grow: 4;
+}
+
+.flex-3{
+  flex-grow: 2;
+}
+
+
