@@ -17,8 +17,6 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
     also_reload 'lib/user_repository'
     also_reload 'lib/peep_repository'
-    set :message, "Log in to create new peeps."
-    set :validation_error, ""
   end
 
   get '/' do
@@ -87,7 +85,6 @@ class Application < Sinatra::Base
 
   get '/logout' do
     session.clear
-    settings.message = "Log in to create new peeps."
     return redirect('/')
   end
 
