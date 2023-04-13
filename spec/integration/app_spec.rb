@@ -17,14 +17,32 @@ describe Application do
     it "returns 200 OK and a list of peeps" do
       response = get('/')
       expect(response.status).to eq 200
-      expect(response.body).to include()
+      expect(response.body).to include('My first peep')
     end
   end
 
-  context "get '/new route" do
+  context "get '/new-peep route" do
     it "returns 200 OK and the form for a new peep" do
-      response = get('/new')
+      response = get('/new-peep')
       expect(response.status).to eq 200
+      expect(response.body).to include '<form action="/new-peep" method="POST">'
+    end
+  end
+
+  context "post /new-peep route" do
+    it "returns 200 OK and a success page" do
+    response = post('/new-peep', content: 'This is my third post meow')
+    expect(response.status).to eq 200
+    expect(response.body).to include('<p>Your peep was successfully posted</p>')
+    # Need to add user_id and created_date_time
+    end
+  end
+ 
+  context "get /new-user route" do
+    it "returns 200 OK and the register form for a new user" do
+      response = get('/new-user')
+      expect(response.status).to eq 200
+      expect(response.body).to include('<legend>Register as a new user</legend>')
     end
   end
 end

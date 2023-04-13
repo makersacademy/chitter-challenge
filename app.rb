@@ -21,7 +21,18 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/new' do
+  get '/new-peep' do
+    return erb(:new_peep)
   end
 
+  post '/new-peep' do
+    #params[:content]
+    peep = Peep.create(content: params[:content])
+    return erb(:peeped)
+    # Need to add user id of person logged in and the created_date_time
+  end
+
+  get '/new-user' do
+    return erb(:new_user)
+  end
 end
