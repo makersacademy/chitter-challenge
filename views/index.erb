@@ -1,0 +1,9 @@
+<h3>Latest peeps</h3>
+
+<% @peeps.each do |peep| %>
+    <div class="peep">
+    <p class="peep-header"><%= peep.name %> - (@<%= peep.username %>)</p>
+    <p class="peep-content"><%= peep.content %></p>
+    <p class="peep-footer">Posted on <%= Date.parse(peep.created_at).strftime("%d/%m/%Y") %></p>
+    </div>
+<% end %>

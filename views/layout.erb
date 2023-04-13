@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @title %></title>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<h1>Chitter</h1>
+<p><% if session[:username]%> Hello, @<%= session[:username] %>.<% end %></p>
+
+<nav>
+  <a href="/" class="<%= "current-page" if current_page?("") %>">Home</a>
+  <% if session[:username]%>
+    <a href="/peeps/new" class="<%= "current-page" if current_page?("peeps/new") %>">Create new peep</a>
+    <a href="/logout">Log out</a>
+  <% end %>
+
+  <% if !session[:username]%>
+    <a href="/signup" class="<%= "current-page" if current_page?("signup") %>">Sign up</a>
+    <a href="/login" class="<%= "current-page" if current_page?("login") %>">Log in</a>
+  <% end %>
+</nav>
+
+  <%= yield %>
+</body>
+</html>
