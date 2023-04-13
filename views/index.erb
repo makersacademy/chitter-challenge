@@ -14,9 +14,12 @@
 
       <div class="posting_form">
         <h2>Hi, @{username}!</h2>
-        <form action="/post_peep" method="POST">
-          <label for="peep"><h4>Peep something!</h4></label>
-          <textarea name="content" placeholder="Compose new peep..." rows="10" style="resize: none; width:100%;"></textarea><br>
+        <form method="POST" action="/">
+          <label><h4>Peep something!</h4></label>
+          <label><h5>Username:</h6></label>
+          <input type="text" name="username" />
+          <label><h5>Peep:</h6></label>
+          <input type="text" name="peep" />
           <input type="submit" value="Peep this!">
         </form>
       </div>
