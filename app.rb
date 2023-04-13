@@ -17,6 +17,10 @@ class Application < Sinatra::Base
     also_reload 'lib/user.rb'
   end
 
+  def initialize
+    @logged_in_user_id
+  end
+
   get '/' do
     @peeps = Peep.all
     return erb(:index)
@@ -56,6 +60,7 @@ class Application < Sinatra::Base
     if user == nil
       return 'Incorrect email/password'
     else
+      p @logged_in_user_id = user.id
       return redirect('/')
     end
   end
