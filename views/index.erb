@@ -19,23 +19,23 @@
     </div>
         
     <% if session[:user_id] %>
-      <form method="POST" action="/peep" class="peep">
-        <label for="message">Compose new peep...</label><br>
-        <input type="text" name="message" />
-        <input type="submit" />
-      </form>
+      <div class="peep_form">
+        <form method="POST" action="/peep">
+          <label for="message">Compose new peep...</label><br>
+          <input type="text" name="message" />
+          <input type="submit" />
+        </form>
+      </div>
     <% end %>
 
     <table>
       <% @all_peeps.each do |peep| %>
-        <tr>
-          <td>Author: @<%= peep.user.username%> - <%= peep.user.name%></td>
-        </tr>
-        <tr>
-          <td><%= peep.message %></td>
-        </tr>
-        <tr>
-          <td>On <%= peep.posted_at %></td>
+        <tr class="peep">
+          <td>
+            <p class="author">@<%= peep.user.username%> (<%= peep.user.name%>) wrote:</p>
+            <p class="message"><%= peep.message %></p>
+            <p class="timestamp">Posted: <%= peep.posted_at %></p>
+          </td>
         </tr>
       <% end %>
     </table>

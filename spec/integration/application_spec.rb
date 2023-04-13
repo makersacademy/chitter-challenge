@@ -28,12 +28,12 @@ describe Application do
     end
     it "displays the peep author's name and username" do
       response = get('/')
-      expect(response.body).to include("Author: @tcarmichael - Tom Carmichael-Mhanna")
-      expect(response.body).to include("Author: @smhanna - Sarwah Mhanna")
+      expect(response.body).to include("@tcarmichael (Tom Carmichael-Mhanna) wrote:")
+      expect(response.body).to include("@smhanna (Sarwah Mhanna) wrote:")
     end
     it "displays the peep's timestamp" do
       response = get('/')
-      expect(response.body).to match(/On 2022-12-19 10:23:54[\s\S]*On 1984-06-15 14:33:00/)
+      expect(response.body).to match(/Posted: 2022-12-19 10:23:54[\s\S]*Posted: 1984-06-15 14:33:00/)
     end
 
     context "when the user is logged in" do
@@ -42,7 +42,7 @@ describe Application do
         response = get('/', {}, session_params)
         expect(response.status).to eq(200)
         expect(response.body).to include('<form method="POST" action="/peep">')
-        expect(response.body).to include('<label for="message">Peep away...!</label>')
+        expect(response.body).to include('<label for="message">Compose new peep...</label>')
         expect(response.body).to include('<input type="text" name="message" />')
       end
       it "doesn't display a link to login" do
@@ -53,8 +53,8 @@ describe Application do
       it "displays a link to logout" do
         response = get('/', {}, session_params)
         expect(response.status).to eq(200)
-        expect(response.body).to include('<form method="post" action="/logout">')
-        expect(response.body).to include('<button type="submit" name="logout">Logout</button>')
+        expect(response.body).to include('<form method="post" action="/logout" class="inline"')
+        expect(response.body).to include('<button type="submit" name="logout" class="link-button">Logout</button>')
       end
     end
 
@@ -87,7 +87,7 @@ describe Application do
       follow_redirect!
       expect(last_request.path).to eq('/')
       response = get('/')
-      expect(response.body).to match(/Author: @tcarmichael - Tom Carmichael-Mhanna[\s\S]*Conspiracy uncovered! The sun is flat.[\s\S]*n 2099-09-01 10:05:00[\s\S]*Big Brother/)
+      expect(response.body).to match(/@tcarmichael \(Tom Carmichael-Mhanna\) wrote:[\s\S]*Conspiracy uncovered! The sun is flat.[\s\S]*2099-09-01 10:05:00[\s\S]*Big Brother/)
     end
     it "sanitizes user input against potentially malicious tags" do
       js_rick_roll = '<script>document.location.href="https://www.youtube.com/watch?v=34Ig3X59_qA";</script>'
@@ -143,7 +143,7 @@ describe Application do
         expect(response.body).to include('<label for="username">Username:</label>')
         expect(response.body).to include('<input type="text" name="username" />')
         expect(response.body).to include('<label for="password">Password:</label>')
-        expect(response.body).to include('<input type="text" name="password" />')
+        expect(response.body).to include('<input type="password" name="password" />')
       end
     end
   end
@@ -206,7 +206,7 @@ describe Application do
         expect(response.status).to eq(200)
         expect(response.body).to include('<form method="POST" action="/submit_register">')
         expect(response.body).to include('<input type="text" name="username" />')
-        expect(response.body).to include('<input type="text" name="password" />')
+        expect(response.body).to include('<input type="password" name="password" />')
         expect(response.body).to include('<input type="text" name="name" />')
         expect(response.body).to include('<input type="text" name="email" />')
       end

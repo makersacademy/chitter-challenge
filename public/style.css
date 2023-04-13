@@ -1,17 +1,51 @@
+
+
+
 body {
   font-size: 18x;
-  font-family: "Futura", Helvetica, Arial, sans-serif
+  font-family: "Futura", Helvetica, Arial, sans-serif;
+  background-color: #f7f7f7;
 }
 
-li {
+/* Style the navigation menu */
+.nav_menu_links {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.nav_menu_links li {
+  margin-left: 1rem;
   display: inline;
 }
-table {
-  margin-left: auto;
-  margin-right: auto;
+
+.nav_menu_links li a {
+  text-decoration: none;
+  color: #1da1f2;
+  font-weight: bold;
 }
 
-.peep {
+.nav_menu_links li a:hover {
+  text-decoration: underline;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #1da1f2;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+/* Stle the peeps tabls */
+
+table {
   margin-left: auto;
   margin-right: auto;
 }
@@ -20,22 +54,60 @@ td {
   text-align: center;
 }
 
-.inline {
-  display: inline;
+/* Style the peep form */
+
+.peep_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.link-button {
-  background: none;
+.peep_form label {
+  font-weight: bold;
+  margin-right: 1rem;
+
+}
+
+.peep_form input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  margin-top: 1rem;
+  padding: 12px 20px;
+}
+
+.peep_form input[type="submit"] {
+  background-color: #1da1f2;
+  color: white;
   border: none;
-  color: blue;
-  text-decoration: underline;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-size: 1em;
-  font-family: serif;
 }
-.link-button:focus {
-  outline: none;
+
+.peep_form input[type="submit"]:hover {
+  background-color: #0c86d1;
 }
-.link-button:active {
-  color:red;
+
+/* Style the different parts of each peep */
+
+.peep {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.author {
+  color: hwb(0 54% 46%);
+}
+
+.message {
+}
+
+.timestamp {
+  color: hwb(0 54% 46%);
 }
