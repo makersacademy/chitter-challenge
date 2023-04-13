@@ -41,7 +41,7 @@ class Application < Sinatra::Base
     peep.user_id = session[:user_id]
 
     repo.create(peep)
-    return erb(:peep_created)
+    redirect '/'
   end
 
   get '/signup' do
