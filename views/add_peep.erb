@@ -36,7 +36,7 @@
 
       <div>
         <% unless session[:error].nil? %>
-          <h3><%= session[:error] %></h3>
+          <h3 class="error"><%= session[:error] %></h3>
           <% session[:error] = nil %>
         <% end %> 
       </div>
