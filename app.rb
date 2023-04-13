@@ -35,8 +35,8 @@ class Application < Sinatra::Base
 
   post '/peeps' do
     @body, @tags, @user_id = params[:body], params[:tags],params[:user_id]
-    script_check([@body, @tags, @user_id], '/peeps/new')
-    validate_string(@body, "peep")
+    script_check([@body, @tags, @user_id], '/peeps')
+    validate_string(@body, "peep", '/peeps')
     repo = PeepRepository.new
     new_peep = Peep.new
     new_peep.body = @body
@@ -53,9 +53,9 @@ class Application < Sinatra::Base
   
   post '/register' do
     @name, @username, @email, @password = params[:name], params[:username], params[:email], params[:password]
-    script_check([@name, @username, @email, @password], '/register/new')
-    validate_string(@name, "name")
-    validate_string(@username, "username")
+    script_check([@name, @username, @email, @password], '/register')
+    validate_string(@name, "name", '/register')
+    validate_string(@username, "username", '/register')
     validate_email(@email)
     username_email_unique(@username, @email)
     validate_password(@password)
@@ -92,43 +92,43 @@ class Application < Sinatra::Base
   end
 
   helpers do
-    def validate_string(name, field)
+    def validate_string(name, field, redirect_path)
       unless name.match?(/[a-zA-Z]/)
-        settings.validation_error = "Invalid #{field}: must contain one or more letters.\n"
-        return redirect('register/new')
+        session[:error] = "Invalid #{field}: must contain one or more letters.\n"
+        return redirect(redirect_path)
       end
     end
 
     def validate_email(email)
       unless email =~ URI::MailTo::EMAIL_REGEXP
-        settings.validation_error = "Invalid email: please enter a valid email to register.\n"
-        return redirect('register/new')
+        session[:error] = "Invalid email: please enter a valid email to register.\n"
+        return redirect('register')
       end
     end
 
     def validate_password(password)
       unless password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/)
-        settings.validation_error = "Invalid password: minimum eight characters and contain at least one lowercase letter, uppercase letter and digit.\n"
-        return redirect('register/new')
+        session[:error] = "Invalid password: minimum eight characters and contain at least one lowercase letter, uppercase letter and digit.\n"
+        return redirect('register')
       end
     end
 
     def username_email_unique(username, email)
       if UserRepository.new.all_usernames.include?(username)
-        settings.validation_error = "That username is already taken.\n"
-        return redirect('register/new')
+        session[:error] = "That username is already taken.\n"
+        return redirect('register')
       end
       if UserRepository.new.all_emails.include?(email)
-        settings.validation_error = "That email is already registered to a user.\n"
-        return redirect('register/new')
+        session[:error] = "That email is already registered to a user.\n"
+        return redirect('register')
       end
     end
 
     def email_exists(email)
       emails = UserRepository.new.all_emails
       unless emails.include?(email)
-        settings.validation_error = "Email and password do not match any registered user.\n"
-        return redirect('login/form')
+        session[:error] = "Email and password do not match any registered user.\n"
+        return redirect('login')
       end
     end
 
@@ -136,8 +136,8 @@ class Application < Sinatra::Base
       stored_password = BCrypt::Password.new(user.password)
       unless stored_password == entered_password # i.e. UNLESS <stored-password-hash> == <entered-password>
         session[:user_id] = nil
-        settings.validation_error = "Email and password do not match any registered user.\n"
-        return redirect('/login/form')
+        session[:error] = "Email and password do not match any registered user.\n"
+        return redirect('/login')
       end
       login_user(user)
     end
@@ -150,7 +150,7 @@ class Application < Sinatra::Base
     def script_check(inputs_array, redirect_path)
       if inputs_array.join.match?(/[<>\/]/)
         session[:user_id] = nil
-        settings.validation_error = "'<', '>' and '/' are not permitted characters.\n"
+        session[:error] = "'<', '>' and '/' are not permitted characters.\n"
         return redirect(redirect_path)
       end
     end

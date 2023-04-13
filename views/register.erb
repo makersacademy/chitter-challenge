@@ -35,9 +35,9 @@
     <h1>Register a new Chitter account</h1><br>
 
     <div>
-      <% if settings.validation_error.length > 0 %>
-        <h3><%= settings.validation_error %></h3>
-        <% settings.validation_error = "" %>
+      <% unless session[:error].nil? %>
+        <h3><%= session[:error] %></h3>
+        <% session[:error] = nil %>
       <% end %> 
     </div>
 
