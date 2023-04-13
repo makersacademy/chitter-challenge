@@ -45,7 +45,7 @@ class ChitterApp < Sinatra::Base
   
     UserRepository.new.create(username: username, name: name, email: email, password_hash: password_hash)
   
-    redirect '/'
+    redirect '/login'
   end  
 
   get '/login' do
@@ -81,5 +81,10 @@ class ChitterApp < Sinatra::Base
     peeps_repo = PeepRepository.new
     @peeps = peeps_repo.all
     return erb(:loggedin)
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 end

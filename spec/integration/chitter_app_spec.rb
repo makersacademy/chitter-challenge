@@ -100,4 +100,17 @@ describe ChitterApp do
       expect(last_response.body).to include("Orangeman")
     end
   end
+
+  describe "GET /logout" do
+    it "logs out a user" do
+      response = post "/login", { email: "donald@example.com", password: "abc123" }
+
+      expect(response.status).to eq 302
+      follow_redirect!
+
+      response = get "/"
+      expect(response.status).to eq 200
+      expect(last_response.body).to include(">Sign up</a>")
+    end
+  end
 end

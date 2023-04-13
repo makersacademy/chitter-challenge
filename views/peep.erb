@@ -17,6 +17,11 @@
       font-weight: bold;
     }
 
+    .header__buttons {
+      display: flex;
+      align-items: center;
+    }
+
     .header__button {
       font-size: 16px;
       background-color: #007bff;
@@ -24,6 +29,7 @@
       padding: 8px 16px;
       border: none;
       border-radius: 4px;
+      margin-left: 16px;
     }
 
     .peeps {
@@ -60,7 +66,10 @@
     <div class="header__logo">
       Chitter
     </div>
-    <a href="/signup" class="header__button">Sign up</a>
+    <div class="header__buttons">
+      <a href="/signup" class="header__button">Sign up</a>
+      <a href="/login" class="header__button">Log in</a>
+    </div>
   </div>
 
   <main>
