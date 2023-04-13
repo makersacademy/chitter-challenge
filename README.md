@@ -6,6 +6,13 @@ Alex's Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 10am Monday morning
 
+Contributors
+------------
+Alex Addison
+Alice
+Bob
+Carol
+
 Challenge:
 -------
 
