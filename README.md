@@ -6,6 +6,14 @@ Alex's Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 10am Monday morning
 
+Setup Instructions
+-----------------
+Clone the repo: `git clone https://github.com/penguat/chitter-challenge.git`
+
+Install libraries: `bundle`
+
+Run the tests: `rspec`
+
 Contributors
 ------------
 Alex Addison
