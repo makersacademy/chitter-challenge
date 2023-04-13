@@ -1,0 +1,42 @@
+body { 
+  background-color: lightgrey; 
+}
+.container {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 10px
+}
+.left_column {
+  width: 30%;
+  padding-left: 10px;
+  float: left;
+}
+
+.feed {
+  width: 50%;
+  padding-right: 10%;
+  float: right;
+}
+.header {
+  padding-left: 5%;
+  width: 100%;
+  float: left;
+}
+.posting_form {
+  padding-left: 25%;
+  width: 100%;
+  float: right;
+}
+.peep_container {
+  display: flex; 
+  padding-left: 5px; 
+  padding-right: 10%; 
+  width: 100%; 
+  border-style: dotted;
+}
+.user_icon {
+  width: 10%; 
+  height: 10%; 
+  padding-right: 5px; 
+  padding-top: 5px;
+}

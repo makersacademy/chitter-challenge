@@ -30,14 +30,6 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/image' do
-    send_file 'assets/chitter_logo.png', type: :png
-  end
-
-  get '/user_icon' do
-    send_file 'assets/user_icon.png', type: :png
-  end
-
   get '/users/:id' do
     user_id = params[:id]
     repo = PeepRepository.new
