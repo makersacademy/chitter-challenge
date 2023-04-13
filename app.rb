@@ -146,7 +146,6 @@ class Application < Sinatra::Base
 
     def script_check(inputs_array, redirect_path)
       if inputs_array.join.match?(/[<>\/]/)
-        session[:user_id] = nil
         session[:error] = "'<', '>' and '/' are not permitted characters.\n"
         return redirect(redirect_path)
       end

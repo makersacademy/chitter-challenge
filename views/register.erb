@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
   <link rel="icon" href="peepicon.png" type="image/png" />
-  <title>Chitter Register</title>
+  <title>Howdy stranger!</title>
 </head>
 <body>
 
@@ -43,14 +43,14 @@
 
     <form method="POST" action="/register">
       <label for="name">Full name: </label>
-      <input type="text" name="name" /><br>
+      <input class="text" type="text" name="name" placeholder="Enter your name" /><br>
       <label for="username">Username: </label>
-      <input type="text" name="username" /><br>
+      <input class="text" type="text" name="username" placeholder="Choose a username" /><br>
       <label for="email">Email address: </label>
-      <input type="text" name="email" /><br>
+      <input class="text" type="text" name="email" placeholder="Enter your email" /><br>
       <label for="password">Password: </label>
-      <input type="text" name="password" /><br><br>
-      <input type="submit" /><br><br>
+      <input class="text" type="text" name="password" placeholder="Choose a password" /><br><br>
+      <input class="button" type="submit" /><br><br>
     </form>
 
     <p id="smallprint">Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
