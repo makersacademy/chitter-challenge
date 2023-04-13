@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
+  username text,
   email_address text,
   password text
 );
@@ -18,10 +19,10 @@ CREATE TABLE peeps (
     on delete cascade
 );
 
-INSERT INTO users (name, email_address, password) VALUES
-('EmmaJohnson', 'SparkleLioness1234@gmail.com', 'ZnG3q'),
-('EthanHernandez', 'NeonUnicorn12@yahoo.com', 'Lk8$2'),
-('DanielAnderson', 'ElectricPenguin77@outlook.com', 'Vt9@p');
+INSERT INTO users (name, username, email_address, password) VALUES
+('Emma Johnson', 'MarketingMaven', 'SparkleLioness1234@gmail.com', 'ZnG3q'),
+('Ethan Hernandez', 'TechieTiger', 'NeonUnicorn12@yahoo.com', 'Lk8$2'),
+('Daniel Anderson','SocialMediaGuru', 'ElectricPenguin77@outlook.com', 'Vt9@p');
 
 INSERT INTO peeps (content, time_of_posting, user_id) VALUES
 ('Just finished a great workout! #sweatyselfie', NOW(), 1),

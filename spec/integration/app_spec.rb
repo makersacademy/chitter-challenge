@@ -36,13 +36,13 @@ describe Application do
     end
 
     it "creates new peep using form" do
-      post_peep = post('/', username: 'EmmaJohnson', peep: "TGIF everyone!")
+      post_peep = post('/', username: 'MarketingMaven', peep: "TGIF everyone!")
       response = get('/')
       expect(response.body).to include("TGIF everyone!")
     end
 
     it "creates new peep using POST" do
-      post_peep = post('/', username: 'DanielAnderson', peep: "TGIF everyone!")
+      post_peep = post('/', username: 'SocialMediaGuru', peep: "TGIF everyone!")
       response = get('/')
       expect(response.body).to include("TGIF everyone!")
     end

@@ -11,8 +11,9 @@ RSpec.describe User do
     reset_chitter_table()
   end
   it "creates a new user" do
-    new_user = User.new('Sofia_Moore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
-    expect(new_user.username).to eq 'Sofia_Moore'
+    new_user = User.new('Sofia Moore', 'TigerMoore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
+    expect(new_user.name).to eq 'Sofia Moore'
+    expect(new_user.username).to eq 'TigerMoore'
     expect(new_user.email).to eq 'TigerStripedFox55@hotmail.com'
     expect(new_user.password).to eq 'wE8hN'
   end

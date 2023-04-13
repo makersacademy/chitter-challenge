@@ -25,9 +25,9 @@ class Application < Sinatra::Base
     users = UserRepository.new
     result = repo.ordered
     result.each do |item|
-      username = users.find_by_id(item.user_id)
+      user = users.find_by_id(item.user_id)
       date = item.time_of_posting.slice!(0,16)
-      @top_peeps << [item.content, date, username.username, item.user_id]
+      @top_peeps << [item.content, date, user.username, user.name, item.user_id]
     end
     return erb(:index)
   end
@@ -53,6 +53,7 @@ class Application < Sinatra::Base
     @peeps = []
 
     @username = users.find_by_id(user_id).username
+    @name = users.find_by_id(user_id).name
     result = repo.find(user_id)
     
     result.each do |item|

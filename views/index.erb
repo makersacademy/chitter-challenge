@@ -28,13 +28,13 @@
     <div class = "feed">
       <h4>Recent Peeps:</h4>
         <table>
-        <% @top_peeps[0..9].each do |content, timestamp, username, userid| %>
+        <% @top_peeps[0..9].each do |content, timestamp, username, name, userid| %>
           <tr>
             <td>
               <div class="peep_container">
                 <img src="/user_icon.png" class="user_icon">
                 <div style="padding-bottom: 10px;"> 
-                  <a href = "/users/<%= userid %>">@<%= username %></a>: 
+                  <%= name %>(<a href = "/users/<%= userid %>">@<%= username %></a>) peeped: 
                   <br>
                   <%= content %>
                   <br>

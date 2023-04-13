@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
+  username text,
   email_address text,
   password text
 );
@@ -18,17 +19,17 @@ CREATE TABLE peeps (
     on delete cascade
 );
 
-INSERT INTO users (name, email_address, password) VALUES
-('EmmaJohnson', 'SparkleLioness1234@gmail.com', 'ZnG3q'),
-('EthanHernandez', 'NeonUnicorn12@yahoo.com', 'Lk8$2'),
-('DanielAnderson', 'ElectricPenguin77@outlook.com', 'Vt9@p'),
-('SteveWilliams','techsavvy87@gmail.com','qwezr'),
-('BenJSmith','musiclover23@yahoo.com','plmko'),
-('MelissaThompson','fitnessjunkie99@outlook.com','yhnji'),
-('AnthonyNHarris','travelenthusiast13@live.com','gfdsa'),
-('LauraDavis','fashionista82@icloud.com','vbhnm'),
-('SarahJohnson','gamerfanatic45@protonmail.com','xdrfv'),
-('JennMartinez','brainsnack@hotmail.com','lkjhg');
+INSERT INTO users (name, username, email_address, password) VALUES
+('Emma Johnson', 'MarketingMaven', 'SparkleLioness1234@gmail.com', 'ZnG3q'),
+('Ethan Hernandez', 'TechieTiger', 'NeonUnicorn12@yahoo.com', 'Lk8$2'),
+('Daniel Anderson', 'SocialMediaGuru', 'ElectricPenguin77@outlook.com', 'Vt9@p'),
+('Steve Williams', 'AdventureAddict', 'techsavvy87@gmail.com','qwezr'),
+('Ben J Smith', 'ChefChampion', 'musiclover23@yahoo.com','plmko'),
+('Melissa Thompson', 'FitnessFreak', 'fitnessjunkie99@outlook.com','yhnji'),
+('Anthony N Harris', 'BikeBuddy', 'travelenthusiast13@live.com','gfdsa'),
+('Laura Davis', 'CoffeeCrazy', 'fashionista82@icloud.com','vbhnm'),
+('Sarah Johnson','PixelPirate', 'gamerfanatic45@protonmail.com','xdrfv'),
+('Jenn Martinez', 'ZombieTweeter', 'brainsnack@hotmail.com','lkjhg');
 
 INSERT INTO peeps (content, time_of_posting, user_id) VALUES
 ('We will never forget the impact of #TheEvent and the changes it brought to the world! Who else is ready for summer?! #summervibes', NOW() - INTERVAL '1 year', 7),
