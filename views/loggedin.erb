@@ -17,6 +17,11 @@
       font-weight: bold;
     }
 
+    .header__message {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
     .header__button {
       font-size: 16px;
       background-color: #007bff;
@@ -53,6 +58,51 @@
       font-size: 12px;
       color: #999;
     }
+
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    form input[type="text"] {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    form input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #0069d9;
+    }
   </style>
 </head>
 <body>
@@ -67,17 +117,25 @@
   </div>
 
   <main>
-    <h1>Peeps</h1>
-    <ul class="peeps">
-      <% @peeps.each do |peep| %>
-        <li class="peep">
-          <p class="peep__content"><%= peep.content %></p>
-          <p class="peep__username">by <%= peep.username %></p>
-          <p class="peep__time"><%= peep.created_at %></p>
-        </li>
-      <% end %>
-    </ul>
-  </main>
+    <form action="/peeps" method="post">
+      <h2>Create a new peep</h2>
+      <div>
+        <label for="content">Peep here:</label>
+        <input type="text" name="content" id="content" required>
+      </div>
+      <div>
+
+  <main>
+  <h1>Peeps</h1>
+  <ul class="peeps">
+    <% @peeps.each do |peep| %>
+      <li class="peep">
+        <p class="peep__content"><%= peep.content %></p>
+        <p class="peep__username">by <%= peep.username %></p>
+        <p class="peep__time"><%= peep.created_at %></p>
+      </li>
+    <% end %>
+  </ul>
 
   <footer>
     <p>Chitter &copy; 2023</p>

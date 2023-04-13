@@ -87,4 +87,11 @@ class ChitterApp < Sinatra::Base
     session.clear
     redirect '/'
   end
+
+  post '/peeps' do
+    content = params['content']
+    user_id = current_user.id
+    PeepRepository.new.create(content: content, user_id: user_id)
+    redirect '/loggedin'
+  end  
 end
