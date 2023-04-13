@@ -96,6 +96,7 @@ header h2 {
 .panel p {
   color: #8fbbed;
   padding-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 #smallprint {
