@@ -46,7 +46,7 @@ describe UserRepository do
 
   context "when creating a new user" do
     it "adds the user to the DB and indicates success" do
-      expect(register_user).to eq({success?: true})
+      expect(register_user).to eq({ success?: true })
       expect(repo.all.length).to eq 4
       expect(repo.all.last.name).to eq "John Smith"
       expect(repo.all.last.email).to eq "john@smith.com"
@@ -61,7 +61,7 @@ describe UserRepository do
     context "if the username already exists" do
       it "indicates failure reason & doesn't add the user to the DB" do
         registration = UserRepository.new.register("tcarmichael", "name", "email@email.com", "password")
-        expect(registration).to eq({success?: false, failure_reason: "username is already taken"})
+        expect(registration).to eq({ success?: false, failure_reason: "username is already taken" })
         expect(repo.all.length).to eq 3
         expect(repo.all.last.name).to eq "Winston Smith"
       end
@@ -70,7 +70,7 @@ describe UserRepository do
     context "if the email already exists" do
       it "indicates failure reason & doesn't add the user to the DB" do
         registration = UserRepository.new.register("username", "name", "tomcarmichael@hotmail.co.uk", "password")
-        expect(registration).to eq({success?: false, failure_reason: "email is already taken"})
+        expect(registration).to eq({ success?: false, failure_reason: "email is already taken" })
         expect(repo.all.length).to eq 3
         expect(repo.all.last.name).to eq "Winston Smith"
       end
@@ -79,14 +79,14 @@ describe UserRepository do
 
   context "when attempting to sign in w incorrect username" do
     it "indicates failure" do 
-      expect(repo.login('jazzy_jeff', 'fresh')).to eq({ success?: false, failure_reason: "invalid username"})
+      expect(repo.login('jazzy_jeff', 'fresh')).to eq({ success?: false, failure_reason: "invalid username" })
     end
   end 
 
   context "when attempting to sign in w incorrect password" do
     it "indicates failure" do
       register_user
-      expect(repo.login('jsmith', 'js123')).to eq({ success?: false, failure_reason: "incorrect password"}) 
+      expect(repo.login('jsmith', 'js123')).to eq({ success?: false, failure_reason: "incorrect password" }) 
     end
   end
 

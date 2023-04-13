@@ -3,25 +3,30 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <table>
-      <div>
-        <ul class="nav_menu_links">
-          <% if session[:user_id] %>
-
-          <% else %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-          <% end %>
-        </ul>
-      </div>
+    <div>
+      <ul class="nav_menu_links">
+        <% if session[:user_id] %>
+          <li>
+            <form method="post" action="/logout" class="inline">
+              <button type="submit" name="logout" class="link-button">Logout</button>
+            </form>
+          </li>
+        <% else %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        <% end %>
+      </ul>
+    </div>
         
-      <% if session[:user_id] %>
-        <form method="POST" action="/peep">
-          <label for="message">Peep away...!</label><br>
-          <input type="text" name="message" />
-          <input type="submit" />
-        </form>
-      <% end %>
+    <% if session[:user_id] %>
+      <form method="POST" action="/peep" class="peep">
+        <label for="message">Compose new peep...</label><br>
+        <input type="text" name="message" />
+        <input type="submit" />
+      </form>
+    <% end %>
+
+    <table>
       <% @all_peeps.each do |peep| %>
         <tr>
           <td>Author: @<%= peep.user.username%> - <%= peep.user.name%></td>

@@ -54,20 +54,19 @@ class UserRepository
 
   def login(username, submitted_password)
     user = find_by_username(username)
-    return { success?: false, failure_reason: "invalid username"} if !user
+    return { success?: false, failure_reason: "invalid username" } if user.nil?
     stored_password = BCrypt::Password.new(user.password)
 
-    if stored_password == submitted_password
-       return { success?: true, username: user.username, user_id: user.id }
-    else
-      return { success?: false, failure_reason: "incorrect password"}
-    end
+    
+    return { success?: true, username: user.username, user_id: user.id } if stored_password == submitted_password
+    
+    return { success?: false, failure_reason: "incorrect password" }
   end
 
   def register(username, name, email, password)
 
-    return {success?: false, failure_reason: "username is already taken"} if find_by_username(username)
-    return {success?: false, failure_reason: "email is already taken"} if find_by_email(email)
+    return { success?: false, failure_reason: "username is already taken" } if find_by_username(username)
+    return { success?: false, failure_reason: "email is already taken" } if find_by_email(email)
   
     sql = 'INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4);'
 
@@ -76,6 +75,6 @@ class UserRepository
 
     DatabaseConnection.exec_params(sql, params)
 
-    return {success?: true}
+    return { success?: true }
   end
 end

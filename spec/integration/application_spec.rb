@@ -50,6 +50,12 @@ describe Application do
         expect(response.status).to eq(200)
         expect(response.body).not_to include('<a href="/login">Login</a')
       end
+      it "displays a link to logout" do
+        response = get('/', {}, session_params)
+        expect(response.status).to eq(200)
+        expect(response.body).to include('<form method="post" action="/logout">')
+        expect(response.body).to include('<button type="submit" name="logout">Logout</button>')
+      end
     end
 
     context "when the user isn't logged in" do
@@ -74,24 +80,49 @@ describe Application do
   ###########################
   describe "POST /peep" do
     it "Redirects user to homepage and displays the new peep at the top" do
-      # allow(Time).to receive(:now).and_return(Time.new(2099, 9, 1, 10, 5, 0))
       freeze_time
       form_params = { message: "Conspiracy uncovered! The sun is flat." }
       response = post('/peep', form_params, session_params)
-      expect(response).to be_redirect
+      expect(response.status).to eq(302)
       follow_redirect!
       expect(last_request.path).to eq('/')
       response = get('/')
       expect(response.body).to match(/Author: @tcarmichael - Tom Carmichael-Mhanna[\s\S]*Conspiracy uncovered! The sun is flat.[\s\S]*n 2099-09-01 10:05:00[\s\S]*Big Brother/)
     end
-    # TODO: How to write test for this?
-    xit "sanitizes user input against potentially malicious tags" do
-      freeze_time
+    it "sanitizes user input against potentially malicious tags" do
       js_rick_roll = '<script>document.location.href="https://www.youtube.com/watch?v=34Ig3X59_qA";</script>'
       form_params = { message: js_rick_roll }
       response = post('/peep', form_params, session_params)
       expect(response).to be_redirect
       follow_redirect!
+      expect(last_response.body).to include('&lt;script&gt;document.location.href=&quot;https://www.youtube.com/watch?v=34Ig3X59_qA&quot;;&lt;/script&gt;')
+    end
+    context "given {message: ""}" do
+      it "returns 400 & error message" do
+        response = post('/submit_register', { message: "" }, session_params)
+        expect(response.status).to eq(400)
+        expect(response.body).to include("Invalid form parameters entered, please rety and ensure you fill out all fields.")
+      end
+    end
+    context "given {message: nil}" do
+      it "returns 400 & error message" do
+        response = post('/submit_register', { message: nil }, session_params)
+        expect(response.status).to eq(400)
+        expect(response.body).to include("Invalid form parameters entered, please rety and ensure you fill out all fields.")
+      end
+    end
+  end
+  ########
+  describe "POST /logout" do
+    context "When user is logged in" do
+      it "logs them out & redirects to GET '/'" do
+        response = post('/logout', {}, session_params)
+        expect(response.status).to eq(302)
+        follow_redirect!
+        expect(last_request.path).to eq('/')
+        expect(last_request.env['rack.session'][:user_id]).to be_nil
+        expect(last_request.env['rack.session'][:username]).to be_nil
+      end
     end
   end 
   ########################
@@ -99,7 +130,7 @@ describe Application do
     context "when the user is logged in" do
       it "redirects to '/'" do
         response = get('/login', {}, session_params)
-        expect(response).to be_redirect
+        expect(response.status).to eq(302)
         follow_redirect!
         expect(last_request.path).to eq('/')
       end
@@ -121,7 +152,7 @@ describe Application do
     context "if the user is already logged in" do
       it "redirects to '/'" do
         response = post('/login_attempt', { username: 'jimbob', password: 'abracadabra' }, session_params)
-        expect(response).to be_redirect
+        expect(response.status).to eq(302)
         follow_redirect!
         expect(last_request.path).to eq('/')
       end
@@ -129,8 +160,8 @@ describe Application do
     context "if the user isn't logged in" do
       context "and provides correct credentials" do
         it "logs the user in" do
-          response = post('/login_attempt', { username: 'wsmith', password: 'bigbrother' } )
-          expect(response).to be_redirect
+          response = post('/login_attempt', { username: 'wsmith', password: 'bigbrother' })
+          expect(response.status).to eq(302)
           follow_redirect!
           expect(last_request.path).to eq('/')
           # Check that the session object has been updated with the user's ID
@@ -140,7 +171,7 @@ describe Application do
       end
       context "and provides incorrect username" do
         it "returns an error page" do
-          response = post('/login_attempt', { username: 'jay_dilla', password: 'bigbrother' } )
+          response = post('/login_attempt', { username: 'jay_dilla', password: 'bigbrother' })
           expect(response.status).to eq 401
           expect(response.body).to include('Login failed: invalid username')
           # Check that the session object has not been updated with user ID
@@ -149,10 +180,10 @@ describe Application do
       end
       context "and provides incorrect password" do
         it "returns an error page" do
-          response = post('/login_attempt', { username: 'wsmith', password: '1984' } )
+          response = post('/login_attempt', { username: 'wsmith', password: '1984' })
           expect(response.status).to eq 401
           expect(response.body).to include('Login failed: incorrect password')
-          # Check that the session object has been updated with the user's ID
+          # Check that the session object has not been updated with the user's ID
           expect(last_request.env['rack.session'][:user_id]).to be_nil
         end
       end
@@ -163,7 +194,7 @@ describe Application do
     context "if the user is logged in" do
       it "redirects to'/'" do
         response = get('/register', {}, session_params)
-        expect(response).to be_redirect
+        expect(response.status).to eq(302)
         follow_redirect!
         expect(last_request.path).to eq('/')
       end
@@ -185,7 +216,7 @@ describe Application do
   describe "POST /submit_register" do
     context "if username doesn't already exist" do
       it "registers user" do
-        response = post('/submit_register', { name: 'Dave Smith', username: 'prophet5', email: "sequential@circuits.com", password: 'polyphony'})
+        response = post('/submit_register', { name: 'Dave Smith', username: 'prophet5', email: "sequential@circuits.com", password: 'polyphony' })
         expect(response.status).to eq(200)
         expect(response.body).to include('Congtratulations @prophet5, you successfully signed up for Chitter!')
         expect(response.body).to include("<a href='/login'>Login here</a> to start Chittering.")
@@ -196,7 +227,7 @@ describe Application do
       end
       context "if username already exists" do
         it "doesn't register user" do
-          response = post('/submit_register', { name: 'name', username: 'tcarmichael', email: "email@email.com", password: 'password'})
+          response = post('/submit_register', { name: 'name', username: 'tcarmichael', email: "email@email.com", password: 'password' })
           expect(response.status).to eq(200)
           expect(response.body).to include('username is already taken')
           expect(response.body).to include("<a href='/register'>Retry registration</a>")
@@ -208,7 +239,7 @@ describe Application do
       end
       context "if email already exists" do
         it "doesn't register user" do
-          response = post('/submit_register', { name: 'name', username: 'username', email: "tomcarmichael@hotmail.co.uk", password: 'password'})
+          response = post('/submit_register', { name: 'name', username: 'username', email: "tomcarmichael@hotmail.co.uk", password: 'password' })
           expect(response.status).to eq(200)
           expect(response.body).to include('email is already taken')
           expect(response.body).to include("<a href='/register'>Retry registration</a>")
@@ -216,6 +247,27 @@ describe Application do
           expect(all_users.length).to eq 3
           expect(all_users.first.email).to eq "tomcarmichael@hotmail.co.uk"
           expect(all_users.last.name).to eq "Winston Smith"
+        end
+      end
+      context "given {name: nil}" do
+        it "returns 400 & error message" do
+          response = post('/submit_register', { name: nil, username: 'fake_username', email: "example@email.com", password: 'password' })
+          expect(response.status).to eq(400)
+          expect(response.body).to include("Invalid form parameters entered, please rety and ensure you fill out all fields.")
+        end
+      end
+      context "given {password: nil}" do
+        it "returns 400 & error message" do
+          response = post('/submit_register', { name: nil, username: 'fake_username', email: "example@email.com", password: nil })
+          expect(response.status).to eq(400)
+          expect(response.body).to include("Invalid form parameters entered, please rety and ensure you fill out all fields.")
+        end
+      end
+      context "given {username: ""}" do
+        it "returns 400 & error message" do
+          response = post('/submit_register', { name: "dave", username: '', email: "example@email.com", password: "test" })
+          expect(response.status).to eq(400)
+          expect(response.body).to include("Invalid form parameters entered, please rety and ensure you fill out all fields.")
         end
       end
     end

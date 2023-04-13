@@ -22,7 +22,8 @@ class Application < Sinatra::Base
   end
 
   post '/peep' do
-    message = params[:message]
+    return invalid_params_response if invalid_request_parameters?
+    message = sanitize_user_input(params[:message])
     author_id = session[:user_id]
     timestamp = Time.now.strftime "%Y-%m-%d %H:%M:%S"
 
@@ -38,7 +39,6 @@ class Application < Sinatra::Base
   end
 
   post '/login_attempt' do
-    # TODO : Santise user input from this form
     redirect_if_logged_in
 
     username = params[:username]
@@ -59,13 +59,13 @@ class Application < Sinatra::Base
   end
 
   get '/register' do
-    # TODO : Santise user input from this form
     redirect_if_logged_in
 
     return erb(:register)
   end
 
   post '/submit_register' do
+    return invalid_params_response if invalid_request_parameters?
 
     @username = params[:username]
     name = params[:name]
@@ -74,21 +74,22 @@ class Application < Sinatra::Base
 
     registration = UserRepository.new.register(@username, name, email, password)
 
-    if registration[:success?]
-      return erb(:registration_success)
-    else
-      @failure_reason = registration[:failure_reason]
-      return erb(:registration_failure)
-    end
+    return erb(:registration_success) if registration[:success?]
+
+    @failure_reason = registration[:failure_reason]
+    return erb(:registration_failure)
+  end
+
+  post '/logout' do
+    session[:user_id] = nil
+    session[:username] = nil
+    redirect('/')
   end
 
   def redirect_if_logged_in
-    if session[:user_id]
-      return redirect('/')
-    end
+    return redirect('/') if session[:user_id]
   end
 
-  # TODO: Test drive the use of this
   def sanitize_user_input(string)
     string.gsub!(/\&/, '&amp;')
     string.gsub!(/\</, '&lt;')
@@ -96,5 +97,16 @@ class Application < Sinatra::Base
     string.gsub!(/\"/, '&quot;')
     string.gsub!(/\'/, '&apos;')
     return string
+  end
+
+  def invalid_request_parameters?
+    params.any? { |_key, value| value.nil? || value == "" } ? true : false
+    # return true if params[:name] == nil
+    # return false
+  end
+
+  def invalid_params_response
+    status 400
+    return "Invalid form parameters entered, please rety and ensure you fill out all fields."
   end
 end
