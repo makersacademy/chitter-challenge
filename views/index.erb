@@ -26,10 +26,10 @@
       <div class="list">
         <p><a href="/peeps">Add Peep</a></p>
         <p><a href="/logout">Log out</a></p>
-        </div>
-        <% end %>
-        <% if session[:user_id].nil? %>
-        <div class="list">
+      </div>
+      <% end %>
+      <% if session[:user_id].nil? %>
+      <div class="list">
         <p><a href="/register" class="link">Register</a></p>
         <p><a href="/login">Log in</a></p>
       </div>
@@ -46,21 +46,17 @@
   </header>
 
   <section>
-  <div class="container">
-  <div>
-  <% @peep_info.each do |peep| %>
-    <div class="panel">
-      <p><%= peep[0] %> (<%= peep[4] %>) peeped at <%= peep[1] %></p>
-      <h4><%= peep[2] %></h4>
-      <p>Tags: <%= peep[3] %></p><br>
-  </div>
-      <% end %>
+    <div class="container">
+    <div>
+      <% @peep_info.each do |peep| %>
+      <div class="panel">
+        <p><%= peep[0] %> (<%= peep[4] %>) peeped at <%= peep[1] %></p>
+        <h4><%= peep[2] %></h4>
+        <p>Tags: <%= peep[3] %></p><br>
+      </div>
+        <% end %>
+      </div>
     </div>
-    
-    
-  </div>
-
-
   </section>
 
 </body>
