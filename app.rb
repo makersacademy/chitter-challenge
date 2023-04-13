@@ -47,7 +47,6 @@ class Application < Sinatra::Base
   get '/signup' do
     logged_in?
     @title = "Chitter - Sign up to Chitter!"
-    @message = ""
     return erb(:signup)
   end
 
@@ -90,7 +89,6 @@ class Application < Sinatra::Base
   get '/login' do
     logged_in?
     @title = "Chitter - Log in to Chitter"
-    @error_msg = ""
     return erb(:login)
   end
 

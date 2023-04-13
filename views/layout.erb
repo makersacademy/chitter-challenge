@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Chitter</h1>
-<p><% if session[:username]%> Hello, <%= session[:username] %>!<% end %></p>
+<p><% if session[:username]%> Hello, @<%= session[:username] %>.<% end %></p>
 
 <nav>
   <a href="/">Home</a>

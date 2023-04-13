@@ -82,12 +82,21 @@ label {
 
 input[type=text], 
 input[type=email], 
-input[type=password] {
+input[type=password],
+textarea {
   border: 1px solid #c0d9f0;
   border-radius: 5px;
   width: 180px;
   padding: 5px;
+  outline: none;
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+}
+
+textarea {
+  resize: none;
+  width: 338px;
+  height:200px;
+  outline: none;
 }
 
 .btn {
