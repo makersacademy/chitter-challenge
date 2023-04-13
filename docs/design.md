@@ -79,8 +79,8 @@ password: text
 
 ## 5. Write SQL for seed files
 
-psql -h 127.0.0.1 chitter_test < seeds_users.sql
-psql -h 127.0.0.1 chitter_test < seeds_peeps.sql
+psql -h 127.0.0.1 chitter_test < spec/seeds/table_creation.sql
+psql -h 127.0.0.1 chitter_test < spec/seeds/seeds_chitter.sql
 
 ## 6. Database Connection Class
 
@@ -137,3 +137,21 @@ ENV['ENV'] = 'test'
 
 DatabaseConnection.connect
 ```
+
+## 8. Create Model Classes
+
+```ruby
+def user
+attr_accessor :id ...
+end
+```
+
+## 9. TDD Repository Classes
+
+UserRepository
+-> all
+-> find
+-> create
+-> update
+-> delete
+

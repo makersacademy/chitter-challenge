@@ -13,3 +13,11 @@ group :development, :test do
 end
 
 gem "pg", "~> 1.4"
+
+gem "sinatra", "~> 3.0"
+gem "sinatra-contrib", "~> 3.0"
+gem "webrick", "~> 1.8"
+gem "rackup", "~> 1.0"
+
+gem "rom", "~> 5.3"
+gem "rom-sql", "~> 3.6"
