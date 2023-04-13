@@ -29,6 +29,3 @@ class PeepRepository
     DatabaseConnection.exec_params(sql, [content, user_id])
   end
 end
-
-
-

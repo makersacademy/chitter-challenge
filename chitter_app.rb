@@ -43,7 +43,8 @@ class ChitterApp < Sinatra::Base
     password = params['password']
     password_hash = BCrypt::Password.create(password)
   
-    UserRepository.new.create(username: username, name: name, email: email, password_hash: password_hash)
+    UserRepository.new.create(username: username, name: name, email: email, 
+password_hash: password_hash)
   
     redirect '/login'
   end  
