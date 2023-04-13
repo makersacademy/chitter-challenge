@@ -16,7 +16,7 @@
         <IMG class="image" src="../peep.png" alt="peep no evil">
         <h1>Chitter</h1>
 
-        <% if settings.logged == true %>
+        <% unless session[:user_id].nil? %>
         <h3>You are logged in as <%= session[:username] %></h3>
         <% else %>
         <h3>Log in to create new peeps</h3>
