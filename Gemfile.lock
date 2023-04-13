@@ -76,6 +76,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   pg (~> 1.4)
