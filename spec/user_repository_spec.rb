@@ -15,36 +15,42 @@ RSpec.describe UserRepository do
   context 'User Managment' do
     it "adds user to database" do
       repo = UserRepository.new
-      new_user = User.new('Sofia_Moore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
+      new_user = User.new('SofiaMoore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
       expect(repo.create(new_user)).to eq true
     end
 
     it "finds and returns user by ID" do
       repo = UserRepository.new
       result = repo.find_by_id(2)
-      expect(result.username).to eq 'Ethan_Hernandez'
+      expect(result.username).to eq 'EthanHernandez'
     end
 
     it "finds and returns user by email" do
       repo = UserRepository.new
       result = repo.find_by_email('NeonUnicorn12@yahoo.com')
-      expect(result.username).to eq 'Ethan_Hernandez'
+      expect(result.username).to eq 'EthanHernandez'
+    end
+
+    it "finds and returns user by username" do
+      repo = UserRepository.new
+      result = repo.find_by_username('EthanHernandez')
+      expect(result.email).to eq 'NeonUnicorn12@yahoo.com'
     end
 
     it "adds user to database, returns user" do
       repo = UserRepository.new
-      new_user = User.new('Sofia_Moore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
+      new_user = User.new('SofiaMoore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
       expect(repo.create(new_user)).to eq true
 
       result = repo.find_by_email('TigerStripedFox55@hotmail.com')
-      expect(result.username).to eq 'Sofia_Moore'
+      expect(result.username).to eq 'SofiaMoore'
     end
 
     it "returns all users" do
       repo = UserRepository.new
       result = repo.all
-      expect(result[0].username).to eq 'Emma_Johnson'
-      expect(result[2].username).to eq 'Daniel_Anderson'
+      expect(result[0].username).to eq 'EmmaJohnson'
+      expect(result[2].username).to eq 'DanielAnderson'
     end
   end
 end

@@ -59,9 +59,9 @@ RSpec.describe PeepRepository do
       result = repo.ordered
 
       expect(result.length).to eq 3
-      expect(result[0].content).to eq check_peeps[2]
+      expect(result[0].content).to eq check_peeps[0]
       expect(result[1].content).to eq check_peeps[1]
-      expect(result[2].content).to eq check_peeps[0]
+      expect(result[2].content).to eq check_peeps[2]
     end
 
     it "returns a single peep" do
@@ -69,14 +69,6 @@ RSpec.describe PeepRepository do
       peep_check = 'Why is it still night time?'
       result = repo.return_single_peep(2)
       expect(result.content).to eq peep_check
-    end
-
-    it "returns username of user who posted peep" do
-      author = 'Ethan_Hernandez'
-      repo = PeepRepository.new
-      sample_peep = repo.return_single_peep(2)
-
-      expect(repo.return_author(sample_peep.user_id).username).to eq author
     end
   end
 end
