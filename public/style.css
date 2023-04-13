@@ -36,8 +36,8 @@ header.flex-item {
 
 header.flex-item img {
   margin-left: 1rem;
-  width: 100px; /* set initial width */
-  height: auto ; /* let the height adjust automatically */
+  width: 12rem;
+  height: auto; /* let the height adjust automatically */
   max-width: 100%; /* ensure the logo scales down proportionally */
 }
 
@@ -54,7 +54,7 @@ header.flex-item img {
 }
 
 .nav-item.nav-1 img {
-  height: 30px;
+  height: 50px;
 }
 
 .nav-item a {
@@ -62,6 +62,11 @@ header.flex-item img {
   text-align: center;
   padding: 10px;
   margin-left: 10px;
+  margin-right: 1rem;
+}
+
+a:hover {
+  font-weight: bolder;
 }
 
 @media (max-width: 600px) {
@@ -70,8 +75,10 @@ header.flex-item img {
     padding: 5px;
     margin-left: 5px;
   }
-}       /* can adjust the margin-left property of .nav-item a in the @media query 
-        to make sure the links remain spaced out on smaller screens as well. */
+}       
+/* can adjust the margin-left property of .nav-item a in the @media query 
+to make sure the links remain spaced out on smaller screens as well. */
+
 
 /* flex-items */
 
@@ -80,7 +87,7 @@ header.flex-item img {
 }
 
 .flex-2{
-  flex-grow: 4;
+  flex-grow: 6;
 }
 
 .flex-3{
@@ -88,3 +95,63 @@ header.flex-item img {
 }
 
 
+/* peeps section */
+
+h1 {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+hr {
+  height: 1px;
+  background-color: #62a4cc;
+  border: none;
+  margin: 20px 0;
+}
+
+article {
+  background-color: rgba(68, 133, 207, 0.7);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.peep-info {
+  color: black;
+  padding-bottom: 2px;
+}
+
+.peep-content {
+  color: #f9fbfd;
+}
+
+span {
+  font-weight: bold;
+}
+
+/* when logged in section */
+
+form {
+  padding: 1rem;
+}
+
+input {
+  display: block;
+  width: 100%;
+}
+
+button {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0d8ecf;
+}

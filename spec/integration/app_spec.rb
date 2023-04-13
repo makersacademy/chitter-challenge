@@ -37,7 +37,7 @@ describe Application do
     it "renders the signup page" do
       response = get('/signup')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h2>Create a Chitter Account</h2>')
+      expect(response.body).to include('<h1>Create a Chitter Account</h1>')
     end
 
   end
@@ -46,14 +46,14 @@ describe Application do
     it "validates email input and username input are not being used by existing Chitter users" do
       response = post('/signup', name: 'Elon Musk', email: 'john_d@email.com', username: 'j0ndoe', password: 'Fakepas5word')
       
-      expect(response.body).to include('<h2>Create a Chitter Account</h2>')
+      expect(response.body).to include('<h1>Create a Chitter Account</h1>')
       expect(response.body).to include('email address or username already exists, try again.')
     end
 
     it "validates user's inputs have met the minimum requirements" do
       response = post('/signup', name: 'Elon Musk', email: 'wrongemail', username: 'another_elon', password: 'Fakepas5word')
     
-      expect(response.body).to include('<h2>Create a Chitter Account</h2>')
+      expect(response.body).to include('<h1>Create a Chitter Account</h1>')
       expect(response.body).to include('Make sure Email Address is valid')
       expect(response.body).to include('Make sure Username is at least three characters long')
       expect(response.body).to include('Make sure Password is at least eight characters long')
@@ -72,7 +72,7 @@ describe Application do
     it "renders the login page" do
       response = get('/login')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h2>Log in to post a Peep</h2>')
+      expect(response.body).to include('<h1>Log in to Chitter</h1>')
     end
 
   end
@@ -81,14 +81,14 @@ describe Application do
     it "should return to login page when email does not belong to an existing user" do
       response = post('/login', email: 'doesnt_exist@email.com', password: 'doesn0tExist')
       
-      expect(response.body).to include('<h2>Log in to post a Peep</h2>')
+      expect(response.body).to include('<h1>Log in to Chitter</h1>')
       expect(response.body).to include('email address does not exist')
     end
 
     it "should return to login page when password does not match existing email" do
       response = post('/login', email: 'john_d@email.com', password: 'doesn0tExist')
       
-      expect(response.body).to include('<h2>Log in to post a Peep</h2>')
+      expect(response.body).to include('<h1>Log in to Chitter</h1>')
       expect(response.body).to include('password does not match')
     end
 
@@ -96,7 +96,7 @@ describe Application do
       response = post('/login', email: 'john_d@email.com', password: 'Pas5w0rd!')
 
       response = get('/')
-      expect(response.body).to include('<h3>Hi <span>j0ndoe</span>,</h3>')
+      expect(response.body).to include('<h1>Hi <span>j0ndoe</span>,</h1>')
       expect(response.body).to include('<label>Post a Peep here:</label>')
     end
 

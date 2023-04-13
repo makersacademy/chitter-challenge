@@ -27,11 +27,11 @@
         </header>
 
         <section class="flex-item flex-3">
-          <h3>Hi <span><%=session[:username]%></span>,</h3>
+          <h1>Hi <span><%=session[:username]%></span>,</h1>
 
           <form method="POST" action="/post">
             <label>Post a Peep here:</label>
-            <input type="text" name="message" placeholder="type a peep message" required><br>
+            <input type="text" name="message" placeholder="type a peep message" maxlength:"280" required title="280 maximum number of characters limit"><br>
 
             <button type="submit">submit</button><br>
           </form>
@@ -61,9 +61,8 @@
       
           <% @list.each do |record| %>
             <article>
-            <p>posted on: <%=record[:time]%></p>
-            <span>by: <%=record[:username]%></span>
-            <p><%=record[:message]%></p>
+            <p class="peep-info">posted on: <%=record[:time]%> by: <span><%=record[:username]%></span></p>
+            <p class="peep-content"><%=record[:message]%></p>
             </article>
           <% end %>
         </section>
