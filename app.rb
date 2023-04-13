@@ -103,16 +103,13 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     user = repo.find(params[:email])
 
-    if user
-      if BCrypt::Password.new(user.password) == params[:password]
-        session[:username] = user.username
-        session[:user_id] = user.id
-        redirect '/'
-      else
-        redirect '/login'
-      end
+    if user && BCrypt::Password.new(user.password) == params[:password]
+      session[:username] = user.username
+      session[:user_id] = user.id
+      redirect '/'
     else
-      redirect '/login'
+      @error_msg = "The email or password entered is incorrect."
+      return erb(:login)
     end
   end
 
