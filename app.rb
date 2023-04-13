@@ -61,19 +61,19 @@ class Application < Sinatra::Base
 
     # check if the username is already taken
     if repo.username_exists?(params[:username].downcase)
-      @message = "That username is already taken."
+      @error_msg = "That username is already taken."
       return erb(:signup)
     end
 
     # check if the email is already registered
     if repo.email_exists?(params[:email].downcase)
-      @message = "That email address is already registered."
+      @error_msg = "That email address is already registered."
       return erb(:signup)
     end
 
     # check passwords match
     if params[:password] != params[:confirm_password]
-      @message = "Sorry, the passwords entered did not match :("
+      @error_msg = "Sorry, the passwords entered did not match."
       return erb(:signup)
     end
 
@@ -90,7 +90,7 @@ class Application < Sinatra::Base
   get '/login' do
     logged_in?
     @title = "Chitter - Log in to Chitter"
-    @message = ""
+    @error_msg = ""
     return erb(:login)
   end
 
@@ -107,7 +107,6 @@ class Application < Sinatra::Base
       if BCrypt::Password.new(user.password) == params[:password]
         session[:username] = user.username
         session[:user_id] = user.id
-        @heading = "Hello, #{user.username}"
         redirect '/'
       else
         redirect '/login'
