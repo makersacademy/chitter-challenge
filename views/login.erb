@@ -3,19 +3,17 @@
     <title>Chitter</title>
   </head>
   <body>
-    <form action="/new-user" method="POST">
+    <form action="/login" method="POST">
     <fieldset>
-      <legend>Register as a new user</legend>
+      <legend>Login to your account using username or email</legend>
         <label for="uname">Username</label>
         <input type="text" id="uname" name="username"><br><br>
-        <label for="fname">Full name</label>
-        <input type="text" id="fname" name="full_name"><br><br>
         <label for="email">Email</label>
         <input type="text" id="email" name="email"><br><br>
         <label for="pword">Password</label>
-        <input type="text" id="pword" name="password"><br><br>
+        <input type="password" id="pword" name="password"><br><br>
 
-        <input type="Submit" value="Register">
+        <input type="Submit" value="Login">
       </fieldset>
     </form>
   </body>

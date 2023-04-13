@@ -59,4 +59,26 @@ describe Application do
       expect(response.body).to include('<p>Your account was successfully created</p>')
     end
   end
+
+  context "get /login route" do
+    it "returns 200 OK and a form for logging in" do
+      response = get('/login')
+      expect(response.status).to eq 200
+      expect(response.body).to include('<form action="/login" method="POST">')
+    end
+  end
+
+  context "post /login route" do
+    it "returns 302 Found" do
+      response = post('/login', email: 'sunaina.d.rishi@gmail.com', password: 'SunnyD')
+      expect(response.status).to eq 302
+    end
+
+    it "returns message for login fail" do
+      response = post('/login', email: 'sunaina.d.rishi@gmail.com', password: 'Sunny')
+      expect(response.status).to eq 200
+      expect(response.body).to eq 'Incorrect email/password'
+    end
+  end
+
 end

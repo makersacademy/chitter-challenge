@@ -47,6 +47,19 @@ class Application < Sinatra::Base
     return erb(:user_created)
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    user = User.find_by( email: params[:email], password: params[:password])
+    if user == nil
+      return 'Incorrect email/password'
+    else
+      return redirect('/')
+    end
+  end
+
   private
   def password_encryption(password)
     encrypted_password = BCrypt::Password.create(password)
