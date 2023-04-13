@@ -31,23 +31,23 @@ describe Application do
   end
   describe 'GET /peeps' do
     it 'returns all peeps from most recent date' do
-      response = get('/')
+      response = get('/homepage')
       expect(response.status).to eq 200
       expect(response.body).to include '<h3>Most Recent Peeps</h3>'
     end
   end
   describe 'GET /post_peep' do
     it 'returns the post peep page' do
-      response = get('/post_peep')
+      response = get('/peep')
       expect(response.status).to eq 200
       expect(response.body).to include '<label for="peep">What are you doing?</label>'
     end
   end
   describe 'POST /' do
     it 'creates a new peep' do
-      post '/', { peep: 'This is a new peep' }, { 'rack.session' => { user_id: 1 } }
+      post '/peep', { peep: 'This is a new peep' }, { 'rack.session' => { user_id: 1 } }
       expect(last_response.status).to eq(302)
-      expect(PeepRepository.new.all.first.text).to eq('This is a new peep')
+      expect(PeepRepository.new.all.last.peep).to eq('This is a new peep')
     end
   end
 end
