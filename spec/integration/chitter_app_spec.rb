@@ -66,5 +66,15 @@ describe ChitterApp do
       expect(response.body).to include("Password")
     end
   end
-end
+
+  describe "POST /signup" do
+    it "creates a new user" do
+      response = post "/signup", { username: "testuser", name: "Test User", password: "password123", email: "test@example.com" }
   
+      # 302 is the status code for a redirect
+      expect(response.status).to eq 302
+      expect(UserRepository.new.all.length).to eq 4
+      expect(UserRepository.new.all.last.username).to eq "testuser"
+    end
+  end  
+end

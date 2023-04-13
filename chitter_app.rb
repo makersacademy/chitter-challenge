@@ -1,7 +1,8 @@
 require 'sinatra'
 require "sinatra/reloader"
+require 'bcrypt'
 require_relative 'lib/database_connection'
-# require_relative 'lib/users_repository'
+require_relative 'lib/users_repository'
 require_relative 'lib/peeps_repository'
 
 DatabaseConnection.connect
@@ -26,4 +27,16 @@ class ChitterApp < Sinatra::Base
   get '/signup' do
     return erb(:signup)
   end
+
+  post '/signup' do
+    username = params['username']
+    name = params['name']
+    email = params['email']
+    password = params['password']
+    password_hash = BCrypt::Password.create(password)
+  
+    UserRepository.new.create(username: username, name: name, email: email, password_hash: password_hash)
+  
+    redirect '/'
+  end  
 end
