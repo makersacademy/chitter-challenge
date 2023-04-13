@@ -18,7 +18,6 @@ class PeepRepository
     ON peeps.user_id = users.id;'
     results = DatabaseConnection.exec_params(sql, [])
     peeps_with_names = []
-    p results
     results.each do |record|
       peep = Peep.new
       peep.id = record['id'].to_i
