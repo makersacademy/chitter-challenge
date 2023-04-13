@@ -1,5 +1,3 @@
-# Model Class for users table
-
-class User
-attr_accessor :id, :email, :username, :full_name, :password
+# Active Record Model Class for users table
+class User < ActiveRecord::Base
 end

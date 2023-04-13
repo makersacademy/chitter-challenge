@@ -1,5 +1,3 @@
-# Model Class for peeps table
-
-class Peep
-  attr_accessor :id, :content, :created_date_time, :user_id
+# Active Record Model Class for peeps table
+class Peep < ActiveRecord::Base
 end

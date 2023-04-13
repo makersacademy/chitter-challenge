@@ -1,0 +1,9 @@
+<div>
+<h1>Welcome to Chitter</h1>
+<% @peeps.order(created_date_time: :desc).each do |peep| %>
+  <p>
+  <%= peep.content %>
+  <%= peep.created_date_time %>
+  </p>
+  <% end %>
+</div>
