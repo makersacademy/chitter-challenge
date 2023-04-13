@@ -35,6 +35,7 @@ class Application < Sinatra::Base
   post '/' do
     repo = PeepRepository.new
     users = UserRepository.new
+    
     name = params[:username]
     find_user_id = users.find_by_username(name)
     user_id = find_user_id.id
