@@ -8,12 +8,18 @@ Alex's Chitter Challenge
 
 Setup Instructions
 -----------------
-
 Clone the repo: `git clone https://github.com/penguat/chitter-challenge.git`
 
 Install libraries: `bundle`
 
 Run the tests: `rspec`
+
+Contributors
+------------
+Alex Addison
+Alice
+Bob
+Carol
 
 Challenge:
 -------
