@@ -58,19 +58,16 @@ class Application < Sinatra::Base
 
     repo = UserRepository.new
 
-    # check if the username is already taken
     if repo.username_exists?(params[:username].downcase)
       @error_msg = "That username is already taken."
       return erb(:signup)
     end
 
-    # check if the email is already registered
     if repo.email_exists?(params[:email].downcase)
       @error_msg = "That email address is already registered."
       return erb(:signup)
     end
 
-    # check passwords match
     if params[:password] != params[:confirm_password]
       @error_msg = "Sorry, the passwords entered did not match."
       return erb(:signup)
@@ -83,7 +80,10 @@ class Application < Sinatra::Base
     user.password = params[:password]
 
     repo.create(user)
-    return erb(:user_created)
+
+    session[:username] = user.username
+    session[:user_id] = user.id
+    redirect '/'
   end
 
   get '/login' do
@@ -117,7 +117,6 @@ class Application < Sinatra::Base
   end
 
   def logged_in?
-    # check if the user is already logged in
     redirect '/' if session[:username] != nil
   end
 

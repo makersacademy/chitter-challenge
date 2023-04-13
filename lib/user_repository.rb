@@ -18,12 +18,13 @@ class UserRepository
   end
 
   def create(user)
-    # Encrypt the password for database
     encrypted_password = BCrypt::Password.create(user.password)
 
-    sql = "INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4);"
+    sql = "INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4) RETURNING id;"
     result_set = DatabaseConnection.exec_params(sql, [user.username, user.name, user.email, encrypted_password])
-
+    # Get the last insert id, 
+    # this is stored in the session, when the user is logged in after signup. 
+    user.id = result_set.first['id']
     return user
   end
 
