@@ -1,5 +1,6 @@
 <div class="form-container">
   <h3>Create new peep</h3>
+  <p class="error-msg"><%= @error_msg %></p>
   <form action="/peeps" method="POST">
     <p><textarea id="peep" name="peep"></textarea></p>
     <input type="submit" value="Submit" class="btn">

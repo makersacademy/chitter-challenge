@@ -30,9 +30,9 @@ class Application < Sinatra::Base
   end
 
   post '/peeps' do
-    if invalid_peep_request_parameters?
-      status 400
-      return ''
+    if invalid_peep?
+      @error_msg = "Your peep must be between 1 and 500 characters."
+      return erb(:new_peep)
     end
 
     repo = PeepRepository.new
@@ -51,9 +51,9 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
-    if invalid_signup_request_parameters?
-      status 400
-      return ''
+    if invalid_signup?
+      @error_msg = "Whoops! Something went wrong :("
+      return erb(:signup)
     end
 
     repo = UserRepository.new
@@ -93,9 +93,9 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    if invalid_login_request_parameters?
-      status 400
-      return ''
+    if invalid_login?
+      @error_msg = "The email or password entered is incorrect."
+      return erb(:login)
     end
 
     repo = UserRepository.new
@@ -124,27 +124,31 @@ class Application < Sinatra::Base
     redirect '/' if session[:username] != nil
   end
 
-  def invalid_peep_request_parameters?
-    # Are the params nil?
-    return true if params[:peep] == nil
-    # Are they empty strings?
-    return true if params[:peep] == ""
-    return false
+  def invalid_peep?
+    if params[:peep].length < 1 || params[:peep].length > 500
+      return true
+    end
   end
 
-  def invalid_signup_request_parameters?
-    # Are the params nil?
-    return true if params[:username] == nil || params[:name] == nil || params[:email] == nil || params[:password] == nil || params[:confirm_password] == nil
-    # Are they empty strings?
-    return true if params[:username] == "" || params[:name] == "" || params[:email] == "" || params[:password] == "" || params[:confirm_password] == ""
-    return false
+  def invalid_signup?
+    if params[:username].length < 4 || params[:username].length > 20
+      return true
+    elsif params[:name].length < 4 || params[:name].length > 20
+      return true
+    elsif params[:email].length < 10 || params[:email].length > 30
+      return true
+    elsif params[:password].length < 8
+      return true
+    elsif params[:confirm_password].length < 8
+      return true
+    end
   end
 
-  def invalid_login_request_parameters?
-    # Are the params nil?
-    return true if params[:email] == nil || params[:password] == nil
-    # Are they empty strings?
-    return true if params[:email] == "" || params[:password] == ""
-    return false
+  def invalid_login?
+    if params[:email].length < 10 || params[:email].length > 30
+      return true
+    elsif params[:password] == ""
+      return true
+    end
   end
 end
