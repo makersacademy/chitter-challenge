@@ -22,13 +22,13 @@
         <% end %>
       </div>
         
-      <% if settings.logged == true %>
+      <% unless session[:user_id].nil? %>
       <div class="list">
         <p><a href="/peeps">Add Peep</a></p>
         <p><a href="/logout">Log out</a></p>
         </div>
         <% end %>
-        <% if settings.logged == false %>
+        <% if session[:user_id].nil? %>
         <div class="list">
         <p><a href="/register" class="link">Register</a></p>
         <p><a href="/login">Log in</a></p>
