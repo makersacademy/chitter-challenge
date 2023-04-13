@@ -19,9 +19,9 @@ CREATE TABLE peeps (
 );
 
 INSERT INTO users (name, email_address, password) VALUES
-('Emma_Johnson', 'SparkleLioness1234@gmail.com', 'ZnG3q'),
-('Ethan_Hernandez', 'NeonUnicorn12@yahoo.com', 'Lk8$2'),
-('Daniel_Anderson', 'ElectricPenguin77@outlook.com', 'Vt9@p');
+('EmmaJohnson', 'SparkleLioness1234@gmail.com', 'ZnG3q'),
+('EthanHernandez', 'NeonUnicorn12@yahoo.com', 'Lk8$2'),
+('DanielAnderson', 'ElectricPenguin77@outlook.com', 'Vt9@p');
 
 INSERT INTO peeps (content, time_of_posting, user_id) VALUES
 ('Just finished a great workout! #sweatyselfie', NOW(), 1),
