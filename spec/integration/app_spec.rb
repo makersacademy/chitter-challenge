@@ -45,4 +45,18 @@ describe Application do
       expect(response.body).to include('<legend>Register as a new user</legend>')
     end
   end
+
+  context "post /new-user route" do
+    it "returns 200 OK and success page" do
+      response = post(
+        '/new-user',
+        username: 'Ninya',
+        email: 'ninya@hotmail.com',
+        full_name: 'Empress Ninoshka Valentina',
+        password: 'Cleo456'
+        )
+      expect(response.status).to eq 200
+      expect(response.body).to include('<p>Your account was successfully created</p>')
+    end
+  end
 end

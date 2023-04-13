@@ -26,3 +26,5 @@ gem "rake", "~> 13.0"
 gem "rack", "~> 2.2"
 
 gem "rack-test", "~> 2.1"
+
+gem "bcrypt", "~> 3.1"
