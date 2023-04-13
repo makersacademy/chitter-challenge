@@ -34,6 +34,10 @@ class Application < Sinatra::Base
     send_file 'assets/chitter_logo.png', type: :png
   end
 
+  get '/user_icon' do
+    send_file 'assets/user_icon.png', type: :png
+  end
+
   get '/users/:id' do
     user_id = params[:id]
     repo = PeepRepository.new
@@ -46,7 +50,10 @@ class Application < Sinatra::Base
       date = item.time_of_posting.slice!(0,16)
       @peeps << [item.content, date]
     end
-
     return erb(:peeps)
+  end
+
+  post '/post_peep' do
+    #
   end
 end

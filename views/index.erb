@@ -1,21 +1,73 @@
 <html>
-  <head></head>
+  <head>
+    <style>
+    body { background-color: lightgrey; }
+    .container {
+    width: 90%;
+    overflow: hidden;
+    padding-top: 10px
+    }
+    .feed {
+      width: 60%;
+      padding-right: 10px;
+      float: right;
+    }
+    .header {
+      padding-left: 15%;
+      width: 20%;
+      float: left;
+    }
+
+    .posting_form {
+      text-align: left;
+      width: 10%;
+      float: left;
+      padding-left: 15%;
+    }
+    </style>
+  </head>
+
   <body>
-  <div style="display: flex;">
-    <img src="/image" style ="width: 75; height: 75">
-    <h1 style="font-size: 45px">Welcome to Chitter</h1>
+  <div class="container">
+    <div class = "header" style="display: flex;">
+      <a href ="/">
+      <img src="/image" style ="width: 75; height: 75"></a>
+      <h1 style="font-size: 45px">Welcome<br>to<br>Chitter</h1>
+    </div>
+
+    <div class = "feed">
+      <h4>Recent Peeps:</h4>
+        <table>
+        <% @top_peeps[0..9].each do |content, timestamp, username, userid| %>
+          <tr>
+            <td>
+              <div style="display: flex; padding-left: 5px; padding-right: 10px; width: 50%; border-style: dotted;">
+                <div>
+                <img src="/user_icon" style ="width: 50; height: 50; padding-right: 5px; padding-top: 5px;">
+                </div>
+                <div style="padding-bottom: 10px;"> 
+                  <a href = "/users/<%= userid %>">@<%= username %></a>: 
+                  <br>
+                  "<%= content %>"
+                  <br>
+                  <%= timestamp %>
+                </div>
+                <br><br>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
+
+    <div class="posting_form">
+      <h2>Hi, @{username}!</h2>
+      <form action="/post_peep" method="POST">
+        <label for="peep"><h4>Peep something!</h4></label>
+        <textarea name="content" placeholder="Compose new peep..." rows="5" cols="40" style="resize: none;"></textarea>
+        <input type="submit" value="Peep this!" style="width: 300px;">
+      </form>
+    </div>
   </div>
-    <h4>Top Peeps:</h4>
-      <table>
-      <% @top_peeps.each do |content, timestamp, username, userid| %>
-        <tr>
-          <td>
-            <a href = "/users/<%= userid %>"><%= username %></a>: "<%= content %>"<br>
-            <%= timestamp %>
-            <br><br>
-          </td>
-        </tr>
-      <% end %>
-      </table>
   </body>
 </html>
