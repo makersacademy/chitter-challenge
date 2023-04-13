@@ -1,7 +1,11 @@
 # file: app.rb
+require './lib/message'
 require 'sinatra/base'
 require 'sinatra/reloader'
-# require_relative 'lib/message_repository'
+require './lib/database_connection'
+require './lib/message_repository'
+
+DatabaseConnection.connect
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -12,14 +16,16 @@ class Application < Sinatra::Base
   post '/message' do
     new_message = Message.new
     @message = new_message
-    new_message.time = params[:time].to_i
+    new_message.time = params[:time]
     new_message.date = params[:date]
     new_message.content = params[:content]
 
-    return erb(new_message)
+    return erb(:message)
   end
   # Confirm that new messages have been added to the database
   get '/message' do
+    @message = Message.new
+
     return erb(:message)
   end
-end 
+end

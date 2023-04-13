@@ -1,6 +1,6 @@
 require "spec_helper"
 require "rack/test"
-require_relative '../app'
+require_relative "../../app"
 
 describe Application do
   # This is so we can use rack-test helper methods.
@@ -14,24 +14,25 @@ describe Application do
       # Send a POST request to /submit
       # with some body parameters
       # and returns a response object we can test.
-      response = post("/message", time: 2104, date: "11/04/2023", content: "words")
+      response = post("/message", time: "21:04", date: "2023-04-11", content: "words")
 
       # Assert the response status code and body.
       expect(response.status).to eq(200)
-      expect(response.body).to eq('')
-      response = get('/message')
-      expect(response.body).to include('words')
+      expect(response.body).to include("words")
     end
   end
   context "GET /message" do
-    it "returns message" do
+    it "returns a message" do
       # Send a GET request to /
       # and returns a response object we can test.
       response = get("/message")
 
       # Assert the response status code and body.
       expect(response.status).to eq(200)
-      expect(response.body).to eq("Some response data")
+      expect(response.body).to eq('<h1>Chitter</h1>')
+      expect(response.body).to eq("12:09:00")
+      expect(response.body).to eq("2023-04-13")
+      expect(response.body).to eq("Hello, world")
     end
   end
 end

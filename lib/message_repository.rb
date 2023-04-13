@@ -1,30 +1,29 @@
-# require 'message'
+require 'message'
 
-# class MessageRepository
-#   def all
-#     messages = []
+class MessageRepository
+  def all
+    messages = []
 
-#     # Send the SQL query and get the result set.
-#     # sql = 'SELECT id, time, date, content FROM messages;'
-#     # result_set = DatabaseConnection.exec_params(sql, [])
+    # Send the SQL query and get the result set.
+    sql = 'SELECT id, time, date, content FROM messages;'
+    result_set = DatabaseConnection.exec_params(sql, [])
         
-#     # The result set is an array of hashes.
-#     # Loop through it to create a model
-#     # object for each record hash.
-#     result_set.each do |peep|
+    # The result set is an array of hashes.
+    # Loop through it to create a model
+    # object for each record hash.
+    result_set.each do |peep|
     
-#     # Create a new model object with the record data.
-#       message = Message.new
-#       message.id = peep['id'].to_i
-#       message.time = peep['time']
-#       message.date = peep['date']
-#       message.content = peep['content']
+    # Create a new model object with the record data.
+      message = Message.new
+      # message.id = peep['id'].to_i
+      message.time = peep['time']
+      message.date = peep['date']
+      message.content = peep['content']
     
-#       messages << message
-#     end
-    
-#     return messages
-#   end
+      messages << message
+    end
+    return messages
+  end
 
 #   def create(message)
 #     return message
@@ -60,4 +59,4 @@
 #     sql = 'DELETE FROM messages WHERE id = $1;';
 #     DatabaseConnection.exec_params(sql, [id]);
 #   end
-# end
+end
