@@ -12,28 +12,28 @@
 
   <nav>
     <div class="container navbar">
-        <div class="logo">
-          <img class="image" src="peep.png" alt="peep no evil">
-          <h1>Chitter</h1>
-          <% if settings.logged == true %>
-          <h3>You are logged in as <%= session[:username] %></h3>
-          <% else %>
-          <h3>Log in to create new peeps</h3>
-          <% end %>
-        </div>
+      <div class="logo">
+        <img class="image" src="peep.png" alt="peep no evil">
+        <h1>Chitter</h1>
+        <% if settings.logged == true %>
+        <h3>You are logged in as <%= session[:username] %></h3>
+        <% else %>
+        <h3>Log in to create new peeps</h3>
+        <% end %>
+      </div>
         
-          <% if settings.logged == true %>
-          <div class="list">
-            <p><a href="/peeps/new">Add Peep</a></p>
-            <p><a href="/logout">Log out</a></p>
-            </div>
-            <% end %>
-            <% if settings.logged == false %>
-            <div class="list">
-            <p><a href="/register/new" class="link">Register</a></p>
-            <p><a href="/login/form">Log in</a></p>
-          </div>
-          <% end %>
+      <% if settings.logged == true %>
+      <div class="list">
+        <p><a href="/peeps">Add Peep</a></p>
+        <p><a href="/logout">Log out</a></p>
+        </div>
+        <% end %>
+        <% if settings.logged == false %>
+        <div class="list">
+        <p><a href="/register" class="link">Register</a></p>
+        <p><a href="/login">Log in</a></p>
+      </div>
+      <% end %>
         
     </div>   
   </nav>
@@ -44,7 +44,6 @@
       <h2>For all the chit that comes out of your brain</h2><br>
     </div>
   </header>
-
 
   <section>
   <div class="container">
@@ -57,6 +56,7 @@
   </div>
       <% end %>
     </div>
+    
     
   </div>
 

@@ -29,7 +29,7 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  get '/peeps/new' do
+  get '/peeps' do
     @user_id = session[:user_id] # placeholder code for sending logged in user id!!!
     return erb(:add_peep)
   end
@@ -48,7 +48,7 @@ class Application < Sinatra::Base
     return redirect('/')
   end
 
-  get '/register/new' do
+  get '/register' do
     return erb(:register)
   end
   
@@ -72,14 +72,14 @@ class Application < Sinatra::Base
     return redirect('/')
   end
 
-  get '/login/form' do
+  get '/login' do
     return erb(:login)
   end
 
   post '/login' do
     @email = params[:email]
     @password = params[:password]
-    script_check([@email, @password], '/login/form')
+    script_check([@email, @password], '/login')
     email_exists(@email)
     user = UserRepository.new.find_by_email(@email)
     email_password_match(user, @password)
