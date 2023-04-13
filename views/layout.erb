@@ -12,15 +12,15 @@
 <p><% if session[:username]%> Hello, @<%= session[:username] %>.<% end %></p>
 
 <nav>
-  <a href="/">Home</a>
+  <a href="/" class="<%= "current-page" if current_page?("") %>">Home</a>
   <% if session[:username]%>
-    <a href="/peeps/new">Create a new peep</a>
+    <a href="/peeps/new" class="<%= "current-page" if current_page?("peeps/new") %>">Create new peep</a>
     <a href="/logout">Log out</a>
   <% end %>
 
   <% if !session[:username]%>
-    <a href="/signup">Sign up</a>
-    <a href="/login">Log in</a>
+    <a href="/signup" class="<%= "current-page" if current_page?("signup") %>">Sign up</a>
+    <a href="/login" class="<%= "current-page" if current_page?("login") %>">Log in</a>
   <% end %>
 </nav>
 

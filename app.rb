@@ -116,6 +116,10 @@ class Application < Sinatra::Base
     redirect "/"
   end
 
+  def current_page?(path='')
+    request.path_info == '/' + path
+  end
+
   def logged_in?
     redirect '/' if session[:username] != nil
   end

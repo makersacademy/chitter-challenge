@@ -126,3 +126,8 @@ textarea {
   color: red;
   font-weight: bold;
 }
+
+.current-page {
+  background-color: #54b8f6;
+  color: #ffffff;
+}
