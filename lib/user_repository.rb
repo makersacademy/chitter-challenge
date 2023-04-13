@@ -25,17 +25,21 @@ class UserRepository
   
     sql = '
       INSERT INTO users (username, email, password)
-        VALUES($1, $2, $3);
+        VALUES($1, $2, $3)
+        RETURNING id;
     '
     sql_params = [
       user.username,
       user.email,
       encrypted_password
     ]
-    DatabaseConnection.exec_params(sql, sql_params)
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    
+    user.id = result_set[0]['id'].to_i
   
-    return nil
+    return user
   end
+  
 
   def find_by_email(email)
     sql = 'SELECT username FROM users WHERE email = $1;'
@@ -54,6 +58,9 @@ class UserRepository
     end
   end
 
+  ######################################################################################
+  # implement this feature if you have time:
+
   # def sign_in(email, submitted_password)
   #   user = find_by_email(email)
 
@@ -67,6 +74,6 @@ class UserRepository
   #     return 'wrong password'
   #   end
   # end
-
+#########################################################################################
   # # do a sign out too
 end

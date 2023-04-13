@@ -23,27 +23,28 @@ class Application < Sinatra::Base
     new_user.username = params['username']
     new_user.email = params['email']
     new_user.password = params['password']
-    UserRepository.new.create(new_user)
-    redirect '/'
+    created_user = UserRepository.new.create(new_user)
+    session[:user_id] = created_user.id
+    redirect '/homepage'
   end
 
-  get '/' do
+  get '/homepage' do
     repo = PeepRepository.new
     @peeps = repo.all
-    return erb(:peeps)
+    return erb(:homepage)
   end
 
-  get '/post_peep' do
-    return erb(:post_peep)
+  get '/peep' do
+    return erb(:peep)
   end
 
-  post '/' do
+  post '/peep' do
     new_peep = Peep.new
-    new_peep.peep = params['peep']
+    new_peep.peep = params[:peep]
     new_peep.timestamp = Time.now
     new_peep.username_id = session[:user_id] 
     PeepRepository.new.create(new_peep)
-    redirect '/'
+    redirect '/homepage'
   end  
 end
 

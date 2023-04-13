@@ -22,8 +22,8 @@ class PeepRepository
   end
 
   def create(message)
-    sql = 'INSERT INTO peeps (peep, timestamp, username_id) VALUES ($1, $2, $3);'
-    result_set = DatabaseConnection.exec_params(sql, [message.peep, message.timestamp, message.username_id])
+    sql = 'INSERT INTO peeps (peep, username_id, timestamp) VALUES ($1, $2, $3);'
+    result_set = DatabaseConnection.exec_params(sql, [message.peep, message.username_id, message.timestamp])
     return message
   end
 end
