@@ -29,21 +29,21 @@ describe Application do
       expect(UserRepository.new.find_by_email('user1@gmail.com').username).to eq 'user1'
     end
   end
-  describe 'GET /peeps' do
+  describe 'GET /homepage' do
     it 'returns all peeps from most recent date' do
       response = get('/homepage')
       expect(response.status).to eq 200
       expect(response.body).to include '<h3>Most Recent Peeps</h3>'
     end
   end
-  describe 'GET /post_peep' do
+  describe 'GET /peep' do
     it 'returns the post peep page' do
       response = get('/peep')
       expect(response.status).to eq 200
       expect(response.body).to include '<label for="peep">What are you doing?</label>'
     end
   end
-  describe 'POST /' do
+  describe 'POST /peep' do
     it 'creates a new peep' do
       post '/peep', { peep: 'This is a new peep' }, { 'rack.session' => { user_id: 1 } }
       expect(last_response.status).to eq(302)
