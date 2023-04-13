@@ -15,6 +15,7 @@ class Application < Sinatra::Base
     register Sinatra::ActiveRecordExtension
     also_reload 'lib/peep.rb'
     also_reload 'lib/user.rb'
+    also_reload 'style.css'
   end
 
   get '/' do
