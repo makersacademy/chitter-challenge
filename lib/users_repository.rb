@@ -18,10 +18,9 @@ class UserRepository
   end
 
   def create(username:, name:, password_hash:, email:)
-    password_hash = BCrypt::Password.create(password_hash)
     sql = 'INSERT INTO users (username, name, password_hash, email) VALUES ($1, $2, $3, $4) RETURNING *;'
     result = DatabaseConnection.exec_params(sql, [username, name, password_hash, email])
-
+  
     User.new(
       id: result[0]['id'].to_i,
       username: result[0]['username'],
@@ -29,5 +28,20 @@ class UserRepository
       password_hash: result[0]['password_hash'],
       email: result[0]['email']
     )
-  end
+  end  
+
+  def find_user_by_email(email)
+    sql = 'SELECT * FROM users WHERE email = $1;'
+    result = DatabaseConnection.exec_params(sql, [email])
+  
+    return nil if result.ntuples.zero?
+  
+    User.new(
+      id: result[0]['id'].to_i,
+      username: result[0]['username'],
+      name: result[0]['name'],
+      password_hash: result[0]['password_hash'],
+      email: result[0]['email']
+    )
+  end  
 end

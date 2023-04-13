@@ -42,7 +42,19 @@ describe UserRepository do
       expect(user.email).to eq('test@example.com')
 
       
-      expect(BCrypt::Password.new(user.password_hash)).to eq('123456')
+      expect(user.password_hash).to eq('123456                                                      ')
+    end
+  end
+
+  describe '#find' do
+    it 'finds a user by email' do
+      repo = UserRepository.new
+      user = repo.find_user_by_email('donald@example.com')
+
+      expect(user.id).to eq(1)
+      expect(user.username).to eq('orangeman')
+      expect(user.name).to eq('Donald')
+      expect(user.email).to eq('donald@example.com')
     end
   end
 end

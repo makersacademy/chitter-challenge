@@ -77,4 +77,27 @@ describe ChitterApp do
       expect(UserRepository.new.all.last.username).to eq "testuser"
     end
   end  
+
+  describe "GET /login" do
+    it "displays a form to log in" do
+      response = get "/login"
+      expect(response.status).to eq 200
+      expect(response.body).to include("<h1>Login</h1>")
+      expect(response.body).to include("Email")
+      expect(response.body).to include("Password")
+    end
+  end
+
+  describe "POST /login" do
+    it "logs in a user" do
+      response = post "/login", { email: "donald@example.com", password: "abc123" }
+
+      expect(response.status).to eq 302
+      follow_redirect!
+
+      expect(last_response.status).to eq 200
+      expect(last_response.body).to include("Welcome")
+      expect(last_response.body).to include("Orangeman")
+    end
+  end
 end

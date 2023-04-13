@@ -8,9 +8,17 @@ require_relative 'lib/peeps_repository'
 DatabaseConnection.connect
 
 class ChitterApp < Sinatra::Base
+  enable :sessions
+
+  helpers do
+    def current_user
+      @current_user ||= UserRepository.new.find_user_by_email(session[:email])
+    end
+  end
+
   configure :development do
     register Sinatra::Reloader
-#     also_reload 'lib/users_repository'
+    also_reload 'lib/users_repository'
     also_reload 'lib/peeps_repository'
   end
 
@@ -39,4 +47,39 @@ class ChitterApp < Sinatra::Base
   
     redirect '/'
   end  
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login' do
+    email = params['email']
+    password = params['password']
+  
+    user = UserRepository.new.find_user_by_email(email)
+  
+    if user.nil?
+      puts "User not found."
+      redirect '/login'
+    else
+      puts "User: #{user.inspect}"
+      puts "Entered password: #{password}"
+      puts "Stored password hash: #{user.password_hash}"
+      puts "Password comparison result: #{BCrypt::Password.new(user.password_hash) == password}"
+    end
+  
+    if user && BCrypt::Password.new(user.password_hash) == password
+      session[:user_id] = user.id
+      session[:email] = user.email
+      redirect '/loggedin'
+    else
+      redirect '/login'
+    end
+  end
+
+  get '/loggedin' do
+    peeps_repo = PeepRepository.new
+    @peeps = peeps_repo.all
+    return erb(:loggedin)
+  end
 end
