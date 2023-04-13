@@ -81,7 +81,7 @@ header h2 {
 }
 
 .error {
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .panel {
@@ -95,6 +95,7 @@ header h2 {
 
 .panel p {
   color: #8fbbed;
+  padding-bottom: 5px;
 }
 
 #smallprint {
