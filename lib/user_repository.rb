@@ -25,7 +25,10 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE id = $1;'
     params = [id]
     result = DatabaseConnection.exec_params(sql, params)
-    user = User.new(result.first['name'],result.first['email_address'],result.first['password'])
+    user = User.new(result.first['id'],
+                    result.first['name'],
+                    result.first['email_address'],
+                    result.first['password'])
     return user
   end
 
@@ -33,7 +36,21 @@ class UserRepository
     sql = 'SELECT * FROM users WHERE email_address = $1;'
     params = [email]
     result = DatabaseConnection.exec_params(sql, params)
-    user = User.new(result.first['name'],result.first['email_address'],result.first['password'])
+    user = User.new(result.first['id'], 
+                    result.first['name'],
+                    result.first['email_address'],
+                    result.first['password'])
+    return user
+  end
+
+  def find_by_username(username)
+    sql = 'SELECT * FROM users WHERE name = $1;'
+    params = [username]
+    result = DatabaseConnection.exec_params(sql, params)
+    user = User.new(result.first['id'], 
+                    result.first['name'],
+                    result.first['email_address'],
+                    result.first['password'])
     return user
   end
 end

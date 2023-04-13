@@ -18,7 +18,7 @@ class PeepRepository
 
   def ordered
     peeps = []
-    sql = 'SELECT * FROM peeps ORDER BY id DESC'
+    sql = 'SELECT * FROM peeps ORDER BY time_of_posting DESC'
     result = DatabaseConnection.exec_params(sql, [])
     
     result.each do |item|
@@ -54,11 +54,5 @@ class PeepRepository
     result = DatabaseConnection.exec_params(sql, params)
     peep = Peep.new(result[0]['content'], result[0]['time_of_posting'], result[0]['user_id'])
     return peep
-  end
-
-  def return_author(id)
-    repo = UserRepository.new
-    result = repo.find_by_id(id)
-    return result
   end
 end
