@@ -47,14 +47,14 @@ class Application < Sinatra::Base
   end
 
   get '/users/:id' do
-    user_id = params[:id]
+    @user_id = params[:id]
     repo = PeepRepository.new
     users = UserRepository.new
     @peeps = []
 
-    @username = users.find_by_id(user_id).username
-    @name = users.find_by_id(user_id).name
-    result = repo.find(user_id)
+    @username = users.find_by_id(@user_id).username
+    @name = users.find_by_id(@user_id).name
+    result = repo.find(@user_id)
     
     result.each do |item|
       date = item.time_of_posting.slice!(0,16)
