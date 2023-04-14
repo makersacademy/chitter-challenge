@@ -46,10 +46,13 @@ nav {
 }
 
 .logo h1 {
-  /* display: block; */
   color: #accef4;
   font-size: 45px;
   margin: 0 40px 0 10px;
+}
+
+.logo h1:hover {
+  color: #fff;
 }
 
 a {
