@@ -5,35 +5,35 @@ class DatabaseConnection
 
   # 👇🏻 ################# RENDER connect method
 
-  # def self.connect
-  #   # If the environment variable (set by Render)
-  #   # is present, use this to open the connection.
-  #   if ENV['DATABASE_URL'] != nil
-  #     @connection = PG.connect(ENV['DATABASE_URL'])
-  #     return
-  #   end
+  def self.connect
+    # If the environment variable (set by Render)
+    # is present, use this to open the connection.
+    if ENV['DATABASE_URL'] != nil
+      @connection = PG.connect(ENV['DATABASE_URL'])
+      return
+    end
   
-  #   if ENV['ENV'] == 'test'
-  #     database_name = 'chitter_test'
-  #   else
-  #     database_name = 'chitter_render_db'
-  #   end
-  #   @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
-  # end
+    if ENV['ENV'] == 'test'
+      database_name = 'chitter_test'
+    else
+      database_name = 'chitter_render_db'
+    end
+    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
+  end
 
 
 
 
   # 👇🏻 ################## local connect method - NOT for RENDER
 
-  def self.connect
-    if ENV['ENV'] == 'test'
-      database_name = 'chitter_test'
-    else
-      database_name = 'chitter'
-    end
-    @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
-  end
+  # def self.connect
+  #   if ENV['ENV'] == 'test'
+  #     database_name = 'chitter_test'
+  #   else
+  #     database_name = 'chitter'
+  #   end
+  #   @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
+  # end
 
   def self.exec_params(query, params)
     if @connection.nil?
