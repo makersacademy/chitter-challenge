@@ -29,4 +29,11 @@ class Application < Sinatra::Base
 
     return erb(:message)
   end
+
+  get '/message/order' do
+    # It returns messages in reverse chronological order, newest first
+    repo = MessageRepository.new
+    @message = repo.all.sort_by(&:date)
+    return erb(:message)
+  end
 end

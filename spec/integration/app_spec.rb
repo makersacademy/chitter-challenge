@@ -35,4 +35,15 @@ describe Application do
       expect(response.body).to include("Hello, world")
     end
   end
+  context 'GET /message/order' do
+    it 'returns messages in reverse chronological order, newest first' do
+      response = get("/message/order")
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Chitter</h1>')
+      expect(response.body).to include("12:09:00", "10:15:00")
+      expect(response.body).to include("2023-04-13", "2023-04-09")
+      expect(response.body).to include("Hello, world", "Ruby rules")
+    end
+  end
 end

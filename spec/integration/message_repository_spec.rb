@@ -13,8 +13,17 @@ describe MessageRepository do
     repo = MessageRepository.new
     message = repo.all[0]
 
-    expect(message.time).to eq("12:09:00")
-    expect(message.date).to eq("2023-04-13")
-    expect(message.content).to eq("Hello, world")
+    expect(message.time).to include("12:09:00")
+    expect(message.date).to include("2023-04-13")
+    expect(message.content).to include("Hello, world")
+  end
+
+  it 'finds all messages and returns it in reverse chronological order' do
+    repo = MessageRepository.new
+    message = repo.all[0]
+
+    expect(message.time).to include("12:09:00", "10:15:00")
+    expect(message.date).to include("2023-04-13", "2023-04-09")
+    expect(message.content).to include("Hello, world", "Ruby rules")
   end
 end

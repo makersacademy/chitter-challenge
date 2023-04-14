@@ -8,9 +8,13 @@ class MessageRepository
     # sql = 'SELECT time, date, content FROM messages;'
     # result_set = DatabaseConnection.exec_params(sql, [])
     message = Message.new
+    second_message = Message.new
     message.time = '12:09:00'
     message.date = '2023-04-13'
     message.content = 'Hello, world'
+    second_message.time = '10:15:00'
+    second_message.date = '2023-04-09'
+    second_message.content = 'Ruby rules'
     return [message]
   end
         
