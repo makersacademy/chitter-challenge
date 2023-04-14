@@ -58,6 +58,10 @@ a {
   font-weight: bold;
 }
 
+a:hover {
+  color: #76e4e4;
+}
+
 .list p {
   margin-left: 20px;
 }
