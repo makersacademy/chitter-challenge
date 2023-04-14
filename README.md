@@ -51,7 +51,6 @@ Notes on functionality:
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 Initial Planning:
 ------
@@ -88,22 +87,43 @@ Instruction on how to install and run the tests:
 Make sure you are in the chitter-challenge directory and execute the commands below in the command line:
 
 1. Check if ruby version is 3.0.2 in the command line:
-`ruby -v`
+
+```bash
+ruby -v
+```
 
 2. if using a different version, install ruby 3.0.2 in the command line:
-`rvm install ruby-3.0.2`
+
+```bash
+$ rvm install ruby-3.0.2
+```
 
 3. Install Bundler:  # Package manager
-`gem install bundler`
 
-4. Use Bundler to install all necessary packages:
-`bundle install`. # install all the packages in the gem file
+```bash
+$ gem install bundler
+```
+
+4. Use Bundler to install all necessary packages: # install all the packages in the gem file
+
+```bash
+$ bundle install
+```
 
 5. create the database for testing:
-`createdb chitter_database_testing`
+
+```bash
+$ createdb chitter_database_testing
+```
 
 6. import SQL script file into the PostgreSQL database:
-`psql -h 127.0.0.1 createdb chitter_database_testing`
+
+```bash
+$ psql -h 127.0.0.1 createdb chitter_database_testing < chitter_tables.sql
+```
 
 7. execute `rspec` to run the tests:
-`rspec`
+
+```bash
+$ rspec
+```
