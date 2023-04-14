@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chitter - Sign Up</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+
+      .header__logo {
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .header__buttons {
+        display: flex;
+        gap: 16px;
+      }
+
+      .header__button {
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+
+      .header__button:hover {
+        background-color: #0069d9;
+      }
+
+      form {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      form h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      form label {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      form input[type="text"],
+      form input[type="email"],
+      form input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 16px;
+        font-size: 16px;
+      }
+
+      form input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      form input[type="submit"]:hover {
+        background-color: #0069d9;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        Chitter
+      </div>
+      <div class="header__buttons">
+        <a href="/" class="header__button">Home</a>
+        <a href="/login" class="header__button">Log In</a>
+      </div>
+    </header>
+
+    <form action="/signup" method="post">
+      <h1>Sign Up</h1>
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+      </div>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+      <div>
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password" required>
+</div>
+      <div>
+        <input type="submit" value="Sign Up">
+      </div>
+    </form>
+  </body>
+
+       
