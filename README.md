@@ -76,6 +76,8 @@ Tools:
 * Rubocop for static code analysis and linting
 * PostgreSQL as the database
 * WEBrick as the web server
+* HTML for structuring the web pages
+* CSS for  styling the web pages
 
 Frameworks:
 * Sinatra as the web framework
@@ -127,3 +129,7 @@ $ psql -h 127.0.0.1 createdb chitter_database_testing < chitter_tables.sql
 ```bash
 $ rspec
 ```
+
+Link to the Chitter website:
+------
+(https://md-chitter-app.onrender.com/)
