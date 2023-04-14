@@ -78,6 +78,7 @@ Tools:
 * WEBrick as the web server
 * HTML for structuring the web pages
 * CSS for  styling the web pages
+* Render as the cloud platform for deploying the web application
 
 Frameworks:
 * Sinatra as the web framework
