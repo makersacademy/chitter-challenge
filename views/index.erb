@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome to Chitter</h1>
+      <%if @logged_in_user_id != nil %>
+      <a href="/new-peep">Post a new peep!</a><br>
+      <% end %>
+      <a href="/login">Login to Chitter!</a><br>
+      <a href="/new-user">Register as a new user!</a>
+      <% @peeps.order(created_date_time: :desc).each do |peep| %>
+        <p>
+        <%= peep.content %><br>
+        <%= peep.created_date_time %>
+        </p>
+      <% end %>
+    </div>
+  </body>
+</html>
