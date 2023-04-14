@@ -45,7 +45,7 @@
         <label for="body">What new gem would you like to share with the world: </label><br>
         <textarea class="textarea" type="text" name="body" rows="4" cols="42"></textarea><br>
         <label for="tags">Tags: </label><br>
-        <input class="text" type="text" name="tags" /><br><br>
+        <input id="tag-text" class="text" type="text" name="tags" /><br><br>
         <input type="hidden" name="user_id" value=<%= session[:user_id] %> />
         <input class="button" type="submit"><br><br>
       </form>
