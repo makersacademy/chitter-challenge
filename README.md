@@ -130,6 +130,16 @@ $ psql -h 127.0.0.1 createdb chitter_database_testing < chitter_tables.sql
 $ rspec
 ```
 
-Link to the Chitter website:
+Link to the Chitter website :)
 ------
 (https://md-chitter-app.onrender.com/)
+
+Further development:
+------
+* encrypt password information
+* add more validation on peep messages, making sure it does not include offensive content.
+* add proper validation on email-address during sign-up, making sure that it does exist
+* have a delete functionality on posted messages
+* have a  delete account functionality on existing users
+* be able to reply/comment to a posted peep
+* add more links to navigate web-app easier
