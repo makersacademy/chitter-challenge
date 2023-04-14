@@ -52,7 +52,8 @@ nav {
 }
 
 .logo h1:hover {
-  color: #fff;
+  color: #3e7ce8;
+  text-shadow: 1px 1px 6px #8fbbed;
 }
 
 a {
@@ -127,9 +128,9 @@ input {
 }
 
 .button:hover {
-  background-color: #76e4e4;
-  color: #008779;
-  box-shadow: 1px 3px 5px rgba(5, 66, 50, 0.6);
+  background-color: #9ae0e0;
+  color: #11554f;
+  box-shadow: 1px 3px 7px rgba(5, 66, 50, 0.6);
 }
 
 .text {
