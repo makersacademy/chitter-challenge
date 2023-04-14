@@ -80,6 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   pg (~> 1.4)
+  rack (~> 2.2)
   rack-test (~> 2.1)
   rspec
   rubocop (= 1.20)
