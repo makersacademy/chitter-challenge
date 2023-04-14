@@ -19,4 +19,4 @@ end
 
 gem "timecop", "~> 0.9.6"
 
-gem "rack", "~> 2.2"
+gem "rackup", "~> 1.0"
