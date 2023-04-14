@@ -51,9 +51,11 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     users = UserRepository.new
     @peeps = []
+    user = users.find_by_id(@user_id)
+    @username = user.username
+    @bio = user.bio
+    @name = user.name
 
-    @username = users.find_by_id(@user_id).username
-    @name = users.find_by_id(@user_id).name
     result = repo.find(@user_id)
     
     result.each do |item|
@@ -62,5 +64,9 @@ class Application < Sinatra::Base
     end
 
     return erb(:peeps)
+  end
+
+  get '/new_user' do
+    return erb(:create_account)
   end
 end

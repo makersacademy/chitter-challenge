@@ -17,7 +17,8 @@ class UserRepository
       user = User.new(user_item['name'],
                       user_item['username'],
                       user_item['email_address'],
-                      user_item['password'])
+                      user_item['password'],
+                      user_item['bio'])
       output << user
     end
     return output
@@ -31,7 +32,8 @@ class UserRepository
                     result.first['name'],
                     result.first['username'],
                     result.first['email_address'],
-                    result.first['password'])
+                    result.first['password'],
+                    result.first['bio'])
     return user
   end
 
@@ -43,7 +45,8 @@ class UserRepository
                     result.first['name'],
                     result.first['username'],
                     result.first['email_address'],
-                    result.first['password'])
+                    result.first['password'],
+                    result.first['bio'])
     return user
   end
 
@@ -55,7 +58,8 @@ class UserRepository
                     result.first['name'],
                     result.first['username'],
                     result.first['email_address'],
-                    result.first['password'])
+                    result.first['password'],
+                    result.first['bio'])
     return user
   end
 
@@ -67,7 +71,8 @@ class UserRepository
                     result.first['name'],
                     result.first['username'],
                     result.first['email_address'],
-                    result.first['password'])
+                    result.first['password'],
+                    result.first['bio'])
     return user
   end
 end

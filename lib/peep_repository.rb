@@ -39,7 +39,7 @@ class PeepRepository
   def find(user)
     peeps = []
     params = [user]
-    sql = 'SELECT * FROM peeps WHERE user_id = $1'
+    sql = 'SELECT * FROM peeps WHERE user_id = $1 ORDER BY id DESC'
     result = DatabaseConnection.exec_params(sql, params)
     result.each do |item|
       peep = Peep.new(item['content'], item['time_of_posting'], item['user_id'])

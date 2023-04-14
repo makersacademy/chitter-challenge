@@ -15,7 +15,7 @@ RSpec.describe UserRepository do
   context 'User Managment' do
     it "adds user to database" do
       repo = UserRepository.new
-      new_user = User.new('Sofia Moore', 'TigerMoore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
+      new_user = User.new('Sofia Moore', 'TigerMoore', 'TigerStripedFox55@hotmail.com', 'wE8hN', 'Test Bio')
       expect(repo.create(new_user)).to eq true
     end
 
@@ -45,7 +45,7 @@ RSpec.describe UserRepository do
 
     it "adds user to database, returns user" do
       repo = UserRepository.new
-      new_user = User.new('Sofia Moore', 'TigerMoore', 'TigerStripedFox55@hotmail.com', 'wE8hN')
+      new_user = User.new('Sofia Moore', 'TigerMoore', 'TigerStripedFox55@hotmail.com', 'wE8hN', 'Test Bio')
       expect(repo.create(new_user)).to eq true
 
       result = repo.find_by_email('TigerStripedFox55@hotmail.com')

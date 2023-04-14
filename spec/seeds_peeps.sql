@@ -7,6 +7,7 @@ CREATE TABLE users (
   username text,
   email_address text,
   password text
+  bio text,
 );
 
 CREATE TABLE peeps (
@@ -19,17 +20,17 @@ CREATE TABLE peeps (
     on delete cascade
 );
 
-INSERT INTO users (name, username, email_address, password) VALUES
-('Emma Johnson', 'MarketingMaven', 'SparkleLioness1234@gmail.com', 'ZnG3q'),
-('Ethan Hernandez', 'TechieTiger', 'NeonUnicorn12@yahoo.com', 'Lk8$2'),
-('Daniel Anderson', 'SocialMediaGuru', 'ElectricPenguin77@outlook.com', 'Vt9@p'),
-('Steve Williams', 'AdventureAddict', 'techsavvy87@gmail.com','qwezr'),
-('Ben J Smith', 'ChefChampion', 'musiclover23@yahoo.com','plmko'),
-('Melissa Thompson', 'FitnessFreak', 'fitnessjunkie99@outlook.com','yhnji'),
-('Anthony N Harris', 'BikeBuddy', 'travelenthusiast13@live.com','gfdsa'),
-('Laura Davis', 'CoffeeCrazy', 'fashionista82@icloud.com','vbhnm'),
-('Sarah Johnson','PixelPirate', 'gamerfanatic45@protonmail.com','xdrfv'),
-('Jenn Martinez', 'ZombieTweeter', 'brainsnack@hotmail.com','lkjhg');
+INSERT INTO users (name, username, email_address, password, bio) VALUES
+('Emma Johnson', 'MarketingMaven', 'SparkleLioness1234@gmail.com', 'ZnG3q', 'Always searching for the perfect slice of pizza.'),
+('Ethan Hernandez', 'TechieTiger', 'NeonUnicorn12@yahoo.com', 'Lk8$2', 'Lover of all things vintage and retro.'),
+('Daniel Anderson', 'SocialMediaGuru', 'ElectricPenguin77@outlook.com', 'Vt9@p', 'Personal growth and development are essential. I''m always seeking new opportunities to learn and grow.'),
+('Steve Williams', 'AdventureAddict', 'techsavvy87@gmail.com','qwezr', 'Certified couch potato and Netflix addict.'),
+('Ben J Smith', 'ChefChampion', 'musiclover23@yahoo.com','plmko', 'Always hungry, never satisfied. Lover of snacks and naps.'),
+('Melissa Thompson', 'FitnessFreak', 'fitnessjunkie99@outlook.com','yhnji', 'Sustainability and environmentalism are key to our future. Let''s work together to protect our planet.'),
+('Anthony N Harris', 'BikeBuddy', 'travelenthusiast13@live.com','gfdsa', 'Adventure is my middle name! Whether hiking, diving, or strolling through cities, I''m always seeking new experiences. And a good cup of coffee is a must'),
+('Laura Davis', 'CoffeeCrazy', 'fashionista82@icloud.com','vbhnm', 'Just a girl trying to make sense of the world.'),
+('Sarah Johnson','PixelPirate', 'gamerfanatic45@protonmail.com','xdrfv', 'I put the "pro" in procrastination.'),
+('Jenn Martinez', 'ZombieTweeter', 'brainsnack@hotmail.com','lkjhg', 'I''m a zombie with a taste for brains and a passion for dance. When I''m not stumbling around looking for my next meal, you can find me getting down to some sick beats in the graveyard. Watch out, I might just bite you with my killer moves.');
 
 INSERT INTO peeps (content, time_of_posting, user_id) VALUES
 ('We will never forget the impact of #TheEvent and the changes it brought to the world! Who else is ready for summer?! #summervibes', NOW() - INTERVAL '1 year', 7),

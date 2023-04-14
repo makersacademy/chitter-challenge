@@ -1,5 +1,5 @@
 body { 
-  background-color: lightgrey; 
+  color: #333;
 }
 .container {
   width: 100%;
@@ -15,28 +15,59 @@ body {
 .feed {
   width: 50%;
   padding-right: 10%;
+  padding-left: 10px;
   float: right;
+  border: 1px dashed #666;
+  border-radius: 5px;
 }
+
 .header {
   padding-left: 5%;
   width: 100%;
   float: left;
+  border: 1px dashed #666;
+  border-radius: 5px;
 }
-.posting_form {
-  padding-left: 25%;
-  width: 100%;
-  float: right;
+.user_controls {
+  width: 105%;
+  float: left;
+  border: 1px dashed #666;
+  border-radius: 5px;
 }
 .peep_container {
   display: flex; 
   padding-left: 5px; 
   padding-right: 10%; 
   width: 100%; 
-  border-style: dotted;
 }
 .user_icon {
   width: 10%; 
   height: 10%; 
   padding-right: 5px; 
   padding-top: 5px;
+}
+
+.feed-header {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+.profile-image {
+  width: 250px; 
+  height: 250px; 
+  padding-right: 5px; 
+  padding-top: 5px;
+}
+.profile-image-container {
+  float: left;
+}
+
+.user-bio {
+  float: right;
+}
+
+hr {
+  width: 117%;
+  float: center;
+  border: 1px dashed #666;
 }
