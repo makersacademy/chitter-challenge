@@ -24,7 +24,8 @@ class Application < Sinatra::Base
   end
   # Confirm that new messages have been added to the database
   get '/message' do
-    @message = Message.new
+    repo = MessageRepository.new
+    @message = repo.all[0]
 
     return erb(:message)
   end

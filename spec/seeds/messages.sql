@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS albums; 
+DROP TABLE IF EXISTS messages; 
 
 -- Table Definition
 CREATE TABLE messages (

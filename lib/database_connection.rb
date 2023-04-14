@@ -12,9 +12,9 @@ class DatabaseConnection
   # the database name given in argument.
   def self.connect
     if ENV['ENV'] == 'test'
-      #database_name = 'music_library_test'
-   # else
       database_name = 'Chitter'
+    # else
+    #   database_name = 'messages'
     end
     @connection = PG.connect({ host: 'localhost', dbname: database_name, user: 'postgres', password: ENV['DATABASE_PASSWORD'] })
   end

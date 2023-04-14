@@ -29,10 +29,10 @@ describe Application do
 
       # Assert the response status code and body.
       expect(response.status).to eq(200)
-      expect(response.body).to eq('<h1>Chitter</h1>')
-      expect(response.body).to eq("12:09:00")
-      expect(response.body).to eq("2023-04-13")
-      expect(response.body).to eq("Hello, world")
+      expect(response.body).to include('<h1>Chitter</h1>')
+      expect(response.body).to include("12:09:00")
+      expect(response.body).to include("2023-04-13")
+      expect(response.body).to include("Hello, world")
     end
   end
 end

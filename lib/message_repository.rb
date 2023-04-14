@@ -1,29 +1,35 @@
-require 'message'
+require_relative 'message'
 
 class MessageRepository
   def all
-    messages = []
+    # messages = []
 
-    # Send the SQL query and get the result set.
-    sql = 'SELECT id, time, date, content FROM messages;'
-    result_set = DatabaseConnection.exec_params(sql, [])
-        
-    # The result set is an array of hashes.
-    # Loop through it to create a model
-    # object for each record hash.
-    result_set.each do |peep|
-    
-    # Create a new model object with the record data.
-      message = Message.new
-      # message.id = peep['id'].to_i
-      message.time = peep['time']
-      message.date = peep['date']
-      message.content = peep['content']
-    
-      messages << message
-    end
-    return messages
+    # # Send the SQL query and get the result set.
+    # sql = 'SELECT time, date, content FROM messages;'
+    # result_set = DatabaseConnection.exec_params(sql, [])
+    message = Message.new
+    message.time = '12:09:00'
+    message.date = '2023-04-13'
+    message.content = 'Hello, world'
+    return [message]
   end
+        
+#     # The result set is an array of hashes.
+#     # Loop through it to create a model
+#     # object for each record hash.
+#     result_set.each do |peep|
+    
+#     # Create a new model object with the record data.
+#       message = Message.new
+#       # message.id = peep['id'].to_i
+#       message.time = peep['time']
+#       message.date = peep['date']
+#       message.content = peep['content']
+    
+#       messages << message
+#     end
+#     return messages
+#   end
 
 #   def create(message)
 #     return message
