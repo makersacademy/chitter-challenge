@@ -11,8 +11,12 @@ describe PeepRespository do
     reset_tables
   end
 
+  let(:repo) { PeepRespository.new }
+  let(:message) { "Hello, world!" }
+  let(:timestamp) { "2099-10-10 10:10:10" }
+  let(:author_id) { author_id = 2 }
+
   it "Returns all peeps in reverse chronological order with their author's name and tag" do
-    repo = PeepRespository.new
     all_peeps = repo.all_with_author
     expect(all_peeps.length).to eq 3
     expect(all_peeps.first.message).to eq "Big Brother is watching you @wsmith"
@@ -23,10 +27,6 @@ describe PeepRespository do
   end
 
   it "Creates a new peep" do
-    repo = PeepRespository.new
-    message = "Hello, world!"
-    timestamp = "2099-10-10 10:10:10"
-    author_id = 2
     repo.create(message, timestamp, author_id)
     all_peeps = repo.all_with_author
     expect(all_peeps.length).to eq 4
@@ -36,4 +36,11 @@ describe PeepRespository do
     expect(all_peeps.first.user.name).to eq "Sarwah Mhanna"
     expect(all_peeps.first.user.username).to eq "smhanna"
   end
+
+  it "returns the ID of the most recent peep" do
+    expect(repo.most_recent_peep_id).to eq 2
+    repo.create(message, timestamp, author_id)
+    expect(repo.most_recent_peep_id).to eq 4
+  end
+
 end

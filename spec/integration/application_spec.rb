@@ -35,6 +35,10 @@ describe Application do
       response = get('/')
       expect(response.body).to match(/Posted: 2022-12-19 10:23:54[\s\S]*Posted: 1984-06-15 14:33:00/)
     end
+    it "displays a Chitter logo" do
+      response = get('/')
+      expect(response.body).to include("<img src='/chitter-low-resolution.png' alt='Chitter logo'")
+    end
 
     context "when the user is logged in" do
       it "displays the form to post a new peep" do
@@ -97,6 +101,33 @@ describe Application do
       follow_redirect!
       expect(last_response.body).to include('&lt;script&gt;document.location.href=&quot;https://www.youtube.com/watch?v=34Ig3X59_qA&quot;;&lt;/script&gt;')
     end
+    it "detects a tag within peep and records it in the DB" do
+      session_params = { 'rack.session' => { username: "smhanna", user_id: 2 } }
+      form_params = { message: "Hello @tcarmichael" }
+      response = post('/peep', form_params, session_params)
+      expect(response.status).to eq(302)
+      response = get('/')
+      expect(response.body).to include("Hello @tcarmichael")
+      tags = TagRepository.new.all
+      expect(tags.length).to eq 4
+      expect(tags.last.peep_id).to eq 4
+      expect(tags.last.user_id).to eq 1
+    end
+    it "detects 2 tags within peeps and records them in the DB" do
+      session_params = { 'rack.session' => { username: "smhanna", user_id: 2 } }
+      form_params = { message: "Hello @tcarmichael check out the photos from @wsmith!" }
+      response = post('/peep', form_params, session_params)
+      expect(response.status).to eq(302)
+      response = get('/')
+      expect(response.body).to include("Hello @tcarmichael check out the photos from @wsmith!")
+      tags = TagRepository.new.all
+      expect(tags.length).to eq 5
+      expect(tags.last.peep_id).to eq 4
+      expect(tags.last.user_id).to eq 3
+      expect(tags[-1].peep_id).to eq 4
+      expect(tags[-1].user_id).to eq 3
+    end
+
     context "given {message: ""}" do
       it "returns 400 & error message" do
         response = post('/submit_register', { message: "" }, session_params)

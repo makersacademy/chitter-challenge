@@ -10,6 +10,7 @@ class UserRepository
     
     result_set.each do |row|
       user = User.new
+      user.id = row['id'].to_i
       user.name = row['name']
       user.username = row['username']
       user.email = row['email']
@@ -76,5 +77,31 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
 
     return { success?: true }
+  end
+
+  def check_for_matching(possible_tags) #takes and array of strings formatted as '@text'
+    tagged_users = []
+
+    return tagged_users if possible_tags.empty?
+
+    if possible_tags.length == 1
+      # Use array slicing to remove the @ symbol from the search
+      user = find_by_username(possible_tags.first[1..-1])
+      return tagged_users if user.nil?
+      tagged_users << user
+    else
+      # retrieve an array of all User objects
+      all_users = all
+
+      possible_tags.each do |possible_tag|
+        all_users.each do |user|
+          if possible_tag[1..-1] == user.username
+            tagged_users << user
+          end
+        end
+      end
+    end
+
+    return tagged_users
   end
 end

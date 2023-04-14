@@ -101,4 +101,38 @@ describe UserRepository do
       expect(login_attempt).to eq({ success?: true, username: "wsmith", user_id: 3 })
     end
   end
+
+  context "when comparing possible tags with usernames" do
+    it "returns an empty array if not given any tags" do
+      possible_tags = []
+      result = repo.check_for_matching(possible_tags)
+      expect(result).to eq([])
+    end
+    it "returns an empty array if the 1 given tag matches no users" do
+      possible_tags = ['@dave']
+      result = repo.check_for_matching(possible_tags)
+      expect(result).to eq([])
+    end
+    it "returns an empty array if the given tags match no users" do
+      possible_tags = ['@dave', '@clive', '@derek']
+      result = repo.check_for_matching(possible_tags)
+      expect(result).to eq([])
+    end
+    it "returns the 1 matching user ID" do
+      possible_tags = ['@tcarmichael', '@dave']
+      result = repo.check_for_matching(possible_tags)
+      expect(result.length).to eq(1)
+      expect(result.first).to be_an_instance_of(User)
+      expect(result.first.email).to eq("tomcarmichael@hotmail.co.uk")
+      expect(result.first.id).to eq(1)
+    end
+    it "returns the 2 matching user IDs" do
+      possible_tags = ['@tcarmichael', '@wsmith']
+      result = repo.check_for_matching(possible_tags)
+      expect(result.length).to eq(2)
+      expect(result.first.id).to eq 1
+      expect(result.last.id).to eq 3
+      expect(result.last.email).to eq "orwell.george@aol.com"
+    end
+  end
 end

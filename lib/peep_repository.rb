@@ -2,16 +2,10 @@ require_relative "./peep"
 require_relative "./user"
 
 class PeepRespository
-  def all_with_author
-    # Returns array of peeps in reverse chronological order
-    sql = "SELECT message, posted_at, name, username
-            FROM peeps JOIN users ON user_id = users.id
-              ORDER BY posted_at DESC;"
-
-    result_set = DatabaseConnection.exec_params(sql, [])
+  def all_with_author # Returns array of peeps in reverse chronological order
     peeps = []
 
-    result_set.each do |row|
+    query_all_rev_chronologically.each do |row|
       peep = Peep.new
       peep.id = row['id'].to_i
       peep.message = row['message']
@@ -34,6 +28,16 @@ class PeepRespository
     DatabaseConnection.exec_params(sql, params)
   end
 
-  #TODO: add method to scan for user tags
+  def most_recent_peep_id
+    query_all_rev_chronologically.first['id'].to_i
+  end
+
+  def query_all_rev_chronologically
+    sql = 'SELECT peeps.id, message, posted_at, name, username
+            FROM peeps JOIN users ON user_id = users.id
+              ORDER BY posted_at DESC;'
+
+    return DatabaseConnection.exec_params(sql, [])
+  end
 
 end

@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'lib/peep_repository'
+require_relative 'lib/tag_repository'
 require_relative 'lib/user'
 require_relative 'lib/user_repository'
 require_relative 'lib/database_connection'
@@ -27,7 +28,14 @@ class Application < Sinatra::Base
     author_id = session[:user_id]
     timestamp = Time.now.strftime "%Y-%m-%d %H:%M:%S"
 
-    PeepRespository.new.create(message, timestamp, author_id)
+    peep_repo = PeepRespository.new
+
+    peep_repo.create(message, timestamp, author_id)
+    peep_id = peep_repo.most_recent_peep_id
+    tag_repo = TagRepository.new
+
+    tagged_users = tag_repo.check_message_for_tags(message)
+    tag_repo.add_tags_by_peep(tagged_users, peep_id) if tagged_users
 
     return redirect ('/')
   end
@@ -101,8 +109,6 @@ class Application < Sinatra::Base
 
   def invalid_request_parameters?
     params.any? { |_key, value| value.nil? || value == "" } ? true : false
-    # return true if params[:name] == nil
-    # return false
   end
 
   def invalid_params_response
