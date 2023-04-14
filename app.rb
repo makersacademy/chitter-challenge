@@ -12,9 +12,10 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
     also_reload 'lib/user_repository'
-    enable :sessions
+    
   end
   
+  enable :sessions
 
   get '/' do
     repo = PeepRepository.new
