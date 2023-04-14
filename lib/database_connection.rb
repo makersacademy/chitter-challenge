@@ -35,6 +35,8 @@ class DatabaseConnection
   #   @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   # end
 
+  # 👇🏻 ################## Needed for local or Render - Do NOT comment out
+
   def self.exec_params(query, params)
     if @connection.nil?
       raise 'DatabaseConnection.exec_params: Cannot run a SQL query as the connection to'\
