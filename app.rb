@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
