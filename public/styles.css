@@ -80,6 +80,8 @@ header h2 {
   color: #76a9e4;
 }
 
+header 
+
 .error {
   padding-bottom: 15px;
 }
@@ -95,8 +97,6 @@ header h2 {
 
 .panel p {
   color: #8fbbed;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
 }
 
 #smallprint {
@@ -115,7 +115,6 @@ input {
   padding: 5px 10px;
   border-radius: 4px;
   border: 1px solid #0143a5;
-  /* box-shadow: 1px 1px 20px rgba(143, 187, 237, 0.9); */
   font-size: 14px;
   cursor: pointer;
 }
@@ -124,6 +123,7 @@ input {
   font-family: 'Raleway', sans-serif;
   width: 200px;
   padding: 3px;
+  margin-bottom: 4px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
