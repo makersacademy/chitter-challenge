@@ -23,10 +23,13 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
+ 
+  # look at other http methods - patch (db update/edit), delete
   get '/new-peep' do
     return erb(:new_peep)
   end
 
+  # usually use /peep as convention - restful API
   post '/new-peep' do
     #params[:content]
     peep = Peep.create(content: params[:content])
@@ -57,6 +60,7 @@ class Application < Sinatra::Base
     if user == nil
       return 'Incorrect email/password'
     else
+      
       return redirect('/')
     end
   end
