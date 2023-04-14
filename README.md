@@ -53,7 +53,7 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Planning:
+Initial Planning:
 ------
 **Multi-Class System**
 ![class system](docs/chitter_class_system.jpg)
@@ -61,3 +61,49 @@ Planning:
 
 **Pages Plan**
 ![pages plan](docs/chitter_pages_plan.jpg)
+
+Technologies used:
+------
+Programming language:
+* Ruby
+
+Libraries:
+* RSpec for testing
+* SimpleCov for code coverage reporting
+* SimpleCov-Console for displaying code coverage results in the console
+* Timecop for mocking dates and times in tests
+
+Tools:
+* Rubocop for static code analysis and linting
+* PostgreSQL as the database
+* WEBrick as the web server
+
+Frameworks:
+* Sinatra as the web framework
+* Sinatra-Contrib for additional Sinatra extensions
+* Rack-Test for testing web applications
+
+Instruction on how to install and run the tests:
+------
+Make sure you are in the chitter-challenge directory and execute the commands below in the command line:
+
+1. Check if ruby version is 3.0.2 in the command line:
+`ruby -v`
+
+2. if using a different version, install ruby 3.0.2 in the command line:
+`rvm install ruby-3.0.2`
+
+3. Install Bundler:  # Package manager
+`gem install bundler`
+
+4. Use Bundler to install all necessary packages:
+`bundle install`. # install all the packages in the gem file
+
+5. create the database for testing:
+`createdb chitter_database_testing`
+
+6. import SQL script file into the PostgreSQL database:
+`psql -h 127.0.0.1 createdb chitter_database_testing`
+
+7. execute `rspec` to run the tests:
+`rspec`
