@@ -20,3 +20,4 @@ gem "webrick", "~> 1.8"
 gem "rack-test", "~> 2.1"
 
 gem "timecop", "~> 0.9.6"
+gem "rackup", "~> 1.0"
