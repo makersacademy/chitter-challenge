@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div>
+        <img src='/chitter-low-resolution.png' alt='Chitter logo'
+      style="width:12%;position:absolute;top:1rem;right:1rem;">
+      <ul class="nav_menu_links">
+        <% if session[:user_id] %>
+          <li>
+            <form method="post" action="/logout" class="inline">
+              <button type="submit" name="logout" class="link-button">Logout</button>
+            </form>
+          </li>
+        <% else %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        <% end %>
+      </ul>
+    </div>
+        
+    <% if session[:user_id] %>
+      <div class="peep_form">
+        <form method="POST" action="/peep">
+          <label for="message">Compose new peep...</label><br>
+          <input type="text" name="message" />
+          <input type="submit" />
+        </form>
+      </div>
+    <% end %>
+
+    <table>
+      <% @all_peeps.each do |peep| %>
+        <tr class="peep">
+          <td>
+            <p class="author">@<%= peep.user.username%> (<%= peep.user.name%>) wrote:</p>
+            <p class="message"><%= peep.message %></p>
+            <p class="timestamp">Posted: <%= peep.posted_at %></p>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <body>
+</html>
