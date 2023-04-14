@@ -123,6 +123,12 @@ input {
   cursor: pointer;
 }
 
+.button:hover {
+  background-color: #76e4e4;
+  color: #008779;
+  box-shadow: 1px 3px 5px rgba(5, 66, 50, 0.6);
+}
+
 .text {
   font-family: 'Raleway', sans-serif;
   width: 200px;
