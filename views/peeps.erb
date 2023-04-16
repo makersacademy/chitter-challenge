@@ -1,15 +1,38 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Chitter Feed</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
   <body>
+    <h2>Recent Peeps</h2>
     <% @peeps.sort_by { |peep| peep.time }.reverse.each do |peep| %>
       <% @users.each do |user| %>
         <% if peep.user_id == user.id %>
-          <p><%= peep.content %></p>
-          <p><%= peep.time %></p>
-          <p><%= user.name %> | <%= user.username %></p>
+          <div style="background-color: #fff; width: 50%; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; box-shadow: 0 0 10px rgba(0,0,0,.1);">
+            <p><%= peep.content %></p>
+            <p><%= peep.time %></p>
+            <p><%= user.name %> | <%= user.username %></p>
+          </div>
         <% end %>
       <% end %>
     <% end %>
-    <br>
     <a href="/signup">Sign up for Chitter here!</a>
     <br>
     <a href="/newpeep">Peep here!</a>

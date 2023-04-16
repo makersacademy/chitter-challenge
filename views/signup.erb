@@ -1,16 +1,61 @@
 <html>
+  <head>
+    <title>Sign up for Chitter</title>
+    <style>
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+
+      input[type="text"], input[type="password"] {
+        width: 20%;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+
+      .error-message {
+        color: red;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
   <body>
-    <h2> Sign up for Chitter here! </h2>
-    <p></p>
+    <h2>Sign up for Chitter</h2>
+    
     <form method="POST" action="/signup">
-    <label>Name:</label>
-    <input type="text" name="name">
-    <label>Username:</label>
-    <input type="text" name="username">
-    <label>Email:</label>
-    <input type="text" name="email">
-    <label>Password:</label>
-    <input type="text" name="password">
-    <input type="submit" value="Sign me up!">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <input type="submit" value="Sign me up!">
+    </form>
+    <br>
+    <a href="/">Back to the homepage</a>
   </body>
-</html>    
+</html>
