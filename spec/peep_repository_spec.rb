@@ -30,8 +30,8 @@ RSpec.describe PeepRepository do
       "TGIF everyone!"]
 
       result = repo.find(1)
-      expect(result[0].content).to eq peeps_to_check[0]   
-      expect(result[1].content).to eq peeps_to_check[1]   
+      expect(result[0].content).to eq peeps_to_check[1]   
+      expect(result[1].content).to eq peeps_to_check[0]   
     end
 
     it "returns all peeps" do

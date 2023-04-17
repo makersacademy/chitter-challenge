@@ -35,13 +35,13 @@ describe Application do
       expect(response.body).to include("TGIF everyone!")
     end
 
-    it "creates new peep using form" do
+    it "creates peep using form" do
       post_peep = post('/', username: 'MarketingMaven', peep: "TGIF everyone!")
       response = get('/')
       expect(response.body).to include("TGIF everyone!")
     end
 
-    it "creates new peep using POST" do
+    it "creates second peep using POST" do
       post_peep = post('/', username: 'SocialMediaGuru', peep: "TGIF everyone!")
       response = get('/')
       expect(response.body).to include("TGIF everyone!")
@@ -67,6 +67,22 @@ describe Application do
       response = get('/users/2')
       expect(response.status).to eq (200)
       expect(response.body).to include "Why is it still night time?"
+    end
+  end
+
+  context "User Creation" do
+    it "returns 200 code when GET called" do
+      response = get('/new_user')
+      expect(response.status).to eq (200)
+    end
+
+    it "returns form when GET called" do
+      response = get('/new_user')
+      expect(response.status).to eq (200)
+      expect(response.body).to include '<input type="text" name="name"/>'
+      expect(response.body).to include '<input type="text" name="username"/>'
+      expect(response.body).to include '<input type="text" name="email"/>'
+      expect(response.body).to include '<input type="text" name="password"/>'
     end
   end
 end

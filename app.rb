@@ -69,4 +69,14 @@ class Application < Sinatra::Base
   get '/new_user' do
     return erb(:create_account)
   end
+
+  post '/new_user' do
+    @name = params[:name] 
+    @username = params[:username] 
+    @email = params[:email] 
+    @password = params[:password] 
+    @bio = "None yet!"
+
+    return erb(:create_account)
+  end
 end

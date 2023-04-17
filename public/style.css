@@ -12,6 +12,13 @@ body {
   float: left;
 }
 
+.chitter-logo {
+  padding-top:35px; 
+  border-bottom: 1px dashed #666; 
+  border-left: 1px dashed #666;
+  border-radius: 5px;
+}
+
 .feed {
   width: 50%;
   padding-right: 10%;

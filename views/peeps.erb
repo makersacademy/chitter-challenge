@@ -15,21 +15,26 @@
     <div class="left_column">
       <div class = "header" style="display: flex;">
         <a href ="/">
-        <img src="/chitter_logo.png" style ="width: 140px; height: 140px; padding-top:35px;"></a>
+        <img src="/chitter_logo.png" class="chitter-logo" style ="width: 140px; height: 140px;"></a>
         <h1 style="font-size: 45px">Welcome<br>to<br>Chitter</h1>
       </div>
 
       <div class="spacer" style="padding-top:15px"><hr style="border-style:none;"></div>
 
-      <div class="user_controls">
+     <div class="user_controls">
         <div class="posting_box" style="padding-left: 15px;">
-          <h2>Hi, @{username}!</h2>
+          <%# <h2>Hi, @{username}!</h2> %>
+          <br><br>
+          <div class="user-buttons" style="text-align: center;">
+          <button type="button">Log in!</button>
+          <button type="button" onclick=window.location.href='/new_user'>Create an account</button>
+          </div>
           <form method="POST" action="/">
             <label><h4>Peep something!</h4></label>
             <label><h5>Username:</h6></label>
-            <input type="text" name="username" />
+            <input type="text" name="username" style="width:50%;" />
             <label><h5>Peep:</h6></label>
-            <input type="text" name="peep" />
+            <input type="text" name="peep" style="width:75%;" />
             <input type="submit" value="Peep this!">
           </form>
         </div>
@@ -39,14 +44,15 @@
     <div class = "feed">
       <div class = "feed-header">
         <div class="profile-image-container">
-          <img src="<%="/"+@user_id.to_s+".png" %>" class="profile-image" style = "border-radius: 25%;">
+          <img src="<%="/"+@user_id.to_s+".png" %>" class="profile-image" style = "border-radius: 5%;">
         </div>
         <div class="user-bio">
           <h2><%= @name %></h2>
           <h3>(@<%= @username %>)</h3>
-          <h4>"<%= @bio %>"</h4>
+          <h4 style="background-color: #999;">"<%= @bio %>"</h4>
         </div>
       </div>
+      <hr>
       <hr>
       <div class = "feed-user">
         <table>
@@ -54,8 +60,8 @@
           <tr>
             <td>
               <div class="peep_container">
-                <img src="<%="/"+@user_id.to_s+".png" %>" class="user_icon" style = "border-radius: 35%;">
-                <div style="padding-bottom: 10px; padding-top: 5px;"> 
+                <img src="<%="/"+@user_id.to_s+".png" %>" class="user_icon" style = "border-radius: 45%;">
+                <div style="padding-bottom: 10px; padding-top: 5px; background-color: #999;"> 
                   <%= content %>
                   <br>
                   <%= timestamp %>

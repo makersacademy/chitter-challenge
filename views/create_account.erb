@@ -16,9 +16,27 @@
       <div class="left_column">
         <div class = "header" style="display: flex;">
           <a href ="/">
-          <img src="/chitter_logo.png" style ="width: 140px; height: 140px; padding-top:40px; padding-right:10px;"></a>
-          <h1 style="font-size: 45px">Welcome<br>to<br>Chitter</h1>
+          <img src="/chitter_logo.png" class="chitter-logo" style ="width: 140px; height: 140px;"></a>
+          <h1 style="font-size: 45px">Create<br>an<br>Account</h1>
         </div>
+      </div>
+
+      <div class="feed" style="text-align: right">
+      <form method="POST" action="/new_user">
+      
+            <h4 style="background-color: #999;">
+            <label>Your name:</label>
+            <input type="text" name="name"/><br>
+            <label>Choose a Username:</label>
+            <input type="text" name="username"/><br>
+            <label>Email Address:</label>
+            <input type="text" name="email"/><br>
+            <label>Password:</label>
+            <input type="text" name="password"/><br>
+            </h4>
+
+            <input type="submit" value="Create Account!">
+          </form>
       </div>
   </body>
 </html>
