@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/style.css"/>
+
+<div class="flexbox">
+
+  <section class="flex-item flex-1">
+    <h1>Create a Chitter Account</h1>
+  </section>
+
+  <section class="flex-item flex-2">
+    <div>
+      <%if session[:user_exists]%>
+        <%=@message%>
+      <%end%>
+      <%if session[:invalid_inputs]%>
+        <%=@message1%> <br>
+        <%=@message2%> <br>
+        <%=@message3%>
+
+      <hr>
+      <%end%>
+    <div>
+
+    <form action="/signup" method="POST">
+      <label>Name:</label>
+      <input type="text" name="name" placeholder="Name" maxlength="50" required><br>
+
+      <label>Email Address:</label>
+      <input type="email" name="email" placeholder="Email Address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
+
+      <label>Username:</label>
+      <input type="text" name="username" placeholder="username" maxlength="20" title="this will be displayed when you post a peep" required pattern="[A-Za-z0-9_.-]{3,20}"><br>
+
+      <label>Password:</label>
+      <input type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter."><br>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </section>
+
+</div>

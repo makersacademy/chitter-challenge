@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chitter Homepage</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+
+  <body>
+    <div class="flexbox">
+
+      <% if session[:username] %>
+
+        <header class="flex-item flex-1">
+          <div class="navbar">
+            <div class="nav-item nav-1">
+              <img src="/chitter-logo.png" alt="chitter logo">
+            </div>
+
+            <div class="nav-item nav-2">
+              <a href="/logout">Log out</a>
+            </div>
+          </div>
+        </header>
+
+        <section class="flex-item flex-3">
+          <h1>Hi <span><%=session[:username]%></span>,</h1>
+
+          <form method="POST" action="/post">
+            <label>Post a Peep here:</label>
+            <input type="text" name="message" placeholder="type a peep message" maxlength:"280" required title="280 maximum number of characters limit"><br>
+
+            <button type="submit">submit</button><br>
+          </form>
+        </section>
+
+      <% else %>
+
+        <header class="flex-item flex-1">
+          <div class="navbar">
+            <div class="nav-item nav-1">
+              <img src="/chitter-logo.png" alt="chitter logo">
+            </div>
+
+            <div class="nav-item nav-2">
+              <a href="/login">Log In</a>
+              <a href="/signup">Sign Up</a>
+            </div>
+          </div>
+        </header>
+
+      <% end %>  
+    
+    
+        <section class="flex-item flex-2">
+          <h1>Welcome to Chitter!</h1>
+          <hr/>
+      
+          <% @list.each do |record| %>
+            <article>
+            <p class="peep-info">posted on: <%=record[:time]%> by: <span><%=record[:username]%></span></p>
+            <p class="peep-content"><%=record[:message]%></p>
+            </article>
+          <% end %>
+        </section>
+
+    </div>
+  </body>
+</html>
