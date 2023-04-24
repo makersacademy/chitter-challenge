@@ -30,7 +30,6 @@ class DatabaseConnection
   end
   
   def self.clear(dbname)
-    @connection = PG.connect(dbname: dbname)
     @connection.exec("TRUNCATE TABLE users;")
   end
 end
