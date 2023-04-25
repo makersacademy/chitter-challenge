@@ -1,0 +1,15 @@
+<h1>Welcome to Chitter</h1>
+
+<h3>Most Recent Peeps</h3>
+
+<% @peeps.each do |peep| %>
+  <div class="peep">
+    <span class="timestamp"><%= Time.parse(peep.timestamp).strftime("%H:%M:%S on %B %d, %Y") %></span>
+    <p><%= peep.peep %></p>
+    <hr>
+  </div>
+<% end %>
+
+<div>
+    <a href="/peep">Post a Peep</a>
+</div>
