@@ -1,3 +1,20 @@
 <h1>All Peeps</h1>
 
+<div>
+  <% if session[:user_id] %>
+    <h2>New Peep</h2>
+    <form action="/peeps" method="POST">
+      <textarea name="peep_content"></textarea>
+      <input type="submit" value="Post">
+    </form>
+  <% end %>
+</div>
 
+<ul>
+  <% @peep_repo.all_with_users.each do |peep| %>
+    <li>
+      <p><%= peep.peep_content %></p>
+      <small>Posted by <%= peep.user.username %> at <%= peep.time_of_peep.strftime('%H:%M %d/%m/%Y') %></small>
+    </li>
+  <% end %>
+</ul>

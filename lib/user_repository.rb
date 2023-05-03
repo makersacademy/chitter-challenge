@@ -19,7 +19,6 @@ class UserRepository
   end 
 
 
-
   def create(user)
     sql = 'INSERT INTO users (name, username, email_address, password_hash) VALUES ($1, $2, $3,$4 );'
     result = DatabaseConnection.exec_params(sql, [user.name, user.username, user.email_address, user.password_hash])

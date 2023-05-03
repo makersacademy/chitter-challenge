@@ -4,29 +4,26 @@ require './lib/peeps_repository'
 require './lib/user_repository'
 
 class PeepsController < Sinatra::Base
-  configure :development do
-    register Sinatra::Reloader
-    set :public_folder, 'public'
-    set :views, 'views'
-    also_reload 'lib/peeps_repository.rb'
-  end 
+  # Initialize ChitterDatabase
+  DB = DatabaseConnection.connect('chitter_database')
+
+
+  # Fetch all peeps and their respective users
+  get '/peeps' do
+    @peeps = PeepsRepository.new(DB).all_with_users
+    erb :'peeps/index'
+  end
 
   before do
-    @peep_repo = PeepsRepository.new
+    @peep_repo = PeepsRepository.new(DB)
+    @user_repo = UserRepository.new
   end
 
- post '/peep' do
-  new_peep = Peeps.new
-  new_peep.peep_content = params[:peep_content] 
-  new_peep.time_of_peep = params[:time_of_peep]
-  new_peep.user_id = params[:user_id]
-  @peep_repo.create(new_peep)
-  return erb(:peep)
-end
-
-
-  get '/peeps' do
-    return erb(:peeps)
+  # Create a new peep
+  post '/peeps' do
+    user_id = session[:user_id]
+    @peep_repo.create(params[:peep_content], user_id)
+    redirect '/peeps'
   end
-
 end
+

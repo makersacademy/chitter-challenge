@@ -4,14 +4,21 @@ require './lib/database_connection'
 require './controllers/peeps_controller'
 require './controllers/user_controller'
 
+# Connect to the chitter_database
 DatabaseConnection.connect('chitter_database')
 
+# Instantiate repositories
+peeps_repo = PeepsRepository.new(DatabaseConnection)
+user_repo = UserRepository.new
+
 class Application < Sinatra::Base
-    configure :development do
-        register Sinatra::Reloader
-        set :public_folder, 'public'
-        set :views, 'views'
-        use SignupController
-        use PeepsController
-    end
+  configure do
+    set :views, './views'
+    set :public_dir, './public'
+    enable :sessions
+  end
+
+#   # Inject repositories into controllers
+  use SignupController
+  use PeepsController
 end
