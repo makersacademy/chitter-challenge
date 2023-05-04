@@ -1,12 +1,12 @@
 class Peep
-  attr_accessor :id, :peep_content, :time_of_peep, :user_id, :user
+  attr_reader :id, :peep_content, :time_of_peep, :user_id
 
-  def initialize(id:, peep_content:, time_of_peep:, user_id:, user: nil)
+  def initialize(id:, peep_content:, time_of_peep:, user_id:)
     @id = id
     @peep_content = peep_content
     @time_of_peep = time_of_peep
     @user_id = user_id
-    @user = user
   end
 end
+
 

@@ -42,4 +42,9 @@ class SignupController < Sinatra::Base
 
     erb :signup
   end
+
+  get '/logout' do
+    erb :logout
+  end
+
 end

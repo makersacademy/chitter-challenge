@@ -11,16 +11,20 @@ class PeepsRepository
     query = "SELECT * FROM peeps ORDER BY time_of_peep DESC"
     result = DatabaseConnection.query(query)
     result.map do |peep|
-      Peep.new(id: peep['id'], content: peep['content'], user_id: peep['user_id'], time_of_peep: peep['time_of_peep'])
+      Peep.new(id: peep['id'], peep_content: peep['peep_content'], user_id: peep['user_id'], time_of_peep: peep['time_of_peep'])
     end
   end
+  
 
-  def create(content, user_id)
-    query = "INSERT INTO peeps (content, user_id) VALUES ($1, $2) RETURNING *"
-    params = [content, user_id]
-    result = DatabaseConnection.exec_params(query, params)
-    Peep.new(id: result[0]['id'], content: result[0]['content'], user_id: result[0]['user_id'], time_of_peep: result[0]['time_of_peep'])
+    def create(peep)
+      sql = 'INSERT INTO peeps (peep_content, user_id, time_of_peep) VALUES ($1, $2, $3) RETURNING *;'
+      result = DatabaseConnection.exec_params(sql, [peep.peep_content, peep.user_id, peep.time_of_peep])
+      Peep.new(id: result[0]['id'], peep_content: result[0]['peep_content'], user_id: result[0]['user_id'], time_of_peep: result[0]['time_of_peep'])
+    end
   end
+  
+
+  
 
   def all_with_users
     query = "SELECT p.*, u.username FROM peeps p INNER JOIN users u ON p.user_id = u.id ORDER BY time_of_peep DESC"

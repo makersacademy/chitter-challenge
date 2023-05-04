@@ -14,6 +14,9 @@ class Application < Sinatra::Base
     set :views, File.join(__dir__, 'views')
     set :public_dir, './public'
     
+    before do
+      @peeps_repo = PeepsRepository.new(DatabaseConnection.setup('chitter_database'))
+    end
 
     # Instantiate repositories
     @@peeps_repo = PeepsRepository.new(DatabaseConnection)

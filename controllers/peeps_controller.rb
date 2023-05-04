@@ -1,29 +1,40 @@
-require 'sinatra/base'
-require 'sinatra/reloader'
-require './lib/peeps_repository'
-require './lib/user_repository'
-
 class PeepsController < Sinatra::Base
-  # Initialize ChitterDatabase
-  DB = DatabaseConnection.connect('chitter_database')
-
-
-  # Fetch all peeps and their respective users
-  get '/peeps' do
-    @peeps = DatabaseConnection.query("SELECT p.id, p.peep_content, u.username, p.time_of_peep FROM peeps p INNER JOIN users u ON p.user_id = u.id ORDER BY p.time_of_peep DESC;")
-    erb :peeps
+  configure do
+    set :views, File.join(__dir__, '..', 'views')
+    set :public_dir, File.join(__dir__, '..', 'public')
   end
-    
+
   before do
-    @peep_repo = PeepsRepository.new(DB)
-    @user_repo = UserRepository.new
+    @peeps_repo = PeepsRepository.new(DatabaseConnection.setup('chitter_database'))
+  end
+
+  get '/peeps' do
+    @peep = @peeps_repo.all # should be @peeps instead of @peep
+    erb :peeps
   end
 
   # Create a new peep
+
+  # get '/peep' do
+  #   @peep = @peeps_repo.all
+  #   erb :peep
+  # end
+  
+  
+  # post '/peep' do
+  #   user_id = session[:user_id]
+  #   @peep_repo.create(peep_content: params[:peep_content], user_id: user_id)
+  #   redirect '/peeps'
+  # end
+
   post '/peep' do
-    user_id = session[:user_id]
-    @peep_repo.create(params[:peep_content], user_id)
-    redirect '/peeps'
+    new_peep = Peep.new
+    new_peep.peep_content = params[:peep_content]
+    new_peep.time_of_peep = params[:time_of_peep]
+    new_peep.user_id = params[:user_id]
+    @peeps_repo.create(new_peep)
+    erb :peep
   end
+  
 end
 
