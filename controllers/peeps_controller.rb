@@ -11,9 +11,9 @@ class PeepsController < Sinatra::Base
   # Fetch all peeps and their respective users
   get '/peeps' do
     @peeps = DatabaseConnection.query("SELECT p.id, p.peep_content, u.username, p.time_of_peep FROM peeps p INNER JOIN users u ON p.user_id = u.id ORDER BY p.time_of_peep DESC;")
-    erb :'/peeps'
+    erb :peeps
   end
-
+    
   before do
     @peep_repo = PeepsRepository.new(DB)
     @user_repo = UserRepository.new

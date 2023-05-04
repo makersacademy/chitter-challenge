@@ -10,10 +10,10 @@ DatabaseConnection.connect('chitter_database')
 
 class Application < Sinatra::Base
   configure do
-    set :views, './views'
-    set :public_dir, './public'
     enable :sessions
-    set :views, File.join(File.dirname(__FILE__), 'views')
+    set :views, File.join(__dir__, 'views')
+    set :public_dir, './public'
+    
 
     # Instantiate repositories
     @@peeps_repo = PeepsRepository.new(DatabaseConnection)
