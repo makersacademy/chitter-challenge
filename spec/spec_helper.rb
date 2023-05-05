@@ -17,4 +17,5 @@ RSpec.configure do |config|
   end
 end
 
-DatabaseConnection.connect('chitter_test')
+ENV['ENV'] = 'test'
+DatabaseConnection.connect
