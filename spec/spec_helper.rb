@@ -19,3 +19,15 @@ end
 
 ENV['ENV'] = 'test'
 DatabaseConnection.connect
+
+def reset_peeps_table
+  sql_seeds = File.read('spec/seeds_peeps.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection.exec(sql_seeds)
+end
+
+def reset_users_table
+  sql_seeds = File.read("spec/seeds_users.sql")
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection.exec sql_seeds
+end

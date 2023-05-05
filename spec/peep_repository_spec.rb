@@ -1,11 +1,5 @@
 require 'peep_repository'
 
-def reset_peeps_table
-  sql_seeds = File.read('spec/seeds_peeps.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-  connection.exec(sql_seeds)
-end
-
 describe PeepRepository do
   before(:each) do
     reset_peeps_table

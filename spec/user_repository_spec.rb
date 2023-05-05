@@ -1,14 +1,8 @@
 require 'user_repository'
 
-def reset_user_table
-  sql_seeds = File.read("spec/seeds_users.sql")
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-  connection.exec sql_seeds
-end
-
 describe UserRepository do
   before(:each) do
-    reset_user_table
+    reset_users_table
   end
 
   describe '#all' do
