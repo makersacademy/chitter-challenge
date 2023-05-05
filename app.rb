@@ -15,8 +15,8 @@ class Application < Sinatra::Base
 
   get '/' do
     peep_repo = PeepRepository.new
-    @peeps = peep_repo.all
-
+    peeps = peep_repo.all
+    @peeps = peeps.sort_by(&:time_posted).reverse
     user_repo = UserRepository.new
     @peeps.each { |peep| peep.user = user_repo.find(peep.user_id) }
 
