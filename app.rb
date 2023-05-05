@@ -41,4 +41,14 @@ class Application < Sinatra::Base
     repo.create(user)
     erb(:sign_up_success)
   end
+
+  post '/new-peep' do
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.time_posted = params[:time_posted] || Time.new
+    peep.user_id = params[:user_id]
+    repo = PeepRepository.new
+    repo.create(peep)
+    erb(:new_peep_success)
+  end
 end

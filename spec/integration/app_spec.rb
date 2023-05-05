@@ -151,19 +151,43 @@ describe Application do
 
   describe 'POST /new-peep' do
     context 'when used with valid params' do
-      xit 'returns 200 OK' do
+      it 'returns 200 OK' do
+        response = post('/new-peep')
+        expect(response.status).to eq 200
       end
-
-      xit 'returns html with success message' do
+      
+      it 'returns html with success message' do
+        response = post('/new-peep')
+        expect(response.body).to include '<h1>Success!</h1>'
+        expect(response.body).to include '<h2>You added a new peep!</h2>'
       end
-
-      xit 'returns html with link back to the homepage' do
+      
+      it 'returns html with link back to the homepage' do
+        response = post('/new-peep')
+        expect(response.body).to include '<a href="/">Back to homepage</a>'
       end
-
-      xit 'returns html with option to create another new peep' do
+      
+      it 'returns html with option to create another new peep' do
+        response = post('/new-peep')
+        expect(response.body).to include '<a href="/new-peep">Add another peep</a>'
       end
-
-      xit 'adds a new peep to the database' do
+      
+      it 'adds a new peep to the database' do
+        response = post(
+          '/new-peep',
+          content: 'this is new content',
+          time_posted: Time.new(2000, 1, 2, 3, 4, 5),
+          user_id: '3'
+        )
+        repo = PeepRepository.new
+        expect(repo.all).to include(
+          have_attributes(
+            id: 8,
+            content: 'this is new content',
+            time_posted: Time.new(2000, 1, 2, 3, 4, 5),
+            user_id: 3
+          )
+        )
       end
     end
 
