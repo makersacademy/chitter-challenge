@@ -9,14 +9,13 @@ describe PeepRepository do
     it 'returns a list of all peeps' do
       repo = PeepRepository.new
       peeps = repo.all
-
       expect(peeps.length).to eq 7
 
       expect(peeps).to include(
         have_attributes(
           id: 1,
           content: 'content_1',
-          time_posted: Time.new('2023-05-01 17:15:32'),
+          time_posted: Time.new(2023, 05, 01, 17, 15, 32),
           user_id: 1
         )
       )
@@ -25,7 +24,7 @@ describe PeepRepository do
         have_attributes(
           id: 5,
           content: 'content_5',
-          time_posted: Time.new('1999-04-19 16:59:59'),
+          time_posted: Time.new(1999, 04, 19, 16, 59, 59),
           user_id: 1
         )
       )
@@ -38,7 +37,7 @@ describe PeepRepository do
 
         expect(peep.id).to eq 1
         expect(peep.content).to eq  'content_1'
-        expect(peep.time_posted).to eq Time.new('2023-05-01 17:15:32')
+        expect(peep.time_posted).to eq Time.new(2023, 05, 01, 17, 15, 32)
         expect(peep.user_id).to eq 1
       end
 
@@ -48,7 +47,7 @@ describe PeepRepository do
 
         expect(peep.id).to eq 4
         expect(peep.content).to eq  'content_4'
-        expect(peep.time_posted).to eq Time.new('2022-06-21 22:01:02')
+        expect(peep.time_posted).to eq Time.new(2022, 06, 21, 22, 01, 02)
         expect(peep.user_id).to eq 4
       end
     end

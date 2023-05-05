@@ -4,7 +4,8 @@ class PeepRepository
   def all
     sql = 'SELECT * FROM peeps;'
     records = DatabaseConnection.exec_params(sql, [])
-    records.map { |record| create_peep_from_record(record) }
+    x = records.map { |record| create_peep_from_record(record) }
+    x
   end
 
   def find(id)
@@ -26,8 +27,15 @@ class PeepRepository
     peep = Peep.new
     peep.id = record['id'].to_i
     peep.content = record['content']
-    peep.time_posted = Time.new(record['time_posted'])
+    peep.time_posted = timestamp_to_time_object(record['time_posted'])
     peep.user_id = record['user_id'].to_i
     return peep
+  end
+
+  def timestamp_to_time_object(timestamp)
+    date, time = timestamp.split(" ")
+    year, month, day = date.split("-")
+    hour, minute, second = time.split(":")
+    return Time.new(year, month, day, hour, minute, second)
   end
 end
