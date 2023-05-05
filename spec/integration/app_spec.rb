@@ -89,19 +89,55 @@ describe Application do
       expect(response.body).to include '<a href="/">Back to homepage</a>'
     end
   end
-
+  
   describe 'POST /sign-up' do
     context 'when used with valid params' do
-      xit 'returns 200 OK' do
+      it 'returns 200 OK' do
+        response = post(
+          '/sign-up',
+          email: 'new@gmail.com',
+          password: 'new_password',
+          name: 'New Name',
+          username: 'new_username'
+        )
+        expect(response.status).to eq 200
       end
-
-      xit 'returns html with success message' do
+      
+      it 'returns html with success message' do
+        response = post(
+          '/sign-up',
+          email: 'new@gmail.com',
+          password: 'new_password',
+          name: 'New Name',
+          username: 'new_username'
+        )
+        expect(response.body).to include '<h1>Success!</h1>'
+        expect(response.body).to include '<h2>Thanks for signing up!</h2>'
       end
-
-      xit 'returns html with link back to the homepage' do
+      
+      it 'returns html with link back to the homepage' do
+        response = post('/sign-up')
+        expect(response.body).to include '<a href="/">Back to homepage</a>'
       end
-
-      xit 'adds a new user to the database' do
+      
+      it 'adds a new user to the database' do
+        response = post(
+          '/sign-up',
+          email: 'new@gmail.com',
+          password: 'new_password',
+          name: 'New Name',
+          username: 'new_username'
+        )
+  
+        repo = UserRepository.new
+        expect(repo.all).to include(
+          have_attributes(
+            email: 'new@gmail.com',
+            password: 'new_password',
+            name: 'New Name',
+            username: 'new_username'
+          )
+        )
       end
     end
 
