@@ -26,4 +26,8 @@ class Application < Sinatra::Base
   get '/sign-up' do
     erb(:sign_up)
   end
+
+  get '/new-peep' do
+    erb(:new_peep)
+  end
 end

@@ -54,7 +54,7 @@ describe Application do
     end
     
     it 'returns html with sign up form using POST /sign-up route' do
-      response = get('sign-up')
+      response = get('/sign-up')
       expect(response.body).to include '<form action="/sign-up" method="POST">'
       expect(response.body).to include '<input type="text" name="email">'
       expect(response.body).to include '<input type="text" name="password">'
@@ -64,19 +64,29 @@ describe Application do
     end
     
     it 'returns html with link back to homepage' do
-      response = get('sign-up')
+      response = get('/sign-up')
       expect(response.body).to include '<a href="/">Back to homepage</a>'
     end
   end
-
+  
   describe 'GET /new-peep' do
-    xit 'returns 200 OK' do
+    it 'returns 200 OK' do
+      response = get('/new-peep')
+      expect(response.status).to eq 200
     end
-
-    xit 'returns html with new peep form using POST /new-peep route' do
+    
+    it 'returns html with new peep form using POST /new-peep route' do
+      response = get('/new-peep')
+      expect(response.body).to include '<form action="/new-peep" method="POST">'
+      expect(response.body).to include '<input type="text" name="content">'
+      expect(response.body).to include '<input type="text" name="time_posted">'
+      expect(response.body).to include '<input type="text" name="user_id">'
+      expect(response.body).to include '<input type="submit">'
     end
-
-    xit 'returns html with link back to the homepage' do
+    
+    it 'returns html with link back to the homepage' do
+      response = get('/new-peep')
+      expect(response.body).to include '<a href="/">Back to homepage</a>'
     end
   end
 
