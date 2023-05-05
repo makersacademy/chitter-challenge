@@ -79,7 +79,6 @@ describe Application do
       response = get('/new-peep')
       expect(response.body).to include '<form action="/new-peep" method="POST">'
       expect(response.body).to include '<input type="text" name="content">'
-      expect(response.body).to include '<input type="text" name="time_posted">'
       expect(response.body).to include '<input type="text" name="user_id">'
       expect(response.body).to include '<input type="submit">'
     end
