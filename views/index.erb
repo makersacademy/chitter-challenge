@@ -1,0 +1,13 @@
+<html>
+    <head></head>
+    <body>
+        <p><a href="/sign-up">Sign Up</a></p>
+        <p><a href="/new-peep">Add new peep</a></p>
+        <h1>All Peeps</h1>
+        <% @peeps.each do |peep| %>
+            <p><%=peep.content %></p>
+            <p><%=peep.time_posted %></p>
+            <p><%=peep.user.username %></p>
+        <% end %>
+    </body>
+</html>

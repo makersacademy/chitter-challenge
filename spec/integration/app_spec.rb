@@ -8,21 +8,42 @@ describe Application do
   let(:app) { Application.new }
 
   before(:each) do
-    reset_user_table
+    reset_users_table
     reset_peeps_table
   end
 
   describe 'GET /' do
-    xit 'returns 200 OK' do
+    it 'returns 200 OK' do
+      response = get('/')
+      expect(response.status).to eq 200
     end
 
-    xit 'returns returns html with all peeps' do
+    it 'returns returns html with all peeps' do
+      response = get('/')
+
+      expect(response.body).to include '<h1>All Peeps</h1>'
+      
+      expect(response.body).to include 'content_1'
+      expect(response.body).to include '2023-05-01 17:15:32'
+      expect(response.body).to include 'username_1'
+
+      expect(response.body).to include 'content_3'
+      expect(response.body).to include '2022-06-21 00:01:02'
+      expect(response.body).to include 'username_3'
+
+      expect(response.body).to include 'content_4'
+      expect(response.body).to include '2022-06-21 22:01:02'
+      expect(response.body).to include 'username_4'
     end
 
-    xit 'returns html with link to sign up' do
+    it 'returns html with link to sign up' do
+      response = get('/')
+      expect(response.body).to include '<a href="/sign-up">Sign Up</a>'
     end
-
-    xit 'returns html with link to post a new peep' do
+    
+    it 'returns html with link to post a new peep' do
+      response = get('/')
+      expect(response.body).to include '<a href="/new-peep">Add new peep</a>'
     end
   end
 
