@@ -8,9 +8,16 @@ class PeepRepository
   end
 
   def find(id)
+    sql = 'SELECT * FROM peeps WHERE id = $1;'
+    records = DatabaseConnection.exec_params(sql, [id])
+    return create_peep_from_record(records.first)
   end
 
   def create(peep)
+    sql = 'INSERT INTO peeps (content, time_posted, user_id)
+             VALUES ($1, $2, $3)'
+    params = [peep.content, peep.time_posted, peep.user_id]
+    DatabaseConnection.exec_params(sql, params)
   end
 
   private
