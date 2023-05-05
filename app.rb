@@ -15,13 +15,15 @@ class Application < Sinatra::Base
 
   get '/' do
     peep_repo = PeepRepository.new
-    user_repo = UserRepository.new
     @peeps = peep_repo.all
-    @peeps.each do |peep|
-      peep.user = user_repo.find(peep.user_id)
-    end
 
+    user_repo = UserRepository.new
+    @peeps.each { |peep| peep.user = user_repo.find(peep.user_id) }
 
     erb(:index)
+  end
+
+  get '/sign-up' do
+    erb(:sign_up)
   end
 end

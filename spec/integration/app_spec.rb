@@ -46,15 +46,26 @@ describe Application do
       expect(response.body).to include '<a href="/new-peep">Add new peep</a>'
     end
   end
-
+  
   describe 'GET /sign-up' do
-    xit 'returns 200 OK' do
+    it 'returns 200 OK' do
+      response = get('/sign-up')
+      expect(response.status).to eq 200
     end
-
-    xit 'returns html with sign up form using POST /sign-up route' do
+    
+    it 'returns html with sign up form using POST /sign-up route' do
+      response = get('sign-up')
+      expect(response.body).to include '<form action="/sign-up" method="POST">'
+      expect(response.body).to include '<input type="text" name="email">'
+      expect(response.body).to include '<input type="text" name="password">'
+      expect(response.body).to include '<input type="text" name="name">'
+      expect(response.body).to include '<input type="text" name="username">'
+      expect(response.body).to include '<input type="submit">'
     end
-
-    xit 'returns html with link back to homepage' do
+    
+    it 'returns html with link back to homepage' do
+      response = get('sign-up')
+      expect(response.body).to include '<a href="/">Back to homepage</a>'
     end
   end
 
