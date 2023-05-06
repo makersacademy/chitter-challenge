@@ -32,7 +32,7 @@ class Application < Sinatra::Base
   end
 
   post '/sign-up' do
-    unless params.values.all? { |input| is_input_valid?(input) }
+    unless params.values.all? { |input| input_valid?(input) }
       status 400
       return erb(:sign_up_failure)
     end
@@ -48,6 +48,11 @@ class Application < Sinatra::Base
   end
 
   post '/new-peep' do
+    unless params.values.all? { |input| input_valid?(input) }
+      status 400
+      return erb(:new_peep_failure)
+    end
+
     peep = Peep.new
     peep.content = params[:content]
     peep.time_posted = params[:time_posted] || Time.new
@@ -59,7 +64,7 @@ class Application < Sinatra::Base
 
   private
 
-  def is_input_valid?(input)
+  def input_valid?(input)
     input != '' && !input.match(/[<>]/)
   end
 end

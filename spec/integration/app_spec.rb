@@ -292,6 +292,22 @@ describe Application do
           expect(response.body).to include '<a href="/sign-up">Try again</a>'
         end
       end
+
+      it 'doesn\'t update the database' do
+        repo = UserRepository.new
+        number_of_records = repo.all.length
+
+        response = post(
+          '/sign-up',
+          email: 'new_email',
+          password: 'new_password',
+          name: 'New Name',
+          username: '<script>username'
+        )
+
+        updated_number_of_records = repo.all.length
+        expect(updated_number_of_records).to eq number_of_records
+      end
     end
   end
 
@@ -338,9 +354,92 @@ describe Application do
     end
 
     context 'when used with invalid params' do
-      xit 'returns 400 Bad Request' do
+      context 'when content is empty' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/new-peep',
+            content: '',
+            time_posted: Time.now,
+            user_id: '4'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/new-peep">Try again</a>'
+        end
       end
-      # TODO - Consider invalid params
+
+      context 'when user_id is empty' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/new-peep',
+            content: 'some new content',
+            time_posted: Time.now,
+            user_id: ''
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/new-peep">Try again</a>'
+        end
+      end
+
+      context 'when content has invalid characters' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/new-peep',
+            content: 'some new content<html>',
+            time_posted: Time.now,
+            user_id: '3'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/new-peep">Try again</a>'
+        end
+      end
+
+      context 'when user_id has invalid characters' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/new-peep',
+            content: 'some new content',
+            time_posted: Time.now,
+            user_id: '3<script>'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/new-peep">Try again</a>'
+        end
+      end
+
+      it 'doesn\'t update the database' do
+        repo = PeepRepository.new
+        number_of_records = repo.all.length
+
+        response = post(
+          '/new-peep',
+          content: 'some new content',
+          time_posted: Time.now,
+          user_id: '3<script>'
+        )
+
+        updated_number_of_records = repo.all.length
+        expect(updated_number_of_records).to eq number_of_records
+      end
     end
   end
 end
