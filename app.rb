@@ -32,6 +32,11 @@ class Application < Sinatra::Base
   end
 
   post '/sign-up' do
+    if params.values.any?('')
+      status 400
+      return erb(:sign_up_failure)
+    end
+
     user = User.new
     user.email = params[:email]
     user.password = params[:password]

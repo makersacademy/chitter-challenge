@@ -127,7 +127,7 @@ describe Application do
           name: 'New Name',
           username: 'new_username'
         )
-  
+        
         repo = UserRepository.new
         expect(repo.all).to include(
           have_attributes(
@@ -139,13 +139,80 @@ describe Application do
         )
       end
     end
-
+    
     context 'when used with invalid params' do
-      xit 'returns 400 Bad Request' do
+      context 'when email is empty'
+      it 'returns 400 Bad Request and html failure page' do
+        response = post(
+          '/sign-up',
+          email: '',
+          password: 'new_password',
+          name: 'New Name',
+          username: 'new_username'
+        )
+        expect(response.status).to eq 400
+        expect(response.body).to include '<h1>Error!</h1>'
+        expect(response.body).to include (
+          '<h2>One or more of your inputs was invalid</h2>'
+        )
+        expect(response.body).to include '<a href="/">Back to homepage</a>'
+        expect(response.body).to include '<a href="/sign-up">Try again</a>'
       end
-      # TODO - Consider invalid params
-    end
 
+      context 'when password is empty'
+      it 'returns 400 Bad Request and html failure page' do
+        response = post(
+          '/sign-up',
+          email: 'new_email',
+          password: '',
+          name: 'New Name',
+          username: 'new_username'
+        )
+        expect(response.status).to eq 400
+        expect(response.body).to include '<h1>Error!</h1>'
+        expect(response.body).to include (
+          '<h2>One or more of your inputs was invalid</h2>'
+        )
+        expect(response.body).to include '<a href="/">Back to homepage</a>'
+        expect(response.body).to include '<a href="/sign-up">Try again</a>'
+      end
+
+      context 'when name is empty'
+      it 'returns 400 Bad Request and html failure page' do
+        response = post(
+          '/sign-up',
+          email: 'new_email',
+          password: 'new_password',
+          name: '',
+          username: 'new_username'
+        )
+        expect(response.status).to eq 400
+        expect(response.body).to include '<h1>Error!</h1>'
+        expect(response.body).to include (
+          '<h2>One or more of your inputs was invalid</h2>'
+        )
+        expect(response.body).to include '<a href="/">Back to homepage</a>'
+        expect(response.body).to include '<a href="/sign-up">Try again</a>'
+      end
+
+      context 'when username is empty'
+      it 'returns 400 Bad Request and html failure page' do
+        response = post(
+          '/sign-up',
+          email: 'new_email',
+          password: 'new_password',
+          name: 'New Name',
+          username: ''
+        )
+        expect(response.status).to eq 400
+        expect(response.body).to include '<h1>Error!</h1>'
+        expect(response.body).to include (
+          '<h2>One or more of your inputs was invalid</h2>'
+        )
+        expect(response.body).to include '<a href="/">Back to homepage</a>'
+        expect(response.body).to include '<a href="/sign-up">Try again</a>'
+      end
+    end
   end
 
   describe 'POST /new-peep' do
