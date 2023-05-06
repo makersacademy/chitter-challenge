@@ -32,7 +32,7 @@ class Application < Sinatra::Base
   end
 
   post '/sign-up' do
-    if params.values.any?('')
+    unless params.values.all? { |input| is_input_valid?(input) }
       status 400
       return erb(:sign_up_failure)
     end
@@ -55,5 +55,11 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     repo.create(peep)
     erb(:new_peep_success)
+  end
+
+  private
+
+  def is_input_valid?(input)
+    input != '' && !input.match(/[<>]/)
   end
 end

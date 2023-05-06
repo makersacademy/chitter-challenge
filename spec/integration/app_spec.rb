@@ -141,76 +141,156 @@ describe Application do
     end
     
     context 'when used with invalid params' do
-      context 'when email is empty'
-      it 'returns 400 Bad Request and html failure page' do
-        response = post(
-          '/sign-up',
-          email: '',
-          password: 'new_password',
-          name: 'New Name',
-          username: 'new_username'
-        )
-        expect(response.status).to eq 400
-        expect(response.body).to include '<h1>Error!</h1>'
-        expect(response.body).to include (
-          '<h2>One or more of your inputs was invalid</h2>'
-        )
-        expect(response.body).to include '<a href="/">Back to homepage</a>'
-        expect(response.body).to include '<a href="/sign-up">Try again</a>'
+      context 'when email is empty' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: '',
+            password: 'new_password',
+            name: 'New Name',
+            username: 'new_username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
       end
 
-      context 'when password is empty'
-      it 'returns 400 Bad Request and html failure page' do
-        response = post(
-          '/sign-up',
-          email: 'new_email',
-          password: '',
-          name: 'New Name',
-          username: 'new_username'
-        )
-        expect(response.status).to eq 400
-        expect(response.body).to include '<h1>Error!</h1>'
-        expect(response.body).to include (
-          '<h2>One or more of your inputs was invalid</h2>'
-        )
-        expect(response.body).to include '<a href="/">Back to homepage</a>'
-        expect(response.body).to include '<a href="/sign-up">Try again</a>'
+      context 'when password is empty' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email',
+            password: '',
+            name: 'New Name',
+            username: 'new_username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
       end
 
-      context 'when name is empty'
-      it 'returns 400 Bad Request and html failure page' do
-        response = post(
-          '/sign-up',
-          email: 'new_email',
-          password: 'new_password',
-          name: '',
-          username: 'new_username'
-        )
-        expect(response.status).to eq 400
-        expect(response.body).to include '<h1>Error!</h1>'
-        expect(response.body).to include (
-          '<h2>One or more of your inputs was invalid</h2>'
-        )
-        expect(response.body).to include '<a href="/">Back to homepage</a>'
-        expect(response.body).to include '<a href="/sign-up">Try again</a>'
+      context 'when name is empty' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email',
+            password: 'new_password',
+            name: '',
+            username: 'new_username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
       end
 
-      context 'when username is empty'
-      it 'returns 400 Bad Request and html failure page' do
-        response = post(
-          '/sign-up',
-          email: 'new_email',
-          password: 'new_password',
-          name: 'New Name',
-          username: ''
-        )
-        expect(response.status).to eq 400
-        expect(response.body).to include '<h1>Error!</h1>'
-        expect(response.body).to include (
-          '<h2>One or more of your inputs was invalid</h2>'
-        )
-        expect(response.body).to include '<a href="/">Back to homepage</a>'
-        expect(response.body).to include '<a href="/sign-up">Try again</a>'
+      context 'when username is empty' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email',
+            password: 'new_password',
+            name: 'New Name',
+            username: ''
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
+      end
+
+      context 'when email has invalid characters' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email<',
+            password: 'new_password',
+            name: 'New Name',
+            username: 'username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
+      end
+
+      context 'when password has invalid characters' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email',
+            password: 'new_password>',
+            name: 'New Name',
+            username: 'username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
+      end
+
+      context 'when name has invalid characters' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email',
+            password: 'new_password',
+            name: 'New Name<html>',
+            username: 'username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
+      end
+
+      context 'when username has invalid characters' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email',
+            password: 'new_password',
+            name: 'New Name',
+            username: '<script>username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end
       end
     end
   end
