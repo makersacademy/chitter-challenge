@@ -31,7 +31,7 @@ class Application < Sinatra::Base
     chitter = Chitter.new
 
     chitter.peep = params[:peep]
-    chitter.peep_time = params[:peep_time]
+    chitter.created_at = Time.now
     repo.create(chitter)
 
     @new_chitter = params[:peep]

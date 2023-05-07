@@ -4,7 +4,7 @@ class ChitterRepository
 
   def all
     
-    sql = 'SELECT id, peep, peep_time FROM chitters;'
+    sql = 'SELECT id, peep, created_at FROM chitters;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     chitters = []
@@ -14,7 +14,7 @@ class ChitterRepository
 
       chitter.id = record['id'].to_i
       chitter.peep = record['peep']
-      chitter.peep_time = record['peep_time']
+      chitter.created_at = Time.parse(record['created_at'])
 
       
       chitters << chitter
@@ -24,8 +24,8 @@ class ChitterRepository
   end
 
   def create(chitter)
-    sql = 'INSERT INTO chitters (peep, peep_time) VALUES($1, $2);'
-    params = [chitter.peep, chitter.peep_time]
+    sql = 'INSERT INTO chitters (peep, created_at) VALUES($1, $2);'
+    params = [chitter.peep, chitter.created_at]
     record = DatabaseConnection.exec_params(sql, params)
 
     return nil

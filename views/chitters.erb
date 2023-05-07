@@ -4,7 +4,7 @@
     <h1>Chitters</h1>
 
     <% @chitters.each do |chitter| %>
-    <p>Time: <%= chitter.peep_time %> Chitter: <%= chitter.peep %></p><br />
+    <p>Time: <%= chitter.created_at.strftime("%m-%d %H:%M:%S") %> Chitter: <%= chitter.peep %></p><br />
     <% end %>
 
     <h2>Write new chitter <a href="/chitters/new">here</a></h2>

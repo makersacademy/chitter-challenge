@@ -12,6 +12,6 @@ TRUNCATE TABLE chitters RESTART IDENTITY; -- replace with your own table name.
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
 
-INSERT INTO chitters (peep, peep_time) VALUES ('flying solo', '16:20');
-INSERT INTO chitters (peep, peep_time) VALUES ('falling', '16:21');
-INSERT INTO chitters (peep, peep_time) VALUES ('dead', '16:22');
+INSERT INTO chitters (peep, created_at) VALUES ('flying solo', CURRENT_TIMESTAMP);
+INSERT INTO chitters (peep, created_at) VALUES ('falling', CURRENT_TIMESTAMP);
+INSERT INTO chitters (peep, created_at) VALUES ('dead', CURRENT_TIMESTAMP);
