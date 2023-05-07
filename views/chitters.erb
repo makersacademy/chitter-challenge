@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitters</h1>
+
+    <% @chitters.each do |chitter| %>
+    <p>Time: <%= chitter.peep_time %> Chitter: <%= chitter.peep %></p><br />
+    <% end %>
+
+    <h2>Write new chitter <a href="/chitters/new">here</a></h2>
+  </body>
+</html>
