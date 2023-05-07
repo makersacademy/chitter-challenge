@@ -11,5 +11,11 @@ RSpec.describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
-  # tests go here
+  context "GET /" do
+    it 'returns an html view of the homepage' do
+      response = get("/")
+
+      expect(response.status).to eq 200
+    end
+  end
 end
