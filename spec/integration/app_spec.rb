@@ -16,6 +16,12 @@ RSpec.describe Application do
       response = get("/")
 
       expect(response.status).to eq 200
+
+      expect(response.body).to include "<a href=\"/signup\"> Sign up </a>"
+      expect(response.body).to include "<a href=\"/login\"> Log in </a>"
+      # tests for peeps display (to be written)
+      # expect(response.body).to include 
+      # expect(response.body).to include 
     end
   end
 end
