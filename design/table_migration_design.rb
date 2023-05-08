@@ -10,6 +10,7 @@ class PeepsTable <ActiveRecord::Migration[7.0]
       t.string :text
       # below adds two columns that are automatically populated: created_at, updated_at
       t.timestamps
+      t.integer :user_id
     end
 
     add_foreign_key :peeps, :users, name: :fk_user,  on_delete: :cascade
@@ -34,8 +35,8 @@ class TagsTable <ActiveRecord::Migration[7.0]
   end
 end
 
-class PostsTagsJoinTable <ActiveRecord::Migration[7.0]
+class PeepsTagsJoinTable <ActiveRecord::Migration[7.0]
   def change
-    create_join_table(:posts, :tags)
+    create_join_table(:peeps, :tags)
   end
 end 
