@@ -35,4 +35,13 @@ describe PeepRepository do
       expect(repo.all.last.maker_id).to eq(2)
     end
   end
+
+  context 'delete' do
+    it 'Should remove the row from the database that corresponds with passed id' do
+      repo = PeepRepository.new
+      repo.delete(1)
+      expect(repo.all.length).to eq(1)
+      expect(repo.all.first.id).to eq (2)
+    end
+  end
 end
