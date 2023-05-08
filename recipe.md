@@ -263,7 +263,7 @@ Running the SQL code present in the seed file will empty the table and re-insert
 
 ```ruby
 
-# file: spec/item_repository_spec.rb
+# file: spec/maker_repository_spec.rb
 
  def reset_makers_table
     seed_sql = File.read('spec/chitter_seeds.sql')
@@ -276,7 +276,7 @@ Running the SQL code present in the seed file will empty the table and re-insert
   end
 end
 
-# file: spec/order_repository_spec.rb
+# file: spec/peep_repository_spec.rb
 
  def reset_peeps_table
     seed_sql = File.read('spec/chitter_seeds.sql')
