@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Post</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      form {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 50px auto;
+        max-width: 600px;
+        box-shadow: 0 0 10px rgba(0,0,0,.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/newpeep">
+      <h2>Post your peep here!</h2>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username">
+      <label for="content">Content:</label>
+      <textarea name="content" id="content" rows="5"></textarea>
+      <input type="submit" value="Submit">
+      <a href="/signup">Sign up for Chitter here!</a>
+    </form>
+  </body>
+</html>
