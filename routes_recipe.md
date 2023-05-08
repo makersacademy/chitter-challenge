@@ -23,7 +23,7 @@ Log in page:
 If password does not correspond with existing username/email_address
  
 User page: 
-> "Welcome #{user}"
+> "Welcome #{user/maker}"
 > "Create a peep" - POST - adds a peep to the database related to this user/maker id
 > "Delete a peep" - POST - deletes a peep from the database
 > "View all previous peeps" - GET - Shows all peeps related to this user - params[id]
