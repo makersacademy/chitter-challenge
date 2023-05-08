@@ -12,11 +12,22 @@ describe MakerRepository do
     reset_makers_table
   end
 
+  context 'retreiving all data from Database' do
+    it 'Should return an array of all makers from database when all method is called' do
+      repo = MakerRepository.new
+      expect(repo.all.length).to eq (2)
+      expect(repo.all.first.id).to eq (1)
+      expect(repo.all.last.id).to eq (2)
+      expect(repo.all[1].name).to eq ('Hayley Lady')
+      expect(repo.all[1].password).to eq ('DifferentPassword123.')
+    end
+  end
+
   context 'Creating new makers' do
     it 'Should add a new maker to the makers database when the create method is passed an acceptable obj' do
       repo = MakerRepository.new
-      maker_1 = double :maker, name: 'name', username: 'username', email_address: 'fake_email@gmail.com', password: 'Password123'
-      repo.create(maker_1)
+      maker = double :maker, name: 'name', username: 'username', email_address: 'fake_email@gmail.com', password: 'Password123'
+      repo.create(maker)
       expect(repo.all.last.name).to eq ('name')
       expect(repo.all.last.username).to eq ('username')
       expect(repo.all.last.email_address).to eq ('fake_email@gmail.com')
