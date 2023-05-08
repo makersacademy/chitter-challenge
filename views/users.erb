@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Users</h1>
+
+    <% @users.each do |user| %>
+    <p>Username: <%= user.username %> </p><br />
+    <% end %>
+
+    <a href="/"><h2>return to hompage</h2></a>
+  </body>
+</html>

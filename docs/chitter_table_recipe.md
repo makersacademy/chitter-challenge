@@ -21,7 +21,7 @@ I want to see the time at which it was made
 ```
 Nouns:
 
-chiter, peep, peep_time
+chitter, peep, created_at
 ```
 
 ## 2. Infer the Table Name and Columns

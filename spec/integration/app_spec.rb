@@ -50,12 +50,55 @@ RSpec.describe Application do
   end
 
   context 'GET /chitters/new' do
-    it 'returns a form page' do
+    it 'returns a new chitter form page' do
       response = get("/chitters/new")
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/chitters">')
       expect(response.body).to include('<input type="text" name="peep" />')
+    end
+  end
+
+  context "GET /users" do
+    it 'returns a list of users in html' do
+      response = get('/users')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('sjmog')
+      expect(response.body).to include('smorg')
+      expect(response.body).to include('TZ')
+    end
+  end
+
+  context 'get /sign-up' do
+    it 'returns a chitter sign-up page' do
+      response = get('/sign-up')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/sign-up">')
+      expect(response.body).to include('<input type="email" name="email" />')
+      expect(response.body).to include('<input type="password" name="password" />')
+      expect(response.body).to include('<input type="text" name="name" />')
+      expect(response.body).to include('<input type="text" name="username" />')
+    end
+  end
+
+  context "POST /signup" do
+    it 'returns 200 OK' do
+      response = post(
+        '/sign-up',
+        email: 'asdasd@makers.make',
+        password: 'asdasd',
+        name: 'Donny Brasco',
+        username: 'Donno99'
+      )
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Donno99 has been added')
+
+      get_users = get('/users')
+
+      expect(get_users.body).to include('Donno99')
     end
   end
 end

@@ -21,14 +21,17 @@ describe ChitterRepository do
     expect(chitters[0].id).to eq 3
     expect(chitters[0].peep).to eq 'dead'
     expect(chitters[0].created_at).to be_a(Time)
+    expect(chitters[0].user_id).to eq 3
 
     expect(chitters[1].id).to eq 2
     expect(chitters[1].peep).to eq 'falling'
     expect(chitters[1].created_at).to be_a(Time)
+    expect(chitters[1].user_id).to eq 2
 
     expect(chitters[2].id).to eq 1
     expect(chitters[2].peep).to eq 'flying solo'
     expect(chitters[2].created_at).to be_a(Time)
+    expect(chitters[2].user_id).to eq 2
 
   end
 
@@ -38,6 +41,7 @@ describe ChitterRepository do
     new_chitter = Chitter.new
     new_chitter.peep = 'Gin'
     new_chitter.created_at = Time.now
+    new_chitter.user_id = 1
     repo.create(new_chitter)
 
     chitters = repo.all
