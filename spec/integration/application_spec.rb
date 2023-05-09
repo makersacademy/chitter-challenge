@@ -16,7 +16,7 @@ describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('This is better than twitter')
-      expect(response.body).to include('My first peep!')
+      expect(response.body).to include('My very first peep!')
     end
   end
 

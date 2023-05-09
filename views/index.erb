@@ -1,3 +1,13 @@
-This is better than twitter
-
-My first peep!
+<html>
+  <head></head>
+  <body>
+    <h1>Welcome to Chitter!</h1>
+    <% @peeps.reverse_each do |peep| %>
+      <div>
+        <p><%= peep.content %></p>
+        <p>Peeped at <%= peep.time %> by <%= peep.user_id %></p>
+        <br />
+      </div>
+    <% end %>
+  </body>
+</html>

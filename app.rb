@@ -16,11 +16,12 @@ class Application < Sinatra::Base
   end
 
   get "/" do
+    @peeps = PeepRepository.new.all
+
     return erb(:index)
   end
-  
-end
 
+end
 
 
 # We need to give the database name to the method `connect`.
