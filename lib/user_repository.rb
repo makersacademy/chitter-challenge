@@ -41,6 +41,12 @@ class UserRepository
     records.ntuples.positive?
   end
 
+  def correct_password?(email, password)
+    user = find_by_email(email)
+    stored_password = BCrypt::Password.new(user.password)
+    stored_password == password
+  end
+
   private
 
   def create_user_from_record(record)

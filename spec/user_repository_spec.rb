@@ -119,7 +119,7 @@ describe UserRepository do
     end
   end
 
-  describe 'username_exists?' do
+  describe '#username_exists?' do
     it 'returns true if the username already exists in the database' do
       repo = UserRepository.new
       expect(repo.username_exists?('username_1')).to eq true
@@ -131,7 +131,7 @@ describe UserRepository do
     end
   end
   
-  describe 'email_exists?' do
+  describe '#email_exists?' do
     it 'returns true if the email already exists in the database' do
       repo = UserRepository.new
       expect(repo.email_exists?('email_1')).to eq true
@@ -140,6 +140,36 @@ describe UserRepository do
     it 'returns false if the email does not exist in the database' do
       repo = UserRepository.new
       expect(repo.email_exists?('new_email')).to eq false
+    end
+  end
+
+  describe '#correct_password?' do
+    it 'returns true if email and password match' do
+      user = User.new
+      user.name = 'New Name'
+      user.username = 'user_name_1'
+      user.email = 'email1@email.com'
+      user.password = 'new_pass_123'
+
+      repo = UserRepository.new
+      repo.create(user)
+
+      result = repo.correct_password?('email1@email.com', 'new_pass_123')
+      expect(result).to eq true
+    end
+    
+    it 'returns false if email and password do not match' do
+      user = User.new
+      user.name = 'New Name'
+      user.username = 'user_name_1'
+      user.email = 'email1@email.com'
+      user.password = 'new_pass_123'
+  
+      repo = UserRepository.new
+      repo.create(user)
+  
+      result = repo.correct_password?('email1@email.com', 'new_pass_321')
+      expect(result).to eq false
     end
   end
 end
