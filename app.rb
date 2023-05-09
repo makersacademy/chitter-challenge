@@ -11,7 +11,7 @@ class Application < Sinatra::Base
 end
 
 # We need to give the database name to the method `connect`.
-DatabaseConnection.connect('chitter')
+# DatabaseConnection.connect('chitter_test')
 
 # Perform a SQL query on the database and get the result set.
 # sql = 'SELECT id, title FROM table;'

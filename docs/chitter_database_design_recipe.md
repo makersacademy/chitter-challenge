@@ -122,7 +122,7 @@ Replace the relevant bits in this example with your own:
 
 ```sql
 -- EXAMPLE
--- file: peeps_table.sql
+-- file: chitter_table.sql
 
 -- Replace the table name, columm names and types.
 
@@ -152,5 +152,5 @@ CREATE TABLE peeps (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 database_name < peeps_table.sql
+psql -h 127.0.0.1 chitter < chitter_table.sql
 ```
