@@ -61,13 +61,14 @@ RSpec.describe Application do
       expect(latest_user.password).to eq '12345678'
     end
 
-    # need to test validations
+    # need to test validations and failed sign up
 
     it 'links to a personal user page' do
       response = post('/new-user' )
 
-      expect(response.body).to include "<a href=\"/:username/page\"> Click here to access your personal page </a>"
+      expect(response.body).to include "<a href=\"/user/page\"> Click here to access your personal page </a>"
     end
-
   end
+
+  context 'GET /user/page'
 end

@@ -21,11 +21,11 @@ class Application < Sinatra::Base
   end
   
   post '/new-user' do
-    name = params[:name]
+    @name = params[:name]
     email_address = params[:email_address]
     password = params[:password]
 
-    User.create(name: name, email_address: email_address, password: password)
+    User.create(name: @name, email_address: email_address, password: password)
 
     return erb(:sign_up_confirmation)
   end
