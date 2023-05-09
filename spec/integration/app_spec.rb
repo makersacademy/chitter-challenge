@@ -24,6 +24,7 @@ describe Application do
       expect(response.status).to eq (200)
       expect(response.body).to include ('<a href="/peeps">View all peeps</a>')
       expect(response.body).to include ('<a href="/loginpage">Log in</a>')
+      expect(response.body).to include ('<a href="/signup">Sign up</a>')
     end
   end
 
@@ -78,9 +79,14 @@ describe Application do
   end
 
   context '/makers/new' do
-    it 'Should add a new maker to the database/create a maker account' do
+    it 'Should add a new maker to the database/create a maker account and then redirect to user page' do
       response = post('/makers/new')
-      expect(response.status).to eq (200)
+      expect(response.status).to eq (302)
+    end
+
+    it 'Should return an error when username already exists in database' do
+      response = post('/makers/new', username: 'HayleyOk')
+      expect(response.status).to eq (400)
     end
   end
 
