@@ -11,7 +11,7 @@ class UserRepository
   def find(id)
     sql = 'SELECT * FROM users WHERE id = $1'
     records = DatabaseConnection.exec_params(sql, [id])
-    return create_user_from_record(records.first)
+    records.ntuples.zero? ? nil : create_user_from_record(records.first)
   end
 
   def find_by_email(email)

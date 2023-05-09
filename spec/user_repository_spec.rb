@@ -54,6 +54,12 @@ describe UserRepository do
       expect(user.name).to eq 'name_3'
       expect(user.username).to eq 'username_3'
     end
+
+    it 'returns nil if id does not exist' do
+      repo = UserRepository.new
+      user = repo.find(23)
+      expect(user).to eq nil
+    end
   end
   
   describe '#find_by_email' do

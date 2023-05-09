@@ -36,19 +36,40 @@ describe Application do
       expect(response.body).to include 'username_4'
     end
 
-    it 'returns html with link to sign up' do
+    it 'returns html with link to sign up when not logged in' do
       response = get('/')
       expect(response.body).to include '<a href="/sign-up">Sign Up</a>'
     end
 
-    it 'returns html with link to log in' do
+    it 'returns html with link to log in when not logged in' do
       response = get('/')
       expect(response.body).to include '<a href="/login">Log In</a>'
+    end
+
+    it 'does not return html with link to log in when logged in' do
+      user = User.new
+      user.email = 'hello@gmail.com'
+      user.password = 'new_pass_123!'
+      user.name = 'My Name'
+      user.username = 'new_username'
+
+      repo = UserRepository.new
+      repo.create(user)
+
+      post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+      response = get('/')
+      expect(response.body).not_to include '<a href="/login">Log In</a>'
     end
     
     it 'returns html with link to post a new peep' do
       response = get('/')
       expect(response.body).to include '<a href="/new-peep">Add new peep</a>'
+    end
+
+    xit 'returns html with link to log out when logged in' do
+    end
+
+    xit 'does not return html with link to log out when not logged in' do
     end
   end
 
@@ -212,6 +233,14 @@ describe Application do
           expect(response.body).to include '<a href="/login">Try again</a>'
         end
       end
+    end
+  end
+
+  describe 'POST /logout' do
+    xit 'logs the user out' do
+      response = post('/logout')
+      # expect(response.status).to eq 200
+      expect(response.body).to include '<a href="/login">Log In</a>'
     end
   end
   

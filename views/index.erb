@@ -1,8 +1,13 @@
 <html>
     <head></head>
     <body>
-        <p><a href="/sign-up">Sign Up</a></p>
-        <p><a href="/login">Log In</a></p>
+        <% if @user.nil? %>
+            <p><a href="/sign-up">Sign Up</a></p>
+            <p><a href="/login">Log In</a></p>
+        <% else %>
+            <p><a href="/logout">Log Out</a></p>
+        <% end %>
+
         <p><a href="/new-peep">Add new peep</a></p>
         <h1>All Peeps</h1>
         <% @peeps.each do |peep| %>

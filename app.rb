@@ -20,8 +20,10 @@ class Application < Sinatra::Base
     peep_repo = PeepRepository.new
     peeps = peep_repo.all
     @peeps = peeps.sort_by(&:time_posted).reverse
+
     user_repo = UserRepository.new
     @peeps.each { |peep| peep.user = user_repo.find(peep.user_id) }
+    @user = session[:id].nil? ? nil : user_repo.find(session[:id])
 
     erb(:index)
   end
@@ -56,6 +58,11 @@ class Application < Sinatra::Base
     @user = repo.find_by_email(email)
     session[:id] = @user.id
     return erb(:login_success)
+  end
+
+  post '/logout' do
+    session[:id] = nil
+    return erb(:index)
   end
 
   post '/sign-up' do
