@@ -11,7 +11,7 @@ RSpec.describe Application do
   let(:app) { Application.new }
 
   context "GET /" do
-    it 'returns an html view of the homepage with links to sign up or log in' do
+    it 'displays an html view of the homepage with links to sign up or log in' do
       response = get("/")
 
       expect(response.status).to eq 200
@@ -20,5 +20,24 @@ RSpec.describe Application do
       expect(response.body).to include "<a href=\"/login\"> Log in </a>"
     end
 
+    xit 'lists the current peeps in the database in reverse chronological order' do
+      # how to deal with non-deterministic database record?
+    end
+  end
+
+  context 'GET /signup' do
+    it 'displays an html view with a form to create a new user' do
+      response = get('/signup')
+
+      expect(response.status).to eq 200
+
+      expect(response.body).to include '<h1> Sign up </h1>'
+
+      expect(response.body).to include '<form action-"/signup" method="POST">'
+
+      expect(response.body).to include '<input type="text" name="name">'
+      expect(response.body).to include '<input type="text" name="email_address">'
+      expect(response.body).to include '<input type="text" name="password">'
+    end
   end
 end
