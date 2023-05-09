@@ -70,7 +70,7 @@ RSpec.describe UserRepository do
     expect(user.email).to eq 'lou@chitter.com'
     
     peep = user.peeps.first
-    expect(peep['content']).to eq 'First post'
-    expect(peep['time']).to eq '12:00:00'
+    expect(peep.content).to eq 'First post'
+    expect(peep.time).to eq '12:00:00'
   end
 end

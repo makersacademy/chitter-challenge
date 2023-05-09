@@ -1,4 +1,5 @@
 require 'user'
+require 'peep'
 require 'database_connection'
 
 class UserRepository
@@ -9,7 +10,7 @@ class UserRepository
     result_set.each do |record|
       users << record_to_user_object(record)
     end
-    
+
     return users
   end
 
@@ -53,10 +54,11 @@ class UserRepository
     user = record_to_user_object(result_set[0])
 
     result_set.each do |record|
-      peep_hash = {}
-      peep_hash['content'] = record['content']
-      peep_hash['time'] = record['time']
-      user.peeps << peep_hash
+      peep = Peep.new
+      peep.id = record['peep_id'].to_i
+      peep.content = record['content']
+      peep.time = record['time']
+      user.peeps << peep
     end
 
     return user
