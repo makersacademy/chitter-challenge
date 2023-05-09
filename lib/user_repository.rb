@@ -23,6 +23,9 @@ class UserRepository
   end
 
   def create(user)
+    fail "email already exists" if email_taken(user.email)
+    fail "username already exists" if username_taken(user.username)
+
     sql = 'INSERT INTO users (email, password, name, username)
           VALUES ($1, $2, $3, $4);'
     params = [
@@ -74,5 +77,15 @@ class UserRepository
     user.name = record['name']
     user.username = record['username']
     return user
+  end
+
+  def email_taken(email)
+    used_emails = self.all.map{ |user| user.email }
+    return used_emails.include?(email)
+  end
+
+  def username_taken(username)
+    used_usernames = self.all.map{ |user| user.username }
+    return used_usernames.include?(username)
   end
 end
