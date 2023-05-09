@@ -41,17 +41,17 @@ I want to receive an email if I am tagged in a Peep
 ```
 Nouns:
 
-posts, time(and date), content, account, account_id, email, password, username
+peeps, time(and date), content, account, account_id, email, password, username
 ```
 
 ## 2. Infer the Table Name and Columns
 
 | Record                | Properties          |
 | --------------------- | ------------------  |
-| posts                 | time(& date), contents, account_id
+| peeps                 | time(& date), contents, account_id
 | accounts              | email_address, password, username
 
-1. Name of the first table (always plural): `posts` 
+1. Name of the first table (always plural): `peeps` 
 
     Column names: `time`, `contents`, `account_id`
 
@@ -63,7 +63,7 @@ posts, time(and date), content, account, account_id, email, password, username
 
 ```
 
-Table: posts
+Table: peeps
 id: SERIAL
 time: timestamp 
 contents: text
@@ -80,14 +80,14 @@ password: text
 
 ```
 
-1. Can one account have many posts? YES
+1. Can one account have many peeps? YES
 2. Can one album have many accounts? NO
 
 -> Therefore,
--> An account HAS MANY posts
+-> An account HAS MANY peeps
 -> A post BELONGS TO an account
 
--> Therefore, the foreign key is on the posts table.
+-> Therefore, the foreign key is on the peeps table.
 ```
 
 ## 4. Write the SQL.
@@ -100,7 +100,7 @@ CREATE TABLE accounts (
   password text
 );
 
-CREATE TABLE posts (
+CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   time timestamp,
   contents text,
@@ -117,10 +117,10 @@ CREATE TABLE posts (
 
 ```bash
 psql -h 127.0.0.1 chitter_database < spec/seeds/accounts_seeds.sql
-psql -h 127.0.0.1 chitter_database < spec/seeds/posts_seeds.sql
+psql -h 127.0.0.1 chitter_database < spec/seeds/peeps_seeds.sql
 
 psql -h 127.0.0.1 chitter_test < spec/seeds/accounts_seeds.sql
-psql -h 127.0.0.1 chitter_test < spec/seeds/posts_seeds.sql
+psql -h 127.0.0.1 chitter_test < spec/seeds/peeps_seeds.sql
 
 
 ```

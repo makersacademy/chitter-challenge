@@ -33,3 +33,10 @@ http://localhost:('Port in use')/
 8. Send an email when someone has been mentioned in a post
 
 ## Changes to plan
+
+## Techonologies used
+
+- Ruby
+- RSpec
+- PostgreSQL
+- Sinatra
