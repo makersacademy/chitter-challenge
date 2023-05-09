@@ -39,8 +39,8 @@ describe Application do
 
   context '/loginpage' do
     it 'Should return a login submit form' do
-      reponse = get('/loginpage')
-      expect(reponse.status).to eq (200)
+      response = get('/loginpage')
+      expect(response.status).to eq (200)
       expect(response.body).to include ('<form method="GET" action="/maker/:id">')
       expect(response.body).to include ('<input type="text" name="username"/>')
       expect(response.body).to include ('<input type="text" name="password"/>')
@@ -48,22 +48,22 @@ describe Application do
     end
   end
 
-  context '/maker/:id'
-    it 'Should take the user/maker to their own user page' do
+  # context '/maker/:id' do
+  #   it 'Should take the user/maker to their own user page' do
       
-    end
+  #   end
 
-    it 'Should return a welcome banner with the correct users name' do
+  #   it 'Should return a welcome banner with the correct users name' do
 
-    end
+  #   end
 
-    it 'Should return an error/fail when username is not present within the DB' do
+  #   it 'Should return an error/fail when username is not present within the DB' do
 
-    end
+  #   end
 
-    it 'Should return an error/fail when password is incorrect' do
+  #   it 'Should return an error/fail when password is incorrect' do
 
-    end
-  end
+  #   end
+  # end
 
 end
