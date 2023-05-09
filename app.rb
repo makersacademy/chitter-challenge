@@ -1,13 +1,25 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative 'lib/peep_repository'
+require_relative 'lib/maker_repository'
+require_relative 'lib/database_connection'
+
+DatabaseConnection.connect
 
 class Application < Sinatra::Base
-
   configure :development do
     register Sinatra::Reloader
+    also_reload 'lib/maker_repository'
+    also_reload 'lib/peep_repository'
   end
 
   get '/' do
     return erb(:homepage)
+  end
+
+  get '/peeps' do
+    repo = PeepRepository.new
+    @total = repo.all.length
+    return erb(:peeps)
   end
 end
