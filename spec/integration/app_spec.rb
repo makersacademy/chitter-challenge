@@ -47,15 +47,6 @@ describe Application do
       expect(response.body).to include ('<input type="text" name="password"/>')
       expect(response.body).to include ('<input type="submit"/>')
     end
-  end
-
-
-  # context '/maker/:id' do
-  #   it 'Should return a welcome banner with the correct users name' do
-  #     response = get('/maker/1')
-  #     expect(response.status).to eq(200)
-  #     expect(response.body).to include ('Matty Boi')
-  #   end
 
     # it 'Should return an error/fail when username is not present within the DB' do
 
@@ -64,7 +55,31 @@ describe Application do
     # it 'Should return an error/fail when password is incorrect' do
       
     # end
-  # end
+  end
+
+
+  context '/maker/:id' do
+    it 'Should return a welcome banner with the correct users name' do
+      response = get('/maker/1')
+      expect(response.status).to eq(200)
+      expect(response.body).to include ('Matty Boi')
+    end
+
+    it 'Should return a welcome banner with the correct users name' do
+      response = get('/maker/2')
+      expect(response.status).to eq(200)
+      expect(response.body).to include ('Hayley Lady')
+    end
+
+    it 'Should return a list of user options as hyperlinks' do
+      response = get('/maker/1')
+      expect(response.status).to eq(200)
+      expect(response.body).to include ('<a href="/peep/new">Post a peep</a>')
+      expect(response.body).to include ('<a href="/peep/delete">Delete a peep</a>')
+      expect(response.body).to include ('<a href="/peeps/:id">View your previous peeps</a>')
+      expect(response.body).to include ('<a href="/">Log out</a>')
+    end
+  end
 
   context '/signup' do
     it 'Should return a sign up form to add a new maker to the database' do

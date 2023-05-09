@@ -55,7 +55,8 @@ class Application < Sinatra::Base
   end
 
   get '/maker/:id' do
-    params[:id]
+    repo = MakerRepository.new
+    @selected = repo.find(params[:id])
     return erb(:userpage)
   end
 end
