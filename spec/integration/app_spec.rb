@@ -141,6 +141,44 @@ describe Application do
     end
     
     context 'when used with invalid params' do
+      context 'when email already exists' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'email_1',
+            password: 'new_password',
+            name: 'New Name',
+            username: 'new_username'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end        
+      end
+
+      context 'when username already exists' do
+        it 'returns 400 Bad Request and html failure page' do
+          response = post(
+            '/sign-up',
+            email: 'new_email',
+            password: 'new_password',
+            name: 'New Name',
+            username: 'username_1'
+          )
+          expect(response.status).to eq 400
+          expect(response.body).to include '<h1>Error!</h1>'
+          expect(response.body).to include (
+            '<h2>One or more of your inputs was invalid</h2>'
+          )
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<a href="/sign-up">Try again</a>'
+        end        
+      end
+
       context 'when email is empty' do
         it 'returns 400 Bad Request and html failure page' do
           response = post(

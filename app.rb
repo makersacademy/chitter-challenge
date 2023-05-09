@@ -36,15 +36,22 @@ class Application < Sinatra::Base
       status 400
       return erb(:sign_up_failure)
     end
+    
+    repo = UserRepository.new
 
     user = User.new
     user.email = params[:email]
     user.password = params[:password]
     user.name = params[:name]
     user.username = params[:username]
-    repo = UserRepository.new
+    
+    if repo.email_exists?(user.email) || repo.username_exists?(user.username)
+      status 400
+      return erb(:sign_up_failure) 
+    end
+
     repo.create(user)
-    erb(:sign_up_success)
+    return erb(:sign_up_success)
   end
 
   post '/new-peep' do
