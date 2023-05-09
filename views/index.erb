@@ -1,7 +1,21 @@
-<h1>This is the homepage</h1>
+<html>
+  <body>
+    <h1>This is the homepage</h1>
 
-<a href="/about">Go to the about page</a><br />
-<a href="/chitters">View chitters</a><br />
-<a href="/chitters/new">Create your own chitter</a><br />
-<a href="/users">View users</a><br />
-<a href="/sign-up"><h2>Sign Up to Chitter</h2></a>
+    <% if @current_user %>
+    <h2>You are logged in as <%= @current_user %></h2> 
+    <form method="post" action="/">
+      <input type="submit" value="logout">
+    </form>
+    <% else %>
+    <a href="/sign-up"><h2>Sign Up to Chitter</h2></a>
+    <a href="/log-in"><h2>Log In to Chitter</h2></a>
+    <% end %>
+
+    <a href="/about">Go to the about page</a><br />
+    <a href="/chitters">View chitters</a><br />
+    <a href="/chitters/new">Create your own chitter</a><br />
+    <a href="/users">View users</a><br />
+
+</body>
+</html>

@@ -76,10 +76,10 @@ RSpec.describe Application do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/sign-up">')
-      expect(response.body).to include('<input type="email" name="email" />')
-      expect(response.body).to include('<input type="password" name="password" />')
-      expect(response.body).to include('<input type="text" name="name" />')
-      expect(response.body).to include('<input type="text" name="username" />')
+      expect(response.body).to include('<input type="email" name="email" required />')
+      expect(response.body).to include('<input type="password" name="password" required />')
+      expect(response.body).to include('<input type="text" name="name" required />')
+      expect(response.body).to include('<input type="text" name="username" required />')
     end
   end
 
@@ -99,6 +99,52 @@ RSpec.describe Application do
       get_users = get('/users')
 
       expect(get_users.body).to include('Donno99')
+    end
+  end
+
+  context 'get /log-in' do
+    it 'returns a chitter log-in page' do
+      response = get('/log-in')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/log-in">')
+      expect(response.body).to include('<input type="email" name="email" required />')
+      expect(response.body).to include('<input type="password" name="password" required />')
+    end
+  end
+
+  context "POST /log-in" do
+    it 'checks if passwords match and logs-in' do
+      response = post(
+        '/log-in',
+        email: 'chonky@chonkersacademy.com',
+        password: 'birdwird'
+      )
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('You logged in, Nice One!!')
+    end
+
+    it 'checks if passwords match and returns error page when they dont' do
+      response = post(
+        '/log-in',
+        email: 'chonky@chonkersacademy.com',
+        password: 'blah'
+      )
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Incorrect email or password')
+    end
+  end
+
+  context "POST /" do
+    it 'logs user out' do
+      response = post(
+        '/'
+      )
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('log-in')
     end
   end
 end
