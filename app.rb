@@ -43,15 +43,19 @@ class Application < Sinatra::Base
     email = params[:email]
     password = params[:password]
 
-    if repo.correct_password?(email, password)
-      user = repo.find_by_email(email)
-      session[:id] = user.id
-
-      session_user = repo.find(session[:id])
-      @name = session_user.name
-      @username = session_user.username
-      return erb(:login_success)
+    unless input_valid?(email) && input_valid?(password) && repo.email_exists?(email)
+      status 400
+      return erb(:login_failure)
     end
+
+    unless repo.correct_password?(email, password)
+      status 400
+      return erb(:login_failure)
+    end
+
+    @user = repo.find_by_email(email)
+    session[:id] = @user.id
+    return erb(:login_success)
   end
 
   post '/sign-up' do

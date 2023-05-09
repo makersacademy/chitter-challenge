@@ -40,6 +40,11 @@ describe Application do
       response = get('/')
       expect(response.body).to include '<a href="/sign-up">Sign Up</a>'
     end
+
+    it 'returns html with link to log in' do
+      response = get('/')
+      expect(response.body).to include '<a href="/login">Log In</a>'
+    end
     
     it 'returns html with link to post a new peep' do
       response = get('/')
@@ -165,6 +170,47 @@ describe Application do
         
         response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
         expect(response.body).to include '<h2>Hello My Name! You are logged in as new_username</h2>'
+      end
+    end
+    
+    context 'when used with invalid params' do
+      context 'when email is blank' do
+        it 'returns 400 Bad Request and failure page' do
+          response = post('/login', email: '', password: 'new_pass_123!')
+          expect(response.status).to eq 400
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<h2>One or more of your inputs was invalid</h2>'
+          expect(response.body).to include '<a href="/login">Try again</a>'
+        end
+      end
+      
+      context 'when email does not exist in the database' do
+        it 'returns 400 Bad Request and failure page' do
+          response = post('/login', email: 'fake_email@email.com', password: 'new_pass_123!')
+          expect(response.status).to eq 400
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<h2>One or more of your inputs was invalid</h2>'
+          expect(response.body).to include '<a href="/login">Try again</a>'
+        end
+      end
+      
+      context 'when password is incorrect' do
+        it 'returns 400 Bad Request and failure page' do
+          user = User.new
+          user.email = 'hello@gmail.com'
+          user.password = 'new_pass_123!'
+          user.name = 'My Name'
+          user.username = 'new_username'
+  
+          repo = UserRepository.new
+          repo.create(user)
+
+          response = post('/login', email: 'hello@gmail.com', password: 'bad_pass')
+          expect(response.status).to eq 400
+          expect(response.body).to include '<a href="/">Back to homepage</a>'
+          expect(response.body).to include '<h2>One or more of your inputs was invalid</h2>'
+          expect(response.body).to include '<a href="/login">Try again</a>'
+        end
       end
     end
   end
