@@ -68,7 +68,7 @@ describe UserRepository do
       expect(user.username).to eq 'username_1'
     end
 
-    it 'returns a user by email' do
+    it 'returns another user by email' do
       repo = UserRepository.new
       user = repo.find_by_email('email_2')
 
@@ -77,6 +77,12 @@ describe UserRepository do
       expect(user.password).to eq 'password_2'
       expect(user.name).to eq 'name_2'
       expect(user.username).to eq 'username_2'
+    end
+
+    it 'returns nil if email does not exist' do
+      repo = UserRepository.new
+      user = repo.find_by_email('fake_email')
+      expect(user).to eq nil
     end
   end
 
