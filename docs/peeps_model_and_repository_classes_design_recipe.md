@@ -1,4 +1,4 @@
-Users Model and Repository Classes Design Recipe
+Peeps Model and Repository Classes Design Recipe
 
 ## 2. Create Test SQL seeds
 
@@ -16,19 +16,19 @@ If seed data is provided (or you already created it), you can skip this step.
 -- so we can start with a fresh state.
 -- (RESTART IDENTITY resets the primary key)
 
-TRUNCATE TABLE users RESTART IDENTITY CASCADE; -- replace with your own table name.
+TRUNCATE TABLE peeps RESTART IDENTITY CASCADE; -- replace with your own table name.
 
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
 
-INSERT INTO users (email, password, name, username) VALUES ('samm@makersacademy.com', 'password123', 'Sam Morgan', 'sjmog');
-INSERT INTO users (email, password, name, username) VALUES ('dkong@makersacademy.com', 'banana123', 'Donkey Kong', 'dkong');
+INSERT INTO peeps (content, time, user_id) VALUES ('My very first peep!', '2023-05-05 19:10:25', '1');
+INSERT INTO peeps (content, time, user_id) VALUES ('This is better than twitter', '2023-05-09 09:55:01', '2');
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
 
 ```bash
-psql -h 127.0.0.1 chitter < spec/seeds_users.sql
+psql -h 127.0.0.1 chitter < spec/seeds_peeps.sql
 ```
 
 ## 3. Define the class names
@@ -37,16 +37,16 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 ```ruby
 # EXAMPLE
-# Table name: users
+# Table name: peeps
 
 # Model class
-# (in lib/user.rb)
-class User
+# (in lib/peep.rb)
+class Peep
 end
 
 # Repository class
-# (in lib/user_repository.rb)
-class UserRepository
+# (in lib/peep_repository.rb)
+class PeepRepository
 end
 ```
 
@@ -56,24 +56,24 @@ Define the attributes of your Model class. You can usually map the table columns
 
 ```ruby
 # EXAMPLE
-# Table name: users
+# Table name: peeps
 
 # Model class
-# (in lib/user.rb)
+# (in lib/peep.rb)
 
-class User
+class Peep
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :email, :password, :name, :username
+  attr_accessor :id, :content, :time, :user_id
 end
 
 # The keyword attr_accessor is a special Ruby feature
 # which allows us to set and get attributes on an object,
 # here's an example:
 #
-# user = User.new
-# user.name = 'Jo'
-# user.name
+# peep = Peep.new
+# peep.name = 'Jo'
+# peep.name
 ```
 
 *You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.*
@@ -86,40 +86,40 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```ruby
 # EXAMPLE
-# Table name: users
+# Table name: peeps
 
 # Repository class
-# (in lib/user_repository.rb)
+# (in lib/peep_repository.rb)
 
-class UserRepository
+class PeepRepository
 
   # Selecting all records
   # No arguments
   def all
     # Executes the SQL query:
-    # SELECT * FROM users;
+    # SELECT * FROM peeps;
 
-    # Returns an array of User objects.
+    # Returns an array of Peep objects.
   end
 
   # Gets a single record by its ID
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT * FROM users WHERE id = $1;
+    # SELECT * FROM peeps WHERE id = $1;
 
-    # Returns a single User object.
+    # Returns a single Peep object.
   end
 
   # Add more methods below for each operation you'd like to implement.
 
-  # def create(user)
+  # def create(peep)
   # end
 
-  # def update(user)
+  # def update(peep)
   # end
 
-  # def delete(user)
+  # def delete(peep)
   # end
 end
 ```
@@ -134,32 +134,32 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all users
+# Get all peeps
 
-repo = UserRepository.new
+repo = PeepRepository.new
 
-users = repo.all
+peeps = repo.all
 
-users.length # =>  2
+peeps.length # =>  2
 
-users[0].id # =>  1
-users[0].name # =>  'David'
-users[0].cohort_name # =>  'April 2022'
+peeps[0].id # =>  1
+peeps[0].name # =>  'David'
+peeps[0].cohort_name # =>  'April 2022'
 
-users[1].id # =>  2
-users[1].name # =>  'Anna'
-users[1].cohort_name # =>  'May 2022'
+peeps[1].id # =>  2
+peeps[1].name # =>  'Anna'
+peeps[1].cohort_name # =>  'May 2022'
 
 # 2
-# Get a single user
+# Get a single peep
 
-repo = UserRepository.new
+repo = PeepRepository.new
 
-user = repo.find(1)
+peep = repo.find(1)
 
-user.id # =>  1
-user.name # =>  'David'
-user.cohort_name # =>  'April 2022'
+peep.id # =>  1
+peep.name # =>  'David'
+peep.cohort_name # =>  'April 2022'
 
 # Add more examples for each method
 ```
@@ -175,17 +175,17 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/user_repository_spec.rb
+# file: spec/peep_repository_spec.rb
 
-def reset_users_table
-  seed_sql = File.read('spec/seeds_users.sql')
+def reset_peeps_table
+  seed_sql = File.read('spec/seeds_peeps.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(seed_sql)
 end
 
-describe UserRepository do
+describe PeepRepository do
   before(:each) do 
-    reset_users_table
+    reset_peeps_table
   end
 
   # (your tests will go here).
