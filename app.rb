@@ -24,11 +24,16 @@ class Application < Sinatra::Base
     return erb(:peeps)
   end
 
+  get '/signup' do
+    return erb(:signuppage)
+  end
+
   get '/loginpage' do
     return erb(:loginpage)
   end
 
   get '/maker/:id' do
+    params[:id]
     return erb(:userpage)
   end
 end

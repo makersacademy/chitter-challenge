@@ -48,22 +48,40 @@ describe Application do
     end
   end
 
+
   # context '/maker/:id' do
-  #   it 'Should take the user/maker to their own user page' do
-      
-  #   end
-
   #   it 'Should return a welcome banner with the correct users name' do
-
+  #     response = get('/maker/1')
+  #     expect(response.status).to eq(200)
+  #     expect(response.body).to include ('Matty Boi')
   #   end
 
-  #   it 'Should return an error/fail when username is not present within the DB' do
+    # it 'Should return an error/fail when username is not present within the DB' do
 
-  #   end
+    # end
 
-  #   it 'Should return an error/fail when password is incorrect' do
-
-  #   end
+    # it 'Should return an error/fail when password is incorrect' do
+      
+    # end
   # end
+
+  context '/signup' do
+    it 'Should return a sign up form to add a new maker to the database' do
+      response = get('/signup')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<form method="POST" action="/makers/new">')
+      expect(response.body).to include ('<h1>Create an account</h1>')
+      expect(response.body).to include ('<input type="text" name="name"/>')
+      expect(response.body).to include ('<label>Username:</label>')
+      expect(response.body).to include ('<input type="text" name="username"/>')
+    end
+  end
+
+  context '/makers/new' do
+    it 'Should add a new maker to the database/create a maker account' do
+      response = post('/makers/new')
+      expect(response.status).to eq (200)
+    end
+  end
 
 end
