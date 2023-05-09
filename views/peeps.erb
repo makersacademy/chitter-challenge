@@ -16,7 +16,7 @@
           <%= peep.content %>
         </h4>
         <p>
-          <%= peep.maker_id %>
+          <%= @maker_repo.find(peep.maker_id).username %>
         </p>
         <p>
           <%= peep.date_posted %>
