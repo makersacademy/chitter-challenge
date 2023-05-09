@@ -19,16 +19,23 @@ class Application < Sinatra::Base
   end
 
   post '/peep' do
-    repo = PeepRepository.new
-    peep = Peep.new
-    peep.content = params['content']
-    peep.time = Time.now.strftime("%k:%M")
-    peep.user_id = find_id(params['username'])
+    username = params['username']
+    if user_exists(username)
+      repo = PeepRepository.new
+      peep = Peep.new
+      peep.content = params['content']
+      peep.time = Time.now.strftime("%k:%M")
+      peep.user_id = find_id(username)
 
-    repo.create(peep)
-    @peeps = repo.all
+      repo.create(peep)
+      @peeps = repo.all
 
-    return erb(:home)
+      return erb(:home)
+    else
+      status 400
+      @username = username
+      return erb(:unknown_username)
+    end
   end
 
   private
@@ -49,7 +56,13 @@ class Application < Sinatra::Base
     user = users.select do |user| 
       user.username == username
     end[0]
-    
+
     return user.id
+  end
+
+  def user_exists(username)
+    repo = UserRepository.new
+    usernames = repo.all.map { |user| user.username }
+    return usernames.include?(username)
   end
 end

@@ -47,7 +47,7 @@ RSpec.describe Application do
       expect(response.body).to include('New peep posted')
     end
 
-    xit 'returns 400 with invalid username' do
+    it 'returns 400 with invalid username' do
       response = post(
         '/peep',
         content: "New peep posted",
@@ -55,7 +55,7 @@ RSpec.describe Application do
       )
 
       expect(response.status).to eq 400
-      expect(response.body).to include('<div>This username does not exist...</div>')
+      expect(response.body).to include('<div>This user (unknown) does not exist...</div>')
       expect(response.body).to include('<div>Please sign up first</div>')
     end
   end
