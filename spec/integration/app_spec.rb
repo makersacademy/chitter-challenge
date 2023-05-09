@@ -2,9 +2,9 @@ require 'spec_helper'
 require 'rack/test'
 require_relative '../../app'
 
-class Application
+describe Chitter do
   include Rack::Test::Methods
 
-  let(:app) { Application.new }
+  let(:app) { Chitter.new }
 
 end
