@@ -23,4 +23,12 @@ class Application < Sinatra::Base
     @all_peeps = peep_repo.all
     return erb(:peeps)
   end
+
+  get '/loginpage' do
+    return erb(:loginpage)
+  end
+
+  get '/maker/:id' do
+    return erb(:userpage)
+  end
 end

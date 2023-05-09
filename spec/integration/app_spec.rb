@@ -23,11 +23,12 @@ describe Application do
       response = get('/')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<a href="/peeps">View all peeps</a>')
+      expect(response.body).to include ('<a href="/loginpage">Log in</a>')
     end
   end
 
   context '/peeps' do
-    it 'Should display all peeps from all makers' do
+    it 'Should display all peeps from all makers within the peeps database formatted in HTML' do
       response = get('/peeps')
       expect(response.status).to eq (200)
       expect(response.body).to include ('HayleyOk')
@@ -36,5 +37,33 @@ describe Application do
     end
   end
 
+  context '/loginpage' do
+    it 'Should return a login submit form' do
+      reponse = get('/loginpage')
+      expect(reponse.status).to eq (200)
+      expect(response.body).to include ('<form method="GET" action="/maker/:id">')
+      expect(response.body).to include ('<input type="text" name="username"/>')
+      expect(response.body).to include ('<input type="text" name="password"/>')
+      expect(response.body).to include ('<input type="submit"/>')
+    end
+  end
+
+  context '/maker/:id'
+    it 'Should take the user/maker to their own user page' do
+      
+    end
+
+    it 'Should return a welcome banner with the correct users name' do
+
+    end
+
+    it 'Should return an error/fail when username is not present within the DB' do
+
+    end
+
+    it 'Should return an error/fail when password is incorrect' do
+
+    end
+  end
 
 end
