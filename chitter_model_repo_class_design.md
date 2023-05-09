@@ -164,7 +164,7 @@ class UserRepository
   def create(user)
     # Executes the SQL:
     # INSERT INTO users (email, password, name, username)
-    #   VALUES ($1, $2, $3, $4)
+    #   VALUES ($1, $2, $3, $4);
 
     # Returns nothing - updates the database
   end
@@ -214,8 +214,8 @@ class PeepRepository
   # One argument - a Peep object
   def create(peep)
     # Executes the SQL:
-    # INSERT INTO users (content, time, user_id)
-    #   VALUES ($1, $2, $3)
+    # INSERT INTO peeps (content, time, user_id)
+    #   VALUES ($1, $2, $3);
 
     # Returns nothing - updates the database
   end
@@ -304,11 +304,8 @@ user.email # =>  'lou@chitter.com'
 
 peep = user.peeps.first
 
-peep.id # =>  1
-peep.content # =>  'First post'
-peep.time # =>  '12:00:00'
-peep.user_id # =>  1
-
+peep['content'] # =>  'First post'
+peep['time'] # =>  '12:00:00'
 
 # Add more examples for each method
 
@@ -386,9 +383,9 @@ peep.content = 'New post'
 peep.time = '15:00'
 peep.user_id = 1
 
-new_peep = repo.all.last
-
 repo.create(peep)
+
+new_peep = repo.all.last
 
 peep.id # =>  3
 peep.content # =>  'New post'
@@ -408,17 +405,32 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/student_repository_spec.rb
+# file: spec/user_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_users_table
+  seed_sql = File.read('spec/seeds_users.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_site_test' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+def reset_peeps_table
+  seed_sql = File.read('spec/seeds_peeps.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_site_test' })
+  connection.exec(seed_sql)
+end
+
+RSpec.describe UserRepository do
   before(:each) do 
-    reset_students_table
+    reset_users_table
+  end
+
+  # (your tests will go here).
+end
+
+
+RSpec.describe PeepRepository do
+  before(:each) do 
+    reset_peeps_table
   end
 
   # (your tests will go here).
