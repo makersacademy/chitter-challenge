@@ -13,7 +13,7 @@ class PeepRepository
       peep.time = record['time']
       peep.contents = record['contents']
       peep.account_id = record['account_id'].to_i
-      
+
 
       peeps << peep
     end
@@ -21,6 +21,11 @@ class PeepRepository
   end
 
   def add(peep)
-    # adds a peep object to the peep table
+    sql = 'INSERT INTO peeps (time, contents, account_id) VALUES ($1, $2, $3);'
+    sql_params = [peep.time, peep.contents, peep.account_id]
+
+    DatabaseConnection.exec_params(sql, sql_params)
+
+    return peep
   end
 end

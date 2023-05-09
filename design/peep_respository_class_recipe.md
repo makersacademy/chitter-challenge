@@ -89,7 +89,7 @@ class PeepRepository
   # Takes a peep object as an argument
   def add(peep)
     # Executes the SQL query:
-    # INSERT INTO peeps (time, contents, account_id) VALUES ($1, $2, $3);'
+    # INSERT INTO peeps (time, contents, account_id) VALUES ($1, $2, $3);
 
     # Returns nil, just creates an object.
   end
@@ -114,20 +114,8 @@ peeps.first.time # =>  '2023-05-09 11:09:00'
 peeps.first.contents # =>  'hello, this is the first peep!'
 peeps.first.account_id # => 1
 
+
 # 2
-# Get a single peep
-
-repo = PeepRepository.new
-
-peep = repo.find(1)
-
-peep.id # =>  1
-peep.time # =>  '2023-05-09 11:09:00'
-peep.contents # =>  'hello, this is the first peep!'
-peep.account_id # => 1
-
-
-# 3 
 # Add a peep
 
 repo = PeepRepository.new

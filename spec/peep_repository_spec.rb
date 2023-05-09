@@ -12,7 +12,7 @@ RSpec.describe Peep do
   before(:each) do
     reset_peeps_table
   end
-
+ 
   it 'finds all peeps' do
     peep_repo = PeepRepository.new
 
@@ -24,4 +24,20 @@ RSpec.describe Peep do
     expect(peeps.first.account_id).to eq(1)
   end
 
+
+  it 'adds a peep' do
+    repo = PeepRepository.new
+    new_peep = Peep.new
+
+    new_peep.time = Time.now
+    new_peep.contents = "we are adding a new peep!"
+    new_peep.account_id = 1
+
+    repo.add(new_peep)
+
+    peeps = repo.all
+
+    expect(peeps.length).to eq(4)
+    expect(peeps.last.contents).to eq("we are adding a new peep!")
+  end
 end
