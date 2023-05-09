@@ -78,4 +78,28 @@ describe UserRepository do
       )
     end
   end
+
+  describe 'username_exists?' do
+    it 'returns true if the username already exists in the database' do
+      repo = UserRepository.new
+      expect(repo.username_exists?('username_1')).to eq true
+    end
+    
+    it 'returns false if the username does not exist in the database' do
+      repo = UserRepository.new
+      expect(repo.username_exists?('new_username')).to eq false
+    end
+  end
+  
+  describe 'email_exists?' do
+    it 'returns true if the email already exists in the database' do
+      repo = UserRepository.new
+      expect(repo.email_exists?('email_1')).to eq true
+    end
+    
+    it 'returns false if the email does not exist in the database' do
+      repo = UserRepository.new
+      expect(repo.email_exists?('new_email')).to eq false
+    end
+  end
 end

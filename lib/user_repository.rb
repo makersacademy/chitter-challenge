@@ -20,6 +20,18 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
+  def username_exists?(username)
+    sql = 'SELECT username FROM users WHERE username = $1'
+    records = DatabaseConnection.exec_params(sql, [username])
+    records.ntuples.positive?
+  end
+  
+  def email_exists?(email)
+    sql = 'SELECT email FROM users WHERE email = $1'
+    records = DatabaseConnection.exec_params(sql, [email])
+    records.ntuples.positive?
+  end
+
   private
 
   def create_user_from_record(record)
