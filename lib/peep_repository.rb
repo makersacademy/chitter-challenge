@@ -1,5 +1,5 @@
-require 'peep'
-require 'database_connection'
+require_relative 'peep'
+require_relative 'database_connection'
 
 class PeepRepository
   def all

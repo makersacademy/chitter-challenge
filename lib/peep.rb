@@ -10,8 +10,8 @@ class Peep
 
   def find_tags(content)
     content_arr = content.split
-    content_arr.select{ |string|
+    content_arr.select do |string|
       string[0] == '@' && string != '@'
-    }.uniq
+    end.uniq
   end
 end

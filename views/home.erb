@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Chitter home</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <h2>Posts:</h2>
+    <% @peeps.each do |peep| %>
+    <div>
+      <%= author(peep)[:name] %> (<%= author(peep)[:username] %>) says:
+    </div>
+    <div>
+    <%= peep.content %>
+    </div>
+    <div>
+      - <%= peep.time %>
+    </div>
+    <br>
+    <% end %>
+  </body>
+</html>

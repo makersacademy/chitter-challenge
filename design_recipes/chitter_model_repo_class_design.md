@@ -293,6 +293,29 @@ new_user.name # =>  'Jon'
 new_user.username # =>  'doe'
 
 # 4
+# Throws an error when email already in the database
+repo = UserRepository.new
+user = User.new
+user.email = 'lou@chitter.com'
+user.password = 'password03'
+user.name = 'Jon'
+user.username = 'doe'
+
+repo.create(user) # => error "email already exists"
+
+# 5
+# Throws an error when username already in the database
+repo = UserRepository.new
+user = User.new
+user.email = 'jonny@chitter.com'
+user.password = 'password03'
+user.name = 'Jon'
+user.username = 'lpc'
+
+repo.create(user) # => error "Username already exists"
+
+
+# 6
 # Finds specific user and their peeps
 
 repo = UserRepository.new

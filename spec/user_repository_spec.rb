@@ -1,8 +1,7 @@
 require 'user_repository'
 
-
 def reset_users_table
-  seed_sql = File.read('spec/seeds_users.sql')
+  seed_sql = File.read('spec/seeds/seeds_users.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_site_test' })
   connection.exec(seed_sql)
 end
@@ -18,13 +17,13 @@ RSpec.describe UserRepository do
 
     expect(users.length).to eq 2
     
-    expect(users[0].id).to eq  1
+    expect(users[0].id).to eq 1
     expect(users[0].email).to eq 'lou@chitter.com'
     expect(users[0].password).to eq 'password01'
     expect(users[0].name).to eq 'Louis'
     expect(users[0].username).to eq 'lpc'
     
-    expect(users[1].id).to eq  2
+    expect(users[1].id).to eq 2
     expect(users[1].email).to eq 'luce@chitter.com'
     expect(users[1].password).to eq 'password02'
     expect(users[1].name).to eq 'Lucy'
@@ -81,7 +80,7 @@ RSpec.describe UserRepository do
       user.name = 'Jon'
       user.username = 'lpc'
       
-      expect{ repo.create(user) }.to raise_error "username already exists"  
+      expect { repo.create(user) }.to raise_error "username already exists"  
     end
   end
 

@@ -1,6 +1,6 @@
-require 'user'
-require 'peep'
-require 'database_connection'
+require_relative 'user'
+require_relative 'peep'
+require_relative 'database_connection'
 
 class UserRepository
   def all
@@ -40,18 +40,14 @@ class UserRepository
   end
 
   def find_with_peeps(id)
-    sql = 'SELECT users.id,
-                  users.email,
-                  users.password,
-                  users.name,
-                  users.username,
-                  peeps.id AS peep_id,
-                  peeps.content,
-                  peeps.time
-                FROM users
-                JOIN peeps
-                ON peeps.user_id = users.id
-                WHERE users.id = $1;'
+    sql = 'SELECT users.id, users.email,
+              users.password, users.name,
+              users.username,
+              peeps.id AS peep_id,
+              peeps.content, peeps.time
+              FROM users JOIN peeps
+              ON peeps.user_id = users.id
+              WHERE users.id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
 
     user = record_to_user_object(result_set[0])
@@ -80,12 +76,12 @@ class UserRepository
   end
 
   def email_taken(email)
-    used_emails = self.all.map{ |user| user.email }
+    used_emails = all.map { |user| user.email }
     return used_emails.include?(email)
   end
 
   def username_taken(username)
-    used_usernames = self.all.map{ |user| user.username }
+    used_usernames = all.map { |user| user.username }
     return used_usernames.include?(username)
   end
 end
