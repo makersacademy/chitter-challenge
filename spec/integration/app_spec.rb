@@ -51,6 +51,11 @@ RSpec.describe Application do
 
   context 'GET /chitters/new' do
     it 'returns a new chitter form page' do
+      post(
+        '/log-in',
+        email: 'chonky@chonkersacademy.com',
+        password: 'birdwird'
+      )
       response = get("/chitters/new")
 
       expect(response.status).to eq(200)
@@ -83,7 +88,7 @@ RSpec.describe Application do
     end
   end
 
-  context "POST /signup" do
+  context "POST /sign-up" do
     it 'returns 200 OK' do
       response = post(
         '/sign-up',
@@ -100,10 +105,26 @@ RSpec.describe Application do
 
       expect(get_users.body).to include('Donno99')
     end
+
+    it 'finds that the username or email already exist and asks to re-enter' do
+      response = post(
+        '/sign-up',
+        email: 'sleepy@sleepersacademy.com',
+        password: 'zzzzzz',
+        name: 'asdasd',
+        username: 'TZ'
+      )
+      
+      expect(response.status).to eq(302)
+
+      get_users = get('/users')
+
+      expect(get_users.body).not_to include('asdasd')
+    end
   end
 
   context 'get /log-in' do
-    it 'returns a chitter log-in page' do
+   it 'returns a chitter log-in page' do
       response = get('/log-in')
 
       expect(response.status).to eq(200)

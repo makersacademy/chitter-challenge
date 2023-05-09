@@ -1,5 +1,6 @@
 require 'sinatra'
 require "sinatra/reloader"
+require 'sinatra/flash'
 require_relative 'lib/database_connection'
 require_relative 'lib/chitter_repository'
 require_relative 'lib/user_repository'
@@ -8,6 +9,7 @@ DatabaseConnection.connect
 
 class Application < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
@@ -28,7 +30,7 @@ class Application < Sinatra::Base
 
   # An about page, yet to be populated
   get '/about' do
-    
+
     return erb(:about)
   end
 
@@ -56,7 +58,11 @@ class Application < Sinatra::Base
 
   # This route simply returns the new chitter form page (only accessible when logged in)
   get '/chitters/new' do
-    return erb(:new_chitter)
+    if session[:user_username]
+      return erb(:new_chitter)
+    else
+      return erb(:log_in)
+    end
   end
   
   # gets a list of all users
@@ -75,12 +81,20 @@ class Application < Sinatra::Base
   # This route processes the info submitted through the create user form
   post '/sign-up' do
     repo = UserRepository.new
+    all_users = repo.all
     user = User.new
 
     user.email = params[:email]
     user.password = params[:password]
     user.name = params[:name]
     user.username = params[:username]
+
+    all_users.each do |users|
+      if users.email == user.email || users.username == user.username
+        flash[:error] = "The email or username you entered already exists. Please use a different email or username."
+        redirect '/sign-up'
+      end
+    end
     repo.create(user)
 
     @new_user = params[:username]
