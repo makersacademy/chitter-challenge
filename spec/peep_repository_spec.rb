@@ -39,4 +39,12 @@ RSpec.describe PeepRepository do
     expect(peeps.length).to eq(4)
     expect(peeps.first.contents).to eq("we are adding a new peep!")
   end
+
+  it 'returns the username for peep at id 1 (most recent peep)' do
+    peep_repo = PeepRepository.new
+
+    peeps = peep_repo.all 
+    expect(peeps.first.contents).to eq('hello, this is the third peep!')
+    expect(peeps.first.find_username).to eq('kay1')
+  end
 end

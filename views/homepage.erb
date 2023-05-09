@@ -6,7 +6,7 @@
      <div>
      <% @peeps.each do |peep|%>
      <p>
-     from: <%= peep.account_id %> says... <br>
+     <b><%= peep.find_name%> </b> (<%= peep.find_username %>) says... <br>
      <%= peep.contents %> <br>
      time: <%= peep.time %>
      </p>
