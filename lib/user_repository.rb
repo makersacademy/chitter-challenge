@@ -33,4 +33,18 @@ class UserRepository
 
     return nil
   end
+
+  def find_by_email(email)
+    sql = 'SELECT id, email, password, name, username FROM users WHERE email = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email])
+
+    user = User.new
+    user.id = result_set[0]['id'].to_i
+    user.email = result_set[0]['email']
+    user.password = result_set[0]['password']
+    user.name = result_set[0]['name']
+    user.username = result_set[0]['username']
+
+    return user
+  end
 end
