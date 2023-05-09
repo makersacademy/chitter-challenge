@@ -38,6 +38,12 @@ class Application < Sinatra::Base
 
     if repo.all.any? { |row| row.username == maker.username }
       status 400
+    elsif repo.all.any? { |row| row.email_address == maker.email_address }
+      status 400
+    elsif maker.name == nil || maker.username == nil || maker.email_address == nil || maker.password == nil
+      status 400
+    elsif maker.name.empty? || maker.username.empty? || maker.email_address.empty? || maker.password.empty? 
+      status 400
     else
       repo.create(maker)
       redirect '/'

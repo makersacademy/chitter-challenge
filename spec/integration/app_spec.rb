@@ -80,12 +80,27 @@ describe Application do
 
   context '/makers/new' do
     it 'Should add a new maker to the database/create a maker account and then redirect to user page' do
-      response = post('/makers/new')
+      response = post('/makers/new', name: 'Matt', username: 'mattmatttest', email_address: 'bigmatt44@gmail.com', password: 'ValidPassword12')
       expect(response.status).to eq (302)
     end
 
     it 'Should return an error when username already exists in database' do
-      response = post('/makers/new', username: 'HayleyOk')
+      response = post('/makers/new', name: 'Hayley A', username: 'HayleyOk', email_address: 'hayleyhayley@tiscali.net', password: 'AnotherPass1')
+      expect(response.status).to eq (400)
+    end
+
+    it 'Should return an error when the email address already exists in the database' do
+      response = post('/makers/new', name: 'Hayley A', username: 'HayleyAlt', email_address: 'another_fake_email420@gmail.com', password: 'AnotherPass1')
+      expect(response.status).to eq (400)
+    end
+
+    it 'Should return an error when a nil value is entered' do
+      response = post('/makers/new', name: 'Matt H', username: 'MattAlt', email_address: nil, password: 'AnotherPass1')
+      expect(response.status).to eq (400)
+    end
+
+    it 'Should return an error when an input is empty' do
+      response = post('/makers/new', name: 'Matt H', username: '', email_address: 'fakestofthemall@testmail.com', password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
   end
