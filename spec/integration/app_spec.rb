@@ -7,4 +7,12 @@ describe Chitter do
 
   let(:app) { Chitter.new }
 
+  context 'GET /' do
+    it 'should return the list of tweets in reverse chronological order' do
+      response = get('/')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('hello, this is the third peep!')
+    end
+  end
 end

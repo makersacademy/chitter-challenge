@@ -1,23 +1,15 @@
-require 'peep'
+require_relative './peep'
 
 class PeepRepository 
   def all
     peeps = []
-
     sql = 'SELECT id, time, contents, account_id FROM peeps;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     result_set.each do |record|
-
-      peep = Peep.new
-      peep.time = record['time']
-      peep.contents = record['contents']
-      peep.account_id = record['account_id'].to_i
-
-
-      peeps << peep
+      peeps << record_to_peep(record)
     end
-    return peeps.reverse
+    return peeps.reverse!
   end
 
   def add(peep)
@@ -27,5 +19,16 @@ class PeepRepository
     DatabaseConnection.exec_params(sql, sql_params)
 
     return nil
+  end
+
+  private 
+
+  def record_to_peep(record)
+    peep = Peep.new
+    peep.time = record['time']
+    peep.contents = record['contents']
+    peep.account_id = record['account_id'].to_i
+
+    return peep
   end
 end

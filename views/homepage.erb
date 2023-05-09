@@ -1,0 +1,16 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Welcome to Chitter!</h1>
+    <h2> Latest peeps...</h2>
+     <div>
+     <% @peeps.each do |peep|%>
+     <p>
+     from: <%= peep.account_id %> says... <br>
+     <%= peep.contents %> <br>
+     time: <%= peep.time %>
+     </p>
+     <% end %>
+    </div>
+  </body>
+</html>

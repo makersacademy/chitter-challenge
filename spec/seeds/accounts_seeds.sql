@@ -4,12 +4,13 @@ CREATE TABLE accounts (
   id SERIAL PRIMARY KEY,
   email_address text,
   username text,
+  name text,
   password text
 );
 
 TRUNCATE TABLE accounts RESTART IDENTITY;
 
-INSERT INTO accounts ("email_address", "username", "password") VALUES
-('alice@test.com', 'alice1', 'test123'),
-('chris@test.com', 'chris1', 'test321'),
-('test@test.com', 'test1', 'test987')
+INSERT INTO accounts ("email_address", "username", "name", "password") VALUES
+('alice@test.com', 'alice1', 'Alice Wood', 'test123'),
+('chris@test.com', 'chris1', 'Chris Wood', 'test321'),
+('kay@test.com', 'kay1', 'Kay Lack', 'test987')
