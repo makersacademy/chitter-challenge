@@ -153,7 +153,7 @@ describe Application do
         expect(response.body).to include '<p><a href="/">Back to homepage</a></p>'
       end
       
-      xit 'logs the user in' do
+      it 'logs the user in' do
         user = User.new
         user.email = 'hello@gmail.com'
         user.password = 'new_pass_123!'

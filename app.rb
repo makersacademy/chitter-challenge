@@ -39,7 +39,19 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    return erb(:login_success)
+    repo = UserRepository.new
+    email = params[:email]
+    password = params[:password]
+
+    if repo.correct_password?(email, password)
+      user = repo.find_by_email(email)
+      session[:id] = user.id
+
+      session_user = repo.find(session[:id])
+      @name = session_user.name
+      @username = session_user.username
+      return erb(:login_success)
+    end
   end
 
   post '/sign-up' do
