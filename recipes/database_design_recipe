@@ -1,4 +1,5 @@
 Two Tables Design Recipe Template
+
 Copy this recipe template to design and create two related database tables from a specification.
 
 1. Extract nouns from the user stories or specification
@@ -41,5 +42,18 @@ CREATE TABLE peeps (
     on delete cascade
 );
 
-5. Create the tables.
 psql -h 127.0.0.1 chitter < chitter_tables.sql 
+
+-
+
+TRUNCATE TABLE users RESTART IDENTITY CASCADE;
+TRUNCATE TABLE peeps RESTART IDENTITY CASCADE;
+
+INSERT INTO users (name, username, email, password) VALUES ('Aubrey Salmins', 'aubreysalmins', 'senditon@hotmail.co.uk', '123pswd');
+INSERT INTO users (name, username, email, password) VALUES ('Budsy', 'meow-meow', 'wherestheharringtons@feedme.com', 'pswd234');
+
+INSERT INTO peeps (title, content, user_id) VALUES ('Peep 1', 'Its a peep', 1);
+INSERT INTO peeps (title, content, user_id) VALUES ('Meep', 'Meow', 2);
+
+-
+
