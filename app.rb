@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/peep_repository'
@@ -7,6 +8,8 @@ require_relative 'lib/database_connection'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/user_repository'
@@ -33,6 +36,10 @@ class Application < Sinatra::Base
 
   get '/new-peep' do
     erb(:new_peep)
+  end
+
+  post '/login' do
+    return erb(:login_success)
   end
 
   post '/sign-up' do

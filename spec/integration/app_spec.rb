@@ -108,6 +108,66 @@ describe Application do
       expect(response.body).to include '<a href="/">Back to homepage</a>'
     end
   end
+
+  describe 'POST /login' do
+    context 'when used with valid params' do
+      it 'returns 200 OK' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+
+        repo = UserRepository.new
+        repo.create(user)
+
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        expect(response.status).to eq 200
+      end
+
+      it 'returns html success message' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+
+        repo = UserRepository.new
+        repo.create(user)
+
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        expect(response.body).to include '<h1>Success!</h1>'
+      end
+      
+      it 'returns html with link back to the homepage' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+  
+        repo = UserRepository.new
+        repo.create(user)
+  
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        expect(response.body).to include '<p><a href="/">Back to homepage</a></p>'
+      end
+      
+      xit 'logs the user in' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+        
+        repo = UserRepository.new
+        repo.create(user)
+        
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        expect(response.body).to include '<h2>Hello My Name! You are logged in as new_username</h2>'
+      end
+    end
+  end
   
   describe 'POST /sign-up' do
     context 'when used with valid params' do
