@@ -44,7 +44,7 @@ describe UserRepository do
       expect(user.name).to eq 'name_1'
       expect(user.username).to eq 'username_1'
     end
-
+    
     it 'returns another user by id' do
       repo = UserRepository.new
       user = repo.find(3)
@@ -53,6 +53,30 @@ describe UserRepository do
       expect(user.password).to eq 'password_3'
       expect(user.name).to eq 'name_3'
       expect(user.username).to eq 'username_3'
+    end
+  end
+  
+  describe '#find_by_email' do
+    it 'returns a user by email' do
+      repo = UserRepository.new
+      user = repo.find_by_email('email_1')
+      
+      expect(user.id).to eq 1
+      expect(user.email).to eq 'email_1'
+      expect(user.password).to eq 'password_1'
+      expect(user.name).to eq 'name_1'
+      expect(user.username).to eq 'username_1'
+    end
+
+    it 'returns a user by email' do
+      repo = UserRepository.new
+      user = repo.find_by_email('email_2')
+
+      expect(user.id).to eq 2
+      expect(user.email).to eq 'email_2'
+      expect(user.password).to eq 'password_2'
+      expect(user.name).to eq 'name_2'
+      expect(user.username).to eq 'username_2'
     end
   end
 
