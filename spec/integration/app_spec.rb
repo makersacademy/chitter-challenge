@@ -63,12 +63,22 @@ RSpec.describe Application do
 
     # need to test validations and failed sign up
 
-    it 'links to a personal user page' do
+    it 'links to a user page' do
       response = post('/new-user' )
 
       expect(response.body).to include "<a href=\"/user/page\"> Click here to access your personal page </a>"
     end
+
+    # will implement username in path when I implement sessions
   end
 
-  context 'GET /user/page'
+  context 'GET /user/page' do
+    it 'displays an html view with a link to create a peep' do
+      
+    end
+
+    xit 'lists the current peeps in the database in reverse chronological order' do
+      # how to deal with non-deterministic database record?    
+    end
+  end
 end
