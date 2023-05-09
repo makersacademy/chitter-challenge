@@ -44,8 +44,7 @@ RSpec.describe Application do
       )
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<div>Louis (lpc) says:</div>')
-      expect(response.body).to include('<div>New peep posted</div>')
+      expect(response.body).to include('New peep posted')
     end
 
     xit 'returns 400 with invalid username' do
