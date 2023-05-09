@@ -2,10 +2,10 @@
   <head></head>
   <body>
     <h1>Welcome to Chitter!</h1>
-    <% @peeps.reverse_each do |peep| %>
+    <% @peeps_list.reverse_each do |peep| %>
       <div>
+        <p><%= @users.find(peep.user_id).name %> @<%= @users.find(peep.user_id).username %> - <%= peep.time %></p>
         <p><%= peep.content %></p>
-        <p>Peeped at <%= peep.time %> by <%= peep.user_id %></p>
         <br />
       </div>
     <% end %>

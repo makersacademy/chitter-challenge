@@ -15,23 +15,15 @@ class Application < Sinatra::Base
     also_reload 'lib/user_repository'
   end
 
-  get "/" do
-    @peeps = PeepRepository.new.all
+  get '/' do
+    @peeps_list = PeepRepository.new.all
+    @users = UserRepository.new
 
     return erb(:index)
   end
 
+  get '/peeps/new' do
+    return erb(:new_peep)
+  end
+
 end
-
-
-# We need to give the database name to the method `connect`.
-# DatabaseConnection.connect('chitter_test')
-
-# Perform a SQL query on the database and get the result set.
-# sql = 'SELECT id, title FROM table;'
-# result = DatabaseConnection.exec_params(sql, [])
-
-# Print out each record from the result set .
-# result.each do |record|
-#   p record
-# end

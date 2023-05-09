@@ -10,13 +10,23 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
-  context "GET /" do
-    it "Lists all peeps in reverse chronological order" do
-      response = get("/")
+  context 'GET /' do
+    it 'Lists all peeps in reverse chronological order' do
+      response = get('/')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('This is better than twitter')
       expect(response.body).to include('My very first peep!')
+    end
+  end
+
+  context 'GET /peeps/new' do
+    it 'Displays form to post a new peep' do
+      response = get('/peeps/new')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<form method="POST" action="/peeps">')
+      expect(response.body).to include('<input type="text" name="content" ')
     end
   end
 
