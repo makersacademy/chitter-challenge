@@ -71,11 +71,27 @@ describe UserRepository do
         have_attributes(
           id: 5,
           email: 'new_email',
-          password: 'new_password',
           name: 'new_name',
           username: 'new_username'
         )
       )
+    end
+    
+    it "encrypts the password" do
+      user = User.new
+      user.email = 'new_email'
+      user.password = 'new_password'
+      user.name = 'new_name'
+      user.username = 'new_username'
+      
+      repo = UserRepository.new
+      repo.create(user)
+
+      stored_user = repo.find(5)
+      expect(stored_user.password).not_to eq 'new_password'
+
+      stored_password = BCrypt::Password.new(stored_user.password)
+      expect(stored_password).to eq 'new_password'
     end
   end
 

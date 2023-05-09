@@ -129,14 +129,14 @@ describe Application do
         )
         
         repo = UserRepository.new
-        expect(repo.all).to include(
-          have_attributes(
-            email: 'new@gmail.com',
-            password: 'new_password',
-            name: 'New Name',
-            username: 'new_username'
-          )
-        )
+        user = repo.find(5)
+
+        expect(user.email).to eq 'new@gmail.com'
+        expect(user.name).to eq 'New Name'
+        expect(user.username).to eq 'new_username'
+
+        stored_password = BCrypt::Password.new(user.password)
+        expect(stored_password).to eq 'new_password'
       end
     end
     

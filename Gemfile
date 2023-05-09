@@ -18,3 +18,5 @@ gem "webrick", "~> 1.8"
 gem "rack-test", "~> 2.1"
 
 gem "pg", "~> 1.5"
+
+gem "bcrypt", "~> 3.1"
