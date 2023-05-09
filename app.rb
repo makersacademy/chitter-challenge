@@ -9,5 +9,14 @@ DatabaseConnection.connect
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    also_reload 'lib/peep_repository'
+    also_reload 'lib/account_repository'
+  end
+
+  get '/' do
+    peep_repo = PeepRepository.new
+    @peeps = peep_repo.all
+
+    return erb(:homepage)
   end
 end

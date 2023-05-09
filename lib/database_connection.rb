@@ -1,7 +1,6 @@
 
 require 'pg'
 
-
 class DatabaseConnection
   # This method connects to PostgreSQL using the 
   # PG gem. We connect to 127.0.0.1, and select
