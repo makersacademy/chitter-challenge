@@ -33,7 +33,7 @@ RSpec.describe Application do
 
       expect(response.body).to include '<h1> Sign up </h1>'
 
-      expect(response.body).to include '<form action-"/signup" method="POST">'
+      expect(response.body).to include '<form method="POST" action="/signup">'
 
       expect(response.body).to include '<input type="text" name="name">'
       expect(response.body).to include '<input type="text" name="email_address">'
