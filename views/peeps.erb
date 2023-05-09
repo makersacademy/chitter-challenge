@@ -5,7 +5,26 @@
   <body>
     <h1>Peeps</h1>
     <div>
-      <p>Total peeps: <%= @total %></p>
+      <p>Total peeps: <%= @all_peeps.length %></p>
+    </div>
+    <div>
+      <% @all_peeps.each do |peep| %>
+        <h3>
+          <%= peep.title %>
+        </h3>
+        <h4>
+          <%= peep.content %>
+        </h4>
+        <p>
+          <%= peep.maker_id %>
+        </p>
+        <p>
+          <%= peep.date_posted %>
+        </p>
+        <p>
+          --------------------------
+        </p>
+      <% end %> 
     </div>
   </body>
 </html>

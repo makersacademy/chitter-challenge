@@ -31,10 +31,10 @@ describe Application do
       response = get('/peeps')
       expect(response.status).to eq (200)
       # expect(response.body).to include ('Hayley Lady')
-      # expect(response.body).to include ('Internet is crazy')
-      # expect(response.body).to include ('2023-07-10 04:05:06')
+      expect(response.body).to include ('Another test peep')
+      expect(response.body).to include ('2023-07-21 12:25:12')
     end
   end
 
-  
+
 end

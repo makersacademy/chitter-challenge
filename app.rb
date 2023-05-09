@@ -18,8 +18,13 @@ class Application < Sinatra::Base
   end
 
   get '/peeps' do
-    repo = PeepRepository.new
-    @total = repo.all.length
+    peep_repo = PeepRepository.new
+    maker_repo = MakerRepository.new
+    @all_makers = maker_repo.all
+    @all_peeps = peep_repo.all
+
+    @maker = 
+
     return erb(:peeps)
   end
 end

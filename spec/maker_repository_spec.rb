@@ -23,6 +23,15 @@ describe MakerRepository do
     end
   end
 
+  context 'Retreiving a single object from the database' do
+    it 'Should return the chosen maker that corresponds with passed id' do
+      repo = MakerRepository.new
+      selected = repo.find(1)
+      expect(selected.name).to eq ('Matty Boi')
+      expect(selected.username).to eq ('MattyMooMilk')
+    end
+  end
+
   context 'Creating new makers' do
     it 'Should add a new maker to the makers database when the create method is passed an acceptable obj' do
       repo = MakerRepository.new
