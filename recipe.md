@@ -208,15 +208,15 @@ repo = PeepRepository.new
 repo.all.length => # returns correct integer dependent on how many rows are in DB
 repo.all.first.id => #always will return 1
 repo.all.last.id => #should return the same int as first test line 
-repo[2].title => #returns the item name of object at index 2 (assuming there are 3 objs in array)
+repo[2].title => #returns the title of object at index 2 (assuming there are 3 objs in array)
 repo[2].date_posted => #returns the correct timestamp. 
 
 # Get all Makers:
-repo = OrderRepository.new
+repo = MakerRepository.new
 repo.all.length => # returns correct integer dependent on how many rows are in DB
 repo.all.first.id => #always will return 1
 repo.all.last.id => #should return the same int as first test line 
-repo[2].customer_name => #returns the customer name of object at index 2 (assuming there are 3 objs in array)
+repo[2].name => #returns the customer name of object at index 2 (assuming there are 3 objs in array)
 
 
 # if database is empty should return => []

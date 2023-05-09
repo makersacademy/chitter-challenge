@@ -1,10 +1,4 @@
 
-
-get '/' do
-  return erb(:homepage)
-end
-
-
 Homepage:
 > "Welcome to Chitter" - banner/header
 > "Log in" - href to a log in form that allows a user to log into an existing account - GET
