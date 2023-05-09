@@ -25,7 +25,7 @@ class Application < Sinatra::Base
   end
 
   get '/user/compose_peep' do
-    
+    return erb(:compose_peep)
   end
   
   post '/new-user' do
