@@ -2,6 +2,16 @@ require_relative "../lib/peep"
 require_relative "../lib/user"
 require_relative "../lib/tag"
 
+# Remove current records and reset primary keys
+Peep.destroy_all
+Tag.destroy_all
+User.destroy_all
+
+ActiveRecord::Base.connection.reset_pk_sequence!('peeps')
+ActiveRecord::Base.connection.reset_pk_sequence!('tags')
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
+
 # Users seeding
 
 User1 = User.create(name: "User 1", email_address: "User1@gmail.com", password: "password1")
