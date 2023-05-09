@@ -74,11 +74,19 @@ RSpec.describe Application do
 
   context 'GET /user/page' do
     it 'displays an html view with a link to create a peep' do
-      
+      response = get('/user/page')
+
+      expect(response.status).to eq 200
+
+      expect(response.body).to include ("<a href=\"/user/compose_peep\"> Compose Peep </a>")
+
     end
+
+    # will need to update above with link to logout
 
     xit 'lists the current peeps in the database in reverse chronological order' do
       # how to deal with non-deterministic database record?    
     end
+    
   end
 end
