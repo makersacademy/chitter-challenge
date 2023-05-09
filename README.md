@@ -71,7 +71,7 @@ Initially, I have created some sequence diagrams for the main functionality of m
 
 Post a new peep:
 
-![post new peep](https://www.dropbox.com/s/i3nk0bkjk6dfqg1/post-a-peep.png?dl=0)
+![post new peep](https://www.dropbox.com/s/i3nk0bkjk6dfqg1/post-a-peep.png?dl=1)
 
 New user sign up:
 
@@ -83,8 +83,82 @@ Log in the user:
 
 ### Design database
 
+Extracted the nouns from the user stories to infer the table names and properties. I have also considered the relationships between the tables.
+
+- One peep can have one user (as author)
+- One user can have many peeps
+- Replies: One peep can also have one parent (a peep) or nil
+- Tags: One peep can tag many users, one user can have many tags
+
+To implement the tags, as this is a many-to-many relationship, I will need to create a join table - which contains user_id and peep_id.
+
+| Record | Properties                                                             |
+| ------ | ---------------------------------------------------------------------- |
+| peep   | message, timestamp, author (user_id), reply (parent_id), tag (user_id) |
+| user   | email (unique), password (encrypted), name, username (unique)          |
+
+1. Name of the first table (always plural): `peeps`
+
+   Column names: `message`, `timestamp`, `user_id`, `parent_id`
+
+2. Name of the second table (always plural): `users`
+
+   Column names: `email`, `password`, `name`, `username`
+
+3. Name of the join table (table1_table2): `peeps_users`
+
+   Column names: `peep_id`, `user_id`
+
+```plain
+Table: peeps
+id: SERIAL
+message: text
+timestamp: timestamp
+user_id: user_id
+peep_id: peep_id
+
+Table: users
+id: SERIAL
+email: text
+password: text
+name: text
+username: text
+```
+
+```sql
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  message text,
+  timestamp timestamp,
+  user_id int,
+  peep_id int,
+  constraint fk_user foreign key(user_id) references users(id),
+  constraint fk_peep foreign key(peep_id) references peeps(id)
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email text,
+  password text,
+  name text,
+  username text
+);
+
+CREATE TABLE peeps_users (
+  peep_id int,
+  user_id int,
+  constraint fk_peep foreign key(peep_id) references peeps(id),
+  constraint fk_user foreign key(user_id) references users(id),
+  PRIMARY KEY (peep_id, user_id)
+);
+```
+
 ### Planning pages
 
 ### Planning routes
 
 ### Test-drive and implement
+
+### TODO
+
+Add rake ?
