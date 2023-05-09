@@ -74,15 +74,15 @@ Initially, I have created some sequence diagrams for the main functionality of m
 
 Post a new peep:
 
-![post new peep](https://previews.dropbox.com/p/thumb/AB4tQuNlmzN9D3XcXjBTU833gt2SgeN36gWvZC2aSlClqUfNJuncjFWQ_eJCLaK7ZMZURi8x-GiW3-9B-oa7u9diM24n98ni3M1Gs3qcoyrmIANKFG6e5NL3M1Bm4_Jh8_Bb379t6LPiSgjG6lNtOhoDJpp4iGJZG-zfeD3vwpNMMUCqcrhShM3vxn3yQHXg7ii0onKLPOWLsbkle00Wjgthhl13dgK0RGqLqpgNINS8UiEWcrreyPmLYPMBz67FN2ZRgJwmZNzGMfNOc5xAY4tZMZrZov2bZD_sA1AX1fdruQKzeiaicilTQAzpQOKVdA9EU9C3rbfpp51vUlOBox_fY-dUkxW_lVaYNBUyI-u2l7ST0pFtMgB1A4_7gG5JKnM/p.png)
+![post new peep](designs/post-a-peep.png)
 
 New user sign up:
 
-![signup user](https://www.dropbox.com/s/w0qs7n0gyr11l5d/signup-user.png?dl=1)
+![signup user](designs/signup-user.png)
 
 Log in the user:
 
-![login user](https://www.dropbox.com/s/r0ki675kotlyvil/login-user.png?dl=1)
+![login user](designs/login-user.png)
 
 ### Design database
 
@@ -94,6 +94,8 @@ Extracted the nouns from the user stories to infer the table names and propertie
 - Tags: One peep can tag many users, one user can have many tags
 
 To implement the tags, as this is a many-to-many relationship, I will need to create a join table - which contains user_id and peep_id.
+
+#### Infer the table names and columns
 
 | Record | Properties                                                             |
 | ------ | ---------------------------------------------------------------------- |
@@ -112,6 +114,8 @@ To implement the tags, as this is a many-to-many relationship, I will need to cr
 
    Column names: `peep_id`, `user_id`
 
+#### Decide the column types
+
 ```plain
 Table: peeps
 id: SERIAL
@@ -127,6 +131,8 @@ password: text
 name: text
 username: text
 ```
+
+#### Write the SQL
 
 ```sql
 CREATE TABLE peeps (
