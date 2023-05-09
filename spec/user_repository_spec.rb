@@ -11,10 +11,40 @@ describe UserRepository do
     reset_chitter_tables
   end
 
-  it 'finds a user' do
+  it 'gets all users' do
     repo = UserRepository.new
 
-    user = repo.find('phil')
+    users = repo.all
+
+    expect(users.length).to eq  2
+
+    expect(users[0].id).to eq  1
+    expect(users[0].name).to eq  'Caroline'
+    expect(users[0].email).to eq  'carolinesemail@email.com'
+    expect(users[0].username).to eq 'caro'
+
+    expect(users[1].id).to eq  2
+    expect(users[1].name).to eq  'Philip'
+    expect(users[1].email).to eq  'philsemail@email.com'
+    expect(users[1].username).to eq 'phil'
+
+  end
+
+  it 'finds a user by username' do
+    repo = UserRepository.new
+
+    user = repo.find_by_username('phil')
+
+    expect(user.id).to eq  2
+    expect(user.name).to eq  'Philip'
+    expect(user.email).to eq  'philsemail@email.com'
+    expect(user.username).to eq 'phil'
+  end
+
+  it 'finds a user by user ID' do
+    repo = UserRepository.new
+
+    user = repo.find(2)
 
     expect(user.id).to eq  2
     expect(user.name).to eq  'Philip'
@@ -32,7 +62,7 @@ describe UserRepository do
 
     repo.create(user)
 
-    last_user = repo.find('pip1')
+    last_user = repo.find_by_username('pip1')
 
     expect(last_user.id).to eq  3
     expect(last_user.name).to eq  'Pip'

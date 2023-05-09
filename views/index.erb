@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter - The ChitChat App</title>
+
+  <!-- Change these Google fonts with your own choice -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <!-- Banner section -->
+
+  <div class="banner">
+    <h1> Welcome to Chitter</h1>
+    <p>The ChitChat App</p>
+  </div>
+
+
+  <!-- Peeps section -->
+  <div class="container">
+    <h2>Log in to Chitter</h2>
+    <div class="peep">
+        <p> Username: </p>
+        <p> email address: </p>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <h2>Latest Peeps</h2>
+    <div class="peep">
+        <p>  <%= @user_repo.find(@peeps[0].user_id).username%>: </p>
+        <h3> <%= @peeps[0].content %> </h3>
+        <p> <%= @peeps[0].time %> </p>
+    </div>
+    <div class="peep">
+        <p>  <%= @user_repo.find(@peeps[1].user_id).username%>: </p>
+        <h3> <%= @peeps[1].content %> </h3>
+        <p> <%= @peeps[1].time %> </p>
+    </div>
+
+    <a href='/peeps'>View all peeps</a>
+
+  </div>
+
+
+  <!-- Footer section -->
+
+  <div class="footer">
+    <p>Website made by Caroline</p>
+  </div>
+
+
+</body>
+
+</html>
