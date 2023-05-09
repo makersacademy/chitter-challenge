@@ -44,4 +44,3 @@ CREATE TABLE peeps (
 5. Create the tables.
 psql -h 127.0.0.1 chitter < chitter_tables
 
-
