@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
+
 class Application < Sinatra::Base
   # This refreshes the app code without having to restart the server with each change
   register Sinatra::ActiveRecordExtension
@@ -17,5 +18,8 @@ class Application < Sinatra::Base
     return erb(:sign_up)
   end
   
+  post '/new-user' do
+    
+  end
 
 end

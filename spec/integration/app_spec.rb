@@ -33,11 +33,34 @@ RSpec.describe Application do
 
       expect(response.body).to include '<h1> Sign up </h1>'
 
-      expect(response.body).to include '<form method="POST" action="/signup">'
+      expect(response.body).to include '<form method="POST" action="/new-user">'
 
       expect(response.body).to include '<input type="text" name="name">'
       expect(response.body).to include '<input type="text" name="email_address">'
       expect(response.body).to include '<input type="text" name="password">'
     end
+  end
+
+  context 'POST /new-user' do
+    it 'creates an new user in the database and returns an html view with confirmation' do
+      response = post(
+        '/new-user',
+        name: 'Jeff',
+        email_address: 'Jeff@gmail.com',
+        password: '12345678'
+      )
+
+      expect(response.status).to eq 200
+
+      expect(response.body).to include '<h1> Welcome to Chitter, Jeff! </h1>'
+
+      latest_user = User.last
+
+      expect(latest_user.name).to eq 'Jeff'
+      expect(latest_user.email_address).to eq 'Jeff@gmail.com'
+      expect(latest_user.oassword).to eq '12345678'
+    end
+
+
   end
 end
