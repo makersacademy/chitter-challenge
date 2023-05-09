@@ -33,4 +33,31 @@ RSpec.describe Application do
       expect(response.body).to include('- 13:00:00')
     end
   end
+
+  context "POST /peep" do
+    it 'returns 200 OK with valid username' do
+      # Assuming the username already exisis
+      response = post(
+        '/peep',
+        content: "New peep posted",
+        username: "lpc"
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<div>Louis (lpc) says:</div>')
+      expect(response.body).to include('<div>New peep posted</div>')
+    end
+
+    xit 'returns 400 with invalid username' do
+      response = post(
+        '/peep',
+        content: "New peep posted",
+        username: "unknown"
+      )
+
+      expect(response.status).to eq 400
+      expect(response.body).to include('<div>This username does not exist...</div>')
+      expect(response.body).to include('<div>Please sign up first</div>')
+    end
+  end
 end
