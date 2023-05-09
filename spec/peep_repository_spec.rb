@@ -7,11 +7,11 @@ def reset_peeps_table
   connection.exec(seed_sql)
 end
 
-RSpec.describe Peep do
-
+RSpec.describe PeepRepository do
   before(:each) do
     reset_peeps_table
   end
+
  
   it 'finds all peeps' do
     peep_repo = PeepRepository.new
@@ -19,11 +19,10 @@ RSpec.describe Peep do
     peeps = peep_repo.all 
 
     expect(peeps.length).to eq(3)
-    expect(peeps.first.time).to eq('2023-05-09 11:09:00')
-    expect(peeps.first.contents).to eq('hello, this is the first peep!')
-    expect(peeps.first.account_id).to eq(1)
+    expect(peeps.first.time).to eq('2023-05-09 11:12:00')
+    expect(peeps.first.contents).to eq('hello, this is the third peep!')
+    expect(peeps.first.account_id).to eq(3)
   end
-
 
   it 'adds a peep' do
     repo = PeepRepository.new
@@ -38,6 +37,6 @@ RSpec.describe Peep do
     peeps = repo.all
 
     expect(peeps.length).to eq(4)
-    expect(peeps.last.contents).to eq("we are adding a new peep!")
+    expect(peeps.first.contents).to eq("we are adding a new peep!")
   end
 end

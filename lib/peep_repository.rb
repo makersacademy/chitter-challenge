@@ -17,7 +17,7 @@ class PeepRepository
 
       peeps << peep
     end
-    return peeps
+    return peeps.reverse
   end
 
   def add(peep)
@@ -26,6 +26,6 @@ class PeepRepository
 
     DatabaseConnection.exec_params(sql, sql_params)
 
-    return peep
+    return nil
   end
 end
