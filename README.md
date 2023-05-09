@@ -12,7 +12,7 @@ http://localhost:('Port in use')/
 
 ## Initial plan
 
-![initial plan](/chitter-challenge/initial_plan.png "Initial Plan")
+![initial plan](./initial_plan.png "initial plan")
 
 ## Approach
 
