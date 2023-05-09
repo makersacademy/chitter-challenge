@@ -23,6 +23,10 @@ class Application < Sinatra::Base
     erb(:index)
   end
 
+  get '/login' do
+    erb(:login)
+  end
+
   get '/sign-up' do
     erb(:sign_up)
   end
@@ -44,7 +48,7 @@ class Application < Sinatra::Base
     user.password = params[:password]
     user.name = params[:name]
     user.username = params[:username]
-    
+
     if repo.email_exists?(user.email) || repo.username_exists?(user.username)
       status 400
       return erb(:sign_up_failure) 
