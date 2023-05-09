@@ -58,9 +58,16 @@ RSpec.describe Application do
 
       expect(latest_user.name).to eq 'Jeff'
       expect(latest_user.email_address).to eq 'Jeff@gmail.com'
-      expect(latest_user.oassword).to eq '12345678'
+      expect(latest_user.password).to eq '12345678'
     end
 
+    # need to test validations
+
+    it 'links to a personal user page' do
+      response = post('/new-user' )
+
+      expect(response.body).to include "<a href=\"/:username/page\"> Click here to access your personal page </a>"
+    end
 
   end
 end
