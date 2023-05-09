@@ -86,7 +86,20 @@ RSpec.describe Application do
 
     xit 'lists the current peeps in the database in reverse chronological order' do
       # how to deal with non-deterministic database record?    
-    end
-    
+    end  
   end
+
+  context 'GET /user/compose_peep' do
+    it 'displays an html view with a form to create a peep' do
+    response = get('/user/compose_peep') 
+
+    expect(response.status).to eq 200
+    
+    expect(response.body).to include '<h1> Compose Peep </h1>'
+    
+    expect(response.body).to include '<form method="POST" action="/new-peep">'
+    expect(response.body).to include '<input type="text" name="text">'
+    end
+  end
+
 end
