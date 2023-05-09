@@ -2,7 +2,7 @@ require 'peep'
 require 'peep_repository'
 
 def reset_peeps_table
-  seed_sql = File.read('spec/seeds/peeps_seeds.sql')
+  seed_sql = File.read('spec/seeds/accounts_and_peeps_tables.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
   connection.exec(seed_sql)
 end

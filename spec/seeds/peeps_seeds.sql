@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS peeps;
+DROP TABLE IF EXISTS peeps CASCADE;
+
 
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
@@ -11,7 +12,7 @@ CREATE TABLE peeps (
     on delete cascade
 );
 
-TRUNCATE TABLE peeps RESTART IDENTITY;
+TRUNCATE TABLE peeps RESTART IDENTITY ;
 
 INSERT INTO peeps ("time", "contents", "account_id") VALUES
 ('2023-05-09 11:09:00', 'hello, this is the first peep!', 1),

@@ -116,11 +116,9 @@ CREATE TABLE peeps (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 chitter_database < spec/seeds/accounts_seeds.sql
-psql -h 127.0.0.1 chitter_database < spec/seeds/peeps_seeds.sql
+psql -h 127.0.0.1 chitter_database < spec/seeds/accounts_and_peeps_tables.sql
 
-psql -h 127.0.0.1 chitter_test < spec/seeds/accounts_seeds.sql
-psql -h 127.0.0.1 chitter_test < spec/seeds/peeps_seeds.sql
+psql -h 127.0.0.1 chitter_test < spec/seeds/accounts_and_peeps_tables.sql
 
 
 ```
