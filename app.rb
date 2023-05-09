@@ -21,6 +21,10 @@ class Application < Sinatra::Base
   end
 
   get '/user/page' do
+    return erb(:user_page)
+  end
+
+  get '/user/compose_peep' do
     
   end
   
