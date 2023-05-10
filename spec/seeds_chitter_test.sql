@@ -4,10 +4,10 @@ DROP TABLE IF EXISTS "users";
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email text,
-  password text,
+  email text NOT NULL UNIQUE,
+  password text NOT NULL,
   name text,
-  username text
+  username text NOT NULL UNIQUE
 );
 
 CREATE TABLE peeps (
