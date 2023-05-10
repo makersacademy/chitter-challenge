@@ -25,7 +25,7 @@ describe PeepRepository do
 
   it "creates a peep" do
     repo = PeepRepository.new
-    peep = double(:peep, title: "Doubler", content: "This is a double", time_stamp: "2021-09-07 12:20:43", user_id: 1 )
+    peep = double(:peep, title: "Doubler", content: "This is a double", time_stamp: "2021-09-07 12:20:43", user_id: 1)
     repo.create(peep)
     peeps = repo.all
 
