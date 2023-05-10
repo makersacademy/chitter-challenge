@@ -61,7 +61,7 @@ class Application < Sinatra::Base
     new_user.name = params[:name]
     new_user.username = params[:username]
     new_user.email = params[:email]
-    new_user.password = BCrypt::Password.create(params[:password])
+    new_user.password = params[:password]
 
     users = UserRepository.new
 
