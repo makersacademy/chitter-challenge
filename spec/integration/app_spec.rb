@@ -100,10 +100,10 @@ RSpec.describe Application do
 
     # need to test validations and failed sign up
 
-    it 'links to a user page' do
+    it 'links to a log in page' do
       response = post('/new-user' )
 
-      expect(response.body).to include "<a href=\"/user/page\"> Click here to access your personal page </a>"
+      expect(response.body).to include "<a href=\"/login\"> Click here to log in </a>"
     end
 
     # will implement username in path when I implement sessions
@@ -171,9 +171,31 @@ RSpec.describe Application do
     
     expect(response.body).to include '<h1> Compose Peep </h1>'
     
-    expect(response.body).to include '<form method="POST" action="/new-peep">'
+    expect(response.body).to include '<form method="POST" action="/user/new-peep">'
     expect(response.body).to include '<input type="text" name="text">'
     end
+  end
+
+  context 'POST /user/new-peep' do
+    xit 'creates a new peep in the database and returns an html view with confirmation' do  
+      response = post(
+      '/user/new_peep',
+      text: "It's peepin off"
+      ) 
+
+      expect(response.status).to eq 200    
+
+      expect(response.body).to include "<h1> You've made a peep! </h1>"
+
+      latest_peep = Peep.last
+
+      expect(latest_peep.text).to eq "It's peepin off"
+      expect(latest_peep.user).to eq ??
+
+      # test for correct user
+    end
+
+    # will need to test for link to return, and need to test for adding tags to posts
   end
 
 end

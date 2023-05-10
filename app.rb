@@ -6,6 +6,8 @@ require_relative 'lib/user.rb'
 require_relative 'lib/tag.rb'
 
 class Application < Sinatra::Base
+  # allows user log in data to persist for whilst user in logged in
+  enable :sessions
   # This refreshes the app code without having to restart the server with each change
   register Sinatra::ActiveRecordExtension
   configure :development do
