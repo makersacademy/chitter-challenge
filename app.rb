@@ -7,6 +7,7 @@ require_relative 'lib/database_connection'
 DatabaseConnection.connect
 
 class Chitter < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
@@ -43,15 +44,21 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-  repo = AccountRepository.new
-  @account = Account.new
-  @account.email_address = params[:email_address]
-  @account.name = params[:name]
-  @account.username = params[:username]
-  @account.password = params[:password]
+    repo = AccountRepository.new
+    @account = Account.new
+    @account.email_address = params[:email_address]
+    @account.name = params[:name]
+    @account.username = params[:username]
+    @account.password = params[:password]
 
-  repo.add(@account)
+    repo.add(@account)
 
-  return erb(:new_account_confirmation)
+    return erb(:new_account_confirmation)
   end
+
+  get '/login' do
+    return erb(:login)
+  end
+
+  post '/login'
 end

@@ -33,7 +33,7 @@ describe Chitter do
       response = post('/add_peep')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('Your peep has been posted!')
+      expect(response.body).to include('<h2>Nice one, your peep has been posted!</h2>')
     end
   end
 
@@ -42,8 +42,36 @@ describe Chitter do
       response = get('/sign_up')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("input type='text' name='username'/><br>")
-      expect(response.body).to include("<h2>Please enter your details below!</h2>")
+      expect(response.body).to include("<h2>Please enter your details below</h2>")
+      expect(response.body).to include('<input type="text" name="name" /><br>')
+    end
+  end
+
+  context 'POST /sign_up' do
+    it 'adds the account details to the database and redirects to confirmation page' do
+      response = post('/sign_up')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Welcome, your Chitter account has been created!</h1>")
+    end
+  end
+
+  context 'GET /login' do
+    it 'should return the login page' do
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h2>Please enter your login details</h2>")
+      expect(response.body).to include('<input type="submit" value="Sign up"/></p>')
+    end
+  end
+
+  context 'POST /login' do
+    it 'should check the details entered against the database' do
+      response = post('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include()
     end
   end
 end
