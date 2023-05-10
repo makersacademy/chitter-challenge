@@ -1,0 +1,11 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Chitter peeps</h1>
+    <p>
+      <% @peeps.each do |peep| %>
+         <a href="/peeps/<%= peep.id %>"><%= peep.content %></a><br />
+       <% end %>
+    </p>
+  </body>
+</html>

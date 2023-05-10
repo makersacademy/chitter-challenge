@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="login-page.css">
+        <script defer src="login-page.js"></script>
+    </head>
+
+    <body>	
+      <main id="main-holder">
+        <h1 id="login-header">Login</h1> 
+
+        <form action="/log_in" method="POST">
+           <input type="text" name="email" id="email-field" class="login-form-field" placeholder="Email">
+           <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+           <input type="submit" value="Login" id="login-form-submit">
+        </form>
+       </main>
+    </body>
+</html>
+
