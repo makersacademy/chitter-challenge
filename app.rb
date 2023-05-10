@@ -16,6 +16,8 @@ class Chitter < Sinatra::Base
   get '/' do
     repo = PeepRepository.new
     @peeps = repo.all
+    
+    @accounts = AccountRepository.new
 
     return erb(:homepage)
   end
@@ -33,6 +35,6 @@ class Chitter < Sinatra::Base
 
     repo.add(peep)
 
-    redirect '/'
+    return erb(:posted_peep)
   end
 end
