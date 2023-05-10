@@ -25,4 +25,12 @@ describe UserRepository do
     expect(user.id).to eq 1
     expect(user.name).to eq 'Aubrey Salmins'
   end
+
+  it 'creates a new user' do
+    repo = UserRepository.new
+    user = double(:user, name: 'Third One', username: 'I am no. 3', password: 'pswrdz', email: 'no3@account.fm')
+    repo.create(user)
+    user = repo.find(3)
+    expect(user.name).to eq "Third One"
+  end
 end
