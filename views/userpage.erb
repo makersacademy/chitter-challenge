@@ -7,7 +7,7 @@
 
   <!-- Change these Google fonts with your own choice -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -39,10 +39,7 @@
         <label>tag your friends:</label>
         <input type="text" name="tagged_users">
         </div>
-        <div>
-        <label>user_id:</label>
-        <input type="int" name="user_id">
-        </div>
+        <input type="hidden" name="user_id" value = <%=@user.id%>>
 
         <input type="submit" value="post my peep">
     </form>

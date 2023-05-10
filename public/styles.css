@@ -1,4 +1,4 @@
-/* style.css */
+/* styles.css */
 
 
 body {
@@ -37,9 +37,9 @@ p {
 
 .banner {
     background-image: linear-gradient(rgba(249, 153, 196, 0.4), rgba(246, 193, 233, 0.4)), url('/chit_chat.png');
+    padding: 100px 0px 30px;
     background-size: cover;
     background-position: center;
-    padding: 20px 0;
     text-align: center;
 }
 
