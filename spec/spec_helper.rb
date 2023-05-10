@@ -2,7 +2,6 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_connection'
 
-
 DatabaseConnection.connect('chitter_test')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -19,4 +18,3 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
-

@@ -1,19 +1,21 @@
-require_relative 'lib/database_connection'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'bcrypt'
-require 'mail'
+require 'rack/test'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
+require_relative 'lib/database_connection'
 
 DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
-    enable :sessions
+  enable :sessions
 
-    configure :development do
-      register Sinatra::Reloader
-    end
+  configure :development do
+    register Sinatra::Reloader
+    also_reload 'lib/peep_repository'
+    also_reload 'lib/user_repository'
+  end
 
   get '/' do
     return erb(:index) 
@@ -51,26 +53,23 @@ class Application < Sinatra::Base
     new_user.password = password
     UserRepository.new.create(new_user)
     return erb(:user_created)
-   end
+  end
 
   get '/log_in' do
     return erb(:login)
   end
 
- post '/log_in' do 
+  post '/log_in' do
     email = params[:email]
     password = params[:password]
     
     user = UserRepository.new.find_by_email(email)
-    if user && user.password == password
-        session[:user_id] = user.id
-        return erb (:login_success)
-    else
-      return "login_error"
-    end
-   end 
-
-
+    return "login_error" unless user && user.password == password
+    
+    session[:user_id] = user.id
+    erb(:login_success)
+  end
+  
   get '/log_out' do 
     session.clear
     erb(:login)
@@ -90,6 +89,6 @@ class Application < Sinatra::Base
     new_peep.user_id = user_id 
     PeepRepository.new.create(new_peep)
     return erb(:peep_created)
-   end
+  end
 
 end

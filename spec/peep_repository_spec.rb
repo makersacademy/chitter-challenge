@@ -1,25 +1,17 @@
-require 'peep_repository'
 require 'peep'
+require 'peep_repository'
 
+describe PeepRepository do
+  before(:each) do
+    reset_users_table
+  end
 
-
-def reset_users_table
-    seed_sql = File.read('spec/seeds_users.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
-    connection.exec(seed_sql)
-end
-  
-  describe PeepRepository do
-    before(:each) do
-      reset_users_table
-    end
-  
   it 'returns a list of all peeps' do
-        repo = PeepRepository.new
-        peeps = repo.all
-        expect(peeps.length).to eq(2)
-        expect(peeps[0].id).to eq(1)
-        expect(peeps[0].content).to eq('Do the solo chitter project')
+    repo = PeepRepository.new
+    peeps = repo.all
+    expect(peeps.length).to eq(2)
+    expect(peeps[0].id).to eq(1)
+    expect(peeps[0].content).to eq('Do the solo chitter project')
   end
 
   it 'finds a single peep' do 
