@@ -75,11 +75,19 @@ class Application < Sinatra::Base
     if session[:id] == nil
       return erb(:post_peep_no_session)
     else
-      return 
+      return erb(:new_peep)
     end
   end
 
-  # post 'peep/new' do
-
-  # end
+  post 'peep/new' do
+    time = Time.new
+    repo = PeepRepository.new
+    peep = Peep.new
+    peep.title = params[:title]
+    peep.content = params[:content]
+    # peep.date_posted = time
+    # peep.maker_id = session[:id]
+    repo.create(peep)
+    return erb(:peep_created)
+  end
 end
