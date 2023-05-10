@@ -23,6 +23,15 @@ describe PeepRepository do
     end
   end
 
+  context 'Peeps by Maker' do
+    it 'should only show peeps by selected Maker' do
+      repo = PeepRepository.new
+      expect(repo.by_maker(2).length).to eq (1)
+      expect(repo.by_maker(2)[0].maker_id).to eq (2)
+      expect(repo.by_maker(2)[0].content).to eq ('Another test peep')
+    end
+  end
+
   context 'create' do
     it 'Should add a new peep to the database' do
       repo = PeepRepository.new

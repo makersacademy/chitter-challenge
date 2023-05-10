@@ -23,7 +23,7 @@ class Application < Sinatra::Base
   get '/peeps' do
     peep_repo = PeepRepository.new
     @maker_repo = MakerRepository.new
-    @all_peeps = peep_repo.all
+    @all_peeps = peep_repo.all.sort_by(&:date_posted).reverse
     return erb(:peeps)
   end
 
@@ -37,7 +37,7 @@ class Application < Sinatra::Base
     maker.name = params[:name]
     maker.username = params[:username]
     maker.email_address = params[:email_address]
-    maker.password = params[:email_address]
+    maker.password = params[:password]
 
     if repo.all.any? { |row| row.username == maker.username }
       status 400
@@ -88,7 +88,12 @@ class Application < Sinatra::Base
     peep.date_posted = time
     peep.maker_id = session[:id]
     repo.create(peep)
-    
+
     return erb(:peep_created)
+  end
+
+  post '/logout' do
+    session[:id]=nil
+    redirect('/')
   end
 end
