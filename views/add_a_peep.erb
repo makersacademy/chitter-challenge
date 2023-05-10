@@ -1,10 +1,23 @@
 <html>
   <head></head>
   <body>
+    <style>
+  #roundedcorners {
+  border-radius: 25px;
+  border: 2px solid #1DA1F2;
+  padding: 20px;
+  width: 200px;
+  height: 75px;
+}
+body {
+  background-color: lightblue;
+  font-family: verdana;
+}
+  </style>
     <div>
       <h2>What's your peep?</h2>
       <form method="POST" action="/add_peep">
-      <p><input type="text" name="contents" /><br>
+      <p><input type="text" name="contents" placeholder="My interesting peep..." /><br>
       <br>
       <input type="submit" value="Post my peep!"/></p>
       </div>
