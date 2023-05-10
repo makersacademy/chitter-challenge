@@ -32,7 +32,7 @@ class Application < Sinatra::Base
     password = params[:password]
 
     # finds user with matching email and password
-    @user = User.authenticate(email, password)
+    @user = User.sign_in(email, password)
     # redirects to log in page if user doesn't authenticate
     return redirect('/login') unless @user != nil
 
