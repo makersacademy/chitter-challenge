@@ -22,4 +22,8 @@ describe PeepRepository do
     expect(peeps.last.title).to eq('Meep')
     expect(peeps.last.user_id).to eq(2)
   end
+
+  it "creates a peep" do
+
+  end
 end

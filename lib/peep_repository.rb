@@ -10,6 +10,7 @@ class PeepRepository
       peep.id = record['id'].to_i
       peep.title = record['title']
       peep.content = record['content']
+      peep.time_stamp = record['time_stamp']
       peep.user_id = record['user_id'].to_i
 
       peeps << peep
