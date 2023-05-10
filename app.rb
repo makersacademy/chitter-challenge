@@ -14,9 +14,25 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    peep_repo = PeepRepository.new
-    @peeps = peep_repo.all
+    repo = PeepRepository.new
+    @peeps = repo.all
 
     return erb(:homepage)
+  end
+
+  get '/add_peep' do
+    return erb(:add_a_peep)
+  end
+
+  post '/add_peep' do
+    repo = PeepRepository.new
+    peep = Peep.new
+    peep.time = Time.now
+    peep.contents = params[:contents]
+    peep.account_id = '1'
+
+    repo.add(peep)
+
+    redirect '/'
   end
 end

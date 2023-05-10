@@ -2,6 +2,8 @@
   <head></head>
   <body>
     <h1>Welcome to Chitter!</h1>
+    <h2>What's on your mind?</h2>
+    <input type ='button' value='Post a peep!' onclick="window.location.href='/add_peep';"><br>
     <h2> Latest peeps...</h2>
      <div>
      <% @peeps.each do |peep|%>
