@@ -1,6 +1,9 @@
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
     <body>
+        <h1>CHITTER!!1!!!11!</h1>
         <% if @user.nil? %>
             <p><a href="/sign-up">Sign Up</a></p>
             <p><a href="/login">Log In</a></p>
@@ -9,13 +12,15 @@
             <p><a href="/new-peep">Add new peep</a></p>
         <% end %>
 
-        <h1>All Peeps</h1>
+        <h2>All Peeps</h2>
         <% @peeps.each do |peep| %>
-            <p><%=peep.content %></p>
-            <p><%=peep.time_posted %></p>
-            <p><%=peep.user.name %></p>
-            <p>@<%=peep.user.username %></p>
+            <div class="peep-container">
+                <p><%=peep.content %></p>
+                <p><%=peep.time_posted %></p>
+                <p><%=peep.user.name %></p>
+                <p>@<%=peep.user.username %></p>
             <br>
+            </div>
         <% end %>
     </body>
 </html>

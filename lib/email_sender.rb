@@ -44,7 +44,3 @@ class EmailSender
     end
   end
 end
-
-message = '<html>Slay queen</html>'
-sender = EmailSender.new('evanthomas0292@gmail.com', message)
-sender.send_email

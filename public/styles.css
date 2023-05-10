@@ -1,0 +1,30 @@
+* {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center;
+    text-shadow: 2px 2px aquamarine;
+    font-weight: bold;
+    color: deeppink;
+}
+
+body {
+    background-image: url("pigeons.jpeg");
+}
+
+h1 {
+    font-size: 92;
+}
+
+h2 {
+    font-size: 60;
+}
+
+p {
+    font-size: 30px;
+}
+
+.peep-container {
+    background-color: salmon;
+    width: 50%;
+    margin: auto;
+    background-image: url("pigeon_art.jpeg");
+}
