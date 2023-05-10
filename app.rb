@@ -78,16 +78,17 @@ class Application < Sinatra::Base
       return erb(:new_peep)
     end
   end
-
-  post 'peep/new' do
+  
+  post '/peep/new' do
     time = Time.new
     repo = PeepRepository.new
     peep = Peep.new
     peep.title = params[:title]
     peep.content = params[:content]
-    # peep.date_posted = time
-    # peep.maker_id = session[:id]
+    peep.date_posted = time
+    peep.maker_id = session[:id]
     repo.create(peep)
+    
     return erb(:peep_created)
   end
 end
