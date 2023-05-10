@@ -14,10 +14,12 @@ describe PeepRepository do
   it "finds all peeps" do
     repo = PeepRepository.new
 
-    peeps = peeps.all
+    peeps = repo.all
 
-    expect(peeps.length).to eq(12)
+    expect(peeps.length).to eq(2)
     expect(peeps.first.title).to eq('Peep 1')
     expect(peeps.first.user_id).to eq(1)
+    expect(peeps.last.title).to eq('Meep')
+    expect(peeps.last.user_id).to eq(2)
   end
 end

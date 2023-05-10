@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS peeps, users;
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
