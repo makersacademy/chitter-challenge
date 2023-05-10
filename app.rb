@@ -23,7 +23,7 @@ class Application < Sinatra::Base
 
     user_repo = UserRepository.new
     @peeps.each { |peep| peep.user = user_repo.find(peep.user_id) }
-    @user = session[:id].nil? ? nil : user_repo.find(session[:id])
+    @user = session[:user_id].nil? ? nil : user_repo.find(session[:user_id])
 
     erb(:index)
   end
@@ -38,6 +38,11 @@ class Application < Sinatra::Base
 
   get '/new-peep' do
     erb(:new_peep)
+  end
+  
+  get '/logout' do
+    session[:user_id] = nil
+    return redirect('/')
   end
 
   post '/login' do
@@ -56,13 +61,8 @@ class Application < Sinatra::Base
     end
 
     @user = repo.find_by_email(email)
-    session[:id] = @user.id
+    session[:user_id] = @user.id
     return erb(:login_success)
-  end
-
-  post '/logout' do
-    session[:id] = nil
-    return erb(:index)
   end
 
   post '/sign-up' do
