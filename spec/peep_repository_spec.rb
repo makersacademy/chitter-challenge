@@ -51,6 +51,14 @@ describe PeepRepository do
   end
   
   context '#find_by_id' do
+    it 'finds a single peep' do
+      repo = PeepRepository.new
 
+      peep = repo.find_by_id(4)
+      expect(peep.message).to eq 'I am tagging Bob'
+      expect(peep.timestamp).to eq '2023-05-01 16:23:35'
+      expect(peep.user.name).to eq 'Fred'
+      expect(peep.user.username).to eq 'freddo'
+    end
   end
 end

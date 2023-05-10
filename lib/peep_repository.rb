@@ -28,19 +28,20 @@ class PeepRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
-  # def find_by_id(id)
-  #   # Finds a single peep (for replies)
-  #   # Takes an id as an argument
-  #   # Returns a single peep
+  def find_by_id(id)
+    sql = 'SELECT peeps.id, message, timestamp, users.id as user_id, users.name, users.username
+    FROM peeps
+    JOIN users ON users.id = peeps.user_id
+    WHERE peep_id IS NULL and peeps.id = $1;'
 
-  #   SQL = '
-  #   SELECT peeps.id, message, timestamp, users.id as user_id, users.name, users.username
-  #   FROM peeps
-  #   JOIN users ON users.id = peeps.user_id
-  #   WHERE peep_id IS NULL and peeps.id = $1;'
+    params = [id]
 
-  #   #### Need to get the replies
-  # end
+    result = DatabaseConnection.exec_params(sql, params)
+    
+    return create_peep(result[0])
+
+    #### Need to get the replies?
+  end
 
   private
 
