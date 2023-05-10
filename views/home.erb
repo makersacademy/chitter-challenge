@@ -7,15 +7,9 @@
     <h2>Posts:</h2>
     <% @peeps.each do |peep| %>
     <div>
-      <%= author(peep)[:name] %> (<%= author(peep)[:username] %>) says:
+      <%= @formatter.format_peep(peep) %>
+      <br>
     </div>
-    <div>
-    <%= peep.content %>
-    </div>
-    <div>
-      - <%= peep.time %>
-    </div>
-    <br>
     <% end %>
     <p>Sign up</p>
   </body>
