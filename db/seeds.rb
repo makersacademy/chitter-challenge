@@ -26,34 +26,38 @@ tag1 =Tag.create(content: "cooking")
 tag2 =Tag.create(content: "greetings")
 tag3 =Tag.create(content: "politics")
 
-# Peeps seeding
+# Peeps seeding (overriding created_at with specific time values to make them deterministic for testing)
 
-peep1 = Peep.new(text: "Hello world")
+# overrides ActiveRecord's default timezone of UTC,
+# which converts the fake times to be an hour earlier in the database.
+ActiveRecord::Base.default_timezone = :local
+
+peep1 = Peep.new(text: "Hello world", created_at: Time.parse("2023-05-10 09:00:00"))
 peep1.user=(User1)
 peep1.tags<<(tag2)
 peep1.save
 
-peep2 = Peep.new(text: "What's up with politics?",)
+peep2 = Peep.new(text: "What's up with politics?", created_at: Time.parse("2023-05-10 12:30:00"))
 peep2.user=(User1)
 peep2.tags<<(tag3)
 peep2.save
 
-peep3 = Peep.new(text: "I love cooking.")
+peep3 = Peep.new(text: "I love cooking.", created_at: Time.parse("2023-05-10 12:10:00"))
 peep3.user=(User2)
 peep3.tags<<(tag1)
 peep3.save
 
-peep4 = Peep.new(text: "I love pizza.")
+peep4 = Peep.new(text: "I love pizza.", created_at: Time.parse("2023-05-10 13:00:00"))
 peep4.user=(User3)
 peep4.tags<<(tag1)
 peep4.save
 
-peep5 = Peep.new(text: "Hey there")
+peep5 = Peep.new(text: "Hey there", created_at: Time.parse("2023-05-10 12:20:00"))
 peep5.user=(User4)
 peep5.tags<<(tag2)
 peep5.save
 
-peep6 = Peep.new(text: "What's up")
+peep6 = Peep.new(text: "What's up", created_at: Time.parse("2023-05-10 12:00:00"))
 peep6.user=(User5)
 peep6.tags<<(tag2)
 peep6.save
