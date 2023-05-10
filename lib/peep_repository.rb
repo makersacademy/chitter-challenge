@@ -1,5 +1,6 @@
 require_relative './peep'
-
+require 'mail'
+require 'spec_helper'
 class PeepRepository
   def all
       peeps = []
@@ -38,4 +39,5 @@ class PeepRepository
         result_set = DatabaseConnection.exec_params(sql, [peep.content, peep.time, peep.user_id])
         return nil
   end
+
 end

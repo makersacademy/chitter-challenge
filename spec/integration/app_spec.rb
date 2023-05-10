@@ -1,5 +1,6 @@
 require "spec_helper"
 require "rack/test"
+require 'mail'
 require_relative '../../app'
 
 def reset_users_table
@@ -7,7 +8,6 @@ def reset_users_table
     connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
     connection.exec(seed_sql)
 end
-
 
 describe Application do
     include Rack::Test::Methods
@@ -45,10 +45,10 @@ describe Application do
     end
 
     context 'GET /sign_up' do
-        xit 'should return a form to create a new user' do 
+        it 'should return a form to create a new user' do 
             response = get('/sign_up')
             expect(response.status).to eq(200)
-            expect(response.body).to include('<h1 id="login-header">Login</h1>')
+            expect(response.body).to include('<h1>Create a new user</h1>')
             expect(response.body).to include('form action="/sign_up" method="POST">')
           end
     end

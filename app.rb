@@ -2,6 +2,7 @@ require_relative 'lib/database_connection'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'bcrypt'
+require 'mail'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
 
@@ -20,7 +21,7 @@ class Application < Sinatra::Base
 
   get '/peeps' do
     repo = PeepRepository.new
-    @peeps = repo.all
+    @peeps = repo.all.reverse
     return erb(:peeps)
   end
 

@@ -2,6 +2,7 @@ require 'peep_repository'
 require 'peep'
 
 
+
 def reset_users_table
     seed_sql = File.read('spec/seeds_users.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
@@ -42,7 +43,5 @@ end
     expect(peeps.last.content).to eq('Good morning')
     expect(peeps.last.user_id).to eq(2)
   end
-
-
 
 end

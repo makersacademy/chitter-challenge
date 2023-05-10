@@ -1,6 +1,7 @@
 require_relative './user'
 require 'bcrypt'
-
+require 'mail'
+require "spec_helper"
 
 class UserRepository
 
@@ -52,12 +53,6 @@ class UserRepository
 
     end
 
-    # def create(user)
-    #     sql = 'INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);'
-    #     result_set = DatabaseConnection.exec_params(sql, [user.name, user.username, user.email, user.password])
-    #     return user
-    # end
-
     def create(new_user)
         # Encrypt the password to save it into the new database record.
         encrypted_password = BCrypt::Password.create(new_user.password)
@@ -76,17 +71,28 @@ class UserRepository
         return new_user
     end
 
-    def log_in(email, submitted_password)
-        user = find_by_email(email)
+    # def log_in(email, submitted_password)
+    #     user = find_by_email(email)
     
-        return nil if user.nil?
+    #     return nil if user.nil?
     
-        # Compare the submitted password with the encrypted one saved in the database
-        stored_password = BCrypt::Password.new(user.password)
-        if stored_password == submitted_password
-          return  "login success"
-        else
-          return "wrong password"
-        end
-    end
+    #     # Compare the submitted password with the encrypted one saved in the database
+    #     stored_password = BCrypt::Password.new(user.password)
+    #     if stored_password == submitted_password
+    #       return  "login success"
+    #     else
+    #       return "wrong password"
+    #     end
+    # end
+
+    # def send_tag_email(username, email, content)
+    #     mail = Mail.new do
+    #       from     'me@test.lindsaar.net'
+    #       to       email.to_s
+    #       subject  'You have been tagged in a post!'
+    #       body     "Hello #{username}, you have been tagged in a post: #{content}"
+    #     end
+    #     mail.delivery_method :logger
+    #     mail.deliver
+    # end
 end
