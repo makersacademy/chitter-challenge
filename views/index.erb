@@ -13,7 +13,9 @@
         <% @peeps.each do |peep| %>
             <p><%=peep.content %></p>
             <p><%=peep.time_posted %></p>
-            <p><%=peep.user.username %></p>
+            <p><%=peep.user.name %></p>
+            <p>@<%=peep.user.username %></p>
+            <br>
         <% end %>
     </body>
 </html>

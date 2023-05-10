@@ -25,14 +25,17 @@ describe Application do
       
       expect(response.body).to include 'content_1'
       expect(response.body).to include '2023-05-01 17:15:32'
+      expect(response.body).to include 'name_1'
       expect(response.body).to include 'username_1'
-
+      
       expect(response.body).to include 'content_3'
       expect(response.body).to include '2022-06-21 00:01:02'
+      expect(response.body).to include 'name_3'
       expect(response.body).to include 'username_3'
-
+      
       expect(response.body).to include 'content_4'
       expect(response.body).to include '2022-06-21 22:01:02'
+      expect(response.body).to include 'name_4'
       expect(response.body).to include 'username_4'
     end
 
