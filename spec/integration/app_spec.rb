@@ -177,8 +177,6 @@ RSpec.describe Application do
 
   end
 
-  # will implement username in path when I implement sessions
-
   context 'GET /:user/page' do
 
     it 'redirects to login page if no session is active' do
@@ -220,7 +218,7 @@ RSpec.describe Application do
 
     it 'displays a new peep first' do
       Peep.create(text: "I'm new here", created_at: Time.parse("2023-05-11 09:00:00"))
-      
+
       session = { 'rack.session' => { name: 'fake_user' } }
       response = get('/:user/page', {}, session )
 
@@ -247,16 +245,26 @@ RSpec.describe Application do
     end
   end
 
-  context 'GET /user/compose_peep' do
-    it 'displays an html view with a form to create a peep' do
-    response = get('/user/compose_peep') 
+  context 'GET /:user/compose_peep' do
 
-    expect(response.status).to eq 200
-    
-    expect(response.body).to include '<h1> Compose Peep </h1>'
-    
-    expect(response.body).to include '<form method="POST" action="/user/new-peep">'
-    expect(response.body).to include '<input type="text" name="text">'
+    it 'redirects to login page if no session is active' do
+      response = get('/:user/compose_peep')
+
+      expect(response).to be_redirect    
+      expect(response.location).to eq("http://example.org/login")
+
+    end
+
+    it 'displays an html view with a form to create a peep' do
+      session = { 'rack.session' => { name: 'fake_user' } }
+      response = get('/:user/compose_peep', {}, session )
+
+      expect(response.status).to eq 200
+      
+      expect(response.body).to include '<h1> Compose Peep </h1>'
+      
+      expect(response.body).to include '<form method="POST" action="/user/new-peep">'
+      expect(response.body).to include '<input type="text" name="text">'
     end
   end
 

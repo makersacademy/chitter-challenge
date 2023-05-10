@@ -46,7 +46,7 @@ class Application < Sinatra::Base
   end
 
 
-  # I'm not sure that this is truly authenticating. You could switch to another users page if you have logged in
+  # I'm not sure that these are truly authenticating. You could switch to another users page if you have logged in
   # and then type the url of another user into your browser, because this only checks that the session[:name]
   # is not nil.
    
@@ -56,7 +56,8 @@ class Application < Sinatra::Base
     return erb(:user_page)
   end
 
-  get '/user/compose_peep' do
+  get '/:user/compose_peep' do
+    return redirect('/login') if session[:name] == nil
     return erb(:compose_peep)
   end
   
