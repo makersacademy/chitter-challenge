@@ -36,4 +36,14 @@ describe Chitter do
       expect(response.body).to include('Your peep has been posted!')
     end
   end
+
+  context 'GET /sign_up' do
+    it 'shows you the sign up form' do
+      response = get('/sign_up')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("input type='text' name='username'/><br>")
+      expect(response.body).to include("<h2>Please enter your details below!</h2>")
+    end
+  end
 end

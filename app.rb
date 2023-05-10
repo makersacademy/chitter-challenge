@@ -37,4 +37,21 @@ class Chitter < Sinatra::Base
 
     return erb(:posted_peep)
   end
+
+  get '/sign_up' do
+    return erb (:sign_up)
+  end
+
+  post '/sign_up' do
+  repo = AccountRepository.new
+  @account = Account.new
+  @account.email_address = params[:email_address]
+  @account.name = params[:name]
+  @account.username = params[:username]
+  @account.password = params[:password]
+
+  repo.add(@account)
+
+  return erb(:new_account_confirmation)
+  end
 end

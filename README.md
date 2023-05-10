@@ -27,17 +27,23 @@ $ http://localhost:('Port in use')/
 
 3. Create the homepage using GET request so that the test peeps are shown
 
-4. Create a sign up page so that details are added to the database and user is registered
+4. Create a form to add new peeps using POST request
 
-5. Create a form to add new peeps using POST request
+5. Once peep is submitted, return to homepage with list of peeps
 
-6. Once form is submitted, return to homepage with list of peeps
+6. Create a sign up page so that details are added to the database and user is registered
 
-7. Add a log in and log out page, which checks the database to match log in details
+7. Add a log in and log out page, which checks the database to match log in details, with errors for non unique details
 
 8. Send an email when someone has been mentioned in a post
 
-## Changes to plan
+## Upcoming to-dos
+
+- REGEX test for @ sign in email addresses
+- Errors for empty fields in post a peep form
+- Hide password when entering
+- Better CSS
+
 
 ## Techonologies used
 
@@ -46,3 +52,4 @@ $ http://localhost:('Port in use')/
 - RSpec
 - PostgreSQL
 - Sinatra
+- HTML
