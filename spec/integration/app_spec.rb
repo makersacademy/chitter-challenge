@@ -1,6 +1,15 @@
 require "spec_helper"
 require "rack/test"
+require 'bcrypt'
 require_relative "../../app"
+
+
+# this helper method mocks a bcrypt encryption that will always return the same value so it can be tested
+
+def mock_bcrypt(password)
+  salt = BCrypt::Engine::DEFAULT_COST
+  BCrypt::Password.create(password, cost: salt)
+end
 
 RSpec.describe Application do
   # This is so we can use rack-test helper methods.
@@ -79,23 +88,25 @@ RSpec.describe Application do
   end
 
   context 'POST /new-user' do
-    it 'creates an new user in the database and returns an html view with confirmation' do
+    it 'creates an new user in the database with an encrypted password and returns an html confirmation' do
       response = post(
         '/new-user',
         name: 'Jeff',
         email_address: 'Jeff@gmail.com',
         password: '12345678'
       )
-
+      input_password = '12345678'
       expect(response.status).to eq 200
 
       expect(response.body).to include '<h1> Welcome to Chitter, Jeff! </h1>'
 
       latest_user = User.last
+      password_hash = latest_user.password
 
       expect(latest_user.name).to eq 'Jeff'
       expect(latest_user.email_address).to eq 'Jeff@gmail.com'
-      expect(latest_user.password).to eq '12345678'
+      expect(password_hash).not_to be nil
+      expect(password_hash).not_to eq input_password 
     end
 
     # need to test validations and failed sign up
@@ -151,6 +162,7 @@ RSpec.describe Application do
       expect(session['email_address']).to eq "Jeff@gmail.com"
     end
 
+
     it 'redirects to GET /login if log in details are incorrect' do
       response = post(
         "/login",
@@ -161,6 +173,7 @@ RSpec.describe Application do
       expect(response).to be_redirect    
       expect(response.location).to eq("http://example.org/login")
     end
+
   end
 
   # will implement username in path when I implement sessions

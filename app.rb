@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'bcrypt'
 require_relative 'lib/peep.rb'
 require_relative 'lib/user.rb'
 require_relative 'lib/tag.rb'
@@ -55,9 +56,9 @@ class Application < Sinatra::Base
   post '/new-user' do
     @name = params[:name]
     email_address = params[:email_address]
-    password = params[:password]
+    encrypted_password = BCrypt::Password.create(params[:password])
 
-    User.create(name: @name, email_address: email_address, password: password)
+    User.create(name: @name, email_address: email_address, password: encrypted_password)
 
     return erb(:sign_up_confirmation)
   end
