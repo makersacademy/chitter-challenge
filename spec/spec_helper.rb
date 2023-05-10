@@ -12,11 +12,15 @@ SimpleCov.start
 # sets the environment to test database
 ENV["RACK_ENV"] = "test"
 
+# This allows RSpec to access the session params during testing.
+def session
+  last_request.env['rack.session']
+end
 
 RSpec.configure do |config|
-  # This resets the database tables before each test. Right now it uses the absolute path. I need to fix that.
+  # This resets the database tables before each test.
   config.before(:each) do
-    load '/Users/awdem/Projects/chitter-challenge/db/seeds.rb'
+    load File.join(__dir__, '../db/seeds.rb')
   end
 
 end
