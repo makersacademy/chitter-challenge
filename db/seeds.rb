@@ -14,11 +14,11 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 # Users seeding
 
-User1 = User.create(name: "User 1", email_address: "User1@gmail.com", password: "password1")
-User2 = User.create(name: "User 2", email_address: "User2@gmail.com", password: "password2")
-User3 = User.create(name: "User 3", email_address: "User3@gmail.com", password: "password3")
-User4 = User.create(name: "User 4", email_address: "User4@gmail.com", password: "password4")
-User5 = User.create(name: "User 5", email_address: "User5@gmail.com", password: "password5")
+user1 = User.create(name: "User 1", email_address: "User1@gmail.com", password: "password1")
+user2 = User.create(name: "User 2", email_address: "User2@gmail.com", password: "password2")
+user3 = User.create(name: "User 3", email_address: "User3@gmail.com", password: "password3")
+user4 = User.create(name: "User 4", email_address: "User4@gmail.com", password: "password4")
+user5 = User.create(name: "User 5", email_address: "User5@gmail.com", password: "password5")
 
 # Tags seeding
 
@@ -30,35 +30,35 @@ tag3 =Tag.create(content: "politics")
 
 # overrides ActiveRecord's default timezone of UTC,
 # which converts the fake times to be an hour earlier in the database.
-ActiveRecord::Base.default_timezone = :local
+ActiveRecord.default_timezone = :local
 
 peep1 = Peep.new(text: "Hello world", created_at: Time.parse("2023-05-10 09:00:00"))
-peep1.user=(User1)
+peep1.user=(user1)
 peep1.tags<<(tag2)
 peep1.save
 
 peep2 = Peep.new(text: "What's up with politics?", created_at: Time.parse("2023-05-10 12:30:00"))
-peep2.user=(User1)
+peep2.user=(user1)
 peep2.tags<<(tag3)
 peep2.save
 
 peep3 = Peep.new(text: "I love cooking.", created_at: Time.parse("2023-05-10 12:10:00"))
-peep3.user=(User2)
+peep3.user=(user2)
 peep3.tags<<(tag1)
 peep3.save
 
 peep4 = Peep.new(text: "I love pizza.", created_at: Time.parse("2023-05-10 13:00:00"))
-peep4.user=(User3)
+peep4.user=(user3)
 peep4.tags<<(tag1)
 peep4.save
 
 peep5 = Peep.new(text: "Hey there", created_at: Time.parse("2023-05-10 12:20:00"))
-peep5.user=(User4)
+peep5.user=(user4)
 peep5.tags<<(tag2)
 peep5.save
 
 peep6 = Peep.new(text: "What's up", created_at: Time.parse("2023-05-10 12:00:00"))
-peep6.user=(User5)
+peep6.user=(user5)
 peep6.tags<<(tag2)
 peep6.save
 
