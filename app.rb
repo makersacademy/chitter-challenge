@@ -15,7 +15,7 @@ class Application < Sinatra::Base
   get '/' do
     repo = PeepRepository.new
     @formatter = Formatter.new
-    @peeps = repo.all
+    @peeps = repo.all_with_users
 
     return erb(:home)
   end
@@ -32,7 +32,7 @@ class Application < Sinatra::Base
       repo.create(peep)
 
       @formatter = Formatter.new
-      @peeps = repo.all
+      @peeps = repo.all_with_users
 
       return erb(:home)
     else

@@ -1,5 +1,6 @@
 class Peep
-  attr_accessor :id, :content, :time, :user_id, :tags
+  attr_accessor :id, :content, :time, :user_id, :tags,
+                :username, :name
 
   def content=(str)
     @content = str

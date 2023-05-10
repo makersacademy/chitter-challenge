@@ -56,4 +56,20 @@ RSpec.describe PeepRepository do
     expect(new_peep.time).to eq '15:00:00'
     expect(new_peep.user_id).to eq 1
   end
+
+  it "finds all peeps with user's details" do
+    repo = PeepRepository.new
+    peeps = repo.all_with_users
+
+    expect(peeps.length).to eq 2
+    expect(peeps[0].id).to eq 1
+    expect(peeps[0].content).to eq 'First post'
+    expect(peeps[0].time).to eq '12:00:00'
+    expect(peeps[0].user_id).to eq 1
+
+    expect(peeps[0].name).to eq 'Louis'
+    expect(peeps[0].username).to eq 'lpc'
+    expect(peeps[1].name).to eq 'Louis'
+    expect(peeps[1].username).to eq 'lpc'
+  end
 end

@@ -14,9 +14,11 @@ RSpec.describe Formatter do
   it 'formats a peep into a nice post' do
     peep = double(
       :peep,
-      content: "First post",
+      content: 'First post',
       time: '12:00:00',
-      user_id: 1
+      user_id: 1,
+      name: 'Louis',
+      username: 'lpc'
     )
     formatter = Formatter.new
     result = formatter.format_peep(peep)
@@ -25,6 +27,7 @@ RSpec.describe Formatter do
     Louis (lpc) says:<br/>
     First post<br/>
     - 12:00:00
+    <br/>
     "
 
     expect(result).to eq expected_result

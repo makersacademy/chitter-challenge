@@ -33,6 +33,25 @@ class PeepRepository
     return nil
   end
 
+  def all_with_users
+    sql = 'SELECT peeps.id, peeps.content,
+          peeps.time, peeps.user_id,
+          users.name, users.username
+          FROM peeps JOIN users
+          ON peeps.user_id = users.id;'
+
+    result_set = DatabaseConnection.exec_params(sql, [])
+    peeps = []
+
+    result_set.each do |record|
+      peep = record_to_peep_object(record)
+      peep.name = record['name']
+      peep.username = record['username']
+      peeps << peep
+    end
+    return peeps
+  end
+
   private
 
   def record_to_peep_object(record)
