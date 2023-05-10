@@ -18,26 +18,33 @@ p {
     opacity: .7;
 }
 
+.form {
+    border-style: solid;
+    padding: 10px;
+}
+
 .container {
     width: 800px;
     margin: auto;
 }
 
 .peep {
-    width: 800px;
-    margin: auto;
+    width: 600px;
+    margin: 20px auto;
     border-style: solid;
-    margin: 50px;
-    padding-left: 10px;
+    padding: 5px;
 }
 
 .banner {
     background-image: linear-gradient(rgba(249, 153, 196, 0.4), rgba(246, 193, 233, 0.4)), url('/chit_chat.png');
-
-
     background-size: cover;
     background-position: center;
-    padding: 180px 0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.userbanner {
+    padding: 10px 0;
     text-align: center;
 }
 
@@ -45,6 +52,10 @@ p {
     color: white;
     font-size: 45px;
     margin: 0;
+}
+
+.banner h3 {
+    color: white;
 }
 
 .banner p {

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter - User Homepage</title>
+
+  <!-- Change these Google fonts with your own choice -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<!-- User Banner section -->
+
+  <div class="userbanner">
+    <h1> Hello, <%=@user.name%>!</h1>
+    <h2>Welcome to your chitter homepage</h2>
+  </div>
+
+<!-- User info -->
+
+<div class="container">
+    <p>Username: <%=@user.username%></p>
+    <p>Email: <%=@user.email%></p>
+</div>
+
+<!-- New Peep -->
+    <div class="container">
+    <h2>Post a new Peep</h2>
+    <div class="peep">
+    <form action="/peeps" method="POST">
+        <div>
+        <label>what's peeping?:</label>
+        <input type="text" name="content">
+        </div>
+        <div>
+        <label>tag your friends:</label>
+        <input type="text" name="tagged_users">
+        </div>
+        <div>
+        <label>user_id:</label>
+        <input type="int" name="user_id">
+        </div>
+
+        <input type="submit" value="post my peep">
+    </form>
+    </div>
+  </div>
+
+<!-- Users Peeps -->
+
+  <div class="container">
+    <h2><%=@user.name%>'s Peeps</h2>
+        <% @peeps.each do |peep| %>
+        <div class="peep">
+            <h3> <%= peep.content %> </h3>
+            <p> <%= peep.time %> </p>
+         </div>
+        <% end %>
+  </div>
+
+  <!-- Peeps tagged in  -->
+  <div class="container">
+    <h2>Tagged Peeps</h2>
+        <% @tagged_peeps.each do |peep| %>
+        <div class="peep">
+            <p> <%= @user_repo.find(peep.user_id).username %>: </p>
+            <h3> <%= peep.content %> </h3>
+            <p> <%= peep.time %> </p>
+         </div>
+        <% end %>
+  </div>
+
+
+
+  <!-- Footer section -->
+
+  <div class="footer">
+  <div>
+    <a href='/'>Homepage</a>
+  </div>
+    <p>Website made by Caroline</p>
+  </div>
+
+
+</body>
+
+</html>

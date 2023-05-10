@@ -73,4 +73,26 @@ class UserRepository
     # returns nil
     return nil
   end
+
+  def get_tagged_users(peep_id)
+    # Executes the SQL query:
+    # SELECT id, name, email, username FROM users;
+    sql = 'SELECT users.id, users.name, users.email, users.username FROM users JOIN peeps_users ON users.id = peeps_users.user_id JOIN peeps ON peeps.id = peeps_users.peep_id WHERE peeps.id = $1;'
+    sql_params = [peep_id]
+
+    users = []
+    result_set = DatabaseConnection.exec_params(sql,sql_params)
+
+    result_set.each {|record|
+      user = User.new
+      user.id = record['id'].to_i
+      user.name = record['name']
+      user.email = record['email']
+      user.username = record['username']
+      users << user
+    }
+
+    # Returns an array of User objects.
+    return users
+  end
 end

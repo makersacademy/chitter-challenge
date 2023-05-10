@@ -16,30 +16,56 @@
   <div class="banner">
     <h1> Welcome to Chitter</h1>
     <p>The ChitChat App</p>
+    <br> <br>
+    <h3> New to Chitter? Sign up <a href='/signup'>here</a>.</h3>
   </div>
 
+<!-- log in section -->
 
-  <!-- Peeps section -->
   <div class="container">
     <h2>Log in to Chitter</h2>
-    <div class="peep">
-        <p> Username: </p>
-        <p> email address: </p>
+    <div class="form">
+    <form action="/userpage" method="POST">
+        <div>
+        <label>username:</label>
+        <input type="text" name="username">
+        </div>
+        <div>
+        <label>password:</label>
+        <input type="text" name="password">
+        </div>
+
+        <input type="submit" value="log me in">
+    </form>
     </div>
 
   </div>
 
-  <div class="container">
+<!-- Peeps section -->
+
+<div class="container">
     <h2>Latest Peeps</h2>
     <div class="peep">
         <p>  <%= @user_repo.find(@peeps[0].user_id).username%>: </p>
         <h3> <%= @peeps[0].content %> </h3>
         <p> <%= @peeps[0].time %> </p>
+        <% if @user_repo.get_tagged_users(@peeps[0].id).length > 0 then %>
+            <p> tagged users: <% @user_repo.get_tagged_users(@peeps[0].id).each do |user| %>
+                    @<%= user.username %>
+                <% end %>
+             </p>
+             <% end %>
     </div>
     <div class="peep">
         <p>  <%= @user_repo.find(@peeps[1].user_id).username%>: </p>
         <h3> <%= @peeps[1].content %> </h3>
         <p> <%= @peeps[1].time %> </p>
+        <% if @user_repo.get_tagged_users(@peeps[1].id).length > 0 then %>
+            <p> tagged users: <% @user_repo.get_tagged_users(@peeps[1].id).each do |user| %>
+                    @<%= user.username %>
+                <% end %>
+             </p>
+             <% end %>
     </div>
 
     <a href='/peeps'>View all peeps</a>

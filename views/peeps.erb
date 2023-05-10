@@ -15,12 +15,18 @@
   <!-- Peeps section -->
 
   <div class="container">
-    <h2>Peeps</h2>
+    <h2>All Peeps</h2>
         <% @peeps.each do |peep| %>
         <div class="peep">
             <p>  <%= @user_repo.find(peep.user_id).username%>: </p>
             <h3> <%= peep.content %> </h3>
             <p> <%= peep.time %> </p>
+            <% if @user_repo.get_tagged_users(peep.id).length > 0 then %>
+            <p> tagged users: <% @user_repo.get_tagged_users(peep.id).each do |user| %>
+                    @<%= user.username %>
+                <% end %>
+             </p>
+             <% end %>
          </div>
         <% end %>
   </div>
