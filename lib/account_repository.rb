@@ -13,11 +13,10 @@ class AccountRepository
   end
 
   def find(id)
-    sql = 'SELECT id, email_address, username, name, password FROM accounts WHERE id = $1;'
+    sql = 'SELECT * FROM accounts WHERE id = $1;'
     sql_params = [id]
 
     result_set = DatabaseConnection.exec_params(sql, sql_params)
-
     record = result_set[0]
     
     return record_to_account(record)

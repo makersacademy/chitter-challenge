@@ -3,7 +3,7 @@ require_relative './peep'
 class PeepRepository 
   def all
     peeps = []
-    sql = 'SELECT id, time, contents, account_id FROM peeps;'
+    sql = 'SELECT * FROM peeps;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
     result_set.each do |record|
@@ -17,8 +17,6 @@ class PeepRepository
     sql_params = [peep.time, peep.contents, peep.account_id]
 
     DatabaseConnection.exec_params(sql, sql_params)
-
-    return nil
   end
 
   private 
