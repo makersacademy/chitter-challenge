@@ -1,0 +1,90 @@
+/* style.css */
+
+
+body {
+    font-family: Space Mono;
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    color: #404042;
+    font-family: Space Mono;
+}
+
+p {
+    color: #404042;
+    opacity: .7;
+}
+
+.form {
+    border-style: solid;
+    padding: 10px;
+}
+
+.container {
+    width: 800px;
+    margin: auto;
+}
+
+.peep {
+    width: 600px;
+    margin: 20px auto;
+    border-style: solid;
+    padding: 5px;
+}
+
+.banner {
+    background-image: linear-gradient(rgba(249, 153, 196, 0.4), rgba(246, 193, 233, 0.4)), url('/chit_chat.png');
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.userbanner {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.banner h1 {
+    color: white;
+    font-size: 45px;
+    margin: 0;
+}
+
+.banner h3 {
+    color: white;
+}
+
+.banner p {
+    color: white;
+    font-size: 24px;
+}
+
+.button-blue {
+    background-color: #1A48E3;
+    color: white;
+    padding: 16px 48px;
+    border-radius: 4px;
+    display: inline-block;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.button-blue:hover {
+    background-color: #0D1EC6;
+    color: white;
+}
+
+
+.footer {
+    background: #404042;
+    text-align: center;
+    padding: 24px 0;
+}
+
+.footer p {
+    color: white;
+}
