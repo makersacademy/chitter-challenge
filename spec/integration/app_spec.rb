@@ -1,15 +1,6 @@
 require "spec_helper"
 require "rack/test"
-require 'bcrypt'
 require_relative "../../app"
-
-
-# this helper method mocks a bcrypt encryption that will always return the same value so it can be tested
-
-def mock_bcrypt(password)
-  salt = BCrypt::Engine::DEFAULT_COST
-  BCrypt::Password.create(password, cost: salt)
-end
 
 RSpec.describe Application do
   # This is so we can use rack-test helper methods.
@@ -138,7 +129,6 @@ RSpec.describe Application do
         email_address: "User1@gmail.com",
         password: "password1"
       )
-
       expect(response.status).to eq 200     
    
       expect(response.body).to include "<h1> Welcome back to Chitter, User 1! </h1>"
@@ -161,7 +151,6 @@ RSpec.describe Application do
       expect(session['name']).to eq "Jeff"
       expect(session['email_address']).to eq "Jeff@gmail.com"
     end
-
 
     it 'redirects to GET /login if log in details are incorrect' do
       response = post(

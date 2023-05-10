@@ -32,16 +32,17 @@ class Application < Sinatra::Base
     email = params[:email_address]
     password = params[:password]
 
-    # finds user with matching email and password
-    @user = User.sign_in(email, password)
-    # redirects to log in page if user doesn't authenticate
-    return redirect('/login') unless @user != nil
-
-    # stores user details in session 
-    session[:name] = @user.name
-    session[:email_address] = @user.email_address
+    @user = User.find_by(email_address: email)
     
-    return erb(:log_in_confirmation)
+    return redirect('/login') if @user.nil?
+
+    if @user.password == password
+      session[:name] = @user.name
+      session[:email_address] = @user.email_address
+      return erb(:log_in_confirmation)
+    else  
+      return redirect('/login')
+    end
   end
 
   get '/user/page' do

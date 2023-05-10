@@ -1,8 +1,22 @@
 class User < ActiveRecord::Base
-  has_many :peeps
+  # need to change password to password_hash in db for this to work
   
-  def self.sign_in(email, password)
-    self.where(email_address: email, password: password).first
+  include BCrypt
+  has_many :peeps
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
+  def create
+    @user = User.new(params[:user])
+    @user.password = params[:password]
+    @user.save!
   end
 
 end
