@@ -71,4 +71,15 @@ class Application < Sinatra::Base
     return erb(:sign_up_confirmation)
   end
 
+  post '/user/new-peep' do
+    new_peep_text = params[:text]
+    author = User.find_by( name: session[:name])
+
+    new_peep = Peep.new(text: new_peep_text)
+    new_peep.user=(author)
+    new_peep.save
+
+    return erb(:new_peep)
+
+  end
 end

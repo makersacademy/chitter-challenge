@@ -269,10 +269,13 @@ RSpec.describe Application do
   end
 
   context 'POST /user/new-peep' do
-    xit 'creates a new peep in the database and returns an html view with confirmation' do  
+    it 'creates a new peep in the database and returns an html view with confirmation' do  
+      session = { 'rack.session' => { name: 'User 1' } }
+
       response = post(
-      '/user/new_peep',
-      text: "It's peepin off"
+      '/user/new-peep',
+      {:text => "It's peepin off"}, 
+      session
       ) 
 
       expect(response.status).to eq 200    
@@ -282,9 +285,7 @@ RSpec.describe Application do
       latest_peep = Peep.last
 
       expect(latest_peep.text).to eq "It's peepin off"
-      expect(latest_peep.user).to eq ??
-
-      # test for correct user
+      expect(latest_peep.user_id).to eq 1
     end
 
     # will need to test for link to return, and need to test for adding tags to posts
