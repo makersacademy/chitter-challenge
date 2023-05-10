@@ -27,6 +27,18 @@ class Application < Sinatra::Base
     return erb(:peeps)
   end
 
+  get '/peeps/:id' do
+    if session[:id] == nil
+      return erb(:user_peeps_no_session)
+    else
+      peep_repo = PeepRepository.new
+      maker_repo = MakerRepository.new
+      @maker = maker_repo.find(session[:id])
+      @makers_peeps = peep_repo.by_maker(session[:id]).sort_by(&:date_posted).reverse
+      return erb(:user_peeps)
+    end
+  end
+
   get '/signup' do
     return erb(:signuppage)
   end
@@ -71,6 +83,16 @@ class Application < Sinatra::Base
     end
   end
 
+  get '/userpage' do
+    if session[:id] == nil
+      return erb(:loginpage)
+    else
+      repo = MakerRepository.new
+      @maker = repo.find(session[:id])
+      return erb(:userpage)
+    end
+  end
+
   get '/peep/new' do
     if session[:id] == nil
       return erb(:post_peep_no_session)
@@ -92,8 +114,8 @@ class Application < Sinatra::Base
     return erb(:peep_created)
   end
 
-  post '/logout' do
-    session[:id]=nil
-    redirect('/')
+  get '/logout' do
+    session[:id] = nil
+    return redirect('/')
   end
 end

@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>All Peeps</title>
+  </head>
+  <body>
+    <h1><%= @maker.name %>s Peeps</h1>
+    <div>
+      <% @makers_peeps.each do |peep| %>
+        <h3>
+          <%= peep.title %>
+        </h3>
+        <h4>
+          <%= peep.content %>
+        </h4>
+        <p>
+          <%= peep.date_posted %>
+        </p>
+        <p>
+          --------------------------
+        </p>
+      <% end %> 
+    </div>
+  </body>
+</html>

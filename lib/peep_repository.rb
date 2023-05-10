@@ -18,7 +18,7 @@ class PeepRepository
   end
 
   def by_maker(maker_id)
-    result = DatabaseConnection.exec_params('SELECT * FROM peeps WHERE maker_id = $1', [maker_id])
+    result = DatabaseConnection.exec_params('SELECT * FROM peeps WHERE maker_id = $1;', [maker_id])
     maker_peeps = []
     result.each do |row|
       peep = Peep.new

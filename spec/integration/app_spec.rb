@@ -19,13 +19,14 @@ describe Application do
       expect(response.body).to include ('<img src=></img>')
     end
 
-    it 'Should include 4 different hyperlinks' do
+    it 'Should include 5 different hyperlinks' do
       response = get('/')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<a href="/peeps">View all peeps</a>')
       expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
       expect(response.body).to include ('<a href="/loginpage">Log in</a>')
       expect(response.body).to include ('<a href="/signup">Sign up</a>')
+      expect(response.body).to include('<a href="/userpage">My account</a>')
     end
   end
 
@@ -80,7 +81,7 @@ describe Application do
       expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
       expect(response.body).to include ('<a href="/peep/delete">Delete a peep</a>')
       expect(response.body).to include ('<a href="/peeps/:id">View your previous peeps</a>')
-      expect(response.body).to include ('<a href="/">Log out</a>')
+      expect(response.body).to include ('<a href="/logout">Log out</a>')
     end
   end
 
@@ -143,10 +144,20 @@ describe Application do
     it 'Should only allow users logged into their account to successfully create new peeps' do
       response = post('/peep/new', title: 'new title', content: 'This is some content yes')
       expect(response.status).to eq (200)
-      expect(response.body).to include ('<p>Peep posted!</p>')
-      expect(response.body).to include ('<a href="/">Your account</a>')
+      expect(response.body).to include ('<h1>Your Peep was successfully posted!</h1>')
+      expect(response.body).to include ('<a href="/userpage">Your account</a>')
       expect(response.body).to include ('<a href="/">Homepage</a>')
     end
   end
+
+  # context '/peeps/:id' do
+  #   it 'Should return all peeps by passed maker in a formatted HTML list' do
+  #     response = post('/peeps/1')
+  #     expect(response.status).to eq (200)
+  #     expect(response.body).to include ('')
+  #     expect(response.body).to include ('')
+  #     expect(response.body).to include ('')
+  #   end
+  # end
 
 end
