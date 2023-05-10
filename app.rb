@@ -22,27 +22,42 @@ class Application < Sinatra::Base
 
   post '/peep' do
     username = params['username']
+    content = params['content']
     if user_exists(username)
       repo = PeepRepository.new
-      peep = Peep.new
-      peep.content = params['content']
-      peep.time = Time.now.strftime("%k:%M")
-      peep.user_id = find_id(username)
-
+      peep = create_peep_object(username, content)
       repo.create(peep)
-
       @formatter = Formatter.new
       @peeps = repo.all_with_users.reverse
-
       return erb(:home)
     else
-      status 400
       @username = username
-      return erb(:unknown_username)
+      status 400
+      return invalid_peep_parameters? ? '' : erb(:unknown_username)
     end
   end
 
   private
+
+  def invalid_peep_parameters?
+    if params[:content] == nil ||
+      params[:username] == nil
+      return true
+    elsif params[:content] == '' ||
+      params[:username] == ''
+      return true
+    end
+    return false 
+  end
+
+  def create_peep_object(username, content)
+    repo = PeepRepository.new
+    peep = Peep.new
+    peep.content = content
+    peep.time = Time.now.strftime("%k:%M")
+    peep.user_id = find_id(username)
+    return peep
+  end
 
   # gets the user ID based from the username given
   def find_id(username)

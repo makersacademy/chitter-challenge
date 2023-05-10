@@ -66,5 +66,17 @@ RSpec.describe Application do
       expect(response.body).to include('<div>This user (unknown) does not exist...</div>')
       expect(response.body).to include('<div>Please sign up first</div>')
     end
+
+    it 'returns 400 and no response when parameters not valid' do
+      response = post(
+        '/peep',
+        fake_content: "New peep posted",
+        bad_param: "unknown"
+      )
+
+      expect(response.status).to eq 400
+      expect(response.body).to eq ''
+
+    end
   end
 end
