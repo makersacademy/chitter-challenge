@@ -13,6 +13,7 @@ class Application < Sinatra::Base
   end
 
   get "/" do
+    @peeps_reverse_chron_order = Peep.order(created_at: :asc)
     return erb(:index)
   end
 

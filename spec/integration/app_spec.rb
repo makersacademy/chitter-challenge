@@ -20,9 +20,24 @@ RSpec.describe Application do
       expect(response.body).to include "<a href=\"/login\"> Log in </a>"
     end
 
-    xit 'lists the current peeps in the database in reverse chronological order' do
-      # how to deal with non-deterministic database record?
+    it 'lists the current peeps in the database in reverse chronological order' do
+      response = get("/")
+
+      expect(response.status).to eq 200
+
+      latest_peep = "<p> Hello world - peeped at: 2023-05-10 09:00:00 +0100 </p>"
+      earliest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+      expect(response.body).to include latest_peep
+      expect(response.body).to include earliest_peep
+
+      earliest_peep_index = response.body.index(earliest_peep)
+      latest_peep_index = response.body.index(latest_peep)
+    
+      # Check that the latest peep appears before the earliest peep
+      expect(earliest_peep_index).to be > latest_peep_index
     end
+
+    # test for no peeps
   end
 
   context 'GET /signup' do
