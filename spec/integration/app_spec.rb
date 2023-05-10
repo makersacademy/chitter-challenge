@@ -32,6 +32,14 @@ RSpec.describe Application do
       expect(response.body).to include('Second post')
       expect(response.body).to include('- 13:00:00')
     end
+
+    it 'contains a form for creating a new peep' do
+      response = get('/')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<form method="POST" action="/peep">')
+      expect(response.body).to include('<label>What would you like the world to know?</label>')
+    end
   end
 
   context "POST /peep" do

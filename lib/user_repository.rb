@@ -23,17 +23,13 @@ class UserRepository
   end
 
   def create(user)
-    fail "email already exists" if email_taken(user.email)
-    fail "username already exists" if username_taken(user.username)
+    fail "email already exists" if email_taken?(user.email)
+    fail "username already exists" if username_taken?(user.username)
 
     sql = 'INSERT INTO users (email, password, name, username)
           VALUES ($1, $2, $3, $4);'
-    params = [
-      user.email,
-      user.password,
-      user.name,
-      user.username
-    ]
+    params = [user.email, user.password,
+      user.name, user.username]
 
     DatabaseConnection.exec_params(sql, params)
     return nil
@@ -75,12 +71,12 @@ class UserRepository
     return user
   end
 
-  def email_taken(email)
+  def email_taken?(email)
     used_emails = all.map { |user| user.email }
     return used_emails.include?(email)
   end
 
-  def username_taken(username)
+  def username_taken?(username)
     used_usernames = all.map { |user| user.username }
     return used_usernames.include?(username)
   end

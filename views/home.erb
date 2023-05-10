@@ -4,6 +4,18 @@
   </head>
   <body>
     <h1>Chitter</h1>
+    <p>Make a new peep!</p>
+    <form method="POST" action="/peep">
+      <div>
+        <label>What would you like the world to know?</label>
+        <input type="text" name="content">
+      </div>
+      <div>
+        <label>Your username:</label>
+        <input type="text" name="username">
+      </div>
+      <input type="submit">
+    </form>
     <h2>Posts:</h2>
     <% @peeps.each do |peep| %>
     <div>
