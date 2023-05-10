@@ -26,8 +26,8 @@ You'll need to include:
 <html>
   <head></head>
   <body>
-    <h1>Sorry!</h1>
-    <div>Your email is already taken</div>
+    <h1>Uh oh!</h1>
+    <div>Sorry, this email already exists</div>
     <div>Please try signing up again with a unique email</div>
     <div>Or return to the home page</div>
   </body>
@@ -38,8 +38,8 @@ You'll need to include:
 <html>
   <head></head>
   <body>
-    <h1>Sorry!</h1>
-    <div>Your username is already taken</div>
+    <h1>Uh oh!</h1>
+    <div>Sorry, this username already exists</div>
     <div>Please try signing up again with a unique username</div>
     <div>Or return to the home page</div>
   </body>

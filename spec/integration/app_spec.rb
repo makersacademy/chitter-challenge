@@ -25,7 +25,7 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Chitter</h1>')
-      expect(response.body).to include('<a href="/new_user">Sign up!</a>')
+      expect(response.body).to include('<a href="/new_user">Sign up now!</a>')
       expect(response.body).to include('Louis (lpc) says:')
       expect(response.body).to include('First post')
       expect(response.body).to include('- 12:00:00')
@@ -65,7 +65,7 @@ RSpec.describe Application do
 
       expect(response.status).to eq 400
       expect(response.body).to include('<div>This user (unknown) does not exist...</div>')
-      expect(response.body).to include('<div>Please sign up first</div>')
+      expect(response.body).to include('<div>Please <a href="/new_user">sign up</a> first</div>')
     end
 
     it 'returns 400 and no response when parameters not valid' do
@@ -103,7 +103,7 @@ RSpec.describe Application do
       expect(response.body).to include('<h1>Sign up complete!</h1>')
     end
 
-    xit 'returns 500 when email taken' do
+    it 'returns 400 when email taken' do
       response = post(
         '/user',
         email: 'lou@chitter.com',
@@ -111,20 +111,32 @@ RSpec.describe Application do
         name: 'Jimmy',
         username: 'jm123')
 
-      expect(response.status).to eq(500)
-      expect(response.body).to include('<div>Your email is already taken</div>')
+      expect(response.status).to eq(400)
+      expect(response.body).to include('<div>Sorry, this email already exists</div>')
     end
 
-    xit 'returns 500 when username taken' do
+    it 'returns 400 when username taken' do
       response = post(
         '/user',
-        email: 'lou@chitter.com',
+        email: 'example@email.com',
         password: 'password',
         name: 'Jimmy',
-        username: 'jm123')
+        username: 'lpc')
 
-      expect(response.status).to eq(500)
-      expect(response.body).to include('<div>Your username is already taken</div>')
+      expect(response.status).to eq(400)
+      expect(response.body).to include('<div>Sorry, this username already exists</div>')
+    end
+
+    it 'returns 400 and no response when parameters not valid' do
+      response = post(
+        '/user',
+        not_email: 'example@email.com',
+        random_param: 1234,
+        no_name: 'Jimmy',
+        or_username: 'lpc')
+
+      expect(response.status).to eq 400
+      expect(response.body).to eq ''
     end
   end
 end

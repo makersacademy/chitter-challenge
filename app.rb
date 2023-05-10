@@ -42,25 +42,41 @@ class Application < Sinatra::Base
   end
 
   post '/user' do
-    repo = UserRepository.new
-    user = User.new
-    user.email = params['email']
-    user.password = params['password']
-    user.name = params['name']
-    user.username = params['username']
+    if invalid_user_parameters?
+      status 400
+      return ''
+    end
+    begin
+      repo = UserRepository.new
+      user = User.new
+      user.email = params['email']
+      user.password = params['password']
+      user.name = params['name']
+      user.username = params['username']
 
-    repo.create(user)
-    return erb(:user_created)
+      repo.create(user)
+      return erb(:user_created)
+    rescue RuntimeError => e
+      @error_message = e.message
+      status 400
+      return erb(:new_user_error)
+    end
   end
 
   private
 
   def invalid_peep_parameters?
-    if params[:content] == nil ||
-      params[:username] == nil
+    if [params[:content], params[:username]]
+      .any? { |input| input.nil? || input.empty? }
       return true
-    elsif params[:content] == '' ||
-      params[:username] == ''
+    end
+    return false 
+  end
+
+  def invalid_user_parameters?
+    if [params[:email], params[:password],
+      params[:name],params[:username]]
+      .any? { |input| input.nil? || input.empty? }
       return true
     end
     return false 
@@ -75,7 +91,6 @@ class Application < Sinatra::Base
     return peep
   end
 
-  # gets the user ID based from the username given
   def find_id(username)
     repo = UserRepository.new
     users = repo.all
