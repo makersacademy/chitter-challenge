@@ -38,7 +38,7 @@ class Application < Sinatra::Base
   get '/chitters' do
     repo = ChitterRepository.new
     user_repo = UserRepository.new
-    @users = user_repo.all
+    @users = user_repo
     @chitters = repo.all
 
     return erb(:chitters)
@@ -51,6 +51,7 @@ class Application < Sinatra::Base
 
     chitter.peep = params[:peep]
     chitter.created_at = Time.now
+    chitter.user_id = session[:user_id]
     repo.create(chitter)
 
     @new_chitter = params[:peep]
@@ -118,9 +119,18 @@ class Application < Sinatra::Base
 
     user = repo.find_by_email(email)
 
-    return erb(:login_error) unless user.password == password
-    session[:user_username] = user.username
-    return erb(:login_success)
-
+    if user == ['']
+      return erb(:login_error)
+    elsif user.email == email && user.password != password
+      return erb(:login_error)
+    elsif user.password == password && user.email != email
+      return erb(:login_error)
+    elsif user.password != password && user.email != email
+      return erb(:login_error)
+    else
+      session[:user_username] = user.username
+      session[:user_id] = user.id
+      return erb(:login_success)
+    end
   end
 end

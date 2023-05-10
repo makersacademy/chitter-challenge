@@ -25,6 +25,7 @@ RSpec.describe Application do
       response = get('/chitters')
 
       expect(response.status).to eq(200)
+      expect(response.body).to include('smorg')
       expect(response.body).to include('dead')
       expect(response.body).to include('falling')
       expect(response.body).to include('flying solo')

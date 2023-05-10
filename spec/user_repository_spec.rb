@@ -80,4 +80,13 @@ describe UserRepository do
     expect(user.username).to eq 'smorg'
     
   end
+
+  it 'returns empty array if email is not a match' do
+    repo = UserRepository.new
+
+    user = repo.find_by_email('ufeihie@fjnkej')
+
+    expect(user).to eq ''
+    
+  end
 end

@@ -52,6 +52,10 @@ class UserRepository
     sql = 'SELECT id, email, password, name, username FROM users WHERE email = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
 
+    if result_set.ntuples.zero?
+      return ''
+    end
+
     user = User.new
     user.id = result_set[0]['id'].to_i
     user.email = result_set[0]['email']
