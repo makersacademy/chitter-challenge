@@ -49,29 +49,17 @@ describe Chitter do
 
   context 'POST /sign_up' do
     it 'adds the account details to the database and redirects to confirmation page' do
-      response = post('/sign_up')
+      response = post('/sign_up', name: 'Leo Hetsch', email_address: 'leo@test.com', username: 'leo1', password: 'test')
 
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>Welcome, your Chitter account has been created!</h1>")
     end
-  end
 
-  context 'GET /login' do
-    it 'should return the login page' do
-      response = get('/login')
+    it 'fails if the username and/or email are already in use' do
+      response = post('/sign_up', name: 'Alice Wood', email_address: 'alice@test.com', username: 'alice1', password: 'test')
 
-      expect(response.status).to eq(200)
-      expect(response.body).to include("<h2>Please enter your login details</h2>")
-      expect(response.body).to include('<input type="submit" value="Sign up"/></p>')
-    end
-  end
-
-  context 'POST /login' do
-    it 'should check the details entered against the database' do
-      response = post('/login')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include()
+      expect(response.status).to eq(400)
+      expect(response.body).to include("This username and/or email address are already in use, please try again!")
     end
   end
 end

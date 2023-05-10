@@ -9,7 +9,8 @@ class PeepRepository
     result_set.each do |record|
       peeps << record_to_peep(record)
     end
-    return peeps.reverse!
+  
+    return peeps.sort_by(&:time).reverse
   end
 
   def add(peep)

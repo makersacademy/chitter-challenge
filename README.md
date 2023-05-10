@@ -11,6 +11,7 @@ $ cd chitter-challenge
 $ bundle install
 $ createdb chitter_test
 $ psql -h 127.0.0.1 chitter_test < spec/seeds/accounts_and_peeps_tables.sql
+$ rspec
 $ rackup
 $ http://localhost:('Port in use')/
 ```
@@ -39,11 +40,13 @@ $ http://localhost:('Port in use')/
 
 ## Upcoming to-dos
 
+- Refactor
+- Update tests for creating a peep to link to the logged in user - when sessions are implemented
+- Encrypt passwords stored on DB
 - REGEX test for @ sign in email addresses
 - Errors for empty fields in post a peep form
 - Hide password when entering
 - Better CSS
-
 
 ## Techonologies used
 
