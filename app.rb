@@ -64,10 +64,22 @@ class Application < Sinatra::Base
     @maker = repo.find_by_username(username)
     
     if @maker.password == password
-      session[:maker_id] = @maker.id
+      session[:id] = @maker.id
       return erb(:userpage)
     else
       return erb(:login_error)
     end
   end
+
+  get '/peep/new' do
+    if session[:id] == nil
+      return erb(:post_peep_no_session)
+    else
+      return 
+    end
+  end
+
+  # post 'peep/new' do
+
+  # end
 end

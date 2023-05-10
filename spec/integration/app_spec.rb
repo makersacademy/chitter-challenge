@@ -19,10 +19,11 @@ describe Application do
       expect(response.body).to include ('<img src=></img>')
     end
 
-    it 'Should include 3 different hyperlinks' do
+    it 'Should include 4 different hyperlinks' do
       response = get('/')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<a href="/peeps">View all peeps</a>')
+      expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
       expect(response.body).to include ('<a href="/loginpage">Log in</a>')
       expect(response.body).to include ('<a href="/signup">Sign up</a>')
     end
@@ -76,7 +77,7 @@ describe Application do
     it 'Should return a list of user options as hyperlinks' do
       response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       expect(response.status).to eq(200)
-      expect(response.body).to include ('<a href="/peep/new">Post a peep</a>')
+      expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
       expect(response.body).to include ('<a href="/peep/delete">Delete a peep</a>')
       expect(response.body).to include ('<a href="/peeps/:id">View your previous peeps</a>')
       expect(response.body).to include ('<a href="/">Log out</a>')
@@ -118,6 +119,21 @@ describe Application do
       response = post('/signup', name: 'Matt H', username: '', email_address: 'fakestofthemall@testmail.com', password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
+  end
+
+  context 'peep/new' do
+    it 'Should return an error page with hyperlinks to log in if user is not logged in already' do
+      response = get('/peep/new')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<p>To post a new peep please login or create an account</p>')
+      expect(response.body).to include ('<a href="/signup">Sign up page</a>')
+      expect(response.body).to include ('<a href="/loginpage">Login page</a>')
+    end
+
+    # it 'Should only allow users logged into their account to successfully create new peeps' do
+      
+    # end
+
   end
 
 end
