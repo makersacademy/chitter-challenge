@@ -187,32 +187,64 @@ These examples will later be encoded as RSpec tests.
 # Peeps testing
 # 1
 # Get all peeps
+repo = PeepRepository.new
+peeps = repo.all
 
+expect(peeps.length).to eq 4
+expect(peeps.first.content).to eq 'This is the first Peep'
+expect(peeps.first.time).to eq '2023-05-06 12:22:09'
+expect(peeps.first.user_id).to eq 1
 
 # 2
 # creates a new peep
+repo = PeepRepository.new
 
+peep = Peep.new
+peep.content = 'Jack here with a third peep!'
+peep.time = '2023-05-10 14:56:09'
+peep.user_id = '1'
+
+repo.create(peep)
+
+peeps = repo.all
+last_peep = peeps.last
+
+expect(last_peep.content).to eq 'Jack here with a third peep!'
+expect(last_peep.time).to eq '2023-05-10 14:56:09'
+expect(last_peep.user_id).to eq '1' 
 
 # 3
 # find all peeps by the same user
-
-
-# 4
-# find all peeps that a user is tagged in
-
-
+repo = PeepRepository.new
+jack_peeps = repo.find_by_owner(1)
+expect(jack_peeps.length).to eq 2
+expect(jack_peeps.first.content).to eq 'This is the first Peep'
+expect(jack_peeps.first.time).to eq '2023-05-06 12:22:09'
+expect(jack_peeps[1].content).to eq 'This is the second Peep'
 
 
 # User testing
 # 1
-# find a user 
+# get all users 
+repo = UserRepository.new
+users = repo.all
 
+expect(users.length).to eq 2
+expect(users.first.name).to eq 'Jack'
+expect(users.first.email).to eq 'jack@email.com'
+expect(users.first.username).to eq 'skates'
 
 
 # 2
-# create a new user
+# find a user with the username
+repo = UserRepository.new
+user = repo.find('skates')
+expect(user.username).to eq 'skates'
+expect(user.name).to eq 'Jack'
+expect(user.email).to eq 'jack@email.com'
 
-
+# 3
+# create a new user and add it to the database
 
 ```
 

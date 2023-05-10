@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter - Peeps</title>
+
+  <!-- Change these Google fonts with your own choice -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- Peeps section -->
+
+  <div class="container">
+    <h2>All Peeps</h2>
+        <% @peeps.each do |peep| %>
+         <a href="/peeps/<%=peep.id %>">
+         <p> <%= @user%>
+         <p> <%= peep.content%> </p>
+         <p> <%= peep.time%> </p>
+         <%end%>
+  </div>
+
+  <!-- Footer section -->
+
+  <div class="footer">
+    <p>Website made by Jack Skates</p>
+  </div>
+
+</html>

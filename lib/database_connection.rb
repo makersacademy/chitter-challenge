@@ -11,7 +11,6 @@ class DatabaseConnection
   # PG gem. We connect to 127.0.0.1, and select
   # the database name given in argument.
 
-
   def self.connect
     # If the environment variable (set by Render)
     # is present, use this to open the connection.
@@ -31,8 +30,6 @@ class DatabaseConnection
   # def self.connect(database_name)
   #   @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
   # end
-
-
 
   # This method executes an SQL query 
   # on the database, providing some optional parameters

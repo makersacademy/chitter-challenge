@@ -1,4 +1,4 @@
 class Peep
 
-    attr_accessor :id, :content, :time, :user_id
+  attr_accessor :id, :content, :time, :user_id
 end

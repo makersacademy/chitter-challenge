@@ -48,10 +48,10 @@ peep, time, sign up, log in, log out, tagged, email
 
 Put the different nouns in this table. Replace the example with your own nouns.
 
-| Record                | Properties          |
-| --------------------- | ------------------  |
-| peep                  | content, time, tag
-| user                  | name, email, username, tag
+| Record                | Properties              |
+| --------------------- | ----------------------  |
+| peep                  | content, time, user_id
+| user                  | name, email, username
 
 
 1. Name of the first table (always plural): `peeps` 
