@@ -32,9 +32,9 @@ $ http://localhost:('Port in use')/
 
 5. Once peep is submitted, return to homepage with list of peeps
 
-6. Create a sign up page so that details are added to the database and user is registered
+6. Create a sign up page so that details are added to the database and user is registered, with error for non unique details
 
-7. Add a log in and log out page, which checks the database to match log in details, with errors for non unique details
+7. Add a log in and log out page, which checks the database to match log in details
 
 8. Send an email when someone has been mentioned in a post
 
