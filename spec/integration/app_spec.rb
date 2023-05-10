@@ -25,16 +25,31 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200
 
-      latest_peep = "<p> Hello world - peeped at: 2023-05-10 09:00:00 +0100 </p>"
-      earliest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+      latest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+      earliest_peep = "<p> Hello world - peeped at: 2023-05-10 09:00:00 +0100 </p>"
       expect(response.body).to include latest_peep
       expect(response.body).to include earliest_peep
 
       earliest_peep_index = response.body.index(earliest_peep)
       latest_peep_index = response.body.index(latest_peep)
-    
       # Check that the latest peep appears before the earliest peep
       expect(earliest_peep_index).to be > latest_peep_index
+    end
+
+    it 'displays a new peep first' do
+      Peep.create(text: "I'm new here", created_at: Time.parse("2023-05-11 09:00:00"))
+      response = get("/")
+
+      new_peep = "<p> I'm new here - peeped at: 2023-05-11 09:00:00 +0100 </p>"
+      second_newest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+
+      expect(response.body).to include "<p> I'm new here - peeped at: 2023-05-11 09:00:00 +0100 </p>"
+
+      new_peep_index = response.body.index(new_peep)
+      second_newest_peep_index = response.body.index(second_newest_peep)
+
+      expect(new_peep_index).to be < second_newest_peep_index
+
     end
 
     it "says 'No one's made a peep!' when there are no peeps in the database" do
@@ -42,9 +57,8 @@ RSpec.describe Application do
       response = get("/")
 
       expect(response.status).to eq 200
-      
-      expect(response.body).to include "<p> 'No one's made a peep!' </p>"
 
+      expect(response.body).to include "<p> 'No one's made a peep!' </p>"
     end
   end
 
