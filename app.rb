@@ -45,9 +45,13 @@ class Application < Sinatra::Base
     end
   end
 
-  # need to make this authenticate that the user is logged in
-  
+
+  # I'm not sure that this is truly authenticating. You could switch to another users page if you have logged in
+  # and then type the url of another user into your browser, because this only checks that the session[:name]
+  # is not nil.
+   
   get '/:user/page' do
+    return redirect('/login') if session[:name] == nil
     @peeps_reverse_chron_order = Peep.order(created_at: :desc)
     return erb(:user_page)
   end
