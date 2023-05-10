@@ -2,8 +2,6 @@ require 'simplecov'
 require 'simplecov-console'
 require_relative '../lib/database_connection'
 
-# Make sure this connects to your test database
-# (its name should end with '_test')
 DatabaseConnection.connect
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -29,4 +27,10 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+end
+
+def reset_all_tables
+  seed_sql = File.read('spec/seeds_chitter.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_test' })
+  connection.exec(seed_sql)
 end
