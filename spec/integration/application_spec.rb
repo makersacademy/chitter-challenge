@@ -22,6 +22,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('This is better than twitter')
       expect(response.body).to include('My very first peep!')
+      expect(response.body).to include('<a href="/signup">')
     end
   end
 
@@ -74,12 +75,12 @@ describe Application do
       response = post('signup', name: 'Diddy Kong', username: 'dkong', email: 'dkong@makersacademy.com', password: 'PROBLEM')
 
       expect(response.status).to eq(400)
-      expect(response.body).to include('Error: email or username already exists. Please use a unique email address & username')
+      expect(response.body).to include('Error: email or username already exists. Please go back and try again')
     end
   end
 
   context 'GET /peeps/:id' do
-    xit 'Opens a specific peep' do
+    it 'Opens a specific peep' do
       
     end
   end

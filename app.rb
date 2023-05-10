@@ -53,7 +53,7 @@ class Application < Sinatra::Base
 
     if duplicate_email_or_username?
       status 400
-      return 'Error: email or username already exists. Please use a unique email address & username'
+      return 'Error: email or username already exists. Please go back and try again'
     else
       users.create(new_user)
       return erb(:account_created)
