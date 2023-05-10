@@ -7,6 +7,54 @@ require_relative 'lib/user_repository'
 
 DatabaseConnection.connect
 
+def invalid_chitter_request_parameters?
+  # Are the params nil?
+  return true if params[:peep] == nil
+
+  # Are they empty strings?
+  return true if params[:peep] == ""
+
+  return true if params[:peep].include? '<script>'
+
+  return false
+end
+
+def invalid_sign_up_request_parameters?
+  # Are the params nil?
+  return true if params[:email] == nil
+  return true if params[:password] == nil
+  return true if params[:name] == nil
+  return true if params[:username] == nil
+
+  # Are they empty strings?
+  return true if params[:email] == ''
+  return true if params[:password] == ''
+  return true if params[:name] == ''
+  return true if params[:username] == ''
+
+  return true if params[:email].include? '<script>'
+  return true if params[:password].include? '<script>'
+  return true if params[:name].include? '<script>'
+  return true if params[:username].include? '<script>'
+
+  return false
+end
+
+def invalid_log_in_request_parameters?
+  # Are the params nil?
+  return true if params[:email] == nil
+  return true if params[:password] == nil
+
+  # Are they empty strings?
+  return true if params[:email] == ''
+  return true if params[:password] == ''
+
+  return true if params[:email].include? '<script>'
+  return true if params[:password].include? '<script>'
+
+  return false
+end
+
 class Application < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -46,6 +94,15 @@ class Application < Sinatra::Base
 
   # This route processes the data input when a new chitter from has been submitted
   post '/chitters' do
+    if invalid_chitter_request_parameters?
+      # Set the response code
+      # to 400 (Bad Request) - indicating
+      # to the client it sent incorrect data
+      # in the request.
+      status 400
+      
+      return ''
+    end
     repo = ChitterRepository.new
     chitter = Chitter.new
 
@@ -83,6 +140,15 @@ class Application < Sinatra::Base
 
   # This route processes the info submitted through the create user form
   post '/sign-up' do
+    if invalid_sign_up_request_parameters?
+      # Set the response code
+      # to 400 (Bad Request) - indicating
+      # to the client it sent incorrect data
+      # in the request.
+      status 400
+      
+      return ''
+    end
     repo = UserRepository.new
     all_users = repo.all
     user = User.new
@@ -112,6 +178,15 @@ class Application < Sinatra::Base
 
   # processes the data from a login form and matches it to a current user
   post '/log-in' do
+    if invalid_log_in_request_parameters?
+      # Set the response code
+      # to 400 (Bad Request) - indicating
+      # to the client it sent incorrect data
+      # in the request.
+      status 400
+      
+      return ''
+    end
     email = params[:email]
     password = params[:password]
 

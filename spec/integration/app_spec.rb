@@ -169,4 +169,34 @@ RSpec.describe Application do
       expect(response.body).to include('log-in')
     end
   end
+
+  it 'responds with 400 status if peep parameters are invalid' do
+    response = post('/chitters', peep: '')
+    response_2 = post('/chitters', peep: '<script>somethingsomething</script>')
+
+    expect(response.status).to eq(400)
+    expect(response.body).to include('')
+    expect(response_2.status).to eq(400)
+    expect(response_2.body).to include('')
+  end
+
+  it 'responds with 400 status if sign-up parameters are invalid' do
+    response = post('/sign-up', name: '')
+    response_2 = post('/sign-up', username: nil)
+
+    expect(response.status).to eq(400)
+    expect(response.body).to include('')
+    expect(response_2.status).to eq(400)
+    expect(response_2.body).to include('')
+  end
+
+  it 'responds with 400 status if log-in parameters are invalid' do
+    response = post('/log-in', email: nil)
+    response_2 = post('/log-in', password: '<script>somethingsomething</script>')
+
+    expect(response.status).to eq(400)
+    expect(response.body).to include('')
+    expect(response_2.status).to eq(400)
+    expect(response_2.body).to include('')
+  end
 end
