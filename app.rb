@@ -9,6 +9,7 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
 
   configure :development do
     register Sinatra::Reloader
@@ -82,7 +83,10 @@ class Application < Sinatra::Base
     end
     
     return false
+  end
 
+  get '/login' do
+    return erb(:login)
   end
 
 end
