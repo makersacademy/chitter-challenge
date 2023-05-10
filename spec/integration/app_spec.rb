@@ -584,23 +584,43 @@ describe Application do
   describe 'POST /new-peep' do
     context 'when used with valid params' do
       it 'returns 200 OK' do
-        response = post('/new-peep')
+        response = post(
+          '/new-peep',
+          content: 'test_content',
+          time_posted: Time.now,
+          user_id: '4'
+        )
         expect(response.status).to eq 200
       end
       
       it 'returns html with success message' do
-        response = post('/new-peep')
+        response = post(
+          '/new-peep',
+          content: 'test_content',
+          time_posted: Time.now,
+          user_id: '4'
+        )
         expect(response.body).to include '<h1>Success!</h1>'
         expect(response.body).to include '<h2>You added a new peep!</h2>'
       end
       
       it 'returns html with link back to the homepage' do
-        response = post('/new-peep')
+        response = post(
+          '/new-peep',
+          content: 'test_content',
+          time_posted: Time.now,
+          user_id: '4'
+        )
         expect(response.body).to include '<a href="/">Back to homepage</a>'
       end
       
       it 'returns html with option to create another new peep' do
-        response = post('/new-peep')
+        response = post(
+          '/new-peep',
+          content: 'test_content',
+          time_posted: Time.now,
+          user_id: '4'
+        )
         expect(response.body).to include '<a href="/new-peep">Add another peep</a>'
       end
       

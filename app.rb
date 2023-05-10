@@ -4,6 +4,7 @@ require 'sinatra/reloader'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
 require_relative 'lib/database_connection'
+require_relative 'lib/email_sender'
 
 DatabaseConnection.connect
 
@@ -101,10 +102,39 @@ class Application < Sinatra::Base
     peep.user_id = session[:user_id]
     repo = PeepRepository.new
     repo.create(peep)
+    email_tagged_users(peep)
     erb(:new_peep_success)
   end
 
   private
+
+  def email_tagged_users(peep)
+    users = get_tagged_users(peep)
+    return if users.nil?
+    
+    users.each do |user|
+      email_sender = EmailSender.new(
+        user.email,
+        '<html>You have been tagged in a peep!</html>'
+      )
+      email_sender.send_email
+    end
+  end
+  
+  def get_tagged_users(peep)
+    words = peep.content.split(" ")
+    tags = words.select { |word| word.start_with?("@") }
+    usernames = tags.map { |tag| tag[1..-1] }
+
+    repo = UserRepository.new
+
+    users = []
+    usernames.each do |username|
+      user = repo.find_by_username(username)
+      users << user unless user.nil?
+    end
+    users
+  end
 
   def input_valid?(input)
     input != '' && !input.match(/[<>]/)
