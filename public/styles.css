@@ -1,3 +1,23 @@
-h1 {
-  color: blue;
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+
+body {
+  background-color: rgb(240, 255, 255);
+}
+
+.heading {
+  margin: auto;
+  margin-top: 30px;
+  width: 30%;
+  border: 3px solid rgb(182, 208, 226);
+  padding: 10px;
+  text-align: center;
+}
+
+.body-text {
+  margin: auto;
+  margin-top: 30px;
+  width: 30%;
+  border: 3px solid rgb(182, 208, 226);
+  padding: 10px;
+  text-align: center;
 }
