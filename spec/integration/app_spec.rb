@@ -135,6 +135,32 @@ RSpec.describe Application do
       expect(session['email_address']).to eq "User1@gmail.com"
     end
     
+    it 'logs in a newly created user, saves their data in a session and returns confirmation' do
+      User.create(name: 'Jeff', email_address: "Jeff@gmail.com", password: "my_password")
+      
+      response = post(
+        "/login",
+        email_address: "Jeff@gmail.com",
+        password: "my_password"
+      )
+
+      expect(response.status).to eq 200     
+   
+      expect(response.body).to include "<h1> Welcome back to Chitter, Jeff! </h1>"
+      expect(session['name']).to eq "Jeff"
+      expect(session['email_address']).to eq "Jeff@gmail.com"
+    end
+
+    it 'redirects to GET /login if log in details are incorrect' do
+      response = post(
+        "/login",
+        email_address: "fake_email@gmail.com",
+        password: "fake_password"
+      )
+
+      expect(response).to be_redirect    
+      expect(response.location).to eq("http://example.org/login")
+    end
   end
 
   # will implement username in path when I implement sessions

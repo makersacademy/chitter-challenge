@@ -33,6 +33,9 @@ class Application < Sinatra::Base
 
     # finds user with matching email and password
     @user = User.authenticate(email, password)
+    # redirects to log in page if user doesn't authenticate
+    return redirect('/login') unless @user != nil
+
     # stores user details in session 
     session[:name] = @user.name
     session[:email_address] = @user.email_address
