@@ -17,4 +17,8 @@ class PeepRepository
     end
     peeps
   end
+
+  def create(peep)
+    
+  end
 end

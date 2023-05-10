@@ -24,6 +24,15 @@ describe PeepRepository do
   end
 
   it "creates a peep" do
+    repo = PeepRepository.new
+    peep = double(:peep, title: "Doubler", content: "This is a double", time_stamp: "2021-09-07 12:20:43", user_id: 1 )
+    repo.create(peep)
+    peeps = repo.all
 
+    peeps = repo.all
+    expect(peeps.length).to eq 3
+    expect(peeps.first.title).to eq 'Doubler'
+    expect(peeps.first.content).to eq 'This is a double'
+    expect(peeps.first.time_stamp).to eq '2021-09-07 12:20:43'
   end
 end
