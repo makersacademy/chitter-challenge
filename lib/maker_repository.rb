@@ -17,6 +17,18 @@ class MakerRepository
     makers
   end
 
+  def find_by_username(username)
+    sql = 'SELECT * FROM makers WHERE username = $1;'
+    result = DatabaseConnection.exec_params(sql, [username])
+    maker = Maker.new
+    maker.id = result[0]['id'].to_i
+    maker.name = result[0]['name']
+    maker.username = result[0]['username']
+    maker.email_address = result[0]['email_address']
+    maker.password = result[0]['password']
+    return maker
+  end
+
   def find(id)
     sql = 'SELECT * FROM makers WHERE id = $1;'
     result = DatabaseConnection.exec_params(sql, [id])

@@ -30,6 +30,14 @@ describe MakerRepository do
       expect(selected.name).to eq ('Matty Boi')
       expect(selected.username).to eq ('MattyMooMilk')
     end
+
+    it 'Should return the chosen maker that corresponds with passed username' do
+      repo = MakerRepository.new
+      maker = repo.find_by_username('MattyMooMilk')
+      expect(maker.id).to eq (1)
+      expect(maker.email_address).to eq ('mattys_fake_email@tiscali.net')
+      expect(maker.password).to eq ('Password1!')
+    end
   end
 
   context 'Creating new makers' do
