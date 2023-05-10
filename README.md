@@ -6,8 +6,13 @@ Write a small Twitter clone that will allow the users to post messages to a publ
 ## How to use
 
 ```ruby
-rackup
-http://localhost:('Port in use')/
+$ git clone https://github.com/aliceswood/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle install
+$ createdb chitter_test
+$ psql -h 127.0.0.1 chitter_test < spec/seeds/accounts_and_peeps_tables.sql
+$ rackup
+$ http://localhost:('Port in use')/
 ```
 
 ## Initial plan
@@ -36,6 +41,7 @@ http://localhost:('Port in use')/
 
 ## Techonologies used
 
+- Excalidraw
 - Ruby
 - RSpec
 - PostgreSQL
