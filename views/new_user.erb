@@ -1,18 +1,28 @@
-<h1>New User</h1>
-<% if flash[:error] %>
-  <div class="alert alert-danger" role="alert">
-    <%= flash[:error] %>
-  </div>
-<% end %>
-<form method="POST" action="/sign-up">
-  <p><label>Email: </label>
-  <input type="email" name="email" required /></p>
-  <p><label>Password: </label>
-  <input type="password" name="password" required /></p>
-  <p><label>Name: </label>
-  <input type="text" name="name" required /></p>
-  <p><label>Username: </label>
-  <input type="text" name="username" required /></p>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
 
-  <p><input type="submit" /></p>
-</form>
+  <body>
+  
+    <h1>New User</h1>
+    <% if flash[:error] %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    <form method="POST" action="/sign-up">
+      <p><label>Email: </label>
+      <input type="email" name="email" required /></p>
+      <p><label>Password: </label>
+      <input type="password" name="password" required /></p>
+      <p><label>Name: </label>
+      <input type="text" name="name" required /></p>
+      <p><label>Username: </label>
+      <input type="text" name="username" required /></p>
+
+      <p><input type="submit" /></p>
+    </form>
+ 
+  </body>
+</html>
