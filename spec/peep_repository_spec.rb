@@ -31,8 +31,8 @@ describe PeepRepository do
 
     peeps = repo.all
     expect(peeps.length).to eq 3
-    expect(peeps.first.title).to eq 'Doubler'
-    expect(peeps.first.content).to eq 'This is a double'
-    expect(peeps.first.time_stamp).to eq '2021-09-07 12:20:43'
+    expect(peeps.last.title).to eq 'Doubler'
+    expect(peeps.last.content).to eq 'This is a double'
+    expect(peeps.last.time_stamp).to eq '2021-09-07 12:20:43'
   end
 end
