@@ -90,7 +90,7 @@ Extracted the nouns from the user stories to infer the table names and propertie
 
 - One peep can have one user (as author)
 - One user can have many peeps
-- Replies: One peep can also have one parent (a peep) or nil
+- Replies: One peep can also have one parent (a peep) or null
 - Tags: One peep can tag many users, one user can have many tags
 
 To implement the tags, as this is a many-to-many relationship, I will need to create a join table - which contains user_id and peep_id.
@@ -164,10 +164,118 @@ CREATE TABLE peeps_users (
 
 ### Planning pages
 
+I have created a diagram outlining the different pages the user will use and how they will navigate to these pages.
+
+![pages design](designs/designing-pages.jpg)
+
 ### Planning routes
+
+I have created RESTful routes for the peeps but was unsure regarding the login and signup pages.
+
+| Route Name                       | URL Path   | HTTP Method | Purpose                      |
+| -------------------------------- | ---------- | ----------- | ---------------------------- |
+| Index                            | /          | GET         | Display all peeps            |
+| New                              | /peeps/new | GET         | Show form for new peep       |
+| Create                           | /peeps     | POST        | Creates new peep             |
+| Show                             | /peeps/:id | GET         | Shows one peep (for replies) |
+| Edit, Update, Delete - not using |            |
+| Login                            | /login     | GET         | Display login page           |
+| Login user                       | /login     | POST        | Login user and redirect      |
+| Signup                           | /signup    | GET         | Display the signup page      |
+| Sign up user                     | /signup    | POST        | Sign up user and redirect    |
+| Success                          | /success   | GET         | Display success page         |
+| Error                            | /error     | GET         | Display error page           |
+
+### Designing the Repository classes
+
+```ruby
+class Peep
+  attr_accessor :id, :message, :timestamp, :parent_id, :user
+
+  # attr_accessor :id, :message, :timestamp, :parent_id, :user, :tags
+
+  # def initialize
+  #   @tags = []
+  # end
+end
+
+class PeepRepository
+  def all_with_user
+    # displays all peeps with user info
+
+    # No arguments
+    # Returns array of Peep and user (author)
+
+    SQL = '
+    SELECT peeps.id, message, timestamp, users.id as user_id, users.name, users.username
+    FROM peeps
+    JOIN users ON users.id = peeps.user_id
+    WHERE peep_id IS NULL;'
+
+    # tags? Count replies? Not sure how to implement this yet
+    # Get tags - Retrieve all users associated with a peep
+    # SELECT users.id as user_id, peeps.id as peep_id
+    # FROM users
+    # JOIN peeps_users ON peeps_users.user_id = users.id
+    # JOIN peeps ON peeps_users.peep_id = peeps.id
+    # WHERE peeps.id = 4;
+  end
+
+  def create(peep)
+    # creates a new peep
+    # takes a peep object as an argument
+    # Returns nothing - creates a new peep
+
+    SQL = '
+    INSERT INTO peeps (message, timestamp, user_id, peep_id)
+    VALUES($1, CURRENT_TIMESTAMP, $2, $3);'
+  end
+
+  def find_by_id(id)
+    # Finds a single peep (for replies)
+    # Takes an id as an argument
+    # Returns a single peep
+
+    SQL = '
+    SELECT peeps.id, message, timestamp, users.id as user_id, users.name, users.username
+    FROM peeps
+    JOIN users ON users.id = peeps.user_id
+    WHERE peep_id IS NULL and peeps.id = $1;'
+
+    #### Need to get the replies
+  end
+end
+
+class User
+  attr_accessor :id, :email, :password, :name, :username
+end
+
+class UserRepository
+
+  def create(user)
+    # creates a new user
+    # takes a user object argument
+    # encrypt password
+    # returns nothing - creates new user
+
+    sql = '
+    INSERT INTO users (email, password, name, username)
+    VALUES($1, $2, $3, $4);'
+  end
+
+  def find_by_email(email)
+    # Takes an email as an argument (and password?)
+    # Returns a single user
+
+    sql = '
+    SELECT id, email, name, username
+    FROM users
+    WHERE email = $1;'
+    # (and password = $2)?
+  end
+end
+```
 
 ### Test-drive and implement
 
-### TODO
-
-Add rake ?
+I am going to write my tests directly into the test file.
