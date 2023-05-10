@@ -45,7 +45,9 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/user/page' do
+  # need to make this authenticate that the user is logged in
+  
+  get '/:user/page' do
     @peeps_reverse_chron_order = Peep.order(created_at: :desc)
     return erb(:user_page)
   end

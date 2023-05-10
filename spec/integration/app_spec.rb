@@ -152,6 +152,17 @@ RSpec.describe Application do
       expect(session['email_address']).to eq "Jeff@gmail.com"
     end
 
+    it 'has a link on confirmation page to a personal user page' do
+      response = post(
+        "/login",
+        email_address: "User1@gmail.com",
+        password: "password1"
+      )
+      expect(response.status).to eq 200           
+
+      expect(response.body).to include "<a href=\"/User-1/page\"> Click here to access your user page </a>"   
+    end
+
     it 'redirects to GET /login if log in details are incorrect' do
       response = post(
         "/login",
@@ -163,13 +174,14 @@ RSpec.describe Application do
       expect(response.location).to eq("http://example.org/login")
     end
 
+
   end
 
   # will implement username in path when I implement sessions
 
-  context 'GET /user/page' do
+  context 'GET /:user/page' do
     it 'displays an html view with a link to create a peep' do
-      response = get('/user/page')
+      response = get('/:user/page')
 
       expect(response.status).to eq 200
 
