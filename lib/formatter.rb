@@ -10,4 +10,12 @@ class Formatter
     <br/>
     "
   end
+
+  def format_user(user)
+    str = "
+    <h2>#{user.username}</h2>
+    <div>#{user.name}, #{user.email}</div>
+    <br/>
+    "
+  end
 end

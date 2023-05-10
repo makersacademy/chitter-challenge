@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title><%= @user.username %></title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <%= @formatter.format_user(@user) %>
+    <h3>Peeps:</h3>
+    <% @peeps.each do |peep| %>
+      <div><%= peep.content %></div>
+      <div>- <%= peep.time %></div>
+      <br/>
+      <% end %>
+    <a href="/">Back to home page</a>
+  </body>
+</html>

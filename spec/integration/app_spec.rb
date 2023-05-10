@@ -25,7 +25,7 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Chitter</h1>')
-      expect(response.body).to include('<a href="/new_user">Sign up now!</a>')
+      expect(response.body).to include('<a href="/users/new">Sign up now!</a>')
       expect(response.body).to include('Louis (lpc) says:')
       expect(response.body).to include('First post')
       expect(response.body).to include('- 12:00:00')
@@ -65,7 +65,7 @@ RSpec.describe Application do
 
       expect(response.status).to eq 400
       expect(response.body).to include('<div>This user (unknown) does not exist...</div>')
-      expect(response.body).to include('<div>Please <a href="/new_user">sign up</a> first</div>')
+      expect(response.body).to include('<div>Please <a href="/users/new">sign up</a> first</div>')
     end
 
     it 'returns 400 and no response when parameters not valid' do
@@ -80,9 +80,9 @@ RSpec.describe Application do
     end
   end
 
-  context "GET /new_user" do
+  context "GET /users/new" do
     it 'returns 200 OK with the sign up form' do
-      response = get('/new_user')
+      response = get('/users/new')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
@@ -137,6 +137,24 @@ RSpec.describe Application do
 
       expect(response.status).to eq 400
       expect(response.body).to eq ''
+    end
+  end
+
+  context "GET /users/:id" do
+    it 'returns 200 OK' do
+      response = get('/users/1')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>lpc</h2>')
+      expect(response.body).to include('<div>First post</div>')
+      expect(response.body).to include('<div>Second post</div>')
+      expect(response.body).to include('<div>- 13:00:00</div>')
+    end
+
+    it 'returns 404 Not Found' do
+      response = get('/user/276278')
+
+      expect(response.status).to eq(404)
     end
   end
 end

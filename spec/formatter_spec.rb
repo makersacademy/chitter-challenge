@@ -31,6 +31,23 @@ RSpec.describe Formatter do
     "
 
     expect(result).to eq expected_result
+  end
 
+  it 'formats a user into a display of their details' do
+    user = double(
+      :user,
+      email: 'lou@chitter.com',
+      name: 'Louis',
+      username: 'lpc'
+    )
+    formatter = Formatter.new
+    result = formatter.format_user(user)
+    expected_result = "
+    <h2>lpc</h2>
+    <div>Louis, lou@chitter.com</div>
+    <br/>
+    "
+    
+    expect(result).to eq(expected_result)
   end
 end

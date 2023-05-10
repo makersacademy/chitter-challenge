@@ -37,8 +37,17 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/new_user' do
+  get '/users/new' do
     return erb(:new_user)
+  end
+
+  get '/users/:id' do
+    repo = UserRepository.new
+    @user = repo.find_with_peeps(params[:id])
+    @formatter = Formatter.new
+    @peeps = @user.peeps
+
+    return erb(:user_page)
   end
 
   post '/user' do

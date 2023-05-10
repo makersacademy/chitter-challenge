@@ -11,7 +11,7 @@ You'll need to include:
 `200 OK`
 
 ```html
-<!-- Response when the post is found: 200 OK -->
+<!-- Response when 200 OK -->
 Form for creating a new user:
 <html>
   <head>
