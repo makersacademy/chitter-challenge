@@ -8,7 +8,7 @@ class PeepRepository
     sql = 'SELECT peeps.id as peep_id, message, timestamp, users.id as user_id, name, username 
     FROM peeps 
     JOIN users ON users.id = peeps.user_id WHERE peep_id IS NULL 
-    ORDER BY "timestamp" ASC;'
+    ORDER BY "timestamp" DESC;'
 
     result_set = DatabaseConnection.exec_params(sql, [])
 
