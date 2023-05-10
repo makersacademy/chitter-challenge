@@ -20,3 +20,5 @@ gem "rack-test", "~> 2.1"
 gem "pg", "~> 1.5"
 
 gem "bcrypt", "~> 3.1"
+
+gem "dotenv", "~> 2.8"

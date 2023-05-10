@@ -6,6 +6,7 @@ GEM
     bcrypt (3.1.18)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    dotenv (2.8.1)
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -79,6 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1)
+  dotenv (~> 2.8)
   pg (~> 1.5)
   rack-test (~> 2.1)
   rspec
