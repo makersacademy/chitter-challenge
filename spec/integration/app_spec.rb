@@ -21,7 +21,7 @@ describe Application do
     it 'returns returns html with all peeps' do
       response = get('/')
 
-      expect(response.body).to include '<h1>All Peeps</h1>'
+      expect(response.body).to include '<h2>All Peeps</h2>'
       
       expect(response.body).to include 'content_1'
       expect(response.body).to include '2023-05-01 17:15:32'
