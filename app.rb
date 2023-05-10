@@ -20,4 +20,13 @@ class Application < Sinatra::Base
   get '/peeps/new' do
     return erb(:create_peep)
   end
+
+  post '/peeps' do
+    repo = PeepRepository.new
+    peep = Peep.new
+    peep.message = params[:message]
+    peep.user_id = params[:user_id]
+    repo.create(peep)
+    return redirect('/')
+  end
 end

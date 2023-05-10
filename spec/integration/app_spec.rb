@@ -27,4 +27,19 @@ describe Application do
       expect(response.body).to include('<input id="message" type="text" name="message" />')
     end
   end
+
+  context 'POST to /peeps' do
+    it 'returns status 302 and redirects to / showing new peep' do
+      response = post(
+        '/peeps',
+        message: 'Testing 123',
+        user_id: 2
+        )
+
+      expect(response.status).to eq 302
+
+      peeps = get('/')
+      expect(peeps.body).to include('<h2>Testing 123</h2>')
+    end
+  end
 end
