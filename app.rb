@@ -26,6 +26,19 @@ class Application < Sinatra::Base
     return erb(:new_peep)
   end
 
+  get '/peeps/:id' do
+    peeps = PeepRepository.new
+    users = UserRepository.new
+
+    peep = peeps.find(params[:id])
+    @content = peep.content
+    @time = peep.time
+    @name = users.find(peep.user_id).name
+    @username = users.find(peep.user_id).username
+
+    return erb(:peep)
+  end
+
   post '/peeps' do
     new_peep = Peep.new
     new_peep.content = params[:content]

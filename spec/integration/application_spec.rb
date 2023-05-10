@@ -81,7 +81,10 @@ describe Application do
 
   context 'GET /peeps/:id' do
     it 'Opens a specific peep' do
-      
+      response = get('/peeps/1')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('My very first peep!')
     end
   end
 
