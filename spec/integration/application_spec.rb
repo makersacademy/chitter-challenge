@@ -1,5 +1,5 @@
-require "spec_helper"
-require "rack/test"
+require 'spec_helper'
+require 'rack/test'
 require_relative '../../app'
 
 describe Application do

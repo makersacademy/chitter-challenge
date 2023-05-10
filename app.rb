@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'date'
+require 'bcrypt'
 require_relative 'lib/database_connection'
 require_relative 'lib/peep_repository'
 require_relative 'lib/user_repository'
@@ -60,7 +61,7 @@ class Application < Sinatra::Base
     new_user.name = params[:name]
     new_user.username = params[:username]
     new_user.email = params[:email]
-    new_user.password = params[:password]
+    new_user.password = BCrypt::Password.create(params[:password])
 
     users = UserRepository.new
 
