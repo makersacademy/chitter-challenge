@@ -22,3 +22,5 @@ gem "pg", "~> 1.5"
 gem "bcrypt", "~> 3.1"
 
 gem "dotenv", "~> 2.8"
+
+gem "sib-api-v3-sdk", "~> 9.1"
