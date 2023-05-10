@@ -24,7 +24,7 @@ RSpec.describe Formatter do
     result = formatter.format_peep(peep)
 
     expected_result = "
-    Louis (lpc) says:<br/>
+    Louis (<a href='users/1'>lpc</a>) says:<br/>
     First post<br/>
     - 12:00:00
     <br/>

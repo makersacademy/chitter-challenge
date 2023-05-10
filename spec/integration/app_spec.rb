@@ -26,10 +26,10 @@ RSpec.describe Application do
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Chitter</h1>')
       expect(response.body).to include('<a href="/users/new">Sign up now!</a>')
-      expect(response.body).to include('Louis (lpc) says:')
+      expect(response.body).to include("Louis (<a href='users/1'>lpc</a>) says:")
       expect(response.body).to include('First post')
       expect(response.body).to include('- 12:00:00')
-      expect(response.body).to include('Louis (lpc) says:')
+      expect(response.body).to include("Louis (<a href='users/1'>lpc</a>) says:")
       expect(response.body).to include('Second post')
       expect(response.body).to include('- 13:00:00')
     end

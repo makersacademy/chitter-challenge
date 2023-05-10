@@ -4,7 +4,7 @@ require_relative 'user_repository'
 class Formatter
   def format_peep(peep)
     str = "
-    #{peep.name} (#{peep.username}) says:<br/>
+    #{peep.name} (#{link(peep.username)}) says:<br/>
     #{peep.content}<br/>
     - #{peep.time}
     <br/>
@@ -17,5 +17,15 @@ class Formatter
     <div>#{user.name}, #{user.email}</div>
     <br/>
     "
+  end
+
+  private
+
+  # returns an html link to the user's page
+  def link(username)
+    repo = UserRepository.new
+    user = repo.all.select { |user| user.username == username }[0]
+    id = user.id
+    str = "<a href='users/#{id}'>#{username}</a>"
   end
 end
