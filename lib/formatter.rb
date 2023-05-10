@@ -3,9 +3,10 @@ require_relative 'user_repository'
 
 class Formatter
   def format_peep(peep)
+    content = content_with_links(peep)
     str = "
     #{peep.name} (#{link(peep.username)}) says:<br/>
-    #{peep.content}<br/>
+    #{content}<br/>
     - #{peep.time}
     <br/>
     "
@@ -27,5 +28,18 @@ class Formatter
     user = repo.all.select { |user| user.username == username }[0]
     id = user.id
     str = "<a href='users/#{id}'>#{username}</a>"
+  end
+
+  def tag_to_link(tag)
+    username = tag[1..]
+    return link(username)
+  end
+
+  def content_with_links(peep)
+    content = peep.content
+    peep.tags.each do |tag|
+      content.gsub!(tag, tag_to_link(tag))
+    end
+    return content
   end
 end

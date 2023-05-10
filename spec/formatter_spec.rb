@@ -18,7 +18,8 @@ RSpec.describe Formatter do
       time: '12:00:00',
       user_id: 1,
       name: 'Louis',
-      username: 'lpc'
+      username: 'lpc',
+      tags: []
     )
     formatter = Formatter.new
     result = formatter.format_peep(peep)
