@@ -20,6 +20,12 @@ class UserRepository
     records.ntuples.zero? ? nil : create_user_from_record(records.first)
   end
 
+  def find_by_username(username)
+    sql = 'SELECT * FROM users WHERE username = $1'
+    records = DatabaseConnection.exec_params(sql, [username])
+    records.ntuples.zero? ? nil : create_user_from_record(records.first)
+  end
+
   def create(user)
     encrypted_password = BCrypt::Password.create(user.password)
 

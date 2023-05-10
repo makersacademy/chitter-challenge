@@ -91,6 +91,36 @@ describe UserRepository do
       expect(user).to eq nil
     end
   end
+  
+  describe '#find_by_username' do
+    it 'returns a user by username' do
+      repo = UserRepository.new
+      user = repo.find_by_username('username_1')
+      
+      expect(user.id).to eq 1
+      expect(user.email).to eq 'email_1'
+      expect(user.password).to eq 'password_1'
+      expect(user.name).to eq 'name_1'
+      expect(user.username).to eq 'username_1'
+    end
+
+    it 'returns another user by username' do
+      repo = UserRepository.new
+      user = repo.find_by_username('username_2')
+
+      expect(user.id).to eq 2
+      expect(user.email).to eq 'email_2'
+      expect(user.password).to eq 'password_2'
+      expect(user.name).to eq 'name_2'
+      expect(user.username).to eq 'username_2'
+    end
+
+    it 'returns nil if email does not exist' do
+      repo = UserRepository.new
+      user = repo.find_by_username('fake_username')
+      expect(user).to eq nil
+    end
+  end
 
   describe '#create' do
     it "creates a new user in the database" do
