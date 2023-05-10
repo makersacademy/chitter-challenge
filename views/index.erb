@@ -5,7 +5,7 @@
     <% @peeps_list.reverse_each do |peep| %>
       <div>
         <p><%= @users.find(peep.user_id).name %> @<%= @users.find(peep.user_id).username %> - <%= peep.time %></p>
-        <p><%= peep.content %></p>
+        <p><a href="/peeps/<%=peep.id%>"><%= peep.content %></a></p>
         <br />
       </div>
     <% end %>
