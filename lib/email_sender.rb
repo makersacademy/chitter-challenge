@@ -14,22 +14,26 @@ class EmailSender
     end
   end
 
-  def send_email
-    # Object used to send the email
-    api_instance = @email_api::TransactionalEmailsApi.new
-    # Object holding data about the email
-    send_smtp_email = @email_api::SendSmtpEmail.new
+  def send_email(
+    transactional_email_api=@email_api::TransactionalEmailsApi,
+    api_email_data=@email_api::SendSmtpEmail,
+    api_email_to=@email_api::SendSmtpEmailTo,
+    api_email_sender=@email_api::SendSmtpEmailSender
+  )
+
+    api_instance = transactional_email_api.new
+
+    send_smtp_email = api_email_data.new
     send_smtp_email.html_content = @html_message
     send_smtp_email.subject = "You've been tagged!"
     
-    email_to = @email_api::SendSmtpEmailTo.new
+    email_to = api_email_to.new
     email_to.email = @recipient
     send_smtp_email.to = [email_to]
     
-    email_from = @email_api::SendSmtpEmailSender.new
+    email_from = api_email_sender.new
     email_from.email = ENV['EMAIL_FROM']
     send_smtp_email.sender = email_from
-    
     
     begin
       result = api_instance.send_transac_email(send_smtp_email)

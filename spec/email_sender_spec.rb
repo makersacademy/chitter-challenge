@@ -5,14 +5,30 @@ RSpec.describe EmailSender do
     xit 'sends an email' do
       fake_api = double :fake_api
 
+      fake_transactional_email_api_object
+      fake_transactional_email_api_class = double :fake_transactional_email_api_class, new: nil
+
+      fake_api_email_data_class = double :fake_api_email_data_class, new: nil
+
+      fake_api_email_to_class = double :fake_api_email_to_class, new: nil
+
+      fake_api_email_sender_class = double :fake_api_email_sender_class, new: nil
+
 
 
 
       allow(fake_api).to receive(:configure)
 
+
       allow(fake_api::TransactionalEmailsApi).to receive(:new)
+
+
       allow(fake_api::SendSmtpEmail).to receive(:new)
+
+
       allow(fake_api::SendSmtpEmailTo).to receive(:new)
+
+
       allow(fake_api::SendSmtpEmailSender).to receive(:new)
 
 
