@@ -1,18 +1,30 @@
 <html>
   <head></head>
   <body>
-    <h1>Welcome to Chitter!</h1>
+  <style>
+  #roundedcorners {
+  border-radius: 25px;
+  border: 2px solid #1DA1F2;
+  padding: 20px;
+  width: 200px;
+  height: 75px;
+}
+  </style>
+
+    <p><h1 id="roundedcorners"> Welcome to Chitter!</h1></p>
     <h2>Please sign up here:</h2>
-    <input type ='button' value='Sign up!' onclick="window.location.href='/sign_up';"><br>
+    <input type='button' value='Sign up!' onclick="window.location.href='/sign_up';"><br>
+    
     <h2>What's on your mind?</h2>
     <input type ='button' value='Post a peep!' onclick="window.location.href='/add_peep';"><br>
+
     <h2> Latest peeps...</h2>
      <div>
      <% @peeps.each do |peep|%>
      <p>
-     <b><%= peep.find_name%> </b> (<%= peep.find_username %>) says... <br>
+     <b><%= peep.find_name%> </b> (<%= peep.find_username %>) says...<br>
      <%= peep.contents %> <br>
-     time: <%= peep.time %>
+     <h7> <%= peep.time %> </h7>
      </p>
      <% end %>
     </div>

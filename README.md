@@ -40,12 +40,12 @@ $ http://localhost:('Port in use')/
 
 ## Upcoming to-dos
 
+- Add condidtions to the sign in and post a peep
 - Refactor
 - Update tests for creating a peep to link to the logged in user - when sessions are implemented
 - Encrypt passwords stored on DB
 - REGEX test for @ sign in email addresses
 - Errors for empty fields in post a peep form
-- Hide password when entering
 - Better CSS
 
 ## Techonologies used
