@@ -1,6 +1,4 @@
 require_relative './peep'
-require 'mail'
-require 'spec_helper'
 class PeepRepository
   def all
       peeps = []
