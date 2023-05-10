@@ -69,7 +69,7 @@ describe Application do
     end
 
     it 'Fails if email or username already exists' do
-      response = post('signup', name: 'Diddy Kong', username: 'dkong', email: 'dkong@makersacademy.com', password: 'PROBLEM')
+      response = post('/signup', name: 'Diddy Kong', username: 'dkong', email: 'dkong@makersacademy.com', password: 'PROBLEM')
 
       expect(response.status).to eq(400)
       expect(response.body).to include('Error: email or username already exists. Please go back and try again')
@@ -91,8 +91,24 @@ describe Application do
       
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/login">')
-      expect(response.body).to include('<input type="email" name="email" ')
-      expect(response.body).to include('<input type="password" name="password" ')
+      expect(response.body).to include('<input type="email" name="submitted_email" ')
+      expect(response.body).to include('<input type="password" name="submitted_password" ')
+    end
+  end
+
+  context 'POST /login' do
+    it 'Successfully authenticates user if email and password match' do
+      response = post('/login', submitted_email: 'dkong@makersacademy.com', submitted_password: 'banana123')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Login successful!')
+    end
+
+    it 'Fails if email or password do not match' do
+      response = post('/login', submitted_email: 'dkong@makersacademy.com', submitted_password: 'banana')
+
+      expect(response.status).to eq(400)
+      expect(response.body).to include('Email and password do not match. Please go back and try again')
     end
   end
 

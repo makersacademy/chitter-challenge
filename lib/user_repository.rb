@@ -32,12 +32,7 @@ class UserRepository
     INSERT INTO users (email, password, name, username)
         VALUES ($1, $2, $3, $4);
     '
-    params = [
-      user.email,
-      encrypted_password,
-      user.name,
-      user.username
-    ]
+    params = [user.email, encrypted_password, user.name, user.username]
 
     DatabaseConnection.exec_params(query, params)
   end
@@ -50,7 +45,6 @@ class UserRepository
 
     return create_user_object(result)
   end
-
 
   private 
 

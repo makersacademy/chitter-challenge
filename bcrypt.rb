@@ -7,12 +7,16 @@ require 'bcrypt'
 # puts stored_password == 'princess456' # true
 # puts stored_password == submitted_password # true
 
-userpassword = 'banana123'
-submitted_password = 'banana123'
+# userpassword = 'banana123'
+# submitted_password = 'banana123'
 
-stored_password = BCrypt::Password.new(userpassword)
-  if stored_password == submitted_password
-    puts 'true'
-  else
-    puts 'false'
-  end
+# stored_password = BCrypt::Password.new(userpassword)
+#   if stored_password == submitted_password
+#     puts 'true'
+#   else
+#     puts 'false'
+#   end
+
+submitted_password = 'password123'
+
+if submitted_password == user.password
