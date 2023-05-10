@@ -10,8 +10,13 @@
     <div>
       <a href="/login"> Log in </a>
     </div>
-    <% @peeps_reverse_chron_order.each do |peep| %>
-      <p> <%= peep.text %> - peeped at: <%= peep.created_at %> </p>
+    <h2> What's peepin': </h2>
+    <% if @peeps_reverse_chron_order.empty? %>
+      <p> 'No one's made a peep!' </p>
+    <% else %>
+      <% @peeps_reverse_chron_order.each do |peep| %>
+        <p> <%= peep.text %> - peeped at: <%= peep.created_at %> </p>
+      <% end %>
     <% end %>
   </body>
 </html>

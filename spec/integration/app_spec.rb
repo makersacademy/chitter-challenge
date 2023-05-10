@@ -37,7 +37,15 @@ RSpec.describe Application do
       expect(earliest_peep_index).to be > latest_peep_index
     end
 
-    # test for no peeps
+    it "says 'No one's made a peep!' when there are no peeps in the database" do
+      Peep.destroy_all
+      response = get("/")
+
+      expect(response.status).to eq 200
+      
+      expect(response.body).to include "<p> 'No one's made a peep!' </p>"
+
+    end
   end
 
   context 'GET /signup' do
