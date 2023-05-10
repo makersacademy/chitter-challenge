@@ -1,6 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
+require_relative 'lib/peep_repository'
+
+DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
   configure :development do
@@ -8,6 +11,9 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    return 'Hello world'
+    repo = PeepRepository.new
+    @peeps = repo.all_with_user
+
+    return erb(:index)
   end
 end

@@ -8,11 +8,12 @@ describe Application do
   let(:app) { Application.new }
 
   context 'GET to /' do
-    it "returns 200 OK with the right content" do
+    it 'returns 200 OK with a list of peeps' do
       response = get('/')
 
       expect(response.status).to eq 200
-      expect(response.body).to eq "Hello world"
+      expect(response.body).to include('<h1>Chitter</h1>')
+      expect(response.body).to include('<h2>Hello world</h2>')
     end
   end
 end

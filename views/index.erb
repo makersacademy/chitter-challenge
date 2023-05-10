@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Chitter</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+      <li>
+        <h2><%= peep.message %></h2>
+        <p>x long ago - <%= peep.timestamp %></p>
+        <p>name: <%= peep.user.name %></p>
+        <p>username: <%= peep.user.username %></p>
+      </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
