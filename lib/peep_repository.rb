@@ -19,15 +19,14 @@ class PeepRepository
     return peeps
   end
 
-  # def create(peep)
-  #   # creates a new peep
-  #   # takes a peep object as an argument
-  #   # Returns nothing - creates a new peep
+  def create(peep)
+    sql = 'INSERT INTO peeps (message, timestamp, user_id)
+    VALUES($1, CURRENT_TIMESTAMP, $2);'
 
-  #   SQL = '
-  #   INSERT INTO peeps (message, timestamp, user_id, peep_id)
-  #   VALUES($1, CURRENT_TIMESTAMP, $2, $3);'
-  # end
+    params = [peep.message, peep.user_id]
+
+    DatabaseConnection.exec_params(sql, params)
+  end
 
   # def find_by_id(id)
   #   # Finds a single peep (for replies)

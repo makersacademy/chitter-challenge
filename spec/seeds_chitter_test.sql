@@ -35,9 +35,9 @@ INSERT INTO users (email, password, name, username) VALUES ('hello@gmail.com', '
 
 INSERT INTO peeps (message, timestamp, user_id, peep_id) VALUES
 ('Hello world', '2023-04-28 12:45:05', 1, null),
-('This is a great peep', '2023-05-01 16:23:34', 2, null),
+('This is a great peep', '2023-05-03 16:23:34', 2, null),
 ('This is a reply to the great peep', '2023-05-02 11:01:25', 1, 2),
-('I am tagging Bob', '2023-05-05 16:23:35', 2, null);
+('I am tagging Bob', '2023-05-01 16:23:35', 2, null);
 
 INSERT INTO peeps_users (peep_id, user_id) VALUES
 (4, 1);
