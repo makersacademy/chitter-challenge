@@ -57,6 +57,19 @@ describe UserRepository do
     expect(users.last.username).to eq('BlobFlop')
   end
 
+  it 'finds user by user_id' do
+    repo = UserRepository.new
+    chitter_repo = ChitterRepository.new
+    three = chitter_repo.all[0].user_id
+
+    user = repo.find_by_user_id(three)
+
+    expect(user.id).to eq 3
+    expect(user.email).to eq 'sleepy@sleepersacademy.com'
+    expect(user.name).to eq 'Tony Harrison'
+    expect(user.username).to eq 'TZ'
+  end
+
   it 'finds user by email' do
     repo = UserRepository.new
 

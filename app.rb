@@ -37,6 +37,8 @@ class Application < Sinatra::Base
   # rturns a page containing all posted chitters
   get '/chitters' do
     repo = ChitterRepository.new
+    user_repo = UserRepository.new
+    @users = user_repo.all
     @chitters = repo.all
 
     return erb(:chitters)
