@@ -3,9 +3,17 @@
     <title>Chitter</title>
   </head>
   <body>
-    <h1> Welcome to Chitter, <%=@name%>! </h1>
-      <div>
-      <a href="/user/compose_peep"> Compose Peep </a>
-      </div>
+    <h1> Welcome to Chitter, <%=@name%>! </h1>    
+    <h2> What's peepin': </h2>
+      <% if @peeps_reverse_chron_order.empty? %>
+        <p> 'No one's made a peep!' </p>
+      <% else %>
+        <% @peeps_reverse_chron_order.each do |peep| %>
+          <p> <%= peep.text %> - peeped at: <%= peep.created_at %> </p>
+        <% end %>
+      <% end %>
+    <div>
+    <a href="/user/compose_peep"> Compose Peep </a>
+    </div>
   </body>
 </html>

@@ -22,6 +22,7 @@ class Application < Sinatra::Base
   end
 
   get '/user/page' do
+    @peeps_reverse_chron_order = Peep.order(created_at: :desc)
     return erb(:user_page)
   end
 
