@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Create a new peep</h1>
+    <form action="/peeps" method="post">
+      <div>
+        <label for="message">Peep:</label>
+        <input id="message" type="text" name="message" />
+      </div>
+      <div>
+        <label for="user">User Id:</label>
+        <input id="user" type="text" name="user_id" />
+      </div>
+      <input type="submit" value="Send Peep" />
+    </form>
+    <a href="/">Go to Peeps</a>
+  </body>
+</html>
