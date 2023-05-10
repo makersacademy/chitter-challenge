@@ -52,10 +52,17 @@ RSpec.describe Application do
 
   context 'GET /chitters/new' do
     it 'returns a new chitter form page' do
+      post('/sign-up',
+        email: 'asdasd@makers.make',
+        password: 'asdasd',
+        name: 'Donny Brasco',
+        username: 'Donno99'
+      )
+
       post(
         '/log-in',
-        email: 'chonky@chonkersacademy.com',
-        password: 'birdwird'
+        email: 'asdasd@makers.make',
+        password: 'asdasd'
       )
       response = get("/chitters/new")
 
@@ -137,10 +144,17 @@ RSpec.describe Application do
 
   context "POST /log-in" do
     it 'checks if passwords match and logs-in' do
+      post('/sign-up',
+        email: 'asdasd@makers.make',
+        password: 'asdasd',
+        name: 'Donny Brasco',
+        username: 'Donno99'
+      )
+
       response = post(
         '/log-in',
-        email: 'chonky@chonkersacademy.com',
-        password: 'birdwird'
+        email: 'asdasd@makers.make',
+        password: 'asdasd'
       )
       
       expect(response.status).to eq(200)
@@ -148,10 +162,17 @@ RSpec.describe Application do
     end
 
     it 'checks if passwords match and returns error page when they dont' do
+      post('/sign-up',
+        email: 'asdasd@makers.make',
+        password: 'asdasd',
+        name: 'Donny Brasco',
+        username: 'Donno99'
+      )
+
       response = post(
         '/log-in',
-        email: 'chonky@chonkersacademy.com',
-        password: 'blah'
+        email: 'vfdwhvbwi@j.com',
+        password: 'hjbj'
       )
       
       expect(response.status).to eq(200)

@@ -1,6 +1,7 @@
 require 'sinatra'
 require "sinatra/reloader"
 require 'sinatra/flash'
+require 'bcrypt'
 require_relative 'lib/database_connection'
 require_relative 'lib/chitter_repository'
 require_relative 'lib/user_repository'
@@ -56,6 +57,7 @@ def invalid_log_in_request_parameters?
 end
 
 class Application < Sinatra::Base
+  include BCrypt
   enable :sessions
   register Sinatra::Flash
 
@@ -191,16 +193,16 @@ class Application < Sinatra::Base
     password = params[:password]
 
     repo = UserRepository.new
-
+    print email
     user = repo.find_by_email(email)
 
-    if user == ['']
+    if user == ''
       return erb(:login_error)
-    elsif user.email == email && user.password != password
+    elsif user.email == email && BCrypt::Password.new(user.password) != password
       return erb(:login_error)
-    elsif user.password == password && user.email != email
+    elsif BCrypt::Password.new(user.password) == password && user.email != email
       return erb(:login_error)
-    elsif user.password != password && user.email != email
+    elsif BCrypt::Password.new(user.password) != password && user.email != email
       return erb(:login_error)
     else
       session[:user_username] = user.username

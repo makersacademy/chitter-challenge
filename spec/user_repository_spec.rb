@@ -52,7 +52,6 @@ describe UserRepository do
 
     expect(users.length).to eq(4)
     expect(users.last.email).to eq('jumbomumbo@flumbo.com')
-    expect(users.last.password).to eq('flipflop')
     expect(users.last.name).to eq('Bobby Boberson')
     expect(users.last.username).to eq('BlobFlop')
   end
