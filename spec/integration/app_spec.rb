@@ -25,6 +25,7 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Chitter</h1>')
+      expect(response.body).to include('<a href="/new_user">Sign up!</a>')
       expect(response.body).to include('Louis (lpc) says:')
       expect(response.body).to include('First post')
       expect(response.body).to include('- 12:00:00')
@@ -76,7 +77,54 @@ RSpec.describe Application do
 
       expect(response.status).to eq 400
       expect(response.body).to eq ''
+    end
+  end
 
+  context "GET /new_user" do
+    it 'returns 200 OK with the sign up form' do
+      response = get('/new_user')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
+      expect(response.body).to include('<form method="POST" action="/user">')
+    end
+  end
+
+  context "POST /user" do
+    it 'returns 200 OK with valid email and username' do
+      response = post(
+        '/user',
+        email: 'email@example.com',
+        password: 'password',
+        name: 'Jimmy',
+        username: 'jm123')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Sign up complete!</h1>')
+    end
+
+    xit 'returns 500 when email taken' do
+      response = post(
+        '/user',
+        email: 'lou@chitter.com',
+        password: 'password',
+        name: 'Jimmy',
+        username: 'jm123')
+
+      expect(response.status).to eq(500)
+      expect(response.body).to include('<div>Your email is already taken</div>')
+    end
+
+    xit 'returns 500 when username taken' do
+      response = post(
+        '/user',
+        email: 'lou@chitter.com',
+        password: 'password',
+        name: 'Jimmy',
+        username: 'jm123')
+
+      expect(response.status).to eq(500)
+      expect(response.body).to include('<div>Your username is already taken</div>')
     end
   end
 end

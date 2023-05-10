@@ -4,13 +4,11 @@
 You'll need to include:
   * the HTTP method: POST
   * the path: '/peep'
-  * Body parameters: content and username
+  * Body parameters: content and username (strings)
 
 ## 2. Design the Response
 
-`200 OK` as long as the username has been created
-`400` if username does not exist
-
+`200 OK` as long as the username or email are not taken
 ```html
 <!-- Response when the post is found: 200 OK -->
 

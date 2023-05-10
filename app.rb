@@ -17,7 +17,7 @@ class Application < Sinatra::Base
     @formatter = Formatter.new
     @peeps = repo.all_with_users.reverse
 
-    return erb(:home)
+    return erb(:index)
   end
 
   post '/peep' do
@@ -29,12 +29,28 @@ class Application < Sinatra::Base
       repo.create(peep)
       @formatter = Formatter.new
       @peeps = repo.all_with_users.reverse
-      return erb(:home)
+      return erb(:index)
     else
       @username = username
       status 400
       return invalid_peep_parameters? ? '' : erb(:unknown_username)
     end
+  end
+
+  get '/new_user' do
+    return erb(:new_user)
+  end
+
+  post '/user' do
+    repo = UserRepository.new
+    user = User.new
+    user.email = params['email']
+    user.password = params['password']
+    user.name = params['name']
+    user.username = params['username']
+
+    repo.create(user)
+    return erb(:user_created)
   end
 
   private
