@@ -58,9 +58,24 @@ describe Application do
       expect(response.body).not_to include '<a href="/sign-up">Sign Up</a>'
     end
     
-    it 'returns html with link to post a new peep' do
+    it 'returns html with link to post a new peep when logged in' do
+      user = User.new
+      user.email = 'hello@gmail.com'
+      user.password = 'new_pass_123!'
+      user.name = 'My Name'
+      user.username = 'new_username'
+      
+      repo = UserRepository.new
+      repo.create(user)
+      
+      post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
       response = get('/')
       expect(response.body).to include '<a href="/new-peep">Add new peep</a>'
+    end
+    
+    it 'returns no link to make a new peep when not logged in' do
+      response = get('/')
+      expect(response.body).not_to include '<a href="/new-peep">Add new peep</a>'
     end
     
     it 'returns html with link to log out when logged in' do
@@ -118,7 +133,7 @@ describe Application do
       post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
       response = get('/logout')
 
-      expect(response.status).to eq 200
+      expect(response.status).to eq 302
     end
   end
   
@@ -145,22 +160,60 @@ describe Application do
   end
   
   describe 'GET /new-peep' do
-    it 'returns 200 OK' do
-      response = get('/new-peep')
-      expect(response.status).to eq 200
+    context 'when user is logged in' do
+      it 'returns 200 OK' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+
+        repo = UserRepository.new
+        repo.create(user)
+
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        response = get('/new-peep')
+        expect(response.status).to eq 200
+      end
+      
+      it 'returns html with new peep form using POST /new-peep route' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+
+        repo = UserRepository.new
+        repo.create(user)
+
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        response = get('/new-peep')
+        expect(response.body).to include '<form action="/new-peep" method="POST">'
+        expect(response.body).to include '<input type="text" name="content">'
+        expect(response.body).to include '<input type="submit">'
+      end
+      
+      it 'returns html with link back to the homepage' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+
+        repo = UserRepository.new
+        repo.create(user)
+
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        response = get('/new-peep')
+        expect(response.body).to include '<a href="/">Back to homepage</a>'
+      end
     end
     
-    it 'returns html with new peep form using POST /new-peep route' do
-      response = get('/new-peep')
-      expect(response.body).to include '<form action="/new-peep" method="POST">'
-      expect(response.body).to include '<input type="text" name="content">'
-      expect(response.body).to include '<input type="text" name="user_id">'
-      expect(response.body).to include '<input type="submit">'
-    end
-    
-    it 'returns html with link back to the homepage' do
-      response = get('/new-peep')
-      expect(response.body).to include '<a href="/">Back to homepage</a>'
+    context 'when user is not logged in' do
+      it 'redirects to the login page' do
+        response = get('/new-peep')
+        expect(response.status).to eq 302
+      end
     end
   end
 
@@ -549,11 +602,21 @@ describe Application do
       end
       
       it 'adds a new peep to the database' do
+        user = User.new
+        user.email = 'hello@gmail.com'
+        user.password = 'new_pass_123!'
+        user.name = 'My Name'
+        user.username = 'new_username'
+
+        repo = UserRepository.new
+        repo.create(user)
+
+        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+
         response = post(
           '/new-peep',
           content: 'this is new content',
-          time_posted: Time.new(2000, 1, 2, 3, 4, 5),
-          user_id: '3'
+          time_posted: Time.new(2000, 1, 2, 3, 4, 5)
         )
         repo = PeepRepository.new
         expect(repo.all).to include(
@@ -561,7 +624,7 @@ describe Application do
             id: 8,
             content: 'this is new content',
             time_posted: Time.new(2000, 1, 2, 3, 4, 5),
-            user_id: 3
+            user_id: 5
           )
         )
       end

@@ -37,6 +37,7 @@ class Application < Sinatra::Base
   end
 
   get '/new-peep' do
+    return redirect('/login') if session[:user_id].nil?
     erb(:new_peep)
   end
   
@@ -97,7 +98,7 @@ class Application < Sinatra::Base
     peep = Peep.new
     peep.content = params[:content]
     peep.time_posted = params[:time_posted] || Time.new
-    peep.user_id = params[:user_id]
+    peep.user_id = session[:user_id]
     repo = PeepRepository.new
     repo.create(peep)
     erb(:new_peep_success)

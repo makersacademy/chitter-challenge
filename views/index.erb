@@ -6,9 +6,9 @@
             <p><a href="/login">Log In</a></p>
         <% else %>
             <p><a href="/logout">Log Out</a></p>
+            <p><a href="/new-peep">Add new peep</a></p>
         <% end %>
 
-        <p><a href="/new-peep">Add new peep</a></p>
         <h1>All Peeps</h1>
         <% @peeps.each do |peep| %>
             <p><%=peep.content %></p>
