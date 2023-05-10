@@ -20,7 +20,7 @@ RSpec.describe PeepRepository do
 
     expect(peeps.length).to eq(3)
     expect(peeps.first.time).to eq('2023-05-09 11:12:00')
-    expect(peeps.first.contents).to eq('hello, this is the third peep!')
+    expect(peeps.first.contents).to eq('I am peeping too! How cool')
     expect(peeps.first.account_id).to eq(3)
   end
 
@@ -44,7 +44,7 @@ RSpec.describe PeepRepository do
     peep_repo = PeepRepository.new
 
     peeps = peep_repo.all 
-    expect(peeps.first.contents).to eq('hello, this is the third peep!')
-    expect(peeps.first.find_username).to eq('kay1')
+    expect(peeps.first.contents).to eq('I am peeping too! How cool')
+    expect(peeps.first.find_username).to eq('will1')
   end
 end

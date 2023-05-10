@@ -14,7 +14,7 @@ describe Chitter do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
       expect(response.body).to include('<b>Alice Wood </b> (alice1) says... <br>')
-      expect(response.body).to include('hello, this is the third peep!')
+      expect(response.body).to include('I am peeping too! How cool')
     end
   end
 
@@ -49,14 +49,14 @@ describe Chitter do
 
   context 'POST /sign_up' do
     it 'adds the account details to the database and redirects to confirmation page' do
-      response = post('/sign_up', name: 'Leo Hetsch', email_address: 'leo@test.com', username: 'leo1', password: 'test')
+      response = post('/sign_up', name: 'Leo Hetsch', email_address: 'leo@example.com', username: 'leo1', password: 'test')
 
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>Welcome, your Chitter account has been created!</h1>")
     end
 
     it 'fails if the username and/or email are already in use' do
-      response = post('/sign_up', name: 'Alice Wood', email_address: 'alice@test.com', username: 'alice1', password: 'test')
+      response = post('/sign_up', name: 'Alice Wood', email_address: 'alice@example.com', username: 'alice1', password: 'test')
 
       expect(response.status).to eq(400)
       expect(response.body).to include("This username and/or email address are already in use, please try again!")

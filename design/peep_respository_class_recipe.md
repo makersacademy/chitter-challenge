@@ -25,8 +25,8 @@ TRUNCATE TABLE peeps RESTART IDENTITY;
 
 INSERT INTO peeps ("time", "contents", "account_id") VALUES
 ('2023-05-09 11:09:00', 'hello, this is the first peep!', 1),
-('2023-05-09 11:10:30', 'hello, this is the second peep!', 2),
-('2023-05-09 11:12:00', 'hello, this is the third peep!', 3)
+('2023-05-09 11:10:30', 'Oh wow, hello @alice1! Peep!!', 2),
+('2023-05-09 11:12:00', 'I am peeping too! How cool', 3)
 ```
 
 

@@ -21,7 +21,7 @@ RSpec.describe AccountRepository do
 
       expect(accounts.length).to eq(3)
       expect(accounts.first.id).to eq(1)
-      expect(accounts.first.email_address).to eq('alice@test.com')
+      expect(accounts.first.email_address).to eq('alice@example.com')
       expect(accounts.first.username).to eq('alice1')
       expect(accounts.first.name).to eq('Alice Wood')
       expect(accounts.first.password).to eq('test123')
@@ -33,7 +33,7 @@ RSpec.describe AccountRepository do
       account = repo.find(2)
 
       expect(account.id).to eq(2)
-      expect(account.email_address).to eq('chris@test.com')
+      expect(account.email_address).to eq('chris@example.com')
       expect(account.username).to eq('chris1')
       expect(account.name).to eq('Chris Wood')
       expect(account.password).to eq('test321')
@@ -44,7 +44,7 @@ RSpec.describe AccountRepository do
     repo = AccountRepository.new
 
     account = Account.new
-    account.email_address = 'leo@test.com'
+    account.email_address = 'leo@example.com'
     account.username = 'leo1'
     account.name = 'Leo Hetsch'
     account.password = 'test456'
@@ -54,7 +54,7 @@ RSpec.describe AccountRepository do
     accounts = repo.all
 
     expect(accounts.length).to eq(4)
-    expect(accounts.last.email_address).to eq('leo@test.com')
+    expect(accounts.last.email_address).to eq('leo@example.com')
     expect(accounts.last.username).to eq('leo1')
     expect(accounts.last.name).to eq('Leo Hetsch')
     expect(accounts.last.password).to eq('test456')

@@ -26,9 +26,9 @@ If seed data is provided (or you already created it), you can skip this step.
 TRUNCATE TABLE accounts RESTART IDENTITY; -- replace with your own table name.
 
 INSERT INTO accounts ("email_address", "username", "name", "password") VALUES
-('alice@test.com', 'alice1', 'Alice Wood', 'test123'),
-('chris@test.com', 'chris1', 'Chris Wood', 'test321'),
-('kay@test.com', 'kay1', 'Kay Lack', 'test987')
+('alice@example.com', 'alice1', 'Alice Wood', 'test123'),
+('chris@example.com', 'chris1', 'Chris Wood', 'test321'),
+('will@example.com', 'will1', 'will Davies', 'test987')
 ```
 
 ## 3. Define the class names
@@ -122,7 +122,7 @@ accounts = repo.all
 accounts.length # =>  3
 
 accounts.first.id # =>  1
-accounts.first.email_address # => 'alice@test.com'
+accounts.first.email_address # => 'alice@example.com'
 accounts.first.username # => 'alice1'
 accounts.first.name # =>  'Alice Wood'
 accounts.first.password # =>  'test123'
@@ -135,7 +135,7 @@ repo = AccountRepository.new
 account = repo.find(2)
 
 accounts.id # =>  1
-accounts.email_address # => 'chris@test.com'
+accounts.email_address # => 'chris@example.com'
 accounts.username # => 'chris1'
 accounts.name # =>  'Chris Wood'
 accounts.password # =>  'test321'
@@ -147,7 +147,7 @@ repo = AccountRepository.new
 
 account = Account.new
 
-account.email_address = 'leo@test.com'
+account.email_address = 'leo@example.com'
 account.username ='leo1'
 account.name = 'Leo Hetsch'
 account.password = 'test456'
@@ -157,7 +157,7 @@ repo.add(account)
 accounts = repo.all
 
 accounts.length # => 4
-accounts.last.email_address # =>  'leo@test.com'
+accounts.last.email_address # =>  'leo@example.com'
 accounts.last.username # => 'leo1'
 accounts.last.name # =>  'Leo Hetsch'
 accounts.last.password # =>  'test456'
