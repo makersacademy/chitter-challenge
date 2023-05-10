@@ -8,8 +8,7 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
-  # This allows the app code to refresh
-  # without having to restart the server.
+
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
@@ -31,15 +30,45 @@ class Application < Sinatra::Base
     new_peep = Peep.new
     new_peep.content = params[:content]
     new_peep.time = Time.now
-    new_peep.user_id = '1'
+    new_peep.user_id = '1' # Refactor once login sessions have been implemented!
 
     PeepRepository.new.create(new_peep)
 
     return erb(:peep_posted)
   end
 
-  get '/signup' do
-    return 
+  get '/signup' do 
+    return erb(:signup)
+  end
+
+  post '/signup' do
+
+    new_user = User.new
+    new_user.name = params[:name]
+    new_user.username = params[:username]
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+
+    users = UserRepository.new
+
+    if duplicate_email_or_username?
+      status 400
+      return 'Error: email or username already exists. Please use a unique email address & username'
+    else
+      users.create(new_user)
+      return erb(:account_created)
+    end
+  end
+
+  def duplicate_email_or_username?
+
+    repo = UserRepository.new
+    repo.all.each do |user|
+      return true if user.username == params[:username] || user.email == params[:email]
+    end
+    
+    return false
+
   end
 
 end

@@ -37,22 +37,50 @@ describe Application do
 
   context 'POST /peeps' do
     it 'Posts a new peep' do
-      response = post('/peeps')
+      response = post('/peeps', content: 'Testing new peep')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('Peep successfully posted!')
       expect(response.body).to include('<a href="/">')
+
+      get = get('/')
+      expect(get.body).to include('Testing new peep')
     end
   end
 
   context 'GET /signup' do
-    xit 'Displays sign up form' do
+    it 'Displays sign up form' do
       response = get('/signup')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/signup">')
-      expect(response.body).to include('<input type="text" name="email" ')
-      expect(response.body).to include('<input type="text" name="password" ')
+      expect(response.body).to include('<input type="email" name="email" ')
+      expect(response.body).to include('<input type="password" name="password" ')
+      expect(response.body).to include('<input type="text" name="name" ')
+      expect(response.body).to include('<input type="text" name="username" ')
+    end
+  end
+
+  context 'POST /signup' do
+    it 'Successfully creates a new unique account' do
+      response = post('/signup', name: 'Toad', username: 'mushroomtoad', email: 'toad@makersacademy.com', password: 'mushroom123')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Chitter account successfully created!')
+      expect(response.body).to include('<a href="/">')
+    end
+
+    it 'Fails if email or username already exists' do
+      response = post('signup', name: 'Diddy Kong', username: 'dkong', email: 'dkong@makersacademy.com', password: 'PROBLEM')
+
+      expect(response.status).to eq(400)
+      expect(response.body).to include('Error: email or username already exists. Please use a unique email address & username')
+    end
+  end
+
+  context 'GET /peeps/:id' do
+    xit 'Opens a specific peep' do
+      
     end
   end
 
