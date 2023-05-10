@@ -23,6 +23,10 @@ class Application < Sinatra::Base
     return erb(:sign_up)
   end
 
+  get '/login' do
+    return erb(:log_in)
+  end
+
   get '/user/page' do
     @peeps_reverse_chron_order = Peep.order(created_at: :desc)
     return erb(:user_page)

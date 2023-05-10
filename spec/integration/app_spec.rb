@@ -105,9 +105,22 @@ RSpec.describe Application do
 
       expect(response.body).to include "<a href=\"/login\"> Click here to log in </a>"
     end
-
-    # will implement username in path when I implement sessions
   end
+
+  context 'GET /login' do
+    it 'returns a form html view with a form to log in' do
+      response = get("/login")
+
+      expect(response.status).to eq 200     
+      
+      expect(response.body).to include '<form method="POST" action="/authenticate-login">'
+
+      expect(response.body).to include '<input type="text" name="email_address">'
+      expect(response.body).to include '<input type="text" name="password">'
+    end
+  end
+
+  # will implement username in path when I implement sessions
 
   context 'GET /user/page' do
     it 'displays an html view with a link to create a peep' do
