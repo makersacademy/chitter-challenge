@@ -4,13 +4,13 @@
   </head>
   <body>
     <h1>Chitter</h1>
+    <a href="/">Back to home page</a>
     <%= @formatter.format_user(@user) %>
     <h3>Peeps:</h3>
     <% @peeps.each do |peep| %>
       <div><%= peep.content %></div>
       <div>- <%= peep.time %></div>
-      <br/>
+      <p>--------</p>
       <% end %>
-    <a href="/">Back to home page</a>
   </body>
 </html>

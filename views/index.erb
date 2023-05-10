@@ -17,11 +17,11 @@
       </div>
       <input type="submit">
     </form>
-    <h2>Posts:</h2>
+    <h2>All peeps:</h2>
     <% @peeps.each do |peep| %>
     <div>
       <%= @formatter.format_peep(peep) %>
-      <br>
+      <p>--------</p>
     </div>
     <% end %>
   </body>

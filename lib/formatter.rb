@@ -31,6 +31,7 @@ class Formatter
   end
 
   def tag_to_link(tag)
+    return tag unless username_exists?(tag[1..])
     username = tag[1..]
     return link(username)
   end
@@ -42,4 +43,11 @@ class Formatter
     end
     return content
   end
+
+  def username_exists?(username)
+    repo = UserRepository.new
+    usernames = repo.all.map { |user| user.username }
+    return usernames.include?(username)
+  end
+
 end

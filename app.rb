@@ -45,7 +45,7 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     @user = repo.find_with_peeps(params[:id])
     @formatter = Formatter.new
-    @peeps = @user.peeps
+    @peeps = @user.peeps.reverse
 
     return erb(:user_page)
   end
