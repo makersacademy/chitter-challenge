@@ -113,11 +113,28 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200     
       
-      expect(response.body).to include '<form method="POST" action="/authenticate-login">'
+      expect(response.body).to include '<form method="POST" action="/login">'
 
       expect(response.body).to include '<input type="text" name="email_address">'
       expect(response.body).to include '<input type="text" name="password">'
     end
+  end
+
+  context 'POST /login' do
+    it 'logs in an existing user, saves their data in a session and returns html confirmation' do
+      response = post(
+        "/login",
+        email_address: "User1@gmail.com",
+        password: "password1"
+      )
+
+      expect(response.status).to eq 200     
+   
+      expect(response.body).to include "<h1> Welcome back to Chitter, User 1! </h1>"
+      expect(session['name']).to eq "User 1"
+      expect(session['email_address']).to eq "User1@gmail.com"
+    end
+    
   end
 
   # will implement username in path when I implement sessions

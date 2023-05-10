@@ -27,6 +27,19 @@ class Application < Sinatra::Base
     return erb(:log_in)
   end
 
+  post '/login' do
+    email = params[:email_address]
+    password = params[:password]
+
+    # finds user with matching email and password
+    @user = User.authenticate(email, password)
+    # stores user details in session 
+    session[:name] = @user.name
+    session[:email_address] = @user.email_address
+    
+    return erb(:log_in_confirmation)
+  end
+
   get '/user/page' do
     @peeps_reverse_chron_order = Peep.order(created_at: :desc)
     return erb(:user_page)
