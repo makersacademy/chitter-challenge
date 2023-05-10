@@ -1,7 +1,7 @@
 * {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     text-align: center;
-    text-shadow: 2px 2px aquamarine;
+    text-shadow: 2px 2px black;
     font-weight: bold;
     color: deeppink;
 }
@@ -23,8 +23,12 @@ p {
 }
 
 .peep-container {
-    background-color: salmon;
-    width: 50%;
-    margin: auto;
-    background-image: url("pigeon_art.jpeg");
+    width: 45%;
+    margin: 10px auto 10px auto;
+    background-image: url("pigeon-in-flight-2.jpg");
+    border: 5px solid blue;
+    border-radius: 10px;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
 }
