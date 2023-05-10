@@ -7,6 +7,9 @@ require_relative 'lib/database_connection'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/maker_repository'
@@ -28,7 +31,7 @@ class Application < Sinatra::Base
     return erb(:signuppage)
   end
 
-  post '/makers/new' do
+  post '/signup' do
     repo = MakerRepository.new
     maker = Maker.new
     maker.name = params[:name]
@@ -46,7 +49,7 @@ class Application < Sinatra::Base
       status 400
     else
       repo.create(maker)
-      redirect '/'
+      redirect '/loginpage'
     end
   end
 
@@ -54,9 +57,17 @@ class Application < Sinatra::Base
     return erb(:loginpage)
   end
 
-  get '/maker/:id' do
+  post '/loginpage' do
+    username = params[:username]
+    password = params[:password]
     repo = MakerRepository.new
-    @selected = repo.find(params[:id])
-    return erb(:userpage)
+    @maker = repo.find_by_username(username)
+    
+    if @maker.password == password
+      session[:maker_id] = @maker.id
+      return erb(:userpage)
+    else
+      return erb(:login_error)
+    end
   end
 end

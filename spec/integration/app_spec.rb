@@ -42,37 +42,39 @@ describe Application do
     it 'Should return a login submit form' do
       response = get('/loginpage')
       expect(response.status).to eq (200)
-      expect(response.body).to include ('<form method="GET" action="/maker/:id">')
+      expect(response.body).to include ('<form method="POST" action="/loginpage">')
       expect(response.body).to include ('<input type="text" name="username"/>')
       expect(response.body).to include ('<input type="text" name="password"/>')
       expect(response.body).to include ('<input type="submit"/>')
     end
 
-    # it 'Should return an error/fail when username is not present within the DB' do
+    it 'Should return an error page when username is not present within the DB' do
+      response = post('/loginpage', username: 'FakeUsername', password: 'Password1!')
+      expect(response.status).to eq(500)
+    end
 
-    # end
+    it 'Should return an alternate/error page when password is incorrect' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password')
+      expect(response.status).to eq(200)
+      expect(response.body).to include ('Login unsuccessful')
+      expect(response.body).to include ('<p>Please return to the login page and try again</p>')
+      expect(response.body).to include ('<a href="/loginpage">Login page</a>')
+    end
 
-    # it 'Should return an error/fail when password is incorrect' do
-      
-    # end
-  end
-
-
-  context '/maker/:id' do
     it 'Should return a welcome banner with the correct users name' do
-      response = get('/maker/1')
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       expect(response.status).to eq(200)
       expect(response.body).to include ('Matty Boi')
     end
 
     it 'Should return a welcome banner with the correct users name' do
-      response = get('/maker/2')
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
       expect(response.status).to eq(200)
       expect(response.body).to include ('Hayley Lady')
     end
 
     it 'Should return a list of user options as hyperlinks' do
-      response = get('/maker/1')
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       expect(response.status).to eq(200)
       expect(response.body).to include ('<a href="/peep/new">Post a peep</a>')
       expect(response.body).to include ('<a href="/peep/delete">Delete a peep</a>')
@@ -85,37 +87,35 @@ describe Application do
     it 'Should return a sign up form to add a new maker to the database' do
       response = get('/signup')
       expect(response.status).to eq (200)
-      expect(response.body).to include ('<form method="POST" action="/makers/new">')
+      expect(response.body).to include ('<form method="POST" action="/signup">')
       expect(response.body).to include ('<h1>Create an account</h1>')
       expect(response.body).to include ('<input type="text" name="name"/>')
       expect(response.body).to include ('<label>Username:</label>')
       expect(response.body).to include ('<input type="text" name="username"/>')
     end
-  end
-
-  context '/makers/new' do
+  
     it 'Should add a new maker to the database/create a maker account and then redirect to user page' do
-      response = post('/makers/new', name: 'Matt', username: 'mattmatttest', email_address: 'bigmatt44@gmail.com', password: 'ValidPassword12')
+      response = post('/signup', name: 'Matt', username: 'mattmatttest', email_address: 'bigmatt44@gmail.com', password: 'ValidPassword12')
       expect(response.status).to eq (302)
     end
 
     it 'Should return an error when username already exists in database' do
-      response = post('/makers/new', name: 'Hayley A', username: 'HayleyOk', email_address: 'hayleyhayley@tiscali.net', password: 'AnotherPass1')
+      response = post('/signup', name: 'Hayley A', username: 'HayleyOk', email_address: 'hayleyhayley@tiscali.net', password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
 
     it 'Should return an error when the email address already exists in the database' do
-      response = post('/makers/new', name: 'Hayley A', username: 'HayleyAlt', email_address: 'another_fake_email420@gmail.com', password: 'AnotherPass1')
+      response = post('/signup', name: 'Hayley A', username: 'HayleyAlt', email_address: 'another_fake_email420@gmail.com', password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
 
     it 'Should return an error when a nil value is entered' do
-      response = post('/makers/new', name: 'Matt H', username: 'MattAlt', email_address: nil, password: 'AnotherPass1')
+      response = post('/signup', name: 'Matt H', username: 'MattAlt', email_address: nil, password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
 
     it 'Should return an error when an input is empty' do
-      response = post('/makers/new', name: 'Matt H', username: '', email_address: 'fakestofthemall@testmail.com', password: 'AnotherPass1')
+      response = post('/signup', name: 'Matt H', username: '', email_address: 'fakestofthemall@testmail.com', password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
   end
