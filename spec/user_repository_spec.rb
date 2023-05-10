@@ -18,4 +18,11 @@ describe UserRepository do
     expect(users.first.name).to eq 'Aubrey Salmins'
     expect(users.last.name).to eq 'Budsy'
   end
+
+  it 'returns one user' do
+    repo = UserRepository.new
+    user = repo.find(1)
+    expect(user.id).to eq 1
+    expect(user.name).to eq 'Aubrey Salmins'
+  end
 end
