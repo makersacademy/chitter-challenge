@@ -34,15 +34,23 @@ describe Application do
       expect(response.body).to include "Peep 1"
       expect(response.body).to include "Meow"
     end
-
-    
   end
+
   context 'POST /' do
     it 'posts a new peep' do
       response = post('/', title: 'New peep', content: 'new peep content')
-
       expect(response.status).to eq 200
       expect(response.body).to include 'New peep'
+    end
+  end
+
+  context 'GET /signup' do
+    it 'gets the signup page' do
+      response = get('/signup')
+      
+      expect(response.status).to eq 200
+      expect(response.body).to include '<h2>Sign up</h2>'
+      expect(response.body).to include '<label>Password</label>'
     end
   end
 end

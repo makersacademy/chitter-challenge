@@ -32,5 +32,9 @@ class Application < Sinatra::Base
     @peep_list = repo.all
     return erb(:index)
   end
+
+  get "/signup" do
+    return erb(:signup)
+  end
 end
 
