@@ -3,18 +3,35 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <style>
+    h1 {
+        color: rgb(0, 150, 255);
+    }
+
+    .display {
+      margin-top: 30px;
+      width: 30%;
+      border: 3px solid rgb(182, 208, 226);
+      padding: 10px;
+      text-align: center;
+    }
+    </style>
   </head>
   <body>
-    <h1>Chitters</h1>
+    <h1 class="heading">Chitters</h1>
 
+    <div class="display">
+      <% @chitters.each do |chitter| %>
+      <h2>User <%= @users.find_by_user_id(chitter.user_id).username %></h2><br />
+      <p>Time: <%= chitter.created_at.strftime("%m-%d %H:%M:%S") %> Chitter: <%= chitter.peep %></p><br />
+      <hr>
+      <% end %>
+    </div>
 
-    <% @chitters.each do |chitter| %>
-    <h2>User <%= @users.find_by_user_id(chitter.user_id).username %></h2><br />
-    <p>Time: <%= chitter.created_at.strftime("%m-%d %H:%M:%S") %> Chitter: <%= chitter.peep %></p><br />
-    <hr>
-    <% end %>
-
-    <h2>Write new chitter <a href="/chitters/new">here</a></h2>
-    <h2>Return to <a href="/">homepage</a></h2>
   </body>
+
+  <footer>
+    <p>Write new chitter <a href="/chitters/new">here</a></p>
+    <p>Return to <a href="/">homepage</a></p>
+  </footer>
 </html>
