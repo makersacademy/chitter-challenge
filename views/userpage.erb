@@ -39,10 +39,10 @@
         <label>what's peeping?:</label>
         <input type="text" name="content">
         </div>
-        <div>
+        <!-- <div>
         <label>tag your friends:</label>
         <input type="text" name="tagged_users">
-        </div>
+        </div> -->
         <input type="hidden" name="user_id" value = <%=@user.id%>>
 
         <input type="submit" value="post my peep">
@@ -65,6 +65,9 @@
   <!-- Peeps tagged in  -->
   <div class="container">
     <h2>Tagged Peeps</h2>
+        <% if @tagged_peeps.length == 0 then %>
+            <p> You haven't been tagged in any peeps yet! </p>
+        <% end %>
         <% @tagged_peeps.each do |peep| %>
         <div class="peep">
             <p> <%= @user_repo.find(peep.user_id).username %>: </p>
@@ -75,7 +78,7 @@
   </div>
 
     <!-- View all Peeps  -->
-  <div class="container">
+  <div class="userbanner">
     <a href='/peeps'><h2>View all Peeps</h2></a>
         
   </div>
@@ -86,7 +89,7 @@
 
   <div class="footer">
   <div>
-    <a href='/'>Homepage</a>
+    <h2> <a href='/'>Homepage</a> </h2>
   </div>
     <p>Website made by Caroline</p>
   </div>

@@ -32,7 +32,7 @@
         </div>
         <div>
         <label>password:</label>
-        <input type="text" name="password">
+        <input type="password" name="password">
         </div>
 
         <input type="submit" value="log me in">
@@ -46,7 +46,7 @@
 <div class="container">
     <h2>Latest Peeps</h2>
     <div class="peep">
-        <p>  <%= @user_repo.find(@peeps[0].user_id).username%>: </p>
+        <p> <%= @user_repo.find(@peeps[0].user_id).name%> (@<%= @user_repo.find(@peeps[0].user_id).username%>): </p>
         <h3> <%= @peeps[0].content %> </h3>
         <p> <%= @peeps[0].time %> </p>
         <% if @user_repo.get_tagged_users(@peeps[0].id).length > 0 then %>
@@ -57,7 +57,7 @@
              <% end %>
     </div>
     <div class="peep">
-        <p>  <%= @user_repo.find(@peeps[1].user_id).username%>: </p>
+        <p> <%= @user_repo.find(@peeps[1].user_id).name%> (@<%= @user_repo.find(@peeps[1].user_id).username%>): </p>
         <h3> <%= @peeps[1].content %> </h3>
         <p> <%= @peeps[1].time %> </p>
         <% if @user_repo.get_tagged_users(@peeps[1].id).length > 0 then %>
@@ -68,8 +68,10 @@
              <% end %>
     </div>
 
-    <a href='/peeps'>View all peeps</a>
+  </div>
 
+  <div class = 'userbanner'>
+  <h2> <a href='/peeps'>View all peeps</a> </h2>
   </div>
 
 
