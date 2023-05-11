@@ -52,7 +52,7 @@ describe Application do
 
     it 'Should return an error page when username is not present within the DB' do
       response = post('/loginpage', username: 'FakeUsername', password: 'Password1!')
-      expect(response.status).to eq(500)
+      expect(response.status).to eq(500)  # add an alternate fail test here. 
     end
 
     it 'Should return an alternate/error page when password is incorrect' do
@@ -277,11 +277,22 @@ describe Application do
   #   end
   # end
 
-  # context '/userpage' do
-  #   it 'Should not allow user to enter user page if not logged in' do
-  #     response = get('/userpage')
-  #     expect(response.status).to eq (200)
-  #     expect(response.body)
-  #   end
-  # end
+  context '/userpage' do
+    it 'Should not allow user to enter user page if not logged in' do
+      response = get('/userpage')
+      expect(response.status).to eq (200)
+    end
+
+    it 'Should return the userpage when user is logged in' do
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = get('/userpage')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<a href="/">Homepage</a>')
+      expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
+      expect(response.body).to include ('<a href="/delete_peep">Delete a peep</a>')
+      expect(response.body).to include ('<a href="/peeps/:id">View your previous peeps</a>')
+      expect(response.body).to include ('<a href="/update">Update/change your details</a>')
+      expect(response.body).to include ('<a href="/logout">Log out</a>')
+    end
+  end
 end
