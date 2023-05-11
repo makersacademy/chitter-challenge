@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url("pigeons.jpeg");
+    background-image: url(pigeons.jpeg);
 }
 
 h1 {
@@ -25,7 +25,7 @@ p {
 .peep-container {
     width: 45%;
     margin: 10px auto 10px auto;
-    background-image: url("pigeon-in-flight-2.jpg");
+    background-image: url(pigeon-in-flight-2.jpg);
     border: 5px solid blue;
     border-radius: 10px;
     background-position: center; /* Center the image */
