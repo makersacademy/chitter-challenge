@@ -114,6 +114,22 @@ class Application < Sinatra::Base
     return erb(:peep_created)
   end
 
+  get '/delete_peep' do
+
+  end
+
+  post '/delete_peep' do
+
+  end
+
+  get '/update_details' do
+
+  end
+
+  post '/update_details' do
+
+  end
+
   get '/logout' do
     session[:id] = nil
     return redirect('/')

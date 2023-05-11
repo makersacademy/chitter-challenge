@@ -15,9 +15,9 @@ describe PeepRepository do
   context 'all' do
     it 'Should return all peeps from database' do
       repo = PeepRepository.new
-      expect(repo.all.length).to eq(2)
+      expect(repo.all.length).to eq(4)
       expect(repo.all.first.id).to eq(1)
-      expect(repo.all.last.id).to eq(2)
+      expect(repo.all.last.id).to eq(4)
       expect(repo.all[1].title).to eq('Hayleys peep')
       expect(repo.all[1].date_posted).to eq('2023-07-21 12:25:12')
     end
@@ -26,7 +26,7 @@ describe PeepRepository do
   context 'Peeps by Maker' do
     it 'should only show peeps by selected Maker' do
       repo = PeepRepository.new
-      expect(repo.by_maker(2).length).to eq (1)
+      expect(repo.by_maker(2).length).to eq (2)
       expect(repo.by_maker(2)[0].maker_id).to eq (2)
       expect(repo.by_maker(2)[0].content).to eq ('Another test peep')
     end
@@ -39,8 +39,8 @@ describe PeepRepository do
       repo.create(peep)
       expect(repo.all.last.content).to eq('double peeps content')
       expect(repo.all.last.date_posted).to eq('2023-12-04 10:45:32')
-      expect(repo.all.length).to eq(3)
-      expect(repo.all.last.id).to eq(3)
+      expect(repo.all.length).to eq(5)
+      expect(repo.all.last.id).to eq(5)
       expect(repo.all.last.maker_id).to eq(2)
     end
   end
@@ -49,7 +49,7 @@ describe PeepRepository do
     it 'Should remove the row from the database that corresponds with passed id' do
       repo = PeepRepository.new
       repo.delete(1)
-      expect(repo.all.length).to eq(1)
+      expect(repo.all.length).to eq(3)
       expect(repo.all.first.id).to eq (2)
     end
   end

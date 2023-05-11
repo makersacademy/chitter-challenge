@@ -194,11 +194,6 @@ describe Application do
       response = post('/loginpage', username: 'logout', password: 'validpassword')
       response = get('/logout')
       expect(response.status).to eq (302)
-      expect(response.body).to include ('<a href="/peeps">View all peeps</a>')
-      expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
-      expect(response.body).to include ('<a href="/loginpage">Log in</a>')
-      expect(response.body).to include ('<a href="/signup">Sign up</a>')
-      expect(response.body).to include ('<a href="/userpage">My account</a>')
     end
 
     it 'Should return the homepage with the session set to nil - This will prevent user from posting a peep' do
@@ -221,9 +216,25 @@ describe Application do
     end
   end
 
+  context '/delete_peep' do
+    it 'Should only allow the user to delete a peep if they are logged into their account' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+    end
 
-  # context '/delete_peep' do
-  #   it 'Should ' do
+    it 'Should send the user to a new log in page if the user attempts to delete a peep without logging in' do
+      
+    end
+
+    it 'Should delete the selected peep if the peep belongs to the user' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+
+      response = post('/delete_peep')
+
+    end
+  end
+
+  # context '/update_details' do
+  #   it 'Should' do
 
   #   end
   # end
