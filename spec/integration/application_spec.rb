@@ -126,6 +126,8 @@ describe Application do
       expect(users[2].name).to eq  'TestName'
       expect(users[2].email).to eq  'testemail@email.com'
       expect(users[2].username).to eq 'testusername1'
+      expect(BCrypt::Password.new(users[2].password)).to eq 'test'
+
     end
 
   end
@@ -186,9 +188,15 @@ describe Application do
     end
 
     it 'rejects a log-in if password is wrong' do
-      response = post('/userpage',
-        username:'caro',
+      response = post('/signup',
+        name:'TestName',
+        email:'testemail@email.com',
+        username: 'testusername1',
         password: 'test')
+      
+      response = post('/userpage',
+        username:'testusername1',
+        password: 'testing')
       expect(response.status).to eq 400
   
       expect(response.body).to include 'Invalid user details.'
@@ -206,9 +214,15 @@ describe Application do
     end
 
     it 'redirects the user on a successful log-in' do
+      response = post('/signup',
+        name:'TestName',
+        email:'testemail@email.com',
+        username: 'testusername1',
+        password: 'test')
+      
       response = post('/userpage',
-        username:'caro',
-        password: 'pwtest1')
+        username:'testusername1',
+        password: 'test')
       expect(response.status).to eq 302
     end
 

@@ -29,6 +29,6 @@ rackup
 
 ## Contact
 - [Caroline Evans](mailto:carolineevans261@gmail.com)
-- [Project Website](https://chitter-the-chit-chat-app.onrender.com)
+
 
 ## Build information

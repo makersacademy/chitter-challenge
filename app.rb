@@ -1,6 +1,7 @@
 # file: app.rb
 require 'sinatra'
 require "sinatra/reloader"
+require 'bcrypt'
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
@@ -61,11 +62,13 @@ class Application < Sinatra::Base
       return 'Invalid credentials, please try again.'
     end
 
+    encrypted_password = BCrypt::Password.create(params[:password])
+
     user = User.new
     user.name = params[:name]
     user.email = params[:email]
     user.username = params[:username]
-    user.password = params[:password]
+    user.password = encrypted_password
 
     users.create(user)
 
@@ -129,11 +132,12 @@ class Application < Sinatra::Base
     end
 
     username = params[:username]
-    password = params[:password]
+    entered_password = params[:password]
 
     user = user_repo.find_by_username(username)
-   
-    if user.password == password
+
+    stored_password = BCrypt::Password.new(user.password)
+    if stored_password == entered_password
       # Set the user ID in session
       session[:user_id] = user.id
 
