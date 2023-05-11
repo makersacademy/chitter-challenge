@@ -2,6 +2,19 @@ require 'spec_helper'
 require 'rack/test'
 require_relative '../../app'
 
+def log_in_a_user
+  user = User.new
+  user.email = 'hello@gmail.com'
+  user.password = 'new_pass_123!'
+  user.name = 'My Name'
+  user.username = 'new_username'
+  
+  repo = UserRepository.new
+  repo.create(user)
+  
+  post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+end
+
 describe Application do
   include Rack::Test::Methods
 
@@ -46,32 +59,14 @@ describe Application do
     end
     
     it 'does not return html with link to log in or sign up when logged in' do
-      user = User.new
-      user.email = 'hello@gmail.com'
-      user.password = 'new_pass_123!'
-      user.name = 'My Name'
-      user.username = 'new_username'
-      
-      repo = UserRepository.new
-      repo.create(user)
-      
-      post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+      log_in_a_user
       response = get('/')
       expect(response.body).not_to include '<a href="/login">Log In</a>'
       expect(response.body).not_to include '<a href="/sign-up">Sign Up</a>'
     end
     
     it 'returns html with link to post a new peep when logged in' do
-      user = User.new
-      user.email = 'hello@gmail.com'
-      user.password = 'new_pass_123!'
-      user.name = 'My Name'
-      user.username = 'new_username'
-      
-      repo = UserRepository.new
-      repo.create(user)
-      
-      post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+      log_in_a_user
       response = get('/')
       expect(response.body).to include '<a href="/new-peep">Add new peep</a>'
     end
@@ -82,16 +77,7 @@ describe Application do
     end
     
     it 'returns html with link to log out when logged in' do
-      user = User.new
-      user.email = 'hello@gmail.com'
-      user.password = 'new_pass_123!'
-      user.name = 'My Name'
-      user.username = 'new_username'
-      
-      repo = UserRepository.new
-      repo.create(user)
-      
-      post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+      log_in_a_user
       response = get('/')
       expect(response.body).to include '<a href="/logout">Log Out</a>'
     end
@@ -124,18 +110,8 @@ describe Application do
 
   describe 'GET /logout' do
     it 'logs the user out' do
-      user = User.new
-      user.email = 'hello@gmail.com'
-      user.password = 'new_pass_123!'
-      user.name = 'My Name'
-      user.username = 'new_username'
-      
-      repo = UserRepository.new
-      repo.create(user)
-      
-      post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+      log_in_a_user
       response = get('/logout')
-
       expect(response.status).to eq 302
     end
   end
@@ -165,31 +141,13 @@ describe Application do
   describe 'GET /new-peep' do
     context 'when user is logged in' do
       it 'returns 200 OK' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-
-        repo = UserRepository.new
-        repo.create(user)
-
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        log_in_a_user
         response = get('/new-peep')
         expect(response.status).to eq 200
       end
       
       it 'returns html with new peep form using POST /new-peep route' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-
-        repo = UserRepository.new
-        repo.create(user)
-
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        log_in_a_user
         response = get('/new-peep')
         expect(response.body).to include '<form action="/new-peep" method="POST">'
         expect(response.body).to include '<input type="textarea" name="content">'
@@ -197,16 +155,7 @@ describe Application do
       end
       
       it 'returns html with link back to the homepage' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-
-        repo = UserRepository.new
-        repo.create(user)
-
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        log_in_a_user
         response = get('/new-peep')
         expect(response.body).to include '<a href="/">Back to homepage</a>'
       end
@@ -223,58 +172,22 @@ describe Application do
   describe 'POST /login' do
     context 'when used with valid params' do
       it 'returns 200 OK' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-
-        repo = UserRepository.new
-        repo.create(user)
-
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        response = log_in_a_user
         expect(response.status).to eq 200
       end
 
       it 'returns html success message' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-
-        repo = UserRepository.new
-        repo.create(user)
-
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        response = log_in_a_user
         expect(response.body).to include '<h1>Success!</h1>'
       end
       
       it 'returns html with link back to the homepage' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-  
-        repo = UserRepository.new
-        repo.create(user)
-  
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        response = log_in_a_user
         expect(response.body).to include '<p><a href="/">Back to homepage</a></p>'
       end
       
       it 'logs the user in' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-        
-        repo = UserRepository.new
-        repo.create(user)
-        
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        response = log_in_a_user
         expect(response.body).to include '<h2>Hello My Name! You are logged in as new_username</h2>'
       end
     end
@@ -625,16 +538,7 @@ describe Application do
       end
       
       it 'adds a new peep to the database' do
-        user = User.new
-        user.email = 'hello@gmail.com'
-        user.password = 'new_pass_123!'
-        user.name = 'My Name'
-        user.username = 'new_username'
-
-        repo = UserRepository.new
-        repo.create(user)
-
-        response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
+        log_in_a_user
 
         response = post(
           '/new-peep',
