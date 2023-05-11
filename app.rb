@@ -82,17 +82,16 @@ class Application < Sinatra::Base
   post '/user/new-peep' do
     new_peep_text = params[:text]
     tag = params[:tag]
-
     author = User.find_by(name: session[:name])
 
     new_peep = Peep.new(text: new_peep_text)
     new_peep.user=(author)
 
-    unless tag.nil? do
-      existing_tag = Tag.find_by(content: tag)
-      new_peep.tags<<existing_tag
+    unless tag.nil? 
+      tag = Tag.find_or_create_by(content: tag)
+      new_peep.tags<<tag
     end
-    
+
     new_peep.save
     return erb(:new_peep)
   end

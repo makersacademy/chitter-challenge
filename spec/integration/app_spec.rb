@@ -345,6 +345,7 @@ RSpec.describe Application do
       expect(latest_peep.text).to eq "It's peepin off"
       expect(latest_peep.user_id).to eq 1
       expect(latest_peep.tags.size).to eq 0
+
       end
     end
 
@@ -372,8 +373,21 @@ RSpec.describe Application do
     end
 
     context 'new peep with a new optional tag' do
-      xit 'creates a new tag in the database and associates it with the new peep' do
-        
+      it 'creates a new tag in the database and associates it with the new peep' do
+        session = { 'rack.session' => { name: 'User 1' } }
+
+        response = post(
+        '/user/new-peep',
+        { :text => "Hello", :tag => 'new tag' }, 
+        session
+        ) 
+
+        expect(response.status).to eq 200    
+
+        latest_peep = Peep.last
+        existing_tag = latest_peep.tags.first
+        expect(latest_peep.tags.size).to eq 1
+        expect(existing_tag.content).to eq "new tag"        
       end
     end
 
