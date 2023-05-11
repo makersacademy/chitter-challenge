@@ -78,7 +78,8 @@ describe Chitter do
       response = post('/login', name: 'Alice Wood', email_address: 'alice@example.com', username: 'alice1', password: 'test123')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Welcome back! Click below to see the latest peeps</h1>')
+      expect(response.body).to include('<h1>Welcome back!</h1>')
+      expect(response.body).to include('<h2>Click below to see the latest peeps</h2>')
     end
 
     it 'checks the incorrect details against the database and gives login fail message'do
@@ -89,4 +90,12 @@ describe Chitter do
     end
   end
 
+  context 'POST /log_out' do
+    it ' logs the user out and deletes the session info' do
+      response = post('/log_out') 
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>See ya! You have been logged out</h1>')
+    end
+  end
 end

@@ -72,8 +72,7 @@ class Chitter < Sinatra::Base
     account = accounts.find_by_email_address(submitted_email)
 
     if account && submitted_password == account&.password && submitted_email == account&.email_address
-      p session[:account_id] = account.id
-
+      session[:account_id] = account.id
       return erb(:login_success)
     else
       status 400
@@ -81,5 +80,10 @@ class Chitter < Sinatra::Base
     end
   end
 
-
+  post '/log_out' do
+    p session[:account_id]
+    session[:account_id] = nil
+    p session[:account_id]
+    return erb(:logged_out)
+  end
 end

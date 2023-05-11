@@ -19,12 +19,17 @@
 
     <% if session[:account_id] == nil %>
       <h2>Please sign up here:</h2>
-      <input type='button' value='Sign up!' onclick="window.location.href='/sign_up';"><br>
+      <button onclick="window.location.href='/sign_up';">
+        Sign up
+      </button>
+      <br>
       <h2>Or please login here:</h2>
-      <input type='button' value='Log in!' onclick="window.location.href='/login';"><br>
+      <button onclick="window.location.href='/login';">
+        Log in
+      </button>
       <% else %>
-      <h2>What's on your mind?</h2>
-      <input type ='button' value='Post a peep!' onclick="window.location.href='/add_peep';"><br>
+       <h2>What's on your mind?</h2>
+      <input type='button' value='Post a peep!' onclick="window.location.href='/add_peep';"><br>
       <%end%>
 
     <h2> Latest peeps...</h2>
@@ -35,6 +40,14 @@
      <%= peep.contents %> <br>
      <h7> <%= peep.time %> </h7>
      </p>
+     <% end %>
+     <br>
+     <br>
+     <% if session[:account_id] != nil %>
+     <form method="POST" action="/log_out">
+          <input type="submit" value="Sign out"/>
+      </form>
+     <br>
      <% end %>
     </div>
   </body>
