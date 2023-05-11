@@ -120,22 +120,26 @@ class Application < Sinatra::Base
     if session[:id] == nil
       return erb(:delete_no_session)
     else
-      return erb(:deleted)
+      return erb(:delete_peep)
     end
   end
 
   post '/delete_peep' do
     title = params[:title]
     repo = PeepRepository.new
-    @selected = repo.by_title(title)
-    
+    @selected = repo.find_by_title(title)
 
-
-    return erb(:peep_deleted)
+    if @selected.maker_id != session[:id]
+      status 400 #add an error stating you cannot delete a peep which you have not posted.
+    else
+      id = @selected.id 
+      repo.delete(id)
+      return erb(:peep_deleted)
+    end
   end
 
   get '/update_details' do
-    
+   
   end
 
   post '/update_details' do
