@@ -12,8 +12,8 @@ describe Chitter do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Welcome to Chitter!</h1>')
-      expect(response.body).to include('<b>Alice Wood </b> (alice1) says... <br>')
+      expect(response.body).to include('<p><h1 id="roundedcorners"> Welcome to Chitter!</h1></p>')
+      expect(response.body).to include('<b>Alice Wood </b> (alice1) says...<br>')
       expect(response.body).to include('I am peeping too! How cool')
     end
   end
@@ -43,7 +43,7 @@ describe Chitter do
 
       expect(response.status).to eq(200)
       expect(response.body).to include("<h2>Please enter your details below</h2>")
-      expect(response.body).to include('<input type="text" name="name" /><br>')
+      expect(response.body).to include('<input type="text" name="name" placeholder="Joe Bloggs"/><br>')
     end
   end
 
