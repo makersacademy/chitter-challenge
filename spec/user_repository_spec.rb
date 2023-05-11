@@ -58,4 +58,34 @@ describe UserRepository do
     expect(user.username).to eq 'dkong'
   end
 
+  it 'Logs a user in if their email and password are correct' do
+    new_user = User.new
+    new_user.email = 'kboo@makersacademy.com'
+    new_user.name = 'King Boo'
+    new_user.username = 'kboo'
+    new_user.password = 'boo123'
+
+    users = UserRepository.new
+    users.create(new_user)
+    
+    result = users.sign_in('kboo@makersacademy.com', 'boo123')
+
+    expect(result).to eq true
+  end
+
+  it 'Fails if a user tries to log in with an incorrect email or password' do
+    new_user = User.new
+    new_user.email = 'kboo@makersacademy.com'
+    new_user.name = 'King Boo'
+    new_user.username = 'kboo'
+    new_user.password = 'boo123'
+
+    users = UserRepository.new
+    users.create(new_user)
+    
+    result = users.sign_in('kboo@makersacademy.com', 'boo')
+
+    expect(result).to eq false
+  end
+
 end

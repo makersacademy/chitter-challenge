@@ -90,16 +90,7 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    submitted_email = params[:submitted_email]
-    submitted_password = params[:submitted_password]
-    users = UserRepository.new
-    user = users.find_by_email(submitted_email)
-
-    (return erb(:login_success)) if user != nil && submitted_password == user.password
-
-    status 400
-    return 'Email and password do not match. Please go back and try again'
-    # NEEDS REFACTORING AS ENCRYPTED PASSWORDS AREN'T WORKING
+    
   end
 
 end
