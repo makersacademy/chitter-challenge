@@ -70,7 +70,7 @@ class Chitter < Sinatra::Base
     
     account = accounts.find_by_email_address(submitted_email)
 
-    if submitted_password == account.password && submitted_email == account.email_address && account != nil
+    if account && submitted_password == account&.password && submitted_email == account&.email_address
       return erb(:login_success)
     else
       status 400

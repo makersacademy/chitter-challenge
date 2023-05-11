@@ -36,12 +36,14 @@ class AccountRepository
   def find_by_email_address(email_address)
     sql = 'SELECT * FROM accounts WHERE email_address = $1;'
     sql_params = [email_address]
-    p sql_params
-    
 
     result_set = DatabaseConnection.exec_params(sql, sql_params).first 
     
-    return record_to_account(result_set)
+    if result_set.to_a.empty?
+      return nil
+    else
+      return record_to_account(result_set)
+    end
   end 
 
   private   
