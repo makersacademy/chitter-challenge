@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require 'bcrypt'
+require_relative 'lib/mail_sender'
 require_relative 'lib/peep'
 require_relative 'lib/user'
 require_relative 'lib/tag'
@@ -13,6 +14,12 @@ class Application < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   configure :development do
     register Sinatra::Reloader
+  end
+ # This modifies the regular Sinitra::Base class initialize by adding a mail sender
+ # parameter, super() then calls the default initialize.
+  def initialize(mail_sender = MailSender.new)
+    @mail_sender = mail_sender
+    super()
   end
 
   get "/" do
@@ -86,13 +93,21 @@ class Application < Sinatra::Base
 
     new_peep = Peep.new(text: new_peep_text)
     new_peep.user=(author)
-
+    # would really like to clean this up!
     unless tag.nil? 
-      tag = Tag.find_or_create_by(content: tag)
-      new_peep.tags<<tag
+      user_check = User.find_by(name: tag)
+      user_check.nil? ? nil : mail(user_check)
+      tag_record = Tag.find_or_create_by(content: tag)
+      new_peep.tags<<tag_record
     end
 
     new_peep.save
     return erb(:new_peep)
+  end
+
+  private
+
+  def mail(user)
+    @mail_sender.send_peep_alert(user)
   end
 end
