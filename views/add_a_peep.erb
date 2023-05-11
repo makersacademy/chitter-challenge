@@ -1,19 +1,20 @@
 <html>
-  <head></head>
-  <body>
+  <head>
     <style>
-  #roundedcorners {
-  border-radius: 25px;
-  border: 2px solid #1DA1F2;
-  padding: 20px;
-  width: 200px;
-  height: 75px;
-}
-  body {
-  background-color: lightblue;
-  font-family: verdana;
-}
-  </style>
+    #roundedcorners {
+    border-radius: 25px;
+    border: 2px solid #1DA1F2;
+    padding: 20px;
+    width: 200px;
+    height: 75px;
+    }
+    body {
+    background-color: lightblue;
+    font-family: verdana;
+    }
+    </style>
+  </head>
+  <body>
     <div>
       <h2>What's your peep?</h2>
       <form method="POST" action="/add_peep">
@@ -26,9 +27,14 @@
       </form>
     </div>
     <br>
+    <button onclick="window.location.href='/';">
+      Nothing to peep, return to homepage
+    </button>
     <br>
     <br>
-    <input type ='button' value='Sign out' onclick="window.location.href='/sessions';">
+    <button onclick="window.location.href='/log_out';">
+      Sign out
+    </button>
     <br>
   </body>
 </html>

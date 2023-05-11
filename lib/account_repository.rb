@@ -23,10 +23,8 @@ class AccountRepository
   end
 
   def add(account)
-    # encrypted_password = BCrypt::Password.create(account.password)
     sql = 'INSERT INTO accounts (email_address, username, name, password) VALUES ($1, $2, $3, $4);'
-    sql_params = [account.email_address, account.username, account.name, account.password]#encrypted_password]
-    
+    sql_params = [account.email_address, account.username, account.name, account.password] 
 
     DatabaseConnection.exec_params(sql, sql_params)
 
@@ -39,11 +37,9 @@ class AccountRepository
 
     result_set = DatabaseConnection.exec_params(sql, sql_params).first 
     
-    if result_set.to_a.empty?
-      return nil
-    else
-      return record_to_account(result_set)
-    end
+    return nil if result_set.to_a.empty?  
+    
+    return record_to_account(result_set)
   end 
 
   private   

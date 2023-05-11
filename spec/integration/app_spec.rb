@@ -43,7 +43,7 @@ describe Chitter do
 
       expect(response.status).to eq(200)
       expect(response.body).to include("<h2>Please enter your details below</h2>")
-      expect(response.body).to include('<input type="text" name="name" placeholder="Joe Bloggs"/><br>')
+      expect(response.body).to include('<input type="text" name="username" placeholder="JBloggs"/>')
     end
   end
 
@@ -69,7 +69,7 @@ describe Chitter do
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2>Please enter your login details</h2>')
-      expect(response.body).to include('<input type="text" name="email_address" placeholder="joebloggs@example.com"/><br>')
+      expect(response.body).to include('<input type="text" name="email_address" placeholder="joebloggs@example.com"/>')
     end
   end
 
@@ -82,11 +82,11 @@ describe Chitter do
       expect(response.body).to include('<h2>Click below to see the latest peeps</h2>')
     end
 
-    it 'checks the incorrect details against the database and gives login fail message'do
-    response = post('/login', name: 'Alice Wood', email_address: 'incorrect@example.com', username: 'alice1', password: 'test123')
+    it 'checks the incorrect details against the database and gives login fail message' do
+      response = post('/login', name: 'Alice Wood', email_address: 'incorrect@example.com', username: 'alice1', password: 'test123')
 
-    expect(response.status).to eq(400)
-    expect(response.body).to include('<h1>Sorry! Your details did not match, please click below to try again</h1>')
+      expect(response.status).to eq(400)
+      expect(response.body).to include('<h1>Sorry! Your details did not match, please click below to try again</h1>')
     end
   end
 

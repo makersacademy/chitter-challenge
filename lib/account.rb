@@ -6,7 +6,7 @@ class Account
     sql_params = [email_address, username]
 
     result_set = DatabaseConnection.exec_params(sql, sql_params)
-    return result_set.to_a.length == 0 
+    return result_set.to_a.length.zero? 
   end
 
 end

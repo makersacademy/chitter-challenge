@@ -1,20 +1,20 @@
 <html>
-  <head></head>
+  <head>
+    <style>
+      #roundedcorners {
+      border-radius: 25px;
+      border: 2px solid #1DA1F2;
+      padding: 20px;
+      width: 200px;
+      height: 75px;
+      }
+      body {
+      background-color: lightblue;
+      font-family: verdana;
+      }
+    </style>
+  </head>
   <body>
-  <style>
-  #roundedcorners {
-  border-radius: 25px;
-  border: 2px solid #1DA1F2;
-  padding: 20px;
-  width: 200px;
-  height: 75px;
-}
-  body {
-  background-color: lightblue;
-  font-family: verdana;
-}
-  </style>
-
     <p><h1 id="roundedcorners"> Welcome to Chitter!</h1></p>
 
     <% if session[:account_id] == nil %>
@@ -29,26 +29,29 @@
       </button>
       <% else %>
        <h2>What's on your mind?</h2>
-      <input type='button' value='Post a peep!' onclick="window.location.href='/add_peep';"><br>
-      <%end%>
+      <button onclick="window.location.href='/add_peep';">
+        Post a peep!
+      </button>
+      <br>
+    <%end%>
 
-    <h2> Latest peeps...</h2>
-     <div>
-     <% @peeps.each do |peep|%>
-     <p>
-     <b><%= peep.find_name%> </b> (<%= peep.find_username %>) says...<br>
-     <%= peep.contents %> <br>
-     <h7> <%= peep.time %> </h7>
-     </p>
-     <% end %>
-     <br>
-     <br>
-     <% if session[:account_id] != nil %>
-     <form method="POST" action="/log_out">
+    <div>
+      <h2> Latest peeps...</h2>
+      <% @peeps.each do |peep|%>
+      <p>
+        <b><%= peep.find_name%> </b> (<%= peep.find_username %>) says...<br>
+        <%= peep.contents %> <br>
+        <h7> <%= peep.time %> </h7>
+      </p>
+      <% end %>
+      <br>
+      <br>
+      <% if session[:account_id] != nil %>
+        <form method="POST" action="/log_out">
           <input type="submit" value="Sign out"/>
-      </form>
-     <br>
-     <% end %>
+        </form>
+        <br>
+      <% end %>
     </div>
   </body>
 </html>

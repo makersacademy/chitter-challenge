@@ -1,24 +1,31 @@
 <html>
-  <head></head>
+  <head>
     <style>
-  #roundedcorners {
-  border-radius: 25px;
-  border: 2px solid #1DA1F2;
-  padding: 20px;
-  width: 200px;
-  height: 75px;
-}
-  body {
-  background-color: lightblue;
-  font-family: verdana;
-}
-  </style>  
+      #roundedcorners {
+      border-radius: 25px;
+      border: 2px solid #1DA1F2;
+      padding: 20px;
+      width: 200px;
+      height: 75px;
+      }
+      body {
+      background-color: lightblue;
+      font-family: verdana;
+      }
+    </style>  
+  </head>
   <body>
     <h1>See ya! You have been logged out</h1>
-    <input type ="button" value="Return to homepage" onclick="window.location.href='/';"><br>    
+    <button onclick="window.location.href='/';">
+      Return to homepage
+    </button>
+    <br>    
     <br>
     <br>
     <br>
-    <input type ='button' value='Log in again' onclick="window.location.href='/login';"><br> 
+    <button onclick="window.location.href='/login';">
+      Log in again
+    </button>
+    <br> 
   </body>
 </html>

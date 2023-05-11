@@ -71,7 +71,9 @@ class Chitter < Sinatra::Base
     
     account = accounts.find_by_email_address(submitted_email)
 
-    if account && submitted_password == account&.password && submitted_email == account&.email_address
+    if (account &&
+        submitted_password == account&.password &&
+        submitted_email == account&.email_address)
       session[:account_id] = account.id
       return erb(:login_success)
     else
