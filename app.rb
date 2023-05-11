@@ -29,4 +29,12 @@ class Application < Sinatra::Base
     repo.create(peep)
     return redirect('/')
   end
+
+  # get '/peeps/:id' do
+  #   # get single peep
+  # end
+
+  get '/signup' do
+    return erb(:signup)
+  end
 end

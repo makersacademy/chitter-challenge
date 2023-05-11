@@ -42,4 +42,13 @@ describe Application do
       expect(peeps.body).to include('<h2>Testing 123</h2>')
     end
   end
+
+  context 'GET to /signup' do
+    it 'returns 200 OK and the signup form' do
+      response = get('/signup')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Sign up to Chitter</h1>')
+    end
+  end
 end
