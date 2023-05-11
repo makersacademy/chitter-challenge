@@ -114,7 +114,7 @@ describe Application do
       response = post('/signup',
         name:'TestName',
         email:'testemail@email.com',
-        username: 'testusername',
+        username: 'testusername1',
         password: 'test')
       
       expect(response.status).to eq 302
@@ -125,7 +125,7 @@ describe Application do
       expect(users[2].id).to eq  3
       expect(users[2].name).to eq  'TestName'
       expect(users[2].email).to eq  'testemail@email.com'
-      expect(users[2].username).to eq 'testusername'
+      expect(users[2].username).to eq 'testusername1'
     end
 
   end
