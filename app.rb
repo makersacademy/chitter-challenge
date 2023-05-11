@@ -14,11 +14,12 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    repo = PeepRepository.new
-    @peep_list = repo.all.sort { |a, b| a.time_stamp <=> b.time_stamp }
+    peep_repo = PeepRepository.new
+    @user_repo = UserRepository.new
+    @peep_list = peep_repo.all.sort { |a, b| a.time_stamp <=> b.time_stamp }
     return erb(:index)
   end
 
-  
+
 end
 

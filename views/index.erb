@@ -12,6 +12,9 @@
         </h4>
         <%= peep.content %><br>
         <%= peep.time_stamp %>
+        <div>
+        <%= @user_repo.find(peep.user_id).username %><br>
+        </div>
       </div>
     <% end %>
   </body>
