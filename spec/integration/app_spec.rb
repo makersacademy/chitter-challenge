@@ -15,7 +15,6 @@ describe Application do
   context "GET to /" do
     it "returns 200 OK with the right content" do
       response = get("/")
-
       # Assert the response status code and body.
       expect(response.status).to eq(200)
       expect(response.body).to include('Welcome to Chitter')
