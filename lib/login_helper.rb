@@ -1,3 +1,4 @@
+require_relative 'user_repository'
 
 class LoginHelper
   def initialize(users)
@@ -5,12 +6,13 @@ class LoginHelper
   end
 
   def any_logged_in?
-    return @users.any? { |user| user.logged_in }
+    return @users.any? { |user| user.logged_in == 't' }
   end
 
   def login(user)
     fail 'A user is already logged in' if any_logged_in?
-    user.logged_in = true
+    repo = UserRepository.new
+    repo.change_login_status(user.id)
   end
 
   def logged_in_user
@@ -21,6 +23,7 @@ class LoginHelper
 
   def logout(user)
     fail 'User is not logged in' if user.logged_in == false
-    user.logged_in = false
+    repo = UserRepository.new
+    repo.update_login_status(user)
   end
 end

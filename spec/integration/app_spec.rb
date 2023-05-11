@@ -163,4 +163,28 @@ RSpec.describe Application do
       expect(response.body).to include('<label>Password:</label>')
     end
   end
+
+  context 'POST /login' do
+    it 'logs in a user with correct username and password' do
+      response = post('/login', username: 'lpc', password: 'password01')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Now logged in as lpc</h2>')
+    end
+
+    it 'points out when username is not in the DB' do
+      response = post('/login', username: 'lou', password: 'password01')
+
+      expect(response.status).to eq(400)
+      expect(response.body).to eq('invalid username, go back!')
+    end
+
+    it 'points out when a user is already logged in' do
+      response = post('/login', username: 'lpc', password: 'password01')
+      response = post('/login', username: 'lpc', password: 'password01')
+
+      expect(response.status).to eq(400)
+      expect(response.body).to eq('A user is already logged in')
+    end
+  end
 end

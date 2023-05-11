@@ -89,4 +89,12 @@ RSpec.describe UserRepository do
     expect(peep.content).to eq 'First post'
     expect(peep.time).to eq '12:00:00'
   end
+
+  it "changes a user's login status" do
+    repo = UserRepository.new
+    repo.change_login_status(1)
+    user = repo.find(1)
+
+    expect(user.logged_in).to eq 't'
+  end
 end

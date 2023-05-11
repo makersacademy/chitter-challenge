@@ -4,6 +4,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 require_relative 'lib/display'
+require_relative 'lib/login_helper'
 
 DatabaseConnection.connect('chitter_site')
 
@@ -53,6 +54,27 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  post('/login') do
+    if !user_exists(params['username'])
+      status 400
+      return 'invalid username, go back!'
+    end
+
+    begin
+      repo = UserRepository.new
+      helper = LoginHelper.new(repo.all)
+      user_id = find_id(params['username'])
+      @user = repo.find(user_id)
+      puts "Is #{@user.username} logged in?:"
+      puts @user.logged_in
+      helper.login(@user)
+      puts "Now login status: #{@user.logged_in}"
+      return erb(:logged_in)
+    rescue RuntimeError => e
+      status 400
+      return e.message
+    end
+  end
 
   private
 
@@ -98,6 +120,18 @@ class Application < Sinatra::Base
       return erb(:new_user_error)
     end
   end
+
+  # def login_attempt
+  #   helper = LoginHelper.new(repo.all)
+  #   repo = UserRepository.new
+  #   begin
+  #     helper.login(@user)
+  #     return erb(:logged_in)
+  #   rescue RuntimeError => e
+  #     status 400
+  #     return e.message
+  #   end
+  # end
 
   def invalid_peep_parameters?
     if [params[:content], params[:username]]

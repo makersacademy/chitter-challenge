@@ -8,7 +8,6 @@ RSpec.describe LoginHelper do
   end
 
   it 'checks whether any users are logged in' do
-
     helper = LoginHelper.new(@users)
     result = helper.any_logged_in?
 
@@ -18,15 +17,17 @@ RSpec.describe LoginHelper do
   describe 'login' do
     it 'logs in a user' do
       helper = LoginHelper.new(@users)
+      repo = UserRepository.new
       user_to_login = @users[0]
       helper.login(user_to_login)
 
-      expect(user_to_login.logged_in).to eq true
+      expect(repo.find(1).logged_in).to eq 't'
     end
 
     it 'fails if a user already logged in' do
       helper = LoginHelper.new(@users)
       helper.login(@users[0])
+      puts "First user logged in: #{@users[0].logged_in}"
 
       expect { helper.login(@users[1]) }.to raise_error "A user is already logged in"
     end
