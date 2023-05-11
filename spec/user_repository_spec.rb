@@ -95,6 +95,6 @@ RSpec.describe UserRepository do
     repo.change_login_status(1)
     user = repo.find(1)
 
-    expect(user.logged_in).to eq 't'
+    expect(user.logged_in).to eq true
   end
 end

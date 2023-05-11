@@ -14,10 +14,16 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    repo = PeepRepository.new
+    peep_repo = PeepRepository.new
+    user_repo = UserRepository.new
+    helper = LoginHelper.new
     @display = Display.new
-    @peeps = repo.all_with_users.reverse
+    @peeps = peep_repo.all_with_users.reverse
 
+    if helper.any_logged_in?(user_repo.all)
+      id = helper.logged_in_user(user_repo.all)
+      redirect "/#{id}"
+    end
     return erb(:index)
   end
 
@@ -54,26 +60,33 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
-  post('/login') do
-    if !user_exists(params['username'])
+  post '/login' do
+    repo = UserRepository.new
+    helper = LoginHelper.new
+    @username = params['username']
+    if !user_exists(@username)
       status 400
       return 'invalid username, go back!'
-    end
-
-    begin
-      repo = UserRepository.new
-      helper = LoginHelper.new(repo.all)
-      user_id = find_id(params['username'])
-      @user = repo.find(user_id)
-      puts "Is #{@user.username} logged in?:"
-      puts @user.logged_in
-      helper.login(@user)
-      puts "Now login status: #{@user.logged_in}"
-      return erb(:logged_in)
-    rescue RuntimeError => e
+    elsif helper.any_logged_in?(repo.all)
       status 400
-      return e.message
+      return 'A user is already logged in'
+    else
+      login_attempt
     end
+  end
+
+  get '/logout' do
+    logout
+  end
+
+  get '/:id' do
+    peep_repo = PeepRepository.new
+    user_repo = UserRepository.new
+    @user = user_repo.find(params['id'])
+    @display = Display.new
+    @peeps = peep_repo.all_with_users.reverse
+
+    return erb(:user_homepage)
   end
 
   private
@@ -96,10 +109,18 @@ class Application < Sinatra::Base
   end
 
   def post(peep)
-    repo = PeepRepository.new
-    repo.create(peep)
+    peep_repo = PeepRepository.new
+    user_repo = UserRepository.new
+    helper = LoginHelper.new
+    peep_repo.create(peep)
+
     @display = Display.new
-    @peeps = repo.all_with_users.reverse
+    @peeps = peep_repo.all_with_users.reverse
+    id = helper.logged_in_user(user_repo.all)
+    if id != nil
+      @user = user_repo.find(id)
+      return erb(:user_homepage)
+    end
     return erb(:index)
   end
 
@@ -121,17 +142,25 @@ class Application < Sinatra::Base
     end
   end
 
-  # def login_attempt
-  #   helper = LoginHelper.new(repo.all)
-  #   repo = UserRepository.new
-  #   begin
-  #     helper.login(@user)
-  #     return erb(:logged_in)
-  #   rescue RuntimeError => e
-  #     status 400
-  #     return e.message
-  #   end
-  # end
+  def login_attempt
+    helper = LoginHelper.new
+    repo = UserRepository.new
+    user_id = find_id(@username)
+    if helper.check_password(user_id, params['password']) == false
+      status 400
+      return 'Sorry! Incorrect password, please return'
+    end
+    repo.change_login_status(user_id)
+    return erb(:logged_in)
+  end
+
+  def logout
+    repo = UserRepository.new
+    helper = LoginHelper.new
+    id = helper.logged_in_user(repo.all)
+    repo.change_login_status(id)
+    return erb(:logout)
+  end
 
   def invalid_peep_parameters?
     if [params[:content], params[:username]]

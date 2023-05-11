@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Chitter home</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <h2>Welcome <%= @user.username %>!</h2>
+    <a href="/logout">Logout here!</a>
+    <h3>Make a new peep!</h3>
+    <form method="POST" action="/peep">
+      <div>
+        <label>What would you like the world to know?</label>
+        <input type="text" name="content">
+      </div>
+      <div>
+        <label>Your username:</label>
+        <input type="text" name="username" value=<%= @user.username%> readonly>
+      </div>
+      <input type="submit">
+    </form>
+    <h2>All peeps:</h2>
+    <% @peeps.each do |peep| %>
+    <div>
+      <%= @display.peep(peep) %>
+      <p>--------</p>
+    </div>
+    <% end %>
+  </body>
+</html>

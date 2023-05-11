@@ -64,8 +64,6 @@ class UserRepository
             CASE WHEN logged_in=true THEN false
             ELSE true END
             WHERE id=$1"
-    
-    p "CHANGING LOGIN STATUS OF USER AT ID = #{id}"
     DatabaseConnection.exec_params(sql, [id])
   end
 
@@ -78,7 +76,7 @@ class UserRepository
     user.password = record['password']
     user.name = record['name']
     user.username = record['username']
-    user.logged_in = record['logged_in']
+    user.logged_in = to_bool(record['logged_in'])
     return user
   end
 
@@ -90,5 +88,9 @@ class UserRepository
   def username_taken?(username)
     used_usernames = all.map { |user| user.username }
     return used_usernames.include?(username)
+  end
+
+  def to_bool(str)
+    return str == 't'
   end
 end

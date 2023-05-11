@@ -186,5 +186,35 @@ RSpec.describe Application do
       expect(response.status).to eq(400)
       expect(response.body).to eq('A user is already logged in')
     end
+
+    it 'points out password not matching' do
+      response = post('/login', username: 'lpc', password: 'password05')
+
+      expect(response.status).to eq 400
+      expect(response.body).to eq ('Sorry! Incorrect password, please return')
+    end
+  end
+
+  context 'GET /logout' do
+    it '200 OK and logs the user out' do
+      response = post('/login', username: 'lou', password: 'password01')
+      response = get('/logout')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>You have logged out!</h2>')
+      expect(response.body).to include('<div>Return to the <a href="/">home page</a></div>')
+    end
+  end
+
+  context 'GET /:id' do
+    it 'returns 200 OK when user logged in' do
+      response = get('/1')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Welcome lpc!</h2>')
+      expect(response.body).to include('<a href="/logout">Logout here!</a>')
+      expect(response.body).to include('<h3>Make a new peep!</h3>')
+      expect(response.body).to include('First post')
+    end
   end
 end
