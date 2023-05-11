@@ -43,12 +43,11 @@ class Application < Sinatra::Base
     username = params[:username]
     password = params[:password]
 
-    user = user_repo.find(username)
+    user = user_repo.find_by_username(username)
    
     if user.password == password
       # Set the user ID in session
       session[:user_id] = user.id
-
       redirect "/logged_in"
 
       
@@ -58,11 +57,12 @@ class Application < Sinatra::Base
     end
   end
 
+
   get '/logged_in' do
-    if session[:user_id] == nil
+    #if session[:user_id] == nil
       # No user id in the session
-      return redirect('/')
-    else
+      #return redirect('/')
+    #else
 
       user_id = session[:user_id]
 
@@ -70,10 +70,9 @@ class Application < Sinatra::Base
       peep_repo = PeepRepository.new
 
       @user = @user_repo.find(user_id)
-      @peeps = peep_repo.find_by_owner(@user.id).sort_by!{|peep| peep.time}.reverse!
 
       return erb(:logged_in)
-    end
+    #end
 
   end
 
@@ -91,7 +90,7 @@ class Application < Sinatra::Base
   post '/signup' do
 
     users = UserRepository.new
-    
+=begin
     if users.all.any?{|user| user.email == params[:email]} then
       status 400
       return "Email address already signed up."
@@ -106,12 +105,15 @@ class Application < Sinatra::Base
       status 400
       return 'Invalid credentials, please try again.'
     end
-
+=end
     user = User.new
+    last_user = users.all.last
+    user_id = (last_user.id) - 1
     user.name = params[:name]
     user.email = params[:email]
     user.username = params[:username]
     user.password = params[:password]
+    session[:user_id] = user.id
 
     users.create(user)
 
@@ -121,7 +123,8 @@ class Application < Sinatra::Base
     redirect "/logged_in"
 
   end
-
+end
+=begin
   private
   def invalid_user_params?
     params[:username] == nil || 
@@ -133,3 +136,4 @@ class Application < Sinatra::Base
   end
 
 end
+=end

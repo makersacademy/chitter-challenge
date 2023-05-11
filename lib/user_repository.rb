@@ -9,7 +9,7 @@ class UserRepository
     result.each do |row|
       user = User.new
       user.id, user.name, user.email, user.username = 
-        row['id'], row['name'], row['email'], row['username']
+        row['id'].to_i, row['name'], row['email'], row['username']
       user_array << user
     end
     return user_array
@@ -21,7 +21,7 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, param)
     record = result.first
     user = User.new
-    user.id = record['id']
+    user.id = record['id'].to_i
     user.name = record['name']
     user.email = record['email']
     user.username = record['username']
@@ -30,9 +30,8 @@ class UserRepository
   
   def create(user)
     # Executes the SQL query:
-    encrypted_password = BCrypt::Password.create(user.password)
     sql = 'INSERT INTO users (name, email, username, password) VALUES ($1, $2, $3, $4);'
-    params = [user.name, user.email, user.username, encrypted_password]
+    params = [user.name, user.email, user.username, user.password]
 
     DatabaseConnection.exec_params(sql, params)
   
@@ -44,7 +43,7 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, [id])
     record = result.first
     user = User.new
-    user.id = record['id']
+    user.id = record['id'].to_i
     user.name = record['name']
     user.email = record['email']
     user.username = record['username']
@@ -57,7 +56,7 @@ class UserRepository
     result = DatabaseConnection.exec_params(sql, param)
     record = result.first
     user = User.new
-    user.id = record['id']
+    user.id = record['id'].to_i
     user.name = record['name']
     user.email = record['email']
     user.username = record['username']
