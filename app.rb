@@ -115,11 +115,15 @@ class Application < Sinatra::Base
   end
 
   get '/delete_peep' do
-
+    if session[:id] == nil
+      return erb(:delete_no_session)
+    else
+      return erb(:delete_peep)
+    end
   end
 
   post '/delete_peep' do
-
+    
   end
 
   get '/update_details' do

@@ -79,7 +79,7 @@ describe Application do
       response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       expect(response.status).to eq(200)
       expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
-      expect(response.body).to include ('<a href="/peep/delete">Delete a peep</a>')
+      expect(response.body).to include ('<a href="/delete_peep">Delete a peep</a>')
       expect(response.body).to include ('<a href="/peeps/:id">View your previous peeps</a>')
       expect(response.body).to include ('<a href="/logout">Log out</a>')
     end
@@ -225,7 +225,6 @@ describe Application do
       expect(response.body).to include ('<form method="POST" action="/delete_peep">')
       expect(response.body).to include ('<label>Title of peep:</label>')
       expect(response.body).to include ('<input type="text" name="title"/>')
-      expect(response.body).to include ('<input type="text" name="title"/>')
       expect(response.body).to include ('<input type="submit"/>')
     end
 
@@ -243,6 +242,9 @@ describe Application do
       response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
       response = post('/delete_peep', title: 'peep to be deleted')
       expect(response.status).to eq (200)
+      expect(response.body).to include ('<title>Peep deleted successfully</title>')
+      expect(response.body).to include ('<h1>The peep "peep to be deleted" was removed from chitter</h1>')
+      expect(response.body).to include ('<a href="/userpage">Your account</a>')
     end
   end
 
