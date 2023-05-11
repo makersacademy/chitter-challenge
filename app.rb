@@ -19,5 +19,16 @@ class Application < Sinatra::Base
     @peep_list = peep_repo.all
     return erb(:index)
   end
+
+  post '/' do
+    repo = PeepRepository.new
+    peep = Peep.new
+    peep.title = params[:title]
+    peep.content = params[:content]
+    peep.time_stamp = params[:time_stamp]
+    peep.user_id = 1
+    repo.create(peep)
+    return erb(:index)
+  end
 end
 
