@@ -5,5 +5,14 @@
   <body>
     <h1>Chitter</h1>
     <a href="/peep/new">Post</a>
+    <% @peep_list.each do |peep| %>
+      <div>
+        <h4>
+        <strong><%= peep.title %></strong><br>
+        </h4>
+        <%= peep.content %><br>
+        <%= peep.time_stamp %>
+      </div>
+    <% end %>
   </body>
 </html>

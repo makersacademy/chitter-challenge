@@ -14,6 +14,8 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    repo = PeepRepository.new
+    @peep_list = repo.all
     return erb(:index)
   end
 end

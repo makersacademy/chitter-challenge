@@ -27,6 +27,13 @@ describe Application do
       expect(response.body).to include('<h1>Chitter</h1>')
       expect(response.body).to include ('<a href="/peep/new">Post</a>')
     end
+
+    it 'should return all peeps' do
+      response = get('/')
+      expect(response.status).to eq(200)
+      expect(response.body).to include "Peep 1"
+      expect(response.body).to include "Meow"
+    end
   end
 
 
