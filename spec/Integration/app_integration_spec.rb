@@ -25,7 +25,7 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<title>Chitter</title>')
       expect(response.body).to include('<h1>Chitter</h1>')
-      expect(response.body).to include ('<a href="/peep/new">Post</a>')
+      expect(response.body).to include ('<form method="POST" action="/">')
     end
 
     it 'should return all peeps' do
@@ -42,7 +42,7 @@ describe Application do
       response = post('/', peep: 'New peep')
 
       expect(response.status).to eq 200
-      expect(response.body).to include 'This is a new peep'
+      expect(response.body).to include 'New peep'
     end
   end
 end
