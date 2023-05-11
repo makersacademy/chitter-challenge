@@ -103,7 +103,7 @@ RSpec.describe Application do
     # need to test validations and failed sign up
 
     it 'links to a log in page' do
-      response = post('/new-user' )
+      response = post('/new-user')
 
       expect(response.body).to include "<a href=\"/login\"> Click here to log in </a>"
     end
@@ -174,6 +174,7 @@ RSpec.describe Application do
       expect(response.location).to eq("http://example.org/login")
     end
 
+    # need to test if email is correct but password isn't
 
   end
 
@@ -200,9 +201,9 @@ RSpec.describe Application do
 
     end
 
-     it 'displays an html view with a link to create a peep' do
+    it 'displays an html view with a link to create a peep' do
       session = { 'rack.session' => { name: 'fake_user' } }
-      response = get('/:user/page', {}, session )
+      response = get('/:user/page', {}, session)
 
       expect(response.status).to eq 200
 
@@ -212,7 +213,7 @@ RSpec.describe Application do
 
     it 'has a link to log out' do
       session = { 'rack.session' => { name: 'fake_user' } }
-      response = get('/:user/page', {}, session )
+      response = get('/:user/page', {}, session)
 
       expect(response.status).to eq 200
 
@@ -222,7 +223,7 @@ RSpec.describe Application do
 
     it 'lists the current peeps in the database in reverse chronological order' do
       session = { 'rack.session' => { name: 'fake_user' } }
-      response = get('/:user/page', {}, session )
+      response = get('/:user/page', {}, session)
 
       expect(response.status).to eq 200
 
@@ -241,7 +242,7 @@ RSpec.describe Application do
       Peep.create(text: "I'm new here", created_at: Time.parse("2023-05-11 09:00:00"))
 
       session = { 'rack.session' => { name: 'fake_user' } }
-      response = get('/:user/page', {}, session )
+      response = get('/:user/page', {}, session)
 
       new_peep = "<p> I'm new here - peeped at: 2023-05-11 09:00:00 +0100 </p>"
       second_newest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
@@ -258,7 +259,7 @@ RSpec.describe Application do
     it "says 'No one's made a peep!' when there are no peeps in the database" do
       Peep.destroy_all
       session = { 'rack.session' => { name: 'fake_user' } }
-      response = get('/:user/page', {}, session )
+      response = get('/:user/page', {}, session)
 
       expect(response.status).to eq 200
 
@@ -278,7 +279,7 @@ RSpec.describe Application do
 
     it 'displays an html view with a form to create a peep' do
       session = { 'rack.session' => { name: 'fake_user' } }
-      response = get('/:user/compose_peep', {}, session )
+      response = get('/:user/compose_peep', {}, session)
 
       expect(response.status).to eq 200
       
@@ -295,7 +296,7 @@ RSpec.describe Application do
 
       response = post(
       '/user/new-peep',
-      {:text => "It's peepin off"}, 
+      { :text => "It's peepin off" }, 
       session
       ) 
 
@@ -314,7 +315,7 @@ RSpec.describe Application do
 
       response = post(
       '/user/new-peep',
-      {:text => "It's peepin off"}, 
+      { :text => "It's peepin off" }, 
       session
       ) 
 

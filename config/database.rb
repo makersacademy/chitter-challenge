@@ -1,4 +1,5 @@
-#sets the current database based on the current environment (the env is derived from the application class in app.rb)
+# sets the current database based on the current environment 
+# (the env is derived from the application class in app.rb)
 
 database_name = "chitter-#{Application.environment}"
 db = URI.parse(ENV['DATABASE_URL'] || "postgres://localhost/#{database_name}")

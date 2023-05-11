@@ -22,11 +22,11 @@ user5 = User.create(name: "User 5", email_address: "User5@gmail.com", password: 
 
 # Tags seeding
 
-tag1 =Tag.create(content: "cooking")
-tag2 =Tag.create(content: "greetings")
-tag3 =Tag.create(content: "politics")
+tag1 = Tag.create(content: "cooking")
+tag2 = Tag.create(content: "greetings")
+tag3 = Tag.create(content: "politics")
 
-# Peeps seeding (overriding created_at with specific time values to make them deterministic for testing)
+# Peeps seeding (created_at is set to specific time values to make them deterministic)
 
 # overrides ActiveRecord's default timezone of UTC,
 # which converts the fake times to be an hour earlier in the database.
@@ -61,5 +61,3 @@ peep6 = Peep.new(text: "What's up", created_at: Time.parse("2023-05-10 12:00:00"
 peep6.user=(user5)
 peep6.tags<<(tag2)
 peep6.save
-
-

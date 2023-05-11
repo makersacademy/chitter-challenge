@@ -12,14 +12,10 @@ class CreateChitterTableStructure < ActiveRecord::Migration[7.0]
       t.string :email_address
     end
 
-    add_foreign_key :peeps, :users, name: :fk_user,  on_delete: :cascade
+    add_foreign_key :peeps, :users, name: :fk_user, on_delete: :cascade
 
     create_table :tags do |t|
       t.string :content
-    end
-
-    def change
-      create_join_table(:peeps, :tags)
     end
   end
 end
