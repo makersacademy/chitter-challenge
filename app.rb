@@ -21,16 +21,11 @@ class Application < Sinatra::Base
   end
 
   post '/peep' do
-    if user_exists(params['username'])
-      repo = PeepRepository.new
-      repo.create(new_peep)
-      @display = Display.new
-      @peeps = repo.all_with_users.reverse
-      return erb(:index)
+    if invalid_peep_parameters? ||
+      !user_exists(params['username'])
+      post_failed
     else
-      @username = params['username']
-      status 400
-      return invalid_peep_parameters? ? '' : erb(:unknown_username)
+      post(new_peep)
     end
   end
 
@@ -52,16 +47,7 @@ class Application < Sinatra::Base
       status 400
       return ''
     end
-
-    begin
-      repo = UserRepository.new
-      repo.create(new_user)
-      return erb(:user_created)
-    rescue RuntimeError => e
-      @error_message = e.message
-      status 400
-      return erb(:new_user_error)
-    end
+    sign_up(new_user)
   end
 
   private
@@ -81,6 +67,32 @@ class Application < Sinatra::Base
     user.name = params['name']
     user.username = params['username']
     user
+  end
+
+  def post(peep)
+    repo = PeepRepository.new
+    repo.create(peep)
+    @display = Display.new
+    @peeps = repo.all_with_users.reverse
+    return erb(:index)
+  end
+
+  def post_failed
+    status 400
+    @username = params['username']
+    return invalid_peep_parameters? ? '' : erb(:unknown_username)
+  end
+  
+  def sign_up(user)
+    begin
+      repo = UserRepository.new
+      repo.create(user)
+      return erb(:user_created)
+    rescue RuntimeError => e
+      @error_message = e.message
+      status 400
+      return erb(:new_user_error)
+    end
   end
 
   def invalid_peep_parameters?
