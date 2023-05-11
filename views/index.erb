@@ -8,11 +8,9 @@
         <br />
     <% end %>
       <% if @user.nil? %>
-        <p><a href="/signup"> <button type="button">Sign up to Chitter</button></a></p>
-        <p><a href="/login"> <button type="button">Log in to Chitter</button></a></p>
+        <p><a href="/signup"> <button type="button">Sign up to Chitter</button></a><a href="/login"> <button type="button">Log in to Chitter</button></a></p>
       <% else %>
-        <p><a href="/peeps/new"><button type="button">Add a new peep</button></a></p>
-        <p><a href="/logout"><button type="button">Log out</button></a></p>
+        <p><a href="/peeps/new"><button type="button">Add a new peep</button></a><a href="/logout"> <button type="button">Log out</button></a></p>
       <% end %>
   </body>
 </html>

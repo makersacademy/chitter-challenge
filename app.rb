@@ -26,8 +26,9 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
+    return redirect('/') if session[:user_id].nil?
+
     @user = UserRepository.new.find(session[:user_id])
-    redirect('/') if @user.nil?
     return erb(:new_peep)
   end
 
