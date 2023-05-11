@@ -219,17 +219,30 @@ describe Application do
   context '/delete_peep' do
     it 'Should only allow the user to delete a peep if they are logged into their account' do
       response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = get('/delete_peep')
+      expect(response.body).to include ('<h1>Delete a selected peep</h1>')
+      expect(response.body).to include ('<p>Please input the title of the peep you would like to delete</p>')
+      expect(response.body).to include ('<form method="POST" action="/delete_peep">')
+      expect(response.body).to include ('<label>Title of peep:</label>')
+      expect(response.body).to include ('<input type="text" name="title"/>')
+      expect(response.body).to include ('<input type="text" name="title"/>')
+      expect(response.body).to include ('<input type="submit"/>')
     end
 
     it 'Should send the user to a new log in page if the user attempts to delete a peep without logging in' do
-      
+      response = get('/delete_peep')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<title>Delete a peep</title>')
+      expect(response.body).to include ('<h1>Unable to delete a peep</h1>')
+      expect(response.body).to include ('<p>To delete an exiting peep of yours, please login or create an account</p>')
+      expect(response.body).to include ('<a href="/signup">Sign up page</a>')
+      expect(response.body).to include ('<a href="/loginpage">Login page</a>')
     end
 
     it 'Should delete the selected peep if the peep belongs to the user' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
-
-      response = post('/delete_peep')
-
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/delete_peep', title: 'peep to be deleted')
+      expect(response.status).to eq (200)
     end
   end
 
