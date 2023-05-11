@@ -22,11 +22,15 @@ describe UserRepository do
     expect(users[0].name).to eq  'Caroline'
     expect(users[0].email).to eq  'carolinesemail@email.com'
     expect(users[0].username).to eq 'caro'
+    expect(users[0].password).to eq 'pwtest1'
+
 
     expect(users[1].id).to eq  2
     expect(users[1].name).to eq  'Philip'
     expect(users[1].email).to eq  'philsemail@email.com'
     expect(users[1].username).to eq 'phil'
+    expect(users[1].password).to eq 'pwtest2'
+
 
   end
 

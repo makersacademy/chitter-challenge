@@ -17,6 +17,10 @@
   <div class="userbanner">
     <h1> Hello, <%=@user.name%>!</h1>
     <h2>Welcome to your chitter homepage</h2>
+    <form action="/" method="POST">
+        <input type="submit" value="Log out">
+    </form>
+    
   </div>
 
 <!-- User info -->
@@ -68,6 +72,12 @@
             <p> <%= peep.time %> </p>
          </div>
         <% end %>
+  </div>
+
+    <!-- View all Peeps  -->
+  <div class="container">
+    <a href='/peeps'><h2>View all Peeps</h2></a>
+        
   </div>
 
 

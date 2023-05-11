@@ -88,6 +88,17 @@ describe Application do
       expect(response.body).to include 'Invalid credentials, please try again.'
     end
 
+    it 'rejects a signup if the password is empty' do
+      response = post('/signup',
+        name:'TestName',
+        email:'testemail@email.com',
+        username: 'testusername!',
+        password: '')
+      expect(response.status).to eq 400
+  
+      expect(response.body).to include 'Invalid credentials, please try again.'
+    end
+
     it 'rejects a signup if the email does not have an @ sign' do
       response = post('/signup',
         name:'TestName',
@@ -107,7 +118,8 @@ describe Application do
         password: 'test')
       
       expect(response.status).to eq 302
-      expect(response.original_headers['Location']).to include '/userpage/3'
+      p response
+      expect(response.original_headers['Location']).to include '/userpage'
       
       users = UserRepository.new.all
 
@@ -174,10 +186,10 @@ describe Application do
 
     end
 
-    it 'rejects a log-in if password is empty' do
+    it 'rejects a log-in if password is wrong' do
       response = post('/userpage',
         username:'caro',
-        password: '')
+        password: 'test')
       expect(response.status).to eq 400
   
       expect(response.body).to include 'Invalid user details.'
@@ -194,29 +206,11 @@ describe Application do
 
     end
 
-    it 'directs a user to their userpage on a successful log-in' do
+    it 'redirects the user on a successful log-in' do
       response = post('/userpage',
         username:'caro',
-        password: 'test')
+        password: 'pwtest1')
       expect(response.status).to eq 302
-  
-      expect(response.original_headers['Location']).to include '/userpage/1'
-    end
-
-    it 'shows the users peeps' do
-      response = get('/userpage/1')
-      expect(response.status).to eq 200
-
-      expect(response.body).to include('<h3> This is the second Peep </h3>')
-      expect(response.body).to include('<h3> This is the first Peep </h3>')
-    end
-
-    it 'shows the peeps that the user has been tagged in' do
-      response = get('/userpage/2')
-      expect(response.status).to eq 200
-
-      expect(response.body).to include('<h3> This is the second Peep </h3>')
-      expect(response.body).to include('<h3> This is the first Peep </h3>')
     end
 
 

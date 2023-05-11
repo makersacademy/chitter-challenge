@@ -8,6 +8,7 @@ require_relative 'lib/peep_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/user_repository'
@@ -17,11 +18,22 @@ class Application < Sinatra::Base
   # ------------- Homepage Route ----------------------------------------
 
   get '/' do
+    if session[:user_id] != nil
+      # No user id in the session
+      # so the user is not logged in.
+      return redirect('/userpage')
+    end
     peep_repo = PeepRepository.new
     @user_repo = UserRepository.new
     @peeps = peep_repo.all.sort_by!{|peep| peep.time}.reverse!
 
     return erb(:index)
+  end
+
+  post '/' do
+    session[:user_id] = nil
+    return redirect('/')
+
   end
 
   # ------------- Sign Up Routes ----------------------------------------
@@ -53,11 +65,14 @@ class Application < Sinatra::Base
     user.name = params[:name]
     user.email = params[:email]
     user.username = params[:username]
+    user.password = params[:password]
 
     users.create(user)
 
     user = users.find_by_username(user.username)
-    redirect "/userpage/#{user.id}"
+    session[:user_id] = user.id
+
+    redirect "/userpage"
 
   end
 
@@ -114,26 +129,48 @@ class Application < Sinatra::Base
     end
 
     username = params[:username]
+    password = params[:password]
 
     user = user_repo.find_by_username(username)
+   
+    if user.password == password
+      # Set the user ID in session
+      session[:user_id] = user.id
 
-    redirect "/userpage/#{user.id}" 
+      redirect "/userpage"
+
+      
+    else
+      status 400
+      return 'Invalid user details.'
+    end
+  end
+
+  get '/userpage' do
+    if session[:user_id] == nil
+      # No user id in the session
+      # so the user is not logged in.
+      return redirect('/')
+    else
+      # The user is logged in, display 
+      # their account page.
+
+      user_id = session[:user_id]
+
+      @user_repo = UserRepository.new
+      peep_repo = PeepRepository.new
+
+      @user = @user_repo.find(user_id)
+      @peeps = peep_repo.find_by_owner(@user.id).sort_by!{|peep| peep.time}.reverse!
+      @tagged_peeps = peep_repo.find_by_tagged_user(@user.id)
+
+      return erb(:userpage)
+    end
 
   end
 
-  get '/userpage/:id' do
-    user_id = params[:id]
 
-    @user_repo = UserRepository.new
-    peep_repo = PeepRepository.new
-
-    @user = @user_repo.find(user_id)
-    @peeps = peep_repo.find_by_owner(@user.id).sort_by!{|peep| peep.time}.reverse!
-    @tagged_peeps = peep_repo.find_by_tagged_user(@user.id)
-
-    return erb(:userpage)
-    
-  end
+  # ------------- helper methods ----------------------------------------
 
   def invalid_user_params?
     params[:username] == nil ||  params[:username].match?(/[^a-zA-Z0-9 ]/) ||  

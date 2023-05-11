@@ -9,8 +9,8 @@ TRUNCATE TABLE peeps, users, peeps_users RESTART IDENTITY;
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
 
-INSERT INTO users (name, email, username) VALUES ('Caroline', 'carolinesemail@email.com', 'caro');
-INSERT INTO users (name, email, username) VALUES ('Philip', 'philsemail@email.com', 'phil');
+INSERT INTO users (name, email, username, password) VALUES ('Caroline', 'carolinesemail@email.com', 'caro', 'pwtest1');
+INSERT INTO users (name, email, username, password) VALUES ('Philip', 'philsemail@email.com', 'phil', 'pwtest2');
 
 
 INSERT INTO peeps (content, time, user_id) VALUES ('This is the first Peep', '20230506 10:22:09 AM', 1);
