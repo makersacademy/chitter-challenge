@@ -93,14 +93,23 @@ class Application < Sinatra::Base
     repo = UserRepository.new
     email = params[:submitted_email]
     password = params[:submitted_password]
-    
+
     if repo.sign_in(email, password) == true
-      user = repo.find_by_email(email)
-      session[:user_id] = user.id
+      @user = repo.find_by_email(email)
+      session[:user_id] = @user.id
       return erb(:login_success)
     else
       status 400
       return 'Email and password do not match. Please go back and try again'
+    end
+  end
+
+  get '/account_page' do
+    if session[:user_id] == nil
+      return redirect('/login')
+    else
+      @user = UserRepository.new.find(session[:user_id])
+      return erb(:account_page)
     end
   end
 

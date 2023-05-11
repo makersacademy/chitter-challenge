@@ -130,4 +130,28 @@ describe Application do
     end
   end
 
+  context 'GET /account_page' do
+    it 'Account page is accessible when user is logged in' do
+      new_user = User.new
+      new_user.email = 'kboo@makersacademy.com'
+      new_user.name = 'King Boo'
+      new_user.username = 'kboo'
+      new_user.password = 'boo123'
+
+      users = UserRepository.new
+      users.create(new_user)
+      
+      post('/login', submitted_email: 'kboo@makersacademy.com', submitted_password: 'boo123')
+
+      response = get('/account_page')
+      
+      expect(response.status).to eq(200)
+      expect(response.body).to include('King Boo')
+    end
+
+    xit 'Account page is not accessible when user is not authenticated' do
+      
+    end
+  end
+
 end
