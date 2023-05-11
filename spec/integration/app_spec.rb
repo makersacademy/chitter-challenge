@@ -57,6 +57,21 @@ describe Application do
     end
   end
 
+  context 'POST to /signup' do
+    it 'adds a new user' do
+      response = post(
+        '/signup',
+        username: 'jimmy',
+        name: 'Jim',
+        email: 'jim@gmail.com',
+        password: '123'
+        )
+      
+      expect(response.status).to eq 200
+      expect(response.body).to include('<p>You have successfully signed up for Chitter!</p>')
+    end
+  end
+
   context 'GET to /login' do
     it 'returns 200 OK and the login form' do
       response = get('/login')
