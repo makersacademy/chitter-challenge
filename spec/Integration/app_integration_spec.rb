@@ -37,6 +37,12 @@ describe Application do
 
     
   end
+  context 'POST /' do
+    it 'posts a new peep' do
+      response = post('/', peep: 'New peep')
 
-
+      expect(response.status).to eq 200
+      expect(response.body).to include 'This is a new peep'
+    end
+  end
 end

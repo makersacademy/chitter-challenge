@@ -16,10 +16,8 @@ class Application < Sinatra::Base
   get '/' do
     peep_repo = PeepRepository.new
     @user_repo = UserRepository.new
-    @peep_list = peep_repo.all.sort { |a, b| a.time_stamp <=> b.time_stamp }
+    @peep_list = peep_repo.all
     return erb(:index)
   end
-
-
 end
 
