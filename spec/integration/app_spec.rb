@@ -100,8 +100,6 @@ RSpec.describe Application do
       expect(password_hash).not_to eq input_password 
     end
 
-    # need to test validations and failed sign up
-
     it 'links to a log in page' do
       response = post('/new-user')
 
@@ -163,7 +161,7 @@ RSpec.describe Application do
       expect(response.body).to include "<a href=\"/User-1/page\"> Click here to access your user page </a>"   
     end
 
-    it 'redirects to GET /login if log in details are incorrect' do
+    it 'redirects to GET /login if email does not exist in database' do
       response = post(
         "/login",
         email_address: "fake_email@gmail.com",
@@ -174,7 +172,16 @@ RSpec.describe Application do
       expect(response.location).to eq("http://example.org/login")
     end
 
-    # need to test if email is correct but password isn't
+    it 'redirects to GET /login if email is correct but password is not' do
+      response = post(
+        "/login",
+        email_address: "User1@gmail.com",
+        password: "wrong_password"
+      )
+
+      expect(response).to be_redirect    
+      expect(response.location).to eq("http://example.org/login")
+    end
 
   end
 
