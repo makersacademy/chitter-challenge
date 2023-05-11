@@ -28,14 +28,25 @@ label {
     text-shadow: 1px 1px black;
 }
 
-
 .peep-container {
     width: 45%;
     margin: 10px auto 10px auto;
-    background-image: url(pigeon-in-flight-2.jpg);
-    border: 5px solid blue;
+    border: 5px solid black;
     border-radius: 10px;
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-color: rgba(255,255,255,0.7);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+}
+
+#content {
+    font-size: 40px;
+}
+
+#time {
+    font-size: 20px;
+}
+
+#names {
+    font-size: 20px;
 }

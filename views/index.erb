@@ -15,10 +15,9 @@
         <h2>All Peeps</h2>
         <% @peeps.each do |peep| %>
             <div class="peep-container">
-                <p><%=peep.content %></p>
-                <p><%=peep.formatted_time %></p>
-                <p><%=peep.user.name %></p>
-                <p>@<%=peep.user.username %></p>
+                <p id="names"><%=peep.user.name %>:  @<%=peep.user.username %></p>
+                <p id="content"><%=peep.content %></p>
+                <p id="time"><%=peep.formatted_time %></p>
             <br>
             </div>
         <% end %>
