@@ -118,7 +118,6 @@ describe Application do
         password: 'test')
       
       expect(response.status).to eq 302
-      p response
       expect(response.original_headers['Location']).to include '/userpage'
       
       users = UserRepository.new.all
