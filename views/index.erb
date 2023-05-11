@@ -20,7 +20,7 @@
     <h2>All peeps:</h2>
     <% @peeps.each do |peep| %>
     <div>
-      <%= @formatter.format_peep(peep) %>
+      <%= @display.peep(peep) %>
       <p>--------</p>
     </div>
     <% end %>

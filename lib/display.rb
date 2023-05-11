@@ -1,8 +1,8 @@
 require_relative 'peep_repository'
 require_relative 'user_repository'
 
-class Formatter
-  def format_peep(peep)
+class Display
+  def peep(peep)
     content = content_with_links(peep)
     str = "
     #{peep.name} (#{link(peep.username)}) says:<br/>
@@ -12,7 +12,7 @@ class Formatter
     "
   end
 
-  def format_user(user)
+  def user(user)
     str = "
     <h2>#{user.username}</h2>
     <div>#{user.name}, #{user.email}</div>
@@ -49,5 +49,4 @@ class Formatter
     usernames = repo.all.map { |user| user.username }
     return usernames.include?(username)
   end
-
 end

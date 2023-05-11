@@ -1,15 +1,9 @@
 require 'peep_repository'
 require 'peep'
 
-def reset_peeps_table
-  seed_sql = File.read('spec/seeds/seeds_peeps.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_site_test' })
-  connection.exec(seed_sql)
-end
-
 RSpec.describe PeepRepository do
   before(:each) do 
-    reset_peeps_table
+    reset_tables
   end
 
   it 'returns an array of all peeps' do

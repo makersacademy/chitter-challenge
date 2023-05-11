@@ -2,14 +2,6 @@ require 'spec_helper'
 require 'rack/test'
 require_relative '../../app'
 
-def reset_tables
-  seed_sql = File.read('spec//seeds/app_seeds.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter_site_test' })
-  connection.exec(seed_sql)
-end
-
-DatabaseConnection.connect('chitter_site_test')
-
 RSpec.describe Application do
   before(:each) do
     reset_tables
@@ -48,11 +40,14 @@ RSpec.describe Application do
       # Assuming the username already exisis
       response = post(
         '/peep',
-        content: "New peep posted",
-        username: "lpc"
+        content: 'New peep posted',
+        username: 'lpc'
       )
 
       expect(response.status).to eq(200)
+      expect(response.body).to include('New peep posted')
+
+      response = get('/')
       expect(response.body).to include('New peep posted')
     end
 

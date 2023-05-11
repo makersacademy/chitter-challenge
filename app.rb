@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
-require_relative 'lib/formatter'
+require_relative 'lib/display'
 
 DatabaseConnection.connect('chitter_site')
 
@@ -14,24 +14,21 @@ class Application < Sinatra::Base
 
   get '/' do
     repo = PeepRepository.new
-    @formatter = Formatter.new
+    @display = Display.new
     @peeps = repo.all_with_users.reverse
 
     return erb(:index)
   end
 
   post '/peep' do
-    username = params['username']
-    content = params['content']
-    if user_exists(username)
+    if user_exists(params['username'])
       repo = PeepRepository.new
-      peep = create_peep_object(username, content)
-      repo.create(peep)
-      @formatter = Formatter.new
+      repo.create(new_peep)
+      @display = Display.new
       @peeps = repo.all_with_users.reverse
       return erb(:index)
     else
-      @username = username
+      @username = params['username']
       status 400
       return invalid_peep_parameters? ? '' : erb(:unknown_username)
     end
@@ -44,7 +41,7 @@ class Application < Sinatra::Base
   get '/users/:id' do
     repo = UserRepository.new
     @user = repo.find_with_peeps(params[:id])
-    @formatter = Formatter.new
+    @display = Display.new
     @peeps = @user.peeps.reverse
 
     return erb(:user_page)
@@ -55,15 +52,10 @@ class Application < Sinatra::Base
       status 400
       return ''
     end
+
     begin
       repo = UserRepository.new
-      user = User.new
-      user.email = params['email']
-      user.password = params['password']
-      user.name = params['name']
-      user.username = params['username']
-
-      repo.create(user)
+      repo.create(new_user)
       return erb(:user_created)
     rescue RuntimeError => e
       @error_message = e.message
@@ -73,6 +65,23 @@ class Application < Sinatra::Base
   end
 
   private
+
+  def new_peep
+    peep = Peep.new
+    peep.content = params['content']
+    peep.time = Time.now.strftime("%k:%M")
+    peep.user_id = find_id(params['username'])
+    return peep
+  end
+
+  def new_user
+    user = User.new
+    user.email = params['email']
+    user.password = params['password']
+    user.name = params['name']
+    user.username = params['username']
+    user
+  end
 
   def invalid_peep_parameters?
     if [params[:content], params[:username]]
@@ -89,15 +98,6 @@ class Application < Sinatra::Base
       return true
     end
     return false 
-  end
-
-  def create_peep_object(username, content)
-    repo = PeepRepository.new
-    peep = Peep.new
-    peep.content = content
-    peep.time = Time.now.strftime("%k:%M")
-    peep.user_id = find_id(username)
-    return peep
   end
 
   def find_id(username)
