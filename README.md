@@ -28,6 +28,7 @@ rackup
 # Rspec tests included run:
 rspec
 
+![Screenshot](test coverage.png)
 ```
 
 # Features

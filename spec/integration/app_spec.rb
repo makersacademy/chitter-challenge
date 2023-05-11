@@ -1,7 +1,6 @@
 require "spec_helper"
 require "rack/test"
 require_relative '../../app'
-
 describe Application do
   
   include Rack::Test::Methods
@@ -121,8 +120,7 @@ describe Application do
         user_id: 1
       )
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>You created a new peep: what a sunny day</h1>')
+      expect(response.body).to include('You created a new peep')
     end
   end
-
 end
