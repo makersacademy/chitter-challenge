@@ -313,6 +313,16 @@ RSpec.describe Application do
       expect(response.body).to include '<form method="POST" action="/user/new-peep">'
       expect(response.body).to include '<input type="text" name="text">'
     end
+
+    it 'has an optional field for a tag' do
+      session = { 'rack.session' => { name: 'fake_user' } }
+      response = get('/:user/compose_peep', {}, session)
+
+      expect(response.status).to eq 200
+            
+      expect(response.body).to include '<label> Optional Tag </label>'
+      expect(response.body).to include '<input type="text" name="tag">'
+    end      
   end
 
   context 'POST /user/new-peep' do
@@ -350,7 +360,13 @@ RSpec.describe Application do
       
     end
 
-    # and need to test for adding tags to posts
+    xit 'associates an optional tag with created peep in the database' do
+      # code here
+    end
+
+    xit 'if the optional tag is the name of an existing user, it emails that user' do
+      
+    end
   end
 
 end
