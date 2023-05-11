@@ -2,6 +2,8 @@
 
 A Twitter clone build as part of the Makers Academy development course
 
+https://chitter-the-chit-chat-app.onrender.com
+
 ## How to use
 
 ```shell
@@ -27,6 +29,6 @@ rackup
 
 ## Contact
 - [Caroline Evans](mailto:carolineevans261@gmail.com)
-- [Project Website](URL https://chitter-the-chit-chat-app.onrender.com)
+- [Project Website](https://chitter-the-chit-chat-app.onrender.com)
 
 ## Build information
