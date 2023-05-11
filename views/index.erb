@@ -16,7 +16,7 @@
         <% @peeps.each do |peep| %>
             <div class="peep-container">
                 <p><%=peep.content %></p>
-                <p><%=peep.time_posted %></p>
+                <p><%=peep.formatted_time %></p>
                 <p><%=peep.user.name %></p>
                 <p>@<%=peep.user.username %></p>
             <br>
