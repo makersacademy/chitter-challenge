@@ -39,7 +39,7 @@ describe Application do
   end
   context 'POST /' do
     it 'posts a new peep' do
-      response = post('/', peep: 'New peep')
+      response = post('/', title: 'New peep', content: 'new peep content')
 
       expect(response.status).to eq 200
       expect(response.body).to include 'New peep'
