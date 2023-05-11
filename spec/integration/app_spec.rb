@@ -260,21 +260,29 @@ describe Application do
     end
   end
 
-  # context '/update_details' do
-  #   it 'Should return a form page to update details if user is logged in' do
-  #     response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
-  #     response = get('/update_details')
+  context '/update_details' do
+    it 'Should return a form page to update details if user is logged in' do
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = get('/update_details')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<h1>Update your account details</h1>')
+      expect(response.body).to include ('<form method="POST" action="/update_details">')
+      expect(response.body).to include ('<label>Name:</label>')
+      expect(response.body).to include ('<input type="text" name="name"/>')
+    end
 
-  #   end
+    it 'Should redirect the user to a login style page if user is not logged in' do
+      response = get('/update_details')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<h1>Unable to update your details</h1>')
+      expect(response.body).to include ('<p>To update your account details you must be logged in</p>')
+      expect(response.body).to include ('<a href="/loginpage">Login page</a>')
+    end
 
-  #   it 'Should redirect the user to a login style page if user is not logged in' do
-  #     response = get('/update_details')
-  #   end
-
-  #   it 'Should ' do
-
-  #   end
-  # end
+    it 'Should ' do
+      
+    end
+  end
 
   context '/userpage' do
     it 'Should not allow user to enter user page if not logged in' do
