@@ -21,4 +21,3 @@ gem "sinatra", "~> 2.2"
 gem "webrick", "~> 1.7"
 
 gem "sinatra-contrib", "~> 2.2"
-gem "rackup", "~> 1.0"
