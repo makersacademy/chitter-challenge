@@ -1,0 +1,13 @@
+<html>
+  <head></head>
+  <body>
+    <h1><%= @peep.content %></h1>
+    <p>
+      Posted by: <%= @user.username %><br />
+      Time: <%= @peep.time %><br />
+    </p>
+    <form action="/" >
+        <input type="submit" value="Go back to the main page" />
+    </form>
+  </body>
+</html>

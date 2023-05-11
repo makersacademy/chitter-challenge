@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body style="background-image: url('https://i.imgur.com/lOe7KH6.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;">
+    <h1>Chitter peeps</h1>
+    <p>
+      <% @peeps.each do |peep| %>
+         <a href="/peeps/<%= peep.id %>"><%= peep.content %></a><br />
+       <% end %>
+    </p>
+
+  
+    <form action="/" >
+        <input type="submit" value="Go back to the main page" />
+    </form>
+  </body>
+</html>
