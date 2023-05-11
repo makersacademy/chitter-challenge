@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <h1>CHITTER!!1!!!11!</h1>
+        <% if @user.nil? %>
+            <p><a href="/sign-up">Sign Up</a></p>
+            <p><a href="/login">Log In</a></p>
+        <% else %>
+            <p><a href="/logout">Log Out</a></p>
+            <p><a href="/new-peep">Add new peep</a></p>
+        <% end %>
+
+        <h2>All Peeps</h2>
+        <% @peeps.each do |peep| %>
+            <div class="peep-container">
+                <p id="names"><%=peep.user.name %>:  @<%=peep.user.username %></p>
+                <p id="content"><%=peep.content %></p>
+                <p id="time"><%=peep.formatted_time %></p>
+            <br>
+            </div>
+        <% end %>
+    </body>
+</html>

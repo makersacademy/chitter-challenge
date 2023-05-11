@@ -1,0 +1,52 @@
+* {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center;
+    font-weight: bold;
+    color: deeppink;
+}
+
+body {
+    background-image: url(pigeons.jpeg);
+}
+
+h1 {
+    font-size: 92;
+    text-shadow: 2px 2px black;
+}
+
+h2 {
+    font-size: 60;
+    text-shadow: 2px 2px black;
+}
+
+p {
+    font-size: 30px;
+    text-shadow: 1px 1px black;
+}
+
+label {
+    text-shadow: 1px 1px black;
+}
+
+.peep-container {
+    width: 45%;
+    margin: 10px auto 10px auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.7);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#content {
+    font-size: 40px;
+}
+
+#time {
+    font-size: 20px;
+}
+
+#names {
+    font-size: 20px;
+}
