@@ -326,7 +326,8 @@ RSpec.describe Application do
   end
 
   context 'POST /user/new-peep' do
-    it 'creates a new peep in the database and returns an html view with confirmation' do  
+    context 'new peep with no optional tag' do
+      it 'creates a new peep in the database and returns an html view with confirmation' do  
       session = { 'rack.session' => { name: 'User 1' } }
 
       response = post(
@@ -343,6 +344,37 @@ RSpec.describe Application do
 
       expect(latest_peep.text).to eq "It's peepin off"
       expect(latest_peep.user_id).to eq 1
+      expect(latest_peep.tags.size).to eq 0
+      end
+    end
+
+    context 'new peep with existing optional tag' do
+      it 'associates an existing tag with new peep in the database' do
+        session = { 'rack.session' => { name: 'User 1' } }
+
+        response = post(
+        '/user/new-peep',
+        { :text => "Hello", :tag => 'greetings' }, 
+        session
+        ) 
+
+        expect(response.status).to eq 200    
+
+        latest_peep = Peep.last
+        existing_tag = latest_peep.tags.first
+        expect(latest_peep.tags.size).to eq 1
+        expect(existing_tag.content).to eq "greetings"
+      end  
+
+      xit 'if the optional tag is the name of an existing user, it emails that user' do
+      
+      end
+    end
+
+    context 'new peep with a new optional tag' do
+      xit 'creates a new tag in the database and associates it with the new peep' do
+        
+      end
     end
 
     it 'links back to the user page' do
@@ -360,13 +392,6 @@ RSpec.describe Application do
       
     end
 
-    xit 'associates an optional tag with created peep in the database' do
-      # code here
-    end
-
-    xit 'if the optional tag is the name of an existing user, it emails that user' do
-      
-    end
   end
 
 end
