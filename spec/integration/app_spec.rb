@@ -52,7 +52,7 @@ describe Application do
 
     it 'Should return an error page when username is not present within the DB' do
       response = post('/loginpage', username: 'FakeUsername', password: 'Password1!')
-      expect(response.status).to eq(500)  # add an alternate fail test here. 
+      expect(response.status).to eq(500) # add an alternate fail test here. 
     end
 
     it 'Should return an alternate/error page when password is incorrect' do
@@ -256,7 +256,7 @@ describe Application do
     it 'Should return a 400 error if the user tries to delete a peep that does not exist' do
       response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       response = post('/delete_peep', title: 'Non existent peep')
-      expect(response.status).to eq (500)  #Add an alternate fail here for this scenario. 
+      expect(response.status).to eq (500) # Add an alternate fail here for this scenario. 
     end
   end
 
@@ -264,7 +264,6 @@ describe Application do
   #   it 'Should return a form page to update details if user is logged in' do
   #     response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
   #     response = get('/update_details')
-
 
   #   end
 

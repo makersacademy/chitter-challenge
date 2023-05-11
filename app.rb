@@ -55,7 +55,7 @@ class Application < Sinatra::Base
       status 400
     elsif repo.all.any? { |row| row.email_address == maker.email_address }
       status 400
-    elsif maker.name == nil || maker.username == nil || maker.email_address == nil || maker.password == nil
+    elsif maker.name.nil? || maker.username.nil? || maker.email_address.nil? || maker.password.nil?
       status 400
     elsif maker.name.empty? || maker.username.empty? || maker.email_address.empty? || maker.password.empty? 
       status 400
@@ -130,7 +130,7 @@ class Application < Sinatra::Base
     @selected = repo.find_by_title(title)
 
     if @selected.maker_id != session[:id]
-      status 400 #add an error stating you cannot delete a peep which you have not posted.
+      status 400 # add an error stating you cannot delete a peep which you have not posted.
     else
       id = @selected.id 
       repo.delete(id)
