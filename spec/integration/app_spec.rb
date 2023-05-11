@@ -321,7 +321,7 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200    
 
-      expect(response.body).to include "<a href=\"/:user/page\"> Return to your page. </a>"
+      expect(response.body).to include "<a href=\"/:user/page\"> Return to your page </a>"
       
     end
 
