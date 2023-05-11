@@ -6,7 +6,8 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name text,
   email text,
-  username text
+  username text,
+  password text
 );
 
 CREATE TABLE peeps (

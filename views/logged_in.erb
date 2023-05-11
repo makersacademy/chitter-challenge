@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter - User Homepage</title>
+
+  <!-- Change these Google fonts with your own choice -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<!-- User Banner section -->
+
+  <div class="userbanner">
+    <h1> Hello, <%=@user.name%>!</h1>
+    <h2>Welcome to your chitter homepage</h2>
+    <form action="/" method="POST">
+        <input type="submit" value="Log out">
+    </form>
+    
+  </div>

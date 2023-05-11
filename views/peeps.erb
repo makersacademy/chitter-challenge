@@ -11,17 +11,27 @@
 </head>
 
 <body>
-
+  <div class="banner">
+    <h1> What's Peeping?</h1>
+    <p>Here are the latest peeps from across Chitter</p>
+    <br> <br>
+    <h3> New to Chitter? Sign up <a href='/signup'>here</a>.</h3>
+  </div>
   <!-- Peeps section -->
 
   <div class="container">
+  
     <h2>All Peeps</h2>
+    <div>
+    <a href='/'>Go to the home page </a>
+    </div>
         <% @peeps.each do |peep| %>
-         <a href="/peeps/<%=peep.id %>">
-         <p> <%= @user%>
+        <div class="container">
+         <p> <%=@users.find_by_id(peep.user_id)%> </p>
          <p> <%= peep.content%> </p>
          <p> <%= peep.time%> </p>
          <%end%>
+         </div>
   </div>
 
   <!-- Footer section -->

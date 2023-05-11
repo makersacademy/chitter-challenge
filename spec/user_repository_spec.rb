@@ -42,6 +42,7 @@ RSpec.describe UserRepository do
       user.name = 'Charlie'
       user.email = 'charliekelly@paddyspub.com'
       user.username = 'TheDayman'
+      user.password = BCrypt::Password.create('fightmilk')
 
       repo.create(user)
       users = repo.all
@@ -51,6 +52,12 @@ RSpec.describe UserRepository do
       expect(new_user.email).to eq 'charliekelly@paddyspub.com'
       expect(new_user.username).to eq 'TheDayman'
       expect(new_user.id).to eq '3'
+    end
+  end
+
+  context "The Find by Username Method" do
+    it 'returns the correct user object with the username as the argument' do
+      
     end
   end
 end

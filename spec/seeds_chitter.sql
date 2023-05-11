@@ -1,8 +1,8 @@
 TRUNCATE TABLE peeps, users RESTART IDENTITY;
 
 
-INSERT INTO users (name, email, username) VALUES ('Jack', 'jack@email.com', 'skates');
-INSERT INTO users (name, email, username) VALUES ('Dave', 'dave@email.com', 'dave123');
+INSERT INTO users (name, email, username, password) VALUES ('Jack', 'jack@email.com', 'skates', '123321');
+INSERT INTO users (name, email, username, password) VALUES ('Dave', 'dave@email.com', 'dave123', 'testtest');
 
 
 INSERT INTO peeps (content, time, user_id) VALUES ('This is the first Peep', '20230506 12:22:09 PM', 1);

@@ -26,7 +26,7 @@
   <div class="container">
     <h2>Log in to Chitter</h2>
     <div class="form">
-    <form action="/userpage" method="POST">
+    <form action="/logged_in" method="POST">
         <div>
         <label>username:</label>
         <input type="text" name="username">
@@ -45,7 +45,13 @@
 <div class="container">
     <h2>Latest Peeps</h2>
     <div class="peep">
-
+      <% @peeps.each do |peep| %>
+        <div class="container">
+         <p> <%=@users.find_by_id(peep.user_id)%> </p>
+         <p> <%= peep.content%> </p>
+         <p> <%= peep.time%> </p>
+         <%end%>
+         </div>
     </div>
 
     <a href='/peeps'>View all peeps</a>

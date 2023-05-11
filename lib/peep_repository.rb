@@ -7,10 +7,8 @@ class PeepRepository
     peeps_array = []
     result.each do |row|
       peep = Peep.new
-      peep.id = row['id']
-      peep.content = row['content']
-      peep.time = row['time']
-      peep.user_id = row['user_id']
+      peep.id, peep.content, peep.time, peep.user_id = 
+        row['id'], row['content'], row['time'], row['user_id']
       peeps_array << peep
     end
     return peeps_array
@@ -23,20 +21,16 @@ class PeepRepository
     DatabaseConnection.exec_params(sql, params)
 
     return nil
-    # returns nil
   end
   
   def find_by_owner(user_id)
     sql = 'SELECT id, content, time, user_id FROM peeps WHERE user_id = $1;'
-    param = [user_id]
-    result = DatabaseConnection.exec_params(sql, param)
+    result = DatabaseConnection.exec_params(sql, [user_id])
     peeps_array = []
     result.each do |row|
       peep = Peep.new
-      peep.id = row['id']
-      peep.content = row['content']
-      peep.time = row['time']
-      peep.user_id = row['user_id']
+      peep.id, peep.content, peep.time, peep.user_id = 
+        row['id'], row['content'], row['time'], row['user_id']
       peeps_array << peep
     end
     return peeps_array
