@@ -197,7 +197,15 @@ RSpec.describe Application do
 
     end
 
-    # will need to update above with link to logout
+    it 'has a link to log out' do
+      session = { 'rack.session' => { name: 'fake_user' } }
+      response = get('/:user/page', {}, session )
+
+      expect(response.status).to eq 200
+
+      expect(response.body).to include ("<a href=\"/log-out\"> Log Out </a>")
+
+    end
 
     it 'lists the current peeps in the database in reverse chronological order' do
       session = { 'rack.session' => { name: 'fake_user' } }
@@ -303,7 +311,7 @@ RSpec.describe Application do
       
     end
 
-    # will need to test for link to return, and need to test for adding tags to posts
+    # and need to test for adding tags to posts
   end
 
 end
