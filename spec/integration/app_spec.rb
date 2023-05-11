@@ -288,6 +288,21 @@ RSpec.describe Application do
       expect(latest_peep.user_id).to eq 1
     end
 
+    it 'links back to the user page' do
+      session = { 'rack.session' => { name: 'User 1' } }
+
+      response = post(
+      '/user/new-peep',
+      {:text => "It's peepin off"}, 
+      session
+      ) 
+
+      expect(response.status).to eq 200    
+
+      expect(response.body).to include "<a href=\"/:user/page\"> Return to your page. </a>"
+      
+    end
+
     # will need to test for link to return, and need to test for adding tags to posts
   end
 
