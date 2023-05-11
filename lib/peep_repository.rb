@@ -1,5 +1,5 @@
-require_relative 'peep'
 require_relative 'database_connection'
+require_relative 'peep'
 
 
 class PeepRepository
