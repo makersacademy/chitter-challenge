@@ -177,6 +177,19 @@ RSpec.describe Application do
 
   end
 
+  context 'GET /logout' do
+    it 'sets the session parameters to nil and redirects to home page' do
+      fake_session = { 'rack.session' => { name: 'fake_user', email_address: 'fake_email' } }
+      response = get("/logout", {}, fake_session)
+
+      expect(response).to be_redirect    
+      expect(response.location).to eq("http://example.org/")
+        
+      expect(session["name"]).to be nil
+      expect(session["email_address"]).to be nil
+    end
+  end
+
   context 'GET /:user/page' do
 
     it 'redirects to login page if no session is active' do
@@ -203,7 +216,7 @@ RSpec.describe Application do
 
       expect(response.status).to eq 200
 
-      expect(response.body).to include ("<a href=\"/log-out\"> Log Out </a>")
+      expect(response.body).to include ("<a href=\"/logout\"> Log Out </a>")
 
     end
 

@@ -28,6 +28,12 @@ class Application < Sinatra::Base
     return erb(:log_in)
   end
 
+  get '/logout' do
+    session[:name] = nil
+    session[:email_address] = nil
+    return redirect('/')
+  end
+
   post '/login' do
     email = params[:email_address]
     password = params[:password]
