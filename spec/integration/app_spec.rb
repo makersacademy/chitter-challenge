@@ -92,18 +92,36 @@ RSpec.describe Application do
       expect(response.body).to include '<h1> Welcome to Chitter, Jeff! </h1>'
 
       latest_user = User.last
-      password_hash = latest_user.password
+      password_hash = latest_user.password_hash
 
       expect(latest_user.name).to eq 'Jeff'
       expect(latest_user.email_address).to eq 'Jeff@gmail.com'
+
       expect(password_hash).not_to be nil
       expect(password_hash).not_to eq input_password 
     end
 
     it 'links to a log in page' do
-      response = post('/new-user')
-
+        response = post(
+        '/new-user',
+        name: 'Jeff',
+        email_address: 'Jeff@gmail.com',
+        password: '12345678'
+      )
+      
       expect(response.body).to include "<a href=\"/login\"> Click here to log in </a>"
+    end
+
+    it 'redirects to GET /signup if an input is invalid' do
+        response = post(
+        '/new-user',
+        name: 'Jeff',
+        email_address: '',
+        password: '12345678'
+      )
+      expect(response).to be_redirect
+      expect(response.location).to eq "http://example.org/signup"
+  
     end
   end
 

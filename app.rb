@@ -67,11 +67,16 @@ class Application < Sinatra::Base
   post '/new-user' do
     @name = params[:name]
     email_address = params[:email_address]
-    encrypted_password = BCrypt::Password.create(params[:password])
-
-    User.create(name: @name, email_address: email_address, password: encrypted_password)
-
-    return erb(:sign_up_confirmation)
+    password = params[:password]
+    # encryption happens on User class creation
+    new_user = User.new(name: @name, email_address: email_address, password: password)
+    
+    if new_user.valid?
+      new_user.save
+      return erb(:sign_up_confirmation)
+    else
+      return redirect('/signup')
+    end
   end
 
   post '/user/new-peep' do
