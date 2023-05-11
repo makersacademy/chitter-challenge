@@ -1,5 +1,6 @@
 require 'user'
 require 'user_repository'
+require 'mail'
 
 def reset_users_table
   seed_sql = File.read('spec/seeds_users.sql')
@@ -57,20 +58,21 @@ describe UserRepository do
     expect(users.last.email).to eq('hana@makers.com')
   end
  
-#   context 'send_tag_email' do
-#     include Mail::Matchers
+  context 'send_tag_email' do
+    include Mail::Matchers
 
-#     before(:each) do
-#       Mail::TestMailer.deliveries.clear
-#     end
+    before(:each) do
+      Mail::TestMailer.deliveries.clear
+    end
 
-#     it 'send an email' do 
-#         username = "test"
-#         email = "test@gmail.com"
-#         content = "test content"
-#         send_tag_email(username, email, content)
+    it 'send an email' do 
+      repo = UserRepository.new
+        username = "test"
+        email = "test@gmail.com"
+        content = "test content"
+        repo.send_tag_email(username, email, content)
   
-#         expect(Mail::TestMailer.deliveries.length).to eq(1)
-#     end
-#   end
+        expect(Mail::TestMailer.deliveries.length).to eq(1)
+    end
+  end
 end
