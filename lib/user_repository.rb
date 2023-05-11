@@ -27,7 +27,7 @@ class UserRepository
   end
 
   def create(user)
-    encrypted_password = BCrypt::Password.create(user.password)
+    encrypted_password = BCrypt::Password.create(user.password, cost: 7)
 
     sql = 'INSERT INTO users (email, password, name, username)
              VALUES ($1, $2, $3, $4)'
