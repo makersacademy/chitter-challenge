@@ -36,13 +36,10 @@ $ http://localhost:('Port in use')/
 
 7. Add a log in and log out page, which checks the database to match log in details
 
-8. Send an email when someone has been mentioned in a post
-
 ## Upcoming to-dos
 
-- Add condidtions to the sign in and post a peep
+- Send an email when someone has been mentioned in a post
 - Refactor
-- Update tests for creating a peep to link to the logged in user - when sessions are implemented
 - Encrypt passwords stored on DB
 - REGEX test for @ sign in email addresses
 - Errors for empty fields in post a peep form
