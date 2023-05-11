@@ -188,23 +188,47 @@ describe Application do
     end
   end
 
-  # context '/userpage' do
-    
-  # end
+  context '/logout' do
+    it 'Should redirect user to the homepage' do
+      response = post('/signup', name: 'Logout user', username: 'logout', email_address: 'logout@gmail.com', password: 'validpassword')
+      response = post('/loginpage', username: 'logout', password: 'validpassword')
+      response = get('/logout')
+      expect(response.status).to eq (302)
+      expect(response.body).to include ('<a href="/peeps">View all peeps</a>')
+      expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
+      expect(response.body).to include ('<a href="/loginpage">Log in</a>')
+      expect(response.body).to include ('<a href="/signup">Sign up</a>')
+      expect(response.body).to include ('<a href="/userpage">My account</a>')
+    end
 
-  # context '/logout' do
-  #   it 'Should redirect user to the homepage' do
+    it 'Should return the homepage with the session set to nil - This will prevent user from posting a peep' do
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = get('/logout')
+      response = get('/peep/new')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<p>To post a new peep please login or create an account</p>')
+      expect(response.body).to include ('<a href="/signup">Sign up page</a>')
+      expect(response.body).to include ('<a href="/loginpage">Login page</a>')
+    end
 
-  #   end
+    it 'Should return the homepage with the session set to nil - This will prevent user from deleting a peep' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = get('/logout')
+      response = get('/delete_peep')
+      expect(response.body).to include ('<p>To delete an exiting peep of yours, please login or create an account</p>')
+      expect(response.body).to include ('<a href="/signup">Sign up page</a>')
+      expect(response.body).to include ('<a href="/loginpage">Login page</a>')
+    end
+  end
 
-  #   it 'Should return the homepage with the session set to nil' do
-
-  #   end
-  # end
 
   # context '/delete_peep' do
   #   it 'Should ' do
 
   #   end
+  # end
+
+  # context '/userpage' do
+    
   # end
 end
