@@ -53,4 +53,15 @@ describe MakerRepository do
       expect(repo.all.last.id).to eq (3)
     end
   end
+
+  context 'Updating a makers name' do
+    it 'Should update the name of the user' do
+      repo = MakerRepository.new
+      maker = repo.find(1)
+      maker.name = "Updated name"
+      repo.update(maker)
+      updated = repo.find(1)
+      expect(updated.name).to eq ('Updated name')
+    end
+  end
 end

@@ -46,4 +46,10 @@ class MakerRepository
     params = [maker_obj.name, maker_obj.username, maker_obj.email_address, maker_obj.password]
     result = DatabaseConnection.exec_params(sql, params)
   end
+
+  def update(maker)
+    sql = 'UPDATE makers SET name = $1 WHERE id = $2;'
+    params = [maker.name, maker.id]
+    update = DatabaseConnection.exec_params(sql, params)
+  end
 end
