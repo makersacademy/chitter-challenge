@@ -34,6 +34,8 @@ describe Application do
       expect(response.body).to include "Peep 1"
       expect(response.body).to include "Meow"
     end
+
+    
   end
 
 
