@@ -59,7 +59,33 @@ describe Chitter do
       response = post('/sign_up', name: 'Alice Wood', email_address: 'alice@example.com', username: 'alice1', password: 'test')
 
       expect(response.status).to eq(400)
-      expect(response.body).to include("This username and/or email address are already in use, please try again!")
+      expect(response.body).to include("This username and/or email address is already in use, please try again!")
+    end
+  end
+
+  context 'GET /login' do
+    it 'displays the empty log in form' do
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Please enter your login details</h2>')
+      expect(response.body).to include('<input type="text" name="email_address" placeholder="joebloggs@example.com"/><br>')
+    end
+  end
+
+  context 'POST /login' do
+    it 'checks the login details against the database and successfully logs in' do
+      response = post('/login', name: 'Alice Wood', email_address: 'alice@example.com', username: 'alice1', password: 'test123')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Welcome back! Click below to see the latest peeps</h1>')
+    end
+
+    it 'checks the incorrect details against the database and gives login fail message'do
+    response = post('/login', name: 'Alice Wood', email_address: 'incorrect@example.com', username: 'alice1', password: 'test123')
+
+    expect(response.status).to eq(400)
+    expect(response.body).to include('<h1>Sorry! Your details did not match, please click below to try again</h1>')
     end
   end
 end

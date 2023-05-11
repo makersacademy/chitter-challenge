@@ -23,15 +23,28 @@ class AccountRepository
   end
 
   def add(account)
+    # encrypted_password = BCrypt::Password.create(account.password)
     sql = 'INSERT INTO accounts (email_address, username, name, password) VALUES ($1, $2, $3, $4);'
-    sql_params = [account.email_address, account.username, account.name, account.password]
+    sql_params = [account.email_address, account.username, account.name, account.password]#encrypted_password]
+    
 
     DatabaseConnection.exec_params(sql, sql_params)
 
     return nil
   end
 
-  private 
+  def find_by_email_address(email_address)
+    sql = 'SELECT * FROM accounts WHERE email_address = $1;'
+    sql_params = [email_address]
+    p sql_params
+    
+
+    result_set = DatabaseConnection.exec_params(sql, sql_params).first 
+    
+    return record_to_account(result_set)
+  end 
+
+  private   
 
   def record_to_account(record)
     account = Account.new
