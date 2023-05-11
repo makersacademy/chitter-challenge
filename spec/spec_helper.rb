@@ -2,6 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_connection'
 
+ENV['RACK_ENV'] = 'test'
 ENV['ENV'] = 'test'
 
 DatabaseConnection.connect

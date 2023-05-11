@@ -7,6 +7,8 @@ describe Chitter do
 
   let(:app) { Chitter.new }
 
+  # Homepage tests
+
   context 'GET /' do
     it 'should return the list of tweets in reverse chronological order' do
       response = get('/')
@@ -17,6 +19,8 @@ describe Chitter do
       expect(response.body).to include('I am peeping too! How cool')
     end
   end
+
+  # Add peep tests
 
   context 'GET /add_peep' do
     it 'shows a form to be completed to add a tweet to the homepage' do
@@ -37,6 +41,8 @@ describe Chitter do
     end
   end
 
+  # Sign up tests
+
   context 'GET /sign_up' do
     it 'shows you the sign up form' do
       response = get('/sign_up')
@@ -49,19 +55,29 @@ describe Chitter do
 
   context 'POST /sign_up' do
     it 'adds the account details to the database and redirects to confirmation page' do
-      response = post('/sign_up', name: 'Leo Hetsch', email_address: 'leo@example.com', username: 'leo1', password: 'test')
+      response = post('/sign_up', 
+        name: 'Leo Hetsch', 
+        email_address: 'leo@example.com', 
+        username: 'leo1', 
+        password: 'test')
 
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>Welcome, your Chitter account has been created!</h1>")
     end
 
     it 'fails if the username and/or email are already in use' do
-      response = post('/sign_up', name: 'Alice Wood', email_address: 'alice@example.com', username: 'alice1', password: 'test')
+      response = post('/sign_up', 
+        name: 'Alice Wood', 
+        email_address: 'alice@example.com', 
+        username: 'alice1', 
+        password: 'test')
 
       expect(response.status).to eq(400)
       expect(response.body).to include("This username and/or email address is already in use, please try again!")
     end
   end
+ 
+  #  Log in tests
 
   context 'GET /login' do
     it 'displays the empty log in form' do
@@ -75,7 +91,11 @@ describe Chitter do
 
   context 'POST /login' do
     it 'checks the login details against the database and successfully logs in' do
-      response = post('/login', name: 'Alice Wood', email_address: 'alice@example.com', username: 'alice1', password: 'test123')
+      response = post('/login', 
+        name: 'Alice Wood', 
+        email_address: 'alice@example.com', 
+        username: 'alice1', 
+        password: 'test123')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>Welcome back!</h1>')
@@ -83,12 +103,29 @@ describe Chitter do
     end
 
     it 'checks the incorrect details against the database and gives login fail message' do
-      response = post('/login', name: 'Alice Wood', email_address: 'incorrect@example.com', username: 'alice1', password: 'test123')
+      response = post('/login', 
+        name: 'Alice Wood', 
+        email_address: 'incorrect@example.com', 
+        username: 'alice1', 
+        password: 'test123')
+
+      expect(response.status).to eq(400)
+      expect(response.body).to include('<h1>Sorry! Your details did not match, please click below to try again</h1>')
+    end
+
+    it 'returns the log in fail for incorrect passwords' do
+      response = post('/login', 
+        name: 'Alice Wood', 
+        email_address: 'alice@example.com', 
+        username: 'alice1', 
+        password: 'incorrect')
 
       expect(response.status).to eq(400)
       expect(response.body).to include('<h1>Sorry! Your details did not match, please click below to try again</h1>')
     end
   end
+
+#  Log out tests
 
   context 'POST /log_out' do
     it ' logs the user out and deletes the session info' do

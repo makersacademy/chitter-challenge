@@ -1,4 +1,5 @@
 require_relative './account'
+require 'bcrypt'
 
 class AccountRepository
   def all
@@ -23,13 +24,25 @@ class AccountRepository
   end
 
   def add(account)
+    encrypted_password = BCrypt::Password.create(account.password)
     sql = 'INSERT INTO accounts (email_address, username, name, password) VALUES ($1, $2, $3, $4);'
-    sql_params = [account.email_address, account.username, account.name, account.password] 
+    sql_params = [account.email_address, account.username, account.name, encrypted_password] 
 
     DatabaseConnection.exec_params(sql, sql_params)
 
     return nil
   end
+
+  # def sign_in(email_address, submitted_password)
+  #   account = find_by_email_address(email_address)
+
+  #   return nil if account.nil?
+
+  #   stored_password = BCrypt::Password.new(account.password)
+  #   return true if stored_password == submitted_password
+    
+  #   return false
+  # end
 
   def find_by_email_address(email_address)
     sql = 'SELECT * FROM accounts WHERE email_address = $1;'

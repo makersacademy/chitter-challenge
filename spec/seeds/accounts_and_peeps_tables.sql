@@ -25,9 +25,9 @@ TRUNCATE TABLE peeps RESTART IDENTITY CASCADE;
 TRUNCATE TABLE accounts RESTART IDENTITY CASCADE;
 
 INSERT INTO accounts ("email_address", "username", "name", "password") VALUES
-('alice@example.com', 'alice1', 'Alice Wood', 'test123'),
-('chris@example.com', 'chris1', 'Chris Wood', 'test321'),
-('will@example.com', 'will1', 'Will Davies', 'test987');
+('alice@example.com', 'alice1', 'Alice Wood', '$2a$12$EG2Oq93fK9rGWA.5WK28Y.VhcpMXOwqyWZfsjANuOoSwa6QGRotHq'),
+('chris@example.com', 'chris1', 'Chris Wood', '$2a$12$cCyDdoyGltyOwuMGgmX2zuHgAwApVH6fgcZtclo.m/ZGZqJN4OPHe'),
+('will@example.com', 'will1', 'Will Davies', '$2a$12$A18MdlXlP0YgmNSDcjqRM.Oj0fqHqifApsMVo/xr5l/W8torB9VqG');
 
 INSERT INTO peeps ("time", "contents", "account_id") VALUES
 ('2023-05-09 11:09:00', 'hello, this is the first peep!', 1),

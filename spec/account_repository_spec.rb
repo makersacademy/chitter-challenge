@@ -13,7 +13,7 @@ RSpec.describe AccountRepository do
     reset_accounts_table
   end
   
-  context 'with a database pre-loaded with accounts' do
+  context 'with a database pre-loaded with test accounts' do
     it 'returns a list of accounts' do
       repo = AccountRepository.new
 
@@ -24,10 +24,10 @@ RSpec.describe AccountRepository do
       expect(accounts.first.email_address).to eq('alice@example.com')
       expect(accounts.first.username).to eq('alice1')
       expect(accounts.first.name).to eq('Alice Wood')
-      expect(accounts.first.password).to eq('test123')
+      expect(BCrypt::Password.new(accounts.first.password)).to eq('test123')
     end
 
-    it 'returns the account details with id 2' do
+    it 'returns the test account details with id 2' do
       repo = AccountRepository.new
 
       account = repo.find(2)
@@ -36,7 +36,7 @@ RSpec.describe AccountRepository do
       expect(account.email_address).to eq('chris@example.com')
       expect(account.username).to eq('chris1')
       expect(account.name).to eq('Chris Wood')
-      expect(account.password).to eq('test321')
+      expect(BCrypt::Password.new(account.password)).to eq('test321')
     end
   end
 
@@ -57,6 +57,6 @@ RSpec.describe AccountRepository do
     expect(accounts.last.email_address).to eq('leo@example.com')
     expect(accounts.last.username).to eq('leo1')
     expect(accounts.last.name).to eq('Leo Hetsch')
-    expect(accounts.last.password).to eq('test456')
+    expect(BCrypt::Password.new(accounts.last.password)).to eq('test456')
   end
 end
