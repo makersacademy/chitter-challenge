@@ -3,14 +3,16 @@
   <body>
     <h1>Welcome to Chitter!</h1>
     <% @peeps_list.reverse_each do |peep| %>
-      <div>
         <p><%= @users.find(peep.user_id).name %> @<%= @users.find(peep.user_id).username %> - <%= peep.time %></p>
         <p><a href="/peeps/<%=peep.id%>"><%= peep.content %></a></p>
         <br />
-      </div>
     <% end %>
-    <div>
-      <p><a href="/peeps/new"><button type="button">Add a new peep</button></a> <a href="/signup"><button type="button">Sign up to Chitter</button></a></p>
-    </div>
+      <% if @user.nil? %>
+        <p><a href="/signup"> <button type="button">Sign up to Chitter</button></a></p>
+        <p><a href="/login"> <button type="button">Log in to Chitter</button></a></p>
+      <% else %>
+        <p><a href="/peeps/new"><button type="button">Add a new peep</button></a></p>
+        <p><a href="/logout"><button type="button">Log out</button></a></p>
+      <% end %>
   </body>
 </html>

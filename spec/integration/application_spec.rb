@@ -24,17 +24,45 @@ describe Application do
   end
 
   context 'GET /peeps/new' do
-    it 'Displays form to post a new peep' do
+    it 'Displays form to post a new peep when logged in' do
+      new_user = User.new
+      new_user.email = 'kboo@makersacademy.com'
+      new_user.name = 'King Boo'
+      new_user.username = 'kboo'
+      new_user.password = 'boo123'
+
+      users = UserRepository.new
+      users.create(new_user)
+      
+      post('/login', submitted_email: 'kboo@makersacademy.com', submitted_password: 'boo123')
+
       response = get('/peeps/new')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<form method="POST" action="/peeps">')
       expect(response.body).to include('<input type="text" name="content" ')
     end
+
+    it 'Redirects to home when trying to peep when not logged in' do
+      response = get('/peeps/new')
+
+      expect(response.status).to eq(302)
+    end
   end
 
   context 'POST /peeps' do
     it 'Posts a new peep' do
+      new_user = User.new
+      new_user.email = 'kboo@makersacademy.com'
+      new_user.name = 'King Boo'
+      new_user.username = 'kboo'
+      new_user.password = 'boo123'
+
+      users = UserRepository.new
+      users.create(new_user)
+      
+      post('/login', submitted_email: 'kboo@makersacademy.com', submitted_password: 'boo123')
+
       response = post('/peeps', content: 'Testing new peep')
 
       expect(response.status).to eq(200)
@@ -149,8 +177,29 @@ describe Application do
       expect(response.body).to include('King Boo')
     end
 
-    xit 'Account page is not accessible when user is not authenticated' do
+    it 'Account page is not accessible when user is not authenticated' do
+      response = get('/account_page')
       
+      expect(response.status).to eq(302)
+    end
+  end
+
+  context 'GET /logout' do
+    it 'Logs user out of their session' do
+      new_user = User.new
+      new_user.email = 'kboo@makersacademy.com'
+      new_user.name = 'King Boo'
+      new_user.username = 'kboo'
+      new_user.password = 'boo123'
+
+      users = UserRepository.new
+      users.create(new_user)
+      
+      post('/login', submitted_email: 'kboo@makersacademy.com', submitted_password: 'boo123')
+
+      logout = get('/logout')
+      
+      expect(logout.status).to eq(302)
     end
   end
 

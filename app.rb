@@ -20,11 +20,14 @@ class Application < Sinatra::Base
   get '/' do
     @peeps_list = PeepRepository.new.all
     @users = UserRepository.new
+    @user = UserRepository.new.find(session[:user_id]) unless session[:user_id].nil?
 
     return erb(:index)
   end
 
   get '/peeps/new' do
+    @user = UserRepository.new.find(session[:user_id])
+    redirect('/') if @user.nil?
     return erb(:new_peep)
   end
 
@@ -42,10 +45,12 @@ class Application < Sinatra::Base
   end
 
   post '/peeps' do
+    @user = UserRepository.new.find(session[:user_id])
+      
     new_peep = Peep.new
     new_peep.content = params[:content]
     new_peep.time = Time.now
-    new_peep.user_id = '1' # Refactor once login sessions have been implemented!
+    new_peep.user_id = @user.id
 
     PeepRepository.new.create(new_peep)
 
@@ -111,6 +116,11 @@ class Application < Sinatra::Base
       @user = UserRepository.new.find(session[:user_id])
       return erb(:account_page)
     end
+  end
+
+  get '/logout' do
+    session[:user_id] = nil
+    return redirect('/')
   end
 
 end
