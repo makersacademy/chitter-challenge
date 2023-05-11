@@ -3,7 +3,7 @@ require 'sib-api-v3-sdk'
 Dotenv.load
 
 class EmailSender
-  def initialize(recipient, html_message, email_api=SibApiV3Sdk)
+  def initialize(recipient, html_message, email_api = SibApiV3Sdk)
     @email_api = email_api
     @recipient = recipient
     @html_message = html_message

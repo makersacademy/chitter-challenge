@@ -66,7 +66,7 @@ class Application < Sinatra::Base
     session[:user_id] = @user.id
     return erb(:login_success)
   end
-
+  
   post '/sign-up' do
     unless params.values.all? { |input| input_valid?(input) }
       status 400
@@ -75,17 +75,12 @@ class Application < Sinatra::Base
     
     repo = UserRepository.new
 
-    user = User.new
-    user.email = params[:email]
-    user.password = params[:password]
-    user.name = params[:name]
-    user.username = params[:username]
-
-    if repo.email_exists?(user.email) || repo.username_exists?(user.username)
+    if repo.email_exists?(params[:email]) || repo.username_exists?(params[:username])
       status 400
       return erb(:sign_up_failure) 
     end
 
+    user = get_user_from_params(params)
     repo.create(user)
     return erb(:sign_up_success)
   end
@@ -96,17 +91,32 @@ class Application < Sinatra::Base
       return erb(:new_peep_failure)
     end
 
-    peep = Peep.new
-    peep.content = params[:content]
-    peep.time_posted = params[:time_posted] || Time.new
-    peep.user_id = session[:user_id]
     repo = PeepRepository.new
+    peep = get_peep_from_params(params)
     repo.create(peep)
+
     email_tagged_users(peep)
     erb(:new_peep_success)
   end
 
   private
+
+  def get_user_from_params(params)
+    user = User.new
+    user.email = params[:email]
+    user.password = params[:password]
+    user.name = params[:name]
+    user.username = params[:username]
+    user
+  end
+
+  def get_peep_from_params(params)
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.time_posted = params[:time_posted] || Time.new
+    peep.user_id = session[:user_id]
+    peep
+  end
 
   def email_tagged_users(peep)
     users = get_tagged_users(peep)
@@ -122,9 +132,9 @@ class Application < Sinatra::Base
   end
   
   def get_tagged_users(peep)
-    words = peep.content.split(" ")
+    words = peep.content.split
     tags = words.select { |word| word.start_with?("@") }
-    usernames = tags.map { |tag| tag[1..-1] }
+    usernames = tags.map { |tag| tag[1..] }
 
     repo = UserRepository.new
 
