@@ -1,0 +1,33 @@
+<head>
+  <meta charset=utf-8>
+  <title>Chitter</title>
+</head>
+<body style="background-image: url('https://i.imgur.com/axiZlbT.png');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 1000px;">
+<% if @session.nil? %>
+<form method="GET" action="/login">
+  <input type="submit" value="Login!" style="float: right;">
+</form>
+<% else %>
+<form method="GET" action="/logout">
+  <input type="submit" value="Logout" style="float: right;">
+</form>
+<% end %>
+<form method="GET" action="/signup">
+  <input type="submit" value="Signup!" style="float: right;">
+</form>
+<br><br><br><br><br><hr>
+<form method='POST' action='/'>
+  <input type='text' name='peep'>
+  <input type='submit' value='Send Peep'>
+</form>
+<% @peeps.each do |peep| %>
+  <div>
+    <p><%= peep.name %> @<%= peep.username %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= peep.time %></p>
+    <p><%= peep.message %></p>
+  </div>
+  <% end %>
+ 
+</body>
