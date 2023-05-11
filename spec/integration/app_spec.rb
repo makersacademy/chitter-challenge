@@ -192,7 +192,7 @@ describe Application do
         response = post('/login', email: 'hello@gmail.com', password: 'new_pass_123!')
         response = get('/new-peep')
         expect(response.body).to include '<form action="/new-peep" method="POST">'
-        expect(response.body).to include '<input type="text" name="content">'
+        expect(response.body).to include '<input type="textarea" name="content">'
         expect(response.body).to include '<input type="submit">'
       end
       
