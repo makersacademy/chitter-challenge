@@ -40,6 +40,12 @@ describe Application do
 
   context 'POST to /peeps' do
     it 'returns status 302 and redirects to / showing new peep' do
+      post(
+        '/login',
+        email: 'fred@gmail.com',
+        password: '123'
+      )
+
       response = post(
         '/peeps',
         message: 'Testing 123',

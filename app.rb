@@ -31,7 +31,7 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     peep = Peep.new
     peep.message = params[:message]
-    peep.user_id = params[:user_id]
+    peep.user_id = session[:user_id]
     repo.create(peep)
     return redirect('/')
   end
