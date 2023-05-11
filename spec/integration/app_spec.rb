@@ -152,4 +152,15 @@ RSpec.describe Application do
       expect(response.status).to eq(404)
     end
   end
+
+  context 'GET /login' do
+    it 'returns a form for logging in' do
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Login to chitter!</h2>')
+      expect(response.body).to include('<label>Username:</label>')
+      expect(response.body).to include('<label>Password:</label>')
+    end
+  end
 end

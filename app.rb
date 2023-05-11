@@ -49,6 +49,11 @@ class Application < Sinatra::Base
     sign_up(new_user)
   end
 
+  get '/login' do
+    return erb(:login)
+  end
+
+
   private
 
   def new_peep
