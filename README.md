@@ -20,5 +20,5 @@ rackup
 - PostgreSQL
 
 ## Still to add
-Bcrypt functionality
-neaten up classes and methods
+- Bcrypt functionality
+- neaten up classes and methods
