@@ -17,6 +17,9 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rackup (1.0.0)
+      rack (< 3)
+      webrick
     rainbow (3.0.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
@@ -80,6 +83,7 @@ PLATFORMS
 DEPENDENCIES
   pg (~> 1.5)
   rack-test (~> 1.1)
+  rackup (~> 1.0)
   rspec
   rubocop (= 1.20)
   simplecov
