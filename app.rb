@@ -91,7 +91,12 @@ class Application < Sinatra::Base
 
   post '/login' do
     repo = UserRepository.new
-    if repo.sign_in(params[:submitted_email], params[:submitted_password]) == true
+    email = params[:submitted_email]
+    password = params[:submitted_password]
+    
+    if repo.sign_in(email, password) == true
+      user = repo.find_by_email(email)
+      session[:user_id] = user.id
       return erb(:login_success)
     else
       status 400
