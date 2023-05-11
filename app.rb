@@ -7,6 +7,7 @@ require_relative 'lib/database_connection'
 DatabaseConnection.connect
 
 class Chitter < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
@@ -71,6 +72,8 @@ class Chitter < Sinatra::Base
     account = accounts.find_by_email_address(submitted_email)
 
     if account && submitted_password == account&.password && submitted_email == account&.email_address
+      p session[:account_id] = account.id
+
       return erb(:login_success)
     else
       status 400
@@ -79,16 +82,4 @@ class Chitter < Sinatra::Base
   end
 
 
-  # def sign_in(email_address, submitted_password)
-  #   account = find_by_email_address(email)
-
-  #   return nil if account.nil?
-
-  #   stored_password = BCrypt::Password.new(account.password)
-  #   if stored_password == submitted_password
-  #     return erb(:login_success)
-  #   else 
-  #     return erb(:login_fail)
-  #   end
-  # end
 end

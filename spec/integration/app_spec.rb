@@ -88,4 +88,5 @@ describe Chitter do
     expect(response.body).to include('<h1>Sorry! Your details did not match, please click below to try again</h1>')
     end
   end
+
 end
