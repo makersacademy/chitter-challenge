@@ -5,6 +5,8 @@ require_relative "../../app"
 RSpec.describe Application do
   # This is so we can use rack-test helper methods.
   include Rack::Test::Methods
+  # this so we can mail gem test matchers
+  include Mail::Matchers
 
   # We need to declare the `app` value by instantiating the Application
   # class so our tests work.
@@ -382,7 +384,8 @@ RSpec.describe Application do
         existing_tag = latest_peep.tags.first
         expect(latest_peep.tags.size).to eq 1
         expect(existing_tag.content).to eq "User 2"
-                
+
+        expect(Mail::TestMailer.deliveries.length).to eq 1
       end
     end
 
