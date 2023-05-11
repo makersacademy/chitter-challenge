@@ -122,6 +122,8 @@ describe Application do
     end
   end
 
+  # Spec tests which require session to be live:
+
   context 'peep/new' do
     it 'Should return an error page with hyperlinks to log in if user is not logged in already' do
       response = get('/peep/new')
@@ -131,15 +133,15 @@ describe Application do
       expect(response.body).to include ('<a href="/loginpage">Login page</a>')
     end
 
-    # it 'Should return a form page to create a new peep if the user is logged in' do
-    #   response = get('/peep/new')
-    #   session[:key]
-    #   expect(response.status).to eq (200)
-    #   expect(response.body).to include ('<h1>Post a new peep to Chitter</h1>')
-    #   expect(response.body).to include ('<form method="POST" action="/peep/new">')
-    #   expect(response.body).to include ('<input type="text" name="content"/>')
-    #   expect(response.body).to include ('<input type="submit"/>')
-    # end
+    it 'Should return a form page to create a new peep if the user is logged in' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = get('/peep/new')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<h1>Post a new peep to Chitter</h1>')
+      expect(response.body).to include ('<form method="POST" action="/peep/new">')
+      expect(response.body).to include ('<input type="text" name="content"/>')
+      expect(response.body).to include ('<input type="submit"/>')
+    end
 
     it 'Should only allow users logged into their account to successfully create new peeps' do
       response = post('/peep/new', title: 'new title', content: 'This is some content yes')
@@ -150,14 +152,59 @@ describe Application do
     end
   end
 
-  # context '/peeps/:id' do
-  #   it 'Should return all peeps by passed maker in a formatted HTML list' do
-  #     response = post('/peeps/1')
-  #     expect(response.status).to eq (200)
-  #     expect(response.body).to include ('')
-  #     expect(response.body).to include ('')
-  #     expect(response.body).to include ('')
+  context '/peeps/:id' do
+    it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = get('/peeps/2')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('Hayley Ladys Peeps')
+      expect(response.body).to include ('Hayleys peep')
+      expect(response.body).to include ('2023-07-21 12:25:12')
+    end
+
+    it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = get('/peeps/1')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('Matty Bois Peeps')
+    end
+
+    it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
+      response = post('/signup', name: 'Fake User', username: 'faketest', email_address: 'faketestemail@gmail.com', password: 'fakepassword')
+      response = post('/loginpage', username: 'faketest', password: 'fakepassword')
+      response = post('/peep/new', title: 'A new pretend peep', content: 'This is some content')
+      response = get('/peeps/3')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('Fake Users Peeps')
+      expect(response.body).to include ('A new pretend peep')
+      expect(response.body).to include ('This is some content')
+    end
+
+    it 'Should return the log in page if user is not logged in/no active session' do
+      response = get('/peeps/2')
+      expect(response.body).to include ('<h1>Login required</h1>')
+      expect(response.body).to include ('<p>To view all of your existing peeps please login or create an account to start peeping</p>')
+      expect(response.body).to include ('<a href="/loginpage">Login page</a>')
+    end
+  end
+
+  # context '/userpage' do
+    
+  # end
+
+  # context '/logout' do
+  #   it 'Should redirect user to the homepage' do
+
+  #   end
+
+  #   it 'Should return the homepage with the session set to nil' do
+
   #   end
   # end
 
+  # context '/delete_peep' do
+  #   it 'Should ' do
+
+  #   end
+  # end
 end
