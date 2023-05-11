@@ -21,8 +21,7 @@ class Application < Sinatra::Base
   end
 
   post '/peep' do
-    if invalid_peep_parameters? ||
-      !user_exists(params['username'])
+    if invalid_peep_parameters? || !user_exists(params['username'])
       post_failed
     else
       post(new_peep)
@@ -66,7 +65,7 @@ class Application < Sinatra::Base
     user.password = params['password']
     user.name = params['name']
     user.username = params['username']
-    user
+    return user
   end
 
   def post(peep)
@@ -82,7 +81,7 @@ class Application < Sinatra::Base
     @username = params['username']
     return invalid_peep_parameters? ? '' : erb(:unknown_username)
   end
-  
+
   def sign_up(user)
     begin
       repo = UserRepository.new
