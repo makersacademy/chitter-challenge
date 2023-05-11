@@ -97,7 +97,7 @@ describe Application do
   end
 
   context 'POST /login' do
-    xit 'Successfully authenticates user if email and password match' do
+    it 'Successfully authenticates user if email and password match' do
       new_user = User.new
       new_user.email = 'kboo@makersacademy.com'
       new_user.name = 'King Boo'
@@ -113,7 +113,7 @@ describe Application do
       expect(response.body).to include('Login successful!')
     end
 
-    xit 'Fails if email or password do not match' do
+    it 'Fails if email or password do not match' do
       new_user = User.new
       new_user.email = 'kboo@makersacademy.com'
       new_user.name = 'King Boo'

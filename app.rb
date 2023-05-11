@@ -90,7 +90,13 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    
+    repo = UserRepository.new
+    if repo.sign_in(params[:submitted_email], params[:submitted_password]) == true
+      return erb(:login_success)
+    else
+      status 400
+      return 'Email and password do not match. Please go back and try again'
+    end
   end
 
 end
