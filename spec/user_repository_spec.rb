@@ -11,15 +11,6 @@ describe UserRepository do
     reset_users_table
   end
 
-  context '#find_by_email' do
-    it 'finds a single user by their email' do
-      repo = UserRepository.new
-      user = repo.find_by_email('hello@gmail.com')
-      expect(user.name).to eq 'Bob'
-      expect(user.username).to eq 'bob678'
-    end
-  end
-
   context '#create' do
     it 'creates a new user' do
       repo = UserRepository.new
@@ -30,12 +21,9 @@ describe UserRepository do
       user.username = 'jimmmmeee'
 
       repo.create(user)
-      
-      new_user = repo.find_by_email('email@gmail.com')
-      expect(new_user.email).to eq 'email@gmail.com'
-      expect(new_user.name).to eq 'Jim'
-      expect(new_user.password).to_not eq '123'
-      expect(new_user.username).to eq 'jimmmmeee'
+
+      new_user_id = repo.log_in('email@gmail.com', '123')
+      expect(new_user_id).to eq '3'
     end
   end
 

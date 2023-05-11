@@ -22,11 +22,9 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/new' do
-    if session[:user_id] == nil
-      return redirect('/login')
-    else
-      return erb(:create_peep)
-    end
+    return redirect('/login') if session[:user_id].nil?
+  
+    return erb(:create_peep)
   end
 
   post '/peeps' do

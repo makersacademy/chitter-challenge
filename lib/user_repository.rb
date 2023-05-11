@@ -16,8 +16,19 @@ class UserRepository
     # What happens if fails?
   end
 
-   # move to private and check if can sign in instead
-   def find_by_email(email)
+  def log_in(email, submitted_password)
+    user = find_by_email(email)
+  
+    return nil if user.nil?
+
+    stored_password = BCrypt::Password.new(user.password)
+
+    return user.id if stored_password == submitted_password
+  end
+
+  private
+
+  def find_by_email(email)
     sql = 'SELECT id, email, password, name, username
     FROM users
     WHERE email = $1;'
@@ -25,24 +36,9 @@ class UserRepository
     params = [email]
 
     user = DatabaseConnection.exec_params(sql, params)
-    
+   
     return create_user(user[0])
   end
-
-  def log_in(email, submitted_password)
-    user = find_by_email(email)
-  
-    return nil if user.nil?
-
-    stored_password = BCrypt::Password.new(user.password)
-    if stored_password == submitted_password
-      return user.id
-    else
-      return nil
-    end
-  end
-
-  private
 
   def create_user(record)
     user = User.new
