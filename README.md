@@ -10,9 +10,9 @@ rackup
 ```
 
 ## Pending TODOs
-Tagging functionality
-password encryption
-improve CSS design
+- User "tagging" functionality
+- password encryption
+- improve CSS design
 
 
 ## Built with
@@ -27,6 +27,6 @@ improve CSS design
 
 ## Contact
 - [Caroline Evans](mailto:carolineevans261@gmail.com)
-- [Link to project](URL "https://github.com/cvass1/chitter-challenge")
+
 
 ## Build information
