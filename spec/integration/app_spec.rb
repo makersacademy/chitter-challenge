@@ -49,6 +49,23 @@ describe Application do
 
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Sign up to Chitter</h1>')
+      expect(response.body).to include('<form action="/signup" method="post">')
+      expect(response.body).to include('<input type="text" name="username" id="username" />')
+      expect(response.body).to include('<input type="text" name="name" id="name" />')
+      expect(response.body).to include('<input type="email" name="email" id="email" />')
+      expect(response.body).to include('<input type="password" name="password" id="password" />')
     end
   end
+
+  context 'GET to /login' do
+    it 'returns 200 OK and the login form' do
+      response = get('/login')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Log in to Chitter</h1>')
+      expect(response.body).to include('<input type="email" name="email" id="email" />')
+      expect(response.body).to include('<input type="password" name="password" id="password" />')
+    end
+  end
+
 end
