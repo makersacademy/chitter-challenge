@@ -18,7 +18,17 @@ describe Application do
   end
 
   context 'GET to /peeps/new' do
-    it 'returns 200 OK with a form to create new peep' do
+    it 'returns 302 Redirect to / if user not logged in' do
+      response = get('/peeps/new')
+      expect(response.status).to eq 302
+    end
+
+    it 'returns 200 OK with a form to create new peep if logged in' do
+      post(
+        '/login',
+        email: 'fred@gmail.com',
+        password: '123'
+      )
       response = get('/peeps/new')
 
       expect(response.status).to eq 200
@@ -95,4 +105,11 @@ describe Application do
     end
   end
 
+  context 'GET to /logout' do
+    it 'returns 302 Found redirect' do
+      response = get('/logout')
+
+      expect(response.status).to eq 302
+    end
+  end
 end
