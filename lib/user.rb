@@ -1,8 +1,14 @@
+require 'sinatra/activerecord'
+require 'bcrypt'
+
 class User < ActiveRecord::Base
   # need to change password to password_hash in db for this to work
   
   include BCrypt
   has_many :peeps
+
+  validates :name, :email_address, presence: true
+  validates :name, :email_address, uniqueness: true
 
   def password
     @password ||= Password.new(password_hash)
