@@ -13,7 +13,6 @@ rackup
 
 ## Pending TODOs
 - User "tagging" functionality
-- password encryption
 - improve CSS design
 
 
