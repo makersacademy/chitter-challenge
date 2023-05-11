@@ -32,6 +32,17 @@ class PeepRepository
     maker_peeps
   end
 
+  def find_by_title(title)
+    result = DatabaseConnection.exec_params('SELECT * FROM peeps WHERE title = $1;', [title])
+    peep = Peep.new
+    peep.id = result[0]['id'].to_i
+    peep.title = result[0]['title']
+    peep.content = result[0]['content']
+    peep.date_posted = result[0]['date_posted']
+    peep.maker_id = result[0]['maker_id'].to_i
+    return peep
+  end
+
   def create(peep_obj)
     sql = 'INSERT INTO peeps(title, content, date_posted, maker_id) VALUES($1, $2, $3, $4);'
     params = [peep_obj.title, peep_obj.content, peep_obj.date_posted, peep_obj.maker_id]

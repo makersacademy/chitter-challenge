@@ -32,6 +32,15 @@ describe PeepRepository do
     end
   end
 
+  context 'peeps by title' do
+    it 'Should select and return a peep from the database by its given title' do
+      repo = PeepRepository.new
+      selected = repo.find_by_title('Hayleys alternate peep')
+      expect(selected.content).to eq ('peep to be deleted')
+      expect(selected.maker_id).to eq (2)
+    end
+  end
+
   context 'create' do
     it 'Should add a new peep to the database' do
       repo = PeepRepository.new

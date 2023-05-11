@@ -111,6 +111,8 @@ class Application < Sinatra::Base
     peep.maker_id = session[:id]
     repo.create(peep)
 
+    # If title already exists add fail
+
     return erb(:peep_created)
   end
 
@@ -118,16 +120,22 @@ class Application < Sinatra::Base
     if session[:id] == nil
       return erb(:delete_no_session)
     else
-      return erb(:delete_peep)
+      return erb(:deleted)
     end
   end
 
   post '/delete_peep' do
+    title = params[:title]
+    repo = PeepRepository.new
+    @selected = repo.by_title(title)
     
+
+
+    return erb(:peep_deleted)
   end
 
   get '/update_details' do
-
+    
   end
 
   post '/update_details' do
