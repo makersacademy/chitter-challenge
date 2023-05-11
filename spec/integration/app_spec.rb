@@ -246,15 +246,42 @@ describe Application do
       expect(response.body).to include ('<h1>The peep "Hayleys alternate peep" was removed from chitter</h1>')
       expect(response.body).to include ('<a href="/userpage">Your account</a>')
     end
+
+    it 'Should return a 400 error if user tries to delete a peep that they have not posted' do
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/delete_peep', title: 'A second peep')
+      expect(response.status).to eq (400)
+    end
+
+    it 'Should return a 400 error if the user tries to delete a peep that does not exist' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/delete_peep', title: 'Non existent peep')
+      expect(response.status).to eq (500)  #Add an alternate fail here for this scenario. 
+    end
   end
 
   # context '/update_details' do
-  #   it 'Should' do
+  #   it 'Should return a form page to update details if user is logged in' do
+  #     response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+  #     response = get('/update_details')
+
+
+  #   end
+
+  #   it 'Should redirect the user to a login style page if user is not logged in' do
+  #     response = get('/update_details')
+  #   end
+
+  #   it 'Should ' do
 
   #   end
   # end
 
   # context '/userpage' do
-    
+  #   it 'Should not allow user to enter user page if not logged in' do
+  #     response = get('/userpage')
+  #     expect(response.status).to eq (200)
+  #     expect(response.body)
+  #   end
   # end
 end

@@ -28,7 +28,7 @@ class Application < Sinatra::Base
   end
 
   get '/peeps/:id' do
-    if session[:id] == nil
+    if session[:id].nil?
       return erb(:user_peeps_no_session)
     else
       peep_repo = PeepRepository.new
@@ -84,7 +84,7 @@ class Application < Sinatra::Base
   end
 
   get '/userpage' do
-    if session[:id] == nil
+    if session[:id].nil?
       return erb(:loginpage)
     else
       repo = MakerRepository.new
@@ -94,7 +94,7 @@ class Application < Sinatra::Base
   end
 
   get '/peep/new' do
-    if session[:id] == nil
+    if session[:id].nil?
       return erb(:post_peep_no_session)
     else
       return erb(:new_peep)
@@ -117,7 +117,7 @@ class Application < Sinatra::Base
   end
 
   get '/delete_peep' do
-    if session[:id] == nil
+    if session[:id].nil?
       return erb(:delete_no_session)
     else
       return erb(:delete_peep)
@@ -139,11 +139,15 @@ class Application < Sinatra::Base
   end
 
   get '/update_details' do
-   
+    if session[:id].nil?
+      return erb(:update_no_session)
+    else
+      return erb(:update_maker)
+    end
   end
 
   post '/update_details' do
-
+    
   end
 
   get '/logout' do
