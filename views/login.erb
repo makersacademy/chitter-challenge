@@ -1,20 +1,29 @@
 <html>
   <head></head>
+    <style>
+  #roundedcorners {
+  border-radius: 25px;
+  border: 2px solid #1DA1F2;
+  padding: 20px;
+  width: 200px;
+  height: 75px;
+}
+  body {
+  background-color: lightblue;
+  font-family: verdana;
+}
+  </style>
   <body>
     <h1> Welcome to Chitter!</h1>
     <div>
       <h2>Please enter your login details</h2>
-      <form method="POST" action="/sign_up">
-      <p><label>Name:</label><br>
-      <input type="text" name="name" placeholder="Joe Bloggs"/><br>
-      <label>Username:</label><br>
-      <input type="text" name="username" placeholder="JBloggs"/><br>
+      <form method="POST" action="/login">
       <label>Email address:</label><br>
       <input type="text" name="email_address" placeholder="joebloggs@example.com"/><br>
       <label>Password:</label><br>
       <input type="password" name="password" placeholder="super secret password"/><br>
       <br>
-      <input type="submit" value="Sign up"/></p>
+      <input type="submit" value="Log in"/></p>
       </div>
       
   </form>
