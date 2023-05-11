@@ -10,6 +10,7 @@ gem "activerecord", "~> 7.0"
 gem "rake", "~> 13.0"
 gem "sinatra-activerecord", "~> 2.0"
 gem "bcrypt", "~> 3.1"
+gem "mail", "~> 2.8"
 
 group :test do
   gem 'rspec'
@@ -21,3 +22,4 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+

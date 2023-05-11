@@ -367,8 +367,22 @@ RSpec.describe Application do
         expect(existing_tag.content).to eq "greetings"
       end  
 
-      xit 'if the optional tag is the name of an existing user, it emails that user' do
-      
+      it 'if the optional tag is the name of an existing user, it emails that user' do
+        session = { 'rack.session' => { name: 'User 1' } }
+
+        response = post(
+        '/user/new-peep',
+        { :text => "Hello", :tag => 'User 2' }, 
+        session
+        ) 
+
+        expect(response.status).to eq 200    
+
+        latest_peep = Peep.last
+        existing_tag = latest_peep.tags.first
+        expect(latest_peep.tags.size).to eq 1
+        expect(existing_tag.content).to eq "User 2"
+                
       end
     end
 
@@ -403,9 +417,7 @@ RSpec.describe Application do
       expect(response.status).to eq 200    
 
       expect(response.body).to include "<a href=\"/:user/page\"> Return to your page </a>"
-      
     end
-
   end
 
 end
