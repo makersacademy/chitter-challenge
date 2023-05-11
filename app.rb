@@ -7,6 +7,9 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect('chitter_test')
 
 class Application < Sinatra::Base
+
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -53,5 +56,19 @@ class Application < Sinatra::Base
 
   get '/login' do
     return erb(:login)
+  end
+
+  post '/login' do
+    repo = UserRepository.new
+    # log_in method returns user id
+    user_id = repo.log_in(params[:email], params[:password])
+
+    if user_id
+      session[:user_id] = user_id
+      return erb(:login_success)
+    else
+      # not working
+      return "unsuccessful"
+    end
   end
 end

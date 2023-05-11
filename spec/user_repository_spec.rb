@@ -38,4 +38,11 @@ describe UserRepository do
       expect(new_user.username).to eq 'jimmmmeee'
     end
   end
+
+  context '#log_in' do
+    it 'logs a user in' do
+      repo = UserRepository.new
+      repo.log_in('fred@gmail.com', '123')
+    end
+  end
 end

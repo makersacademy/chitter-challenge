@@ -83,4 +83,16 @@ describe Application do
     end
   end
 
+  context 'POST to /login' do
+    it 'returns 200 OK and logs the user in' do
+      response = post(
+        '/login',
+        email: 'fred@gmail.com',
+        password: '123'
+      )
+
+      expect(response.status).to eq 200
+    end
+  end
+
 end
