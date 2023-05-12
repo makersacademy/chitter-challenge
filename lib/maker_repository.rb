@@ -1,4 +1,5 @@
 require_relative 'maker'
+require 'bcrypt'
 
 class MakerRepository
   
@@ -42,8 +43,9 @@ class MakerRepository
   end
 
   def create(maker_obj)
+    encrypted_password = BCrypt::Password.create(maker_obj.password)
     sql = 'INSERT INTO makers(name, username, email_address, password) VALUES($1, $2, $3, $4);'
-    params = [maker_obj.name, maker_obj.username, maker_obj.email_address, maker_obj.password]
+    params = [maker_obj.name, maker_obj.username, maker_obj.email_address, encrypted_password]
     result = DatabaseConnection.exec_params(sql, params)
   end
 

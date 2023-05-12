@@ -3,6 +3,7 @@ GEM
   specs:
     ansi (1.5.0)
     ast (2.4.2)
+    bcrypt (3.1.18)
     diff-lcs (1.4.4)
     docile (1.4.0)
     multi_json (1.15.0)
@@ -77,6 +78,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1)
   pg (~> 1.5)
   rack-test (~> 2.1)
   rspec
