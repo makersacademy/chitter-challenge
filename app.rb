@@ -147,7 +147,12 @@ class Application < Sinatra::Base
   end
 
   post '/update_details' do
-    
+    @new_name = params[:name]
+    repo = MakerRepository.new
+    maker = repo.find(session[:id])
+    maker.name = @new_name
+    repo.update(maker)
+    return erb(:updated_maker)
   end
 
   get '/logout' do

@@ -267,7 +267,7 @@ describe Application do
       expect(response.status).to eq (200)
       expect(response.body).to include ('<h1>Update your account details</h1>')
       expect(response.body).to include ('<form method="POST" action="/update_details">')
-      expect(response.body).to include ('<label>Name:</label>')
+      expect(response.body).to include ('<label>New Name:</label>')
       expect(response.body).to include ('<input type="text" name="name"/>')
     end
 
@@ -279,8 +279,13 @@ describe Application do
       expect(response.body).to include ('<a href="/loginpage">Login page</a>')
     end
 
-    it 'Should ' do
-      
+    it 'Should update the users name to new name' do
+      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/update_details', name: 'Hayley 2')
+      expect(response.status).to eq (200)
+      expect(response.body).to include ('<h1>Name successfully updated</h1>')
+      expect(response.body).to include ('You have updated your name to Hayley 2')
+      expect(response.body).to include ('<a href="/userpage">Your account</a>')
     end
   end
 
@@ -298,7 +303,7 @@ describe Application do
       expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
       expect(response.body).to include ('<a href="/delete_peep">Delete a peep</a>')
       expect(response.body).to include ('<a href="/peeps/:id">View your previous peeps</a>')
-      expect(response.body).to include ('<a href="/update">Update/change your details</a>')
+      expect(response.body).to include ('<a href="/update_details">Update/change your details</a>')
       expect(response.body).to include ('<a href="/logout">Log out</a>')
     end
   end
