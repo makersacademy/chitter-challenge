@@ -9,7 +9,16 @@ I am going to look into how to encrypt using Bcrypt
 ## How to use
 
 ```shell
+# Make the DB:
+createdb chitter_site
+
+# install gems:
 bundle install
+
+# run the tests:
+rspec
+
+# run server
 rackup
 ```
 
