@@ -72,9 +72,7 @@ class Application < Sinatra::Base
   end
   
   post '/new-user' do
-    @name = params[:name]
-    email_address = params[:email_address]
-    password = params[:password]
+    @name, email_address, password = params[:name], params[:email_address], params[:password]
     # encryption happens on User class creation
     new_user = User.new(name: @name, email_address: email_address, password: password)
     
@@ -87,19 +85,16 @@ class Application < Sinatra::Base
   end
 
   post '/user/new-peep' do
-    new_peep_text = params[:text]
-    tag = params[:tag]
+    new_peep_text, tag = params[:text], params[:tag]
     author = User.find_by(name: session[:name])
-
     new_peep = Peep.new(text: new_peep_text)
-    new_peep.user=(author)
-    # would really like to clean this up!
-    unless tag.nil? 
-      user_check = User.find_by(name: tag)
-      user_check.nil? ? nil : mail(user_check)
+    new_peep.user = (author)
+
+    unless tag.nil?
       tag_record = Tag.find_or_create_by(content: tag)
       new_peep.tags<<tag_record
-    end
+      send_peep_alert(tag) if tag_is_user?(tag)
+    end 
 
     new_peep.save
     return erb(:new_peep)
@@ -107,7 +102,12 @@ class Application < Sinatra::Base
 
   private
 
-  def mail(user)
+  def tag_is_user?(tag)
+    User.find_by(name: tag).is_a?(User) ? true : false
+  end
+
+  def send_peep_alert(tag)
+    user = User.find_by(name: tag)
     @mail_sender.send_peep_alert(user)
   end
 end
