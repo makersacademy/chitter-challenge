@@ -26,7 +26,7 @@ class Application < Sinatra::Base
     end
     peep_repo = PeepRepository.new
     @user_repo = UserRepository.new
-    @peeps = peep_repo.all.sort_by!{|peep| peep.time}.reverse!
+    @peeps = peep_repo.all.sort_by! { |peep| peep.time }.reverse!
 
     return erb(:index)
   end
@@ -47,17 +47,17 @@ class Application < Sinatra::Base
 
     users = UserRepository.new
     
-    if users.all.any?{|user| user.email == params[:email]} then
+    if users.all.any? { |user| user.email == params[:email] }
       status 400
       return "Email address already signed up."
     end
 
-    if users.all.any?{|user| user.username == params[:username]} then
+    if users.all.any? { |user| user.username == params[:username] }
       status 400
       return "Username already taken, please choose another."
     end
 
-    if invalid_signup_params? || invalid_user_params? then
+    if invalid_signup_params? || invalid_user_params? 
       status 400
       return 'Invalid credentials, please try again.'
     end
@@ -84,13 +84,13 @@ class Application < Sinatra::Base
   get '/peeps' do
     peep_repo = PeepRepository.new
     @user_repo = UserRepository.new
-    @peeps = peep_repo.all.sort_by!{|peep| peep.time}.reverse!
+    @peeps = peep_repo.all.sort_by! { |peep| peep.time }.reverse!
 
     return erb(:peeps)
   end
 
   post '/peeps' do
-    if invalid_peep_params? then
+    if invalid_peep_params?
       status 400
       return 'Invalid peep, please try again.'
     end
@@ -99,34 +99,30 @@ class Application < Sinatra::Base
     peep_repo = PeepRepository.new
     @user_repo = UserRepository.new
 
-
     peep.content = params[:content]
     peep.time = DateTime.now
     peep.user_id = params[:user_id]
 
     peep_repo.create(peep)
 
-    @peeps = peep_repo.all.sort_by!{|peep| peep.time}.reverse!
-
+    @peeps = peep_repo.all.sort_by! { |peep| peep.time }.reverse!
 
     return erb(:peeps)
     
   end
 
-
   # ------------- User Page Routes ----------------------------------------
-
 
   post '/userpage' do
 
-    if invalid_user_params? then
+    if invalid_user_params?
       status 400
       return 'Invalid user details.'
     end
 
     user_repo = UserRepository.new
 
-    if !user_repo.all.any?{|user| user.username == params[:username]} then
+    if user_repo.all.none? { |user| user.username == params[:username] }
       status 400
       return "Username does not exist, please try again."
     end
@@ -165,14 +161,13 @@ class Application < Sinatra::Base
       peep_repo = PeepRepository.new
 
       @user = @user_repo.find(user_id)
-      @peeps = peep_repo.find_by_owner(@user.id).sort_by!{|peep| peep.time}.reverse!
+      @peeps = peep_repo.find_by_owner(@user.id).sort_by! { |peep| peep.time }.reverse!
       @tagged_peeps = peep_repo.find_by_tagged_user(@user.id)
 
       return erb(:userpage)
     end
 
   end
-
 
   # ------------- helper methods ----------------------------------------
 
@@ -182,12 +177,12 @@ class Application < Sinatra::Base
   end
 
   def invalid_peep_params?
-    params[:content] == nil ||  params[:content]== "" 
+    params[:content] == nil ||  params[:content] == "" 
   end
 
   def invalid_signup_params?
-    params[:name] == nil ||  params[:name].match?(/[^a-zA-Z0-9 ]/) ||
-    params[:email] == nil ||  !params[:email].match?(/[@]/)
+    params[:name] == nil || params[:name].match?(/[^a-zA-Z0-9 ]/) ||
+    params[:email] == nil || !params[:email].match?(/[@]/)
   end
 
 end

@@ -1,6 +1,6 @@
 # chitter-challenge
 
-A Twitter clone build as part of the Makers Academy development course
+A Twitter clone built as part of the Makers Academy software development course
 
 https://chitter-the-chit-chat-app.onrender.com
 
@@ -21,6 +21,7 @@ rackup
 - Rspec
 - Sinatra
 - PostgreSQL
+- BCrypt
 - Render
 
 ## Contributions
