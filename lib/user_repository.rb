@@ -52,11 +52,10 @@ class UserRepository
 
   def find_by_username(username)
     sql = 'SELECT id, name, email, username, password FROM users WHERE username = $1;'
-    param = [username]
-    result = DatabaseConnection.exec_params(sql, param)
+    result = DatabaseConnection.exec_params(sql, [username])
     record = result.first
     user = User.new
-    user.id = record['id'].to_i
+    user.id = record['id']
     user.name = record['name']
     user.email = record['email']
     user.username = record['username']

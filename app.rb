@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'date'
+require 'bcrypt'
 require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
@@ -27,53 +29,10 @@ class Application < Sinatra::Base
   end
 
   post '/logged_in' do
-
-    #if invalid_user_params? then
-    #  status 400
-    #  return 'Invalid user details.'
-    #end
-
-    user_repo = UserRepository.new
-
-    if !user_repo.all.any?{|user| user.username == params[:username]} then
-      status 400
-      return "Username does not exist, please try again."
-    end
-
-    username = params[:username]
-    password = params[:password]
-
-    user = user_repo.find_by_username(username)
-   
-    if user.password == password
-      # Set the user ID in session
-      session[:user_id] = user.id
-      redirect "/logged_in"
-
-      
-    else
-      status 400
-      return 'Invalid user details.'
-    end
   end
 
 
   get '/logged_in' do
-    #if session[:user_id] == nil
-      # No user id in the session
-      #return redirect('/')
-    #else
-
-      user_id = session[:user_id]
-
-      @user_repo = UserRepository.new
-      peep_repo = PeepRepository.new
-
-      @user = @user_repo.find(user_id)
-
-      return erb(:logged_in)
-    #end
-
   end
 
   get '/peeps' do
@@ -90,22 +49,6 @@ class Application < Sinatra::Base
   post '/signup' do
 
     users = UserRepository.new
-=begin
-    if users.all.any?{|user| user.email == params[:email]} then
-      status 400
-      return "Email address already signed up."
-    end
-
-    if users.all.any?{|user| user.username == params[:username]} then
-      status 400
-      return "Username already taken, please choose another."
-    end
-
-    if invalid_signup_params? || invalid_user_params? then
-      status 400
-      return 'Invalid credentials, please try again.'
-    end
-=end
     user = User.new
     last_user = users.all.last
     user_id = (last_user.id) - 1
@@ -124,16 +67,3 @@ class Application < Sinatra::Base
 
   end
 end
-=begin
-  private
-  def invalid_user_params?
-    params[:username] == nil || 
-    params[:password] == nil || params[:password] == "" 
-  end
-
-  def invalid_peep_params?
-    params[:content] == nil ||  params[:content]== "" 
-  end
-
-end
-=end

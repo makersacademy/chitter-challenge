@@ -1,4 +1,6 @@
-require 'user_repository'
+require_relative '../lib/user_repository'
+require_relative './spec_helper'
+require 'bcrypt'
 
 RSpec.describe UserRepository do
   def reset_chitter_tables
