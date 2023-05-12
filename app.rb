@@ -46,10 +46,10 @@ class Application < Sinatra::Base
   post '/signup' do
     repo = MakerRepository.new
     maker = Maker.new
-    maker.name = params[:name]
-    maker.username = params[:username]
-    maker.email_address = params[:email_address]
-    maker.password = params[:password]
+    maker.name = params[:name].strip
+    maker.username = params[:username].strip
+    maker.email_address = params[:email_address].strip
+    maker.password = params[:password].strip
 
     if signup_param_validation(maker.name, maker.username, maker.email_address, maker.password)
       status 400
@@ -57,14 +57,6 @@ class Application < Sinatra::Base
       repo.create(maker)
       redirect '/loginpage'
     end
-  end
-
-  def signup_param_validation(name, username, email_address, password)
-    repo = MakerRepository.new
-    return (repo.all.any? { |row| row.username == username } || 
-    repo.all.any? { |row| row.email_address == email_address } || 
-    name.nil? || username.nil? || email_address.nil? || password.nil? || name.empty? || 
-    username.empty? || email_address.empty? || password.empty?)
   end
 
   get '/loginpage' do
@@ -169,4 +161,11 @@ class Application < Sinatra::Base
     return repo.all.any? { |row| row.title == title } || title.empty? || title.nil?
   end
 
+  def signup_param_validation(name, username, email_address, password)
+    repo = MakerRepository.new
+    all = [name, username, email_address, password]
+    return (repo.all.any? { |row| row.username == username } ||
+    repo.all.any? { |row| row.email_address == email_address } || 
+    all.any?(nil) || all.any?(&:empty?))
+  end
 end

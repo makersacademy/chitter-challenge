@@ -112,12 +112,12 @@ describe Application do
     end
 
     it 'Should return an error when a nil value is entered' do
-      response = post('/signup', name: 'Matt H', username: 'MattAlt', email_address: nil, password: 'AnotherPass1')
+      response = post('/signup', name: '', username: 'MattAlt', email_address: 'mattaltfakeemail@gmail.com', password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
 
     it 'Should return an error when an input is empty' do
-      response = post('/signup', name: 'Matt H', username: '', email_address: 'fakestofthemall@testmail.com', password: 'AnotherPass1')
+      response = post('/signup', name: 'Matt H', username: '     ', email_address: 'fakestofthemall@testmail.com', password: 'AnotherPass1')
       expect(response.status).to eq (400)
     end
   end
