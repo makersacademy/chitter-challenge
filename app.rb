@@ -105,15 +105,17 @@ class Application < Sinatra::Base
     time = Time.new
     repo = PeepRepository.new
     peep = Peep.new
-    peep.title = params[:title]
-    peep.content = params[:content]
+    peep.title = params[:title].strip
+    peep.content = params[:content].strip
     peep.date_posted = time
     peep.maker_id = session[:id]
-    repo.create(peep)
-
-    # If title already exists add fail
-
-    return erb(:peep_created)
+    
+    if title_valid?(peep.title)
+      status 400
+    else
+      repo.create(peep)
+      return erb(:peep_created)
+    end
   end
 
   get '/delete_peep' do
@@ -132,7 +134,7 @@ class Application < Sinatra::Base
     if @selected.maker_id != session[:id]
       status 400 # add an error stating you cannot delete a peep which you have not posted.
     else
-      id = @selected.id 
+      id = @selected.id
       repo.delete(id)
       return erb(:peep_deleted)
     end
@@ -159,4 +161,10 @@ class Application < Sinatra::Base
     session[:id] = nil
     return redirect('/')
   end
+
+  def title_valid?(title)
+    repo = PeepRepository.new
+    return repo.all.any? { |row| row.title == title } || title.empty? || title.nil?
+  end
+
 end

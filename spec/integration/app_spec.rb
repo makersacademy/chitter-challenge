@@ -144,6 +144,7 @@ describe Application do
     end
 
     it 'Should only allow users logged into their account to successfully create new peeps' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       response = post('/peep/new', title: 'new title', content: 'This is some content yes')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<h1>Your Peep was successfully posted!</h1>')
