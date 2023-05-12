@@ -56,7 +56,8 @@ describe Application do
     end
 
     it 'Should return an alternate/error page when password is incorrect' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password')
+      response = post('/signup', name: 'Tom Segura', username: 'TommyBuns', email_address: 'YMH@mail.com', password: 'YMH')
+      response = post('/loginpage', username: 'TommyBuns', password: 'cabbage')
       expect(response.status).to eq(200)
       expect(response.body).to include ('Login unsuccessful')
       expect(response.body).to include ('<p>Please return to the login page and try again</p>')
@@ -64,20 +65,22 @@ describe Application do
     end
 
     it 'Should return a welcome banner with the correct users name' do
-      repo = MakerRepository.new
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/signup', name: 'Harry Potter', username: 'BigPott', email_address: 'phillosopher@mail.com', password: 'SickScar')
+      response = post('/loginpage', username: 'BigPott', password: 'SickScar')
       expect(response.status).to eq(200)
-      expect(response.body).to include ('Matty Boi')
+      expect(response.body).to include ('Harry Potter')
     end
 
     it 'Should return a welcome banner with the correct users name' do
-      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/signup', name: 'Kirk Hammett', username: 'KingKirk', email_address: 'shredding@mail.com', password: 'shreddster')
+      response = post('/loginpage', username: 'KingKirk', password: 'shreddster')
       expect(response.status).to eq(200)
-      expect(response.body).to include ('Hayley Lady')
+      expect(response.body).to include ('Kirk Hammett')
     end
 
     it 'Should return a list of user options as hyperlinks' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/signup', name: 'Some King of User', username: 'SomeKindOfUser', email_address: 'metallica@mail.com', password: 'hetfield')
+      response = post('/loginpage', username: 'SomeKindOfUser', password: 'hetfield')
       expect(response.status).to eq(200)
       expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
       expect(response.body).to include ('<a href="/delete_peep">Delete a peep</a>')
@@ -123,8 +126,6 @@ describe Application do
     end
   end
 
-  # Spec tests which require session to be live:
-
   context 'peep/new' do
     it 'Should return an error page with hyperlinks to log in if user is not logged in already' do
       response = get('/peep/new')
@@ -135,7 +136,8 @@ describe Application do
     end
 
     it 'Should return a form page to create a new peep if the user is logged in' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/signup', name: 'Lars Ulrich', username: 'Lars', email_address: 'napster@mail.com', password: 'lars')
+      response = post('/loginpage', username: 'Lars', password: 'lars')
       response = get('/peep/new')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<h1>Post a new peep to Chitter</h1>')
@@ -144,6 +146,7 @@ describe Application do
       expect(response.body).to include ('<input type="submit"/>')
     end
 
+    #  Check these tests:
     it 'Should only allow users logged into their account to successfully create new peeps' do
       response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       response = post('/peep/new', title: 'new title', content: 'This is some content yes')
@@ -159,30 +162,25 @@ describe Application do
       expect(response.status).to eq (400)
     end
   end
+  
+    # Check these tests:
 
   context '/peeps/:id' do
     it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
-      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
-      response = get('/peeps/2')
-      expect(response.status).to eq (200)
-      expect(response.body).to include ('Hayley Ladys Peeps')
-      expect(response.body).to include ('Hayleys peep')
-      expect(response.body).to include ('2023-07-21 12:25:12')
-    end
-
-    it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/signup', name: 'Severus Snape', username: 'SnapeSnape', email_address: 'halfblood@mail.com', password: 'halfit')
+      response = post('/loginpage', username: 'SnapeSnape', password: 'halfit')
+      response = post('/peep/new', title: 'This is a test peep', content: 'A test peep')
       response = get('/peeps/1')
       expect(response.status).to eq (200)
-      expect(response.body).to include ('Matty Bois Peeps')
+      expect(response.body).to include ('Severus Snapes Peeps')
+      expect(response.body).to include ('This is a test peep')
     end
 
     it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
       response = post('/signup', name: 'Fake User', username: 'faketest', email_address: 'faketestemail@gmail.com', password: 'fakepassword')
-      repo = MakerRepository.new
-      response = post('/loginpage', username: 'faketest', password: BCrypt::Password.new(repo.all.last.password))
+      response = post('/loginpage', username: 'faketest', password: 'fakepassword')
       response = post('/peep/new', title: 'A new pretend peep', content: 'This is some content')
-      response = get('/peeps/3')
+      response = get('/peeps/1')
       expect(response.status).to eq (200)
       expect(response.body).to include ('Fake Users Peeps')
       expect(response.body).to include ('A new pretend peep')
@@ -190,7 +188,7 @@ describe Application do
     end
 
     it 'Should return the log in page if user is not logged in/no active session' do
-      response = get('/peeps/2')
+      response = get('/peeps/1')
       expect(response.body).to include ('<h1>Login required</h1>')
       expect(response.body).to include ('<p>To view all of your existing peeps please login or create an account to start peeping</p>')
       expect(response.body).to include ('<a href="/loginpage">Login page</a>')
@@ -216,7 +214,8 @@ describe Application do
     end
 
     it 'Should return the homepage with the session set to nil - This will prevent user from deleting a peep' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/signup', name: 'User', username: 'NewUser8', email_address: 'newuseremail8@mail.com', password: 'Password8')
+      response = post('/loginpage', username: 'NewUser8', password: 'Password8')
       response = get('/logout')
       response = get('/delete_peep')
       expect(response.body).to include ('<p>To delete an exiting peep of yours, please login or create an account</p>')
@@ -227,7 +226,8 @@ describe Application do
 
   context '/delete_peep' do
     it 'Should only allow the user to delete a peep if they are logged into their account' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/signup', name: 'User', username: 'NewUser7', email_address: 'newuseremail7@mail.com', password: 'Password7')
+      response = post('/loginpage', username: 'NewUser7', password: 'Password7')
       response = get('/delete_peep')
       expect(response.body).to include ('<h1>Delete a selected peep</h1>')
       expect(response.body).to include ('<p>Please input the title of the peep you would like to delete</p>')
@@ -248,22 +248,26 @@ describe Application do
     end
 
     it 'Should delete the selected peep if the peep belongs to the user' do
-      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
-      response = post('/delete_peep', title: 'Hayleys alternate peep')
+      response = post('/signup', name: 'User', username: 'NewUser6', email_address: 'newuseremail6@mail.com', password: 'Password6')
+      response = post('/loginpage', username: 'NewUser6', password: 'Password6')
+      response = post('/peep/new', title: 'A fake title', content: 'A fake peep' )
+      response = post('/delete_peep', title: 'A fake title')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<title>Peep deleted successfully</title>')
-      expect(response.body).to include ('<h1>The peep "Hayleys alternate peep" was removed from chitter</h1>')
+      expect(response.body).to include ('<h1>The peep "A fake title" was removed from chitter</h1>')
       expect(response.body).to include ('<a href="/userpage">Your account</a>')
     end
 
     it 'Should return a 400 error if user tries to delete a peep that they have not posted' do
-      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/signup', name: 'User', username: 'NewUser5', email_address: 'newuseremail5@mail.com', password: 'Password5')
+      response = post('/loginpage', username: 'NewUser5', password: 'Password5')
       response = post('/delete_peep', title: 'A second peep')
       expect(response.status).to eq (400)
     end
 
     it 'Should return a 400 error if the user tries to delete a peep that does not exist' do
-      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/signup', name: 'User', username: 'NewUser4', email_address: 'newuseremail4@mail.com', password: 'Password4')
+      response = post('/loginpage', username: 'NewUser4', password: 'Password4')
       response = post('/delete_peep', title: 'Non existent peep')
       expect(response.status).to eq (500) # Add an alternate fail here for this scenario. 
     end
@@ -271,7 +275,8 @@ describe Application do
 
   context '/update_details' do
     it 'Should return a form page to update details if user is logged in' do
-      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/signup', name: 'User', username: 'NewUser3', email_address: 'newuseremail3@mail.com', password: 'Password')
+      response = post('/loginpage', username: 'NewUser3', password: 'Password')
       response = get('/update_details')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<h1>Update your account details</h1>')
@@ -289,7 +294,8 @@ describe Application do
     end
 
     it 'Should update the users name to new name' do
-      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/signup', name: 'Useragain', username: 'Useragain', email_address: 'email2@email.com', password: 'Passwordzz')
+      response = post('/loginpage', username: 'Useragain', password: 'Passwordzz')
       response = post('/update_details', name: 'Hayley 2')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<h1>Name successfully updated</h1>')
@@ -305,7 +311,8 @@ describe Application do
     end
 
     it 'Should return the userpage when user is logged in' do
-      response = post('/loginpage', username: 'HayleyOk', password: 'DifferentPassword123.')
+      response = post('/signup', name: 'UserUser', username: 'NewUser1', email_address: 'emailok@email.com', password: 'Passwordpreenc')
+      response = post('/loginpage', username: 'NewUser1', password: 'Passwordpreenc')
       response = get('/userpage')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<a href="/">Homepage</a>')
