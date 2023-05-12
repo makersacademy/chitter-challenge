@@ -8,8 +8,22 @@ describe Application do
   let(:app) { Application.new }
 
   context 'GET to /' do
-    it 'returns 200 OK with a list of peeps' do
+    it 'returns 200 OK and the signup form' do
       response = get('/')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<h1>Sign up to Chitter</h1>')
+      expect(response.body).to include('<form action="/signup" method="post">')
+      expect(response.body).to include('<input type="text" name="username" id="username" required />')
+      expect(response.body).to include('<input type="text" name="name" id="name" required />')
+      expect(response.body).to include('<input type="email" name="email" id="email" required />')
+      expect(response.body).to include('<input type="password" name="password" id="password" required />')
+    end
+  end
+  
+  context 'GET to /peeps' do
+    it 'returns 200 OK with a list of peeps' do
+      response = get('/peeps')
 
       expect(response.status).to eq 200
       expect(response.body).to include('<h1>Chitter</h1>')
@@ -39,7 +53,7 @@ describe Application do
   end
 
   context 'POST to /peeps' do
-    it 'returns status 302 and redirects to / showing new peep' do
+    it 'returns status 302 and redirects to /peeps showing new peep' do
       post(
         '/login',
         email: 'fred@gmail.com',
@@ -53,7 +67,7 @@ describe Application do
 
       expect(response.status).to eq 302
 
-      peeps = get('/')
+      peeps = get('/peeps')
       expect(peeps.body).to include('<h2>Testing 123</h2>')
     end
 
@@ -85,22 +99,8 @@ describe Application do
         message: '<script>I am bad</script>'
         )
 
-      peeps = get('/')
+      peeps = get('/peeps')
       expect(peeps.body).to include('<h2>&lt;script&gt;I am bad&lt;&#x2F;script&gt;</h2>')
-    end
-  end
-
-  context 'GET to /signup' do
-    it 'returns 200 OK and the signup form' do
-      response = get('/signup')
-
-      expect(response.status).to eq 200
-      expect(response.body).to include('<h1>Sign up to Chitter</h1>')
-      expect(response.body).to include('<form action="/signup" method="post">')
-      expect(response.body).to include('<input type="text" name="username" id="username" required />')
-      expect(response.body).to include('<input type="text" name="name" id="name" required />')
-      expect(response.body).to include('<input type="email" name="email" id="email" required />')
-      expect(response.body).to include('<input type="password" name="password" id="password" required />')
     end
   end
 
@@ -153,7 +153,7 @@ describe Application do
       message: 'Message from bad user'
       )
 
-      peeps = get('/')
+      peeps = get('/peeps')
       expect(peeps.body).to include('<h2>&lt;script&gt;I am bad&lt;&#x2F;script&gt;</h2>') 
     end
  

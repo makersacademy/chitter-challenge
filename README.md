@@ -10,6 +10,7 @@ $ cd chitter_challenge
 $ bundle install
 $ createdb chitter_test
 $ psql -h 127.0.0.1 chitter_test < spec/seeds_chitter_test.sql
+$ rackup
 ```
 
 ## Technologies Used
@@ -17,6 +18,9 @@ $ psql -h 127.0.0.1 chitter_test < spec/seeds_chitter_test.sql
 - Miro - Designing and planning
 - Diagram.codes - Sequence diagrams
 - Ruby
+- Sinatra
+- PostgreSQL
+- HTML & CSS
 
 ## User Stories
 
@@ -174,17 +178,15 @@ I have created RESTful routes for the peeps but was unsure regarding the login a
 
 | Route Name                       | URL Path   | HTTP Method | Purpose                      |
 | -------------------------------- | ---------- | ----------- | ---------------------------- |
-| Index                            | /          | GET         | Display all peeps            |
+| Index                            | /          | GET         | Show signup page             |
+| All                              | /peeps     | GET         | Display all peeps            |
 | New                              | /peeps/new | GET         | Show form for new peep       |
 | Create                           | /peeps     | POST        | Creates new peep             |
 | Show                             | /peeps/:id | GET         | Shows one peep (for replies) |
 | Edit, Update, Delete - not using |            |
 | Login                            | /login     | GET         | Display login page           |
 | Login user                       | /login     | POST        | Login user and redirect      |
-| Signup                           | /signup    | GET         | Display the signup page      |
 | Sign up user                     | /signup    | POST        | Sign up user and redirect    |
-| Success                          | /success   | GET         | Display success page         |
-| Error                            | /error     | GET         | Display error page           |
 
 ### Designing the Repository classes
 

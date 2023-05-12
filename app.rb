@@ -15,10 +15,14 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    return erb(:index)
+  end
+
+  get '/peeps' do
     repo = PeepRepository.new
     @peeps = repo.all_with_user
 
-    return erb(:index)
+    return erb(:peeps)
   end
 
   get '/peeps/new' do
@@ -44,10 +48,6 @@ class Application < Sinatra::Base
   # get '/peeps/:id' do
   #   # get single peep
   # end
-
-  get '/signup' do
-    return erb(:signup)
-  end
 
   post '/signup' do
     halt 400, "fields must be completed" if params[:email].empty? || \
