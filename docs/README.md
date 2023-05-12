@@ -12,4 +12,4 @@ It uses a Postgres database and a Ruby server implementation to create, update, 
 - I proceeded creating tests alternating them with the implementation of the project.
 
 
-In my particular challenge I experienced an anomaly while test driving the main app.rb which didn't allow me to complete the project yet. I wish the coaches can enlighten me on what happened.
+
