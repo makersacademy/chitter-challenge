@@ -64,6 +64,7 @@ describe Application do
     end
 
     it 'Should return a welcome banner with the correct users name' do
+      repo = MakerRepository.new
       response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
       expect(response.status).to eq(200)
       expect(response.body).to include ('Matty Boi')
@@ -178,7 +179,8 @@ describe Application do
 
     it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
       response = post('/signup', name: 'Fake User', username: 'faketest', email_address: 'faketestemail@gmail.com', password: 'fakepassword')
-      response = post('/loginpage', username: 'faketest', password: 'fakepassword')
+      repo = MakerRepository.new
+      response = post('/loginpage', username: 'faketest', password: BCrypt::Password.new(repo.all.last.password))
       response = post('/peep/new', title: 'A new pretend peep', content: 'This is some content')
       response = get('/peeps/3')
       expect(response.status).to eq (200)

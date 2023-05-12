@@ -1,4 +1,5 @@
 require 'maker_repository'
+require 'bcrypt'
 
 describe MakerRepository do
 
@@ -48,7 +49,7 @@ describe MakerRepository do
       expect(repo.all.last.name).to eq ('name')
       expect(repo.all.last.username).to eq ('username')
       expect(repo.all.last.email_address).to eq ('fake_email@gmail.com')
-      expect(repo.all.last.password).to eq ('Password123')
+      expect(BCrypt::Password.new(repo.all.last.password)).to eq ('Password123')
       expect(repo.all.length).to eq (3)
       expect(repo.all.last.id).to eq (3)
     end

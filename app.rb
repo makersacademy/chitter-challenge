@@ -68,7 +68,16 @@ class Application < Sinatra::Base
     password = params[:password]
     repo = MakerRepository.new
     @maker = repo.find_by_username(username)
-    
+
+    # stored_password = BCrypt::Password.new(@maker.password)
+
+    # if stored_password == password
+    #   session[:id] = @maker.id
+    #   return erb(:userpage)
+    # else
+    #   return erb(:login_error)
+    # end
+
     if @maker.password == password
       session[:id] = @maker.id
       return erb(:userpage)
