@@ -2,7 +2,7 @@ require_relative 'user'
 require 'bcrypt'
 
 class UserRepository
-  def create(user)  
+  def create(user)
     encrypted_password = BCrypt::Password.create(user.password)
     
     sql = '
@@ -12,13 +12,11 @@ class UserRepository
     params = [user.email, encrypted_password, user.name, user.username]
 
     DatabaseConnection.exec_params(sql, params)
-    
-    # What happens if fails?
   end
 
   def log_in(email, submitted_password)
     user = find_by_email(email)
-  
+    
     return nil if user.nil?
 
     stored_password = BCrypt::Password.new(user.password)

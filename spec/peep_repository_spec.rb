@@ -39,11 +39,9 @@ describe PeepRepository do
       repo = PeepRepository.new
       peep = Peep.new
       peep.message = 'This is a new peep'
-      peep.timestamp = '2023-05-07 12:23:34'
       peep.user_id = 1
 
       repo.create(peep)
-
       expect(repo.all_with_user.length).to eq 4
       expect(repo.all_with_user.first.message).to eq 'This is a new peep'
       expect(repo.all_with_user.first.user.name).to eq 'Bob'

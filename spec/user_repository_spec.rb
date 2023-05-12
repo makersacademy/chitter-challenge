@@ -25,6 +25,17 @@ describe UserRepository do
       new_user_id = repo.log_in('email@gmail.com', '123')
       expect(new_user_id).to eq '3'
     end
+
+    # it 'does not create a user if any field is blank' do
+    #   repo = UserRepository.new
+    #   user = User.new
+    #   user.email = ''
+    #   user.password = '123'
+    #   user.name = 'Jim'
+    #   user.username = 'jimmmmeee'
+
+    #   expect { repo.create(user) }.to raise_error "fields should not be blank"
+    # end
   end
 
   context '#log_in' do

@@ -12,9 +12,9 @@ CREATE TABLE users (
 
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
-  message text,
+  message text NOT NULL,
   timestamp timestamp,
-  user_id int,
+  user_id int NOT NULL,
   peep_id int,
   constraint fk_user foreign key(user_id) references users(id),
   constraint fk_peep foreign key(peep_id) references peeps(id)

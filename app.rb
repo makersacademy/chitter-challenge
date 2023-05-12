@@ -28,9 +28,14 @@ class Application < Sinatra::Base
   end
 
   post '/peeps' do
+    halt 400, "peep should not be empty" if params[:message].empty?
+    
+    # prevents dangerous input
+    clean_param = Rack::Utils.escape_html(params[:message])
+
     repo = PeepRepository.new
     peep = Peep.new
-    peep.message = params[:message]
+    peep.message = clean_param
     peep.user_id = session[:user_id]
     repo.create(peep)
     return redirect('/')
@@ -45,12 +50,15 @@ class Application < Sinatra::Base
   end
 
   post '/signup' do
+    halt 400, "fields must be completed" if params[:email].empty? || \
+    params[:password].empty? || params[:name].empty? || params[:username].empty?
+
     repo = UserRepository.new
     user = User.new
-    user.email = params[:email]
-    user.password = params[:password]
-    user.name = params[:name]
-    user.username = params[:username]
+    user.email = Rack::Utils.escape_html(params[:email])
+    user.password = Rack::Utils.escape_html(params[:password])
+    user.name = Rack::Utils.escape_html(params[:name])
+    user.username = Rack::Utils.escape_html(params[:username])
 
     repo.create(user)
     return erb(:signup_success)
@@ -61,16 +69,18 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
+    halt 400, "Bad request" unless params[:email].count("'").zero?
+
     repo = UserRepository.new
     # log_in method returns user id
     user_id = repo.log_in(params[:email], params[:password])
-
-    if user_id
+    
+    if user_id.nil?
+      status 403
+      return erb(:login_error)
+    else
       session[:user_id] = user_id
       return erb(:login_success)
-    # else
-    #   # not working
-    #   return "unsuccessful"
     end
   end
 

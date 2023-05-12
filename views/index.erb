@@ -1,4 +1,8 @@
 <h1>Chitter</h1>
+
+<% if @peeps.empty? %>
+<p>There are not peeps yet.</p>
+<% else %>
 <ul>
   <% @peeps.each do |peep| %>
   <li>
@@ -9,4 +13,5 @@
   </li>
   <% end %>
 </ul>
+<% end %>
 <a href="/peeps/new">Click here to create a new peep</a>
