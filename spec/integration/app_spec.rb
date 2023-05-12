@@ -150,6 +150,12 @@ describe Application do
       expect(response.body).to include ('<a href="/userpage">Your account</a>')
       expect(response.body).to include ('<a href="/">Homepage</a>')
     end
+
+    it 'Should return an error if the title of the peep already exists in database' do
+      response = post('/loginpage', username: 'MattyMooMilk', password: 'Password1!')
+      response = post('/peep/new', title: 'A second peep', content: 'This is some fake content')
+      expect(response.status).to eq (400)
+    end
   end
 
   context '/peeps/:id' do
