@@ -18,6 +18,9 @@ class Chitter < Sinatra::Base
 #   Homepage 
 
   get '/' do
+     p "/"
+     p session
+   
     repo = PeepRepository.new
     @peeps = repo.all
     
@@ -61,6 +64,8 @@ class Chitter < Sinatra::Base
     
     if account.unique? 
       repo.add(account)
+      new_account = repo.find_by_email_address(account.email_address)
+      session[:account_id] = new_account.id
       return erb(:new_account_confirmation)
     else
       status 400
@@ -87,7 +92,7 @@ class Chitter < Sinatra::Base
 
     stored_password = BCrypt::Password.new(account.password)
 
-    if  stored_password == submitted_password && 
+    if stored_password == submitted_password
       session[:account_id] = account.id
       return erb(:login_success)
     else

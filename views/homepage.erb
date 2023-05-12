@@ -5,8 +5,8 @@
       border-radius: 25px;
       border: 2px solid #1DA1F2;
       padding: 20px;
-      width: 200px;
-      height: 75px;
+      width: 365px;
+      height: 45px;
       }
       body {
       background-color: lightblue;
@@ -14,9 +14,8 @@
       }
     </style>
   </head>
+  <h1 id="roundedcorners"> Welcome to Chitter!</h1>
   <body>
-    <p><h1 id="roundedcorners"> Welcome to Chitter!</h1></p>
-
     <% if session[:account_id] == nil %>
       <h2>Please sign up here:</h2>
       <button onclick="window.location.href='/sign_up';">

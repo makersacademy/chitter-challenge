@@ -19,3 +19,4 @@ gem "rack-test", "~> 2.1"
 gem "pg", "~> 1.3"
 
 gem "bcrypt", "~> 3.1"
+gem 'byebug'
