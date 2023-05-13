@@ -15,16 +15,18 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    user_id = params['id']
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
     @display = Display.new
     @peeps = peep_repo.all_with_users.reverse
 
-    if session[:user_id] != nil
-      id = session[:user_id]
-      redirect "/#{id}"
+    if session[:user_id] == nil
+      return erb(:index)
+    else
+      @user = user_repo.find(session[:user_id])
+      return erb(:user_homepage)
     end
-    return erb(:index)
   end
 
   post '/peep' do
@@ -38,7 +40,7 @@ class Application < Sinatra::Base
       rescue RuntimeError
         @username = params['username']
         status 400
-        return erb :unknown_username
+        return erb(:unknown_username)
       end
     end
   end
@@ -82,16 +84,6 @@ class Application < Sinatra::Base
 
   get '/logout' do
     logout
-  end
-
-  get '/:id' do
-    peep_repo = PeepRepository.new
-    user_repo = UserRepository.new
-    @user = user_repo.find(params['id'])
-    @display = Display.new
-    @peeps = peep_repo.all_with_users.reverse
-
-    return erb(:user_homepage)
   end
 
   private

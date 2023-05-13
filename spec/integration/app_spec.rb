@@ -33,6 +33,17 @@ RSpec.describe Application do
       expect(response.body).to include('<form method="POST" action="/peep">')
       expect(response.body).to include('<label>What would you like the world to know?</label>')
     end
+
+    it 'returns 200 OK when user logged in' do
+      session = { :user_id => 1 }
+      response = get('/', {}, 'rack.session' => session)
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h2>Welcome lpc!</h2>')
+      expect(response.body).to include('<a href="/logout">Logout here!</a>')
+      expect(response.body).to include('<h3>Make a new peep!</h3>')
+      expect(response.body).to include('First post')
+    end
   end
 
   context "POST /peep" do
@@ -203,18 +214,6 @@ RSpec.describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('<h2>You have logged out!</h2>')
       expect(response.body).to include('<div>Return to the <a href="/">home page</a></div>')
-    end
-  end
-
-  context 'GET /:id' do
-    it 'returns 200 OK when user logged in' do
-      response = get('/1')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<h2>Welcome lpc!</h2>')
-      expect(response.body).to include('<a href="/logout">Logout here!</a>')
-      expect(response.body).to include('<h3>Make a new peep!</h3>')
-      expect(response.body).to include('First post')
     end
   end
 end
