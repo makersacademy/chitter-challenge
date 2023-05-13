@@ -22,4 +22,3 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
-

@@ -76,12 +76,9 @@ class Application < Sinatra::Base
     # encryption happens on User class creation
     new_user = User.new(name: @name, email_address: email_address, password: password)
     
-    if new_user.valid?
-      new_user.save
-      return erb(:sign_up_confirmation)
-    else
-      return redirect('/signup')
-    end
+    return redirect('/signup') unless new_user.valid?
+    new_user.save
+    return erb(:sign_up_confirmation)
   end
 
   post '/user/new-peep' do
@@ -92,7 +89,7 @@ class Application < Sinatra::Base
 
     unless tag.nil?
       tag_record = Tag.find_or_create_by(content: tag)
-      new_peep.tags<<tag_record
+      new_peep.tags << tag_record
       send_peep_alert(tag) if tag_is_user?(tag)
     end 
 
@@ -103,7 +100,7 @@ class Application < Sinatra::Base
   private
 
   def tag_is_user?(tag)
-    User.find_by(name: tag).is_a?(User) ? true : false
+    User.find_by(name: tag).is_a?(User)
   end
 
   def send_peep_alert(tag)

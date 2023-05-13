@@ -14,7 +14,7 @@ RSpec.describe MailSender do
       user = double :user, email_address: "User1@gmail.com"
       mail_sender = MailSender.new
       
-      expect{ mail_sender.send_peep_alert(user) }.to change {Mail::TestMailer.deliveries.length}.by(1)
+      expect { mail_sender.send_peep_alert(user) }.to change { Mail::TestMailer.deliveries.length }.by(1)
 
       mail = Mail::TestMailer.deliveries.last
 

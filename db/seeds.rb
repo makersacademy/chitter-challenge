@@ -11,7 +11,6 @@ ActiveRecord::Base.connection.reset_pk_sequence!('peeps')
 ActiveRecord::Base.connection.reset_pk_sequence!('tags')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
-
 # Users seeding
 
 user1 = User.create(name: "User 1", email_address: "User1@gmail.com", password: "password1")
@@ -33,31 +32,31 @@ tag3 = Tag.create(content: "politics")
 ActiveRecord.default_timezone = :local
 
 peep1 = Peep.new(text: "Hello world", created_at: Time.parse("2023-05-10 09:00:00"))
-peep1.user=(user1)
-peep1.tags<<(tag2)
+peep1.user = (user1)
+peep1.tags << (tag2)
 peep1.save
 
 peep2 = Peep.new(text: "What's up with politics?", created_at: Time.parse("2023-05-10 12:30:00"))
-peep2.user=(user1)
-peep2.tags<<(tag3)
+peep2.user = (user1)
+peep2.tags << (tag3)
 peep2.save
 
 peep3 = Peep.new(text: "I love cooking.", created_at: Time.parse("2023-05-10 12:10:00"))
-peep3.user=(user2)
-peep3.tags<<(tag1)
+peep3.user = (user2)
+peep3.tags << (tag1)
 peep3.save
 
 peep4 = Peep.new(text: "I love pizza.", created_at: Time.parse("2023-05-10 13:00:00"))
-peep4.user=(user3)
-peep4.tags<<(tag1)
+peep4.user = (user3)
+peep4.tags << (tag1)
 peep4.save
 
 peep5 = Peep.new(text: "Hey there", created_at: Time.parse("2023-05-10 12:20:00"))
-peep5.user=(user4)
-peep5.tags<<(tag2)
+peep5.user = (user4)
+peep5.tags << (tag2)
 peep5.save
 
 peep6 = Peep.new(text: "What's up", created_at: Time.parse("2023-05-10 12:00:00"))
-peep6.user=(user5)
-peep6.tags<<(tag2)
+peep6.user = (user5)
+peep6.tags << (tag2)
 peep6.save

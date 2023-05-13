@@ -22,5 +22,4 @@ class Application < Sinatra::Base
   set :root, APP_ROOT
   set :views, File.join(APP_ROOT, “views”)
   set :public_folder, File.join(APP_ROOT, “public”)
- end
-
+end

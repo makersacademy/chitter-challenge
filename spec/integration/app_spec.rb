@@ -2,7 +2,6 @@ require "spec_helper"
 require "rack/test"
 require_relative "../../app"
 
-
 RSpec.describe Application do
   # This is so we can use rack-test helper methods.
   include Rack::Test::Methods
@@ -104,7 +103,7 @@ RSpec.describe Application do
     end
 
     it 'links to a log in page' do
-        response = post(
+      response = post(
         '/new-user',
         name: 'Jeff',
         email_address: 'Jeff@gmail.com',
@@ -115,7 +114,7 @@ RSpec.describe Application do
     end
 
     it 'redirects to GET /signup if an input is invalid' do
-        response = post(
+      response = post(
         '/new-user',
         name: 'Jeff',
         email_address: '',
@@ -330,23 +329,23 @@ RSpec.describe Application do
   context 'POST /user/new-peep' do
     context 'new peep with no optional tag' do
       it 'creates a new peep in the database and returns an html view with confirmation' do  
-      session = { 'rack.session' => { name: 'User 1' } }
+        session = { 'rack.session' => { name: 'User 1' } }
 
-      response = post(
-      '/user/new-peep',
-      { :text => "It's peepin off" }, 
-      session
-      ) 
+        response = post(
+        '/user/new-peep',
+        { :text => "It's peepin off" }, 
+        session
+        ) 
 
-      expect(response.status).to eq 200    
+        expect(response.status).to eq 200    
 
-      expect(response.body).to include "<h1> You've made a peep! </h1>"
+        expect(response.body).to include "<h1> You've made a peep! </h1>"
 
-      latest_peep = Peep.last
+        latest_peep = Peep.last
 
-      expect(latest_peep.text).to eq "It's peepin off"
-      expect(latest_peep.user_id).to eq 1
-      expect(latest_peep.tags.size).to eq 0
+        expect(latest_peep.text).to eq "It's peepin off"
+        expect(latest_peep.user_id).to eq 1
+        expect(latest_peep.tags.size).to eq 0
 
       end
     end

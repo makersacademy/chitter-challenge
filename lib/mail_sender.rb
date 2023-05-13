@@ -27,4 +27,5 @@ end
 #     enable_starttls_auto: true
 #   }
 # end
-# then 
+# then I think as long as the SMTP server is running and the email on line 6 is real,
+# I think it should work?
