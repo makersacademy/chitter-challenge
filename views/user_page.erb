@@ -10,7 +10,7 @@
         <p> 'No one's made a peep!' </p>
       <% else %>
         <% @peeps_reverse_chron_order.each do |peep| %>
-          <p> <%= peep.text %> - peeped at: <%= peep.created_at %> </p>
+          <p> <%= peep.text %> - <%= peep.user.name %> - peeped at: <%= peep.created_at %> </p>
         <% end %>
       <% end %>
     <div>

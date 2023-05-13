@@ -21,13 +21,13 @@ RSpec.describe Application do
       expect(response.body).to include "<a href=\"/login\"> Log in </a>"
     end
 
-    it 'lists the current peeps in the database in reverse chronological order' do
+    it 'lists the current peeps in the database in reverse chronological order with the author name' do
       response = get("/")
 
       expect(response.status).to eq 200
 
-      latest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
-      earliest_peep = "<p> Hello world - peeped at: 2023-05-10 09:00:00 +0100 </p>"
+      latest_peep = "<p> I love pizza. - User 3 - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+      earliest_peep = "<p> Hello world - User 1 - peeped at: 2023-05-10 09:00:00 +0100 </p>"
       expect(response.body).to include latest_peep
       expect(response.body).to include earliest_peep
 
@@ -38,13 +38,13 @@ RSpec.describe Application do
     end
 
     it 'displays a new peep first' do
-      Peep.create(text: "I'm new here", created_at: Time.parse("2023-05-11 09:00:00"))
+      Peep.create(text: "I'm new here", created_at: Time.parse("2023-05-11 09:00:00"), user: User.first)
       response = get("/")
 
-      new_peep = "<p> I'm new here - peeped at: 2023-05-11 09:00:00 +0100 </p>"
-      second_newest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+      new_peep = "<p> I'm new here - User 1 - peeped at: 2023-05-11 09:00:00 +0100 </p>"
+      second_newest_peep = "<p> I love pizza. - User 3 - peeped at: 2023-05-10 13:00:00 +0100 </p>"
 
-      expect(response.body).to include "<p> I'm new here - peeped at: 2023-05-11 09:00:00 +0100 </p>"
+      expect(response.body).to include new_peep
 
       new_peep_index = response.body.index(new_peep)
       second_newest_peep_index = response.body.index(second_newest_peep)
@@ -247,14 +247,14 @@ RSpec.describe Application do
 
     end
 
-    it 'lists the current peeps in the database in reverse chronological order' do
+    it 'lists the current peeps in the database in reverse chronological order with the author name' do
       session = { 'rack.session' => { name: 'fake_user' } }
       response = get('/:user/page', {}, session)
 
       expect(response.status).to eq 200
 
-      latest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
-      earliest_peep = "<p> Hello world - peeped at: 2023-05-10 09:00:00 +0100 </p>"
+      latest_peep = "<p> I love pizza. - User 3 - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+      earliest_peep = "<p> Hello world - User 1 - peeped at: 2023-05-10 09:00:00 +0100 </p>"
       expect(response.body).to include latest_peep
       expect(response.body).to include earliest_peep
 
@@ -265,15 +265,15 @@ RSpec.describe Application do
     end
 
     it 'displays a new peep first' do
-      Peep.create(text: "I'm new here", created_at: Time.parse("2023-05-11 09:00:00"))
+      Peep.create(text: "I'm new here", created_at: Time.parse("2023-05-11 09:00:00"), user: User.first)
 
       session = { 'rack.session' => { name: 'fake_user' } }
       response = get('/:user/page', {}, session)
 
-      new_peep = "<p> I'm new here - peeped at: 2023-05-11 09:00:00 +0100 </p>"
-      second_newest_peep = "<p> I love pizza. - peeped at: 2023-05-10 13:00:00 +0100 </p>"
+      new_peep = "<p> I'm new here - User 1 - peeped at: 2023-05-11 09:00:00 +0100 </p>"
+      second_newest_peep = "<p> I love pizza. - User 3 - peeped at: 2023-05-10 13:00:00 +0100 </p>"
 
-      expect(response.body).to include "<p> I'm new here - peeped at: 2023-05-11 09:00:00 +0100 </p>"
+      expect(response.body).to include new_peep
 
       new_peep_index = response.body.index(new_peep)
       second_newest_peep_index = response.body.index(second_newest_peep)
