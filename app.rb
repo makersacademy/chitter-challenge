@@ -114,12 +114,10 @@ class Application < Sinatra::Base
   end
 
   get '/account_page' do
-    if session[:user_id] == nil
-      return redirect('/login')
-    else
-      @user = UserRepository.new.find(session[:user_id])
-      return erb(:account_page)
-    end
+    return redirect('/login') if session[:user_id].nil?
+    
+    @user = UserRepository.new.find(session[:user_id])
+    return erb(:account_page)
   end
 
   get '/logout' do
