@@ -1,9 +1,8 @@
 Chitter Challenge - Sharmine
 =================
-View my web app live via a deployment on Render!
-```
-https://chitter-challenge-j4f4.onrender.com/
-```
+
+## Live Web App
+<a href="https://chitter-challenge-j4f4.onrender.com/" target="_blank">View my web app live via a deployment on Render!</a>
 
 Installation instructions:
 -------
