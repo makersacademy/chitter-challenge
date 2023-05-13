@@ -4,7 +4,6 @@ require_relative 'lib/database_connection'
 require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 require_relative 'lib/display'
-require_relative 'lib/login_helper'
 
 DatabaseConnection.connect('chitter_site')
 
@@ -18,7 +17,6 @@ class Application < Sinatra::Base
   get '/' do
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
-    helper = LoginHelper.new
     @display = Display.new
     @peeps = peep_repo.all_with_users.reverse
 
@@ -71,12 +69,10 @@ class Application < Sinatra::Base
   end
 
   post '/login' do
-    repo = UserRepository.new
-    @username = params['username']
     begin
-      user_exists(@username)
+      user_exists(params['username'])
       anyone_logged_in
-      valid_password(@username, params['password'])
+      valid_password(params['username'], params['password'])
       login
     rescue RuntimeError => e
       status 400
@@ -118,28 +114,18 @@ class Application < Sinatra::Base
   end
 
   def post(peep)
-    user_exists(params['username'])
-
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
-    helper = LoginHelper.new
     peep_repo.create(peep)
 
     @display = Display.new
     @peeps = peep_repo.all_with_users.reverse
-    id = helper.logged_in_user(user_repo.all)
-    if id != nil
+    if session[:user_id] != nil
       @user = user_repo.find(id)
       return erb(:user_homepage)
     end
     return erb(:index)
   end
-
-  # def post_failed
-  #   status 400
-  #   @username = params['username']
-  #   return invalid_peep_parameters?
-  # end
 
   def sign_up(user)
     begin
@@ -154,6 +140,7 @@ class Application < Sinatra::Base
   end
 
   def login
+    @username = params['username']
     user_id = find_id(@username)
     session[:user_id] = user_id
 
@@ -161,10 +148,7 @@ class Application < Sinatra::Base
   end
 
   def logout
-    repo = UserRepository.new
-    helper = LoginHelper.new
-    id = helper.logged_in_user(repo.all)
-    repo.change_login_status(id)
+    session[:user_id] = nil
     return erb(:logout)
   end
 
