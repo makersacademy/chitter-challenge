@@ -46,6 +46,17 @@ describe PeepRepository do
       expect(repo.all_with_user.first.message).to eq 'This is a new peep'
       expect(repo.all_with_user.first.user.name).to eq 'Bob'
     end
+
+    it 'creates a reply' do
+      repo = PeepRepository.new
+      peep = Peep.new
+      peep.message = 'This is a new peep'
+      peep.user_id = 1
+      peep.peep_id = 2
+
+      repo.create(peep)
+      expect(repo.all_with_user.first.reply_count).to eq 2
+    end
   end
   
   context '#find_by_id' do
@@ -54,9 +65,21 @@ describe PeepRepository do
 
       peep = repo.find_by_id(4)
       expect(peep.message).to eq 'I am tagging Bob'
-      expect(peep.timestamp).to eq '2023-05-01 16:23:35'
+      expect(peep.timestamp).to eq '01 May 2023 16:23:35'
       expect(peep.user.name).to eq 'Fred'
       expect(peep.user.username).to eq 'freddo'
+    end
+  end
+
+  context '#get_replies' do
+    it 'gets a list of replies for a peep' do
+      repo = PeepRepository.new
+      replies = repo.get_replies(2)
+
+      expect(replies.length).to eq 1
+      expect(replies.first.message).to eq 'This is a reply to the great peep'
+      expect(replies.first.user.name).to eq 'Bob'
+      expect(replies.first.user.username).to eq 'bob678'
     end
   end
 end

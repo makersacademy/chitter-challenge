@@ -23,7 +23,7 @@ class Application < Sinatra::Base
   get '/peeps' do
     repo = PeepRepository.new
     @peeps = repo.all_with_user
-
+  
     return erb(:peeps)
   end
 
@@ -35,7 +35,7 @@ class Application < Sinatra::Base
 
   post '/peeps' do
     halt 400, "peep should not be empty" if params[:message].empty?
-    
+
     # prevents dangerous input
     clean_param = Rack::Utils.escape_html(params[:message])
 
@@ -43,13 +43,21 @@ class Application < Sinatra::Base
     peep = Peep.new
     peep.message = clean_param
     peep.user_id = session[:user_id]
+    peep.peep_id = params[:peep_id]
     repo.create(peep)
-    return redirect('/peeps')
+    return params[:peep_id] ? redirect("/peeps/#{params[:peep_id]}") : redirect('/peeps')
   end
 
-  # get '/peeps/:id' do
-  #   # get single peep
-  # end
+  get '/peeps/:id' do
+    return redirect('/login') if session[:user_id].nil?
+
+    id = params[:id]
+    repo = PeepRepository.new
+    @peep = repo.find_by_id(id)
+    @replies = repo.get_replies(id)
+
+    return erb(:peep)
+  end
 
   post '/signup' do
     halt 400, "fields must be completed" if params[:email].empty? || \

@@ -15,6 +15,14 @@
         <p>🐤 <%= peep.user.username %></p>
         <p>name: <%= peep.user.name %></p>
       </div>
+      <div class="replies">
+        <a href="/peeps/<%= peep.id %>">Reply</a>
+        <% if peep.reply_count == 1 %>
+        <a href="/peeps/<%= peep.id %>"><%= peep.reply_count %> reply</a>
+        <% elsif peep.reply_count > 1 %>
+        <a href="/peeps/<%= peep.id %>"><%= peep.reply_count %> replies</a>
+        <% end %>
+      </div>
     </li>
     <% end %>
   </ul>

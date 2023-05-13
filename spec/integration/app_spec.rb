@@ -29,6 +29,12 @@ describe Application do
       expect(response.body).to include('Chitter Feed')
       expect(response.body).to include('<h2>Hello world</h2>')
     end
+
+    it 'shows the number of replies to a peep' do
+      response = get('/peeps')
+
+      expect(response.body).to include('1 reply')
+    end
   end
 
   context 'GET to /peeps/new' do
@@ -104,6 +110,26 @@ describe Application do
     end
   end
 
+  context 'GET to /peeps/:id' do
+    it 'returns 302 status and redirects if not logged in' do
+      peep = get('/peeps/2')
+
+      expect(peep.status).to eq 302
+    end
+
+    it 'returns 200 OK and an individual peep' do
+      post(
+        '/login',
+        email: 'fred@gmail.com',
+        password: '123'
+      )
+
+      peep = get('/peeps/2')
+
+      expect(peep.status).to eq 200
+    end
+  end
+
   context 'POST to /signup' do
     it 'adds a new user' do
       response = post(
@@ -115,7 +141,7 @@ describe Application do
         )
       
       expect(response.status).to eq 200
-      expect(response.body).to include('<p>You have successfully signed up for Chitter!</p>')
+      expect(response.body).to include('You have successfully signed up for Chitter!')
     end
 
     it 'returns an error if any fields are empty' do
@@ -140,7 +166,7 @@ describe Application do
         )
 
       expect(response.status).to eq 200
-      expect(response.body).to include('<p>You have successfully signed up for Chitter!</p>')
+      expect(response.body).to include('You have successfully signed up for Chitter!')
 
       post(
       '/login',
@@ -188,7 +214,7 @@ describe Application do
       )
 
       expect(response.status).to eq 403
-      expect(response.body).to include('<p>The username and password do not match</p>')
+      expect(response.body).to include('The username and password do not match')
     end
 
     it 'does not allow dangerous inputs and returns status 400 Bad Request' do

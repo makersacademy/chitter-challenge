@@ -75,13 +75,18 @@ h2 {
   margin-bottom: 0.75rem;
 }
 
+.margin-bottom {
+  margin-bottom: 1.5rem;
+}
+
 .peeps {
   margin: 0 2rem;
   max-width: 750px;
   text-align: center;
 }
 
-.peeps ul {
+.peeps ul,
+.peep .box {
   text-align: left;
 }
 
@@ -106,6 +111,12 @@ h2 {
   margin-right: 1rem;
 }
 
+.replies {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
 .create {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -115,8 +126,27 @@ h2 {
   margin: 1rem 0;
 }
 
-.box p {
-  margin-bottom: 1.5rem;
+.peep h3,
+.back {
+  margin-left: 1rem;
+}
+
+.back:hover {
+  color: #dfded9;
+}
+
+.reply,
+.reply-form {
+  margin-left: 4.5rem;
+}
+
+.reply-form {
+  text-align: left;
+}
+
+#reply {
+  width: 100%;
+  margin: 1rem 0;
 }
 
 header {
