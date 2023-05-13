@@ -9,6 +9,8 @@ require_relative 'lib/login_helper'
 DatabaseConnection.connect('chitter_site')
 
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -20,18 +22,26 @@ class Application < Sinatra::Base
     @display = Display.new
     @peeps = peep_repo.all_with_users.reverse
 
-    if helper.any_logged_in?(user_repo.all)
-      id = helper.logged_in_user(user_repo.all)
+    if session[:user_id] != nil
+      id = session[:user_id]
       redirect "/#{id}"
     end
     return erb(:index)
   end
 
   post '/peep' do
-    if invalid_peep_parameters? || !user_exists(params['username'])
-      post_failed
+    if invalid_peep_parameters?
+      status 400
+      return ''
     else
-      post(new_peep)
+      begin
+        user_exists(params['username'])
+        post(new_peep)
+      rescue RuntimeError
+        @username = params['username']
+        status 400
+        return erb :unknown_username
+      end
     end
   end
 
@@ -62,16 +72,15 @@ class Application < Sinatra::Base
 
   post '/login' do
     repo = UserRepository.new
-    helper = LoginHelper.new
     @username = params['username']
-    if !user_exists(@username)
+    begin
+      user_exists(@username)
+      anyone_logged_in
+      valid_password(@username, params['password'])
+      login
+    rescue RuntimeError => e
       status 400
-      return 'invalid username, go back!'
-    elsif helper.any_logged_in?(repo.all)
-      status 400
-      return 'A user is already logged in'
-    else
-      login_attempt
+      return e.message
     end
   end
 
@@ -109,6 +118,8 @@ class Application < Sinatra::Base
   end
 
   def post(peep)
+    user_exists(params['username'])
+
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
     helper = LoginHelper.new
@@ -124,11 +135,11 @@ class Application < Sinatra::Base
     return erb(:index)
   end
 
-  def post_failed
-    status 400
-    @username = params['username']
-    return invalid_peep_parameters? ? '' : erb(:unknown_username)
-  end
+  # def post_failed
+  #   status 400
+  #   @username = params['username']
+  #   return invalid_peep_parameters?
+  # end
 
   def sign_up(user)
     begin
@@ -142,15 +153,10 @@ class Application < Sinatra::Base
     end
   end
 
-  def login_attempt
-    helper = LoginHelper.new
-    repo = UserRepository.new
+  def login
     user_id = find_id(@username)
-    if helper.check_password(user_id, params['password']) == false
-      status 400
-      return 'Sorry! Incorrect password, please return'
-    end
-    repo.change_login_status(user_id)
+    session[:user_id] = user_id
+
     return erb(:logged_in)
   end
 
@@ -192,6 +198,20 @@ class Application < Sinatra::Base
   def user_exists(username)
     repo = UserRepository.new
     usernames = repo.all.map { |user| user.username }
-    return usernames.include?(username)
+    fail 'invalid username, go back!' if !usernames.include?(username)
+    return true
+  end
+
+  def anyone_logged_in
+    fail 'A user is already logged in' if session[:user_id] != nil
+    return false
+  end
+
+  def valid_password(username, password)
+    repo = UserRepository.new
+    user_id = find_id(username)
+    user = repo.find(user_id)
+    fail 'Sorry! Incorrect password, please return' if user.password != password
+    return true
   end
 end
