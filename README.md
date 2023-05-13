@@ -6,6 +6,8 @@
 Made for Maker's Academy Week 4 - Web Applications
 
 My attempt at a small Twitter clone that allows the users to post messages to a public stream, based on the following user stories:
+
+You can find the full challenge description in docs/challenge_description.md.
 -------
 
 ```
@@ -47,21 +49,24 @@ I want to receive an email if I am tagged in a Peep
 ## Technical Approach:
 -----
 
-This is a Ruby app using the Sinatra framework and PostgreSQL for the database.
+This is a Ruby app using the Sinatra framework an a PostgreSQL database.
 
 I decided to challenge myself to use ActiveRecord ORM as the database interface, rather than writing Model and Repository Classes. It was a definite leap up in difficulty, but I learned a lot! 
 
 I wrote tests with RSpec and Rack-test.
 
+Bcrypt encrypts passwords, and mail handles email notifications.
+
 
 ## Installation Instructions 
-
+-----
 
 ```
-git clone PROJECT URL
+git clone https://github.com/awdem/chitter-challenge.git
 bundle install
 # database creation:
-rake db:setup
+rake db:create
+rake db:migrate
 # test database creation:
 rake db:setup RACK_ENV=test
 ```
@@ -70,4 +75,11 @@ Run RSpec to make sure its working, then go to your localhost in a browser to pl
 
 
 ## KNOWN ISSUES:
+-----
+
+My implementation of the advanced mail notification user story is incomplete. It passes in testing, but in order for it to work in practice I believe it needs more set up so that the app can handle email sending. I've made notes in lib/mail_sender.rb on next steps.
+
+The CSS file is very basic and not well thought out! I only added it after doing all the feature implementation so I haven't spent much time with it. I'd love to return to this with more knowledge later to improve the app's look and navigation. 
+
+I couldn't get validation for user password to work, so it can currently be any format, including an empty string. And the app isn't secure from injection (unless there is some protection in ActiveRecord or Sinatra that I don't know about).
 
