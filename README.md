@@ -35,3 +35,8 @@ You can then view existing peeps. In order to post a peep, you must sign up for 
 * Bonus Features
   * [ ] Replying to peeps
   * [ ] CSS styling
+
+
+
+## Design
+![Screenshot](https://imgur.com/a/ISlI4uD)
