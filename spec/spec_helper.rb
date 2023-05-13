@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'mail'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -8,10 +9,24 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+# sets the environment to test database
+ENV["RACK_ENV"] = "test"
+
+# This allows RSpec to access the session params during testing.
+def session
+  last_request.env['rack.session']
+end
+
+#  This allows RSpec to test mail sending with actually sending mail
+
+Mail.defaults do
+  delivery_method :test
+end
+
 RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  # This resets the database tables before each test.
+  config.before(:each) do
+    load File.join(__dir__, '../db/seeds.rb')
   end
+
 end

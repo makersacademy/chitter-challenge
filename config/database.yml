@@ -1,0 +1,8 @@
+# this tells rake which database to create for which environment. 
+# the adapter is the type of database it will be, database is the name.
+development:
+  adapter: postgresql
+  database: chitter-development
+test:
+  adapter: postgresql
+  database: chitter-test
