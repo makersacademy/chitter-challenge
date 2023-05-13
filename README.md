@@ -1,5 +1,9 @@
 Chitter Challenge - Sharmine
 =================
+View my web app live via a deployment on Render!
+```
+https://chitter-challenge-j4f4.onrender.com/
+```
 
 Installation instructions:
 -------
@@ -47,11 +51,12 @@ This is the design I drew up before starting, and I updated as I completed the r
 * Through some digging of my own, I also realized that after sign up, I needed to retrieve an updated repo as I couldn't use the one I instantiated before the new user was created, as the user user wouldn't be present in it in order to use the find(id) method.
 * Encrypting passwords was also a learning curve, especially having to refactor previous tests to create a new user to that their passwords would be encrypted, instead of relying on seed data with unencrypted passwords for tests.
 * I really see the value in TDD as when I built new things, some old tests would break, and either the tests needed refactoring, or the routes themselves. As a product manager who has worked with deploying features that would break old ones, it's nice to see TDD catching these issues before they'd become available on production.
+* Deployments on Render weren't working, until I realized I needed to update the database_connection file to use DATABASE_URL which is the environment variable set on Render. Very satisfying when that worked!
 
 
 ## Shortcomings
 * Sadly, I didn't have time to work on the bonus features. I might attempt implementing some CSS at a later date.
-* I attempted to use Travis CI but encountered the following error. I didn't dig too much into it so I've left it out.
+* I attempted to use Travis CI but encountered some errors. I managed to fix one by including `rvm: 3.0.2` in the .yml file so that is uses the right ruby version. However all tests were showing red on it. The raw logs are visible from the link below:
 ```
-The command "bundle install --jobs=3 --retry=3 --deployment" failed
+https://api.travis-ci.com/v3/job/602119438/log.txt
 ```
