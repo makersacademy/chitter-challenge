@@ -4,20 +4,9 @@
   </head>
   <body>
     <h1>Chitter</h1>
+    <h3>If you'd like to add to this enthralling world of chitter, then login or sign up below!</h3>
     <a href="/users/new">Sign up now!</a>
     <a href="/login">Login here!</a>
-    <h3>Make a new peep!</h3>
-    <form method="POST" action="/peep">
-      <div>
-        <label>What would you like the world to know?</label>
-        <input type="text" name="content">
-      </div>
-      <div>
-        <label>Your username:</label>
-        <input type="text" name="username">
-      </div>
-      <input type="submit">
-    </form>
     <h2>All peeps:</h2>
     <% @peeps.each do |peep| %>
     <div>

@@ -59,14 +59,6 @@ class UserRepository
     return user
   end
 
-  def change_login_status(id)
-    sql = "UPDATE users SET logged_in = 
-            CASE WHEN logged_in=true THEN false
-            ELSE true END
-            WHERE id=$1"
-    DatabaseConnection.exec_params(sql, [id])
-  end
-
   private
 
   def record_to_user_object(record)
@@ -76,7 +68,6 @@ class UserRepository
     user.password = record['password']
     user.name = record['name']
     user.username = record['username']
-    user.logged_in = to_bool(record['logged_in'])
     return user
   end
 
@@ -88,9 +79,5 @@ class UserRepository
   def username_taken?(username)
     used_usernames = all.map { |user| user.username }
     return used_usernames.include?(username)
-  end
-
-  def to_bool(str)
-    return str == 't'
   end
 end

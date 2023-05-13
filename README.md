@@ -2,9 +2,23 @@ Chitter Challenge
 =================
 # chitter-challenge
 
-A twitter clone, my first complete web application as part of Makers Academy. It contains users who are able to make posts. A sign up form to create a new user and start making posts. This was a challenging and enjoyable project. I have implemented tagging functionality with posts so users can tag other users (with `@username`) which appears as a link to that user page.
-The most difficult part was implementing a login feature which I have done manually. Once logged in, the user's homepage is redirected to a specific page where only they are able to make posts.
-I am going to look into how to encrypt using Bcrypt
+A twitter clone, my first complete web application as part of Makers Academy.
+
+This project has been designed to improve our understanding of HTTP requests and responses, designing routes and structuring web applications. It contains:
+
+ - Users who are able to make posts.
+ - A homepage displaying all posts and their creator and time
+ - A sign up form to create a new user and start making posts.
+ - A user specific page in which you can view only their posts.
+ - Tagging functionality within posts so users can tag other users (with `@username`) which will contain a link to that user's page
+ - A login page in which a user can login and only post as them
+ 
+This was a challenging and enjoyable project.
+The most difficult part was implementing a login feature which I first did manually. I attempted this by creating a GET '/:id' route which goes to a specific user's homepage. Once logged in, the main homepage is redirected to a specific page where only they are able to make posts. I did this by redirecting the GET '/' route to the user specific homepage. However this is not secure, since anybody could manually call upon the '/1', for example, and be logged in as user with ID=1. This was an interesting learning experience in understanding and developing new routes which are connected to each other! But not best practise.
+
+So I researched the sessions functionality in Sinatra which allows us to create a session associated with the user's ID number after they login. Then, in the homepage route, we simplt have to check the session[:user_id] value and return a different HTML page if that value is not nil (ie, a user is logged in).
+
+Goin further, I will look into the Bcrypt password encryption
 
 ## How to use
 
@@ -12,13 +26,13 @@ I am going to look into how to encrypt using Bcrypt
 # Make the DB:
 createdb chitter_site
 
-# install gems:
+# Install gems:
 bundle install
 
-# run the tests:
+# Run the tests:
 rspec
 
-# run server
+# Run server
 rackup
 ```
 
@@ -30,4 +44,3 @@ rackup
 
 ## Still to add
 - Bcrypt functionality
-- neaten up classes and methods

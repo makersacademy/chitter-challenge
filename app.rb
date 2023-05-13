@@ -15,7 +15,6 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    user_id = params['id']
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
     @display = Display.new
@@ -109,10 +108,11 @@ class Application < Sinatra::Base
     peep_repo = PeepRepository.new
     user_repo = UserRepository.new
     peep_repo.create(peep)
+    id = session[:user_id]
 
     @display = Display.new
     @peeps = peep_repo.all_with_users.reverse
-    if session[:user_id] != nil
+    if id != nil
       @user = user_repo.find(id)
       return erb(:user_homepage)
     end
