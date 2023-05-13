@@ -19,7 +19,7 @@ describe PeepRepository do
       expect(peeps.length).to eq 3
       expect(peeps.first.id).to eq 2
       expect(peeps.first.message).to eq 'This is a great peep'
-      expect(peeps.first.timestamp).to eq '2023-05-03 16:23:34'
+      expect(peeps.first.timestamp).to eq '03 May 2023 16:23:34'
       expect(peeps.first.user.name).to eq 'Fred'
       expect(peeps.first.user.username).to eq 'freddo'
     end
@@ -30,7 +30,7 @@ describe PeepRepository do
       peeps = repo.all_with_user
       expect(peeps.last.id).to eq 1
       expect(peeps.last.message).to eq 'Hello world'
-      expect(peeps.last.timestamp).to eq '2023-04-28 12:45:05'
+      expect(peeps.last.timestamp).to eq '28 Apr 2023 12:45:05'
     end
   end
 

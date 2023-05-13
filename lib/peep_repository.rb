@@ -6,16 +6,15 @@ class PeepRepository
     peeps = []
 
     sql = 'SELECT peeps.id as peep_id, message, timestamp, users.id as user_id, name, username 
-    FROM peeps 
-    JOIN users ON users.id = peeps.user_id WHERE peep_id IS NULL 
+    FROM peeps JOIN users ON users.id = peeps.user_id WHERE peep_id IS NULL 
     ORDER BY "timestamp" DESC;'
 
     result_set = DatabaseConnection.exec_params(sql, [])
 
-    result_set.each do |record|    
+    result_set.each do |record|
+      record['timestamp'] = DateTime.parse(record['timestamp']).strftime '%d %b %Y %H:%M:%S'
       peeps << create_peep(record)
     end
-    
     return peeps
   end
 

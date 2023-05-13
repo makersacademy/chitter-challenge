@@ -15,6 +15,8 @@ class Application < Sinatra::Base
   end
 
   get '/' do
+    return redirect('/peeps') unless session[:user_id].nil?
+
     return erb(:index)
   end
 
@@ -42,7 +44,7 @@ class Application < Sinatra::Base
     peep.message = clean_param
     peep.user_id = session[:user_id]
     repo.create(peep)
-    return redirect('/')
+    return redirect('/peeps')
   end
 
   # get '/peeps/:id' do
@@ -87,6 +89,6 @@ class Application < Sinatra::Base
   get '/logout' do
     session[:user_id] = nil
     
-    return redirect('/')
+    return redirect('/peeps')
   end
 end

@@ -12,7 +12,7 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq 200
-      expect(response.body).to include('<h1>Sign up to Chitter</h1>')
+      expect(response.body).to include('<h2>Sign up</h2>')
       expect(response.body).to include('<form action="/signup" method="post">')
       expect(response.body).to include('<input type="text" name="username" id="username" required />')
       expect(response.body).to include('<input type="text" name="name" id="name" required />')
@@ -26,13 +26,13 @@ describe Application do
       response = get('/peeps')
 
       expect(response.status).to eq 200
-      expect(response.body).to include('<h1>Chitter</h1>')
+      expect(response.body).to include('Chitter Feed')
       expect(response.body).to include('<h2>Hello world</h2>')
     end
   end
 
   context 'GET to /peeps/new' do
-    it 'returns 302 Redirect to / if user not logged in' do
+    it 'returns 302 Redirect to /login if user not logged in' do
       response = get('/peeps/new')
       expect(response.status).to eq 302
     end
@@ -156,7 +156,6 @@ describe Application do
       peeps = get('/peeps')
       expect(peeps.body).to include('<h2>&lt;script&gt;I am bad&lt;&#x2F;script&gt;</h2>') 
     end
- 
   end
 
   context 'GET to /login' do
@@ -189,7 +188,7 @@ describe Application do
       )
 
       expect(response.status).to eq 403
-      expect(response.body).to include('<p>The username and password do not match.</p>')
+      expect(response.body).to include('<p>The username and password do not match</p>')
     end
 
     it 'does not allow dangerous inputs and returns status 400 Bad Request' do

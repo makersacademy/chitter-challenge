@@ -1,17 +1,22 @@
-<h1>Chitter</h1>
+<div class="peeps">
+  <h1>🐦🐦 Chitter Feed 🐦🐦</h1>
 
-<% if @peeps.empty? %>
-<p>There are not peeps yet.</p>
-<% else %>
-<ul>
-  <% @peeps.each do |peep| %>
-  <li>
-    <h2><%= peep.message %></h2>
-    <p>x long ago - <%= peep.timestamp %></p>
-    <p>name: <%= peep.user.name %></p>
-    <p>username: <%= peep.user.username %></p>
-  </li>
+  <a class="button create" href="/peeps/new">Create a new peep</a>
+
+  <% if @peeps.empty? %>
+  <p>There are no peeps yet.</p>
+  <% else %>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li>
+      <h2><%= peep.message %></h2>
+      <p><%= peep.timestamp %></p>
+      <div class="author">
+        <p>🐤 <%= peep.user.username %></p>
+        <p>name: <%= peep.user.name %></p>
+      </div>
+    </li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
-<% end %>
-<a href="/peeps/new">Click here to create a new peep</a>
+</div>
