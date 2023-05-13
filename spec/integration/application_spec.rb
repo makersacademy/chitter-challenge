@@ -88,12 +88,16 @@ describe Application do
   end
 
   context 'POST /signup' do
-    it 'Successfully creates a new unique account' do
+    it 'Successfully creates a new unique account and persists session in homepage' do
       response = post('/signup', name: 'Toad', username: 'mushroomtoad', email: 'toad@makersacademy.com', password: 'mushroom123')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('Chitter account successfully created!')
       expect(response.body).to include('<a href="/">')
+
+      home = get('/')
+      expect(home.status).to eq(200)
+      expect(home.body).to include('<button type="button">Log out</button>')
     end
 
     it 'Fails if email or username already exists' do
@@ -200,6 +204,10 @@ describe Application do
       logout = get('/logout')
       
       expect(logout.status).to eq(302)
+
+      unauthenticated = get('/')
+      expect(unauthenticated.status).to eq(200)
+      expect(unauthenticated.body).to include('Sign up to Chitter')
     end
   end
 

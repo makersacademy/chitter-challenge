@@ -77,6 +77,9 @@ class Application < Sinatra::Base
       return 'Error: email or username already exists. Please go back and try again'
     else
       users.create(new_user)
+      updated_repo = UserRepository.new
+      @user = updated_repo.find_by_email(new_user.email)
+      session[:user_id] = @user.id
       return erb(:account_created)
     end
   end
