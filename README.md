@@ -9,6 +9,7 @@ $ git clone https://github.com/sarahc-dev/chitter-challenge.git
 $ cd chitter_challenge
 $ bundle install
 $ createdb chitter_test
+$ psql -h 127.0.0.1 chitter_test < chitter_tables.sql
 $ psql -h 127.0.0.1 chitter_test < spec/seeds_chitter_test.sql
 $ rackup
 ```
@@ -18,7 +19,8 @@ $ rackup
 - Miro - Designing and planning
 - Diagram.codes - Sequence diagrams
 - Ruby
-- Sinatra
+- Sinatra & ERB
+- BCrypt
 - PostgreSQL
 - HTML & CSS
 

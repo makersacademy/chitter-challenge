@@ -72,6 +72,10 @@ class Application < Sinatra::Base
 
     repo.create(user)
     return erb(:signup_success)
+
+    rescue PG::UniqueViolation
+      status 400
+      return erb(:signup_error)
   end
 
   get '/login' do

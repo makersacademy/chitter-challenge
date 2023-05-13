@@ -26,16 +26,27 @@ describe UserRepository do
       expect(new_user_id).to eq '3'
     end
 
-    # it 'does not create a user if any field is blank' do
-    #   repo = UserRepository.new
-    #   user = User.new
-    #   user.email = ''
-    #   user.password = '123'
-    #   user.name = 'Jim'
-    #   user.username = 'jimmmmeee'
+    it 'returns an error if duplicate email' do
+      repo = UserRepository.new
+      user = User.new
+      user.email = 'fred@gmail.com'
+      user.password = '123'
+      user.name = 'Freddie'
+      user.username = 'freddie'
 
-    #   expect { repo.create(user) }.to raise_error "fields should not be blank"
-    # end
+      expect { repo.create(user) }.to raise_error(PG::UniqueViolation)
+    end
+
+    it 'returns an error if duplicate username' do
+      repo = UserRepository.new
+      user = User.new
+      user.email = 'freddie@gmail.com'
+      user.password = '123'
+      user.name = 'Freddie'
+      user.username = 'freddo'
+
+      expect { repo.create(user) }.to raise_error(PG::UniqueViolation)
+    end
   end
 
   context '#log_in' do

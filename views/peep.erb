@@ -22,7 +22,7 @@
   <% end %> <% end %>
   <form class="box reply-form" action="/peeps" method="post">
     <label for="reply">Your reply:</label>
-    <input id="reply" type="text" name="message" />
+    <input id="reply" type="text" name="message" required />
     <input type="hidden" name="peep_id" value="<%= @peep.id %>" />
     <input type="submit" value="Reply" />
   </form>

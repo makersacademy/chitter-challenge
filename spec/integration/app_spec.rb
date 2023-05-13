@@ -108,6 +108,24 @@ describe Application do
       peeps = get('/peeps')
       expect(peeps.body).to include('<h2>&lt;script&gt;I am bad&lt;&#x2F;script&gt;</h2>')
     end
+
+    it 'replies to a peep' do
+      post(
+        '/login',
+        email: 'fred@gmail.com',
+        password: '123'
+      )
+
+      response = post(
+        '/peeps',
+        message: 'This is a reply',
+        peep_id: 1
+        )
+      
+      expect(response.status).to eq 302
+      replies = get('/peeps/1')
+      expect(replies.body).to include('This is a reply')
+    end
   end
 
   context 'GET to /peeps/:id' do
@@ -181,6 +199,32 @@ describe Application do
 
       peeps = get('/peeps')
       expect(peeps.body).to include('<h2>&lt;script&gt;I am bad&lt;&#x2F;script&gt;</h2>') 
+    end
+
+    it 'returns error page if username not unique' do
+      response = post(
+        '/signup',
+        username: 'freddo',
+        name: 'Jimy',
+        email: 'jimy@gmail.com',
+        password: '123'
+        )
+      
+      expect(response.status).to eq 400
+      expect(response.body).to include('The username and email must be unique')
+    end
+
+    it 'returns error page if email not unique' do
+      response = post(
+        '/signup',
+        username: 'fred',
+        name: 'Jimy',
+        email: 'fred@gmail.com',
+        password: '123'
+        )
+      
+      expect(response.status).to eq 400
+      expect(response.body).to include('The username and email must be unique')
     end
   end
 
