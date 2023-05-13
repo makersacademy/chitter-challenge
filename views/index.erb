@@ -1,22 +1,30 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1> Welcome to Chitter! </h1>
+
     <div>
       <a href="/signup"> Sign up </a>
     </div>
+
     <div>
       <a href="/login"> Log in </a>
     </div>
-    <h2> What's peepin': </h2>
-    <% if @peeps_reverse_chron_order.empty? %>
-      <p> 'No one's made a peep!' </p>
-    <% else %>
-      <% @peeps_reverse_chron_order.each do |peep| %>
-        <p> <%= peep.text %> - peeped at: <%= peep.created_at %> </p>
+    
+     <h2> What's peepin': </h2>
+
+    <div id= "peep_list">
+      <% if @peeps_reverse_chron_order.empty? %>
+        <p> 'No one's made a peep!' </p>
+      <% else %>
+        <% @peeps_reverse_chron_order.each do |peep| %>
+          <p> <%= peep.text %> - peeped at: <%= peep.created_at %> </p>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    
   </body>
 </html>
