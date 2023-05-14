@@ -48,7 +48,7 @@ class Application < Sinatra::Base
     # p id[0]['id']
 
     UserRepository.new.tag_users(id[0]['id'], 
-params[:tags]) unless params[:tags].nil? || params[:tags].empty?
+    params[:tags]) unless params[:tags].nil? || params[:tags].empty?
 
     return params[:peep_id] ? redirect("/peeps/#{params[:peep_id]}") : redirect('/peeps')
   end

@@ -118,7 +118,12 @@ h2 {
 
 .tags {
   color: #ef820d;
+  display: flex;
   margin-bottom: 0.5rem;
+}
+
+.tags p + p {
+  margin-left: 0.5rem;
 }
 
 .replies {

@@ -9,11 +9,11 @@
   <ul>
     <% @peeps.each do |peep| %>
     <li>
-      <p class="tags">
+      <div class="tags">
         <% peep.tags.each do |tag| %>
-        <span>@<%= tag.username %> </span>
+        <p>@<%= tag.username %></p>
         <% end %>
-      </p>
+      </div>
       <h2><%= peep.message %></h2>
       <p><%= peep.timestamp %></p>
       <div class="author">

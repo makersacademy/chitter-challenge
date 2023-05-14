@@ -149,6 +149,24 @@ describe Application do
       peeps = get('/peeps')
       expect(peeps.body).to include('@freddo')
     end
+
+    it 'adds multiple tags to a peep' do
+      post(
+        '/login',
+        email: 'fred@example.com',
+        password: '123'
+      )
+
+      response = post(
+        '/peeps',
+        tags: 'freddo, bob678',
+        message: 'Testing tags'
+        )
+
+        peeps = get('/peeps/9')
+        expect(peeps.body).to include('<p>@freddo</p>')
+        expect(peeps.body).to include('<p>@bob678</p>')
+    end
   end
 
   context 'GET to /peeps/:id' do

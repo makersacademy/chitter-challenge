@@ -1,4 +1,4 @@
-TRUNCATE TABLE peeps_users, users, peeps RESTART IDENTITY;
+TRUNCATE TABLE peeps_users, peeps, users  RESTART IDENTITY;
 
 INSERT INTO users (email, password, name, username) VALUES ('hello@example.com', 'password', 'Bob', 'bob678'), 
 ('fred@example.com', '$2a$12$7NbikxOM4OU25bN0CT/lxevYcjDFnJzzReisBY6PUObEvmYEpy3hG', 'Fred', 'freddo');
