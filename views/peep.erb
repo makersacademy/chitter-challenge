@@ -1,6 +1,11 @@
 <div class="peep">
   <a class="back" href="/peeps">Back</a>
   <div class="box">
+    <p class="tags">
+      <% @peep.tags.each do |tag| %>
+      <span>@<%= tag.username %> </span>
+      <% end %>
+    </p>
     <h1><%= @peep.message %></h1>
     <div class="author margin-bottom">
       <p>🐤 <%= @peep.user.username %></p>

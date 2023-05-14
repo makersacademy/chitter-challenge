@@ -35,6 +35,12 @@ describe Application do
 
       expect(response.body).to include('1 reply')
     end
+
+    it 'shows any tags on a peep' do
+      response = get('/peeps')
+
+      expect(response.body).to include('@bob678')
+    end
   end
 
   context 'GET to /peeps/new' do

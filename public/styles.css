@@ -112,6 +112,11 @@ h2 {
   margin-right: 1rem;
 }
 
+.tags {
+  color: #ef820d;
+  margin-bottom: 0.5rem;
+}
+
 .replies {
   display: flex;
   justify-content: space-between;

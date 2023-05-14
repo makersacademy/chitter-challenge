@@ -5,13 +5,16 @@ class PeepRepository
   def all_with_user
     peeps = []
 
-    sql = 'SELECT peeps.id, message, timestamp, users.id as user_id, peep_id as parent_id, 
-    name, username FROM peeps JOIN users ON users.id = peeps.user_id ORDER BY "timestamp" DESC;'
+    sql = 'SELECT peeps.id, message, timestamp, peeps.user_id, peep_id as parent_id, 
+    name, username, email FROM peeps 
+    JOIN users ON users.id = peeps.user_id ORDER BY "timestamp" DESC;'
 
     result_set = DatabaseConnection.exec_params(sql, [])
 
     result_set.each do |record|
-      record['reply_count'] = result_set.count { |x| x['parent_id'] == record['id'] }
+      # counts replies for each record
+      record['reply_count'] = result_set.count { |result| result['parent_id'] == record['id'] }
+      # only add peep if not a reply
       peeps << create_peep(record) if record['parent_id'].nil?
     end
     return peeps
@@ -27,7 +30,7 @@ class PeepRepository
   end
 
   def find_by_id(id)
-    sql = 'SELECT peeps.id, message, timestamp, users.id as user_id, users.name, users.username
+    sql = 'SELECT peeps.id, message, timestamp, user_id, name, username, email
     FROM peeps
     JOIN users ON users.id = peeps.user_id
     WHERE peep_id IS NULL and peeps.id = $1;'
@@ -42,7 +45,7 @@ class PeepRepository
   def get_replies(id)
     replies = []
 
-    sql = 'SELECT peeps.id, message, timestamp, users.id as user_id, name, username 
+    sql = 'SELECT peeps.id, message, timestamp, user_id, name, username 
     FROM peeps JOIN users ON users.id = peeps.user_id 
     WHERE peep_id = $1;'
 
@@ -59,22 +62,41 @@ class PeepRepository
   private
 
   def create_peep(record)
-    user = create_user(record['name'], record['username'])
+    user = create_user(record)
     peep = Peep.new
     peep.id = record['id'].to_i
     peep.message = record['message']
     peep.timestamp = format_timestamp(record['timestamp'])
     peep.reply_count = record['reply_count']
     peep.user = user
+    peep = get_tags(peep)
 
     return peep
   end
 
-  def create_user(name, username)
+  def create_user(record)
     user = User.new
-    user.name = name
-    user.username = username
+    user.id = record['user_id']
+    user.name = record['name']
+    user.username = record['username']
+    user.email = record['email']
+
     return user
+  end
+
+  def get_tags(peep)
+    sql = 'SELECT users.id, username, email FROM users
+    JOIN peeps_users ON peeps_users.user_id = users.id
+    JOIN peeps ON peeps_users.peep_id = peeps.id WHERE peeps.id = $1;'
+
+    params = [peep.id]
+
+    result_set = DatabaseConnection.exec_params(sql, params)
+    
+    result_set.each do |record|
+      peep.tags << create_user(record)
+    end
+    return peep
   end
 
   def format_timestamp(timestamp)

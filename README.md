@@ -1,9 +1,21 @@
 # Chitter Challenge
 
+The solo challenge for Week 4 was to write a small Twitter clone that will allow the users to post messages to a public stream.
+
+The diagrams below are from my initial plan. Whilst I was working through the challenge the final implementation is changed slightly from this.
+
+My #all_with_user method is doing a lot of work - because I want my list of peeps to display the peep, the user, the number of replies and the tags. This involves getting all of the peeps from the database - and doing some manipulation to create a reply_count attribute and returning only peeps that are not a reply.
+
+In creating a Peep object, I am also making another call to the database to get the list of tags. I chose to add the tags to a separate table because there is a many-to-many relationship - one peep can have multiple tags and one user can be tagged multiple times. I'm not sure if this is the most effective way of implementing this?
+
+I was also a little unsure on where the error handling should go - in the model or the controller? It seemed easier to return an alternative status direct from the model.
+
+Going forward, I would like to try using an Object Relational Mapper as the database interface instead of Repository classes.
+
 ## Instructions
 
 ```bash
-# ADD INSTRUCTIONS HERE
+# To use my program locally - go to http://localhost:9292/
 
 $ git clone https://github.com/sarahc-dev/chitter-challenge.git
 $ cd chitter_challenge
@@ -11,6 +23,7 @@ $ bundle install
 $ createdb chitter_test
 $ psql -h 127.0.0.1 chitter_test < chitter_tables.sql
 $ psql -h 127.0.0.1 chitter_test < spec/seeds_chitter_test.sql
+$ rspec
 $ rackup
 ```
 
@@ -23,6 +36,7 @@ $ rackup
 - BCrypt
 - PostgreSQL
 - HTML & CSS
+- Render (cloud hosting)
 
 ## User Stories
 
@@ -195,12 +209,6 @@ I have created RESTful routes for the peeps but was unsure regarding the login a
 ```ruby
 class Peep
   attr_accessor :id, :message, :timestamp, :parent_id, :user
-
-  # attr_accessor :id, :message, :timestamp, :parent_id, :user, :tags
-
-  # def initialize
-  #   @tags = []
-  # end
 end
 
 class PeepRepository
@@ -215,14 +223,6 @@ class PeepRepository
     FROM peeps
     JOIN users ON users.id = peeps.user_id
     WHERE peep_id IS NULL;'
-
-    # tags? Count replies? Not sure how to implement this yet
-    # Get tags - Retrieve all users associated with a peep
-    # SELECT users.id as user_id, peeps.id as peep_id
-    # FROM users
-    # JOIN peeps_users ON peeps_users.user_id = users.id
-    # JOIN peeps ON peeps_users.peep_id = peeps.id
-    # WHERE peeps.id = 4;
   end
 
   def create(peep)
@@ -245,8 +245,27 @@ class PeepRepository
     FROM peeps
     JOIN users ON users.id = peeps.user_id
     WHERE peep_id IS NULL and peeps.id = $1;'
+  end
 
-    #### Need to get the replies
+  def get_replies(id)
+    # gets a list of replies to a single peep
+    # takes the peep id as an argument
+    # returns a list of peep objects
+
+    sql = 'SELECT peeps.id, message, timestamp, users.id as user_id, name, username
+    FROM peeps JOIN users ON users.id = peeps.user_id
+    WHERE peep_id = $1;'
+  end
+
+  def get_tags(id)
+    # finds the tags associated with a single peep
+    # takes the peep id as an argument
+    # returns a list of usernames tagged
+    SQL = 'SELECT users.id, users.username
+    FROM users
+    JOIN peeps_users ON peeps_users.user_id = users.id
+    JOIN peeps ON peeps_users.peep_id = peeps.id
+    WHERE peeps.id = 4;'
   end
 end
 

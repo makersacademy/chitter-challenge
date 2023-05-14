@@ -24,6 +24,23 @@ describe PeepRepository do
       expect(peeps.first.user.username).to eq 'freddo'
     end
 
+    it 'returns the correct reply count for each peep' do
+      repo = PeepRepository.new
+
+      peeps = repo.all_with_user
+      expect(peeps.first.reply_count).to eq 1
+      expect(peeps.last.reply_count).to eq 0
+    end
+
+    it 'returns a list of tags for each peep' do
+      repo = PeepRepository.new
+
+      peeps = repo.all_with_user
+      expect(peeps.first.tags).to eq []
+      expect(peeps[1].tags.length).to eq 1
+      expect(peeps[1].tags.first.username).to eq 'bob678'
+    end
+
     it 'orders the result set in reverse chronological order' do
       repo = PeepRepository.new
 
@@ -68,6 +85,8 @@ describe PeepRepository do
       expect(peep.timestamp).to eq '01 May 2023 16:23:35'
       expect(peep.user.name).to eq 'Fred'
       expect(peep.user.username).to eq 'freddo'
+      expect(peep.tags.length).to eq 1
+      expect(peep.tags.first.username).to eq 'bob678'
     end
   end
 
