@@ -1,4 +1,9 @@
 Chitter Challenge
+
+Gems added:
+time
+sinatra sinatra-contrib webrick rack-test
+
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own
