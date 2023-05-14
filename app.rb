@@ -44,7 +44,12 @@ class Application < Sinatra::Base
     peep.message = clean_param
     peep.user_id = session[:user_id]
     peep.peep_id = params[:peep_id]
-    repo.create(peep)
+    id = repo.create(peep)
+    # p id[0]['id']
+
+    UserRepository.new.tag_users(id[0]['id'], 
+params[:tags]) unless params[:tags].nil? || params[:tags].empty?
+
     return params[:peep_id] ? redirect("/peeps/#{params[:peep_id]}") : redirect('/peeps')
   end
 

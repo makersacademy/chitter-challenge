@@ -22,7 +22,7 @@ class PeepRepository
 
   def create(peep)
     sql = 'INSERT INTO peeps (message, timestamp, user_id, peep_id)
-    VALUES($1, CURRENT_TIMESTAMP, $2, $3);'
+    VALUES($1, CURRENT_TIMESTAMP, $2, $3) RETURNING id;'
     
     params = [peep.message, peep.user_id, peep.peep_id]
 

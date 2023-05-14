@@ -80,9 +80,13 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+.peeps,
+.peep {
+  max-width: 650px;
+}
+
 .peeps {
   margin: 0 2rem;
-  max-width: 750px;
   text-align: center;
 }
 
@@ -132,6 +136,20 @@ h2 {
   margin: 1rem 0;
 }
 
+.create-new .note {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.peep-container {
+  margin-top: 1rem;
+}
+
+.peep-container input {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
 .peep h3,
 .back {
   margin-left: 1rem;
@@ -146,6 +164,7 @@ h2 {
   margin-left: 4.5rem;
 }
 
+.create-new form,
 .reply-form {
   text-align: left;
 }

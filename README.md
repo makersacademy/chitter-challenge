@@ -10,6 +10,8 @@ In creating a Peep object, I am also making another call to the database to get 
 
 I was also a little unsure on where the error handling should go - in the model or the controller? It seemed easier to return an alternative status direct from the model.
 
+The focus of this challenge was not CSS, I have added some CSS to make it look nice, but it is not fully responsive.
+
 Going forward, I would like to try using an Object Relational Mapper as the database interface instead of Repository classes.
 
 ## Instructions

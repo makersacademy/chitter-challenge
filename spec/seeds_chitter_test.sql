@@ -1,7 +1,7 @@
-TRUNCATE TABLE users, peeps, peeps_users RESTART IDENTITY;
+TRUNCATE TABLE peeps_users, users, peeps RESTART IDENTITY;
 
-INSERT INTO users (email, password, name, username) VALUES ('hello@gmail.com', 'password', 'Bob', 'bob678'), 
-('fred@gmail.com', '$2a$12$7NbikxOM4OU25bN0CT/lxevYcjDFnJzzReisBY6PUObEvmYEpy3hG', 'Fred', 'freddo');
+INSERT INTO users (email, password, name, username) VALUES ('hello@example.com', 'password', 'Bob', 'bob678'), 
+('fred@example.com', '$2a$12$7NbikxOM4OU25bN0CT/lxevYcjDFnJzzReisBY6PUObEvmYEpy3hG', 'Fred', 'freddo');
 
 INSERT INTO peeps (message, timestamp, user_id, peep_id) VALUES
 ('Hello world', '2023-04-28 12:45:05', 1, null),

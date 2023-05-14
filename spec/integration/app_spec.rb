@@ -52,7 +52,7 @@ describe Application do
     it 'returns 200 OK with a form to create new peep if logged in' do
       post(
         '/login',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
       )
       response = get('/peeps/new')
@@ -68,13 +68,13 @@ describe Application do
     it 'returns status 302 and redirects to /peeps showing new peep' do
       post(
         '/login',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
       )
 
       response = post(
         '/peeps',
-        message: 'Testing 123'
+        message: 'Testing 123',
         )
 
       expect(response.status).to eq 302
@@ -86,7 +86,7 @@ describe Application do
     it 'returns an error if peep is empty' do
       post(
         '/login',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
       )
 
@@ -102,7 +102,7 @@ describe Application do
     it 'escapes potentially dangerous html in peep' do
       post(
         '/login',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
       )
 
@@ -118,7 +118,7 @@ describe Application do
     it 'replies to a peep' do
       post(
         '/login',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
       )
 
@@ -132,6 +132,23 @@ describe Application do
       replies = get('/peeps/1')
       expect(replies.body).to include('This is a reply')
     end
+
+    it 'adds a tag to a peep' do
+      post(
+        '/login',
+        email: 'fred@example.com',
+        password: '123'
+      )
+
+      response = post(
+        '/peeps',
+        tags: 'freddo',
+        message: 'Testing tags'
+        )
+
+      peeps = get('/peeps')
+      expect(peeps.body).to include('@freddo')
+    end
   end
 
   context 'GET to /peeps/:id' do
@@ -144,7 +161,7 @@ describe Application do
     it 'returns 200 OK and an individual peep' do
       post(
         '/login',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
       )
 
@@ -160,7 +177,7 @@ describe Application do
         '/signup',
         username: 'jimmy',
         name: 'Jim',
-        email: 'jim@gmail.com',
+        email: 'jim@example.com',
         password: '123'
         )
       
@@ -173,7 +190,7 @@ describe Application do
         '/signup',
         username: '',
         name: 'Jim',
-        email: 'jim@gmail.com',
+        email: 'jim@example.com',
         password: '123'
         )
       expect(response.status).to eq 400
@@ -185,7 +202,7 @@ describe Application do
         '/signup',
         username: '<script>Bad</script>',
         name: 'Jimy',
-        email: 'jimy@gmail.com',
+        email: 'jimy@example.com',
         password: '123'
         )
 
@@ -194,7 +211,7 @@ describe Application do
 
       post(
       '/login',
-      email: 'jimy@gmail.com',
+      email: 'jimy@example.com',
       password: '123'
       )
 
@@ -212,7 +229,7 @@ describe Application do
         '/signup',
         username: 'freddo',
         name: 'Jimy',
-        email: 'jimy@gmail.com',
+        email: 'jimy@example.com',
         password: '123'
         )
       
@@ -225,7 +242,7 @@ describe Application do
         '/signup',
         username: 'fred',
         name: 'Jimy',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
         )
       
@@ -249,7 +266,7 @@ describe Application do
     it 'returns 200 OK and logs the user in' do
       response = post(
         '/login',
-        email: 'fred@gmail.com',
+        email: 'fred@example.com',
         password: '123'
       )
 
@@ -259,7 +276,7 @@ describe Application do
     it 'returns 403 Unauthorized if email and password do not match' do
       response = post(
         '/login',
-        email: "fred@gmail.com",
+        email: "fred@example.com",
         password: '1234'
       )
 
@@ -270,7 +287,7 @@ describe Application do
     it 'does not allow dangerous inputs and returns status 400 Bad Request' do
       response = post(
         '/login',
-        email: "fred@gmail.com'--",
+        email: "fred@example.com'--",
         password: '123'
       )
 
