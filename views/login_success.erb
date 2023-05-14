@@ -1,0 +1,18 @@
+<html>
+    <head> </head>
+    <body>
+        <% if session[:user_id] == nil %>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a><br>
+    <% else %>
+        <h1>Welcome back</h1>
+        <a href="/shoutybox">Shouty Box - see what people are peeping</a><br>
+        <a href="/peep/new">new peep</a>
+        <a href="/">back to homepage</a>
+        <a href="/account_page">my account</a><br>
+        <a href="/logout">logout</a><br>
+    <%end%>
+
+
+    </body>
+</html>

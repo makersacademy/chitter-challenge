@@ -1,0 +1,25 @@
+<html>
+    <head> </head>
+    <body>
+
+    <h1>SHOUTYBOX</h1>
+      
+      <% @peeps.each do |peep| %>
+        <%=@users.find(peep.user_id).name%> - <%=@users.find(peep.user_id).username%> -
+        <%=peep.time%>
+        <h2><%=peep.peep%></h2><br>
+      <% end %>
+        
+      <a href="/">back to homepage</a>
+          <% if session[:user_id] == nil %>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a><br>
+          
+          <% else %>
+            <a href="/peep/new">new peep</a>
+            <a href="/logout">Logout</a><br>
+
+          <%end%>
+    </body>
+
+</html>
