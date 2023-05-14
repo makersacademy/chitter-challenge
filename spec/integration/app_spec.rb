@@ -16,17 +16,17 @@ describe Application do
 
     it 'Should include a photograph/graphic' do
       response = get('/')
-      expect(response.body).to include ('<img src=></img>')
+      expect(response.body).to include ('<img src="/logo.jpg"></img>')
     end
 
     it 'Should include 5 different hyperlinks' do
       response = get('/')
       expect(response.status).to eq (200)
-      expect(response.body).to include ('<a href="/peeps">View all peeps</a>')
-      expect(response.body).to include ('<a href="/peep/new">Post a new peep</a>')
-      expect(response.body).to include ('<a href="/loginpage">Log in</a>')
-      expect(response.body).to include ('<a href="/signup">Sign up</a>')
-      expect(response.body).to include('<a href="/userpage">My account</a>')
+      expect(response.body).to include ('<a href="/peeps"><button>View all peeps</button></a>')
+      expect(response.body).to include ('<a href="/peep/new"><button>Post a new peep</button></a>')
+      expect(response.body).to include ('<a href="/loginpage"><button>Log in</button></a>')
+      expect(response.body).to include ('<a href="/signup"><button>Sign up</button></a>')
+      expect(response.body).to include('<a href="/userpage"><button>My account</button></a>')
     end
   end
 
