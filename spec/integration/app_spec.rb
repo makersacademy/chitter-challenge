@@ -45,8 +45,8 @@ describe Application do
       response = get('/loginpage')
       expect(response.status).to eq (200)
       expect(response.body).to include ('<form method="POST" action="/loginpage">')
-      expect(response.body).to include ('<input type="text" name="username"/>')
-      expect(response.body).to include ('<input type="text" name="password"/>')
+      expect(response.body).to include ('<input type="text" name="username" autocomplete="off"/>')
+      expect(response.body).to include ('<input type="password" name="password"/>')
       expect(response.body).to include ('<input type="submit"/>')
     end
 
@@ -95,9 +95,10 @@ describe Application do
       expect(response.status).to eq (200)
       expect(response.body).to include ('<form method="POST" action="/signup">')
       expect(response.body).to include ('<h1>Create an account</h1>')
-      expect(response.body).to include ('<input type="text" name="name"/>')
+      expect(response.body).to include ('<input type="text" name="name" autocomplete="off"/>')
       expect(response.body).to include ('<label>Username:</label>')
-      expect(response.body).to include ('<input type="text" name="username"/>')
+      expect(response.body).to include ('<input type="text" name="username" autocomplete="off"/>')
+      expect(response.body).to include  ('<input type="password" name="password"/>')
     end
   
     it 'Should add a new maker to the database/create a maker account and then redirect to user page' do
@@ -142,7 +143,7 @@ describe Application do
       expect(response.status).to eq (200)
       expect(response.body).to include ('<h1>Post a new peep to Chitter</h1>')
       expect(response.body).to include ('<form method="POST" action="/peep/new">')
-      expect(response.body).to include ('<input type="text" name="content"/>')
+      expect(response.body).to include ('<input type="text" name="content" autocomplete="off"/>')
       expect(response.body).to include ('<input type="submit"/>')
     end
 
@@ -164,7 +165,6 @@ describe Application do
   end
   
     # Check these tests:
-
   context '/peeps/:id' do
     it 'Should return all peeps by passed maker in a formatted HTML list only if user is logged in' do
       response = post('/signup', name: 'Severus Snape', username: 'SnapeSnape', email_address: 'halfblood@mail.com', password: 'halfit')
@@ -233,7 +233,7 @@ describe Application do
       expect(response.body).to include ('<p>Please input the title of the peep you would like to delete</p>')
       expect(response.body).to include ('<form method="POST" action="/delete_peep">')
       expect(response.body).to include ('<label>Title of peep:</label>')
-      expect(response.body).to include ('<input type="text" name="title"/>')
+      expect(response.body).to include ('<input type="text" name="title" autocomplete="off"/>')
       expect(response.body).to include ('<input type="submit"/>')
     end
 
@@ -282,7 +282,7 @@ describe Application do
       expect(response.body).to include ('<h1>Update your account details</h1>')
       expect(response.body).to include ('<form method="POST" action="/update_details">')
       expect(response.body).to include ('<label>New Name:</label>')
-      expect(response.body).to include ('<input type="text" name="name"/>')
+      expect(response.body).to include ('<input type="text" name="name" autocomplete="off"/>')
     end
 
     it 'Should redirect the user to a login style page if user is not logged in' do
