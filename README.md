@@ -18,7 +18,12 @@ The most difficult part was implementing a login feature which I first did manua
 
 So I researched the sessions functionality in Sinatra which allows us to create a session associated with the user's ID number after they login. Then, in the homepage route, we simplt have to check the session[:user_id] value and return a different HTML page if that value is not nil (ie, a user is logged in).
 
-Goin further, I will look into the Bcrypt password encryption
+Going further, I will look into the Bcrypt password encryption
+
+## Process
+I first designed the table schema for users and peeps.
+Then created and test drove the model and repository classes for both Users and Peeps. These repository classes allow our application to interact with the database through the PG gem and PostgreSQL.
+Then I began designing the routes for our sinatra application and test drove those one by one.
 
 ## How to use
 

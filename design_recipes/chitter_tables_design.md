@@ -105,8 +105,7 @@ CREATE TABLE users (
   email text,
   password text,
   name text,
-  username text,
-  logged_in boolean
+  username text
 );
 
 -- Then the table with the foreign key first.

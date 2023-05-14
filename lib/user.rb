@@ -1,7 +1,6 @@
 class User
-  attr_accessor :id, :email, :password, :name, :username, :peeps, :logged_in
+  attr_accessor :id, :email, :password, :name, :username, :peeps
   def initialize
-    @logged_in = 'f'
     @peeps = []
   end
 end
