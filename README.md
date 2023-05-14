@@ -2,6 +2,16 @@
 
 The solo challenge for Week 4 was to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+You can visit my site here: [https://chitter-app-4z4y.onrender.com/](https://chitter-app-4z4y.onrender.com/)
+
+I have not yet added the functionality to email a user when they are tagged. But here are some screenshots of the working app. You can sign up, log in, logout, post peeps, tag users in peeps and reply to peeps.
+
+![chitter feed page](designs/chitter-feed.png)
+![chitter sign up](designs/chitter-signup.png)
+![chitter log in](designs/chitter-login.png)
+![chitter replies](designs/chitter-reply.png)
+![test coverage](designs/test_result.png)
+
 The diagrams below are from my initial plan. Whilst I was working through the challenge the final implementation is changed slightly from this.
 
 My #all_with_user method is doing a lot of work - because I want my list of peeps to display the peep, the user, the number of replies and the tags. This involves getting all of the peeps from the database - and doing some manipulation to create a reply_count attribute and returning only peeps that are not a reply.
