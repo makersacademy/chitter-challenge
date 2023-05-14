@@ -3,6 +3,8 @@ Chitter Challenge
 Gems added:
 time
 sinatra sinatra-contrib webrick rack-test
+pg
+bcrypt
 
 =================
 
