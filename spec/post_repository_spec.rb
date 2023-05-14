@@ -24,11 +24,8 @@ RSpec.describe PostRepository do
 
       it 'creates a new post' do
         repo = PostRepository.new
-    
-        new_post = Post.new
-        new_post.peep = 'Hello World'
-        new_post.time = '2023-01-10 10:00'
-        new_post.user_id = '3'
+
+        new_post = double :post, peep: 'Hello World', time: '2023-01-10 10:00', user_id: '3'
         repo.create(new_post)
         
         posts = repo.all

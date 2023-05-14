@@ -110,7 +110,7 @@ class Application < Sinatra::Base
       status 400
       return erb(:peep_new)
     else
-      return erb(:peep_confirmation)
+      return erb(:index)
     end
   end
 

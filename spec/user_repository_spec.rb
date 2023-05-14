@@ -49,12 +49,8 @@ RSpec.describe UserRepository do
 
       it 'creates a new user' do
         repo = UserRepository.new
-    
-        new_user = User.new
-        new_user.name = 'Penny Lane'
-        new_user.username = 'PLane'
-        new_user.email = 'pl@gmail.com'
-        new_user.password = 'password4'
+
+        new_user = double :user, name: 'Penny Lane', username: 'PLane', email: 'pl@gmail.com', password: 'password4'
         repo.create(new_user)
         
         users = repo.all
@@ -65,11 +61,8 @@ RSpec.describe UserRepository do
 
       it 'signs in user' do
         repo = UserRepository.new
-        new_user = User.new
-        new_user.name = 'Penny Lane'
-        new_user.username = 'PLane'
-        new_user.email = 'pl@gmail.com'
-        new_user.password = 'password4'
+        new_user = double :user, name: 'Penny Lane', username: 'PLane', email: 'pl@gmail.com', password: 'password4'
+
         repo.create(new_user)
 
         expect(repo.sign_in('pl@gmail.com', 'password4')).to eq true

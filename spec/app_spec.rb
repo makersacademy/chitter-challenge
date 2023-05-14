@@ -48,14 +48,6 @@ RSpec.describe Application do
   end
 
   context 'POST /login' do
-    xit 'if login in details correct it returns confirmation of login' do
-      response = post('/login', email: 'js@gmail.com', password: 'passwordJS')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Welcome back</h1>')
-      expect(response.body).to include('<a href="/shoutybox">Shouty Box - see what people are peeping</a>')
-
-    end
 
     it 'if login details correct it returns confirmation of login' do
       response = post('/login', email: 'pl@gmail.com', password: 'password4')
@@ -77,14 +69,6 @@ RSpec.describe Application do
   end
 
   context 'GET /account_page' do
-    # test for non-encrypted password
-    xit 'lets user make a new peep if session in progress' do
-      response = post('/login', email: 'js@gmail.com', password: 'passwordJS')
-      response = get('/account_page')
-     
-      expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Your account</h1>')
-    end
 
     it 'lets user make a new peep if session in progress' do
       response = post('/login', email: 'pl@gmail.com', password: 'password4')
@@ -158,8 +142,6 @@ RSpec.describe Application do
         expect(response.body).to include('<h2>new peep</h2>')
         expect(response.body).to include('<label>peep</label>')
         expect(response.body).to include('<input type="text" name="peep">')
-        # expect(response.body).to include('<input type="timestamp" name="time">')
-        # expect(response.body).to include('<input type="int" name="user_id">')
     end
   end
 
