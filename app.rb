@@ -65,7 +65,6 @@ class Application < Sinatra::Base
   post '/signup' do
     users = UserRepository.new
     new_user = User.new
-
     new_user.name = params[:name]
     new_user.username = params[:username]
     new_user.email = params[:email]
@@ -98,8 +97,8 @@ class Application < Sinatra::Base
 
   post '/peep' do
     posts = PostRepository.new
-    new_post = Post.new
 
+    new_post = Post.new
     new_post.peep = params[:peep]
     new_post.time = Time.now
     new_post.user_id = session[:user_id]

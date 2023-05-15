@@ -28,10 +28,10 @@ RSpec.describe Application do
         response = get('/')
         
         expect(response.status).to eq(200)
-        expect(response.body).to include('<h1>Welcome to Chitter</h1>')
         expect(response.body).to include('<a href="/login">Login</a>')
         expect(response.body).to include('<a href="/signup">Signup</a><br>')
-        expect(response.body).to include('<a href="/shoutybox">Shouty Box - see what people are peeping </a>')
+        expect(response.body).to include('<h1>Welcome to Chitter</h1>')
+        expect(response.body).to include('<a href="/shoutybox">Shouty Box<br> see what people are peeping </a>')
     end
   end
 
