@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter - The ChitChat App</title>
+
+  <!-- Change these Google fonts with your own choice -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <!-- Banner section -->
+
+  <div class="banner">
+    <h1> Welcome to Chitter</h1>
+    <p>The ChitChat App</p>
+    <br> <br>
+    <h3> New to Chitter? Sign up <a href='/signup'>here</a>.</h3>
+  </div>
+</body>
+
+<!-- log in section -->
+
+  <div class="container">
+    <h2>Log in to Chitter</h2>
+    <div class="form">
+    <form action="/logged_in" method="POST">
+        <div>
+        <label>username:</label>
+        <input type="text" name="username">
+        </div>
+        <div>
+        <label>password:</label>
+        <input type="text" name="password">
+        </div>
+
+        <input type="submit" value="Login">
+    </form>
+    </div>
+
+  </div>
+
+<div class="container">
+    <h2>Latest Peeps</h2>
+    <div class="peep">
+      <% @peeps.each do |peep| %>
+        <div class="container">
+         <p> <%=@users.find_by_id(peep.user_id)%> </p>
+         <p> <%= peep.content%> </p>
+         <p> <%= peep.time%> </p>
+         <%end%>
+         </div>
+    </div>
+
+    <a href='/peeps'>View all peeps</a>
+
+  </div>
+
+  <!-- Footer section -->
+
+  <div class="footer">
+    <p>Website made by Jack Skates</p>
+  </div>
+
+</html>
