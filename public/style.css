@@ -1,0 +1,35 @@
+/* styles.css */
+
+header {
+    margin: 0.5;
+    text-align: left;
+
+}
+body {
+    background-color: rgba(60, 179, 113, 0.9);
+    font-family: Futura;
+    margin: 20;
+}
+
+h1,
+h2,
+h3 {
+    color: #404042;
+    font-family: Futura;
+}
+
+p {
+    color: #404042;
+    opacity: .7;
+    text-align: center;
+}
+
+.banner {
+    padding: 100px 0px 100px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font-size: 40;
+    border-style: solid;
+}
+
