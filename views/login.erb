@@ -1,14 +1,46 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Log in to Chitter</title>
     <style>
+      body {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      
       h1 {
         font-family: "Century Gothic", sans-serif;
         color: #1DA1F2;
       }
+      
       label {
         font-family: "Century Gothic", sans-serif;
         font-weight: bold;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      input[type="text"],
+      input[type="password"] {
+        padding: 8px;
+        margin-bottom: 12px;
+      }
+      
+      input[type="submit"] {
+        background-color: #1DA1F2;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -21,10 +53,9 @@
       </div>
       <div>
         <label>Password</label>
-        <input type="text" name="password_hash">
+        <input type="password" name="password_hash">
       </div>
       <input type="submit" value="Submit">
     </form>
   </body>
 </html>
-

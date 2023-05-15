@@ -1,17 +1,29 @@
-<h1>All Peeps</h1>
-<a href="/peep">Post new peep!</a>
+<%# <h1>All Peeps</h1>
+<a href="/peep">Post new peep!</a> %>
 
-<div>
-  <% if session[:user_id] %>
-    <h2>New Peep</h2>
-    <form action="/peeps" method="POST">
-      <textarea name="peep_content"></textarea>
+<% if session[:user_id].nil? %>
+  <!-- Login form -->
+  <form action="/login" method="GET">
+    <!-- Input fields for email and password -->
+    <!-- ... -->
+    <input type="submit" value="Log in">
+  </form>
+<% else %>
+  <!-- New Peep form -->
+  <div>
+    <h2>Peeps</h2>
+    <form action="/peep" method="POST">
+      <!-- Textarea and input fields for peep content -->
+      <!-- ... -->
       <input type="submit" value="Post">
+    </form>
     <form action="/logout" method="POST">
       <input type="submit" value="Logout">
     </form>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
+
 
 <ul>
   <% @peeps_repo.all_with_users.each do |peep| %>

@@ -21,6 +21,12 @@ class SignupController < Sinatra::Base
       @current_user ||= @user_repo.find_by_id(session[:user_id]) if session[:user_id]
     end
   end
+  
+
+  get '/' do
+   erb :index
+  end
+
 
   get '/login' do
     email_address = params[:email_address]
@@ -52,8 +58,10 @@ class SignupController < Sinatra::Base
     erb :signup
   end
 
-  get '/logout' do
-    erb :logout
+  post '/logout' do
+    session.clear # Clear all session data
+    erb :login # Render the login page
   end
+  
 
 end
