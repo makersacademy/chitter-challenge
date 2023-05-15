@@ -17,7 +17,7 @@
   <% @peeps_repo.all_with_users.each do |peep| %>
     <li>
       <p><%= peep.peep_content %></p>
-      <% user = user_repo.find(peep.user_id) %>
+      <% user = @user_repo.find(peep.user_id) %>
       <small>Posted by <%= user.username %> at <%= Time.parse(peep.time_of_peep).strftime('%H:%M %d/%m/%Y') %></small>
     </li>
   <% end %>

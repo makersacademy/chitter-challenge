@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/database_connection'
@@ -6,28 +7,36 @@ require './lib/user_repository'
 class SignupController < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
+    enable :sessions
     set :public_folder, 'public'
     set :views, 'views'
-    also_reload 'lib/user_repository.rb'
   end
 
   before do
-    @user_repo = UserRepository.new
+  @user_repo = UserRepository.new
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= @user_repo.find_by_id(session[:user_id]) if session[:user_id]
+    end
   end
 
   get '/login' do
     email_address = params[:email_address]
     password_hash = params[:password_hash]
     user = @user_repo.find_by_email(email_address)
-
+  
     if user && user.password_hash == password_hash
-      # Redirect to peeps.erb if the login is correct
+      # Store user ID in the session
+      session[:user_id] = user.id
+      
       redirect '/peeps'
     else
       erb :login
     end
   end
-
+  
   get '/signup' do
     erb :signup
   end
