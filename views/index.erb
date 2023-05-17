@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <form action ="/signup" method="get">
+          <input type="submit" value="Sign up">
+    </form>
+    <h2>Post</h2>
+    <form method="POST" action="/">
+    <div>
+      <label>Title:</label>
+      <input type="text" name="title"/>
+    </div>
+    <div>
+      <label>Content:</label>
+      <input type="text" name="content"/>
+    </div>
+      <input type="submit"/>
+    </form>
+    <% @peep_list.each do |peep| %>
+      <div>
+        <h4>
+        <strong><%= peep.title %></strong><br>
+        </h4>
+        <%= peep.content %><br>
+        <%= peep.time_stamp %>
+        <div>
+        <%= @user_repo.find(peep.user_id).username %><br>
+        </div>
+      </div>
+    <% end %>
+  </body>
+</html>
