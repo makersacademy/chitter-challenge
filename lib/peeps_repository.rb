@@ -58,6 +58,55 @@ class PeepsRepository
       )
     end
   end
+
+  # peeps_repository.rb
+class PeepsRepository
+  # ...
+
+  def all_with_users_and_comments
+    query = "SELECT p.*, u.username, c.id AS comment_id, c.comment_content, c.user_id AS comment_user_id, c.peep_id, c.time_of_comment
+             FROM peeps p
+             INNER JOIN users u ON p.user_id = u.id
+             LEFT JOIN comments c ON p.id = c.peep_id
+             ORDER BY p.time_of_peep DESC"
+
+    result = DatabaseConnection.query(query)
+
+    peeps = []
+    current_peep = nil
+
+    result.each do |row|
+      if current_peep.nil? || current_peep.id != row['id']
+        user = @user_repo.find(row['user_id'].to_i)
+        current_peep = Peep.new(
+          id: row['id'],
+          peep_content: row['peep_content'],
+          user_id: row['user_id'],
+          time_of_peep: row['time_of_peep'],
+          username: user.username,
+          comments: []
+        )
+        peeps << current_peep
+      end
+
+      if row['comment_id']
+        comment = Comment.new(
+          id: row['comment_id'],
+          comment_content: row['comment_content'],
+          user_id: row['comment_user_id'],
+          peep_id: row['peep_id'],
+          time_of_comment: row['time_of_comment']
+        )
+        current_peep.comments << comment
+      end
+    end
+
+    peeps
+  end
+
+  # ...
+end
+
   
   
   def find(id)
@@ -71,9 +120,19 @@ class PeepsRepository
     end
   end
   
-  # def delete(id)
-  #   sql = 'DELETE from peeps WHERE id = $1;'
-  #   sql_params = [id]
-  #   DatabaseConnection.exec_params(sql, sql_params)
-  # end
+  def delete(id)
+    sql = 'DELETE from peeps WHERE id = $1;'
+    sql_params = [id]
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
+
+  def update(peep)
+    sql = 'UPDATE peeps SET peep_content = $1 WHERE id = $2;'
+    sql_params = [peep.peep_content, peep.id]
+    result = DatabaseConnection.exec_params(sql, sql_params)
+    result.to_a.empty? ? nil : peep
+  end
+  
+  
+
 end

@@ -23,18 +23,21 @@
   </div>
 <% end %>
 
-
-
 <ul>
   <% @peeps_repo.all_with_users.each do |peep| %>
     <li>
       <p><%= peep.peep_content %></p>
       <% user = @user_repo.find(peep.user_id) %>
       <small>Posted by <%= user.username %> at <%= Time.parse(peep.time_of_peep).strftime('%H:%M %d/%m/%Y') %></small>
+      <% if session[:user_id] == user.id %>
+        <form action="/peeps/<%= peep.id %>/delete" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+        <form action="/peeps/<%= peep.id %>/edit" method="GET">
+          <button type="submit">Edit</button>
+        </form>
+        <!-- Add code for update form/button if desired -->
+      <% end %>
     </li>
   <% end %>
 </ul>
-
-
-
-

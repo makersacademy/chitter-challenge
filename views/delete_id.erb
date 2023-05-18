@@ -1,0 +1,10 @@
+<ul>
+  <% @peeps_repo.each do |peep| %>
+    <li>
+      <%= peep.peep_content %>
+      <form action="/peeps/<%= peep.id %>/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  <% end %>
+</ul>

@@ -60,7 +60,7 @@ class SignupController < Sinatra::Base
 
   post '/logout' do
     session.clear # Clear all session data
-    erb :login # Render the login page
+    erb :login 
   end
   
 

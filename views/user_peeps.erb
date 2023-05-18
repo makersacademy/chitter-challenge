@@ -1,0 +1,14 @@
+<!-- Assuming @peeps is a collection of peep objects -->
+
+<h1>Peeps for User ID: <%= params[:id] %></h1>
+
+<% @peeps_repo.all_with_users.each do |peep| %>
+  <% if peep.user_id == params[:id] %>
+    <div>
+      <h3>Peep ID: <%= peep.id %></h3>
+      <p>Peep Content: <%= peep.peep_content %></p>
+      <p>Time of Peep: <%= peep.time_of_peep %></p>
+      <p>Username: <%= peep.username %></p>
+    </div>
+  <% end %>
+<% end %>

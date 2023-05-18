@@ -1,0 +1,9 @@
+<h1>Edit Peep</h1>
+
+<form action="/peeps/<%= peep.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <label for="peep_content">Peep Content:</label>
+  <textarea name="peep_content" id="peep_content" rows="4" cols="50"><%= peep.peep_content %></textarea>
+  <br>
+  <input type="submit" value="Save">
+</form>
