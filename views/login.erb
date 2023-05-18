@@ -2,60 +2,74 @@
 <html>
   <head>
     <title>Log in to Chitter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
       body {
-        background-color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-      }
-      
-      h1 {
-        font-family: "Century Gothic", sans-serif;
-        color: #1DA1F2;
-      }
-      
-      label {
-        font-family: "Century Gothic", sans-serif;
-        font-weight: bold;
-      }
-      
-      form {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      input[type="text"],
-      input[type="password"] {
-        padding: 8px;
-        margin-bottom: 12px;
-      }
-      
-      input[type="submit"] {
-        background-color: #1DA1F2;
-        color: #ffffff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
+  background-color: #f5f8fa;
+}
+
+.container {
+  max-width: 400px;
+  margin-top: 100px;
+}
+
+h1 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #1DA1F2;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: bold;
+}
+
+form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #1DA1F2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+  background-color: #0c85d0;
+}
+
     </style>
   </head>
   <body>
     <h1>Log in to Chitter</h1>
     <form action="/login" method="GET">
-      <div>
-        <label>Email</label>
-        <input type="text" name="email_address">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" name="email_address">
       </div>
-      <div>
-        <label>Password</label>
-        <input type="password" name="password_hash">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password_hash">
       </div>
-      <input type="submit" value="Submit">
+      <input type="submit" class="btn btn-primary" value="Submit">
     </form>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>

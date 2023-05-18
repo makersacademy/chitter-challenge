@@ -1,31 +1,97 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="UTF-8">
-    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
-    <title>Chitter Signup</title>
+    <title>Create a Chitter account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #f5f8fa;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      
+      h1 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      
+      label {
+        font-family: "Century Gothic", sans-serif;
+        font-weight: bold;
+        color: #1DA1F2 !important;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      input[type="text"],
+      input[type="password"] {
+        padding: 8px;
+        margin-bottom: 12px;
+        color: #1DA1F2 !important;
+        border-color: #1DA1F2 !important;
+      }
+      
+      input[type="submit"] {
+        background-color: #1DA1F2;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      
+      .button-container a {
+        margin-right: 10px;
+        color: #1DA1F2 !important;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <h1><a href="/">Chitter</a></h1>
-      <nav class="login-signup-nav">
-      <a href="/">Home</a> | &nbsp
-      <a href="/login">Log in</a>
-    </nav>
-    </header>
-
-    <h4 class="login-signup-heading">Sign up to Chitter</h4>
-    <form action="/signup" method="POST" class="login-signup-form">
-      <label>Name: </label>
-      <input type="text" name="name" required>&nbsp
-      <label>Username: </label>
-      <input type="text" name="username" required>&nbsp
-      <label>Email address: </label>
-      <input type="text" name="email_address" required>&nbsp
-      <label>Password: </label>
-      <input type="text" name="password_hash" required>&nbsp
-      <input type="submit" value="Sign up">
-    </form>
-
-    <footer>Chitter © 2023</footer>
+    <div class="container">
+      <h1 style="color: #1DA1F2;">Create a Chitter Account</h1>
+      <form action="/signup" method="POST">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name">
+        </div>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username">
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="text" name="email_address" id="email">
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password_hash" id="password">
+        </div>
+        <input type="submit" value="Sign Up">
+      </form>
+      <div class="button-container">
+        <a href="/" style="color: #1DA1F2;">Return to Homepage</a>
+        <a href="/login" style="color: #1DA1F2;">Login</a>
+      </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>

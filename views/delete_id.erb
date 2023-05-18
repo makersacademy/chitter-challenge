@@ -1,9 +1,9 @@
-<ul>
+<ul class="list-group">
   <% @peeps_repo.each do |peep| %>
-    <li>
+    <li class="list-group-item">
       <%= peep.peep_content %>
-      <form action="/peeps/<%= peep.id %>/delete" method="POST">
-        <button type="submit">Delete</button>
+      <form action="/peeps/<%= peep.id %>/delete" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-danger">Delete</button>
       </form>
     </li>
   <% end %>

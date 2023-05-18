@@ -1,14 +1,53 @@
-<!-- Assuming @peeps is a collection of peep objects -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peeps for User ID: <%= params[:id] %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #f5f8fa;
+        padding: 20px;
+      }
+      
+      h1 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      h3 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+        margin-bottom: 10px;
+      }
+      
+      .peep-content {
+        margin-bottom: 5px;
+      }
+      
+      .user-info {
+        margin-bottom: 15px;
+        color: #777777;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Peeps for User ID: <%= params[:id] %></h1>
 
-<h1>Peeps for User ID: <%= params[:id] %></h1>
-
-<% @peeps_repo.all_with_users.each do |peep| %>
-  <% if peep.user_id == params[:id] %>
-    <div>
-      <h3>Peep ID: <%= peep.id %></h3>
-      <p>Peep Content: <%= peep.peep_content %></p>
-      <p>Time of Peep: <%= peep.time_of_peep %></p>
-      <p>Username: <%= peep.username %></p>
-    </div>
-  <% end %>
-<% end %>
+    <% @peeps_repo.all_with_users.each do |peep| %>
+      <% if peep.user_id == params[:id] %>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Peep ID: <%= peep.id %></h3>
+            <p class="peep-content">Peep Content: <%= peep.peep_content %></p>
+            <p class="user-info">Time of Peep: <%= peep.time_of_peep %></p>
+            <p class="user-info">Username: <%= peep.username %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
