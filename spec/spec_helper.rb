@@ -5,6 +5,8 @@ require 'database_connection'
 # Make sure this connects to your test database
 # (its name should end with '_test')
 
+ENV['ENV'] = 'test'
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -14,7 +16,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseConnection.connect('chitter_site_test')
+    DatabaseConnection.connect
   end
 
   config.after(:suite) do

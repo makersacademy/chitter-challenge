@@ -5,7 +5,7 @@ require_relative 'lib/user_repository'
 require_relative 'lib/peep_repository'
 require_relative 'lib/display'
 
-DatabaseConnection.connect('chitter_site')
+DatabaseConnection.connect
 
 class Application < Sinatra::Base
   enable :sessions
