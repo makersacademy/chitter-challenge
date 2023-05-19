@@ -37,15 +37,23 @@ describe PeepsRepository do
       user_id: 2,
       username: 'FitnessFanatic'
     )
+    
     repo.create(peep)
     all_peeps = repo.all
-    puts all_peeps.inspect # Add this line to see the value of all_peeps
-    expect(all_peeps).to satisfy do |peeps|
-      peeps.any? { |p| p.peep_content == "I am a new test peep" && p.time_of_peep == Time.parse('2023-04-04 18:00:00') && p.user_id == 2 }
-    end
+  
+    expect(repo.all[3]).to have_attributes(
+      id: "4",
+      peep_content: "I am a new test peep",
+      user_id: "2",
+      time_of_peep: "2023-04-04 18:00:00",
+      username: "FitnessFanatic"
+    )
+    
   end
   
   
+  
+
   
 
   it 'deletes a peep' do
@@ -55,6 +63,4 @@ describe PeepsRepository do
     expect(all_peeps.length).to eq 2
     expect(Time.parse(all_peeps[1].time_of_peep)).to eq Time.parse('2023-03-27 17:00:00')
   end
-  
-  
 end
