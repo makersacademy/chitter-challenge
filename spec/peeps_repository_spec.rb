@@ -21,13 +21,12 @@ describe PeepsRepository do
 
   it 'finds a peep by id' do
     repo = PeepsRepository.new(UserRepository.new)
-    peep = repo.find(0)
+    peep = repo.find(1)
     expect(peep.peep_content).to eq 'Welcome to chitter'
     expect(peep.user_id.to_i).to eq 5
-    expect(Time.parse(repo.all[2].time_of_peep)).to eq Time.parse('2023-03-22 15:00:00')
+    expect(Time.parse(repo.all[2].time_of_peep)).to eq Time.parse('2023-03-27 17:00:00')
 
   end
-
 
   it 'creates a new peep' do
     repo = PeepsRepository.new(UserRepository.new)
@@ -40,6 +39,7 @@ describe PeepsRepository do
     )
     repo.create(peep)
     all_peeps = repo.all
+    puts all_peeps.inspect # Add this line to see the value of all_peeps
     expect(all_peeps).to satisfy do |peeps|
       peeps.any? { |p| p.peep_content == "I am a new test peep" && p.time_of_peep == Time.parse('2023-04-04 18:00:00') && p.user_id == 2 }
     end

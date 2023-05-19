@@ -6,8 +6,12 @@ class PeepsRepository
 
   def initialize(repo)
     @user_repo = repo
+    @all_peeps = [] # Initialize an empty array to store all the peeps
   end
 
+  def all
+    @all_peeps
+  end
 
   def all
     query = "SELECT * FROM peeps ORDER BY time_of_peep ASC"    
@@ -20,20 +24,21 @@ class PeepsRepository
     end.compact
   end
 
-  
   def create(peep)
-    sql = 'INSERT INTO peeps (peep_content, user_id, time_of_peep) VALUES ($1, $2, $3) RETURNING *;'
-    sql_params = [peep.peep_content, peep.user_id, peep.time_of_peep]
-    result = DatabaseConnection.exec_params(sql, sql_params)
-  
-    if result.any?
-      peep_data = result[0]
-      peep.id = peep_data['id'] # Assign the id from the database to the peep object
-      peep
-    else
-      nil
-    end
+  sql = 'INSERT INTO peeps (peep_content, user_id, time_of_peep) VALUES ($1, $2, $3) RETURNING *;'
+  sql_params = [peep.peep_content, peep.user_id, peep.time_of_peep]
+  result = DatabaseConnection.exec_params(sql, sql_params)
+
+  if result.any?
+    peep.id = result[0]['id'].to_i
+    all << peep
+    peep
+  else
+    nil
   end
+end
+
+  
   
   
   
@@ -96,9 +101,9 @@ class PeepsRepository
   end
 
   def find(id)
+    puts id.inspect # Add this line to see the value of id
     query = "SELECT p.*, u.username FROM peeps p INNER JOIN users u ON p.user_id = u.id WHERE p.id = $1"
     result = DatabaseConnection.exec_params(query, [id])
-    puts result.inspect # Add this line to see the result value
     if result.any?
       peep = Peep.new(
         id: result[0]['id'],
@@ -115,10 +120,11 @@ class PeepsRepository
   
   
   
+  
   def delete(id)
-    sql = 'DELETE from peeps WHERE id = $1;'
+    sql = 'DELETE FROM peeps WHERE id = $1 RETURNING *;'
     sql_params = [id]
-    DatabaseConnection.exec_params(sql, sql_params)
+    result = DatabaseConnection.exec_params(sql, sql_params)
   end
   
 
