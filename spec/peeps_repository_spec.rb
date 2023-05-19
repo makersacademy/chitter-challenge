@@ -51,10 +51,6 @@ describe PeepsRepository do
     
   end
   
-  
-  
-
-  
 
   it 'deletes a peep' do
     repo = PeepsRepository.new(UserRepository.new)
@@ -63,4 +59,14 @@ describe PeepsRepository do
     expect(all_peeps.length).to eq 2
     expect(Time.parse(all_peeps[1].time_of_peep)).to eq Time.parse('2023-03-27 17:00:00')
   end
+
+  it 'updates a peep' do
+    repo = PeepsRepository.new(UserRepository.new)
+    peep = repo.find(1)
+    peep.peep_content = 'Updated peep content'
+    updated_peep = repo.update(peep)
+    updated_peep_from_repo = repo.find(1)
+    expect(updated_peep_from_repo.peep_content).to eq 'Updated peep content'
+  end
+
 end
