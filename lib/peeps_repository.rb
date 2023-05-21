@@ -3,7 +3,6 @@ require_relative 'user'
 require_relative 'user_repository'
 
 class PeepsRepository
-
   def initialize(repo)
     @user_repo = repo
     @all_peeps = [] # Initialize an empty array to store all the peeps
@@ -12,7 +11,7 @@ class PeepsRepository
   def all
     query = "SELECT p.*, u.username FROM peeps p INNER JOIN users u ON p.user_id = u.id ORDER BY p.time_of_peep ASC"
     result = DatabaseConnection.query(query)
-  
+
     result.map do |peep|
       Peep.new(
         id: peep['id'],
@@ -23,14 +22,14 @@ class PeepsRepository
       )
     end
   end
-  
+
   def create(peep)
     sql = 'INSERT INTO peeps (peep_content, user_id, time_of_peep) VALUES ($1, $2, $3) RETURNING *;'
     sql_params = [peep.peep_content, peep.user_id, peep.time_of_peep]
     result = DatabaseConnection.exec_params(sql, sql_params)
-  
+
     puts "Result: #{result}"
-    
+
     if result.any?
       peep_data = result[0]
       puts "Peep Data: #{peep_data}"
@@ -43,17 +42,13 @@ class PeepsRepository
       nil
     end
   end
-  
-  
-  
-  
-  
+
   public
 
   def all_with_users
     query = "SELECT p.*, u.username FROM peeps p INNER JOIN users u ON p.user_id = u.id ORDER BY p.time_of_peep DESC"
     result = DatabaseConnection.query(query)
-    
+
     result.map do |peep|
       Peep.new(
         id: peep['id'],
@@ -82,16 +77,12 @@ class PeepsRepository
       nil
     end
   end
-  
-  
-  
-  
+
   def delete(id)
     sql = 'DELETE FROM peeps WHERE id = $1 RETURNING *;'
     sql_params = [id]
     result = DatabaseConnection.exec_params(sql, sql_params)
   end
-  
 
   def update(peep)
     sql = 'UPDATE peeps SET peep_content = $1 WHERE id = $2;'
@@ -99,5 +90,4 @@ class PeepsRepository
     result = DatabaseConnection.exec_params(sql, sql_params)
     result.to_a.empty? ? nil : peep
   end
-
 end

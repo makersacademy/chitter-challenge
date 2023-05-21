@@ -1,120 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>All Peeps</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-      body {
-        background-color: #f5f8fa;
-        padding: 20px;
-      }
-      
-      h1 {
-        font-family: "Century Gothic", sans-serif;
-        color: #1DA1F2;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      a {
-        color: #1DA1F2;
-        text-decoration: none;
-      }
-      
-      form {
-        margin-bottom: 10px;
-      }
-      
-      .form-group {
-        margin-bottom: 15px;
-      }
-      
-      .btn {
-        background-color: #1DA1F2;
-        color: #ffffff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      
-      .btn-primary:hover {
-        background-color: #0c85d0;
-      }
-      
-      .peep-content {
-        margin-bottom: 5px;
-      }
-      
-      .posted-by {
-        font-size: 14px;
-        color: #777777;
-      }
-      
-      .delete-btn,
-      .edit-btn {
-        background-color: transparent;
-        border: none;
-        color: #1DA1F2;
-        padding: 0;
-        margin-right: 5px;
-        cursor: pointer;
-      }
-      
-      .delete-btn:hover,
-      .edit-btn:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>All Peeps</h1>
-    
-    <% if session[:user_id].nil? %>
-      <!-- Login form -->
-      <form action="/login" method="GET">
-        <div class="form-group">
-          <input type="email" name="email" class="form-control" placeholder="Email" required>
-        </div>
-        <div class="form-group">
-          <input type="password" name="password" class="form-control" placeholder="Password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Log in</button>
-      </form>
-    <% else %>
-      <!-- New Peep form -->
-      <div>
-        <h2>Welcome Back! Go ahead and post something!</h2>
-        <form action="/peep" method="POST">
-          <div class="form-group">
-            <textarea name="peep_content" class="form-control peep-content" placeholder="Write your peep..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Post</button>
-        </form>
-        <form action="/logout" method="POST">
-          <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
-      </div>
-    <% end %>
+<head>
+  <title>All Peeps</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f5f8fa;
+      padding: 20px;
+    }
 
-    <ul>
-      <% @peeps_repo.all_with_users.each do |peep| %>
-        <li>
-          <p class="peep-content"><%= peep.peep_content %></p>
-          <% user = @user_repo.find(peep.user_id) %>
-          <small class="posted-by">Posted by <%= user.username %> at <%= Time.parse(peep.time_of_peep).strftime('%H:%M %d/%m/%Y') %></small>
-          <% if session[:user_id] == user.id %>
-            <form action="/peeps/<%= peep.id %>/delete" method="POST" style="display: inline;">
-              <button type="submit" class="delete-btn">Delete</button>
-            </form>
-            <form action="/peeps/<%= peep.id %>/edit" method="GET" style="display: inline;">
-              <button type="submit" class="edit-btn">Edit</button>
-            </form>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  </body>
+    h1 {
+      font-family: "Century Gothic", sans-serif;
+      color: #1DA1F2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+    }
+
+    form {
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: #1DA1F2;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0c85d0;
+    }
+
+    .peep-content {
+      margin-bottom: 5px;
+    }
+
+    .posted-by {
+      font-size: 14px;
+      color: #777777;
+    }
+
+    .delete-btn,
+    .edit-btn {
+      background-color: transparent;
+      border: none;
+      color: #1DA1F2;
+      padding: 0;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover,
+    .edit-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Peeps</h1>
+
+  <% if session[:user_id].nil? %>
+    <!-- Login form -->
+    <form action="/login" method="GET">
+      <div class="form-group">
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Log in</button>
+    </form>
+  <% else %>
+    <!-- New Peep form -->
+    <div>
+      <h2>Welcome Back! Go ahead and post something!</h2>
+      <form action="/peep" method="POST">
+        <div class="form-group">
+          <textarea name="peep_content" class="form-control peep-content" placeholder="Write your peep..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </form>
+      <form action="/logout" method="POST">
+        <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+    </div>
+  <% end %>
+
+  <ul>
+    <% @peeps_repo.all_with_users.each do |peep| %>
+      <li>
+        <p class="peep-content"><%= peep.peep_content %></p>
+        <% user = @user_repo.find(peep.user_id) %>
+        <small class="posted-by">Posted by <%= user.username %> at <%= Time.parse(peep.time_of_peep).strftime('%H:%M %d/%m/%Y') %></small>
+        <% if session[:user_id] == user.id %>
+          <form action="/peeps/<%= peep.id %>/delete" method="POST" style="display: inline;">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+          <form action="/peeps/<%= peep.id %>/edit" method="GET" style="display: inline;">
+            <button type="submit" class="edit-btn">Edit</button>
+          </form>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
 </html>

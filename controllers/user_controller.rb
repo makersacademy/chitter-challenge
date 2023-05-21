@@ -13,7 +13,7 @@ class SignupController < Sinatra::Base
   end
 
   before do
-  @user_repo = UserRepository.new
+    @user_repo = UserRepository.new
   end
 
   helpers do
@@ -21,28 +21,24 @@ class SignupController < Sinatra::Base
       @current_user ||= @user_repo.find_by_id(session[:user_id]) if session[:user_id]
     end
   end
-  
 
   get '/' do
-   erb :index
+    erb :index
   end
-
 
   get '/login' do
     email_address = params[:email_address]
     password_hash = params[:password_hash]
     user = @user_repo.find_by_email(email_address)
-  
+
     if user && user.password_hash == password_hash
-      # Store user ID in the session
       session[:user_id] = user.id
-      
       redirect '/peeps'
     else
       erb :login
     end
   end
-  
+
   get '/signup' do
     erb :signup
   end
@@ -59,9 +55,7 @@ class SignupController < Sinatra::Base
   end
 
   post '/logout' do
-    session.clear # Clear all session data
-    erb :login 
+    session.clear
+    erb :login
   end
-  
-
 end

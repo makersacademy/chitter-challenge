@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Create a new peep!</title>
-    <style>
-      body {
-        font-family: 'Century Gothic', sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Create a new peep</h1>
-    <form action="/peep" method="post">
-      <label for="peep_content">Message:</label><br>
-      <textarea id="peep_content" rows="4" cols="50" name="peep_content" required></textarea><br>
-      <input type="submit" value="Post">
-    </form>
-    <button onclick="window.location.href='/peeps'">Go Back To Peeps!</button>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Create a new peep!</title>
+  <style>
+    body {
+      font-family: 'Century Gothic', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Create a new peep</h1>
+  <form action="/peep" method="post">
+    <label for="peep_content">Message:</label><br>
+    <textarea id="peep_content" rows="4" cols="50" name="peep_content" required></textarea><br>
+    <input type="submit" value="Post">
+  </form>
+  <button onclick="window.location.href='/peeps'">Go Back To Peeps!</button>
+</body>
 </html>
