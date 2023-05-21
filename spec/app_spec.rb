@@ -53,8 +53,8 @@ RSpec.describe Application do
       response = post('/login', email: 'pl@gmail.com', password: 'password4')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Welcome back</h1>')
-      expect(response.body).to include('<a href="/shoutybox">Shouty Box - see what people are peeping</a><br>')
+      expect(response.body).to include('<h1>Welcome back Penny Lane</h1>')
+      expect(response.body).to include('<a href="/">Homepage</a>')
 
     end
 

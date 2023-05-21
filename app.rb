@@ -30,31 +30,32 @@ class Application < Sinatra::Base
     email = params[:email]
     password = params[:password]
 
-    if email == '' || password == ''
-      status 400
-      return erb(:login_error)
-    end
-
     repo = UserRepository.new
-    user = repo.find_by_email(email)
+    @user = repo.find_by_email(email)
 
-    login_result = repo.sign_in(email, password)
+    # login_result = repo.sign_in(email, password)
    
-    if login_result == true
-      session[:user_id] = user.id
+    if repo.sign_in(email, password) == true
+      session[:user_id] = @user.id
+
       return erb(:login_success)
     else
+      status 400
       return erb(:login_error)
     end
   end
 
   get '/account_page' do
+    posts = PostRepository.new
+    @users = UserRepository.new
+    
+    @user = @users.find(session[:user_id])
+    @peeps = posts.all.reverse
     
     if session[:user_id] == nil
       return redirect('/login')
     else
-      @user = UserRepository.new.find(session[:user_id])
-      return erb(:account)
+      return erb(:account_page)
     end
   end
 

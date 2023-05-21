@@ -1,41 +1,14 @@
-<html>
-
 <head>
   <meta charset="UTF-8">
   <title>CHITTER</title>
-
-  <!-- Change these Google fonts with your own choice -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-  <div class="header">
-    <% if session[:user_id] == nil %>
-    <a href="/login">Login</a>
-    <a href="/signup">Signup</a><br>
-    <% else %>
-    <a href="/logout">Logout</a>
-    <a href="/account_page">My Account</a><br>
-
-    <a href="/peep/new">New Peep</a>
-    
-    
-    <%end%>
-  </div>
-
   <div class="banner">
 
     <h1>Welcome to Chitter</h1>
 
   </div>
 
-  
-    <p>
-    <a href="/shoutybox">Shouty Box<br> see what people are peeping </a>
-    </p>
-
 </body>
-   
 
-</html>

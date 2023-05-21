@@ -85,8 +85,16 @@ class UserRepository
 
       result = DatabaseConnection.exec_params(sql, sql_params)
 
-      record = result[0]
+      if !result.ntuples.zero?
+        record = result[0]
+        return create_user_object(record)
+      else
+          return nil
+      end
+     
+    end
 
+    def create_user_object(record)
       user = User.new
       user.id = record['id']
       user.name = record['name']
