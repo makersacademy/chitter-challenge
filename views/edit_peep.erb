@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Peep</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #f5f8fa;
+        padding: 20px;
+      }
+      
+      h1 {
+        font-family: "Century Gothic", sans-serif;
+        color: #1DA1F2;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      form {
+        margin-top: 20px;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      label {
+        font-weight: bold;
+      }
+      
+      textarea {
+        resize: none;
+      }
+      
+      .btn {
+        background-color: #1DA1F2;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      .btn-primary:hover {
+        background-color: #0c85d0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Edit Peep</h1>
+
+    <form action="/peeps/<%= peep.id %>" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <div class="form-group">
+        <label for="peep_content">Peep Content:</label>
+        <textarea name="peep_content" id="peep_content" rows="4" cols="50" class="form-control"><%= peep.peep_content %></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
