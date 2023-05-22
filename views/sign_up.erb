@@ -1,0 +1,51 @@
+<html>
+  <head>  
+    <style>
+      #roundedcorners {
+      border-radius: 25px;
+      border: 2px solid #1DA1F2;
+      padding: 20px;
+      width: 365px;
+      height: 45px;
+      }
+      body {
+      background-color: lightblue;
+      font-family: verdana;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="roundedcorners"> Welcome to Chitter!</h1>
+    <div>
+      <h2>Please enter your details below</h2>
+       <form method="POST" action="/sign_up">
+        <p>
+          <label>Name:</label>
+          <br>
+          <input type="text" name="name" placeholder="Joe Bloggs"/>
+          <br>
+          <label>Username:</label>
+          <br>
+          <input type="text" name="username" placeholder="JBloggs"/>
+          <br>
+          <label>Email address:</label>
+          <br>
+          <input type="text" name="email_address" placeholder="jbloggs@example.com"/>
+          <br>
+          <label>Password:</label>
+          <br>
+          <input type="password" name="password" placeholder="super secret password"/>
+          <br>
+          <br>
+          <input type="submit" value="Sign up"/>
+        </p>
+        <br>
+        <p>Already have an account?</p>
+        <button onclick="window.location.href='/login';">
+          Log in here!
+        </button>
+        <br>
+      </form>
+    </div>
+  </body>
+</html>

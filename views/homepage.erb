@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <style>
+      #roundedcorners {
+        border-radius: 25px;
+        border: 2px solid #1DA1F2;
+        padding: 20px;
+        width: 365px;
+        height: 45px;
+      }
+      body {
+        display: flex;
+        background-color: lightblue;
+        font-family: verdana;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <h1 id="roundedcorners"> Welcome to Chitter!</h1>
+  <body>
+    <% if session[:account_id] == nil %>
+      <h2>Please sign up here:</h2>
+      <button onclick="window.location.href='/sign_up';">
+        Sign up
+      </button>
+      <br>
+      <h2>Or please login here:</h2>
+      <button onclick="window.location.href='/login';">
+        Log in
+      </button>
+      <% else %>
+       <h2>What's on your mind?</h2>
+      <button onclick="window.location.href='/add_peep';">
+        Post a peep!
+      </button>
+      <br>
+    <%end%>
+
+    <div>
+      <h2> Latest peeps...</h2>
+      <% @peeps.each do |peep|%>
+      <p>
+        <b><%= peep.find_name%> </b> (<%= peep.find_username %>) says...<br>
+        <%= peep.contents %> <br>
+        <h7> <%= peep.time %> </h7>
+      </p>
+      <% end %>
+      <br>
+      <br>
+      <% if session[:account_id] != nil %>
+        <form method="POST" action="/log_out">
+          <input type="submit" value="Sign out"/>
+        </form>
+        <br>
+      <% end %>
+    </div>
+  </body>
+</html>

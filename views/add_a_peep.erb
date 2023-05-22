@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style>
+      #roundedcorners {
+        border-radius: 25px;
+        border: 2px solid #1DA1F2;
+        padding: 20px;
+        width: 260px;
+        height: 35px;
+      }
+      body {
+        background-color: lightblue;
+        font-family: verdana;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2 id="roundedcorners">What's your peep?</h2>
+      <form method="POST" action="/add_peep">
+        <p>
+          <input type="text" name="contents" placeholder="My interesting peep..." />
+          <br>
+          <br>
+          <input type="submit" value="Post my peep!"/>
+        </p>
+      </form>
+    </div>
+    <br>
+    <button onclick="window.location.href='/';">
+      Nothing to peep, return to homepage
+    </button>
+    <br>
+    <br>
+    <button onclick="window.location.href='/log_out';">
+      Sign out
+    </button>
+    <br>
+  </body>
+</html>
