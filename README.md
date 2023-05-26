@@ -22,6 +22,19 @@ Can sign up, log in and log out of Chitter
 
 ```
 
+How to use
+-------
+```
+$ git clone https://github.com/Raphael40/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle install
+$ createdb chitter_database_test
+$ psql -h 127.0.0.1 chitter_database_test < spec/chitters_table.sql
+$ rspec
+$ rackup
+$ http://localhost:('Port in use')/
+```
+
 Notes on functionality:
 ------
 
@@ -33,9 +46,8 @@ Notes on functionality:
 Technologies
 -----
 
-Ruby, sql, erb, sinatra, rackup
+Ruby, sql, sinatra, rackup, RSpec, HTML, BCrypt
 
-Installation
+Thoughts
 -----
-
-Have homebrew and bundle install rspec and gems in gemfile
+First fullstack solo-project, first three user stories fulfulled without too much difficulty but some help required for sign-up and log-in functions. 
