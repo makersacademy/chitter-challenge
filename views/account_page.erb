@@ -1,0 +1,18 @@
+<html>
+    <head> </head>
+    <body>
+
+    <h1>Hi <%=@user.name%></h1>
+
+    <h2>My Peeps:</h2>
+    <% @peeps.each do |peep| %>
+        <% if peep.user_id == session[:user_id] %>
+            <%=@users.find(peep.user_id).name%> - <%=@users.find(peep.user_id).username%> -
+            <%=peep.time%>
+            <h3><%=peep.peep%></h3><br>
+        <% end %>    
+    <% end %>
+
+    </body>
+
+</html>

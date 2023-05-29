@@ -1,0 +1,9 @@
+<h1>SHOUTYBOX</h1>
+  
+
+<% @peeps.each do |peep| %>
+  <%=@users.find(peep.user_id).name%> - <%=@users.find(peep.user_id).username%> -
+  <%=peep.time%>
+  <h3><%=peep.peep%></h3><br>
+<% end %>
+      
