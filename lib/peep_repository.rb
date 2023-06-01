@@ -33,8 +33,8 @@ class PeepRepository
     return peep
   end
   
-  def create(maker)
-    sql = 'INSERT INTO makers (name, email, password) VALUES($1, $2, $3);'
-    DatabaseConnection.exec_params(sql, [maker.name, maker.email, maker.password])
+  def create(peep)
+    sql = 'INSERT INTO peeps (content, time, maker_id) VALUES($1, $2, $3);'
+    DatabaseConnection.exec_params(sql, [peep.content, peep.time, peep.maker_id])
   end
 end

@@ -36,12 +36,12 @@ describe PeepRepository do
   end
 
   describe "#create" do
-    xit "creates a new Maker" do
-      maker = instance_double("Maker", name: "Pete", email: "pete@makers.tech", password: "1234")
-      repo = MakerRepository.new
-      repo.create(maker)
+    it "creates a new Peep" do
+      peep = instance_double("Peep", content: "Lorem ipsum.", time: "2023-05-20 13:14:15", maker_id: "1")
+      repo = PeepRepository.new
+      repo.create(peep)
       
-      expect(repo.all.last.email).to eq("pete@makers.tech")
+      expect(repo.all.last.content).to eq("Lorem ipsum.")
     end
   end
 end
