@@ -27,11 +27,19 @@ describe MakerRepository do
     it "returns a Maker by ID" do
       maker = MakerRepository.new.find(2)
       
-      expect(maker.id).to eq  2
+      expect(maker.id).to eq 2
       expect(maker.name).to eq 'Joe'
       expect(maker.email).to eq 'joe@makers.tech'
     end
   end
 
-  
+  describe "#create" do
+    it "creates a new Maker" do
+      maker = instance_double("Maker", name: "Pete", email: "pete@makers.tech", password: "1234")
+      repo = MakerRepository.new
+      repo.create(maker)
+      
+      expect(repo.all.last.email).to eq("pete@makers.tech")
+    end
+  end
 end
