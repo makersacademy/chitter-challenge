@@ -74,23 +74,10 @@ CREATE TABLE makers (
   password text
 );
 
--- Then the table with the foreign key first.
--- CREATE TABLE albums (
---   id SERIAL PRIMARY KEY,
---   title text,
---   release_year int,
--- -- The foreign key name is always {other_table_singular}_id
---   artist_id int,
---   constraint fk_artist foreign key(artist_id)
---     references artists(id)
---     on delete cascade
--- );
-
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
   time timestamp,
--- The foreign key name is always {other_table_singular}_id
   maker_id int,
   constraint fk_maker foreign key(maker_id)
     references makers(id)
