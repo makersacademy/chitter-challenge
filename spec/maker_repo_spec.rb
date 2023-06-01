@@ -27,10 +27,11 @@ describe MakerRepository do
     it "returns a Maker by ID" do
       maker = MakerRepository.new.find(2)
       
-      expect(makers[0].id).to eq  2
-      expect(makers[0].name).to eq 'Joe'
-      expect(makers[0].email).to eq 'joe@makers.tech'
+      expect(maker.id).to eq  2
+      expect(maker.name).to eq 'Joe'
+      expect(maker.email).to eq 'joe@makers.tech'
     end
   end
+
   
 end
