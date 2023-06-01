@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Chitter home</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <h3>If you'd like to add to this enthralling world of chitter, then login or sign up below!</h3>
+    <a href="/users/new">Sign up now!</a>
+    <a href="/login">Login here!</a>
+    <h2>All peeps:</h2>
+    <% @peeps.each do |peep| %>
+    <div>
+      <%= @display.peep(peep) %>
+      <p>--------</p>
+    </div>
+    <% end %>
+  </body>
+</html>
