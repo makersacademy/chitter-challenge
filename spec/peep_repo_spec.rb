@@ -25,12 +25,13 @@ describe PeepRepository do
   end
   
   describe "#find" do
-    xit "returns a Maker by ID" do
-      maker = MakerRepository.new.find(2)
+    it "returns a Peep by ID" do
+      peep = PeepRepository.new.find(2)
       
-      expect(maker.id).to eq 2
-      expect(maker.name).to eq 'Joe'
-      expect(maker.email).to eq 'joe@makers.tech'
+      expect(peep.id).to eq 2
+      expect(peep.content).to eq 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      expect(peep.time).to eq '2023-05-06 10:11:12'
+      expect(peep.maker_id).to eq 2
     end
   end
 

@@ -21,16 +21,16 @@ class PeepRepository
   end
   
   def find(id)
-    sql = 'SELECT id, name, email, password FROM makers WHERE id = $1;'
+    sql = 'SELECT id, content, time, maker_id FROM peeps WHERE id = $1;'
     result_set = DatabaseConnection.exec_params(sql, [id])
     
-    maker = Maker.new
-    maker.id = result_set[0]['id'].to_i
-    maker.name = result_set[0]['name']
-    maker.email = result_set[0]['email']
-    maker.password = result_set[0]['password']
+    peep = Peep.new
+    peep.id = result_set[0]['id'].to_i
+    peep.content = result_set[0]['content']
+    peep.time = result_set[0]['time']
+    peep.maker_id = result_set[0]['maker_id'].to_i
     
-    return maker
+    return peep
   end
   
   def create(maker)
