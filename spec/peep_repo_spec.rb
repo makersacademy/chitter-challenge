@@ -17,10 +17,10 @@ describe PeepRepository do
       peeps = PeepRepository.new.all
       
       expect(peeps.length).to eq 5
-      expect(peeps[0].id).to eq  1
-      expect(peeps[0].content).to eq 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-      expect(peeps[0].time).to eq '2023-03-08 04:05:06'
-      expect(peeps[0].maker_id).to eq  '1'
+      expect(peeps[0].id).to eq  5
+      expect(peeps[0].content).to eq 'At in tellus integer feugiat scelerisque.'
+      expect(peeps[0].time).to eq '2023-05-09 10:11:12'
+      expect(peeps[0].maker_id).to eq  '3'
     end
   end
   
@@ -40,19 +40,19 @@ describe PeepRepository do
       peeps = PeepRepository.new.find_by_maker(1)
       
       expect(peeps.length).to eq 3
-      expect(peeps[2].id).to eq  4
-      expect(peeps[2].content).to eq 'Labore et dolore magna aliqua.'
-      expect(peeps[2].time).to eq '2023-05-08 10:11:12'
+      expect(peeps[2].id).to eq  1
+      expect(peeps[2].content).to eq 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      expect(peeps[2].time).to eq '2023-03-08 04:05:06'
     end
   end
 
   describe "#create" do
     it "creates a new Peep" do
-      peep = instance_double("Peep", content: "Lorem ipsum.", time: "2023-05-20 13:14:15", maker_id: "1")
+      peep = instance_double("Peep", content: "Lorem ipsum.", time: Time.now, maker_id: "1")
       repo = PeepRepository.new
       repo.create(peep)
       
-      expect(repo.all.last.content).to eq("Lorem ipsum.")
+      expect(repo.all.first.content).to eq("Lorem ipsum.")
     end
   end
 end

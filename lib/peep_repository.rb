@@ -11,7 +11,8 @@ class PeepRepository
          peeps.content AS peep_content,
          peeps.time AS peep_time
     FROM makers
-    JOIN peeps ON peeps.maker_id = makers.id;'
+    JOIN peeps ON peeps.maker_id = makers.id
+    ORDER BY peep_time DESC;'
     result_set = DatabaseConnection.exec_params(sql, [])
     
     result_set.each do |record|
@@ -28,7 +29,15 @@ class PeepRepository
   end
   
   def find(id)
-    sql = 'SELECT id, content, time, maker_id FROM peeps WHERE id = $1;'
+    sql = 'SELECT peeps.id,
+         peeps.content,
+         peeps.time,
+         makers.id AS maker_id,
+         makers.name AS maker_name
+    FROM peeps
+    JOIN makers ON makers.id = peeps.maker_id
+    WHERE peeps.id = $1
+    ORDER BY time DESC;'
     result_set = DatabaseConnection.exec_params(sql, [id])
     
     peep = Peep.new
@@ -36,6 +45,7 @@ class PeepRepository
     peep.content = result_set[0]['content']
     peep.time = result_set[0]['time']
     peep.maker_id = result_set[0]['maker_id'].to_i
+    peep.maker_name = result_set[0]['maker_name']
     
     return peep
   end
@@ -50,7 +60,8 @@ class PeepRepository
          peeps.time AS peep_time
     FROM makers
     JOIN peeps ON peeps.maker_id = makers.id
-    WHERE makers.id = $1;'
+    WHERE makers.id = $1
+    ORDER BY peep_time DESC;'
     params = [maker_id]
     result_set = DatabaseConnection.exec_params(sql, params)
     
