@@ -70,4 +70,30 @@ describe Application do
       expect(BCrypt::Password.new(makers.last.password)).to eq("1234")
     end
   end
+  
+  context "GET /maker/login" do
+    it "shows the login form" do
+      response = get('/maker/login')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Log in</h1>")
+    end
+  end
+  
+  context 'POST /maker/login' do
+    it "logs the user in if their credentials are valid" do
+      response = post('/maker/login', email: 'sean@makers.tech', password: '1234')
+      expect(response.status).to eq(200)
+    end
+    
+    it "returns an error if the password is wrong" do
+      response = post('/maker/login', email: 'sean@makers.tech', password: '5678')
+      expect(response.status).to eq(401)
+    end
+    
+    it "returns an error if the email is wrong" do
+      response = post('/maker/login', email: 'sean@gmail.com', password: '1234')
+      expect(response.status).to eq(401)
+    end
+  end
+  
 end

@@ -38,7 +38,7 @@ describe MakerRepository do
       expect(maker.name).to eq('Sean')
     end
     
-    it "returns nothin for an incorrect email" do
+    it "returns nothing for an incorrect email" do
       maker = MakerRepository.new.find_by_email('sean@makers.xyz')
       expect(maker).to eq(nil)
     end

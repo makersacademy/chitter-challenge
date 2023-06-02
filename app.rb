@@ -7,6 +7,8 @@ require_relative 'lib/peep_repository'
 DatabaseConnection.connect
 
 class Application < Sinatra::Base
+  enable :sessions
+  
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/peep_repository'
@@ -44,6 +46,26 @@ class Application < Sinatra::Base
   
   get '/maker/new' do
     return erb(:new_maker)
+  end
+  
+  get '/maker/login' do
+    return erb(:login_form)
+  end
+  
+  post '/maker/login' do
+    maker = MakerRepository.new.find_by_email(params[:email])
+    if maker == nil
+      status 401
+      return 'No dice (email)'
+    end
+    
+    if BCrypt::Password.new(maker.password).is_password? params[:password]
+      session[:maker_id] = maker.id
+      return 'That worked'
+    else
+      status 401
+      return 'No dice (password)'
+    end
   end
   
   post '/maker' do

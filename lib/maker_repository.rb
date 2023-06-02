@@ -46,6 +46,7 @@ class MakerRepository
       maker.name = result_set[0]['name']
       maker.email = result_set[0]['email']
       maker.password = result_set[0]['password']
+      
       return maker
     end
   end
