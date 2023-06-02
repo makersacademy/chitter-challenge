@@ -9,8 +9,7 @@ class Post < ActiveRecord::Base
     Post.joins(:user).map do |post|
       @posts << "#{post.time} #{post.user.username} #{post.message}"
     end
-    p "we are in al_peeps function"
-    p @posts
+    @posts
   end
 
   def self.create_post(time, message, user_id)

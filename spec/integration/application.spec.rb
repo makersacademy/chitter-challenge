@@ -22,9 +22,14 @@ describe Application do
     it 'returns HTML page' do
       response = get('/')
       expect(response.status).to eq(200)
-      # expect(response.body).to include('<a href="/albums/2">Surfer Rosa</a><br />')
-      # expect(response.body).to include('<a href="/albums/3">Waterloo</a><br />')
-      # expect(response.body).to include('<a href="/albums/4">Super Trouper</a><br />')
+      expect(response.body).to include('Chitter')
+    end
+  end
+  context 'Get /signup' do
+    it 'returns signup page' do
+      response = get('/signup')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('username')
     end
   end
 end

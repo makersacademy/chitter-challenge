@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     User.all.map do |user|
       @users << user
     end
+    @users
   end
 
   def self.create_user(username, email, password)

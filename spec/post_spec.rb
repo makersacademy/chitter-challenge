@@ -1,7 +1,6 @@
 require 'post'
 require 'reset_tables'
 
-
 RSpec.describe Post do
   before(:each) do 
     reset = ResetTables.new
