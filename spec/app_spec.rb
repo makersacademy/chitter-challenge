@@ -51,4 +51,23 @@ describe Application do
       expect(response.body).to include('Similique atque dolor accusamus doloribus.')
     end
   end
+  
+  context "GET /maker/new" do
+    it "shows the Maker registration form" do
+      response = get('/maker/new')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Register for Chitter</h1>")
+    end
+  end
+  
+  context "POST /maker" do
+    it "adds a new Maker" do
+      response = post('/maker', name: 'Chelsea Treutel', email: 'chelsea.treutel@gmail.com', password: "1234")
+      expect(response.status).to eq(200)
+      
+      makers = MakerRepository.new.all
+      expect(makers.last.name).to eq("Chelsea Treutel")
+      expect(BCrypt::Password.new(makers.last.password)).to eq("1234")
+    end
+  end
 end

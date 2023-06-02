@@ -1,4 +1,5 @@
 require_relative 'maker'
+require 'bcrypt'
 
 class MakerRepository
   def all

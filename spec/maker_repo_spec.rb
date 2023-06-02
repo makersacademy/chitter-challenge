@@ -1,4 +1,3 @@
-require 'maker'
 require 'maker_repository'
 
 def reset_chitter_db
@@ -35,11 +34,13 @@ describe MakerRepository do
 
   describe "#create" do
     it "creates a new Maker" do
-      maker = instance_double("Maker", name: "Pete", email: "pete@makers.tech", password: "1234")
+      password = BCrypt::Password.create("1234")
+      maker = instance_double("Maker", name: "Pete", email: "pete@makers.tech", password: password)
       repo = MakerRepository.new
       repo.create(maker)
       
       expect(repo.all.last.email).to eq("pete@makers.tech")
+      expect(repo.all.last.password).to eq(password)
     end
   end
 end

@@ -42,4 +42,18 @@ class Application < Sinatra::Base
     return erb(:peep_confirmation)
   end
   
+  get '/maker/new' do
+    return erb(:new_maker)
+  end
+  
+  post '/maker' do
+    @maker = Maker.new
+    @maker.name = params['name']
+    @maker.email = params['email']
+    @maker.password = BCrypt::Password.create(params['password'])
+    
+    MakerRepository.new.create(@maker)
+    return 'Registered!'
+  end
+  
 end
