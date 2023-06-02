@@ -33,13 +33,13 @@ class Application < Sinatra::Base
   end
   
   post '/peep' do
-    peep = Peep.new
-    peep.content = params[:content]
-    peep.maker_id = params[:maker_id]
+    @peep = Peep.new
+    @peep.content = params[:content]
+    @peep.maker_id = params[:maker_id]
     repo = PeepRepository.new
-    @peep = repo.create(peep)
+    repo.create(@peep)
     
-    return 'Posted'
+    return erb(:peep_confirmation)
   end
   
 end
