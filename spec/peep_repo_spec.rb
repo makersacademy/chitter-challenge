@@ -48,7 +48,7 @@ describe PeepRepository do
 
   describe "#create" do
     it "creates a new Peep" do
-      peep = instance_double("Peep", content: "Lorem ipsum.", time: Time.now, maker_id: "1")
+      peep = instance_double("Peep", content: "Lorem ipsum.", maker_id: "1")
       repo = PeepRepository.new
       repo.create(peep)
       

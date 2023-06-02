@@ -79,7 +79,7 @@ class PeepRepository
   end
   
   def create(peep)
-    sql = 'INSERT INTO peeps (content, time, maker_id) VALUES($1, $2, $3);'
-    DatabaseConnection.exec_params(sql, [peep.content, peep.time, peep.maker_id])
+    sql = 'INSERT INTO peeps (content, maker_id) VALUES($1, $2);'
+    DatabaseConnection.exec_params(sql, [peep.content, peep.maker_id])
   end
 end

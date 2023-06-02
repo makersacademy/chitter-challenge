@@ -33,4 +33,22 @@ describe Application do
       expect(response.body).to include("Labore et dolore magna aliqua.")
     end
   end
+  
+  context "GET /peep/new" do
+    it "returns the new Peep form" do
+      response = get('/peep/new')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>New Peep</h1>")
+    end
+  end
+  
+  context "POST /peep" do
+    it "adds a new Peep" do
+      response = post('/peep', content: 'Similique atque dolor accusamus doloribus.', maker_id: 1)
+      expect(response.status).to eq(200)
+      
+      response = get('/')
+      expect(response.body).to include('Similique atque dolor accusamus doloribus.')
+    end
+  end
 end

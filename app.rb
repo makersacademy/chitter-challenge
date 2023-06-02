@@ -20,12 +20,26 @@ class Application < Sinatra::Base
     return erb(:feed)
   end
   
+  get '/peep/new' do
+    return erb(:new_peep)
+  end
+  
   get '/peep/:id' do
     peep_id = params[:id]
     repo = PeepRepository.new
     @peep = repo.find(peep_id)
     
     return erb(:peep)
+  end
+  
+  post '/peep' do
+    peep = Peep.new
+    peep.content = params[:content]
+    peep.maker_id = params[:maker_id]
+    repo = PeepRepository.new
+    @peep = repo.create(peep)
+    
+    return 'Posted'
   end
   
 end

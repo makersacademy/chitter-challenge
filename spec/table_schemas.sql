@@ -8,7 +8,7 @@ CREATE TABLE makers (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  time timestamp,
+  time timestamp (0) DEFAULT now(),
   maker_id int,
   constraint fk_maker foreign key(maker_id)
     references makers(id)
