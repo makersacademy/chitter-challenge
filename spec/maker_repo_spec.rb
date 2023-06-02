@@ -31,6 +31,18 @@ describe MakerRepository do
       expect(maker.email).to eq 'joe@makers.tech'
     end
   end
+  
+  describe "#find_by_email" do
+    it "returns a Maker object for the given email" do
+      maker = MakerRepository.new.find_by_email('sean@makers.tech')
+      expect(maker.name).to eq('Sean')
+    end
+    
+    it "returns nothin for an incorrect email" do
+      maker = MakerRepository.new.find_by_email('sean@makers.xyz')
+      expect(maker).to eq(nil)
+    end
+  end
 
   describe "#create" do
     it "creates a new Maker" do
