@@ -8,3 +8,4 @@ INSERT INTO peeps (content, time, maker_id) VALUES ('Lorem ipsum dolor sit amet,
 INSERT INTO peeps (content, time, maker_id) VALUES ('Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '2023-05-06 10:11:12', 2);
 INSERT INTO peeps (content, time, maker_id) VALUES ('Sed do eiusmod tempor incididunt.', '2023-05-07 10:11:12', 1);
 INSERT INTO peeps (content, time, maker_id) VALUES ('Labore et dolore magna aliqua.', '2023-05-08 10:11:12', 1);
+INSERT INTO peeps (content, time, maker_id) VALUES ('At in tellus integer feugiat scelerisque.', '2023-05-09 10:11:12', 3);

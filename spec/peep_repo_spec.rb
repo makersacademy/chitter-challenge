@@ -16,7 +16,7 @@ describe PeepRepository do
     it "returns all Peeps" do
       peeps = PeepRepository.new.all
       
-      expect(peeps.length).to eq 4
+      expect(peeps.length).to eq 5
       expect(peeps[0].id).to eq  1
       expect(peeps[0].content).to eq 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
       expect(peeps[0].time).to eq '2023-03-08 04:05:06'
