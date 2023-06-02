@@ -23,8 +23,14 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>Chitter</h1>")
       expect(response.body).to include("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-      
-      
+    end
+  end
+  
+  context "GET /peep/:id" do
+    it "returns a specific Peep" do
+      response = get('/peep/4')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("Labore et dolore magna aliqua.")
     end
   end
 end

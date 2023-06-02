@@ -9,8 +9,8 @@ DatabaseConnection.connect
 class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
-    also_reload 'lib/album_repository'
-    also_reload 'lib/artist_repository'
+    also_reload 'lib/peep_repository'
+    also_reload 'lib/maker_repository'
   end
   
   get '/' do
@@ -18,6 +18,14 @@ class Application < Sinatra::Base
     @peeps = repo.all
     
     return erb(:feed)
+  end
+  
+  get '/peep/:id' do
+    peep_id = params[:id]
+    repo = PeepRepository.new
+    @peep = repo.find(peep_id)
+    
+    return erb(:peep)
   end
   
 end

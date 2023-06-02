@@ -6,7 +6,7 @@
     <div>
       <p>
       Posted by: <%= peep.maker_name %><br  />
-      Time: <%= peep.time %><br  />
+      Time: <a href="/peep/<%= peep.id %>"><%= peep.time %></a><br  />
       Content: <%= peep.content %><br  />
       </p>
     </div>
