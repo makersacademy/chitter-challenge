@@ -16,7 +16,7 @@ describe PeepRepository do
     it "returns all Peeps" do
       peeps = PeepRepository.new.all
       
-      expect(peeps.length).to eq 2
+      expect(peeps.length).to eq 4
       expect(peeps[0].id).to eq  1
       expect(peeps[0].content).to eq 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
       expect(peeps[0].time).to eq '2023-03-08 04:05:06'
@@ -32,6 +32,17 @@ describe PeepRepository do
       expect(peep.content).to eq 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       expect(peep.time).to eq '2023-05-06 10:11:12'
       expect(peep.maker_id).to eq 2
+    end
+  end
+  
+  describe "#find_by_maker" do
+    it "returns Peeps posted by a Maker" do
+      peeps = PeepRepository.new.find_by_maker(1)
+      
+      expect(peeps.length).to eq 3
+      expect(peeps[2].id).to eq  4
+      expect(peeps[2].content).to eq 'Labore et dolore magna aliqua.'
+      expect(peeps[2].time).to eq '2023-05-08 10:11:12'
     end
   end
 
