@@ -1,15 +1,79 @@
-require 'pg'
+require_relative '../models/peep'
+require 'database_connection'
 
 class PeepRepository
-  def self.create(peep)
-    # Database insert query to create a new peep record
+  def self.create(content, timestamp, user_id)
+    query = "INSERT INTO peeps (content, timestamp, user_id) VALUES ($1, $2, $3);"
+    DatabaseConnection.exec_params(query, [content, timestamp, user_id])
+
+    return nil
   end
 
-  def self.find_all
-    # Database query to retrieve all peeps in reverse chronological order
+  def self.find(peep_id)
+    query = "SELECT id, content, timestamp, user_id FROM peeps WHERE id = $1;"
+    result = DatabaseConnection.exec_params(query, [peep_id])
+
+    build_peep(result[0])
+  end
+
+  def self.all
+    peeps = []
+    query = "SELECT id, content, timestamp, user_id FROM peeps;"
+    result = DatabaseConnection.exec_params(query, [])
+    result.each do |inst|
+      peeps << build_peep(inst)
+    end
+    peeps
+  end
+
+  def self.sort_by_timestamp(peeps)
+    peeps.sort_by! { |peep| peep.timestamp }
   end
 
   def self.find_by_user(user_id)
-    # Database query to find all peeps by a specific user
+    peeps = []
+    query = "SELECT id, content, timestamp, user_id FROM peeps WHERE user_id = $1;"
+    result = DatabaseConnection.exec_params(query, [user_id])
+    result.each do |inst|
+      peeps << build_peep(inst)
+    end
+    peeps
+  end
+
+  def self.find_by_tag(tag)
+    peeps = []
+    query = "SELECT peeps.id, peeps.content, peeps.timestamp, peeps.user_id FROM peeps
+             JOIN peep_tags ON peeps.id = peep_tags.peep_id
+             JOIN tags ON peep_tags.tag_id = tags.id
+             WHERE tags.name = $1;"
+    result = DatabaseConnection.exec_params(query, [tag])
+    result.each do |inst|
+      peeps << build_peep(inst)
+    end
+    peeps
+  end
+
+  def self.update(content, id)
+    query = "UPDATE peeps SET content = $1 WHERE id = $2;"
+    DatabaseConnection.exec_params(query, [content, id])
+  end
+
+  def self.delete(id)
+    query = "DELETE FROM peeps WHERE id = $1;"
+    DatabaseConnection.exec_params(query, [id])
+
+    return nil
+  end
+
+  private
+
+  def self.build_peep(inst)
+    return nil if inst.nil?
+    peep = Peep.new
+    peep.id = inst['id'].to_i
+    peep.content = inst['content']
+    peep.timestamp = inst['timestamp']
+    peep.user_id = inst['user_id'].to_i
+    return peep
   end
 end
