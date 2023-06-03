@@ -1,11 +1,15 @@
 <html>
-  <head></head>
+  <head>
+    <%= erb(:header) %>
+  </head>
   <body>
     <h1>Peep from <%= @peep.maker_name %></h1>
     <div>
+      <blockquote>
+        <%= @peep.content %>
+      </blockquote>
       <p>
-      Time: <%= Time.new(@peep.time).strftime('%e %b %Y at %I:%M').strip %><br  />
-      Content: <%= @peep.content %><br  />
+      <small><%= Time.new(@peep.time).strftime('%e %b %Y at %I:%M').strip %></small>
       </p>
       <p><a href="/">Back to the Feed</a></p>
     </div>

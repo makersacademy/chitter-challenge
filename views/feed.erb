@@ -1,5 +1,7 @@
 <html>
-  <head></head>
+  <head>
+    <%= erb(:header) %>
+  </head>
   <body>
     <h1>Chitter</h1>
     <p><% if session[:maker_id] != nil %>
@@ -12,9 +14,9 @@
     <% @peeps.each do |peep| %>
     <div>
       <p>
-      Posted by: <%= peep.maker_name %><br  />
-      Time: <a href="/peep/<%= peep.id %>"><%= Time.new(peep.time).strftime('%e %b %Y at %I:%M').strip %></a><br />
-      Content: <%= peep.content %><br  />
+      <%= peep.content %>
+      <br  />
+      <small>Posted by <%= peep.maker_name %>, <a href="/peep/<%= peep.id %>"><%= Time.new(peep.time).strftime('%e %b %Y at %I:%M').strip %></a></small>
       </p>
     </div>
     <% end %>
