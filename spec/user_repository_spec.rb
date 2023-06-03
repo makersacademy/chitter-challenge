@@ -1,7 +1,7 @@
 require_relative '../lib/repositories/user_repository'
 require_relative 'database_helper'
 
-describe UserRepository do
+RSpec.describe UserRepository do
   before(:each) do 
     reset_chitter_table
   end
