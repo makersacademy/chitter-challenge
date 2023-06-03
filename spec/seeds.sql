@@ -6,6 +6,6 @@ INSERT INTO makers (name, email, password) VALUES ('Eugene', 'eugene@makers.tech
 
 INSERT INTO peeps (content, time, maker_id) VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '2023-03-08 04:05:06', 1);
 INSERT INTO peeps (content, time, maker_id) VALUES ('Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '2023-05-06 10:11:12', 2);
-INSERT INTO peeps (content, time, maker_id) VALUES ('Sed do eiusmod tempor incididunt.', '2023-05-07 10:11:12', 1);
-INSERT INTO peeps (content, time, maker_id) VALUES ('Labore et dolore magna aliqua.', '2023-05-08 10:11:12', 1);
-INSERT INTO peeps (content, time, maker_id) VALUES ('At in tellus integer feugiat scelerisque.', '2023-05-09 10:11:12', 3);
+INSERT INTO peeps (content, time, maker_id) VALUES ('Sed do eiusmod tempor incididunt.', '2023-05-07 11:12:13', 1);
+INSERT INTO peeps (content, time, maker_id) VALUES ('Labore et dolore magna aliqua.', '2023-05-08 12:13:14', 1);
+INSERT INTO peeps (content, time, maker_id) VALUES ('At in tellus integer feugiat scelerisque.', '2023-05-09 13:14:15', 3);

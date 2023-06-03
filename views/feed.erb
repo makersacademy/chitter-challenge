@@ -13,7 +13,7 @@
     <div>
       <p>
       Posted by: <%= peep.maker_name %><br  />
-      Time: <a href="/peep/<%= peep.id %>"><%= peep.time %></a><br  />
+      Time: <a href="/peep/<%= peep.id %>"><%= Time.new(peep.time).strftime('%e %b %Y at %I:%M').strip %></a><br />
       Content: <%= peep.content %><br  />
       </p>
     </div>

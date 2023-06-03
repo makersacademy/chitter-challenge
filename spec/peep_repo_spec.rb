@@ -19,7 +19,7 @@ describe PeepRepository do
       expect(peeps.length).to eq 5
       expect(peeps[0].id).to eq  5
       expect(peeps[0].content).to eq 'At in tellus integer feugiat scelerisque.'
-      expect(peeps[0].time).to eq '2023-05-09 10:11:12'
+      expect(peeps[0].time).to eq '2023-05-09 13:14:15'
       expect(peeps[0].maker_id).to eq  '3'
     end
   end

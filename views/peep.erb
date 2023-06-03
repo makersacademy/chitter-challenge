@@ -4,7 +4,7 @@
     <h1>Peep from <%= @peep.maker_name %></h1>
     <div>
       <p>
-      Time: <%= @peep.time %><br  />
+      Time: <%= Time.new(@peep.time).strftime('%e %b %Y at %I:%M').strip %><br  />
       Content: <%= @peep.content %><br  />
       </p>
       <p><a href="/">Back to the Feed</a></p>
