@@ -113,4 +113,16 @@ describe Application do
     end
   end
   
+  context 'GET /admin/reset' do
+    it "resets the database" do
+      post('/maker/login', email: 'sean@makers.tech', password: '1234')
+      response = get('/admin/reset')
+      expect(response.body).to include('Production database reset.')
+    end
+    
+    it "returns an error if not an admin user" do
+      response = get('/admin/reset')
+      expect(response.body).to include("You're not authorised to do that. Naughty!")
+    end
+  end
 end
