@@ -1,5 +1,6 @@
 require 'active_record'
 require_relative 'database_connection'
+require 'bcrypt'
 establish_database_connection
 
 class User < ActiveRecord::Base
@@ -12,17 +13,14 @@ class User < ActiveRecord::Base
     @users
   end
 
-  def self.create_user(username, email, password)
-    user = User.new
-    user.username = username
-    user.email = email
-    user.password = password
+  def self.create_user(name, username, email, password)
+    encrypted_password = BCrypt::Password.create(password)
+    user = User.new(name: name, username: username, email: email, password: encrypted_password)
     user.save
     user
   end
+
+  def authenticate(password)
+    BCrypt::Password.new(self.password) == password
+  end
 end
-
-# User.create({ :username => 'Jamie', :email => "jamie@gmail.com", :password => "passwordjamie" })
-
-# p User.all
-# user.all_records

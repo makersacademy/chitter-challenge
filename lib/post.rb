@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   @posts = []
   def self.all_peeps
     Post.joins(:user).map do |post|
-      @posts << "#{post.time} #{post.user.username} #{post.message}"
+      @posts << "#{post.time} #{post.user.name} #{post.user.username} #{post.message}"
     end
     @posts
   end

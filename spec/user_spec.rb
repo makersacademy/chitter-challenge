@@ -11,7 +11,7 @@ RSpec.describe User do
     expect(User.all_records[1][:email]).to eq('jakehannis@gmail.com')
   end
   it 'creates a new user and returns the table' do
-    User.create_user('johnsmith', 'john@example.com', 'password123')
+    User.create_user('John Smith', 'johnsmith', 'john@example.com', 'password123')
     expect(User.all_records[4][:email]).to eq('john@example.com')
   end
 
