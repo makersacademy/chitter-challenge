@@ -2,7 +2,8 @@ require_relative '../models/peep'
 require 'database_connection'
 
 class PeepRepository
-  def self.create(content, timestamp, user_id)
+  def self.create(content, user_id)
+    timestamp = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     query = "INSERT INTO peeps (content, timestamp, user_id) VALUES ($1, $2, $3);"
     DatabaseConnection.exec_params(query, [content, timestamp, user_id])
 

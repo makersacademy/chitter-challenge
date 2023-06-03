@@ -9,16 +9,16 @@ RSpec.describe PeepRepository do
   context '.create' do
     it 'creates a new peep in the database' do
       content = 'This is a test peep'
-      timestamp = '2023-06-01 12:34:56'
       user_id = 1
 
-      expect(DatabaseConnection).to receive(:exec_params)
-        .with(
-          'INSERT INTO peeps (content, timestamp, user_id) VALUES ($1, $2, $3);',
-          [content, timestamp, user_id]
-        )
+      expect(DatabaseConnection).to receive(:exec_params) do |query, params|
+        expect(query).to include('INSERT INTO peeps (content, timestamp, user_id) VALUES')
+        expect(params[0]).to eq(content)
+        expect(params[1]).to be_a(String) # Check if the timestamp is a string
+        expect(params[2]).to eq(user_id)
+      end
 
-      PeepRepository.create(content, timestamp, user_id)
+      PeepRepository.create(content, user_id)
     end
   end
 
@@ -116,9 +116,9 @@ RSpec.describe PeepRepository do
 
       # Create some sample peeps belonging to user 1
       user_3 = UserRepository.create('John Doe', 'johndoe', 'johndoe@example.com', 'password123')
-      peep1 = PeepRepository.create('Peep 1', '2023-06-01 12:00:00', 3)
-      peep2 = PeepRepository.create('Peep 2', '2023-06-01 13:00:00', 3)
-      peep3 = PeepRepository.create('Peep 3', '2023-06-01 14:00:00', 2)
+      peep1 = PeepRepository.create('Peep 1', 3)
+      peep2 = PeepRepository.create('Peep 2', 3)
+      peep3 = PeepRepository.create('Peep 3', 2)
       
       # Retrieve peeps for user 1
       result = PeepRepository.find_by_user(3)
@@ -135,10 +135,9 @@ RSpec.describe PeepRepository do
     it 'updates the content of the specified peep' do
       peep = Peep.new
       peep.content = 'Original content'
-      peep.timestamp = '2023-06-01 12:00:00'
       peep.user_id = 1
 
-      PeepRepository.create(peep.content, peep.timestamp, peep.user_id)
+      PeepRepository.create(peep.content, peep.user_id)
       updated_content = 'Updated content'
 
 
@@ -155,7 +154,7 @@ RSpec.describe PeepRepository do
 
   context '.delete' do
     it 'deletes the specified peep' do
-      peep = PeepRepository.create('Peep to delete', '2023-06-01 12:00:00', 1)
+      peep = PeepRepository.create('Peep to delete', 1)
 
       # Delete the peep
       PeepRepository.delete(PeepRepository.all.last.id)
