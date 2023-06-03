@@ -23,7 +23,11 @@ class Application < Sinatra::Base
   end
   
   get '/peep/new' do
-    return erb(:new_peep)
+    if session[:maker_id] == nil
+      redirect '/maker/login'
+    else
+      return erb(:new_peep)
+    end
   end
   
   get '/peep/:id' do

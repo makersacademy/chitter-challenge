@@ -35,7 +35,15 @@ describe Application do
   end
   
   context "GET /peep/new" do
-    it "returns the new Peep form" do
+    it "redirects to the login form if user is not logged in" do
+      response = get('/peep/new')
+      follow_redirect!
+      expect(last_response.status).to eq 200
+      expect(last_response.body).to include("<h1>Log in</h1>")
+    end
+    
+    it "returns the new Peep form if the user is logged in" do
+      post('/maker/login', email: 'sean@makers.tech', password: '1234')
       response = get('/peep/new')
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>New Peep</h1>")
@@ -83,6 +91,7 @@ describe Application do
     it "logs the user in if their credentials are valid" do
       response = post('/maker/login', email: 'sean@makers.tech', password: '1234')
       expect(response.status).to eq(200)
+      
     end
     
     it "returns an error if the password is wrong" do
