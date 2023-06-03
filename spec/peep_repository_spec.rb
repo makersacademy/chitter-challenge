@@ -131,30 +131,6 @@ RSpec.describe PeepRepository do
     end
   end
 
-  context '.find_by_tag' do
-    xit 'returns peeps associated with the specified tag' do
-      tag = 'ruby'
-
-      # Create some sample peeps associated with the 'ruby' tag
-      peep1 = PeepRepository.create('Peep 1', '2023-06-01 12:00:00', 1)
-      peep2 = PeepRepository.create('Peep 2', '2023-06-01 13:00:00', 1)
-      peep3 = PeepRepository.create('Peep 3', '2023-06-01 14:00:00', 2)
-
-      # Associate peeps with the 'ruby' tag
-      TagRepository.create(peep1.id, tag)
-      TagRepository.create(peep2.id, tag)
-
-      # Retrieve peeps associated with the 'ruby' tag
-      result = PeepRepository.find_by_tag(tag)
-
-      # Verify if only peeps associated with the 'ruby' tag are returned
-      expect(result).to be_an(Array)
-      expect(result.length).to eq(2)
-      expect(result).to include(peep1, peep2)
-      expect(result).not_to include(peep3)
-    end
-  end
-
   context '.update' do
     it 'updates the content of the specified peep' do
       peep = Peep.new
