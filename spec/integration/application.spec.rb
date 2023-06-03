@@ -39,14 +39,20 @@ describe Application do
       expect(response.body).to include('Success')
     end
   end
-  context 'Post /' do
+  context 'Post /account_page' do
     it 'adds peep to chitter' do
-      response = post('/', message: 'Need to start working', user_id: 2)
-      Post.create_post(Time.now, 'Need to start working', 2)
-
-      expect(response.status).to eq(302)
+      post '/login', username: 'test_user', password: 'password' # Login the user and set the session
+  
+      post '/account_page', { message: 'Need to start working' }, 'rack.session' => { user_id: 2 }
+  
+      follow_redirect! # Follow the redirect to the new page
+      expect(last_request.path).to eq('/account_page') # Ensure we are on the expected page
+      expect(last_response.body).to include('Need to start working') # Check the content of the page
+  
+      expect(last_response.status).to eq(200) # Optionally check the status code
     end
   end
+  
   context 'Post /signup' do
     it 'recognises that a username already exists, redirects to the signup page' do
       user = User.new
@@ -56,6 +62,27 @@ describe Application do
       expect(response.status).to eq(302) # Assuming it redirects
       expect(response.headers['Location']).to include('/signup')
     end
+  end
+  context 'Post /login' do
+    it 'logs into user account' do
+      response = post('/login', { username: 'laurenhannis', password: 'passwordlauren' })
+      User.sign_in('laurenhannis', 'passwordlauren')
+  
+      expect(response.status).to eq(302) # Assuming it redirects
+      expect(response.headers['Location']).to include('/account_page')
+    end
+  end
+  context 'GET /logout'
+  it 'clears the session and redirects to the home page' do
+    post '/login', { username: 'testuser', password: 'password' }
+
+    get '/logout'
+    
+    expect(last_response.redirect?).to be true
+    follow_redirect!
+
+    expect(last_request.path).to eq('/')
+    expect(rack_mock_session.cookie_jar['rack.session']).not_to include('user_id')
   end
 end
   

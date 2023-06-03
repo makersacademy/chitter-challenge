@@ -20,7 +20,14 @@ class User < ActiveRecord::Base
     user
   end
 
-  def authenticate(password)
-    BCrypt::Password.new(self.password) == password
+  def self.sign_in(username, password)
+    user = User.find_by(username: username)
+    return nil unless user
+
+    stored_password = BCrypt::Password.new(user.password)
+    return nil unless stored_password == password
+
+    user
   end
 end
+  

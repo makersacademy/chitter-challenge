@@ -9,6 +9,7 @@ require_relative 'lib/user'
 establish_database_connection
 
 class Application < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
     also_reload 'lib/database_connection'
@@ -26,20 +27,57 @@ class Application < Sinatra::Base
     erb(:index)
   end
 
-  post '/' do
+  post '/account_page' do
     current_time = Time.now + 1 * 60 * 60 # Get the current time with GMT offset
-    Post.create(time: current_time, message: params[:message], user_id: 1)
+    Post.create_post(current_time, params[:message], session[:user_id])
     
     # Append the new post to the class variable
-    @@posts.unshift("#{current_time} #{User.find(1).name} #{User.find(1).username} #{params[:message]}")
+    @@posts.unshift("#{current_time} #{User.find(session[:user_id]).name} #{User.find(session[:user_id]).username} #{params[:message]}")
     
-    
-    redirect '/'
+    redirect '/account_page'
   end
+  
 
   get '/signup' do
     erb(:signup)
   end
+
+  get '/login' do
+    erb(:login)
+  end
+
+  get '/logout' do
+    session.clear  
+    redirect '/' 
+  end
+
+  get '/login_failure' do
+    erb(:login_failure)
+  end
+
+  post '/login' do
+    user = User.sign_in(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/account_page'
+    else
+      redirect '/login_failure'
+    end
+  end
+  
+  
+
+  get '/account_page' do
+    if session[:user_id].nil?
+      # No user id in the session
+      # so the user is not logged in.
+      redirect '/login'
+    else
+      # The user is logged in, display their account page.
+      erb(:account)
+    end
+  end
+    
 
   post '/signup' do
     database = User.all_records
