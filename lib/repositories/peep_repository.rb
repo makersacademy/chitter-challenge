@@ -40,19 +40,6 @@ class PeepRepository
     peeps
   end
 
-  def self.find_by_tag(tag)
-    peeps = []
-    query = "SELECT peeps.id, peeps.content, peeps.timestamp, peeps.user_id FROM peeps
-             JOIN peep_tags ON peeps.id = peep_tags.peep_id
-             JOIN tags ON peep_tags.tag_id = tags.id
-             WHERE tags.name = $1;"
-    result = DatabaseConnection.exec_params(query, [tag])
-    result.each do |inst|
-      peeps << build_peep(inst)
-    end
-    peeps
-  end
-
   def self.update(content, id)
     query = "UPDATE peeps SET content = $1 WHERE id = $2;"
     DatabaseConnection.exec_params(query, [content, id])
