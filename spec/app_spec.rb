@@ -90,7 +90,7 @@ describe Application do
   context 'POST /maker/login' do
     it "logs the user in if their credentials are valid" do
       response = post('/maker/login', email: 'sean@makers.tech', password: '1234')
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(302)
       
     end
     
@@ -102,6 +102,13 @@ describe Application do
     it "returns an error if the email is wrong" do
       response = post('/maker/login', email: 'sean@gmail.com', password: '1234')
       expect(response.status).to eq(401)
+    end
+  end
+  
+  context 'GET /maker/logout' do
+    it "logs the user out" do
+      response = get('/maker/logout')
+      expect(response.status).to eq(302)
     end
   end
   

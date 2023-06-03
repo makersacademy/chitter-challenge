@@ -65,11 +65,18 @@ class Application < Sinatra::Base
     
     if BCrypt::Password.new(maker.password).is_password? params[:password]
       session[:maker_id] = maker.id
-      return 'That worked'
+      session[:maker_name] = maker.name
+      redirect '/'
     else
       status 401
       return 'No dice (password)'
     end
+  end
+  
+  get '/maker/logout' do
+    session[:maker_id] = nil
+    session[:maker_name] = nil
+    redirect '/'
   end
   
   post '/maker' do
