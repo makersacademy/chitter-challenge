@@ -55,4 +55,5 @@ class MakerRepository
     sql = 'INSERT INTO makers (name, email, password) VALUES($1, $2, $3);'
     DatabaseConnection.exec_params(sql, [maker.name, maker.email, maker.password])
   end
+  
 end
