@@ -39,12 +39,17 @@ class Application < Sinatra::Base
   end
   
   post '/peep' do
+    if params[:content].empty?
+      @error_message = "You can't Peep nothing, can you? Have another go."
+      return erb(:error)
+    end
+    
     @peep = Peep.new
     @peep.content = params[:content]
-    @peep.maker_id = params[:maker_id]
+    @peep.maker_id = session[:maker_id]
     repo = PeepRepository.new
     repo.create(@peep)
-    
+
     return erb(:peep_confirmation)
   end
   
@@ -58,9 +63,10 @@ class Application < Sinatra::Base
   
   post '/maker/login' do
     maker = MakerRepository.new.find_by_email(params[:email])
-    if maker == nil
+    if maker == nil || params[:email].empty? || params[:password].empty?
+      @error_message = "That email address wasn't found."
       status 401
-      return 'No dice (email)'
+      return erb(:error)
     end
     
     if BCrypt::Password.new(maker.password).is_password? params[:password]
@@ -68,8 +74,9 @@ class Application < Sinatra::Base
       session[:maker_name] = maker.name
       redirect '/'
     else
+      @error_message = "That password wasn't correct."
       status 401
-      return 'No dice (password)'
+      return erb(:error)
     end
   end
   
@@ -80,13 +87,22 @@ class Application < Sinatra::Base
   end
   
   post '/maker' do
+    if params[:name].empty? || params[:email].empty? || params[:password].empty?
+      @error_message = "Something wasn't right with your registration. Give it another go."
+      return erb(:error)
+    end
+    
     @maker = Maker.new
     @maker.name = params['name']
     @maker.email = params['email']
     @maker.password = BCrypt::Password.create(params['password'])
     
-    MakerRepository.new.create(@maker)
-    return 'Registered!'
+    repo = MakerRepository.new
+    repo.create(@maker)
+    maker_record = repo.find_by_email(params['email'])
+    session[:maker_id] = maker_record.id
+    session[:maker_name] = maker_record.name
+    redirect '/'
   end
   
 end

@@ -52,6 +52,7 @@ describe Application do
   
   context "POST /peep" do
     it "adds a new Peep" do
+      post('/maker/login', email: 'sean@makers.tech', password: '1234')
       response = post('/peep', content: 'Similique atque dolor accusamus doloribus.', maker_id: 1)
       expect(response.status).to eq(200)
       
@@ -71,7 +72,7 @@ describe Application do
   context "POST /maker" do
     it "adds a new Maker" do
       response = post('/maker', name: 'Chelsea Treutel', email: 'chelsea.treutel@gmail.com', password: "1234")
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(302)
       
       makers = MakerRepository.new.all
       expect(makers.last.name).to eq("Chelsea Treutel")

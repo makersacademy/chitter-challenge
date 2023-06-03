@@ -7,10 +7,11 @@
     <p><% if session[:maker_id] != nil %>
       Logged in as <%= session[:maker_name] %>. <a href="/maker/logout">Log out</a>.
       <% else %>
-      <a href="/maker/new">Register for Chitter</a>
+      <a href="/maker/new">Register</a> / <a href="/maker/login">Log in</a>
       <% end %>
     </p>
-    <p><a href="/peep/new">Peep!</a></p>
+    <p>
+      <a href="/peep/new"><button>New Peep</button></a>
     <% @peeps.each do |peep| %>
     <div>
       <p>

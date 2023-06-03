@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <%= erb(:header) %>
+  </head>
+  <body>
+    <h1>This is not the page you're looking for</h1>
+    <% if @error_message %>
+      <p><%= @error_message %></p>
+    <% end %>
+      <p><a href="javascript:history.back()">Go Back</a></p>
+      <iframe src="https://giphy.com/embed/l2JJKs3I69qfaQleE" width="480" height="218" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <!-- <div style="width:100%;height:0;padding-bottom:45%;position:relative;"><iframe src="https://giphy.com/embed/l2JJKs3I69qfaQleE" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div> -->
+  </body>
+</html>

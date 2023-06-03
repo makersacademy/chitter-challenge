@@ -6,13 +6,11 @@
     <h1>New Peep</h1>
     <div>
         <form action="/peep" method="POST">
-        <div><label>Maker ID</label>
-        <input type="text" name="maker_id" value="1"></div>
-        
-        <div><label>Content</label>
-        <input type="text" name="content"></div>
-        
-        <input type="submit" value="Peep!">
+          <div>
+            <textarea name="content" rows="8" cols="48" placeholder="Peep away..."></textarea>
+          </div>
+          <input type="submit" value="Peep!">
+        </form>
     </div>
   </body>
 </html>
