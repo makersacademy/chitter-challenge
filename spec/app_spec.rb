@@ -43,7 +43,7 @@ describe Application do
     end
     
     it "returns the new Peep form if the user is logged in" do
-      post('/maker/login', email: 'sean@makers.tech', password: '1234')
+      post('/maker/login', email: 'lobe_carpels_06@icloud.com', password: '1234')
       response = get('/peep/new')
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>New Peep</h1>")
@@ -52,14 +52,14 @@ describe Application do
   
   context "POST /peep" do
     it 'returns an error if input is empty' do
-      post('/maker/login', email: 'sean@makers.tech', password: '1234')
+      post('/maker/login', email: 'lobe_carpels_06@icloud.com', password: '1234')
       response = post('/peep', content: '', maker_id: 1)
       expect(response.status).to eq(200)
       expect(response.body).to include("You can't Peep nothing, can you? Have another go.")
     end
     
     it "adds a new Peep" do
-      post('/maker/login', email: 'sean@makers.tech', password: '1234')
+      post('/maker/login', email: 'lobe_carpels_06@icloud.com', password: '1234')
       response = post('/peep', content: 'Similique atque dolor accusamus doloribus.', maker_id: 1)
       expect(response.status).to eq(200)
       
@@ -102,13 +102,13 @@ describe Application do
   
   context 'POST /maker/login' do
     it "logs the user in if their credentials are valid" do
-      response = post('/maker/login', email: 'sean@makers.tech', password: '1234')
+      response = post('/maker/login', email: 'lobe_carpels_06@icloud.com', password: '1234')
       expect(response.status).to eq(302)
       
     end
     
     it "returns an error if the password is wrong" do
-      response = post('/maker/login', email: 'sean@makers.tech', password: '5678')
+      response = post('/maker/login', email: 'lobe_carpels_06@icloud.com', password: '6666')
       expect(response.status).to eq(401)
     end
     
