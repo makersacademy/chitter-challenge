@@ -25,3 +25,5 @@ gem "sinatra-contrib", "~> 2.2"
 gem "rackup", "~> 1.0"
 
 gem "bcrypt", "~> 3.1"
+
+gem 'mailgun-ruby', '~>1.2.8'
