@@ -19,7 +19,7 @@ class Mentions
     message_params =  { from: ENV["CHITTER_FROM"],
                         to:   to_email,
                         subject: 'Chitter mention',
-                        text:    "#{peep.maker_name} just Peeped about you: #{peep.content}"
+                        text:    "Someone just Peeped about you: #{peep.content}"
                       }
     
     result = mg_client.send_message ENV["CHITTER_SENDING_DOMAIN"], message_params
