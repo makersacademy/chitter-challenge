@@ -51,6 +51,13 @@ describe Application do
   end
   
   context "POST /peep" do
+    it 'returns an error if input is empty' do
+      post('/maker/login', email: 'sean@makers.tech', password: '1234')
+      response = post('/peep', content: '', maker_id: 1)
+      expect(response.status).to eq(200)
+      expect(response.body).to include("You can't Peep nothing, can you? Have another go.")
+    end
+    
     it "adds a new Peep" do
       post('/maker/login', email: 'sean@makers.tech', password: '1234')
       response = post('/peep', content: 'Similique atque dolor accusamus doloribus.', maker_id: 1)
@@ -70,6 +77,11 @@ describe Application do
   end
   
   context "POST /maker" do
+    it 'returns an error if input not valid' do
+      response = post('/maker', name: '', email: '', password: '')
+      expect(response.status).to eq(200)
+      expect(response.body).to include("Something wasn't right with your registration. Give it another go.")
+    end
     it "adds a new Maker" do
       response = post('/maker', name: 'Chelsea Treutel', email: 'chelsea.treutel@gmail.com', password: "1234")
       expect(response.status).to eq(302)
