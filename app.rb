@@ -104,22 +104,4 @@ class Application < Sinatra::Base
     session[:maker_name] = maker_record.name
     redirect '/'
   end
-  
-  get '/admin/reset' do
-    if session[:maker_id] == 1
-      reset_db if ENV['ENV'] != 'test'
-      return "<p>Production database reset.</p><p><a href='/'>Go back</a></p>"
-    else
-      @error_message = "You're not authorised to do that. Naughty!"
-      return erb(:error)
-    end
-  end
-  
-  private
-  
-  def reset_db
-    seed_sql = File.read('spec/seeds.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'chitter' })
-    connection.exec(seed_sql)
-  end
 end
