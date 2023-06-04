@@ -51,7 +51,10 @@ class Application < Sinatra::Base
     repo = PeepRepository.new
     repo.create(@peep)
     
-    @mention = Mentions.new.find(@peep)
+    mentions = Mentions.new
+    
+    @mention = mentions.find(@peep)
+    mentions.send_notification(@peep) if @mention
     
     return erb(:peep_confirmation)
   end
