@@ -8,11 +8,39 @@ require_relative '../lib/repositories/peep_tag_repository'
 class Feed < Sinatra::Base
   enable :sessions
   set :session_secret, "5cdde102f6f68294e1cff23f341aaaaf2d2725453eaccc8ebc239629e724fc53"
-
+  # future sort function
+  # get '/sort_peeps' do
+  #   if logged_in?
+  #     @peeps = PeepRepository.all
+  #     @user_repo = UserRepository
+  #     @tag_repo = TagRepository
+  #     @reply_repo = ReplyRepository
+  #     @peep_tag_repo = PeepTagRepository
+  #     @sorted_peeps = PeepRepository.sort_by_timestamp(@peeps)
+  
+  #     erb :feed, locals: { peeps: @sorted_peeps }, layout: :'_feed_layout'
+  #   else
+  #     redirect '/login'
+  #   end
+  # end
+  
+  # get '/revert_sorting' do
+  #   if logged_in?
+  #     @peeps = PeepRepository.all
+  #     @user_repo = UserRepository
+  #     @tag_repo = TagRepository
+  #     @reply_repo = ReplyRepository
+  #     @peep_tag_repo = PeepTagRepository.reverse!
+  #     erb :feed
+  #   else
+  #     redirect '/login'
+  #   end
+  # end
+  
   get '/feed' do
     if logged_in?
       @peeps = PeepRepository.all
-      @sorted_peeps = PeepRepository.sort_by_timestamp(@peeps)
+      @sorted_peeps = PeepRepository.sort_by_timestamp(@peeps).reverse!
       @user_repo = UserRepository
       @tag_repo = TagRepository
       @reply_repo = ReplyRepository
@@ -54,7 +82,7 @@ class Feed < Sinatra::Base
     user = UserRepository.find(user_id)
     erb :user_info, locals: { user: user }
   end
-  
+
   private
 
   def logged_in?
