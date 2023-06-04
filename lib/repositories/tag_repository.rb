@@ -1,5 +1,5 @@
 require_relative '../models/tag'
-require 'database_connection'
+
 
 class TagRepository
   def self.create(name)

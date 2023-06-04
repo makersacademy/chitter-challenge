@@ -1,5 +1,4 @@
 require_relative '../models/user'
-require 'database_connection'
 
 class UserRepository
   def self.create(name, username, email, password)
@@ -7,6 +6,13 @@ class UserRepository
     DatabaseConnection.exec_params(query, [name, username, email, password])
 
     return nil
+  end
+
+  def self.find(id)
+    query = "SELECT id, name, username, email, password FROM users WHERE id = $1;"
+    result = DatabaseConnection.exec_params(query, [id])
+
+    return find_helper(result)
   end
 
   def self.find_by_email(email)

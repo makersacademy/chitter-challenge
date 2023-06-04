@@ -1,5 +1,5 @@
 require_relative '../models/reply'
-require 'database_connection'
+
 
 class ReplyRepository
   def self.create(content, user_id, peep_id)

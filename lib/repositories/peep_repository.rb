@@ -1,5 +1,5 @@
 require_relative '../models/peep'
-require 'database_connection'
+
 
 class PeepRepository
   def self.create(content, user_id)
