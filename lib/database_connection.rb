@@ -13,10 +13,10 @@ class DatabaseConnection
   def self.connect
     # If the environment variable (set by Render)
     # is present, use this to open the connection.
-    # if ENV['DATABASE_URL'] != nil
-    #   @connection = PG.connect(ENV['DATABASE_URL'])
-    #   return
-    # end
+    if ENV['DATABASE_URL'] != nil
+      @connection = PG.connect(ENV['DATABASE_URL'])
+      return
+    end
   
     if ENV['ENV'] == 'test'
       database_name = 'chitter_test'
