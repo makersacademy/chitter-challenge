@@ -7,6 +7,10 @@
     <div>
         <p>Your Peep is now live:</p>
         <blockquote><%= @peep.content %></blockquote>
+        <% if @mention %>
+        <p>You mentioned <%= @mention %> in your Peep. We'll send them a notification.</p>
+        <% end %>
+        <p>
         <p><a href="/">Back to the Feed</a></p>
     </div>
   </body>
