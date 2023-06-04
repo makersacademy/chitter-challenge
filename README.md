@@ -1,123 +1,97 @@
-Chitter Challenge
-=================
+# CyberTwitter
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
+CyberTwitter is a small Twitter clone web application built with Ruby, Sinatra, and JavaScript. It allows users to sign up, log in, post "peeps" (tweets), and view a feed of peeps from other users.
 
-Challenge:
--------
+## Features
 
-As usual please start by forking this repo.
+- User authentication: Sign up and log in securely.
+- Posting peeps: Share your thoughts and updates with other users.
+- Feed: View a chronological list of peeps from all users.
+- Profile page: See your own profile with your posted peeps.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+## Deployment
 
-Features:
--------
+The CyberTwitter application is deployed and can be accessed at [https://chitter-yuhm.onrender.com](https://chitter-yuhm.onrender.com) on Render.
 
-```
-STRAIGHT UP
+## Local Development
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+To run CyberTwitter locally, follow the instructions below:
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+1. Clone the repository:
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+`git clone https://github.com/your-username/cybertwitter.git`
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+2. Navigate to the project directory:
 
-HARDER
+`cd cybertwitter`
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
+3. Install the required gems:
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+`bundle install`
 
-ADVANCED
+4. Set up the database:
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+- Ensure you have PostgreSQL installed and running.
+- Create a new database for CyberTwitter.
+- Import the database schema using the `psql` command:
 
-Technical Approach:
------
+  ```
+  psql -h 127.0.0.1 -d your_database_name < path/to/schema.sql
+  ```
 
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
+  Replace `your_database_name` with the name of your PostgreSQL database, and `path/to/schema.sql` with the actual path to your schema file.
 
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
+5. Start the server:
 
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
+`rackup`
 
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
+The application will be running on `http://localhost:9292`.
 
-Notes on functionality:
-------
+## Dependencies
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+CyberTwitter relies on the following technologies, libraries, and tools:
 
-Bonus:
------
+- Ruby 2.7+
+- Sinatra web framework
+- WEBrick server
+- JavaScript
+- PostgreSQL database
+- ActiveRecord ORM
+- BCrypt for password hashing
+- RSpec for testing
+- SecureRandom for generating secure random tokens
 
-If you have time you can implement the following:
+## Testing
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+CyberTwitter includes a suite of RSpec tests to ensure its functionality is working correctly. You can run the tests using the following command:
 
-And/Or:
+`rspec`
 
-* Work on the CSS to make it look good.
 
-Good luck and let the chitter begin!
+## Routes
 
-Code Review
------------
+CyberTwitter includes the following routes:
 
-In code review we'll be hoping to see:
+- `GET /`: Home page of the application.
+- `GET /signup`: Sign up page for creating a new user account.
+- `POST /signup`: Endpoint for creating a new user account.
+- `GET /login`: Login page for existing users.
+- `POST /login`: Endpoint for user login.
+- `GET /logout`: Endpoint for user logout.
+- `GET /feed`: View the feed of all peeps.
+- `GET /profile`: View the user's profile page.
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+Please refer to the application code for more details on each route's functionality.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
+## Contributing
 
-Notes on test coverage
-----------------------
+Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request. Make sure to follow the existing code style and guidelines.
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+## License
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+This project is licensed under the [MIT License](LICENSE).
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+## Acknowledgements
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+CyberTwitter was developed as part of a learning project and is inspired by the Chitter Challenge. Special thanks to the contributors and the open-source community for their valuable resources and guidance.
