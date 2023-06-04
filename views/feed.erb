@@ -17,7 +17,7 @@
       <p>
       <%= peep.content %>
       <br  />
-      <small>Posted by <%= peep.maker_name %>, <a href="/peep/<%= peep.id %>"><%= Time.new(peep.time).strftime('%e %b %Y at %I:%M').strip %></a></small>
+      <small>Posted by <%= peep.maker_name %>, <a href="/peep/<%= peep.id %>"><%= Time.new(peep.time).strftime('%e %b %Y at %H:%M').strip %></a></small>
       </p>
     </div>
     <% end %>
