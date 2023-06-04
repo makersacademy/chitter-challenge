@@ -25,7 +25,7 @@ describe Mentions do
   
   describe ".send_notification" do
     it "emails the mentioned Maker" do
-      peep = double("Peep", content: "@Eugene Lorem ispum.", time: "2023-03-08 04:05:06", maker_id: 1, maker_name: "Sean")
+      peep = double("Peep", content: "@Eugene Lorem ispum.", time: "2023-03-08 04:05:06", maker_id: 1, maker_name: "Sean", code: 200, body: "Queued. Thank you.")
       result = Mentions.new.send_notification(peep)
       expect(result.code).to eq(200)
       expect(result.body).to include("Queued. Thank you.")

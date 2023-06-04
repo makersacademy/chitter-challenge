@@ -21,6 +21,10 @@ class Mentions
                         subject: 'Chitter mention',
                         text:    "Someone just Peeped about you: #{peep.content}"
                       }
+    if ENV['ENV'] == 'test'
+      result = peep
+      return result
+    end
     
     result = mg_client.send_message ENV["CHITTER_SENDING_DOMAIN"], message_params
     return result
