@@ -3,19 +3,8 @@
 <head>
   <title>Global Feed</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <style>
-    /* Add your custom styles here */
-    #user-info-popup {
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: black;
-      border: 1px solid black;
-      padding: 10px;
-      display: none;
-      z-index: 999;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="/css/feed_style.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     $(document).ready(function() {
@@ -49,6 +38,7 @@
 <body>
   <header>
     <h1>Global Feed</h1>
+    <a href="/profile" class="button">Back to Profile</a>
   </header>
 
   <main>
@@ -64,7 +54,7 @@
       <% else %>
         <div class="login-message">
           <p>You must be logged in to create peeps.</p>
-          <a href="/login">Log in</a>
+          <a href="/login" class="button">Log in</a>
         </div>
       <% end %>
 
@@ -117,6 +107,6 @@
     <!-- User info will be dynamically loaded here -->
   </div>
 
-  <a href="/profile">Back to Profile</a>
+  <a href="/profile" class="button">Back to Profile</a>
 </body>
 </html>
