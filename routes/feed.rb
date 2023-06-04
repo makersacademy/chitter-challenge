@@ -49,6 +49,12 @@ class Feed < Sinatra::Base
     end
   end
 
+  get '/user_info/:user_id' do
+    user_id = params[:user_id].to_i
+    user = UserRepository.find(user_id)
+    erb :user_info, locals: { user: user }
+  end
+  
   private
 
   def logged_in?

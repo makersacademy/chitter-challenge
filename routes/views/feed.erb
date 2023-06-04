@@ -1,71 +1,121 @@
-<!-- feed.erb -->
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Global Feed</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <style>
+    /* Add your custom styles here */
+    #user-info-popup {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: black;
+      border: 1px solid black;
+      padding: 10px;
+      display: none;
+      z-index: 999;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.user-info').hover(function(e) {
+        var userId = $(this).data('user-id');
+        var mouseX = e.clientX;
+        var mouseY = e.clientY;
+        $.ajax({
+          url: '/user_info/' + userId,
+          type: 'GET',
+          success: function(data) {
+            $('#user-info-popup').html(data);
+            $('#user-info-popup').css({
+              top: mouseY + 'px',
+              left: mouseX + 'px',
+            });
+            $('#user-info-popup').show(); // Show the pop-up window
+          }
+        });
+      }, function() {
+        $('#user-info-popup').empty();
+        $('#user-info-popup').hide(); // Hide the pop-up window
+      });
+    });
+
+    $(window).scroll(function() {
+      $('#user-info-popup').hide(); // Hide the pop-up window on scroll
+    });
+  </script>
 </head>
 <body>
-  <h1>Global Feed</h1>
+  <header>
+    <h1>Global Feed</h1>
+  </header>
 
-  <% if logged_in? %>
-    <div class="create-peep">
-      <h2>Create a Peep</h2>
-      <form action="/create_peep" method="post">
-        <textarea name="content" placeholder="Write your peep here"></textarea>
-        <button type="submit">Peep</button>
-      </form>
-    </div>
-  <% else %>
-    <div class="login-message">
-      <p>You must be logged in to create peeps.</p>
-      <a href="/login">Log in</a>
-    </div>
-  <% end %>
-
-  <% @peeps.each do |peep| %>
-    <div class="peep">
-      <div class="author-info">
-        <h3><%= @user_repo.find(peep.user_id).name %></h3>
-        <p>@<%= @user_repo.find(peep.user_id).username %></p>
-      </div>
-      <div class="peep-content">
-        <p><%= peep.content %></p>
-      </div>
-      <div class="peep-meta">
-        <p><%= peep.timestamp %></p>
-        <% @peep_tag_repo.find_by_peep(peep.id).each do |peep_tag| %>
-          <span class="tag"><%= @tag_repo.find(peep_tag.tag_id).name %></span>
-        <% end %>
-      </div>
-      <div class="replies">
-        <% @reply_repo.find_by_peep(peep.id).each do |reply| %>
-          <div class="reply">
-            <div class="author-info">
-              <h4><%= @user_repo.find(reply.user_id).name %></h4>
-              <p>@<%= @user_repo.find(reply.user_id).username %></p>
-            </div>
-            <div class="reply-content">
-              <p><%= reply.content %></p>
-            </div>
-            <div class="reply-meta">
-              <p><%= reply.timestamp %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
+  <main>
+    <div class="feed-container">
       <% if logged_in? %>
-        <div class="reply-form">
-          <form action="/reply" method="post">
-            <input type="hidden" name="peep_id" value="<%= peep.id %>">
-            <textarea name="content" placeholder="Write a reply"></textarea>
-            <button type="submit">Reply</button>
+        <div class="create-peep">
+          <h2>Create a Peep</h2>
+          <form action="/create_peep" method="post">
+            <textarea name="content" placeholder="Write your peep here"></textarea>
+            <button type="submit">Peep</button>
           </form>
+        </div>
+      <% else %>
+        <div class="login-message">
+          <p>You must be logged in to create peeps.</p>
+          <a href="/login">Log in</a>
+        </div>
+      <% end %>
+
+      <% @peeps.each do |peep| %>
+        <div class="peep">
+          <div class="author-info">
+            <h3><span class="user-info" data-user-id="<%= peep.user_id %>"><%= @user_repo.find(peep.user_id).name %></span></h3>
+            <p>@<%= @user_repo.find(peep.user_id).username %></p>
+          </div>
+          <div class="peep-content">
+            <p><%= peep.content %></p>
+          </div>
+          <div class="peep-meta">
+            <p><%= peep.timestamp %></p>
+            <% @peep_tag_repo.find_by_peep(peep.id).each do |peep_tag| %>
+              <span class="tag"><%= @tag_repo.find(peep_tag.tag_id).name %></span>
+            <% end %>
+          </div>
+          <div class="replies">
+            <% @reply_repo.find_by_peep(peep.id).each do |reply| %>
+              <div class="reply">
+                <div class="author-info">
+                  <h4><span class="user-info" data-user-id="<%= reply.user_id %>"><%= @user_repo.find(reply.user_id).name %></span></h4>
+                  <p>@<%= @user_repo.find(reply.user_id).username %></p>
+                </div>
+                <div class="reply-content">
+                  <p><%= reply.content %></p>
+                </div>
+                <div class="reply-meta">
+                  <p><%= reply.timestamp %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% if logged_in? %>
+            <div class="reply-form">
+              <form action="/reply" method="post">
+                <input type="hidden" name="peep_id" value="<%= peep.id %>">
+                <textarea name="content" placeholder="Write a reply"></textarea>
+                <button type="submit">Reply</button>
+              </form>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+  </main>
+
+  <div id="user-info-popup">
+    <!-- User info will be dynamically loaded here -->
+  </div>
 
   <a href="/profile">Back to Profile</a>
 </body>
