@@ -43,6 +43,18 @@ describe MakerRepository do
       expect(maker).to eq(nil)
     end
   end
+  
+  describe "#find_by_name" do
+    it "returns a Maker object for the given name" do
+      maker = MakerRepository.new.find_by_name('Sean')
+      expect(maker.id).to eq 1
+    end
+    
+    it "returns nothing for an incorrect name" do
+      maker = MakerRepository.new.find_by_name('Sharon')
+      expect(maker).to eq(nil)
+    end
+  end
 
   describe "#create" do
     it "creates a new Maker" do

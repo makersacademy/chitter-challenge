@@ -51,6 +51,23 @@ class MakerRepository
     end
   end
   
+  def find_by_name(name)
+    sql = 'SELECT id, name, email, password FROM makers WHERE name = $1 LIMIT 1;'
+    result_set = DatabaseConnection.exec_params(sql, [name])
+    
+    if result_set.num_tuples == 0
+      return nil
+    else
+      maker = Maker.new
+      maker.id = result_set[0]['id'].to_i
+      maker.name = result_set[0]['name']
+      maker.email = result_set[0]['email']
+      maker.password = result_set[0]['password']
+      
+      return maker
+    end
+  end
+  
   def create(maker)
     sql = 'INSERT INTO makers (name, email, password) VALUES($1, $2, $3);'
     DatabaseConnection.exec_params(sql, [maker.name, maker.email, maker.password])
