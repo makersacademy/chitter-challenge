@@ -1,0 +1,37 @@
+<div class="peep">
+  <div class="peep-header">
+    <span class="peep-author">
+      <%= @user_repo.find(peep.user_id).name %>
+      (@<%= @user_repo.find(peep.user_id).username %>)
+    </span>
+    <span class="peep-timestamp"><%= peep.timestamp %></span>
+  </div>
+  <div class="peep-content">
+    <%= peep.content %>
+  </div>
+  <% tags = @peep_tag_repo.find_by_peep(peep.id) %>
+  <% unless tags.empty? %>
+    <div class="peep-tags">
+      <strong>Tags:</strong>
+      <% tags.each do |tag| %>
+        <span class="tag"><%= @tag_repo.find(tag.tag_id).name %></span>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="peep-reply">
+    <form action="/reply" method="POST">
+      <input type="hidden" name="peep_id" value="<%= peep.id %>">
+      <textarea name="content" placeholder="Write a reply..."></textarea>
+      <button type="submit">Reply</button>
+    </form>
+  </div>
+  <% replies = @reply_repo.find_by_peep(peep.id) %>
+  <% unless replies.empty? %>
+    <div class="peep-replies">
+      <h3>Replies:</h3>
+      <% replies.each do |reply| %>
+        <%= erb :reply, locals: { reply: reply } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

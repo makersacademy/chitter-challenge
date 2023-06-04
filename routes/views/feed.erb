@@ -1,0 +1,72 @@
+<!-- feed.erb -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Global Feed</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <h1>Global Feed</h1>
+
+  <% if logged_in? %>
+    <div class="create-peep">
+      <h2>Create a Peep</h2>
+      <form action="/create_peep" method="post">
+        <textarea name="content" placeholder="Write your peep here"></textarea>
+        <button type="submit">Peep</button>
+      </form>
+    </div>
+  <% else %>
+    <div class="login-message">
+      <p>You must be logged in to create peeps.</p>
+      <a href="/login">Log in</a>
+    </div>
+  <% end %>
+
+  <% @peeps.each do |peep| %>
+    <div class="peep">
+      <div class="author-info">
+        <h3><%= @user_repo.find(peep.user_id).name %></h3>
+        <p>@<%= @user_repo.find(peep.user_id).username %></p>
+      </div>
+      <div class="peep-content">
+        <p><%= peep.content %></p>
+      </div>
+      <div class="peep-meta">
+        <p><%= peep.timestamp %></p>
+        <% @peep_tag_repo.find_by_peep(peep.id).each do |peep_tag| %>
+          <span class="tag"><%= @tag_repo.find(peep_tag.tag_id).name %></span>
+        <% end %>
+      </div>
+      <div class="replies">
+        <% @reply_repo.find_by_peep(peep.id).each do |reply| %>
+          <div class="reply">
+            <div class="author-info">
+              <h4><%= @user_repo.find(reply.user_id).name %></h4>
+              <p>@<%= @user_repo.find(reply.user_id).username %></p>
+            </div>
+            <div class="reply-content">
+              <p><%= reply.content %></p>
+            </div>
+            <div class="reply-meta">
+              <p><%= reply.timestamp %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% if logged_in? %>
+        <div class="reply-form">
+          <form action="/reply" method="post">
+            <input type="hidden" name="peep_id" value="<%= peep.id %>">
+            <textarea name="content" placeholder="Write a reply"></textarea>
+            <button type="submit">Reply</button>
+          </form>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <a href="/profile">Back to Profile</a>
+</body>
+</html>

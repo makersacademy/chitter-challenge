@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CyberTwitter - Profile</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <% if @user %>
+    <div class="profile-container">
+      <h2>Welcome, <%= @user.username %>!</h2>
+      <h3>Your Peeps:</h3>
+      <% @peeps.each do |peep| %>
+        <div class="peep">
+          <p><%= peep.content %></p>
+          <p>Posted by: <%= peep.user_id %></p>
+        </div>
+      <% end %>
+      <a href="/logout">Logout</a>
+    </div>
+  <% else %>
+    <p>You are not logged in.</p>
+    <a href="/login">Log in</a>
+    <span>&nbsp;</span>
+    <a href="/signup">Sign up</a>
+  <% end %>
+</body>
+</html>
