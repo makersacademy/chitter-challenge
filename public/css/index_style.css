@@ -1,0 +1,61 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(https://images2.alphacoders.com/778/thumb-1920-77840.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the transparency here */
+}
+
+.content {
+  text-align: center;
+  z-index: 1;
+}
+
+.heading {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-button,
+.login-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #1e7ea8;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.signup-button:hover,
+.login-button:hover {
+  background-color: #0e5d80;
+}
