@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <%= erb(:header) %>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <p><% if session[:maker_id] != nil %>
+      Logged in as <%= session[:maker_name] %>. <a href="/maker/logout">Log out</a>.
+      <% else %>
+      <a href="/maker/new">Register</a> / <a href="/maker/login">Log in</a>
+      <% end %>
+    </p>
+    <p>
+      <a href="/peep/new"><button>New Peep</button></a>
+    <% @peeps.each do |peep| %>
+    <div>
+      <p>
+      <%= peep.content %>
+      <br  />
+      <small>Posted by <%= peep.maker_name %>, <a href="/peep/<%= peep.id %>"><%= Time.new(peep.time).strftime('%e %b %Y at %H:%M').strip %></a></small>
+      </p>
+    </div>
+    <% end %>
+
+  </body>
+</html>

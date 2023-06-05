@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <%= erb(:header) %>
+  </head>
+  <body>
+    <h1>New Peep</h1>
+    <div>
+        <form action="/peep" method="POST">
+          <div>
+            <textarea name="content" rows="8" cols="48" placeholder="Peep away..."></textarea>
+          </div>
+          <input type="submit" value="Peep!">
+        </form>
+    </div>
+  </body>
+</html>
