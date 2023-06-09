@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CyberTwitter - Profile</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/profile_style.css">
+</head>
+<body>
+  <% if @user %>
+    <div class="profile-container">
+      <header>
+        <h1>Your Profile</h1>
+        <a href="/feed" class="button">Go to Feed</a> 
+      </header>
+
+      <main>
+        <div class="feed-container">
+          <h3>Welcome, <%= @user.username %>!</h3>
+
+          <h4>My Peeps:</h4>
+
+          <% @peeps.each do |peep| %>
+            <div class="peep">
+              <div class="peep-content">
+                <p><%= peep.content %></p>
+              </div>
+              <div class="peep-meta">
+                <p>Posted by: <%= peep.user_id %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </main>
+
+      <footer>
+        <a href="/logout">Logout</a>
+      </footer>
+    </div>
+  <% else %>
+    <div class="login-container">
+      <p>You are not logged in.</p>
+      <div class="login-buttons">
+        <a href="/login" class="button">Log in</a>
+        <span>&nbsp;</span>
+        <a href="/signup" class="button">Sign up</a>
+      </div>
+    </div>
+  <% end %>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<div class="reply">
+  <div class="reply-header">
+    <span class="reply-author">
+      <%= @user_repo.find(reply.user_id).name %>
+      (@<%= @user_repo.find(reply.user_id).username %>)
+    </span>
+    <span class="reply-timestamp"><%= reply.timestamp %></span>
+  </div>
+  <div class="reply-content">
+    <%= reply.content %>
+  </div>
+</div>

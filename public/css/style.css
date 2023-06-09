@@ -1,0 +1,97 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #0e0e0e;
+  color: #fff;
+}
+
+header {
+  background-image: linear-gradient(90deg, #29abe0, #1e7ea8);
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.feed-container {
+  width: 800px;
+  margin: 20px;
+}
+
+.peep {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.author-info {
+  margin-bottom: 10px;
+}
+
+.user-info {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.peep-content {
+  margin-bottom: 10px;
+}
+
+.peep-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tag {
+  background-color: #1e7ea8;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.replies {
+  margin-left: 40px;
+}
+
+.reply {
+  background-color: #333;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.reply-meta {
+  margin-top: 10px;
+}
+
+.reply-form {
+  margin-top: 20px;
+}
+
+
+/* Additional Cyberpunk Styling */
+.signup-container {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.signup-form input {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.signup-form input[type="submit"]:hover {
+  background-color: #0e5d80;
+}
