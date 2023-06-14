@@ -15,13 +15,13 @@ RSpec.describe Peep do
   context 'when given valid text and user_id' do
 
     it 'should add a new peep to the database' do
-      text = "Hello World!"
+      text = "Hello, starting my chitter:)!"
       user_id = 1
       expect{ Peep.create(text, user_id) }.to change{ Peep.all.length }.by(1)
     end
 
     it 'should return a new Peep object with correct attributes' do
-      text = "Hello World!"
+      text = "Hello, starting my chitter:)!"
       user_id = 1
       peep = Peep.create(text, user_id)
       expect(peep).to be_instance_of(Peep)
@@ -41,8 +41,8 @@ RSpec.describe Peep do
       peeps = Peep.all
       expect(peeps.length).to eq(3)
       expect(peeps[0].text).to eq('Excited to start my new job tomorrow')
-      expect(peeps[1].text).to eq('Just finished a great workout!')
-      expect(peeps[2].text).to eq('Hello world!')
+      expect(peeps[1].text).to eq('Just finished my first marathon!')
+      expect(peeps[2].text).to eq('Hello, starting my chitter:)!')
     end
   end
 

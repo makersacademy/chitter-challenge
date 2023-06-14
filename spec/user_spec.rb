@@ -13,9 +13,9 @@ describe User do
 
   describe '.create' do
     it 'creates a new user' do
-      user = User.create('test_user', 'test_user@example.com', 'password')
-      expect(user.username).to eq 'test_user'
-      expect(user.email).to eq 'test_user@example.com'
+      user = User.create('ana', 'ana@example.com', 'password')
+      expect(user.username).to eq 'ana'
+      expect(user.email).to eq 'ana@example.com'
     end
   end
 
@@ -26,7 +26,7 @@ describe User do
     end
 
     it 'returns nil if no user has the given email address' do
-      user = User.find_by_email('nonexistent@example.com')
+      user = User.find_by_email('adssadsd@example.com')
       expect(user).to be_nil
     end
   end

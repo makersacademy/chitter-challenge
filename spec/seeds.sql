@@ -31,8 +31,8 @@ INSERT INTO users (username, email,password_digest) VALUES
 
 -- Insert some peeps
 INSERT INTO peeps (text, user_id, created_at) VALUES
-  ('Hello world!', 1, NOW()),
-  ('Just finished a great workout!', 2, NOW() - INTERVAL '1 day'),
+  ('Hello, starting my chitter:)!', 1, NOW()),
+  ('Just finished my first marathon!', 2, NOW() - INTERVAL '1 day'),
   ('Excited to start my new job tomorrow', 3, NOW() - INTERVAL '2 days');
 
 -- Insert some follower relationships
