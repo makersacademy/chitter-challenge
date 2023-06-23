@@ -108,39 +108,3 @@ HTML view with confirmation message
 You'll now test-drive and implement each route. If your application interacts with a
 database to store its data, you'll also have to test-drive and implement other layers of
 the program (such as Repository classes) as part of your work.
-
-## Challenge
-
-Model and plan the pages and routes for the following web application, which is a game of
-Rock Paper Scissors. Test-drive and implement it if you'd like an extra challenge.
-
-```
-As a Maker
-So I can play Rock Paper Scissors
-I would like to enter my move on the home page
-And click to confirm my move (rock, paper or scissors)
-
-As a Maker
-So I can play Rock Paper Scissors
-I would like the opponent's move to be decided randomly by the program
-
-As a Maker
-So I can play Rock Paper Scissors
-I would like to see the result of the game on the next page
-
-As a Maker
-So I can play Rock Paper Scissors again
-I would like to click on a link on the result page
-So it takes me back to the home page
-```
-
-
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
-
----
-
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications&prefill_File=pills%2Fmodelling_and_planning_web_application.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->
