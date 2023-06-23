@@ -1,5 +1,4 @@
 # Chitter Challenge by Pablo Joyce
-=================
 
 * This project is a solo Ruby project completed at the end of the web applications module of the Makers Academy bootcamp.
 * The application is built with the Sinatra web framework, rendering view files using ERB
@@ -7,8 +6,8 @@
 * The database connection is established in `lib/database_connection.rb` using the `pg` gem
 * Seed data for tests is included in `spec/seeds.sql`
 
-The Brief:
--------
+## The Brief
+
 To create a basic Twitter clone that will allow the users to post messages.
 We were given the following user stories as a starting point:
 
@@ -103,26 +102,26 @@ After login, you will be redirected to the home page where you can post a new me
 
 `rspec`
 
-All tests should pass with a total code coverage of 98.57%
+All tests should pass with a total code coverage of 98.57%. 
 
 ## Design
 
 The design planning used at the time of making can be seen in recipes/chitter_plan.md.
 
-I started by creating a [diagram of the user experience](.images/chitter3.png).
+I started by creating a [diagram of the user experience]([.images/chitter3.png](https://github.com/pablisch/chitter-challenge/blob/main/images/chitter3.png?raw=true)) and incorporated the routes and validations into this diagram:
 
-* This application follows a model - view - controller design pattern.
-* In the directory [./lib](./lib), each table in the DB has a corresponding Ruby class defined with a singular version of the name of the table.
+![chitter user experience diagram](./images/chitter3.png)
+
+The design itself changed a lot during the design process as the diagramming revealed issues and solved many problems before I started coding.
+This gave me a good roadmap from which to build the app.
+
+* The application is built with the Sinatra web framework, rendering view files using ERB
+* Each database table has a corresponding Ruby class defined with a singular version of the name of the table.
 * Each table has an additional 'TABLENAME_repository' class with methods that allow for CRUD operations on the DB.
+* The database connection is established in `lib/database_connection.rb` using the `pg` gem
+* The database tables have a one-to-many relationship with the users table. This is implemented by storing the user_id in the peeps table.
 * Route handling occurs in the `Application` class defined in [./app.rb](./app.rb). [./config.ru](./config.ru) executes the code inside of `Application` when `rackup` is run at the command line.
-* The database tables have the following relationships: `users` has a one-to-many relationship to `peeps` (synonymous with 'messages' - a further iteration would be to rename these uniformly), users and peeps have a many-to-many relationsip with respect to tags, so these are stored in the `tags` join table.
-* Given the brief, I began the planning process with an intial digram of how the application could be structured:
-  ![initial diagram](./chitter-initial-diagram.png)
-* The [route recipe](./route_recipe.md) and [schema recipe](./schema_recipe) files were created to aid in design.
-* The flow of execution for detecting tags in a message and storing these in the DB was conceptualised in this diagram:
-  ![chitter tags diagram](./chitter-tags-diagram.png)
 * Passwords are hashed using the [BCrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12) gem.
-* User input to messages is santized with basic measures to defend against cross-site scripting injection. In a real-world application I would consider instead using a dedicated and maintained library to provide a more robust defence here and would consider whether the use of the `pg` gem, and existing architecture, is enough to guard against a SQL injection attack.
 
 ## Technologies used
 
