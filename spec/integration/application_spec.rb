@@ -88,7 +88,7 @@ describe Application do
       response = get('/login')
       expect(response.status).to eq 200
       expect(response.body).to include "<h1>Log in to Chitter</h1>"
-      expect(response.body).to include '<form method="POST" action="/login">'
+      expect(response.body).to include '<form method="POST" action="/login"'
     end
   end
 
