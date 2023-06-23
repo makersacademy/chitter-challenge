@@ -99,19 +99,19 @@ Follow the link to register as a user, you will then be prompted to redirect to 
 
 After login, you will be redirected to the home page where you can post a new message. messages posted by all users will appear here in reverse chronological order.
 
-Running the tests:
-----------------------
+## Running the tests
 
 `rspec`
 
-All tests should pass with a total code coverage of 98.60%
+All tests should pass with a total code coverage of 98.57%
 
-A  TDD process was employed throughout developing this application. I tried to work with the 'testing pyramid' in mind - starting with a user experience based integration test, and then writing and passing additional, more granular unit tests that led to the integration test finally passing.
+## Design
 
-Design and Architecture:
-----------------------
+The design planning used at the time of making can be seen in recipes/chitter_plan.md.
 
-* This application follows a model, view, controller design pattern.
+I started by creating a [diagram of the user experience](.images/chitter3.png).
+
+* This application follows a model - view - controller design pattern.
 * In the directory [./lib](./lib), each table in the DB has a corresponding Ruby class defined with a singular version of the name of the table.
 * Each table has an additional 'TABLENAME_repository' class with methods that allow for CRUD operations on the DB.
 * Route handling occurs in the `Application` class defined in [./app.rb](./app.rb). [./config.ru](./config.ru) executes the code inside of `Application` when `rackup` is run at the command line.
@@ -124,6 +124,8 @@ Design and Architecture:
 * Passwords are hashed using the [BCrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12) gem.
 * User input to messages is santized with basic measures to defend against cross-site scripting injection. In a real-world application I would consider instead using a dedicated and maintained library to provide a more robust defence here and would consider whether the use of the `pg` gem, and existing architecture, is enough to guard against a SQL injection attack.
 
+## Technologies used
+
 This project uses:
 * Ruby
 * PostgreSQL
@@ -135,123 +137,15 @@ This project uses:
 * GitHub
 * Bcrypt
 
-In development, I employed:
+In development, this project also used:
 * Postman
 * TablePlus
 * RSpec
 
+## Notes on test coverage
 
-
-
-Chitter Challenge
-=================
-
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 10am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
-Technical Approach:
------
-
-In the last two weeks, you integrated a database using the `pg` gem and Repository classes. You also implemented small web applications using Sinatra, RSpec, HTML and ERB views to make dynamic webpages. You can continue to use this approach when building Chitter Challenge.
-
-You can refer to the [guidance on Modelling and Planning a web application](https://github.com/makersacademy/web-applications/blob/main/pills/modelling_and_planning_web_application.md), to help you in planning the different web pages you will need to implement this challenge. If you'd like to deploy your app to Heroku so other people can use it, [you can follow this guidance](https://github.com/makersacademy/web-applications/blob/main/html_challenges/07_deploying.md).
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface, instead of implementing your own Repository classes.
-
-Some useful resources:
-**Ruby Object Mapper**
-- [ROM](https://rom-rb.org/)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra & ActiveRecord setup](https://learn.co/lessons/sinatra-activerecord-setup)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/main/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want at this moment.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+The following code **AT THE TOP** of spec_helper.rb causes test coverage stats to be generated
+on pull request:
 
 ```ruby
 require 'simplecov'
@@ -264,5 +158,3 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 ```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
