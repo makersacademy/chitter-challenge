@@ -1,5 +1,7 @@
 # Chitter Challenge by Pablo Joyce
 
+[Getting Started](#getting-started) | [Using the application](#using-the-application) | [Running the tests](#running-the-tests) | [Design](#design) | [Screenshots](#screenshots) | [Technologies used](#technologies-used) | [Notes on test coverage](#notes-on-test-coverage)
+
 * This project is a solo Ruby project completed at the end of the web applications module of the Makers Academy bootcamp.
 * The application is built with the Sinatra web framework, rendering view files using ERB
 * The application uses a PostgresSQL database
@@ -54,7 +56,8 @@ We were given the following notes on functionality:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
-## Getting Started
+## Getting Started 
+[Back to top](#chitter-challenge-by-pablo-joyce)
 
 At time of writing, this project has a version deployed on Render at [https://chitter-7pam.onrender.com/](https://chitter-7pam.onrender.com/). Please note that this may take 30 seconds or longer to 'spin up' as it is deployed on a free tier of Render.
 At some point in the future, this version may be taken down as Render only allows a single database instance on the free tier.
@@ -91,6 +94,7 @@ Start the development server:
 Access the website in your browser at [localhost:9292](http://localhost:9292/).
 
 ## Using the application
+[Back to top](#chitter-challenge-by-pablo-joyce)
 
 Be default uses can see all messages posted by all users, but cannot post messages.
 
@@ -105,6 +109,7 @@ After login, you will be redirected to the home page where you can post a new me
 All tests should pass with a total code coverage of 98.57%. 
 
 ## Design
+[Back to top](#chitter-challenge-by-pablo-joyce)
 
 The design planning used at the time of making can be seen in recipes/chitter_plan.md.
 
@@ -123,7 +128,17 @@ This gave me a good roadmap from which to build the app.
 * Route handling occurs in the `Application` class defined in [./app.rb](./app.rb). [./config.ru](./config.ru) executes the code inside of `Application` when `rackup` is run at the command line.
 * Passwords are hashed using the [BCrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12) gem.
 
+## Screenshots
+
+Register a new user:
+<img src="images/register.png" alt="Register a new user" style="width:450px">
+
+Main screen when logged in:
+
+<img src="images/logged-in.png" alt="Main screen when logged in" style="width:450px">
+
 ## Technologies used
+[Back to top](#chitter-challenge-by-pablo-joyce)
 
 This project uses:
 * Ruby
@@ -142,6 +157,7 @@ In development, this project also used:
 * RSpec
 
 ## Notes on test coverage
+[Back to top](#chitter-challenge-by-pablo-joyce)
 
 The following code **AT THE TOP** of spec_helper.rb causes test coverage stats to be generated
 on pull request:
