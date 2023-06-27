@@ -57,7 +57,7 @@ We were given the following notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
 ## Getting Started 
-[Back to top](#chitter-challenge-by-pablo-joyce)
+[Top](#chitter-challenge-by-pablo-joyce) | [Use](#using-the-application) | [Tests](#running-the-tests) | [Design](#design) | [Screenshots](#screenshots) | [Tech](#technologies-used) | [Coverage](#notes-on-test-coverage)
 
 At time of writing, this project has a version deployed on Render at [https://chitter-7pam.onrender.com/](https://chitter-7pam.onrender.com/). Please note that this may take 30 seconds or longer to 'spin up' as it is deployed on a free tier of Render.
 At some point in the future, this version may be taken down as Render only allows a single database instance on the free tier.
@@ -94,7 +94,7 @@ Start the development server:
 Access the website in your browser at [localhost:9292](http://localhost:9292/).
 
 ## Using the application
-[Back to top](#chitter-challenge-by-pablo-joyce)
+[Top](#chitter-challenge-by-pablo-joyce) | [Getting Started](#getting-started) | [Tests](#running-the-tests) | [Design](#design) | [Screenshots](#screenshots) | [Tech](#technologies-used) | [Coverage](#notes-on-test-coverage)
 
 Be default uses can see all messages posted by all users, but cannot post messages.
 
@@ -106,10 +106,12 @@ After login, you will be redirected to the home page where you can post a new me
 
 `rspec`
 
-All tests should pass with a total code coverage of 98.57%. 
+All tests should pass with a total code coverage of **99.41%**. 
+
+Screenshots of the tests and coverage can be found in the [Coverage](#notes-on-test-coverage) section of this readme.
 
 ## Design
-[Back to top](#chitter-challenge-by-pablo-joyce)
+[Top](#chitter-challenge-by-pablo-joyce) | [Getting Started](#getting-started) | [Use](#using-the-application) | [Tests](#running-the-tests) | [Screenshots](#screenshots) | [Tech](#technologies-used) | [Coverage](#notes-on-test-coverage)
 
 The design planning used at the time of making can be seen in recipes/chitter_plan.md.
 
@@ -129,16 +131,26 @@ This gave me a good roadmap from which to build the app.
 * Passwords are hashed using the [BCrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12) gem.
 
 ## Screenshots
+[Top](#chitter-challenge-by-pablo-joyce) | [Getting Started](#getting-started) | [Use](#using-the-application) | [Tests](#running-the-tests) | [Design](#design) | [Tech](#technologies-used) | [Coverage](#notes-on-test-coverage)
 
 Register a new user:
-<img src="images/register.png" alt="Register a new user" style="width:450px">
+
+<img src="images/register.png" alt="Register a new user" style="max-width:600px">
 
 Main screen when logged in:
 
-<img src="images/logged-in.png" alt="Main screen when logged in" style="width:450px">
+<img src="images/logged-in.png" alt="Main screen when logged in" style="max-width:600px">
+
+Create a new peep:
+
+<img src="images/create.png" alt="Create a new peep" style="max-width:600px">
+
+Display new peep:
+
+<img src="images/new.png" alt="Display new peep" style="max-width:600px">
 
 ## Technologies used
-[Back to top](#chitter-challenge-by-pablo-joyce)
+[Top](#chitter-challenge-by-pablo-joyce) | [Getting Started](#getting-started) | [Use](#using-the-application) | [Tests](#running-the-tests) | [Design](#design) | [Screenshots](#screenshots) | [Coverage](#notes-on-test-coverage)
 
 This project uses:
 * Ruby
@@ -157,9 +169,9 @@ In development, this project also used:
 * RSpec
 
 ## Notes on test coverage
-[Back to top](#chitter-challenge-by-pablo-joyce)
+[Top](#chitter-challenge-by-pablo-joyce) | [Getting Started](#getting-started) | [Use](#using-the-application) | [Tests](#running-the-tests) | [Design](#design) | [Screenshots](#screenshots) | [Tech](#technologies-used)
 
-The following code **AT THE TOP** of spec_helper.rb causes test coverage stats to be generated
+The following code **at the top** of spec_helper.rb causes test coverage stats to be generated
 on pull request:
 
 ```ruby
@@ -173,3 +185,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 ```
+
+Coverage: 
+
+<img src="images/coverage.png" alt="Test coverage" style="width:600px">
+
+Test results:
+
+<img src="images/tests.png" alt="Test results" style="width:600px">
