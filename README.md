@@ -135,19 +135,19 @@ This gave me a good roadmap from which to build the app.
 
 Register a new user:
 
-<img src="images/register.png" alt="Register a new user" style="max-width:600px">
+<img src="images/register.png" alt="Register a new user" style="width:600px">
 
 Main screen when logged in:
 
-<img src="images/logged-in.png" alt="Main screen when logged in" style="max-width:600px">
+<img src="images/logged-in.png" alt="Main screen when logged in" style="width:600px">
 
 Create a new peep:
 
-<img src="images/create.png" alt="Create a new peep" style="max-width:600px">
+<img src="images/create.png" alt="Create a new peep" style="width:600px">
 
 Display new peep:
 
-<img src="images/new.png" alt="Display new peep" style="max-width:600px">
+<img src="images/new.png" alt="Display new peep" style="width:600px">
 
 ## Technologies used
 [Top](#chitter-challenge-by-pablo-joyce) | [Getting Started](#getting-started) | [Use](#using-the-application) | [Tests](#running-the-tests) | [Design](#design) | [Screenshots](#screenshots) | [Coverage](#notes-on-test-coverage)
