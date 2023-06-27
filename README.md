@@ -188,8 +188,8 @@ SimpleCov.start
 
 Coverage: 
 
-<img src="images/coverage.png" alt="Test coverage" style="width:600px">
+<img src="images/coverage.png" alt="Test coverage" style="max-width:600px">
 
 Test results:
 
-<img src="images/tests.png" alt="Test results" style="width:600px">
+<img src="images/tests.png" alt="Test results" style="max-width:600px">
