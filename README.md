@@ -192,4 +192,4 @@ Coverage:
 
 Test results:
 
-<img src="images/tests.png" alt="Test results" style="max-width:500px">
+<img src="images/tests.png" alt="Test results" style="max-width:400px">
