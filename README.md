@@ -2,6 +2,14 @@
 
 [Getting Started](#getting-started) | [Using the application](#using-the-application) | [Running the tests](#running-the-tests) | [Design](#design) | [Screenshots](#screenshots) | [Technologies used](#technologies-used) | [Notes on test coverage](#notes-on-test-coverage)
 
+<p align="left">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="40" height="40"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rspec/rspec-original.svg" alt="rspec" width="40" height="40"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="postgresql" width="40" height="40"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" width="40" height="40"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="github" width="40" height="40"/>
+</p>
+
 * This project is a solo Ruby project completed at the end of the web applications module of the Makers Academy bootcamp.
 * The application is built with the Sinatra web framework, rendering view files using ERB
 * The application uses a PostgresSQL database
