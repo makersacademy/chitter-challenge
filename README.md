@@ -1,46 +1,79 @@
-Chitter 
-=================
+# Chitter
+![screenshot from mainpage](https://i.ibb.co/6yRwbLC/Screenshot-2023-07-03-at-23-18-55.png)
 
-A very brief personal message:
-I have used ActiveRecord for this project, which led me down to a bit of a rabbit hole while setting it up to work with Sinatra. Almost all the information available for ActiveRecord is based on Rails framework and since Rails has ActiveRecord built into it, it was fairly challenging just to connect ActiveRecord to Sinatra and the database. 
+## Table of Contents
 
-On a positive note, ActiveRecord really helps simplify interaction with the database and eliminates the need for constructing own repositories (and subsequent unit tests). It handles relatively complex SQL queries in a easy to read and efficient way.
+1. [Project Description](https://github.com/umutbaykan/chitter-challenge#project-description)
+2. [Features](https://github.com/umutbaykan/chitter-challenge#features)
+3. [Technologies](https://github.com/umutbaykan/chitter-challenge#technologies)
+4. [How Does It Work](https://github.com/umutbaykan/chitter-challenge#how-does-it-work)
+5. [Installation](https://github.com/umutbaykan/chitter-challenge#installation)
+6. [TODO's](https://github.com/umutbaykan/chitter-challenge#todos)
 
-Features:
--------
-- Users need to register to post. Passwords are encrypted upon saving. Users cannot register with a username or an email that already exists in database.
-- Users can register and login / logout. Credentials are checked when they are logging in.
-- Users are redirected to login page if they try to post / reply to other posts unless they are logged in.
-- Users see the posts in reverse chronological order on the main page. Main page is accessible even if they are not logged in.
-- Users can post new posts. Posts display their author's username, as well as the date it was posted on.
-- Users can reply to existing posts. Replies are in chronological order unlike the main posts to make it easier to follow a discussion.
-- All posts display their author username and the time they were posted. They consciously do not display the author's real name / surname.
-- Users can tag other users if they use an @ sign followed by another user's username (i.e. "I'm tagging @Useface here"). The tagged user will get a notification email.
-- User input is checked and validated to prevent malicious intent.
 
-How does it work:
--------
-The routes can be summarised by the diagram below.
-![Excalidraw diagram showing how routes and redirections work](https://i.ibb.co/SV3dv6X/main-graphic.png)
+## Project Description 
 
-There are two tables for the database; users and posts. They share a one to many relationship, meaning each user can have multiple posts but a post only belongs to a single user. Users are referred with a user_id foreign key in the posts table.
+Chitter is a project completed during the Makers Academy software development bootcamp. It is a server-side rendered twitter clone application that allows users to send posts and interact with other users through RESTful API methods. The application utilizes Ruby and incorporates the use of a PostgreSQL database to store user and post information.
 
-Table Structure:
+The project was developed to fulfill the requirements outlined in the [brief](https://github.com/makersacademy/chitter-challenge#features) provided by Makers Academy. The complete list of application features can be found in the [features](https://github.com/umutbaykan/chitter-challenge#features) section. The implementation of this project aims to meet the entire brief with the exception of the CSS and leverages ActiveRecord, an ORM tool, to handle the challenges encountered while satisfying more complex requirements.
 
-Users have - id, username, real_name, email, password (encrypted) 
-Posts have - id, content, parent_id (optionoal), created_at, updated_at, user_id (foreign key to users.id)
+## Features
+
+This project satisfies all the requirements outlined in the Makers brief, and includes additional features to enhance the functionality. The complete list of features is as follows:
+
+- User Registration: Users are required to register in order to post. The application encrypts passwords for secure storage. Duplicate usernames or emails are not allowed during registration.
+- User Authentication: Users can register, log in, and log out. The application verifies credentials during the login process.
+- Access Control: Users are redirected to the login page if they attempt to post or reply without being logged in. However, the main page is accessible even without logging in.
+- Chronological Post Order: Posts on the main page are displayed in reverse chronological order.
+- Post Creation: Users can create new posts, which display the username of the author and the date of posting.
+- Post Replies: Users can reply to existing posts. Unlike the main posts, replies are displayed in chronological order to make it easier to follow a discussion.
+- Post Information: Posts display the author's username and the time of posting, but do not reveal the author's real name or surname.
+- User Tagging: Users can tag other users by mentioning their username preceded by the "@" symbol (e.g., "I'm tagging @Useface here"). The tagged user will receive a notification email.
+- Input Validation: User input is checked and validated to prevent any potential malicious intent.
+  
+## Technologies
+
+- Ruby <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="40" height="40"/>
+
+- RSpec <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rspec/rspec-original.svg" alt="rspec" width="40" height="40"/>
+
+- PostgreSQL <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="postgresql" width="40" height="40"/>
+
+- HTML <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" alt="html" width="40" height="40"/>
+
+Additional technologies used in the project include:
+
+- Sinatra: Web framework.
+- Capybara: Used for testing HTML content.
+- ActiveRecord: Utilized for object-relational mapping.
+- BCrypt: Used for password hashing.
+
+## How Does It Work
+
+The functionality of the application can be summarized using the following diagram:
+
+![Excalidraw diagram showing how routes and redirections work](https://i.ibb.co/Sd1ztG5/chitterdiagram-min.jpg)
+
+The database consists of two tables: users and posts. They are connected by a one-to-many relationship, where each user can have multiple posts, but each post belongs to a single user. Users are referred to with a foreign key in the posts table.
+
+### Table Structure:
+
+Users table - id, username, real_name, email, password (encrypted) 
+Posts table - id, content, parent_id (optional), created_at, updated_at, user_id (foreign key to users.id)
 
 At this point it is important to talk about how reply feature (therefore parent_id) works. 
-Suppose we have a 4 posts in total, lets call them Post_1, Post_2, Post_3 and Post_4. Lets assume Post_2 and Post_3 are responses to Post_1, making a tree structure similar to below:
+Let's assume we have four posts named Post_1, Post_2, Post_3, and Post_4. Suppose Post_2 and Post_3 are responses to Post_1, resulting in a tree-like structure as shown below:
 
 ```
     Post_1      Post_4
     /    \
 Post_2  Post_3    
 ```
-In this scenario, Post_1 and Post_4 are the top layer of the structure, making them parent objects. Since they do not have any parents themselves, they have null values for their parent_id column. Post_2 and Post_3 are children of Post_1 as they are replies to that particular post, their entire existence relies on Post_1. Their parent_id is the id of the original post (Post_1), giving them a parent-child association.
+In this scenario, Post_1 and Post_4 are at the top layer of the structure, making them parent objects. Since they do not have any parents themselves, their parent_id values are set to null. Post_2 and Post_3 are children of Post_1 since they are replies to that specific post. Their parent_id is set to the id of the original post (Post_1), establishing the parent-child relationship.
 
-ActiveRecord allows us to record this parent child relationship into the model object, so when the query returns from the database, each post object's children can be accessed through the parent post object to pass into erb. This is crucial, as we want to display the children of a post right underneath their parents and not based on their row in the database. The model, app and html files look as below:
+ActiveRecord allows us to represent this parent-child relationship in the model object. When the query is retrieved from the database, each post object's children can be accessed through the parent post object, making it easier to pass them through `erb`. This is crucial for displaying the children of a post directly beneath their respective parents, irrespective of the order in the database as replies can be posted much later than the original post they are referring to.
+
+Here is an overview of the model, app, and HTML files:
 
 ```ruby
 #lib/post.rb
@@ -75,83 +108,68 @@ end
 <% end %>
 ```
 
-Overall, the app looks like this on the main page:
-![screenshot from mainpage](https://i.ibb.co/2vjXSW0/main-page.png)
+## Installation
 
-Installation
------------
-```bash
-# Clone the project
+**1) Clone the project repository**
+```terminal
 git clone https://github.com/umutbaykan/chitter-challenge.git
-
-# Install gems
+```
+**2) Once you are in the folder, install the required gems**
+```
 bundle install
+```
 
-### Creating databases - Method 1 ###
-# Create databases (database names are chitter_test and chitter_development - terminal will produce an error (Database 'chitter_test' already exists) if you have a database with the same name. 
+**3) Setup the database (method 1)**
 
+Create the development and test databases:
+```
 rake db:create
-
-# Create tables - we need to create tables both for the development and test databases. The first line creates it for the development db whereas the RACK_ENV='test' statement works on the test database.
-
+```
+Create the tables for both databases:
+```
 rake db:schema:load 
 rake db:schema:load RACK_ENV='test'
-
-# Seed the test database (optionally, if you want to see the app working from the get go, you can also run the same seeds on the deployment database
-
-rake db:seed #this bit is optional if you want to see the app already seeded on localhost
+```
+Seed the test database. Optionally, you can seed the development database as well if you want to see the application with pre-filled data:
+```
 rake db:seed RACK_ENV='test'
+rake db:seed #optional
+```
 
-### Creating databases - Method 2 ###
-# Alternatively if you want to bulldoze over the existing databases and save on a few lines of code you can do this. Beware, this would drop your chitter_test and chitter_development db's if they exist and replace them with this app's schema. It also seeds the development database from scratch
+**3) Setup the database (method 2)**
 
+Alternatively, if you want to reset the existing databases and use the application's schema:
+
+```
 rake db:reset
+```
+Warning: This method will drop the existing chitter_test and chitter_development databases if they exist!
 
-# Seed the test database
-
+Seed the test database:
+```
 db:reset RACK_ENV='test'
+```
 
-# Run tests, it should be passing all of them and coverage should be %99
+**4) Running Tests**
 
+To ensure everything is set up correctly, run the tests. All tests should pass with a test coverage of 99%.
+```
 rspec
+```
 
-# Launch rackup server
+**5) Launching the Rackup Server**
+   
+To start the application, run the following command:
 
+```
 rackup
-
-# Now you should be able to access the app through http://localhost:9292/
 ```
-Important thing to note here, the mail gem currently relies on local environment variables. If you want to send actual e-mails, you need to configure it for your own settings. For testing purposes, the module is on :logger settings so the tests only check the terminal output rather than actual emails. More information can be found through here:
-https://www.rubydoc.info/github/mikel/mail/Mail.defaults
+You can access the application through http://localhost:9292/.
 
-Dependencies:
--------
-```
-gem "sinatra" # -> main framework for our app
-gem "pg" # -> so that our app can connect to PostgreSQL
-gem "activerecord" # -> ActiveRecord ORM to construct tables
-gem "sinatra-activerecord" # -> so that ActiveRecord runs in Sinatra
-gem "rake" # -> handling out databases and seeds (not the tables!)
-gem "bcrypt" # -> encrypting user passwords before storing them in our database / decrypting it during login
-gem "sinatra-contrib", "~> 3.0" # -> additional features for sinatra, not sure which features rely on it just yet
-gem "sinatra-flash", "~> 0.3.0" # -> helps to pass error messages back to user if they put in invalid input
-gem "webrick", "~> 1.8" # -> helps with authentication through http? (again, not sure)
-gem "rack-test", "~> 2.1" # -> runs our web-based application
-gem "faker" # -> creates fake test data that is unique
-gem "mail", "~> 2.7.1" # -> for sending emails to tagged users
+Important Note: The mail gem currently relies on local environment variables. If you want to send actual emails, you need to configure it with your own settings. For testing purposes, the module is set to :logger so that tests only check the terminal output rather than sending actual emails. More information can be found in the Mail gem [documentation](https://www.rubydoc.info/github/mikel/mail/Mail.defaults)
 
-For testing purposes:
-gem 'rspec' # -> testing
-gem 'simplecov', require: false # -> checks and visualizes code coverage in tests
-gem 'simplecov-console', require: false # -> allows us to get an html page of our coverage results
-gem "capybara" # -> very useful tool in tests that could simulate user interactions with pages. wish I used it earlier
-gem "orderly" # -> allows to check in which order html elements are displayed (required to check order of posts)
-gem 'database_cleaner-active_record' # -> resets the database before / after tests
-```
-
-#TODO's
------------
-- CSS. Pages currently link to bootstrap but does not use any of its functionality
-- Additional depths in post replies. Currently you can only reply to the parent post and children cannot have replies. The structure actually allows for posts to be made on replies as well, but did not implement it to keep it simple on the main page. One thing that can be done is to direct the user to a separate page which renders all the parent-child (and potentially n layers of children if they exist) posts.
-- Form validations are done crudely, need to find a gem that does validations automatically.
-- Configuration is currently a mess. 
+## TODO's
+- CSS: Currently, the pages link to Bootstrap, but they do not utilize any of its functionality
+- Additional depths in post replies: Currently, users can reply to the parent post but children posts cannot have their own replies. The application's structure actually allows for posts to be made on replies as well. Functionality can be implemented to allow replies on children posts. One idea is to create a separate page that displays all parent-child posts, including multiple layers of children if they exist.
+- Form validations: The current form validations are basic and need improvement. It would be useful to find a gem that would cover a wider range of checks.
+- Configuration: The current configuration setup needs some attention. Need to take the time to organize and streamline the configuration files to improve readability.
