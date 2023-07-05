@@ -3,25 +3,22 @@
 
 ## Table of Contents
 
-1. [Project Description](https://github.com/umutbaykan/chitter-challenge#project-description)
-2. [Features](https://github.com/umutbaykan/chitter-challenge#features)
-3. [Technologies](https://github.com/umutbaykan/chitter-challenge#technologies)
-4. [How Does It Work](https://github.com/umutbaykan/chitter-challenge#how-does-it-work)
-5. [Installation](https://github.com/umutbaykan/chitter-challenge#installation)
-6. [TODO's](https://github.com/umutbaykan/chitter-challenge#todos)
+1. [Project Description](#project-description)
+2. [Features](#features)
+3. [Technologies](#technologies)
+4. [How Does It Work](#how-does-it-work)
+5. [Installation](#installation)
+6. [TODO's](#todos)
 
 
 ## Project Description 
 
-Chitter is a project completed during the Makers Academy software development bootcamp. It is a server-side rendered twitter clone application that allows users to send posts and interact with other users through RESTful API methods. The application utilizes Ruby and incorporates the use of a PostgreSQL database to store user and post information.
-
-The project was developed to fulfill the requirements outlined in the [brief](https://github.com/makersacademy/chitter-challenge#features) provided by Makers Academy. The complete list of application features can be found in the [features](https://github.com/umutbaykan/chitter-challenge#features) section. The implementation of this project aims to meet the entire brief with the exception of the CSS and leverages ActiveRecord, an ORM tool, to handle the challenges encountered while satisfying more complex requirements.
+Chitter is a solo project completed during the Makers Academy software development course. It is a server-side rendered Twitter clone application that allows users to send posts and interact with other users through RESTful API methods. The application utilizes Ruby and incorporates the use of a PostgreSQL database to store user and post information.
 
 ## Features
+This project satisfies all the requirements outlined in the Makers [brief](https://github.com/makersacademy/chitter-challenge#features) and includes additional features to enhance the functionality. The complete list of features is as follows:
 
-This project satisfies all the requirements outlined in the Makers brief, and includes additional features to enhance the functionality. The complete list of features is as follows:
-
-- User Registration: Users are required to register in order to post. The application encrypts passwords for secure storage. Duplicate usernames or emails are not allowed during registration.
+- User Registration: Users are required to register to post. The application encrypts passwords for secure storage. Duplicate usernames or emails are not allowed during registration.
 - User Authentication: Users can register, log in, and log out. The application verifies credentials during the login process.
 - Access Control: Users are redirected to the login page if they attempt to post or reply without being logged in. However, the main page is accessible even without logging in.
 - Chronological Post Order: Posts on the main page are displayed in reverse chronological order.
@@ -61,7 +58,7 @@ The database consists of two tables: users and posts. They are connected by a on
 Users table - id, username, real_name, email, password (encrypted) 
 Posts table - id, content, parent_id (optional), created_at, updated_at, user_id (foreign key to users.id)
 
-At this point it is important to talk about how reply feature (therefore parent_id) works. 
+At this point, it is important to talk about how the reply feature (therefore parent_id) works. 
 Let's assume we have four posts named Post_1, Post_2, Post_3, and Post_4. Suppose Post_2 and Post_3 are responses to Post_1, resulting in a tree-like structure as shown below:
 
 ```
@@ -164,12 +161,12 @@ To start the application, run the following command:
 ```
 rackup
 ```
-You can access the application through http://localhost:9292/.
+You can access the application at http://localhost:9292/.
 
-Important Note: The mail gem currently relies on local environment variables. If you want to send actual emails, you need to configure it with your own settings. For testing purposes, the module is set to :logger so that tests only check the terminal output rather than sending actual emails. More information can be found in the Mail gem [documentation](https://www.rubydoc.info/github/mikel/mail/Mail.defaults)
+Important Note: The mail gem currently relies on local environment variables. If you want to send actual emails, you need to configure it with your own settings. For testing purposes, the module is set to :logger so that tests only check the terminal output rather than sending actual emails. More information can be found in the Mail gem [documentation.](https://www.rubydoc.info/github/mikel/mail/Mail.defaults)
 
 ## TODO's
 - CSS: Currently, the pages link to Bootstrap, but they do not utilize any of its functionality
-- Additional depths in post replies: Currently, users can reply to the parent post but children posts cannot have their own replies. The application's structure actually allows for posts to be made on replies as well. Functionality can be implemented to allow replies on children posts. One idea is to create a separate page that displays all parent-child posts, including multiple layers of children if they exist.
+- Additional depths in post replies: Currently, users can reply to the parent post but child posts cannot have their own replies. The application's structure actually allows for posts to be made on replies as well. Functionality can be implemented to allow replies on child posts. One idea is to create a separate page that displays all parent-child posts, including multiple layers of children if they exist.
 - Form validations: The current form validations are basic and need improvement. It would be useful to find a gem that would cover a wider range of checks.
 - Configuration: The current configuration setup needs some attention. Need to take the time to organize and streamline the configuration files to improve readability.
