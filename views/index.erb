@@ -1,0 +1,20 @@
+<div class="container-sm">
+  <% if @current_user %>
+    <p>Welcome, <%= @current_user.username %>!</p>
+    <a href="/create_post">Create Post</a>
+    <a href="/logout">Log Out</a>
+  <% else %>
+    <a href="/login">Log in</a>
+    <a href='/register'>Register</a>
+  <% end %>
+</div>
+<h1>Welcome to Chitter!</h1>
+<br>
+<% @posts.each do |post| %>
+  <% if post.parent_id.nil? %>
+  <p><b>Chit:</b> <%=post.content%> <br> <b>By:</b> <%=post.user.username%> <b>At:</b> <u><%=post.created_at.to_formatted_s(:chitter)%></u> <a href="reply/<%=post.id%>">Reply</a></p>
+    <% post.children.each do |reply| %>
+    <p style='color: navy;'><b>►►► Reply:</b> <%=reply.content%> <b>By:</b> <%=reply.user.username%> <b>At:</b> <u><%=reply.created_at.to_formatted_s(:chitter)%></u></p>
+    <% end %>
+  <% end %>
+<% end %>
