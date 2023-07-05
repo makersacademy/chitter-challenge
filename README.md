@@ -1,5 +1,6 @@
 Chitter Challenge
 =================
+View the website [here](https://md-chitter-app.onrender.com/) :)
 
 Challenge:
 -------
@@ -130,10 +131,6 @@ $ psql -h 127.0.0.1 createdb chitter_database_testing < chitter_tables.sql
 ```bash
 $ rspec
 ```
-
-Link to the Chitter website :)
-------
-(https://md-chitter-app.onrender.com/)
 
 Further development:
 ------
