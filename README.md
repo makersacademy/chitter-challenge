@@ -1,12 +1,12 @@
-Chitter Challenge
+Chitter
 =================
 View the website [here](https://md-chitter-app.onrender.com/) :)
 
-Challenge:
+Project Introduction
 -------
-To write a small Twitter clone that will allow the users to post messages to a public stream.
+A small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+User Stories
 -------
 
 ```
@@ -45,7 +45,7 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
+Notes on Functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
@@ -132,7 +132,7 @@ $ psql -h 127.0.0.1 createdb chitter_database_testing < chitter_tables.sql
 $ rspec
 ```
 
-Further development:
+Further Development:
 ------
 * encrypt password information
 * add more validation on peep messages, making sure it does not include offensive content.
