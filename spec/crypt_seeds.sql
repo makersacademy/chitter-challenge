@@ -1,9 +1,9 @@
 TRUNCATE TABLE users, peeps RESTART IDENTITY CASCADE;
 
 INSERT INTO users ("name", "username", "email", "password") VALUES
-('Amber Thompson', 'Amber', 'amber@email.com', '$2a$12$79o3wBPYwLiNGnS329LQJOV91pzp4RXaQi1KXPShy7bg6hBD1t3LO'),
-('Billy Thompkins', 'Billy', 'billy@email.com', '$2a$12$KuowH.RWU8/Hx7u1uNJAzOYEABy2APD9v4lrAGn5UxK9mhdXGSpXm'),
-('Caleb Tomlinson', 'Caleb', 'caleb@email.com', '$2a$12$a/Sg0TiHT7uXxsr4oWDfFu5DEzJrTDSPqkie3v3iYDcKOXb7D07j6')
+('Amber Thompson', 'Amber', 'amber@example.com', '$2a$12$NIjKQzEB.9mtj9L44r1iFuT5iB1fB.T0akjAo6vMKR7qXQO2Lnsey'),
+('Billy Thompkins', 'Billy', 'billy@example.com', '$2a$12$bsI4g2Bhk6NYRf646u1Y7eGdD6PiSo9uDiAEuHJVxwOsO9fofoQJy'),
+('Caleb Tomlinson', 'Caleb', 'caleb@example.com', '$2a$12$lGByQ50Z9IYVRiZYFppefutqlvp/0TYIF7bZKMR9VARM/AXkTyGsi')
 ;
 
 INSERT INTO peeps ("body", "time", "tags", "user_id") VALUES
@@ -15,3 +15,5 @@ INSERT INTO peeps ("body", "time", "tags", "user_id") VALUES
 ('Today I meditated', '2023-04-06 18:00:00', '#meditate, #caleb', 3),
 ('Today I relaxed', '2023-04-07 19:00:00', '#relax, #billy', 2)
 ;
+
+-- All passwords are 'Password123'

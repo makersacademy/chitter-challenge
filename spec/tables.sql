@@ -40,5 +40,5 @@ INSERT INTO peeps ("body", "time", "tags", "user_id") VALUES
 -- psql -h 127.0.0.1 chitter_test
 
 
--- psql -h 127.0.0.1 chitter < spec/seeds.sql
+-- psql -h 127.0.0.1 chitter < spec/crypt_seeds.sql
 -- psql -h 127.0.0.1 chitter_test < spec/seeds.sql
