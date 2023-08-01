@@ -4,6 +4,10 @@ The solo challenge for Week 4 was to write a small Twitter clone that will allow
 
 You can visit my site here: [https://chitter-app-4z4y.onrender.com/](https://chitter-app-4z4y.onrender.com/)
 
+You should be able to sign in with the following credentials:
+- Username: example@example.com
+- Password: 123
+
 I have not yet added the functionality to email a user when they are tagged. But here are some screenshots of the working app. You can sign up, log in, logout, post peeps, tag users in peeps and reply to peeps.
 
 ![chitter feed page](designs/chitter-feed.png)
