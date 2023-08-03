@@ -1,5 +1,41 @@
 Chitter Challenge
 
+## Description
+This app is the start of a Twitter clone, that allows users to post messages to a public stream. In order to post they must signup and login, however anybody can view the public stream on the 'Shouty Box'. The goal of this project was to create a web app.
+
+## Diagrams
+This diagram shows the differente pages in the app. The user can only post or view their account when logged in.
+
+![Account Diagram](./images/pages-diagram.png)
+
+## Project Running
+These screenshots show the following pages: Homepage, Signup, Account, Shouty Box (stream of posts).
+
+![Account Diagram](./images/Homepage.png)
+
+![Account Diagram](./images/Shouty-Box.png)
+
+![Account Diagram](./images/Signup-Page.png)
+
+![Account Diagram](./images/Account-Page.png)
+
+## Technology Used
+* Ruby
+* Sinatra & ERB
+* BCrypt
+* PostgreSQL
+* HTML & CSS
+
+## Tests
+This is a screen shot of the passing tests and test coverage.
+
+![Account Diagram](./images/passing-tests.png)
+
+
+# Initial Project Information
+
+Below is the instructuctions given at the start of the project.
+
 Gems added:
 time
 sinatra sinatra-contrib webrick rack-test

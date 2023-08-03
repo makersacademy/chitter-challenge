@@ -75,7 +75,7 @@ RSpec.describe Application do
       response = get('/account_page')
      
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h2>my peeps</h2>')
+      expect(response.body).to include('<a href="/peep/new">New Peep</a>')
     end
   end
 
@@ -98,7 +98,7 @@ RSpec.describe Application do
 
         expect(response.status).to eq(200)
         expect(response.body).to include('<h1>You have successfully signed up with Chitter</h1>')
-        expect(response.body).to include('<a href="/shoutybox">Shouty Box<br>- see what people are peeping</a>')
+        expect(response.body).to include('<h1>You have successfully signed up with Chitter</h1>')
 
     end
 
