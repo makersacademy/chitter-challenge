@@ -1,12 +1,23 @@
 Chitter Challenge
 
 ## Description
-This app is the start of a Twitter clone, that allows users to post messages to a public stream. In order to post they must signup and login, however anybody can view the public stream on the 'Shouty Box'. The goal of this project was to create a web app.
+This app is the start of a Twitter clone, that allows users to post messages to a public stream. In order to post they must signup and login, however anybody can view the public stream on the 'Shouty Box'.
+
+## Approach
+This was the first web app that we created on the course, so the goal was to get a good understanding of sending HTTP requests from the frontend and how they were then run in the backend.
+I begun by following the recipe to decide database structure, which in this case includes posts and users tables, which have a many to many relationship.
+From there I used TDD to create the user repository and post repository, implementing methods towards creating CRUD functionality.
+Next I worked between the app.rb file and HTML files, completing the features such as signup, login and posting a new peep.
 
 ## Diagrams
 This diagram shows the differente pages in the app. The user can only post or view their account when logged in.
 
-![Account Diagram](./images/pages-diagram.png)
+![Account Diagram](./images/diagram.png)
+
+Below is a diagram of clicking the link for the stream of posts:
+
+![Account Diagram](./images/shoutybox-diagram.png)
+
 
 ## Project Running
 These screenshots show the following pages: Homepage, Signup, Account, Shouty Box (stream of posts).

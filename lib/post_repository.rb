@@ -28,7 +28,7 @@ class PostRepository
           post.peep = record['peep']
           post.time = record['time']
           post.user_id = record['user_id']
-
+        
           posts << post
         end
     
@@ -59,3 +59,6 @@ class PostRepository
     end
 
 end
+
+# posts = PostRepository.new
+# posts.all

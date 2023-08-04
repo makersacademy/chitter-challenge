@@ -1,10 +1,5 @@
 /* styles.css */
 
-header {
-    margin: 0.5;
-    text-align: left;
-
-}
 body {
     background-color: rgba(60, 179, 113, 0.9);
     font-family: Futura;
@@ -24,8 +19,13 @@ p {
     text-align: center;
 }
 
+.navbar {
+    margin: 0.5;
+    text-align: left;
+
+}
 .banner {
-    padding: 100px 0px 100px;
+    padding: 100px 10px 100px;
     background-size: cover;
     background-position: center;
     text-align: center;
