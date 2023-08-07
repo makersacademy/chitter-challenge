@@ -1,0 +1,336 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+header {
+  background-color: rgb(41, 94, 163);
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.icon-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px; /* Create spacing between icon and text */
+}
+
+.text {
+  font: 3rem "Roboto", sans-serif;
+  /* No need for absolute positioning or align-self */
+}
+
+.buttons-container {
+  position: absolute;
+  top: 90px;
+  right: 80px; /* Adjust this value to position the buttons */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  color: rgb(41, 94, 163);
+  border-radius: 6px;
+  font-size: 15px;
+  text-align: center;
+  transition-duration: 0.2s;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.button:hover {
+  background-color: rgb(255, 221, 0);
+  cursor: pointer;
+}
+
+#container {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  background-color: white;
+  min-height: calc(100vh - 150px);
+  padding: 15px;
+}
+
+.map-overview {
+  display: flex;
+  justify-content: center;
+  max-width: 95%;
+}
+
+#location-list,
+#location-details {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+#location-list a {
+  text-decoration: none;
+  color: white;
+}
+
+figure {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+figcaption {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Basic figure and caption styling */
+/* Turn off margin, set by browser */
+figure {
+  margin: 0;
+  padding: 0;
+  transition: transform 0.2s;
+}
+/* caption styling  */
+figcaption {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(73, 143, 133, 1);
+  padding: 0.5rem;
+  font-size: 0.7rem;
+}
+/* reduces the top margin on the h2, bottom on the p, and leaves a 0.5rem gap between the two */
+figcaption * {
+  margin: 0.5rem;
+}
+
+figcaption p {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+/* hack to make images flexible */
+img {
+  width: 100%;
+}
+
+figure:hover {
+  transform: scale(1.04);
+}
+
+#location-list .location-card {
+  max-width: 100%;
+  position: relative;
+}
+
+#location-list .location-photo {
+  border-radius: 10px;
+  width: 90vw;
+  height: 250px;
+  object-fit: cover;
+  opacity: 1;
+}
+
+#location-details {
+  max-width: 600px;
+}
+
+#location-details .location-description {
+  margin-top: 0px;
+  background-color: rgba(73, 143, 133, 0.3);
+  padding: 15px;
+  line-height: 1.2rem;
+  color: rgb(80, 80, 80);
+  font-size: 0.95rem;
+  border-radius: 10px;
+}
+
+#location-details > img {
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+#location-details > h4 {
+  margin: 0;
+}
+
+#location-details .audio-player {
+  margin-top: 20px;
+  align-self: center;
+}
+
+#location-details .speech-button {
+  background: transparent;
+  border: 3px solid rgba(73, 143, 133, 0.5);
+  border-radius: 5px;
+  outline: "none";
+}
+
+.logo img {
+  width: 250px;
+}
+
+.logo-container {
+  width: 100%;
+  height: 100%;
+}
+
+.loading-container,
+.greeting-screen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 70vw;
+  height: 70vh;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+/* drop down box in locations */
+.type-dropdown {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  appearance: none;
+  outline: none;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-image: url(/dropdown-filter.png);
+  width: 200px;
+}
+
+.type-dropdown:hover {
+  transform: scale(1.03);
+}
+
+.type-dropdown:hover {
+  cursor: pointer;
+}
+
+#start-button,
+button {
+  width: 150px;
+  height: 40px;
+  background-color: rgba(73, 143, 133, 1);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 15px;
+  transition-duration: 0.2s;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#start-button:hover,
+button:hover {
+  background-color: rgba(73, 143, 133, 0.9);
+  cursor: pointer;
+}
+
+/* css for more option button in location */
+
+.dropdown {
+  display: flex;
+  overflow: hidden;
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+
+.dropdown-item {
+  transform: translateX(-100%);
+  animation: roll-out 1s forwards;
+}
+
+@keyframes roll-out {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ratings css */
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-icon {
+  color: #f8e825;
+  margin-right: 0.5rem;
+}
+
+.rating {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media (min-width: 600px) {
+  .loading-container,
+  .greeting-screen {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #location-list .location-photo {
+    width: 550px;
+    height: 275px;
+  }
+
+  #location-details .location-description {
+    padding: 30px;
+    font-size: 1rem;
+    line-height: 1.35rem;
+  }
+
+  .startpage-wrapper {
+    gap: 2.5rem;
+  }
+}

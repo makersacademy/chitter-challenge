@@ -7,6 +7,7 @@ require_relative 'lib/user'
 
 # Establish the database connection
 establish_database_connection
+set :public_folder, File.dirname(__FILE__) + '/public'
 
 class Application < Sinatra::Base
   enable :sessions

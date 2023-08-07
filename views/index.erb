@@ -1,10 +1,29 @@
+<!DOCTYPE html>
 <html>
-  <head></head>
-  <body>
-    <h1>Chitter</h1>
-    <div>Signup Here: <a href="http://localhost:9292/signup">Signup</a><br />Login here: <a href="http://localhost:9292/login">Login</a></div>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <header id="header">
+  <div class="icon">
+    <a href="http://localhost:9292/"><img id="icon" src="icon.png" alt="Icon"></a>
+  </div>
+    <div class="text">Chitter </div>
+
+    <div class="buttons-container">
+      <div class="button">
+        <a href="http://localhost:9292/signup">Signup</a>
+      </div>
+      <div class="button">
+        <a href="http://localhost:9292/login">Login</a>
+      </div>
+    </div>
+  </header>
+  <div id="container" class="startpage-wrapper">
     <% @@posts.each do |post| %>
-      <%= post %><br />
+      <%= post %><br>
     <% end %>
-  </body>
+  </div>
+</body>
 </html>
