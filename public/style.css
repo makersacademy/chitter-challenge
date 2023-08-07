@@ -89,19 +89,26 @@ header {
   padding: 15px;
 }
 
-.map-overview {
-  display: flex;
-  justify-content: center;
-  max-width: 95%;
-}
-
-#location-list,
-#location-details {
+.post {
   align-items: center;
+  border: 1px solid rgb(41, 94, 163);
   display: flex;
   flex-flow: column;
   justify-content: center;
-  gap: 15px;
+  gap: 50px;
+  margin: 20px;
+  width: 100%;
+  max-width: 600px; /* Set the maximum width */
+  height: auto; /* Adjust the height as needed */
+  padding: 20px; /* Add padding for spacing inside the box */
+}
+
+#input-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   width: 100%;
 }
 

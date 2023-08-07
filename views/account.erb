@@ -11,14 +11,18 @@
     </div>
     <div class="text">Chitter</div>
   </header>
-  <div>What would you like to say?</div>
-  <div><form action="/account_page" method="POST">
+  <div></div>
+  <div id="input-form">What would you like to say?<form action="/account_page" method="POST">
   <input type="text" name="message">
   <input type="submit" value="Post a message!">
-  </form></div>
-    <% @@posts.each do |post| %>
-      <%= post %><br />
-    <% end %>
+  </form> <div id="container" >
+  <% @@posts.each do |post| %>
+    <div class="post">
+      <%= post %><br>
+    </div>
+  <% end %>
+</div>
+</div>
     <a href="http://localhost:9292/logout">Logout</a>
   </body>
 </html>

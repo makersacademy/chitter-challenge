@@ -20,10 +20,13 @@
       </div>
     </div>
   </header>
-  <div id="container" class="startpage-wrapper">
-    <% @@posts.each do |post| %>
-      <%= post %><br>
-    <% end %>
+  <div id="container" >
+      <% @@posts.each do |post| %>
+        <div class="post">
+          <%= post %><br>
+        </div>
+      <% end %>
+    </div>
   </div>
 </body>
 </html>
