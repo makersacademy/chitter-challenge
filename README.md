@@ -7,7 +7,7 @@ Recreation of Twitter using Ruby and ActiveRecord. **Tools used**: Ruby, ActiveR
 
 Clone the repo and then cd into the directory.
 
-Run ```bundle install```
+Run ```bundle install``` in terminal.
 
 After install is complete, run ```rackup```
 
