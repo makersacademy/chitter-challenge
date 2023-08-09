@@ -55,7 +55,7 @@ header {
   justify-content: space-around;
 }
 
-.button {
+.header-button {
   width: 150px;
   height: 40px;
   background-color: rgb(255, 255, 255);
@@ -74,7 +74,7 @@ header {
   margin-right: 5px;
 }
 
-.button:hover {
+.header-button:hover {
   background-color: rgb(255, 221, 0);
   cursor: pointer;
 }
@@ -90,11 +90,9 @@ header {
 }
 
 .post {
-  align-items: center;
   border: 1px solid rgb(41, 94, 163);
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: 50px;
   margin: 20px;
   width: 100%;
@@ -110,6 +108,77 @@ header {
   justify-content: center;
   gap: 20px;
   width: 100%;
+  max-width: 600px; /* Set the maximum width */
+  margin-top: 50px;
+}
+
+#input-form .username,
+#input-form .password {
+  width: 100%;
+  height: 45px; /* Adjust the height as needed */
+  padding: 8px; /* Adjust the padding as needed */
+  font-size: 16px; /* Adjust the font size as needed */
+  border: 1px solid rgb(41, 94, 163);
+  border-radius: 6px;
+}
+
+.login-button {
+  width: 150px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  color: rgb(41, 94, 163);
+  border-radius: 6px;
+  font-size: 15px;
+  text-align: center;
+  transition-duration: 0.2s;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 115px;
+  margin-top: 30px;
+}
+
+.login-button:hover {
+  background-color: rgb(255, 221, 0);
+  cursor: pointer;
+}
+
+.post-button {
+  width: 150px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  border-style: solid;
+  color: rgb(41, 94, 163);
+  border-radius: 6px;
+  font-size: 15px;
+  text-align: center;
+  transition-duration: 0.2s;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 230px;
+  margin-top: 30px;
+}
+
+.post-button:hover {
+  background-color: rgb(255, 221, 0);
+  cursor: pointer;
+}
+
+.input-post-box {
+  width: 600px;
+  height: auto; /* Adjust the height as needed */
+  padding: 8px; /* Adjust the padding as needed */
+  font-size: 16px; /* Adjust the font size as needed */
+  border: 1px solid rgb(41, 94, 163);
+  border-radius: 6px;
+  resize: vertical;
+  margin-top: 15px;
 }
 
 #location-list a {

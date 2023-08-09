@@ -29,11 +29,12 @@ class Application < Sinatra::Base
   end
 
   post '/account_page' do
-    current_time = Time.now + 1 * 60 * 60 # Get the current time with GMT offset
-    Post.create_post(current_time, params[:message], session[:user_id])
+    current_time = Time.now + 1 * 60 * 60 
+    formatted_time = current_time.strftime("%d/%m/%Y %H:%M")
+    Post.create_post(formatted_time, params[:message], session[:user_id])
     
-    # Append the new post to the class variable
-    @@posts.unshift("#{current_time} #{User.find(session[:user_id]).name} #{User.find(session[:user_id]).username} #{params[:message]}")
+
+    @@posts.unshift("#{formatted_time} #{User.find(session[:user_id]).username} #{params[:message]}")
     
     redirect '/account_page'
   end

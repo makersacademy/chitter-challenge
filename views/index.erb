@@ -12,21 +12,22 @@
     <div class="text">Chitter </div>
 
     <div class="buttons-container">
-      <div class="button">
+      <div class="header-button">
         <a href="http://localhost:9292/signup">Signup</a>
       </div>
-      <div class="button">
+      <div class="header-button">
         <a href="http://localhost:9292/login">Login</a>
       </div>
     </div>
   </header>
   <div id="container" >
-      <% @@posts.each do |post| %>
-        <div class="post">
-          <%= post %><br>
-        </div>
-      <% end %>
-    </div>
+  <div class="posts-container">
+    <% @@posts.each do |post| %>
+      <div class="post">
+        <%= post %><br>
+      </div>
+    <% end %>
+  </div>
   </div>
 </body>
 </html>

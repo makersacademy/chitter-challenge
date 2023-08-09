@@ -7,22 +7,26 @@
 <body>
   <header id="header">
     <div class="icon">
-      <img id="icon" src="icon.png">
+    <a href="http://localhost:9292/"><img id="icon" src="icon.png" alt="Icon"></a>
     </div>
     <div class="text">Chitter</div>
-  </header>
-  <div></div>
-  <div id="input-form">What would you like to say?<form action="/account_page" method="POST">
-  <input type="text" name="message">
-  <input type="submit" value="Post a message!">
-  </form> <div id="container" >
-  <% @@posts.each do |post| %>
-    <div class="post">
-      <%= post %><br>
+    <div class="buttons-container">
+      <div class="header-button"><a href="http://localhost:9292/logout">Logout</a></div>
     </div>
-  <% end %>
-</div>
-</div>
-    <a href="http://localhost:9292/logout">Logout</a>
+  </header>
+  <div id="container">
+    <div id="input-form">What would you like to say?<form action="/account_page" method="POST">
+    <textarea class="input-post-box" name="message" placeholder="Enter your post"></textarea>
+    <button class="post-button" type="submit">Post a message</button>
+    </form>
+    <div class="posts-container">
+      <% @@posts.each do |post| %>
+        <div class="post">
+          <%= post %><br>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
   </body>
 </html>

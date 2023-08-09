@@ -6,21 +6,23 @@
   <body>
     <header id="header">
       <div class="icon">
-        <img id="icon" src="icon.png">
+      <a href="http://localhost:9292/"><img id="icon" src="icon.png" alt="Icon"></a>
       </div>
       <div class="text">Chitter</div>
     </header>
-    <h1>Welcome to Chitter!</h1>
-    <div>Please register your details below</div>
-    <div><form action="/signup" method="POST">
-    <div>Name</div>
-    <input type="text" name="name">
-    <div>Username</div>
-    <input type="text" name="username">
-    <div>Password</div>
-    <input type="password" name="password">
-    <div>Email</div>
-    <input type="text" name="email">
-    <input type="submit" value="Signup">
+    <div id="container">
+      <div id="input-form">
+        <h1>Welcome to Chitter!</h1>
+        <div>Please register your details below</div>
+        <div><form action="/signup" method="POST">
+        <input class=username type="text" name="name" placeholder="name">
+        <input class=username type="text" name="username" placeholder="username">
+        <input class=username type="password" name="password" placeholder="password">
+        <input class="username" type="text" name="email" placeholder="email">
+        <button class="post-button" type="submit">Submit</button>
+        </form></div>
+        <div>Already have an account? <a href="/login">Login here</a></div>
+      </div>
+    </div>
   </body>
 </html>
