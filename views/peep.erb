@@ -1,0 +1,34 @@
+<div class="peep">
+  <a class="back" href="/peeps">Back</a>
+  <div class="box">
+    <div class="tags">
+      <% @peep.tags.each do |tag| %>
+      <p>@<%= tag.username %></p>
+      <% end %>
+    </div>
+    <h1><%= @peep.message %></h1>
+    <div class="author margin-bottom">
+      <p>🐤 <%= @peep.user.username %></p>
+      <p>name: <%= @peep.user.name %></p>
+    </div>
+    <p class="time"><%= @peep.timestamp %></p>
+  </div>
+  <% if @replies.length > 0 %>
+  <h3>Replies:</h3>
+  <% @replies.each do |reply| %>
+  <div class="box reply">
+    <h2><%= reply.message %></h2>
+    <div class="author margin-bottom">
+      <p>🐤 <%= reply.user.username %></p>
+      <p>name: <%= reply.user.name %></p>
+    </div>
+    <p class="time"><%= reply.timestamp %></p>
+  </div>
+  <% end %> <% end %>
+  <form class="box reply-form" action="/peeps" method="post">
+    <label for="reply">Your reply:</label>
+    <input id="reply" type="text" name="message" required />
+    <input type="hidden" name="peep_id" value="<%= @peep.id %>" />
+    <input type="submit" value="Reply" />
+  </form>
+</div>

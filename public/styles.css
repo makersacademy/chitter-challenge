@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #a8b7b6;
+  color: #2a3945;
+  font-family: "Rubik", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a8b7b6;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input {
+  border: none;
+  font: inherit;
+}
+
+input[type="submit"],
+.button {
+  background-color: #2a3945;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.home,
+.create-new,
+.login,
+.box {
+  background-color: #dfded9;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 1rem;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+h1,
+h2 {
+  margin-bottom: 1rem;
+}
+
+.home h2 {
+  margin-top: 1rem;
+}
+
+.home input,
+.login input {
+  margin-bottom: 0.75rem;
+}
+
+.margin-bottom {
+  margin-bottom: 1.5rem;
+}
+
+.peeps,
+.peep {
+  max-width: 650px;
+}
+
+.peeps {
+  margin: 0 2rem;
+  text-align: center;
+}
+
+.peeps ul,
+.peep .box {
+  text-align: left;
+}
+
+.peeps li {
+  background-color: #dfded9;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.peeps li + li {
+  margin-top: 1rem;
+}
+
+.author {
+  display: flex;
+  align-items: baseline;
+  margin-top: 1rem;
+}
+
+.author > p:first-child {
+  margin-right: 1rem;
+}
+
+.tags {
+  color: #ef820d;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.tags p + p {
+  margin-left: 0.5rem;
+}
+
+.replies {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.create {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.create-new input[type="submit"] {
+  margin: 1rem 0;
+}
+
+.create-new .note {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.peep-container {
+  margin-top: 1rem;
+}
+
+.peep-container input {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.peep h3,
+.back {
+  margin-left: 1rem;
+}
+
+.back:hover {
+  color: #dfded9;
+}
+
+.reply,
+.reply-form {
+  margin-left: 4.5rem;
+}
+
+.create-new form,
+.reply-form {
+  text-align: left;
+}
+
+#reply {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2.5rem;
+}
+
+header a:hover {
+  color: #dfded9;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+}
+
+header div *:first-child {
+  margin-right: 1rem;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+}

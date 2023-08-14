@@ -1,0 +1,17 @@
+<div class="create-new">
+  <h1>Create a new peep</h1>
+  <form action="/peeps" method="post">
+    <div>
+      <label for="tags">Tag users (optional):</label>
+      <input id="tags" type="text" name="tags" />
+      <p class="note">Enter username(s) eg. user1, user2</p>
+      <p class="note">If user doesn't exist they won't be tagged</p>
+    </div>
+    <div class="peep-container">
+      <label for="message">Your peep:</label>
+      <input id="message" type="text" name="message" required />
+    </div>
+    <input type="submit" value="Send Peep" />
+  </form>
+  <a href="/">Go to Peeps</a>
+</div>
