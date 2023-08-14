@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <header id="header">
+    <div class="icon">
+    <a href="http://localhost:9292/"><img id="icon" src="icon.png" alt="Icon"></a>
+    </div>
+    <div class="text">Chitter</div>
+    <div class="buttons-container">
+      <div class="header-button"><a href="http://localhost:9292/logout">Logout</a></div>
+    </div>
+  </header>
+  <div id="container">
+    <div id="input-form">What would you like to say?<form action="/account_page" method="POST">
+    <textarea class="input-post-box" name="message" placeholder="Enter your post"></textarea>
+    <button class="post-button" type="submit">Post a message</button>
+    </form>
+    <div class="posts-container">
+      <% @@posts.each do |post| %>
+        <div class="post">
+          <%= post %><br>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  </body>
+</html>

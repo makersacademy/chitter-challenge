@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+  <body>
+    <header id="header">
+      <div class="icon">
+      <a href="http://localhost:9292/"><img id="icon" src="icon.png" alt="Icon"></a>
+      </div>
+      <div class="text">Chitter</div>
+    </header>
+    <div id="container">
+      <div id="input-form">
+        <h1>Welcome to Chitter!</h1>
+        <div>Please register your details below</div>
+        <div><form action="/signup" method="POST">
+        <input class=username type="text" name="name" placeholder="name">
+        <input class=username type="text" name="username" placeholder="username">
+        <input class=username type="password" name="password" placeholder="password">
+        <input class="username" type="text" name="email" placeholder="email">
+        <button class="post-button" type="submit">Submit</button>
+        </form></div>
+        <div>Already have an account? <a href="/login">Login here</a></div>
+      </div>
+    </div>
+  </body>
+</html>
