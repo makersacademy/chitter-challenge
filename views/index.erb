@@ -1,0 +1,83 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      html, body, h1, h2, h3, h4, h5 {
+        font-family: "Open Sans", sans-serif
+      }
+
+      h1 {
+        color: rgb(0, 150, 255);
+      }
+
+      body {
+        background-color: rgb(240, 255, 255);
+      }
+
+      .heading {
+        margin: auto;
+        margin-top: 30px;
+        width: 30%;
+        border: 3px solid rgb(182, 208, 226);
+        padding: 10px;
+        text-align: center;
+      }
+
+      .container {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: rgb(182, 208, 226);
+        padding: 10px;
+      }
+
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="heading">
+      <h1>CHITTER</h1>
+    </div>
+
+    <div class="container">
+      <div class="grid-item">
+        <% if @current_user %>
+          <h2>You are logged in as <%= @current_user %></h2> 
+          <form method="post" action="/">
+            <input type="submit" value="logout">
+          </form>
+        <% else %>
+          <a href="/sign-up">Sign Up to Chitter</a>
+      </div>
+      <div class="grid-item">
+          <a href="/log-in">Log In to Chitter</a>
+        <% end %>
+      </div>
+      <div class="grid-item">
+        <a href="/about">Go to the about page</a><br />
+      </div>
+      <div class="grid-item">
+        <a href="/chitters">View peeps</a><br />
+      </div>
+      <div class="grid-item">
+        <a href="/chitters/new">Write a peep</a><br />
+      </div>
+      <div class="grid-item">
+        <a href="/users">View users</a><br />
+      </div>
+      <div class="grid-item"><img src="cat-1.jpg" width="100%"></div>
+      <div class="grid-item"><img src="cat-2.jpg" width="100%"></div>
+      <div class="grid-item"><img src="cat-3.jpg" width="100%"></div>
+    </div>
+
+
+  </body>
+</html>

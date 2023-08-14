@@ -11,3 +11,13 @@ end
 group :development, :test do
   gem 'rubocop', '1.20'
 end
+
+gem "pg", "~> 1.5"
+
+gem "sinatra", "~> 3.0"
+gem "sinatra-contrib", "~> 3.0"
+gem "webrick", "~> 1.8"
+gem "rack-test", "~> 2.1"
+gem "sinatra-flash"
+
+gem "bcrypt", "~> 3.1"
