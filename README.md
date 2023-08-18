@@ -4,7 +4,11 @@ A Twitter clone built as part of the Makers Academy software development course.
 
 ## Features
 
-## Database structure
+## Database Structure
+
+Database Table design template can be found [here](chitter_two_tables_design_recipe.md)
+
+Ruby Model and Repository class design template can be found [here](chitter_model_and_repository_design_recipe.md)
 
 ## Webpage view
 
