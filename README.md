@@ -4,6 +4,15 @@ A Twitter clone built as part of the Makers Academy software development course.
 
 ## Features
 
+Users can do the following:
+
+- Sign up
+- login/logout
+- Post a message (peep) to chitter
+- View all peeps in reverse chronological order
+- See the timestamps on peeps
+- See peeps their tagged in (tagging functionality still in progress)
+
 ## How to run
 
 ```shell
