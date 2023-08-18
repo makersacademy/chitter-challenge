@@ -1,8 +1,15 @@
 # chitter-challenge
 
-A Twitter clone built as part of the Makers Academy software development course
+A Twitter clone built as part of the Makers Academy software development course.
 
-https://chitter-the-chit-chat-app.onrender.com
+## Features
+
+## Database structure
+
+## Webpage view
+
+![homepage screenshot](./docs/homepage-screenshot.png)
+![userpage screenshot](./docs/userpage-screenshot.png)
 
 ## How to use
 
@@ -12,11 +19,12 @@ rackup
 ```
 
 ## Pending TODOs
+
 - User "tagging" functionality
 - improve CSS design
 
-
 ## Built with
+
 - Ruby
 - Rspec
 - Sinatra
@@ -24,11 +32,10 @@ rackup
 - BCrypt
 - Render
 
-## Contributions
+## Deployment
 
+Initially deployed on Render (https://chitter-the-chit-chat-app.onrender.com) but is currently inactive.
 
 ## Contact
+
 - [Caroline Evans](mailto:carolineevans261@gmail.com)
-
-
-## Build information
