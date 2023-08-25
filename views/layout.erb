@@ -7,8 +7,8 @@
   <body>
   <!-- Change these Google fonts with your own choice -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-
+  <link rel="stylesheet" href="/styles.css">
+  <div class="background">
      <div class="navbar">
         <a href="/">Homepage</a>
         <% if session[:user_id] == nil %>
@@ -29,6 +29,6 @@
     <p>
     <a href="/shoutybox">Shouty Box<br> see what people are peeping </a>
     </p>
-
+  </div>
   </body>
 </html>

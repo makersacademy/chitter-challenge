@@ -1,0 +1,50 @@
+/* styles.css */
+
+body {
+    font-family: Futura;
+    margin: 20;
+}
+
+h1,
+h2,
+h3 {
+    color: #404042;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    color: #404042;
+    opacity: .7;
+    text-align: center;
+}
+
+.background {
+    background-image: url('../images/yada-yada-1432921_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navbar {
+    margin: 0.5;
+    text-align: left;
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.banner {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    padding: 50px 10px 50px;
+    background-size: contain;
+    background-position: center;
+    text-align: center;
+    font-size: 40;
+    border-style: solid;
+    border-radius: 10px;
+}

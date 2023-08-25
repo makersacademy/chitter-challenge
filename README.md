@@ -18,18 +18,6 @@ Below is a diagram of clicking the link for the stream of posts:
 
 ![Account Diagram](./images/shoutybox-diagram.png)
 
-
-## Project Running
-These screenshots show the following pages: Homepage, Signup, Account, Shouty Box (stream of posts).
-
-![Account Diagram](./images/Homepage.png)
-
-![Account Diagram](./images/Shouty-Box.png)
-
-![Account Diagram](./images/Signup-Page.png)
-
-![Account Diagram](./images/Account-Page.png)
-
 ## Technology Used
 * Ruby
 * Sinatra & ERB
