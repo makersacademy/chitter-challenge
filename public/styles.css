@@ -1,50 +1,92 @@
 /* styles.css */
 
-body {
-    font-family: Futura;
-    margin: 20;
-}
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  /* generic styles for the page */
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('./yada.jpg');
+    
+  }
+
 
 h1,
 h2,
 h3 {
-    color: #404042;
+    margin: 0;
+    color: white;
     font-family: 'Courier New', Courier, monospace;
 }
 
 p {
     color: #404042;
     opacity: .7;
-    text-align: center;
 }
 
-.background {
-    background-image: url('../images/yada-yada-1432921_1920.jpg');
+nav ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+nav a {
+    text-decoration: none;
+    background-color: blue;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* .background {
+    background-image: url('./yada.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     overflow: hidden;
+} */
+
+.shoutybox {
+    text-align: center;
+    margin: 0 auto;
+    padding: 100px 0;
+    font-size: 2rem;
+    background-color: yellow;
+    border-radius: 300px;
+    width: 300px;
+    height: 300px;
 }
 
-.navbar {
-    margin: 0.5;
-    text-align: left;
-
+.shoutybox span {
+    display: block;
+    font-size: small;
 }
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.shoutybox a {
+    text-decoration: none;
+    vertical-align: middle;
+    
 }
 
 .banner {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    padding: 50px 10px 50px;
-    background-size: contain;
-    background-position: center;
     text-align: center;
-    font-size: 40;
-    border-style: solid;
-    border-radius: 10px;
+    margin: 5rem 3rem;
+    /* margin: 0 auto; */
+    padding: 3rem;
+    font-size: 2rem;
+    background-color:green;
+    border-radius: 30px;
+    color: white;
+
 }
+

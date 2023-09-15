@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Change these Google fonts with your own choice -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>CHITTER</title>
   </head>
 
   <body>
-  <!-- Change these Google fonts with your own choice -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
   <div class="background">
-     <div class="navbar">
-        <a href="/">Homepage</a>
+     <nav>
+     <ul> 
+        <li><a href="/">Homepage</a></li>
         <% if session[:user_id] == nil %>
-        <a href="/login">Login</a>
-        <a href="/signup">Signup</a><br>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a><br></li>
         <% else %>
-        <a href="/logout">Logout</a>
-        <a href="/account_page">My Account</a><br>
-
-        <a href="/peep/new">New Peep</a>
-        
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/account_page">My Account</a><br></li>
+        <li><a href="/peep/new">New Peep</a></li>
+    </ul>
         
         <%end%>
-    </div>
+    </nav>
 
     <main><%= yield %></main>
 
-    <p>
-    <a href="/shoutybox">Shouty Box<br> see what people are peeping </a>
-    </p>
+    <div class="shoutybox">
+    <a href="/shoutybox">Shouty Box <span class="byline"> see what people are peeping<spa> </a>
+    </div>
   </div>
   </body>
 </html>
