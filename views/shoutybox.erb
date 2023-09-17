@@ -1,9 +1,20 @@
+<div class="form-container" id="shoutybox-page">
 <h1>SHOUTYBOX</h1>
-  
+<div id="new-peep">
+<h2>new peep</h2>
+<form id="new-peep" action="/peep" method="POST">
+    <input type="text" name="peep">
 
-<% @peeps.each do |peep| %>
-  <%=@users.find(peep.user_id).name%> - <%=@users.find(peep.user_id).username%> -
-  <%=peep.time%>
-  <h3><%=peep.peep%></h3><br>
+    <input type="submit" value="post">
+</form>
+</div>
+
+  <% @peeps.each do |peep| %>
+    <div class="peep">
+    <h3><%=peep.peep%></h3><br>
+    <%=@users.find(peep.user_id).name%> - <%=@users.find(peep.user_id).username%> -
+    <%=peep.time%>
+    </div>
 <% end %>
-      
+</div>
+

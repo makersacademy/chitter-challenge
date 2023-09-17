@@ -22,7 +22,7 @@ h1,
 h2,
 h3 {
     margin: 0;
-    color: white;
+    color: blue;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -31,12 +31,15 @@ p {
     opacity: .7;
 }
 
+nav {
+    margin: 2rem;
+}
 nav ul {
     text-decoration: none;
     list-style-type: none;
     display: flex;
     gap: 3rem;
-    justify-content: center;
+    /* justify-content: center; */
     margin-top: 3rem;
 }
 
@@ -49,34 +52,28 @@ nav a {
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* .background {
-    background-image: url('./yada.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    overflow: hidden;
-} */
-
-.shoutybox {
+.shoutybox-button {
+    float: right;
+    margin-right: 2rem;
     text-align: center;
-    margin: 0 auto;
-    padding: 100px 0;
+    padding: 70px 0;
     font-size: 2rem;
     background-color: yellow;
-    border-radius: 300px;
-    width: 300px;
-    height: 300px;
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
 }
 
-.shoutybox span {
+.shoutybox-button span {
     display: block;
     font-size: small;
 }
-.shoutybox a {
+.shoutybox-button a {
     text-decoration: none;
     vertical-align: middle;
     
 }
+
 
 .banner {
     text-align: center;
@@ -86,7 +83,82 @@ nav a {
     font-size: 2rem;
     background-color:green;
     border-radius: 30px;
-    color: white;
-
 }
 
+.peep {
+    border-radius: 5px;
+    background-color: lightskyblue;
+    max-width: 500px;
+    margin: 4rem auto;
+    color: blue;
+    flex-flow: row wrap;
+    padding: 2rem;
+    line-height: 2rem;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+    display: block;
+    
+}
+
+.form-container h1 {
+    color: blue;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+#shoutybox-page {
+    max-width: 600px;
+}
+
+.login label {
+    display: block;
+}
+
+.form-container {
+    background-color: lightcyan;
+    border-radius: 5px;
+    padding: 3rem;
+    max-width: 400px;
+    margin: 3px auto;
+    border-radius: 10px;
+}
+
+form {
+    justify-content: center;
+    font-weight: bold;
+}
+
+input {
+    margin: 5px;
+    width: 100%;
+}
+
+input[type=submit] {
+    display: block;
+    background-color: orange;
+    color: blue;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    width: auto;
+    font-size: 1.5rem;
+  }
+
+input[type=submit]:hover {
+    background-color: yellow;
+  
+}
+
+.welcome h1 {
+    margin: 5rem 0 0 1rem ;
+}
+
+#new-peep{
+    margin: 1rem;
+}

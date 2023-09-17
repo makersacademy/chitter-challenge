@@ -92,10 +92,6 @@ class Application < Sinatra::Base
     return erb(:shoutybox)
   end
 
-  get '/peep/new' do
-    return erb(:peep_new)
-  end
-
   post '/peep' do
     posts = PostRepository.new
 
@@ -110,7 +106,11 @@ class Application < Sinatra::Base
       status 400
       return erb(:peep_new)
     else
-      return erb(:index)
+      posts = PostRepository.new
+      @users = UserRepository.new
+
+      @peeps = posts.all.reverse
+      return erb(:shoutybox)
     end
   end
 
