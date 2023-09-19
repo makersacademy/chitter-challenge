@@ -1,5 +1,6 @@
 <div class="form-container" id="shoutybox-page">
 <h1>SHOUTYBOX</h1>
+<% if session[:user_id] != nil %>
 <div id="new-peep">
 <h2>new peep</h2>
 <form id="new-peep" action="/peep" method="POST">
@@ -8,7 +9,7 @@
     <input type="submit" value="post">
 </form>
 </div>
-
+<% end %>
   <% @peeps.each do |peep| %>
     <div class="peep">
     <h3><%=peep.peep%></h3><br>

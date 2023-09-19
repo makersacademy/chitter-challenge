@@ -14,12 +14,13 @@
      <nav>
      <ul> 
         <li><a href="/">Homepage</a></li>
+        <li><a href="/shoutybox">Shouty Box</a></li>
         <% if session[:user_id] == nil %>
         <li><a href="/signup">Signup</a><br></li>
         <li><a href="/login">Login</a></li>
         <% else %>
         <li><a href="/account_page">My Account</a><br></li>
-        <li><a href="/peep/new">New Peep</a></li>
+        <li><a href="/shoutybox">New Peep</a></li>
         <li><a href="/logout">Logout</a></li>
     </ul>
         
@@ -27,7 +28,7 @@
     </nav>
 
     <div class="shoutybox-button">
-    <a href="/shoutybox">Shouty Box <span class="byline"> see what people are peeping<spa> </a>
+    <a href="/shoutybox">Shouty Box <span class="byline"> see what people are peeping</span> </a>
     </div>
 
     <main><%= yield %></main>

@@ -156,7 +156,11 @@ input[type=submit]:hover {
 }
 
 .welcome h1 {
-    margin: 5rem 0 0 1rem ;
+    background-color: lightcoral;
+    padding: 2rem;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 5rem;
 }
 
 #new-peep{
