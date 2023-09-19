@@ -1,4 +1,4 @@
-Chitter Challenge
+# Chitter Challenge
 
 ![homepage](./images/homepage.png)
 
@@ -8,16 +8,16 @@ Chitter Challenge
 
 
 ## To Run App
-
-$ git clone https://github.com/veritywong/chitter-challenge.git
-$ cd chitter-challenge
-$ bundle install
-$ createdb chitter_test
-$ psql -h 127.0.0.1 chitter_challenge < spec/tables_seeds.sql
-$ rspec
-$ rackup
-$ http://localhost:('Port in use')/
-
+```
+ git clone https://github.com/veritywong/chitter-challenge.git
+ cd chitter-challenge
+ bundle install
+ createdb chitter_test
+ psql -h 127.0.0.1 chitter_challenge < spec/tables_seeds.sql
+ rspec
+ rackup
+ http://localhost:('Port in use')/
+```
 
 ## Description
 This app is the start of a Twitter clone, that allows users to post messages to a public stream. In order to post they must signup and login, however anybody can view the public stream on the 'Shouty Box'.
