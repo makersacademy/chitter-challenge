@@ -1,5 +1,12 @@
 Chitter Challenge
 
+![homepage](./images/homepage.png)
+
+![shoutybox when logged in](./images/shoutybox.png)
+
+![signup page](./images/sign-up.png)
+
+
 ## To Run App
 
 $ git clone https://github.com/veritywong/chitter-challenge.git
