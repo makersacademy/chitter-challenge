@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter - Peeps</title>
+
+  <!-- Change these Google fonts with your own choice -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  <!-- Peeps section -->
+
+  <div class="container">
+    <h2>All Peeps</h2>
+        <% @peeps.each do |peep| %>
+        <div class="peep">
+            <p>  <%=@user_repo.find(peep.user_id).name%> (@<%= @user_repo.find(peep.user_id).username%>): </p>
+            <h3> <%= peep.content %> </h3>
+            <p> <%= peep.time %> </p>
+            <% if @user_repo.get_tagged_users(peep.id).length > 0 then %>
+            <p> tagged users: <% @user_repo.get_tagged_users(peep.id).each do |user| %>
+                    @<%= user.username %>
+                <% end %>
+             </p>
+             <% end %>
+         </div>
+        <% end %>
+  </div>
+
+
+  <!-- Footer section -->
+
+  <div class="footer">
+  <div>
+    <h2> <a href='/'>Homepage</a> </h2>
+  </div>
+    <p>Website made by Caroline</p>
+  </div>
+
+
+</body>
+
+</html>
