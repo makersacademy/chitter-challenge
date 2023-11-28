@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="icon" href="peepicon.png" type="image/png" />
+  <title>Peep no evil</title>
+</head>
+<body>
+
+  <nav>
+    <div class="container navbar">
+      <div class="logo">
+        <img class="image" src="../peep.png" alt="peep no evil">
+        <h1>Chitter</h1>
+
+        <% unless session[:user_id].nil? %>
+        <h3>You are logged in as <%= session[:username] %></h3>
+        <% else %>
+        <h3>Log in to create new peeps</h3>
+        <% end %>
+      </div>
+
+      <div class="list">
+        <p><a href="/">Home</a></p>
+        <p><a href="/logout" class="link">Log out</a></p>
+      </div>
+    </div>   
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>Spread your chit</h1><br>
+
+      <div>
+        <% unless session[:error].nil? %>
+          <h3 class="error"><%= session[:error] %></h3>
+          <% session[:error] = nil %>
+        <% end %> 
+      </div>
+
+      <form method="POST" action="/peeps">
+        <label for="body">What new gem would you like to share with the world: </label><br>
+        <textarea class="textarea" type="text" name="body" rows="4" cols="42"></textarea><br>
+        <label for="tags">Tags: </label><br>
+        <input id="tag-text" class="text" type="text" name="tags" /><br><br>
+        <input type="hidden" name="user_id" value=<%= session[:user_id] %> />
+        <input class="button" type="submit"><br><br>
+      </form>
+
+      <p id="smallprint">Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
+    </div>
+  </header>
+
+</body>
+</html>

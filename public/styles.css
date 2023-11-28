@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  background: #a1c3ff;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  max-width: 60px;
+}
+
+nav {
+  background-color: #3474e6;
+  height: 80px;
+}
+
+.navbar {
+  height: 100%;
+}
+
+.list {
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 {
+  color: #accef4;
+  font-size: 45px;
+  margin: 0 40px 0 10px;
+}
+
+.logo h1:hover {
+  color: #3e7ce8;
+  text-shadow: 1px 1px 6px #8fbbed;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #76e4e4;
+}
+
+.list p {
+  margin-left: 20px;
+}
+
+header {
+  background-color: #0151cc;
+}
+
+header .container {
+  padding-top: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+header h1 {
+  color: #8fbbed;
+}
+
+header h2 {
+  color: #76a9e4;
+}
+
+header 
+
+.error {
+  padding-bottom: 15px;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.panel {
+  min-width: 750px;
+  background-color: #0151cc;
+  border-radius: 10px;
+  margin: 20px 10px 0;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.6);
+  padding: 20px 30px 0;
+}
+
+.panel p {
+  color: #8fbbed;
+}
+
+#smallprint {
+  color: #76a9e4;
+  padding-bottom: 50px;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+.button {
+  background-color: #aac7fb;
+  color: #003687;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #0143a5;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #9ae0e0;
+  color: #11554f;
+  box-shadow: 1px 3px 7px rgba(5, 66, 50, 0.6);
+}
+
+.text {
+  font-family: 'Raleway', sans-serif;
+  width: 200px;
+  padding: 3px;
+  margin: 0 0 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#tag-text {
+  margin: 0 0 5px 0;
+}
+
+.textarea {
+  margin-top: 5px;
+  font-family: 'Raleway', sans-serif;
+  width: 300px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 900px) {
+  .panel {
+    min-width: 650px;
+  }
+}
+
+@media (max-width: 800px) {
+  .panel {
+    min-width: 550px;
+  }
+  .logo h1 {
+    display: none;
+  }
+  nav h3 {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .panel {
+    min-width: 400px;
+  }
+}
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="icon" href="peepicon.png" type="image/png" />
+  <title>Howdy stranger!</title>
+</head>
+<body>
+
+  <nav>
+    <div class="container navbar">
+      <div class="logo">
+        <img class="image" src="../peep.png" alt="peep no evil">
+        <h1>Chitter</h1>
+
+        <% unless session[:user_id].nil? %>
+        <h3>You are logged in as <%= session[:username] %></h3>
+        <% else %>
+        <h3>Log in to create new peeps</h3>
+        <% end %>
+      </div>
+
+      <div class="list">
+        <p><a href="/">Home</a></p>
+        <p><a href="/login" class="link">Log in</a></p>
+      </div>
+    </div>   
+  </nav>
+
+  <header>
+  <div class="container">
+    <h1>Register a new Chitter account</h1><br>
+
+    <div>
+      <% unless session[:error].nil? %>
+        <h3 class="error"><%= session[:error] %></h3>
+        <% session[:error] = nil %>
+      <% end %> 
+    </div>
+
+    <form method="POST" action="/register" class="right-align">
+      <label for="name">Full name: </label>
+      <input class="text" type="text" name="name" placeholder="Enter your name" /><br>
+      <label for="username">Username: </label>
+      <input class="text" type="text" name="username" placeholder="Choose a username" /><br>
+      <label for="email">Email address: </label>
+      <input class="text" type="text" name="email" placeholder="Enter your email" /><br>
+      <label for="password">Password: </label>
+      <input class="text" type="password" name="password" placeholder="Choose a password" /><br><br>
+      <input class="button" type="submit" /><br><br>
+    </form>
+
+    <p id="smallprint">Passwords must have a minimum  of eight characters and contain at least one lowercase letter, uppercase letter and digit.</p>
+
+    </div>
+  </header>
+  
+</body>
+</html>

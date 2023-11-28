@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="icon" href="peepicon.png" type="image/png" />
+  <title>Chitter</title>
+</head>
+<body>
+
+  <nav>
+    <div class="container navbar">
+      <div class="logo">
+        <img class="image" src="peep.png" alt="peep no evil">
+        <h1>Chitter</h1>
+        <% unless session[:user_id].nil? %>
+        <h3>You are logged in as <%= session[:username] %></h3>
+        <% else %>
+        <h3>Log in to create new peeps</h3>
+        <% end %>
+      </div>
+        
+      <% unless session[:user_id].nil? %>
+      <div class="list">
+        <p><a href="/peeps">Add Peep</a></p>
+        <p><a href="/logout">Log out</a></p>
+      </div>
+      <% end %>
+      <% if session[:user_id].nil? %>
+      <div class="list">
+        <p><a href="/register" class="link">Register</a></p>
+        <p><a href="/login">Log in</a></p>
+      </div>
+      <% end %>
+        
+    </div>   
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>Welcome to Chitter</h1>
+      <h2>For all the chit that comes out of your brain</h2><br>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+    <div>
+      <% @peep_info.each do |peep| %>
+      <div class="panel">
+        <p><%= peep[0] %> (<%= peep[4] %>) peeped at <%= peep[1] %></p>
+        <h4><%= peep[2] %></h4>
+        <p>Tags: <%= peep[3] %></p><br>
+      </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
