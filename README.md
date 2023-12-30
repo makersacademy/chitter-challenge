@@ -1,21 +1,26 @@
-# Chitter Challenge makers exercise
+# Chitter Challenge
 
-## Process:
-## Extract informations from user stories, create schema, write sql
+Create a Ruby site that allows posting and replying to messages on a board.
+
+## Implementation:
+### Extract informations from user stories
 
 ```
 peeps: id, peep_time, user_id, reply_of_id
 users: id, email, password, name, username (username, email unique)
 mentions: user_id, peep_id
 
-#see all messages (reverse chrono) (not logged in) (show name, username)
-#signup to
-#login, #logout
-have notification if tagged in a message (instead of email)
-css
+# see all messages (reverse chrono) (not logged in) (show name, username)
+# signup
+# login, logout
+# have notification if tagged in a message (instead of email)
+# css
 ```
+
+### Create schema, write sql
+
 ```sql
--- oncstructon of database and tables
+-- constructon of database and tables
 DROP DATABASE IF EXISTS chitter_test;
 CREATE DATABASE chitter_test;
 DROP TABLE IF EXISTS peeps, users, peeps_users;
@@ -48,7 +53,10 @@ CREATE TABLE peeps_users (
   constraint fk_user_3427255 foreign key (user_id)
     references peeps(id) on delete cascade
 );
+```
+### Write test values
 
+```sql
 
 -- seeding tables with test values
 TRUNCATE TABLE users, peeps, peeps_users RESTART IDENTITY;
@@ -86,37 +94,26 @@ INSERT INTO peeps_users (peep_id, user_id) VALUES (6, 3);
 INSERT INTO peeps_users (peep_id, user_id) VALUES (7, 3);
 ```
 
-## Install required gems with bundler
-## Create model and repository classes (in respective files)
-## Implement functionality (partially)
+### Install gems with bundler, create model and repository classes, implementation
 
+### Images of result
 
-
-Default view
 ![Default view](https://i.imgur.com/vJACzMc.png)
 
 ![Logged in](https://i.imgur.com/YlHTAqt.png)
 
 ![Sign up view](https://i.imgur.com/l9jRlYN.png)
 
-A lot more left to do:
-
-* Sessions
-* Secure passwords
-* Input validation
-* Posting new peeps/replies
-* Rake files
-* Mentions
+Further changes could include sessions, secure passwords, input validation, posting new peeps/replies, rake files, mentions.
 
 Current state has sign up working, as well as peeps view in logged in and logged
 out state, even though sessions aren't implemented yet. I spent a lot of time on
-trying to figure out database representation of systems where every post can be
+figuring out database representation of systems where every post can be
 a reply to somebody else or top level and how to show and store that. In the end
-I didn't try for a graph and kept it simple. Also, too much time on css instead
-of implementing more things.
+I didn't go for a graph and kept it simple.
 
-<br /><br />
-Original readme:
+<details>
+<summary>Original readme for the challenge:</summary>
 
 Chitter Challenge
 =================
@@ -241,3 +238,4 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+</details>
