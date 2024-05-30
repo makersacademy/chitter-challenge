@@ -1,0 +1,15 @@
+<!-- ./views/peeps/allpeeps.erb -->
+
+
+<div class="show_my_peeps">
+
+  <% @result.each do |allpeep| %>
+    <p>
+      <div class="content"> <%= allpeep.content %></div><br>
+      <div class="peeper"> Peeper: <%= allpeep.peeper %></div><br>
+      <div class="timestamp"> <%= allpeep.post_time %> </div>
+    </p>
+    <hr>
+  <% end %>
+
+</div>
