@@ -1,3 +1,11 @@
+Got as far as implementing the first 3 users stories however, struggled to write test for the reversed order. I also needed to write a double to freeze time for the feature test but have not yet done this. 
+
+I had intended for the 4th story to create a new route for sign in that would render the users name on the peeps page again, did not have time to do this.
+
+
+
+
+
 Chitter Challenge
 =================
 
