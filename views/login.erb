@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CHITTER</title>
+        <link rel="stylesheet" href="/style.css" >
+    </head>
+    <body>
+        <div class='login'>
+        <h2>Login to CHITTER</h2>
+        </div>
+        <form action="/login" method="POST">
+            <div class='signup_form'>
+            <label>Username:</label>
+            <input type="text" name="username" maxlength="100" required><br /><br />
+            <label>Password:</label>
+            <input type="text" name="password" minlength="8" maxlength="8" required><br /><br />
+            <input type="submit" value="Login" class="button">
+            </div>
+        </form>
+        <%# <p><%=@error_message</p> %>
+        <%# <div class='button_corner'>
+            <form action="/" method="GET">
+             <input type="submit" value="Sign In" style="float: right;" class="button">
+            </form>
+        </div> %>
+    </body>
+</html>
+
+
+
+
+
+
+
+<%# <form action="/signup" method="POST">
+    <div>
+      <label>Email</label><br />
+      <input type="text" name="email" />
+    </div>
+
+    <div>
+      <label>Password:</label><br />
+      <input type="text" name="password" />
+    </div>
+
+    <div>
+      <label>Name:</label><br />
+      <input type="text" name="name" />
+    </div>
+
+    <div>
+      <label>Username:</label><br />
+      <input type="text" name="username" />
+    </div>
+
+    <input type="submit">
+</form>
+
+
+<link rel="stylesheet" href="/style.css" >
+  </head>
+  <body>
+  <h1>Sign up now!</h2> 
+    <form action="/" method="POST">
+    <div class='signup_form'>
+    <label>Email Address</label>
+    <input type="email" name="email" maxlength="100" required><br /><br />
+    <label>Password</label>
+    <input type="password" name="password" minlength="8" maxlength="8" required><br /><br />
+    <label>Name</label>
+    <input type="text" name="name" maxlength="100" required><br /><br />
+    <label>Userame</label>
+    <input type="text" name="username" maxlength="100" required><br /><br />
+    <input type="submit" value="Sign Up" class="button">
+        </div>
+  </body>
+</html> %>
