@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 1px;
+  text-align: center;
+  background: #00008B;
+  color: white;
+  font-size: 20px;
+}
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Chitter</h1>
+  <form class="container" action="/new" method="post">
+  <button class="submit-button" type="submit" style="height:50px; width:100px; background-color:#ADD8E6"  value="register">Sign Up</button>
+  <p>       </p>
+  <p>       </p>
+  </form>
+</div>
+
+<ul>
+  <% @chitter.each do |chitter| %>
+    <li>TIME : <%= chitter[1] %>    USERNAME :- <%= chitter[2] %>  : <%= chitter[0] %></li>
+  <% end %>
+</ul>
+</body>
+</html>
