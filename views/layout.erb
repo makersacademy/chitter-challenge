@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitter</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <script src="https://kit.fontawesome.com/d2e9692b66.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/peeps">
+      <h1 class="title">Chitter</h1>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/peeps/new">
+        Add new peep
+      </a>
+    </div>
+  </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+        <% if !session[:user] %>
+          <a class="button is-primary" href="/users/new">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light" href="/users/login">
+            Sign in
+          </a>
+        <% else %>
+          <form action="/users/logout" method="post">
+              <button class="button is-light">Sign out</button>
+          </form>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container is-fluid">
+   
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <% flash.keys.each do |type| %>
+        <div class="notification is-<%= type %>">
+          <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+          <%= flash[type] %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <%= yield %>
+  
+  </div>
+
+</body>
+</html>
