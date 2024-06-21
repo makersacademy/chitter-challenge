@@ -1,0 +1,20 @@
+<% if session[:user_id] %>
+  <form action="/peeps" method="POST">
+    <textarea name="text"></textarea>
+    <button type="submit">Peep</button>
+  </form>
+<% else %>
+  <p>You need to be <a href="/login">logged in</a> to peep.</p>
+<% end %>
+
+<% if @peeps.any? %>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.text %> - by <%= peep.user.username %> - at <%= DateTime.parse(peep.created_at).to_date.strftime("%d/%m/%Y %H:%M")%>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No peeps yet.</p>
+<% end %>

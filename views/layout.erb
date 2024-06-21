@@ -1,0 +1,31 @@
+<!-- Layout is the default file in sinatra to be used as 
+“wrapping” templtes-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+<nav>
+  <% if session[:user_id] %>
+    <form action="/logout" method="POST">
+      <button type="submit"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </form>
+  <% else %>
+    <a href="/signup"><i class="fas fa-user-plus"></i> Signup</a>
+    <a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+  <% end %>
+</nav>
+
+  <h1>Chitter</h1>
+  <!-- yield is a keyword used as placeholder for the erb files.
+    Ex.: when app.rb returns :login, it's actually not loading only login.erb,
+    it's loading layout.erb and replacing the keyword yield with login.erb content
+   -->
+  <%= yield %>
+</body>
+</html>
