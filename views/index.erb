@@ -1,0 +1,22 @@
+<h1>Chitter<h1/>
+
+<h3>Please enter your peep<h3/>
+<form action="/peep" method="post">
+  <input type='text' name='message'/>
+  <input type="submit" value="Submit" />
+</form>
+
+<ul>
+  <% @posts.each do |post| %>
+    <div id="posts">
+      <div class="row">
+        <div class="column_one">
+        <%= post.content %>
+        </div>
+        <div class="column_two">
+        <%= post.posted_at %>
+        </div>
+      </div>
+      
+  <% end %>
+</ul>
