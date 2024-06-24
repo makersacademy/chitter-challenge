@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/chitter.css" />
+  </head>
+<body>
+
+<h1> Chitter </h1>
+<form action='/send' method='post'>
+  <input type='text' name='username' placeholder='Your name'>
+  <input type='text' name='peep' placeholder='Peep text'>
+  <input type='submit' value='Send'>
+</form>
+
+<form action='/signup' method='get'>
+  <input type='submit' value='Sign up'>
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <h1> <%= peep.username%> </h1>
+    <h2> <%= peep.content %> </h2>
+    <%= peep.time %>
+  <% end %>
+</ul>
+
+</body>
+</html>

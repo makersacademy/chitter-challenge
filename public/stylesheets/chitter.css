@@ -1,0 +1,8 @@
+body {
+  background-color: midnightblue;
+}
+
+h1, h2, li {
+  color: lightgray;
+  margin-left: 200px;
+}
