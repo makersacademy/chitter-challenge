@@ -1,4 +1,69 @@
-Chitter Challenge
+# Chitter Challenge
+
+![homepage](./images/homepage.png)
+
+![shoutybox when logged in](./images/shoutybox.png)
+
+![signup page](./images/sign-up.png)
+
+
+## To Run App
+```
+ git clone https://github.com/veritywong/chitter-challenge.git
+ cd chitter-challenge
+ bundle install
+ createdb chitter_test
+ psql -h 127.0.0.1 chitter_challenge < spec/tables_seeds.sql
+ rspec
+ rackup
+ http://localhost:('Port in use')/
+```
+
+## Description
+This app is the start of a Twitter clone, that allows users to post messages to a public stream. In order to post they must signup and login, however anybody can view the public stream on the 'Shouty Box'.
+
+## Approach
+This was the first web app that we created on the course, so the goal was to get a good understanding of sending HTTP requests from the frontend and how they were then run in the backend.
+
+I begun by following a design recipe to decide database structure, which in this case includes posts and users tables, which have a many to many relationship.
+From there I used TDD to create the user repository and post repository, implementing methods towards creating CRUD functionality.
+
+Next I worked between the app.rb file and HTML files, completing the features such as signup, login and posting a new peep.
+
+Passwords are encrypted using bcrypt, and sessions are used to know whether a user is logged in and to determine what they can view.
+
+## Diagrams
+This diagram shows the differente pages in the app. The user can only post or view their account when logged in.
+
+![Account Diagram](./images/diagram.png)
+
+Below is a diagram of clicking the link for the stream of posts:
+
+![Account Diagram](./images/shoutybox-diagram.png)
+
+## Technology Used
+* Ruby
+* Sinatra & ERB
+* BCrypt
+* PostgreSQL
+* HTML & CSS
+
+## Tests
+This is a screen shot of the passing tests and test coverage.
+
+![Account Diagram](./images/passing-tests.png)
+
+
+# Initial Project Information
+
+Below is the instructuctions given at the start of the project.
+
+Gems added:
+time
+sinatra sinatra-contrib webrick rack-test
+pg
+bcrypt
+
 =================
 
 * Feel free to use Google, your notes, books, etc. but work on your own

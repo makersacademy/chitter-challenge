@@ -1,0 +1,168 @@
+/* styles.css */
+
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  /* generic styles for the page */
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('./yada.jpg');
+    
+  }
+
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    color: blue;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    color: #404042;
+    opacity: .7;
+}
+
+nav {
+    margin: 2rem;
+}
+nav ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    gap: 3rem;
+    /* justify-content: center; */
+    margin-top: 3rem;
+}
+
+nav a {
+    text-decoration: none;
+    background-color: blue;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.shoutybox-button {
+    float: right;
+    margin-right: 2rem;
+    text-align: center;
+    padding: 70px 0;
+    font-size: 2rem;
+    background-color: yellow;
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
+}
+
+.shoutybox-button span {
+    display: block;
+    font-size: small;
+}
+.shoutybox-button a {
+    text-decoration: none;
+    vertical-align: middle;
+    
+}
+
+
+.banner {
+    text-align: center;
+    margin: 5rem 3rem;
+    /* margin: 0 auto; */
+    padding: 3rem;
+    font-size: 2rem;
+    background-color:green;
+    border-radius: 30px;
+}
+
+.peep {
+    border-radius: 5px;
+    background-color: lightskyblue;
+    max-width: 500px;
+    margin: 4rem auto;
+    color: blue;
+    flex-flow: row wrap;
+    padding: 2rem;
+    line-height: 2rem;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+    display: block;
+    
+}
+
+.form-container h1 {
+    color: blue;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+#shoutybox-page {
+    max-width: 600px;
+}
+
+.login label {
+    display: block;
+}
+
+.form-container {
+    background-color: lightcyan;
+    border-radius: 5px;
+    padding: 3rem;
+    max-width: 400px;
+    margin: 3px auto;
+    border-radius: 10px;
+}
+
+form {
+    justify-content: center;
+    font-weight: bold;
+}
+
+input {
+    margin: 5px;
+    width: 100%;
+}
+
+input[type=submit] {
+    display: block;
+    background-color: orange;
+    color: blue;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    width: auto;
+    font-size: 1.5rem;
+  }
+
+input[type=submit]:hover {
+    background-color: yellow;
+  
+}
+
+.welcome h1 {
+    background-color: lightcoral;
+    padding: 2rem;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 5rem;
+}
+
+#new-peep{
+    margin: 1rem;
+}

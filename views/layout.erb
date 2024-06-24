@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Change these Google fonts with your own choice -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>CHITTER</title>
+  </head>
+
+  <body>
+  <div class="background">
+     <nav>
+     <ul> 
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/shoutybox">Shouty Box</a></li>
+        <% if session[:user_id] == nil %>
+        <li><a href="/signup">Signup</a><br></li>
+        <li><a href="/login">Login</a></li>
+        <% else %>
+        <li><a href="/account_page">My Account</a><br></li>
+        <li><a href="/shoutybox">New Peep</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+        
+        <%end%>
+    </nav>
+
+    <div class="shoutybox-button">
+    <a href="/shoutybox">Shouty Box <span class="byline"> see what people are peeping</span> </a>
+    </div>
+
+    <main><%= yield %></main>
+
+    
+  </div>
+  </body>
+</html>
