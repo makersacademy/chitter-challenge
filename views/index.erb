@@ -1,0 +1,12 @@
+<h2>
+   <%= flash[:notice] %>
+</h2>
+
+<form action="/login" method="post">
+  <input type="username" name="input_username" placeholder="Username"/>
+  <input type="password" name="input_password" placeholder="Password"/>
+  <input type="submit" value="Login" />
+</form>
+<form action="/register/new" method="get">
+  <input type="submit" value="Register" />
+</form>
