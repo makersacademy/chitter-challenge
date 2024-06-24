@@ -1,0 +1,86 @@
+<style>
+  body {
+    background: linear-gradient(90deg, #281967, #6542f0);
+    color: white;
+  } 
+
+  h1 {
+    font-family: "Rubik Iso", monospace;
+    color: #e7ca0d;
+    text-align: left;
+    font-size: 35px;
+  }
+  
+   h3 {
+    color: #2eef3e;
+    margin: 5px 5px;
+  }
+
+  p {
+    margin-left: 10px;
+  }
+
+  .peep {
+    background: #18075a;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 10px;
+    max-width: 50%;
+    display: block;
+    box-shadow: 5px 3px 10px black;
+  }
+
+  .button {
+    background: #18075a;
+    color: #e7ca0d;
+    width: 100px;
+    height: 30px;
+    margin-left: 120px;
+    margin-top: 5px;
+  }
+
+  .text-field {
+    width: 350px;
+    height: 50px;
+    background: #18075a;
+    color: #ffffff;
+    border-radius: 5px;
+  }
+ 
+</style>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap" rel="stylesheet">
+        <title>Chitter</title>
+    </head>
+    <body>
+        <header>
+            <h1>Chitter</h1>
+            <form method="POST" action="/send">
+                <input class="text-field" type="text" name="content" placeholder="Peep something..." required><br>
+                <input class="button" type="submit" value="Send">
+            </form>  
+        </header>
+        <main>
+            <% @peep_repo.all.reverse.each do |peep| %>
+              <div class="peep">
+                  <% user = @user_repo.find(peep.user_id)%>
+                  <h3><%= user[0].username %></h3><br>
+                  <p><%= peep.content %></p><br>
+                  <%= peep.date %>  <%= peep.time%><br>
+              </div><br>
+            <% end %>
+            
+            
+        </main>
+        <footer>
+        </footer>
+    </body>
+
+</html>
