@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="/index.css"/>
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/public/css/index.css"> -->
+    
+    <!-- <link rel="stylesheet" href="css/application.css"> -->
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/application.js"></script> -->
+
+  </head>
+
+  <body>
+    <div>
+      <% @peeps.each do |peep| %>
+        <div class="card peep" style="width: 18rem;">
+          <div class="card-body">
+            <!-- <div class="d-flex bd-highlight mb-3" style='width: max-content;'>
+              <div class="me-auto p-2 bd-highlight"><%= peep.user_id %></div>
+              <div class="p-2 bd-highlight"><%=peep.create_time %></div>
+            </div> -->
+            <div class=" bd-highlight mb-3 container"'>
+              <div class='row'>
+                <div class="me-auto p-2 bd-highlight col"><%= peep.user_id %></div>
+                <div class="p-2 bd-highlight col date-time" style="font-size: xx-small;text-align: right;"><%=peep.create_time %></div>
+              </div>
+            </div>
+            <p class="card-text"><%= peep.body %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>  
+  </body>
+</html>

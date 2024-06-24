@@ -1,0 +1,15 @@
+.peep {
+  border-style: solid;
+  border-color: red;
+  margin: 10px;
+  padding: 10px;
+  height: 12em;
+}
+
+.date-time {
+  font-weight: bolder;
+}
+
+/* .peep-header {
+  display: flex;
+} */
