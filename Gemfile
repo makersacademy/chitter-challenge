@@ -2,8 +2,21 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'sinatra'
+gem 'webrick'
+gem 'sinatra-contrib'
+gem 'rspec'
+gem 'time'
+gem 'date'
+#gem 'active_support/time'
+
+
+
 group :test do
   gem 'rspec'
+  gem 'capybara'
+  gem 'sinatra-reloader'
+  gem 'pg'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
