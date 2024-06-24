@@ -1,0 +1,15 @@
+<h1>Chitter</h1>
+<a href="/new"><button>New Peep</button></a>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+    <a href="/peeps/<%=peep.user_id%>"><%= peep.user_id %></a>
+    <br>
+    <%= peep.peep_text %>
+    <br>
+    <%= peep.time %>
+    <p> </p>
+    </li>
+  <% end %>
+</ul>
+<a href="/new"><button>New Peep</button></a>
