@@ -1,3 +1,31 @@
+# My Chitter Challenge
+My take on creating a 'Twitter' or should I say 'Chitter' app. I used user stories to write the first set of tests and steps. 
+
+## User Stories
+To be updated as I complete each one
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+# Database set-up
+
+1. Install PostgreSQL: `brew install psql`
+2. Run `psql`
+3. Create a Bookmarks database: `CREATE DATABASE peeps;`
+4. Connect to the database: `\c peeps;`
+5. Run the SQL query in [`/db/migrations/`](./db/migrations/01_create_peeps_table.sql) to create a table.
+
+# Test Database set-up
+
+1. Run `psql`
+2. Create a Test database: `CREATE DATABASE peeps_test;`
+3. Connect to the database: `\c peeps_test;`
+4. Run the SQL query in [`/db/migrations/`](./db/migrations/01_create_peeps_table.sql) to create a table.
+
+
 Chitter Challenge
 =================
 
