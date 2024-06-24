@@ -1,0 +1,24 @@
+<style>
+body {
+    background-color: lightblue;
+}
+</style>
+<h1> Welcome to <em> Chitter... </em> </h1>
+<img src='https://www.pinclipart.com/picdir/big/2-22213_blue-bird-clip-art-at-clkercom-vector-online.png' width="128" height="128" >
+<h2> ...where the world's most <i> fascinating </i> and <i> insightful </i> discussions unfold everyday. </h2>
+
+<form action='/' method='post'>
+  <input type="text" name="peep" placeholder="Share your peep..." />
+  <input type="submit" value="Post" />
+</form>
+
+<h1> Peep Feed </h1>
+<ul>
+<%@newpeep%>
+  <% @peep.each do |peep| %>
+   <li>
+      <%=peep.peep%>
+   </li>
+   <% end%>
+</ul>
+
