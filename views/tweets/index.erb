@@ -1,0 +1,170 @@
+<body>
+  <header>
+    <div class ='header'>
+      <h1>Chitter Chat</h1>
+    </div>
+
+    <div class ='send_tweet'>
+      <form action ='/tweets' method ='get'>
+        <input class = 'input_tweet' type = 'text' name ='tweet' placeholder= 'Enter tweet here...'>
+        <input class ='tweet_btn' type ='submit' value ='Tweet'/>
+      </form>
+    </div>
+    <h3>Logged in as, <%= @username.capitalize %></h3>
+  </header>
+
+<main>
+  <section> 
+    <div class ='buttons'>
+      <form action ='/index' method ='post'>
+        <input type = 'submit' name ='view_mine' value='View my tweets'>
+      </form>
+
+      <form action ='/all' method ='post'>
+        <input type = 'submit' name ='view_all' value='View all tweets'>
+      </form>
+
+      <form action = '/sessions/destroy' method = 'post'>
+        <input type = 'submit' name ='logout' value ='Log out'>
+      </form>
+    </div>
+  <section>
+  
+      <div class ='feed'>
+        <% if params[:view_all] %>
+          <% @chitter.each do |tweet| %>
+            <div class ='tweet'>
+              <span><p><%= tweet.user_id %></p> <br>
+              <%= tweet.tweet %></span> <span class ='time'><%= tweet.time %></span>
+            </div>
+         <% end %>
+        <% end %>
+      </div>
+
+      <div class ='feed'>
+        <% if params[:view_mine] %>
+          <% @chitter.each do |tweet| %>
+            <div class ='tweet'>
+              <span><p><%= @username %></p> <br>
+              <%= tweet.tweet %></span> <span class ='time'><%= tweet.time %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </main>
+</body>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #111;
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.8mm;
+  border: none;
+}
+
+h4 {
+  font-weight: 400;
+}
+
+p {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 600px;
+}
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+input {
+  padding: 8px;
+  margin: 5px;
+  width: 150px;
+  border-radius: 100px;
+  border: none;
+}
+
+form {
+  display: flex;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.input_tweet {
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid #FF6347;
+  padding: 5px;
+}
+
+.send_tweet {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  width: 300px;
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: .8rem;
+}
+
+.tweet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  width: 560px;
+  font-size: .8rem;
+  font-weight: 300;
+  background-color: #fff;
+  padding: 8px 8px 8px 12px;
+  border-radius: 20px;
+}
+
+.tweet_btn {
+  border: 1px solid #FF6347;
+  padding: 8px;
+  width: 120px;
+}

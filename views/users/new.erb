@@ -1,0 +1,67 @@
+<div>
+  <h2>Create your account</h2>
+  <form action="/sessions/new" method="post">
+    <input type="name" name="name" placeholder ='Enter name...'/>
+    <input type="username" name="username" placeholder ='Enter username...'/> 
+    <input type="email" name="email" placeholder ='Enter email...'/>
+    <input type="password" name="password" placeholder ='Enter password...'/>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #ddd;
+  background-image: url("https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29vbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.4mm;
+  border: none;
+  height: 95vh;
+}
+
+input {
+  padding: 15px;
+  margin: 5px;
+  width: 280px;
+  border-radius: 5px;
+  border: none;
+  background-color: #444;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 600px;
+  background-color: #111;
+  opacity: .9;
+  border-radius: 20px;
+  border: 1px solid black;
+  box-shadow: 0 1px 5px #333;
+}
+
+</style>

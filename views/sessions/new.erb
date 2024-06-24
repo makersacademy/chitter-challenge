@@ -1,0 +1,63 @@
+
+<h1>Happening now</h1>
+<h3>Join Chitter today.</h3>
+<form action = '/sessions/sign_up' method = 'get'>
+  <input class ='btn__sign_up' type = 'submit' name ='user' value ='Sign up'>
+</form>
+
+<form action ='/sessions' method ='post'>
+  <input type = 'text' name ='username' placeholder ='Enter username...'>
+  <input type = 'password' name ='password' placeholder ='Enter password...'>
+  <input class ='btn__sign_in' type ='submit' value ='Sign In'>
+</form>
+
+<%= flash[:notice] %>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #ddd;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+   height: 90vh;
+  font-weight: 800;
+  letter-spacing: 0.8mm;
+  border: none;
+}
+
+input {
+  padding: 15px;
+  margin: 5px;
+  width: 280px;
+  border-radius: 100px;
+  border: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn__sign_up {
+  background-color: #FF6347;
+  color: white;
+  font-size: .9rem;
+}
+
+.btn__sign_in {
+  border: 1px solid #FF6347 !important;
+  background-color: #111;
+  color: white;
+  font-size: .9rem;
+}
