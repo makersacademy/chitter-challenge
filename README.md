@@ -1,3 +1,33 @@
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+
+- able to post a message to chitter and store it in database
+- timestamp to be passed to data base as well to later order them in the model and for it to be displayed when viewing the peep
+- log in functionality (check end of Bookmark Manager test)
+
+1 setup codebase - sinatra, capybara, rspec, 2 x databases for tests, env var for tests, config.ru, app.rb
+
+2 feature test being able to add message to chitter 
+
+3 order peeps chronologically and show timestamps
+
+4 add log in functionality
+
+
 Chitter Challenge
 =================
 
