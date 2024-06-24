@@ -1,0 +1,23 @@
+<h1> <p align="center">Chitter's Chitboard</p>
+<p align="center"><img src="https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Femoji.slack-edge.com%2FT03ALA7H4%2Frubberducking%2F1e5dc51b1afe3651.png" alt="Picture of Quackie, the Makers Academy Duck" width="10%"/></p>
+<h2> Welcome unknown Chitterer!
+<br>
+<h3> Want to post a cheet to the Chitboard? First, tell us your cheet name...<br>
+<br>
+<form action = /name method = post>
+<label for="display_name">
+    <input type="text" name='display_name' placeholder="Enter your cheet name">
+    </label>
+<input type="submit" value="Submit">
+</form>
+<br>
+<h3> Latest cheetss:</h3>
+<ul>
+  <% @cheets.each do |cheet| %>
+    <li>
+    <i>"<%= cheet.message %>"</i>
+    cheeted by <%= cheet.display_name %>,
+    at <%= cheet.time_stamp[0...-10] %>
+    </li>
+  <% end %>
+</ul>

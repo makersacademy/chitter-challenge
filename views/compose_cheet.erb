@@ -1,0 +1,23 @@
+
+<h1> <p align="center">Chitters's Cheetboard</p>
+<p align="center"><img src="https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Femoji.slack-edge.com%2FT03ALA7H4%2Frubberducking%2F1e5dc51b1afe3651.png" alt="Picture of Quackie, the Makers Academy Duck" width="10%"/></p>
+<h2> Welcome <%= @display_name %>!
+<br>
+<h3> Want to post a cheet to the Chitterboard? Now compose your message (140 character max)...<br>
+<br>
+<form action = "/message" method = "post">
+    <input type="text" name='message' placeholder="Message (140 character max)">
+    </label>
+<input type="submit" value="Post my quack">
+</form>
+<br>
+<h3> Latest Cheets:</h3>
+<ul>
+  <% @cheets.each do |cheet| %>
+    <li>
+    <i>"<%= cheet.message %>"</i>
+    cheeted by <%= cheet.display_name %>,
+    at <%= cheet.time_stamp[0...-10] %>
+    </li>
+  <% end %>
+</ul>
