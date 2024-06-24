@@ -4,10 +4,19 @@ ruby '3.0.2'
 
 group :test do
   gem 'rspec'
+  gem "capybara", "~> 3.36"
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
 
 group :development, :test do
+  gem "sinatra", "~> 2.1"
+  gem "sinatra-contrib", "~> 2.1"
   gem 'rubocop', '1.20'
+  gem "pg"
 end
+
+gem "rack"
+
+
+
