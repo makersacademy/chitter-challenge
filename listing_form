@@ -1,0 +1,18 @@
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br><br>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description"></textarea><br><br>
+
+  <label for="price_per_night">Price per Night:</label>
+  <input type="number" id="price_per_night" name="price_per_night"><br><br>
+
+  <label for="available_from">Available From:</label>
+  <input type="date" id="available_from" name="available_from"><br><br>
+
+  <label for="available_until">Available Until:</label>
+  <input type="date" id="available_until" name="available_until"><br><br>
+
+  <input type="submit" value="Submit">
+</form>
