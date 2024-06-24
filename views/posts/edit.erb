@@ -1,0 +1,11 @@
+<div style="text-align: center;">
+  <h1>Edit post</h1>
+    <p><iframe src="https://giphy.com/embed/7UQ5FNLCXbsE8" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
+  <h4>Message: <%= @post.text %></h4>
+  <h3>New message:</h3>
+  <form action="/user/<%= @user_id %>/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="PATCH" />
+    <p><textarea name="text" type="text" value="<%= @post.text %>" cols="40" rows="5"></textarea></p>
+    <input value="Submit" type="submit" style="width:100px;height:30px;"/>
+  </form>
+</div>

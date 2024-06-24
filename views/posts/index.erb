@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/css/application.css">
+<form action='/'>
+	<input type="submit" value="Homepage" style="width:130px;height:40px;">
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  setTimeout(function() {
+      $('#chitter').fadeOut('fast');
+  }, 7000);
+</script>
+<div id="chitter" style="text-align: center;">
+  <p><iframe src="https://giphy.com/embed/3ohhwvyCFr88aJoBj2" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
+</div>
+<div style="text-align: center;">
+  <h1>Your posts</h1>
+</div>
+<form action='/user/<%= @user_id %>/posts/new'>
+  <input type="submit" value="Add new post" style="width:130px;height:40px;">
+</form>
+<ul class="flex-container wrap">
+  <% @posts.each do |post| %>
+    <li class="flex-item post">
+        Posted @ <%= post.ts %> <br>
+        <p>Message: <%= post.text %></p>
+      <form style="display: inline;" action="/user/<%= @user_id %>/posts/<%= post.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
+      <form style="display: inline;" action="/user/<%= @user_id %>/posts/<%= post.id %>/edit" method="get">
+        <input type="submit" value="Edit" />
+      </form>
+    </li>
+  <% end %>
+</ul>
+

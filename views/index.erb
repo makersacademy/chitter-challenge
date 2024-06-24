@@ -1,0 +1,29 @@
+<div style="text-align: right;">
+<% if @user %>
+	<h3>Welcome <%= @user.username %>
+	<form action='/log_out' method="post">
+		<input type="submit" value="Logout" style="width:100px;height:30px;">
+	</form></h3>
+<% else %>
+  <form action='/log_in'>
+		<input type="submit" value="Login" style="width:100px;height:30px;">
+	</form>
+<% end %>
+</div>
+<div style="text-align: center;">
+	<h1>Welcome to Chitter</h1>
+	<p><iframe src="https://giphy.com/embed/26FPBDkw3OF35BJpS" width="480" height="341" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
+  <% unless @user %>
+		<form action='/user'>
+			<input type="submit" value="Sign Up" style="width:150px;height:50px;">
+		</form>
+	<% else %>
+    <form action='/posts/'>
+			<input type="submit" value="Display my posts" style="width:150px;height:50px;">
+		</form>
+	<% end %>
+	<form action='/posts'>
+		<input type="submit" value="Display all posts" style="width:150px;height:50px;">
+	</form>
+
+</div>

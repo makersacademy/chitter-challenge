@@ -1,0 +1,1 @@
+CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(1000), ts TIMESTAMP, user_id INTEGER REFERENCES users (id));
