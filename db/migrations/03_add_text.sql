@@ -1,0 +1,1 @@
+ALTER TABLE chitter_posts ADD COLUMN text VARCHAR(200);

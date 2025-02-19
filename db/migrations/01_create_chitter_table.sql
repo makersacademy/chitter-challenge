@@ -1,0 +1,1 @@
+CREATE TABLE chitter_posts(id SERIAL PRIMARY KEY, title VARCHAR(60));
