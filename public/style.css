@@ -1,0 +1,80 @@
+body { 
+  color: #333;
+}
+.container {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 10px
+}
+.left_column {
+  width: 30%;
+  padding-left: 10px;
+  float: left;
+}
+
+.chitter-logo {
+  padding-top:35px; 
+  border-bottom: 1px dashed #666; 
+  border-left: 1px dashed #666;
+  border-radius: 5px;
+}
+
+.feed {
+  width: 50%;
+  padding-right: 10%;
+  padding-left: 10px;
+  float: right;
+  border: 1px dashed #666;
+  border-radius: 5px;
+}
+
+.header {
+  padding-left: 5%;
+  width: 100%;
+  float: left;
+  border: 1px dashed #666;
+  border-radius: 5px;
+}
+.user_controls {
+  width: 105%;
+  float: left;
+  border: 1px dashed #666;
+  border-radius: 5px;
+}
+.peep_container {
+  display: flex; 
+  padding-left: 5px; 
+  padding-right: 10%; 
+  width: 100%; 
+}
+.user_icon {
+  width: 10%; 
+  height: 10%; 
+  padding-right: 5px; 
+  padding-top: 5px;
+}
+
+.feed-header {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+.profile-image {
+  width: 250px; 
+  height: 250px; 
+  padding-right: 5px; 
+  padding-top: 5px;
+}
+.profile-image-container {
+  float: left;
+}
+
+.user-bio {
+  float: right;
+}
+
+hr {
+  width: 117%;
+  float: center;
+  border: 1px dashed #666;
+}
