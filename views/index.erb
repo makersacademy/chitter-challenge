@@ -1,0 +1,55 @@
+<header>
+  <div class="title_class">
+    <h1>CHITTER</h1>
+    <h2>
+      <%= flash[:notice] %>
+    </h2>
+    <% if @user %>
+      <h1>Welcome, <%= @user.username %></h1>
+    <% end %>
+  </div>
+  <div class='login_class'>
+    <% if !@user %>
+    <form action="/sessions/new" method="get">
+      <input type="submit" value="Sign In" />
+    </form>
+    <% else %>
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign Out" />
+      </form>
+    <% end %>
+    <form action="/users/new" method="get">
+      <input type="submit" value="Create A New Account" />
+    </form>
+  </div>
+</header>
+<div>
+  <% if !@user.nil? %>
+    <h3>Post a new message!</h3>
+    <form action="/" method="post">
+      <input type="text" name="message" placeholder="What's going on?">
+      <button name="Send">Send</button>
+    </form>
+  <% end %>
+</div>
+<div class='feed_class'>
+  <h3>Chitter Feed:</h3>
+  <div>
+    <% @messages.each do |message| %>
+    <div class="message-div">
+      <div class="message-header">
+        <div class="left">
+          <p><%= message.username %> wrote:</p>
+        </div>
+        <div class="right">
+          <p><%= message.time %></p>
+        </div>
+      </div>
+      <div class="message-content">
+        <h3><%= message.content %></h3>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+

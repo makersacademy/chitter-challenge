@@ -1,0 +1,52 @@
+<head>
+  <style>
+    body {
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+    }
+    .main_div  {
+      margin: 50px
+    }
+    .title_class {
+      width: 50%;
+      float: left;
+      text-align: left;
+    }
+    .login_class {
+      width: 50%;
+      float: left;
+      text-align: right;
+    }
+    .feed_class {
+      float: left;
+      width: 100%;
+    }
+    .message-div {
+      margin-bottom: 10px;
+      border: 1px solid black;
+      padding: 5px;
+    }
+    .message-header {
+      display: flex;
+    }
+    .message-header div {
+      flex: 1;
+    }
+    .message-content {
+      padding: 15px;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="main_div">
+    <%= yield %>
+  </div>
+</body>
